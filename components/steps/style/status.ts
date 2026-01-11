@@ -2,6 +2,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export const STATUS_WAIT = 'wait';
 export const STATUS_PROCESS = 'process';
@@ -16,13 +17,23 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     colorPrimary,
     colorTextLabel,
     colorError,
+    colorErrorHover,
+    colorErrorBgFilledHover,
+    colorFillTertiary,
+    colorErrorBg,
+    colorPrimaryBgHover,
+    colorPrimaryBg,
     colorText,
     colorTextDescription,
     colorBgContainer,
     colorPrimaryHover,
+    lineType,
+    antCls,
   } = token;
 
   const itemCls = `${componentCls}-item`;
+
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
   return {
     [componentCls]: [
@@ -31,85 +42,87 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [itemCls]: {
           // Normal
           // >>> line
-          '--steps-item-solid-line-color': '#000',
+          [varName('item-solid-line-color')]: '#000',
 
           // >>> text
-          '--steps-item-title-color': '#000',
-          '--steps-item-content-color': '#000',
-          '--steps-item-subtitle-color': 'var(--steps-item-content-color)',
+          [varName('item-title-color')]: '#000',
+          [varName('item-content-color')]: '#000',
+          [varName('item-subtitle-color')]: varRef('item-content-color'),
 
           // >>> icon
-          '--steps-item-icon-custom-color': '#000',
-          '--steps-item-icon-bg-color': '#000',
-          '--steps-item-icon-border-color': '#000',
-          '--steps-item-icon-text-color': '#fff',
+          [varName('item-icon-custom-color')]: '#000',
+          [varName('item-icon-bg-color')]: '#000',
+          [varName('item-icon-border-color')]: '#000',
+          [varName('item-icon-text-color')]: '#fff',
 
           // >>> dot
-          '--steps-item-icon-dot-color': '#000',
-          '--steps-item-icon-dot-bg-color': 'var(--steps-item-icon-dot-color)',
-          '--steps-item-icon-dot-border-color': 'var(--steps-item-icon-dot-color)',
+          [varName('item-icon-dot-color')]: '#000',
+          [varName('item-icon-dot-bg-color')]: varRef('item-icon-dot-color'),
+          [varName('item-icon-dot-border-color')]: varRef('item-icon-dot-color'),
 
           // Hover
           // >>> text
-          '--steps-item-text-hover-color': '#000',
+          [varName('item-text-hover-color')]: '#000',
 
           // >>> icon
-          '--steps-item-icon-bg-hover-color': `var(--steps-item-icon-bg-color)`,
-          '--steps-item-icon-border-hover-color': `var(--steps-item-icon-border-color)`,
-          '--steps-item-icon-text-hover-color': `var(--steps-item-icon-text-color)`,
+          [varName('item-icon-bg-hover-color')]: varRef('item-icon-bg-color'),
+          [varName('item-icon-border-hover-color')]: varRef('item-icon-border-color'),
+          [varName('item-icon-text-hover-color')]: varRef('item-icon-text-color'),
 
           // Active
           // >>> text
-          '--steps-item-content-active-color': `var(--steps-item-content-color)`,
+          [varName('item-content-active-color')]: varRef('item-content-color'),
 
           // >>> icon
-          '--steps-item-icon-active-bg-color': 'var(--steps-item-icon-bg-color)',
-          '--steps-item-icon-active-border-color': 'var(--steps-item-icon-border-color)',
-          '--steps-item-icon-active-text-color': 'var(--steps-item-icon-text-color)',
+          [varName('item-icon-active-bg-color')]: varRef('item-icon-bg-color'),
+          [varName('item-icon-active-border-color')]: varRef('item-icon-border-color'),
+          [varName('item-icon-active-text-color')]: varRef('item-icon-text-color'),
 
           // Status
-          '--steps-item-process-rail-line-style': token.lineType,
+          [varName('item-process-rail-line-style')]: lineType,
         },
 
         // ========================= Template =========================
         // Normal
         // >>> line
         [`${itemCls}-rail`]: {
-          borderColor: `var(--steps-item-solid-line-color)`,
+          borderColor: varRef('item-solid-line-color'),
         },
 
         // >>> icon
         [`${itemCls}-custom ${itemCls}-icon`]: {
-          color: `var(--steps-item-icon-custom-color)`,
+          color: varRef('item-icon-custom-color'),
         },
 
         // >>> text
         [`${itemCls}-title`]: {
-          color: `var(--steps-item-title-color)`,
+          color: varRef('item-title-color'),
         },
 
         [`${itemCls}-subtitle`]: {
-          color: `var(--steps-item-subtitle-color)`,
+          color: varRef('item-subtitle-color'),
         },
 
         [`${itemCls}-content`]: {
-          color: `var(--steps-item-content-color)`,
+          color: varRef('item-content-color'),
         },
 
         // Active
         // >>> icon
-        [`${itemCls}-active ${itemCls}-icon`]: {},
+        [`${itemCls}-active ${itemCls}-icon`]: {
+          //
+        },
 
         // >>> text
         [`${itemCls}-active ${itemCls}-content`]: {
-          color: `var(--steps-item-content-active-color)`,
+          color: varRef('item-content-active-color'),
         },
 
         // Hover
         // >>> text
         [`${itemCls}[role='button']:not(${itemCls}-active):hover`]: {
           [`${itemCls}-title, ${itemCls}-content`]: {
-            color: `var(--steps-item-text-hover-color)`,
+            color: varRef('item-text-hover-color'),
           },
         },
 
@@ -117,26 +130,26 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         [`&:not(${componentCls}-dot)`]: {
           [`${itemCls}:not(${itemCls}-custom)`]: {
             [`${itemCls}-icon`]: {
-              background: `var(--steps-item-icon-bg-color)`,
-              borderColor: `var(--steps-item-icon-border-color)`,
-              color: `var(--steps-item-icon-text-color)`,
+              background: varRef('item-icon-bg-color'),
+              borderColor: varRef('item-icon-border-color'),
+              color: varRef('item-icon-text-color'),
             },
 
             // Hover
             [`&[role='button']:not(${itemCls}-active):hover`]: {
               [`${itemCls}-icon`]: {
-                background: `var(--steps-item-icon-bg-hover-color)`,
-                borderColor: `var(--steps-item-icon-border-hover-color)`,
-                color: `var(--steps-item-icon-text-hover-color)`,
+                background: varRef('item-icon-bg-hover-color'),
+                borderColor: varRef('item-icon-border-hover-color'),
+                color: varRef('item-icon-text-hover-color'),
               },
             },
 
             // Active
             [`&${itemCls}-active`]: {
               [`${itemCls}-icon`]: {
-                background: `var(--steps-item-icon-active-bg-color)`,
-                borderColor: `var(--steps-item-icon-active-border-color)`,
-                color: `var(--steps-item-icon-active-text-color)`,
+                background: varRef('item-icon-active-bg-color'),
+                borderColor: varRef('item-icon-active-border-color'),
+                color: varRef('item-icon-active-text-color'),
               },
             },
           },
@@ -145,9 +158,9 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // Dot
         [`&${componentCls}-dot`]: {
           [`${itemCls}-icon`]: {
-            background: `var(--steps-item-icon-dot-bg-color)`,
-            borderColor: `var(--steps-item-icon-dot-border-color)`,
-            color: `var(--steps-item-icon-dot-color)`,
+            background: varRef('item-icon-dot-bg-color'),
+            borderColor: varRef('item-icon-dot-border-color'),
+            color: varRef('item-icon-dot-color'),
             [`&${itemCls}-icon-dot-custom`]: {
               background: 'transparent',
               border: 'none',
@@ -159,108 +172,108 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // ========================== Shared ==========================
         // Wait
         [`${itemCls}-${STATUS_WAIT}`]: {
-          '--steps-item-icon-custom-color': colorTextDisabled,
-          '--steps-item-title-color': colorTextDescription,
-          '--steps-item-content-color': colorTextDescription,
-          '--steps-item-content-active-color': colorText,
-          '--steps-item-text-hover-color': colorPrimaryHover,
+          [varName('item-icon-custom-color')]: colorTextDisabled,
+          [varName('item-title-color')]: colorTextDescription,
+          [varName('item-content-color')]: colorTextDescription,
+          [varName('item-content-active-color')]: colorText,
+          [varName('item-text-hover-color')]: colorPrimaryHover,
         },
         [`${itemCls}-rail-${STATUS_WAIT}`]: {
-          '--steps-item-solid-line-color': colorTextDisabled,
+          [varName('item-solid-line-color')]: colorTextDisabled,
         },
 
         // Process
         [`${itemCls}-${STATUS_PROCESS}`]: {
-          '--steps-item-icon-custom-color': colorPrimary,
-          '--steps-item-title-color': colorText,
-          '--steps-item-content-color': colorTextDescription,
-          '--steps-item-content-active-color': colorText,
-          '--steps-item-text-hover-color': colorPrimaryHover,
+          [varName('item-icon-custom-color')]: colorPrimary,
+          [varName('item-title-color')]: colorText,
+          [varName('item-content-color')]: colorTextDescription,
+          [varName('item-content-active-color')]: colorText,
+          [varName('item-text-hover-color')]: colorPrimaryHover,
         },
         [`${itemCls}-rail-${STATUS_PROCESS}`]: {
-          '--steps-item-solid-line-color': colorPrimary,
+          [varName('item-solid-line-color')]: colorPrimary,
 
           // Special for Timeline usage
-          '--steps-rail-line-style': 'var(--steps-item-process-rail-line-style)',
+          [varName('rail-line-style')]: varRef('item-process-rail-line-style'),
         },
 
         // Finish
         [`${itemCls}-${STATUS_FINISH}`]: {
-          '--steps-item-icon-custom-color': colorPrimary,
-          '--steps-item-title-color': colorText,
-          '--steps-item-content-color': colorTextDescription,
-          '--steps-item-content-active-color': colorText,
-          '--steps-item-text-hover-color': colorPrimaryHover,
+          [varName('item-icon-custom-color')]: colorPrimary,
+          [varName('item-title-color')]: colorText,
+          [varName('item-content-color')]: colorTextDescription,
+          [varName('item-content-active-color')]: colorText,
+          [varName('item-text-hover-color')]: colorPrimaryHover,
         },
         [`${itemCls}-rail-${STATUS_FINISH}`]: {
-          '--steps-item-solid-line-color': colorPrimary,
+          [varName('item-solid-line-color')]: colorPrimary,
         },
 
         // Error
         [`${itemCls}-${STATUS_ERROR}`]: {
-          '--steps-item-icon-custom-color': colorError,
-          '--steps-item-title-color': colorError,
-          '--steps-item-content-color': colorError,
-          '--steps-item-content-active-color': colorError,
-          '--steps-item-text-hover-color': token.colorErrorHover,
+          [varName('item-icon-custom-color')]: colorError,
+          [varName('item-title-color')]: colorError,
+          [varName('item-content-color')]: colorError,
+          [varName('item-content-active-color')]: colorError,
+          [varName('item-text-hover-color')]: colorErrorHover,
         },
         [`${itemCls}-rail-${STATUS_ERROR}`]: {
-          '--steps-item-solid-line-color': colorError,
+          [varName('item-solid-line-color')]: colorError,
         },
       },
       {
         // ========================== Filled ==========================
         [`&${componentCls}-filled`]: {
           [itemCls]: {
-            '--steps-item-icon-dot-border-color': 'transparent',
+            [varName('item-icon-dot-border-color')]: 'transparent',
           },
 
           // Wait
           [`${itemCls}-${STATUS_WAIT}`]: {
-            '--steps-item-icon-bg-color': token.colorFillTertiary,
-            '--steps-item-icon-border-color': 'transparent',
-            '--steps-item-icon-text-color': colorTextLabel,
-            '--steps-item-icon-dot-bg-color': colorTextDisabled,
+            [varName('item-icon-bg-color')]: colorFillTertiary,
+            [varName('item-icon-border-color')]: 'transparent',
+            [varName('item-icon-text-color')]: colorTextLabel,
+            [varName('item-icon-dot-bg-color')]: colorTextDisabled,
             // Hover
-            '--steps-item-icon-bg-hover-color': token.colorPrimaryBgHover,
-            '--steps-item-icon-border-hover-color': 'transparent',
-            '--steps-item-icon-text-hover-color': colorPrimary,
+            [varName('item-icon-bg-hover-color')]: colorPrimaryBgHover,
+            [varName('item-icon-border-hover-color')]: 'transparent',
+            [varName('item-icon-text-hover-color')]: colorPrimary,
             // Active
-            '--steps-item-icon-active-bg-color': colorPrimary,
-            '--steps-item-icon-active-border-color': 'transparent',
-            '--steps-item-icon-active-text-color': colorTextLightSolid,
+            [varName('item-icon-active-bg-color')]: colorPrimary,
+            [varName('item-icon-active-border-color')]: 'transparent',
+            [varName('item-icon-active-text-color')]: colorTextLightSolid,
           },
 
           // Finish & Process
           [`${itemCls}-${STATUS_PROCESS}, ${itemCls}-${STATUS_FINISH}`]: {
-            '--steps-item-icon-bg-color': token.colorPrimaryBg,
-            '--steps-item-icon-border-color': 'transparent',
-            '--steps-item-icon-text-color': colorPrimary,
-            '--steps-item-icon-dot-bg-color': colorPrimary,
+            [varName('item-icon-bg-color')]: colorPrimaryBg,
+            [varName('item-icon-border-color')]: 'transparent',
+            [varName('item-icon-text-color')]: colorPrimary,
+            [varName('item-icon-dot-bg-color')]: colorPrimary,
             // Hover
-            '--steps-item-icon-bg-hover-color': token.colorPrimaryBgHover,
-            '--steps-item-icon-border-hover-color': 'transparent',
-            '--steps-item-icon-text-hover-color': colorPrimary,
+            [varName('item-icon-bg-hover-color')]: colorPrimaryBgHover,
+            [varName('item-icon-border-hover-color')]: 'transparent',
+            [varName('item-icon-text-hover-color')]: colorPrimary,
             // Active
-            '--steps-item-icon-active-bg-color': colorPrimary,
-            '--steps-item-icon-active-border-color': 'transparent',
-            '--steps-item-icon-active-text-color': colorTextLightSolid,
+            [varName('item-icon-active-bg-color')]: colorPrimary,
+            [varName('item-icon-active-border-color')]: 'transparent',
+            [varName('item-icon-active-text-color')]: colorTextLightSolid,
           },
 
           // Error
           [`${itemCls}-${STATUS_ERROR}`]: {
-            '--steps-item-icon-bg-color': token.colorErrorBg,
-            '--steps-item-icon-border-color': 'transparent',
-            '--steps-item-icon-text-color': colorError,
-            '--steps-item-icon-dot-bg-color': colorError,
+            [varName('item-icon-bg-color')]: colorErrorBg,
+            [varName('item-icon-border-color')]: 'transparent',
+            [varName('item-icon-text-color')]: colorError,
+            [varName('item-icon-dot-bg-color')]: colorError,
             // Hover
-            '--steps-item-icon-bg-hover-color': token.colorErrorBgFilledHover,
-            '--steps-item-icon-border-hover-color': 'transparent',
-            '--steps-item-icon-text-hover-color': colorError,
+            [varName('item-icon-bg-hover-color')]: colorErrorBgFilledHover,
+            [varName('item-icon-border-hover-color')]: 'transparent',
+            [varName('item-icon-text-hover-color')]: colorError,
             // Active
-            '--steps-item-icon-active-bg-color': colorError,
-            '--steps-item-icon-active-border-color': 'transparent',
-            '--steps-item-icon-active-text-color': colorTextLightSolid,
+            [varName('item-icon-active-bg-color')]: colorError,
+            [varName('item-icon-active-border-color')]: 'transparent',
+            [varName('item-icon-active-text-color')]: colorTextLightSolid,
           },
         },
       },
@@ -268,49 +281,49 @@ const genStatusStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         // ========================= Outlined =========================
         [`&${componentCls}-outlined`]: {
           [itemCls]: {
-            '--steps-item-icon-dot-bg-color': 'transparent',
+            [varName('item-icon-dot-bg-color')]: 'transparent',
           },
 
           // Wait
           [`${itemCls}-${STATUS_WAIT}`]: {
-            '--steps-item-icon-bg-color': colorBgContainer,
-            '--steps-item-icon-border-color': colorTextDisabled,
-            '--steps-item-icon-text-color': colorTextDisabled,
-            '--steps-item-icon-dot-color': colorTextDisabled,
+            [varName('item-icon-bg-color')]: colorBgContainer,
+            [varName('item-icon-border-color')]: colorTextDisabled,
+            [varName('item-icon-text-color')]: colorTextDisabled,
+            [varName('item-icon-dot-color')]: colorTextDisabled,
             // Hover
-            '--steps-item-icon-bg-hover-color': 'transparent',
-            '--steps-item-icon-border-hover-color': colorPrimaryHover,
-            '--steps-item-icon-text-hover-color': colorPrimaryHover,
+            [varName('item-icon-bg-hover-color')]: 'transparent',
+            [varName('item-icon-border-hover-color')]: colorPrimaryHover,
+            [varName('item-icon-text-hover-color')]: colorPrimaryHover,
             // Active
-            '--steps-item-icon-active-bg-color': token.colorFillTertiary,
+            [varName('item-icon-active-bg-color')]: colorFillTertiary,
           },
 
           // Finish & Process
           [`${itemCls}-${STATUS_PROCESS}, ${itemCls}-${STATUS_FINISH}`]: {
-            '--steps-item-icon-bg-color': colorBgContainer,
-            '--steps-item-icon-border-color': colorPrimary,
-            '--steps-item-icon-text-color': colorPrimary,
-            '--steps-item-icon-dot-color': colorPrimary,
+            [varName('item-icon-bg-color')]: colorBgContainer,
+            [varName('item-icon-border-color')]: colorPrimary,
+            [varName('item-icon-text-color')]: colorPrimary,
+            [varName('item-icon-dot-color')]: colorPrimary,
             // Hover
-            '--steps-item-icon-bg-hover-color': 'transparent',
-            '--steps-item-icon-border-hover-color': token.colorPrimaryHover,
-            '--steps-item-icon-text-hover-color': token.colorPrimaryHover,
+            [varName('item-icon-bg-hover-color')]: 'transparent',
+            [varName('item-icon-border-hover-color')]: colorPrimaryHover,
+            [varName('item-icon-text-hover-color')]: colorPrimaryHover,
             // Active
-            '--steps-item-icon-active-bg-color': token.colorPrimaryBg,
+            [varName('item-icon-active-bg-color')]: colorPrimaryBg,
           },
 
           // Error
           [`${itemCls}-${STATUS_ERROR}`]: {
-            '--steps-item-icon-bg-color': colorBgContainer,
-            '--steps-item-icon-border-color': colorError,
-            '--steps-item-icon-text-color': colorError,
-            '--steps-item-icon-dot-color': colorError,
+            [varName('item-icon-bg-color')]: colorBgContainer,
+            [varName('item-icon-border-color')]: colorError,
+            [varName('item-icon-text-color')]: colorError,
+            [varName('item-icon-dot-color')]: colorError,
             // Hover
-            '--steps-item-icon-bg-hover-color': 'transparent',
-            '--steps-item-icon-border-hover-color': token.colorErrorHover,
-            '--steps-item-icon-text-hover-color': token.colorErrorHover,
+            [varName('item-icon-bg-hover-color')]: 'transparent',
+            [varName('item-icon-border-hover-color')]: colorErrorHover,
+            [varName('item-icon-text-hover-color')]: colorErrorHover,
             // Active
-            '--steps-item-icon-active-bg-color': token.colorErrorBg,
+            [varName('item-icon-active-bg-color')]: colorErrorBg,
           },
         },
       },

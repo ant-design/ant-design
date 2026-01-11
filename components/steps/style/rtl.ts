@@ -3,11 +3,14 @@ import { unit } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genRTLStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, lineWidthBold } = token;
+  const { componentCls, lineWidthBold, antCls } = token;
 
   const itemCls = `${componentCls}-item`;
+
+  const [, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
   return {
     [`${componentCls}${componentCls}-rtl`]: {
@@ -30,11 +33,11 @@ const genRTLStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           [itemCls]: {
             '&:not(:first-child)': {
               clipPath: `polygon(${[
-                `calc(0px - var(--steps-item-base-width)) 0px`,
+                `calc(0px - ${varRef('item-base-width')}) 0px`,
                 `calc(100% - ${unit(lineWidthBold)}) 0px`,
-                `calc(100% - var(--steps-item-base-width) - ${unit(lineWidthBold)}) 50%`,
+                `calc(100% - ${varRef('item-base-width')} - ${unit(lineWidthBold)}) 50%`,
                 `calc(100% - ${unit(lineWidthBold)}) 100%`,
-                `calc(0px - var(--steps-item-base-width)) 100%`,
+                `calc(0px - ${varRef('item-base-width')}) 100%`,
               ].join(',')})`,
             },
           },
