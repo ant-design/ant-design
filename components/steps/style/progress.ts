@@ -1,30 +1,15 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const {
-    calc,
-    antCls,
-    componentCls,
-    iconSize,
-    iconSizeSM,
-    lineWidth,
-    lineWidthBold,
-    paddingXXS,
-    motionDurationSlow,
-  } = token;
+  const { calc, antCls, componentCls, lineWidthBold, motionDurationSlow } = token;
 
   const itemCls = `${componentCls}-item`;
 
   const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
-
-  const progressSize = calc(iconSize).add(calc(lineWidthBold).mul(4).equal()).equal();
-
-  const progressSizeSM = calc(iconSizeSM).add(calc(lineWidth).mul(4).equal()).equal();
 
   const enhanceSize = calc(lineWidthBold).add(lineWidthBold).equal();
 
@@ -72,42 +57,6 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           '&-ptg': {
             stroke: token.colorPrimary,
           },
-        },
-      },
-    },
-
-    [`&${componentCls}-with-progress11`]: {
-      // ==========================================================
-      // ==                        Shared                        ==
-      // ==========================================================
-      [itemCls]: {
-        paddingTop: paddingXXS,
-        paddingInlineStart: paddingXXS,
-      },
-
-      [`${itemCls}-icon`]: {
-        position: 'relative',
-
-        [`${antCls}-progress`]: {
-          position: 'absolute',
-          left: {
-            _skip_check_: true,
-            value: '50%',
-          },
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
-
-          '&-body': {
-            width: `${unit(progressSize)} !important`,
-            height: `${unit(progressSize)} !important`,
-          },
-        },
-      },
-
-      [`&${componentCls}-small`]: {
-        [`${itemCls}-icon ${antCls}-progress-body`]: {
-          width: `${unit(progressSizeSM)} !important`,
-          height: `${unit(progressSizeSM)} !important`,
         },
       },
     },
