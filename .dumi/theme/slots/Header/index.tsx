@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
-import type { SelectProps } from 'antd';
 import { createStyles } from 'antd-style';
+import type { DefaultOptionType } from 'antd/es/select';
 import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import useSWR from 'swr';
 
+import versionsFile from '../../../../versions.json';
 import useLocale from '../../../hooks/useLocale';
 import useLocalStorage from '../../../hooks/useLocalStorage';
 import { getBannerData } from '../../../pages/index/components/util';
@@ -161,32 +162,40 @@ const Header: React.FC = () => {
 
   const { pkg } = useSiteData();
 
-  const chineseMirror =
+  const isChineseMirror =
     typeof window !== 'undefined' && typeof window.location !== 'undefined'
       ? window.location.hostname.includes('.antgroup.com')
       : false;
 
-  // ============================ SWR Implementation ============================
-  const versionUrl = chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
+  const versionUrl = isChineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
 
-  const { data: versions = [] } = useSWR<VersionItem[]>(`${versionUrl}/versions.json`, fetcher);
+  const { data: versions = [], isLoading } = useSWR<VersionItem[]>(
+    process.env.NODE_ENV === 'production' ? `${versionUrl}/versions.json` : null,
+    fetcher,
+    {
+      fallbackData: versionsFile,
+      errorRetryCount: 5,
+    },
+  );
 
-  const versionOptions = useMemo<SelectProps['options']>(() => {
-    const matchPrefix = pkg.version.slice(0, 2);
-    return versions.map((item) => {
-      const isMatch = item.version.startsWith(matchPrefix);
+  const versionOptions = useMemo(() => {
+    if (isLoading) {
+      return [];
+    }
+    return versions.map<DefaultOptionType>((item) => {
+      const isMatch = item.version.startsWith(pkg.version[0]);
       const label = isMatch ? pkg.version : item.version;
-      const value = chineseMirror && item.chineseMirrorUrl ? item.chineseMirrorUrl : item.url;
+      const value = isChineseMirror && item.chineseMirrorUrl ? item.chineseMirrorUrl : item.url;
       return { value, label };
     });
-  }, [versions, pkg.version, chineseMirror]);
-  // ============================================================================
+  }, [versions, isLoading, pkg.version, isChineseMirror]);
 
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
     windowWidth: 1400,
     searching: false,
   });
+
   const { direction, isMobile, bannerVisible, updateSiteConfig } = React.use(SiteContext);
   const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
