@@ -151,10 +151,16 @@ interface HeaderState {
   searching: boolean;
 }
 
-type VersionItem = { version: string; url: string; chineseMirrorUrl?: string };
+interface VersionItem {
+  version: string;
+  url: string;
+  chineseMirrorUrl?: string;
+}
 
-// eslint-disable-next-line compat/compat
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const fetcher = (...args: Parameters<typeof fetch>) => {
+  // eslint-disable-next-line compat/compat
+  return fetch(...args).then((res) => res.json());
+};
 
 // ================================= Header =================================
 const Header: React.FC = () => {
@@ -167,14 +173,14 @@ const Header: React.FC = () => {
       ? window.location.hostname.includes('.antgroup.com')
       : false;
 
-  const versionUrl = isChineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
-
   const { data: versions = [], isLoading } = useSWR<VersionItem[]>(
-    process.env.NODE_ENV === 'production' ? `${versionUrl}/versions.json` : null,
+    process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
+      ? `${window.location.hostname}/versions.json`
+      : null,
     fetcher,
     {
       fallbackData: versionsFile,
-      errorRetryCount: 5,
+      errorRetryCount: 3,
     },
   );
 
