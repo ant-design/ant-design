@@ -9,7 +9,7 @@ import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
 import useSWR from 'swr';
 
-import versionsFile from '../../../../versions.json';
+import versionsFile from '../../../../public/versions.json';
 import useLocale from '../../../hooks/useLocale';
 import useLocalStorage from '../../../hooks/useLocalStorage';
 import { getBannerData } from '../../../pages/index/components/util';
