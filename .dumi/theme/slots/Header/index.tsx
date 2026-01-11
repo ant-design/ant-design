@@ -151,6 +151,7 @@ interface HeaderState {
 }
 
 type VersionItem = { version: string; url: string; chineseMirrorUrl?: string };
+
 // eslint-disable-next-line compat/compat
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
@@ -161,10 +162,13 @@ const Header: React.FC = () => {
   const { pkg } = useSiteData();
 
   const chineseMirror =
-    typeof window?.location !== 'undefined' && window.location.hostname.includes('.antgroup.com');
+    typeof window !== 'undefined' && typeof window.location !== 'undefined'
+      ? window.location.hostname.includes('.antgroup.com')
+      : false;
 
   // ============================ SWR Implementation ============================
   const versionUrl = chineseMirror ? 'https://ant-design.antgroup.com' : 'https://ant.design';
+
   const { data: versions = [] } = useSWR<VersionItem[]>(`${versionUrl}/versions.json`, fetcher);
 
   const versionOptions = useMemo<SelectProps['options']>(() => {
