@@ -284,6 +284,19 @@ describe('ConfigProvider.Form', () => {
       </ConfigProvider>,
     );
     
+    const { getByRole } = render(
+      <ConfigProvider>
+        <Form scrollToFirstError={{ block: 'center' }} onFinishFailed={onFinishFailed}>
+          <Form.Item name="test" rules={[{ required: true }]}>
+            <input role="textbox" />
+          </Form.Item>
+          <Form.Item>
+            <Button htmlType="submit">Submit</Button>
+          </Form.Item>
+        </Form>
+      </ConfigProvider>,
+    );
+
     const inputNode = getByRole('textbox');
     expect(scrollIntoView).toHaveBeenCalledWith(inputNode, {
       block: 'center',
