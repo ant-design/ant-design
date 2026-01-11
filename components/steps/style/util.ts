@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 function withoutVar(cssVar: any): string {
   return (cssVar || '--ant-not-exist').replace(/var\((.*)\)/, '$1');
@@ -10,32 +11,32 @@ function withoutVar(cssVar: any): string {
  * Force override the width related styles.
  * This should be multiple since will conflict with other `rail` styles.
  */
-export function getItemWithWidthStyle(
+export const getItemWithWidthStyle = (
   token: StepsToken,
   marginSize: number,
   optionalStyle?: CSSObject,
-): CSSObject {
-  const { calc, componentCls, descriptionMaxWidth } = token;
+): CSSObject => {
+  const { calc, componentCls, descriptionMaxWidth, antCls } = token;
   const itemCls = `${componentCls}-item`;
-
+  const [, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
   return {
     [`@container style(${withoutVar(descriptionMaxWidth)})`]: [
       {
         // Icon
         [`${itemCls}-icon`]: {
-          marginInlineStart: calc(descriptionMaxWidth).sub(`var(--steps-icon-size)`).div(2).equal(),
+          marginInlineStart: calc(descriptionMaxWidth).sub(varRef('icon-size')).div(2).equal(),
         },
 
         // >>> Rail
         [`${itemCls}-rail`]: {
           width: 'auto',
           insetInlineStart: calc(descriptionMaxWidth)
-            .add(`var(--steps-icon-size)`)
+            .add(varRef('icon-size'))
             .div(2)
             .add(marginSize)
             .equal(),
           insetInlineEnd: calc(descriptionMaxWidth)
-            .sub(`var(--steps-icon-size)`)
+            .sub(varRef('icon-size'))
             .div(2)
             .sub(marginSize)
             .mul(-1)
@@ -45,4 +46,4 @@ export function getItemWithWidthStyle(
       optionalStyle,
     ],
   };
-}
+};

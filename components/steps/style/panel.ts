@@ -3,14 +3,27 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, calc, lineWidthBold, borderRadius, borderRadiusSM, motionDurationMid } =
-    token;
+  const {
+    componentCls,
+    lineWidthBold,
+    borderRadius,
+    borderRadiusSM,
+    motionDurationMid,
+    paddingXS,
+    lineType,
+    paddingSM,
+    antCls,
+    calc,
+  } = token;
 
   const itemCls = `${componentCls}-item`;
 
-  const borderStyle = `${unit(lineWidthBold)} ${token.lineType} var(--steps-panel-border-color)`;
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+
+  const borderStyle = `${unit(lineWidthBold)} ${lineType} ${varRef('panel-border-color')}`;
 
   return {
     [`${componentCls}${componentCls}-panel`]: [
@@ -39,24 +52,25 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // ==========================================================
       {
         '&': {
-          '--steps-panel-padding': token.paddingSM,
-          '--steps-item-border-radius': borderRadius,
+          [varName('panel-padding')]: paddingSM,
+          [varName('item-border-radius')]: borderRadius,
 
           [itemCls]: {
             // Panel background
-            '--steps-panel-bg-color': 'var(--steps-item-icon-bg-color)',
-            '--steps-panel-border-color': 'var(--steps-item-icon-border-color)',
-            '--steps-panel-active-bg-color': 'var(--steps-item-icon-active-bg-color)',
-            '--steps-panel-active-border-color': 'var(--steps-item-icon-active-border-color)',
+            [varName('panel-bg-color')]: varRef('item-icon-bg-color'),
+            [varName('panel-border-color')]: varRef('item-icon-border-color'),
+            [varName('panel-active-bg-color')]: varRef('item-icon-active-bg-color'),
+            [varName('panel-active-border-color')]: varRef('item-icon-active-border-color'),
 
-            '--steps-panel-title-height': `calc(var(--steps-title-font-size) * var(--steps-title-line-height))`,
+            [varName('panel-title-height')]:
+              `calc(${varRef('title-font-size')} * ${varRef('title-line-height')})`,
             // Base height = padding * 2 + iconSize + contentHeight
-            '--steps-item-base-height': calc('var(--steps-panel-padding)')
+            [varName('item-base-height')]: calc(varRef('panel-padding'))
               .mul(2)
-              .add('var(--steps-icon-size)')
-              .add('var(--steps-panel-title-height)')
+              .add(varRef('icon-size'))
+              .add(varRef('panel-title-height'))
               .equal(),
-            '--steps-item-base-width': 'calc(var(--steps-item-base-height) * 0.7071)',
+            [varName('item-base-width')]: `calc(${varRef('item-base-height')} * 0.7071)`,
 
             transition: `background ${motionDurationMid}`,
           },
@@ -79,13 +93,13 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           insetInlineStart: '100%',
           zIndex: 1,
           height: calc(lineWidthBold).mul(2).add('100%').equal(),
-          width: 'var(--steps-item-base-width)',
+          width: varRef('item-base-width'),
           overflow: 'visible',
           strokeLinecap: 'round',
 
           path: {
-            fill: 'var(--steps-panel-bg-color)',
-            stroke: 'var(--steps-panel-border-color)',
+            fill: varRef('panel-bg-color'),
+            stroke: varRef('panel-border-color'),
             strokeWidth: lineWidthBold,
             vectorEffect: 'non-scaling-stroke',
             transition: `fill ${motionDurationMid}`,
@@ -98,40 +112,40 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
         // ======================= Item =======================
         [itemCls]: {
-          padding: 'var(--steps-panel-padding)',
-          background: 'var(--steps-panel-bg-color)',
+          padding: varRef('panel-padding'),
+          background: varRef('panel-bg-color'),
           position: 'relative',
           borderBlock: borderStyle,
 
           '&:not(:first-child)': {
-            paddingInlineStart: `calc(var(--steps-panel-padding) + var(--steps-item-base-width))`,
+            paddingInlineStart: `calc(${varRef('panel-padding')} + ${varRef('item-base-width')})`,
           },
 
           '&:first-child': {
             borderInlineStart: borderStyle,
-            borderStartStartRadius: 'var(--steps-item-border-radius)',
-            borderEndStartRadius: 'var(--steps-item-border-radius)',
+            borderStartStartRadius: varRef('item-border-radius'),
+            borderEndStartRadius: varRef('item-border-radius'),
           },
 
           '&:last-child': {
             borderInlineEnd: borderStyle,
-            borderStartEndRadius: 'var(--steps-item-border-radius)',
-            borderEndEndRadius: 'var(--steps-item-border-radius)',
+            borderStartEndRadius: varRef('item-border-radius'),
+            borderEndEndRadius: varRef('item-border-radius'),
           },
 
           '&-active': {
-            background: 'var(--steps-panel-active-bg-color)',
-            borderColor: 'var(--steps-panel-active-border-color)',
+            background: varRef('panel-active-bg-color'),
+            borderColor: varRef('panel-active-border-color'),
 
             [`${componentCls}-panel-arrow`]: {
               path: {
-                fill: 'var(--steps-panel-active-bg-color)',
-                stroke: 'var(--steps-panel-active-border-color)',
+                fill: varRef('panel-active-bg-color'),
+                stroke: varRef('panel-active-border-color'),
               },
             },
 
             [`${itemCls}-title, ${itemCls}-subtitle, ${itemCls}-content`]: {
-              color: 'var(--steps-item-icon-active-text-color)',
+              color: varRef('item-icon-active-text-color'),
             },
           },
         },
@@ -142,8 +156,8 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // ==========================================================
       {
         [`&${componentCls}-small`]: {
-          '--steps-panel-padding': token.paddingXS,
-          '--steps-item-border-radius': borderRadiusSM,
+          [varName('panel-padding')]: paddingXS,
+          [varName('item-border-radius')]: borderRadiusSM,
         },
       },
 
@@ -156,10 +170,10 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
             '&:not(:first-child)': {
               clipPath: `polygon(${[
                 `${unit(lineWidthBold)} 0`,
-                'calc(100% + var(--steps-item-base-width)) 0',
-                'calc(100% + var(--steps-item-base-width)) 100%',
+                `calc(100% + ${varRef('item-base-width')}) 0`,
+                `calc(100% + ${varRef('item-base-width')}) 100%`,
                 `${unit(lineWidthBold)} 100%`,
-                `calc(var(--steps-item-base-width) + ${unit(lineWidthBold)}) 50%`,
+                `calc(${varRef('item-base-width')} + ${unit(lineWidthBold)}) 50%`,
               ].join(',')})`,
             },
           },
