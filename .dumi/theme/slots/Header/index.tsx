@@ -175,7 +175,7 @@ const Header: React.FC = () => {
 
   const { data: versions = [], isLoading } = useSWR<VersionItem[]>(
     process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
-      ? `${window.location.hostname}/versions.json`
+      ? `${window.location.origin}/versions.json`
       : null,
     fetcher,
     {
@@ -340,6 +340,7 @@ const Header: React.FC = () => {
       key="version"
       size="small"
       variant="filled"
+      loading={isLoading}
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
