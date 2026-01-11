@@ -153,10 +153,10 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
       resetComponent(token),
       genBasicInputStyle(token, {
         largeStyle: {
-          padding: undefined,
+          padding: 0,
         },
         smallStyle: {
-          padding: undefined,
+          padding: 0,
         },
       }),
 
