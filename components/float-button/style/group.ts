@@ -20,8 +20,8 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
       // ==                         Variable                         ==
       // ==============================================================
       {
-        [varName`list-transform-start`]: `translate(0,${unit(floatButtonSize)})`,
-        [varName`list-trigger-offset`]: `calc(${unit(floatButtonSize)} + ${unit(padding)})`,
+        [varName('list-transform-start')]: `translate(0,${unit(floatButtonSize)})`,
+        [varName('list-trigger-offset')]: `calc(${unit(floatButtonSize)} + ${unit(padding)})`,
       },
 
       // ==============================================================
@@ -80,7 +80,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
 
             '&-enter, &-appear': {
               opacity: 0,
-              transform: varRef`list-transform-start`,
+              transform: varRef('list-transform-start'),
 
               '&-active': {
                 opacity: 1,
@@ -91,7 +91,7 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
             '&-leave': {
               '&-active': {
                 opacity: 0,
-                transform: varRef`list-transform-start`,
+                transform: varRef('list-transform-start'),
               },
             },
           },
@@ -100,28 +100,28 @@ const genGroupStyle: GenerateStyle<FloatButtonToken, CSSObject> = (token) => {
         // ======================== Placements ========================
         '&-top': {
           [listCls]: {
-            bottom: varRef`list-trigger-offset`,
+            bottom: varRef('list-trigger-offset'),
           },
         },
 
         '&-bottom': {
           [listCls]: {
-            [varName`list-transform-start`]: `translate(0, calc(${unit(floatButtonSize)} * -1))`,
-            top: varRef`list-trigger-offset`,
+            [varName('list-transform-start')]: `translate(0, calc(${unit(floatButtonSize)} * -1))`,
+            top: varRef('list-trigger-offset'),
           },
         },
 
         '&-left': {
           [listCls]: {
-            [varName`list-transform-start`]: `translate(${unit(floatButtonSize)}, 0)`,
-            right: varRef`list-trigger-offset`,
+            [varName('list-transform-start')]: `translate(${unit(floatButtonSize)}, 0)`,
+            right: varRef('list-trigger-offset'),
           },
         },
 
         '&-right': {
           [listCls]: {
-            [varName`list-transform-start`]: `translate(calc(${unit(floatButtonSize)} * -1), 0)`,
-            left: varRef`list-trigger-offset`,
+            [varName('list-transform-start')]: `translate(calc(${unit(floatButtonSize)} * -1), 0)`,
+            left: varRef('list-trigger-offset'),
           },
         },
       },

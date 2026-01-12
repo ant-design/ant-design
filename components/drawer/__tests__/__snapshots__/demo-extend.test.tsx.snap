@@ -18,12 +18,6 @@ Array [
       class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
@@ -88,12 +82,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -138,12 +126,6 @@ Array [
       class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
@@ -217,12 +199,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
   <div
     class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
@@ -232,12 +208,6 @@ Array [
       class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
@@ -311,12 +281,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -339,12 +303,6 @@ Array [
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -411,12 +369,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -507,12 +459,6 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
       class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
@@ -577,12 +523,6 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>
 </div>
 `;
@@ -599,6 +539,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
@@ -712,12 +653,6 @@ Array [
       class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 500px;"
     >
@@ -814,12 +749,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -868,12 +797,6 @@ Array [
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -2862,12 +2785,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -2890,12 +2807,6 @@ Array [
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -2974,12 +2885,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -3014,12 +2919,6 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
         class="ant-drawer-mask ant-drawer-mask-blur"
       />
       <div
-        aria-hidden="true"
-        data-sentinel="start"
-        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-        tabindex="0"
-      />
-      <div
         class="ant-drawer-content-wrapper"
         style="width: 378px;"
       >
@@ -3084,12 +2983,6 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
           </div>
         </div>
       </div>
-      <div
-        aria-hidden="true"
-        data-sentinel="end"
-        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-        tabindex="0"
-      />
     </div>
   </div>
   <div
@@ -3115,12 +3008,6 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
         class="ant-drawer-mask"
       />
       <div
-        aria-hidden="true"
-        data-sentinel="start"
-        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-        tabindex="0"
-      />
-      <div
         class="ant-drawer-content-wrapper"
         style="width: 378px;"
       >
@@ -3185,12 +3072,6 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
           </div>
         </div>
       </div>
-      <div
-        aria-hidden="true"
-        data-sentinel="end"
-        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-        tabindex="0"
-      />
     </div>
   </div>
   <div
@@ -3213,12 +3094,6 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
       tabindex="-1"
     >
       <div
-        aria-hidden="true"
-        data-sentinel="start"
-        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-        tabindex="0"
-      />
-      <div
         class="ant-drawer-content-wrapper"
         style="width: 378px;"
       >
@@ -3283,12 +3158,6 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
           </div>
         </div>
       </div>
-      <div
-        aria-hidden="true"
-        data-sentinel="end"
-        style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-        tabindex="0"
-      />
     </div>
   </div>
 </div>
@@ -3312,12 +3181,6 @@ Array [
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3363,12 +3226,6 @@ Array [
               class="ant-drawer-mask ant-drawer-mask-blur"
             />
             <div
-              aria-hidden="true"
-              data-sentinel="start"
-              style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-              tabindex="0"
-            />
-            <div
               class="ant-drawer-content-wrapper"
               style="width: 320px;"
             >
@@ -3399,22 +3256,10 @@ Array [
                 </div>
               </div>
             </div>
-            <div
-              aria-hidden="true"
-              data-sentinel="end"
-              style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-              tabindex="0"
-            />
           </div>
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -3435,12 +3280,6 @@ Array [
     class="ant-drawer ant-drawer-right no-mask css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
     <div
       class="ant-drawer-content-wrapper"
       style="width: 378px;"
@@ -3506,12 +3345,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -3528,6 +3361,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
@@ -3641,12 +3475,6 @@ Array [
       class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
@@ -3685,12 +3513,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -3722,12 +3544,6 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
       class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 378px;"
     >
@@ -3760,12 +3576,6 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>
 </div>
 `;
@@ -3846,6 +3656,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
@@ -3962,12 +3773,6 @@ Array [
       class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 256px;"
     >
@@ -4032,12 +3837,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -4172,12 +3971,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
       class="ant-drawer-mask ant-drawer-mask-blur"
     />
     <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
-    <div
       class="ant-drawer-content-wrapper"
       style="width: 378px; transform: translateX(-180px);"
     >
@@ -4240,12 +4033,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
               class="ant-drawer-mask ant-drawer-mask-blur"
             />
             <div
-              aria-hidden="true"
-              data-sentinel="start"
-              style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-              tabindex="0"
-            />
-            <div
               class="ant-drawer-content-wrapper"
               style="width: 378px;"
             >
@@ -4302,22 +4089,10 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
                 </div>
               </div>
             </div>
-            <div
-              aria-hidden="true"
-              data-sentinel="end"
-              style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-              tabindex="0"
-            />
           </div>
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>
   <div
     class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
@@ -4325,12 +4100,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4389,12 +4158,6 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>
 </div>
 `;
@@ -4405,44 +4168,164 @@ exports[`renders components/drawer/demo/size.tsx extend context correctly 1`] = 
 Array [
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    style="margin-bottom: 16px;"
   >
     <div
       class="ant-space-item"
     >
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        type="button"
+      <div
+        class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
-        <span>
-          Open Default Size (378px)
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        type="button"
-      >
-        <span>
-          Open Large Size (736px)
-        </span>
-      </button>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="large"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            Large Size (736px)
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="default"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            Default Size (378px)
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="256"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            256
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="500px"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            500px
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="50%"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            50%
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="20vw"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            20vw
+          </span>
+        </label>
+      </div>
     </div>
   </div>,
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Drawer
+    </span>
+  </button>,
   <div
     class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4541,12 +4424,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
@@ -4580,12 +4457,6 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
       style="background-image: linear-gradient(to top, #18181b 0, rgba(21, 21, 22, 0.2) 100%);"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4678,12 +4549,6 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>
   <div
     class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
@@ -4691,12 +4556,6 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4818,12 +4677,6 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>
 </div>
 `;
@@ -4946,12 +4799,6 @@ Array [
   >
     <div
       class="ant-drawer-mask ant-drawer-mask-blur"
-    />
-    <div
-      aria-hidden="true"
-      data-sentinel="start"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -5251,12 +5098,6 @@ Array [
         </div>
       </div>
     </div>
-    <div
-      aria-hidden="true"
-      data-sentinel="end"
-      style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-      tabindex="0"
-    />
   </div>,
 ]
 `;
