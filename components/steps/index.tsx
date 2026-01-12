@@ -184,7 +184,7 @@ const Steps = (props: StepsProps) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [varName] = genCssVar(rootPrefixCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [varName] = genCssVar(rootPrefixCls, 'cmp-steps');
 
   // ============================= Size =============================
   const mergedSize = useSize(size);

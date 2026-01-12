@@ -18,7 +18,7 @@ const genSmallStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
     antCls,
   } = token;
 
-  const [varName] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [varName] = genCssVar(antCls, 'cmp-steps');
 
   return {
     [`${componentCls}${componentCls}-small`]: {
