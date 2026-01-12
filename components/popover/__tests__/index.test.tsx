@@ -1,20 +1,19 @@
 import React from 'react';
+import { warning } from '@rc-component/util';
 
 import Popover from '..';
+import { TriggerMockContext } from '../../../tests/shared/demoTestContext';
 import mountTest from '../../../tests/shared/mountTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TooltipRef } from '../../tooltip';
 
+const { resetWarned } = warning;
+
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanelDoNotUseOrYouWillBeFired } = Popover;
 
 describe('Popover', () => {
   mountTest(Popover);
-
-  const eventObject = expect.objectContaining({
-    target: expect.anything(),
-    preventDefault: expect.any(Function),
-  });
 
   it('should show overlay when trigger is clicked', () => {
     const ref = React.createRef<TooltipRef>();
@@ -110,19 +109,19 @@ describe('Popover', () => {
   });
 
   it('should be closed by pressing ESC', () => {
-    const onOpenChange = jest.fn((_, e) => {
-      e?.persist?.();
-    });
+    const onOpenChange = jest.fn();
     const wrapper = render(
-      <Popover title="Title" trigger="click" onOpenChange={onOpenChange}>
-        <span>Delete</span>
-      </Popover>,
+      <TriggerMockContext.Provider value={{ mock: false }}>
+        <Popover title="Title" trigger="click" onOpenChange={onOpenChange}>
+          <span>Delete</span>
+        </Popover>
+      </TriggerMockContext.Provider>,
     );
     const triggerNode = wrapper.container.querySelectorAll('span')[0];
     fireEvent.click(triggerNode);
-    expect(onOpenChange).toHaveBeenLastCalledWith(true, undefined);
-    fireEvent.keyDown(triggerNode, { key: 'Escape', keyCode: 27 });
-    expect(onOpenChange).toHaveBeenLastCalledWith(false, eventObject);
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
+    fireEvent.keyDown(window, { key: 'Escape' });
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
   });
 
   it('should not display overlay when the content is null/undefined', () => {
@@ -201,5 +200,23 @@ describe('Popover', () => {
     // Click the toggleArrow button again to show the arrow
     fireEvent.click(toggleArrowBtn!);
     expect(getTooltipArrow()).not.toBeNull();
+  });
+
+  it('should warn when onOpenChange has more than one argument', () => {
+    resetWarned();
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const onOpenChange = (_open: boolean, _e?: React.MouseEvent) => {};
+    render(
+      <Popover title="test" onOpenChange={onOpenChange}>
+        <span>Show</span>
+      </Popover>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Popover] The second `onOpenChange` parameter is internal and unsupported. Please lock to a previous version if needed.',
+    );
+
+    errorSpy.mockRestore();
   });
 });

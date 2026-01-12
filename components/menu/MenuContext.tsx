@@ -1,8 +1,14 @@
 import { createContext } from 'react';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import type { DirectionType } from '../config-provider';
-import type { SemanticName, SubMenuSemanticName } from './menu';
+import type {
+  MenuPopupSemanticClassNames,
+  MenuPopupSemanticStyles,
+  MenuSemanticClassNames,
+  MenuSemanticStyles,
+  SubMenuSemanticClassNames,
+  SubMenuSemanticStyles,
+} from './menu';
 
 export type MenuTheme = 'light' | 'dark';
 
@@ -14,13 +20,13 @@ export interface MenuContextProps {
   firstLevel: boolean;
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
-  classNames: SemanticClassNames<SemanticName> & {
-    popup: SemanticClassNames<'root'>;
-    subMenu: SemanticClassNames<SubMenuSemanticName>;
+  classNames?: MenuSemanticClassNames & {
+    popup?: MenuPopupSemanticClassNames;
+    subMenu?: SubMenuSemanticClassNames;
   };
-  styles: SemanticStyles<SemanticName> & {
-    popup: SemanticStyles<'root'>;
-    subMenu: SemanticStyles<SubMenuSemanticName>;
+  styles?: MenuSemanticStyles & {
+    popup?: MenuPopupSemanticStyles;
+    subMenu?: SubMenuSemanticStyles;
   };
 }
 

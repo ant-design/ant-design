@@ -2,20 +2,30 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, customIconFontSize, motionDurationSlow } = token;
+  const {
+    componentCls,
+    customIconFontSize,
+    motionDurationSlow,
+    iconSize,
+    lineWidth,
+    lineType,
+    antCls,
+  } = token;
 
   const itemCls = `${componentCls}-item`;
 
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
+
   return {
     [componentCls]: {
-      '--steps-icon-size': token.iconSize,
-      '--steps-icon-border-width': token.lineWidth,
-
+      [varName('icon-size')]: iconSize,
+      [varName('icon-border-width')]: lineWidth,
       [`${itemCls}-icon`]: {
-        width: 'var(--steps-icon-size)',
-        height: 'var(--steps-icon-size)',
+        width: varRef('icon-size'),
+        height: varRef('icon-size'),
         margin: 0,
         flex: 'none',
         display: 'flex',
@@ -23,10 +33,10 @@ const genIconStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
         justifyContent: 'center',
         fontSize: token.iconFontSize,
         fontFamily: token.fontFamily,
-        lineHeight: 'var(--steps-icon-size)',
+        lineHeight: varRef('icon-size'),
         textAlign: 'center',
-        borderRadius: 'var(--steps-icon-size)',
-        border: `var(--steps-icon-border-width) ${token.lineType} transparent`,
+        borderRadius: varRef('icon-size'),
+        border: `${varRef('icon-border-width')} ${lineType} transparent`,
         transition: ['background', 'border', 'color', 'inset', 'transform']
           .map((key) => `${key} ${motionDurationSlow}`)
           .join(', '),

@@ -388,4 +388,26 @@ describe('Radio Group', () => {
       expect(container.querySelector<HTMLDivElement>('.ant-radio-group-vertical')).toBeTruthy();
     });
   });
+
+  describe('role prop', () => {
+    it('should set default role', () => {
+      const { container } = render(
+        <Radio.Group vertical orientation="horizontal">
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.firstChild).toHaveAttribute('role', 'radiogroup');
+    });
+
+    it('should set passed role', () => {
+      const { container } = render(
+        <Radio.Group vertical orientation="horizontal" role="radio">
+          <Radio value="A">Preference A</Radio>
+          <Radio value="B">Preference B</Radio>
+        </Radio.Group>,
+      );
+      expect(container.firstChild).toHaveAttribute('role', 'radio');
+    });
+  });
 });

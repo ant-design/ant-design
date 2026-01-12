@@ -7,6 +7,7 @@ import { useEvent } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
+import { genCssVar } from '../theme/util/genStyleUtils';
 import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
 
 export type ShowCollapsibleIconMode = boolean | 'auto';
@@ -17,6 +18,7 @@ export interface SplitBarProps {
   draggerStyle?: React.CSSProperties;
   draggerClassName?: SplitterSemanticDraggerClassNames;
   prefixCls: string;
+  rootPrefixCls: string;
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
@@ -45,6 +47,7 @@ function getValidNumber(num?: number): number {
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const {
     prefixCls,
+    rootPrefixCls,
     vertical,
     index,
     active,
@@ -69,6 +72,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
+
+  const [varName] = genCssVar(rootPrefixCls, 'splitter');
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
@@ -195,7 +200,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   }, [startPos, index, lazy]);
 
   const transformStyle: React.CSSProperties = {
-    [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
+    [varName('bar-preview-offset')]: `${constrainedOffset}px`,
   };
 
   // ======================== Render ========================
