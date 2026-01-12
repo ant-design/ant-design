@@ -26,12 +26,24 @@ import type { MasonryItemType } from './MasonryItem';
 import useStyle from './style';
 
 export type Gap = number | undefined;
+
 export type Key = string | number;
 
-export type SemanticName = 'root' | 'item';
+export type MasonrySemanticName = keyof MasonrySemanticClassNames & keyof MasonrySemanticStyles;
 
-export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, SemanticName>;
-export type MasonryStylesType = SemanticStylesType<MasonryProps, SemanticName>;
+export type MasonrySemanticClassNames = {
+  root?: string;
+  item?: string;
+};
+
+export type MasonrySemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+};
+
+export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, MasonrySemanticClassNames>;
+
+export type MasonryStylesType = SemanticStylesType<MasonryProps, MasonrySemanticStyles>;
 
 export interface MasonryProps<ItemDataType = any> {
   // Style
