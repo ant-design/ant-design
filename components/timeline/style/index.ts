@@ -66,7 +66,7 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
   const itemCls = `${componentCls}-item`;
 
-  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
 
   return {
     [componentCls]: [
@@ -153,8 +153,8 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
   const { calc, componentCls, itemPaddingBottom, margin, antCls } = token;
   const itemCls = `${componentCls}-item`;
-  const [, stepsVarRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
+  const [, stepsVarRef] = genCssVar(antCls, 'cmp-steps');
   const [timelineVarName, timelineVarRef] = genCssVar(antCls, 'timeline');
 
   return {

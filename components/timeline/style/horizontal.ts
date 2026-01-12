@@ -8,7 +8,7 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
   const { componentCls, fontHeight, antCls, paddingXS } = token;
 
-  const [stepsVarName, stepsVarRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [stepsVarName, stepsVarRef] = genCssVar(antCls, 'cmp-steps');
   const [timelineVarName, timelineVarRef] = genCssVar(antCls, 'timeline');
 
   const itemCls = `${componentCls}-item`;
