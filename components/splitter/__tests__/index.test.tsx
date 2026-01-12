@@ -89,20 +89,15 @@ describe('Splitter', () => {
       );
       const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
 
-      // 第一次点击 (Mouse Down)
       fireEvent.mouseDown(dragger);
 
-      // 模拟时间流逝 200ms (在 300ms 阈值内)
       act(() => {
         jest.advanceTimersByTime(200);
       });
 
-      // 第二次点击 (Mouse Down)
       fireEvent.mouseDown(dragger);
 
-      // 断言：应该被调用
       expect(onDraggerDoubleClick).toHaveBeenCalledTimes(1);
-      // 断言：参数应该是 index: 0, 以及事件对象
       expect(onDraggerDoubleClick).toHaveBeenCalledWith(0);
     });
 
@@ -113,51 +108,41 @@ describe('Splitter', () => {
       );
       const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
 
-      // 第一次点击
       fireEvent.mouseDown(dragger);
 
-      // 模拟时间流逝 400ms (超过了 300ms 阈值)
       act(() => {
         jest.advanceTimersByTime(400);
       });
 
-      // 第二次点击
       fireEvent.mouseDown(dragger);
 
-      // 断言：不应该被调用，因为间隔太久，被视为两次单击
       expect(onDraggerDoubleClick).not.toHaveBeenCalled();
     });
 
     it('should trigger with correct index for multiple splitters', () => {
       const onDraggerDoubleClick = jest.fn();
       const { container } = render(
-        // 3个面板意味着有2个拖拽条 (index 0 和 index 1)
         <SplitterDemo items={[{}, {}, {}]} onDraggerDoubleClick={onDraggerDoubleClick} />,
       );
 
       const draggers = container.querySelectorAll('.ant-splitter-bar-dragger');
-      const secondDragger = draggers[1]; // 获取第二个拖拽条 (Index 1)
+      const secondDragger = draggers[1];
 
-      // 第一次点击第二个拖拽条
       fireEvent.mouseDown(secondDragger);
 
       act(() => {
         jest.advanceTimersByTime(100);
       });
 
-      // 第二次点击第二个拖拽条
       fireEvent.mouseDown(secondDragger);
 
-      // 断言：index 应该是 1
       expect(onDraggerDoubleClick).toHaveBeenCalledWith(1);
     });
 
-    // 如果你加了 e.stopPropagation()，建议加上这个测试
     it('should stop propagation to allow nested splitter usage', () => {
       const onOuterDoubleClick = jest.fn();
       const onInnerDoubleClick = jest.fn();
 
-      // 模拟嵌套结构
       const { getByTestId } = render(
         <Splitter onDraggerDoubleClick={onOuterDoubleClick}>
           <Splitter.Panel>Outer Left</Splitter.Panel>
@@ -172,21 +157,16 @@ describe('Splitter', () => {
         </Splitter>,
       );
 
-      // 找到内部 Splitter 的拖拽条
-      // 注意：这里需要精确选择器，实际项目中可能需要根据 DOM 结构调整选择器
       const innerWrapper = getByTestId('inner-wrapper');
       const innerDragger = innerWrapper.querySelector('.ant-splitter-bar-dragger')!;
 
-      // 双击内部拖拽条
       fireEvent.mouseDown(innerDragger);
       act(() => {
         jest.advanceTimersByTime(100);
       });
       fireEvent.mouseDown(innerDragger);
 
-      // 期望内部触发
       expect(onInnerDoubleClick).toHaveBeenCalled();
-      // 期望外部不触发 (验证 stopPropagation 是否生效)
       expect(onOuterDoubleClick).not.toHaveBeenCalled();
     });
   });
