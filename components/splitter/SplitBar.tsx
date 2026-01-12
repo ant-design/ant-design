@@ -43,6 +43,8 @@ function getValidNumber(num?: number): number {
     : 0;
 }
 
+const DOUBLE_CLICK_TIME_GAP = 300;
+
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const {
     prefixCls,
@@ -87,7 +89,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     const currentTime = Date.now();
     const timeGap = currentTime - lastClickTimeRef.current;
 
-    if (timeGap > 0 && timeGap < 300) {
+    if (timeGap > 0 && timeGap < DOUBLE_CLICK_TIME_GAP) {
       onDraggerDoubleClick?.(index);
       return;
     }

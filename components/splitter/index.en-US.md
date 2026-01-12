@@ -28,6 +28,7 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/lazy.tsx" version="5.23.0">Lazy</code>
 <code src="./demo/customize.tsx" version="6.0.0">Customize</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/reset.tsx" version="6.2.0">Double-clicked reset</code>
 <code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/size-mix.tsx" debug>Size Mix</code>
