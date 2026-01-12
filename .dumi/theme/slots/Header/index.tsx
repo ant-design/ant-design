@@ -135,7 +135,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
     `,
     versionSelect: css`
       width: 112px;
-      min-width: 112px; // 这个宽度需要和 Empty 状态的宽度保持一致 https://github.com/ant-design/ant-design/pull/56567
+      min-width: 112px; // 这个宽度需要和 Empty 状态的宽度保持一致
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
