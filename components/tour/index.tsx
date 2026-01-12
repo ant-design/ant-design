@@ -40,6 +40,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     actionsRender,
     steps,
     closeIcon,
+    keyboard = true,
     classNames,
     styles,
     className,
@@ -137,6 +138,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
         styles={semanticStyles}
         classNames={mergedClassNames}
         closeIcon={closeIcon ?? contextCloseIcon}
+        keyboard={keyboard}
         zIndex={zIndex}
         rootClassName={mergedRootClassName}
         prefixCls={prefixCls}
