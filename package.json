@@ -149,7 +149,7 @@
     "@rc-component/tour": "~2.3.0",
     "@rc-component/tree": "~1.1.0",
     "@rc-component/tree-select": "~1.6.0",
-    "@rc-component/trigger": "^3.8.1",
+    "@rc-component/trigger": "^3.8.2",
     "@rc-component/upload": "~1.1.0",
     "@rc-component/util": "^1.7.0",
     "clsx": "^2.1.1",
