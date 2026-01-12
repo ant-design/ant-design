@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genHorizontalStyle from './horizontal';
 
 export interface ComponentToken {
@@ -45,8 +46,27 @@ export interface TimelineToken extends FullToken<'Timeline'> {
 }
 
 const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { componentCls, tailColor } = token;
+  const {
+    componentCls,
+    tailColor,
+    fontHeight,
+    dotSize,
+    dotBg,
+    dotBorderWidth,
+    fontSize,
+    lineHeight,
+    colorText,
+    tailWidth,
+    colorPrimary,
+    colorError,
+    colorSuccess,
+    colorTextDisabled,
+    antCls,
+  } = token;
+
   const itemCls = `${componentCls}-item`;
+
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
 
   return {
     [componentCls]: [
@@ -57,44 +77,45 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
         ...resetComponent(token),
 
         [itemCls]: {
-          '--steps-title-horizontal-title-height': token.fontHeight,
-          '--steps-vertical-rail-margin': '0px',
-          '--steps-title-horizontal-rail-gap': '0px',
+          [varName('title-horizontal-title-height')]: fontHeight,
+          [varName('vertical-rail-margin')]: '0px',
+          [varName('title-horizontal-rail-gap')]: '0px',
 
           // Root Level: Record Steps icon size and support fallback
-          '--steps-icon-dot-size-origin': 'var(--steps-icon-size-active)',
-          '--steps-icon-dot-size-custom': token.dotSize,
+          [varName('icon-dot-size-origin')]: varRef('icon-size-active'),
+          [varName('icon-dot-size-custom')]: dotSize,
 
           // Item Level: Record Steps icon color and support fallback
-          '--steps-item-icon-dot-bg-color-origin': 'var(--steps-item-icon-dot-bg-color)',
-          '--steps-item-icon-dot-bg-color-custom': token.dotBg,
+          [varName('item-icon-dot-bg-color-origin')]: varRef('item-icon-dot-bg-color'),
+          [varName('item-icon-dot-bg-color-custom')]: dotBg,
 
-          '--steps-icon-size':
-            'var(--steps-icon-dot-size-custom, var(--steps-icon-dot-size-origin))',
+          [varName('icon-size')]: varRef('icon-dot-size-custom', varRef('icon-dot-size-origin')),
 
           // Icon
           [`${itemCls}-icon`]: {
-            '--steps-dot-icon-border-width': token.dotBorderWidth,
-            '--steps-dot-icon-size': 'var(--steps-icon-size)',
-            '--steps-item-icon-dot-bg-color':
-              'var(--steps-item-icon-dot-bg-color-custom, var(--steps-item-icon-dot-bg-color-origin))',
+            [varName('dot-icon-border-width')]: dotBorderWidth,
+            [varName('dot-icon-size')]: varRef('icon-size'),
+            [varName('item-icon-dot-bg-color')]: varRef(
+              'item-icon-dot-bg-color-custom',
+              varRef('item-icon-dot-bg-color-origin'),
+            ),
           },
 
           // Title
           [`${itemCls}-title`]: {
-            fontSize: token.fontSize,
-            lineHeight: token.lineHeight,
+            fontSize,
+            lineHeight,
           },
 
           // Content
           [`${itemCls}-content`]: {
-            color: token.colorText,
+            color: colorText,
           },
 
           // Rail
           [`${itemCls}-rail`]: {
-            '--steps-item-solid-line-color': tailColor,
-            '--steps-rail-size': token.tailWidth,
+            [varName('item-solid-line-color')]: tailColor,
+            [varName('rail-size')]: tailWidth,
           },
         },
       },
@@ -104,24 +125,24 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       // ==============================================================
       {
         [itemCls]: {
-          '--steps-item-process-rail-line-style': 'dotted',
+          [varName('item-process-rail-line-style')]: 'dotted',
         },
 
         [`${itemCls}${itemCls}${itemCls}-color`]: {
           '&-blue': {
-            '--steps-item-icon-dot-color': token.colorPrimary,
+            [varName('item-icon-dot-color')]: colorPrimary,
           },
 
           '&-red': {
-            '--steps-item-icon-dot-color': token.colorError,
+            [varName('item-icon-dot-color')]: colorError,
           },
 
           '&-green': {
-            '--steps-item-icon-dot-color': token.colorSuccess,
+            [varName('item-icon-dot-color')]: colorSuccess,
           },
 
           '&-gray': {
-            '--steps-item-icon-dot-color': token.colorTextDisabled,
+            [varName('item-icon-dot-color')]: colorTextDisabled,
           },
         },
       },
@@ -130,22 +151,25 @@ const genTimelineStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 };
 
 const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { calc, componentCls, itemPaddingBottom } = token;
+  const { calc, componentCls, itemPaddingBottom, margin, antCls } = token;
   const itemCls = `${componentCls}-item`;
+  const [, stepsVarRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+
+  const [timelineVarName, timelineVarRef] = genCssVar(antCls, 'timeline');
 
   return {
     [`${componentCls}:not(${componentCls}-horizontal)`]: {
-      '--timeline-head-span': '12',
-      '--timeline-head-span-ptg': 'calc(var(--timeline-head-span) / 24 * 100%)',
+      [timelineVarName('head-span')]: '12',
+      [timelineVarName('head-span-ptg')]: `calc(${timelineVarRef('head-span')} / 24 * 100%)`,
 
       // =============================================================
       // ==                        Alternate                        ==
       // =============================================================
       [`&${componentCls}-layout-alternate`]: {
         [itemCls]: {
-          '--timeline-alternate-gap': calc(token.margin)
+          [timelineVarName('alternate-gap')]: calc(margin)
             .mul(2)
-            .add('var(--steps-dot-icon-size)')
+            .add(stepsVarRef('dot-icon-size'))
             .equal(),
 
           minHeight: 'auto',
@@ -154,19 +178,19 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           // Icon & Rail
           [`${itemCls}-icon, ${itemCls}-rail`]: {
             position: 'absolute',
-            insetInlineStart: 'var(--timeline-head-span-ptg)',
+            insetInlineStart: timelineVarRef('head-span-ptg'),
           },
 
           // Icon
           [`${itemCls}-icon`]: {
-            marginInlineStart: `calc(var(--steps-icon-size) / -2)`,
+            marginInlineStart: `calc(${stepsVarRef('icon-size')} / -2)`,
           },
 
           // Section
           [`${itemCls}-section`]: {
             display: 'flex',
             flexWrap: 'nowrap',
-            gap: 'var(--timeline-alternate-gap)',
+            gap: timelineVarRef('alternate-gap'),
           },
 
           // >>> Header
@@ -174,13 +198,13 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             textAlign: 'end',
             flexDirection: 'column',
             alignItems: 'stretch',
-            flex: '1 1 calc(var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
+            flex: `1 1 calc(${timelineVarRef('head-span-ptg')} - ${timelineVarRef('alternate-gap')} / 2)`,
           },
 
           // >>> Content
           [`${itemCls}-content`]: {
             textAlign: 'start',
-            flex: '1 1 calc(100% - var(--timeline-head-span-ptg) - var(--timeline-alternate-gap) / 2)',
+            flex: `1 1 calc(100% - ${timelineVarRef('head-span-ptg')} - ${timelineVarRef('alternate-gap')} / 2)`,
           },
 
           // Placement
@@ -195,7 +219,7 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
             },
 
             [`${itemCls}-icon, ${itemCls}-rail`]: {
-              insetInlineStart: 'calc(100% - var(--timeline-head-span-ptg))',
+              insetInlineStart: `calc(100% - ${timelineVarRef('head-span-ptg')})`,
             },
           },
         },
@@ -214,8 +238,8 @@ const genVerticalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
           [`${itemCls}-rail`]: {
             insetInlineStart: 'auto',
-            insetInlineEnd: 'calc(var(--steps-icon-size) / 2)',
-            marginInlineEnd: `calc(var(--steps-rail-size) / -2)`,
+            insetInlineEnd: `calc(${stepsVarRef('icon-size')} / 2)`,
+            marginInlineEnd: `calc(${stepsVarRef('rail-size')} / -2)`,
           },
         },
       },
@@ -241,7 +265,6 @@ export default genStyleHooks(
       customHeadPaddingVertical: token.paddingXXS,
       paddingInlineEnd: 2,
     });
-
     return [
       genTimelineStyle(timeLineToken),
       genVerticalStyle(timeLineToken),

@@ -4,6 +4,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genHorizontalStyle from './horizontal';
 import genIconStyle from './icon';
 import genInlineStyle from './inline';
@@ -93,19 +94,18 @@ export interface StepsToken extends FullToken<'Steps'> {
 }
 
 const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
   const itemCls = `${componentCls}-item`;
-
+  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
   return {
     [componentCls]: {
-      // TODO: use `genCssVar` hook to generate css variables
-      '--steps-title-font-size': token.fontSizeLG,
-      '--steps-title-line-height': token.lineHeightLG,
-      '--steps-subtitle-font-size': token.fontSize,
-      '--steps-subtitle-line-height': token.lineHeight,
-      '--steps-item-wrapper-padding-top': '0px',
-      '--steps-rail-size': token.lineWidth,
-      '--steps-rail-line-style': token.lineType,
+      [varName('title-font-size')]: token.fontSizeLG,
+      [varName('title-line-height')]: token.lineHeightLG,
+      [varName('subtitle-font-size')]: token.fontSize,
+      [varName('subtitle-line-height')]: token.lineHeight,
+      [varName('item-wrapper-padding-top')]: '0px',
+      [varName('rail-size')]: token.lineWidth,
+      [varName('rail-line-style')]: token.lineType,
 
       ...resetComponent(token),
 
@@ -121,7 +121,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`${itemCls}-wrapper`]: {
         display: 'flex',
         flexWrap: 'nowrap',
-        paddingTop: `var(--steps-item-wrapper-padding-top)`,
+        paddingTop: varRef('item-wrapper-padding-top'),
       },
 
       // Icon
@@ -137,8 +137,8 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       // >>> Title
       [`${itemCls}-title`]: {
         color: token.colorText,
-        fontSize: `var(--steps-title-font-size)`,
-        lineHeight: `var(--steps-title-line-height)`,
+        fontSize: varRef('title-font-size'),
+        lineHeight: varRef('title-line-height'),
         wordBreak: 'break-word',
       },
 
@@ -146,8 +146,8 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
       [`${itemCls}-subtitle`]: {
         color: token.colorTextDescription,
         fontWeight: 'normal',
-        fontSize: `var(--steps-subtitle-font-size)`,
-        lineHeight: `var(--steps-subtitle-line-height)`,
+        fontSize: varRef('subtitle-font-size'),
+        lineHeight: varRef('subtitle-line-height'),
         marginInlineStart: token.marginXS,
         wordBreak: 'break-word',
       },
@@ -162,7 +162,7 @@ const genBasicStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // Rail
       [`${itemCls}-rail`]: {
-        borderStyle: 'var(--steps-rail-line-style)',
+        borderStyle: varRef('rail-line-style'),
         borderWidth: 0,
       },
 
@@ -212,7 +212,6 @@ export default genStyleHooks(
     const stepsToken = mergeToken<StepsToken>(token, {
       inlineDotSize: 6,
     });
-
     return [
       genBasicStyle(stepsToken),
       genIconStyle(stepsToken),

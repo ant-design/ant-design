@@ -17,6 +17,7 @@ import {
 import { resetComponent, textEllipsis } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken extends SharedComponentToken {
   /**
@@ -144,18 +145,18 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
 };
 
 const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
-  const { componentCls, calc, colorText, antCls, colorTextDisabled } = token;
-
+  const { componentCls, colorText, antCls, colorTextDisabled, calc } = token;
+  const [varName, varRef] = genCssVar(antCls, '_mentions_'); // TODO: change `_mentions_` to `mentions`
   return {
     [componentCls]: [
       // =========================== Common ===========================
       resetComponent(token),
       genBasicInputStyle(token, {
         largeStyle: {
-          padding: undefined,
+          padding: 0,
         },
         smallStyle: {
-          padding: undefined,
+          padding: 0,
         },
       }),
 
@@ -167,9 +168,9 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
 
       // ========================== Mentions ==========================
       {
-        '--mentions-padding-inline': token.paddingInline,
-        '--mentions-padding-block': token.paddingBlock,
-        '--mentions-control-height': token.controlHeight,
+        [varName('padding-inline')]: token.paddingInline,
+        [varName('padding-block')]: token.paddingBlock,
+        [varName('control-height')]: token.controlHeight,
 
         display: 'flex',
         padding: 0,
@@ -199,11 +200,11 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           color: colorText,
           boxSizing: 'border-box',
           margin: 0,
-          minHeight: calc('var(--mentions-control-height)')
+          minHeight: calc(varRef('control-height'))
             .sub(calc(token.lineWidth).mul(2).equal())
             .equal(),
-          paddingInline: 'var(--mentions-padding-inline)',
-          paddingBlock: 'var(--mentions-padding-block)',
+          paddingInline: varRef('padding-inline'),
+          paddingBlock: varRef('padding-block'),
           overflow: 'inherit',
           overflowX: 'hidden',
           overflowY: 'auto',
@@ -250,7 +251,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           position: 'absolute',
           top: '50%',
           transform: 'translateY(-50%)',
-          insetInlineEnd: 'var(--mentions-padding-inline)',
+          insetInlineEnd: varRef('padding-inline'),
           columnGap: token.marginXS,
 
           [`${componentCls}-clear-icon`]: {
@@ -288,7 +289,7 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
             paddingInlineEnd: calc(token.paddingXXS)
               .mul(1.5)
               .add(token.fontSizeIcon)
-              .add('var(--mentions-padding-inline)')
+              .add(varRef('padding-inline'))
               .equal(),
           },
         },
@@ -302,17 +303,16 @@ const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
           },
         },
       },
-      // ============================ Size ============================
       {
         '&-lg': {
-          '--mentions-padding-inline': token.paddingInlineLG,
-          '--mentions-padding-block': token.paddingBlockLG,
-          '--mentions-control-height': token.controlHeightLG,
+          [varName('padding-inline')]: token.paddingInlineLG,
+          [varName('padding-block')]: token.paddingBlockLG,
+          [varName('control-height')]: token.controlHeightLG,
         },
         '&-sm': {
-          '--mentions-padding-inline': token.paddingInlineSM,
-          '--mentions-padding-block': token.paddingBlockSM,
-          '--mentions-control-height': token.controlHeightSM,
+          [varName('padding-inline')]: token.paddingInlineSM,
+          [varName('padding-block')]: token.paddingBlockSM,
+          [varName('control-height')]: token.controlHeightSM,
         },
       },
     ],

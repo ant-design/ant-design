@@ -12,6 +12,7 @@ import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
@@ -29,6 +30,8 @@ interface TooltipToken extends FullToken<'Tooltip'> {
   tooltipBorderRadius: number;
 }
 
+const FALL_BACK_ORIGIN = '50%';
+
 const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   const {
     calc,
@@ -44,7 +47,10 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     paddingXS,
     arrowOffsetHorizontal,
     sizePopupArrow,
+    antCls,
   } = token;
+
+  const [varName, varRef] = genCssVar(antCls, 'tooltip');
 
   // arrowOffsetHorizontal + arrowWidth + borderRadius
   const edgeAlignMinWidth = calc(tooltipBorderRadius)
@@ -59,7 +65,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     minWidth: centerAlignMinWidth,
     minHeight: controlHeight,
     padding: `${unit(token.calc(paddingSM).div(2).equal())} ${unit(paddingXS)}`,
-    color: `var(--ant-tooltip-color, ${tooltipColor})`,
+    color: varRef('overlay-color', tooltipColor),
     textAlign: 'start',
     textDecoration: 'none',
     wordWrap: 'break-word',
@@ -71,8 +77,11 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
   const sharedTransformOrigin: CSSObject = {
     // When use `autoArrow`, origin will follow the arrow position
-    '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
-    transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+    [varName('valid-offset-x')]: varRef('arrow-offset-horizontal', 'var(--arrow-x)'),
+    transformOrigin: [
+      varRef('valid-offset-x', FALL_BACK_ORIGIN),
+      `var(--arrow-y, ${FALL_BACK_ORIGIN})`,
+    ].join(' '),
   };
 
   return [
@@ -92,7 +101,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
           display: 'none',
         },
 
-        '--antd-arrow-background-color': tooltipBg,
+        [varName('arrow-background-color')]: tooltipBg,
 
         // Wrapper for the tooltip content
         [`${componentCls}-container`]: [sharedBodyStyle, initFadeMotion(token, true)],
@@ -140,7 +149,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
               backgroundColor: darkColor,
             },
             [`${componentCls}-arrow`]: {
-              '--antd-arrow-background-color': darkColor,
+              [varName('arrow-background-color')]: darkColor,
             },
           },
         })),
@@ -153,7 +162,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
     },
 
     // Arrow Style
-    getArrowStyle(token, 'var(--antd-arrow-background-color)'),
+    getArrowStyle<TooltipToken>(token, varRef('arrow-background-color')),
 
     // Pure Render
     {
