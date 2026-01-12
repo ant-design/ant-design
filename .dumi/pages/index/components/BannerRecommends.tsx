@@ -51,8 +51,13 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
       border-radius: inherit;
     }
 
-    &:hover:before {
-      opacity: 1;
+    &:hover {
+      backdrop-filter: blur(0px);
+      background: color-mix(in srgb, ${cssVar.colorBgContainer} 90%, transparent);
+
+      &:before {
+        opacity: 1;
+      }
     }
   `;
 
