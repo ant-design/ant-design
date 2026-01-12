@@ -199,6 +199,7 @@ describe('QRCode test', () => {
       <QRCode value="ant-design" type="svg" marginSize={margin} />,
     );
     const vbCustom = custom.querySelector('svg')?.getAttribute('viewBox');
+    expect(vbCustom).toBeDefined();
 
     const nBase = Number(vbBase?.split(' ').pop());
     const nCustom = Number(vbCustom?.split(' ').pop());
