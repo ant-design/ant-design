@@ -27,6 +27,8 @@ import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
 
+export type TextAreaSemanticName = keyof TextAreaSemanticClassNames & keyof TextAreaSemanticStyles;
+
 export type TextAreaSemanticClassNames = {
   root?: string;
   textarea?: string;

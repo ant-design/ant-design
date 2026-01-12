@@ -17,6 +17,7 @@ import enUS from './locale/en_US';
 import useStyle from './style';
 
 export type CalendarMode = 'year' | 'month';
+
 export type HeaderRender<DateType> = (config: {
   value: DateType;
   type: CalendarMode;
@@ -27,6 +28,8 @@ export type HeaderRender<DateType> = (config: {
 export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize';
 }
+
+export type CalendarSemanticName = keyof CalendarSemanticClassNames & keyof CalendarSemanticStyles;
 
 export type CalendarSemanticClassNames = {
   root?: string;

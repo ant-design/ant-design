@@ -54,6 +54,9 @@ export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
+export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames &
+  keyof ColorPickerSemanticStyles;
+
 export type ColorPickerSemanticClassNames = {
   root?: string;
 };

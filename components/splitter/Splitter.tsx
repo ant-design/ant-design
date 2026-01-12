@@ -53,6 +53,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     styles: contextStyles,
   } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
@@ -238,6 +239,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 index={idx}
                 active={movingIndex === idx}
                 prefixCls={prefixCls}
+                rootPrefixCls={rootPrefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
                 draggerStyle={mergedStyles.dragger}

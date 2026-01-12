@@ -86,7 +86,7 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export type SemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
+export type TooltipSemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
 
 export type TooltipSemanticClassNames = {
   root?: string;
@@ -325,7 +325,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !injectFromPopover);
 
   // Color
-  const colorInfo = parseColor(prefixCls, color);
+  const colorInfo = parseColor(rootPrefixCls, prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
   const themeCls = clsx(rootCls, hashId, cssVarCls);

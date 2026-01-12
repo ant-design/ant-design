@@ -34,7 +34,7 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export type SemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
+export type MenuSemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
 
 export type MenuSemanticClassNames = {
   root?: string;
@@ -72,21 +72,24 @@ export type SubMenuSemanticStyles = {
   itemIcon?: React.CSSProperties;
 };
 
-export type PopupSemanticClassNames = {
+export type MenuPopupSemanticName = keyof MenuPopupSemanticClassNames &
+  keyof MenuPopupSemanticStyles;
+
+export type MenuPopupSemanticClassNames = {
   root?: string;
 };
 
-export type PopupSemanticStyles = {
+export type MenuPopupSemanticStyles = {
   root?: React.CSSProperties;
 };
 
 type MenuClassNamesSchemaType = MenuSemanticClassNames & {
-  popup?: PopupSemanticClassNames | string;
+  popup?: MenuPopupSemanticClassNames | string;
   subMenu?: SubMenuSemanticClassNames;
 };
 
 type MenuStylesSchemaType = MenuSemanticStyles & {
-  popup?: PopupSemanticStyles | React.CSSProperties;
+  popup?: MenuPopupSemanticStyles | React.CSSProperties;
   subMenu?: SubMenuSemanticStyles;
 };
 

@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { StyleProvider } from '@ant-design/cssinjs';
 import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
 import { Bubble, Sender } from '@ant-design/x';
 import type { SenderRef } from '@ant-design/x/es/sender';
@@ -53,17 +54,21 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
     const nextItems: GetProp<typeof Bubble.List, 'items'> = [
       {
+        key: 1,
+        role: 'user',
         placement: 'end',
         content: prompt,
-        avatar: { icon: <UserOutlined /> },
+        avatar: <UserOutlined />,
         shape: 'corner',
       },
       {
+        key: 2,
+        role: 'system',
         placement: 'start',
         content: resText,
-        avatar: { icon: <AntDesignOutlined /> },
+        avatar: <AntDesignOutlined />,
         loading: !resText,
-        messageRender: (content: string) => (
+        contentRender: (content: string) => (
           <Typography>
             <pre style={{ margin: 0 }}>{content}</pre>
           </Typography>
@@ -73,9 +78,11 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
     if (!loading) {
       nextItems.push({
+        key: 3,
+        role: 'divider',
         placement: 'start',
         content: locale.finishTips,
-        avatar: { icon: <AntDesignOutlined /> },
+        avatar: <AntDesignOutlined />,
         shape: 'corner',
       });
     }
@@ -93,16 +100,21 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       afterOpenChange={handleAfterOpenChange}
     >
       <Flex vertical style={{ height: '100%' }}>
-        <Bubble.List style={{ flex: 1, overflow: 'auto' }} items={items} />
-        <Sender
-          ref={senderRef}
-          style={{ flex: 0 }}
-          value={inputValue}
-          onChange={setInputValue}
-          onSubmit={handleSubmit}
-          loading={loading}
-          onCancel={cancelRequest}
-        />
+        {/* Workaround for layer incompat between site `StyleProvider layer` and `@ant-design/x`.
+         * See: https://github.com/ant-design/x/issues/1588
+         */}
+        <StyleProvider layer={false}>
+          <Bubble.List style={{ flex: 1, overflow: 'auto' }} items={items} />
+          <Sender
+            ref={senderRef}
+            style={{ flex: 0 }}
+            value={inputValue}
+            onChange={setInputValue}
+            onSubmit={handleSubmit}
+            loading={loading}
+            onCancel={cancelRequest}
+          />
+        </StyleProvider>
       </Flex>
     </Drawer>
   );
