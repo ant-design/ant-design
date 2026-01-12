@@ -18,7 +18,7 @@ export const getItemWithWidthStyle = (
 ): CSSObject => {
   const { calc, componentCls, descriptionMaxWidth, antCls } = token;
   const itemCls = `${componentCls}-item`;
-  const [, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [, varRef] = genCssVar(antCls, 'cmp-steps');
   return {
     [`@container style(${withoutVar(descriptionMaxWidth)})`]: [
       {

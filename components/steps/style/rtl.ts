@@ -10,7 +10,7 @@ const genRTLStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   const itemCls = `${componentCls}-item`;
 
-  const [, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [, varRef] = genCssVar(antCls, 'cmp-steps');
 
   return {
     [`${componentCls}${componentCls}-rtl`]: {

@@ -17,7 +17,7 @@ const useItems = (
 ) => {
   const itemCls = `${prefixCls}-item`;
 
-  const [varName] = genCssVar(rootPrefixCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [varName] = genCssVar(rootPrefixCls, 'cmp-steps');
 
   // Merge items and children
   const parseItems = React.useMemo<TimelineItemType[]>(() => {
