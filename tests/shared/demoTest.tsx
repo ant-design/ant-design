@@ -135,3 +135,54 @@ export default function demoTest(component: string, options: Options = {}) {
     });
   }
 }
+
+/**
+ * Test semantic demo snapshots (for _semantic.tsx files)
+ * Uses render instead of renderToString to get semantic classes
+ */
+export function semanticDemoTest(component: string, options: Options = {}) {
+  // Mock useLocale hook for _semantic.tsx files
+  jest.mock('../../.dumi/hooks/useLocale', () => {
+    return jest.fn((locales) => {
+      return [locales.cn || {}];
+    });
+  });
+
+  const files = globSync(`./components/${component}/demo/_semantic*.tsx`);
+  files.forEach((file) => {
+    // to compatible windows path
+    file = file.split(path.sep).join('/');
+    const testMethod =
+      options.skip === true ||
+      (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c)))
+        ? test.skip
+        : test;
+
+    testMethod(`renders ${file} correctly`, () => {
+      resetWarned();
+
+      const errSpy = excludeWarning();
+
+      Date.now = jest.fn(() => new Date('2016-11-22').getTime());
+      jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+
+      let Demo = require(`../../${file}`).default;
+      Demo = typeof Demo === 'function' ? <Demo /> : Demo;
+
+      // Inject cssinjs cache to avoid create <style /> element
+      Demo = (
+        <ConfigProvider theme={{ hashed: false }}>
+          <StyleProvider cache={createCache()}>{Demo}</StyleProvider>
+        </ConfigProvider>
+      );
+
+      // Use render to get container with semantic classes
+      const { container } = render(Demo);
+      expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
+
+      jest.clearAllTimers();
+      errSpy.mockRestore();
+    });
+    jest.useRealTimers();
+  });
+}
