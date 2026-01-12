@@ -52,6 +52,7 @@ demo:
 | orientation | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` |  |
+| onDraggerDoubleClick | 双击拖拽条回调 | `(index: number) => void` | - | 6.2.0 |
 | onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
 | onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | - | - |

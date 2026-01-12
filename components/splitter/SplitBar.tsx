@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -24,6 +24,7 @@ export interface SplitBarProps {
   collapsibleIcon?: SplitterProps['collapsibleIcon'];
   showStartCollapsibleIcon: ShowCollapsibleIconMode;
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
+  onDraggerDoubleClick?: (index: number) => void;
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: (lazyEnd?: boolean) => void;
@@ -58,6 +59,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     collapsibleIcon,
     startCollapsible,
     endCollapsible,
+    onDraggerDoubleClick,
     onOffsetStart,
     onOffsetUpdate,
     onOffsetEnd,
@@ -70,6 +72,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
+  const lastClickTimeRef = useRef<number>(0);
+
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
   const [constrainedOffset, setConstrainedOffset] = useState<number>(0);
@@ -78,6 +82,18 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const constrainedOffsetY = vertical ? constrainedOffset : 0;
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    e.stopPropagation();
+
+    const currentTime = Date.now();
+    const timeGap = currentTime - lastClickTimeRef.current;
+
+    if (timeGap > 0 && timeGap < 300) {
+      onDraggerDoubleClick?.(index);
+      return;
+    }
+
+    lastClickTimeRef.current = currentTime;
+
     if (resizable && e.currentTarget) {
       setStartPos([e.pageX, e.pageY]);
       onOffsetStart(index);

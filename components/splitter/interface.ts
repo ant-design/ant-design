@@ -61,6 +61,7 @@ export interface SplitterProps {
     start?: React.ReactNode;
     end?: React.ReactNode;
   };
+  onDraggerDoubleClick?: (index: number) => void;
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
   onResizeEnd?: (sizes: number[]) => void;
