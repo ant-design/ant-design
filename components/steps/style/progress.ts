@@ -9,7 +9,7 @@ const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
   const itemCls = `${componentCls}-item`;
 
-  const [varName, varRef] = genCssVar(antCls, '_steps_'); // TODO: change `_steps_` to `steps`
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
 
   const enhanceSize = calc(lineWidthBold).add(lineWidthBold).equal();
 

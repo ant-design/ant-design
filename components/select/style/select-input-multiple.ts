@@ -134,7 +134,6 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
             .mul(2)
             .add(varRef('multi-item-height'))
             .equal(),
-          // TODO: change to varRef('input-width')
           width: `calc(var(--select-input-width, 0) * 1px)`,
           minWidth: FIXED_INPUT_MIN_WIDTH,
           maxWidth: '100%',
