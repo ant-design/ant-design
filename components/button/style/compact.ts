@@ -13,7 +13,7 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
   const { antCls, componentCls, lineWidth, calc } = token;
   const insetOffset = calc(lineWidth).mul(-1).equal();
 
-  const getCssVar = genCssVar(antCls, 'btn');
+  const [, varRef] = genCssVar(antCls, 'btn');
 
   const getCompactBorderStyle = (vertical?: boolean) => {
     const itemCls = `${componentCls}-compact${vertical ? '-vertical' : ''}-item`;
@@ -29,7 +29,7 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
         position: 'absolute',
         top: vertical ? insetOffset : 0,
         insetInlineStart: vertical ? 0 : insetOffset,
-        backgroundColor: `var(${getCssVar('bg-color-hover')})`,
+        backgroundColor: varRef('bg-color-hover'),
         content: '""',
         width: vertical ? '100%' : lineWidth,
         height: vertical ? lineWidth : '100%',
