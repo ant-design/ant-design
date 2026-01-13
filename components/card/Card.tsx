@@ -26,10 +26,31 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
-type SemanticName = 'root' | 'header' | 'body' | 'extra' | 'title' | 'actions' | 'cover';
+export type CardSemanticName = keyof CardSemanticClassNames & keyof CardSemanticStyles;
 
-export type CardClassNamesType = SemanticClassNamesType<CardProps, SemanticName>;
-export type CardStylesType = SemanticStylesType<CardProps, SemanticName>;
+export type CardSemanticClassNames = {
+  root?: string;
+  header?: string;
+  body?: string;
+  extra?: string;
+  title?: string;
+  actions?: string;
+  cover?: string;
+};
+
+export type CardSemanticStyles = {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  body?: React.CSSProperties;
+  extra?: React.CSSProperties;
+  title?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  cover?: React.CSSProperties;
+};
+
+export type CardClassNamesType = SemanticClassNamesType<CardProps, CardSemanticClassNames>;
+
+export type CardStylesType = SemanticStylesType<CardProps, CardSemanticStyles>;
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;

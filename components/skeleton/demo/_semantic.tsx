@@ -1,12 +1,11 @@
 import React from 'react';
 import { Skeleton } from 'antd';
 
-import type { SemanticClassNames } from '../../_util/hooks';
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
-import type { SemanticName } from '../Skeleton';
+import type { SkeletonSemanticName } from '../Skeleton';
 
-const locales: Record<'cn' | 'en', Required<SemanticClassNames<SemanticName>>> = {
+const locales: Record<'cn' | 'en', Record<SkeletonSemanticName, string>> = {
   cn: {
     root: '根元素，包含表格显示、宽度、动画效果、圆角等骨架屏容器的基础样式',
     header: '头部元素，包含表格单元格、内边距、垂直对齐等头像占位区域的布局样式',

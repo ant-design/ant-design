@@ -4,33 +4,47 @@ import type {
   TourStepProps as RCTourStepProps,
 } from '@rc-component/tour';
 
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 
-export type TourSemanticName =
-  | 'root'
-  | 'cover'
-  | 'mask'
-  | 'section'
-  | 'footer'
-  | 'actions'
-  | 'indicator'
-  | 'indicators'
-  | 'header'
-  | 'title'
-  | 'description';
+export type TourSemanticName = keyof TourSemanticClassNames & keyof TourSemanticStyles;
 
-export type TourClassNamesType = SemanticClassNamesType<TourProps, TourSemanticName>;
-export type TourStylesType = SemanticStylesType<TourProps, TourSemanticName>;
+export type TourSemanticClassNames = {
+  root?: string;
+  cover?: string;
+  mask?: string;
+  section?: string;
+  footer?: string;
+  actions?: string;
+  indicator?: string;
+  indicators?: string;
+  header?: string;
+  title?: string;
+  description?: string;
+};
+
+export type TourSemanticStyles = {
+  root?: React.CSSProperties;
+  cover?: React.CSSProperties;
+  mask?: React.CSSProperties;
+  section?: React.CSSProperties;
+  footer?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  indicator?: React.CSSProperties;
+  indicators?: React.CSSProperties;
+  header?: React.CSSProperties;
+  title?: React.CSSProperties;
+  description?: React.CSSProperties;
+};
+
+export type TourClassNamesType = SemanticClassNamesType<TourProps, TourSemanticClassNames>;
+
+export type TourStylesType = SemanticStylesType<TourProps, TourSemanticStyles>;
 
 export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'classNames' | 'styles'> {
   steps?: TourStepProps[];
   prefixCls?: string;
   current?: number;
+  keyboard?: boolean;
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: TourStepProps['actionsRender'];
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
@@ -57,8 +71,8 @@ export interface TourStepProps extends RCTourStepProps {
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
-  classNames?: SemanticClassNames<TourSemanticName>;
-  styles?: SemanticStyles<TourSemanticName>;
+  classNames?: TourSemanticClassNames;
+  styles?: TourSemanticStyles;
 }
 
 export interface TourLocale {
