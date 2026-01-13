@@ -54,8 +54,8 @@ function splitCNCharsBySpace(
     return cloneElement(child, (oriProps) => ({
       ...oriProps,
       children: oriProps.children.split('').join(SPACE),
-      className,
-      style,
+      className: clsx(oriProps.className, className) || undefined,
+      style: { ...oriProps.style, ...style },
     }));
   }
 
