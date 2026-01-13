@@ -106,17 +106,22 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
 
   const mermaidCode = useMermaidCode(data);
 
+  const cancelledRef = useRef<boolean>(false);
+
   useEffect(() => {
-    let isCancelled = false;
+    cancelledRef.current = false;
 
     const renderChart = async () => {
-      if (!chartRef.current || !mermaidCode) return;
+      if (!chartRef.current || !mermaidCode) {
+        return;
+      }
 
       try {
-        const mermaidModule = await import('mermaid');
-        const mermaid = mermaidModule.default;
+        const mermaid = (await import('mermaid')).default;
 
-        if (isCancelled) return;
+        if (cancelledRef.current) {
+          return;
+        }
 
         mermaid.initialize({
           startOnLoad: false,
@@ -130,18 +135,15 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
           },
         });
 
-        let mermaidChartCounter = 0;
-        mermaidChartCounter += 1;
-        const id = `mermaid-${Date.now()}-${mermaidChartCounter}`;
+        const id = `mermaid-${Date.now()}`;
 
         const { svg } = await mermaid.render(id, mermaidCode);
 
-        if (!isCancelled && chartRef.current) {
+        if (!cancelledRef.current && chartRef.current) {
           chartRef.current.innerHTML = svg;
         }
-      } catch (error) {
-        if (!isCancelled && chartRef.current) {
-          console.error('Mermaid render error:', error);
+      } catch {
+        if (!cancelledRef.current && chartRef.current) {
           chartRef.current.innerHTML = 'Render Error';
         }
       }
@@ -150,7 +152,7 @@ const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
     renderChart();
 
     return () => {
-      isCancelled = true;
+      cancelledRef.current = true;
     };
   }, [mermaidCode]);
 

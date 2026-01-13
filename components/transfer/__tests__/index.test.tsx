@@ -1094,8 +1094,8 @@ describe('immutable data', () => {
       const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>([]);
 
       const getMock = () => {
-        const tempTargetKeys = [];
-        const tempMockData = [];
+        const tempTargetKeys: React.Key[] = [];
+        const tempMockData: DefaultRecordType[] = [];
         for (let i = 0; i < 2; i++) {
           const data = {
             key: i.toString(),

@@ -61,7 +61,10 @@ export type ImageSemanticStyles = {
   cover?: React.CSSProperties;
 };
 
-type PopupSemanticClassNames = {
+export type ImagePopupSemanticName = keyof ImagePopupSemanticClassNames &
+  keyof ImagePopupSemanticStyles;
+
+export type ImagePopupSemanticClassNames = {
   root?: string;
   mask?: string;
   body?: string;
@@ -69,7 +72,7 @@ type PopupSemanticClassNames = {
   actions?: string;
 };
 
-type PopupSemanticStyles = {
+export type ImagePopupSemanticStyles = {
   root?: React.CSSProperties;
   mask?: React.CSSProperties;
   body?: React.CSSProperties;
@@ -80,13 +83,13 @@ type PopupSemanticStyles = {
 export type ImageClassNamesType = SemanticClassNamesType<
   ImageProps,
   ImageSemanticClassNames,
-  { popup?: PopupSemanticClassNames }
+  { popup?: ImagePopupSemanticClassNames }
 >;
 
 export type ImageStylesType = SemanticStylesType<
   ImageProps,
   ImageSemanticStyles,
-  { popup?: PopupSemanticStyles }
+  { popup?: ImagePopupSemanticStyles }
 >;
 
 export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {

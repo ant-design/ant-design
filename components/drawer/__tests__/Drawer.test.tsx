@@ -507,6 +507,27 @@ describe('Drawer', () => {
     expect(container.querySelector('#test')).toBeTruthy();
   });
 
+  it('focusable default config should pass to classNames', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <Drawer open getContainer={false} classNames={classNames}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: false,
+            focusTriggerAfterClose: true,
+          },
+        }),
+      }),
+    );
+  });
+
   describe('Drawer mask blur className', () => {
     const testCases: [
       mask?: MaskType,

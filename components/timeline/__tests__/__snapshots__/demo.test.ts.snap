@@ -3,7 +3,7 @@
 exports[`renders components/timeline/demo/alternate.tsx correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -217,7 +217,7 @@ exports[`renders components/timeline/demo/alternate.tsx correctly 1`] = `
 exports[`renders components/timeline/demo/basic.tsx correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -329,7 +329,7 @@ exports[`renders components/timeline/demo/basic.tsx correctly 1`] = `
 exports[`renders components/timeline/demo/component-token.tsx correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -441,7 +441,7 @@ exports[`renders components/timeline/demo/component-token.tsx correctly 1`] = `
 exports[`renders components/timeline/demo/custom.tsx correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -577,7 +577,7 @@ exports[`renders components/timeline/demo/custom.tsx correctly 1`] = `
 exports[`renders components/timeline/demo/end.tsx correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
@@ -715,7 +715,7 @@ exports[`renders components/timeline/demo/horizontal.tsx correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -828,7 +828,7 @@ exports[`renders components/timeline/demo/horizontal.tsx correctly 1`] = `
   />
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-end ant-timeline-item"
@@ -941,7 +941,7 @@ exports[`renders components/timeline/demo/horizontal.tsx correctly 1`] = `
   />
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal ant-timeline-layout-alternate css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1057,7 +1057,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -1185,7 +1185,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx correctly 1`] = `
   />
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
@@ -1313,7 +1313,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx correctly 1`] = `
   />
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal ant-timeline-layout-alternate css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -1444,7 +1444,7 @@ exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1588,7 +1588,7 @@ exports[`renders components/timeline/demo/pending-legacy.tsx correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1663,7 +1663,7 @@ exports[`renders components/timeline/demo/pending-legacy.tsx correctly 1`] = `
   </ol>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1724,7 +1724,7 @@ exports[`renders components/timeline/demo/pending-legacy.tsx correctly 1`] = `
 exports[`renders components/timeline/demo/semantic.tsx correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -1871,7 +1871,7 @@ exports[`renders components/timeline/demo/style-class.tsx correctly 1`] = `
 >
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id acss-lz3q7n"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -1966,7 +1966,7 @@ exports[`renders components/timeline/demo/style-class.tsx correctly 1`] = `
   </ol>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id acss-lz3q7n"
-    style="--steps-items-offset:0;padding:10px 6px;border:1px solid #A294F9"
+    style="--ant-cmp-steps-items-offset:0;padding:10px 6px;border:1px solid #A294F9"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -2139,7 +2139,7 @@ Array [
   </div>,
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -2277,7 +2277,7 @@ exports[`renders components/timeline/demo/title-span.tsx correctly 1`] = `
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
-    style="--steps-items-offset:0;--timeline-head-span-ptg:100px"
+    style="--ant-cmp-steps-items-offset:0;--ant-timeline-head-span-ptg:100px"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -2408,7 +2408,7 @@ exports[`renders components/timeline/demo/title-span.tsx correctly 1`] = `
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
-    style="--steps-items-offset:0;--timeline-head-span-ptg:25%"
+    style="--ant-cmp-steps-items-offset:0;--ant-timeline-head-span-ptg:25%"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-start ant-timeline-item"
@@ -2539,7 +2539,7 @@ exports[`renders components/timeline/demo/title-span.tsx correctly 1`] = `
   </h5>
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id"
-    style="--steps-items-offset:0;--timeline-head-span:18"
+    style="--ant-cmp-steps-items-offset:0;--ant-timeline-head-span:18"
   >
     <li
       class="ant-steps-item ant-steps-item-finish ant-timeline-item-placement-end ant-timeline-item"
@@ -2668,7 +2668,7 @@ exports[`renders components/timeline/demo/title-span.tsx correctly 1`] = `
 exports[`renders components/timeline/demo/variant.tsx correctly 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"

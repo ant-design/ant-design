@@ -6,18 +6,7 @@ import type {
 
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 
-export type TourSemanticName =
-  | 'root'
-  | 'cover'
-  | 'mask'
-  | 'section'
-  | 'footer'
-  | 'actions'
-  | 'indicator'
-  | 'indicators'
-  | 'header'
-  | 'title'
-  | 'description';
+export type TourSemanticName = keyof TourSemanticClassNames & keyof TourSemanticStyles;
 
 export type TourSemanticClassNames = {
   root?: string;
@@ -55,6 +44,7 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'classNames
   steps?: TourStepProps[];
   prefixCls?: string;
   current?: number;
+  keyboard?: boolean;
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: TourStepProps['actionsRender'];
   type?: 'default' | 'primary'; //	default type, affects the background color and text color

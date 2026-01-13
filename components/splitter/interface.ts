@@ -13,7 +13,7 @@ export type SplitterSemanticStyles = {
   panel?: React.CSSProperties;
 };
 
-export type DraggerSemantic = 'default' | 'active';
+export type DraggerSemantic = keyof DraggerSemanticClassNames & keyof DraggerSemanticStyles;
 
 export type DraggerSemanticClassNames = {
   default?: string;

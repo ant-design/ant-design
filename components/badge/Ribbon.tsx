@@ -11,6 +11,8 @@ import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
+export type RibbonSemanticName = keyof RibbonSemanticClassNames & keyof RibbonSemanticStyles;
+
 export type RibbonSemanticClassNames = {
   root?: string;
   content?: string;

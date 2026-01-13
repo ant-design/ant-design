@@ -88,7 +88,7 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
-export type SemanticName = keyof UploadSemanticClassNames & keyof UploadSemanticStyles;
+export type UploadSemanticName = keyof UploadSemanticClassNames & keyof UploadSemanticStyles;
 
 export type UploadSemanticClassNames = {
   root?: string;

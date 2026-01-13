@@ -96,7 +96,6 @@ const columns = [
 <code src="./demo/drag-sorting.tsx">Drag sorting</code>
 <code src="./demo/drag-column-sorting.tsx">Drag Column sorting</code>
 <code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
-<code src="./demo/resizable-column.tsx" debug>Resizable column</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
 <code src="./demo/custom-empty.tsx">Custom empty</code>
@@ -394,7 +393,7 @@ Table can not tell what state used in `columns.render`, so it always need fully 
 
 ### How to handle fixed column display over the mask layout? {#faq-fixed-column-zindex}
 
-Fixed column use `z-index` to make it over other columns. You will find sometime fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.
+Fixed column use `z-index` to make it over other columns. You will find sometimes fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.
 
 ### How to custom render Table Checkbox（For example, adding Tooltip）? {#faq-custom-checkbox-render}
 
