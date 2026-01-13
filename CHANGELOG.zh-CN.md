@@ -15,6 +15,38 @@ tag: vVERSION
 
 ---
 
+## 6.2.0
+
+`2026-01-13`
+
+- 🛠 Button、Masonry、Mentions、Select、Space、Splitter、Steps 等组件批量使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56562](https://github.com/ant-design/ant-design/pull/56562) [#56559](https://github.com/ant-design/ant-design/pull/56559) [#56557](https://github.com/ant-design/ant-design/pull/56557) [#56555](https://github.com/ant-design/ant-design/pull/56555) [#56550](https://github.com/ant-design/ant-design/pull/56550) [#56547](https://github.com/ant-design/ant-design/pull/56547) [#56546](https://github.com/ant-design/ant-design/pull/56546) [#56529](https://github.com/ant-design/ant-design/pull/56529) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 QRCode 新增 `marginSize` 属性用于展示二维码留白区。[#56569](https://github.com/ant-design/ant-design/pull/56569) [@afc163](https://github.com/afc163)
+- 🆕 Tour 新增 `keyboard` 属性以配置键盘操作。[#56581](https://github.com/ant-design/ant-design/pull/56581) [@cactuser-Lu](https://github.com/cactuser-Lu)
+- Tooltip
+  - 🆕 Tooltip 增加 `maxWidth` design token。[#56540](https://github.com/ant-design/ant-design/pull/56540) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 Tooltip/Popover/Popconfirm 默认情况下可以通过 ESC 关闭。[#56492](https://github.com/ant-design/ant-design/pull/56492) [@aojunhao123](https://github.com/aojunhao123)
+- 🛠 Steps 移除无用的样式。[#56565](https://github.com/ant-design/ant-design/pull/56565) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🆕 Form 支持 `tel` 类型校验。[#56533](https://github.com/ant-design/ant-design/pull/56533) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 修复 Badge 在使用 `text` 属性时，`ref` 无效的问题。[#56532](https://github.com/ant-design/ant-design/pull/56532) [@zombieJ](https://github.com/zombieJ)
+- 🆕 Calendar 和 DatePicker 的 `locale` 配置现在支持只填充部分内容。[#56376](https://github.com/ant-design/ant-design/pull/56376) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 ConfigProvider 配置 `theme.cssVar` 对图标无效的问题。[#56504](https://github.com/ant-design/ant-design/pull/56504) [@seanparmelee](https://github.com/seanparmelee)
+- 🐞 修复 Collapse `items` 语义化属性无效的问题。[#56517](https://github.com/ant-design/ant-design/pull/56517) [@zombieJ](https://github.com/zombieJ)
+- Modal
+  - 🆕 Modal 支持 `focusable.trap` 以配置是否将焦点锁定在 Modal 内部。[#56500](https://github.com/ant-design/ant-design/pull/56500) [@zombieJ](https://github.com/zombieJ)
+  - 🛠 移除 Modal 无用的 DOM 结构并且优化焦点捕获以防止意外的焦点逃逸到 Modal 外的情况。[#56142](https://github.com/ant-design/ant-design/pull/56142) [@zombieJ](https://github.com/zombieJ)
+- ConfigProvider
+  - 🆕 ConfigProvider 支持 `pagination` 配置 `totalBoundary` 与 `showSizeChanger` 属性。[#56475](https://github.com/ant-design/ant-design/pull/56475) [@chiaweilee](https://github.com/chiaweilee)
+  - 🆕 ConfigProvider 支持配置 Alert 全局图标。[#56241](https://github.com/ant-design/ant-design/pull/56241) [@guoyunhe](https://github.com/guoyunhe)
+- Drawer
+  - 🆕 Drawer 新增 `focusable` 以配置展开后的焦点行为，支持配置锁定焦点在框内、关闭后是否返回焦点。[#56463](https://github.com/ant-design/ant-design/pull/56463) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 修复 Drawer `size` 定义不支持 string 的问题。[#56358](https://github.com/ant-design/ant-design/pull/56358) [@ug-hero](https://github.com/ug-hero)
+- 🐞 修复 Image 嵌套在 Modal 内时，Esc无法顺序关闭。[#56386](https://github.com/ant-design/ant-design/pull/56386) [@aojunhao123](https://github.com/aojunhao123)
+- 🆕 Pagination 支持 `size` 属性。[#56009](https://github.com/ant-design/ant-design/pull/56009) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Breadcrumb 支持 `dropdownIcon` 自定义。[#56250](https://github.com/ant-design/ant-design/pull/56250) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Checkbox.Group 支持 `role` 配置。[#56126](https://github.com/ant-design/ant-design/pull/56126) [@Pareder](https://github.com/Pareder)
+- 💄 Mentions 修复不同尺寸下 `padding: undefined` 的无效样式。[#56564](https://github.com/ant-design/ant-design/pull/56564) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 修复 Select 在 `size="small"` 时，清除按钮位置对齐问题。[#56525](https://github.com/ant-design/ant-design/pull/56525) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.1.4
 
 `2026-01-05`
