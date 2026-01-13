@@ -46,7 +46,7 @@ function splitCNCharsBySpace(
     isTwoCNChar((child as React.ReactElement<{ children: string }>).props.children)
   ) {
     return cloneElement(child, (oriProps) => {
-      const mergedCls = clsx(oriProps.className, className);
+      const mergedCls = clsx(oriProps.className, className) || undefined;
       const mergedStyle: React.CSSProperties = { ...style, ...oriProps.style };
       return {
         ...oriProps,
