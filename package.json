@@ -163,7 +163,7 @@
     "@ant-design/tools": "^19.1.0",
     "@ant-design/x": "^2.1.2",
     "@ant-design/x-sdk": "^2.1.2",
-    "@antfu/eslint-config": "^6.6.1",
+    "@antfu/eslint-config": "^7.0.0",
     "@biomejs/biome": "^2.3.10",
     "@blazediff/core": "^1.7.0",
     "@codecov/webpack-plugin": "^1.9.1",
