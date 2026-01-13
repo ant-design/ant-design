@@ -448,7 +448,9 @@ function emitRawMd(api: IApi) {
         fs.mkdirSync(path.dirname(outMd), { recursive: true });
         fs.writeFileSync(outMd, content, 'utf-8');
       }
-    } catch {}
+    } catch (e) {
+      api.logger.error(`[raw-md] Failed to emit raw markdown for ${file}:`, e);
+    }
   });
 }
 
