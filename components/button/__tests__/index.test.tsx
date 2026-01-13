@@ -115,6 +115,23 @@ describe('Button', () => {
     expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
   });
 
+  it('should preserve className when rendering two Chinese characters in child element', () => {
+    const { container } = render(
+      <Button>
+        <span className="custom-class" style={{ color: 'red' }}>
+          按钮
+        </span>
+      </Button>,
+    );
+
+    const span = container.querySelector('span.custom-class');
+    expect(span).toBeTruthy();
+    expect(span).toHaveClass('custom-class');
+    expect(span).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    // Should insert space between Chinese characters
+    expect(span).toHaveTextContent('按 钮');
+  });
+
   // https://github.com/ant-design/ant-design/issues/18118
   it('should not insert space to link or text button', () => {
     const wrapper1 = render(<Button type="link">按钮</Button>);
