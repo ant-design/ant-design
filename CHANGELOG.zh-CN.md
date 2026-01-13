@@ -19,21 +19,13 @@ tag: vVERSION
 
 `2026-01-13`
 
+- 🛠 Button、Masonry、Mentions、Select、Space、Splitter、Steps 等组件批量使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56562](https://github.com/ant-design/ant-design/pull/56562) [#56559](https://github.com/ant-design/ant-design/pull/56559) [#56557](https://github.com/ant-design/ant-design/pull/56557) [#56555](https://github.com/ant-design/ant-design/pull/56555) [#56550](https://github.com/ant-design/ant-design/pull/56550) [#56547](https://github.com/ant-design/ant-design/pull/56547) [#56546](https://github.com/ant-design/ant-design/pull/56546) [#56529](https://github.com/ant-design/ant-design/pull/56529) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 QRCode 新增 `marginSize` 属性用于展示二维码留白区。[#56569](https://github.com/ant-design/ant-design/pull/56569) [@afc163](https://github.com/afc163)
 - 🆕 Tour 新增 `keyboard` 属性以配置键盘操作。[#56581](https://github.com/ant-design/ant-design/pull/56581) [@cactuser-Lu](https://github.com/cactuser-Lu)
 - Tooltip
   - 🆕 Tooltip 增加 `maxWidth` design token。[#56540](https://github.com/ant-design/ant-design/pull/56540) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 Tooltip/Popover/Popconfirm 默认情况下可以通过 ESC 关闭。[#56492](https://github.com/ant-design/ant-design/pull/56492) [@aojunhao123](https://github.com/aojunhao123)
-- Steps
-  - 🛠 Steps 移除无用的样式。[#56565](https://github.com/ant-design/ant-design/pull/56565) [@li-jia-nan](https://github.com/li-jia-nan)
-  - 🛠 Steps 内部使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56562](https://github.com/ant-design/ant-design/pull/56562) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 Select 内部使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56559](https://github.com/ant-design/ant-design/pull/56559) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 Space 内部使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56557](https://github.com/ant-design/ant-design/pull/56557) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 Mentions 内部使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56550](https://github.com/ant-design/ant-design/pull/56550) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 Splitter 内部使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56555](https://github.com/ant-design/ant-design/pull/56555) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 Masonry 内部使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56547](https://github.com/ant-design/ant-design/pull/56547) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 MISC: 组件批量使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56546](https://github.com/ant-design/ant-design/pull/56546) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 Button 内部使用 `genCssVar` 方法以生成更加稳定的 css 变量名。[#56529](https://github.com/ant-design/ant-design/pull/56529) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 Steps 移除无用的样式。[#56565](https://github.com/ant-design/ant-design/pull/56565) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🆕 Form 支持 `tel` 类型校验。[#56533](https://github.com/ant-design/ant-design/pull/56533) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 修复 Badge 在使用 `text` 属性时，`ref` 无效的问题。[#56532](https://github.com/ant-design/ant-design/pull/56532) [@zombieJ](https://github.com/zombieJ)
 - 🆕 Calendar 和 DatePicker 的 `locale` 配置现在支持只填充部分内容。[#56376](https://github.com/ant-design/ant-design/pull/56376) [@QDyanbing](https://github.com/QDyanbing)
