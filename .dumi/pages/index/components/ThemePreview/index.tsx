@@ -20,7 +20,7 @@ export default function ThemePreview() {
 
   return (
     <Group title={locale.themeTitle} description={locale.themeDesc}>
-      <ComponentsBlock config={{}} />
+      <ComponentsBlock config={{}} style={{ width: 420 }} />
     </Group>
   );
 }

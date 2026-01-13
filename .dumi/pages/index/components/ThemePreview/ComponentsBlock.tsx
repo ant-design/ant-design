@@ -1,5 +1,5 @@
 import React from 'react';
-import { AntDesignOutlined, CheckOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
+import { CheckOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import {
   Alert,
   Button,
@@ -7,16 +7,15 @@ import {
   ColorPicker,
   ConfigProvider,
   Dropdown,
-  Input,
-  message,
+  Flex,
   Modal,
   Progress,
+  Radio,
   Select,
   Slider,
   Space,
   Steps,
   Switch,
-  Tooltip,
 } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
@@ -24,8 +23,6 @@ import { createStyles } from 'antd-style';
 import useLocale from '../../../../hooks/useLocale';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalPanel } = Modal;
-const { _InternalPanelDoNotUseOrYouWillBeFired: InternalTooltip } = Tooltip;
-const { _InternalPanelDoNotUseOrYouWillBeFired: InternalMessage } = message;
 
 const locales = {
   cn: {
@@ -72,55 +69,31 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ cssVar, css }) => {
-  const gap = cssVar.padding;
+const useStyle = createStyles(({ css }) => {
   return {
-    holder: css`
-      width: 500px;
-      display: flex;
-      flex-direction: column;
-      row-gap: ${gap};
-    `,
-    flex: css`
-      display: flex;
-      flex-wrap: nowrap;
-      column-gap: ${gap};
-    `,
-    ptg_20: css`
-      flex: 0 1 20%;
-    `,
-    ptg_none: css`
-      flex: none;
-    `,
-    block: css`
-      background-color: ${cssVar.colorBgContainer};
-      padding: ${cssVar.paddingXS} ${cssVar.paddingSM};
-      border-radius: ${cssVar.borderRadius};
-      border: 1px solid ${cssVar.colorBorder};
-    `,
-    noMargin: css`
-      margin: 0;
-    `,
+    flexAuto: css({ flex: 'auto' }),
   };
 });
 interface ComponentsBlockProps {
   config: ConfigProviderProps;
+  style?: React.CSSProperties;
+  className?: string;
 }
 
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
-  const { config } = props;
+  const { config, style, className } = props;
 
   return (
     <ConfigProvider {...config}>
-      <div className={styles.holder}>
+      <Flex vertical gap="middle" style={style} className={className}>
         <ModalPanel title="Ant Design" width="100%">
           {locale.text}
         </ModalPanel>
         <Alert title={locale.infoText} type="info" />
         {/* Line */}
-        <div className={styles.flex}>
+        <Flex gap="middle">
           <ColorPicker style={{ flex: 'none' }} />
           <div style={{ flex: 'none' }}>
             <Space.Compact>
@@ -149,14 +122,16 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
               { value: 'watermelon', label: locale.watermelon },
             ]}
           />
-          <Input style={{ flex: 'none', width: 120 }} />
-        </div>
+        </Flex>
+
         <Progress
           style={{ margin: 0 }}
           percent={100}
           strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }}
         />
+
         <Progress style={{ margin: 0 }} percent={33} status="exception" />
+
         <Steps
           current={1}
           items={[
@@ -166,60 +141,47 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
           ]}
         />
         {/* Line */}
-        <div className={styles.block}>
-          <Slider
-            style={{ marginInline: 20 }}
-            range
-            marks={{
-              0: '0°C',
-              26: '26°C',
-              37: '37°C',
-              100: {
-                style: { color: '#f50' },
-                label: <strong>100°C</strong>,
-              },
-            }}
-            defaultValue={[26, 37]}
-          />
-        </div>
+        <Slider
+          style={{ marginInline: 20 }}
+          range
+          marks={{
+            0: '0°C',
+            26: '26°C',
+            37: '37°C',
+            100: {
+              style: { color: '#f50' },
+              label: <strong>100°C</strong>,
+            },
+          }}
+          defaultValue={[26, 37]}
+        />
         {/* Line */}
-        <div className={styles.flex}>
-          <Button className={styles.ptg_20} type="primary">
+        <Flex gap="middle">
+          <Button type="primary" className={styles.flexAuto}>
             {locale.primary}
           </Button>
-          <Button className={styles.ptg_20} type="primary" danger>
+          <Button type="primary" className={styles.flexAuto} danger>
             {locale.danger}
           </Button>
-          <Button className={styles.ptg_20}>{locale.default}</Button>
-          <Button className={styles.ptg_20} type="dashed">
+          <Button className={styles.flexAuto}>{locale.default}</Button>
+          <Button className={styles.flexAuto} type="dashed">
             {locale.dashed}
           </Button>
-          <Button className={styles.ptg_20} icon={<AntDesignOutlined />}>
-            {locale.icon}
-          </Button>
-        </div>
+        </Flex>
         {/* Line */}
-        <div className={styles.block}>
-          <div className={styles.flex}>
-            <Switch
-              className={styles.ptg_none}
-              defaultChecked
-              checkedChildren={<CheckOutlined />}
-              unCheckedChildren={<CloseOutlined />}
-            />
-            <Checkbox.Group
-              className={styles.ptg_none}
-              options={[locale.apple, locale.banana, locale.orange]}
-              defaultValue={[locale.apple]}
-            />
-          </div>
-        </div>
-        <div>
-          <InternalMessage content={locale.release} type="success" />
-        </div>
-        <InternalTooltip title={locale.hello} placement="topLeft" className={styles.noMargin} />
-        <Alert title="Ant Design love you!" type="success" />
-      </div>
+        <Flex gap="middle">
+          <Switch
+            defaultChecked
+            checkedChildren={<CheckOutlined />}
+            unCheckedChildren={<CloseOutlined />}
+          />
+          <Checkbox.Group
+            options={[locale.apple, locale.banana, locale.orange]}
+            defaultValue={[locale.apple]}
+          />
+          <Radio.Group defaultValue={locale.apple} options={[locale.apple, locale.banana]} />
+        </Flex>
+      </Flex>
     </ConfigProvider>
   );
 };
