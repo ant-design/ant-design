@@ -5,7 +5,7 @@
 这是 ant-design/ant-design（antd）的源代码仓库，是一个 React 组件库，发布为 npm 包 antd。
 
 - 使用 TypeScript 和 React 开发
-- 兼容 React 16 ~ 19 版本
+- 兼容 React 18 ~ 19 版本
 - 组件库设计精美，功能完善，广泛应用于企业级中后台产品
 - 遵循 Ant Design 设计规范
 - 支持国际化
@@ -174,7 +174,7 @@ ComponentRef {
 ### 动画效果
 
 - 使用 CSS 过渡实现简单动画
-- 复杂动画使用 rc-motion 实现
+- 复杂动画使用 @rc-component/motion 实现
 - 尊重用户的减少动画设置（prefers-reduced-motion）
 - 动画时长和缓动函数应保持一致性
 - 动画不应干扰用户的操作和阅读体验
@@ -294,11 +294,33 @@ export function TestComp(props) {
 - 描述用户的原始问题，而非解决方式
 - 尽量给出原始的 PR 链接，社区提交的 PR 改动加上提交者的链接
 
-### Changelog Emoji 规范
+### 🎯 核心原则
 
-- 🐞 Bug 修复
+- 有效性过滤：忽略用户无感知的改动（如文档网站改进、纯测试用例更新、内部重构、工具链优化等），除非其对开发者有直接影响。
+- 开发者视角：描述“用户的原始问题”和“对开发者的影响”，而非“具体的解决代码”。
+  - ❌ 修复 Typography 的 DOM 结构问题。
+  - ✅ Typography: 💄 重构并简化了 Typography 的 DOM 结构，修复了内容空格丢失的问题。
+- 版本与命名：
+  - 新增属性必须符合 antd API 命名规则。
+  - 新增属性建议在描述中暗示或明确声明可用版本号。
+- 双语输出：每次处理必须同时提供 **中文版** 和 **英文版**。
+
+### 🎨 格式与结构规范
+
+- 单条条目结构：`组件名称: 图标 描述内容 [#PR号](链接) [@贡献者]`。
+- 组件名\*需加粗，后接英文冒号和空格。
+- 分组逻辑：
+  - 多项改动：同一组件有 2 条及以上改动时，使用 `- 组件名` 作为分类标题（不加粗），具体条目缩进排列。
+  - 单项改动：直接编写单行条目，不设分类标题。
+- 文本细节：
+  - 代码包裹：所有属性名、方法名、API、`role`/`aria` 属性必须使用反引号 ` ` 包裹。
+  - 中英空格：中文与英文、数字、链接、`@` 用户名之间必须保留 **一个空格**。
+
+### 🏷️ Emoji 规范 (严格执行)
+
+- 🐞 修复 Bug
 - 💄 样式更新或 token 更新
-- 🆕 新增特性，新增属性
+- 🆕 新增特性 / 新增属性
 - 🔥 极其值得关注的新增特性
 - 🇺🇸🇨🇳🇬🇧 国际化改动
 - 📖 📝 文档或网站改进
@@ -308,6 +330,90 @@ export function TestComp(props) {
 - 🗑 废弃或移除
 - 🛠 重构或工具链优化
 - ⚡️ 性能提升
+
+---
+
+### 💡 输出示例参考
+
+```md
+#### 中文
+
+- 🐞 Drawer: 修复 Drawer.PurePanel 无法响应鼠标交互的问题。[#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Select: 修复 Select options 属性透传至原生 DOM 导致 React 未知属性警告的问题。[#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
+
+#### English
+
+- 🐞 Drawer: Fix Drawer.PurePanel failing to respond to mouse interactions. [#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Select: Fix Select `options` props leaking to DOM elements and causing React unknown-prop warnings. [#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
+```
+
+### 提示词
+
+```md
+### 🤖 角色定义
+
+你是一位 Ant Design 核心维护者，负责编写 `CHANGELOG.zh-CN.md` 和 `CHANGELOG.en-US.md`。你需要将原始 PR 列表转化为专业、简洁、面向开发者的发布日志。
+
+### 🎯 核心原则
+
+1. **有效性过滤**：忽略用户无感知的改动（如文档网站改进、纯测试用例更新、内部重构、工具链优化等），除非其对开发者有直接影响。
+2. **开发者视角**：描述“用户的原始问题”和“对开发者的影响”，而非“具体的解决代码”。
+
+- ❌ 修复 Typography 的 DOM 结构问题。
+- ✅ Typography: 💄 重构并简化了 Typography 的 DOM 结构，修复了内容空格丢失的问题。
+
+3. **版本与命名**：
+
+- 新增属性必须符合 antd API 命名规则。
+- 新增属性建议在描述中暗示或明确声明可用版本号。
+
+### 🎨 格式与结构规范
+
+1. **单条条目结构**：`组件名称: 图标 描述内容 [#PR号](链接) [@贡献者]`。
+
+- 组件名**无需加粗**，后接英文冒号和空格。
+
+2. **分组逻辑**：
+
+- **多项改动**：同一组件有 2 条及以上改动时，使用 `- 组件名` 作为分类标题（不加粗），具体条目缩进排列。
+- **单项改动**：直接编写单行条目，不设分类标题。
+
+3. **文本细节**：
+
+- **代码包裹**：所有属性名、方法名、API、`role`/`aria` 属性必须使用反引号 ` ` 包裹。
+- **中英空格**：中文与英文、数字、链接、`@` 用户名之间必须保留 **一个空格**。
+
+### 🏷️ Emoji 规范 (严格执行)
+
+- 🐞 修复 Bug
+- 💄 样式更新或 token 更新
+- 🆕 新增特性 / 新增属性
+- 🔥 极其值得关注的新增特性
+- 🇺🇸🇨🇳🇬🇧 国际化改动
+- 📖 📝 文档或网站改进
+- ✅ 新增或更新测试用例
+- 🛎 更新警告/提示信息
+- ⌨️ ♿ 可访问性增强
+- 🗑 废弃或移除
+- 🛠 重构或工具链优化
+- ⚡️ 性能提升
+
+---
+
+### 🏗️ 任务执行：请处理以下 PR 数据
+
+#### 💡 输出示例参考：
+
+**中文版：**
+
+- 🐞 Drawer: 修复 Drawer.PurePanel 无法响应鼠标交互的问题。[#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Select: 修复 Select options 属性透传至原生 DOM 导致 React 未知属性警告的问题。[#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
+
+**English Version:**
+
+- 🐞 Drawer: Fix Drawer.PurePanel failing to respond to mouse interactions. [#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+- 🐞 Select: Fix Select `options` props leaking to DOM elements and causing React unknown-prop warnings. [#56341](https://github.com/ant-design/ant-design/pull/56341) [@afc163](https://github.com/afc163)
+```
 
 ## Git 和 Pull Request 规范
 
@@ -422,7 +528,7 @@ export function TestComp(props) {
 
 ### 兼容性要求
 
-- 支持 React 16 ~ 19 版本
+- 支持 React 18 ~ 19 版本
 - 兼容 Chrome 80+ 浏览器
 - 支持服务端渲染
 - 保持向下兼容，避免 breaking change

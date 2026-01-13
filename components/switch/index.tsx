@@ -14,7 +14,10 @@ import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
 
 export type SwitchSize = 'small' | 'default';
+
 export type { SwitchChangeEventHandler, SwitchClickEventHandler };
+
+export type SwitchSemanticName = keyof SwitchSemanticClassNames & keyof SwitchSemanticStyles;
 
 export type SwitchSemanticClassNames = {
   root?: string;

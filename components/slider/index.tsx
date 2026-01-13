@@ -19,7 +19,7 @@ import useRafLock from './useRafLock';
 
 export type SliderMarks = RcSliderProps['marks'];
 
-export type SemanticName = keyof SliderSemanticClassNames & keyof SliderSemanticStyles;
+export type SliderSemanticName = keyof SliderSemanticClassNames & keyof SliderSemanticStyles;
 
 export type SliderSemanticClassNames = {
   root?: string;

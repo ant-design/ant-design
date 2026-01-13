@@ -32,6 +32,7 @@ import type {
   Key,
   TableLocale,
 } from '../../interface';
+import TableMeasureRowContext from '../../TableMeasureRowContext';
 import FilterSearch from './FilterSearch';
 import FilterDropdownMenuWrapper from './FilterWrapper';
 
@@ -174,6 +175,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     onFilterDropdownOpenChange,
   } = column;
   const [visible, setVisible] = React.useState(false);
+  const inMeasureRow = React.useContext(TableMeasureRowContext);
 
   const filtered: boolean = !!(
     filterState &&
@@ -549,11 +551,23 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     );
   };
 
+  const triggerNode = getDropdownTrigger();
+
+  // MeasureRow：仅渲染静态 trigger，不渲染 Dropdown 实例
+  if (inMeasureRow) {
+    return (
+      <div className={`${prefixCls}-column`}>
+        <span className={`${tablePrefixCls}-column-title`}>{children}</span>
+        {triggerNode}
+      </div>
+    );
+  }
+
   const mergedDropdownProps = extendsObject(
     {
       trigger: ['click'],
       placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
-      children: getDropdownTrigger(),
+      children: triggerNode,
       getPopupContainer,
     },
     {
