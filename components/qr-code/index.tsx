@@ -51,6 +51,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
+    marginSize,
     statusRender,
     classNames,
     styles,
@@ -114,6 +115,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     fgColor: color,
     style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    marginSize,
     boostLevel,
     ...a11yProps,
   };
