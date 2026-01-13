@@ -3,6 +3,7 @@ import { CheckOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import {
   Alert,
   Button,
+  Card,
   Checkbox,
   ColorPicker,
   ConfigProvider,
@@ -75,113 +76,116 @@ const useStyle = createStyles(({ css }) => {
   };
 });
 interface ComponentsBlockProps {
-  config: ConfigProviderProps;
+  config?: ConfigProviderProps;
   style?: React.CSSProperties;
   className?: string;
+  containerClassName?: string;
 }
 
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
-  const { config, style, className } = props;
+  const { config, style, className, containerClassName } = props;
 
   return (
     <ConfigProvider {...config}>
-      <Flex vertical gap="middle" style={style} className={className}>
-        <ModalPanel title="Ant Design" width="100%">
-          {locale.text}
-        </ModalPanel>
-        <Alert title={locale.infoText} type="info" />
-        {/* Line */}
-        <Flex gap="middle">
-          <ColorPicker style={{ flex: 'none' }} />
-          <div style={{ flex: 'none' }}>
-            <Space.Compact>
-              <Button>{locale.dropdown}</Button>
-              <Dropdown
-                menu={{
-                  items: Array.from({ length: 5 }).map((_, index) => ({
-                    key: `opt${index}`,
-                    label: `${locale.option} ${index}`,
-                  })),
-                }}
-              >
-                <Button icon={<DownOutlined />} />
-              </Dropdown>
-            </Space.Compact>
-          </div>
-          <Select
-            style={{ flex: 'auto' }}
-            mode="multiple"
-            maxTagCount="responsive"
-            defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
-            options={[
-              { value: 'apple', label: locale.apple },
-              { value: 'banana', label: locale.banana },
-              { value: 'orange', label: locale.orange },
-              { value: 'watermelon', label: locale.watermelon },
+      <Card className={containerClassName}>
+        <Flex vertical gap="middle" style={style} className={className}>
+          <ModalPanel title="Ant Design" width="100%">
+            {locale.text}
+          </ModalPanel>
+          <Alert title={locale.infoText} type="info" />
+          {/* Line */}
+          <Flex gap="middle">
+            <ColorPicker style={{ flex: 'none' }} />
+            <div style={{ flex: 'none' }}>
+              <Space.Compact>
+                <Button>{locale.dropdown}</Button>
+                <Dropdown
+                  menu={{
+                    items: Array.from({ length: 5 }).map((_, index) => ({
+                      key: `opt${index}`,
+                      label: `${locale.option} ${index}`,
+                    })),
+                  }}
+                >
+                  <Button icon={<DownOutlined />} />
+                </Dropdown>
+              </Space.Compact>
+            </div>
+            <Select
+              style={{ flex: 'auto' }}
+              mode="multiple"
+              maxTagCount="responsive"
+              defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
+              options={[
+                { value: 'apple', label: locale.apple },
+                { value: 'banana', label: locale.banana },
+                { value: 'orange', label: locale.orange },
+                { value: 'watermelon', label: locale.watermelon },
+              ]}
+            />
+          </Flex>
+
+          <Progress
+            style={{ margin: 0 }}
+            percent={100}
+            strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }}
+          />
+
+          <Progress style={{ margin: 0 }} percent={33} status="exception" />
+
+          <Steps
+            current={1}
+            items={[
+              { title: locale.finished },
+              { title: locale.inProgress },
+              { title: locale.waiting },
             ]}
           />
-        </Flex>
-
-        <Progress
-          style={{ margin: 0 }}
-          percent={100}
-          strokeColor={{ '0%': '#108ee9', '100%': '#87d068' }}
-        />
-
-        <Progress style={{ margin: 0 }} percent={33} status="exception" />
-
-        <Steps
-          current={1}
-          items={[
-            { title: locale.finished },
-            { title: locale.inProgress },
-            { title: locale.waiting },
-          ]}
-        />
-        {/* Line */}
-        <Slider
-          style={{ marginInline: 20 }}
-          range
-          marks={{
-            0: '0°C',
-            26: '26°C',
-            37: '37°C',
-            100: {
-              style: { color: '#f50' },
-              label: <strong>100°C</strong>,
-            },
-          }}
-          defaultValue={[26, 37]}
-        />
-        {/* Line */}
-        <Flex gap="middle">
-          <Button type="primary" className={styles.flexAuto}>
-            {locale.primary}
-          </Button>
-          <Button type="primary" className={styles.flexAuto} danger>
-            {locale.danger}
-          </Button>
-          <Button className={styles.flexAuto}>{locale.default}</Button>
-          <Button className={styles.flexAuto} type="dashed">
-            {locale.dashed}
-          </Button>
-        </Flex>
-        {/* Line */}
-        <Flex gap="middle">
-          <Switch
-            defaultChecked
-            checkedChildren={<CheckOutlined />}
-            unCheckedChildren={<CloseOutlined />}
+          {/* Line */}
+          <Slider
+            style={{ marginInline: 20 }}
+            range
+            marks={{
+              0: '0°C',
+              26: '26°C',
+              37: '37°C',
+              100: {
+                style: { color: '#f50' },
+                label: <strong>100°C</strong>,
+              },
+            }}
+            defaultValue={[26, 37]}
           />
-          <Checkbox.Group
-            options={[locale.apple, locale.banana, locale.orange]}
-            defaultValue={[locale.apple]}
-          />
-          <Radio.Group defaultValue={locale.apple} options={[locale.apple, locale.banana]} />
+          {/* Line */}
+          <Flex gap="middle">
+            <Button type="primary" className={styles.flexAuto}>
+              {locale.primary}
+            </Button>
+            <Button type="primary" className={styles.flexAuto} danger>
+              {locale.danger}
+            </Button>
+            <Button className={styles.flexAuto}>{locale.default}</Button>
+            <Button className={styles.flexAuto} type="dashed">
+              {locale.dashed}
+            </Button>
+          </Flex>
+          {/* Line */}
+          <Flex gap="middle">
+            <Switch
+              defaultChecked
+              checkedChildren={<CheckOutlined />}
+              unCheckedChildren={<CloseOutlined />}
+            />
+            <Checkbox.Group
+              options={[locale.apple, locale.banana, locale.orange]}
+              defaultValue={[locale.apple]}
+            />
+            <Radio.Group defaultValue={locale.apple} options={[locale.apple, locale.banana]} />
+          </Flex>
         </Flex>
-      </Flex>
+      </Card>
     </ConfigProvider>
   );
 };

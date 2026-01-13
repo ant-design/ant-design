@@ -122,9 +122,11 @@ export default function ThemePreview() {
             </div>
           ))}
         </div>
-        <div className={styles.componentsBlockContainer}>
-          <ComponentsBlock config={{}} className={styles.componentsBlock} />
-        </div>
+        <ComponentsBlock
+          config={previewThemes[activeIndex].props}
+          className={styles.componentsBlock}
+          containerClassName={styles.componentsBlockContainer}
+        />
       </Flex>
     </Group>
   );

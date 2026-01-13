@@ -1,9 +1,12 @@
 import React from 'react';
+import type { ConfigProviderProps } from 'antd';
+import { theme } from 'antd';
 
 import useLocale from '../../../../hooks/useLocale';
 
 type PreviewThemeConfig = {
   name: string;
+  props?: ConfigProviderProps;
 };
 
 const locales = {
@@ -27,6 +30,11 @@ export default function usePreviewThemes() {
       },
       {
         name: locale.dark,
+        props: {
+          theme: {
+            algorithm: theme.darkAlgorithm,
+          },
+        },
       },
     ];
   }, [locale]);
