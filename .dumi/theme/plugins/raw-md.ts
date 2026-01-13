@@ -72,6 +72,40 @@ function clearPrettierIgnore(md: string) {
 }
 
 /**
+ * 替换 markdown 中的 "Semantic DOM" 部分的 code 标签为指向生成的 semantic.md 文件的链接
+ *
+ * @param md - 原始 markdown 内容
+ * @param docFileAbs - 文档文件的绝对路径，用于生成链接路径
+ * @returns 替换后的 markdown 内容
+ */
+function replaceSemanticDomSection(md: string, docFileAbs: string) {
+  // 从文档路径推断组件路径（用于生成链接）
+  // 例如：components/card/index.en-US.md -> components/card/semantic.md
+  const componentPathMatch = docFileAbs.match(/components\/([^/]+)\//);
+  if (!componentPathMatch) return md;
+
+  const componentName = componentPathMatch[1];
+  const isZhCN = /-cn\.md$/i.test(docFileAbs) || /\.zh-CN\.md$/i.test(docFileAbs);
+  const componentPath = `components/${componentName}${isZhCN ? '-cn' : ''}`;
+
+  // 匹配 <code src="./demo/_semantic*.tsx"> 标签并替换为 URL 地址
+  return md.replace(/<code[^>]*_semantic[^>]*>.*?<\/code>/g, (match) => {
+    // 从匹配的标签中提取文件名
+    const demoIndex = match.indexOf('./demo/');
+    if (demoIndex === -1) return match;
+    const start = demoIndex + './demo/'.length;
+    const end = match.indexOf('"', start);
+    if (end === -1) return match;
+    const semanticFile = match.substring(start, end);
+    // 生成对应的 semantic.md 文件名：_semantic.tsx -> semantic.md, _semantic_meta.tsx -> semantic_meta.md
+    const semanticMdFileName = semanticFile
+      .replace(/^_semantic/, 'semantic')
+      .replace(/\.tsx$/, '.md');
+    return `https://ant.design/${componentPath}/${semanticMdFileName}`;
+  });
+}
+
+/**
  * 从属性字符串中提取指定属性值
  *
  * @param attrs - 属性字符串
@@ -400,11 +434,13 @@ function emitRawMd(api: IApi) {
 
       let content = fs.readFileSync(file, 'utf-8');
       // 处理步骤：
-      // 1. 清除 prettier-ignore 注释
+      // 1. 替换 Semantic DOM 部分为指向生成的 semantic.md 文件的链接
+      content = replaceSemanticDomSection(content, file);
+      // 2. 清除 prettier-ignore 注释
       content = clearPrettierIgnore(content);
-      // 2. 替换 <code src> 标签为完整的代码块
+      // 3. 替换 <code src> 标签为完整的代码块
       content = replaceCodeSrcToMarkdown(content, file);
-      // 3. 替换 <ComponentTokenTable /> 组件为 markdown 表格
+      // 4. 替换 <ComponentTokenTable /> 组件为 markdown 表格
       content = replaceComponentTokenTable(content, file, api);
 
       const outMd = path.join(outRoot, `${relPath}.md`);
