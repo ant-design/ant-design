@@ -81,7 +81,10 @@ const App: React.FC = () => {
       prefix="prefix"
       style={{ width: 200 }}
       options={options}
-      multipleProps={{ multiple: true }}
+      multipleProps={{
+        multiple: true,
+        defaultValue: [['contributors', 'thinkasany']],
+      }}
     />
   );
 };
