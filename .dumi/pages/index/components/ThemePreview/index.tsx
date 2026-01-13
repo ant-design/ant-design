@@ -89,18 +89,19 @@ const useStyles = createStyles(({ css, cssVar }) => ({
 export default function ThemePreview() {
   const [locale] = useLocale(locales);
   const { styles } = useStyles();
-  const [activeIndex, setActiveIndex] = React.useState(0);
 
   const previewThemes = usePreviewThemes();
 
-  const handleThemeClick = (index: number) => {
-    setActiveIndex(index);
+  const [activeName, setActiveName] = React.useState(previewThemes[2].name);
+
+  const handleThemeClick = (name: string) => {
+    setActiveName(name);
   };
 
-  const handleKeyDown = (event: React.KeyboardEvent, index: number) => {
+  const handleKeyDown = (event: React.KeyboardEvent, name: string) => {
     if (event.key === 'Enter' || event.key === ' ') {
       event.preventDefault();
-      handleThemeClick(index);
+      handleThemeClick(name);
     }
   };
 
@@ -108,22 +109,22 @@ export default function ThemePreview() {
     <Group title={locale.themeTitle} description={locale.themeDesc}>
       <Flex className={styles.container} gap="large">
         <div className={styles.list} role="tablist" aria-label="Theme selection">
-          {previewThemes.map((theme, index) => (
+          {previewThemes.map((theme) => (
             <div
-              className={clsx(styles.listItem, activeIndex === index && 'active')}
+              className={clsx(styles.listItem, activeName === theme.name && 'active')}
               key={theme.name}
               role="tab"
-              tabIndex={activeIndex === index ? 0 : -1}
-              aria-selected={activeIndex === index}
-              onClick={() => handleThemeClick(index)}
-              onKeyDown={(event) => handleKeyDown(event, index)}
+              tabIndex={activeName === theme.name ? 0 : -1}
+              aria-selected={activeName === theme.name}
+              onClick={() => handleThemeClick(theme.name)}
+              onKeyDown={(event) => handleKeyDown(event, theme.name)}
             >
               {theme.name}
             </div>
           ))}
         </div>
         <ComponentsBlock
-          config={previewThemes[activeIndex].props}
+          config={previewThemes.find((theme) => theme.name === activeName)?.props}
           className={styles.componentsBlock}
           containerClassName={styles.componentsBlockContainer}
         />
