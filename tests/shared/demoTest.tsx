@@ -158,7 +158,7 @@ export function semanticDemoTest(component: string, options: Options = {}) {
         ? test.skip
         : test;
 
-    testMethod(`renders ${file} correctly`, () => {
+    testMethod(`renders ${file} correctly`, async () => {
       resetWarned();
 
       const errSpy = excludeWarning();
@@ -178,6 +178,27 @@ export function semanticDemoTest(component: string, options: Options = {}) {
 
       // Use render to get container with semantic classes
       const { container } = render(Demo);
+
+      // Check if there's a "Multiple" button and click it to include multiple mode in snapshot
+      const { fireEvent, act } = require('../utils');
+      const multipleButton = container.querySelector('[title="Multiple"]');
+
+      if (multipleButton) {
+        await act(async () => {
+          fireEvent.click(multipleButton);
+          jest.advanceTimersByTime(100);
+        });
+      }
+
+      // Check if there's an "inline" button (for Menu component) and click it
+      const inlineButton = container.querySelector('[title="inline"]');
+      if (inlineButton) {
+        await act(async () => {
+          fireEvent.click(inlineButton);
+          jest.advanceTimersByTime(100);
+        });
+      }
+
       expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
 
       jest.clearAllTimers();
