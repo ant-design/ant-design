@@ -119,7 +119,7 @@ describe('Button', () => {
   it('should preserve className when rendering two Chinese characters in child element', () => {
     const { container } = render(
       <Button>
-        <span className="custom-class" style={{ color: 'red' }}>
+        <span className="custom-class" style={{ color: 'rgb(255, 0, 0)' }}>
           按钮
         </span>
       </Button>,
