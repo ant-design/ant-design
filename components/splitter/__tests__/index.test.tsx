@@ -14,6 +14,7 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
+import SplitBar from '../SplitBar';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
@@ -172,6 +173,49 @@ describe('Splitter', () => {
 
       expect(onInnerDoubleClick).toHaveBeenCalled();
       expect(onOuterDoubleClick).not.toHaveBeenCalled();
+    });
+
+    it('should prevent drag start (return early) when mouse down happens within 300ms', () => {
+      const onOffsetStart = jest.fn();
+
+      const { container } = render(
+        <SplitBar
+          index={0}
+          active={false}
+          prefixCls="ant-splitter"
+          rootPrefixCls="ant"
+          resizable
+          vertical={false}
+          startCollapsible
+          endCollapsible
+          showStartCollapsibleIcon
+          showEndCollapsibleIcon
+          containerSize={500}
+          ariaNow={50}
+          ariaMin={0}
+          ariaMax={100}
+          onOffsetStart={onOffsetStart}
+          onOffsetUpdate={jest.fn()}
+          onOffsetEnd={jest.fn()}
+          onCollapse={jest.fn()}
+        />,
+      );
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      fireEvent.mouseDown(dragger);
+
+      expect(onOffsetStart).toHaveBeenCalledTimes(1);
+
+      fireEvent.mouseUp(dragger);
+
+      act(() => {
+        jest.advanceTimersByTime(200);
+      });
+
+      fireEvent.mouseDown(dragger);
+
+      expect(onOffsetStart).toHaveBeenCalledTimes(1);
     });
   });
 
