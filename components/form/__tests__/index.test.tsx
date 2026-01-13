@@ -1604,7 +1604,7 @@ describe('Form', () => {
     it('TooltipProps', async () => {
       const { container } = render(
         <Form>
-          <Form.Item label="light" tooltip={{ title: 'Bamboo' } as any}>
+          <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
             <Input />
           </Form.Item>
         </Form>,
@@ -1621,7 +1621,7 @@ describe('Form', () => {
       const { container } = render(
         <ConfigProvider form={{ tooltip: { icon: <span className="foobar">Foobar</span> } }}>
           <Form>
-            <Form.Item label="light" tooltip={{ title: 'Bamboo' } as any}>
+            <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
               <Input />
             </Form.Item>
           </Form>
