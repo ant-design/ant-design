@@ -11,6 +11,7 @@ interface BubbleProps {
   color: string;
   offsetXMultiple?: number;
   offsetYMultiple?: number;
+  defaultOpacity?: number;
 }
 
 const MAX_OFFSET = 200;
@@ -22,9 +23,10 @@ const Bubble = ({
   color,
   offsetXMultiple = 1,
   offsetYMultiple = 1,
+  defaultOpacity = 0.1,
 }: BubbleProps) => {
   const [offset, setOffset] = useState([0, 0]);
-  const [opacity, setOpacity] = useState(0.1);
+  const [opacity, setOpacity] = useState(defaultOpacity);
   const [sizeOffset, setSizeOffset] = useState(1);
 
   const isDark = React.use(DarkContext);
@@ -34,7 +36,7 @@ const Bubble = ({
     const baseOffsetY = (Math.random() - 0.5) * MAX_OFFSET * 2 * offsetYMultiple;
     setOffset([baseOffsetX, baseOffsetY]);
 
-    setOpacity(isDark ? 0.1 + Math.random() * 0.2 : 0.05 + Math.random() * 0.05);
+    setOpacity(isDark ? 0.1 + Math.random() * 0.2 : 0.1 + Math.random() * 0.05);
     setSizeOffset(1 + Math.random() * 1);
   });
 
@@ -89,11 +91,25 @@ export default function LuminousBg({ className }: LuminousBgProps) {
   return (
     <div className={cx(styles.container, className)}>
       {/* Left + Top */}
-      <Bubble size={300} color="#ee35f1" left="0vw" top="0vh" offsetXMultiple={2} />
+      <Bubble
+        size={300}
+        color="#ee35f1"
+        left="0vw"
+        top="0vh"
+        offsetXMultiple={2}
+        defaultOpacity={0.2}
+      />
       {/* Left + Bottom */}
-      <Bubble size={300} color="#5939dc" left="30vw" top="80vh" />
+      <Bubble size={300} color="#5939dc" left="30vw" top="80vh" defaultOpacity={0.1} />
       {/* Right + Middle */}
-      <Bubble size={300} color="#00D6FF" left="100vw" top="50vh" offsetYMultiple={2} />
+      <Bubble
+        size={300}
+        color="#00D6FF"
+        left="100vw"
+        top="50vh"
+        offsetYMultiple={2}
+        defaultOpacity={0.2}
+      />
     </div>
   );
 }
