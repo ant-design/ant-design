@@ -94,7 +94,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     const timeGap = currentTime - lastClickTimeRef.current;
 
     if (timeGap > 0 && timeGap < DOUBLE_CLICK_TIME_GAP) {
-      onDraggerDoubleClick?.(index);
+      // Prevent drag start if it's a double-click action
       return;
     }
 
@@ -269,6 +269,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         )}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
+        onDoubleClick={() => onDraggerDoubleClick?.(index)}
       >
         {draggerIcon !== undefined ? (
           <div className={clsx(`${splitBarPrefixCls}-dragger-icon`)}>{draggerIcon}</div>

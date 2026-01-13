@@ -89,7 +89,7 @@ describe('Splitter', () => {
       );
       const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
 
-      fireEvent.mouseDown(dragger);
+      fireEvent.doubleClick(dragger);
 
       act(() => {
         jest.advanceTimersByTime(200);
@@ -109,12 +109,16 @@ describe('Splitter', () => {
       const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
 
       fireEvent.mouseDown(dragger);
+      fireEvent.mouseUp(dragger);
+      fireEvent.click(dragger);
 
       act(() => {
         jest.advanceTimersByTime(400);
       });
 
       fireEvent.mouseDown(dragger);
+      fireEvent.mouseUp(dragger);
+      fireEvent.click(dragger);
 
       expect(onDraggerDoubleClick).not.toHaveBeenCalled();
     });
@@ -128,13 +132,13 @@ describe('Splitter', () => {
       const draggers = container.querySelectorAll('.ant-splitter-bar-dragger');
       const secondDragger = draggers[1];
 
-      fireEvent.mouseDown(secondDragger);
+      fireEvent.doubleClick(secondDragger);
 
       act(() => {
         jest.advanceTimersByTime(100);
       });
 
-      fireEvent.mouseDown(secondDragger);
+      fireEvent.doubleClick(secondDragger);
 
       expect(onDraggerDoubleClick).toHaveBeenCalledWith(1);
     });
@@ -160,11 +164,11 @@ describe('Splitter', () => {
       const innerWrapper = getByTestId('inner-wrapper');
       const innerDragger = innerWrapper.querySelector('.ant-splitter-bar-dragger')!;
 
-      fireEvent.mouseDown(innerDragger);
+      fireEvent.doubleClick(innerDragger);
       act(() => {
         jest.advanceTimersByTime(100);
       });
-      fireEvent.mouseDown(innerDragger);
+      fireEvent.doubleClick(innerDragger);
 
       expect(onInnerDoubleClick).toHaveBeenCalled();
       expect(onOuterDoubleClick).not.toHaveBeenCalled();
