@@ -2051,6 +2051,7 @@ exports[`renders components/cascader/demo/placement.tsx extend context correctly
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
