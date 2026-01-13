@@ -298,8 +298,7 @@ export type FormConfig = ComponentStyleConfig &
     | 'variant'
     | 'classNames'
     | 'styles'
-    | 'tooltipIcon'
-    | 'tooltipProps'
+    | 'tooltip'
   >;
 
 export type FloatButtonConfig = ComponentStyleConfig &

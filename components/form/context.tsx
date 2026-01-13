@@ -7,7 +7,6 @@ import { omit } from '@rc-component/util';
 
 import type { Variant } from '../config-provider';
 import type { ColProps } from '../grid/col';
-import type { TooltipProps } from '../tooltip';
 import type {
   FormInstance,
   FormLayout,
@@ -16,6 +15,7 @@ import type {
   RequiredMark,
 } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
+import type { FormTooltipProps } from './FormItemLabel';
 import type { FormLabelAlign, NamePath } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
@@ -33,8 +33,7 @@ export interface FormContextProps {
   itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
   form?: FormInstance;
   feedbackIcons?: FeedbackIcons;
-  tooltipIcon?: React.ReactNode;
-  tooltipProps?: TooltipProps;
+  tooltip?: FormTooltipProps;
 }
 
 export const FormContext = React.createContext<FormContextProps>({

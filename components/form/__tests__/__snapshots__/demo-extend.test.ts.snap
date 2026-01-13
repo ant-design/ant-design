@@ -12722,7 +12722,6 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
   >
     <div
       class="ant-row ant-form-item-row css-var-test-id"
-      tooltipicon="[object Object]"
     >
       <div
         class="ant-col ant-form-item-label css-var-test-id"
@@ -12839,11 +12838,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
 </form>
 `;
 
-exports[`renders components/form/demo/required-mark.tsx extend context correctly 2`] = `
-[
-  "React does not recognize the \`%s\` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase \`%s\` instead. If you accidentally passed it from a parent component, remove it from the DOM element.",
-]
-`;
+exports[`renders components/form/demo/required-mark.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
 <form

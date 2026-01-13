@@ -41,8 +41,7 @@ const App: React.FC = () => {
       </Form.Item>
       <Form.Item
         label="Field B"
-        tooltip="Tooltip with customize icon"
-        tooltipIcon={<InfoCircleOutlined />}
+        tooltip={{ title: 'Tooltip with customize icon', icon: <InfoCircleOutlined /> }}
       >
         <Input placeholder="input placeholder" />
       </Form.Item>

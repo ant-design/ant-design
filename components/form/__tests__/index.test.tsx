@@ -1601,7 +1601,7 @@ describe('Form', () => {
       expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
 
-    it('TooltipProps (deprecated)', async () => {
+    it('TooltipProps', async () => {
       const { container } = render(
         <Form>
           <Form.Item label="light" tooltip={{ title: 'Bamboo' } as any}>
@@ -1612,6 +1612,24 @@ describe('Form', () => {
 
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
       fireEvent.click(container.querySelector('.anticon-question-circle')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
+    });
+
+    it('ConfigProvider', async () => {
+      const { container } = render(
+        <ConfigProvider form={{ tooltip: { icon: <span className="foobar">Foobar</span> } }}>
+          <Form>
+            <Form.Item label="light" tooltip={{ title: 'Bamboo' } as any}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.foobar')!);
+      fireEvent.click(container.querySelector('.foobar')!);
       await waitFakeTimer();
 
       expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
