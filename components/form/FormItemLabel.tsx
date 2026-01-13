@@ -12,6 +12,7 @@ import type { FormContextProps } from './context';
 import { FormContext } from './context';
 import type { RequiredMark } from './Form';
 import type { FormLabelAlign } from './interface';
+import convertToTooltipProps from '../_util/convertToTooltipProps';
 
 export type FormTooltipProps = TooltipProps & {
   icon?: React.ReactElement;
@@ -86,13 +87,10 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
     labelChildren = label.replace(/[:|：]\s*$/, '');
   }
 
-  if (tooltip) {
-    const mergedTooltipProps =
-      typeof tooltip === 'object' && !React.isValidElement(tooltip)
-        ? { ...contextTooltip, ...(tooltip as FormTooltipProps) }
-        : { ...contextTooltip, title: tooltip };
+  const tooltipProps = convertToTooltipProps<FormTooltipProps>(tooltip, contextTooltip);
+  if (tooltipProps) {
     const tooltipNode: React.ReactNode = (
-      <Tooltip {...mergedTooltipProps}>
+      <Tooltip {...tooltipProps}>
         <span
           className={`${prefixCls}-item-tooltip`}
           onClick={(e: React.MouseEvent) => {
@@ -100,7 +98,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
           }}
           tabIndex={-1}
         >
-          {mergedTooltipProps.icon || mergedTooltipProps.children || <QuestionCircleOutlined />}
+          {tooltipProps.icon || tooltipProps.children || <QuestionCircleOutlined />}
         </span>
       </Tooltip>
     );
