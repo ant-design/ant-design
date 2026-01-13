@@ -209,9 +209,7 @@ exports[`Button renders Chinese characters correctly 7`] = `
   class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
   type="button"
 >
-  <span
-    class=""
-  >
+  <span>
     按 钮
   </span>
 </button>
