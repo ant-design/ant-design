@@ -80,6 +80,10 @@ const Block: React.FC<BlockProps<any>> = (props) => {
 };
 
 export interface PickerSemanticTemplateProps<P> {
+  locales: {
+    cn: Record<string, string>;
+    en: Record<string, string>;
+  };
   singleComponent: [string, React.ComponentType<P>];
   multipleComponent: [string, React.ComponentType<P>];
   ignoreSemantics?: string[];
@@ -88,7 +92,7 @@ export interface PickerSemanticTemplateProps<P> {
 export const PickerSemanticTemplate: React.FC<Readonly<PickerSemanticTemplateProps<any>>> = (
   props,
 ) => {
-  const { singleComponent, multipleComponent, ignoreSemantics = [] } = props;
+  const { locales, singleComponent, multipleComponent, ignoreSemantics = [] } = props;
 
   const [type, setType] = React.useState<'Single' | 'Multiple'>('Single');
   const [locale] = useLocale(locales);
@@ -123,6 +127,7 @@ export const PickerSemanticTemplate: React.FC<Readonly<PickerSemanticTemplatePro
 const App: React.FC = () => {
   return (
     <PickerSemanticTemplate
+      locales={locales}
       singleComponent={['DatePicker', DatePicker]}
       multipleComponent={['DatePicker.RangePicker', DatePicker.RangePicker]}
     />
