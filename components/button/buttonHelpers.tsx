@@ -28,7 +28,7 @@ export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
 }
 
 function splitCNCharsBySpace(
-  child: React.ReactElement | string | number,
+  child: React.ReactElement<any> | string | number,
   needInserted: boolean,
   style?: React.CSSProperties,
   className?: string,
@@ -43,20 +43,18 @@ function splitCNCharsBySpace(
     typeof child !== 'string' &&
     typeof child !== 'number' &&
     isString(child.type) &&
-    isTwoCNChar(
-      (
-        child as React.ReactElement<{
-          children: string;
-        }>
-      ).props.children,
-    )
+    isTwoCNChar((child as React.ReactElement<{ children: string }>).props.children)
   ) {
-    return cloneElement(child, (oriProps) => ({
-      ...oriProps,
-      children: oriProps.children.split('').join(SPACE),
-      className: clsx(oriProps.className, className) || undefined,
-      style: { ...oriProps.style, ...style },
-    }));
+    return cloneElement(child, (oriProps) => {
+      const mergedCls = clsx(oriProps.className, className) || undefined;
+      const mergedStyle: React.CSSProperties = { ...style, ...oriProps.style };
+      return {
+        ...oriProps,
+        children: oriProps.children.split('').join(SPACE),
+        className: mergedCls,
+        style: mergedStyle,
+      };
+    });
   }
 
   if (isString(child)) {
