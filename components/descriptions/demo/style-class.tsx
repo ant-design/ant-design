@@ -4,7 +4,9 @@ import type { DescriptionsProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`padding: 10px;`,
+  root: css`
+    padding: 10px;
+  `,
 }));
 
 const items: DescriptionsProps['items'] = [

@@ -4,8 +4,15 @@ import type { MenuProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`border: 1px solid #f0f0f0; max-width: 600px; padding: 8px; border-radius: 4px;`,
-  item: css`color: #1677ff;`,
+  root: css`
+    border: 1px solid #f0f0f0;
+    max-width: 600px;
+    padding: 8px;
+    border-radius: 4px;
+  `,
+  item: css`
+    color: #1677ff;
+  `,
 }));
 
 const items: Required<MenuProps>['items'] = [

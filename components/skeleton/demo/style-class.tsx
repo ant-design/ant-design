@@ -4,8 +4,13 @@ import type { SkeletonProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classnames = createStaticStyles(({ css }) => ({
-  root: css`border-radius: 10px; padding: 12px;`,
-  header: css`margin-bottom: 12px;`,
+  root: css`
+    border-radius: 10px;
+    padding: 12px;
+  `,
+  header: css`
+    margin-bottom: 12px;
+  `,
 }));
 
 const paragraphStyles = createStaticStyles(({ css }) => ({

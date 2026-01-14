@@ -4,7 +4,9 @@ import type { MessageArgsProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const messageClassNames = createStaticStyles(({ css }) => ({
-  icon: css`font-size: 14px;`,
+  icon: css`
+    font-size: 14px;
+  `,
 }));
 
 const stylesObject: MessageArgsProps['styles'] = {

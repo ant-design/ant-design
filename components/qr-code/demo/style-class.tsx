@@ -4,7 +4,11 @@ import type { QRCodeProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`border: 1px solid #ccc; border-radius: 8px; padding: 16px;`,
+  root: css`
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+  `,
 }));
 
 const stylesObject: QRCodeProps['styles'] = {

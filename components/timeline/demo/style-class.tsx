@@ -4,7 +4,10 @@ import type { TimelineProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`padding: 8px; border-radius: 4px;`,
+  root: css`
+    padding: 8px;
+    border-radius: 4px;
+  `,
 }));
 
 const styles: TimelineProps['styles'] = {

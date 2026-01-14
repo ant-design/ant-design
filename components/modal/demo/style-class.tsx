@@ -23,7 +23,10 @@ const sharedContent = (
 );
 
 const classNames = createStaticStyles(({ css }) => ({
-  container: css`border-radius: 10px; padding: 10px;`,
+  container: css`
+    border-radius: 10px;
+    padding: 10px;
+  `,
 }));
 
 const styles: ModalProps['styles'] = {

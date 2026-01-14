@@ -4,7 +4,9 @@ import type { TooltipProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  container: css`padding: 10px;`,
+  container: css`
+    padding: 10px;
+  `,
 }));
 
 const styles: TooltipProps['styles'] = {

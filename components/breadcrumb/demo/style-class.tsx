@@ -4,9 +4,16 @@ import type { BreadcrumbProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`padding: 8px; border-radius: 4px;`,
-  item: css`color: #1890ff;`,
-  separator: css`color: rgba(0, 0, 0, 0.45);`,
+  root: css`
+    padding: 8px;
+    border-radius: 4px;
+  `,
+  item: css`
+    color: #1890ff;
+  `,
+  separator: css`
+    color: rgba(0, 0, 0, 0.45);
+  `,
 }));
 
 const styles: BreadcrumbProps['styles'] = {

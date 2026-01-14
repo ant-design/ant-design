@@ -6,8 +6,20 @@ import type { MasonryItemType } from 'antd/es/masonry/MasonryItem';
 const { Title } = Typography;
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`border: 1px solid #d9d9d9; border-radius: 8px; padding: 16px; height: 260px; background-color: #fafafa;`,
-  item: css`transform: scale(0.98); transition: transform 0.2s ease; border-radius: 12px; border: 1px solid #ccc; overflow: hidden;`,
+  root: css`
+    border: 1px solid #d9d9d9;
+    border-radius: 8px;
+    padding: 16px;
+    height: 260px;
+    background-color: #fafafa;
+  `,
+  item: css`
+    transform: scale(0.98);
+    transition: transform 0.2s ease;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+  `,
 }));
 
 const items = [120, 80, 100, 60, 140, 90, 110, 70].map<MasonryItemType<number>>(

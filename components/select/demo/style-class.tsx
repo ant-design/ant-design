@@ -5,7 +5,10 @@ import type { SelectProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`border-radius: 8px; width: 300px;`,
+  root: css`
+    border-radius: 8px;
+    width: 300px;
+  `,
 }));
 
 const options: SelectProps['options'] = [

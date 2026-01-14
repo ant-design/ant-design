@@ -4,7 +4,11 @@ import type { ImageProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`padding: 4px; border-radius: 8px; overflow: hidden;`,
+  root: css`
+    padding: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+  `,
 }));
 
 const styles: ImageProps['styles'] = {

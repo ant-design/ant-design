@@ -5,11 +5,17 @@ import { createStaticStyles } from 'antd-style';
 import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
 const badgeClassNames = createStaticStyles(({ css }) => ({
-  indicator: css`font-size: 10px;`,
+  indicator: css`
+   font-size: 10px;
+  `,
 }));
 
 const ribbonClassNames = createStaticStyles(({ css }) => ({
-  root: css`width: 400px; border: 1px solid #d9d9d9; border-radius: 10px;`,
+  root: css`
+    width: 400px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+  `,
 }));
 
 const badgeStyles: BadgeProps['styles'] = {

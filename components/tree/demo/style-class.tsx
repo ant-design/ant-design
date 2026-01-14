@@ -4,9 +4,16 @@ import type { TreeProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`padding: 8px; border-radius: 4px;`,
-  item: css`border-radius: 2px;`,
-  itemTitle: css`font-size: 14px;`,
+  root: css`
+    padding: 8px;
+    border-radius: 4px;
+  `,
+  item: css`
+    border-radius: 2px;
+  `,
+  itemTitle: css`
+    font-size: 14px;
+  `,
 }));
 
 const treeData: TreeProps['treeData'] = [

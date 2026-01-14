@@ -4,7 +4,12 @@ import type { TabsProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`border-width: 2px; border-style: dashed; padding: 16px; margin-bottom: 10px;`,
+  root: css`
+    border-width: 2px;
+    border-style: dashed;
+    padding: 16px;
+    margin-bottom: 10px;
+  `,
 }));
 
 const stylesObject: TabsProps['styles'] = {

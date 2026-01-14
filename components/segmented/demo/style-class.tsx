@@ -5,7 +5,9 @@ import type { SegmentedProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`padding: 2px;`,
+  root: css`
+    padding: 2px;
+  `,
 }));
 
 const styleFn: SegmentedProps['styles'] = (info) => {

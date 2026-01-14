@@ -5,7 +5,11 @@ import { createStaticStyles } from 'antd-style';
 import type { CollapseProps } from '..';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`background-color: #fafafa; border: 1px solid #e0e0e0; border-radius: 8px;`,
+  root: css`
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+  `,
 }));
 
 const element = (

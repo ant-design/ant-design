@@ -7,7 +7,10 @@ import { createStaticStyles } from 'antd-style';
 type CheckableTagGroupProps = GetProps<typeof Tag.CheckableTagGroup>;
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`padding: 2px 6px; border-radius: 4px;`,
+  root: css`
+    padding: 2px 6px;
+    border-radius: 4px;
+  `,
 }));
 
 const styles: TagProps['styles'] = {

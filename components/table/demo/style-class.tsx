@@ -4,7 +4,11 @@ import type { TableProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`color: #e0e0e0; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);`,
+  root: css`
+    color: #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  `,
 }));
 
 interface DataType {
