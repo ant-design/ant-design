@@ -72,6 +72,13 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     font-weight: 600;
     font-size: 20px;
     margin: 0 !important;
+    border: none !important;
+    outline: none !important;
+    &:hover,
+    &:focus {
+      border: none !important;
+      outline: none !important;
+    }
   `,
   versionTag: css`
     user-select: none;
