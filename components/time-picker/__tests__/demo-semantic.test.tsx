@@ -1,3 +1,3 @@
-import { semanticDemoTest } from '../../../tests/shared/demoTest';
+import { createPostFn, semanticDemoTest } from '../../../tests/shared/demoTest';
 
-semanticDemoTest('time-picker');
+semanticDemoTest('time-picker', { postRenderFn: createPostFn(['Multiple']) });

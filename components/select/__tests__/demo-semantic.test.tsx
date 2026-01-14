@@ -1,3 +1,3 @@
-import { semanticDemoTest } from '../../../tests/shared/demoTest';
+import { createPostFn, semanticDemoTest } from '../../../tests/shared/demoTest';
 
-semanticDemoTest('select');
+semanticDemoTest('select', { postRenderFn: createPostFn(['Multiple']) });

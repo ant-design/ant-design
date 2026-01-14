@@ -24,6 +24,11 @@ export type Options = {
    * Not check component `displayName`, check path only
    */
   nameCheckPathOnly?: boolean;
+  /**
+   * Post-render function for semantic demo test
+   * Called after rendering and before snapshot
+   */
+  postRenderFn?: (container: HTMLElement) => Promise<void>;
 };
 
 function baseTest(doInject: boolean, component: string, options: Options = {}) {
@@ -137,6 +142,25 @@ export default function demoTest(component: string, options: Options = {}) {
 }
 
 /**
+ * Helper function to create a post-processing function that clicks buttons by title
+ * @param titles Array of button titles to click
+ */
+export function createPostFn(titles: string[]): (container: HTMLElement) => Promise<void> {
+  return async (container: HTMLElement) => {
+    const { fireEvent, act } = require('../utils');
+    for (const title of titles) {
+      const button = container.querySelector(`[title="${title}"]`);
+      if (button) {
+        await act(async () => {
+          fireEvent.click(button);
+          jest.advanceTimersByTime(100);
+        });
+      }
+    }
+  };
+}
+
+/**
  * Test semantic demo snapshots (for _semantic.tsx files)
  * Uses render instead of renderToString to get semantic classes
  */
@@ -179,24 +203,9 @@ export function semanticDemoTest(component: string, options: Options = {}) {
       // Use render to get container with semantic classes
       const { container } = render(Demo);
 
-      // Check if there's a "Multiple" button and click it to include multiple mode in snapshot
-      const { fireEvent, act } = require('../utils');
-      const multipleButton = container.querySelector('[title="Multiple"]');
-
-      if (multipleButton) {
-        await act(async () => {
-          fireEvent.click(multipleButton);
-          jest.advanceTimersByTime(100);
-        });
-      }
-
-      // Check if there's an "inline" button (for Menu component) and click it
-      const inlineButton = container.querySelector('[title="inline"]');
-      if (inlineButton) {
-        await act(async () => {
-          fireEvent.click(inlineButton);
-          jest.advanceTimersByTime(100);
-        });
+      // Run post-render function if provided
+      if (options.postRenderFn) {
+        await options.postRenderFn(container);
       }
 
       expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
