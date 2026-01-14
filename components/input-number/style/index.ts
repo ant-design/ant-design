@@ -11,12 +11,13 @@ import { resetComponent, resetIcon } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ComponentToken, InputNumberToken } from './token';
 import { prepareComponentToken } from './token';
 
 export type { ComponentToken };
 
-const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
+const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
   const {
     componentCls,
     lineWidth,
@@ -43,9 +44,12 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     handleBorderColor,
     filledHandleBg,
     lineHeightLG,
+    antCls,
   } = token;
 
   const borderStyle = `${unit(lineWidth)} ${lineType} ${handleBorderColor}`;
+
+  const [varName, varRef] = genCssVar(antCls, 'input-number');
 
   return [
     // ==========================================================
@@ -56,8 +60,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         ...resetComponent(token),
         ...genBasicInputStyle(token),
 
-        '--input-number-input-padding-block': unit(paddingBlock),
-        '--input-number-input-padding-inline': unit(paddingInline),
+        [varName('input-padding-block')]: unit(paddingBlock),
+        [varName('input-padding-inline')]: unit(paddingInline),
 
         display: 'inline-flex',
         width: controlWidth,
@@ -117,7 +121,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         [`${componentCls}-input`]: {
           ...resetComponent(token),
           width: '100%',
-          paddingBlock: `var(--input-number-input-padding-block)`,
+          paddingBlock: varRef('input-padding-block'),
           textAlign: 'start',
           backgroundColor: 'transparent',
           border: 0,
@@ -243,7 +247,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
           [`${componentCls}-action`]: {
             flex: 'none',
-            paddingInline: 'var(--input-number-input-padding-inline)',
+            paddingInline: varRef('input-padding-inline'),
 
             '&-up': {
               borderInlineStart: borderStyle,
@@ -256,7 +260,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
 
           [`${componentCls}-input`]: {
             textAlign: 'center',
-            paddingInline: 'var(--input-number-input-padding-inline)',
+            paddingInline: varRef('input-padding-inline'),
           },
         },
       },
@@ -268,8 +272,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
     {
       [componentCls]: {
         '&-lg': {
-          '--input-number-input-padding-block': unit(paddingBlockLG),
-          '--input-number-input-padding-inline': unit(paddingInlineLG),
+          [varName('input-padding-block')]: unit(paddingBlockLG),
+          [varName('input-padding-inline')]: unit(paddingInlineLG),
 
           paddingBlock: 0,
           fontSize: inputFontSizeLG,
@@ -277,8 +281,8 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token: InputNumbe
         },
 
         '&-sm': {
-          '--input-number-input-padding-block': unit(paddingBlockSM),
-          '--input-number-input-padding-inline': unit(paddingInlineSM),
+          [varName('input-padding-block')]: unit(paddingBlockSM),
+          [varName('input-padding-inline')]: unit(paddingInlineSM),
 
           paddingBlock: 0,
           fontSize: inputFontSizeSM,
