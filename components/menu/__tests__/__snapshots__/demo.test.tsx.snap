@@ -2610,7 +2610,7 @@ exports[`renders components/menu/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var acss-auhn8t"
     data-menu-list="true"
     role="menu"
     style="border:1px solid #f0f0f0;padding:8px;border-radius:4px"
@@ -2640,7 +2640,7 @@ exports[`renders components/menu/demo/style-class.tsx correctly 1`] = `
       </div>
     </li>
     <li
-      class="ant-menu-item acss-r4s437 ant-menu-item-only-child"
+      class="ant-menu-item acss-1skd5ne ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
       style="color:#1677ff"
@@ -2658,7 +2658,7 @@ exports[`renders components/menu/demo/style-class.tsx correctly 1`] = `
     style="display:none"
   />
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var acss-auhn8t"
     data-menu-list="true"
     role="menu"
     style="background-color:rgba(240,249,255, 0.6)"
@@ -2689,7 +2689,7 @@ exports[`renders components/menu/demo/style-class.tsx correctly 1`] = `
       </div>
     </li>
     <li
-      class="ant-menu-item acss-r4s437 ant-menu-item-only-child"
+      class="ant-menu-item acss-1skd5ne ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
       style="padding-left:24px"

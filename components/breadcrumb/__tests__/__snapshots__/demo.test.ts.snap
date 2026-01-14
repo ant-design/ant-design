@@ -525,12 +525,12 @@ exports[`renders components/breadcrumb/demo/style-class.tsx correctly 1`] = `
 >
   <nav
     aria-label="Breadcrumb with Object"
-    class="ant-breadcrumb acss-lz3q7n css-var-test-id"
+    class="ant-breadcrumb acss-p1dwrv css-var-test-id"
     style="border:1px solid #f0f0f0;padding:8px;border-radius:4px"
   >
     <ol>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-kfymi7"
         style="color:#1890ff"
       >
         <span
@@ -541,13 +541,13 @@ exports[`renders components/breadcrumb/demo/style-class.tsx correctly 1`] = `
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator acss-t9kin8"
+        class="ant-breadcrumb-separator acss-10df6uw"
         style="color:rgba(0, 0, 0, 0.45)"
       >
         /
       </li>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-kfymi7"
         style="color:#1890ff"
       >
         <span
@@ -564,12 +564,12 @@ exports[`renders components/breadcrumb/demo/style-class.tsx correctly 1`] = `
   </nav>
   <nav
     aria-label="Breadcrumb with Function"
-    class="ant-breadcrumb acss-lz3q7n css-var-test-id"
+    class="ant-breadcrumb acss-p1dwrv css-var-test-id"
     style="border:1px solid #F5EFFF;padding:8px;border-radius:4px"
   >
     <ol>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-kfymi7"
         style="color:#8F87F1"
       >
         <span
@@ -580,12 +580,12 @@ exports[`renders components/breadcrumb/demo/style-class.tsx correctly 1`] = `
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator acss-t9kin8"
+        class="ant-breadcrumb-separator acss-10df6uw"
       >
         /
       </li>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-kfymi7"
         style="color:#8F87F1"
       >
         <span
@@ -600,12 +600,12 @@ exports[`renders components/breadcrumb/demo/style-class.tsx correctly 1`] = `
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator acss-t9kin8"
+        class="ant-breadcrumb-separator acss-10df6uw"
       >
         /
       </li>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-kfymi7"
         style="color:#8F87F1"
       >
         <span

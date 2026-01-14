@@ -857,10 +857,10 @@ exports[`renders components/skeleton/demo/style-class.tsx extend context correct
   class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
-    class="ant-skeleton ant-skeleton-with-avatar acss-1080ep8 css-var-test-id"
+    class="ant-skeleton ant-skeleton-with-avatar acss-rnh1df css-var-test-id"
   >
     <div
-      class="acss-1upilqn ant-skeleton-header"
+      class="acss-uxywt8 ant-skeleton-header"
     >
       <span
         class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
@@ -877,7 +877,7 @@ exports[`renders components/skeleton/demo/style-class.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-skeleton ant-skeleton-active acss-1080ep8 css-var-test-id"
+    class="ant-skeleton ant-skeleton-active acss-rnh1df css-var-test-id"
     style="border: 1px solid rgba(229, 243, 254, 0.3);"
   >
     <div

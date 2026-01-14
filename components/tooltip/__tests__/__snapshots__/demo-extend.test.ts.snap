@@ -2238,7 +2238,7 @@ exports[`renders components/tooltip/demo/style-class.tsx extend context correctl
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-tooltip-container acss-nk32ej"
+      class="ant-tooltip-container acss-avoblm"
       id="test-id"
       role="tooltip"
       style="border-radius: 12px; box-shadow: inset 0 0 8px #ccc;"
@@ -2260,7 +2260,7 @@ exports[`renders components/tooltip/demo/style-class.tsx extend context correctl
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-tooltip-container acss-nk32ej"
+      class="ant-tooltip-container acss-avoblm"
       id="test-id"
       role="tooltip"
       style="background-color: rgba(53, 71, 125, 0.8); padding: 12px; color: rgb(255, 255, 255); border-radius: 4px;"

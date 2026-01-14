@@ -726,7 +726,7 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
   class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
-    class="ant-image css-var-test-id ant-image-css-var acss-1spuuhl"
+    class="ant-image css-var-test-id ant-image-css-var acss-61dlbj"
     style="width: 160px;"
   >
     <img
@@ -741,7 +741,7 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
     />
   </div>
   <div
-    class="ant-image css-var-test-id ant-image-css-var acss-1spuuhl"
+    class="ant-image css-var-test-id ant-image-css-var acss-61dlbj"
     style="width: 160px; border: 2px solid rgb(165, 148, 249); border-radius: 8px; padding: 4px; transition: all 0.3s ease;"
   >
     <img

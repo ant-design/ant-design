@@ -702,7 +702,7 @@ exports[`renders components/qr-code/demo/style-class.tsx extend context correctl
   class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
-    class="ant-qrcode css-var-test-id acss-1x2gi4q"
+    class="ant-qrcode css-var-test-id acss-1j3z6vc"
     style="background-color: rgba(24, 144, 255, 0.1); border: 2px solid rgb(24, 144, 255); border-radius: 8px; padding: 16px; width: 160px; height: 160px;"
   >
     <canvas
@@ -712,7 +712,7 @@ exports[`renders components/qr-code/demo/style-class.tsx extend context correctl
     />
   </div>
   <div
-    class="ant-qrcode css-var-test-id acss-1x2gi4q"
+    class="ant-qrcode css-var-test-id acss-1j3z6vc"
     style="background-color: rgba(255, 77, 79, 0.1); border: 2px solid rgb(255, 77, 79); border-radius: 8px; padding: 16px; width: 160px; height: 160px;"
   >
     <canvas

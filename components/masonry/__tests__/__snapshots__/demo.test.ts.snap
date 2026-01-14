@@ -40,7 +40,7 @@ exports[`renders components/masonry/demo/style-class.tsx correctly 1`] = `
       classNames and styles Object
     </h4>
     <div
-      class="ant-masonry acss-1ejhsap css-var-test-id"
+      class="ant-masonry acss-1tarxbx css-var-test-id"
       style="height:260px;border-radius:12px;padding:20px;background-color:rgba(250,250,250,0.5)"
     />
   </div>
@@ -55,7 +55,7 @@ exports[`renders components/masonry/demo/style-class.tsx correctly 1`] = `
       classNames and styles Function
     </h4>
     <div
-      class="ant-masonry acss-1ejhsap css-var-test-id"
+      class="ant-masonry acss-1tarxbx css-var-test-id"
       style="height:280px;border:2px solid #1890ff;padding:20px;background-color:rgba(240,248,255,.6)"
     />
   </div>

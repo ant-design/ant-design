@@ -28387,7 +28387,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-6e6dke"
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-19cv2fp"
     style="padding:10px;border-radius:8px"
   >
     <div
@@ -28620,7 +28620,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-6e6dke"
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-19cv2fp"
     style="color:#e0e0e0;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3)"
   >
     <div
