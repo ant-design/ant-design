@@ -1,9 +1,9 @@
 import React from 'react';
 import { Flex, Slider } from 'antd';
 import type { SliderSingleProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles, createStyles } from 'antd-style';
 
-const useStyles = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     width: 300px;
   `,
@@ -43,7 +43,6 @@ const stylesFn: SliderSingleProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
   const { styles: classNameFn } = useStylesFn();
   const sharedProps: SliderSingleProps = {
     defaultValue: 30,
