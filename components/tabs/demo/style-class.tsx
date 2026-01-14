@@ -1,10 +1,10 @@
 import React from 'react';
 import { Flex, Tabs } from 'antd';
 import type { TabsProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(() => ({
-  root: { borderWidth: 2, borderStyle: 'dashed', padding: 16, marginBottom: 10 },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`border-width: 2px; border-style: dashed; padding: 16px; margin-bottom: 10px;`,
 }));
 
 const stylesObject: TabsProps['styles'] = {
@@ -44,7 +44,6 @@ const items = [
 ];
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyle();
   const shareProps: TabsProps = {
     items,
     defaultActiveKey: '1',

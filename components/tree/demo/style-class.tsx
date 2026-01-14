@@ -1,19 +1,12 @@
 import React from 'react';
 import { Flex, Tree } from 'antd';
 import type { TreeProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    padding: 8,
-    borderRadius: 4,
-  },
-  item: {
-    borderRadius: 2,
-  },
-  itemTitle: {
-    fontSize: 14,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`padding: 8px; border-radius: 4px;`,
+  item: css`border-radius: 2px;`,
+  itemTitle: css`font-size: 14px;`,
 }));
 
 const treeData: TreeProps['treeData'] = [
@@ -67,7 +60,6 @@ const stylesFn: TreeProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
   const sharedProps: TreeProps = {
     treeData,
     classNames,

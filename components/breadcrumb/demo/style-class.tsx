@@ -1,12 +1,12 @@
 import React from 'react';
 import { Breadcrumb, Flex } from 'antd';
 import type { BreadcrumbProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: { padding: 8, borderRadius: 4 },
-  item: { color: '#1890ff' },
-  separator: { color: 'rgba(0, 0, 0, 0.45)' },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`padding: 8px; border-radius: 4px;`,
+  item: css`color: #1890ff;`,
+  separator: css`color: rgba(0, 0, 0, 0.45);`,
 }));
 
 const styles: BreadcrumbProps['styles'] = {
@@ -33,8 +33,6 @@ const items = [
 ];
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   return (
     <Flex vertical gap="middle">
       <Breadcrumb

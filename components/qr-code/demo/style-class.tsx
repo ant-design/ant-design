@@ -1,14 +1,10 @@
 import React from 'react';
 import { Flex, QRCode } from 'antd';
 import type { QRCodeProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    border: '1px solid #ccc',
-    borderRadius: 8,
-    padding: 16,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`border: 1px solid #ccc; border-radius: 8px; padding: 16px;`,
 }));
 
 const stylesObject: QRCodeProps['styles'] = {
@@ -34,8 +30,6 @@ const stylesFunction: QRCodeProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   const sharedProps: QRCodeProps = {
     value: 'https://ant.design/',
     size: 160,

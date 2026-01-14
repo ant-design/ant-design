@@ -2,13 +2,10 @@ import React from 'react';
 import { MehOutlined } from '@ant-design/icons';
 import { Flex, Select } from 'antd';
 import type { SelectProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    borderRadius: 8,
-    width: 300,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`border-radius: 8px; width: 300px;`,
 }));
 
 const options: SelectProps['options'] = [
@@ -46,7 +43,6 @@ const stylesFn: SelectProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
   const sharedProps: SelectProps = {
     options,
     classNames,

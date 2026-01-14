@@ -1,12 +1,10 @@
 import React from 'react';
 import { Button, Flex, Popconfirm } from 'antd';
 import type { PopconfirmProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  container: {
-    padding: 10,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  container: css`padding: 10px;`,
 }));
 
 const styles: PopconfirmProps['styles'] = {
@@ -42,7 +40,6 @@ const stylesFn: PopconfirmProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
   return (
     <Flex gap="middle">
       <Popconfirm
