@@ -697,7 +697,7 @@ exports[`renders components/image/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
-    class="ant-image css-var-test-id ant-image-css-var acss-61dlbj"
+    class="ant-image css-var-test-id ant-image-css-var acss-1tjmp0k"
     style="width:160px"
   >
     <img
@@ -712,7 +712,7 @@ exports[`renders components/image/demo/style-class.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-image css-var-test-id ant-image-css-var acss-61dlbj"
+    class="ant-image css-var-test-id ant-image-css-var acss-1tjmp0k"
     style="width:160px;border:2px solid #A594F9;border-radius:8px;padding:4px;transition:all 0.3s ease"
   >
     <img

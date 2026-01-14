@@ -1671,7 +1671,7 @@ exports[`renders components/collapse/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id acss-1kvppfr"
+    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id acss-1xdwrp5"
     style="background-color:#fafafa;border:1px solid #e0e0e0;border-radius:8px"
   >
     <div
@@ -1811,7 +1811,7 @@ exports[`renders components/collapse/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-large css-var-test-id acss-1kvppfr"
+    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-large css-var-test-id acss-1xdwrp5"
     style="background-color:#fff;border:1px solid #696FC7;border-radius:8px"
   >
     <div

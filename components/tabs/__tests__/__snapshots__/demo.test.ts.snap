@@ -5561,7 +5561,7 @@ exports[`renders components/tabs/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-tabs ant-tabs-top acss-99nzcq css-var-test-id ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top acss-1umkjc1 css-var-test-id ant-tabs-css-var"
     style="border-width:2px;border-style:dashed;padding:16px;margin-bottom:10px"
   >
     <div
@@ -5678,7 +5678,7 @@ exports[`renders components/tabs/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-left ant-tabs-card acss-99nzcq css-var-test-id ant-tabs-css-var"
+    class="ant-tabs ant-tabs-left ant-tabs-card acss-1umkjc1 css-var-test-id ant-tabs-css-var"
     style="background-color:rgba(250,250,250, 0.8);border-color:#d9d9d9"
   >
     <div

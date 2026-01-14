@@ -3083,7 +3083,7 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
           />
         </span>
         <sup
-          class="ant-scroll-number acss-1wile74 ant-badge-count ant-badge-count-sm"
+          class="ant-scroll-number acss-1aprf71 ant-badge-count ant-badge-count-sm"
           data-show="true"
           title="5"
         >
@@ -3113,7 +3113,7 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
           />
         </span>
         <sup
-          class="ant-scroll-number acss-1wile74 ant-badge-count"
+          class="ant-scroll-number acss-1aprf71 ant-badge-count"
           data-show="true"
           style="font-size: 14px; background-color: rgb(105, 111, 199);"
           title="5"
@@ -3141,7 +3141,7 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
     >
       <div
-        class="ant-ribbon-wrapper css-var-test-id acss-d30p59"
+        class="ant-ribbon-wrapper css-var-test-id acss-15qh5u5"
       >
         <div
           class="ant-card ant-card-bordered ant-card-small css-var-test-id"
@@ -3180,7 +3180,7 @@ exports[`renders components/badge/demo/style-class.tsx extend context correctly 
         </div>
       </div>
       <div
-        class="ant-ribbon-wrapper css-var-test-id acss-d30p59"
+        class="ant-ribbon-wrapper css-var-test-id acss-15qh5u5"
       >
         <div
           class="ant-card ant-card-bordered ant-card-small css-var-test-id"
