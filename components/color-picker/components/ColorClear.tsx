@@ -1,5 +1,6 @@
 import type { FC } from 'react';
 import React from 'react';
+import clsx from 'clsx';
 
 import type { AggregationColor } from '../color';
 import { generateColor } from '../util';
@@ -13,7 +14,7 @@ interface ColorClearProps {
 }
 
 const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className, style }) => {
-  const handleClick = () => {
+  const onClick = () => {
     if (onChange && value && !value.cleared) {
       const hsba = value.toHsb();
       hsba.a = 0;
@@ -23,13 +24,7 @@ const ColorClear: FC<ColorClearProps> = ({ prefixCls, value, onChange, className
       onChange(genColor);
     }
   };
-  return (
-    <div
-      className={`${prefixCls}-clear${className ? ` ${className}` : ''}`}
-      style={style}
-      onClick={handleClick}
-    />
-  );
+  return <div className={clsx(`${prefixCls}-clear`, className)} style={style} onClick={onClick} />;
 };
 
 export default ColorClear;
