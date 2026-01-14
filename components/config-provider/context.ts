@@ -167,8 +167,9 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<RecordType extends AnyObject = AnyObject>
-  extends ComponentStyleConfig {
+export interface TableConfig<
+  RecordType extends AnyObject = AnyObject,
+> extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
@@ -309,7 +310,10 @@ export type FloatButtonGroupConfig = ComponentStyleConfig &
   Pick<FloatButtonGroupProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type PaginationConfig = ComponentStyleConfig &
-  Pick<PaginationProps, 'showSizeChanger' | 'totalBoundaryShowSizeChanger' | 'classNames' | 'styles'>;
+  Pick<
+    PaginationProps,
+    'showSizeChanger' | 'totalBoundaryShowSizeChanger' | 'classNames' | 'styles'
+  >;
 
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 
@@ -428,6 +432,7 @@ export interface ConfigComponentProps {
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
   anchor?: AnchorStyleConfig;
+  app?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: DividerConfig;
   drawer?: DrawerConfig;

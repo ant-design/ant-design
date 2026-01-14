@@ -124,6 +124,7 @@ export default function ThemePreview() {
           ))}
         </div>
         <ComponentsBlock
+          key={activeName}
           config={previewThemes.find((theme) => theme.name === activeName)?.props}
           className={styles.componentsBlock}
           containerClassName={styles.componentsBlockContainer}

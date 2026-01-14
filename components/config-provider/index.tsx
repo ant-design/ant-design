@@ -212,6 +212,7 @@ export interface ConfigProviderProps {
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
+  app?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
@@ -350,6 +351,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     alert,
     affix,
     anchor,
+    app,
     form,
     locale,
     componentSize,
@@ -464,6 +466,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     alert,
     affix,
     anchor,
+    app,
     locale: locale || legacyLocale,
     direction,
     space,
