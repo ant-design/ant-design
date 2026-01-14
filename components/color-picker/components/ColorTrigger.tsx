@@ -25,8 +25,8 @@ export interface ColorTriggerProps {
   showText?: ColorPickerProps['showText'];
   className?: string;
   style?: CSSProperties;
-  classNames?: ColorPickerSemanticClassNames;
-  styles?: ColorPickerSemanticStyles;
+  classNames: ColorPickerSemanticClassNames;
+  styles: ColorPickerSemanticStyles;
   onClick?: MouseEventHandler<HTMLDivElement>;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;
@@ -42,8 +42,8 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
     format,
     className,
     style,
-    classNames = {},
-    styles = {},
+    classNames,
+    styles,
     showText,
     activeIndex,
     ...rest
