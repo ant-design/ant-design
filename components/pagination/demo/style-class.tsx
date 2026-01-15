@@ -1,9 +1,9 @@
 import React from 'react';
 import { Flex, Pagination } from 'antd';
 import type { PaginationProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     border: 2px dashed #ccc;
     padding: 8px;
@@ -23,11 +23,9 @@ const styleFn: PaginationProps['styles'] = ({ props }) => {
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-
   const paginationSharedProps: PaginationProps = {
     total: 500,
-    classNames: { root: styles.root },
+    classNames: { root: classNames.root },
   };
 
   return (

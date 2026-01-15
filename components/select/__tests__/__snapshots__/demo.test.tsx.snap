@@ -5157,7 +5157,7 @@ exports[`renders components/select/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-select ant-select-outlined acss-5u7vj1 css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined acss-xqfhlq css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
   >
     <div
       class="ant-select-prefix"
@@ -5231,7 +5231,7 @@ exports[`renders components/select/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select ant-select-filled acss-5u7vj1 css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-filled acss-xqfhlq css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
   >
     <div
       class="ant-select-prefix"
