@@ -132,8 +132,8 @@ const items: MenuProps['items'] = [
 const consumerComponent: Partial<
   Record<ZIndexConsumer, React.FC<Readonly<{ rootClassName: string }>>>
 > = {
-  SelectLike: ({ rootClassName, ...props }) => (
-    <>
+  SelectLike: ({ rootClassName, ref, ...props }) => (
+    <div ref={ref}>
       <Select
         {...props}
         rootClassName={`${rootClassName} comp-item comp-Select`}
@@ -159,7 +159,7 @@ const consumerComponent: Partial<
         open
       />
       <ColorPicker {...props} open rootClassName={`${rootClassName} comp-item comp-ColorPicker`} />
-    </>
+    </div>
   ),
   Dropdown: (props) => (
     <Dropdown
@@ -175,15 +175,15 @@ const consumerComponent: Partial<
       <button type="button">test</button>
     </Dropdown>
   ),
-  DatePicker: ({ rootClassName, ...props }) => (
-    <>
+  DatePicker: ({ rootClassName, ref, ...props }) => (
+    <div ref={ref}>
       <DatePicker {...props} rootClassName={`${rootClassName} comp-item comp-DatePicker`} open />
       <DatePicker.TimePicker
         {...props}
         rootClassName={`${rootClassName} comp-item comp-TimePicker`}
         open
       />
-    </>
+    </div>
   ),
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
   ImagePreview: ({ rootClassName }: ImageProps) => (
