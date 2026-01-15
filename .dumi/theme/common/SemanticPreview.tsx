@@ -2,7 +2,7 @@ import React from 'react';
 import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
 import { get, set } from '@rc-component/util';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import Prism from 'prismjs';
 
@@ -12,7 +12,7 @@ export interface SemanticPreviewInjectionProps {
   classNames?: Record<string, string>;
 }
 
-const useStyle = createStyles(({ cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   container: css`
     position: relative;
     z-index: 0;
@@ -154,8 +154,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   const [hoverSemantic, setHoverSemantic] = React.useState<string | null>(null);
 
   const mergedSemantic = pinSemantic || hoverSemantic;
-
-  const { styles } = useStyle();
 
   const hoveredSemanticClassNames = React.useMemo(() => {
     if (!mergedSemantic) {

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Button, Flex, Tooltip } from 'antd';
 import type { TooltipProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  container: {
-    padding: 10,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  container: css`
+    padding: 10px;
+  `,
 }));
 
 const styles: TooltipProps['styles'] = {
@@ -31,7 +31,6 @@ const stylesFn: TooltipProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
   return (
     <Flex gap="middle">
       <Tooltip classNames={classNames} styles={styles} arrow={false} title="Object text">

@@ -111,7 +111,7 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
             fontWeight: 'normal',
             lineHeight,
             cursor: 'pointer',
-            transition: `background ${motionDurationSlow} ease`,
+            transition: `background-color ${motionDurationSlow} ease`,
 
             '&:hover': {
               backgroundColor: controlItemBgHover,

@@ -839,10 +839,10 @@ exports[`renders components/skeleton/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
-    class="ant-skeleton ant-skeleton-with-avatar acss-1080ep8 css-var-test-id"
+    class="ant-skeleton ant-skeleton-with-avatar acss-1nr40md css-var-test-id"
   >
     <div
-      class="acss-1upilqn ant-skeleton-header"
+      class="acss-wwk8k0 ant-skeleton-header"
     >
       <span
         class="ant-skeleton-avatar ant-skeleton-avatar-lg ant-skeleton-avatar-square"
@@ -859,7 +859,7 @@ exports[`renders components/skeleton/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-skeleton ant-skeleton-active acss-1080ep8 css-var-test-id"
+    class="ant-skeleton ant-skeleton-active acss-1nr40md css-var-test-id"
     style="border:1px solid rgba(229, 243, 254, 0.3)"
   >
     <div

@@ -2069,7 +2069,7 @@ exports[`renders components/popover/demo/style-class.tsx extend context correctl
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-popover-container acss-nk32ej"
+      class="ant-popover-container acss-ven0qr"
       id="test-id"
       role="tooltip"
       style="background: rgb(238, 238, 238); box-shadow: inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2);"
@@ -2096,7 +2096,7 @@ exports[`renders components/popover/demo/style-class.tsx extend context correctl
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-popover-container acss-nk32ej"
+      class="ant-popover-container acss-ven0qr"
       id="test-id"
       role="tooltip"
       style="background-color: rgba(53, 71, 125, 0.8); padding: 12px; border-radius: 4px;"
