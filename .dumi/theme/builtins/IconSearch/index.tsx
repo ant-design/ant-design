@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 import { Skeleton } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 const IconSearch = React.lazy(() => import('./IconSearch'));
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   searchWrapper: css`
     display: flex;
     gap: ${cssVar.padding};
@@ -34,8 +34,6 @@ const useStyle = createStyles(({ css, cssVar }) => ({
 }));
 
 const IconSearchFallback: React.FC = () => {
-  const { styles } = useStyle();
-
   return (
     <>
       <div className={styles.searchWrapper}>
