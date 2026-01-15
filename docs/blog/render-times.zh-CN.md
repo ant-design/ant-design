@@ -17,7 +17,7 @@ juejin_url: https://juejin.cn/post/7322352551088537627
 
 举个例子，在 antd v4 中，我们为了提升 `rowSpan` Table Hover 的高亮体验，我们为 `tr` 添加了事件监听，同时在 `td` 中为选中行添加额外的 `className` 以支持多行高亮能力。但是由于 `td` 消费了 context 中 `hoverStartRow` 和 `hoverEndRow` 数据，导致了非相关 Row 都会因为 `hoverStartRow` 和 `hoverEndRow` 变化而[重新渲染](https://github.com/ant-design/ant-design/issues/33342)。
 
-诸如此类的问题在重型组件循环往复，因而我们需要一些辅助方式来确定渲染次数。在最新的 [`rc-table`](https://github.com/react-component/table) 中，我们封装了一个 [`useRenderTimes`](https://github.com/react-component/table/blob/ecf3fdb77523b370ee86e19164e95f00e65281a8/src/hooks/useRenderTimes.tsx) 方法。它会在开发模式下通过 React 的 `useDebugValue` 将监听的渲染次数标注在 React Dev Tools 上：
+诸如此类的问题在重型组件循环往复，因而我们需要一些辅助方式来确定渲染次数。在最新的 [`@rc-component/table`](https://github.com/react-component/table) 中，我们封装了一个 [`useRenderTimes`](https://github.com/react-component/table/blob/ecf3fdb77523b370ee86e19164e95f00e65281a8/src/hooks/useRenderTimes.tsx) 方法。它会在开发模式下通过 React 的 `useDebugValue` 将监听的渲染次数标注在 React Dev Tools 上：
 
 ![VDM](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*vlwQQIcEXFkAAAAAAAAAAAAADrJ8AQ/original)
 
@@ -109,7 +109,7 @@ const { prop1 } = React.useContext(MyContext1);
 </MyContext1.Provider>;
 ```
 
-在 `rc-table` 中，我们将其拆分为多个以优化渲染性能：
+在 `@rc-component/table` 中，我们将其拆分为多个以优化渲染性能：
 
 - BodyContext
 - ExpandedRowContext

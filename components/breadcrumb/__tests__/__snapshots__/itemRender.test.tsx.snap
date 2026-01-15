@@ -1,12 +1,14 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Breadcrumb.ItemRender render as expect 1`] = `
 <div>
   <nav
-    class="ant-breadcrumb"
+    class="ant-breadcrumb css-var-root"
   >
     <ol>
-      <li>
+      <li
+        class="ant-breadcrumb-item"
+      >
         <a
           class="my-link"
           data-path="/"
@@ -20,7 +22,9 @@ exports[`Breadcrumb.ItemRender render as expect 1`] = `
       >
         /
       </li>
-      <li>
+      <li
+        class="ant-breadcrumb-item"
+      >
         <a
           class="my-link"
           data-path="/bamboo"

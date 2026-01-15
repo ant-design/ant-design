@@ -2,20 +2,20 @@
 import React from 'react';
 import { FastColor } from '@ant-design/fast-color';
 import { Flex, theme } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import tokenMeta from 'antd/es/version/token-meta.json';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 
-const useStyle = createStyles(({ token, css }) => {
-  const height = token.controlHeightLG;
+const styles = createStaticStyles(({ cssVar, css }) => {
+  const height = cssVar.controlHeightLG;
   const dotSize = height / 5;
 
   return {
     container: css`
       background: #fff;
-      border-radius: ${token.borderRadiusLG}px;
+      border-radius: ${cssVar.borderRadiusLG};
       overflow: hidden;
     `,
 
@@ -31,7 +31,7 @@ const useStyle = createStyles(({ token, css }) => {
       align-items: center;
       justify-content: center;
       color: rgba(0, 0, 0, 0.88);
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
+      border-inline-end: 1px solid rgba(0, 0, 0, 0.1);
     `,
 
     colDark: css`
@@ -48,7 +48,7 @@ const useStyle = createStyles(({ token, css }) => {
     `,
 
     dotColor: css`
-      width: ${token.fontSize * 6}px;
+      width: calc(${cssVar.fontSize} * 6);
       white-space: nowrap;
     `,
   };
@@ -63,7 +63,6 @@ interface ColorCircleProps {
 }
 
 const ColorCircle: React.FC<ColorCircleProps> = ({ color }) => {
-  const { styles } = useStyle();
   return (
     <Flex align="center" gap={4}>
       <div className={styles.dot} style={{ background: color }} />
@@ -79,7 +78,6 @@ export interface TokenCompareProps {
 const TokenCompare: React.FC<TokenCompareProps> = (props) => {
   const { tokenNames = '' } = props;
   const [, lang] = useLocale();
-  const { styles } = useStyle();
 
   const tokenList = React.useMemo(() => {
     const list = tokenNames.split('|');
@@ -96,7 +94,7 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
         dark: color2Rgba((darkTokens as any)[tokenName]),
       };
     });
-  }, [tokenNames]);
+  }, [lang, tokenNames]);
 
   return (
     <div className={styles.container}>
@@ -106,7 +104,7 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
           <div className={styles.col}>
             <ColorCircle color={data.light} />
           </div>
-          <div className={classNames(styles.col, styles.colDark)}>
+          <div className={clsx(styles.col, styles.colDark)}>
             <ColorCircle color={data.dark} />
           </div>
         </div>

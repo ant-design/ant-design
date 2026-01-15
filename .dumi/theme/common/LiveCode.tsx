@@ -1,18 +1,17 @@
 import type { ComponentProps, FC } from 'react';
 import React from 'react';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import SourceCodeEditor from 'dumi/theme-default/slots/SourceCodeEditor';
 
 import LiveError from '../slots/LiveError';
 
-const useStyle = createStyles(({ token, css }) => {
-  const { colorBgContainer } = token;
+const styles = createStaticStyles(({ cssVar, css }) => {
   return {
     editor: css`
       // override dumi editor styles
       .dumi-default-source-code-editor {
         .dumi-default-source-code {
-          background: ${colorBgContainer};
+          background: ${cssVar.colorBgContainer};
           &-scroll-container {
             scrollbar-width: thin;
             scrollbar-gutter: stable;
@@ -21,12 +20,12 @@ const useStyle = createStyles(({ token, css }) => {
         .dumi-default-source-code > pre,
         .dumi-default-source-code-scroll-content > pre,
         .dumi-default-source-code-editor-textarea {
-          padding: ${token.paddingSM}px ${token.padding}px;
+          padding: ${cssVar.paddingSM} ${cssVar.padding};
         }
 
         .dumi-default-source-code > pre,
         .dumi-default-source-code-scroll-content > pre {
-          font-size: ${token.fontSize}px;
+          font-size: ${cssVar.fontSize};
           line-height: 2;
           font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
         }
@@ -42,7 +41,7 @@ const useStyle = createStyles(({ token, css }) => {
 
         &:hover:not(:focus-within) {
           &::after {
-            box-shadow: 0 0 0 1px ${token.colorPrimaryBorderHover} inset;
+            box-shadow: 0 0 0 1px ${cssVar.colorPrimaryBorderHover} inset;
           }
         }
       }
@@ -55,7 +54,6 @@ const LiveCode: FC<
     error: Error | null;
   } & Pick<ComponentProps<typeof SourceCodeEditor>, 'lang' | 'initialValue' | 'onChange'>
 > = (props) => {
-  const { styles } = useStyle();
   return (
     <div className={styles.editor}>
       <SourceCodeEditor

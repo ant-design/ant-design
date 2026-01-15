@@ -2,7 +2,7 @@ import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 
 import { getMediaSize } from '../../grid/style';
-import { genFocusStyle, resetComponent } from '../../style';
+import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type {
   AliasToken,
@@ -150,7 +150,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 
         // https://github.com/ant-design/ant-design/issues/37329
         // https://github.com/ant-design/ant-design/issues/40272
-        [`${componentCls}${antCls}-zoom-leave ${componentCls}-content`]: {
+        [`${componentCls}${antCls}-zoom-leave ${componentCls}-container`]: {
           pointerEvents: 'none',
         },
 
@@ -160,6 +160,10 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
           height: '100%',
           backgroundColor: token.colorBgMask,
           pointerEvents: 'none',
+
+          [`&${componentCls}-mask-blur`]: {
+            backdropFilter: 'blur(4px)',
+          },
 
           [`${componentCls}-hidden`]: {
             display: 'none',
@@ -233,7 +237,11 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         width: 'auto',
         maxWidth: `calc(100vw - ${unit(token.calc(token.margin).mul(2).equal())})`,
         margin: '0 auto',
-        paddingBottom: token.paddingLG,
+
+        '&:focus-visible': {
+          borderRadius: token.borderRadiusLG,
+          ...genFocusOutline(token),
+        },
 
         [`${componentCls}-title`]: {
           margin: 0,
@@ -244,7 +252,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           wordWrap: 'break-word',
         },
 
-        [`${componentCls}-content`]: {
+        [`${componentCls}-container`]: {
           position: 'relative',
           backgroundColor: token.contentBg,
           backgroundClip: 'padding-box',
@@ -356,7 +364,7 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         display: 'flex',
         flexDirection: 'column',
 
-        [`${componentCls}-content,
+        [`${componentCls}-container,
           ${componentCls}-body,
           ${componentCls}-confirm-body-wrapper`]: {
           display: 'flex',
@@ -450,7 +458,7 @@ export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalT
 
 export const prepareComponentToken = (token: GlobalToken) => ({
   footerBg: 'transparent',
-  headerBg: token.colorBgElevated,
+  headerBg: 'transparent',
   titleLineHeight: token.lineHeightHeading5,
   titleFontSize: token.fontSizeHeading5,
   contentBg: token.colorBgElevated,
@@ -479,6 +487,7 @@ export const prepareComponentToken = (token: GlobalToken) => ({
     : 0,
   confirmIconMarginInlineEnd: token.wireframe ? token.margin : token.marginSM,
   confirmBtnsMarginTop: token.wireframe ? token.marginLG : token.marginSM,
+  mask: true,
 });
 
 export default genStyleHooks(

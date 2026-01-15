@@ -22,6 +22,7 @@ demo:
 <code src="./demo/animated.tsx">Animated number</code>
 <code src="./demo/card.tsx" background="grey">In Card</code>
 <code src="./demo/timer.tsx" version="5.25.0">Timer</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
@@ -30,22 +31,24 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### Statistic
 
-| Property         | Description                   | Type                 | Default | Version |
-| ---------------- | ----------------------------- | -------------------- | ------- | ------- |
-| decimalSeparator | The decimal separator         | string               | `.`     |         |
-| formatter        | Customize value display logic | (value) => ReactNode | -       |         |
-| groupSeparator   | Group separator               | string               | `,`     |         |
-| loading          | Loading status of Statistic   | boolean              | false   | 4.8.0   |
-| precision        | The precision of input value  | number               | -       |         |
-| prefix           | The prefix node of value      | ReactNode            | -       |         |
-| suffix           | The suffix node of value      | ReactNode            | -       |         |
-| title            | Display title                 | ReactNode            | -       |         |
-| value            | Display value                 | string \| number     | -       |         |
-| valueStyle       | Set value section style       | CSSProperties        | -       |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the Statistic component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| decimalSeparator | The decimal separator | string | `.` |  |
+| formatter | Customize value display logic | (value) => ReactNode | - |  |
+| groupSeparator | Group separator | string | `,` |  |
+| loading | Loading status of Statistic | boolean | false | 4.8.0 |
+| precision | The precision of input value | number | - |  |
+| prefix | The prefix node of value | ReactNode | - |  |
+| styles | Customize inline style for each semantic structure inside the Statistic component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| suffix | The suffix node of value | ReactNode | - |  |
+| title | Display title | ReactNode | - |  |
+| value | Display value | string \| number | - |  |
+| valueStyle | Set value section style | CSSProperties | - |  |
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 
-<Antd component="Alert" message="When using version >= 5.25.0, Please use Statistic.Timer instead." type="warning" banner="true"></Antd>
+<Antd component="Alert" title="When using version >= 5.25.0, Please use Statistic.Timer instead." type="warning" banner="true"></Antd>
 
 <!-- prettier-ignore -->
 | Property | Description | Type | Default | Version |
@@ -72,6 +75,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | valueStyle | Set value section style | CSSProperties | - |  |
 | onFinish | Trigger when time's up, only to be called when type is `countdown` | () => void | - |  |
 | onChange | Trigger when time's changing | (value: number) => void | - |  |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

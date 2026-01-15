@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
@@ -8,16 +8,20 @@ import type {
   PercentPositionType,
   ProgressGradient,
   ProgressProps,
+  ProgressSemanticClassNames,
+  ProgressSemanticStyles,
   StringGradients,
 } from './progress';
-import { LineStrokeColorVar, Percent } from './style';
+import { LineStrokeColorVar } from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
-interface LineProps extends ProgressProps {
+interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   prefixCls: string;
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
+  classNames: ProgressSemanticClassNames;
+  styles: ProgressSemanticStyles;
 }
 
 /**
@@ -33,7 +37,7 @@ interface LineProps extends ProgressProps {
 export const sortGradient = (gradients: StringGradients) => {
   let tempArr: { key: number; value?: string }[] = [];
   Object.keys(gradients).forEach((key) => {
-    const formattedKey = parseFloat(key.replace(/%/g, ''));
+    const formattedKey = Number.parseFloat(key.replace(/%/g, ''));
     if (!Number.isNaN(formattedKey)) {
       tempArr.push({ key: formattedKey, value: gradients[key] });
     }
@@ -77,6 +81,8 @@ export const handleGradient = (
 const Line: React.FC<LineProps> = (props) => {
   const {
     prefixCls,
+    classNames,
+    styles,
     direction: directionConfig,
     percent,
     size,
@@ -84,23 +90,17 @@ const Line: React.FC<LineProps> = (props) => {
     strokeColor,
     strokeLinecap = 'round',
     children,
-    trailColor = null,
+    railColor,
+    trailColor,
     percentPosition,
     success,
   } = props;
 
   const { align: infoAlign, type: infoPosition } = percentPosition;
 
-  const backgroundProps =
-    strokeColor && typeof strokeColor !== 'string'
-      ? handleGradient(strokeColor, directionConfig)
-      : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
+  const mergedRailColor = railColor ?? trailColor;
 
   const borderRadius = strokeLinecap === 'square' || strokeLinecap === 'butt' ? 0 : undefined;
-
-  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
-
-  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Progress');
@@ -108,59 +108,81 @@ const Line: React.FC<LineProps> = (props) => {
     warning.deprecated(!('strokeWidth' in props), 'strokeWidth', 'size');
   }
 
-  const trailStyle: React.CSSProperties = {
-    backgroundColor: trailColor || undefined,
+  // ========================= Size =========================
+  const mergedSize = size ?? [-1, strokeWidth || (size === 'small' ? 6 : 8)];
+
+  const [width, height] = getSize(mergedSize, 'line', { strokeWidth });
+
+  // ========================= Rail =========================
+  const railStyle: React.CSSProperties = {
+    backgroundColor: mergedRailColor || undefined,
     borderRadius,
+    height,
   };
 
-  const percentStyle: React.CSSProperties = {
+  // ======================== Tracks ========================
+  const trackCls = `${prefixCls}-track`;
+
+  const backgroundProps =
+    strokeColor && typeof strokeColor !== 'string'
+      ? handleGradient(strokeColor, directionConfig)
+      : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
+
+  const percentTrackStyle: React.CSSProperties = {
     width: `${validProgress(percent)}%`,
     height,
     borderRadius,
     ...backgroundProps,
-    [Percent]: validProgress(percent) / 100,
   };
 
   const successPercent = getSuccessPercent(props);
 
-  const successPercentStyle: React.CSSProperties = {
+  const successTrackStyle: React.CSSProperties = {
     width: `${validProgress(successPercent)}%`,
     height,
     borderRadius,
     backgroundColor: success?.strokeColor,
   };
 
-  const outerStyle: React.CSSProperties = {
-    width: width < 0 ? '100%' : width,
-  };
-
-  const lineInner = (
-    <div className={`${prefixCls}-inner`} style={trailStyle}>
+  // ======================== Render ========================
+  return (
+    <div
+      className={clsx(`${prefixCls}-body`, classNames.body, {
+        [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
+      })}
+      style={{ width: width > 0 ? width : '100%', ...styles.body }}
+    >
+      {/************** Rail **************/}
       <div
-        className={classNames(`${prefixCls}-bg`, `${prefixCls}-bg-${infoPosition}`)}
-        style={percentStyle}
+        className={clsx(`${prefixCls}-rail`, classNames.rail)}
+        style={{ ...railStyle, ...styles.rail }}
       >
-        {infoPosition === 'inner' && children}
+        {/************* Track *************/}
+        {/* Percent */}
+        <div
+          className={clsx(trackCls, classNames.track)}
+          style={{
+            ...percentTrackStyle,
+            ...styles.track,
+          }}
+        >
+          {infoPosition === 'inner' && children}
+        </div>
+
+        {/* Success */}
+        {successPercent !== undefined && (
+          <div
+            className={clsx(trackCls, `${trackCls}-success`, classNames.track)}
+            style={{
+              ...successTrackStyle,
+              ...styles.track,
+            }}
+          />
+        )}
       </div>
-      {successPercent !== undefined && (
-        <div className={`${prefixCls}-success-bg`} style={successPercentStyle} />
-      )}
-    </div>
-  );
 
-  const isOuterStart = infoPosition === 'outer' && infoAlign === 'start';
-  const isOuterEnd = infoPosition === 'outer' && infoAlign === 'end';
-
-  return infoPosition === 'outer' && infoAlign === 'center' ? (
-    <div className={`${prefixCls}-layout-bottom`}>
-      {lineInner}
-      {children}
-    </div>
-  ) : (
-    <div className={`${prefixCls}-outer`} style={outerStyle}>
-      {isOuterStart && children}
-      {lineInner}
-      {isOuterEnd && children}
+      {/* Indicator */}
+      {infoPosition === 'outer' && children}
     </div>
   );
 };

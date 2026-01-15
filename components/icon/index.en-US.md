@@ -3,22 +3,19 @@ category: Components
 group: General
 title: Icon
 description: Semantic vector graphics.
-showImport: false
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PdAYS7anRpoAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*xEDOTJx2DEkAAAAAAAAAAAAADrJ8AQ/original
-demo:
-  cols: 2
 ---
 
 ## How to use
 
 Before using icons, you need to install the [@ant-design/icons](https://github.com/ant-design/ant-design-icons) package:
 
-<InstallDependencies npm='npm install @ant-design/icons@5.x --save' yarn='yarn add @ant-design/icons@5.x' pnpm='pnpm install @ant-design/icons@5.x --save' bun='bun add @ant-design/icons@5.x'></InstallDependencies>
+<InstallDependencies npm='npm install @ant-design/icons@6.x --save' yarn='yarn add @ant-design/icons@6.x' pnpm='pnpm install @ant-design/icons@6.x --save' bun='bun add @ant-design/icons@6.x'></InstallDependencies>
 
 <!-- prettier-ignore -->
-:::warning{title=Tips}
-Remember to use @ant-design/icons v5 with antd v5. See: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
+:::info{title=Tips}
+Remember to use `@ant-design/icons@6.x` with `antd@6.x`, see: [#53275](https://github.com/ant-design/ant-design/issues/53275#issuecomment-2747448317)
 :::
 
 ## List of icons
@@ -208,8 +205,8 @@ When enable `layer`, icon style may deprioritize `@layer antd` and cause all com
 
 This problem can be resolved by two steps below:
 
-1. use `@ant-design/icons^5` instead of the latest version.
-2. stop to use static methods of `message`, `Modal` 和 `notification`. use hooks version or `App` provided instance.
+1. use `@ant-design/icons@6.x` with `antd@6.x`.
+2. stop to use static methods of `message`, `Modal` and `notification`. use hooks version or `App` provided instance.
 
 If you must use static methods, you can put any of icon components just under `App`, what helps to avoid style impact caused by static methods.
 

@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import type { ClosableType } from '../_util/hooks/useClosable';
+import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -14,29 +14,60 @@ export const NotificationPlacements = [
   'bottomLeft',
   'bottomRight',
 ] as const;
+
 export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
+export type NotificationSemanticName = keyof NotificationSemanticClassNames &
+  keyof NotificationSemanticStyles;
+
+export type NotificationSemanticClassNames = {
+  root?: string;
+  title?: string;
+  description?: string;
+  actions?: string;
+  icon?: string;
+};
+
+export type NotificationSemanticStyles = {
+  root?: React.CSSProperties;
+  title?: React.CSSProperties;
+  description?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  icon?: React.CSSProperties;
+};
+
+export type NotificationClassNamesType = SemanticClassNamesType<
+  ArgsProps,
+  NotificationSemanticClassNames
+>;
+
+export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationSemanticStyles>;
+
 export interface ArgsProps {
-  message: React.ReactNode;
+  /** @deprecated Please use `title` instead */
+  message?: React.ReactNode;
+  title?: React.ReactNode;
   description?: React.ReactNode;
   /** @deprecated Please use `actions` instead */
   btn?: React.ReactNode;
   actions?: React.ReactNode;
   key?: React.Key;
   onClose?: () => void;
-  duration?: number | null;
+  duration?: number | false;
   showProgress?: boolean;
   pauseOnHover?: boolean;
   icon?: React.ReactNode;
   placement?: NotificationPlacement;
   style?: React.CSSProperties;
   className?: string;
+  classNames?: NotificationClassNamesType;
+  styles?: NotificationStylesType;
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
-  closable?: ClosableType;
+  closable?: boolean | (Exclude<ClosableType, boolean> & { onClose?: () => void });
   props?: DivProps;
   role?: 'alert' | 'status';
 }
@@ -49,13 +80,13 @@ export interface NotificationInstance {
   info: StaticFn;
   warning: StaticFn;
   open: StaticFn;
-  destroy(key?: React.Key): void;
+  destroy: (key?: React.Key) => void;
 }
 
 export interface GlobalConfigProps {
   top?: number;
   bottom?: number;
-  duration?: number;
+  duration?: number | false;
   showProgress?: boolean;
   pauseOnHover?: boolean;
   prefixCls?: string;
@@ -77,8 +108,10 @@ export interface NotificationConfig {
   maxCount?: number;
   rtl?: boolean;
   stack?: boolean | { threshold?: number };
-  duration?: number;
+  duration?: number | false;
   showProgress?: boolean;
   pauseOnHover?: boolean;
   closeIcon?: React.ReactNode;
+  classNames?: NotificationClassNamesType;
+  styles?: NotificationStylesType;
 }

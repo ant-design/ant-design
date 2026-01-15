@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import classNames from 'classnames';
-import { get, set } from 'rc-util';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import { get, set } from '@rc-component/util';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { clsx } from 'clsx';
 
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
@@ -63,6 +63,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const baseClassName = `${prefixCls}-item`;
 
   const formContext = React.useContext(FormContext);
+  const { classNames: contextClassNames, styles: contextStyles } = formContext;
 
   const mergedWrapperCol = React.useMemo(() => {
     let mergedWrapper: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
@@ -84,13 +85,13 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
       });
     }
     return mergedWrapper;
-  }, [wrapperCol, formContext]);
+  }, [wrapperCol, formContext.wrapperCol, formContext.labelCol, label, labelCol]);
 
-  const className = classNames(`${baseClassName}-control`, mergedWrapperCol.className);
+  const className = clsx(`${baseClassName}-control`, mergedWrapperCol.className);
 
   // Pass to sub FormItem should not with col info
   const subFormContext = React.useMemo(() => {
-    const { labelCol, wrapperCol, ...rest } = formContext;
+    const { labelCol: _labelCol, wrapperCol: _wrapperCol, ...rest } = formContext;
     return rest;
   }, [formContext]);
 
@@ -106,7 +107,12 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
 
   const inputDom: React.ReactNode = (
     <div className={`${baseClassName}-control-input`}>
-      <div className={`${baseClassName}-control-input-content`}>{children}</div>
+      <div
+        className={clsx(`${baseClassName}-control-input-content`, contextClassNames?.content)}
+        style={contextStyles?.content}
+      >
+        {children}
+      </div>
     </div>
   );
   const formItemContext = React.useMemo(() => ({ prefixCls, status }), [prefixCls, status]);

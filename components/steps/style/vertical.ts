@@ -1,78 +1,55 @@
-import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
-const genStepsVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSizeSM, iconSize } = token;
-
+const genVerticalStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
+  const { componentCls, marginXXS, paddingSM, controlHeight, antCls, calc } = token;
+  const itemCls = `${componentCls}-item`;
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
   return {
-    [`&${componentCls}-vertical`]: {
-      display: 'flex',
+    [`${componentCls}-vertical`]: {
+      [varName('vertical-rail-margin')]: calc(marginXXS).mul(1.5).equal(),
+
       flexDirection: 'column',
+      alignItems: 'stretch',
 
-      [`> ${componentCls}-item`]: {
-        display: 'block',
-        flex: '1 0 auto',
-        paddingInlineStart: 0,
-        overflow: 'visible',
+      // Item
+      [`> ${itemCls}`]: {
+        minHeight: calc(controlHeight).mul(1.5).equal(),
+        paddingBottom: paddingSM,
 
-        [`${componentCls}-item-icon`]: {
-          float: 'left',
-          marginInlineEnd: token.margin,
+        '&:last-child': {
+          paddingBottom: 0,
         },
-        [`${componentCls}-item-content`]: {
-          display: 'block',
-          minHeight: token.calc(token.controlHeight).mul(1.5).equal(),
-          overflow: 'hidden',
-        },
-        [`${componentCls}-item-title`]: {
-          lineHeight: unit(iconSize),
-        },
-        [`${componentCls}-item-description`]: {
-          paddingBottom: token.paddingSM,
-        },
-      },
-      [`> ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-        position: 'absolute',
-        top: 0,
-        insetInlineStart: token.calc(iconSize).div(2).sub(token.lineWidth).equal(),
-        width: token.lineWidth,
-        height: '100%',
-        padding: `${unit(token.calc(token.marginXXS).mul(1.5).add(iconSize).equal())} 0 ${unit(
-          token.calc(token.marginXXS).mul(1.5).equal(),
-        )}`,
 
-        '&::after': {
-          width: token.lineWidth,
-          height: '100%',
+        // Icon
+        [`${itemCls}-icon`]: {
+          marginInlineStart: `calc((${varRef('icon-size-max')} - ${varRef('icon-size')}) / 2)`,
         },
-      },
-      [`> ${componentCls}-item:not(:last-child) > ${componentCls}-item-container > ${componentCls}-item-tail`]:
-        {
-          display: 'block',
-        },
-      [` > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-content > ${componentCls}-item-title`]:
-        {
-          '&::after': {
-            display: 'none',
-          },
-        },
-      [`&${componentCls}-small ${componentCls}-item-container`]: {
-        [`${componentCls}-item-tail`]: {
+
+        // >>> Rail
+        [`${itemCls}-rail`]: {
+          [varName('rail-offset')]: calc(varRef('heading-height'))
+            .sub(varRef('icon-size'))
+            .div(2)
+            .equal(),
+
+          borderInlineStartWidth: varRef('rail-size'),
           position: 'absolute',
-          top: 0,
-          insetInlineStart: token.calc(iconSizeSM).div(2).sub(token.lineWidth).equal(),
-          padding: `${unit(token.calc(token.marginXXS).mul(1.5).add(iconSizeSM).equal())} 0 ${unit(
-            token.calc(token.marginXXS).mul(1.5).equal(),
-          )}`,
-        },
-        [`${componentCls}-item-title`]: {
-          lineHeight: unit(iconSizeSM),
+          top: calc(varRef('icon-size'))
+            .add(varRef('item-wrapper-padding-top'))
+            .add(varRef('rail-offset'))
+            .add(varRef('vertical-rail-margin'))
+            .equal(),
+          insetInlineStart: calc(varRef('icon-size-max')).div(2).equal(),
+          bottom: calc(varRef('vertical-rail-margin')).sub(varRef('rail-offset')).equal(),
+          marginInlineStart: `calc(${varRef('rail-size')} / -2)`,
         },
       },
     },
   };
 };
-export default genStepsVerticalStyle;
+
+export default genVerticalStyle;

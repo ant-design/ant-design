@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ValidateMessages } from 'rc-field-form/es/interface';
+import type { ValidateMessages } from '@rc-component/form/lib/interface';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import ConfigProvider from '..';
@@ -16,12 +16,12 @@ jest.mock('scroll-into-view-if-needed');
 describe('ConfigProvider.Form', () => {
   (scrollIntoView as any).mockImplementation(() => {});
 
-  beforeEach(() => {
-    (scrollIntoView as any).mockReset();
-  });
-
   beforeAll(() => {
     jest.useFakeTimers();
+  });
+
+  beforeEach(() => {
+    (scrollIntoView as any).mockReset();
   });
 
   afterAll(() => {

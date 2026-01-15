@@ -72,16 +72,10 @@ describe('Table', () => {
 
   it('loading with Spin', async () => {
     jest.useFakeTimers();
-    const loading = {
-      spinning: false,
-      delay: 500,
-    };
-    const { container, rerender } = render(<Table loading={loading} />);
+    const { container, rerender } = render(<Table loading={{ spinning: false, delay: 500 }} />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
     expect(container.querySelector('.ant-table-placeholder')?.textContent).not.toEqual('');
-
-    loading.spinning = true;
-    rerender(<Table loading={loading} />);
+    rerender(<Table loading={{ spinning: true, delay: 500 }} />);
     expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
     await waitFakeTimer();
     rerender(<Table loading />);
@@ -252,6 +246,7 @@ describe('Table', () => {
       'Warning: [antd: Table] `index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   });
+
   it('not warn about rowKey', () => {
     warnSpy.mockReset();
     const columns: TableProps<any>['columns'] = [
@@ -263,6 +258,45 @@ describe('Table', () => {
     ];
     render(<Table columns={columns} rowKey={(record) => record.key as string} />);
     expect(warnSpy).not.toHaveBeenCalled();
+  });
+
+  it('use global rowKey config', () => {
+    const { container } = render(
+      <ConfigProvider table={{ rowKey: 'id' }}>
+        <Table
+          dataSource={[
+            {
+              id: 666,
+              key: 'foobar',
+              name: 'Foobar',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLTableRowElement>('.ant-table-row')?.dataset.rowKey).toBe(
+      '666',
+    );
+  });
+
+  it('prefer rowKey prop over global rowKey config', () => {
+    const { container } = render(
+      <ConfigProvider table={{ rowKey: 'id' }}>
+        <Table
+          rowKey="name"
+          dataSource={[
+            {
+              id: 666,
+              key: 'foobar',
+              name: 'Foobar',
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector<HTMLTableRowElement>('.ant-table-row')?.dataset.rowKey).toBe(
+      'Foobar',
+    );
   });
 
   it('should support ref', () => {

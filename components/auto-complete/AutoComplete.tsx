@@ -1,10 +1,10 @@
 import * as React from 'react';
-import cls from 'classnames';
-import type { BaseSelectRef } from 'rc-select';
-import toArray from 'rc-util/lib/Children/toArray';
-import omit from 'rc-util/lib/omit';
+import type { BaseSelectRef } from '@rc-component/select';
+import { omit, toArray } from '@rc-component/util';
+import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks/useZIndex';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -14,9 +14,30 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
+  SelectPopupSemanticClassNames,
+  SelectPopupSemanticStyles,
   SelectProps,
 } from '../select';
 import Select from '../select';
+
+export type AutoCompleteSemanticName = keyof AutoCompleteSemanticClassNames &
+  keyof AutoCompleteSemanticStyles;
+
+export type AutoCompleteSemanticClassNames = {
+  root?: string;
+  prefix?: string;
+  input?: string;
+  placeholder?: string;
+  content?: string;
+};
+
+export type AutoCompleteSemanticStyles = {
+  root?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  input?: React.CSSProperties;
+  placeholder?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
 
 const { Option } = Select;
 
@@ -24,7 +45,20 @@ export interface DataSourceItemObject {
   value: string;
   text: string;
 }
+
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
+
+export type AutoCompleteClassNamesType = SemanticClassNamesType<
+  AutoCompleteProps,
+  AutoCompleteSemanticClassNames,
+  { popup?: SelectPopupSemanticClassNames }
+>;
+
+export type AutoCompleteStylesType = SemanticStylesType<
+  AutoCompleteProps,
+  AutoCompleteSemanticStyles,
+  { popup?: SelectPopupSemanticStyles }
+>;
 
 export interface AutoCompleteProps<
   ValueType = any,
@@ -43,6 +77,8 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
+  styles?: AutoCompleteStylesType;
+  classNames?: AutoCompleteClassNamesType;
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
@@ -64,10 +100,12 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   const {
     prefixCls: customizePrefixCls,
     className,
+    style,
     popupClassName,
     dropdownClassName,
     children,
     dataSource,
+    rootClassName,
     dropdownStyle,
     dropdownRender,
     popupRender,
@@ -78,8 +116,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
-  const mergedPopupStyle = styles?.popup?.root || dropdownStyle;
-  const mergedPopupClassName = classNames?.popup?.root || popupClassName || dropdownClassName;
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
@@ -129,7 +165,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
         })
       : [];
   }
-
+  // ====================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('AutoComplete');
 
@@ -158,8 +194,67 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const prefixCls = getPrefixCls('select', customizePrefixCls);
 
-  // ============================ zIndex ============================
-  const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: AutoCompleteProps = {
+    ...props,
+    dataSource,
+    status: props.status,
+    popupMatchSelectWidth: props.popupMatchSelectWidth || props.dropdownMatchSelectWidth,
+    popupRender: mergedPopupRender,
+    onOpenChange: mergedOnOpenChange,
+  };
+
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    AutoCompleteClassNamesType,
+    AutoCompleteStylesType,
+    AutoCompleteProps
+  >(
+    [classNames],
+    [styles],
+    {
+      props: mergedProps,
+    },
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
+
+  const finalClassNames = React.useMemo(
+    () => ({
+      root: clsx(`${prefixCls}-auto-complete`, className, rootClassName, mergedClassNames.root, {
+        [`${prefixCls}-customize`]: customizeInput,
+      }),
+      prefix: mergedClassNames.prefix,
+      input: mergedClassNames.input,
+      placeholder: mergedClassNames.placeholder,
+      content: mergedClassNames.content,
+      popup: {
+        root: clsx(popupClassName, dropdownClassName, mergedClassNames.popup?.root),
+        list: mergedClassNames.popup?.list,
+        listItem: mergedClassNames.popup?.listItem,
+      },
+    }),
+    [prefixCls, className, rootClassName, mergedClassNames, popupClassName, dropdownClassName],
+  );
+
+  const finalStyles = React.useMemo(
+    () => ({
+      root: { ...mergedStyles.root, ...style },
+      input: mergedStyles.input,
+      prefix: mergedStyles.prefix,
+      placeholder: mergedStyles.placeholder,
+      content: mergedStyles.content,
+      popup: {
+        root: { ...dropdownStyle, ...mergedStyles.popup?.root },
+        list: mergedStyles.popup?.list,
+        listItem: mergedStyles.popup?.listItem,
+      },
+    }),
+    [mergedStyles, style, dropdownStyle],
+  );
 
   return (
     <Select
@@ -167,25 +262,11 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       suffixIcon={null}
       {...omit(props, ['dataSource', 'dropdownClassName', 'popupClassName'])}
       prefixCls={prefixCls}
-      classNames={{
-        popup: {
-          root: mergedPopupClassName,
-        },
-        root: classNames?.root,
-      }}
-      styles={{
-        popup: {
-          root: {
-            ...mergedPopupStyle,
-            zIndex,
-          },
-        },
-        root: styles?.root,
-      }}
-      className={cls(`${prefixCls}-auto-complete`, className)}
+      classNames={finalClassNames}
+      styles={finalStyles}
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       popupRender={mergedPopupRender}
-      onOpenChange={mergedOnOpenChange}
+      onPopupVisibleChange={mergedOnOpenChange}
       {...{
         // Internal api
         getInputElement,

@@ -1,6 +1,6 @@
 import React from 'react';
-import { MinusSquareOutlined, SearchOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Divider, Flex, Radio, Tooltip, Input } from 'antd';
+import { ArrowDownOutlined, MinusSquareOutlined, SearchOutlined } from '@ant-design/icons';
+import { Button, ConfigProvider, Divider, Flex, Input, Radio, Tooltip } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { FiColumns } from 'react-icons/fi';
 
@@ -22,7 +22,7 @@ const App: React.FC = () => {
         <Radio.Button value="default">Default</Radio.Button>
         <Radio.Button value="small">Small</Radio.Button>
       </Radio.Group>
-      <Divider orientation="left" plain>
+      <Divider titlePlacement="start" plain>
         Preview
       </Divider>
       <ConfigProvider componentSize={size}>
@@ -99,6 +99,7 @@ const App: React.FC = () => {
             style={{
               transform: 'scale(3)',
               transformOrigin: 'left top',
+              marginBottom: 100,
             }}
           >
             <Button icon={<MinusSquareOutlined />} />
@@ -106,6 +107,37 @@ const App: React.FC = () => {
             <Button icon={<Icon16Size />} />
             <Button icon={<IconIrregularSize />} />
           </Flex>
+        </Flex>
+      </ConfigProvider>
+
+      <ConfigProvider
+        theme={{
+          components: { Button: { paddingInline: 100, paddingInlineLG: 150, paddingInlineSM: 50 } },
+        }}
+      >
+        <Divider plain> paddingInline / paddingInlineLG / paddingInlineSM </Divider>
+
+        <p style={{ marginBottom: 12 }}>
+          Icon-only button should not be affected by paddingInline / paddingInlineLG /
+          paddingInlineSM
+        </p>
+
+        <Flex gap={8} style={{ marginBottom: 12 }}>
+          <Button size="small" shape="default" icon={<ArrowDownOutlined />} />
+          <Button size="small" shape="round" icon={<ArrowDownOutlined />} />
+          <Button size="small" shape="circle" icon={<ArrowDownOutlined />} />
+        </Flex>
+
+        <Flex gap={8} style={{ marginBottom: 12 }}>
+          <Button shape="default" icon={<ArrowDownOutlined />} />
+          <Button shape="round" icon={<ArrowDownOutlined />} />
+          <Button shape="circle" icon={<ArrowDownOutlined />} />
+        </Flex>
+
+        <Flex gap={8} style={{ marginBottom: 12 }}>
+          <Button size="large" shape="default" icon={<ArrowDownOutlined />} />
+          <Button size="large" shape="round" icon={<ArrowDownOutlined />} />
+          <Button size="large" shape="circle" icon={<ArrowDownOutlined />} />
         </Flex>
       </ConfigProvider>
     </>

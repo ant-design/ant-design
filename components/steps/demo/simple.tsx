@@ -1,26 +1,30 @@
 import React from 'react';
-import { Steps } from 'antd';
+import { Flex, Steps } from 'antd';
 
-const description = 'This is a description.';
+const content = 'This is a content.';
+const items = [
+  {
+    title: 'Finished',
+    content,
+  },
+  {
+    title: 'In Progress',
+    content,
+    subTitle: 'Left 00:00:08',
+  },
+  {
+    title: 'Waiting',
+    content,
+  },
+];
+
 const App: React.FC = () => (
-  <Steps
-    current={1}
-    items={[
-      {
-        title: 'Finished',
-        description,
-      },
-      {
-        title: 'In Progress',
-        description,
-        subTitle: 'Left 00:00:08',
-      },
-      {
-        title: 'Waiting',
-        description,
-      },
-    ]}
-  />
+  <Flex vertical gap="large">
+    <Steps current={1} items={items} />
+    <Steps current={1} items={items} variant="outlined" />
+    <Steps current={1} items={items} size="small" />
+    <Steps current={1} items={items} size="small" variant="outlined" />
+  </Flex>
 );
 
 export default App;

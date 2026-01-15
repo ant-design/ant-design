@@ -56,6 +56,7 @@ interface SkeletonToken extends FullToken<'Skeleton'> {
   skeletonParagraphCls: string;
   skeletonButtonCls: string;
   skeletonInputCls: string;
+  skeletonNodeCls: string;
   skeletonImageCls: string;
   imageSizeBase: number | string;
   skeletonLoadingBackground: string;
@@ -68,7 +69,7 @@ const genSkeletonElementCommonSize = (size: number | string): CSSObject => ({
   lineHeight: unit(size),
 });
 
-const genSkeletonElementAvatarSize = (size: number | string): CSSObject => ({
+const genSkeletonElementSize = (size: number | string): CSSObject => ({
   width: size,
   ...genSkeletonElementCommonSize(size),
 });
@@ -95,16 +96,16 @@ const genSkeletonElementAvatar = (token: SkeletonToken): CSSObject => {
       display: 'inline-block',
       verticalAlign: 'top',
       background: gradientFromColor,
-      ...genSkeletonElementAvatarSize(controlHeight),
+      ...genSkeletonElementSize(controlHeight),
     },
     [`${skeletonAvatarCls}${skeletonAvatarCls}-circle`]: {
       borderRadius: '50%',
     },
     [`${skeletonAvatarCls}${skeletonAvatarCls}-lg`]: {
-      ...genSkeletonElementAvatarSize(controlHeightLG),
+      ...genSkeletonElementSize(controlHeightLG),
     },
     [`${skeletonAvatarCls}${skeletonAvatarCls}-sm`]: {
-      ...genSkeletonElementAvatarSize(controlHeightSM),
+      ...genSkeletonElementSize(controlHeightSM),
     },
   };
 };
@@ -138,27 +139,39 @@ const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
   };
 };
 
-const genSkeletonElementImageSize = (size: number | string): CSSObject => ({
-  width: size,
-  ...genSkeletonElementCommonSize(size),
-});
+const genSkeletonElementShape = (token: SkeletonToken): CSSObject => {
+  const { gradientFromColor, borderRadiusSM, imageSizeBase, calc } = token;
+  return {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    verticalAlign: 'middle',
+    background: gradientFromColor,
+    borderRadius: borderRadiusSM,
+    ...genSkeletonElementSize(calc(imageSizeBase).mul(2).equal()),
+  };
+};
+
+const genSkeletonElementNode = (token: SkeletonToken): CSSObject => {
+  return {
+    [token.skeletonNodeCls]: {
+      ...genSkeletonElementShape(token),
+    },
+  };
+};
 
 const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
-  const { skeletonImageCls, imageSizeBase, gradientFromColor, borderRadiusSM, calc } = token;
+  const { skeletonImageCls, imageSizeBase, calc } = token;
+
   return {
     [skeletonImageCls]: {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      verticalAlign: 'middle',
-      background: gradientFromColor,
-      borderRadius: borderRadiusSM,
-      ...genSkeletonElementImageSize(calc(imageSizeBase).mul(2).equal()),
+      ...genSkeletonElementShape(token),
+
       [`${skeletonImageCls}-path`]: {
         fill: '#bfbfbf',
       },
       [`${skeletonImageCls}-svg`]: {
-        ...genSkeletonElementImageSize(imageSizeBase),
+        ...genSkeletonElementSize(imageSizeBase),
         maxWidth: calc(imageSizeBase).mul(4).equal(),
         maxHeight: calc(imageSizeBase).mul(4).equal(),
       },
@@ -171,6 +184,7 @@ const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
     },
   };
 };
+
 const genSkeletonElementButtonShape = (
   token: SkeletonToken,
   size: number,
@@ -238,6 +252,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
     skeletonParagraphCls,
     skeletonButtonCls,
     skeletonInputCls,
+    skeletonNodeCls,
     skeletonImageCls,
     controlHeight,
     controlHeightLG,
@@ -268,19 +283,19 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
           display: 'inline-block',
           verticalAlign: 'top',
           background: gradientFromColor,
-          ...genSkeletonElementAvatarSize(controlHeight),
+          ...genSkeletonElementSize(controlHeight),
         },
         [`${skeletonAvatarCls}-circle`]: {
           borderRadius: '50%',
         },
         [`${skeletonAvatarCls}-lg`]: {
-          ...genSkeletonElementAvatarSize(controlHeightLG),
+          ...genSkeletonElementSize(controlHeightLG),
         },
         [`${skeletonAvatarCls}-sm`]: {
-          ...genSkeletonElementAvatarSize(controlHeightSM),
+          ...genSkeletonElementSize(controlHeightSM),
         },
       },
-      [`${componentCls}-content`]: {
+      [`${componentCls}-section`]: {
         display: 'table-cell',
         width: '100%',
         verticalAlign: 'top',
@@ -316,13 +331,13 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         },
       },
 
-      [`&-round ${componentCls}-content`]: {
+      [`&-round ${componentCls}-section`]: {
         [`${skeletonTitleCls}, ${skeletonParagraphCls} > li`]: {
           borderRadius,
         },
       },
     },
-    [`${componentCls}-with-avatar ${componentCls}-content`]: {
+    [`${componentCls}-with-avatar ${componentCls}-section`]: {
       // Title
       [skeletonTitleCls]: {
         marginBlockStart: marginSM,
@@ -332,7 +347,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         },
       },
     },
-    // Skeleton element
+    // Skeleton with element
     [`${componentCls}${componentCls}-element`]: {
       display: 'inline-block',
       width: 'auto',
@@ -340,6 +355,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
       ...genSkeletonElementButton(token),
       ...genSkeletonElementAvatar(token),
       ...genSkeletonElementInput(token),
+      ...genSkeletonElementNode(token),
       ...genSkeletonElementImage(token),
     },
     // Skeleton Block Button, Input
@@ -362,6 +378,7 @@ const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
         ${skeletonAvatarCls},
         ${skeletonButtonCls},
         ${skeletonInputCls},
+        ${skeletonNodeCls},
         ${skeletonImageCls}
       `]: {
         ...genSkeletonColor(token),
@@ -398,13 +415,14 @@ export default genStyleHooks(
       skeletonParagraphCls: `${componentCls}-paragraph`,
       skeletonButtonCls: `${componentCls}-button`,
       skeletonInputCls: `${componentCls}-input`,
+      skeletonNodeCls: `${componentCls}-node`,
       skeletonImageCls: `${componentCls}-image`,
       imageSizeBase: calc(token.controlHeight).mul(1.5).equal(),
       borderRadius: 100, // Large number to make capsule shape
       skeletonLoadingBackground: `linear-gradient(90deg, ${token.gradientFromColor} 25%, ${token.gradientToColor} 37%, ${token.gradientFromColor} 63%)`,
       skeletonLoadingMotionDuration: '1.4s',
     });
-    return [genBaseStyle(skeletonToken)];
+    return genBaseStyle(skeletonToken);
   },
   prepareComponentToken,
   {

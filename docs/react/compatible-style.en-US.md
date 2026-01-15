@@ -5,7 +5,7 @@ order: 1
 title: CSS Compatible
 ---
 
-### Default Style Compatibility
+## Default Style Compatibility
 
 Ant Design supports the [last 2 versions of modern browsers](https://browsersl.ist/#q=defaults). If you need to be compatible with legacy browsers, please perform downgrade processing according to actual needs:
 
@@ -14,7 +14,7 @@ Ant Design supports the [last 2 versions of modern browsers](https://browsersl.i
 | [:where Selector](https://developer.mozilla.org/en-US/docs/Web/CSS/:where) | `>=5.0.0` | [caniuse](https://caniuse.com/?search=%3Awhere) | Chrome 88 | `<StyleProvider hashPriority="high">` |
 | [CSS Logical Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties) | `>=5.0.0` | [caniuse](https://caniuse.com/css-logical-props) | Chrome 89 | `<StyleProvider transformers={[legacyLogicalPropertiesTransformer]}>` |
 
-If you need to support older browsers, please use [StyleProvider](https://github.com/ant-design/cssinjs#styleprovider) for degradation handling according to your actual requirements.
+If you need to support older browsers, please use `@ant-design/cssinjs` [StyleProvider](https://github.com/ant-design/cssinjs#styleprovider) for degradation handling according to your actual requirements.
 
 ## `:where` in selector
 
@@ -126,6 +126,56 @@ antd styles will be encapsulated in `@layer` to lower the priority:
         color: #fff;
       }
 ++  }
+```
+
+⚠️ zeroRuntime Scenario Notes (Added in 6.0.0)
+
+When `zeroRuntime` is enabled, Ant Design’s styles are precompiled into a standalone `antd.css` file. If you also enable the `@layer` specificity–lowering mechanism, you must ensure that `antd.css` is placed inside the same layer (e.g., `layer(antd)`). Otherwise, its specificity will be higher than the styles injected by StyleProvider, causing the lowering mechanism to fail or resulting in unexpected override behavior.
+
+```css
+/* global.css / app.css */
+@layer theme, base, antd, components, utilities;
+
+/* The precompiled antd.css output by zeroRuntime must explicitly specify a layer */
+@import url(antd.css) layer(antd);
+```
+
+If you cannot use the `@import ... layer()` syntax, you may wrap the content during your build process instead:
+
+```css
+@layer antd {
+  /* contents of antd.css */
+}
+```
+
+## autoPrefixer
+
+- antd version: `>=6.0.0`
+- Browser Compatibility: Automatically adds browser prefixes for wider browser support
+- Default Enabled: No
+
+Some styles rely on browser prefixes for compatibility. The `autoPrefixer` transformer can automatically add browser prefixes to styles, ensuring they work properly across different browsers.
+
+```tsx | pure
+import { autoPrefixTransformer, StyleProvider } from '@ant-design/cssinjs';
+
+export default () => (
+  <StyleProvider transformers={[autoPrefixTransformer]}>
+    <MyApp />
+  </StyleProvider>
+);
+```
+
+The final transformed styles:
+
+```diff
+  .sample-box {
+--  user-select: none;
+++  -webkit-user-select: none;
+++  -moz-user-select: none;
+++  -ms-user-select: none;
+++  user-select: none;
+  }
 ```
 
 ## Rem Adaptation
@@ -246,15 +296,26 @@ In global.css, adjust `@layer` to control the order of style override. Place `an
 @import 'tailwindcss';
 ```
 
-### reset.css
+### reset.css and antd.css
 
-If you use antd's `reset.css` style, you need to specify `@layer` for it to prevent the style from overriding antd:
+If you are using Ant Design’s `reset.css`, you need to assign it to a specific `@layer` to prevent it from overriding the lowered-specificity antd styles. Similarly, in the `zeroRuntime` scenario, if you import `antd.css` separately, you must also place it inside `layer(antd)` to keep the layer hierarchy consistent:
 
-```less
+```css
+/* Both reset.css and antd.css must specify a layer */
 @layer reset, antd;
 
+/* reset styles */
 @import url(reset.css) layer(reset);
+
+/* antd styles */
+@import url(antd.css) layer(antd);
 ```
+
+This ensures that:
+
+- reset.css will not override Ant Design styles that have been lowered via @layer
+- antd.css (in zeroRuntime mode) stays aligned with the layer injected by StyleProvider
+- Layer order still works correctly with third-party styling systems such as Tailwind, Emotion, or other CSS-in-JS libraries
 
 ### With other CSS-in-JS libraries
 

@@ -275,4 +275,18 @@ describe('CheckboxGroup', () => {
     );
     expect(container.querySelector('#bamboo')).toBeTruthy();
   });
+
+  describe('role prop', () => {
+    it('should set default role', () => {
+      const { container } = render(<Checkbox.Group options={['Apple', 'Pear', 'Orange']} />);
+      expect(container.firstChild).toHaveAttribute('role', 'group');
+    });
+
+    it('should set passed role', () => {
+      const { container } = render(
+        <Checkbox.Group options={['Apple', 'Pear', 'Orange']} role="checkbox" />,
+      );
+      expect(container.firstChild).toHaveAttribute('role', 'checkbox');
+    });
+  });
 });

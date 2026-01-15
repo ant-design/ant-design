@@ -18,7 +18,7 @@ jest.mock('react-dom', () => {
 describe('Notification.placement', () => {
   function open(args?: Partial<ArgsProps>) {
     notification.open({
-      message: 'Notification Title',
+      title: 'Notification Title',
       description: 'This is the content of the notification.',
       ...args,
     });
@@ -70,7 +70,7 @@ describe('Notification.placement', () => {
       expect(document.querySelector('.ant-notification-topLeft')).toHaveStyle({
         top: '50px',
         left: '0px',
-        bottom: '',
+        bottom: 'auto',
       });
 
       // topRight
@@ -83,7 +83,7 @@ describe('Notification.placement', () => {
       expect(document.querySelector('.ant-notification-topRight')).toHaveStyle({
         top: '100px',
         right: '0px',
-        bottom: '',
+        bottom: 'auto',
       });
 
       // bottomRight
@@ -94,7 +94,7 @@ describe('Notification.placement', () => {
       });
 
       expect(document.querySelector('.ant-notification-bottomRight')).toHaveStyle({
-        top: '',
+        top: 'auto',
         right: '0px',
         bottom: '100px',
       });
@@ -107,7 +107,7 @@ describe('Notification.placement', () => {
       });
 
       expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
-        top: '',
+        top: 'auto',
         left: '0px',
         bottom: '50px',
       });
@@ -123,7 +123,7 @@ describe('Notification.placement', () => {
       expect(document.querySelector('.ant-notification-top')).toHaveStyle({
         top: '50px',
         left: '50%',
-        bottom: '',
+        bottom: 'auto',
       });
 
       // bottom
@@ -135,7 +135,7 @@ describe('Notification.placement', () => {
       await awaitPromise();
 
       expect(document.querySelector('.ant-notification-bottom')).toHaveStyle({
-        top: '',
+        top: 'auto',
         left: '50%',
         bottom: '60px',
       });

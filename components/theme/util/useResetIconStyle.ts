@@ -19,7 +19,7 @@ const useResetIconStyle = (iconPrefixCls: string, csp?: CSPConfig) => {
         name: 'antd',
       },
     },
-    () => [genIconStyle(iconPrefixCls)],
+    () => genIconStyle(iconPrefixCls),
   );
 };
 

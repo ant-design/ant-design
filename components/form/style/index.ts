@@ -12,6 +12,7 @@ import type {
   GetDefaultToken,
 } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genFormValidateMotionStyle from './explain';
 
 export interface ComponentToken {
@@ -197,6 +198,8 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
     itemMarginBottom,
   } = token;
 
+  const [varName] = genCssVar(antCls, 'grid');
+
   return {
     [formItemCls]: {
       ...resetComponent(token),
@@ -319,7 +322,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
       // =                            Input                           =
       // ==============================================================
       [`${formItemCls}-control`]: {
-        ['--ant-display' as any]: 'flex',
+        [varName('display')]: 'flex',
         flexDirection: 'column',
         flexGrow: 1,
 
@@ -421,11 +424,27 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const genHorizontalStyle = (token: FormToken, className: string): CSSObject => {
-  const { formItemCls } = token;
+const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
+  padding: token.verticalLabelPadding,
+  margin: token.verticalLabelMargin,
+  whiteSpace: 'initial',
+  textAlign: 'start',
+
+  '> label': {
+    margin: 0,
+
+    '&::after': {
+      // https://github.com/ant-design/ant-design/issues/43538
+      visibility: 'hidden',
+    },
+  },
+});
+
+const genHorizontalStyle = (token: FormToken): CSSObject => {
+  const { antCls, formItemCls } = token;
 
   return {
-    [`${className}-horizontal`]: {
+    [`${formItemCls}-horizontal`]: {
       [`${formItemCls}-label`]: {
         flexGrow: 0,
       },
@@ -446,6 +465,8 @@ const genHorizontalStyle = (token: FormToken, className: string): CSSObject => {
           minWidth: 'unset',
         },
       },
+      [`${antCls}-col-24${formItemCls}-label,
+        ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
     },
   };
 };
@@ -458,7 +479,7 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
       display: 'flex',
       flexWrap: 'wrap',
 
-      [formItemCls]: {
+      [`${formItemCls}-inline`]: {
         flex: 'none',
         marginInlineEnd: token.margin,
         marginBottom: inlineItemMarginBottom,
@@ -489,22 +510,6 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
-  padding: token.verticalLabelPadding,
-  margin: token.verticalLabelMargin,
-  whiteSpace: 'initial',
-  textAlign: 'start',
-
-  '> label': {
-    margin: 0,
-
-    '&::after': {
-      // https://github.com/ant-design/ant-design/issues/43538
-      visibility: 'hidden',
-    },
-  },
-});
-
 const makeVerticalLayout = (token: FormToken): CSSObject => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
@@ -533,23 +538,21 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
   const { componentCls, formItemCls, antCls } = token;
 
   return {
-    [`${componentCls}-vertical`]: {
-      [`${formItemCls}:not(${formItemCls}-horizontal)`]: {
-        [`${formItemCls}-row`]: {
-          flexDirection: 'column',
-        },
+    [`${formItemCls}-vertical`]: {
+      [`${formItemCls}-row`]: {
+        flexDirection: 'column',
+      },
 
-        [`${formItemCls}-label > label`]: {
-          height: 'auto',
-        },
+      [`${formItemCls}-label > label`]: {
+        height: 'auto',
+      },
 
-        [`${formItemCls}-control`]: {
-          width: '100%',
-        },
-        [`${formItemCls}-label,
+      [`${formItemCls}-control`]: {
+        width: '100%',
+      },
+      [`${formItemCls}-label,
         ${antCls}-col-24${formItemCls}-label,
         ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-      },
     },
 
     [`@media (max-width: ${unit(token.screenXSMax)})`]: [
@@ -584,56 +587,6 @@ const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
         [`${formItemCls}:not(${formItemCls}-horizontal)`]: {
           [`${antCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
         },
-      },
-    },
-  };
-};
-
-const genItemVerticalStyle: GenerateStyle<FormToken> = (token) => {
-  const { formItemCls, antCls } = token;
-  return {
-    [`${formItemCls}-vertical`]: {
-      [`${formItemCls}-row`]: {
-        flexDirection: 'column',
-      },
-
-      [`${formItemCls}-label > label`]: {
-        height: 'auto',
-      },
-
-      [`${formItemCls}-control`]: {
-        width: '100%',
-      },
-    },
-
-    [`${formItemCls}-vertical ${formItemCls}-label,
-      ${antCls}-col-24${formItemCls}-label,
-      ${antCls}-col-xl-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-
-    [`@media (max-width: ${unit(token.screenXSMax)})`]: [
-      makeVerticalLayout(token),
-      {
-        [formItemCls]: {
-          [`${antCls}-col-xs-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-        },
-      },
-    ],
-
-    [`@media (max-width: ${unit(token.screenSMMax)})`]: {
-      [formItemCls]: {
-        [`${antCls}-col-sm-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-      },
-    },
-
-    [`@media (max-width: ${unit(token.screenMDMax)})`]: {
-      [formItemCls]: {
-        [`${antCls}-col-md-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
-      },
-    },
-
-    [`@media (max-width: ${unit(token.screenLGMax)})`]: {
-      [formItemCls]: {
-        [`${antCls}-col-lg-24${formItemCls}-label`]: makeVerticalLayoutLabel(token),
       },
     },
   };
@@ -674,11 +627,9 @@ export default genStyleHooks(
       genFormStyle(formToken),
       genFormItemStyle(formToken),
       genFormValidateMotionStyle(formToken),
-      genHorizontalStyle(formToken, formToken.componentCls),
-      genHorizontalStyle(formToken, formToken.formItemCls),
+      genHorizontalStyle(formToken),
       genInlineStyle(formToken),
       genVerticalStyle(formToken),
-      genItemVerticalStyle(formToken),
       genCollapseMotion(formToken),
       zoomIn,
     ];

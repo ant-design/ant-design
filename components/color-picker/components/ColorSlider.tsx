@@ -1,10 +1,10 @@
 import * as React from 'react';
 import type { BaseSliderProps } from '@rc-component/color-picker';
-import classNames from 'classnames';
-import { UnstableContext } from 'rc-slider';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import { UnstableContext } from '@rc-component/slider';
+import { useEvent } from '@rc-component/util';
+import { clsx } from 'clsx';
 
-import type { GetContextProp, GetProp } from '../../_util/type';
+import type { GetProp } from '../../_util/type';
 import Slider from '../../slider';
 import SliderInternalContext from '../../slider/Context';
 import type { SliderInternalContextProps } from '../../slider/Context';
@@ -22,8 +22,8 @@ export interface GradientColorSliderProps
   type: BaseSliderProps['type'] | 'gradient';
 
   // Drag events
-  onDragStart?: GetContextProp<typeof UnstableContext, 'onDragStart'>;
-  onDragChange?: GetContextProp<typeof UnstableContext, 'onDragChange'>;
+  onDragStart?: GetProp<typeof UnstableContext, 'onDragStart'>;
+  onDragChange?: GetProp<typeof UnstableContext, 'onDragChange'>;
 
   // Key event
   onKeyDelete?: (index: number) => void;
@@ -71,11 +71,11 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
   }, [color, type]);
 
   // ======================= Context: Slider ========================
-  const onInternalDragStart: GetContextProp<typeof UnstableContext, 'onDragStart'> = useEvent(
+  const onInternalDragStart: GetProp<typeof UnstableContext, 'onDragStart'> = useEvent(
     onDragStart!,
   );
 
-  const onInternalDragChange: GetContextProp<typeof UnstableContext, 'onDragChange'> = useEvent(
+  const onInternalDragChange: GetProp<typeof UnstableContext, 'onDragChange'> = useEvent(
     onDragChange!,
   );
 
@@ -104,7 +104,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
           onFocus?.(e);
         },
         style: mergedStyle,
-        className: classNames(handleCls, {
+        className: clsx(handleCls, {
           [`${prefixCls}-slider-handle-active`]: activeIndex === info.index,
         }),
         onKeyDown: (e: React.KeyboardEvent<HTMLDivElement>) => {
@@ -132,7 +132,7 @@ export const GradientColorSlider = (props: GradientColorSliderProps) => {
       <UnstableContext.Provider value={unstableContext}>
         <Slider
           {...sliderProps}
-          className={classNames(className, `${prefixCls}-slider`)}
+          className={clsx(className, `${prefixCls}-slider`)}
           tooltip={{ open: false }}
           range={{
             editable: range,

@@ -30,17 +30,6 @@ export const unitless: {
 export const ignore: {
   [key in keyof AliasToken]?: boolean;
 } = {
-  size: true,
-  sizeSM: true,
-  sizeLG: true,
-  sizeMD: true,
-  sizeXS: true,
-  sizeXXS: true,
-  sizeMS: true,
-  sizeXL: true,
-  sizeXXL: true,
-  sizeUnit: true,
-  sizeStep: true,
   motionBase: true,
   motionUnit: true,
 };
@@ -116,15 +105,22 @@ export default function useToken(): [
   token: GlobalToken,
   hashId: string,
   realToken: GlobalToken,
-  cssVar?: DesignTokenProviderProps['cssVar'],
+  cssVar: DesignTokenProviderProps['cssVar'],
+  zeroRuntime: boolean,
 ] {
   const {
     token: rootDesignToken,
     hashed,
     theme,
     override,
-    cssVar,
+    cssVar: ctxCssVar,
+    zeroRuntime,
   } = React.useContext(DesignTokenContext);
+
+  const cssVar = {
+    prefix: ctxCssVar?.prefix ?? 'ant',
+    key: ctxCssVar?.key ?? 'css-var-root',
+  };
 
   const salt = `${version}-${hashed || ''}`;
 
@@ -137,12 +133,8 @@ export default function useToken(): [
       salt,
       override,
       getComputedToken,
-      // formatToken will not be consumed after 1.15.0 with getComputedToken.
-      // But token will break if @ant-design/cssinjs is under 1.15.0 without it
-      formatToken,
-      cssVar: cssVar && {
-        prefix: cssVar.prefix,
-        key: cssVar.key,
+      cssVar: {
+        ...cssVar,
         unitless,
         ignore,
         preserve,
@@ -150,5 +142,5 @@ export default function useToken(): [
     },
   );
 
-  return [mergedTheme, realToken, hashed ? hashId : '', token, cssVar];
+  return [mergedTheme, realToken, hashed ? hashId : '', token, cssVar, !!zeroRuntime];
 }

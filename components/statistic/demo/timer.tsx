@@ -6,6 +6,7 @@ const { Timer } = Statistic;
 
 const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2 + 1000 * 30; // Dayjs is also OK
 const before = Date.now() - 1000 * 60 * 60 * 24 * 2 + 1000 * 30;
+const tenSecondsLater = Date.now() + 10 * 1000;
 
 const onFinish: StatisticTimerProps['onFinish'] = () => {
   console.log('finished!');
@@ -26,12 +27,7 @@ const App: React.FC = () => (
       <Timer type="countdown" title="Million Seconds" value={deadline} format="HH:mm:ss:SSS" />
     </Col>
     <Col span={12}>
-      <Timer
-        type="countdown"
-        title="Countdown"
-        value={Date.now() + 10 * 1000}
-        onChange={onChange}
-      />
+      <Timer type="countdown" title="Countdown" value={tenSecondsLater} onChange={onChange} />
     </Col>
     <Col span={12}>
       <Timer type="countup" title="Countup" value={before} onChange={onChange} />

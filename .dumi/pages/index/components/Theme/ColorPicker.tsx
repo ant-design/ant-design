@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { ColorPicker, Flex, Input } from 'antd';
 import type { ColorPickerProps, GetProp } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { PRESET_COLORS } from './colorUtil';
 
 type Color = Extract<GetProp<ColorPickerProps, 'value'>, string | { cleared: any }>;
 
-const useStyle = createStyles(({ token, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   color: css`
-    width: ${token.controlHeightLG / 2}px;
-    height: ${token.controlHeightLG / 2}px;
+    width: calc(${cssVar.controlHeightLG} / 2);
+    height: calc(${cssVar.controlHeightLG} / 2);
     border-radius: 100%;
     cursor: pointer;
-    transition: all ${token.motionDurationFast};
+    transition: all ${cssVar.motionDurationFast};
     display: inline-block;
 
     & > input[type='radio'] {
@@ -31,8 +31,8 @@ const useStyle = createStyles(({ token, css }) => ({
 
   colorActive: css`
     box-shadow:
-      0 0 0 1px ${token.colorBgContainer},
-      0 0 0 ${token.controlOutlineWidth * 2 + 1}px ${token.colorPrimary};
+      0 0 0 1px ${cssVar.colorBgContainer},
+      0 0 0 calc(${cssVar.controlOutlineWidth} * 2 + 1) ${cssVar.colorPrimary};
   `,
 }));
 
@@ -69,17 +69,14 @@ const DebouncedColorPicker: React.FC<React.PropsWithChildren<ThemeColorPickerPro
 };
 
 const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id }) => {
-  const { styles } = useStyle();
-
   const matchColors = React.useMemo(() => {
     const valueStr = generateColor(value || '').toRgbString();
-    let existActive = false;
     const colors = PRESET_COLORS.map((color) => {
       const colorStr = generateColor(color).toRgbString();
       const active = colorStr === valueStr;
-      existActive = existActive || active;
-      return { color, active, picker: false };
+      return { color, active, picker: false } as const;
     });
+    const existActive = colors.some((c) => c.active);
 
     return [
       ...colors,
@@ -104,7 +101,7 @@ const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ value, onChange, id
           const colorNode = (
             <label
               key={color}
-              className={classNames(styles.color, { [styles.colorActive]: active })}
+              className={clsx(styles.color, { [styles.colorActive]: active })}
               style={{ background: color }}
               onClick={() => {
                 if (!picker) {

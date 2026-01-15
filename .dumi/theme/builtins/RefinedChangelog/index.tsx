@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { BugOutlined } from '@ant-design/icons';
 import { Button, Flex, Popover, theme } from 'antd';
-import { createStyles } from 'antd-style';
-import dayjs, { Dayjs } from 'dayjs';
+import { createStaticStyles, cx } from 'antd-style';
+import dayjs from 'dayjs';
+import type { Dayjs } from 'dayjs';
 
 import useLocale from '../../../hooks/useLocale';
 import { matchDeprecated } from '../../utils';
@@ -32,13 +33,13 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   container: css`
-    margin-block: ${token.margin}px;
-    padding: ${token.padding}px;
+    margin-block: ${cssVar.margin};
+    padding: ${cssVar.padding};
 
     .changelog-version {
-      line-height: ${token.lineHeight} !important;
+      line-height: ${cssVar.lineHeight} !important;
       margin: 0 !important;
     }
   `,
@@ -47,8 +48,6 @@ const useStyle = createStyles(({ token, css }) => ({
 
 const RefinedChangelog: React.FC<React.PropsWithChildren<RefinedChangelogProps>> = (props) => {
   const { version, date, children } = props;
-
-  const { styles, cx } = useStyle();
 
   const memoizedValue = React.useMemo<ContextProps>(() => {
     const realVersion = version || '0.0.0';
@@ -118,7 +117,10 @@ const Version: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 const DateComp: React.FC<React.PropsWithChildren> = (props) => props.children;
 
-const DetailsComp: React.FC<React.PropsWithChildren> = (props) => props.children;
+const DetailsComp: React.FC<React.PropsWithChildren<HTMLDivElement>> = (props) => {
+  const { children, className } = props;
+  return <div className={className}>{children}</div>;
+};
 
 export default Object.assign(RefinedChangelog, {
   Version,

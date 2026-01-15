@@ -1,9 +1,12 @@
+import isNonNullable from './isNonNullable';
+
 export function isWindow(obj: any): obj is Window {
-  return obj !== null && obj !== undefined && obj === obj.window;
+  return isNonNullable(obj) && obj === obj.window;
 }
 
 const getScroll = (target: HTMLElement | Window | Document | null): number => {
   if (typeof window === 'undefined') {
+    /* istanbul ignore next */
     return 0;
   }
   let result = 0;

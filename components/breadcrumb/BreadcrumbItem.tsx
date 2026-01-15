@@ -1,11 +1,12 @@
 import * as React from 'react';
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import { clsx } from 'clsx';
 
-import { devUseWarning } from '../_util/warning';
+import isNonNullable from '../_util/isNonNullable';
 import { ConfigContext } from '../config-provider';
 import type { DropdownProps } from '../dropdown/dropdown';
 import Dropdown from '../dropdown/dropdown';
 import type { ItemType } from './Breadcrumb';
+import BreadcrumbContext from './BreadcrumbContext';
 import BreadcrumbSeparator from './BreadcrumbSeparator';
 import { renderItem } from './useItemRender';
 
@@ -15,6 +16,7 @@ export interface SeparatorType {
 }
 
 type MenuType = NonNullable<DropdownProps['menu']>;
+
 interface MenuItem {
   key?: React.Key;
   title?: React.ReactNode;
@@ -30,27 +32,20 @@ export interface BreadcrumbItemProps extends SeparatorType {
     items?: MenuItem[];
   };
   dropdownProps?: DropdownProps;
+  dropdownIcon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
+  style?: React.CSSProperties;
   children?: React.ReactNode;
-  // Deprecated
-  /** @deprecated Please use `menu` instead */
-  overlay?: DropdownProps['overlay'];
 }
 
 export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
-  const { prefixCls, separator = '/', children, menu, overlay, dropdownProps, href } = props;
-
-  // Warning for deprecated usage
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Breadcrumb.Item');
-
-    warning.deprecated(!('overlay' in props), 'overlay', 'menu');
-  }
-
+  const { prefixCls, separator = '/', children, menu, dropdownProps, href, dropdownIcon } = props;
+  const breadcrumbContext = React.useContext(BreadcrumbContext);
+  const { classNames: mergedClassNames, styles: mergedStyles } = breadcrumbContext;
   /** If overlay is have Wrap a Dropdown */
   const renderBreadcrumbNode = (breadcrumbItem: React.ReactNode) => {
-    if (menu || overlay) {
+    if (menu) {
       const mergeDropDownProps: DropdownProps = {
         ...dropdownProps,
       };
@@ -73,15 +68,13 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
             };
           }),
         };
-      } else if (overlay) {
-        mergeDropDownProps.overlay = overlay;
       }
 
       return (
         <Dropdown placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
-            <DownOutlined />
+            {dropdownIcon}
           </span>
         </Dropdown>
       );
@@ -91,10 +84,16 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
 
   // wrap to dropDown
   const link = renderBreadcrumbNode(children);
-  if (link !== undefined && link !== null) {
+
+  if (isNonNullable(link)) {
     return (
       <>
-        <li>{link}</li>
+        <li
+          className={clsx(`${prefixCls}-item`, mergedClassNames?.item)}
+          style={mergedStyles?.item}
+        >
+          {link}
+        </li>
         {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}
       </>
     );

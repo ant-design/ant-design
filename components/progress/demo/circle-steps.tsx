@@ -15,14 +15,14 @@ const App: React.FC = () => {
           type="dashboard"
           steps={8}
           percent={50}
-          trailColor="rgba(0, 0, 0, 0.06)"
+          railColor="rgba(0, 0, 0, 0.06)"
           strokeWidth={20}
         />
         <Progress
           type="circle"
           percent={100}
           steps={{ count: stepsCount, gap: stepsGap }}
-          trailColor="rgba(0, 0, 0, 0.06)"
+          railColor="rgba(0, 0, 0, 0.06)"
           strokeWidth={20}
         />
       </Flex>

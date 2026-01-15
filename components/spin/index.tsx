@@ -1,7 +1,9 @@
 import * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Indicator from './Indicator';
@@ -9,8 +11,36 @@ import useStyle from './style/index';
 import usePercent from './usePercent';
 
 const _SpinSizes = ['small', 'default', 'large'] as const;
+
 export type SpinSize = (typeof _SpinSizes)[number];
+
 export type SpinIndicator = React.ReactElement<HTMLElement>;
+
+export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemanticStyles;
+
+export type SpinSemanticClassNames = {
+  root?: string;
+  wrapper?: string;
+  mask?: string;
+  indicator?: string;
+  tip?: string;
+};
+
+export type SpinSemanticStyles = {
+  root?: React.CSSProperties;
+  wrapper?: React.CSSProperties;
+  mask?: React.CSSProperties;
+  indicator?: React.CSSProperties;
+  tip?: React.CSSProperties;
+};
+
+export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticClassNames>;
+
+export type SpinStylesType = SemanticStylesType<
+  SpinProps,
+  SpinSemanticStyles,
+  { wrapper?: React.CSSProperties }
+>;
 
 export interface SpinProps {
   /** Customize prefix class name */
@@ -38,6 +68,8 @@ export interface SpinProps {
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
   percent?: number | 'auto';
+  classNames?: SpinClassNamesType;
+  styles?: SpinStylesType;
 }
 
 export type SpinType = React.FC<SpinProps> & {
@@ -66,20 +98,24 @@ const Spin: SpinType = (props) => {
     fullscreen = false,
     indicator,
     percent,
+    classNames,
+    styles,
     ...restProps
   } = props;
 
   const {
     getPrefixCls,
     direction,
+    indicator: contextIndicator,
     className: contextClassName,
     style: contextStyle,
-    indicator: contextIndicator,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('spin');
 
   const prefixCls = getPrefixCls('spin', customizePrefixCls);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const [spinning, setSpinning] = React.useState<boolean>(
     () => customSpinning && !shouldDelay(customSpinning, delay),
@@ -106,6 +142,26 @@ const Spin: SpinType = (props) => {
     [children, fullscreen],
   );
 
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: SpinProps = {
+    ...props,
+    size,
+    spinning,
+    tip,
+    fullscreen,
+    children,
+    percent: mergedPercent,
+  };
+
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SpinClassNamesType,
+    SpinStylesType,
+    SpinProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
 
@@ -116,7 +172,7 @@ const Spin: SpinType = (props) => {
     );
   }
 
-  const spinClassName = classNames(
+  const spinClassName = clsx(
     prefixCls,
     contextClassName,
     {
@@ -128,11 +184,12 @@ const Spin: SpinType = (props) => {
     },
     className,
     !fullscreen && rootClassName,
+    !fullscreen && mergedClassNames.root,
     hashId,
     cssVarCls,
   );
 
-  const containerClassName = classNames(`${prefixCls}-container`, {
+  const containerClassName = clsx(`${prefixCls}-container`, {
     [`${prefixCls}-blur`]: spinning,
   });
 
@@ -143,36 +200,51 @@ const Spin: SpinType = (props) => {
   const spinElement: React.ReactNode = (
     <div
       {...restProps}
-      style={mergedStyle}
+      style={fullscreen ? mergedStyle : { ...mergedStyles.root, ...mergedStyle }}
       className={spinClassName}
       aria-live="polite"
       aria-busy={spinning}
     >
-      <Indicator prefixCls={prefixCls} indicator={mergedIndicator} percent={mergedPercent} />
+      <Indicator
+        className={mergedClassNames.indicator}
+        style={mergedStyles.indicator}
+        prefixCls={prefixCls}
+        indicator={mergedIndicator}
+        percent={mergedPercent}
+      />
       {tip && (isNestedPattern || fullscreen) ? (
-        <div className={`${prefixCls}-text`}>{tip}</div>
+        <div className={clsx(`${prefixCls}-text`, mergedClassNames.tip)} style={mergedStyles.tip}>
+          {tip}
+        </div>
       ) : null}
     </div>
   );
 
   if (isNestedPattern) {
-    return wrapCSSVar(
+    return (
       <div
         {...restProps}
-        className={classNames(`${prefixCls}-nested-loading`, wrapperClassName, hashId, cssVarCls)}
+        className={clsx(
+          `${prefixCls}-nested-loading`,
+          wrapperClassName,
+          mergedClassNames.wrapper,
+          hashId,
+          cssVarCls,
+        )}
+        style={mergedStyles.wrapper}
       >
         {spinning && <div key="loading">{spinElement}</div>}
         <div className={containerClassName} key="container">
           {children}
         </div>
-      </div>,
+      </div>
     );
   }
 
   if (fullscreen) {
-    return wrapCSSVar(
+    return (
       <div
-        className={classNames(
+        className={clsx(
           `${prefixCls}-fullscreen`,
           {
             [`${prefixCls}-fullscreen-show`]: spinning,
@@ -180,14 +252,16 @@ const Spin: SpinType = (props) => {
           rootClassName,
           hashId,
           cssVarCls,
+          mergedClassNames.mask,
         )}
+        style={mergedStyles.mask}
       >
         {spinElement}
-      </div>,
+      </div>
     );
   }
 
-  return wrapCSSVar(spinElement);
+  return spinElement;
 };
 
 Spin.setDefaultIndicator = (indicator: React.ReactNode) => {

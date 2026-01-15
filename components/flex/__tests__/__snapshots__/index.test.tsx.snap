@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Flex rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-flex ant-flex-rtl"
+  class="ant-flex css-var-root ant-flex-rtl"
 >
   <div>
     test1

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { LinkOutlined, QuestionCircleOutlined, RightOutlined } from '@ant-design/icons';
 import { ConfigProvider, Flex, Popover, Table, Typography } from 'antd';
-import { createStyles, css, useTheme } from 'antd-style';
+import { createStaticStyles, css, useTheme } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import tokenData from 'antd/es/version/token.json';
@@ -53,7 +53,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token }) => ({
+const styles = createStaticStyles(({ cssVar }) => ({
   tableTitle: css`
     cursor: pointer;
     position: relative;
@@ -61,16 +61,16 @@ const useStyle = createStyles(({ token }) => ({
     align-items: center;
     justify-content: flex-start;
     line-height: 40px;
-    gap: ${token.marginXS}px;
+    gap: ${cssVar.marginXS};
   `,
   arrowIcon: css`
-    font-size: ${token.fontSizeLG}px;
+    font-size: ${cssVar.fontSizeLG};
     & svg {
-      transition: all ${token.motionDurationSlow};
+      transition: all ${cssVar.motionDurationSlow};
     }
   `,
   help: css`
-    font-size: ${token.fontSizeSM}px;
+    font-size: ${cssVar.fontSizeSM};
     font-weight: normal;
     color: #999;
     a {
@@ -78,7 +78,7 @@ const useStyle = createStyles(({ token }) => ({
     }
   `,
   tokenTitle: css`
-    font-size: ${token.fontSizeLG}px;
+    font-size: ${cssVar.fontSizeLG};
     font-weight: bold;
   `,
 }));
@@ -103,8 +103,6 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
   const columns = useColumns();
 
   const [open, setOpen] = useState<boolean>(defaultOpen ?? process.env.NODE_ENV !== 'production');
-
-  const { styles } = useStyle();
 
   if (!tokens.length) {
     return null;

@@ -14,8 +14,8 @@ const App: React.FC = () => {
   const [targetKeys, setTargetKeys] = useState<TransferProps['targetKeys']>([]);
 
   const getMock = () => {
-    const tempTargetKeys = [];
-    const tempMockData = [];
+    const tempTargetKeys: React.Key[] = [];
+    const tempMockData: RecordType[] = [];
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i.toString(),
@@ -37,7 +37,7 @@ const App: React.FC = () => {
   }, []);
 
   const filterOption = (inputValue: string, option: RecordType) =>
-    option.description.indexOf(inputValue) > -1;
+    option.description.includes(inputValue);
 
   const handleChange: TransferProps['onChange'] = (newTargetKeys) => {
     setTargetKeys(newTargetKeys);

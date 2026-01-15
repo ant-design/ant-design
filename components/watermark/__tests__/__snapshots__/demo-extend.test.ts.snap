@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/watermark/demo/basic.tsx extend context correctly 1`] = `
 <div
@@ -18,33 +18,34 @@ exports[`renders components/watermark/demo/basic.tsx extend context correctly 2`
 
 exports[`renders components/watermark/demo/custom.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
   <div
     class=""
     style="position: relative; overflow: hidden;"
   >
     <article
-      class="ant-typography"
+      class="ant-typography css-var-test-id"
     >
       <div
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         The light-speed iteration of the digital world makes products more complex. However, human consciousness and attention resources are limited. Facing this design contradiction, the pursuit of natural interaction will be the consistent direction of Ant Design.
       </div>
       <div
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         Natural user cognition: According to cognitive psychology, about 80% of external information is obtained through visual channels. The most important visual elements in the interface design, including layout, colors, illustrations, icons, etc., should fully absorb the laws of nature, thereby reducing the user's cognitive cost and bringing authentic and smooth feelings. In some scenarios, opportunely adding other sensory channels such as hearing, touch can create a richer and more natural product experience.
       </div>
       <div
-        class="ant-typography"
+        class="ant-typography css-var-test-id"
       >
         Natural user behavior: In the interaction with the system, the designer should fully understand the relationship between users, system roles, and task objectives, and also contextually organize system functions and services. At the same time, a series of methods such as behavior analysis, artificial intelligence and sensors could be applied to assist users to make effective decisions and reduce extra operations of users, to save users' mental and physical resources and make human-computer interaction more natural.
       </div>
     </article>
     <img
       alt="img"
+      draggable="false"
       src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*zx7LTI_ECSAAAAAAAAAAAABkARQnAQ"
       style="z-index: 10; width: 100%; max-width: 800px; position: relative;"
     />
@@ -53,17 +54,17 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
     />
   </div>
   <form
-    class="ant-form ant-form-vertical"
-    style="width: 280px; flex-shrink: 0; border-left: 1px solid #eee; padding-inline-start: 16px;"
+    class="ant-form ant-form-vertical css-var-test-id ant-form-css-var"
+    style="width: 280px; flex-shrink: 0; border-inline-start: 1px solid #eee; padding-inline-start: 16px;"
   >
     <div
-      class="ant-form-item"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -74,7 +75,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -83,7 +84,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <input
-                class="ant-input ant-input-outlined"
+                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
                 id="content"
                 placeholder="请输入"
                 type="text"
@@ -95,13 +96,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -112,7 +113,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -122,7 +123,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
             >
               <div
                 aria-describedby="test-id"
-                class="ant-color-picker-trigger"
+                class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
                 id="color"
               >
                 <div
@@ -135,259 +136,334 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                 </div>
               </div>
               <div
-                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-color-picker ant-popover-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
               >
                 <div
                   class="ant-popover-arrow"
                   style="position: absolute;"
-                />
+                >
+                  <span
+                    class="ant-popover-arrow-content"
+                  />
+                </div>
                 <div
-                  class="ant-popover-content"
+                  class="ant-popover-container"
+                  id="test-id"
+                  role="tooltip"
                 >
                   <div
-                    class="ant-popover-inner"
-                    id="test-id"
-                    role="tooltip"
+                    class="ant-popover-content"
                   >
                     <div
-                      class="ant-popover-inner-content"
+                      class="ant-color-picker-inner"
                     >
                       <div
-                        class="ant-color-picker-inner"
+                        class="ant-color-picker-inner-content"
                       >
                         <div
-                          class="ant-color-picker-inner-content"
+                          class="ant-color-picker-panel"
                         >
                           <div
-                            class="ant-color-picker-panel"
+                            class="ant-color-picker-select"
                           >
                             <div
-                              class="ant-color-picker-select"
+                              class="ant-color-picker-palette"
+                              style="position: relative;"
                             >
                               <div
-                                class="ant-color-picker-palette"
-                                style="position: relative;"
+                                style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
                               >
                                 <div
-                                  style="position: absolute; left: 0%; top: 100%; z-index: 1; transform: translate(-50%, -50%);"
-                                >
-                                  <div
-                                    class="ant-color-picker-handler"
-                                    style="background-color: rgba(0, 0, 0, 0.15);"
-                                  />
-                                </div>
-                                <div
-                                  class="ant-color-picker-saturation"
-                                  style="background-color: rgb(255, 0, 0);"
+                                  class="ant-color-picker-handler"
+                                  style="background-color: rgba(0, 0, 0, 0.15);"
                                 />
                               </div>
-                            </div>
-                            <div
-                              class="ant-color-picker-slider-container"
-                            >
                               <div
-                                class="ant-color-picker-slider-group"
-                              >
-                                <div
-                                  class="ant-slider ant-color-picker-slider ant-slider-horizontal"
-                                >
-                                  <div
-                                    class="ant-slider-rail ant-color-picker-slider-rail"
-                                  />
-                                  <div
-                                    class="ant-slider-step"
-                                  />
-                                  <div
-                                    aria-disabled="false"
-                                    aria-orientation="horizontal"
-                                    aria-valuemax="359"
-                                    aria-valuemin="0"
-                                    aria-valuenow="0"
-                                    class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
-                                    role="slider"
-                                    style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
-                                    tabindex="0"
-                                  />
-                                </div>
-                                <div
-                                  class="ant-slider ant-color-picker-slider ant-slider-horizontal"
-                                >
-                                  <div
-                                    class="ant-slider-rail ant-color-picker-slider-rail"
-                                  />
-                                  <div
-                                    class="ant-slider-step"
-                                  />
-                                  <div
-                                    aria-disabled="false"
-                                    aria-orientation="horizontal"
-                                    aria-valuemax="100"
-                                    aria-valuemin="0"
-                                    aria-valuenow="15"
-                                    class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
-                                    role="slider"
-                                    style="left: 15%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.15);"
-                                    tabindex="0"
-                                  />
-                                </div>
-                              </div>
-                              <div
-                                class="ant-color-picker-color-block"
-                              >
-                                <div
-                                  class="ant-color-picker-color-block-inner"
-                                  style="background: rgba(0, 0, 0, 0.15);"
-                                />
-                              </div>
+                                class="ant-color-picker-saturation"
+                                style="background-color: rgb(255, 0, 0); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
+                              />
                             </div>
                           </div>
                           <div
-                            class="ant-color-picker-input-container"
+                            class="ant-color-picker-slider-container"
                           >
                             <div
-                              class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select ant-select-single ant-select-show-arrow"
+                              class="ant-color-picker-slider-group"
                             >
                               <div
-                                class="ant-select-selector"
+                                class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                               >
-                                <span
-                                  class="ant-select-selection-wrap"
-                                >
-                                  <span
-                                    class="ant-select-selection-search"
-                                  >
-                                    <input
-                                      aria-autocomplete="list"
-                                      aria-controls="rc_select_TEST_OR_SSR_list"
-                                      aria-expanded="false"
-                                      aria-haspopup="listbox"
-                                      aria-owns="rc_select_TEST_OR_SSR_list"
-                                      autocomplete="off"
-                                      class="ant-select-selection-search-input"
-                                      id="rc_select_TEST_OR_SSR"
-                                      readonly=""
-                                      role="combobox"
-                                      style="opacity: 0;"
-                                      type="search"
-                                      unselectable="on"
-                                      value=""
-                                    />
-                                  </span>
-                                  <span
-                                    class="ant-select-selection-item"
-                                    title="HEX"
-                                  >
-                                    HEX
-                                  </span>
-                                </span>
+                                <div
+                                  class="ant-slider-rail ant-color-picker-slider-rail"
+                                  style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
+                                />
+                                <div
+                                  class="ant-slider-step"
+                                />
+                                <div
+                                  aria-disabled="false"
+                                  aria-orientation="horizontal"
+                                  aria-valuemax="359"
+                                  aria-valuemin="0"
+                                  aria-valuenow="0"
+                                  class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                                  role="slider"
+                                  style="left: 0%; transform: translateX(-50%); background: rgb(255, 0, 0);"
+                                  tabindex="0"
+                                />
                               </div>
                               <div
-                                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-select-dropdown-placement-bottomRight"
-                                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box; z-index: 1150; width: 68px;"
+                                class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
                               >
-                                <div>
-                                  <div
-                                    id="rc_select_TEST_OR_SSR_list"
-                                    role="listbox"
-                                    style="height: 0px; width: 0px; overflow: hidden;"
-                                  >
+                                <div
+                                  class="ant-slider-rail ant-color-picker-slider-rail"
+                                  style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(0,0,0) 100%);"
+                                />
+                                <div
+                                  class="ant-slider-step"
+                                />
+                                <div
+                                  aria-disabled="false"
+                                  aria-orientation="horizontal"
+                                  aria-valuemax="100"
+                                  aria-valuemin="0"
+                                  aria-valuenow="15"
+                                  class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                                  role="slider"
+                                  style="left: 15%; transform: translateX(-50%); background: rgba(0, 0, 0, 0.15);"
+                                  tabindex="0"
+                                />
+                              </div>
+                            </div>
+                            <div
+                              class="ant-color-picker-color-block"
+                            >
+                              <div
+                                class="ant-color-picker-color-block-inner"
+                                style="background: rgba(0, 0, 0, 0.15);"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div
+                          class="ant-color-picker-input-container"
+                        >
+                          <div
+                            class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                          >
+                            <div
+                              class="ant-select-content"
+                            >
+                              <div
+                                class="ant-select-content-value"
+                                style="visibility: visible;"
+                                title="HEX"
+                              >
+                                HEX
+                              </div>
+                              <input
+                                aria-autocomplete="list"
+                                aria-expanded="false"
+                                aria-haspopup="listbox"
+                                autocomplete="off"
+                                class="ant-select-input"
+                                id="test-id"
+                                readonly=""
+                                role="combobox"
+                                type="search"
+                                value=""
+                              />
+                            </div>
+                            <div
+                              class="ant-select-suffix"
+                            >
+                              <span
+                                aria-label="down"
+                                class="anticon anticon-down"
+                                role="img"
+                              >
+                                <svg
+                                  aria-hidden="true"
+                                  data-icon="down"
+                                  fill="currentColor"
+                                  focusable="false"
+                                  height="1em"
+                                  viewBox="64 64 896 896"
+                                  width="1em"
+                                >
+                                  <path
+                                    d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                                  />
+                                </svg>
+                              </span>
+                            </div>
+                          </div>
+                          <div
+                            class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
+                            style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
+                          >
+                            <div>
+                              <div
+                                id="test-id_list"
+                                role="listbox"
+                                style="height: 0px; width: 0px; overflow: hidden;"
+                              >
+                                <div
+                                  aria-label="HEX"
+                                  aria-selected="true"
+                                  id="test-id_list_0"
+                                  role="option"
+                                >
+                                  hex
+                                </div>
+                                <div
+                                  aria-label="HSB"
+                                  aria-selected="false"
+                                  id="test-id_list_1"
+                                  role="option"
+                                >
+                                  hsb
+                                </div>
+                              </div>
+                              <div
+                                class="rc-virtual-list"
+                                style="position: relative;"
+                              >
+                                <div
+                                  class="rc-virtual-list-holder"
+                                  style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                                >
+                                  <div>
                                     <div
-                                      aria-label="HEX"
-                                      aria-selected="true"
-                                      id="rc_select_TEST_OR_SSR_list_0"
-                                      role="option"
+                                      class="rc-virtual-list-holder-inner"
+                                      style="display: flex; flex-direction: column;"
                                     >
-                                      hex
-                                    </div>
-                                    <div
-                                      aria-label="HSB"
-                                      aria-selected="false"
-                                      id="rc_select_TEST_OR_SSR_list_1"
-                                      role="option"
-                                    >
-                                      hsb
-                                    </div>
-                                  </div>
-                                  <div
-                                    class="rc-virtual-list"
-                                    style="position: relative;"
-                                  >
-                                    <div
-                                      class="rc-virtual-list-holder"
-                                      style="max-height: 256px; overflow-y: auto;"
-                                    >
-                                      <div>
+                                      <div
+                                        class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                                        title="HEX"
+                                      >
                                         <div
-                                          class="rc-virtual-list-holder-inner"
-                                          style="display: flex; flex-direction: column;"
+                                          class="ant-select-item-option-content"
                                         >
-                                          <div
-                                            aria-selected="true"
-                                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                                            title="HEX"
-                                          >
-                                            <div
-                                              class="ant-select-item-option-content"
-                                            >
-                                              HEX
-                                            </div>
-                                            <span
-                                              aria-hidden="true"
-                                              class="ant-select-item-option-state"
-                                              style="user-select: none;"
-                                              unselectable="on"
-                                            />
-                                          </div>
-                                          <div
-                                            aria-selected="false"
-                                            class="ant-select-item ant-select-item-option"
-                                            title="HSB"
-                                          >
-                                            <div
-                                              class="ant-select-item-option-content"
-                                            >
-                                              HSB
-                                            </div>
-                                            <span
-                                              aria-hidden="true"
-                                              class="ant-select-item-option-state"
-                                              style="user-select: none;"
-                                              unselectable="on"
-                                            />
-                                          </div>
-                                          <div
-                                            aria-selected="false"
-                                            class="ant-select-item ant-select-item-option"
-                                            title="RGB"
-                                          >
-                                            <div
-                                              class="ant-select-item-option-content"
-                                            >
-                                              RGB
-                                            </div>
-                                            <span
-                                              aria-hidden="true"
-                                              class="ant-select-item-option-state"
-                                              style="user-select: none;"
-                                              unselectable="on"
-                                            />
-                                          </div>
+                                          HEX
                                         </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-select-item ant-select-item-option"
+                                        title="HSB"
+                                      >
+                                        <div
+                                          class="ant-select-item-option-content"
+                                        >
+                                          HSB
+                                        </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
+                                      </div>
+                                      <div
+                                        class="ant-select-item ant-select-item-option"
+                                        title="RGB"
+                                      >
+                                        <div
+                                          class="ant-select-item-option-content"
+                                        >
+                                          RGB
+                                        </div>
+                                        <span
+                                          aria-hidden="true"
+                                          class="ant-select-item-option-state"
+                                          style="user-select: none;"
+                                          unselectable="on"
+                                        />
                                       </div>
                                     </div>
                                   </div>
                                 </div>
                               </div>
+                            </div>
+                          </div>
+                          <div
+                            class="ant-color-picker-input"
+                          >
+                            <span
+                              class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
+                            >
                               <span
-                                aria-hidden="true"
-                                class="ant-select-arrow"
-                                style="user-select: none;"
+                                class="ant-input-prefix"
+                              >
+                                #
+                              </span>
+                              <input
+                                class="ant-input ant-input-sm"
+                                type="text"
+                                value="000000"
+                              />
+                            </span>
+                          </div>
+                          <div
+                            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
+                          >
+                            <input
+                              aria-valuemax="100"
+                              aria-valuemin="0"
+                              aria-valuenow="15"
+                              autocomplete="off"
+                              class="ant-input-number-input"
+                              role="spinbutton"
+                              step="1"
+                              value="15%"
+                            />
+                            <div
+                              class="ant-input-number-actions"
+                            >
+                              <span
+                                aria-disabled="false"
+                                aria-label="Increase Value"
+                                class="ant-input-number-action ant-input-number-action-up"
+                                role="button"
+                                unselectable="on"
+                              >
+                                <span
+                                  aria-label="up"
+                                  class="anticon anticon-up"
+                                  role="img"
+                                >
+                                  <svg
+                                    aria-hidden="true"
+                                    data-icon="up"
+                                    fill="currentColor"
+                                    focusable="false"
+                                    height="1em"
+                                    viewBox="64 64 896 896"
+                                    width="1em"
+                                  >
+                                    <path
+                                      d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                                    />
+                                  </svg>
+                                </span>
+                              </span>
+                              <span
+                                aria-disabled="false"
+                                aria-label="Decrease Value"
+                                class="ant-input-number-action ant-input-number-action-down"
+                                role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down ant-select-suffix"
+                                  class="anticon anticon-down"
                                   role="img"
                                 >
                                   <svg
@@ -406,100 +482,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                 </span>
                               </span>
                             </div>
-                            <div
-                              class="ant-color-picker-input"
-                            >
-                              <span
-                                class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input"
-                              >
-                                <span
-                                  class="ant-input-prefix"
-                                >
-                                  #
-                                </span>
-                                <input
-                                  class="ant-input ant-input-sm"
-                                  type="text"
-                                  value="000000"
-                                />
-                              </span>
-                            </div>
-                            <div
-                              class="ant-input-number ant-input-number-sm ant-input-number-outlined ant-color-picker-steppers ant-color-picker-alpha-input"
-                            >
-                              <div
-                                class="ant-input-number-handler-wrap"
-                              >
-                                <span
-                                  aria-disabled="false"
-                                  aria-label="Increase Value"
-                                  class="ant-input-number-handler ant-input-number-handler-up"
-                                  role="button"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="up"
-                                    class="anticon anticon-up ant-input-number-handler-up-inner"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="up"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                                <span
-                                  aria-disabled="false"
-                                  aria-label="Decrease Value"
-                                  class="ant-input-number-handler ant-input-number-handler-down"
-                                  role="button"
-                                  unselectable="on"
-                                >
-                                  <span
-                                    aria-label="down"
-                                    class="anticon anticon-down ant-input-number-handler-down-inner"
-                                    role="img"
-                                  >
-                                    <svg
-                                      aria-hidden="true"
-                                      data-icon="down"
-                                      fill="currentColor"
-                                      focusable="false"
-                                      height="1em"
-                                      viewBox="64 64 896 896"
-                                      width="1em"
-                                    >
-                                      <path
-                                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </span>
-                              </div>
-                              <div
-                                class="ant-input-number-input-wrap"
-                              >
-                                <input
-                                  aria-valuemax="100"
-                                  aria-valuemin="0"
-                                  aria-valuenow="15"
-                                  autocomplete="off"
-                                  class="ant-input-number-input"
-                                  role="spinbutton"
-                                  step="1"
-                                  value="15%"
-                                />
-                              </div>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -513,13 +495,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -530,7 +512,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -539,7 +521,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-slider ant-slider-horizontal"
+                class="ant-slider css-var-test-id ant-slider-horizontal"
                 id="fontSize"
               >
                 <div
@@ -565,23 +547,23 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
                     style="position: absolute; bottom: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
                   >
-                    <div
-                      class="ant-tooltip-inner"
-                      id="test-id"
-                      role="tooltip"
-                    >
-                      16
-                    </div>
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-container"
+                    id="test-id"
+                    role="tooltip"
+                  >
+                    16
                   </div>
                 </div>
               </div>
@@ -591,13 +573,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -608,7 +590,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -617,7 +599,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-slider ant-slider-horizontal"
+                class="ant-slider css-var-test-id ant-slider-horizontal"
                 id="zIndex"
               >
                 <div
@@ -643,23 +625,23 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
                     style="position: absolute; bottom: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
                   >
-                    <div
-                      class="ant-tooltip-inner"
-                      id="test-id"
-                      role="tooltip"
-                    >
-                      11
-                    </div>
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-container"
+                    id="test-id"
+                    role="tooltip"
+                  >
+                    11
                   </div>
                 </div>
               </div>
@@ -669,13 +651,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -686,7 +668,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -695,7 +677,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-slider ant-slider-horizontal"
+                class="ant-slider css-var-test-id ant-slider-horizontal"
                 id="rotate"
               >
                 <div
@@ -721,23 +703,23 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   tabindex="0"
                 />
                 <div
-                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-slider-tooltip ant-tooltip-placement-top"
-                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                  class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-slider-tooltip ant-tooltip-placement-top"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                 >
                   <div
                     class="ant-tooltip-arrow"
                     style="position: absolute; bottom: 0px; left: 0px;"
-                  />
-                  <div
-                    class="ant-tooltip-content"
                   >
-                    <div
-                      class="ant-tooltip-inner"
-                      id="test-id"
-                      role="tooltip"
-                    >
-                      -22
-                    </div>
+                    <span
+                      class="ant-tooltip-arrow-content"
+                    />
+                  </div>
+                  <div
+                    class="ant-tooltip-container"
+                    id="test-id"
+                    role="tooltip"
+                  >
+                    -22
                   </div>
                 </div>
               </div>
@@ -747,14 +729,14 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
       style="margin-bottom: 0px;"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -764,7 +746,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -773,16 +755,16 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-flex ant-flex-gap-small"
+                class="ant-flex css-var-test-id ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -791,22 +773,32 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item"
                             style="width: 100%;"
                           >
+                            <input
+                              aria-valuenow="100"
+                              autocomplete="off"
+                              class="ant-input-number-input"
+                              id="gap_0"
+                              placeholder="gapX"
+                              role="spinbutton"
+                              step="1"
+                              value="100"
+                            />
                             <div
-                              class="ant-input-number-handler-wrap"
+                              class="ant-input-number-actions"
                             >
                               <span
                                 aria-disabled="false"
                                 aria-label="Increase Value"
-                                class="ant-input-number-handler ant-input-number-handler-up"
+                                class="ant-input-number-action ant-input-number-action-up"
                                 role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="up"
-                                  class="anticon anticon-up ant-input-number-handler-up-inner"
+                                  class="anticon anticon-up"
                                   role="img"
                                 >
                                   <svg
@@ -827,13 +819,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               <span
                                 aria-disabled="false"
                                 aria-label="Decrease Value"
-                                class="ant-input-number-handler ant-input-number-handler-down"
+                                class="ant-input-number-action ant-input-number-action-down"
                                 role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down ant-input-number-handler-down-inner"
+                                  class="anticon anticon-down"
                                   role="img"
                                 >
                                   <svg
@@ -851,20 +843,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   </svg>
                                 </span>
                               </span>
-                            </div>
-                            <div
-                              class="ant-input-number-input-wrap"
-                            >
-                              <input
-                                aria-valuenow="100"
-                                autocomplete="off"
-                                class="ant-input-number-input"
-                                id="gap_0"
-                                placeholder="gapX"
-                                role="spinbutton"
-                                step="1"
-                                value="100"
-                              />
                             </div>
                           </div>
                         </div>
@@ -873,13 +851,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   </div>
                 </div>
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -888,22 +866,32 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item"
                             style="width: 100%;"
                           >
+                            <input
+                              aria-valuenow="100"
+                              autocomplete="off"
+                              class="ant-input-number-input"
+                              id="gap_1"
+                              placeholder="gapY"
+                              role="spinbutton"
+                              step="1"
+                              value="100"
+                            />
                             <div
-                              class="ant-input-number-handler-wrap"
+                              class="ant-input-number-actions"
                             >
                               <span
                                 aria-disabled="false"
                                 aria-label="Increase Value"
-                                class="ant-input-number-handler ant-input-number-handler-up"
+                                class="ant-input-number-action ant-input-number-action-up"
                                 role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="up"
-                                  class="anticon anticon-up ant-input-number-handler-up-inner"
+                                  class="anticon anticon-up"
                                   role="img"
                                 >
                                   <svg
@@ -924,13 +912,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               <span
                                 aria-disabled="false"
                                 aria-label="Decrease Value"
-                                class="ant-input-number-handler ant-input-number-handler-down"
+                                class="ant-input-number-action ant-input-number-action-down"
                                 role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down ant-input-number-handler-down-inner"
+                                  class="anticon anticon-down"
                                   role="img"
                                 >
                                   <svg
@@ -948,20 +936,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   </svg>
                                 </span>
                               </span>
-                            </div>
-                            <div
-                              class="ant-input-number-input-wrap"
-                            >
-                              <input
-                                aria-valuenow="100"
-                                autocomplete="off"
-                                class="ant-input-number-input"
-                                id="gap_1"
-                                placeholder="gapY"
-                                role="spinbutton"
-                                step="1"
-                                value="100"
-                              />
                             </div>
                           </div>
                         </div>
@@ -976,14 +950,14 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
       </div>
     </div>
     <div
-      class="ant-form-item"
+      class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
       style="margin-bottom: 0px;"
     >
       <div
-        class="ant-row ant-form-item-row"
+        class="ant-row ant-form-item-row css-var-test-id"
       >
         <div
-          class="ant-col ant-form-item-label"
+          class="ant-col ant-form-item-label css-var-test-id"
         >
           <label
             class=""
@@ -993,7 +967,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
           </label>
         </div>
         <div
-          class="ant-col ant-form-item-control"
+          class="ant-col ant-form-item-control css-var-test-id"
         >
           <div
             class="ant-form-item-control-input"
@@ -1002,16 +976,16 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-flex ant-flex-gap-small"
+                class="ant-flex css-var-test-id ant-flex-gap-small"
               >
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -1020,22 +994,31 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item"
                             style="width: 100%;"
                           >
+                            <input
+                              autocomplete="off"
+                              class="ant-input-number-input"
+                              id="offset_0"
+                              placeholder="offsetLeft"
+                              role="spinbutton"
+                              step="1"
+                              value=""
+                            />
                             <div
-                              class="ant-input-number-handler-wrap"
+                              class="ant-input-number-actions"
                             >
                               <span
                                 aria-disabled="false"
                                 aria-label="Increase Value"
-                                class="ant-input-number-handler ant-input-number-handler-up"
+                                class="ant-input-number-action ant-input-number-action-up"
                                 role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="up"
-                                  class="anticon anticon-up ant-input-number-handler-up-inner"
+                                  class="anticon anticon-up"
                                   role="img"
                                 >
                                   <svg
@@ -1056,13 +1039,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               <span
                                 aria-disabled="false"
                                 aria-label="Decrease Value"
-                                class="ant-input-number-handler ant-input-number-handler-down"
+                                class="ant-input-number-action ant-input-number-action-down"
                                 role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down ant-input-number-handler-down-inner"
+                                  class="anticon anticon-down"
                                   role="img"
                                 >
                                   <svg
@@ -1080,19 +1063,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   </svg>
                                 </span>
                               </span>
-                            </div>
-                            <div
-                              class="ant-input-number-input-wrap"
-                            >
-                              <input
-                                autocomplete="off"
-                                class="ant-input-number-input"
-                                id="offset_0"
-                                placeholder="offsetLeft"
-                                role="spinbutton"
-                                step="1"
-                                value=""
-                              />
                             </div>
                           </div>
                         </div>
@@ -1101,13 +1071,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                   </div>
                 </div>
                 <div
-                  class="ant-form-item"
+                  class="ant-form-item css-var-test-id ant-form-css-var ant-form-item-vertical"
                 >
                   <div
-                    class="ant-row ant-form-item-row"
+                    class="ant-row ant-form-item-row css-var-test-id"
                   >
                     <div
-                      class="ant-col ant-form-item-control"
+                      class="ant-col ant-form-item-control css-var-test-id"
                     >
                       <div
                         class="ant-form-item-control-input"
@@ -1116,22 +1086,31 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                           class="ant-form-item-control-input-content"
                         >
                           <div
-                            class="ant-input-number ant-input-number-in-form-item ant-input-number-outlined"
+                            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item"
                             style="width: 100%;"
                           >
+                            <input
+                              autocomplete="off"
+                              class="ant-input-number-input"
+                              id="offset_1"
+                              placeholder="offsetTop"
+                              role="spinbutton"
+                              step="1"
+                              value=""
+                            />
                             <div
-                              class="ant-input-number-handler-wrap"
+                              class="ant-input-number-actions"
                             >
                               <span
                                 aria-disabled="false"
                                 aria-label="Increase Value"
-                                class="ant-input-number-handler ant-input-number-handler-up"
+                                class="ant-input-number-action ant-input-number-action-up"
                                 role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="up"
-                                  class="anticon anticon-up ant-input-number-handler-up-inner"
+                                  class="anticon anticon-up"
                                   role="img"
                                 >
                                   <svg
@@ -1152,13 +1131,13 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                               <span
                                 aria-disabled="false"
                                 aria-label="Decrease Value"
-                                class="ant-input-number-handler ant-input-number-handler-down"
+                                class="ant-input-number-action ant-input-number-action-down"
                                 role="button"
                                 unselectable="on"
                               >
                                 <span
                                   aria-label="down"
-                                  class="anticon anticon-down ant-input-number-handler-down-inner"
+                                  class="anticon anticon-down"
                                   role="img"
                                 >
                                   <svg
@@ -1176,19 +1155,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                   </svg>
                                 </span>
                               </span>
-                            </div>
-                            <div
-                              class="ant-input-number-input-wrap"
-                            >
-                              <input
-                                autocomplete="off"
-                                class="ant-input-number-input"
-                                id="offset_1"
-                                placeholder="offsetTop"
-                                role="spinbutton"
-                                step="1"
-                                value=""
-                              />
                             </div>
                           </div>
                         </div>
@@ -1240,10 +1206,10 @@ exports[`renders components/watermark/demo/multi-line.tsx extend context correct
 exports[`renders components/watermark/demo/portal.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-flex ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-middle"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1251,7 +1217,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -1259,7 +1225,7 @@ Array [
       </span>
     </button>
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>

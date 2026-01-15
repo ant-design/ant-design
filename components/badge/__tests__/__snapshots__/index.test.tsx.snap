@@ -1,9 +1,9 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Badge render Badge status/color when contains children 1`] = `
 <div>
   <span
-    class="ant-badge"
+    class="ant-badge css-var-root"
   >
     <a />
     <sup
@@ -26,7 +26,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge"
+    class="ant-badge css-var-root"
   >
     <a />
     <sup
@@ -49,7 +49,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge"
+    class="ant-badge css-var-root"
   >
     <a />
     <sup
@@ -78,7 +78,7 @@ exports[`Badge render Badge status/color when contains children 1`] = `
 exports[`Badge render correct with negative number 1`] = `
 <div>
   <span
-    class="ant-badge ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper css-var-root"
   >
     <sup
       class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -120,7 +120,7 @@ exports[`Badge render correct with negative number 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper css-var-root"
   >
     <sup
       class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -166,13 +166,13 @@ exports[`Badge render correct with negative number 1`] = `
 
 exports[`Badge rtl render component should be rendered correctly in RTL direction 1`] = `
 <span
-  class="ant-badge ant-badge-not-a-wrapper ant-badge-rtl"
+  class="ant-badge ant-badge-not-a-wrapper ant-badge-rtl css-var-root"
 />
 `;
 
 exports[`Badge rtl render component should be rendered correctly in RTL direction 2`] = `
 <span
-  class="ant-badge ant-badge-rtl"
+  class="ant-badge ant-badge-rtl css-var-root"
 >
   <a
     class="head-example"
@@ -183,7 +183,7 @@ exports[`Badge rtl render component should be rendered correctly in RTL directio
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="margin-top: 10px; left: 10px;"
+    style="margin-top: 10px; inset-inline-end: -10px;"
     title="5"
   >
     <bdi>
@@ -204,12 +204,12 @@ exports[`Badge rtl render component should be rendered correctly in RTL directio
 
 exports[`Badge should be compatible with borderColor style 1`] = `
 <span
-  class="ant-badge ant-badge-not-a-wrapper"
+  class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
   <sup
     class="ant-scroll-number ant-badge-count"
     data-show="true"
-    style="background-color: rgb(255, 255, 255); color: rgb(153, 153, 153); border-color: #d9d9d9; box-shadow: 0 0 0 1px #d9d9d9 inset;"
+    style="background-color: rgb(255, 255, 255); color: rgb(153, 153, 153); border-color: rgb(217, 217, 217); box-shadow: 0 0 0 1px #d9d9d9 inset;"
     title="4"
   >
     <bdi>
@@ -231,7 +231,7 @@ exports[`Badge should be compatible with borderColor style 1`] = `
 exports[`Badge should display custom color and number is 0 1`] = `
 <div>
   <span
-    class="ant-badge ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper css-var-root"
   >
     <sup
       class="ant-scroll-number ant-badge-count"
@@ -243,7 +243,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper css-var-root"
   >
     <sup
       class="ant-scroll-number ant-badge-count ant-badge-color-blue"
@@ -254,7 +254,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge ant-badge-not-a-wrapper"
+    class="ant-badge ant-badge-not-a-wrapper css-var-root"
   >
     <sup
       class="ant-scroll-number ant-badge-count"
@@ -265,7 +265,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
     </sup>
   </span>
   <span
-    class="ant-badge"
+    class="ant-badge css-var-root"
   >
     <div />
     <sup
@@ -281,7 +281,7 @@ exports[`Badge should display custom color and number is 0 1`] = `
 
 exports[`Badge should render when count is changed 1`] = `
 <span
-  class="ant-badge ant-badge-not-a-wrapper"
+  class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
   <sup
     class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -322,7 +322,7 @@ exports[`Badge should render when count is changed 1`] = `
 
 exports[`Badge should render when count is changed 2`] = `
 <span
-  class="ant-badge ant-badge-not-a-wrapper"
+  class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
   <sup
     class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -363,7 +363,7 @@ exports[`Badge should render when count is changed 2`] = `
 
 exports[`Badge should render when count is changed 3`] = `
 <span
-  class="ant-badge ant-badge-not-a-wrapper"
+  class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
   <sup
     class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -398,7 +398,7 @@ exports[`Badge should render when count is changed 3`] = `
 
 exports[`Badge should render when count is changed 4`] = `
 <span
-  class="ant-badge ant-badge-not-a-wrapper"
+  class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
   <sup
     class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -412,7 +412,7 @@ exports[`Badge should render when count is changed 4`] = `
 
 exports[`Badge should render when count is changed 5`] = `
 <span
-  class="ant-badge ant-badge-not-a-wrapper"
+  class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
   <sup
     class="ant-scroll-number ant-badge-count ant-badge-multiple-words"
@@ -447,7 +447,7 @@ exports[`Badge should render when count is changed 5`] = `
 
 exports[`Badge should render when count is changed 6`] = `
 <span
-  class="ant-badge ant-badge-not-a-wrapper"
+  class="ant-badge ant-badge-not-a-wrapper css-var-root"
 >
   <sup
     class="ant-scroll-number ant-badge-count"
@@ -478,7 +478,7 @@ exports[`Badge should render when count is changed 6`] = `
 
 exports[`Badge should support offset when count is a ReactNode 1`] = `
 <span
-  class="ant-badge"
+  class="ant-badge css-var-root"
 >
   <a
     class="head-example"
@@ -488,7 +488,7 @@ exports[`Badge should support offset when count is a ReactNode 1`] = `
   </a>
   <span
     class="ant-scroll-number-custom-component custom"
-    style="margin-top: 20px; right: -10px; color: rgb(245, 34, 45);"
+    style="margin-top: 20px; inset-inline-end: -10px; color: rgb(245, 34, 45);"
   />
 </span>
 `;

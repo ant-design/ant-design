@@ -1,6 +1,6 @@
 import React, { Suspense, useLayoutEffect, useMemo, useState } from 'react';
 import { Col, Flex, FloatButton, Skeleton, Space, Typography } from 'antd';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 import { FormattedMessage, useRouteMeta } from 'dumi';
 
 import useLayoutState from '../../../hooks/useLayoutState';
@@ -22,7 +22,12 @@ const AvatarPlaceholder: React.FC<{ num?: number }> = ({ num = 6 }) =>
     <Skeleton.Avatar size="small" active key={i} style={{ marginInlineStart: i === 0 ? 0 : -8 }} />
   ));
 
-const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
+export interface ContentProps {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+const Content: React.FC<ContentProps> = ({ children, className }) => {
   const meta = useRouteMeta();
   const { pathname, hash } = useLocation();
   const { direction } = React.use(SiteContext);
@@ -30,6 +35,7 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   const [showDebug, setShowDebug] = useLayoutState(false);
   const [codeType, setCodeType] = useState('tsx');
+
   const debugDemos = useMemo(
     () => meta.toc?.filter((item) => item._debug_demo).map((item) => item.id) || [],
     [meta],
@@ -39,20 +45,20 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   useLayoutEffect(() => {
     setShowDebug(process.env.NODE_ENV === 'development' || isDebugDemo);
-  }, []);
+  }, [isDebugDemo]);
 
   const contextValue = useMemo<DemoContextProps>(
     () => ({ showDebug, setShowDebug, codeType, setCodeType }),
-    [showDebug, codeType, debugDemos],
+    [showDebug, codeType],
   );
 
   const isRTL = direction === 'rtl';
 
   return (
     <DemoContext value={contextValue}>
-      <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24}>
+      <Col xxl={20} xl={19} lg={18} md={18} sm={24} xs={24} className={className}>
         <DocAnchor showDebug={showDebug} debugDemos={debugDemos} />
-        <article className={classNames(styles.articleWrapper, { rtl: isRTL })}>
+        <article className={clsx(styles.articleWrapper, { rtl: isRTL })}>
           {meta.frontmatter?.title ? (
             <Flex justify="space-between">
               <Typography.Title style={{ fontSize: 32, position: 'relative' }}>
@@ -81,6 +87,10 @@ const Content: React.FC<React.PropsWithChildren> = ({ children }) => {
                 filename={meta.frontmatter.filename}
                 version={meta.frontmatter.tag}
                 designUrl={meta.frontmatter.designUrl}
+                searchTitleKeywords={[meta.frontmatter.title, meta.frontmatter.subtitle].filter(
+                  Boolean,
+                )}
+                repo="ant-design/ant-design"
               />
             )}
           <div style={{ minHeight: 'calc(100vh - 64px)' }}>

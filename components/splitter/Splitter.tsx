@@ -1,9 +1,10 @@
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
-import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
-import useEvent from 'rc-util/lib/hooks/useEvent';
+import ResizeObserver from '@rc-component/resize-observer';
+import { useEvent } from '@rc-component/util';
+import { clsx } from 'clsx';
 
+import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -12,7 +13,12 @@ import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
 import useSizes from './hooks/useSizes';
-import type { SplitterProps } from './interface';
+import type {
+  SplitterClassNamesType,
+  SplitterProps,
+  SplitterSemanticDraggerClassNames,
+  SplitterStylesType,
+} from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
@@ -21,9 +27,15 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
+    classNames,
     style,
-    layout = 'horizontal',
+    styles,
+    layout,
+    orientation,
+    vertical,
     children,
+    draggerIcon,
+    collapsibleIcon,
     rootClassName,
     onResizeStart,
     onResize,
@@ -36,13 +48,17 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     direction,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
   } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ======================== Direct ========================
-  const isVertical = layout === 'vertical';
+  const [mergedOrientation, isVertical] = useOrientation(orientation, vertical, layout);
+
   const isRTL = direction === 'rtl';
   const reverse = !isVertical && isRTL;
 
@@ -53,16 +69,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Splitter');
 
-    let existSize = false;
-    let existUndefinedSize = false;
-
-    items.forEach((item) => {
-      if (item.size !== undefined) {
-        existSize = true;
-      } else {
-        existUndefinedSize = true;
-      }
-    });
+    const existSize = items.some((item) => item.size !== undefined);
+    const existUndefinedSize = items.some((item) => item.size === undefined);
 
     if (existSize && existUndefinedSize && !onResize) {
       warning(
@@ -71,6 +79,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         'When part of `Splitter.Panel` has `size`, `onResize` is required or change `size` to `defaultSize`.',
       );
     }
+    warning.deprecated(!layout, 'layout', 'orientation');
   }
 
   // ====================== Container =======================
@@ -92,7 +101,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     useSizes(items, containerSize);
 
   // ====================== Resizable =======================
-  const resizableInfos = useResizable(items, itemPxSizes, isRTL);
+  const resizableInfos = useResizable(items, itemPxSizes, reverse);
 
   const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
     items,
@@ -100,7 +109,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     itemPtgSizes,
     containerSize,
     updateSizes,
-    isRTL,
+    reverse,
   );
 
   // ======================== Events ========================
@@ -131,17 +140,44 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
     onResizeEnd?.(nextSizes);
+    const collapsed = nextSizes.map((size) => Math.abs(size) < Number.EPSILON);
+    props.onCollapse?.(collapsed, nextSizes);
   });
 
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: SplitterProps = {
+    ...props,
+    vertical: isVertical,
+    orientation: mergedOrientation,
+  };
+
   // ======================== Styles ========================
-  const containerClassName = classNames(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    SplitterClassNamesType,
+    SplitterStylesType,
+    SplitterProps
+  >(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    { props: mergedProps },
+    {
+      // Convert `classNames.dragger: 'a'` to
+      // `classNames.dragger: { default: 'a' }`
+      dragger: {
+        _default: 'default',
+      },
+    },
+  );
+
+  const containerClassName = clsx(
     prefixCls,
     className,
-    `${prefixCls}-${layout}`,
+    `${prefixCls}-${mergedOrientation}`,
     {
       [`${prefixCls}-rtl`]: isRTL,
     },
     rootClassName,
+    mergedClassNames.root,
     contextClassName,
     cssVarCls,
     rootCls,
@@ -155,22 +191,35 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     const mergedSizes: number[] = [];
 
     let stack = 0;
-    for (let i = 0; i < items.length; i += 1) {
+    const len = items.length;
+    for (let i = 0; i < len; i += 1) {
       stack += itemPtgSizes[i];
       mergedSizes.push(stack);
     }
 
     return mergedSizes;
-  }, [itemPtgSizes]);
+  }, [itemPtgSizes, items.length]);
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...mergedStyles.root,
+    ...contextStyle,
+    ...style,
+  };
 
-  return wrapCSSVar(
+  return (
     <ResizeObserver onResize={onContainerResize}>
       <div style={mergedStyle} className={containerClassName}>
         {items.map((item, idx) => {
+          const panelProps = {
+            ...item,
+            className: clsx(mergedClassNames.panel, item.className),
+            style: { ...mergedStyles.panel, ...item.style },
+          };
+
           // Panel
-          const panel = <InternalPanel {...item} prefixCls={prefixCls} size={panelSizes[idx]} />;
+          const panel = (
+            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
+          );
 
           // Split Bar
           let splitBar: React.ReactElement | null = null;
@@ -189,8 +238,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 index={idx}
                 active={movingIndex === idx}
                 prefixCls={prefixCls}
+                rootPrefixCls={rootPrefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
+                draggerStyle={mergedStyles.dragger}
+                draggerClassName={mergedClassNames.dragger as SplitterSemanticDraggerClassNames}
+                draggerIcon={draggerIcon}
+                collapsibleIcon={collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}
@@ -223,10 +277,10 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
         {/* Fake mask for cursor */}
         {typeof movingIndex === 'number' && (
-          <div aria-hidden className={classNames(maskCls, `${maskCls}-${layout}`)} />
+          <div aria-hidden className={clsx(maskCls, `${maskCls}-${mergedOrientation}`)} />
         )}
       </div>
-    </ResizeObserver>,
+    </ResizeObserver>
   );
 };
 

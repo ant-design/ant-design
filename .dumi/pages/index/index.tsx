@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { ConfigProvider, theme } from 'antd';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 import useLocale from '../../hooks/useLocale';
 import { DarkContext } from './../../hooks/useDark';
@@ -12,7 +12,7 @@ const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
 const DesignFramework = React.lazy(() => import('./components/DesignFramework'));
 const Theme = React.lazy(() => import('./components/Theme'));
 
-const useStyle = createStyles(() => ({
+const classNames = createStaticStyles(({ css }) => ({
   image: css`
     position: absolute;
     inset-inline-start: 0;
@@ -38,7 +38,6 @@ const locales = {
 
 const Homepage: React.FC = () => {
   const [locale] = useLocale(locales);
-  const { styles } = useStyle();
   const { token } = theme.useToken();
 
   const isDark = React.use(DarkContext);
@@ -51,11 +50,7 @@ const Homepage: React.FC = () => {
 
       <div>
         {/* 定制主题 */}
-        <ConfigProvider
-          theme={{
-            algorithm: theme.defaultAlgorithm,
-          }}
-        >
+        <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
           <Suspense fallback={null}>
             <Theme />
           </Suspense>
@@ -82,7 +77,7 @@ const Homepage: React.FC = () => {
           decoration={
             <img
               draggable={false}
-              className={styles.image}
+              className={classNames.image}
               src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
               alt="bg"
             />

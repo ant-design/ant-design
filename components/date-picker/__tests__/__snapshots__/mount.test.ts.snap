@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-picker ant-picker-rtl ant-picker-outlined"
+  class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
@@ -43,7 +43,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
-  class="ant-picker ant-picker-rtl ant-picker-outlined"
+  class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
@@ -84,7 +84,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 3`] = `
 <div
-  class="ant-picker ant-picker-rtl ant-picker-outlined"
+  class="ant-picker ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
     class="ant-picker-input"
@@ -125,10 +125,10 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
 
 exports[`mount rtl render component should be rendered correctly in RTL direction 4`] = `
 <div
-  class="ant-picker ant-picker-range ant-picker-rtl ant-picker-outlined"
+  class="ant-picker ant-picker-range ant-picker-rtl ant-picker-outlined css-var-root ant-picker-css-var"
 >
   <div
-    class="ant-picker-input"
+    class="ant-picker-input ant-picker-input-start"
   >
     <input
       aria-invalid="false"
@@ -168,7 +168,7 @@ exports[`mount rtl render component should be rendered correctly in RTL directio
     </span>
   </div>
   <div
-    class="ant-picker-input"
+    class="ant-picker-input ant-picker-input-end"
   >
     <input
       aria-invalid="false"

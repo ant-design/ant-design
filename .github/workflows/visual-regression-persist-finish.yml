@@ -14,14 +14,14 @@ permissions:
 jobs:
   upstream-workflow-summary:
     name: upstream workflow summary
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     outputs:
       jobs: ${{ steps.persist_start_job_status.outputs.result }}
       build-success: ${{ steps.persist_start_job_status.outputs.build-success }}
       build-failure: ${{ steps.persist_start_job_status.outputs.build-failure }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         id: persist_start_job_status
         with:
           script: |
@@ -40,7 +40,9 @@ jobs:
             }, {});
 
             const total = Object.keys(jobs).length;
-            if(total === 0) core.setFailed('no jobs found');
+            if (total === 0) {
+              core.setFailed('no jobs found');
+            }
 
             // the name here must be the same as `jobs.xxx.{name}`
             console.log('visual-diff report job status: %s', jobs['test image']);
@@ -54,18 +56,18 @@ jobs:
     name: persist image-snapshots
     permissions:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: [upstream-workflow-summary]
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           # checkout the head sha/branch that triggered this workflow
           ref: ${{ github.event.workflow_run.head_sha || github.event.workflow_run.head_branch}}
 
       # We need get persist key first
       - name: Download Visual Regression Ref
-        uses: dawidd6/action-download-artifact@v11
+        uses: dawidd6/action-download-artifact@v12
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -79,7 +81,7 @@ jobs:
 
       - name: Download Visual-Regression Artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v11
+        uses: dawidd6/action-download-artifact@v12
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}

@@ -82,7 +82,8 @@ describe('ConfigProvider.Locale', () => {
     const datepicke = wrapper.container.querySelector<HTMLInputElement>('.ant-picker-input input');
     expect(datepicke?.value).toBe('');
     expect(datepicke?.placeholder).toBe('请选择日期');
-    expect(wrapper.container.querySelector('.ant-pagination-item-1')?.className).toContain(
+
+    expect(wrapper.container.querySelector<HTMLElement>('.ant-pagination-item-1')).toHaveClass(
       'ant-pagination-item-active',
     );
 
@@ -93,6 +94,7 @@ describe('ConfigProvider.Locale', () => {
     expect(
       wrapper.container.querySelector<HTMLInputElement>('.ant-picker-input input')?.value,
     ).not.toBe('');
+
     wrapper.rerender(
       <ConfigProvider locale={{} as Locale}>
         <DatePicker />
@@ -108,7 +110,7 @@ describe('ConfigProvider.Locale', () => {
     expect(datepicker?.value).not.toBe('');
     expect(datepicker?.value).toContain('-10');
 
-    expect(wrapper.container.querySelector('.ant-pagination-item-3')?.className).toContain(
+    expect(wrapper.container.querySelector('.ant-pagination-item-3')).toHaveClass(
       'ant-pagination-item-active',
     );
   });

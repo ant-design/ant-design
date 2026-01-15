@@ -8,10 +8,8 @@ interface ContributorAvatarProps {
 }
 
 const ContributorAvatar: React.FC<ContributorAvatarProps> = (props) => {
-  const {
-    item: { username, url } = {},
-  } = props;
-  if (username?.includes('github-actions')) {
+  const { item: { username, url } = {} } = props;
+  if (!username) {
     return null;
   }
   return (

@@ -1,12 +1,11 @@
-import * as React from 'react';
-import type { JSX } from 'react';
-import classNames from 'classnames';
-import DescriptionsContext from './DescriptionsContext';
-import type { SemanticName } from './DescriptionsContext';
+import React from 'react';
+import { clsx } from 'clsx';
 
-function notEmpty(val: any) {
-  return val !== undefined && val !== null;
-}
+import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
+import { useMergeSemantic } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
+import DescriptionsContext from './DescriptionsContext';
+import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext';
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -14,12 +13,12 @@ export interface CellProps {
   className?: string;
   component: string;
   style?: React.CSSProperties;
-  /** @deprecated Please use `styles={{ label: {} }}` instead */
+  /** @deprecated Please use `styles.label` instead */
   labelStyle?: React.CSSProperties;
-  /** @deprecated Please use `styles={{ content: {} }}` instead */
+  /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  classNames?: Partial<Record<SemanticName, string>>;
+  classNames?: CellSemanticClassNames;
+  styles?: CellSemanticStyles;
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;
@@ -42,54 +41,59 @@ const Cell: React.FC<CellProps> = (props) => {
     colon,
     type,
     styles,
+    classNames,
   } = props;
 
-  const Component = component as keyof JSX.IntrinsicElements;
-  const descContext = React.useContext(DescriptionsContext);
-  const { classNames: descriptionsClassNames } = descContext;
+  const Component = component as keyof React.JSX.IntrinsicElements;
+
+  const { classNames: contextClassNames, styles: contextStyles } =
+    React.useContext(DescriptionsContext);
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DescriptionsClassNamesType,
+    DescriptionsStylesType,
+    CellProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props,
+  });
+
+  const mergedLabelStyle: React.CSSProperties = { ...labelStyle, ...mergedStyles.label };
+  const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...mergedStyles.content };
 
   if (bordered) {
     return (
       <Component
-        className={classNames(
-          {
-            [`${itemPrefixCls}-item-label`]: type === 'label',
-            [`${itemPrefixCls}-item-content`]: type === 'content',
-            [`${descriptionsClassNames?.label}`]: type === 'label',
-            [`${descriptionsClassNames?.content}`]: type === 'content',
-          },
-          className,
-        )}
-        style={style}
         colSpan={span}
+        style={style}
+        className={clsx(className, {
+          [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
+          [mergedClassNames.label!]: mergedClassNames.label && type === 'label',
+          [mergedClassNames.content!]: mergedClassNames.content && type === 'content',
+        })}
       >
-        {notEmpty(label) && <span style={{ ...labelStyle, ...styles?.label }}>{label}</span>}
-        {notEmpty(content) && <span style={{ ...labelStyle, ...styles?.content }}>{content}</span>}
+        {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
+        {isNonNullable(content) && <span style={mergedContentStyle}>{content}</span>}
       </Component>
     );
   }
 
   return (
-    <Component
-      className={classNames(`${itemPrefixCls}-item`, className)}
-      style={style}
-      colSpan={span}
-    >
+    <Component className={clsx(`${itemPrefixCls}-item`, className)} style={style} colSpan={span}>
       <div className={`${itemPrefixCls}-item-container`}>
-        {(label || label === 0) && (
+        {isNonNullable(label) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-label`, descriptionsClassNames?.label, {
+            style={mergedLabelStyle}
+            className={clsx(`${itemPrefixCls}-item-label`, mergedClassNames.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
-            style={{ ...labelStyle, ...styles?.label }}
           >
             {label}
           </span>
         )}
-        {(content || content === 0) && (
+        {isNonNullable(content) && (
           <span
-            className={classNames(`${itemPrefixCls}-item-content`, descriptionsClassNames?.content)}
-            style={{ ...contentStyle, ...styles?.content }}
+            style={mergedContentStyle}
+            className={clsx(`${itemPrefixCls}-item-content`, mergedClassNames.content)}
           >
             {content}
           </span>

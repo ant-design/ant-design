@@ -38,6 +38,7 @@ function renderCells(
         span = 1,
         key,
         styles,
+        classNames,
       },
       index,
     ) => {
@@ -47,6 +48,7 @@ function renderCells(
             key={`${type}-${key || index}`}
             className={className}
             style={style}
+            classNames={classNames}
             styles={{
               label: {
                 ...rootLabelStyle,

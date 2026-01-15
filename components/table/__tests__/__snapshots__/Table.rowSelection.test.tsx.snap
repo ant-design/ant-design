@@ -1,20 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Table.rowSelection render with default selection correctly 1`] = `
 <div
-  class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+  class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-root ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
 >
   <ul
-    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+    class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"
     data-menu-list="true"
     role="menu"
     tabindex="0"
   >
     <li
-      aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-test-all"
+      data-menu-id="rc-menu-uuid-all"
       role="menuitem"
       tabindex="-1"
     >
@@ -25,9 +24,8 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-test-invert"
+      data-menu-id="rc-menu-uuid-invert"
       role="menuitem"
       tabindex="-1"
     >
@@ -38,9 +36,8 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
       </span>
     </li>
     <li
-      aria-describedby="test-id"
       class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-      data-menu-id="rc-menu-uuid-test-none"
+      data-menu-id="rc-menu-uuid-none"
       role="menuitem"
       tabindex="-1"
     >
@@ -60,16 +57,16 @@ exports[`Table.rowSelection render with default selection correctly 1`] = `
 
 exports[`Table.rowSelection should support getPopupContainer 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -97,7 +94,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                       class="ant-table-selection"
                     >
                       <label
-                        class="ant-checkbox-wrapper"
+                        class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -139,19 +136,18 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                           </span>
                         </span>
                         <div
-                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-root ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                         >
                           <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-test-all"
+                              data-menu-id="rc-menu-uuid-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -162,9 +158,8 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                               </span>
                             </li>
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-test-invert"
+                              data-menu-id="rc-menu-uuid-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -175,9 +170,8 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                               </span>
                             </li>
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-test-none"
+                              data-menu-id="rc-menu-uuid-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -215,7 +209,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -244,7 +238,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -273,7 +267,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -302,7 +296,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -329,7 +323,7 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-root"
       >
         <li
           aria-disabled="true"
@@ -414,16 +408,16 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
 
 exports[`Table.rowSelection should support getPopupContainer from ConfigProvider 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -451,7 +445,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                       class="ant-table-selection"
                     >
                       <label
-                        class="ant-checkbox-wrapper"
+                        class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -493,19 +487,18 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                           </span>
                         </span>
                         <div
-                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-dropdown-placement-bottomLeft"
-                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; box-sizing: border-box;"
+                          class="ant-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-root ant-dropdown-css-var ant-dropdown-placement-bottomLeft"
+                          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
                         >
                           <ul
-                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light"
+                            class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-root ant-dropdown-css-var css-var-root ant-dropdown-menu-css-var"
                             data-menu-list="true"
                             role="menu"
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-test-all"
+                              data-menu-id="rc-menu-uuid-all"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -516,9 +509,8 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                               </span>
                             </li>
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-test-invert"
+                              data-menu-id="rc-menu-uuid-invert"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -529,9 +521,8 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                               </span>
                             </li>
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item ant-dropdown-menu-item-only-child"
-                              data-menu-id="rc-menu-uuid-test-none"
+                              data-menu-id="rc-menu-uuid-none"
                               role="menuitem"
                               tabindex="-1"
                             >
@@ -569,7 +560,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -598,7 +589,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -627,7 +618,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -656,7 +647,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -683,7 +674,7 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-root"
       >
         <li
           aria-disabled="true"
@@ -768,16 +759,16 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
 
 exports[`Table.rowSelection use column as selection column when key is \`selection-column\` 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table"
+        class="ant-table css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -805,7 +796,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                       class="ant-table-selection"
                     >
                       <label
-                        class="ant-checkbox-wrapper"
+                        class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                       >
                         <span
                           class="ant-checkbox ant-wave-target"
@@ -841,7 +832,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -870,7 +861,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -899,7 +890,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -928,7 +919,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                     class="ant-table-cell ant-table-selection-column"
                   >
                     <label
-                      class="ant-checkbox-wrapper"
+                      class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
                     >
                       <span
                         class="ant-checkbox ant-wave-target"
@@ -955,7 +946,7 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
         </div>
       </div>
       <ul
-        class="ant-pagination ant-table-pagination ant-table-pagination-right"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-root"
       >
         <li
           aria-disabled="true"

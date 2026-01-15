@@ -1,3 +1,11 @@
+/**
+ * Pre-publish script for Ant Design
+ *
+ * Environment Variables:
+ * - SKIP_CI_CHECK: Set to any truthy value to skip remote CI status check
+ *   Usage: SKIP_CI_CHECK=1 npm run prepublishOnly
+ */
+
 import fs from 'node:fs';
 import runScript from '@npmcli/run-script';
 import { Octokit } from '@octokit/rest';
@@ -117,41 +125,50 @@ const runPrePublish = async () => {
 
   const owner = 'ant-design';
   const repo = 'ant-design';
-  showMessage(`开始检查远程分支 ${currentBranch} 的 CI 状态`, true);
 
-  const failureUrlList: string[] = [];
+  // Check if CI check should be skipped
+  if (process.env.SKIP_CI_CHECK) {
+    showMessage(`检测到 SKIP_CI_CHECK 环境变量，跳过远程分支 CI 状态检查`, 'succeed');
+  } else {
+    showMessage(`开始检查远程分支 ${currentBranch} 的 CI 状态`, true);
 
-  const { data } = await octokit.rest.repos.getCombinedStatusForRef({
-    owner,
-    repo,
-    ref: sha,
-  });
+    const failureUrlList: string[] = [];
 
-  showMessage(`远程分支 CI 状态：${data.state}`, 'succeed');
-  if (data.state === 'failure') {
-    showMessage(chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'), 'fail');
-    showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
-
-    failureUrlList.forEach((url) => {
-      showMessage(`  - ${url}`);
+    const { data } = await octokit.rest.repos.getCombinedStatusForRef({
+      owner,
+      repo,
+      ref: sha,
     });
 
-    process.exit(1);
-  }
+    showMessage(`远程分支 CI 状态：${data.state}`, 'succeed');
+    if (data.state === 'failure') {
+      showMessage(
+        chalk.bgRedBright('远程分支 CI 执行异常，无法继续发布，请尝试修复或重试'),
+        'fail',
+      );
+      showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
 
-  if (data.state === 'pending') {
-    showMessage(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'), 'fail');
-    showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
-    process.exit(1);
-  }
+      failureUrlList.forEach((url) => {
+        showMessage(`  - ${url}`);
+      });
 
-  if (data.state !== 'success') {
-    showMessage(chalk.bgRedBright('远程分支 CI 状态异常'), 'fail');
-    showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
-    process.exit(1);
-  }
+      process.exit(1);
+    }
 
-  showMessage(`远程分支 CI 已通过`, 'succeed');
+    if (data.state === 'pending') {
+      showMessage(chalk.bgRedBright('远程分支 CI 还在执行中，请稍候再试'), 'fail');
+      showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
+      process.exit(1);
+    }
+
+    if (data.state !== 'success') {
+      showMessage(chalk.bgRedBright('远程分支 CI 状态异常'), 'fail');
+      showMessage(`  点此查看状态：https://github.com/${owner}/${repo}/commit/${sha}`);
+      process.exit(1);
+    }
+
+    showMessage(`远程分支 CI 已通过`, 'succeed');
+  }
   // clean up
   await runScript({ event: 'clean', path: '.', stdio: 'inherit' });
   showMessage(`成功清理构建产物目录`, 'succeed');
@@ -251,11 +268,16 @@ const runPrePublish = async () => {
   await runScript({ event: 'test:package-diff', path: '.', stdio: 'inherit' });
   showMessage(`文件检查通过，准备发布！`, 'succeed');
 
-  new Notifier().notify({
-    title: '✅ 准备发布到 npm',
-    message: '产物已经准备好了，快回来输入 npm 校验码了！',
-    sound: 'Crystal',
-  });
+  try {
+    await new Notifier().notify({
+      title: '✅ 准备发布到 npm',
+      message: '产物已经准备好了，快回来输入 npm 校验码了！',
+      sound: 'Crystal',
+    });
+  } catch (e) {
+    console.log('通知发送失败', e);
+  }
+
   process.exit(0);
 };
 

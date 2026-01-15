@@ -1,7 +1,7 @@
 import React from 'react';
 import debounce from 'lodash/debounce';
-import type RcTree from 'rc-tree';
-import type { Key } from 'rc-tree/lib/interface';
+import type RcTree from '@rc-component/tree';
+import type { Key } from '@rc-component/tree/lib/interface';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -320,6 +320,10 @@ describe('Directory Tree', () => {
         fieldNames: { key: 'id', title: 'label', children: 'child' },
       }),
     );
+
+    // https://github.com/ant-design/ant-design/issues/55418
+    expect(container.querySelectorAll('.ant-tree-node-content-wrapper-open').length).toBe(2);
+
     fireEvent.click(container.querySelectorAll('.ant-tree-node-content-wrapper')[0]);
     expect(onSelect.mock.calls[0][1].selectedNodes.length).toBe(1);
   });

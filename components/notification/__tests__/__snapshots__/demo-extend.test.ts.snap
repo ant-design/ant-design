@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/notification/demo/basic.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -13,9 +13,51 @@ exports[`renders components/notification/demo/basic.tsx extend context correctly
 
 exports[`renders components/notification/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/notification/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+  style="gap: 8px;"
+>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-green ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Success
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-blue ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Info
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-yellow ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Warning
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-red ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Error
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/notification/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/custom-icon.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -28,7 +70,7 @@ exports[`renders components/notification/demo/custom-icon.tsx extend context cor
 
 exports[`renders components/notification/demo/custom-style.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -41,7 +83,7 @@ exports[`renders components/notification/demo/custom-style.tsx extend context co
 
 exports[`renders components/notification/demo/duration.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -55,13 +97,13 @@ exports[`renders components/notification/demo/duration.tsx extend context correc
 exports[`renders components/notification/demo/hooks.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -96,7 +138,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -129,17 +171,17 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -174,7 +216,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -214,13 +256,13 @@ exports[`renders components/notification/demo/hooks.tsx extend context correctly
 exports[`renders components/notification/demo/placement.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -255,7 +297,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -288,17 +330,17 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -333,7 +375,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -366,17 +408,17 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -411,7 +453,7 @@ Array [
       class="ant-space-item"
     >
       <button
-        class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
         type="button"
       >
         <span
@@ -448,9 +490,22 @@ Array [
 
 exports[`renders components/notification/demo/placement.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/notification/demo/progress-color.tsx extend context correctly 1`] = `
+<button
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid acss-qbrqjq"
+  type="button"
+>
+  <span>
+    Show custom progress color
+  </span>
+</button>
+`;
+
+exports[`renders components/notification/demo/progress-color.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/render-panel.tsx extend context correctly 1`] = `
 <div
-  class="ant-notification-notice-pure-panel"
+  class="ant-notification-notice-pure-panel css-var-test-id ant-notification-css-var"
 >
   <div
     class="ant-notification-notice ant-notification-notice-closable"
@@ -482,7 +537,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           </svg>
         </span>
         <div
-          class="ant-notification-notice-message"
+          class="ant-notification-notice-title"
         >
           Hello World!
         </div>
@@ -495,7 +550,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           class="ant-notification-notice-actions"
         >
           <button
-            class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
+            class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm"
             type="button"
           >
             <span>
@@ -505,13 +560,12 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
         </div>
       </div>
     </div>
-    <a
+    <button
       aria-label="Close"
       class="ant-notification-notice-close"
-      tabindex="0"
     >
       <span
-        aria-label="close"
+        aria-label="Close"
         class="anticon anticon-close ant-notification-close-icon"
         role="img"
       >
@@ -530,7 +584,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
           />
         </svg>
       </span>
-    </a>
+    </button>
   </div>
 </div>
 `;
@@ -539,13 +593,13 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
 
 exports[`renders components/notification/demo/show-with-progress.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -557,7 +611,7 @@ exports[`renders components/notification/demo/show-with-progress.tsx extend cont
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -573,13 +627,13 @@ exports[`renders components/notification/demo/show-with-progress.tsx extend cont
 exports[`renders components/notification/demo/stack.tsx extend context correctly 1`] = `
 <div>
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
         style="width: 100%;"
       >
         <div
@@ -594,7 +648,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
         >
           <button
             aria-checked="true"
-            class="ant-switch ant-switch-checked"
+            class="ant-switch css-var-test-id ant-switch-checked"
             role="switch"
             type="button"
           >
@@ -619,7 +673,7 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
       class="ant-space-item"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
         style="width: 100%;"
       >
         <div
@@ -633,21 +687,31 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
           class="ant-space-item"
         >
           <div
-            class="ant-input-number ant-input-number-outlined"
+            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined"
           >
+            <input
+              aria-valuemax="10"
+              aria-valuemin="1"
+              aria-valuenow="3"
+              autocomplete="off"
+              class="ant-input-number-input"
+              role="spinbutton"
+              step="1"
+              value="3"
+            />
             <div
-              class="ant-input-number-handler-wrap"
+              class="ant-input-number-actions"
             >
               <span
                 aria-disabled="false"
                 aria-label="Increase Value"
-                class="ant-input-number-handler ant-input-number-handler-up"
+                class="ant-input-number-action ant-input-number-action-up"
                 role="button"
                 unselectable="on"
               >
                 <span
                   aria-label="up"
-                  class="anticon anticon-up ant-input-number-handler-up-inner"
+                  class="anticon anticon-up"
                   role="img"
                 >
                   <svg
@@ -668,13 +732,13 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
               <span
                 aria-disabled="false"
                 aria-label="Decrease Value"
-                class="ant-input-number-handler ant-input-number-handler-down"
+                class="ant-input-number-action ant-input-number-action-down"
                 role="button"
                 unselectable="on"
               >
                 <span
                   aria-label="down"
-                  class="anticon anticon-down ant-input-number-handler-down-inner"
+                  class="anticon anticon-down"
                   role="img"
                 >
                   <svg
@@ -693,31 +757,17 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
                 </span>
               </span>
             </div>
-            <div
-              class="ant-input-number-input-wrap"
-            >
-              <input
-                aria-valuemax="10"
-                aria-valuemin="1"
-                aria-valuenow="3"
-                autocomplete="off"
-                class="ant-input-number-input"
-                role="spinbutton"
-                step="1"
-                value="3"
-              />
-            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -729,9 +779,42 @@ exports[`renders components/notification/demo/stack.tsx extend context correctly
 
 exports[`renders components/notification/demo/stack.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/notification/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Default Notification
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Error Notification
+      </span>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`renders components/notification/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/notification/demo/update.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -744,7 +827,7 @@ exports[`renders components/notification/demo/update.tsx extend context correctl
 
 exports[`renders components/notification/demo/with-btn.tsx extend context correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -757,56 +840,41 @@ exports[`renders components/notification/demo/with-btn.tsx extend context correc
 
 exports[`renders components/notification/demo/with-icon.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+  style="gap: 8px;"
 >
-  <div
-    class="ant-space-item"
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-green ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Success
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Success
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-blue ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Info
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Info
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-yellow ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Warning
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Warning
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-red ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-      type="button"
-    >
-      <span>
-        Error
-      </span>
-    </button>
-  </div>
+    <span>
+      Error
+    </span>
+  </button>
 </div>
 `;
 

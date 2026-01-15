@@ -6,11 +6,17 @@ const onChange: InputNumberProps['onChange'] = (value) => {
   console.log('changed', value);
 };
 
+const formatter: InputNumberProps<number>['formatter'] = (value) => {
+  const [start, end] = `${value}`.split('.') || [];
+  const v = `${start}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  return `$ ${end ? `${v}.${end}` : `${v}`}`;
+};
+
 const App: React.FC = () => (
   <Space>
     <InputNumber<number>
       defaultValue={1000}
-      formatter={(value) => `$ ${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+      formatter={formatter}
       parser={(value) => value?.replace(/\$\s?|(,*)/g, '') as unknown as number}
       onChange={onChange}
     />

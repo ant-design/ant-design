@@ -1,17 +1,13 @@
 import React from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Input } from 'antd';
+import { Flex, Input } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Flex vertical gap="middle">
     <Input size="large" placeholder="large size" prefix={<UserOutlined />} />
-    <br />
-    <br />
     <Input placeholder="default size" prefix={<UserOutlined />} />
-    <br />
-    <br />
     <Input size="small" placeholder="small size" prefix={<UserOutlined />} />
-  </>
+  </Flex>
 );
 
 export default App;

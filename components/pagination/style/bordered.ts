@@ -9,7 +9,7 @@ const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
   const { componentCls } = token;
 
   return {
-    [`${componentCls}${componentCls}-bordered${componentCls}-disabled:not(${componentCls}-mini)`]: {
+    [`${componentCls}${componentCls}-bordered${componentCls}-disabled`]: {
       '&, &:hover': {
         [`${componentCls}-item-link`]: {
           borderColor: token.colorBorder,
@@ -54,7 +54,7 @@ const genBorderedStyle: GenerateStyle<PaginationToken> = (token) => {
       },
     },
 
-    [`${componentCls}${componentCls}-bordered:not(${componentCls}-mini)`]: {
+    [`${componentCls}${componentCls}-bordered`]: {
       [`${componentCls}-prev, ${componentCls}-next`]: {
         '&:hover button': {
           borderColor: token.colorPrimaryHover,
@@ -105,8 +105,7 @@ export default genSubStyleComponent(
   ['Pagination', 'bordered'],
   (token) => {
     const paginationToken = prepareToken(token);
-
-    return [genBorderedStyle(paginationToken)];
+    return genBorderedStyle(paginationToken);
   },
   prepareComponentToken,
 );

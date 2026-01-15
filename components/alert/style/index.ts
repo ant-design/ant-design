@@ -75,7 +75,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         direction: 'rtl',
       },
 
-      [`${componentCls}-content`]: {
+      [`${componentCls}-section`]: {
         flex: 1,
         minWidth: 0,
       },
@@ -91,7 +91,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         lineHeight,
       },
 
-      '&-message': {
+      '&-title': {
         color: colorTextHeading,
       },
 
@@ -121,7 +121,7 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
         lineHeight: 0,
       },
 
-      [`${componentCls}-message`]: {
+      [`${componentCls}-title`]: {
         display: 'block',
         marginBottom: marginXS,
         color: colorTextHeading,
@@ -204,7 +204,7 @@ export const genActionStyle: GenerateStyle<AlertToken> = (token: AlertToken): CS
 
   return {
     [componentCls]: {
-      '&-action': {
+      '&-actions': {
         marginInlineStart: marginXS,
       },
 

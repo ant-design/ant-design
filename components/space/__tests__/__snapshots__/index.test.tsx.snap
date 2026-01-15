@@ -1,10 +1,44 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Space rtl render component should be rendered correctly in RTL direction 1`] = `null`;
 
+exports[`Space separator 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
+>
+  <div
+    class="ant-space-item"
+  >
+    text1
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    -
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    <span>
+      text1
+    </span>
+  </div>
+  <span
+    class="ant-space-item-separator"
+  >
+    -
+  </span>
+  <div
+    class="ant-space-item"
+  >
+    text3
+  </div>
+</div>
+`;
+
 exports[`Space should render correct with children 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
 >
   <div
     class="ant-space-item"
@@ -29,7 +63,7 @@ exports[`Space should render correct with children 1`] = `
 exports[`Space should render width ConfigProvider 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-root"
   >
     <div
       class="ant-space-item"
@@ -47,7 +81,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
   >
     <div
       class="ant-space-item"
@@ -65,7 +99,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-root"
   >
     <div
       class="ant-space-item"
@@ -88,7 +122,7 @@ Array [
 exports[`Space should render width rtl 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-root"
   >
     <div
       class="ant-space-item"
@@ -106,7 +140,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle"
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
   >
     <div
       class="ant-space-item"
@@ -124,7 +158,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large"
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-large ant-space-gap-col-large css-var-root"
   >
     <div
       class="ant-space-item"
@@ -142,38 +176,4 @@ Array [
     </div>
   </div>,
 ]
-`;
-
-exports[`Space split 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
->
-  <div
-    class="ant-space-item"
-  >
-    text1
-  </div>
-  <span
-    class="ant-space-item-split"
-  >
-    -
-  </span>
-  <div
-    class="ant-space-item"
-  >
-    <span>
-      text1
-    </span>
-  </div>
-  <span
-    class="ant-space-item-split"
-  >
-    -
-  </span>
-  <div
-    class="ant-space-item"
-  >
-    text3
-  </div>
-</div>
 `;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { RightOutlined, YuqueOutlined, ZhihuOutlined } from '@ant-design/icons';
 import { Button, Card, Divider } from 'antd';
-import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { createStaticStyles } from 'antd-style';
+import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 import JuejinIcon from '../../../theme/icons/JuejinIcon';
@@ -10,18 +10,18 @@ import JuejinIcon from '../../../theme/icons/JuejinIcon';
 const ANTD_IMG_URL =
   'https://picx.zhimg.com/v2-3b2bca09c2771e7a82a81562e806be4d.jpg?source=d16d100b';
 
-const useStyle = createStyles(({ token, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   card: css`
     width: 100%;
-    margin: ${token.marginMD * 2}px 0;
-    transition: all ${token.motionDurationMid};
-    background-color: ${token.colorFillQuaternary};
+    margin: calc(${cssVar.marginMD} * 2) 0;
+    transition: all ${cssVar.motionDurationMid};
+    background-color: ${cssVar.colorFillQuaternary};
   `,
   bigTitle: css`
     color: #121212;
-    font-size: ${token.fontSizeLG}px;
-    margin-bottom: ${token.marginLG}px;
-    font-weight: ${token.fontWeightStrong};
+    font-size: ${cssVar.fontSizeLG};
+    margin-bottom: ${cssVar.marginLG};
+    font-weight: ${cssVar.fontWeightStrong};
   `,
   cardBody: css`
     display: flex;
@@ -35,14 +35,14 @@ const useStyle = createStyles(({ token, css }) => ({
     img {
       width: 200px;
       overflow: hidden;
-      margin-inline-end: ${token.marginLG}px;
-      border-radius: ${token.borderRadiusLG}px;
+      margin-inline-end: ${cssVar.marginLG};
+      border-radius: ${cssVar.borderRadiusLG};
     }
   `,
   title: css`
     color: #444;
-    font-size: ${token.fontSizeLG}px;
-    font-weight: ${token.fontWeightStrong};
+    font-size: ${cssVar.fontSizeLG};
+    font-weight: ${cssVar.fontWeightStrong};
     user-select: none;
   `,
   subTitle: css`
@@ -50,9 +50,9 @@ const useStyle = createStyles(({ token, css }) => ({
     justify-content: flex-start;
     align-items: center;
     color: #646464;
-    font-size: ${token.fontSize}px;
+    font-size: ${cssVar.fontSize};
     font-weight: 400;
-    margin-top: ${token.marginXS}px;
+    margin-top: ${cssVar.marginXS};
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -73,8 +73,8 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   arrowIcon: css`
     color: #8a8f8d;
-    margin: 0 ${token.marginXS}px;
-    font-size: ${token.fontSizeSM}px;
+    margin: 0 ${cssVar.marginXS};
+    font-size: ${cssVar.fontSizeSM};
   `,
   zlBtn: css`
     padding: 0;
@@ -113,19 +113,17 @@ interface Props {
 const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
   const [locale] = useLocale(locales);
   const {
-    styles: {
-      card,
-      bigTitle,
-      cardBody,
-      leftCard,
-      title,
-      subTitle,
-      logo,
-      arrowIcon,
-      zlBtn,
-      discussLogo,
-    },
-  } = useStyle();
+    card,
+    bigTitle,
+    cardBody,
+    leftCard,
+    title,
+    subTitle,
+    logo,
+    arrowIcon,
+    zlBtn,
+    discussLogo,
+  } = styles;
   if (!zhihuLink && !yuqueLink && !juejinLink) {
     return null;
   }
@@ -141,7 +139,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <ZhihuOutlined className={classNames(logo, 'zhihu-logo')} />
+                  <ZhihuOutlined className={clsx(logo, 'zhihu-logo')} />
                   <RightOutlined className={arrowIcon} />
                   <Button
                     target="_blank"
@@ -175,7 +173,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <YuqueOutlined className={classNames(logo, 'yuque-logo')} />
+                  <YuqueOutlined className={clsx(logo, 'yuque-logo')} />
                   <RightOutlined className={arrowIcon} />
                   <Button
                     target="_blank"
@@ -209,7 +207,7 @@ const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
               <div>
                 <p className={title}>Ant Design</p>
                 <div className={subTitle}>
-                  <JuejinIcon className={classNames(logo, 'juejin-logo')} />
+                  <JuejinIcon className={clsx(logo, 'juejin-logo')} />
                   <RightOutlined className={arrowIcon} />
                   <Button
                     target="_blank"

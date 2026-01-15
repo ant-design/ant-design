@@ -1,11 +1,11 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/anchor/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
 >
   <div
-    class="ant-col ant-col-16"
+    class="ant-col ant-col-16 css-var-test-id"
   >
     <div
       id="part-1"
@@ -21,14 +21,16 @@ exports[`renders components/anchor/demo/basic.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-col ant-col-8"
+    class="ant-col ant-col-8 css-var-test-id"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >
         <div
-          class="ant-anchor-wrapper"
+          class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
           style="max-height:100vh"
         >
           <div
@@ -80,10 +82,10 @@ exports[`renders components/anchor/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/anchor/demo/component-token.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
 >
   <div
-    class="ant-col ant-col-16"
+    class="ant-col ant-col-16 css-var-test-id"
   >
     <div
       id="part-1"
@@ -99,14 +101,16 @@ exports[`renders components/anchor/demo/component-token.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-col ant-col-8"
+    class="ant-col ant-col-8 css-var-test-id"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >
         <div
-          class="ant-anchor-wrapper"
+          class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
           style="max-height:100vh"
         >
           <div
@@ -158,7 +162,7 @@ exports[`renders components/anchor/demo/component-token.tsx correctly 1`] = `
 
 exports[`renders components/anchor/demo/customizeHighlight.tsx correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
   style="max-height:100vh"
 >
   <div
@@ -231,12 +235,14 @@ Array [
   <div
     style="padding:20px"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >
         <div
-          class="ant-anchor-wrapper ant-anchor-wrapper-horizontal"
+          class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper ant-anchor-wrapper-horizontal"
           style="max-height:100vh"
         >
           <div
@@ -302,7 +308,7 @@ Array [
 
 exports[`renders components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
   style="max-height:100vh"
 >
   <div
@@ -372,7 +378,7 @@ exports[`renders components/anchor/demo/legacy-anchor.tsx correctly 1`] = `
 
 exports[`renders components/anchor/demo/onChange.tsx correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
   style="max-height:100vh"
 >
   <div
@@ -442,7 +448,7 @@ exports[`renders components/anchor/demo/onChange.tsx correctly 1`] = `
 
 exports[`renders components/anchor/demo/onClick.tsx correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
   style="max-height:100vh"
 >
   <div
@@ -512,10 +518,10 @@ exports[`renders components/anchor/demo/onClick.tsx correctly 1`] = `
 
 exports[`renders components/anchor/demo/replace.tsx correctly 1`] = `
 <div
-  class="ant-row"
+  class="ant-row css-var-test-id"
 >
   <div
-    class="ant-col ant-col-16"
+    class="ant-col ant-col-16 css-var-test-id"
   >
     <div
       id="part-1"
@@ -531,14 +537,16 @@ exports[`renders components/anchor/demo/replace.tsx correctly 1`] = `
     />
   </div>
   <div
-    class="ant-col ant-col-8"
+    class="ant-col ant-col-8 css-var-test-id"
   >
-    <div>
+    <div
+      class=""
+    >
       <div
         class=""
       >
         <div
-          class="ant-anchor-wrapper"
+          class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
           style="max-height:100vh"
         >
           <div
@@ -590,7 +598,7 @@ exports[`renders components/anchor/demo/replace.tsx correctly 1`] = `
 
 exports[`renders components/anchor/demo/static.tsx correctly 1`] = `
 <div
-  class="ant-anchor-wrapper"
+  class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
   style="max-height:100vh"
 >
   <div
@@ -658,13 +666,93 @@ exports[`renders components/anchor/demo/static.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/anchor/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-row css-var-test-id"
+>
+  <div
+    class="ant-col ant-col-16 css-var-test-id"
+  >
+    <div
+      id="part-1"
+      style="height:100vh;background:rgba(255,0,0,0.08)"
+    />
+    <div
+      id="part-2"
+      style="height:100vh;background:rgba(0,255,0,0.08)"
+    />
+    <div
+      id="part-3"
+      style="height:100vh;background:rgba(0,0,255,0.08)"
+    />
+  </div>
+  <div
+    class="ant-col ant-col-8 css-var-test-id"
+  >
+    <div
+      class=""
+    >
+      <div
+        class=""
+      >
+        <div
+          class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper demo-anchor-root"
+          style="max-height:100vh;background-color:rgba(255,251,230,0.5);height:100vh"
+        >
+          <div
+            class="ant-anchor"
+          >
+            <span
+              class="ant-anchor-ink demo-anchor-indicator"
+            />
+            <div
+              class="ant-anchor-link demo-anchor-item"
+            >
+              <a
+                class="ant-anchor-link-title demo-anchor-title"
+                href="#part-1"
+                title="Part 1"
+              >
+                Part 1
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link demo-anchor-item"
+            >
+              <a
+                class="ant-anchor-link-title demo-anchor-title"
+                href="#part-2"
+                title="Part 2"
+              >
+                Part 2
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link demo-anchor-item"
+            >
+              <a
+                class="ant-anchor-link-title demo-anchor-title"
+                href="#part-3"
+                title="Part 3"
+              >
+                Part 3
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/anchor/demo/targetOffset.tsx correctly 1`] = `
 <div>
   <div
-    class="ant-row"
+    class="ant-row css-var-test-id"
   >
     <div
-      class="ant-col ant-col-18"
+      class="ant-col ant-col-18 css-var-test-id"
     >
       <div
         id="part-1"
@@ -686,14 +774,16 @@ exports[`renders components/anchor/demo/targetOffset.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-col ant-col-6"
+      class="ant-col ant-col-6 css-var-test-id"
     >
-      <div>
+      <div
+        class=""
+      >
         <div
           class=""
         >
           <div
-            class="ant-anchor-wrapper"
+            class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
             style="max-height:100vh"
           >
             <div

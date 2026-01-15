@@ -17,6 +17,11 @@ export interface ComponentToken {
    */
   fontWeight: CSSProperties['fontWeight'];
   /**
+   * @desc 图标文字间距
+   * @descEN Gap between icon and text
+   */
+  iconGap: CSSProperties['gap'];
+  /**
    * @desc 默认按钮阴影
    * @descEN Shadow of default button
    */
@@ -87,6 +92,7 @@ export interface ComponentToken {
    */
   defaultActiveBorderColor: string;
   /**
+   * @deprecated use `colorBorderDisabled` instead
    * @desc 禁用状态边框颜色
    * @descEN Border color of disabled button
    */
@@ -176,11 +182,6 @@ export interface ComponentToken {
    */
   onlyIconSizeSM: number | string;
   /**
-   * @desc 按钮组边框颜色
-   * @descEN Border color of button group
-   */
-  groupBorderColor: string;
-  /**
    * @desc 链接按钮悬浮态背景色
    * @descEN Background color of link button when hover
    */
@@ -220,6 +221,16 @@ export interface ComponentToken {
    * @descEN Line height of small button content
    */
   contentLineHeightSM: number;
+  /**
+   * @desc type='default' 禁用状态下的背景颜色
+   * @descE background color when type='default' is disabled
+   */
+  defaultBgDisabled: string;
+  /**
+   * @desc type='dashed' 禁用状态下的背景颜色
+   * @descE background color when type='dashed' is disabled
+   */
+  dashedBgDisabled: string;
 }
 
 type ShadowColorMap = {
@@ -230,7 +241,17 @@ type ShadowColorMap = {
   [Key in `${PresetColorKey}ShadowColor`]: string;
 };
 
-export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap {
+type GroupToken = {
+  /**
+   * @desc 按钮组边框颜色
+   * @descEN Border color of button group
+   * @internal Button.Group 已废弃相关token不应该在显示在文档上
+   */
+
+  groupBorderColor: string;
+};
+
+export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap, GroupToken {
   /**
    * @desc 按钮横向内边距
    * @descEN Horizontal padding of button
@@ -251,12 +272,13 @@ export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap {
 export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
   token,
 ) => {
-  const { paddingInline, onlyIconSize } = token;
+  const { paddingInline, onlyIconSize, borderColorDisabled } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
     buttonPaddingHorizontal: paddingInline,
     buttonPaddingVertical: 0,
     buttonIconOnlyFontSize: onlyIconSize,
+    colorBorderDisabled: borderColorDisabled,
   });
 
   return buttonToken;
@@ -280,16 +302,19 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     }),
     {},
   );
+  const defaultBgDisabled = token.colorBgContainerDisabled;
+  const dashedBgDisabled = token.colorBgContainerDisabled;
 
   return {
     ...shadowColorTokens,
     fontWeight: 400,
+    iconGap: token.marginXS,
     defaultShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlTmpOutline}`,
     primaryShadow: `0 ${token.controlOutlineWidth}px 0 ${token.controlOutline}`,
     dangerShadow: `0 ${token.controlOutlineWidth}px 0 ${token.colorErrorOutline}`,
     primaryColor: token.colorTextLightSolid,
     dangerColor: token.colorTextLightSolid,
-    borderColorDisabled: token.colorBorder,
+    borderColorDisabled: token.colorBorderDisabled,
     defaultGhostColor: token.colorBgContainer,
     ghostBg: 'transparent',
     defaultGhostBorderColor: token.colorBgContainer,
@@ -334,5 +359,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
       (token.controlHeightLG - contentFontSizeLG * contentLineHeightLG) / 2 - token.lineWidth,
       0,
     ),
+    defaultBgDisabled,
+    dashedBgDisabled,
   };
 };

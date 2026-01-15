@@ -37,8 +37,6 @@ const genPanelStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CSSO
 };
 
 // ============================== Export ==============================
-export default genComponentStyleHook(
-  ['Cascader', 'Panel'],
-  (token) => genPanelStyle(token),
-  prepareComponentToken,
-);
+export default genComponentStyleHook(['Cascader', 'Panel'], genPanelStyle, prepareComponentToken, {
+  resetFont: false,
+});

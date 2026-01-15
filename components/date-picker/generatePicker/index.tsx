@@ -1,10 +1,19 @@
-import type { GenerateConfig } from 'rc-picker/lib/generate/index';
+import type { GenerateConfig } from '@rc-component/picker/generate/index';
 
 import type { AnyObject } from '../../_util/type';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
-export type { PickerLocale, PickerProps } from './interface';
+export type {
+  DatePickerPanelSemanticClassNames,
+  DatePickerPanelSemanticName,
+  DatePickerPanelSemanticStyles,
+  DatePickerSemanticClassNames,
+  DatePickerSemanticName,
+  DatePickerSemanticStyles,
+  PickerLocale,
+  PickerProps,
+} from './interface';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,

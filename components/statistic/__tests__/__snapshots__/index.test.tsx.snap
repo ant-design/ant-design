@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`Statistic rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-statistic ant-statistic-rtl"
+  class="ant-statistic ant-statistic-rtl css-var-root"
 >
   <div
     class="ant-statistic-content"
@@ -22,12 +22,16 @@ exports[`Statistic rtl render component should be rendered correctly in RTL dire
 
 exports[`Statistic support negative number 1`] = `
 <div
-  class="ant-statistic"
+  class="ant-statistic css-var-root"
 >
   <div
-    class="ant-statistic-title"
+    class="ant-statistic-header"
   >
-    Account Balance (CNY)
+    <div
+      class="ant-statistic-title"
+    >
+      Account Balance (CNY)
+    </div>
   </div>
   <div
     class="ant-statistic-content"

@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/ja_JP';
+import Pagination from '@rc-component/pagination/lib/locale/ja_JP';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ja_JP';
@@ -132,9 +132,6 @@ const localeValues: Locale = {
         mismatch: '${label}はパターン${pattern}と一致しません',
       },
     },
-  },
-  Image: {
-    preview: 'プレビュー',
   },
   QRCode: {
     expired: 'QRコードの有効期限が切れました',

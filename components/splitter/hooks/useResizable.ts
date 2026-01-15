@@ -32,7 +32,7 @@ function getShowCollapsibleIcon(prev: Option, next: Option) {
   return false;
 }
 
-export default function useResizable(items: ItemType[], pxSizes: number[], isRTL: boolean) {
+export default function useResizable(items: ItemType[], pxSizes: number[], reverse: boolean) {
   return React.useMemo(() => {
     const resizeInfos: ResizableInfo[] = [];
 
@@ -94,13 +94,13 @@ export default function useResizable(items: ItemType[], pxSizes: number[], isRTL
 
       resizeInfos[i] = {
         resizable: mergedResizable,
-        startCollapsible: !!(isRTL ? endCollapsible : startCollapsible),
-        endCollapsible: !!(isRTL ? startCollapsible : endCollapsible),
-        showStartCollapsibleIcon: isRTL ? showEndCollapsibleIcon : showStartCollapsibleIcon,
-        showEndCollapsibleIcon: isRTL ? showStartCollapsibleIcon : showEndCollapsibleIcon,
+        startCollapsible: !!(reverse ? endCollapsible : startCollapsible),
+        endCollapsible: !!(reverse ? startCollapsible : endCollapsible),
+        showStartCollapsibleIcon: reverse ? showEndCollapsibleIcon : showStartCollapsibleIcon,
+        showEndCollapsibleIcon: reverse ? showStartCollapsibleIcon : showEndCollapsibleIcon,
       };
     }
 
     return resizeInfos;
-  }, [pxSizes, items]);
+  }, [pxSizes, items, reverse]);
 }

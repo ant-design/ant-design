@@ -1,12 +1,13 @@
 import * as React from 'react';
 import type { JSX } from 'react';
-import classNames from 'classnames';
-import { Field, FieldContext, ListContext } from 'rc-field-form';
-import type { FieldProps } from 'rc-field-form/lib/Field';
-import type { InternalNamePath, Meta } from 'rc-field-form/lib/interface';
-import useState from 'rc-util/lib/hooks/useState';
-import { supportRef } from 'rc-util/lib/ref';
+import { Field, FieldContext, ListContext } from '@rc-component/form';
+import type { FieldProps } from '@rc-component/form/lib/Field';
+import type { InternalNamePath, Meta } from '@rc-component/form/lib/interface';
+import { supportRef } from '@rc-component/util';
+import useState from '@rc-component/util/lib/hooks/useState';
+import { clsx } from 'clsx';
 
+import isNonNullable from '../../_util/isNonNullable';
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -14,7 +15,7 @@ import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
 import type { FormInstance, FormItemLayout } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
-import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
+import type { FormItemLabelProps } from '../FormItemLabel';
 import useChildren from '../hooks/useChildren';
 import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
@@ -48,7 +49,6 @@ export type FeedbackIcons = (itemStatus: {
 interface MemoInputProps {
   control: object;
   update: any;
-  children: React.ReactNode;
   childProps: any[];
 }
 
@@ -74,8 +74,8 @@ function isSimilarControl(a: object, b: object) {
   );
 }
 
-const MemoInput = React.memo(
-  ({ children }: MemoInputProps) => children as JSX.Element,
+const MemoInput = React.memo<React.PropsWithChildren<MemoInputProps>>(
+  (props) => props.children,
   (prev, next) =>
     isSimilarControl(prev.control, next.control) &&
     prev.update === next.update &&
@@ -100,9 +100,6 @@ export interface FormItemProps<Values = any>
   hidden?: boolean;
   initialValue?: any;
   messageVariables?: Record<string, string>;
-  tooltip?: LabelTooltipType;
-  /** @deprecated No need anymore */
-  fieldKey?: React.Key | React.Key[];
   layout?: FormItemLayout;
 }
 
@@ -145,16 +142,18 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   const notifyParentMetaChange = React.useContext(NoStyleItemContext);
 
   const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
-  const mergedValidateTrigger =
-    validateTrigger !== undefined ? validateTrigger : contextValidateTrigger;
 
-  const hasName = !(name === undefined || name === null);
+  const mergedValidateTrigger = isNonNullable(validateTrigger)
+    ? validateTrigger
+    : contextValidateTrigger;
+
+  const hasName = isNonNullable(name);
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ========================= Warn =========================
   const warning = devUseWarning('Form.Item');
@@ -269,7 +268,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
       <ItemHolder
         key="row"
         {...props}
-        className={classNames(className, cssVarCls, rootCls, hashId)}
+        className={clsx(className, cssVarCls, rootCls, hashId)}
         prefixCls={prefixCls}
         fieldId={fieldId}
         isRequired={isRequired}
@@ -286,7 +285,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   if (!hasName && !isRenderProps && !dependencies) {
-    return wrapCSSVar(renderLayout(mergedChildren) as JSX.Element);
+    return renderLayout(mergedChildren) as JSX.Element;
   }
 
   let variables: Record<string, string> = {};
@@ -300,7 +299,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
   }
 
   // >>>>> With Field
-  return wrapCSSVar(
+  return (
     <Field
       {...props}
       messageVariables={variables}
@@ -443,7 +442,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
         return renderLayout(childNode, fieldId, isRequired);
       }}
-    </Field>,
+    </Field>
   );
 }
 

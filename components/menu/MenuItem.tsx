@@ -1,9 +1,8 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import type { MenuItemProps as RcMenuItemProps } from 'rc-menu';
-import { Item } from 'rc-menu';
-import toArray from 'rc-util/lib/Children/toArray';
-import omit from 'rc-util/lib/omit';
+import type { MenuItemProps as RcMenuItemProps } from '@rc-component/menu';
+import { Item } from '@rc-component/menu';
+import { omit, toArray } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
@@ -43,15 +42,21 @@ const MenuItem: GenericComponent = (props) => {
     direction,
     disableMenuItemTitleTooltip,
     inlineCollapsed: isInlineCollapsed,
+    styles,
+    classNames,
   } = React.useContext<MenuContextProps>(MenuContext);
   const renderItemChildren = (inlineCollapsed: boolean) => {
     const label = (children as React.ReactNode[])?.[0];
-
     const wrapNode = (
       <span
-        className={classNames(`${prefixCls}-title-content`, {
-          [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
-        })}
+        className={clsx(
+          `${prefixCls}-title-content`,
+          firstLevel ? classNames?.itemContent : classNames?.subMenu?.itemContent,
+          {
+            [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
+          },
+        )}
+        style={firstLevel ? styles?.itemContent : styles?.subMenu?.itemContent}
       >
         {children}
       </span>
@@ -90,21 +95,31 @@ const MenuItem: GenericComponent = (props) => {
   let returnNode = (
     <Item
       {...omit(props, ['title', 'icon', 'danger'])}
-      className={classNames(
+      className={clsx(
+        firstLevel ? classNames?.item : classNames?.subMenu?.item,
         {
           [`${prefixCls}-item-danger`]: danger,
           [`${prefixCls}-item-only-child`]: (icon ? childrenLength + 1 : childrenLength) === 1,
         },
         className,
       )}
+      style={{
+        ...(firstLevel ? styles?.item : styles?.subMenu?.item),
+        ...props.style,
+      }}
       title={typeof title === 'string' ? title : undefined}
     >
-      {cloneElement(icon, {
-        className: classNames(
-          React.isValidElement<{ className?: string }>(icon) ? icon.props?.className : undefined,
+      {cloneElement(icon, (oriProps) => ({
+        className: clsx(
           `${prefixCls}-item-icon`,
+          firstLevel ? classNames?.itemIcon : classNames?.subMenu?.itemIcon,
+          oriProps.className,
         ),
-      })}
+        style: {
+          ...(firstLevel ? styles?.itemIcon : styles?.subMenu?.itemIcon),
+          ...oriProps.style,
+        },
+      }))}
       {renderItemChildren(isInlineCollapsed)}
     </Item>
   );

@@ -1,8 +1,8 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`renders components/drawer/demo/basic-right.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -13,13 +13,13 @@ exports[`renders components/drawer/demo/basic-right.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/classNames.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -31,7 +31,7 @@ exports[`renders components/drawer/demo/classNames.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -42,12 +42,23 @@ exports[`renders components/drawer/demo/classNames.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/drawer/demo/closable-placement.tsx correctly 1`] = `
+<button
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  type="button"
+>
+  <span>
+    Open
+  </span>
+</button>
+`;
+
 exports[`renders components/drawer/demo/component-token.tsx correctly 1`] = `
 <div
   style="padding:32px;background:#e6e6e6"
 >
   <div
-    class="ant-drawer ant-drawer-pure ant-drawer-right"
+    class="ant-drawer ant-drawer-pure ant-drawer-right css-var-test-id"
     style="height:300px"
   >
     <div
@@ -108,7 +119,7 @@ exports[`renders components/drawer/demo/config-provider.tsx correctly 1`] = `
   class="site-drawer-render-in-current-wrapper"
 >
   <button
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -120,16 +131,17 @@ exports[`renders components/drawer/demo/config-provider.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-radio-group ant-radio-group-outline"
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
-        class="ant-radio-wrapper"
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target"
@@ -151,7 +163,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-wrapper ant-radio-wrapper-checked"
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target ant-radio-checked"
@@ -174,7 +186,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-wrapper"
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target"
@@ -196,7 +208,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-wrapper"
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target"
@@ -223,7 +235,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -236,7 +248,7 @@ exports[`renders components/drawer/demo/extra.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/form-in-drawer.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span
@@ -273,7 +285,7 @@ exports[`renders components/drawer/demo/form-in-drawer.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/loading.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -282,9 +294,62 @@ exports[`renders components/drawer/demo/loading.tsx correctly 1`] = `
 </button>
 `;
 
+exports[`renders components/drawer/demo/mask.tsx correctly 1`] = `
+<div
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  style="flex-wrap:wrap"
+>
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default blur
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Dimmed mask
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  />
+  <div
+    class="ant-space-item"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        No mask
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-space-item"
+  />
+</div>
+`;
+
 exports[`renders components/drawer/demo/multi-level-drawer.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -295,7 +360,7 @@ exports[`renders components/drawer/demo/multi-level-drawer.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/no-mask.tsx correctly 1`] = `
 <button
-  class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
   type="button"
 >
   <span>
@@ -306,16 +371,17 @@ exports[`renders components/drawer/demo/no-mask.tsx correctly 1`] = `
 
 exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-radio-group ant-radio-group-outline"
+      class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
-        class="ant-radio-wrapper"
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target"
@@ -337,7 +403,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-wrapper"
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target"
@@ -359,7 +425,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-wrapper"
+        class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target"
@@ -381,7 +447,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
         </span>
       </label>
       <label
-        class="ant-radio-wrapper ant-radio-wrapper-checked"
+        class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
       >
         <span
           class="ant-radio ant-wave-target ant-radio-checked"
@@ -409,7 +475,7 @@ exports[`renders components/drawer/demo/placement.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -429,7 +495,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx correctly 1`] = `
     style="margin-top:16px"
   >
     <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
       type="button"
     >
       <span>
@@ -445,7 +511,7 @@ exports[`renders components/drawer/demo/render-panel.tsx correctly 1`] = `
   style="padding:32px;background:#e6e6e6"
 >
   <div
-    class="ant-drawer ant-drawer-pure ant-drawer-right"
+    class="ant-drawer ant-drawer-pure ant-drawer-right css-var-test-id"
     style="height:300px"
   >
     <div
@@ -501,19 +567,146 @@ exports[`renders components/drawer/demo/render-panel.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/drawer/demo/resizable.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
+      >
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="top"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            top
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target ant-radio-checked"
+          >
+            <input
+              checked=""
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="right"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            right
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="bottom"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            bottom
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="left"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            left
+          </span>
+        </label>
+      </div>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Open Drawer
+        </span>
+      </button>
+    </div>
+  </div>,
+  <div>
+    Current size: 
+    <!-- -->
+    256
+    <!-- -->
+    px
+  </div>,
+]
+`;
+
 exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
 <div
   style="position:relative;z-index:999999"
 >
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   >
     <div
       class="ant-space-item"
     >
       <button
         aria-checked="false"
-        class="ant-switch"
+        class="ant-switch css-var-test-id"
         role="switch"
         type="button"
       >
@@ -541,7 +734,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
     >
       <button
         aria-checked="false"
-        class="ant-switch"
+        class="ant-switch css-var-test-id"
         role="switch"
         type="button"
       >
@@ -569,7 +762,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
     >
       <button
         aria-checked="false"
-        class="ant-switch"
+        class="ant-switch css-var-test-id"
         role="switch"
         type="button"
       >
@@ -597,7 +790,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
     >
       <button
         aria-checked="false"
-        class="ant-switch"
+        class="ant-switch css-var-test-id"
         role="switch"
         type="button"
       >
@@ -625,42 +818,193 @@ exports[`renders components/drawer/demo/scroll-debug.tsx correctly 1`] = `
 `;
 
 exports[`renders components/drawer/demo/size.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    style="margin-bottom:16px"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
+      >
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="large"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            Large Size (736px)
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="default"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            Default Size (378px)
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="256"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            256
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="500px"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            500px
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="50%"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            50%
+          </span>
+        </label>
+        <label
+          class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+        >
+          <span
+            class="ant-radio ant-wave-target"
+          >
+            <input
+              class="ant-radio-input"
+              name="test-id"
+              type="radio"
+              value="20vw"
+            />
+            <span
+              class="ant-radio-inner"
+            />
+          </span>
+          <span
+            class="ant-radio-label"
+          >
+            20vw
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>,
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Open Drawer
+    </span>
+  </button>,
+]
+`;
+
+exports[`renders components/drawer/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
 >
-  <div
-    class="ant-space-item"
+  <button
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-      type="button"
-    >
-      <span>
-        Open Default Size (378px)
-      </span>
-    </button>
-  </div>
-  <div
-    class="ant-space-item"
+    <span>
+      Open Style Drawer
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
   >
-    <button
-      class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-      type="button"
-    >
-      <span>
-        Open Large Size (736px)
-      </span>
-    </button>
-  </div>
+    <span>
+      Open Function Drawer
+    </span>
+  </button>
 </div>
 `;
 
 exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-bordered"
+  class="ant-list ant-list-split ant-list-bordered css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -678,7 +1022,7 @@ exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
                   src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"
@@ -724,7 +1068,7 @@ exports[`renders components/drawer/demo/user-profile.tsx correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
                   src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png"

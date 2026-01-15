@@ -7,22 +7,22 @@ on:
 
 jobs:
   upgrade-deps:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     if: github.repository == 'ant-design/ant-design' && github.ref == 'refs/heads/master'
     permissions:
       pull-requests: write # for peter-evans/create-pull-request to create PRs
       contents: write # for git push
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           sparse-checkout: |
             .github
             .ncurc.js
             package.json
 
-      - name: setup bun
-        uses: oven-sh/setup-bun@v2
+      - name: setup utoo
+        uses: utooland/setup-utoo@v1
 
       - name: upgrade deps
         id: upgrade
@@ -30,7 +30,7 @@ jobs:
           if [ ! -d .tmp ] ; then
             mkdir .tmp
           fi
-          $(bunx npm-check-updates -u > .tmp/upgrade-deps-logs.txt) 2>&1 || true
+          $(utx npm-check-updates -u > .tmp/upgrade-deps-logs.txt) 2>&1 || true
           if [ -s .tmp/upgrade-deps-logs.txt ]; then
             cat .tmp/upgrade-deps-logs.txt
             echo "logs<<EOF" >> $GITHUB_OUTPUT
@@ -40,7 +40,7 @@ jobs:
 
       - name: create pull request
         id: cpr
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Cannot be default!!!
           assignees: 'afc163, yoyo837, Wxh16144, li-jia-nan, thinkasany'

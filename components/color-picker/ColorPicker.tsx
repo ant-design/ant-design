@@ -1,13 +1,13 @@
 import React, { useContext, useMemo } from 'react';
-import classNames from 'classnames';
-import useMergedState from 'rc-util/lib/hooks/useMergedState';
+import { useControlledState } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
+import { useMergeSemantic } from '../_util/hooks';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider/context';
-import { ConfigContext } from '../config-provider/context';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
@@ -20,7 +20,7 @@ import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useModeColor from './hooks/useModeColor';
-import type { ColorPickerProps, ModeType, TriggerPlacement } from './interface';
+import type { ColorFormatType, ColorPickerProps, ModeType, TriggerPlacement } from './interface';
 import useStyle from './style';
 import { genAlphaColor, generateColor, getColorAlpha } from './util';
 
@@ -51,6 +51,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     styles,
+    classNames,
     disabledAlpha = false,
     onFormatChange,
     onChange,
@@ -65,22 +66,72 @@ const ColorPicker: CompoundedComponent = (props) => {
     ...rest
   } = props;
 
-  const { getPrefixCls, direction, colorPicker } = useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    direction,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('colorPicker');
+
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
-  const [popupOpen, setPopupOpen] = useMergedState(false, {
-    value: open,
-    postState: (openData) => !mergedDisabled && openData,
-    onChange: onOpenChange,
-  });
-  const [formatValue, setFormatValue] = useMergedState(format, {
-    value: format,
-    defaultValue: defaultFormat,
-    onChange: onFormatChange,
-  });
-
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
+
+  // ================== Size ==================
+  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
+  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
+
+  // =========== Merged Props for Semantic ===========
+  const mergedProps: ColorPickerProps = {
+    ...props,
+    trigger,
+    allowClear,
+    autoAdjustOverflow,
+    disabledAlpha,
+    arrow,
+    placement,
+    disabled: mergedDisabled,
+    size: mergedSize,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    NonNullable<ColorPickerProps['classNames']>,
+    NonNullable<ColorPickerProps['styles']>,
+    ColorPickerProps
+  >(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+    {
+      popup: {
+        _default: 'root',
+      },
+    },
+  );
+
+  const [internalPopupOpen, setPopupOpen] = useControlledState(false, open);
+
+  const popupOpen = !mergedDisabled && internalPopupOpen;
+  const [formatValue, setFormatValue] = useControlledState(defaultFormat, format);
+
+  const triggerFormatChange = (newFormat?: ColorFormatType) => {
+    setFormatValue(newFormat);
+    if (formatValue !== newFormat) {
+      onFormatChange?.(newFormat);
+    }
+  };
+
+  const triggerOpenChange = (visible: boolean) => {
+    if (!visible || !mergedDisabled) {
+      setPopupOpen(visible);
+      onOpenChange?.(visible);
+    }
+  };
 
   // ================== Value & Mode =================
   const [mergedColor, setColor, modeState, setModeState, modeOptions] = useModeColor(
@@ -169,29 +220,25 @@ const ColorPicker: CompoundedComponent = (props) => {
   // ================== Form Status ==================
   const { status: contextStatus } = React.useContext(FormItemInputContext);
 
-  // ==================== Compact ====================
-  const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
-
   // ===================== Style =====================
-  const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
   const rootCls = useCSSVarCls(prefixCls);
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergedRootCls = classNames(rootClassName, cssVarCls, rootCls, rtlCls);
-  const mergedCls = classNames(
+  const mergedRootCls = clsx(rootClassName, cssVarCls, rootCls, rtlCls);
+  const mergedCls = clsx(
     getStatusClassNames(prefixCls, contextStatus),
     {
       [`${prefixCls}-sm`]: mergedSize === 'small',
       [`${prefixCls}-lg`]: mergedSize === 'large',
     },
     compactItemClassnames,
-    colorPicker?.className,
+    contextClassName,
     mergedRootCls,
     className,
     hashId,
   );
-  const mergedPopupCls = classNames(prefixCls, mergedRootCls);
+  const mergedPopupCls = clsx(prefixCls, mergedRootCls, mergedClassNames.popup?.root);
 
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
@@ -215,19 +262,15 @@ const ColorPicker: CompoundedComponent = (props) => {
     destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
   };
 
-  const mergedStyle: React.CSSProperties = { ...colorPicker?.style, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   // ============================ zIndex ============================
 
-  return wrapCSSVar(
+  return (
     <Popover
-      style={styles?.popup}
-      styles={{ body: styles?.popupOverlayInner }}
-      onOpenChange={(visible) => {
-        if (!visible || !mergedDisabled) {
-          setPopupOpen(visible);
-        }
-      }}
+      classNames={{ root: mergedPopupCls }}
+      styles={{ root: mergedStyles.popup?.root, container: styles?.popupOverlayInner }}
+      onOpenChange={triggerOpenChange}
       content={
         <ContextIsolator form>
           <ColorPickerPanel
@@ -242,7 +285,7 @@ const ColorPicker: CompoundedComponent = (props) => {
             presets={presets}
             panelRender={panelRender}
             format={formatValue}
-            onFormatChange={setFormatValue}
+            onFormatChange={triggerFormatChange}
             onChange={onInternalChange}
             onChangeComplete={onInternalChangeComplete}
             onClear={onClear}
@@ -254,7 +297,6 @@ const ColorPicker: CompoundedComponent = (props) => {
           />
         </ContextIsolator>
       }
-      classNames={{ root: mergedPopupCls }}
       {...popoverProps}
     >
       {children || (
@@ -263,6 +305,8 @@ const ColorPicker: CompoundedComponent = (props) => {
           open={popupOpen}
           className={mergedCls}
           style={mergedStyle}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
           prefixCls={prefixCls}
           disabled={mergedDisabled}
           showText={showText}
@@ -271,7 +315,7 @@ const ColorPicker: CompoundedComponent = (props) => {
           color={mergedColor}
         />
       )}
-    </Popover>,
+    </Popover>
   );
 };
 

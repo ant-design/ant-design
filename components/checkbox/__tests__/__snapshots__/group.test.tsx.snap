@@ -1,11 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
 <div
-  class="my-checkbox-group"
+  class="my-checkbox-group css-var-root my-checkbox-css-var"
+  role="group"
 >
   <label
-    class="my-checkbox-wrapper my-checkbox-group-item"
+    class="my-checkbox-wrapper my-checkbox-group-item css-var-root my-checkbox-css-var"
   >
     <span
       class="my-checkbox ant-wave-target"
@@ -26,7 +27,7 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
     </span>
   </label>
   <label
-    class="my-checkbox-wrapper my-checkbox-group-item"
+    class="my-checkbox-wrapper my-checkbox-group-item css-var-root my-checkbox-css-var"
     style="font-size: 12px;"
   >
     <span
@@ -52,6 +53,7 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
 
 exports[`CheckboxGroup rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
-  class="ant-checkbox-group ant-checkbox-group-rtl"
+  class="ant-checkbox-group ant-checkbox-group-rtl css-var-root ant-checkbox-css-var"
+  role="group"
 />
 `;

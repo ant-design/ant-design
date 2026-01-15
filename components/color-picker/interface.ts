@@ -1,10 +1,10 @@
-import type { CSSProperties, FC, ReactNode } from 'react';
-import React from 'react';
+import type React from 'react';
 import type {
   ColorGenInput,
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -24,8 +24,8 @@ export const FORMAT_HSB = 'hsb';
 export type ColorFormatType = typeof FORMAT_HEX | typeof FORMAT_RGB | typeof FORMAT_HSB;
 
 export interface PresetsItem {
-  label: ReactNode;
-  colors: (string | AggregationColor)[];
+  label: React.ReactNode;
+  colors: (string | AggregationColor | LineGradientType)[];
   /**
    * Whether the initial state is collapsed
    * @since 5.11.0
@@ -45,15 +45,46 @@ export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking c
 
 export type SingleValueType = AggregationColor | string;
 
-export type ColorValueType =
-  | SingleValueType
-  | null
-  | {
-      color: SingleValueType;
-      percent: number;
-    }[];
+export type LineGradientType = {
+  color: SingleValueType;
+  percent: number;
+}[];
+
+export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
+
+export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames &
+  keyof ColorPickerSemanticStyles;
+
+export type ColorPickerSemanticClassNames = {
+  root?: string;
+  body?: string;
+  content?: string;
+  description?: string;
+};
+
+export type ColorPickerSemanticStyles = {
+  root?: React.CSSProperties;
+  body?: React.CSSProperties;
+  content?: React.CSSProperties;
+  description?: React.CSSProperties;
+};
+
+export type ColorPickerClassNamesType = SemanticClassNamesType<
+  ColorPickerProps,
+  ColorPickerSemanticClassNames,
+  { popup?: { root?: string } }
+>;
+
+export type ColorPickerStylesType = SemanticStylesType<
+  ColorPickerProps,
+  ColorPickerSemanticStyles,
+  {
+    popup?: { root?: React.CSSProperties };
+    popupOverlayInner?: React.CSSProperties;
+  }
+>;
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -80,11 +111,12 @@ export type ColorPickerProps = Omit<
   arrow?: boolean | { pointAtCenter: boolean };
   panelRender?: (
     panel: React.ReactNode,
-    extra: { components: { Picker: FC; Presets: FC } },
+    extra: { components: { Picker: React.FC; Presets: React.FC } },
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  styles?: { popup?: CSSProperties; popupOverlayInner?: CSSProperties };
+  classNames?: ColorPickerClassNamesType;
+  styles?: ColorPickerStylesType;
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;

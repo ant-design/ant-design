@@ -27,9 +27,13 @@ const App: React.FC = () => (
         style={{ marginInlineEnd: 6 }}
         options={['Daily', 'Weekly', 'Monthly']}
       />
-      <Select size="small" defaultValue="lucy" style={{ width: 150 }}>
-        <Select.Option value="lucy">Lucy</Select.Option>
-      </Select>
+      <Select
+        size="small"
+        defaultValue="lucy"
+        aria-label="select"
+        style={{ width: 150 }}
+        options={[{ label: 'Lucy', value: 'lucy' }]}
+      />
     </div>
   </Flex>
 );

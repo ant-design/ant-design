@@ -1,13 +1,10 @@
-import Dayjs from 'dayjs';
-
-import 'dayjs/locale/zh-cn';
-
 import React from 'react';
+import type { PickerPanelProps } from '@rc-component/picker';
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
+import type { Locale } from '@rc-component/picker/interface';
+import { warning } from '@rc-component/util';
+import Dayjs from 'dayjs';
 import MockDate from 'mockdate';
-import type { PickerPanelProps } from 'rc-picker';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
-import type { Locale } from 'rc-picker/lib/interface';
-import { resetWarned } from 'rc-util/lib/warning';
 
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
@@ -17,8 +14,13 @@ import ConfigProvider from '../../config-provider';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
+import type { DefaultOptionType } from '../../select';
 import Header from '../Header';
 import type { CalendarHeaderProps } from '../Header';
+
+import 'dayjs/locale/zh-cn';
+
+const { resetWarned } = warning;
 
 const ref: {
   calendarProps?: PickerPanelProps;
@@ -34,8 +36,8 @@ jest.mock('../Header', () => {
   };
 });
 
-jest.mock('rc-picker', () => {
-  const RcPicker = jest.requireActual('rc-picker');
+jest.mock('@rc-component/picker', () => {
+  const RcPicker = jest.requireActual('@rc-component/picker');
   const PickerPanelComponent = RcPicker.PickerPanel;
   return {
     ...RcPicker,
@@ -51,7 +53,9 @@ describe('Calendar', () => {
   rtlTest(Calendar, true);
 
   function openSelect(wrapper: HTMLElement, className: string) {
-    fireEvent.mouseDown(wrapper.querySelector(className)!.querySelector('.ant-select-selector')!);
+    let target = wrapper.querySelector(className)!;
+    target = target.querySelector('.ant-select') || target;
+    fireEvent.mouseDown(target);
   }
 
   function findSelectItem(wrapper: HTMLElement) {
@@ -375,15 +379,10 @@ describe('Calendar', () => {
     // Year
     const headerRender = jest.fn(({ value }) => {
       const year = value.year();
-      const options = [];
+      const options: DefaultOptionType[] = [];
       for (let i = year - 100; i < year + 100; i += 1) {
-        options.push(
-          <Select.Option className="year-item" key={i} value={i}>
-            {i}
-          </Select.Option>,
-        );
+        options.push({ label: i, value: i });
       }
-
       return (
         <Select
           size="small"
@@ -391,9 +390,8 @@ describe('Calendar', () => {
           className="my-year-select"
           onChange={onYearChange}
           value={String(year)}
-        >
-          {options}
-        </Select>
+          options={options}
+        />
       );
     });
     const uiWithYear = <Calendar fullscreen={false} headerRender={headerRender} />;
@@ -412,23 +410,17 @@ describe('Calendar', () => {
     const headerRenderWithMonth = jest.fn(({ value }) => {
       const start = 0;
       const end = 12;
-      const monthOptions = [];
+      const months: string[] = [];
+      const monthOptions: DefaultOptionType[] = [];
       const current = value.clone();
       const localeData = value.localeData();
-      const months = [];
       for (let i = 0; i < 12; i += 1) {
         current.month(i);
         months.push(localeData.monthsShort(current));
       }
-
       for (let index = start; index < end; index += 1) {
-        monthOptions.push(
-          <Select.Option className="month-item" key={index} value={index}>
-            {months[index]}
-          </Select.Option>,
-        );
+        monthOptions.push({ label: months[index], value: index });
       }
-
       const month = value.month();
       return (
         <Select
@@ -437,9 +429,8 @@ describe('Calendar', () => {
           className="my-month-select"
           onChange={onMonthChange}
           value={String(month)}
-        >
-          {monthOptions}
-        </Select>
+          options={monthOptions}
+        />
       );
     });
     const uiWithMonth = <Calendar fullscreen={false} headerRender={headerRenderWithMonth} />;
@@ -572,5 +563,57 @@ describe('Calendar', () => {
     expect(container.firstChild).toMatchSnapshot();
 
     jest.useRealTimers();
+  });
+  it('support classNames and styles', () => {
+    const customClassNames = {
+      root: 'custom-root',
+      header: 'custom-header',
+      body: 'custom-body',
+      content: 'custom-content',
+      item: 'custom-item',
+    };
+    const customStyles = {
+      root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
+      header: { backgroundColor: 'rgba(83, 99, 116, 0.8)' },
+      body: { backgroundColor: 'rgba(21, 83, 41, 0.8)' },
+      content: { backgroundColor: 'rgba(255, 149, 0, 0.8)' },
+      item: { backgroundColor: 'rgba(255, 81, 0, 0.8)' },
+    };
+    const { container } = render(<Calendar styles={customStyles} classNames={customClassNames} />);
+    const root = container.querySelector('.ant-picker-calendar');
+    const header = container.querySelector('.ant-picker-calendar-header');
+    const item = container.querySelector('.ant-picker-cell');
+    const body = container.querySelector('.ant-picker-body');
+    const content = container.querySelector('.ant-picker-content');
+    expect(root).toHaveStyle(customStyles.root);
+    expect(header).toHaveStyle(customStyles.header);
+    expect(body).toHaveStyle(customStyles.body);
+    expect(content).toHaveStyle(customStyles.content);
+    expect(item).toHaveStyle(customStyles.item);
+    expect(root).toHaveClass(customClassNames.root);
+    expect(header).toHaveClass(customClassNames.header);
+    expect(body).toHaveClass(customClassNames.body);
+    expect(content).toHaveClass(customClassNames.content);
+    expect(item).toHaveClass(customClassNames.item);
+  });
+
+  it('should support deep merge locale with partial fields', () => {
+    MockDate.set(Dayjs('2018-10-19').valueOf());
+
+    const { container } = render(
+      <Calendar
+        locale={{ lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as any}
+      />,
+    );
+
+    expect(container.querySelector('.ant-picker-content thead')).toHaveTextContent(
+      '一二三四五六日',
+    );
+
+    expect(container.querySelector('.ant-radio-group .ant-radio-button-label')).toHaveTextContent(
+      'Month',
+    );
+
+    MockDate.reset();
   });
 });
