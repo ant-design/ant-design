@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Flex, Space, Switch } from 'antd';
 import type { SwitchProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     border-color: red;
   `,
@@ -19,13 +19,11 @@ const stylesObject: SwitchProps['styles'] = {
 
 // 创建一个自定义 Hook 来获取 classNames 函数
 const useClassNames = () => {
-  const { styles } = useStyle();
-
   const classNamesFn: SwitchProps['classNames'] = (info) => {
     if (info.props.size === 'small') {
       return {
-        root: styles.root,
-        content: styles.content,
+        root: classNames.root,
+        content: classNames.content,
       };
     }
 

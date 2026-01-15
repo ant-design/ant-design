@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { Flex, Tag, version } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
@@ -33,7 +33,7 @@ const getTagColor = (val?: string) => {
   }
 };
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   link: css`
     display: flex;
     align-items: center;
@@ -62,7 +62,6 @@ interface MenuItemLabelProps {
 }
 
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
-  const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
 
   const [locale] = useLocale(locales);
