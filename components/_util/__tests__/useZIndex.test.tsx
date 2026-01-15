@@ -130,7 +130,7 @@ const items: MenuProps['items'] = [
 ];
 
 const consumerComponent: Partial<
-  Record<ZIndexConsumer, React.FC<Readonly<{ rootClassName: string }>>>
+  Record<ZIndexConsumer, React.FC<Readonly<{ rootClassName: string; ref?: React.Ref<any> }>>>
 > = {
   SelectLike: ({ rootClassName, ref, ...props }) => (
     <div ref={ref}>
