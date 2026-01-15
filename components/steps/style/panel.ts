@@ -72,7 +72,7 @@ const genPanelStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
               .equal(),
             [varName('item-base-width')]: `calc(${varRef('item-base-height')} * 0.7071)`,
 
-            transition: `background ${motionDurationMid}`,
+            transition: `background-color ${motionDurationMid}`,
           },
         },
 
