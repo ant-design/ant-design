@@ -54,7 +54,7 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 };
 
 export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
 
   return {
     'a&, a': {
@@ -64,7 +64,7 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
       // Exclude Button component's anchor tags to avoid style conflicts
       // Button component handles its own color, border, outline, and focus styles
       // But keep padding: 0 from operationUnit to remove padding
-      '&.ant-btn': {
+      [`&${antCls}-btn`]: {
         color: 'unset',
         textDecoration: 'unset',
         border: 'none !important',
