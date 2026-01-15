@@ -54,12 +54,32 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 };
 
 export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
 
   return {
     'a&, a': {
       ...operationUnit(token),
       userSelect: 'text',
+
+      // Exclude Button component's anchor tags to avoid style conflicts
+      // Button component handles its own color, border, outline, and focus styles
+      // But keep padding: 0 from operationUnit to remove padding
+      [`&${antCls}-btn`]: {
+        color: 'unset',
+        textDecoration: 'unset',
+        border: 'none !important',
+        outline: 'none !important',
+        '&:hover, &:focus, &:active': {
+          color: 'unset',
+          textDecoration: 'unset',
+          border: 'none !important',
+          outline: 'none !important',
+        },
+        '&:focus-visible': {
+          border: 'none !important',
+          outline: 'none !important',
+        },
+      },
 
       [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
