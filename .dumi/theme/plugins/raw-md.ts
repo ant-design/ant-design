@@ -52,17 +52,12 @@ export interface PluginOptions {
   routeFilter?: (route: RouteInfo) => boolean;
 
   /**
-   * 内容过滤器数组：在处理内容前可以过滤或修改内容，按顺序链式应用
+   * 内容替换器数组：在处理内容前可以替换或修改内容，按顺序链式应用
    * @param content - 原始 markdown 内容
-   * @param context - 过滤器上下文信息，包含路由、文件路径、API 等
+   * @param context - 替换器上下文信息，包含路由、文件路径、API 等
    * @returns 返回处理后的内容，如果返回 null 或空字符串则跳过该路由
    */
-  contentFilters?: Array<(content: string, context: ContentFilterContext) => string | null>;
-
-  /**
-   * 是否启用清除 prettier-ignore 注释功能，默认为 true
-   */
-  enableClearPrettierIgnore?: boolean;
+  contentReplacers?: Array<(content: string, context: ContentFilterContext) => string | null>;
 
   /**
    * 是否启用替换 <code src> 标签功能，默认为 true
@@ -70,14 +65,11 @@ export interface PluginOptions {
   enableReplaceCodeSrc?: boolean;
 
   /**
-   * 是否启用多语言块提取功能，默认为 true
-   * 当启用时，会从 demo 的 .md 文件中提取对应语言的内容块（通过 ## zh-CN 或 ## en-US 标记）
-   * 当禁用时，会使用完整的 .md 文件内容
-   * 可以是布尔值，也可以是函数
-   * - 布尔值：true 表示启用（使用自动检测的语言），false 表示禁用（使用完整内容）
-   * - 函数：接收 demoMd 内容和文档路径，返回处理后的字符串（可以是空字符串，空字符串会被过滤）
+   * 代码追加函数：在替换 <code src> 标签时，用于追加额外的内容（如 demo 描述信息）
+   * @param docFileAbs - 文档文件的绝对路径
+   * @returns 返回要追加的 markdown 内容字符串
    */
-  enablePickLocaleBlock?: boolean | ((demoMd: string, docFileAbs: string) => string | undefined);
+  codeAppend?: (docFileAbs: string, src: string) => string;
 }
 
 /**
@@ -131,13 +123,13 @@ function detectDocLocale(docFileAbs: string): 'zh-CN' | 'en-US' {
 }
 
 /**
- * 清除 markdown 中的 prettier-ignore 注释
+ * 替换 markdown 中的 prettier-ignore 注释为空
  * 用于清理文档内容，移除 `<!-- prettier-ignore -->` 格式的注释
  *
  * @param md - 原始 markdown 内容
- * @returns 清除 prettier-ignore 注释后的 markdown 内容
+ * @returns 替换 prettier-ignore 注释后的 markdown 内容
  */
-function clearPrettierIgnore(md: string) {
+function replacePrettierIgnore(md: string) {
   return md.replace(/<!--\s*prettier-ignore\s*-->\s*\n?/g, '');
 }
 
@@ -145,17 +137,17 @@ function clearPrettierIgnore(md: string) {
  * 替换 markdown 中的 "Semantic DOM" 部分的 code 标签为指向生成的 semantic.md 文件的链接
  *
  * @param md - 原始 markdown 内容
- * @param docFileAbs - 文档文件的绝对路径，用于生成链接路径
+ * @param context - 内容过滤器上下文信息
  * @returns 替换后的 markdown 内容
  */
-function replaceSemanticDomSection(md: string, docFileAbs: string) {
+function replaceSemanticDomSection(md: string, context: ContentFilterContext) {
   // 从文档路径推断组件路径（用于生成链接）
   // 例如：components/card/index.en-US.md -> components/card/semantic.md
-  const componentPathMatch = docFileAbs.match(/components\/([^/]+)\//);
+  const componentPathMatch = context.file.match(/components\/([^/]+)\//);
   if (!componentPathMatch) return md;
 
   const componentName = componentPathMatch[1];
-  const isZhCN = /-cn\.md$/i.test(docFileAbs) || /\.zh-CN\.md$/i.test(docFileAbs);
+  const isZhCN = /-cn\.md$/i.test(context.file) || /\.zh-CN\.md$/i.test(context.file);
   const componentPath = `components/${componentName}${isZhCN ? '-cn' : ''}`;
 
   // 匹配 <code src="./demo/_semantic*.tsx"> 标签并替换为 URL 地址
@@ -173,25 +165,6 @@ function replaceSemanticDomSection(md: string, docFileAbs: string) {
       .replace(/\.tsx$/, '.md');
     return `https://ant.design/${componentPath}/${semanticMdFileName}`;
   });
-}
-
-/**
- * 从 markdown 内容中提取指定语言的块
- * 用于处理多语言文档，提取特定语言版本的标题块内容
- *
- * @param md - 原始 markdown 内容
- * @param locale - 目标语言
- * @returns 提取的指定语言块内容，如果未找到则返回整个文档的 trim 结果
- */
-function pickLocaleBlock(md: string, locale: 'zh-CN' | 'en-US') {
-  const other = locale === 'zh-CN' ? 'en-US' : 'zh-CN';
-  const re = new RegExp(
-    `(^|\\n)##\\s*${locale}\\s*\\n([\\s\\S]*?)(?=\\n##\\s*${other}\\s*\\n|$)`,
-    'i',
-  );
-  const match = md.match(re);
-  if (!match) return md.trim();
-  return (match[2] ?? '').trim();
 }
 
 /**
@@ -253,6 +226,29 @@ function getCodeLang(filePath: string): string {
 }
 
 /**
+ * 从 markdown 内容中提取指定语言的块
+ * 用于处理多语言文档，提取特定语言版本的标题块内容
+ *
+ * @param docFileAbs - 文档文件的绝对路径
+ * @returns 提取的指定语言块内容，如果未找到则返回整个文档的 trim 结果
+ */
+function antdCodeAppend(docFileAbs: string, src: string): string {
+  const docDir = path.dirname(docFileAbs);
+  const locale = detectDocLocale(docFileAbs);
+  const demoAbs = path.resolve(docDir, src);
+  const demoMdAbs = demoAbs.replace(path.extname(src), '.md');
+  const demoMd = fs.existsSync(demoMdAbs) ? fs.readFileSync(demoMdAbs, 'utf-8') : '';
+  const other = locale === 'zh-CN' ? 'en-US' : 'zh-CN';
+  const re = new RegExp(
+    `(^|\\n)##\\s*${locale}\\s*\\n([\\s\\S]*?)(?=\\n##\\s*${other}\\s*\\n|$)`,
+    'i',
+  );
+  const match = demoMd.match(re);
+  if (!match) return demoMd.trim();
+  return (match[2] ?? '').trim();
+}
+
+/**
  * 替换 <code src> 标签为 markdown 代码块
  * 将 `<code src="./demo/basic.tsx" version="5.21.0">标题</code>` 替换为完整的 demo 代码块
  * 支持读取对应的 .md 文件作为 demo 描述，并根据文档语言提取对应语言块
@@ -265,12 +261,9 @@ function getCodeLang(filePath: string): string {
 function replaceCodeSrcToMarkdown(
   md: string,
   docFileAbs: string,
-  enablePickLocaleBlock:
-    | boolean
-    | ((demoMd: string, docFileAbs: string) => string | undefined) = true,
+  codeAppend?: (docFileAbs: string, src: string) => string,
 ) {
   const docDir = path.dirname(docFileAbs);
-  const locale = detectDocLocale(docFileAbs);
 
   // 匹配 <code src="./demo/basic.tsx">标题</code> 格式的标签
   const codeTagRE = /<code\s+[^>]*?src="([^"]+)"[^>]*>([\s\S]*?)<\/code>/g;
@@ -280,23 +273,12 @@ function replaceCodeSrcToMarkdown(
       const parts: string[] = [];
       const demoAbs = path.resolve(docDir, src);
       const demoTitle = String(title || '').trim() || path.basename(demoAbs);
-
       const code = fs.existsSync(demoAbs) ? fs.readFileSync(demoAbs, 'utf-8') : '';
-      const demoMdAbs = demoAbs.replace(path.extname(demoAbs), '.md');
-      let demoMd = fs.existsSync(demoMdAbs) ? fs.readFileSync(demoMdAbs, 'utf-8') : '';
 
-      parts.push(`## ${demoTitle}`);
+      parts.push(`### ${demoTitle}`);
 
-      if (demoMd && typeof enablePickLocaleBlock === 'function') {
-        demoMd = enablePickLocaleBlock(demoMd, docFileAbs) || '';
-      } else if (demoMd && enablePickLocaleBlock) {
-        demoMd = pickLocaleBlock(demoMd, locale);
-      } else {
-        demoMd = demoMd.trim();
-      }
-
-      if (demoMd) {
-        parts.push(demoMd);
+      if (codeAppend) {
+        parts.push(codeAppend(docFileAbs, src));
       }
 
       if (code) {
@@ -377,16 +359,15 @@ function normalizeValue(v: unknown) {
  * 4. 原位替换原标签，保持文档顺序
  *
  * @param md - 原始 markdown 内容
- * @param docFileAbs - 文档文件的绝对路径，用于检测语言
- * @param api - Dumi API 实例，用于加载 token 数据
+ * @param context - 内容过滤器上下文信息
  * @returns 替换后的 markdown 内容
  */
-function replaceComponentTokenTable(md: string, docFileAbs: string, api: IApi) {
-  const tokens = loadTokenFromRepo(api);
+function replaceComponentTokenTable(md: string, context: ContentFilterContext) {
+  const tokens = loadTokenFromRepo(context.api);
   if (!tokens) return md;
 
   const { meta: tokenMeta, data: tokenData } = tokens;
-  const locale = detectDocLocale(docFileAbs);
+  const locale = detectDocLocale(context.file);
 
   const labels =
     locale === 'zh-CN'
@@ -522,41 +503,35 @@ function emitRawMd(api: IApi) {
 
       let content = fs.readFileSync(file, 'utf-8');
 
-      if (PLUGIN_OPTIONS.contentFilters && PLUGIN_OPTIONS.contentFilters.length > 0) {
-        const filterContext: ContentFilterContext = {
-          route,
-          file,
-          absPath,
-          relPath,
-          api,
-        };
+      const filterContext: ContentFilterContext = {
+        route,
+        file,
+        absPath,
+        relPath,
+        api,
+      };
 
-        for (const filter of PLUGIN_OPTIONS.contentFilters) {
-          const filteredContent = filter(content, filterContext);
-          if (filteredContent === null || filteredContent === '') {
+      if (PLUGIN_OPTIONS.contentReplacers && PLUGIN_OPTIONS.contentReplacers.length > 0) {
+        for (const replacer of PLUGIN_OPTIONS.contentReplacers) {
+          const replacedContent = replacer(content, filterContext);
+          if (replacedContent === null || replacedContent === '') {
             return;
           }
-          content = filteredContent;
+          content = replacedContent;
         }
       }
 
       // 处理步骤：
       // 1. 替换 Semantic DOM 部分为指向生成的 semantic.md 文件的链接
-      content = replaceSemanticDomSection(content, file);
+      content = replaceSemanticDomSection(content, filterContext);
       // 2. 替换 <ComponentTokenTable /> 组件为 markdown 表格
-      content = replaceComponentTokenTable(content, file, api);
+      content = replaceComponentTokenTable(content, filterContext);
+      // 3. 替换 prettier-ignore 注释（可通过配置开关控制）
+      content = replacePrettierIgnore(content);
 
-      // 3. 清除 prettier-ignore 注释（可通过配置开关控制）
-      if (PLUGIN_OPTIONS.enableClearPrettierIgnore !== false) {
-        content = clearPrettierIgnore(content);
-      }
       // 4. 替换 <code src> 标签为完整的代码块（可通过配置开关控制）
       if (PLUGIN_OPTIONS.enableReplaceCodeSrc !== false) {
-        const enablePickLocaleBlock =
-          PLUGIN_OPTIONS.enablePickLocaleBlock !== undefined
-            ? PLUGIN_OPTIONS.enablePickLocaleBlock
-            : true;
-        content = replaceCodeSrcToMarkdown(content, file, enablePickLocaleBlock);
+        content = replaceCodeSrcToMarkdown(content, file, PLUGIN_OPTIONS.codeAppend);
       }
 
       const outMd = path.join(outRoot, `${relPath}.md`);
@@ -588,10 +563,9 @@ export default async function rawMdPlugin(api: IApi) {
       schema(joi) {
         return joi.object({
           routeFilter: joi.function(),
-          contentFilters: joi.array().items(joi.function()),
-          enableClearPrettierIgnore: joi.boolean(),
+          contentReplacers: joi.array().items(joi.function()),
           enableReplaceCodeSrc: joi.boolean(),
-          enablePickLocaleBlock: joi.alternatives().try(joi.boolean(), joi.function()),
+          codeAppend: joi.function(),
         });
       },
       onChange: api.ConfigChangeType.reload,
@@ -599,7 +573,10 @@ export default async function rawMdPlugin(api: IApi) {
   });
 
   const configOptions = api.userConfig.rawMd as PluginOptions | undefined;
-  PLUGIN_OPTIONS = configOptions || {};
+  PLUGIN_OPTIONS = configOptions || {
+    enableReplaceCodeSrc: true,
+    codeAppend: antdCodeAppend,
+  };
 
   api.modifyRoutes((routes) => {
     RAW_MD_ROUTES = Object.values(routes)
