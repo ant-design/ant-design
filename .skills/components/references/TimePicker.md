@@ -11,7 +11,7 @@
 - `value`: Dayjs，当前时间（受控）。
 - `defaultValue`: Dayjs，默认时间。
 - `format`: string，时间格式，默认 `HH:mm:ss`。
-- `placeholder`: string | [string, string]，占位符。
+- `placeholder`: string | `[string, string]`，占位符。
 - `use12Hours`: boolean，使用 12 小时制，默认 `false`。
 - `hourStep`: number，小时选项间隔，默认 `1`。
 - `minuteStep`: number，分钟选项间隔，默认 `1`。
@@ -44,8 +44,8 @@
 
 时间范围选择器，继承 TimePicker 属性，额外：
 
-- `value`: [Dayjs, Dayjs]，当前值。
-- `defaultValue`: [Dayjs, Dayjs]，默认值。
+- `value`: `[Dayjs, Dayjs]`，当前值。
+- `defaultValue`: `[Dayjs, Dayjs]`，默认值。
 - `order`: boolean，是否排序，默认 `true`。
 
 ## 使用建议

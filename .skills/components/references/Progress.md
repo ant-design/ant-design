@@ -19,7 +19,7 @@
 - `strokeColor`: string | { from, to, direction } | object[]，进度条颜色。
 - `trailColor`: string，未完成部分颜色。
 - `strokeLinecap`: string，边缘形状，可选 `round` | `butt` | `square`，默认 `round`。
-- `size`: number | [width, height] | `small` | `default`，尺寸。
+- `size`: number | `[width, height]` | `small` | `default`，尺寸。
 - `steps`: number，分段进度条的步数。
 - `percentPosition`: { align, type }，百分比位置（5.18.0+）。
 

@@ -67,8 +67,8 @@ interface FilterOption {
 | --- | --- | --- | --- |
 | `targetKeys` | string[] | - | 右侧框数据的 key（受控） |
 | `selectedKeys` | string[] | - | 选中项的 key（受控） |
-| `titles` | [ReactNode, ReactNode] | `['', '']` | 左右框标题 |
-| `operations` | [string, string] | - | 操作按钮文字 |
+| `titles` | `[ReactNode, ReactNode]` | `['', '']` | 左右框标题 |
+| `operations` | `[string, string]` | - | 操作按钮文字 |
 | `showSearch` | boolean | false | 显示搜索框 |
 | `filterOption` | (inputValue, item) => boolean | - | 搜索过滤函数 |
 | `searchPlaceholder` | string | - | 搜索框占位（已废弃） |

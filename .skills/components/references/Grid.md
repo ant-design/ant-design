@@ -9,7 +9,7 @@
 ### Row 属性
 
 - `children`: ReactNode，Col 组件。
-- `gutter`: number | [horizontal, vertical] | object，栅格间隔。
+- `gutter`: number | `[horizontal, vertical]` | object，栅格间隔。
   - 可以是数字：`gutter={16}`
   - 可以是数组：`gutter={[16, 24]}`（水平，垂直）
   - 可以是响应式对象：`gutter={{ xs: 8, sm: 16, md: 24 }}`

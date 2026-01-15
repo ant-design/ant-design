@@ -18,7 +18,7 @@ npm install @ant-design/icons --save
 - `style`: CSSProperties，设置图标的样式。
 - `spin`: boolean，是否有旋转动画，默认 `false`。
 - `rotate`: number，图标旋转角度。
-- `twoToneColor`: string | [string, string]，双色图标的主题色（仅双色图标）。
+- `twoToneColor`: string | `[string, string]`，双色图标的主题色（仅双色图标）。
 
 ### 自定义图标
 

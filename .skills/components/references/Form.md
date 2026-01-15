@@ -144,12 +144,12 @@ interface FormInstance {
 
 ### 校验触发时机
 
-| 时机       | 说明           | validateTrigger        |
-| ---------- | -------------- | ---------------------- |
-| 输入时验证 | onChange 触发  | 'onChange'             |
-| 失焦时验证 | onBlur 触发    | 'onBlur'               |
-| 提交时验证 | 提交时验证     | 'onSubmit'             |
-| 自定义     | 组合多个触发器 | ['onChange', 'onBlur'] |
+| 时机       | 说明           | validateTrigger          |
+| ---------- | -------------- | ------------------------ |
+| 输入时验证 | onChange 触发  | 'onChange'               |
+| 失焦时验证 | onBlur 触发    | 'onBlur'                 |
+| 提交时验证 | 提交时验证     | 'onSubmit'               |
+| 自定义     | 组合多个触发器 | `['onChange', 'onBlur']` |
 
 ### 动态表单字段
 
@@ -391,7 +391,7 @@ const ExternalControlForm: React.FC = () => {
 | ----------------- | ---------------------------- | ---------------------------------- |
 | 简单登录/注册表单 | 基础 Form + Input            | layout, onFinish, rules            |
 | 复杂多字段表单    | Form + Form.Item 组合        | dependencies, shouldUpdate, name   |
-| 动态增删字段      | Form.List + useFieldArray    | name={[field.name, 'xxx']}         |
+| 动态增删字段      | Form.List + useFieldArray    | `name={[field.name, 'xxx']}`       |
 | 表单级联/联动     | Form.useWatch + dependencies | dependencies, shouldUpdate         |
 | 服务器数据初始化  | initialValues + useEffect    | initialValues, form.setFieldsValue |
 | 表单步骤提交      | 分步 Form                    | 多个 Form 实例或 Form.List         |

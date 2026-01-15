@@ -13,7 +13,7 @@
 ### 可选
 
 - `children`: ReactNode，子组件。
-- `size`: number | `small` | `middle` | `large` | [horizontal, vertical]，间距大小，默认 `small`。
+- `size`: number | `small` | `middle` | `large` | `[horizontal, vertical]`，间距大小，默认 `small`。
 - `direction`: string，间距方向，可选 `vertical` | `horizontal`，默认 `horizontal`。
 - `align`: string，对齐方式，可选 `start` | `end` | `center` | `baseline`。
 - `wrap`: boolean，是否自动换行，默认 `false`。

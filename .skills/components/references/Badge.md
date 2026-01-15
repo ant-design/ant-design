@@ -21,7 +21,7 @@
 - `status`: string，状态点，可选 `success` | `processing` | `default` | `error` | `warning`。
 - `text`: ReactNode，状态点的文本。
 - `title`: string，鼠标悬停时显示的标题。
-- `offset`: [number, number]，偏移量 [left, top]。
+- `offset`: `[number, number]`，偏移量 `[left, top]`。
 - `styles`: { root, indicator }，各部分样式（5.10.0+）。
 - `classNames`: { root, indicator }，各部分类名（5.7.0+）。
 

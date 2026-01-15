@@ -68,12 +68,12 @@ interface PresetRange {
 #### 常用可选
 
 | 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | `value` | Dayjs | - | 当前日期值（受控） |
 | `defaultValue` | Dayjs | - | 默认日期值 |
 | `format` | string \| string[] | `'YYYY-MM-DD'` | 日期格式化 |
 | `picker` | `'date'` \| `'week'` \| `'month'` \| `'quarter'` \| `'year'` | `'date'` | 选择器类型 |
-| `placeholder` | string \| [string, string] | - | 占位文本 |
+| `placeholder` | string | `[string, string]` | - | 占位文本 |
 | `size` | `'large'` \| `'middle'` \| `'small'` | `'middle'` | 尺寸 |
 | `variant` | `'outlined'` \| `'borderless'` \| `'filled'` | `'outlined'` | 形态变体 |
 | `disabled` | boolean | false | 禁用状态 |
@@ -126,12 +126,12 @@ interface PresetRange {
 
 ### DatePicker.RangePicker 属性
 
-- `value`: [Dayjs, Dayjs]，日期范围值。
-- `defaultValue`: [Dayjs, Dayjs]，默认日期范围。
-- `disabled`: [boolean, boolean]，分别禁用开始/结束。
+- `value`: `[Dayjs, Dayjs]`，日期范围值。
+- `defaultValue`: `[Dayjs, Dayjs]`，默认日期范围。
+- `disabled`: `[boolean, boolean]`，分别禁用开始/结束。
 - `disabledTime`: (date: Dayjs, partial: 'start' | 'end') => object，禁用时间。
 - `separator`: ReactNode，分隔符，默认 `~`。
-- `allowEmpty`: [boolean, boolean]，允许开始/结束为空。
+- `allowEmpty`: `[boolean, boolean]`，允许开始/结束为空。
 - `onCalendarChange`: (dates, dateStrings, info) => void，日历变化回调。
 
 ## 常见场景示例

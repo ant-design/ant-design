@@ -53,7 +53,7 @@ interface MenuItem {
 
 按钮下拉菜单，继承 Dropdown 属性，额外：
 
-- `buttonsRender`: (buttons) => [ReactNode, ReactNode]，自定义按钮渲染。
+- `buttonsRender`: (buttons) => `[ReactNode, ReactNode]`，自定义按钮渲染。
 - `loading`: boolean | { delay }，加载状态。
 - `danger`: boolean，危险样式。
 - `icon`: ReactNode，右侧按钮图标。

@@ -358,7 +358,7 @@ const App: React.FC = () => <DemoContent />;
 | 表单输入               | Modal + Form             | 在 children 中添加 Form    |
 | 异步操作（有 loading） | confirmLoading           | confirmLoading, async onOk |
 | 提示/警告              | Modal.info/warning/error | 静态方法调用               |
-| 自定义按钮             | footer 属性              | footer={[...]}             |
+| 自定义按钮             | footer 属性              | `footer={[...]}`           |
 | 无底部按钮             | footer={null}            | footer                     |
 | 全屏/大尺寸            | width 属性               | width={800} 或 width='90%' |
 | 垂直居中               | centered                 | centered={true}            |

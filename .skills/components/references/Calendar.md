@@ -12,7 +12,7 @@
 - `defaultValue`: Dayjs，默认日期。
 - `mode`: string，显示模式，可选 `month` | `year`，默认 `month`。
 - `fullscreen`: boolean，全屏显示，默认 `true`。
-- `validRange`: [Dayjs, Dayjs]，可选范围。
+- `validRange`: `[Dayjs, Dayjs]`，可选范围。
 - `disabledDate`: (date) => boolean，不可选日期。
 - `locale`: object，国际化配置。
 - `headerRender`: (config) => ReactNode，自定义头部渲染。

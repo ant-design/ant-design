@@ -15,8 +15,8 @@
 - `rotate`: number，水印旋转角度，默认 `-22`。
 - `zIndex`: number，层级，默认 `9`。
 - `font`: FontStyle，字体配置。
-- `gap`: [number, number]，水印间隔，默认 `[100, 100]`。
-- `offset`: [number, number]，水印偏移量。
+- `gap`: `[number, number]`，水印间隔，默认 `[100, 100]`。
+- `offset`: `[number, number]`，水印偏移量。
 - `inherit`: boolean，将水印传给弹出组件，默认 `true`（5.11.0+）。
 
 ### FontStyle 结构

@@ -12,8 +12,8 @@
 
 ### 可选
 
-- `value`: number | [number, number]，当前值（受控）。
-- `defaultValue`: number | [number, number]，默认值。
+- `value`: number | `[number, number]`，当前值（受控）。
+- `defaultValue`: number | `[number, number]`，默认值。
 - `min`: number，最小值，默认 `0`。
 - `max`: number，最大值，默认 `100`。
 - `step`: number | null，步长，为 `null` 时只能选择 marks 中的点，默认 `1`。
