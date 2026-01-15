@@ -2,7 +2,7 @@ import React, { memo, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import { createStaticStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -12,7 +12,7 @@ import SiteContext from '../../slots/SiteContext';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   componentsOverviewGroupTitle: css`
     margin-bottom: ${cssVar.marginLG} !important;
   `,
@@ -78,7 +78,6 @@ const reportSearch = debounce<(value: string) => void>((value) => {
 const { Title } = Typography;
 
 const Overview: React.FC = () => {
-  const { styles } = useStyle();
   const { isDark } = React.use(SiteContext);
 
   const data = useSidebarData();

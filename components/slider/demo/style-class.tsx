@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Slider } from 'antd';
 import type { SliderSingleProps } from 'antd';
-import { createStaticStyles, createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
   root: css`
@@ -9,7 +9,7 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const useStylesFn = createStyles(({ css, cssVar }) => ({
+const classNamesFn = createStaticStyles(({ css, cssVar }) => ({
   root: css`
     width: 100px;
     &:hover .ant-slider-handle:after {
@@ -43,7 +43,6 @@ const stylesFn: SliderSingleProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNameFn } = useStylesFn();
   const sharedProps: SliderSingleProps = {
     defaultValue: 30,
   };
@@ -52,7 +51,7 @@ const App: React.FC = () => {
       <Slider {...sharedProps} classNames={classNames} styles={stylesObject} />
       <Slider
         {...sharedProps}
-        classNames={classNameFn}
+        classNames={classNamesFn}
         orientation="vertical"
         reverse
         styles={stylesFn}
