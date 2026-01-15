@@ -2,9 +2,9 @@ import React from 'react';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { Flex, Statistic } from 'antd';
 import type { StatisticProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     border: 2px dashed #ccc;
     padding: 16px;
@@ -29,10 +29,8 @@ const styleFn: StatisticProps['styles'] = ({ props }) => {
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-
   const statisticSharedProps: StatisticProps = {
-    classNames: { root: styles.root },
+    classNames: { root: classNames.root },
     prefix: <ArrowUpOutlined />,
   };
 

@@ -15,6 +15,7 @@ import type {
   RequiredMark,
 } from './Form';
 import type { FeedbackIcons, ValidateStatus } from './FormItem';
+import type { FormTooltipProps } from './FormItemLabel';
 import type { FormLabelAlign, NamePath } from './interface';
 
 /** Form Context. Set top form style and pass to Form Item usage. */
@@ -32,6 +33,7 @@ export interface FormContextProps {
   itemRef: (name: (string | number)[]) => (node: React.ReactElement) => void;
   form?: FormInstance;
   feedbackIcons?: FeedbackIcons;
+  tooltip?: FormTooltipProps;
 }
 
 export const FormContext = React.createContext<FormContextProps>({

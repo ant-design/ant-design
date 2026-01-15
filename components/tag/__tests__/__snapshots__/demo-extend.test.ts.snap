@@ -2010,7 +2010,7 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
       class="ant-flex css-var-test-id ant-flex-gap-middle"
     >
       <span
-        class="ant-tag acss-eq4848 ant-tag-filled css-var-test-id"
+        class="ant-tag acss-1cdgefp ant-tag-filled css-var-test-id"
         style="background-color: rgb(230, 247, 255);"
       >
         <span
@@ -2043,7 +2043,7 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
         </span>
       </span>
       <span
-        class="ant-tag acss-eq4848 ant-tag-filled css-var-test-id"
+        class="ant-tag acss-1cdgefp ant-tag-filled css-var-test-id"
         style="background-color: rgb(245, 239, 255);"
       >
         <span
@@ -2082,7 +2082,7 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
     >
       <div
-        class="ant-tag-checkable-group css-var-test-id acss-eq4848"
+        class="ant-tag-checkable-group css-var-test-id acss-1cdgefp"
         style="gap: 12px; padding: 8px 12px; background-color: rgba(82, 196, 26, 0.08); border-radius: 8px;"
       >
         <span
@@ -2111,7 +2111,7 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
         </span>
       </div>
       <div
-        class="ant-tag-checkable-group css-var-test-id acss-eq4848"
+        class="ant-tag-checkable-group css-var-test-id acss-1cdgefp"
         style="gap: 16px; padding: 8px 12px; background-color: rgba(143, 135, 241, 0.08); border-radius: 8px;"
       >
         <span
