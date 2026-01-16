@@ -25,6 +25,7 @@ import type {
   CascaderConfig,
   CheckboxConfig,
   CollapseConfig,
+  ColorPickerConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
@@ -261,7 +262,7 @@ export interface ConfigProviderProps {
   upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
-  colorPicker?: ComponentStyleConfig;
+  colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
   dropdown?: ComponentStyleConfig;

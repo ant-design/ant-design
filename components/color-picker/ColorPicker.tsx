@@ -42,7 +42,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     open,
     disabled,
     placement = 'bottomLeft',
-    arrow = true,
+    arrow,
     panelRender,
     showText,
     style,
@@ -73,6 +73,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    arrow: contextArrow,
   } = useComponentConfig('colorPicker');
 
   const contextDisabled = useContext(DisabledContext);

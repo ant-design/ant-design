@@ -270,7 +270,7 @@ export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
 
 export type ColorPickerConfig = ComponentStyleConfig &
-  Pick<ColorPickerProps, 'classNames' | 'styles'>;
+  Pick<ColorPickerProps, 'classNames' | 'styles' | 'arrow'>;
 
 export type CalendarConfig = ComponentStyleConfig &
   Pick<CalendarProps<AnyObject>, 'classNames' | 'styles'>;

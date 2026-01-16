@@ -7,17 +7,18 @@ import clsx from 'clsx';
 import type { UseTheme } from '.';
 
 const useStyles = createStyles(({ css, cssVar }) => {
-  const sharedBoxShadow = {
+  const lightBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
     boxShadow: `0 0 5px ${cssVar.colorPrimary}, inset 0 0 10px ${cssVar.colorPrimary}`,
   };
 
   return {
+    lightBorder,
     app: css({
       textShadow: `0 0 2px ${cssVar.colorPrimary}, 0 0 5px ${cssVar.colorPrimary}`,
     }),
     modalContainer: css({
-      ...sharedBoxShadow,
+      ...lightBorder,
       padding: 0,
     }),
     modalHeader: css({
@@ -26,7 +27,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
       position: 'relative',
 
       '&:after': {
-        ...sharedBoxShadow,
+        ...lightBorder,
         content: '""',
         position: 'absolute',
         left: 0,
@@ -43,17 +44,14 @@ const useStyles = createStyles(({ css, cssVar }) => {
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
     }),
 
-    buttonRoot: css({
-      ...sharedBoxShadow,
-    }),
     buttonRootSolid: css({
       color: cssVar.colorBgContainer,
       border: 'none',
       fontWeight: 'bolder',
     }),
 
-    alert: css({
-      ...sharedBoxShadow,
+    colorPickerBody: css({
+      pointerEvents: 'none',
     }),
   };
 });
@@ -85,12 +83,22 @@ const useGeekTheme: UseTheme = () => {
       },
       button: {
         classNames: ({ props }) => ({
-          root: clsx(styles.buttonRoot, props.variant === 'solid' && styles.buttonRootSolid),
+          root: clsx(styles.lightBorder, props.variant === 'solid' && styles.buttonRootSolid),
         }),
       },
 
       alert: {
-        className: styles.alert,
+        className: styles.lightBorder,
+      },
+      colorPicker: {
+        classNames: {
+          root: styles.lightBorder,
+          body: styles.colorPickerBody,
+          popup: {
+            root: styles.lightBorder,
+          },
+        },
+        arrow: false,
       },
     }),
     [],
