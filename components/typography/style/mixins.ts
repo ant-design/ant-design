@@ -13,6 +13,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { TypographyToken } from '.';
 import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const getTitleStyle = (
   fontSize: number,
@@ -56,28 +57,30 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
+  // Use the same CSS variable generator as Button component
+  // This ensures consistency with Button's style system
+  const [, btnVarRef] = genCssVar(antCls, 'btn');
+
   return {
     'a&, a': {
       ...operationUnit(token),
       userSelect: 'text',
 
-      // Exclude Button component's anchor tags to avoid style conflicts
-      // Button component handles its own color, border, outline, and focus styles
-      // But keep padding: 0 from operationUnit to remove padding
-      [`&${antCls}-btn`]: {
-        color: 'unset',
-        textDecoration: 'unset',
-        border: 'none !important',
-        outline: 'none !important',
-        '&:hover, &:focus, &:active': {
-          color: 'unset',
-          textDecoration: 'unset',
-          border: 'none !important',
-          outline: 'none !important',
+      // Use repeated class selector to increase specificity (0,3,1) and override Button's hover/focus styles without !important
+      [`&${antCls}-btn${antCls}-btn`]: {
+        padding: 0,
+        color: btnVarRef('text-color', 'inherit'),
+        border: 'none',
+        outline: 'none',
+        '&:hover, &:focus, &:active, &:focus-visible': {
+          border: 'none',
+          outline: 'none',
         },
-        '&:focus-visible': {
-          border: 'none !important',
-          outline: 'none !important',
+        '&:hover, &:focus': {
+          color: btnVarRef('text-color-hover', 'inherit'),
+        },
+        '&:active': {
+          color: btnVarRef('text-color-active', 'inherit'),
         },
       },
 
