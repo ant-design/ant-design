@@ -27,7 +27,8 @@ export default function Container(props: ContainerProps) {
   const {
     maxWidth: contextMaxWidth,
     minWidth: contextMinWidth,
-    classNames: contextClassName,
+    className: contextClassName,
+    style: contextStyle,
   } = useComponentConfig('container');
   const { getPrefixCls } = React.useContext(ConfigContext);
 
@@ -60,9 +61,10 @@ export default function Container(props: ContainerProps) {
     <div
       className={classNames}
       style={{
+        ...contextStyle,
+        ...style,
         maxWidth: isMaxWidthBreakpoint ? undefined : mergedMaxWidth,
         minWidth: isMinWidthBreakpoint ? undefined : mergedMinWidth,
-        ...style,
       }}
       {...rest}
     >
