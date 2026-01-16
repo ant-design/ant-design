@@ -53,6 +53,7 @@ import type {
   PopconfirmConfig,
   PopoverConfig,
   PopupOverflow,
+  ProgressConfig,
   QRcodeConfig,
   RadioConfig,
   RangePickerConfig,
@@ -233,7 +234,7 @@ export interface ConfigProviderProps {
   list?: ListConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
-  progress?: ComponentStyleConfig;
+  progress?: ProgressConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   masonry?: MasonryConfig;

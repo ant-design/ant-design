@@ -18,6 +18,7 @@ import {
   Space,
   Steps,
   Switch,
+  Typography,
 } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
@@ -148,8 +149,17 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 26: '26°C',
                 37: '37°C',
                 100: {
-                  style: { color: '#f50' },
-                  label: <strong>100°C</strong>,
+                  label: (
+                    <Typography.Text
+                      type="danger"
+                      strong
+                      style={{
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      100°C
+                    </Typography.Text>
+                  ),
                 },
               }}
               defaultValue={[26, 37]}

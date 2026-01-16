@@ -16,6 +16,9 @@ const useStyles = createStyles(({ css, cssVar }) => {
     lightBorder,
     app: css({
       textShadow: `0 0 2px ${cssVar.colorPrimary}, 0 0 5px ${cssVar.colorPrimary}`,
+      '.ant-typography-danger': {
+        textShadow: `0 0 2px ${cssVar.colorError}, 0 0 5px ${cssVar.colorError}`,
+      },
     }),
     modalContainer: css({
       ...lightBorder,
@@ -49,6 +52,13 @@ const useStyles = createStyles(({ css, cssVar }) => {
       color: cssVar.colorBgContainer,
       border: 'none',
       fontWeight: 'bolder',
+    }),
+    buttonRootSolidDanger: css({
+      boxShadow: `0 0 5px ${cssVar.colorError}`,
+    }),
+
+    typographyDanger: css({
+      textShadow: `0 0 2px ${cssVar.colorError}, 0 0 5px ${cssVar.colorError}`,
     }),
 
     colorPickerBody: css({
@@ -93,7 +103,11 @@ const useGeekTheme: UseTheme = () => {
       },
       button: {
         classNames: ({ props }) => ({
-          root: clsx(styles.lightBorder, props.variant === 'solid' && styles.buttonRootSolid),
+          root: clsx(
+            styles.lightBorder,
+            props.variant === 'solid' && styles.buttonRootSolid,
+            props.variant === 'solid' && props.danger && styles.buttonRootSolidDanger,
+          ),
         }),
       },
 
@@ -104,9 +118,6 @@ const useGeekTheme: UseTheme = () => {
         classNames: {
           root: styles.lightBorder,
           body: styles.colorPickerBody,
-          popup: {
-            root: styles.lightBorder,
-          },
         },
         arrow: false,
       },
