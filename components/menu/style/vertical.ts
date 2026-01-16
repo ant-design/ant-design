@@ -127,7 +127,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             alignItems: 'center',
             transition: [
               `border-color ${motionDurationSlow}`,
-              `background ${motionDurationSlow}`,
+              `background-color ${motionDurationSlow}`,
               `padding ${motionDurationFast} ${motionEaseOut}`,
             ].join(','),
 

@@ -382,7 +382,8 @@ export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | '
 export type DatePickerConfig = ComponentStyleConfig &
   Pick<DatePickerProps, 'variant' | 'classNames' | 'styles'>;
 
-export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
+export type RangePickerConfig = ComponentStyleConfig &
+  Pick<RangePickerProps, 'variant' | 'separator'>;
 
 export type TimePickerConfig = ComponentStyleConfig &
   Pick<TimePickerProps, 'variant' | 'classNames' | 'styles'>;
