@@ -57,32 +57,18 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
-  // Use the same CSS variable generator as Button component
-  // This ensures consistency with Button's style system
   const [, btnVarRef] = genCssVar(antCls, 'btn');
 
   return {
     'a&, a': {
       ...operationUnit(token),
+      color: btnVarRef('text-color', 'inherit'),
+      border: [
+        btnVarRef('border-width'),
+        btnVarRef('border-style'),
+        btnVarRef('border-color-hover'),
+      ].join(' '),
       userSelect: 'text',
-
-      // Use repeated class selector to increase specificity (0,3,1) and override Button's hover/focus styles without !important
-      [`&${antCls}-btn${antCls}-btn`]: {
-        padding: 0,
-        color: btnVarRef('text-color', 'inherit'),
-        border: 'none',
-        outline: 'none',
-        '&:hover, &:focus, &:active, &:focus-visible': {
-          border: 'none',
-          outline: 'none',
-        },
-        '&:hover, &:focus': {
-          color: btnVarRef('text-color-hover', 'inherit'),
-        },
-        '&:active': {
-          color: btnVarRef('text-color-active', 'inherit'),
-        },
-      },
 
       [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
