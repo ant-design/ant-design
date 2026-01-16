@@ -3,22 +3,33 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import { getItemWithWidthStyle } from './util';
 
 const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, iconSize, dotSize, dotCurrentSize, marginXXS, lineWidthBold, fontSizeSM } =
-    token;
+  const {
+    componentCls,
+    iconSize,
+    dotSize,
+    dotCurrentSize,
+    marginXXS,
+    lineWidthBold,
+    fontSizeSM,
+    antCls,
+  } = token;
 
   const itemCls = `${componentCls}-item`;
 
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
+
   return {
     [`${componentCls}${componentCls}-dot`]: {
-      '--steps-icon-size-active': dotCurrentSize,
-      '--steps-icon-size': dotSize,
-      '--steps-dot-icon-size': dotSize,
-      '--steps-dot-icon-border-width': token.lineWidthBold,
-      '--steps-rail-size': lineWidthBold,
-      '--steps-icon-border-width': lineWidthBold,
+      [varName('icon-size-active')]: dotCurrentSize,
+      [varName('icon-size')]: dotSize,
+      [varName('dot-icon-size')]: dotSize,
+      [varName('dot-icon-border-width')]: lineWidthBold,
+      [varName('rail-size')]: lineWidthBold,
+      [varName('icon-border-width')]: lineWidthBold,
 
       // ========================= Shared ==========================
       // Icon
@@ -46,7 +57,7 @@ const genDotStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
 
       // // >>> active
       [`${itemCls}-active ${itemCls}-icon`]: {
-        '--steps-icon-size': 'var(--steps-icon-size-active)',
+        [varName('icon-size')]: varRef('icon-size-active'),
       },
 
       // ======================= Horizontal ========================
