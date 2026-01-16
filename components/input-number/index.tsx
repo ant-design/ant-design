@@ -152,14 +152,17 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       classNames: contextClassNames,
     } = useComponentConfig('inputNumber');
 
-    //controls && !props.disabled && !props.readOnly;
+    // ===================== Disabled =====================
+    const disabled = React.useContext(DisabledContext);
+    const mergedDisabled = customDisabled ?? disabled;
+
+    // controls && !mergedDisabled && !readOnly;
     const mergedControls = React.useMemo(() => {
-      if (!controls || props.disabled || props.readOnly) {
+      if (!controls || mergedDisabled || readOnly) {
         return false;
       }
-
       return controls;
-    }, [controls, props.disabled, props.readOnly]);
+    }, [controls, mergedDisabled, readOnly]);
 
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     let upIcon: React.ReactNode = mode === 'spinner' ? <PlusOutlined /> : <UpOutlined />;
@@ -174,10 +177,6 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
     const { hasFeedback, isFormItemInput, feedbackIcon } = React.useContext(FormItemInputContext);
 
     const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
-
-    // ===================== Disabled =====================
-    const disabled = React.useContext(DisabledContext);
-    const mergedDisabled = customDisabled ?? disabled;
 
     const [variant, enableVariantCls] = useVariant('inputNumber', customVariant, bordered);
 
