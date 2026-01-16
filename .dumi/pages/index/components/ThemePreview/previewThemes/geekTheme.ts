@@ -33,6 +33,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
         left: 0,
         right: 0,
         bottom: 0,
+        border: 0,
         height: cssVar.lineWidth,
         background: cssVar.colorPrimary,
       },
@@ -53,6 +54,13 @@ const useStyles = createStyles(({ css, cssVar }) => {
     colorPickerBody: css({
       pointerEvents: 'none',
     }),
+    tooltipRoot: css({
+      ...lightBorder,
+      color: cssVar.colorPrimary,
+    }),
+    progressTrack: css({
+      backgroundColor: cssVar.colorPrimary,
+    }),
   };
 });
 
@@ -68,6 +76,8 @@ const useGeekTheme: UseTheme = () => {
           lineWidth: 2,
           colorPrimary: '#39ff14',
           colorText: '#39ff14',
+          controlHeightSM: 26,
+          controlHeight: 34,
         },
       },
       app: {
@@ -99,6 +109,32 @@ const useGeekTheme: UseTheme = () => {
           },
         },
         arrow: false,
+      },
+      select: {
+        classNames: {
+          root: styles.lightBorder,
+        },
+      },
+      input: {
+        classNames: {
+          root: styles.lightBorder,
+        },
+      },
+      inputNumber: {
+        classNames: {
+          root: styles.lightBorder,
+        },
+      },
+      tooltip: {
+        arrow: false,
+        classNames: {
+          container: styles.tooltipRoot,
+        },
+      },
+      progress: {
+        classNames: {
+          track: styles.progressTrack,
+        },
       },
     }),
     [],
