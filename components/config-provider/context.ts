@@ -188,7 +188,7 @@ export type ImageConfig = ComponentStyleConfig &
 export type CollapseConfig = ComponentStyleConfig &
   Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
 
-export type ContainerConfig = ComponentStyleConfig & Pick<ContainerProps, 'size'>;
+export type ContainerConfig = ComponentStyleConfig & Pick<ContainerProps, 'maxWidth' | 'minWidth'>;
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
 

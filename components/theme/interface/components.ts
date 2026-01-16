@@ -15,6 +15,7 @@ import type { ComponentToken as CascaderComponentToken } from '../../cascader/st
 import type { ComponentToken as CheckboxComponentToken } from '../../checkbox/style';
 import type { ComponentToken as CollapseComponentToken } from '../../collapse/style';
 import type { ComponentToken as ColorPickerComponentToken } from '../../color-picker/style';
+import type { ComponentToken as ContainerComponentToken } from '../../container/style';
 import type { ComponentToken as DatePickerComponentToken } from '../../date-picker/style';
 import type { ComponentToken as DescriptionsComponentToken } from '../../descriptions/style';
 import type { ComponentToken as DividerComponentToken } from '../../divider/style';
@@ -81,6 +82,7 @@ export interface ComponentTokenMap {
   Checkbox?: CheckboxComponentToken;
   ColorPicker?: ColorPickerComponentToken;
   Collapse?: CollapseComponentToken;
+  Container?: ContainerComponentToken;
   DatePicker?: DatePickerComponentToken;
   Descriptions?: DescriptionsComponentToken;
   Divider?: DividerComponentToken;
