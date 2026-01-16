@@ -56,6 +56,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       popupStyle,
       rootClassName,
       suffixIcon,
+      separator,
       ...restProps
     } = props;
 
@@ -89,6 +90,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const rootPrefixCls = getPrefixCls();
+
+    const mergedSeparator = separator ?? rangePicker?.separator;
 
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
@@ -128,7 +131,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
         <RCRangePicker<DateType>
           separator={
             <span aria-label="to" className={`${prefixCls}-separator`}>
-              <SwapRightOutlined />
+              {mergedSeparator ?? <SwapRightOutlined />}
             </span>
           }
           disabled={mergedDisabled}
