@@ -2,15 +2,15 @@ import React from 'react';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Flex, Space, Tag } from 'antd';
 import type { GetProps, TagProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 type CheckableTagGroupProps = GetProps<typeof Tag.CheckableTagGroup>;
 
-const useStyles = createStyles(() => ({
-  root: {
-    padding: '2px 6px',
-    borderRadius: 4,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    padding: 2px 6px;
+    border-radius: 4px;
+  `,
 }));
 
 const styles: TagProps['styles'] = {
@@ -77,8 +77,6 @@ const groupStylesFn: CheckableTagGroupProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   return (
     <Space size="large" vertical>
       <Flex gap="middle">
