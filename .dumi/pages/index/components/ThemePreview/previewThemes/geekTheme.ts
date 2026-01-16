@@ -15,7 +15,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   return {
     lightBorder,
     app: css({
-      textShadow: `0 0 2px currentColor, 0 0 5px currentColor`,
+      textShadow: `0 0 5px color-mix(in srgb, currentColor 50%, transparent)`,
     }),
     modalContainer: css({
       ...lightBorder,
@@ -52,10 +52,6 @@ const useStyles = createStyles(({ css, cssVar }) => {
     }),
     buttonRootSolidDanger: css({
       boxShadow: `0 0 5px ${cssVar.colorError}`,
-    }),
-
-    typographyDanger: css({
-      textShadow: `0 0 2px ${cssVar.colorError}, 0 0 5px ${cssVar.colorError}`,
     }),
 
     colorPickerBody: css({
