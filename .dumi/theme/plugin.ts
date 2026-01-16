@@ -4,9 +4,9 @@ import path from 'path';
 import createEmotionServer from '@emotion/server/create-instance';
 import type { IApi, IRoute } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
-import tsToJs from './utils/tsToJs';
 
 import { dependencies, devDependencies } from '../../package.json';
+import tsToJs from './utils/tsToJs';
 
 function extractEmotionStyle(html: string) {
   // copy from emotion ssr
@@ -234,7 +234,7 @@ const RoutesPlugin = async (api: IApi) => {
 
   if (process.env.NODE_ENV === 'production') {
     api.addEntryImportsAhead(() => ({
-      source: path.join(api.paths.cwd, 'components', 'style', 'antd.css'),
+      source: path.join(api.paths.cwd, 'components', 'style', '~antd.layer.css'),
     }));
   }
 };

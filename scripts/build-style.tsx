@@ -6,7 +6,16 @@ import { renderToString } from 'react-dom/server';
 
 import * as antd from '../components';
 
-const output = path.join(__dirname, '../components/style/antd.css');
+// Site build only, not use in npm package build
+const existsLayerArg = process.argv.includes('--layer');
+
+const output = path.join(
+  __dirname,
+  '..',
+  'components',
+  'style',
+  existsLayerArg ? '~antd.layer.css' : 'antd.css',
+);
 
 const blackList: string[] = ['ConfigProvider', 'Grid'];
 
@@ -119,7 +128,7 @@ function extractStyle(customTheme?: any): string {
   const cache = createCache();
   renderToString(
     <antd.ConfigProvider theme={{ hashed: false }}>
-      <StyleProvider cache={cache}>
+      <StyleProvider cache={cache} layer={existsLayerArg}>
         {customTheme ? customTheme(defaultNode()) : defaultNode()}
       </StyleProvider>
     </antd.ConfigProvider>,
