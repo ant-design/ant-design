@@ -9,13 +9,13 @@ import type { UseTheme } from '.';
 const useStyles = createStyles(({ css, cssVar }) => {
   const lightBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
-    boxShadow: `0 0 5px ${cssVar.colorPrimary}, inset 0 0 10px ${cssVar.colorPrimary}`,
+    boxShadow: `0 0 3px ${cssVar.colorPrimary}, inset 0 0 10px ${cssVar.colorPrimary}`,
   };
 
   return {
     lightBorder,
     app: css({
-      textShadow: `0 0 2px ${cssVar.colorPrimary}, 0 0 5px ${cssVar.colorPrimary}`,
+      textShadow: `0 0 2px currentColor, 0 0 5px currentColor`,
     }),
     modalContainer: css({
       ...lightBorder,
