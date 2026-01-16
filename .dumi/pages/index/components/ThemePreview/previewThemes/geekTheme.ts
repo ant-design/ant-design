@@ -16,9 +16,6 @@ const useStyles = createStyles(({ css, cssVar }) => {
     lightBorder,
     app: css({
       textShadow: `0 0 2px ${cssVar.colorPrimary}, 0 0 5px ${cssVar.colorPrimary}`,
-      '.ant-typography-danger': {
-        textShadow: `0 0 2px ${cssVar.colorError}, 0 0 5px ${cssVar.colorError}`,
-      },
     }),
     modalContainer: css({
       ...lightBorder,
