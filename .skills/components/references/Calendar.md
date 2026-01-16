@@ -4,23 +4,42 @@
 
 按照日历形式展示数据的容器。
 
+## 应用场景
+
+- 当数据是日期或按照日期划分时，例如日程、课表、价格日历等，农历等。
+- 目前支持年/月切换。
+
 ## 输入字段
 
-### 可选
+### Calendar 属性
 
-- `value`: Dayjs，当前日期（受控）。
-- `defaultValue`: Dayjs，默认日期。
-- `mode`: string，显示模式，可选 `month` | `year`，默认 `month`。
-- `fullscreen`: boolean，全屏显示，默认 `true`。
-- `validRange`: `[Dayjs, Dayjs]`，可选范围。
-- `disabledDate`: (date) => boolean，不可选日期。
-- `locale`: object，国际化配置。
-- `headerRender`: (config) => ReactNode，自定义头部渲染。
-- `cellRender`: (date, info) => ReactNode，自定义单元格渲染。
-- `fullCellRender`: (date, info) => ReactNode，自定义单元格完整渲染（5.4.0+）。
-- `onChange`: (date) => void，日期变化回调。
-- `onPanelChange`: (date, mode) => void，面板变化回调。
-- `onSelect`: (date, info) => void，选择日期回调。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `cellRender`: function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode，自定义单元格的内容，版本 5.4.0。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `dateFullCellRender`: function(date: Dayjs): ReactNode，自定义渲染日期单元格，返回内容覆盖单元格，>= 5.4.0 请用 `fullCellRender`，版本 < 5.4.0。
+- `fullCellRender`: function(current: dayjs, info: { prefixCls: string, originNode: React.ReactElement, today: dayjs, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode，自定义单元格的内容，版本 5.4.0。
+- `defaultValue`: [dayjs](https://day.js.org/)，默认展示的日期。
+- `disabledDate`: (currentDate: Dayjs) => boolean，不可选择的日期，参数为当前 `value`，注意使用时[不要直接修改](https://github.com/ant-design/ant-design/issues/30987)。
+- `fullscreen`: boolean，是否全屏显示，默认 true。
+- `showWeek`: boolean，是否显示周数列，默认 false，版本 5.23.0。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `headerRender`: function(object:{value: Dayjs, type: 'year' | 'month', onChange: f(), onTypeChange: f()})，自定义头部内容。
+- `locale`: object，国际化配置，默认 [(默认配置)](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
+- `mode`: `month` | `year`，初始模式，默认 `month`。
+- `validRange`: \[[dayjs](https://day.js.org/), [dayjs](https://day.js.org/)]，设置可以显示的日期。
+- `value`: [dayjs](https://day.js.org/)，展示日期。
+- `onChange`: function(date: Dayjs)，日期变化回调。
+- `onPanelChange`: function(date: Dayjs, mode: string)，日期面板变化回调。
+- `onSelect`: function(date: Dayjs, info: { source: 'year' | 'month' | 'date' | 'customize' })，选择日期回调，包含来源信息，版本 `info`: 5.6.0。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -68,21 +87,16 @@ const cellRender: CalendarProps<Dayjs>['cellRender'] = (current, info) => {
 
 const App: React.FC = () => (
   <>
-    {/* 基础用法 */}
     <Calendar />
 
-    {/* 带事件 */}
     <Calendar cellRender={cellRender} />
 
-    {/* 卡片模式 */}
     <div style={{ width: 300 }}>
       <Calendar fullscreen={false} />
     </div>
 
-    {/* 可选范围 */}
     <Calendar validRange={[dayjs('2020-01-01'), dayjs('2020-12-31')]} />
 
-    {/* 日期选择 */}
     <Calendar
       onSelect={(date, { source }) => {
         if (source === 'date') {

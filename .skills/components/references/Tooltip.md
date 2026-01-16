@@ -2,34 +2,31 @@
 
 ## 功能概述
 
-简单的文字提示气泡框。鼠标移入则显示提示，移出消失。
+简单的文字提示气泡框。
+
+## 应用场景
+
+- 鼠标移入则显示提示，移出消失，气泡浮层不承载复杂文本和操作。
+- 可用来代替系统默认的 `title` 提示，提供一个 `按钮/文字/操作` 的文案解释。
 
 ## 输入字段
 
-### 必填
+### Tooltip 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
 
 - `title`: ReactNode | () => ReactNode，提示文字。
+- `color`: string，设置背景颜色，使用该属性后内部文字颜色将自适应，版本 5.27.0。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>，语义化结构 class。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>，语义化结构 style。
 
-### 可选
+## 方法
 
-- `children`: ReactNode，触发元素。
-- `placement`: string，气泡框位置，可选 `top` | `left` | `right` | `bottom` | `topLeft` | `topRight` | `bottomLeft` | `bottomRight` | `leftTop` | `leftBottom` | `rightTop` | `rightBottom`，默认 `top`。
-- `arrow`: boolean | { pointAtCenter }，箭头配置，默认 `true`。
-- `color`: string，背景颜色。
-- `open`: boolean，是否显示（受控）。
-- `defaultOpen`: boolean，默认是否显示。
-- `trigger`: string | string[]，触发方式，可选 `hover` | `focus` | `click` | `contextMenu`，默认 `hover`。
-- `mouseEnterDelay`: number，鼠标移入延迟（秒），默认 `0.1`。
-- `mouseLeaveDelay`: number，鼠标移出延迟（秒），默认 `0.1`。
-- `overlayClassName`: string，浮层类名。
-- `overlayStyle`: CSSProperties，浮层样式。
-- `overlayInnerStyle`: CSSProperties，浮层内层样式。
-- `getPopupContainer`: (node) => HTMLElement，浮层容器。
-- `autoAdjustOverflow`: boolean，自动调整位置，默认 `true`。
-- `destroyTooltipOnHide`: boolean，隐藏时销毁。
-- `zIndex`: number，z-index。
-- `fresh`: boolean，内容是否始终保持最新（5.10.0+）。
-- `onOpenChange`: (open) => void，显示状态变化回调。
+无公开方法。
 
 ## 使用建议
 
@@ -42,12 +39,10 @@ import { Button, Divider, Space, Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <Space direction="vertical">
-    {/* 基础用法 */}
     <Tooltip title="prompt text">
       <span>Tooltip will show on mouse enter.</span>
     </Tooltip>
 
-    {/* 位置 */}
     <div style={{ margin: 100 }}>
       <div style={{ marginBottom: 10, textAlign: 'center' }}>
         <Tooltip placement="topLeft" title="Prompt Text">
@@ -73,7 +68,6 @@ const App: React.FC = () => (
       </div>
     </div>
 
-    {/* 颜色 */}
     <Space>
       <Tooltip title="prompt text" color="cyan">
         <Button>Cyan</Button>
@@ -86,7 +80,6 @@ const App: React.FC = () => (
       </Tooltip>
     </Space>
 
-    {/* 禁用元素（需包装） */}
     <Tooltip title="Disabled Button">
       <span>
         <Button disabled style={{ pointerEvents: 'none' }}>

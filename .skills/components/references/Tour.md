@@ -4,50 +4,66 @@
 
 用于分步引导用户了解产品功能的气泡组件。
 
+## 应用场景
+
+- 常用于引导用户了解产品功能。
+
 ## 输入字段
 
-### 必填
+### Tour 属性
 
-- `steps`: TourStep[]，引导步骤配置数组。
+#### 必填
 
-### TourStep 结构
+- 无必填属性。
 
-```tsx
-interface TourStep {
-  target: () => HTMLElement | null; // 目标元素
-  title: ReactNode; // 标题
-  description?: ReactNode; // 描述
-  cover?: ReactNode; // 封面图
-  placement?: Placement; // 引导卡片相对于目标元素的位置
-  arrow?: boolean | { pointAtCenter }; // 箭头配置
-  type?: 'default' | 'primary'; // 类型
-  mask?: boolean | { style; color }; // 遮罩配置
-  closeIcon?: ReactNode; // 关闭图标
-  nextButtonProps?: ButtonProps; // 下一步按钮属性
-  prevButtonProps?: ButtonProps; // 上一步按钮属性
-  scrollIntoViewOptions?: boolean | ScrollIntoViewOptions; // 滚动配置
-}
-```
+#### 可选
 
-### 可选
+- `arrow`: `boolean` | `{ pointAtCenter: boolean}`，是否显示箭头，包含是否指向元素中心的配置，默认 `true`。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `closeIcon`: `React.ReactNode`，自定义关闭按钮，默认 `true`，版本 5.9.0。
+- `disabledInteraction`: `boolean`，禁用高亮区域交互，默认 `false`，版本 5.13.0。
+- `gap`: `{ offset?: number | [number, number]; radius?: number }`，控制高亮区域的圆角边框和显示间距，默认 `{ offset?: 6 ; radius?: 2 }`，版本 5.0.0 (数组类型的 `offset`: 5.9.0 )。
+- `keyboard`: boolean，是否启用键盘快捷行为，默认 true，版本 6.2.0。
+- `placement`: `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight`，引导卡片相对于目标元素的位置，默认 `bottom`。
+- `onClose`: `Function`，关闭引导时的回调函数。
+- `onFinish`: `Function`，引导完成时的回调。
+- `mask`: `boolean | { style?: React.CSSProperties; color?: string; }`，是否启用蒙层，也可传入配置改变蒙层样式和填充色，默认 `true`。
+- `type`: `default` | `primary`，类型，影响底色与文字颜色，默认 `default`。
+- `open`: `boolean`，打开引导。
+- `onChange`: `(current: number) => void`，步骤改变时的回调，current 为当前的步骤。
+- `current`: `number`，当前处于哪一步。
+- `scrollIntoViewOptions`: `boolean | ScrollIntoViewOptions`，是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认 `true`，版本 5.2.0。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `indicatorsRender`: `(current: number, total: number) => ReactNode`，自定义指示器，版本 5.2.0。
+- `actionsRender`: `(originNode: ReactNode, info: { current: number, total: number }) => ReactNode`，自定义操作按钮，版本 5.25.0。
+- `zIndex`: number，Tour 的层级，默认 1001，版本 5.3.0。
+- `getPopupContainer`: `(node: HTMLElement) => HTMLElement`，设置 Tour 浮层的渲染节点，默认是 body，默认 body，版本 5.12.0。
 
-- `open`: boolean，是否打开（受控）。
-- `current`: number，当前步骤（受控，0 开始）。
-- `type`: string，类型，可选 `default` | `primary`，默认 `default`。
-- `placement`: Placement，引导卡片位置。
-- `arrow`: boolean | { pointAtCenter }，箭头配置。
-- `mask`: boolean | { style, color }，遮罩配置，默认 `true`。
-- `gap`: { offset, radius }，高亮区域的间距。
-- `animated`: boolean | { indicator, placeholder }，动画效果（5.14.0+）。
-- `closeIcon`: ReactNode | boolean，关闭图标。
-- `disabledInteraction`: boolean，禁用高亮区域内元素交互。
-- `zIndex`: number，层级，默认 `1001`。
-- `getPopupContainer`: (node) => HTMLElement，容器。
-- `indicatorsRender`: (current, total) => ReactNode，自定义指示器。
-- `scrollIntoViewOptions`: boolean | ScrollIntoViewOptions，滚动配置。
-- `onChange`: (current) => void，步骤变化回调。
-- `onClose`: (current) => void，关闭回调。
-- `onFinish`: () => void，完成回调。
+### TourStep 引导步骤卡片 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `target`: `() => HTMLElement` | `HTMLElement`，获取引导卡片指向的元素，为空时居中于屏幕。
+- `arrow`: `boolean` | `{ pointAtCenter: boolean}`，是否显示箭头，包含是否指向元素中心的配置，默认 `true`。
+- `closeIcon`: `React.ReactNode`，自定义关闭按钮，默认 `true`，版本 5.9.0。
+- `cover`: `ReactNode`，展示的图片或者视频。
+- `title`: `ReactNode`，标题。
+- `description`: `ReactNode`，主要描述部分。
+- `placement`: `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight`，引导卡片相对于目标元素的位置，默认 `bottom`。
+- `onClose`: `Function`，关闭引导时的回调函数。
+- `mask`: `boolean | { style?: React.CSSProperties; color?: string; }`，是否启用蒙层，也可传入配置改变蒙层样式和填充色，默认跟随 Tour 的 `mask` 属性，默认 `true`。
+- `type`: `default` | `primary`，类型，影响底色与文字颜色，默认 `default`。
+- `nextButtonProps`: `{ children: ReactNode; onClick: Function }`，下一步按钮的属性。
+- `prevButtonProps`: `{ children: ReactNode; onClick: Function }`，上一步按钮的属性。
+- `scrollIntoViewOptions`: `boolean | ScrollIntoViewOptions`，是否支持当前元素滚动到视窗内，也可传入配置指定滚动视窗的相关参数，默认跟随 Tour 的 `scrollIntoViewOptions` 属性，默认 `true`，版本 5.2.0。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -103,7 +119,6 @@ const App: React.FC = () => {
   );
 };
 
-// 带封面图
 const TourWithCover: React.FC = () => {
   const ref = useRef(null);
   const [open, setOpen] = useState(false);
@@ -129,7 +144,6 @@ const TourWithCover: React.FC = () => {
   );
 };
 
-// Primary 类型
 const TourPrimary: React.FC = () => {
   const ref = useRef(null);
   const [open, setOpen] = useState(false);

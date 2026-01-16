@@ -2,27 +2,45 @@
 
 ## 功能概述
 
-评分组件。
+用于对事物进行评分操作。
+
+## 应用场景
+
+- 对评价进行展示。
+- 对事物进行快速的评级操作。
 
 ## 输入字段
 
-### 可选
+### Rate 属性
 
-- `value`: number，当前值（受控）。
-- `defaultValue`: number，默认值，默认 `0`。
-- `count`: number，星星总数，默认 `5`。
-- `allowHalf`: boolean，允许半选，默认 `false`。
-- `allowClear`: boolean，允许清除，默认 `true`。
-- `disabled`: boolean，禁用。
-- `tooltips`: string[]，每项的提示信息。
-- `character`: ReactNode | (RateProps) => ReactNode，自定义字符。
-- `style`: CSSProperties，样式。
-- `className`: string，类名。
-- `onChange`: (value) => void，值变化回调。
-- `onHoverChange`: (value) => void，鼠标悬停回调。
-- `onKeyDown`: (event) => void，键盘按下回调。
-- `onFocus`: () => void，聚焦回调。
-- `onBlur`: () => void，失焦回调。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `allowClear`: boolean，是否允许再次点击后清除，默认 true。
+- `allowHalf`: boolean，是否允许半选，默认 false。
+- `character`: ReactNode | (RateProps) => ReactNode，自定义字符，默认 <StarFilled />，版本 function(): 4.4.0。
+- `className`: string，自定义样式类名。
+- `count`: number，star 总数，默认 5。
+- `defaultValue`: number，默认值，默认 0。
+- `disabled`: boolean，只读，无法进行交互，默认 false。
+- `keyboard`: boolean，支持使用键盘操作，默认 true，版本 5.18.0。
+- `size`: 'small' | 'middle' | 'large'，星星尺寸，默认 'middle'。
+- `style`: CSSProperties，自定义样式对象。
+- `tooltips`: [TooltipProps](/components/tooltip-cn#api)[] | string\[]，自定义每项的提示信息。
+- `value`: number，当前数，受控值。
+- `onBlur`: function()，失去焦点时的回调。
+- `onChange`: function(value: number)，选择时的回调。
+- `onFocus`: function()，获取焦点时的回调。
+- `onHoverChange`: function(value: number)，鼠标经过时数值变化的回调。
+- `onKeyDown`: function(event)，按键回调。
+
+## 方法
+
+- `blur()`: 移除焦点
+- `focus()`: 获取焦点
 
 ## 使用建议
 
@@ -46,16 +64,12 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical">
-      {/* 基础用法 */}
       <Rate />
 
-      {/* 半星 */}
       <Rate allowHalf defaultValue={2.5} />
 
-      {/* 只读 */}
       <Rate disabled defaultValue={2} />
 
-      {/* 提示 */}
       <Rate
         tooltips={['terrible', 'bad', 'normal', 'good', 'wonderful']}
         value={value}
@@ -63,12 +77,10 @@ const App: React.FC = () => {
       />
       <span>{value ? ['terrible', 'bad', 'normal', 'good', 'wonderful'][value - 1] : ''}</span>
 
-      {/* 自定义字符 */}
       <Rate character={<HeartOutlined />} allowHalf />
       <Rate character="A" allowHalf />
       <Rate character="好" allowHalf />
 
-      {/* 自定义不同字符 */}
       <Rate
         character={({ index = 0 }) => {
           const icons = [
@@ -82,11 +94,9 @@ const App: React.FC = () => {
         }}
       />
 
-      {/* 清除 */}
       <Rate allowClear defaultValue={3} />
       <Rate allowClear={false} defaultValue={3} />
 
-      {/* 受控 */}
       <Rate value={value} onChange={setValue} />
     </Space>
   );

@@ -1,138 +1,185 @@
-# DatePicker — 日期选择器
+# DatePicker — 日期选择框
 
 ## 功能概述
 
-输入或选择日期/时间的控件。支持年、月、周、日、时间等多种选择模式。支持日期范围选择、预设范围等功能。
+输入或选择日期的控件。
 
-## 核心概念
+## 应用场景
 
-### 日期选择流程
-
-```
-点击输入框
-     ↓
- 打开日期面板 (picker 类型)
-     ↓
- 选择日期/时间
-     ↓
- onChange 回调触发
-     ↓
- 面板关闭
-```
-
-### 关键数据结构
-
-```tsx
-// Dayjs 类型（来自 dayjs 库）
-import dayjs from 'dayjs';
-
-type Dayjs = ReturnType<typeof dayjs>;
-
-// 日期范围选择值
-type RangeValue = [Dayjs | null, Dayjs | null];
-
-// showTime 配置
-interface ShowTimeConfig {
-  format?: string; // 时间格式
-  hourStep?: number; // 小时步长，默认 1
-  minuteStep?: number; // 分钟步长，默认 1
-  secondStep?: number; // 秒步长，默认 1
-  showHour?: boolean; // 显示小时
-  showMinute?: boolean; // 显示分钟
-  showSecond?: boolean; // 显示秒
-  use12Hours?: boolean; // 12 小时制
-  hideDisabledOptions?: boolean; // 隐藏禁用选项
-}
-
-// RangePicker 专用类型
-interface RangePickerProps {
-  disabledTime?: (date: Dayjs, partial: 'start' | 'end') => object;
-  onCalendarChange?: (dates: RangeValue, dateStrings: [string, string], info) => void;
-}
-
-// 预设范围
-interface PresetRange {
-  label: ReactNode;
-  value: [Dayjs, Dayjs];
-}
-```
+- 当用户需要输入一个日期，可以点击标准输入框，弹出日期面板进行选择。
 
 ## 输入字段
 
-### 通用属性
+### 共同的 API 属性
 
 #### 必填
 
-无必填属性。
+- 无必填属性。
 
-#### 常用可选
+#### 可选
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- | --- |
-| `value` | Dayjs | - | 当前日期值（受控） |
-| `defaultValue` | Dayjs | - | 默认日期值 |
-| `format` | string \| string[] | `'YYYY-MM-DD'` | 日期格式化 |
-| `picker` | `'date'` \| `'week'` \| `'month'` \| `'quarter'` \| `'year'` | `'date'` | 选择器类型 |
-| `placeholder` | string | `[string, string]` | - | 占位文本 |
-| `size` | `'large'` \| `'middle'` \| `'small'` | `'middle'` | 尺寸 |
-| `variant` | `'outlined'` \| `'borderless'` \| `'filled'` | `'outlined'` | 形态变体 |
-| `disabled` | boolean | false | 禁用状态 |
-| `status` | `'error'` \| `'warning'` | - | 校验状态 |
-| `allowClear` | boolean \| { clearIcon } | true | 允许清除 |
-| `open` | boolean | - | 控制弹层显示（受控） |
-| `showToday` | boolean | true | 显示今天按钮 |
-| `showNow` | boolean | true | 显示此刻按钮（showTime 时有效） |
-| `inputReadOnly` | boolean | false | 输入框只读 |
+- `allowClear`: boolean | { clearIcon?: ReactNode }，自定义清除按钮，默认 true，版本 5.8.0: 支持对象类型。
+- `className`: string，选择器 className。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `dateRender`: function(currentDate: dayjs, today: dayjs) => React.ReactNode，自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替，版本 < 5.4.0。
+- `cellRender`: (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode，自定义单元格的内容，版本 5.4.0。
+- `components`: Record<Panel | 'input', React.ComponentType>，自定义面板，版本 5.14.0。
+- `defaultOpen`: boolean，是否默认展开控制弹层。
+- `disabled`: boolean，禁用，默认 false。
+- `disabledDate`: (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean，不可选择的日期，版本 `info`: 5.14.0。
+- `format`: [formatType](#formattype)，设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。示例：[自定义格式](#date-picker-demo-format)，默认 [@rc-component/picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177)。
+- `order`: boolean，多选、范围时是否自动排序，默认 true，版本 5.14.0。
+- `preserveInvalidOnBlur`: boolean，失去焦点是否要清空输入框内无效内容，默认 false，版本 5.14.0。
+- `~~popupClassName~~`: string，额外的弹出日历 className，使用 `classNames.popup.root` 替代，版本 4.23.0。
+- `getPopupContainer`: function(trigger)，定义浮层的容器，默认为 body 上新建 div。
+- `inputReadOnly`: boolean，设置输入框为只读（避免在移动设备上打开虚拟键盘），默认 false。
+- `locale`: object，国际化配置，默认 [默认配置](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json)。
+- `minDate`: dayjs，最小日期，同样会限制面板的切换范围，版本 5.14.0。
+- `maxDate`: dayjs，最大日期，同样会限制面板的切换范围，版本 5.14.0。
+- `mode`: `time` | `date` | `month` | `year` | `decade`，日期面板的状态（[设置后无法选择年份/月份？](/docs/react/faq#当我指定了-datepickerrangepicker-的-mode-属性后点击后无法选择年份月份)）。
+- `needConfirm`: boolean，是否需要确认按钮，为 `false` 时失去焦点即代表选择。当设置 `multiple` 时默认为 `false`，版本 5.14.0。
+- `nextIcon`: ReactNode，自定义下一个图标，版本 4.17.0。
+- `open`: boolean，控制弹层是否展开。
+- `panelRender`: (panelNode) => ReactNode，自定义渲染面板，版本 4.5.0。
+- `picker`: `date` | `week` | `month` | `quarter` | `year`，设置选择器类型，默认 `date`，版本 `quarter`: 4.1.0。
+- `placeholder`: string | \[string, string]，输入框提示文字。
+- `placement`: `bottomLeft` `bottomRight` `topLeft` `topRight`，选择框弹出的位置，默认 bottomLeft。
+- `~~popupStyle~~`: CSSProperties，额外的弹出日历样式，使用 `styles.popup.root` 替代，默认 {}。
+- `prefix`: ReactNode，自定义前缀，版本 5.22.0。
+- `prevIcon`: ReactNode，自定义上一个图标，版本 4.17.0。
+- `previewValue`: false | hover，当用户选择日期悬停选项时，输入字段的值会发生临时更改，默认 hover，版本 6.0.0。
+- `presets`: { label: React.ReactNode, value: Dayjs | (() => Dayjs) }\[]，预设时间范围快捷选择, 自 `5.8.0` 起 value 支持函数返回值。
+- `size`: `large` | `middle` | `small`，输入框大小，`large` 高度为 40px，`small` 为 24px，默认是 32px。
+- `status`: 'error' | 'warning'，设置校验状态，版本 4.19.0。
+- `style`: CSSProperties，自定义输入框样式，默认 {}。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `suffixIcon`: ReactNode，自定义的选择框后缀图标。
+- `superNextIcon`: ReactNode，自定义 `>>` 切换图标，版本 4.17.0。
+- `superPrevIcon`: ReactNode，自定义 `<<` 切换图标，版本 4.17.0。
+- `variant`: `outlined` | `borderless` | `filled` | `underlined`，形态变体，默认 `outlined`，版本 5.13.0 | `underlined`: 5.24.0。
+- `onOpenChange`: function(open)，弹出日历和关闭日历的回调。
+- `onPanelChange`: function(value, mode)，日历面板切换的回调。
 
-#### 时间选择
+### DatePicker 属性
 
-- `showTime`: boolean | ShowTimeConfig，显示时间选择。
-  - `format`: string，时间格式。
-  - `hourStep`: number，小时步长。
-  - `minuteStep`: number，分钟步长。
-  - `secondStep`: number，秒步长。
-  - `use12Hours`: boolean，12 小时制。
+#### 必填
 
-### 弹层配置
+- 无必填属性。
 
-- `placement`: `'bottomLeft'` | `'bottomRight'` | `'topLeft'` | `'topRight'`，弹层位置。
-- `getPopupContainer`: (trigger) => HTMLElement，弹层容器。
-- `popupClassName`: string，弹层类名。
-- `popupStyle`: CSSProperties，弹层样式。
+#### 可选
 
-### 日期禁用和渲染
+- `defaultPickerValue`: [dayjs](https://day.js.org/)，默认面板日期，每次面板打开时会被重置到该日期，版本 5.14.0。
+- `defaultValue`: [dayjs](https://day.js.org/)，默认日期，如果开始时间或结束时间为 `null` 或者 `undefined`，日期范围将是一个开区间。
+- `disabledTime`: function(date)，不可选择的时间。
+- `format`: [formatType](#formattype)，展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)，默认 `YYYY-MM-DD`。
+- `multiple`: boolean，是否为多选，不支持 `showTime`，默认 false，版本 5.14.0。
+- `pickerValue`: [dayjs](https://day.js.org/)，面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用，版本 5.14.0。
+- `renderExtraFooter`: (mode) => React.ReactNode，在面板中添加额外的页脚。
+- `showNow`: boolean，显示当前日期时间的快捷选择。
+- `showTime`: Object | boolean，增加时间选择功能，默认 [TimePicker Options](/components/time-picker-cn#api)。
+- `~~showTime.defaultValue~~`: [dayjs](https://day.js.org/)，请使用 `showTime.defaultOpenValue`，默认 dayjs()，版本 5.27.3。
+- `showTime.defaultOpenValue`: [dayjs](https://day.js.org/)，设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date)，默认 dayjs()。
+- `showWeek`: boolean，DatePicker 下展示当前周，默认 false，版本 5.14.0。
+- `value`: [dayjs](https://day.js.org/)，日期。
+- `onChange`: function(date: dayjs | null, dateString: string | null)，时间发生变化的回调。
+- `onOk`: function()，点击确定按钮的回调。
+- `onPanelChange`: function(value, mode)，日期面板变化时的回调。
 
-- `disabledDate`: (currentDate: Dayjs) => boolean，禁用日期判断函数。
-- `cellRender`: (current: Dayjs, info) => ReactNode，自定义单元格渲染（5.16.0+）。
-- `dateRender`: (current: Dayjs, today: Dayjs) => ReactNode，自定义日期单元格（已废弃）。
-- `monthCellRender`: (current: Dayjs, locale) => ReactNode，自定义月份单元格（已废弃）。
+### DatePicker\[picker=year] 属性
 
-### 图标和预设
+#### 必填
 
-- `presets`: PresetRange[]，预设时间范围。
-- `suffixIcon`: ReactNode，后缀图标。
-- `prevIcon`: ReactNode，上一个按钮图标。
-- `nextIcon`: ReactNode，下一个按钮图标。
-- `superPrevIcon`: ReactNode，上一年按钮图标。
-- `superNextIcon`: ReactNode，下一年按钮图标。
+- 无必填属性。
 
-### 国际化和事件
+#### 可选
 
-- `locale`: object，本地化配置。
-- `onChange`: (date: Dayjs, dateString: string) => void，日期变化回调。
-- `onOk`: (date: Dayjs) => void，确定回调（showTime 时有效）。
-- `onPanelChange`: (value: Dayjs, mode: string) => void，面板切换回调。
-- `onOpenChange`: (open: boolean) => void，弹层展开收起回调。
+- `defaultValue`: [dayjs](https://day.js.org/)，默认日期。
+- `format`: [formatType](#formattype)，展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)，默认 `YYYY`。
+- `multiple`: boolean，是否为多选，默认 false，版本 5.14.0。
+- `renderExtraFooter`: () => React.ReactNode，在面板中添加额外的页脚。
+- `value`: [dayjs](https://day.js.org/)，日期。
+- `onChange`: function(date: dayjs | null, dateString: string | null)，时间发生变化的回调，发生在用户选择时间时。
 
-### DatePicker.RangePicker 属性
+### DatePicker\[picker=quarter] 属性
 
-- `value`: `[Dayjs, Dayjs]`，日期范围值。
-- `defaultValue`: `[Dayjs, Dayjs]`，默认日期范围。
-- `disabled`: `[boolean, boolean]`，分别禁用开始/结束。
-- `disabledTime`: (date: Dayjs, partial: 'start' | 'end') => object，禁用时间。
-- `separator`: ReactNode，分隔符，默认 `~`。
-- `allowEmpty`: `[boolean, boolean]`，允许开始/结束为空。
-- `onCalendarChange`: (dates, dateStrings, info) => void，日历变化回调。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `defaultValue`: [dayjs](https://day.js.org/)，默认日期。
+- `format`: [formatType](#formattype)，展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)，默认 `YYYY-\QQ`。
+- `multiple`: boolean，是否为多选，默认 false，版本 5.14.0。
+- `renderExtraFooter`: () => React.ReactNode，在面板中添加额外的页脚。
+- `value`: [dayjs](https://day.js.org/)，日期。
+- `onChange`: function(date: dayjs | null, dateString: string | null)，时间发生变化的回调，发生在用户选择时间时。
+
+### DatePicker\[picker=month] 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `defaultValue`: [dayjs](https://day.js.org/)，默认日期。
+- `format`: [formatType](#formattype)，展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)，默认 `YYYY-MM`。
+- `multiple`: boolean，是否为多选，默认 false，版本 5.14.0。
+- `renderExtraFooter`: () => React.ReactNode，在面板中添加额外的页脚。
+- `value`: [dayjs](https://day.js.org/)，日期。
+- `onChange`: function(date: dayjs | null, dateString: string | null)，时间发生变化的回调，发生在用户选择时间时。
+
+### DatePicker\[picker=week] 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `defaultValue`: [dayjs](https://day.js.org/)，默认日期。
+- `format`: [formatType](#formattype)，展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)，默认 `YYYY-wo`。
+- `multiple`: boolean，是否为多选，默认 false，版本 5.14.0。
+- `renderExtraFooter`: (mode) => React.ReactNode，在面板中添加额外的页脚。
+- `value`: [dayjs](https://day.js.org/)，日期。
+- `onChange`: function(date: dayjs | null, dateString: string | null)，时间发生变化的回调，发生在用户选择时间时。
+- `showWeek`: boolean，DatePicker 下展示当前周，默认 true，版本 5.14.0。
+
+### RangePicker 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `allowEmpty`: \[boolean, boolean]，允许起始项部分为空，默认 \[false, false]。
+- `cellRender`: (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' | 'end', type: PanelMode, locale?: Locale, subType?: 'hour' | 'minute' | 'second' | 'meridiem' }) => React.ReactNode，自定义单元格的内容，版本 5.4.0。
+- `dateRender`: function(currentDate: dayjs, today: dayjs) => React.ReactNode，自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替，版本 < 5.4.0。
+- `defaultPickerValue`: [dayjs](https://day.js.org/)[]，默认面板日期，每次面板打开时会被重置到该日期，版本 5.14.0。
+- `defaultValue`: [dayjs](https://day.js.org/)\[]，默认日期。
+- `disabled`: \[boolean, boolean]，禁用起始项。
+- `disabledTime`: function(date: dayjs, partial: `start` | `end`, info: { from?: dayjs })，不可选择的时间，版本 `info.from`: 5.17.0。
+- `format`: [formatType](#formattype)，展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)，默认 `YYYY-MM-DD HH:mm:ss`。
+- `id`: { start?: string, end?: string }，设置输入框 `id` 属性，版本 5.14.0。
+- `pickerValue`: [dayjs](https://day.js.org/)[]，面板日期，可以用于受控切换面板所在日期。配合 `onPanelChange` 使用，版本 5.14.0。
+- `presets`: { label: React.ReactNode, value: (Dayjs | (() => Dayjs))\[] }\[]，预设时间范围快捷选择，自 `5.8.0` 起 value 支持函数返回值。
+- `renderExtraFooter`: () => React.ReactNode，在面板中添加额外的页脚。
+- `separator`: React.ReactNode，设置分隔符，默认 `<SwapRightOutlined />`。
+- `showTime`: Object|boolean，增加时间选择功能，默认 [TimePicker Options](/components/time-picker-cn#api)。
+- `~~showTime.defaultValue~~`: [dayjs](https://day.js.org/)\[]，请使用 `showTime.defaultOpenValue`，默认 \[dayjs(), dayjs()]，版本 5.27.3。
+- `showTime.defaultOpenValue`: [dayjs](https://day.js.org/)\[]，设置用户选择日期时默认的时分秒，[例子](#date-picker-demo-disabled-date)，默认 \[dayjs(), dayjs()]。
+- `value`: [dayjs](https://day.js.org/)\[]，日期。
+- `onCalendarChange`: function(dates: \[dayjs, dayjs], dateStrings: \[string, string], info: { range:`start`|`end` })，待选日期发生变化的回调。`info` 参数自 4.4.0 添加。
+- `onChange`: function(dates: \[dayjs, dayjs] | null, dateStrings: \[string, string] | null)，日期范围发生变化的回调。
+- `onFocus`: function(event, { range: 'start' | 'end' })，聚焦时回调，版本 `range`: 5.14.0。
+- `onBlur`: function(event, { range: 'start' | 'end' })，失焦时回调，版本 `range`: 5.14.0。
+
+## 方法
+
+- `blur()`: 移除焦点
+- `focus()`: 获取焦点
 
 ## 常见场景示例
 
@@ -150,16 +197,12 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      {/* 日期选择 */}
       <DatePicker onChange={onChange} placeholder="选择日期" />
 
-      {/* 周选择 */}
       <DatePicker onChange={onChange} picker="week" placeholder="选择周" />
 
-      {/* 月选择 */}
       <DatePicker onChange={onChange} picker="month" placeholder="选择月" />
 
-      {/* 年选择 */}
       <DatePicker onChange={onChange} picker="year" placeholder="选择年" />
     </Space>
   );
@@ -183,10 +226,8 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      {/* 日期 + 时间 */}
       <DatePicker showTime onChange={onChange} onOk={onOk} placeholder="选择日期和时间" />
 
-      {/* 自定义时间格式 */}
       <DatePicker
         showTime={{
           format: 'HH:mm',
@@ -198,7 +239,6 @@ const App: React.FC = () => {
         placeholder="选择日期和时间"
       />
 
-      {/* 12 小时制 */}
       <DatePicker
         showTime={{ use12Hours: true, format: 'h:mm A' }}
         format="YYYY-MM-DD h:mm A"
@@ -226,16 +266,12 @@ const App: React.FC = () => {
 
   return (
     <>
-      {/* 基础范围选择 */}
       <RangePicker onChange={onChange} placeholder={['开始日期', '结束日期']} />
 
-      {/* 范围 + 时间 */}
       <RangePicker showTime onChange={onChange} placeholder={['开始日期时间', '结束日期时间']} />
 
-      {/* 禁用时间范围 */}
       <RangePicker
         disabledDate={(current) => {
-          // 禁用今天之前的日期
           return current && current < dayjs().startOf('day');
         }}
         placeholder={['开始日期', '结束日期']}
@@ -255,12 +291,10 @@ import dayjs from 'dayjs';
 const App: React.FC = () => {
   const { RangePicker } = DatePicker;
 
-  // 禁用周末
   const disabledDate: DatePickerProps['disabledDate'] = (current) => {
     return current && (current.day() === 0 || current.day() === 6);
   };
 
-  // 预设范围
   const presetRanges: PresetRanges = {
     today: [dayjs(), dayjs()],
     '7days': [dayjs().subtract(7, 'day'), dayjs()],
@@ -269,13 +303,10 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      {/* 禁用周末 */}
       <DatePicker disabledDate={disabledDate} placeholder="禁用周末" />
 
-      {/* 预设范围 */}
       <RangePicker presets={presetRanges} placeholder={['开始日期', '结束日期']} />
 
-      {/* 禁用时间段 */}
       <RangePicker
         disabledTime={(date, partial) => {
           if (partial === 'start') {
@@ -310,13 +341,10 @@ const App: React.FC = () => {
 
   return (
     <>
-      {/* 受控日期选择 */}
       <DatePicker value={date} onChange={onChange} format="YYYY/MM/DD" placeholder="自定义格式" />
 
-      {/* 清除 */}
       <Button onClick={() => setDate(null)}>清除日期</Button>
 
-      {/* 显示选中日期 */}
       {date && <p>选中: {date.format('YYYY-MM-DD HH:mm:ss')}</p>}
     </>
   );
@@ -334,7 +362,6 @@ import dayjs from 'dayjs';
 
 const App: React.FC = () => {
   const cellRender: DatePickerProps['cellRender'] = (date, info) => {
-    // 标记特殊日期
     if (date.date() === 1) {
       return <div className="special">1st</div>;
     }
@@ -343,51 +370,16 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      {/* 自定义日期样式 */}
       <DatePicker cellRender={cellRender} placeholder="自定义样式" />
 
-      {/* 中文本地化 */}
       <DatePicker locale={locale} placeholder="中文模式" />
 
-      {/* 禁用清除 */}
       <DatePicker allowClear={false} placeholder="无清除按钮" />
 
-      {/* 只读 */}
       <DatePicker inputReadOnly placeholder="只读模式" />
     </Space>
   );
 };
-```
-
-## AI 生成指引
-
-### 场景判断表
-
-| 用户需求     | 选择方案         | 关键属性                   |
-| ------------ | ---------------- | -------------------------- |
-| 简单日期选择 | DatePicker 基础  | value, onChange, format    |
-| 时间选择     | showTime         | showTime, format           |
-| 日期范围     | RangePicker      | RangePicker 组件           |
-| 周/月/年选择 | picker 属性      | picker='week/month/year'   |
-| 禁用特定日期 | disabledDate     | disabledDate 函数          |
-| 预设范围     | presets          | presets 数组               |
-| 受控选择     | value + onChange | value, onChange            |
-| 自定义格式   | format           | format 字符串              |
-| 自定义渲染   | cellRender       | cellRender 函数（5.16.0+） |
-| 国际化       | locale           | locale 配置                |
-| 12 小时制    | use12Hours       | showTime.use12Hours        |
-| 禁用时间     | disabledTime     | disabledTime 函数          |
-
-### 类型导入
-
-```tsx
-import type {
-  DatePickerProps, // DatePicker props 类型
-  Dayjs, // 日期值类型
-  PresetRanges, // 预设范围类型
-  RangePickerProps, // RangePicker props 类型
-} from 'antd';
-import dayjs from 'dayjs'; // 日期处理库
 ```
 
 ## 使用建议

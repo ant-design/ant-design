@@ -2,34 +2,74 @@
 
 ## 功能概述
 
-展示统计数值。当需要突出某个或某组数字时，用于展示带描述的统计类数据。
+展示统计数值。
+
+## 应用场景
+
+- 当需要突出某个或某组数字时。
+- 当需要展示带描述的统计类数据时使用。
 
 ## 输入字段
 
-### 必填
+### Statistic 属性
 
-- `value`: string | number，数值。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `title`: ReactNode，标题。
-- `prefix`: ReactNode，数值前缀。
-- `suffix`: ReactNode，数值后缀。
-- `precision`: number，数值精度（小数位数）。
-- `decimalSeparator`: string，小数分隔符，默认 `.`。
-- `groupSeparator`: string，千分位分隔符，默认 `,`。
-- `formatter`: (value) => ReactNode，自定义格式化。
-- `valueStyle`: CSSProperties，数值样式。
-- `loading`: boolean，加载状态。
+#### 可选
 
-### Statistic.Countdown 属性
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>，用于自定义 Statistic 组件内部各语义化结构的 class，支持对象或函数。
+- `decimalSeparator`: string，设置小数点，默认 `.`。
+- `formatter`: (value) => ReactNode，自定义数值展示。
+- `groupSeparator`: string，设置千分位标识符，默认 `,`。
+- `loading`: boolean，数值是否加载中，默认 false，版本 4.8.0。
+- `precision`: number，数值精度。
+- `prefix`: ReactNode，设置数值的前缀。
+- `styles`: Record<[SemanticDOM](#semantic-dom) , CSSProperties> | (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties>，用于自定义 Statistic 组件内部各语义化结构的行内 style，支持对象或函数。
+- `suffix`: ReactNode，设置数值的后缀。
+- `title`: ReactNode，数值的标题。
+- `value`: string | number，数值内容。
+- `valueStyle`: CSSProperties，设置数值区域的样式。
 
-倒计时组件：
+### Statistic.Countdown <Badge type="error">Deprecated</Badge> 属性
 
-- `value`: number，目标时间戳。
-- `format`: string，格式化字符串，默认 `HH:mm:ss`。
-- `onFinish`: () => void，倒计时结束回调。
-- `onChange`: (value) => void，时间变化回调。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `format`: string，格式化倒计时展示，参考 [dayjs](https://day.js.org/)，默认 `HH:mm:ss`。
+- `prefix`: ReactNode，设置数值的前缀。
+- `suffix`: ReactNode，设置数值的后缀。
+- `title`: ReactNode，数值的标题。
+- `value`: number，数值内容。
+- `valueStyle`: CSSProperties，设置数值区域的样式。
+- `onFinish`: () => void，倒计时完成时触发。
+- `onChange`: (value: number) => void，倒计时时间变化时触发。
+
+### Statistic.Timer <Badge>5.25.0+</Badge> 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `type`: `countdown` `countup`，计时类型，正计时或者倒计时。
+- `format`: string，格式化倒计时展示，参考 [dayjs](https://day.js.org/)，默认 `HH:mm:ss`。
+- `prefix`: ReactNode，设置数值的前缀。
+- `suffix`: ReactNode，设置数值的后缀。
+- `title`: ReactNode，数值的标题。
+- `value`: number，数值内容。
+- `valueStyle`: CSSProperties，设置数值区域的样式。
+- `onFinish`: () => void，倒计时完成时触发, 指定为 `countup` 此属性不生效。
+- `onChange`: (value: number) => void，倒计时时间变化时触发。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -47,7 +87,6 @@ const deadline = Date.now() + 1000 * 60 * 60 * 24 * 2; // 2 days
 const App: React.FC = () => (
   <Space direction="vertical" style={{ width: '100%' }}>
     <Row gutter={16}>
-      {/* 基础用法 */}
       <Col span={12}>
         <Statistic title="Active Users" value={112893} />
       </Col>
@@ -57,7 +96,6 @@ const App: React.FC = () => (
     </Row>
 
     <Row gutter={16}>
-      {/* 带前后缀 */}
       <Col span={12}>
         <Statistic title="Feedback" value={1128} prefix={<LikeOutlined />} />
       </Col>
@@ -67,7 +105,6 @@ const App: React.FC = () => (
     </Row>
 
     <Row gutter={16}>
-      {/* 带样式 */}
       <Col span={12}>
         <Card bordered={false}>
           <Statistic
@@ -94,7 +131,6 @@ const App: React.FC = () => (
       </Col>
     </Row>
 
-    {/* 倒计时 */}
     <Row gutter={16}>
       <Col span={12}>
         <Countdown title="Countdown" value={deadline} onFinish={() => console.log('finished!')} />

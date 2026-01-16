@@ -1,48 +1,59 @@
-# theme — 主题
+# Theme — 主题
 
 ## 功能概述
 
 Ant Design 5.0 使用 CSS-in-JS 技术，支持动态主题、混合主题、算法生成等能力。
 
-## 使用方式
+## 应用场景
 
-通过 ConfigProvider 的 theme 属性配置主题。
+- 需要在页面中以一致样式呈现主题能力时。
 
-## Token 系统
+## 输入字段
 
-Ant Design 5.0 的主题基于 Design Token 体系构建。
+### Theme 属性
 
-### Token 分类
+#### 必填
 
-1. **Seed Token（种子 Token）**：影响全局的最基础变量
-2. **Map Token（梯度 Token）**：基于 Seed Token 派生
-3. **Alias Token（别名 Token）**：批量控制组件样式
-4. **Component Token（组件 Token）**：组件级别的样式变量
+- 无必填属性。
 
-### 常用 Seed Token
+#### 可选
 
-```tsx
-{
-  colorPrimary: string; // 品牌主色
-  colorSuccess: string; // 成功色
-  colorWarning: string; // 警告色
-  colorError: string; // 错误色
-  colorInfo: string; // 信息色
-  colorTextBase: string; // 文本基础色
-  colorBgBase: string; // 背景基础色
-  fontFamily: string; // 字体
-  fontSize: number; // 字体大小
-  borderRadius: number; // 圆角
-  wireframe: boolean; // 线框风格
-  motion: boolean; // 动画开关（5.21.0+）
-}
-```
+- `token`: `AliasToken`，用于修改 Design Token。
+- `inherit`: boolean，继承上层 ConfigProvider 中配置的主题，默认 true。
+- `algorithm`: `(token: SeedToken) => MapToken` | `((token: SeedToken) => MapToken)[]`，用于修改 Seed Token 到 Map Token 的算法，默认 `defaultAlgorithm`。
+- `components`: `ComponentsConfig`，用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token。
+- `cssVar`: [cssVar](#css-var)，CSS 变量配置。
+- `hashed`: boolean，将样式添加至 hash className 上，默认 true。
+- `zeroRuntime`: boolean，开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件，默认 true，版本 6.0.0。
 
-## 主题算法
+### ComponentsConfig 属性
 
-- `theme.defaultAlgorithm`: 默认算法（亮色主题）
-- `theme.darkAlgorithm`: 暗色主题算法
-- `theme.compactAlgorithm`: 紧凑主题算法
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- ``Component` (可以是任意 antd 组件名，如 `Button`)`: `ComponentToken & AliasToken & { algorithm: boolean | (token: SeedToken) => MapToken`|`((token: SeedToken) => MapToken)[]}`，用于修改 Component Token 以及覆盖该组件消费的 Alias Token。
+
+### cssVar 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `prefix`: string，CSS 变量的前缀，默认与 ConfigProvider 上配置的 `prefixCls` 相同，默认 `ant`。
+- `key`: string，当前主题的唯一识别 key，默认用 `useId` 填充，默认 `useId` in React 18。
+
+## 方法
+
+无公开方法。
+
+## 使用建议
+
+优先通过 `ConfigProvider` 统一设置 `theme.token` 与 `theme.algorithm`；局部主题用嵌套 `ConfigProvider`；组件级定制放在 `theme.components`；需要 CSS 变量时启用 `cssVar`。
 
 ## 示例代码
 
@@ -51,7 +62,6 @@ import { Button, ConfigProvider, Space, theme } from 'antd';
 
 const App: React.FC = () => (
   <Space direction="vertical">
-    {/* 修改主色 */}
     <ConfigProvider
       theme={{
         token: {
@@ -62,7 +72,6 @@ const App: React.FC = () => (
       <Button type="primary">Green Primary</Button>
     </ConfigProvider>
 
-    {/* 暗色主题 */}
     <ConfigProvider
       theme={{
         algorithm: theme.darkAlgorithm,
@@ -73,7 +82,6 @@ const App: React.FC = () => (
       </div>
     </ConfigProvider>
 
-    {/* 紧凑主题 */}
     <ConfigProvider
       theme={{
         algorithm: theme.compactAlgorithm,
@@ -82,7 +90,6 @@ const App: React.FC = () => (
       <Button type="primary">Compact Theme</Button>
     </ConfigProvider>
 
-    {/* 组合算法 */}
     <ConfigProvider
       theme={{
         algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
@@ -93,7 +100,6 @@ const App: React.FC = () => (
       </div>
     </ConfigProvider>
 
-    {/* 组件级定制 */}
     <ConfigProvider
       theme={{
         components: {
@@ -107,7 +113,6 @@ const App: React.FC = () => (
       <Button type="primary">Custom Button</Button>
     </ConfigProvider>
 
-    {/* 嵌套主题 */}
     <ConfigProvider
       theme={{
         token: { colorPrimary: '#1677ff' },
@@ -123,7 +128,6 @@ const App: React.FC = () => (
       </ConfigProvider>
     </ConfigProvider>
 
-    {/* CSS 变量模式 */}
     <ConfigProvider
       theme={{
         cssVar: true,
@@ -135,7 +139,6 @@ const App: React.FC = () => (
   </Space>
 );
 
-// 使用 useToken Hook
 const ThemeInfo: React.FC = () => {
   const { token } = theme.useToken();
 

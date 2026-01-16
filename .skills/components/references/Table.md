@@ -2,187 +2,210 @@
 
 ## 功能概述
 
-展示行列数据的表格组件，支持排序、筛选、分页、树形数据、固定列、虚拟滚动等高级功能。
+展示行列数据。
 
-## 核心概念
+## 应用场景
 
-### 数据流模式
-
-```
-dataSource (数据源) + columns (列定义) → Table 渲染
-     ↓                    ↓
-  每行数据            每列如何渲染
-```
-
-### 关键数据结构
-
-#### ColumnType（列定义）
-
-```tsx
-interface ColumnType<T> {
-  // 基础配置
-  title: ReactNode; // 列标题
-  dataIndex: string | string[]; // 数据字段名（支持嵌套 ['a', 'b'] 表示 a.b）
-  key?: string; // React key，默认取 dataIndex
-
-  // 渲染配置
-  render?: (value: any, record: T, index: number) => ReactNode; // 自定义渲染
-  align?: 'left' | 'center' | 'right'; // 对齐方式
-  ellipsis?: boolean | { showTitle?: boolean }; // 超长省略
-  width?: string | number; // 列宽
-  fixed?: 'left' | 'right'; // 固定列
-
-  // 排序配置
-  sorter?: boolean | ((a: T, b: T) => number) | { compare; multiple };
-  sortOrder?: 'ascend' | 'descend' | null; // 受控排序
-  defaultSortOrder?: 'ascend' | 'descend';
-  sortDirections?: ('ascend' | 'descend')[];
-  showSorterTooltip?: boolean | TooltipProps;
-
-  // 筛选配置
-  filters?: { text: ReactNode; value: string | number | boolean; children?: [] }[];
-  filterMode?: 'menu' | 'tree';
-  filterSearch?: boolean | ((input, record) => boolean);
-  filterMultiple?: boolean;
-  filteredValue?: FilterValue; // 受控筛选
-  defaultFilteredValue?: FilterValue;
-  onFilter?: (value, record: T) => boolean;
-  filterDropdown?: ReactNode | ((props) => ReactNode);
-  filterIcon?: ReactNode | ((filtered) => ReactNode);
-
-  // 响应式
-  responsive?: Breakpoint[]; // 响应式断点 ['xxl', 'xl', 'lg', 'md', 'sm', 'xs']
-
-  // 分组表头
-  children?: ColumnType<T>[]; // 子列（表头分组）
-
-  // 单元格属性
-  onCell?: (record: T, index?: number) => HTMLAttributes;
-  onHeaderCell?: (column) => HTMLAttributes;
-}
-```
-
-#### 数据源要求
-
-```tsx
-interface DataType {
-  key: string | number;  // 必须！每行唯一标识
-  // ... 其他业务字段
-}
-
-// 或使用 rowKey 指定
-<Table rowKey="id" dataSource={data} />
-<Table rowKey={(record) => record.uid} dataSource={data} />
-```
+- 当有大量结构化的数据需要展现时；。
+- 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。
 
 ## 输入字段
 
-### 必填
+### Table 属性
 
-- `columns`: ColumnType[]，列定义数组
-- `dataSource`: object[]，数据源数组
+#### 必填
 
-### 常用可选
+- 无必填属性。
 
-| 属性         | 类型                                 | 默认值    | 说明       |
-| ------------ | ------------------------------------ | --------- | ---------- |
-| `rowKey`     | string \| (record) => string         | `'key'`   | 行唯一标识 |
-| `loading`    | boolean \| SpinProps                 | `false`   | 加载状态   |
-| `size`       | `'large'` \| `'middle'` \| `'small'` | `'large'` | 表格尺寸   |
-| `bordered`   | boolean                              | `false`   | 显示边框   |
-| `showHeader` | boolean                              | `true`    | 显示表头   |
-| `title`      | (data) => ReactNode                  | -         | 表格标题   |
-| `footer`     | (data) => ReactNode                  | -         | 表格尾部   |
-| `locale`     | { emptyText, ... }                   | -         | 国际化配置 |
+#### 可选
 
-### 分页配置
+- `bordered`: boolean，是否展示外边框和列边框，默认 false。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `columns`: [ColumnsType](#column)\[]，表格列的配置描述，具体项见下表。
+- `components`: [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129)，覆盖默认的 table 元素。
+- `dataSource`: object\[]，数据数组。
+- `expandable`: [expandable](#expandable)，配置展开属性。
+- `footer`: function(currentPageData)，表格尾部。
+- `getPopupContainer`: (triggerNode) => HTMLElement，设置表格内各类浮层的渲染节点，如筛选菜单，默认 () => TableHtmlElement。
+- `loading`: boolean | [Spin Props](/components/spin-cn#api)，页面是否加载中，默认 false。
+- `locale`: object，默认文案设置，目前包括排序、过滤、空数据文案，默认 [默认值](https://github.com/ant-design/ant-design/blob/6dae4a7e18ad1ba193aedd5ab6867e1d823e2aa4/components/locale/zh_CN.tsx#L20-L37)。
+- `pagination`: object | `false`，分页器，参考[配置项](#pagination)或 [pagination](/components/pagination-cn) 文档，设为 false 时不展示和进行分页。
+- `rowClassName`: function(record, index): string，表格行的类名。
+- `rowKey`: string | function(record): string，表格行 key 的取值，可以是字符串或一个函数，默认 `key`。
+- `rowSelection`: object，表格行是否可选择，[配置项](#rowselection)。
+- `rowHoverable`: boolean，表格行是否开启 hover 交互，默认 true，版本 5.16.0。
+- `scroll`: object，表格是否可滚动，也可以指定滚动区域的宽、高，[配置项](#scroll)。
+- `showHeader`: boolean，是否显示表头，默认 true。
+- `showSorterTooltip`: boolean | [Tooltip props](/components/tooltip-cn) & `{target?: 'full-header' | 'sorter-icon' }`，表头是否显示下一次排序的 tooltip 提示。当参数类型为对象时，将被设置为 Tooltip 的属性，默认 { target: 'full-header' }，版本 5.16.0。
+- `size`: `large` | `middle` | `small`，表格大小，默认 `large`。
+- `sortDirections`: Array，支持的排序方式，取值为 `ascend` `descend`，默认 \[`ascend`, `descend`]。
+- `sticky`: boolean | `{offsetHeader?: number, offsetScroll?: number, getContainer?: () => HTMLElement}`，设置粘性头部和滚动条，版本 4.6.0 (getContainer: 4.7.0)。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `summary`: (currentData) => ReactNode，总结栏。
+- `tableLayout`: - | `auto` | `fixed`，表格元素的 [table-layout](https://developer.mozilla.org/zh-CN/docs/Web/CSS/table-layout) 属性，设为 `fixed` 表示内容不会影响列的布局，默认 无<hr />固定表头/列或使用了 `column.ellipsis` 时，默认值为 `fixed`。
+- `title`: function(currentPageData)，表格标题。
+- `virtual`: boolean，支持虚拟列表，版本 5.9.0。
+- `onChange`: function(pagination, filters, sorter, extra: { currentDataSource: \[], action: `paginate` | `sort` | `filter` })，分页、排序、筛选变化时触发。
+- `onHeaderRow`: function(columns, index)，设置头部行属性。
+- `onRow`: function(record, index)，设置行属性。
+- `onScroll`: function(event)，表单内容滚动时触发（虚拟滚动下只有垂直滚动会触发事件），版本 5.16.0。
 
-```tsx
-pagination?: false | {
-  current?: number;           // 当前页（受控）
-  pageSize?: number;          // 每页条数（受控）
-  total?: number;             // 总条数
-  showSizeChanger?: boolean;  // 显示条数切换
-  showQuickJumper?: boolean;  // 快速跳转
-  showTotal?: (total, range) => ReactNode;  // 显示总数
-  position?: ('topLeft' | 'topCenter' | 'topRight' | 'bottomLeft' | 'bottomCenter' | 'bottomRight')[];
-  onChange?: (page, pageSize) => void;
-}
-```
+### Table ref 属性
 
-### 行选择配置
+#### 必填
 
-```tsx
-rowSelection?: {
-  type?: 'checkbox' | 'radio';        // 选择类型
-  selectedRowKeys?: Key[];            // 选中的行 key（受控）
-  defaultSelectedRowKeys?: Key[];     // 默认选中
-  onChange?: (selectedRowKeys, selectedRows, info) => void;
-  onSelect?: (record, selected, selectedRows, nativeEvent) => void;
-  onSelectAll?: (selected, selectedRows, changeRows) => void;
-  getCheckboxProps?: (record) => CheckboxProps;  // 单行 checkbox 属性
-  selections?: Selection[] | boolean; // 自定义选择项
-  hideSelectAll?: boolean;            // 隐藏全选
-  fixed?: boolean | 'left' | 'right'; // 固定选择列
-  columnWidth?: number;               // 选择列宽度
-  columnTitle?: ReactNode;            // 选择列标题
-  checkStrictly?: boolean;            // 父子数据选中状态是否关联
-  preserveSelectedRowKeys?: boolean;  // 分页时保留已选项
-  renderCell?: (value, record, index, originNode) => ReactNode;
-}
-```
+- 无必填属性。
 
-### 展开行配置
+#### 可选
 
-```tsx
-expandable?: {
-  expandedRowKeys?: Key[];           // 展开的行 key（受控）
-  defaultExpandedRowKeys?: Key[];    // 默认展开
-  expandedRowRender?: (record, index, indent, expanded) => ReactNode;
-  expandRowByClick?: boolean;        // 点击行展开
-  expandIcon?: (props) => ReactNode; // 自定义展开图标
-  onExpand?: (expanded, record) => void;
-  onExpandedRowsChange?: (expandedRows) => void;
-  fixed?: boolean | 'left' | 'right';
-  columnWidth?: number;
-  columnTitle?: ReactNode;
-  indentSize?: number;               // 缩进大小
-  rowExpandable?: (record) => boolean; // 是否可展开
-  showExpandColumn?: boolean;        // 显示展开列
-  defaultExpandAllRows?: boolean;    // 默认全部展开
-}
-```
+- `nativeElement`: HTMLDivElement，最外层 div 元素，版本 5.11.0。
+- `scrollTo`: (config: { index?: number, key?: React.Key, top?: number, offset?: number }) => void，滚动到目标位置（设置 `key` 时为 Record 对应的 `rowKey`）。当指定 `offset` 时，表格会滚动至目标行顶部对齐并应用指定的偏移量。`offset` 对 `top` 无效，版本 5.11.0。
 
-### 滚动配置
+### Column 属性
 
-```tsx
-scroll?: {
-  x?: number | string | true;  // 横向滚动宽度
-  y?: number | string;         // 纵向滚动高度
-  scrollToFirstRowOnChange?: boolean;  // 分页切换滚动到顶部
-}
+#### 必填
 
-virtual?: boolean;  // 虚拟滚动（5.9.0+，需设置 scroll.y）
-```
+- 无必填属性。
 
-### 事件回调
+#### 可选
 
-```tsx
-onChange?: (
-  pagination: TablePaginationConfig,
-  filters: Record<string, FilterValue | null>,
-  sorter: SorterResult | SorterResult[],
-  extra: { currentDataSource, action }
-) => void;
+- `align`: `left` | `right` | `center`，设置列的对齐方式，默认 `left`。
+- `className`: string，列样式类名。
+- `colSpan`: number，表头列合并，设置为 0 时，不渲染。
+- `dataIndex`: string | string\[]，列数据在数据项中对应的路径，支持通过数组查询嵌套路径。
+- `defaultFilteredValue`: string\[]，默认筛选值。
+- `filterResetToDefaultFilteredValue`: boolean，点击重置按钮的时候，是否恢复默认筛选值，默认 false。
+- `defaultSortOrder`: `ascend` | `descend`，默认排序顺序。
+- `ellipsis`: boolean | { showTitle?: boolean }，超过宽度将自动省略，暂不支持和排序筛选一起使用。<br />设置为 `true` 或 `{ showTitle?: boolean }` 时，表格布局将变成 `tableLayout="fixed"`，默认 false，版本 showTitle: 4.3.0。
+- `filterDropdown`: ReactNode | (props: [FilterDropdownProps](https://github.com/ant-design/ant-design/blob/ecc54dda839619e921c0ace530408871f0281c2a/components/table/interface.tsx#L79)) => ReactNode，可以自定义筛选菜单，此函数只负责渲染图层，需要自行编写各种交互。
+- `filtered`: boolean，标识数据是否经过过滤，筛选图标会高亮，默认 false。
+- `filteredValue`: string\[]，筛选的受控属性，外界可用此控制列的筛选状态，值为已筛选的 value 数组。
+- `filterIcon`: ReactNode | (filtered: boolean) => ReactNode，自定义 filter 图标，默认 false。
+- `filterOnClose`: boolean，是否在筛选菜单关闭时触发筛选，默认 true，版本 5.15.0。
+- `filterMultiple`: boolean，是否多选，默认 true。
+- `filterMode`: 'menu' | 'tree'，指定筛选菜单的用户界面，默认 'menu'，版本 4.17.0。
+- `filterSearch`: boolean | function(input, record):boolean，筛选菜单项是否可搜索，默认 false，版本 boolean:4.17.0 function:4.19.0。
+- `filters`: object\[]，表头的筛选菜单项。
+- `filterDropdownProps`: [DropdownProps](/components/dropdown#api)，自定义下拉属性，在 `<5.22.0` 之前可用 `filterDropdownOpen` 和 `onFilterDropdownOpenChange`，版本 5.22.0。
+- `fixed`: boolean | string，（IE 下无效）列是否固定，可选 `true` (等效于 `'start'`) `'start'` `'end'`，默认 false。
+- `key`: string，React 需要的 key，如果已经设置了唯一的 `dataIndex`，可以忽略这个属性。
+- `render`: (value: V, record: T, index: number): ReactNode，生成复杂数据的渲染函数，参数分别为当前单元格的值，当前行数据，行索引。
+- `responsive`: [Breakpoint](https://github.com/ant-design/ant-design/blob/015109b42b85c63146371b4e32b883cf97b088e8/components/_util/responsiveObserve.ts#L1)\[]，响应式 breakpoint 配置列表。未设置则始终可见，版本 4.2.0。
+- `rowScope`: `row` | `rowgroup`，设置列范围，版本 5.1.0。
+- `shouldCellUpdate`: (record, prevRecord) => boolean，自定义单元格渲染时机，版本 4.3.0。
+- `showSorterTooltip`: boolean | [Tooltip props](/components/tooltip-cn/#api) & `{target?: 'full-header' | 'sorter-icon' }`，表头显示下一次排序的 tooltip 提示, 覆盖 table 中 `showSorterTooltip`，默认 { target: 'full-header' }，版本 5.16.0。
+- `sortDirections`: Array，支持的排序方式，覆盖 `Table` 中 `sortDirections`， 取值为 `ascend` `descend`，默认 \[`ascend`, `descend`]。
+- `sorter`: function | boolean | { compare: function, multiple: number }，排序函数，本地排序使用一个函数(参考 [Array.sort](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort) 的 compareFunction)。需要服务端排序可设为 `true`（单列排序） 或 `{ multiple: number }`（多列排序）。
+- `sortOrder`: `ascend` | `descend` | null，排序的受控属性，外界可用此控制列的排序，可设置为 `ascend` `descend` `null`。
+- `sortIcon`: (props: { sortOrder }) => ReactNode，自定义 sort 图标，版本 5.6.0。
+- `title`: ReactNode | ({ sortColumns, filters }) => ReactNode，列头显示文字（函数用法 `3.10.0` 后支持）。
+- `width`: string | number，列宽度（[指定了也不生效？](https://github.com/ant-design/ant-design/issues/13825#issuecomment-449889241)）。
+- `minWidth`: number，最小列宽度，只在 `tableLayout="auto"` 时有效，版本 5.21.0。
+- `hidden`: boolean，隐藏列，默认 false，版本 5.13.0。
+- `onCell`: function(record, rowIndex)，设置单元格属性。
+- `onFilter`: function，本地模式下，确定筛选的运行函数。
+- `onHeaderCell`: function(column)，设置头部单元格属性。
 
-onRow?: (record, index) => HTMLAttributes & {
-  onClick?: (event) => void;
-  onDoubleClick?: (event) => void;
-  onContextMenu?: (event) => void;
-  onMouseEnter?: (event) => void;
-  onMouseLeave?: (event) => void;
-}
-```
+### ColumnGroup 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `title`: ReactNode，列头显示文字。
+
+### pagination 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `placement`: Array，指定分页显示的位置， 取值为`topStart` | `topCenter` | `topEnd` |`bottomStart` | `bottomCenter` | `bottomEnd`| `none`，默认 \[`bottomEnd`]。
+- `~~position~~`: Array，指定分页显示的位置， 取值为`topLeft` | `topCenter` | `topRight` |`bottomLeft` | `bottomCenter` | `bottomRight` | `none`，请使用 `placement` 替换，默认 \[`bottomRight`]。
+
+### expandable 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `childrenColumnName`: string，指定树形结构的列名，默认 children。
+- `columnTitle`: ReactNode，自定义展开列表头，版本 4.23.0。
+- `columnWidth`: string | number，自定义展开列宽度。
+- `defaultExpandAllRows`: boolean，初始时，是否展开所有行，默认 false。
+- `defaultExpandedRowKeys`: string\[]，默认展开的行。
+- `expandedRowClassName`: string | (record, index, indent) => string，展开行的 className，版本 string: 5.22.0。
+- `expandedRowKeys`: string\[]，展开的行，控制属性。
+- `expandedRowRender`: function(record, index, indent, expanded): ReactNode，额外的展开行。
+- `expandIcon`: function(props): ReactNode，自定义展开图标，参考[示例](https://codesandbox.io/s/fervent-bird-nuzpr)。
+- `expandRowByClick`: boolean，通过点击行来展开子行，默认 false。
+- `fixed`: boolean | string，控制展开图标是否固定，可选 `true` `'left'` `'right'`，默认 false，版本 4.16.0。
+- `indentSize`: number，展示树形数据时，每层缩进的宽度，以 px 为单位，默认 15。
+- `rowExpandable`: (record) => boolean，设置是否允许行展开（`dataSource` 若存在 `children` 字段将不生效）。
+- `showExpandColumn`: boolean，是否显示展开图标列，默认 true，版本 4.18.0。
+- `onExpand`: function(expanded, record)，点击展开图标时触发。
+- `onExpandedRowsChange`: function(expandedRows)，展开的行变化时触发。
+- `~~expandedRowOffset~~`: number，废弃：展开行的偏移列数，设置后会强制将其前面的列设为固定列。请改用 `Table.EXPAND_COLUMN` 并通过列顺序控制位置，版本 5.26.0。
+
+### rowSelection 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `align`: `left` | `right` | `center`，设置选择列的对齐方式，默认 `left`，版本 5.25.0。
+- `checkStrictly`: boolean，checkable 状态下节点选择完全受控（父子数据选中状态不再关联），默认 true，版本 4.4.0。
+- `columnTitle`: ReactNode | (originalNode: ReactNode) => ReactNode，自定义列表选择框标题。
+- `columnWidth`: string | number，自定义列表选择框宽度，默认 `32px`。
+- `fixed`: boolean，把选择框列固定在左边。
+- `getCheckboxProps`: function(record)，选择框的默认属性配置。
+- `getTitleCheckboxProps`: function()，标题选择框的默认属性配置。
+- `hideSelectAll`: boolean，隐藏全选勾选框与自定义选择项，默认 false，版本 4.3.0。
+- `preserveSelectedRowKeys`: boolean，当数据被删除时仍然保留选项的 `key`，版本 4.4.0。
+- `renderCell`: (checked: boolean, record: T, index: number, originNode: ReactNode): ReactNode，渲染勾选框，用法与 Column 的 `render` 相同，版本 4.1.0。
+- `selectedRowKeys`: string\[] | number\[]，指定选中项的 key 数组，需要和 onChange 进行配合，默认 \[]。
+- `defaultSelectedRowKeys`: string\[] | number\[]，默认选中项的 key 数组，默认 \[]。
+- `selections`: object\[] | boolean，自定义选择项 [配置项](#selection), 设为 `true` 时使用默认选择项，默认 true。
+- `type`: `checkbox` | `radio`，多选/单选，默认 `checkbox`。
+- `onCell`: function(record, rowIndex)，设置单元格属性，用法与 Column 的 `onCell` 相同，版本 5.5.0。
+- `onChange`: function(selectedRowKeys, selectedRows, info: { type })，选中项发生变化时的回调，版本 `info.type`: 4.21.0。
+- `onSelect`: function(record, selected, selectedRows, nativeEvent)，用户手动选择/取消选择某行的回调。
+
+### scroll 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `scrollToFirstRowOnChange`: boolean，当分页、排序、筛选变化后是否滚动到表格顶部。
+- `x`: string | number | true，设置横向滚动，也可用于指定滚动区域的宽，可以设置为像素值，百分比，`true` 和 ['max-content'](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width#max-content)。
+- `y`: string | number，设置纵向滚动，也可用于指定滚动区域的高，可以设置为像素值。
+
+### selection 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `key`: string，React 需要的 key，建议设置。
+- `text`: ReactNode，选择项显示的文字。
+- `onSelect`: function(changeableRowKeys)，选择项点击回调。
+
+## 方法
+
+无公开方法。
 
 ## 常见场景示例
 
@@ -330,7 +353,6 @@ const EditableCell: React.FC<EditableCellProps> = ({
   </td>
 );
 
-// 在 Table 中使用
 <Table components={{ body: { cell: EditableCell } }} columns={mergedColumns} dataSource={data} />;
 ```
 
@@ -348,19 +370,13 @@ const dataSource = [
   },
 ];
 
-// 默认使用 children 字段，可通过 childrenColumnName 自定义
 <Table columns={columns} dataSource={dataSource} />;
 ```
 
 ### 固定列和表头
 
 ```tsx
-<Table
-  columns={columns}
-  dataSource={dataSource}
-  scroll={{ x: 1500, y: 300 }}
-  // 在 columns 中设置 fixed: 'left' 或 'right'
-/>
+<Table columns={columns} dataSource={dataSource} scroll={{ x: 1500, y: 300 }} />
 ```
 
 ### 虚拟滚动（大数据）
@@ -399,6 +415,16 @@ import type { GetProp, TableColumnsType, TableProps } from 'antd';
 type TablePaginationConfig = Exclude<GetProp<TableProps, 'pagination'>, boolean>;
 type ColumnsType<T> = TableColumnsType<T>;
 type TableRowSelection<T extends object> = TableProps<T>['rowSelection'];
+```
+
+## 使用建议
+
+结合使用场景选择 表格 的类型与配置，避免过度使用。
+
+## 示例代码
+
+```tsx
+
 ```
 
 ## 返回结果

@@ -4,18 +4,30 @@
 
 空状态时的展示占位图。
 
+## 应用场景
+
+- 当目前没有数据时，用于显式的用户提示。
+- 初始化场景时的引导创建流程。
+
 ## 输入字段
 
-### 可选
+### Empty 属性
 
-- `description`: ReactNode，自定义描述文字，默认 `暂无数据`。
-- `image`: ReactNode，自定义图片，默认 `Empty.PRESENTED_IMAGE_DEFAULT`。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `description`: ReactNode，自定义描述内容。
+- `image`: ReactNode，设置显示图片，为 string 时表示自定义图片地址，默认 `Empty.PRESENTED_IMAGE_DEFAULT`。
 - `imageStyle`: CSSProperties，图片样式。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
 
-### 内置图片
+## 方法
 
-- `Empty.PRESENTED_IMAGE_DEFAULT`: 默认灰色图片。
-- `Empty.PRESENTED_IMAGE_SIMPLE`: 简单线条图片。
+无公开方法。
 
 ## 使用建议
 
@@ -28,19 +40,14 @@ import { Button, ConfigProvider, Empty } from 'antd';
 
 const App: React.FC = () => (
   <>
-    {/* 基础用法 */}
     <Empty />
 
-    {/* 自定义描述 */}
     <Empty description="No data available" />
 
-    {/* 无描述 */}
     <Empty description={false} />
 
-    {/* 简单图片 */}
     <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />
 
-    {/* 自定义图片 */}
     <Empty
       image="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
       imageStyle={{ height: 60 }}
@@ -53,10 +60,7 @@ const App: React.FC = () => (
       <Button type="primary">Create Now</Button>
     </Empty>
 
-    {/* 全局配置 */}
-    <ConfigProvider renderEmpty={() => <Empty description="自定义空状态" />}>
-      {/* Table, List 等组件无数据时会显示此空状态 */}
-    </ConfigProvider>
+    <ConfigProvider renderEmpty={() => <Empty description="自定义空状态" />}></ConfigProvider>
   </>
 );
 ```

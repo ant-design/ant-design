@@ -2,50 +2,70 @@
 
 ## 功能概述
 
-通用卡片容器，可承载文字、列表、图片等内容。用于信息聚合展示。
+通用卡片容器。
+
+## 应用场景
+
+- 最基础的卡片容器，可承载文字、列表、图片、段落，常用于后台概览页面。
 
 ## 输入字段
 
-### 必填
+### Card 属性
 
-无必填属性。
+#### 必填
 
-### 可选
+- 无必填属性。
 
+#### 可选
+
+- `actions`: Array<ReactNode>，卡片操作组，位置在卡片底部。
+- `activeTabKey`: string，当前激活页签的 key。
+- `~~bordered~~`: boolean，是否有边框, 请使用 `variant` 替换，默认 true。
+- `variant`: `outlined` | `borderless`，形态变体，默认 `outlined`，版本 5.24.0。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `cover`: ReactNode，卡片封面。
+- `defaultActiveTabKey`: string，初始化选中页签的 key，如果没有设置 activeTabKey，默认 `第一个页签的 key`。
+- `extra`: ReactNode，卡片右上角的操作区域。
+- `hoverable`: boolean，鼠标移过时可浮起，默认 false。
+- `loading`: boolean，当卡片内容还在加载中时，可以用 loading 展示一个占位，默认 false。
+- `size`: `default` | `small`，card 的尺寸，默认 `default`。
+- `tabBarExtraContent`: ReactNode，tab bar 上额外的元素。
+- `tabList`: [TabItemType](/components/tabs-cn#tabitemtype)[]，页签标题列表。
+- `tabProps`: [Tabs](/components/tabs-cn#tabs)。
 - `title`: ReactNode，卡片标题。
-- `children`: ReactNode，卡片内容。
-- `extra`: ReactNode，卡片右上角操作区域。
-- `bordered`: boolean，显示边框，默认 `true`。
-- `size`: string，卡片尺寸，可选 `default` | `small`，默认 `default`。
-- `type`: string，卡片类型，设置 `inner` 嵌套卡片。
-- `loading`: boolean，加载状态，显示骨架屏。
-- `hoverable`: boolean，鼠标悬停时浮起。
-- `cover`: ReactNode，卡片封面图。
-- `actions`: ReactNode[]，卡片底部操作按钮组。
-- `tabList`: { key, tab, disabled }[]，页签标题列表。
-- `activeTabKey`: string，当前激活页签（受控）。
-- `defaultActiveTabKey`: string，默认激活页签。
-- `tabProps`: TabsProps，页签属性。
-- `tabBarExtraContent`: ReactNode，页签栏额外内容。
-- `onTabChange`: (key) => void，页签切换回调。
-- `headStyle`: CSSProperties，标题区域样式（已废弃，使用 styles.header）。
-- `bodyStyle`: CSSProperties，内容区域样式（已废弃，使用 styles.body）。
-- `styles`: { header, body, extra, title, actions, cover }，各部分样式。
-- `classNames`: object，各部分类名。
+- `type`: string，卡片类型，可设置为 `inner` 或 不设置。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `onTabChange`: (key) => void，页签切换的回调。
 
 ### Card.Grid 属性
 
-- `hoverable`: boolean，悬停浮起，默认 `true`。
-- `style`: CSSProperties，样式。
-- `className`: string，类名。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `className`: string，网格容器类名。
+- `hoverable`: boolean，鼠标移过时可浮起，默认 true。
+- `style`: CSSProperties，定义网格容器类名的样式。
 
 ### Card.Meta 属性
 
-- `avatar`: ReactNode，头像。
-- `title`: ReactNode，标题。
-- `description`: ReactNode，描述。
-- `style`: CSSProperties，样式。
-- `className`: string，类名。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `avatar`: ReactNode，头像/图标。
+- `className`: string，容器类名。
+- `description`: ReactNode，描述内容。
+- `style`: CSSProperties，定义容器类名的样式。
+- `title`: ReactNode，标题内容。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 

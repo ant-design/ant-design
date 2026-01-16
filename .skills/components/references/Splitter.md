@@ -2,26 +2,55 @@
 
 ## 功能概述
 
-可以将区域分割为多个可调整大小的面板。
+自由切分指定区域。
+
+## 应用场景
+
+- 可以水平或垂直地分隔区域。
+- 当需要自由拖拽调整各区域大小。
+- 当需要指定区域的最大最小宽高时。
 
 ## 输入字段
 
 ### Splitter 属性
 
-- `layout`: string，布局方向，可选 `horizontal` | `vertical`，默认 `horizontal`。
-- `lazy`: boolean，懒更新模式（拖拽结束后才更新）（5.21.0+）。
-- `onResize`: (sizes) => void，面板大小变化回调。
-- `onResizeStart`: (sizes) => void，开始调整回调。
-- `onResizeEnd`: (sizes) => void，结束调整回调。
+#### 必填
 
-### Splitter.Panel 属性
+- 无必填属性。
 
-- `size`: number | string，面板大小（受控）。
-- `defaultSize`: number | string，默认大小。
-- `min`: number | string，最小尺寸。
-- `max`: number | string，最大尺寸。
-- `collapsible`: boolean | { start, end }，可折叠配置。
-- `resizable`: boolean，是否可调整大小，默认 `true`。
+#### 可选
+
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `collapsibleIcon`: `{start?: ReactNode; end?: ReactNode}`，折叠图标，版本 6.0.0。
+- `draggerIcon`: `ReactNode`，拖拽图标，版本 6.0.0。
+- `~~layout~~`: `horizontal` | `vertical`，布局方向，默认 `horizontal`。
+- `lazy`: `boolean`，延迟渲染模式，默认 `false`，版本 5.23.0。
+- `onCollapse`: `(collapsed: boolean[], sizes: number[]) => void`，展开-收起时回调，版本 5.28.0。
+- `orientation`: `horizontal` | `vertical`，布局方向，默认 `horizontal`。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `vertical`: boolean，排列方向，与 `orientation` 同时存在，以 `orientation` 优先，默认 `false`。
+- `onResize`: `(sizes: number[]) => void`，面板大小变化回调。
+- `onResizeEnd`: `(sizes: number[]) => void`，拖拽结束回调。
+- `onResizeStart`: `(sizes: number[]) => void`，开始拖拽之前回调。
+
+### Panel 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `collapsible`: `boolean | { start?: boolean; end?: boolean; showCollapsibleIcon?: boolean | 'auto' }`，快速折叠，默认 `false`，版本 showCollapsibleIcon: 5.27.0。
+- `defaultSize`: `number | string`，初始面板大小，支持数字 px 或者文字 '百分比%' 类型。
+- `max`: `number | string`，最大阈值，支持数字 px 或者文字 '百分比%' 类型。
+- `min`: `number | string`，最小阈值，支持数字 px 或者文字 '百分比%' 类型。
+- `resizable`: `boolean`，是否开启拖拽伸缩，默认 `true`。
+- `size`: `number | string`，受控面板大小，支持数字 px 或者文字 '百分比%' 类型。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -42,7 +71,6 @@ const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
 
 const App: React.FC = () => (
   <>
-    {/* 基础用法 */}
     <Splitter style={{ height: 300, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}>
       <Splitter.Panel>
         <Desc text="First" />
@@ -52,7 +80,6 @@ const App: React.FC = () => (
       </Splitter.Panel>
     </Splitter>
 
-    {/* 垂直布局 */}
     <Splitter layout="vertical" style={{ height: 300 }}>
       <Splitter.Panel>
         <Desc text="First" />
@@ -62,7 +89,6 @@ const App: React.FC = () => (
       </Splitter.Panel>
     </Splitter>
 
-    {/* 多面板 */}
     <Splitter style={{ height: 300 }}>
       <Splitter.Panel>
         <Desc text="First" />
@@ -75,7 +101,6 @@ const App: React.FC = () => (
       </Splitter.Panel>
     </Splitter>
 
-    {/* 设置大小限制 */}
     <Splitter style={{ height: 300 }}>
       <Splitter.Panel min={100} max={500}>
         <Desc text="First (min: 100, max: 500)" />
@@ -85,7 +110,6 @@ const App: React.FC = () => (
       </Splitter.Panel>
     </Splitter>
 
-    {/* 可折叠 */}
     <Splitter style={{ height: 300 }}>
       <Splitter.Panel collapsible>
         <Desc text="Collapsible" />
@@ -95,7 +119,6 @@ const App: React.FC = () => (
       </Splitter.Panel>
     </Splitter>
 
-    {/* 双向折叠 */}
     <Splitter style={{ height: 300 }}>
       <Splitter.Panel collapsible={{ start: true, end: true }}>
         <Desc text="Both collapsible" />
@@ -105,7 +128,6 @@ const App: React.FC = () => (
       </Splitter.Panel>
     </Splitter>
 
-    {/* 嵌套 */}
     <Splitter style={{ height: 300 }}>
       <Splitter.Panel>
         <Splitter layout="vertical">
@@ -122,7 +144,6 @@ const App: React.FC = () => (
       </Splitter.Panel>
     </Splitter>
 
-    {/* 受控 */}
     <Splitter style={{ height: 300 }} onResize={(sizes) => console.log('Resize:', sizes)}>
       <Splitter.Panel defaultSize="40%">
         <Desc text="40%" />

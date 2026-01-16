@@ -2,32 +2,66 @@
 
 ## 功能概述
 
-进行标记和分类的小标签。用于标记事物的属性和维度、分类。
+进行标记和分类的小标签。
+
+## 应用场景
+
+- 用于标记事物的属性和维度。
+- 进行分类。
 
 ## 输入字段
 
-### 必填
+### Tag 属性
 
-无必填属性。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `children`: ReactNode，标签内容。
-- `color`: string，标签颜色（预设或十六进制）。
-  - 预设颜色：`magenta` | `red` | `volcano` | `orange` | `gold` | `lime` | `green` | `cyan` | `blue` | `geekblue` | `purple`
-  - 状态颜色：`success` | `processing` | `error` | `warning` | `default`
-- `closable`: boolean | { closeIcon, disabled, 'aria-label' }，是否可关闭。
-- `closeIcon`: ReactNode，自定义关闭图标。
-- `icon`: ReactNode，标签图标。
-- `bordered`: boolean，是否有边框，默认 `true`。
-- `onClose`: (e) => void，关闭回调。
+#### 可选
+
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `closeIcon`: ReactNode，自定义关闭按钮。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮，默认 false，版本 4.4.0。
+- `color`: string，标签色。
+- `disabled`: boolean，是否禁用标签，默认 false，版本 6.0.0。
+- `href`: string，点击跳转的地址，指定此属性`tag`组件会渲染成 `<a>` 标签，版本 6.0.0。
+- `icon`: ReactNode，设置图标。
+- `onClose`: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void，关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为）。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `target`: string，相当于 a 标签的 target 属性，href 存在时生效，版本 6.0.0。
+- `variant`: `'filled' | 'solid' | 'outlined'`，标签变体，默认 `'filled'`，版本 6.0.0。
 
 ### Tag.CheckableTag 属性
 
-可选中标签：
+#### 必填
 
-- `checked`: boolean，是否选中。
-- `onChange`: (checked) => void，选中变化回调。
+- 无必填属性。
+
+#### 可选
+
+- `checked`: boolean，设置标签的选中状态，默认 false。
+- `icon`: ReactNode，设置图标，版本 5.27.0。
+- `onChange`: (checked) => void，点击标签时触发的回调。
+
+### Tag.CheckableTagGroup 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `classNames`: Record<[SemanticDOM](#semantic-group), string> | (info: { props }) => Record<[SemanticDOM](#semantic-group), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `defaultValue`: `string | number | Array<string | number> | null`，初始选中值。
+- `disabled`: `boolean`，禁用选中。
+- `multiple`: `boolean`，多选模式。
+- `options`: `Array<{ label: ReactNode; value: string | number } | string | number>`，选项列表。
+- `styles`: Record<[SemanticDOM](#semantic-group), CSSProperties> | (info: { props }) => Record<[SemanticDOM](#semantic-group), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `value`: `string | number | Array<string | number> | null`，选中值。
+- `onChange`: `(value: string | number | Array<string | number> | null) => void`，点击标签时触发的回调。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -52,7 +86,6 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical">
-      {/* 基础用法 */}
       <Space>
         <Tag>Tag 1</Tag>
         <Tag>
@@ -63,7 +96,6 @@ const App: React.FC = () => {
         </Tag>
       </Space>
 
-      {/* 颜色 */}
       <Space wrap>
         <Tag color="magenta">magenta</Tag>
         <Tag color="red">red</Tag>
@@ -78,7 +110,6 @@ const App: React.FC = () => {
         <Tag color="purple">purple</Tag>
       </Space>
 
-      {/* 状态颜色 */}
       <Space wrap>
         <Tag color="success">success</Tag>
         <Tag color="processing">processing</Tag>
@@ -87,7 +118,6 @@ const App: React.FC = () => {
         <Tag color="default">default</Tag>
       </Space>
 
-      {/* 带图标 */}
       <Space>
         <Tag icon={<TwitterOutlined />} color="#55acee">
           Twitter
@@ -97,7 +127,6 @@ const App: React.FC = () => {
         </Tag>
       </Space>
 
-      {/* 可选择标签 */}
       <Divider orientation="left">CheckableTag</Divider>
       <Space>
         {['Movies', 'Books', 'Music', 'Sports'].map((tag) => (

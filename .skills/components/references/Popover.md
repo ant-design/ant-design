@@ -2,35 +2,31 @@
 
 ## 功能概述
 
-点击/鼠标移入元素，弹出气泡式的卡片浮层。比 Tooltip 更复杂的弹出内容。
+点击/鼠标移入元素，弹出气泡式的卡片浮层。
+
+## 应用场景
+
+- 当目标元素有进一步的描述和相关操作时，可以收纳到卡片中，根据用户的操作行为进行展现。
+- 和 `Tooltip` 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。
 
 ## 输入字段
 
-### 必填
+### Popover 属性
 
-无必填属性。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `title`: ReactNode | () => ReactNode，卡片标题。
+#### 可选
+
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
 - `content`: ReactNode | () => ReactNode，卡片内容。
-- `children`: ReactNode，触发元素。
-- `placement`: string，气泡框位置，可选 `top` | `left` | `right` | `bottom` | `topLeft` | `topRight` | `bottomLeft` | `bottomRight` | `leftTop` | `leftBottom` | `rightTop` | `rightBottom`，默认 `top`。
-- `arrow`: boolean | { pointAtCenter }，箭头配置，默认 `true`。
-- `trigger`: string | string[]，触发方式，可选 `hover` | `focus` | `click` | `contextMenu`，默认 `hover`。
-- `open`: boolean，是否显示（受控）。
-- `defaultOpen`: boolean，默认是否显示。
-- `mouseEnterDelay`: number，鼠标移入延迟（秒），默认 `0.1`。
-- `mouseLeaveDelay`: number，鼠标移出延迟（秒），默认 `0.1`。
-- `overlayClassName`: string，浮层类名。
-- `overlayStyle`: CSSProperties，浮层样式。
-- `overlayInnerStyle`: CSSProperties，浮层内层样式。
-- `getPopupContainer`: (node) => HTMLElement，浮层容器。
-- `autoAdjustOverflow`: boolean，自动调整位置，默认 `true`。
-- `destroyTooltipOnHide`: boolean，隐藏时销毁。
-- `zIndex`: number，z-index。
-- `fresh`: boolean，内容是否始终保持最新（5.10.0+）。
-- `onOpenChange`: (open) => void，显示状态变化回调。
+- `title`: ReactNode | () => ReactNode，卡片标题。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -50,17 +46,14 @@ const content = (
 
 const App: React.FC = () => (
   <Space>
-    {/* 基础用法 */}
     <Popover content={content} title="Title">
       <Button type="primary">Hover me</Button>
     </Popover>
 
-    {/* 点击触发 */}
     <Popover content={content} title="Title" trigger="click">
       <Button>Click me</Button>
     </Popover>
 
-    {/* 不同位置 */}
     <Popover placement="topLeft" title="Title" content={content}>
       <Button>Top Left</Button>
     </Popover>
@@ -68,13 +61,9 @@ const App: React.FC = () => (
       <Button>Right Top</Button>
     </Popover>
 
-    {/* 无标题 */}
     <Popover content="Content without title">
       <Button>No Title</Button>
     </Popover>
-
-    {/* 受控 */}
-    {/* 使用 open 和 onOpenChange 控制显示 */}
   </Space>
 );
 ```

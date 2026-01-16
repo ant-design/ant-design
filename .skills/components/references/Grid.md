@@ -2,50 +2,52 @@
 
 ## 功能概述
 
-24 栅格系统，基于 Flex 布局的栅格系统。包含 Row 和 Col 组件。
+24 栅格系统。
+
+## 应用场景
+
+- 24 栅格系统。
+- 需要在页面中以一致样式呈现栅格能力时。
 
 ## 输入字段
 
 ### Row 属性
 
-- `children`: ReactNode，Col 组件。
-- `gutter`: number | `[horizontal, vertical]` | object，栅格间隔。
-  - 可以是数字：`gutter={16}`
-  - 可以是数组：`gutter={[16, 24]}`（水平，垂直）
-  - 可以是响应式对象：`gutter={{ xs: 8, sm: 16, md: 24 }}`
-- `align`: string，垂直对齐，可选 `top` | `middle` | `bottom` | `stretch`，默认 `top`。
-- `justify`: string，水平排列，可选 `start` | `end` | `center` | `space-around` | `space-between` | `space-evenly`，默认 `start`。
-- `wrap`: boolean，是否换行，默认 `true`。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `align`: `top` | `middle` | `bottom` | `stretch` | `{[key in 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl']: 'top' | 'middle' | 'bottom' | 'stretch'}`，垂直对齐方式，默认 `top`，版本 object: 4.24.0。
+- `gutter`: number | string | object | array，栅格间隔，可以写成[字符串CSS单位](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Values_and_Units)或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 `[水平间距, 垂直间距]`，默认 0，版本 string: 5.28.0。
+- `justify`: `start` | `end` | `center` | `space-around` | `space-between` | `space-evenly` | `{[key in 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl']: 'start' | 'end' | 'center' | 'space-around' | 'space-between' | 'space-evenly'}`，水平排列方式，默认 `start`，版本 object: 4.24.0。
+- `wrap`: boolean，是否自动换行，默认 true，版本 4.8.0。
 
 ### Col 属性
 
-- `children`: ReactNode，子组件。
-- `span`: number，栅格占位格数（0-24），为 0 时隐藏。
-- `offset`: number，左侧偏移格数。
-- `push`: number，右移格数。
-- `pull`: number，左移格数。
-- `order`: number，栅格顺序。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
 - `flex`: string | number，flex 布局属性。
+- `offset`: number，栅格左侧的间隔格数，间隔内不可以有栅格，默认 0。
+- `order`: number，栅格顺序，默认 0。
+- `pull`: number，栅格向左移动格数，默认 0。
+- `push`: number，栅格向右移动格数，默认 0。
+- `span`: number，栅格占位格数，为 0 时相当于 `display: none`。
+- `xs`: number | object，`窗口宽度 < 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象。
+- `sm`: number | object，`窗口宽度 ≥ 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象。
+- `md`: number | object，`窗口宽度 ≥ 768px` 响应式栅格，可为栅格数或一个包含其他属性的对象。
+- `lg`: number | object，`窗口宽度 ≥ 992px` 响应式栅格，可为栅格数或一个包含其他属性的对象。
+- `xl`: number | object，`窗口宽度 ≥ 1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象。
+- `xxl`: number | object，`窗口宽度 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象。
 
-### 响应式属性
+## 方法
 
-Col 支持响应式断点设置：
-
-- `xs`: number | object，<576px。
-- `sm`: number | object，≥576px。
-- `md`: number | object，≥768px。
-- `lg`: number | object，≥992px。
-- `xl`: number | object，≥1200px。
-- `xxl`: number | object，≥1600px。
-
-响应式对象格式：`{ span: 8, offset: 4 }`
-
-### useBreakpoint Hook
-
-```tsx
-const screens = Grid.useBreakpoint();
-// 返回 { xs: false, sm: true, md: true, lg: true, xl: false, xxl: false }
-```
+无公开方法。
 
 ## 使用建议
 
@@ -58,13 +60,11 @@ import { Col, Row } from 'antd';
 
 const App: React.FC = () => (
   <>
-    {/* 基础栅格 */}
     <Row>
       <Col span={12}>col-12</Col>
       <Col span={12}>col-12</Col>
     </Row>
 
-    {/* 带间隔 */}
     <Row gutter={16}>
       <Col span={6}>
         <div>col-6</div>
@@ -80,7 +80,6 @@ const App: React.FC = () => (
       </Col>
     </Row>
 
-    {/* 响应式 */}
     <Row gutter={{ xs: 8, sm: 16, md: 24 }}>
       <Col xs={24} sm={12} md={8} lg={6}>
         <div>col</div>
@@ -96,7 +95,6 @@ const App: React.FC = () => (
       </Col>
     </Row>
 
-    {/* 偏移 */}
     <Row>
       <Col span={8}>col-8</Col>
       <Col span={8} offset={8}>

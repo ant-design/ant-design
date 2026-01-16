@@ -2,25 +2,41 @@
 
 ## 功能概述
 
-区隔内容的分割线。用于对不同章节的文本段落进行分割或对行内文字/链接进行分割。
+区隔内容的分割线。
+
+## 应用场景
+
+- 对不同章节的文本段落进行分割。
+- 对行内文字/链接进行分割，例如表格的操作列。
 
 ## 输入字段
 
-### 必填
+### Divider 属性
 
-无必填属性。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `children`: ReactNode，分割线中的文字内容。
-- `type`: string，分割线类型，可选 `horizontal` | `vertical`，默认 `horizontal`。
-- `orientation`: string，分割线标题位置，可选 `left` | `right` | `center`，默认 `center`。
-- `orientationMargin`: string | number，标题和分割线之间的间距。
-- `dashed`: boolean，虚线样式，默认 `false`。
-- `plain`: boolean，文字普通样式（无加粗），默认 `false`。
-- `variant`: string，分割线样式（5.20.0+），可选 `solid` | `dashed` | `dotted`，默认 `solid`。
-- `className`: string，类名。
-- `style`: CSSProperties，样式。
+#### 可选
+
+- `children`: ReactNode，嵌套的标题。
+- `className`: string，分割线样式类。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `dashed`: boolean，是否虚线，默认 false。
+- `orientation`: `horizontal` | `vertical`，水平或垂直类型，默认 `horizontal`。
+- `~~orientationMargin~~`: string | number，标题和最近 left/right 边框之间的距离，去除了分割线，同时 `titlePlacement` 不能为 `center`。如果传入 `string` 类型的数字且不带单位，默认单位是 px。
+- `plain`: boolean，文字是否显示为普通正文样式，默认 false，版本 4.2.0。
+- `style`: CSSProperties，分割线样式对象。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `size`: `small` | `middle` | `large`，间距大小，仅对水平布局有效，版本 5.25.0。
+- `titlePlacement`: `start` | `end` | `center`，分割线标题的位置，默认 `center`。
+- `~~type~~`: `horizontal` | `vertical`，水平还是垂直类型，默认 `horizontal`。
+- `variant`: `dashed` | `dotted` | `solid`，分割线是虚线、点线还是实线，默认 solid，版本 5.20.0。
+- `vertical`: boolean，是否垂直，和 orientation 同时配置以 orientation 优先，默认 false。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -39,7 +55,6 @@ const App: React.FC = () => (
     <Divider dashed />
     <p>At vero eos et accusamus et iusto odio dignissimos.</p>
 
-    {/* 带文字 */}
     <Divider>Text</Divider>
     <Divider orientation="left">Left Text</Divider>
     <Divider orientation="right">Right Text</Divider>
@@ -47,7 +62,6 @@ const App: React.FC = () => (
       Plain Text
     </Divider>
 
-    {/* 垂直分割 */}
     <p>
       Text
       <Divider type="vertical" />

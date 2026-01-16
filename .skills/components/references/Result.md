@@ -4,19 +4,31 @@
 
 用于反馈一系列操作任务的处理结果。
 
+## 应用场景
+
+- 当有重要操作需告知用户处理结果，且反馈内容较为复杂时使用。
+
 ## 输入字段
 
-### 必填
+### Result 属性
 
-- `status`: string，结果状态，可选 `success` | `error` | `info` | `warning` | `404` | `403` | `500`。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `title`: ReactNode，标题。
-- `subTitle`: ReactNode，副标题。
-- `icon`: ReactNode，自定义图标。
+#### 可选
+
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>，自定义组件内部各语义化结构的类名。支持对象或函数。
 - `extra`: ReactNode，操作区。
-- `children`: ReactNode，自定义内容区。
+- `icon`: ReactNode，自定义 icon。
+- `status`: `success` | `error` | `info` | `warning` | `404` | `403` | `500`，结果的状态，决定图标和颜色，默认 `info`。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>，自定义组件内部各语义化结构的内联样式。支持对象或函数。
+- `subTitle`: ReactNode，subTitle 文字。
+- `title`: ReactNode，title 文字。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -32,7 +44,6 @@ const { Paragraph, Text } = Typography;
 
 const App: React.FC = () => (
   <>
-    {/* 成功 */}
     <Result
       status="success"
       title="Successfully Purchased Cloud Server ECS!"
@@ -45,7 +56,6 @@ const App: React.FC = () => (
       ]}
     />
 
-    {/* 失败 */}
     <Result
       status="error"
       title="Submission Failed"
@@ -72,20 +82,17 @@ const App: React.FC = () => (
       </div>
     </Result>
 
-    {/* 信息 */}
     <Result
       title="Your operation has been executed"
       extra={<Button type="primary">Go Console</Button>}
     />
 
-    {/* 警告 */}
     <Result
       status="warning"
       title="There are some problems with your operation."
       extra={<Button type="primary">Go Console</Button>}
     />
 
-    {/* 404 */}
     <Result
       status="404"
       title="404"
@@ -93,7 +100,6 @@ const App: React.FC = () => (
       extra={<Button type="primary">Back Home</Button>}
     />
 
-    {/* 403 */}
     <Result
       status="403"
       title="403"
@@ -101,7 +107,6 @@ const App: React.FC = () => (
       extra={<Button type="primary">Back Home</Button>}
     />
 
-    {/* 500 */}
     <Result
       status="500"
       title="500"
@@ -109,7 +114,6 @@ const App: React.FC = () => (
       extra={<Button type="primary">Back Home</Button>}
     />
 
-    {/* 自定义图标 */}
     <Result
       icon={<SmileOutlined />}
       title="Great, we have done all the operations!"

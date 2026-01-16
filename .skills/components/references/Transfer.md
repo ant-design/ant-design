@@ -2,104 +2,70 @@
 
 ## 功能概述
 
-双栏穿梭选择框，用于在两个集合之间进行数据转移。支持搜索、排序、自定义渲染等功能。
+双栏穿梭选择框。
 
-## 核心概念
+## 应用场景
 
-### 数据转移流程
-
-```
-dataSource（完整数据源）
-     ↓
- ┌─────────────────────────┐
- │ 左侧框（未选）  右侧框（已选） │
- │ targetKeys 控制  │
- └─────────────────────────┘
-     ↓
- 点击转移按钮
-     ↓
- onChange 回调（新的 targetKeys）
-     ↓
- 更新状态
-```
-
-### 关键数据结构
-
-```tsx
-// 穿梭框数据项
-interface TransferItem {
-  key: string; // 唯一标识（必须）
-  title: string; // 显示标题
-  description?: string; // 描述（可选）
-  disabled?: boolean; // 禁用
-  icon?: ReactNode; // 自定义图标
-}
-
-// onChange 事件信息
-interface TransferChangeInfo {
-  targetKeys: string[]; // 右侧框的 key 数组
-  direction: 'left' | 'right'; // 转移方向
-  moveKeys: string[]; // 本次转移的 key
-}
-
-// 选择信息
-interface TransferSelectInfo {
-  sourceSelectedKeys: string[]; // 左侧选中
-  targetSelectedKeys: string[]; // 右侧选中
-}
-
-// 搜索匹配项
-interface FilterOption {
-  inputValue: string;
-  item: TransferItem;
-}
-```
+- 需要在多个可选项中进行多选时。
+- 比起 Select 和 TreeSelect，穿梭框占据更大的空间，可以展示可选项的更多信息。
+- 穿梭选择框用直观的方式在两栏中移动元素，完成选择行为。
+- 选择一个或以上的选项后，点击对应的方向键，可以把选中的选项移动到另一栏。其中，左边一栏为 `source`，右边一栏为 `target`，API 的设计也反映了这两个概念。
 
 ## 输入字段
 
-### 必填
+### Transfer 属性
 
-- `dataSource`: TransferItem[]，数据源数组。
+#### 必填
 
-### 常用可选
+- 无必填属性。
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| `targetKeys` | string[] | - | 右侧框数据的 key（受控） |
-| `selectedKeys` | string[] | - | 选中项的 key（受控） |
-| `titles` | `[ReactNode, ReactNode]` | `['', '']` | 左右框标题 |
-| `operations` | `[string, string]` | - | 操作按钮文字 |
-| `showSearch` | boolean | false | 显示搜索框 |
-| `filterOption` | (inputValue, item) => boolean | - | 搜索过滤函数 |
-| `searchPlaceholder` | string | - | 搜索框占位（已废弃） |
-| `disabled` | boolean | false | 禁用状态 |
-| `showSelectAll` | boolean | true | 显示全选勾选框 |
-| `selectAllLabels` | ((checked, filtered) => ReactNode)[] | - | 全选标签 |
-| `listStyle` | CSSProperties | - | 列表样式 |
-| `rowKey` | (record) => string | - | 自定义行 key |
-| `footer` | (props, direction) => ReactNode | - | 底部渲染 |
-| `render` | (record) => ReactNode \| { label, value } | - | 每行渲染 |
-| `oneWay` | boolean | false | 单向模式（只能右转） |
-| `pagination` | boolean \| { pageSize, simple } | - | 分页配置 |
-| `locale` | object | - | 本地化文本 |
-| `status` | `'error'` \| `'warning'` | - | 校验状态 |
+#### 可选
 
-### 事件回调
+- `actions`: ReactNode\[]，操作文案集合，顺序从上至下。当为字符串数组时使用默认的按钮，当为 ReactNode 数组时直接使用自定义元素，默认 \[`>`, `<`]，版本 6.0.0。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `dataSource`: [RecordType extends TransferItem = TransferItem](https://github.com/ant-design/ant-design/blob/1bf0bab2a7bc0a774119f501806e3e0e3a6ba283/components/transfer/index.tsx#L12)\[]，数据源，其中的数据将会被渲染到左边一栏中，`targetKeys` 中指定的除外，默认 \[]。
+- `disabled`: boolean，是否禁用，默认 false。
+- `selectionsIcon`: React.ReactNode，自定义下拉菜单图标，版本 5.8.0。
+- `filterOption`: (inputValue, option, direction: `left` | `right`): boolean，根据搜索内容进行筛选，接收 `inputValue` `option` `direction` 三个参数，(`direction` 自5.9.0+支持)，当 `option` 符合筛选条件时，应返回 true，反之则返回 false。
+- `footer`: (props, { direction }) => ReactNode，底部渲染函数，版本 direction: 4.17.0。
+- `~~listStyle~~`: object|({direction: `left` | `right`}) => object，两个穿梭框的自定义样式，使用 `styles.section` 代替。
+- `locale`: { itemUnit: string; itemsUnit: string; searchPlaceholder: string; notFoundContent: ReactNode | ReactNode[]; }，各种语言，默认 { itemUnit: `项`, itemsUnit: `项`, searchPlaceholder: `请输入搜索内容` }。
+- `oneWay`: boolean，展示为单向样式，默认 false，版本 4.3.0。
+- `~~operations~~`: string\[]，操作文案集合，顺序从上至下。使用 `actions` 代替，默认 \[`>`, `<`]。
+- `~~operationStyle~~`: CSSProperties，操作栏的自定义样式，使用 `styles.actions` 代替。
+- `pagination`: boolean | { pageSize: number, simple: boolean, showSizeChanger?: boolean, showLessItems?: boolean }，使用分页样式，自定义渲染列表下无效，默认 false，版本 4.3.0。
+- `render`: (record) => ReactNode，每行数据渲染函数，该函数的入参为 `dataSource` 中的项，返回值为 ReactElement。或者返回一个普通对象，其中 `label` 字段为 ReactElement，`value` 字段为 title。
+- `selectAllLabels`: (ReactNode | (info: { selectedCount: number, totalCount: number }) => ReactNode)\[]，自定义顶部多选框标题的集合。
+- `selectedKeys`: string\[] | number\[]，设置哪些项应该被选中，默认 \[]。
+- `showSearch`: boolean | { placeholder:string,defaultValue:string }，是否显示搜索框，或可对两侧搜索框进行配置，默认 false。
+- `showSelectAll`: boolean，是否展示全选勾选框，默认 true。
+- `status`: 'error' | 'warning'，设置校验状态，版本 4.19.0。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `targetKeys`: string\[] | number\[]，显示在右侧框数据的 key 集合，默认 \[]。
+- `titles`: ReactNode\[]，标题集合，顺序从左至右。
+- `onChange`: (targetKeys, direction, moveKeys): void，选项在两栏之间转移时的回调函数。
+- `onScroll`: (direction, event): void，选项列表滚动时的回调函数。
+- `onSearch`: (direction: `left` | `right`, value: string): void，搜索框内容时改变时的回调函数。
+- `onSelectChange`: (sourceSelectedKeys, targetSelectedKeys): void，选中项发生改变时的回调函数。
 
-- `onChange`: (targetKeys, direction, moveKeys) => void，选中项变化回调。
-- `onSelectChange`: (sourceSelectedKeys, targetSelectedKeys) => void，选中变化回调。
-- `onSearch`: (direction, value) => void，搜索变化回调。
-- `onScroll`: (direction, event) => void，滚动回调。
+### children 属性
 
-### 高级用法：自定义渲染
+#### 必填
 
-```tsx
-<Transfer {...props}>
-  {({ direction, filteredItems, onItemSelect, onItemSelectAll }) => (
-    <YourCustomComponent {...} />
-  )}
-</Transfer>
-```
+- 无必填属性。
+
+#### 可选
+
+- `direction`: `left` | `right`，渲染列表的方向。
+- `disabled`: boolean，是否禁用列表。
+- `filteredItems`: RecordType\[]，过滤后的数据。
+- `selectedKeys`: string\[] | number\[]，选中的条目。
+- `onItemSelect`: (key: string | number, selected: boolean)，勾选条目。
+- `onItemSelectAll`: (keys: string\[] | number\[], selected: boolean)，勾选一组条目。
+
+## 方法
+
+无公开方法。
 
 ## 常见场景示例
 
@@ -214,17 +180,14 @@ const App: React.FC = () => {
     setTargetKeys(nextTargetKeys);
   };
 
-  // 全选到右侧
   const selectAll = () => {
     setTargetKeys(mockData.map((item) => item.key));
   };
 
-  // 全部清除
   const clearAll = () => {
     setTargetKeys([]);
   };
 
-  // 反向选择
   const reverse = () => {
     const newKeys = mockData
       .filter((item) => !targetKeys.includes(item.key))
@@ -359,34 +322,6 @@ const App: React.FC = () => {
     />
   );
 };
-```
-
-## AI 生成指引
-
-### 场景判断表
-
-| 用户需求     | 选择方案                  | 关键属性                         |
-| ------------ | ------------------------- | -------------------------------- |
-| 简单穿梭     | Transfer 基础             | dataSource, targetKeys, onChange |
-| 搜索功能     | showSearch + filterOption | showSearch, filterOption         |
-| 自定义显示   | render                    | render 函数                      |
-| 自定义行渲染 | render + 返回 ReactNode   | render 函数                      |
-| 受控模式     | targetKeys + onChange     | targetKeys, onChange             |
-| 单向穿梭     | oneWay                    | oneWay={true}                    |
-| 大数据分页   | pagination                | pagination={ pageSize: 10 }      |
-| 自定义标签   | selectAllLabels           | selectAllLabels                  |
-| 禁用某些项   | disabled                  | dataSource 中 disabled 属性      |
-| 自定义底部   | footer                    | footer 函数                      |
-| 响应式       | listStyle                 | listStyle 对象                   |
-
-### 类型导入
-
-```tsx
-import type {
-  TransferDirection, // 转移方向类型
-  TransferItem, // 数据项类型
-  TransferProps, // Transfer 组件 props 类型
-} from 'antd';
 ```
 
 ## 使用建议

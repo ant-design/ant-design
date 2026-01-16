@@ -2,43 +2,88 @@
 
 ## 功能概述
 
-在需要等待加载内容的位置提供一个占位图形组合。用于页面内容加载时的占位展示。
+在需要等待加载内容的位置提供一个占位图形组合。
+
+## 应用场景
+
+- 网络较慢，需要长时间等待加载处理的情况下。
+- 图文信息内容较多的列表/卡片中。
+- 只在第一次加载数据的时候使用。
+- 可以被 Spin 完全代替，但是在可用的场景下可以比 Spin 提供更好的视觉效果和用户体验。
 
 ## 输入字段
 
-### 必填
+### Skeleton 属性
 
-无必填属性。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `active`: boolean，显示动画效果，默认 `false`。
-- `loading`: boolean，为 `true` 时显示骨架屏，为 `false` 时显示子组件，默认 `true`。
-- `children`: ReactNode，加载完成后显示的内容。
-- `avatar`: boolean | AvatarProps，显示头像占位。
-  - `active`: boolean，是否显示动画。
-  - `size`: number | `large` | `small` | `default`，尺寸。
-  - `shape`: `circle` | `square`，形状。
-- `title`: boolean | TitleProps，显示标题占位。
-  - `width`: string | number，宽度。
-- `paragraph`: boolean | ParagraphProps，显示段落占位。
-  - `rows`: number，行数。
-  - `width`: string | number | (string | number)[]，每行宽度。
-- `round`: boolean，段落和标题显示圆角。
+#### 可选
 
-### 子组件
+- `avatar`: boolean | [SkeletonAvatar](#skeletonavatar)，是否显示头像占位图，默认 false。
+- `loading`: boolean，为 true 时，显示占位图。反之则直接展示子组件。
+- `paragraph`: boolean | [SkeletonParagraphProps](#skeletonparagraphprops)，是否显示段落占位图，默认 true。
+- `round`: boolean，为 true 时，段落和标题显示圆角，默认 false。
+- `title`: boolean | [SkeletonTitleProps](#skeletontitleprops)，是否显示标题占位图，默认 true。
 
-- `Skeleton.Avatar`: 头像骨架。
-- `Skeleton.Button`: 按钮骨架。
-- `Skeleton.Input`: 输入框骨架。
-- `Skeleton.Image`: 图片骨架。
-- `Skeleton.Node`: 自定义节点骨架。
+### SkeletonTitleProps 属性
 
-### 子组件通用属性
+#### 必填
 
-- `active`: boolean，是否显示动画。
-- `size`: string，尺寸。
-- `shape`: string，形状（部分组件）。
+- 无必填属性。
+
+#### 可选
+
+- `width`: number | string，设置标题占位图的宽度。
+
+### SkeletonParagraphProps 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `rows`: number，设置段落占位图的行数。
+- `width`: number | string | Array<number | string>，设置段落占位图的宽度，若为数组时则为对应的每行宽度，反之则是最后一行的宽度。
+
+### Skeleton.Avatar 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `shape`: `circle` | `square`，指定头像的形状，默认 `circle`。
+- `size`: number | `large` | `small` | `default`，设置头像占位图的大小，默认 `default`。
+
+### Skeleton.Button 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `block`: boolean，将按钮宽度调整为其父宽度的选项，默认 false，版本 4.17.0。
+- `shape`: `circle` | `round` | `square` | `default`，指定按钮的形状。
+- `size`: `large` | `small` | `default`，设置按钮的大小。
+
+### Skeleton.Input 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `size`: `large` | `small` | `default`，设置输入框的大小。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 

@@ -2,41 +2,56 @@
 
 ## 功能概述
 
-语义化的矢量图形。使用图标组件需要安装 `@ant-design/icons` 图标组件包。
+语义化的矢量图形。
 
-## 安装
+## 应用场景
 
-```bash
-npm install @ant-design/icons --save
-```
+- 语义化的矢量图形。
+- 需要在页面中以一致样式呈现图标能力时。
 
 ## 输入字段
 
-### 通用属性
+### 通用图标 属性
 
-- `className`: string，设置图标的类名。
-- `style`: CSSProperties，设置图标的样式。
-- `spin`: boolean，是否有旋转动画，默认 `false`。
-- `rotate`: number，图标旋转角度。
-- `twoToneColor`: string | `[string, string]`，双色图标的主题色（仅双色图标）。
+#### 必填
 
-### 自定义图标
+- 无必填属性。
 
-使用 `createFromIconfontCN` 方法创建自定义图标：
+#### 可选
 
-```tsx
-import { createFromIconfontCN } from '@ant-design/icons';
+- `className`: string，设置图标的样式名。
+- `rotate`: number，图标旋转角度（IE9 无效）。
+- `spin`: boolean，是否有旋转动画，默认 false。
+- `style`: CSSProperties，设置图标的样式，例如 `fontSize` 和 `color`。
+- `twoToneColor`: string | string[]，仅适用双色图标。设置双色图标的主要颜色，支持设置十六进制颜色字符串。
 
-const IconFont = createFromIconfontCN({
-  scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js',
-});
-```
+### 自定义 Icon 属性
 
-## 图标分类
+#### 必填
 
-- **线框图标**：如 `HomeOutlined`、`SettingOutlined`
-- **实底图标**：如 `HomeFilled`、`SettingFilled`
-- **双色图标**：如 `HomeTwoTone`、`SettingTwoTone`
+- 无必填属性。
+
+#### 可选
+
+- `component`: ComponentType<CustomIconComponentProps>，控制如何渲染图标，通常是一个渲染根标签为 `<svg>` 的 React 组件。
+- `rotate`: number，图标旋转角度（IE9 无效）。
+- `spin`: boolean，是否有旋转动画，默认 false。
+- `style`: CSSProperties，设置图标的样式，例如 `fontSize` 和 `color`。
+
+### <use> 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `extraCommonProps`: { \[key: string]: any }，给所有的 `svg` 图标 `<Icon />` 组件设置额外的属性，默认 {}。
+- `scriptUrl`: string | string\[]，[iconfont.cn](http://iconfont.cn/) 项目在线生成的 js 地址，`@ant-design/icons@4.1.0` 之后支持 `string[]` 类型。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -45,9 +60,6 @@ const IconFont = createFromIconfontCN({
 ## 示例代码
 
 ```tsx
-// 使用 iconfont.cn
-
-// 自定义 SVG 图标
 import Icon, {
   CheckCircleTwoTone,
   createFromIconfontCN,
@@ -64,30 +76,24 @@ import type { GetProps } from 'antd';
 
 const App: React.FC = () => (
   <Space size="large">
-    {/* 基础使用 */}
     <HomeOutlined />
     <SettingFilled />
     <SmileOutlined />
 
-    {/* 旋转动画 */}
     <SyncOutlined spin />
     <LoadingOutlined />
 
-    {/* 自定义旋转角度 */}
     <SmileOutlined rotate={180} />
 
-    {/* 双色图标 */}
     <SmileTwoTone />
     <HeartTwoTone twoToneColor="#eb2f96" />
     <CheckCircleTwoTone twoToneColor="#52c41a" />
 
-    {/* 配合 Button */}
     <Button type="primary" icon={<HomeOutlined />}>
       Home
     </Button>
     <Button icon={<SettingFilled />} />
 
-    {/* 设置样式 */}
     <HomeOutlined style={{ fontSize: '24px', color: '#08c' }} />
   </Space>
 );

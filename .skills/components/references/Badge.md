@@ -2,35 +2,52 @@
 
 ## 功能概述
 
-图标右上角的圆形徽标数字或状态点。用于展示需要关注的数量或状态。
+图标右上角的圆形徽标数字。
+
+## 应用场景
+
+- 一般出现在通知图标或头像的右上角，用于显示需要处理的消息条数，通过醒目视觉形式吸引用户处理。
 
 ## 输入字段
 
-### 必填
+### Badge 属性
 
-无必填属性。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `count`: ReactNode，展示的数字或内容。
-- `dot`: boolean，不展示数字，只有一个小红点。
-- `showZero`: boolean，当数值为 0 时是否展示，默认 `false`。
-- `overflowCount`: number，封顶数字，超过显示 `${overflowCount}+`，默认 `99`。
-- `size`: string，尺寸，可选 `default` | `small`，默认 `default`。
-- `color`: string，自定义徽标颜色（预设或十六进制）。
-- `status`: string，状态点，可选 `success` | `processing` | `default` | `error` | `warning`。
-- `text`: ReactNode，状态点的文本。
-- `title`: string，鼠标悬停时显示的标题。
-- `offset`: `[number, number]`，偏移量 `[left, top]`。
-- `styles`: { root, indicator }，各部分样式（5.10.0+）。
-- `classNames`: { root, indicator }，各部分类名（5.7.0+）。
+#### 可选
+
+- `color`: string，自定义小圆点的颜色。
+- `count`: ReactNode，展示的数字，大于 overflowCount 时显示为 `${overflowCount}+`，为 0 时隐藏。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `dot`: boolean，不展示数字，只有一个小红点，默认 false。
+- `offset`: \[number, number]，设置状态点的位置偏移。
+- `overflowCount`: number，展示封顶的数字值，默认 99。
+- `showZero`: boolean，当数值为 0 时，是否展示 Badge，默认 false。
+- `size`: `default` | `small`，在设置了 `count` 的前提下有效，设置小圆点的大小。
+- `status`: `success` | `processing` | `default` | `error` | `warning`，设置 Badge 为状态点。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `text`: ReactNode，在设置了 `status` 的前提下有效，设置状态点的文本。
+- `title`: string，设置鼠标放在状态点上时显示的文字。
 
 ### Badge.Ribbon 属性
 
-- `children`: ReactNode，包裹内容。
-- `text`: ReactNode，缎带文本。
-- `color`: string，缎带颜色。
-- `placement`: string，位置，可选 `start` | `end`，默认 `end`。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `color`: string，自定义缎带的颜色。
+- `placement`: `start` | `end`，缎带的位置，`start` 和 `end` 随文字方向（RTL 或 LTR）变动，默认 `end`。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `text`: ReactNode，缎带中填入的内容。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -49,7 +66,6 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical">
-      {/* 基础用法 */}
       <Space size="large">
         <Badge count={5}>
           <Avatar shape="square" size="large" />
@@ -62,12 +78,10 @@ const App: React.FC = () => {
         </Badge>
       </Space>
 
-      {/* 小红点 */}
       <Badge dot>
         <a href="#">Link something</a>
       </Badge>
 
-      {/* 封顶数字 */}
       <Space>
         <Badge count={99}>
           <Avatar shape="square" size="large" />
@@ -80,7 +94,6 @@ const App: React.FC = () => {
         </Badge>
       </Space>
 
-      {/* 状态点 */}
       <Space>
         <Badge status="success" text="Success" />
         <Badge status="error" text="Error" />
@@ -89,7 +102,6 @@ const App: React.FC = () => {
         <Badge status="warning" text="Warning" />
       </Space>
 
-      {/* 缎带 */}
       <Badge.Ribbon text="Ribbon" color="pink">
         <div style={{ padding: 20, background: '#f5f5f5' }}>Content</div>
       </Badge.Ribbon>

@@ -2,27 +2,30 @@
 
 ## 功能概述
 
-新的包裹组件，提供 message, notification, modal 等方法的上下文支持。
+提供重置样式和提供消费上下文的默认环境。
+
+## 应用场景
+
+- 提供可消费 React context 的 `message.xxx`、`Modal.xxx`、`notification.xxx` 的静态方法，可以简化 useMessage 等方法需要手动植入 `contextHolder` 的问题。
+- 提供基于 `.ant-app` 的默认重置样式，解决原生元素没有 antd 规范样式的问题。
 
 ## 输入字段
 
-### 可选
+### App 属性
 
-- `message`: MessageConfig，全局化配置。
-- `notification`: NotificationConfig，全局化配置。
-- `component`: ComponentType | false，设置渲染元素，默认 `div`。
-- `className`: string，类名。
-- `style`: CSSProperties，样式。
+#### 必填
 
-### Hooks 返回
+- 无必填属性。
 
-```tsx
-const { message, notification, modal } = App.useApp();
-```
+#### 可选
 
-- `message`: 返回 message 实例方法。
-- `notification`: 返回 notification 实例方法。
-- `modal`: 返回 Modal.confirm 等方法。
+- `component`: ComponentType | false，设置渲染元素，为 `false` 则不创建 DOM 节点，默认 div，版本 5.11.0。
+- `message`: [MessageConfig](/components/message-cn/#messageconfig)，App 内 Message 的全局配置，版本 5.3.0。
+- `notification`: [NotificationConfig](/components/notification-cn/#notificationconfig)，App 内 Notification 的全局配置，版本 5.3.0。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -31,10 +34,8 @@ const { message, notification, modal } = App.useApp();
 ## 示例代码
 
 ```tsx
-// 嵌入 ConfigProvider
 import { App, Button, ConfigProvider, Space } from 'antd';
 
-// 子组件使用 useApp
 const MyPage: React.FC = () => {
   const { message, notification, modal } = App.useApp();
 
@@ -68,7 +69,6 @@ const MyPage: React.FC = () => {
   );
 };
 
-// 应用根组件
 const AppRoot: React.FC = () => (
   <App>
     <MyPage />
@@ -77,7 +77,6 @@ const AppRoot: React.FC = () => (
 
 export default AppRoot;
 
-// 配置 message 和 notification
 const AppWithConfig: React.FC = () => (
   <App message={{ maxCount: 3 }} notification={{ placement: 'topRight' }}>
     <MyPage />

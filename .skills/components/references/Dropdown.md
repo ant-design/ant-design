@@ -2,64 +2,45 @@
 
 ## 功能概述
 
-向下弹出的列表。当页面上的操作命令过多时，用此组件可以收纳操作元素。
+向下弹出的列表。
+
+## 应用场景
+
+- 当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。
+- 用于收罗一组命令操作。
+- Select 用于选择，而 Dropdown 是命令集合。
 
 ## 输入字段
 
-### 必填
+### Dropdown 属性
 
-- `menu`: MenuProps，菜单配置。
+#### 必填
 
-### MenuProps 结构
+- 无必填属性。
 
-```tsx
-interface MenuProps {
-  items: MenuItem[]; // 菜单项
-  onClick?: (info) => void; // 点击回调
-  selectedKeys?: string[]; // 选中项
-  selectable?: boolean; // 是否可选
-  multiple?: boolean; // 多选
-}
+#### 可选
 
-interface MenuItem {
-  key: string;
-  label: ReactNode;
-  icon?: ReactNode;
-  disabled?: boolean;
-  danger?: boolean;
-  children?: MenuItem[]; // 子菜单
-  type?: 'group' | 'divider';
-}
-```
+- `arrow`: boolean | { pointAtCenter: boolean }，下拉框箭头是否显示，默认 false。
+- `autoAdjustOverflow`: boolean，下拉框被遮挡时自动调整位置，默认 true，版本 5.2.0。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>，用于自定义 Dropdown 组件内部各语义化结构的 class，支持对象或函数。
+- `disabled`: boolean，菜单是否禁用。
+- `~~destroyPopupOnHide~~`: boolean，关闭后是否销毁 Dropdown，使用 `destroyOnHidden` 替换，默认 false。
+- `destroyOnHidden`: boolean，关闭后是否销毁 Dropdown，默认 false，版本 5.25.0。
+- `~~dropdownRender~~`: (menus: ReactNode) => ReactNode，自定义下拉框内容，使用 `popupRender` 替换，版本 4.24.0。
+- `popupRender`: (menus: ReactNode) => ReactNode，自定义弹出框内容，版本 5.25.0。
+- `getPopupContainer`: (triggerNode: HTMLElement) => HTMLElement，菜单渲染父节点。默认渲染到 body 上，如果你遇到菜单滚动定位问题，试试修改为滚动的区域，并相对其定位。[示例](https://codepen.io/afc163/pen/zEjNOy?editors=0010)，默认 () => document.body。
+- `menu`: [MenuProps](/components/menu-cn#api)，菜单配置项。
+- `~~overlayClassName~~`: string，下拉根元素的类名称, 请使用 `classNames.root` 替换。
+- `~~overlayStyle~~`: CSSProperties，下拉根元素的样式，请使用 `styles.root`。
+- `placement`: string，菜单弹出位置：`bottom` `bottomLeft` `bottomRight` `top` `topLeft` `topRight`，默认 `bottomLeft`。
+- `styles`: Record<[SemanticDOM](#semantic-dom) , CSSProperties> | (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties>，用于自定义 Dropdown 组件内部各语义化结构的行内 style，支持对象或函数。
+- `trigger`: Array<`click`|`hover`|`contextMenu`>，触发下拉的行为，移动端不支持 hover，默认 \[`hover`]。
+- `open`: boolean，菜单是否显示。
+- `onOpenChange`: (open: boolean, info: { source: 'trigger' | 'menu' }) => void，菜单显示状态改变时调用，点击菜单按钮导致的消失不会触发，版本 `info.source`: 5.11.0。
 
-### 可选
+## 方法
 
-- `children`: ReactNode，触发元素。
-- `trigger`: string[]，触发方式，可选 `click` | `hover` | `contextMenu`，默认 `['hover']`。
-- `placement`: string，弹出位置，可选 `bottom` | `bottomLeft` | `bottomRight` | `top` | `topLeft` | `topRight`，默认 `bottomLeft`。
-- `arrow`: boolean | { pointAtCenter }，箭头配置。
-- `open`: boolean，是否显示（受控）。
-- `disabled`: boolean，禁用。
-- `autoFocus`: boolean，打开后自动聚焦。
-- `autoAdjustOverflow`: boolean，自动调整位置，默认 `true`。
-- `destroyPopupOnHide`: boolean，隐藏时销毁。
-- `dropdownRender`: (menu) => ReactNode，自定义下拉内容。
-- `overlayClassName`: string，下拉类名。
-- `overlayStyle`: CSSProperties，下拉样式。
-- `getPopupContainer`: (node) => HTMLElement，下拉容器。
-- `onOpenChange`: (open, info) => void，显示状态变化回调。
-
-### Dropdown.Button 属性
-
-按钮下拉菜单，继承 Dropdown 属性，额外：
-
-- `buttonsRender`: (buttons) => `[ReactNode, ReactNode]`，自定义按钮渲染。
-- `loading`: boolean | { delay }，加载状态。
-- `danger`: boolean，危险样式。
-- `icon`: ReactNode，右侧按钮图标。
-- `size`: string，按钮尺寸。
-- `type`: string，按钮类型。
-- `onClick`: (e) => void，左侧按钮点击回调。
+无公开方法。
 
 ## 使用建议
 
@@ -82,7 +63,6 @@ const items: MenuProps['items'] = [
 
 const App: React.FC = () => (
   <Space>
-    {/* 基础用法 */}
     <Dropdown menu={{ items }}>
       <a onClick={(e) => e.preventDefault()}>
         <Space>
@@ -92,7 +72,6 @@ const App: React.FC = () => (
       </a>
     </Dropdown>
 
-    {/* 点击触发 */}
     <Dropdown menu={{ items }} trigger={['click']}>
       <a onClick={(e) => e.preventDefault()}>
         <Space>
@@ -102,17 +81,14 @@ const App: React.FC = () => (
       </a>
     </Dropdown>
 
-    {/* 带按钮 */}
     <Dropdown.Button menu={{ items }} onClick={() => console.log('click left button')}>
       Dropdown
     </Dropdown.Button>
 
-    {/* 右键菜单 */}
     <Dropdown menu={{ items }} trigger={['contextMenu']}>
       <div style={{ padding: 20, background: '#f5f5f5' }}>Right Click on here</div>
     </Dropdown>
 
-    {/* 带箭头 */}
     <Dropdown menu={{ items }} arrow>
       <Button>With Arrow</Button>
     </Dropdown>

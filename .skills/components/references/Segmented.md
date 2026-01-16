@@ -2,36 +2,55 @@
 
 ## 功能概述
 
-分段控制器。用于展示多个选项并允许用户选择其中单个选项。
+用于展示多个选项并允许用户选择其中单个选项。
+
+## 应用场景
+
+- 用于展示多个选项并允许用户选择其中单个选项；。
+- 当切换选中选项时，关联区域的内容会发生变化。
 
 ## 输入字段
 
-### 必填
+### Segmented 属性
 
-- `options`: (string | number | SegmentedItemType)[]，选项配置。
+#### 必填
 
-### SegmentedItemType 结构
+- 无必填属性。
 
-```tsx
-interface SegmentedItemType {
-  label: ReactNode; // 显示文本
-  value: string | number; // 选项值
-  icon?: ReactNode; // 图标
-  disabled?: boolean; // 禁用
-  className?: string; // 类名
-}
-```
+#### 可选
 
-### 可选
+- `block`: boolean，将宽度调整为父元素宽度的选项，默认 false。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>，用于自定义 Segmented 组件内部各语义化结构的 class，支持对象或函数。
+- `defaultValue`: string | number，默认选中的值。
+- `disabled`: boolean，是否禁用，默认 false。
+- `onChange`: function(value: string | number)，选项变化时的回调函数。
+- `options`: string\[] | number\[] | SegmentedItemType\[]，数据化配置选项内容，默认 []。
+- `orientation`: `horizontal` | `vertical`，排列方向，默认 `horizontal`。
+- `size`: `large` | `middle` | `small`，控件尺寸，默认 `middle`。
+- `styles`: Record<[SemanticDOM](#semantic-dom) , CSSProperties> | (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties>，用于自定义 Segmented 组件内部各语义化结构的行内 style，支持对象或函数。
+- `vertical`: boolean，排列方向，与 `orientation` 同时存在，以 `orientation` 优先，默认 `false`，版本 5.21.0。
+- `value`: string | number，当前选中的值。
+- `shape`: `default` | `round`，形状，默认 `default`，版本 5.24.0。
+- `name`: string，Segmented 下所有 `input[type="radio"]` 的 `name` 属性。若未设置，则将回退到随机生成的名称，版本 5.23.0。
 
-- `value`: string | number，当前值（受控）。
-- `defaultValue`: string | number，默认值。
-- `block`: boolean，撑满容器宽度，默认 `false`。
-- `disabled`: boolean，禁用所有选项。
-- `size`: string，尺寸，可选 `large` | `middle` | `small`，默认 `middle`。
-- `vertical`: boolean，垂直排列（5.22.0+）。
-- `shape`: string，形状，可选 `default` | `round`（5.22.0+）。
-- `onChange`: (value) => void，选项变化回调。
+### SegmentedItemType 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `className`: string，自定义类名。
+- `disabled`: boolean，分段项的禁用状态，默认 false。
+- `icon`: ReactNode，分段项的显示图标。
+- `label`: ReactNode，分段项的显示文本。
+- `tooltip`: string | [TooltipProps](../tooltip/index.zh-CN.md#api)，分段项的工具提示。
+- `value`: string | number，分段项的值。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -49,13 +68,10 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical">
-      {/* 基础用法 */}
       <Segmented options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
 
-      {/* 受控 */}
       <Segmented options={['Map', 'Transit', 'Satellite']} value={value} onChange={setValue} />
 
-      {/* 禁用 */}
       <Segmented
         options={[
           { label: 'Daily', value: 'daily' },
@@ -64,7 +80,6 @@ const App: React.FC = () => {
         ]}
       />
 
-      {/* 带图标 */}
       <Segmented
         options={[
           { label: 'List', value: 'list', icon: <BarsOutlined /> },
@@ -72,7 +87,6 @@ const App: React.FC = () => {
         ]}
       />
 
-      {/* 仅图标 */}
       <Segmented
         options={[
           { value: 'list', icon: <BarsOutlined /> },
@@ -80,15 +94,12 @@ const App: React.FC = () => {
         ]}
       />
 
-      {/* 不同尺寸 */}
       <Segmented size="small" options={['Daily', 'Weekly', 'Monthly']} />
       <Segmented options={['Daily', 'Weekly', 'Monthly']} />
       <Segmented size="large" options={['Daily', 'Weekly', 'Monthly']} />
 
-      {/* 撑满 */}
       <Segmented block options={['Daily', 'Weekly', 'Monthly', 'Quarterly', 'Yearly']} />
 
-      {/* 自定义渲染 */}
       <Segmented
         options={[
           {

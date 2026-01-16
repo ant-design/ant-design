@@ -2,125 +2,114 @@
 
 ## 功能概述
 
-模态对话框，用于需要用户处理事务又不希望跳转页面以致打断工作流程时使用。支持命令式和声明式调用，可实现确认、提示、输入等多种交互。
+展示一个对话框，提供标题、内容区、操作区。
 
-## 核心概念
+## 应用场景
 
-### Modal 交互流程
-
-```
-用户触发 (Click)
-     ↓
- Modal 打开 (open={true})
-     ↓
- 用户交互 (Click Button)
-     ↓
- onOk/onCancel 回调执行
-     ↓
- Modal 关闭 (open={false})
-     ↓
- afterClose 生命周期
-```
-
-### 关键数据结构
-
-```tsx
-// 对话框配置
-interface ModalConfig {
-  title?: ReactNode; // 标题
-  content?: ReactNode; // 内容
-  okText?: ReactNode; // 确定按钮文本
-  cancelText?: ReactNode; // 取消按钮文本
-  okType?: 'primary' | 'default' | 'dashed' | 'text' | 'link';
-  width?: string | number; // 宽度
-  centered?: boolean; // 居中显示
-  closable?: boolean; // 显示关闭按钮
-  keyboard?: boolean; // ESC 关闭
-  maskClosable?: boolean; // 点击遮罩关闭
-  confirmLoading?: boolean; // 确定按钮加载状态
-}
-
-// 静态方法返回值
-interface ModalInstance {
-  destroy: () => void; // 销毁对话框
-  update: (config) => void; // 更新配置
-}
-
-// Modal.useModal() 返回值
-interface UseModalReturnType {
-  modal: {
-    confirm: (config) => ModalInstance;
-    info: (config) => ModalInstance;
-    success: (config) => ModalInstance;
-    error: (config) => ModalInstance;
-    warning: (config) => ModalInstance;
-  };
-  contextHolder: ReactNode;
-}
-```
+- 需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 `Modal` 在当前页面正中打开一个浮层，承载相应的操作。
+- 另外当需要一个简洁的确认框询问用户时，可以使用 [`App.useApp`](/components/app-cn/) 封装的语法糖方法。
 
 ## 输入字段
 
-### 必填
+### Modal 属性
 
-- `open`: boolean，对话框是否可见（5.0+ 使用 `open` 替代 `visible`）。
+#### 必填
 
-### 常用可选
+- 无必填属性。
 
-| 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| `title` | ReactNode | - | 对话框标题 |
-| `children` | ReactNode | - | 对话框内容 |
-| `footer` | ReactNode \| (originNode, extra) => ReactNode | - | 底部按钮区域 |
-| `width` | string \| number | `520` | 对话框宽度 |
-| `centered` | boolean | false | 垂直居中显示 |
-| `closable` | boolean \| { closeIcon, disabled } | true | 显示关闭按钮 |
-| `mask` | boolean | true | 显示遮罩 |
-| `maskClosable` | boolean | true | 点击遮罩关闭 |
-| `keyboard` | boolean | true | ESC 关闭 |
-| `confirmLoading` | boolean | false | 确定按钮 loading |
-| `okText` | ReactNode | `'确定'` | 确定按钮文字 |
-| `cancelText` | ReactNode | `'取消'` | 取消按钮文字 |
-| `okType` | `'primary'` \| `'default'` | `'primary'` | 确定按钮类型 |
-| `loading` | boolean | false | 内容区域 loading（5.18.0+） |
+#### 可选
 
-### 按钮配置
+- `afterClose`: function，Modal 完全关闭后的回调。
+- `cancelButtonProps`: [ButtonProps](/components/button-cn#api)，cancel 按钮 props。
+- `cancelText`: ReactNode，取消按钮文字，默认 `取消`。
+- `centered`: boolean，垂直居中展示 Modal，默认 false。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>，用于自定义 Modal 组件内部各语义化结构的 class，支持对象或函数。
+- `closable`: boolean | [ClosableType](#closabletype)，是否显示右上角的关闭按钮，默认 true。
+- `closeIcon`: ReactNode，自定义关闭图标。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮，默认 <CloseOutlined />。
+- `confirmLoading`: boolean，确定按钮 loading，默认 false。
+- `~~destroyOnClose~~`: boolean，关闭时销毁 Modal 里的子元素，默认 false。
+- `destroyOnHidden`: boolean，关闭时销毁 Modal 里的子元素，默认 false，版本 5.25.0。
+- `~~focusTriggerAfterClose~~`: boolean，对话框关闭后是否需要聚焦触发元素。请使用 `focusable.focusTriggerAfterClose` 替代，默认 true，版本 4.9.0。
+- `footer`: ReactNode | (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode，底部内容，当不需要默认底部按钮时，可以设为 `footer={null}`，默认 (确定取消按钮)，版本 renderFunction: 5.9.0。
+- `forceRender`: boolean，强制渲染 Modal，默认 false。
+- `focusable`: `{ trap?: boolean, focusTriggerAfterClose?: boolean }`，对话框内焦点管理的配置，版本 6.2.0。
+- `getContainer`: HTMLElement | () => HTMLElement | Selectors | false，指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置，默认 document.body。
+- `keyboard`: boolean，是否支持键盘 esc 关闭，默认 true。
+- `mask`: boolean | `{enabled: boolean, blur: boolean}`，遮罩效果，默认 true。
+- `maskClosable`: boolean，点击蒙层是否允许关闭，默认 true。
+- `modalRender`: (node: ReactNode) => ReactNode，自定义渲染对话框，版本 4.7.0。
+- `okButtonProps`: [ButtonProps](/components/button-cn#api)，ok 按钮 props。
+- `okText`: ReactNode，确认按钮文字，默认 `确定`。
+- `okType`: string，确认按钮类型，默认 `primary`。
+- `style`: CSSProperties，可用于设置浮层的样式，调整浮层位置等。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义 Modal 组件内部各语义化结构的行内 style，支持对象或函数。
+- `loading`: boolean，显示骨架屏，版本 5.18.0。
+- `title`: ReactNode，标题。
+- `open`: boolean，对话框是否可见。
+- `width`: string | number | [Breakpoint](/components/grid-cn#col)，宽度，默认 520，版本 Breakpoint: 5.23.0。
+- `wrapClassName`: string，对话框外层容器的类名。
+- `zIndex`: number，设置 Modal 的 `z-index`，默认 1000。
+- `onCancel`: function(e)，点击遮罩层或右上角叉或取消按钮的回调。
+- `onOk`: function(e)，点击确定回调。
+- `afterOpenChange`: (open: boolean) => void，打开和关闭 Modal 时动画结束后的回调，版本 5.4.0。
 
-- `okButtonProps`: ButtonProps，确定按钮属性。
-- `cancelButtonProps`: ButtonProps，取消按钮属性。
-- `onOk`: (e) => void | Promise<void>，确定回调。
-- `onCancel`: (e) => void，取消回调。
+### Modal.method() 属性
 
-### 样式和容器
+#### 必填
 
-- `destroyOnClose`: boolean，关闭时销毁子组件。
-- `forceRender`: boolean，强制渲染 Modal 内容。
-- `getContainer`: HTMLElement | () => HTMLElement | false，挂载节点。
-- `zIndex`: number，z-index 值。
-- `styles`: { header, body, footer, mask, wrapper, content }，各部分样式。
-- `classNames`: object，各部分类名。
+- 无必填属性。
 
-### 生命周期
+#### 可选
 
-- `afterOpenChange`: (open) => void，打开/关闭动画完成回调。
-- `afterClose`: () => void，关闭后回调（已移除，使用 afterOpenChange）。
+- `afterClose`: function，Modal 完全关闭后的回调，版本 4.9.0。
+- `~~autoFocusButton~~`: null | `ok` | `cancel`，指定自动获得焦点的按钮。请使用 `focusable.autoFocusButton` 替代，默认 `ok`。
+- `cancelButtonProps`: [ButtonProps](/components/button-cn#api)，cancel 按钮 props。
+- `cancelText`: string，设置 Modal.confirm 取消按钮文字，默认 `取消`。
+- `centered`: boolean，垂直居中展示 Modal，默认 false。
+- `className`: string，容器类名。
+- `closable`: boolean | [ClosableType](#closabletype)，是否显示右上角的关闭按钮，默认 false。
+- `closeIcon`: ReactNode，自定义关闭图标，默认 undefined，版本 4.9.0。
+- `content`: ReactNode，内容。
+- `focusable.autoFocusButton`: null | `ok` | `cancel`，指定自动获得焦点的按钮，默认 `ok`，版本 6.2.0。
+- `footer`: ReactNode | (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode，底部内容，当不需要默认底部按钮时，可以设为 `footer: null`，版本 renderFunction: 5.9.0。
+- `getContainer`: HTMLElement | () => HTMLElement | Selectors | false，指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom，默认 document.body。
+- `icon`: ReactNode，自定义图标，默认 <ExclamationCircleFilled />。
+- `keyboard`: boolean，是否支持键盘 esc 关闭，默认 true。
+- `mask`: boolean | `{enabled: boolean, blur: boolean}`，遮罩效果，默认 true。
+- `maskClosable`: boolean，点击蒙层是否允许关闭，默认 false。
+- `okButtonProps`: [ButtonProps](/components/button-cn#api)，ok 按钮 props。
+- `okText`: string，确认按钮文字，默认 `确定`。
+- `okType`: string，确认按钮类型，默认 `primary`。
+- `style`: CSSProperties，可用于设置浮层的样式，调整浮层位置等。
+- `title`: ReactNode，标题。
+- `width`: string | number，宽度，默认 416。
+- `wrapClassName`: string，对话框外层容器的类名，版本 4.18.0。
+- `zIndex`: number，设置 Modal 的 `z-index`，默认 1000。
+- `onCancel`: function(close)，点击取消回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭。
+- `onOk`: function(close)，点击确定回调，参数为关闭函数，若返回 promise 时 resolve 为正常关闭, reject 为不关闭。
 
-### Modal 静态方法
+### ClosableType 属性
 
-- `Modal.confirm(config)`: 确认对话框。
-- `Modal.info(config)`: 信息提示。
-- `Modal.success(config)`: 成功提示。
-- `Modal.error(config)`: 错误提示。
-- `Modal.warning(config)`: 警告提示。
-- `Modal.destroyAll()`: 销毁所有对话框。
+#### 必填
 
-### Modal.useModal()
+- 无必填属性。
 
-```tsx
-const [modal, contextHolder] = Modal.useModal();
-```
+#### 可选
 
-用于在 Context 中获取 modal 实例，避免受组件层级限制。
+- `afterClose`: function，Modal 完全关闭后的回调。
+- `closeIcon`: ReactNode，自定义关闭图标，默认 undefined。
+- `disabled`: boolean，关闭图标是否禁用，默认 false。
+- `onClose`: Function，弹窗关闭即时调用，默认 undefined。
+
+## 方法
+
+- `Modal.method()` RTL 模式仅支持 hooks 用法。
+- `Modal.info`
+- `Modal.success`
+- `Modal.error`
+- `Modal.warning`
+- `Modal.confirm`
+- `Modal.destroyAll`
 
 ## 常见场景示例
 
@@ -164,7 +153,6 @@ const App: React.FC = () => {
   const handleOk = async () => {
     setLoading(true);
     try {
-      // 模拟异步操作
       await new Promise((resolve) => setTimeout(resolve, 2000));
       console.log('确认成功');
       setOpen(false);
@@ -345,33 +333,6 @@ const DemoContent: React.FC = () => {
 };
 
 const App: React.FC = () => <DemoContent />;
-```
-
-## AI 生成指引
-
-### 场景判断表
-
-| 用户需求               | 选择方案                 | 关键属性                   |
-| ---------------------- | ------------------------ | -------------------------- |
-| 简单内容展示           | Modal 基础               | title, children, open      |
-| 确认删除/操作          | Modal 或 Modal.confirm   | confirmLoading, onOk       |
-| 表单输入               | Modal + Form             | 在 children 中添加 Form    |
-| 异步操作（有 loading） | confirmLoading           | confirmLoading, async onOk |
-| 提示/警告              | Modal.info/warning/error | 静态方法调用               |
-| 自定义按钮             | footer 属性              | `footer={[...]}`           |
-| 无底部按钮             | footer={null}            | footer                     |
-| 全屏/大尺寸            | width 属性               | width={800} 或 width='90%' |
-| 垂直居中               | centered                 | centered={true}            |
-| Context 中使用         | Modal.useModal()         | modal 实例                 |
-| 层级深的组件           | Modal.useModal()         | 避免 ref 穿刺              |
-
-### 类型导入
-
-```tsx
-import type {
-  ModalFuncProps, // 静态方法配置类型
-  ModalProps, // Modal 组件 props 类型
-} from 'antd';
 ```
 
 ## 使用建议

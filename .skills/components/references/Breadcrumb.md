@@ -4,31 +4,60 @@
 
 显示当前页面在系统层级结构中的位置，并能向上返回。
 
+## 应用场景
+
+- 当系统拥有超过两级以上的层级结构时；。
+- 当需要告知用户『你在哪里』时；。
+- 当需要向上导航的功能时。
+
 ## 输入字段
 
-### 必填
+### Breadcrumb 属性
 
-- `items`: BreadcrumbItem[]，路由项配置数组。
+#### 必填
 
-### BreadcrumbItem 结构
+- 无必填属性。
 
-```tsx
-interface BreadcrumbItem {
-  title: ReactNode; // 标题
-  path?: string; // 路径（配合 itemRender 使用）
-  href?: string; // 链接地址
-  menu?: MenuProps; // 下拉菜单配置
-  className?: string; // 类名
-  dropdownProps?: DropdownProps; // Dropdown 属性
-  onClick?: (e) => void; // 点击回调
-}
-```
+#### 可选
 
-### 可选
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `dropdownIcon`: ReactNode，自定义下拉图标，默认 `<DownOutlined />`，版本 6.2.0。
+- `itemRender`: (route, params, routes, paths) => ReactNode，自定义链接函数，和 react-router 配置使用。
+- `params`: object，路由的参数。
+- `items`: [items\[\]](#itemtype)，路由栈信息，版本 5.3.0。
+- `separator`: ReactNode，分隔符自定义，默认 `/`。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
 
-- `separator`: ReactNode，分隔符，默认 `/`。
-- `itemRender`: (item, params, items, paths) => ReactNode，自定义渲染。
-- `params`: object，路由参数。
+### RouteItemType 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `className`: string，自定义类名。
+- `dropdownProps`: [Dropdown](/components/dropdown-cn)，弹出下拉菜单的自定义配置。
+- `href`: string，链接的目的地，不能和 `path` 共用。
+- `path`: string，拼接路径，每一层都会拼接前一个 `path` 信息。不能和 `href` 共用。
+- `menu`: [MenuProps](/components/menu-cn/#api)，菜单配置项，版本 4.24.0。
+- `onClick`: (e:MouseEvent) => void，单击事件。
+- `title`: ReactNode，名称，版本 5.3.0。
+
+### SeparatorType 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `type`: `separator`，标记为分隔符，版本 5.3.0。
+- `separator`: ReactNode，要显示的分隔符，默认 `/`，版本 5.3.0。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -43,7 +72,6 @@ import { Link } from 'react-router-dom';
 
 const App: React.FC = () => (
   <>
-    {/* 基础用法 */}
     <Breadcrumb
       items={[
         { title: 'Home' },
@@ -53,7 +81,6 @@ const App: React.FC = () => (
       ]}
     />
 
-    {/* 带图标 */}
     <Breadcrumb
       items={[
         { href: '', title: <HomeOutlined /> },
@@ -70,7 +97,6 @@ const App: React.FC = () => (
       ]}
     />
 
-    {/* 带下拉菜单 */}
     <Breadcrumb
       items={[
         { title: 'Ant Design' },
@@ -88,13 +114,11 @@ const App: React.FC = () => (
       ]}
     />
 
-    {/* 自定义分隔符 */}
     <Breadcrumb
       separator=">"
       items={[{ title: 'Home' }, { title: 'Application Center' }, { title: 'Application List' }]}
     />
 
-    {/* 配合 React Router */}
     <Breadcrumb
       itemRender={(route, params, routes, paths) => {
         const last = routes.indexOf(route) === routes.length - 1;

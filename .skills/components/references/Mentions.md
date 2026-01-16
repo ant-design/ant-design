@@ -2,44 +2,66 @@
 
 ## 功能概述
 
-提及组件。用于在输入框中提及用户。
+用于在输入中提及某人或某事。
+
+## 应用场景
+
+- 用于在输入中提及某人或某事，常用于发布、聊天或评论功能。
 
 ## 输入字段
 
-### 可选
+### Mentions 属性
 
-- `options`: { value, label, disabled }[]，数据源。
-- `value`: string，输入框值（受控）。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `allowClear`: boolean | { clearIcon?: ReactNode }，可以点击清除图标删除内容，默认 false，版本 5.13.0。
+- `autoSize`: boolean | object，自适应内容高度，可设置为 true | false 或对象：{ minRows: 2, maxRows: 6 }，默认 false。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
 - `defaultValue`: string，默认值。
-- `prefix`: string | string[]，触发前缀，默认 `@`。
-- `split`: string，选项分隔符，默认空格。
-- `placeholder`: string，占位符。
-- `allowClear`: boolean，允许清除。
-- `disabled`: boolean，禁用。
-- `readOnly`: boolean，只读。
-- `status`: string，状态，可选 `error` | `warning`。
-- `variant`: string，形态变体，可选 `outlined` | `borderless` | `filled`，默认 `outlined`。
-- `autoSize`: boolean | { minRows, maxRows }，自动调整高度。
-- `placement`: string，弹出位置，可选 `top` | `bottom`，默认 `bottom`。
-- `filterOption`: false | (input, option) => boolean，筛选选项。
-- `validateSearch`: (text, props) => boolean，自定义触发搜索校验。
-- `notFoundContent`: ReactNode，无匹配时显示。
-- `popupClassName`: string，下拉类名。
-- `getPopupContainer`: (node) => HTMLElement，下拉容器。
-- `onSelect`: (option, prefix) => void，选中选项回调。
-- `onChange`: (value) => void，值变化回调。
-- `onSearch`: (value, prefix) => void，搜索回调。
-- `onFocus`: () => void，聚焦回调。
-- `onBlur`: () => void，失焦回调。
+- `filterOption`: false | (input: string, option: OptionProps) => boolean，自定义过滤逻辑。
+- `getPopupContainer`: () => HTMLElement，指定建议框挂载的 HTML 节点。
+- `notFoundContent`: ReactNode，当下拉列表为空时显示的内容，默认 `Not Found`。
+- `placement`: `top` | `bottom`，弹出层展示位置，默认 `bottom`。
+- `prefix`: string | string\[]，设置触发关键字，默认 `@`。
+- `split`: string，设置选中项前后分隔符，默认 ` `。
+- `status`: 'error' | 'warning'，设置校验状态，版本 4.19.0。
+- `validateSearch`: (text: string, props: MentionsProps) => void，自定义触发验证逻辑。
+- `value`: string，设置值。
+- `variant`: `outlined` | `borderless` | `filled` | `underlined`，形态变体，默认 `outlined`，版本 5.13.0 | `underlined`: 5.24.0。
+- `onBlur`: () => void，失去焦点时触发。
+- `onChange`: (text: string) => void，值改变时触发。
+- `onClear`: () => void，按下清除按钮的回调，版本 5.20.0。
+- `onFocus`: () => void，获得焦点时触发。
+- `onResize`: function({ width, height })，resize 回调。
+- `onSearch`: (text: string, prefix: string) => void，搜索时触发。
+- `onSelect`: (option: OptionProps, prefix: string) => void，选择选项时触发。
+- `onPopupScroll`: (event: Event) => void，滚动时触发，版本 5.23.0。
+- `options`: [Options](#option)，选项配置，默认 []，版本 5.1.0。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
 
-### Mentions.getMentions 方法
+### Option 属性
 
-解析提及内容：
+#### 必填
 
-```tsx
-Mentions.getMentions(value: string, config?: { prefix, split })
-// 返回 { prefix, value }[]
-```
+- 无必填属性。
+
+#### 可选
+
+- `value`: string，选择时填充的值。
+- `label`: React.ReactNode，选项的标题。
+- `key`: string，选项的 key 值。
+- `disabled`: boolean，是否可选。
+- `className`: string，css 类名。
+- `style`: React.CSSProperties，选项样式。
+
+## 方法
+
+- `blur()`: 移除焦点
+- `focus()`: 获取焦点
 
 ## 使用建议
 
@@ -73,7 +95,6 @@ const App: React.FC = () => {
 
   return (
     <Space direction="vertical" style={{ width: '100%' }}>
-      {/* 基础用法 */}
       <Mentions
         style={{ width: '100%' }}
         onChange={onChange}
@@ -82,10 +103,8 @@ const App: React.FC = () => {
         options={options}
       />
 
-      {/* 自动高度 */}
       <Mentions autoSize style={{ width: '100%' }} options={options} />
 
-      {/* 异步加载 */}
       <Mentions
         style={{ width: '100%' }}
         placeholder="input @ to mention people"
@@ -95,7 +114,6 @@ const App: React.FC = () => {
         }}
       />
 
-      {/* 自定义前缀 */}
       <Mentions
         style={{ width: '100%' }}
         prefix={['@', '#']}
@@ -108,7 +126,6 @@ const App: React.FC = () => {
         ]}
       />
 
-      {/* 无效或禁用选项 */}
       <Mentions
         style={{ width: '100%' }}
         options={[
@@ -118,7 +135,6 @@ const App: React.FC = () => {
         ]}
       />
 
-      {/* 配合 Form 使用 */}
       <Form
         onFinish={(values) => {
           console.log('Submit:', values);

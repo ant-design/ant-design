@@ -2,39 +2,51 @@
 
 ## 功能概述
 
-成组展示多个只读字段。常见于详情页的信息展示。
+展示多个只读字段的组合。
+
+## 应用场景
+
+- 常见于详情页的信息展示。
 
 ## 输入字段
 
-### 必填
+### Descriptions 属性
 
-- `items`: DescriptionItem[]，描述项配置数组。
+#### 必填
 
-### DescriptionItem 结构
+- 无必填属性。
 
-```tsx
-interface DescriptionItem {
-  key: string; // 唯一标识
-  label: ReactNode; // 标签
-  children: ReactNode; // 内容
-  span?: number; // 占列数
-  labelStyle?: CSSProperties; // 标签样式
-  contentStyle?: CSSProperties; // 内容样式
-}
-```
+#### 可选
 
-### 可选
+- `bordered`: boolean，是否展示边框，默认 false。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `colon`: boolean，配置 `Descriptions.Item` 的 `colon` 的默认值。表示是否显示 label 后面的冒号，默认 true。
+- `column`: number | [Record<Breakpoint, number>](https://github.com/ant-design/ant-design/blob/84ca0d23ae52e4f0940f20b0e22eabe743f90dca/components/descriptions/index.tsx#L111C21-L111C56)，一行的 `DescriptionItems` 数量，可以写成像素值或支持响应式的对象写法 `{ xs: 8, sm: 16, md: 24}`，默认 3。
+- `~~contentStyle~~`: CSSProperties，自定义内容样式，请使用 `styles.content` 替换，版本 4.10.0。
+- `extra`: ReactNode，描述列表的操作区域，显示在右上方，版本 4.5.0。
+- `items`: [DescriptionsItem](#descriptionitem)[]，描述列表项内容，版本 5.8.0。
+- `~~labelStyle~~`: CSSProperties，自定义标签样式，请使用 `styles.label` 替换，版本 4.10.0。
+- `layout`: `horizontal` | `vertical`，描述布局，默认 `horizontal`。
+- `size`: `default` | `middle` | `small`，设置列表的大小。可以设置为 `middle` 、`small`, 或不填（只有设置 `bordered={true}` 生效）。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `title`: ReactNode，描述列表的标题，显示在最顶部。
 
-- `title`: ReactNode，标题。
-- `extra`: ReactNode，操作区域。
-- `bordered`: boolean，是否有边框。
-- `layout`: string，布局，可选 `horizontal` | `vertical`，默认 `horizontal`。
-- `column`: number | object，一行显示的列数，默认 `3`。
-  - 响应式：`{ xs: 1, sm: 2, md: 3, lg: 3, xl: 4, xxl: 4 }`
-- `size`: string，尺寸，可选 `default` | `middle` | `small`。
-- `colon`: boolean，显示冒号，默认 `true`。
-- `labelStyle`: CSSProperties，标签样式。
-- `contentStyle`: CSSProperties，内容样式。
+### DescriptionItem 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `~~contentStyle~~`: CSSProperties，自定义内容样式，请使用 `styles.content` 替换，版本 4.9.0。
+- `label`: ReactNode，内容的描述。
+- `~~labelStyle~~`: CSSProperties，自定义标签样式，请使用 `styles.label` 替换，版本 4.9.0。
+- `span`: number| `filled` | [Screens](/components/grid-cn#col)，包含列的数量（`filled` 铺满当前行剩余部分），默认 1，版本 `screens: 5.9.0`，`filled: 5.22.0`。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -111,16 +123,12 @@ const items: DescriptionsProps['items'] = [
 
 const App: React.FC = () => (
   <>
-    {/* 基础用法 */}
     <Descriptions title="User Info" items={items} />
 
-    {/* 带边框 */}
     <Descriptions title="User Info" bordered items={items} />
 
-    {/* 带操作 */}
     <Descriptions title="User Info" extra={<Button type="primary">Edit</Button>} items={items} />
 
-    {/* 响应式 */}
     <Descriptions
       title="Responsive"
       column={{ xs: 1, sm: 2, md: 3, lg: 3, xl: 4, xxl: 4 }}

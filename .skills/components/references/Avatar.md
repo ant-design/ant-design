@@ -4,39 +4,47 @@
 
 用来代表用户或事物，支持图片、图标或字符展示。
 
+## 应用场景
+
+- 用来代表用户或事物，支持图片、图标或字符展示。
+- 需要在页面中以一致样式呈现头像能力时。
+
 ## 输入字段
 
-### 必填
+### Avatar 属性
 
-无必填属性。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `src`: string，图片地址。
-- `srcSet`: string，图片 srcSet 属性。
-- `alt`: string，图片 alt 属性。
-- `icon`: ReactNode，图标头像。
-- `children`: ReactNode，字符头像。
-- `size`: number | `large` | `default` | `small` | { xs, sm, md, lg, xl, xxl }，尺寸，默认 `default`。
-- `shape`: string，形状，可选 `circle` | `square`，默认 `circle`。
-- `gap`: number，字符头像距边框距离，默认 `4`。
-- `draggable`: boolean | `true` | `false`，图片是否可拖动。
-- `crossOrigin`: string，CORS 属性，可选 `anonymous` | `use-credentials`。
-- `onError`: () => boolean，图片加载失败回调，返回 false 阻止默认 fallback。
+#### 可选
 
-### Avatar.Group 属性
+- `alt`: string，图像无法显示时的替代文本。
+- `gap`: number，字符类型距离左右两侧边界单位像素，默认 4，版本 4.3.0。
+- `icon`: ReactNode，设置头像的自定义图标。
+- `shape`: `circle` | `square`，指定头像的形状，默认 `circle`。
+- `size`: number | `large` | `small` | `default` | { xs: number, sm: number, ...}，设置头像的大小，默认 `default`，版本 4.7.0。
+- `src`: string | ReactNode，图片类头像的资源地址或者图片元素，版本 ReactNode: 4.8.0。
+- `srcSet`: string，设置图片类头像响应式资源地址。
+- `draggable`: boolean | `'true'` | `'false'`，图片是否允许拖动，默认 true。
+- `crossOrigin`: `'anonymous'` | `'use-credentials'` | `''`，CORS 属性设置，版本 4.17.0。
+- `onError`: () => boolean，图片加载失败的事件，返回 false 会关闭组件默认的 fallback 行为。
 
-- `children`: Avatar[],头像列表。
-- `size`: 同上，统一尺寸。
-- `shape`: 同上，统一形状。
-- `max`: object，最多显示配置（5.18.0+）。
-  - `count`: number，最多显示数量。
-  - `style`: CSSProperties，多余头像样式。
-  - `popover`: PopoverProps，气泡配置。
-- `maxCount`: number，最多显示数量（已废弃，使用 max.count）。
-- `maxStyle`: CSSProperties，多余头像样式（已废弃，使用 max.style）。
-- `maxPopoverPlacement`: string，多余头像气泡位置（已废弃，使用 max.popover）。
-- `maxPopoverTrigger`: string，多余头像气泡触发方式（已废弃，使用 max.popover）。
+### Avatar.Group <Badge>4.5.0+</Badge> 属性
+
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `max`: `{ count?: number; style?: CSSProperties; popover?: PopoverProps }`，设置最多显示相关配置，`5.18.0` 前可使用 [参数](https://github.com/ant-design/ant-design/blob/9d134859becbdae5b9ce276f6d9af4264691d81f/components/avatar/group.tsx#L35-L38)，版本 5.18.0。
+- `size`: number | `large` | `small` | `default` | { xs: number, sm: number, ...}，设置头像的大小，默认 `default`，版本 4.8.0。
+- `shape`: `circle` | `square`，设置头像的形状，默认 `circle`，版本 5.8.0。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
@@ -50,7 +58,6 @@ import { Avatar, Divider, Space, Tooltip } from 'antd';
 
 const App: React.FC = () => (
   <Space direction="vertical">
-    {/* 基础用法 */}
     <Space>
       <Avatar size={64} icon={<UserOutlined />} />
       <Avatar size="large" icon={<UserOutlined />} />
@@ -58,7 +65,6 @@ const App: React.FC = () => (
       <Avatar size="small" icon={<UserOutlined />} />
     </Space>
 
-    {/* 类型 */}
     <Space>
       <Avatar icon={<UserOutlined />} />
       <Avatar>U</Avatar>
@@ -66,13 +72,11 @@ const App: React.FC = () => (
       <Avatar src="https://joeschmoe.io/api/v1/random" />
     </Space>
 
-    {/* 形状 */}
     <Space>
       <Avatar shape="square" icon={<UserOutlined />} />
       <Avatar shape="square">U</Avatar>
     </Space>
 
-    {/* 头像组 */}
     <Avatar.Group
       max={{
         count: 2,

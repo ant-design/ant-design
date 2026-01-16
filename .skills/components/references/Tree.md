@@ -2,130 +2,98 @@
 
 ## 功能概述
 
-多层次的结构列表，支持展开/收起、选择、勾选、拖拽等交互。适用于组织结构、文件目录、分类导航等场景。
+多层次的结构列表。
 
-## 核心概念
+## 应用场景
 
-### 树形数据渲染流程
-
-```
-treeData 数据源
-     ↓
- Tree 组件递归渲染
-     ↓
- 节点展开状态 (expandedKeys)
-     ↓
- 选择/勾选状态 (selectedKeys/checkedKeys)
-     ↓
- 用户交互 (click/check/expand)
-     ↓
- 回调触发 (onSelect/onCheck/onExpand)
-```
-
-### 关键数据结构
-
-```tsx
-// 树节点数据结构
-interface TreeNode {
-  key: string | number; // 唯一标识（必须）
-  title?: ReactNode; // 节点标题
-  children?: TreeNode[]; // 子节点
-  disabled?: boolean; // 禁用节点
-  disableCheckbox?: boolean; // 禁用 checkbox
-  selectable?: boolean; // 是否可选，默认 true
-  checkable?: boolean; // 是否可勾选
-  isLeaf?: boolean; // 是否叶子节点（loadData 时使用）
-  icon?: ReactNode; // 节点图标
-  data?: any; // 自定义数据
-}
-
-// 拖拽信息
-interface DragEvent {
-  event: DragEvent;
-  node: TreeNode;
-  expandedKeys: string[];
-}
-
-// 放置信息
-interface DropEvent {
-  event: DragEvent;
-  node: TreeNode;
-  dragNode: TreeNode;
-  dragNodesKeys: string[];
-  dropPosition: -1 | 0 | 1; // -1: 上方，0: 内部，1: 下方
-  dropToGap: boolean;
-}
-
-// 异步加载返回值
-type LoadDataFn = (node: TreeNode) => Promise<void>;
-```
+- 文件夹、组织架构、生物分类、国家地区等等，世间万物的大多数结构都是树形结构。
+- 使用 `树控件` 可以完整展现其中的层级关系，并具有展开收起选择等交互功能。
 
 ## 输入字段
 
-### 必填
+### Tree props 属性
 
-- `treeData`: TreeNode[]，树形数据数组。
+#### 必填
 
-### 常用可选
+- 无必填属性。
 
-| 属性                  | 类型                                 | 默认值 | 说明                   |
-| --------------------- | ------------------------------------ | ------ | ---------------------- |
-| `selectedKeys`        | string[]                             | -      | 选中的节点 key（受控） |
-| `defaultSelectedKeys` | string[]                             | -      | 默认选中               |
-| `checkedKeys`         | string[] \| { checked, halfChecked } | -      | 勾选的节点 key（受控） |
-| `defaultCheckedKeys`  | string[]                             | -      | 默认勾选               |
-| `expandedKeys`        | string[]                             | -      | 展开的节点 key（受控） |
-| `defaultExpandedKeys` | string[]                             | -      | 默认展开               |
-| `defaultExpandAll`    | boolean                              | false  | 默认展开所有           |
-| `autoExpandParent`    | boolean                              | true   | 自动展开父节点         |
-| `checkable`           | boolean                              | false  | 显示 checkbox          |
-| `checkStrictly`       | boolean                              | false  | 父子节点不关联         |
-| `selectable`          | boolean                              | true   | 允许选中               |
-| `multiple`            | boolean                              | false  | 允许多选               |
-| `draggable`           | boolean \| (node) => boolean         | false  | 可拖拽                 |
-| `blockNode`           | boolean                              | false  | 节点撑满               |
-| `showLine`            | boolean \| { showLeafIcon }          | false  | 显示连接线             |
-| `showIcon`            | boolean                              | true   | 显示节点图标           |
-| `virtual`             | boolean                              | true   | 虚拟滚动               |
-| `height`              | number                               | 400    | 虚拟滚动高度           |
-| `disabled`            | boolean                              | false  | 禁用整棵树             |
+#### 可选
 
-### 筛选和加载
+- `allowDrop`: ({ dropNode, dropPosition }) => boolean，是否允许拖拽时放置在该节点。
+- `autoExpandParent`: boolean，是否自动展开父节点，默认 false。
+- `blockNode`: boolean，是否节点占据一行，默认 false。
+- `checkable`: boolean，节点前添加 Checkbox 复选框，默认 false。
+- `checkedKeys`: string\[] | {checked: string\[], halfChecked: string\[]}，（受控）选中复选框的树节点（注意：父子节点有关联，如果传入父节点 key，则子节点自动选中；相应当子节点 key 都传入，父节点也自动选中。当设置 `checkable` 和 `checkStrictly`，它是一个有`checked`和`halfChecked`属性的对象，并且父子节点的选中与否不再关联，默认 \[]。
+- `checkStrictly`: boolean，checkable 状态下节点选择完全受控（父子节点选中状态不再关联），默认 false。
+- `classNames`: Record<[SemanticDOM](#semantic-dom), string> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), string>，用于自定义组件内部各语义化结构的 class，支持对象或函数。
+- `defaultCheckedKeys`: string\[]，默认选中复选框的树节点，默认 \[]。
+- `defaultExpandAll`: boolean，默认展开所有树节点，默认 false。
+- `defaultExpandedKeys`: string\[]，默认展开指定的树节点，默认 \[]。
+- `defaultExpandParent`: boolean，默认展开父节点，默认 true。
+- `defaultSelectedKeys`: string\[]，默认选中的树节点，默认 \[]。
+- `disabled`: boolean，将树禁用，默认 false。
+- `draggable`: boolean | ((node: DataNode) => boolean) | { icon?: React.ReactNode | false, nodeDraggable?: (node: DataNode) => boolean }，设置节点可拖拽，可以通过 `icon: false` 关闭拖拽提示图标，默认 false，版本 `config`: 4.17.0。
+- `expandedKeys`: string\[]，（受控）展开指定的树节点，默认 \[]。
+- `fieldNames`: object，自定义节点 title、key、children 的字段，默认 { title: `title`, key: `key`, children: `children` }，版本 4.17.0。
+- `filterTreeNode`: function(node)，按需筛选树节点（高亮），返回 true。
+- `height`: number，设置虚拟滚动容器高度，设置后内部节点不再支持横向滚动。
+- `icon`: ReactNode | (props) => ReactNode，在标题之前插入自定义图标。需要设置 `showIcon` 为 true。
+- `loadData`: function(node)，异步加载数据。
+- `loadedKeys`: string\[]，（受控）已经加载的节点，需要配合 `loadData` 使用，默认 \[]。
+- `multiple`: boolean，支持点选多个节点（节点本身），默认 false。
+- `rootStyle`: CSSProperties，添加在 Tree 最外层的 style，版本 4.20.0。
+- `selectable`: boolean，是否可选中，默认 true。
+- `selectedKeys`: string\[]，（受控）设置选中的树节点，多选需设置 `multiple` 为 true。
+- `showIcon`: boolean，控制是否展示 `icon` 节点，没有默认样式，默认 false。
+- `showLine`: boolean | { showLeafIcon: ReactNode | ((props: AntTreeNodeProps) => ReactNode) }，是否展示连接线，默认 false。
+- `styles`: Record<[SemanticDOM](#semantic-dom), CSSProperties> | (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties>，用于自定义组件内部各语义化结构的行内 style，支持对象或函数。
+- `switcherIcon`: ReactNode | ((props: AntTreeNodeProps) => ReactNode)，自定义树节点的展开/折叠图标（带有默认 rotate 角度样式），版本 renderProps: 4.20.0。
+- `switcherLoadingIcon`: ReactNode，自定义树节点的加载图标，版本 5.20.0。
+- `titleRender`: (nodeData) => ReactNode，自定义渲染节点，版本 4.5.0。
+- `treeData`: array<{key, title, children, \[disabled, selectable]}>，treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一）。
+- `virtual`: boolean，设置 false 时关闭虚拟滚动，默认 true，版本 4.1.0。
+- `onCheck`: function(checkedKeys, e:{checked: boolean, checkedNodes, node, event, halfCheckedKeys})，点击复选框触发。
+- `onDragEnd`: function({event, node})，dragend 触发时调用。
+- `onDragEnter`: function({event, node, expandedKeys})，dragenter 触发时调用。
+- `onDragLeave`: function({event, node})，dragleave 触发时调用。
+- `onDragOver`: function({event, node})，dragover 触发时调用。
+- `onDragStart`: function({event, node})，开始拖拽时调用。
+- `onDrop`: function({event, node, dragNode, dragNodesKeys})，drop 触发时调用。
+- `onExpand`: function(expandedKeys, {expanded: boolean, node})，展开/收起节点时触发。
+- `onLoad`: function(loadedKeys, {event, node})，节点加载完毕时触发。
+- `onRightClick`: function({event, node})，响应右键点击。
+- `onSelect`: function(selectedKeys, e:{selected: boolean, selectedNodes, node, event})，点击树节点触发。
 
-- `filterTreeNode`: (node) => boolean，筛选函数。
-- `loadData`: (node) => Promise<void>，异步加载数据。
-- `loadedKeys`: string[]，已加载的节点（受控）。
+### TreeNode props 属性
 
-### 自定义渲染
+#### 必填
 
-- `titleRender`: (node) => ReactNode，自定义标题渲染。
-- `icon`: ReactNode | (props) => ReactNode，自定义节点图标。
-- `switcherIcon`: ReactNode | (props) => ReactNode，自定义展开/收起图标。
-- `switcherLoadingIcon`: ReactNode，加载中显示的图标（5.20.0+）。
+- 无必填属性。
 
-### 拖拽配置
+#### 可选
 
-- `allowDrop`: ({ dropNode, dropPosition }) => boolean，允许放置判断。
-- `onDragStart`: (info) => void，拖拽开始回调。
-- `onDragEnter`: (info) => void，拖拽进入回调。
-- `onDragOver`: (info) => void，拖拽经过回调。
-- `onDragLeave`: (info) => void，拖拽离开回调。
-- `onDragEnd`: (info) => void，拖拽结束回调。
-- `onDrop`: (info) => void，放置回调。
+- `checkable`: boolean，当树为 checkable 时，设置独立节点是否展示 Checkbox。
+- `disableCheckbox`: boolean，禁掉 checkbox，默认 false。
+- `disabled`: boolean，禁掉响应，默认 false。
+- `icon`: ReactNode | (props) => ReactNode，自定义图标。可接收组件，props 为当前节点 props。
+- `isLeaf`: boolean，设置为叶子节点 (设置了 `loadData` 时有效)。为 `false` 时会强制将其作为父节点。
+- `key`: string，被树的 (default)ExpandedKeys / (default)CheckedKeys / (default)SelectedKeys 属性所用。注意：整个树范围内的所有节点的 key 值不能重复！，默认 (内部计算出的节点位置)。
+- `selectable`: boolean，设置节点是否可被选中，默认 true。
+- `title`: ReactNode，标题，默认 `---`。
 
-### 事件回调
+### DirectoryTree props 属性
 
-- `onSelect`: (selectedKeys, info) => void，节点选中回调。
-- `onCheck`: (checkedKeys, info) => void，节点勾选回调。
-- `onExpand`: (expandedKeys, info) => void，节点展开回调。
-- `onLoad`: (loadedKeys, info) => void，异步加载完成回调。
-- `onRightClick`: (info) => void，右键点击回调。
+#### 必填
 
-### Tree.DirectoryTree 属性
+- 无必填属性。
 
-目录树，继承 Tree 所有属性，额外：
+#### 可选
 
-- `expandAction`: `'click'` | `'doubleClick'` | false，展开触发方式。
+- `expandAction`: string | boolean，目录展开逻辑，可选：false | `click` | `doubleClick`，默认 `click`。
+
+## 方法
+
+- `scrollTo({ key: string | number; align?: 'top' | 'bottom' | 'auto'; offset?: number })`: 虚拟滚动下，滚动到指定 key 条目
 
 ## 常见场景示例
 
@@ -320,7 +288,6 @@ const App: React.FC = () => {
 
   const onDrop: TreeProps['onDrop'] = (info) => {
     console.log('Drop info:', info);
-    // 处理拖拽排序逻辑
   };
 
   return <Tree draggable blockNode treeData={data} onDrop={onDrop} />;
@@ -364,37 +331,6 @@ const App: React.FC = () => {
     />
   );
 };
-```
-
-## AI 生成指引
-
-### 场景判断表
-
-| 用户需求   | 选择方案              | 关键属性                      |
-| ---------- | --------------------- | ----------------------------- |
-| 简单树展示 | Tree 基础             | treeData, defaultExpandedKeys |
-| 节点选择   | onSelect              | selectedKeys, onSelect        |
-| 节点勾选   | checkable             | checkable, onCheck            |
-| 多选       | multiple + checkable  | multiple, checkable           |
-| 受控模式   | key + onChange        | expandedKeys, onExpand 等     |
-| 异步加载   | loadData              | loadData, loadedKeys          |
-| 搜索/筛选  | filterTreeNode        | filterTreeNode, treeData 过滤 |
-| 拖拽排序   | draggable + onDrop    | draggable, onDrop             |
-| 目录树     | DirectoryTree         | Tree.DirectoryTree            |
-| 虚拟滚动   | virtual + height      | virtual, height               |
-| 自定义图标 | icon                  | icon, switcherIcon            |
-| 父子关联   | checkStrictly={false} | checkStrictly                 |
-| 父子不关联 | checkStrictly={true}  | checkStrictly                 |
-
-### 类型导入
-
-```tsx
-import type {
-  DirectoryTreeProps, // DirectoryTree props 类型
-  EventDataNode, // 事件中的节点类型
-  TreeDataNode, // 树节点数据类型
-  TreeProps, // Tree 组件 props 类型
-} from 'antd';
 ```
 
 ## 使用建议

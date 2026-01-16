@@ -2,40 +2,40 @@
 
 ## 功能概述
 
-点击元素，弹出气泡式的确认框。目标元素的操作需要用户进一步确认时使用。
+点击元素，弹出气泡式的确认框。
+
+## 应用场景
+
+- 目标元素的操作需要用户进一步的确认时，在目标元素附近弹出浮层提示，询问用户。
+- 和 `confirm` 弹出的全屏居中模态对话框相比，交互形式更轻量。
 
 ## 输入字段
 
-### 必填
+### Popconfirm 属性
 
-- `title`: ReactNode | () => ReactNode，确认框标题。
+#### 必填
 
-### 可选
+- 无必填属性。
 
-- `description`: ReactNode | () => ReactNode，确认框描述（5.1.0+）。
-- `open`: boolean，是否显示（受控）。
-- `defaultOpen`: boolean，默认是否显示。
-- `disabled`: boolean，禁用弹出。
-- `placement`: string，弹出位置，可选 `top` | `left` | `right` | `bottom` | `topLeft` | `topRight` | `bottomLeft` | `bottomRight` | `leftTop` | `leftBottom` | `rightTop` | `rightBottom`，默认 `top`。
-- `okText`: ReactNode，确认按钮文字，默认 `确定`。
-- `cancelText`: ReactNode，取消按钮文字，默认 `取消`。
+#### 可选
+
+- `cancelButtonProps`: [ButtonProps](/components/button-cn#api)，cancel 按钮 props。
+- `cancelText`: string，取消按钮文字，默认 `取消`。
+- `disabled`: boolean，阻止点击 Popconfirm 子元素时弹出确认框，默认 false。
+- `icon`: ReactNode，自定义弹出气泡 Icon 图标，默认 <ExclamationCircle />。
+- `okButtonProps`: [ButtonProps](/components/button-cn#api)，ok 按钮 props。
+- `okText`: string，确认按钮文字，默认 `确定`。
 - `okType`: string，确认按钮类型，默认 `primary`。
-- `okButtonProps`: ButtonProps，确认按钮属性。
-- `cancelButtonProps`: ButtonProps，取消按钮属性。
-- `showCancel`: boolean，显示取消按钮，默认 `true`。
-- `icon`: ReactNode，自定义图标。
-- `trigger`: string | string[]，触发方式，可选 `hover` | `focus` | `click` | `contextMenu`，默认 `click`。
-- `arrow`: boolean | { pointAtCenter }，箭头配置。
-- `overlayClassName`: string，浮层类名。
-- `overlayStyle`: CSSProperties，浮层样式。
-- `overlayInnerStyle`: CSSProperties，浮层内层样式。
-- `getPopupContainer`: (node) => HTMLElement，浮层容器。
-- `autoAdjustOverflow`: boolean，自动调整位置，默认 `true`。
-- `mouseEnterDelay`: number，鼠标移入延迟（秒）。
-- `mouseLeaveDelay`: number，鼠标移出延迟（秒）。
-- `onConfirm`: (e) => void，确认回调。
-- `onCancel`: (e) => void，取消回调。
-- `onOpenChange`: (open, e) => void，显示状态变化回调。
+- `showCancel`: boolean，是否显示取消按钮，默认 true，版本 4.18.0。
+- `title`: ReactNode | () => ReactNode，确认框标题。
+- `description`: ReactNode | () => ReactNode，确认内容的详细描述，版本 5.1.0。
+- `onCancel`: function(e)，点击取消的回调。
+- `onConfirm`: function(e)，点击确认的回调。
+- `onPopupClick`: function(e)，弹出气泡点击事件，版本 5.5.0。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 

@@ -2,38 +2,53 @@
 
 ## 功能概述
 
-协助进行页面级整体布局。包含 Header、Sider、Content、Footer 等子组件。
+协助进行页面级整体布局。
+
+## 应用场景
+
+- 协助进行页面级整体布局。
+- 需要在页面中以一致样式呈现布局能力时。
 
 ## 输入字段
 
 ### Layout 属性
 
-- `children`: ReactNode，子组件。
-- `hasSider`: boolean，包含 Sider 时可设为 `true`，一般不需要手动指定。
-- `className`: string，类名。
-- `style`: CSSProperties，样式。
+#### 必填
 
-### Layout.Header / Layout.Footer / Layout.Content 属性
+- 无必填属性。
 
-- `children`: ReactNode，子组件。
-- `className`: string，类名。
-- `style`: CSSProperties，样式。
+#### 可选
+
+- `className`: string，容器 className。
+- `hasSider`: boolean，表示子元素里有 Sider，一般不用指定。可用于服务端渲染时避免样式闪动。
+- `style`: CSSProperties，指定样式。
 
 ### Layout.Sider 属性
 
-- `children`: ReactNode，子组件。
-- `breakpoint`: string，触发响应式布局的断点，可选 `xs` | `sm` | `md` | `lg` | `xl` | `xxl`。
-- `collapsed`: boolean，当前收起状态（受控）。
-- `defaultCollapsed`: boolean，默认收起状态。
-- `collapsedWidth`: number，收起后宽度，默认 `80`。
-- `collapsible`: boolean，是否可收起，默认 `false`。
-- `reverseArrow`: boolean，翻转折叠按钮方向。
-- `trigger`: ReactNode | null，自定义触发器，设为 `null` 隐藏。
-- `width`: number | string，宽度，默认 `200`。
-- `theme`: string，主题，可选 `light` | `dark`，默认 `dark`。
-- `zeroWidthTriggerStyle`: CSSProperties，宽度为 0 时触发器样式。
-- `onBreakpoint`: (broken) => void，断点触发回调。
-- `onCollapse`: (collapsed, type) => void，展开/收起回调。
+#### 必填
+
+- 无必填属性。
+
+#### 可选
+
+- `breakpoint`: `xs` | `sm` | `md` | `lg` | `xl` | `xxl`，触发响应式布局的[断点](/components/grid-cn#col)。
+- `className`: string，容器 className。
+- `collapsed`: boolean，当前收起状态。
+- `collapsedWidth`: number，收缩宽度，设置为 0 会出现特殊 trigger，默认 80。
+- `collapsible`: boolean，是否可收起，默认 false。
+- `defaultCollapsed`: boolean，是否默认收起，默认 false。
+- `reverseArrow`: boolean，翻转折叠提示箭头的方向，当 Sider 在右边时可以使用，默认 false。
+- `style`: CSSProperties，指定样式。
+- `theme`: `light` | `dark`，主题颜色，默认 `dark`。
+- `trigger`: ReactNode，自定义 trigger，设置为 null 时隐藏 trigger。
+- `width`: number | string，宽度，默认 200。
+- `zeroWidthTriggerStyle`: object，指定当 `collapsedWidth` 为 0 时出现的特殊 trigger 的样式。
+- `onBreakpoint`: (broken) => {}，触发响应式布局[断点](/components/grid-cn#api)时的回调。
+- `onCollapse`: (collapsed, type) => {}，展开-收起时的回调函数，有点击 trigger 以及响应式反馈两种方式可以触发。
+
+## 方法
+
+无公开方法。
 
 ## 使用建议
 
