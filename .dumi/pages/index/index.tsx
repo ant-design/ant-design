@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { ConfigProvider, theme } from 'antd';
+import { theme } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 import useLocale from '../../hooks/useLocale';
@@ -11,7 +11,7 @@ import ThemePreview from './components/ThemePreview';
 
 const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
 const DesignFramework = React.lazy(() => import('./components/DesignFramework'));
-const Theme = React.lazy(() => import('./components/Theme'));
+// const Theme = React.lazy(() => import('./components/Theme'));
 
 const classNames = createStaticStyles(({ css }) => ({
   image: css`
@@ -91,54 +91,54 @@ const Homepage: React.FC = () => {
     </section>
   );
 
-  return (
-    <section>
-      <PreviewBanner>
-        <BannerRecommends />
-      </PreviewBanner>
+  // return (
+  //   <section>
+  //     <PreviewBanner>
+  //       <BannerRecommends />
+  //     </PreviewBanner>
 
-      <div>
-        {/* 定制主题 */}
-        <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-          <Suspense fallback={null}>
-            <Theme />
-          </Suspense>
-        </ConfigProvider>
+  //     <div>
+  //       {/* 定制主题 */}
+  //       <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
+  //         <Suspense fallback={null}>
+  //           <Theme />
+  //         </Suspense>
+  //       </ConfigProvider>
 
-        {/* 组件列表 */}
-        <Group
-          background={token.colorBgElevated}
-          collapse
-          title={locale.assetsTitle}
-          description={locale.assetsDesc}
-          id="design"
-        >
-          <Suspense fallback={null}>
-            <ComponentsList />
-          </Suspense>
-        </Group>
+  //       {/* 组件列表 */}
+  //       <Group
+  //         background={token.colorBgElevated}
+  //         collapse
+  //         title={locale.assetsTitle}
+  //         description={locale.assetsDesc}
+  //         id="design"
+  //       >
+  //         <Suspense fallback={null}>
+  //           <ComponentsList />
+  //         </Suspense>
+  //       </Group>
 
-        {/* 设计语言 */}
-        <Group
-          title={locale.designTitle}
-          description={locale.designDesc}
-          background={isDark ? '#393F4A' : '#F5F8FF'}
-          decoration={
-            <img
-              draggable={false}
-              className={classNames.image}
-              src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
-              alt="bg"
-            />
-          }
-        >
-          <Suspense fallback={null}>
-            <DesignFramework />
-          </Suspense>
-        </Group>
-      </div>
-    </section>
-  );
+  //       {/* 设计语言 */}
+  //       <Group
+  //         title={locale.designTitle}
+  //         description={locale.designDesc}
+  //         background={isDark ? '#393F4A' : '#F5F8FF'}
+  //         decoration={
+  //           <img
+  //             draggable={false}
+  //             className={classNames.image}
+  //             src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
+  //             alt="bg"
+  //           />
+  //         }
+  //       >
+  //         <Suspense fallback={null}>
+  //           <DesignFramework />
+  //         </Suspense>
+  //       </Group>
+  //     </div>
+  //   </section>
+  // );
 };
 
 export default Homepage;
