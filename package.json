@@ -109,7 +109,7 @@
   },
   "dependencies": {
     "@ant-design/colors": "^8.0.1",
-    "@ant-design/cssinjs": "^2.0.1",
+    "@ant-design/cssinjs": "^2.0.3",
     "@ant-design/cssinjs-utils": "^2.0.2",
     "@ant-design/fast-color": "^3.0.0",
     "@ant-design/icons": "^6.1.0",
