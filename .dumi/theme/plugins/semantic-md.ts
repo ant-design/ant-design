@@ -276,17 +276,17 @@ function emitSemanticMd(api: IApi) {
           const displayName = componentName
             .split('-')
             .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-            .join(' ');
+            .join('');
 
           const titleSuffix = semanticSuffix
             ? semanticSuffix
                 .split('_')
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-                .join(' ')
+                .join('.')
             : '';
 
           const parts = [
-            `## ${displayName}${titleSuffix ? ` ${titleSuffix}` : ''}`,
+            `## ${displayName}${titleSuffix ? `${titleSuffix}` : ''}`,
             '',
             '### Semantic Parts',
             '',
