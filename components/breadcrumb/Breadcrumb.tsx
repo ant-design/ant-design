@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { DownOutlined } from '@ant-design/icons';
+import { DownOutlined } from '@ant-design/icons/DownOutlined';
 import { toArray } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
