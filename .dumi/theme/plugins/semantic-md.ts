@@ -286,22 +286,22 @@ function emitSemanticMd(api: IApi) {
             : '';
 
           const parts = [
-            `# ${displayName}${titleSuffix ? ` ${titleSuffix}` : ''}`,
+            `## ${displayName}${titleSuffix ? ` ${titleSuffix}` : ''}`,
             '',
-            '## Semantic Parts',
+            '### Semantic Parts',
             '',
           ];
 
           if (Object.keys(semantics).length > 0) {
             parts.push(generateSemanticParts(semantics));
             parts.push('');
-            parts.push(`## ${isZhCN ? '使用案例' : 'Usage Example'}`);
+            parts.push(`### ${isZhCN ? '使用案例' : 'Usage Example'}`);
             parts.push('');
             parts.push('```tsx');
             parts.push(generateUsageExample(componentName, semanticSuffix, semantics));
             parts.push('```');
             parts.push('');
-            parts.push('## Abstract DOM Structure');
+            parts.push('### Abstract DOM Structure');
             parts.push('');
 
             const htmlSnapshot = semanticInfo
