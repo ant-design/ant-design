@@ -17,7 +17,7 @@ import {
   Switch,
   Tooltip,
 } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 import useLocale from '../../../../hooks/useLocale';
 import Tilt from './Tilt';
@@ -71,7 +71,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ cssVar, css }) => {
+const styles = createStaticStyles(({ cssVar, css }) => {
   const gap = cssVar.padding;
   return {
     holder: css`
@@ -106,7 +106,6 @@ const useStyle = createStyles(({ cssVar, css }) => {
 
 const ComponentsBlock: React.FC = () => {
   const [locale] = useLocale(locales);
-  const { styles } = useStyle();
 
   return (
     <Tilt options={{ max: 4, glare: false, scale: 0.98 }} className={styles.holder}>

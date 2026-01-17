@@ -1895,7 +1895,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ol
-    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id acss-lz3q7n"
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id acss-14g82y5"
     style="--ant-cmp-steps-items-offset: 0;"
   >
     <li
@@ -1990,7 +1990,7 @@ exports[`renders components/timeline/demo/style-class.tsx extend context correct
     </li>
   </ol>
   <ol
-    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id acss-lz3q7n"
+    class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-layout-alternate css-var-test-id acss-14g82y5"
     style="--ant-cmp-steps-items-offset: 0; padding: 10px 6px; border: 1px solid rgb(162, 148, 249);"
   >
     <li
