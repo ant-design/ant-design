@@ -270,6 +270,11 @@ function replaceCodeSrcToMarkdown(
 
   return md.replace(codeTagRE, (full, src, title) => {
     try {
+      // 如果标记了 debug 属性，直接去除不显示
+      if (full.includes('debug')) {
+        return '';
+      }
+
       const parts: string[] = [];
       const demoAbs = path.resolve(docDir, src);
       const demoTitle = String(title || '').trim() || path.basename(demoAbs);
