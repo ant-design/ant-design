@@ -19,7 +19,29 @@ jest.mock('../../tooltip', () => {
   const TooltipComponent = Tooltip.default;
   return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
-    return <TooltipComponent {...props} ref={ref} />;
+    const internalRef = ReactReal.useRef<TooltipRef>(null);
+    
+    ReactReal.useImperativeHandle(ref, () => {
+      const mockRef = (global as any).mockTooltipRef;
+      if (mockRef) {
+        return {
+          forceAlign: mockRef.forceAlign || jest.fn(),
+          get nativeElement() {
+            return mockRef.nativeElement || document.createElement('div');
+          },
+          get popupElement() {
+            return mockRef.popupElement || document.createElement('div');
+          },
+        } as TooltipRef;
+      }
+      return internalRef.current || {
+        forceAlign: jest.fn(),
+        nativeElement: document.createElement('div'),
+        popupElement: document.createElement('div'),
+      } as TooltipRef;
+    });
+    
+    return <TooltipComponent {...props} ref={internalRef} />;
   });
 });
 
@@ -286,12 +308,26 @@ describe('Slider', () => {
         configurable: true,
         value: 1000,
       });
+
+      // Set up mock tooltip ref with getters to allow dynamic updates
+      (global as any).mockTooltipRef = {
+        forceAlign: jest.fn(),
+        get nativeElement() {
+          return (global as any).currentMockTriggerElement || mockTriggerElement;
+        },
+        get popupElement() {
+          return (global as any).currentMockPopupElement || mockPopupElement;
+        },
+      };
+      (global as any).currentMockTriggerElement = mockTriggerElement;
+      (global as any).currentMockPopupElement = mockPopupElement;
     });
 
     afterEach(() => {
       if (document.body.contains(mockContainer)) {
         document.body.removeChild(mockContainer);
       }
+      (global as any).mockTooltipRef = null;
       jest.clearAllMocks();
     });
 
@@ -349,12 +385,14 @@ describe('Slider', () => {
           y: 100,
           toJSON: jest.fn(),
         }));
+        (global as any).currentMockPopupElement = mockPopupElement;
 
         const { container } = render(
           <Slider defaultValue={0} tooltip={{ open: true, placement: 'top' }} />,
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
+        await waitFakeTimer(); // Wait for double raf
         // Should adjust to right
         expect(tooltipProps().placement).toBe('right');
       });
@@ -372,12 +410,14 @@ describe('Slider', () => {
           y: 100,
           toJSON: jest.fn(),
         }));
+        (global as any).currentMockPopupElement = mockPopupElement;
 
         const { container } = render(
           <Slider defaultValue={100} tooltip={{ open: true, placement: 'top' }} />,
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
+        await waitFakeTimer(); // Wait for double raf
         // Should adjust to left
         expect(tooltipProps().placement).toBe('left');
       });
@@ -418,12 +458,14 @@ describe('Slider', () => {
           y: 100,
           toJSON: jest.fn(),
         }));
+        (global as any).currentMockPopupElement = mockPopupElement;
 
         const { container } = render(
           <Slider defaultValue={0} tooltip={{ open: true, placement: 'bottom' }} />,
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
+        await waitFakeTimer(); // Wait for double raf
         // Should adjust to right
         expect(tooltipProps().placement).toBe('right');
       });
@@ -441,12 +483,14 @@ describe('Slider', () => {
           y: 100,
           toJSON: jest.fn(),
         }));
+        (global as any).currentMockPopupElement = mockPopupElement;
 
         const { container } = render(
           <Slider defaultValue={100} tooltip={{ open: true, placement: 'bottom' }} />,
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
+        await waitFakeTimer(); // Wait for double raf
         // Should adjust to left
         expect(tooltipProps().placement).toBe('left');
       });
@@ -489,12 +533,14 @@ describe('Slider', () => {
           y: -50,
           toJSON: jest.fn(),
         }));
+        (global as any).currentMockPopupElement = mockPopupElement;
 
         const { container } = render(
           <Slider vertical defaultValue={100} tooltip={{ open: true, placement: 'left' }} />,
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
+        await waitFakeTimer(); // Wait for double raf
         // Should adjust to bottom
         expect(tooltipProps().placement).toBe('bottom');
       });
@@ -512,12 +558,14 @@ describe('Slider', () => {
           y: 950,
           toJSON: jest.fn(),
         }));
+        (global as any).currentMockPopupElement = mockPopupElement;
 
         const { container } = render(
           <Slider vertical defaultValue={0} tooltip={{ open: true, placement: 'left' }} />,
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
+        await waitFakeTimer(); // Wait for double raf
         // Should adjust to top
         expect(tooltipProps().placement).toBe('top');
       });
@@ -558,12 +606,14 @@ describe('Slider', () => {
           y: -50,
           toJSON: jest.fn(),
         }));
+        (global as any).currentMockPopupElement = mockPopupElement;
 
         const { container } = render(
           <Slider vertical defaultValue={100} tooltip={{ open: true, placement: 'right' }} />,
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
+        await waitFakeTimer(); // Wait for double raf
         // Should adjust to bottom
         expect(tooltipProps().placement).toBe('bottom');
       });
@@ -581,12 +631,14 @@ describe('Slider', () => {
           y: 950,
           toJSON: jest.fn(),
         }));
+        (global as any).currentMockPopupElement = mockPopupElement;
 
         const { container } = render(
           <Slider vertical defaultValue={0} tooltip={{ open: true, placement: 'right' }} />,
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
+        await waitFakeTimer(); // Wait for double raf
         // Should adjust to top
         expect(tooltipProps().placement).toBe('top');
       });
