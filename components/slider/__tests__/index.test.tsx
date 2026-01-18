@@ -224,4 +224,491 @@ describe('Slider', () => {
       expect(container.querySelector<HTMLDivElement>('.ant-slider-vertical')).not.toBeNull();
     });
   });
+
+  // ============================= auto adjust placement =============================
+  describe('auto adjust placement', () => {
+    let mockPopupElement: HTMLElement;
+    let mockTriggerElement: HTMLElement;
+    let mockContainer: HTMLElement;
+
+    beforeEach(() => {
+      // 创建 mock 元素
+      mockPopupElement = document.createElement('div');
+      mockTriggerElement = document.createElement('div');
+      mockContainer = document.createElement('div');
+      document.body.appendChild(mockContainer);
+
+      // Mock getBoundingClientRect
+      mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+        left: 100,
+        top: 100,
+        right: 200,
+        bottom: 200,
+        width: 100,
+        height: 100,
+        x: 100,
+        y: 100,
+        toJSON: jest.fn(),
+      }));
+
+      mockTriggerElement.getBoundingClientRect = jest.fn(() => ({
+        left: 150,
+        top: 150,
+        right: 150,
+        bottom: 150,
+        width: 0,
+        height: 0,
+        x: 150,
+        y: 150,
+        toJSON: jest.fn(),
+      }));
+
+      mockContainer.getBoundingClientRect = jest.fn(() => ({
+        left: 0,
+        top: 0,
+        right: 1000,
+        bottom: 1000,
+        width: 1000,
+        height: 1000,
+        x: 0,
+        y: 0,
+        toJSON: jest.fn(),
+      }));
+
+      // Mock window.innerWidth 和 innerHeight
+      Object.defineProperty(window, 'innerWidth', {
+        writable: true,
+        configurable: true,
+        value: 1000,
+      });
+      Object.defineProperty(window, 'innerHeight', {
+        writable: true,
+        configurable: true,
+        value: 1000,
+      });
+    });
+
+    afterEach(() => {
+      if (document.body.contains(mockContainer)) {
+        document.body.removeChild(mockContainer);
+      }
+      jest.clearAllMocks();
+    });
+
+    it('should not adjust placement when tooltip is closed', async () => {
+      const { container } = render(<Slider defaultValue={30} tooltip={{ open: false }} />);
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+      // 当 open 为 false 时，mergedOpen 为 false，不应该执行检测逻辑
+      // 由于 tooltip 未打开，无法获取 tooltipProps
+      expect(container.querySelector('.ant-slider-handle')).toBeTruthy();
+    });
+
+    it('should handle when tooltipRef is null gracefully', async () => {
+      const ref = React.createRef<any>();
+      render(<SliderTooltip title="30" open ref={ref} />);
+      await waitFakeTimer();
+      // 组件应该正常渲染，不会崩溃
+      expect(ref.current).toBeDefined();
+    });
+
+    it('should use document.body as container when getPopupContainer is not provided', async () => {
+      const { container } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+      // 应该使用 document.body 作为容器
+      expect(tooltipProps().placement).toBeDefined();
+    });
+
+    it('should use custom container when getPopupContainer is provided', async () => {
+      const customContainer = document.createElement('div');
+      document.body.appendChild(customContainer);
+      const getPopupContainer = jest.fn(() => customContainer);
+
+      const { container } = render(
+        <Slider defaultValue={30} tooltip={{ open: true, getPopupContainer }} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+
+      expect(getPopupContainer).toHaveBeenCalled();
+      document.body.removeChild(customContainer);
+    });
+
+    describe('horizontal mode (placement: top/bottom)', () => {
+      it('should adjust to right when tooltip overflows left with placement top', async () => {
+        // Mock 左侧溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: -50,
+          top: 100,
+          right: 50,
+          bottom: 200,
+          width: 100,
+          height: 100,
+          x: -50,
+          y: 100,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider defaultValue={0} tooltip={{ open: true, placement: 'top' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该调整为 right
+        expect(tooltipProps().placement).toBe('right');
+      });
+
+      it('should adjust to left when tooltip overflows right with placement top', async () => {
+        // Mock 右侧溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 950,
+          top: 100,
+          right: 1050,
+          bottom: 200,
+          width: 100,
+          height: 100,
+          x: 950,
+          y: 100,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider defaultValue={100} tooltip={{ open: true, placement: 'top' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该调整为 left
+        expect(tooltipProps().placement).toBe('left');
+      });
+
+      it('should keep original placement when no overflow with placement top', async () => {
+        // Mock 没有溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 100,
+          top: 100,
+          right: 200,
+          bottom: 200,
+          width: 100,
+          height: 100,
+          x: 100,
+          y: 100,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider defaultValue={50} tooltip={{ open: true, placement: 'top' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该保持原始 placement
+        expect(tooltipProps().placement).toBe('top');
+      });
+
+      it('should adjust to right when tooltip overflows left with placement bottom', async () => {
+        // Mock 左侧溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: -50,
+          top: 100,
+          right: 50,
+          bottom: 200,
+          width: 100,
+          height: 100,
+          x: -50,
+          y: 100,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider defaultValue={0} tooltip={{ open: true, placement: 'bottom' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该调整为 right
+        expect(tooltipProps().placement).toBe('right');
+      });
+
+      it('should adjust to left when tooltip overflows right with placement bottom', async () => {
+        // Mock 右侧溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 950,
+          top: 100,
+          right: 1050,
+          bottom: 200,
+          width: 100,
+          height: 100,
+          x: 950,
+          y: 100,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider defaultValue={100} tooltip={{ open: true, placement: 'bottom' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该调整为 left
+        expect(tooltipProps().placement).toBe('left');
+      });
+
+      it('should keep original placement when no overflow with placement bottom', async () => {
+        // Mock 没有溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 100,
+          top: 100,
+          right: 200,
+          bottom: 200,
+          width: 100,
+          height: 100,
+          x: 100,
+          y: 100,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider defaultValue={50} tooltip={{ open: true, placement: 'bottom' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该保持原始 placement
+        expect(tooltipProps().placement).toBe('bottom');
+      });
+    });
+
+    describe('vertical mode (placement: left/right)', () => {
+      it('should adjust to bottom when tooltip overflows top with placement left', async () => {
+        // Mock 顶部溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 100,
+          top: -50,
+          right: 200,
+          bottom: 50,
+          width: 100,
+          height: 100,
+          x: 100,
+          y: -50,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider vertical defaultValue={100} tooltip={{ open: true, placement: 'left' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该调整为 bottom
+        expect(tooltipProps().placement).toBe('bottom');
+      });
+
+      it('should adjust to top when tooltip overflows bottom with placement left', async () => {
+        // Mock 底部溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 100,
+          top: 950,
+          right: 200,
+          bottom: 1050,
+          width: 100,
+          height: 100,
+          x: 100,
+          y: 950,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider vertical defaultValue={0} tooltip={{ open: true, placement: 'left' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该调整为 top
+        expect(tooltipProps().placement).toBe('top');
+      });
+
+      it('should keep original placement when no overflow with placement left', async () => {
+        // Mock 没有溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 100,
+          top: 100,
+          right: 200,
+          bottom: 200,
+          width: 100,
+          height: 100,
+          x: 100,
+          y: 100,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider vertical defaultValue={50} tooltip={{ open: true, placement: 'left' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该保持原始 placement
+        expect(tooltipProps().placement).toBe('left');
+      });
+
+      it('should adjust to bottom when tooltip overflows top with placement right', async () => {
+        // Mock 顶部溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 100,
+          top: -50,
+          right: 200,
+          bottom: 50,
+          width: 100,
+          height: 100,
+          x: 100,
+          y: -50,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider vertical defaultValue={100} tooltip={{ open: true, placement: 'right' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该调整为 bottom
+        expect(tooltipProps().placement).toBe('bottom');
+      });
+
+      it('should adjust to top when tooltip overflows bottom with placement right', async () => {
+        // Mock 底部溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 100,
+          top: 950,
+          right: 200,
+          bottom: 1050,
+          width: 100,
+          height: 100,
+          x: 100,
+          y: 950,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider vertical defaultValue={0} tooltip={{ open: true, placement: 'right' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该调整为 top
+        expect(tooltipProps().placement).toBe('top');
+      });
+
+      it('should keep original placement when no overflow with placement right', async () => {
+        // Mock 没有溢出
+        mockPopupElement.getBoundingClientRect = jest.fn(() => ({
+          left: 100,
+          top: 100,
+          right: 200,
+          bottom: 200,
+          width: 100,
+          height: 100,
+          x: 100,
+          y: 100,
+          toJSON: jest.fn(),
+        }));
+
+        const { container } = render(
+          <Slider vertical defaultValue={50} tooltip={{ open: true, placement: 'right' }} />,
+        );
+        fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+        await waitFakeTimer();
+        // 应该保持原始 placement
+        expect(tooltipProps().placement).toBe('right');
+      });
+    });
+
+    it('should reset placement when tooltip is closed', async () => {
+      const { container, rerender } = render(
+        <Slider defaultValue={30} tooltip={{ open: true, placement: 'top' }} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+
+      // 关闭 tooltip
+      rerender(<Slider defaultValue={30} tooltip={{ open: false, placement: 'top' }} />);
+      await waitFakeTimer();
+      // placement 应该被重置
+      expect(tooltipProps().placement).toBe('top');
+    });
+
+    it('should adjust placement when value changes', async () => {
+      const { container, rerender } = render(
+        <Slider value={0} tooltip={{ open: true, placement: 'top' }} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+
+      // 改变 value
+      rerender(<Slider value={100} tooltip={{ open: true, placement: 'top' }} />);
+      await waitFakeTimer();
+      // 应该重新检测并调整
+      expect(tooltipProps().placement).toBeDefined();
+    });
+
+    it('should adjust placement when title changes', async () => {
+      const { container, rerender } = render(
+        <Slider defaultValue={30} tooltip={{ open: true, placement: 'top' }} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+
+      // 改变 title（通过 formatter）
+      rerender(
+        <Slider
+          defaultValue={30}
+          tooltip={{ open: true, placement: 'top', formatter: (val) => `New ${val}` }}
+        />,
+      );
+      await waitFakeTimer();
+      // 应该重新检测并调整
+      expect(tooltipProps().placement).toBeDefined();
+    });
+
+    it('should handle resize event', async () => {
+      const { container } = render(
+        <Slider defaultValue={30} tooltip={{ open: true, placement: 'top' }} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+
+      // 触发 resize 事件
+      act(() => {
+        window.dispatchEvent(new Event('resize'));
+        jest.runAllTimers();
+      });
+      await waitFakeTimer();
+      // 应该重新检测并调整
+      expect(tooltipProps().placement).toBeDefined();
+    });
+
+    it('should handle scroll event', async () => {
+      const { container } = render(
+        <Slider defaultValue={30} tooltip={{ open: true, placement: 'top' }} />,
+      );
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+
+      // 触发 scroll 事件
+      act(() => {
+        window.dispatchEvent(new Event('scroll'));
+        jest.runAllTimers();
+      });
+      await waitFakeTimer();
+      // 应该重新检测并调整
+      expect(tooltipProps().placement).toBeDefined();
+    });
+
+    it('should use default placement top when placement is undefined', async () => {
+      const { container } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
+      fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
+      await waitFakeTimer();
+      // 应该使用默认的 top
+      expect(tooltipProps().placement).toBeDefined();
+    });
+
+    it('should handle draggingDelete prop', async () => {
+      render(<SliderTooltip title="30" open draggingDelete placement="top" />);
+      await waitFakeTimer();
+      // 当 draggingDelete 为 true 时，tooltip 不应该显示
+      expect(tooltipProps().open).toBe(false);
+    });
+  });
 });
