@@ -17,6 +17,36 @@ jest.mock('../../tooltip', () => {
   const ReactReal: typeof React = jest.requireActual('react');
   const Tooltip = jest.requireActual('../../tooltip');
   const TooltipComponent = Tooltip.default;
+  
+  // Create mock default element factory inside mock
+  const createMockElement = (): HTMLElement => ({
+    getBoundingClientRect: jest.fn(() => ({
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0,
+      width: 0,
+      height: 0,
+      x: 0,
+      y: 0,
+      toJSON: jest.fn(),
+    })),
+  } as any);
+  
+  const createMockDivElement = (): HTMLDivElement => ({
+    getBoundingClientRect: jest.fn(() => ({
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0,
+      width: 0,
+      height: 0,
+      x: 0,
+      y: 0,
+      toJSON: jest.fn(),
+    })),
+  } as any);
+  
   return ReactReal.forwardRef<TooltipRef, TooltipProps>((props, ref) => {
     (global as any).tooltipProps = props;
     const internalRef = ReactReal.useRef<TooltipRef>(null);
@@ -27,17 +57,17 @@ jest.mock('../../tooltip', () => {
         return {
           forceAlign: mockRef.forceAlign || jest.fn(),
           get nativeElement() {
-            return mockRef.nativeElement || document.createElement('div');
+            return mockRef.nativeElement || createMockElement();
           },
           get popupElement() {
-            return mockRef.popupElement || document.createElement('div');
+            return mockRef.popupElement || createMockDivElement();
           },
         } as TooltipRef;
       }
       return internalRef.current || {
         forceAlign: jest.fn(),
-        nativeElement: document.createElement('div'),
-        popupElement: document.createElement('div'),
+        nativeElement: createMockElement(),
+        popupElement: createMockDivElement(),
       } as TooltipRef;
     });
     
