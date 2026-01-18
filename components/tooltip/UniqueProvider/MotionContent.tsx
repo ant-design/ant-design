@@ -2,6 +2,7 @@ import React from 'react';
 import CSSMotion from '@rc-component/motion';
 import { clsx } from 'clsx';
 
+import { cloneElement } from '../../_util/reactNode';
 import { ConfigContext } from '../../config-provider/context';
 
 const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
@@ -24,17 +25,10 @@ const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
       removeOnLeave={false}
     >
       {({ style: motionStyle, className: motionClassName }) => {
-        const { className, style } = children.props;
-
-        const mergedStyles: React.CSSProperties = {
-          ...style,
-          ...motionStyle,
-        };
-
-        return React.cloneElement<any>(children, {
-          className: clsx(className, motionClassName),
-          style: mergedStyles,
-        });
+        return cloneElement(children, (oriProps) => ({
+          className: clsx(oriProps.className, motionClassName),
+          style: { ...oriProps.style, ...motionStyle },
+        }));
       }}
     </CSSMotion>
   );
