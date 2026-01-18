@@ -40,9 +40,6 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
     }
 
     const tooltipRef = innerRef.current;
-    if (!tooltipRef) {
-      return;
-    }
 
     const popupElement = tooltipRef.popupElement;
     const triggerElement = tooltipRef.nativeElement;

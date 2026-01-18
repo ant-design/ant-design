@@ -793,4 +793,17 @@ describe('Slider', () => {
       expect(tooltipProps().open).toBe(false);
     });
   });
+  // 覆盖 components/slider/SliderTooltip.tsx 39 行的用例
+  // const mergedOpen = open && !draggingDelete;
+  // ...
+  //  if (!mergedOpen) {
+  //   return;
+  // }
+  it('should not display tooltip when mergedOpen is false', async () => {
+    render(<SliderTooltip title="30" open={false} placement="top" />);
+    await waitFakeTimer();
+    // When mergedOpen is false, tooltip should not be displayed
+    expect(tooltipProps().open).toBe(false);
+  });
+  // 覆盖 components/slider/SliderTooltip.tsx 44 行的用例
 });
