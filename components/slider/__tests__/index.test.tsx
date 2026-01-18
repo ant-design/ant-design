@@ -232,7 +232,7 @@ describe('Slider', () => {
     let mockContainer: HTMLElement;
 
     beforeEach(() => {
-      // 创建 mock 元素
+      // Create mock elements
       mockPopupElement = document.createElement('div');
       mockTriggerElement = document.createElement('div');
       mockContainer = document.createElement('div');
@@ -275,7 +275,7 @@ describe('Slider', () => {
         toJSON: jest.fn(),
       }));
 
-      // Mock window.innerWidth 和 innerHeight
+      // Mock window.innerWidth and innerHeight
       Object.defineProperty(window, 'innerWidth', {
         writable: true,
         configurable: true,
@@ -299,8 +299,8 @@ describe('Slider', () => {
       const { container } = render(<Slider defaultValue={30} tooltip={{ open: false }} />);
       fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
       await waitFakeTimer();
-      // 当 open 为 false 时，mergedOpen 为 false，不应该执行检测逻辑
-      // 由于 tooltip 未打开，无法获取 tooltipProps
+      // When open is false, mergedOpen is false, should not execute detection logic
+      // Since tooltip is not open, cannot get tooltipProps
       expect(container.querySelector('.ant-slider-handle')).toBeTruthy();
     });
 
@@ -308,7 +308,7 @@ describe('Slider', () => {
       const ref = React.createRef<any>();
       render(<SliderTooltip title="30" open ref={ref} />);
       await waitFakeTimer();
-      // 组件应该正常渲染，不会崩溃
+      // Component should render normally without crashing
       expect(ref.current).toBeDefined();
     });
 
@@ -316,7 +316,7 @@ describe('Slider', () => {
       const { container } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
       fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
       await waitFakeTimer();
-      // 应该使用 document.body 作为容器
+      // Should use document.body as container
       expect(tooltipProps().placement).toBeDefined();
     });
 
@@ -337,7 +337,7 @@ describe('Slider', () => {
 
     describe('horizontal mode (placement: top/bottom)', () => {
       it('should adjust to right when tooltip overflows left with placement top', async () => {
-        // Mock 左侧溢出
+        // Mock left overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: -50,
           top: 100,
@@ -355,12 +355,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该调整为 right
+        // Should adjust to right
         expect(tooltipProps().placement).toBe('right');
       });
 
       it('should adjust to left when tooltip overflows right with placement top', async () => {
-        // Mock 右侧溢出
+        // Mock right overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 950,
           top: 100,
@@ -378,12 +378,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该调整为 left
+        // Should adjust to left
         expect(tooltipProps().placement).toBe('left');
       });
 
       it('should keep original placement when no overflow with placement top', async () => {
-        // Mock 没有溢出
+        // Mock no overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 100,
           top: 100,
@@ -401,12 +401,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该保持原始 placement
+        // Should keep original placement
         expect(tooltipProps().placement).toBe('top');
       });
 
       it('should adjust to right when tooltip overflows left with placement bottom', async () => {
-        // Mock 左侧溢出
+        // Mock left overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: -50,
           top: 100,
@@ -424,12 +424,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该调整为 right
+        // Should adjust to right
         expect(tooltipProps().placement).toBe('right');
       });
 
       it('should adjust to left when tooltip overflows right with placement bottom', async () => {
-        // Mock 右侧溢出
+        // Mock right overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 950,
           top: 100,
@@ -447,12 +447,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该调整为 left
+        // Should adjust to left
         expect(tooltipProps().placement).toBe('left');
       });
 
       it('should keep original placement when no overflow with placement bottom', async () => {
-        // Mock 没有溢出
+        // Mock no overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 100,
           top: 100,
@@ -470,14 +470,14 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该保持原始 placement
+        // Should keep original placement
         expect(tooltipProps().placement).toBe('bottom');
       });
     });
 
     describe('vertical mode (placement: left/right)', () => {
       it('should adjust to bottom when tooltip overflows top with placement left', async () => {
-        // Mock 顶部溢出
+        // Mock top overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 100,
           top: -50,
@@ -495,12 +495,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该调整为 bottom
+        // Should adjust to bottom
         expect(tooltipProps().placement).toBe('bottom');
       });
 
       it('should adjust to top when tooltip overflows bottom with placement left', async () => {
-        // Mock 底部溢出
+        // Mock bottom overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 100,
           top: 950,
@@ -518,12 +518,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该调整为 top
+        // Should adjust to top
         expect(tooltipProps().placement).toBe('top');
       });
 
       it('should keep original placement when no overflow with placement left', async () => {
-        // Mock 没有溢出
+        // Mock no overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 100,
           top: 100,
@@ -541,12 +541,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该保持原始 placement
+        // Should keep original placement
         expect(tooltipProps().placement).toBe('left');
       });
 
       it('should adjust to bottom when tooltip overflows top with placement right', async () => {
-        // Mock 顶部溢出
+        // Mock top overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 100,
           top: -50,
@@ -564,12 +564,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该调整为 bottom
+        // Should adjust to bottom
         expect(tooltipProps().placement).toBe('bottom');
       });
 
       it('should adjust to top when tooltip overflows bottom with placement right', async () => {
-        // Mock 底部溢出
+        // Mock bottom overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 100,
           top: 950,
@@ -587,12 +587,12 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该调整为 top
+        // Should adjust to top
         expect(tooltipProps().placement).toBe('top');
       });
 
       it('should keep original placement when no overflow with placement right', async () => {
-        // Mock 没有溢出
+        // Mock no overflow
         mockPopupElement.getBoundingClientRect = jest.fn(() => ({
           left: 100,
           top: 100,
@@ -610,7 +610,7 @@ describe('Slider', () => {
         );
         fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
         await waitFakeTimer();
-        // 应该保持原始 placement
+        // Should keep original placement
         expect(tooltipProps().placement).toBe('right');
       });
     });
@@ -622,10 +622,10 @@ describe('Slider', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
       await waitFakeTimer();
 
-      // 关闭 tooltip
+      // Close tooltip
       rerender(<Slider defaultValue={30} tooltip={{ open: false, placement: 'top' }} />);
       await waitFakeTimer();
-      // placement 应该被重置
+      // Placement should be reset
       expect(tooltipProps().placement).toBe('top');
     });
 
@@ -636,10 +636,10 @@ describe('Slider', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
       await waitFakeTimer();
 
-      // 改变 value
+      // Change value
       rerender(<Slider value={100} tooltip={{ open: true, placement: 'top' }} />);
       await waitFakeTimer();
-      // 应该重新检测并调整
+      // Should re-detect and adjust
       expect(tooltipProps().placement).toBeDefined();
     });
 
@@ -650,7 +650,7 @@ describe('Slider', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
       await waitFakeTimer();
 
-      // 改变 title（通过 formatter）
+      // Change title (via formatter)
       rerender(
         <Slider
           defaultValue={30}
@@ -658,7 +658,7 @@ describe('Slider', () => {
         />,
       );
       await waitFakeTimer();
-      // 应该重新检测并调整
+      // Should re-detect and adjust
       expect(tooltipProps().placement).toBeDefined();
     });
 
@@ -669,13 +669,13 @@ describe('Slider', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
       await waitFakeTimer();
 
-      // 触发 resize 事件
+      // Trigger resize event
       act(() => {
         window.dispatchEvent(new Event('resize'));
         jest.runAllTimers();
       });
       await waitFakeTimer();
-      // 应该重新检测并调整
+      // Should re-detect and adjust
       expect(tooltipProps().placement).toBeDefined();
     });
 
@@ -686,13 +686,13 @@ describe('Slider', () => {
       fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
       await waitFakeTimer();
 
-      // 触发 scroll 事件
+      // Trigger scroll event
       act(() => {
         window.dispatchEvent(new Event('scroll'));
         jest.runAllTimers();
       });
       await waitFakeTimer();
-      // 应该重新检测并调整
+      // Should re-detect and adjust
       expect(tooltipProps().placement).toBeDefined();
     });
 
@@ -700,14 +700,14 @@ describe('Slider', () => {
       const { container } = render(<Slider defaultValue={30} tooltip={{ open: true }} />);
       fireEvent.mouseEnter(container.querySelector('.ant-slider-handle')!);
       await waitFakeTimer();
-      // 应该使用默认的 top
+      // Should use default top
       expect(tooltipProps().placement).toBeDefined();
     });
 
     it('should handle draggingDelete prop', async () => {
       render(<SliderTooltip title="30" open draggingDelete placement="top" />);
       await waitFakeTimer();
-      // 当 draggingDelete 为 true 时，tooltip 不应该显示
+      // When draggingDelete is true, tooltip should not be displayed
       expect(tooltipProps().open).toBe(false);
     });
   });

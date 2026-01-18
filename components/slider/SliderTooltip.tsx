@@ -33,7 +33,7 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
     });
   }
 
-  // 检测 tooltip 是否超出容器并调整 placement
+  // Check if tooltip overflows container and adjust placement
   const checkAndAdjustPlacement = React.useCallback(() => {
     if (!mergedOpen) {
       return;
@@ -51,51 +51,51 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
       return;
     }
 
-    // 获取容器
+    // Get container
     const container = getPopupContainer
       ? getPopupContainer(triggerElement)
       : document.body;
 
-    // 获取容器边界
+    // Get container boundaries
     const containerRect = container === document.body
       ? { left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight }
       : container.getBoundingClientRect();
 
-    // 获取 tooltip 的位置
+    // Get tooltip position
     const popupRect = popupElement.getBoundingClientRect();
 
-    // 获取原始 placement
+    // Get original placement
     const originalPlacement = placement || 'top';
     
-    // 检查 tooltip 是否超出容器
+    // Check if tooltip overflows container
     const isOverflowLeft = popupRect.left < containerRect.left;
     const isOverflowRight = popupRect.right > containerRect.right;
     const isOverflowTop = popupRect.top < containerRect.top;
     const isOverflowBottom = popupRect.bottom > containerRect.bottom;
 
-    // 如果原始 placement 是 top 或 bottom（水平模式），检查左右溢出
+    // If original placement is top or bottom (horizontal mode), check horizontal overflow
     if (originalPlacement === 'top' || originalPlacement === 'bottom') {
       if (isOverflowLeft) {
-        // 左侧超出，改为右侧展示
+        // Left overflow, change to right placement
         setAdjustedPlacement('right');
       } else if (isOverflowRight) {
-        // 右侧超出，改为左侧展示
+        // Right overflow, change to left placement
         setAdjustedPlacement('left');
       } else {
-        // 没有左右溢出，恢复原始 placement
+        // No horizontal overflow, restore original placement
         setAdjustedPlacement(placement);
       }
     }
-    // 如果原始 placement 是 left 或 right（垂直模式），检查上下溢出
+    // If original placement is left or right (vertical mode), check vertical overflow
     else if (originalPlacement === 'left' || originalPlacement === 'right') {
       if (isOverflowTop) {
-        // 顶部超出，改为底部展示
+        // Top overflow, change to bottom placement
         setAdjustedPlacement('bottom');
       } else if (isOverflowBottom) {
-        // 底部超出，改为顶部展示
+        // Bottom overflow, change to top placement
         setAdjustedPlacement('top');
       } else {
-        // 没有上下溢出，恢复原始 placement
+        // No vertical overflow, restore original placement
         setAdjustedPlacement(placement);
       }
     }
@@ -113,7 +113,7 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
   const scheduleAdjustPlacement = React.useCallback(() => {
     cancelAdjustPlacement();
     adjustPlacementRef.current = raf(() => {
-      // 再次使用 raf 确保 tooltip 已经定位
+      // Use raf again to ensure tooltip is positioned
       adjustPlacementRef.current = raf(() => {
         checkAndAdjustPlacement();
         adjustPlacementRef.current = null;
@@ -132,12 +132,12 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
     } else {
       cancelKeepAlign();
       cancelAdjustPlacement();
-      // 关闭时重置 placement
+      // Reset placement when closed
       setAdjustedPlacement(placement);
     }
   }, [mergedOpen, props.title, value, placement, scheduleAdjustPlacement, cancelAdjustPlacement]);
 
-  // 监听 tooltip 位置变化
+  // Listen to tooltip position changes
   React.useEffect(() => {
     if (!mergedOpen) {
       return;
