@@ -35,7 +35,6 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
 
   // 检测 tooltip 是否超出容器并调整 placement
   const checkAndAdjustPlacement = React.useCallback(() => {
-    console.log('checkAndAdjustPlacement');
     if (!mergedOpen) {
       return;
     }
