@@ -4,7 +4,7 @@ import raf from '@rc-component/util/lib/raf';
 import { composeRef } from '@rc-component/util/lib/ref';
 import type { SliderRef } from '@rc-component/slider/lib/Slider';
 
-import type { TooltipProps, TooltipPlacement } from '../tooltip';
+import type { TooltipPlacement, TooltipProps } from '../tooltip';
 import Tooltip from '../tooltip';
 
 export type SliderTooltipProps = TooltipProps & {
