@@ -33,8 +33,6 @@ const SliderTooltip = React.forwardRef<SliderRef, SliderTooltipProps>((props, re
     });
   }
 
-  console.log('kiner: mergedOpen', mergedOpen, open, draggingDelete);
-
   // Check if tooltip overflows container and adjust placement
   const checkAndAdjustPlacement = React.useCallback(() => {
     const tooltipRef = innerRef.current;
