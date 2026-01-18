@@ -324,6 +324,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       position: 'relative',
       background: token.colorBgContainer,
       borderRadius: token.borderRadiusLG,
+      overflow: 'hidden',
 
       [`&:not(${componentCls}-bordered)`]: {
         boxShadow: boxShadowTertiary,
