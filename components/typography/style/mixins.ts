@@ -62,7 +62,8 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
   return {
     'a&, a': {
       ...operationUnit(token),
-      color: btnVarRef('text-color', 'inherit'),
+      // fix issue: https://github.com/ant-design/ant-design/issues/56606
+      // Reset border after operationUnit since Typography links need border styles on hover
       border: [
         btnVarRef('border-width'),
         btnVarRef('border-style'),
