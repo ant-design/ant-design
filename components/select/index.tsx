@@ -260,6 +260,12 @@ const InternalSelect = <
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
+  // Respect `showSearch` to avoid passing `onSearch` alone, which rc-select warns about.
+  // Note: rc-select enables search by default in `multiple/tags`, so we treat `isMultiple` as showSearch=true
+  // when user did not explicitly set `showSearch`.
+  const mergedShowSearch =
+    (rest as Pick<SelectProps, 'showSearch'>).showSearch ?? showSearch ?? isMultiple;
+
   // Track searchValue for multiple/tags to handle edge cases in rc-select:
   // In tags mode, when `open={false}`, placeholder stays rendered even if user typed.
   // We add a root class when searchValue is non-empty and let CSS hide placeholder accordingly.
@@ -319,7 +325,7 @@ const InternalSelect = <
   const selectProps = omit(
     {
       ...rest,
-      onSearch: mergedOnSearch,
+      ...(mergedShowSearch ? { onSearch: mergedOnSearch } : {}),
       ...(searchValueProp !== undefined ? { searchValue: searchValueProp } : {}),
     },
     ['suffixIcon', 'itemIcon' as any],
@@ -382,7 +388,7 @@ const InternalSelect = <
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
-      [`${prefixCls}-has-search-value`]: isMultiple && !!mergedSearchValue,
+      [`${prefixCls}-has-search-value`]: isMultiple && mergedShowSearch && !!mergedSearchValue,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
