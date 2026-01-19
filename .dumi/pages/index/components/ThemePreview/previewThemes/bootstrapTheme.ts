@@ -7,34 +7,10 @@ import clsx from 'clsx';
 import type { UseTheme } from '.';
 
 const useStyles = createStyles(({ css, cssVar }) => {
-  // const lightBorder = {
-  //   border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
-  //   boxShadow: `0 0 3px ${cssVar.colorPrimary}, inset 0 0 10px ${cssVar.colorPrimary}`,
-  // };
-
-  // Bootstrap 垂直渐变色
-  const verticalGradient = {
-    // backgroundImage: `linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2))`,
-    // boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.15)`,
-    // transition: 'none',
-    // borderColor: `rgba(0, 0, 0, 0.3)`,
-    // textShadow: `0 -1px 0 rgba(0, 0, 0, 0.2)`,
-    // '&:hover, &:active': {
-    //   backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.15) 100%)`,
-    // },
-    // '&:active': {
-    //   boxShadow: `inset 0 1px 3px rgba(0, 0, 0, 0.15)`,
-    // },
-  };
-
   return {
     boxBorder: css({
       border: `${cssVar.lineWidth} ${cssVar.lineType} color-mix(in srgb,${cssVar.colorBorder} 80%, #000)`,
     }),
-    // lightBorder,
-    // app: css({
-    //   textShadow: `0 0 5px color-mix(in srgb, currentColor 50%, transparent)`,
-    // }),
     alertRoot: css({
       color: cssVar.colorInfoText,
       textShadow: `0 1px 0 rgba(255, 255, 255, 0.8)`,
@@ -47,19 +23,6 @@ const useStyles = createStyles(({ css, cssVar }) => {
     modalHeader: css({
       borderBottom: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorSplit}`,
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
-      //   margin: 0,
-      //   position: 'relative',
-      //   '&:after': {
-      //     ...lightBorder,
-      //     content: '""',
-      //     position: 'absolute',
-      //     left: 0,
-      //     right: 0,
-      //     bottom: 0,
-      //     border: 0,
-      //     height: cssVar.lineWidth,
-      //     background: cssVar.colorPrimary,
-      //   },
     }),
     modalBody: css({
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
@@ -71,8 +34,6 @@ const useStyles = createStyles(({ css, cssVar }) => {
       boxShadow: `inset 0 1px 0 ${cssVar.colorBgContainer}`,
     }),
     buttonRoot: css({
-      ...verticalGradient,
-
       backgroundImage: `linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2))`,
       boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.15)`,
       transition: 'none',
@@ -92,24 +53,38 @@ const useStyles = createStyles(({ css, cssVar }) => {
       color: cssVar.colorText,
       borderBottomColor: 'rgba(0, 0, 0, 0.5)',
     }),
-    // buttonRootSolid: css({
-    //   color: cssVar.colorBgContainer,
-    //   border: 'none',
-    //   fontWeight: 'bolder',
-    // }),
-    // buttonRootSolidDanger: css({
-    //   boxShadow: `0 0 5px ${cssVar.colorError}`,
-    // }),
-    // colorPickerBody: css({
-    //   pointerEvents: 'none',
-    // }),
-    // tooltipRoot: css({
-    //   ...lightBorder,
-    //   color: cssVar.colorPrimary,
-    // }),
-    // progressTrack: css({
-    //   backgroundColor: cssVar.colorPrimary,
-    // }),
+    dropdownRoot: css({
+      borderRadius: cssVar.borderRadiusLG,
+      backgroundColor: cssVar.colorBgContainer,
+
+      ul: {
+        paddingInline: 0,
+      },
+    }),
+    dropdownItem: css({
+      borderRadius: 0,
+      transition: 'none',
+      paddingBlock: cssVar.paddingXXS,
+      paddingInline: cssVar.padding,
+
+      '&:hover, &:active, &:focus': {
+        backgroundImage: `linear-gradient(to bottom, ${cssVar.colorPrimaryHover}, ${cssVar.colorPrimary})`,
+        color: cssVar.colorTextLightSolid,
+      },
+    }),
+    selectPopupRoot: css({
+      paddingInline: 0,
+    }),
+    switchRoot: css({
+      boxShadow: `inset 0 1px 3px rgba(0, 0, 0, 0.4)`,
+    }),
+    progressTrack: css({
+      backgroundImage: `linear-gradient(to bottom, ${cssVar.colorPrimaryHover}, ${cssVar.colorPrimary})`,
+      borderRadius: cssVar.borderRadiusSM,
+    }),
+    progressRail: css({
+      borderRadius: cssVar.borderRadiusSM,
+    }),
   };
 });
 
@@ -125,14 +100,26 @@ const useBootstrapTheme: UseTheme = () => {
           borderRadiusLG: 6,
           colorInfo: '#3a87ad',
         },
+        components: {
+          Tooltip: {
+            fontSize: 12,
+          },
+          Checkbox: {
+            colorBorder: '#666',
+            borderRadius: 2,
+            algorithm: true,
+          },
+          Radio: {
+            colorBorder: '#666',
+            borderRadius: 2,
+            algorithm: true,
+          },
+        },
       },
       wave: {
         showEffect: () => {},
       },
 
-      // app: {
-      //   className: styles.app,
-      // },
       modal: {
         classNames: {
           container: clsx(styles.boxBorder, styles.modalContainer),
@@ -143,11 +130,7 @@ const useBootstrapTheme: UseTheme = () => {
       },
       button: {
         classNames: ({ props }) => ({
-          root: clsx(
-            styles.buttonRoot,
-            props.color === 'default' && styles.buttonColorDefault,
-            //       props.variant === 'solid' && props.danger && styles.buttonRootSolidDanger,
-          ),
+          root: clsx(styles.buttonRoot, props.color === 'default' && styles.buttonColorDefault),
         }),
       },
 
@@ -157,41 +140,44 @@ const useBootstrapTheme: UseTheme = () => {
       colorPicker: {
         classNames: {
           root: styles.boxBorder,
-          //     body: styles.colorPickerBody,
         },
         arrow: false,
       },
+      checkbox: {
+        classNames: {},
+      },
       dropdown: {
         classNames: {
-          root: styles.boxBorder,
+          root: clsx(styles.boxBorder, styles.dropdownRoot),
+          item: styles.dropdownItem,
         },
       },
-      // select: {
-      //   classNames: {
-      //     root: styles.lightBorder,
-      //   },
-      // },
-      // input: {
-      //   classNames: {
-      //     root: styles.lightBorder,
-      //   },
-      // },
-      // inputNumber: {
-      //   classNames: {
-      //     root: styles.lightBorder,
-      //   },
-      // },
-      tooltip: {
-        // arrow: false,
+      select: {
         classNames: {
-          container: styles.boxBorder,
+          root: styles.boxBorder,
+          popup: {
+            root: clsx(styles.boxBorder, styles.selectPopupRoot),
+            listItem: styles.dropdownItem,
+          },
         },
       },
-      // progress: {
-      //   classNames: {
-      //     track: styles.progressTrack,
-      //   },
-      // },
+      switch: {
+        classNames: {
+          root: styles.switchRoot,
+        },
+      },
+      progress: {
+        classNames: {
+          track: styles.progressTrack,
+          rail: styles.progressRail,
+        },
+        styles: {
+          rail: {
+            height: 20,
+          },
+          track: { height: 20 },
+        },
+      },
     }),
     [],
   );

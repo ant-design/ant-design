@@ -63,6 +63,7 @@ import type {
   SkeletonConfig,
   SpaceConfig,
   SpinConfig,
+  SwitchStyleConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
@@ -250,7 +251,7 @@ export interface ConfigProviderProps {
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
-  switch?: ComponentStyleConfig;
+  switch?: SwitchStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: MessageConfig;
