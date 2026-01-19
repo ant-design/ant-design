@@ -1,9 +1,9 @@
 import React from 'react';
 import { Flex, Spin } from 'antd';
 import type { SpinProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     padding: 8px;
   `,
@@ -27,12 +27,10 @@ const stylesFn: SpinProps['styles'] = ({ props }) => {
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-
   const sharedProps: SpinProps = {
     spinning: true,
     percent: 0,
-    classNames: { root: styles.root },
+    classNames: { root: classNames.root },
   };
 
   return (

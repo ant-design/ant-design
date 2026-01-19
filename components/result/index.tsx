@@ -33,6 +33,8 @@ export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
 
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
+export type ResultSemanticName = keyof ResultSemanticClassNames & keyof ResultSemanticStyles;
+
 export type ResultSemanticClassNames = {
   root?: string;
   title?: string;
@@ -90,7 +92,6 @@ interface IconProps {
 const Icon: React.FC<IconProps> = ({ icon, status, className, style }) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Result');
-
     warning(
       !(typeof icon === 'string' && icon.length > 2),
       'breaking',

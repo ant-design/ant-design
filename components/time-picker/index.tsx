@@ -16,6 +16,9 @@ import type {
 import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic';
 import useVariant from '../form/hooks/useVariants';
 
+export type TimePickerSemanticName = keyof TimePickerSemanticClassNames &
+  keyof TimePickerSemanticStyles;
+
 // import type { SemanticName } from '@rc-component/picker/interface';
 export type TimePickerSemanticClassNames = {
   root?: string;
@@ -32,7 +35,7 @@ export type TimePickerSemanticStyles = {
   suffix?: React.CSSProperties;
 };
 
-export type PanelSemanticName = keyof TimePickerPanelSemanticClassNames &
+export type TimePickerPanelSemanticName = keyof TimePickerPanelSemanticClassNames &
   keyof TimePickerPanelSemanticStyles;
 
 export type TimePickerPanelSemanticClassNames = {

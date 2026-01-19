@@ -225,7 +225,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergedRootCls = clsx(mergedClassNames.root, rootClassName, cssVarCls, rootCls, rtlCls);
+  const mergedRootCls = clsx(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergedCls = clsx(
     getStatusClassNames(prefixCls, contextStatus),
     {
@@ -262,7 +262,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
   };
 
-  const mergedStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   // ============================ zIndex ============================
 
@@ -305,6 +305,8 @@ const ColorPicker: CompoundedComponent = (props) => {
           open={popupOpen}
           className={mergedCls}
           style={mergedStyle}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
           prefixCls={prefixCls}
           disabled={mergedDisabled}
           showText={showText}

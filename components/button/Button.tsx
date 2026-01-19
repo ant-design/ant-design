@@ -8,7 +8,7 @@ import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks'
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import { ConfigContext, useComponentConfig } from '../config-provider/context';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -161,9 +161,22 @@ const InternalCompoundedButton = React.forwardRef<
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
-  const { button } = React.useContext(ConfigContext);
 
-  const shape = customizeShape || button?.shape || 'default';
+  const {
+    getPrefixCls,
+    direction,
+    autoInsertSpace: contextAutoInsertSpace,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    loadingIcon: contextLoadingIcon,
+    shape: contextShape,
+    color: contextColor,
+    variant: contextVariant,
+  } = useComponentConfig('button');
+
+  const mergedShape = customizeShape || contextShape || 'default';
 
   const [parsedColor, parsedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
@@ -182,12 +195,12 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     // >>> Context fallback
-    if (button?.color && button?.variant) {
-      return [button.color, button.variant];
+    if (contextColor && contextVariant) {
+      return [contextColor, contextVariant];
     }
 
     return ['default', 'outlined'];
-  }, [color, variant, type, danger, button?.color, button?.variant, mergedType]);
+  }, [color, variant, type, danger, contextColor, contextVariant, mergedType]);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     if (ghost && parsedVariant === 'solid') {
@@ -198,16 +211,6 @@ const InternalCompoundedButton = React.forwardRef<
 
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
-
-  const {
-    getPrefixCls,
-    direction,
-    autoInsertSpace: contextAutoInsertSpace,
-    className: contextClassName,
-    style: contextStyle,
-    classNames: contextClassNames,
-    styles: contextStyles,
-  } = useComponentConfig('button');
 
   const mergedInsertSpace = autoInsertSpace ?? contextAutoInsertSpace ?? true;
 
@@ -331,7 +334,7 @@ const InternalCompoundedButton = React.forwardRef<
   // ========================== Size ==========================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined };
+  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined, medium: undefined };
 
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
@@ -350,7 +353,7 @@ const InternalCompoundedButton = React.forwardRef<
     color: mergedColor,
     variant: mergedVariant,
     danger: isDanger,
-    shape,
+    shape: mergedShape,
     size: sizeFullName,
     disabled: mergedDisabled,
     loading: innerLoading,
@@ -374,7 +377,8 @@ const InternalCompoundedButton = React.forwardRef<
     hashId,
     cssVarCls,
     {
-      [`${prefixCls}-${shape}`]: shape !== 'default' && shape !== 'square' && shape,
+      [`${prefixCls}-${mergedShape}`]:
+        mergedShape !== 'default' && mergedShape !== 'square' && mergedShape,
       // Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
@@ -428,14 +432,19 @@ const InternalCompoundedButton = React.forwardRef<
     />
   );
 
+  const mergedLoadingIcon =
+    loading && typeof loading === 'object'
+      ? loading.icon || contextLoadingIcon
+      : contextLoadingIcon;
+
   /**
    * Using if-else statements can improve code readability without affecting future expansion.
    */
   let iconNode: React.ReactNode;
   if (icon && !innerLoading) {
     iconNode = iconWrapperElement(icon);
-  } else if (loading && typeof loading === 'object' && loading.icon) {
-    iconNode = iconWrapperElement(loading.icon);
+  } else if (loading && mergedLoadingIcon) {
+    iconNode = iconWrapperElement(mergedLoadingIcon);
   } else {
     iconNode = defaultLoadingIconElement;
   }

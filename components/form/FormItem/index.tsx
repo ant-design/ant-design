@@ -15,7 +15,7 @@ import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import { FormContext, NoStyleItemContext } from '../context';
 import type { FormInstance, FormItemLayout } from '../Form';
 import type { FormItemInputProps } from '../FormItemInput';
-import type { FormItemLabelProps, LabelTooltipType } from '../FormItemLabel';
+import type { FormItemLabelProps } from '../FormItemLabel';
 import useChildren from '../hooks/useChildren';
 import useFormItemStatus from '../hooks/useFormItemStatus';
 import useFrameState from '../hooks/useFrameState';
@@ -100,7 +100,6 @@ export interface FormItemProps<Values = any>
   hidden?: boolean;
   initialValue?: any;
   messageVariables?: Record<string, string>;
-  tooltip?: LabelTooltipType;
   layout?: FormItemLayout;
 }
 

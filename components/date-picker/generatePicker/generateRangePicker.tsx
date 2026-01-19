@@ -4,6 +4,7 @@ import SwapRightOutlined from '@ant-design/icons/SwapRightOutlined';
 import { RangePicker as RCRangePicker } from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/generate/index';
+import { merge } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
@@ -24,8 +25,8 @@ import enUS from '../locale/en_US';
 import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
-import type { RangePickerProps } from './interface';
-import SuffixIcon from './SuffixIcon';
+import type { PickerLocale, RangePickerProps } from './interface';
+import useSuffixIcon from './useSuffixIcon';
 import useComponents from './useComponents';
 
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
@@ -55,6 +56,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       popupStyle,
       rootClassName,
       suffixIcon,
+      separator,
       ...restProps
     } = props;
 
@@ -89,6 +91,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const rootPrefixCls = getPrefixCls();
 
+    const mergedSeparator = separator ?? rangePicker?.separator;
+
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
     const rootCls = useCSSVarCls(prefixCls);
@@ -112,12 +116,12 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
-    const mergedSuffixIcon = <SuffixIcon {...{ picker, hasFeedback, feedbackIcon, suffixIcon }} />;
+    const mergedSuffixIcon = useSuffixIcon({ picker, hasFeedback, feedbackIcon, suffixIcon });
     useImperativeHandle(ref, () => innerRef.current!);
 
     const [contextLocale] = useLocale('Calendar', enUS);
 
-    const locale = { ...contextLocale, ...props.locale! };
+    const locale = merge(contextLocale, props.locale || {}) as PickerLocale;
 
     // ============================ zIndex ============================
     const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);
@@ -127,7 +131,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
         <RCRangePicker<DateType>
           separator={
             <span aria-label="to" className={`${prefixCls}-separator`}>
-              <SwapRightOutlined />
+              {mergedSeparator ?? <SwapRightOutlined />}
             </span>
           }
           disabled={mergedDisabled}

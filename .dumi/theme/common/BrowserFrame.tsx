@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   browserMockup: css`
     position: relative;
     border-top: 2em solid rgba(230, 230, 230, 0.7);
@@ -49,7 +49,6 @@ const useStyle = createStyles(({ cssVar, css }) => ({
 }));
 
 const BrowserFrame: React.FC<React.PropsWithChildren> = ({ children }) => {
-  const { styles } = useStyle();
   return <div className={styles.browserMockup}>{children}</div>;
 };
 

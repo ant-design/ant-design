@@ -16,6 +16,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { RowProps } from '../grid';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import useGutter from '../grid/hooks/useGutter';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import useDelay from './hooks/useDelay';
 import usePositions from './hooks/usePositions';
 import type { ItemHeightData } from './hooks/usePositions';
@@ -28,14 +29,14 @@ export type Gap = number | undefined;
 
 export type Key = string | number;
 
-export type SemanticName = keyof MasonrySemanticClassNames & keyof MasonrySemanticStyles;
+export type MasonrySemanticName = keyof MasonrySemanticClassNames & keyof MasonrySemanticStyles;
 
-type MasonrySemanticClassNames = {
+export type MasonrySemanticClassNames = {
   root?: string;
   item?: string;
 };
 
-type MasonrySemanticStyles = {
+export type MasonrySemanticStyles = {
   root?: React.CSSProperties;
   item?: React.CSSProperties;
 };
@@ -104,8 +105,11 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   } = useComponentConfig('masonry');
 
   const prefixCls = getPrefixCls('masonry', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const [varName, varRef] = genCssVar(rootPrefixCls, 'masonry');
 
   // ======================= Refs =======================
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -243,12 +247,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           cssVarCls,
           { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
-        style={{
-          height: totalHeight,
-          ...mergedStyles.root,
-          ...contextStyle,
-          ...style,
-        }}
+        style={{ height: totalHeight, ...mergedStyles.root, ...contextStyle, ...style }}
         // Listen for image events
         onLoad={collectItemSize}
         onError={collectItemSize}
@@ -275,9 +274,9 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
             const { column: columnIndex = 0 } = position;
 
             const itemStyle: CSSProperties = {
-              '--item-width': `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
-              insetInlineStart: `calc(var(--item-width) * ${columnIndex})`,
-              width: `calc(var(--item-width) - ${horizontalGutter}px)`,
+              [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
+              insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
+              width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
               top: position.top,
               position: 'absolute',
             };

@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   build-site:
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     if: (startsWith(github.ref, 'refs/tags/') && (contains(github.ref_name, '-') == false)) || github.event_name == 'workflow_dispatch'
 
     # https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions#example-defining-outputs-for-a-job

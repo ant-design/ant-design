@@ -28,7 +28,7 @@ export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
 export type { TransferListProps } from './Section';
 
-export type SemanticName = keyof TransferSemanticClassNames & keyof TransferSemanticStyles;
+export type TransferSemanticName = keyof TransferSemanticClassNames & keyof TransferSemanticStyles;
 
 export type TransferSemanticClassNames = {
   root?: string;
