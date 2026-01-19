@@ -145,7 +145,7 @@ const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
       // This handles the edge case in tags mode where open={false} and no options are provided
       // In this case, RC Select doesn't properly hide the placeholder when typing
       // Using :focus-within to detect when the input inside has focus
-      // See: https://github.com/ant-design/ant-design/issues/xxxxx
+      // See: https://github.com/ant-design/ant-design/issues/56587
       [`&:focus-within`]: {
         [`${componentCls}-placeholder`]: {
           display: 'none',
