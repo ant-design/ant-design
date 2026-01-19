@@ -42,7 +42,7 @@ import type {
   PickerProps,
   PickerPropsWithMultiple,
 } from './interface';
-import SuffixIcon from './SuffixIcon';
+import useSuffixIcon from './useSuffixIcon';
 import useComponents from './useComponents';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
@@ -178,9 +178,12 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const mergedSuffixIcon = (
-        <SuffixIcon {...{ picker: mergedPicker, hasFeedback, feedbackIcon, suffixIcon }} />
-      );
+      const mergedSuffixIcon = useSuffixIcon({
+        picker: mergedPicker,
+        hasFeedback,
+        feedbackIcon,
+        suffixIcon,
+      });
       const [contextLocale] = useLocale('DatePicker', enUS);
 
       const locale = merge(contextLocale, (props.locale || {}) as PickerLocale);
