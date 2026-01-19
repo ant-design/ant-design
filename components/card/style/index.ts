@@ -346,6 +346,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
           borderStartStartRadius: unit(token.borderRadiusLG),
           borderStartEndRadius: unit(token.borderRadiusLG),
         },
+
         '&:not(:last-child)': {
           borderEndStartRadius: 0,
           borderEndEndRadius: 0,
