@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Badge, Tag, Tooltip } from 'antd';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import { major, minVersion } from 'semver';
@@ -17,7 +17,7 @@ import DemoContext from '../../slots/DemoContext';
 import { isOfficialHost } from '../../utils';
 import Actions from './Actions';
 
-const useStyle = createStyles(({ cssVar }) => {
+const styles = createStaticStyles(({ cssVar, css }) => {
   return {
     codeHideBtn: css`
       position: sticky;
@@ -68,7 +68,6 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const { pkg } = useSiteData();
 
   const location = useLocation();
-  const { styles } = useStyle();
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;

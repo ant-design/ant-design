@@ -552,7 +552,7 @@ exports[`renders components/color-picker/demo/style-class.tsx correctly 1`] = `
       class="ant-flex css-var-test-id ant-flex-gap-small"
     >
       <div
-        class="ant-color-picker-trigger acss-pbemrr css-var-test-id ant-color-picker-css-var"
+        class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var acss-pbemrr"
       >
         <div
           class="ant-color-picker-color-block"
@@ -572,7 +572,7 @@ exports[`renders components/color-picker/demo/style-class.tsx correctly 1`] = `
       class="ant-flex css-var-test-id ant-flex-gap-small"
     >
       <div
-        class="ant-color-picker-trigger ant-color-picker-lg acss-pbemrr css-var-test-id ant-color-picker-css-var"
+        class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var acss-pbemrr"
       >
         <div
           class="ant-color-picker-color-block"

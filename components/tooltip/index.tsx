@@ -325,7 +325,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !injectFromPopover);
 
   // Color
-  const colorInfo = parseColor(prefixCls, color);
+  const colorInfo = parseColor(rootPrefixCls, prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
   const themeCls = clsx(rootCls, hashId, cssVarCls);

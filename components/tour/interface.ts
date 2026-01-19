@@ -44,6 +44,7 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'classNames
   steps?: TourStepProps[];
   prefixCls?: string;
   current?: number;
+  keyboard?: boolean;
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: TourStepProps['actionsRender'];
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
