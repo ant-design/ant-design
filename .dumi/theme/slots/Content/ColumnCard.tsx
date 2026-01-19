@@ -1,7 +1,7 @@
 import React from 'react';
 import { RightOutlined, YuqueOutlined, ZhihuOutlined } from '@ant-design/icons';
 import { Button, Card, Divider } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
@@ -10,7 +10,7 @@ import JuejinIcon from '../../../theme/icons/JuejinIcon';
 const ANTD_IMG_URL =
   'https://picx.zhimg.com/v2-3b2bca09c2771e7a82a81562e806be4d.jpg?source=d16d100b';
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   card: css`
     width: 100%;
     margin: calc(${cssVar.marginMD} * 2) 0;
@@ -113,19 +113,17 @@ interface Props {
 const ColumnCard: React.FC<Props> = ({ zhihuLink, yuqueLink, juejinLink }) => {
   const [locale] = useLocale(locales);
   const {
-    styles: {
-      card,
-      bigTitle,
-      cardBody,
-      leftCard,
-      title,
-      subTitle,
-      logo,
-      arrowIcon,
-      zlBtn,
-      discussLogo,
-    },
-  } = useStyle();
+    card,
+    bigTitle,
+    cardBody,
+    leftCard,
+    title,
+    subTitle,
+    logo,
+    arrowIcon,
+    zlBtn,
+    discussLogo,
+  } = styles;
   if (!zhihuLink && !yuqueLink && !juejinLink) {
     return null;
   }

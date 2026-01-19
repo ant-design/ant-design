@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { App } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { useIntl } from 'dumi';
 
 import CopyableIcon from './CopyableIcon';
 import type { CategoriesKeys } from './fields';
 import type { ThemeType } from './IconSearch';
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   anticonsList: css`
     margin: ${cssVar.margin} 0;
     overflow: hidden;
@@ -36,7 +36,6 @@ interface CategoryProps {
 const Category: React.FC<CategoryProps> = (props) => {
   const { message } = App.useApp();
   const { icons, title, newIcons, theme } = props;
-  const { styles } = useStyle();
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyId = React.useRef<ReturnType<typeof setTimeout> | null>(null);

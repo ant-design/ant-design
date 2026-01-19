@@ -1,11 +1,18 @@
 import React from 'react';
 import { Flex, Menu } from 'antd';
 import type { MenuProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(() => ({
-  root: { border: '1px solid #f0f0f0', maxWidth: 600, padding: 8, borderRadius: 4 },
-  item: { color: '#1677ff' },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    border: 1px solid #f0f0f0;
+    max-width: 600px;
+    padding: 8px;
+    border-radius: 4px;
+  `,
+  item: css`
+    color: #1677ff;
+  `,
 }));
 
 const items: Required<MenuProps>['items'] = [
@@ -43,8 +50,6 @@ const stylesFn: MenuProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyle();
-
   const shareProps: MenuProps = {
     classNames,
     items,

@@ -26,7 +26,7 @@ import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
 import type { PickerLocale, RangePickerProps } from './interface';
-import SuffixIcon from './SuffixIcon';
+import useSuffixIcon from './useSuffixIcon';
 import useComponents from './useComponents';
 
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
@@ -56,6 +56,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
       popupStyle,
       rootClassName,
       suffixIcon,
+      separator,
       ...restProps
     } = props;
 
@@ -90,6 +91,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
     const rootPrefixCls = getPrefixCls();
 
+    const mergedSeparator = separator ?? rangePicker?.separator;
+
     const [variant, enableVariantCls] = useVariant('rangePicker', customVariant, bordered);
 
     const rootCls = useCSSVarCls(prefixCls);
@@ -113,7 +116,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
-    const mergedSuffixIcon = <SuffixIcon {...{ picker, hasFeedback, feedbackIcon, suffixIcon }} />;
+    const mergedSuffixIcon = useSuffixIcon({ picker, hasFeedback, feedbackIcon, suffixIcon });
     useImperativeHandle(ref, () => innerRef.current!);
 
     const [contextLocale] = useLocale('Calendar', enUS);
@@ -128,7 +131,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
         <RCRangePicker<DateType>
           separator={
             <span aria-label="to" className={`${prefixCls}-separator`}>
-              <SwapRightOutlined />
+              {mergedSeparator ?? <SwapRightOutlined />}
             </span>
           }
           disabled={mergedDisabled}
