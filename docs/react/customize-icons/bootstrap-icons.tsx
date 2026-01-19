@@ -2,6 +2,7 @@ import React from 'react';
 import { ConfigProvider } from 'antd';
 import type { AntTreeNodeProps } from 'antd/es/tree';
 import {
+  ArrowRepeat,
   ArrowRight,
   ArrowUp,
   CheckCircle,
@@ -14,6 +15,7 @@ import {
   XLg,
 } from 'react-bootstrap-icons';
 
+import './bootstrap-icons.css';
 import Examples from './examples';
 
 const Demo: React.FC = () => {
@@ -29,6 +31,9 @@ const Demo: React.FC = () => {
       breadcrumb={{
         separator: <ArrowRight style={{ display: 'inline-block' }} />,
         dropdownIcon: <ChevronDown style={{ display: 'inline-block' }} />,
+      }}
+      button={{
+        loadingIcon: <ArrowRepeat className="icon-spin" />,
       }}
       collapse={{
         expandIcon: (props) => <ChevronDown {...props} />,
@@ -52,6 +57,9 @@ const Demo: React.FC = () => {
       }}
       notification={{
         closeIcon: <XLg />,
+      }}
+      rangePicker={{
+        separator: <ArrowRight />,
       }}
       table={{
         expandable: {

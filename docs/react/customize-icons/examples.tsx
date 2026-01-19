@@ -4,6 +4,7 @@ import {
   Breadcrumb,
   Button,
   Collapse,
+  DatePicker,
   Drawer,
   Flex,
   FloatButton,
@@ -13,6 +14,7 @@ import {
   Table,
   Tabs,
   Tag,
+  TimePicker,
   Tour,
   Transfer,
   TreeSelect,
@@ -38,12 +40,18 @@ const Examples: React.FC = () => {
           { title: 'Item' },
         ]}
       />
+      <Flex gap="small">
+        <Button loading>Button</Button>
+      </Flex>
       <Collapse
         items={[
           { key: '1', label: 'Item 1', children: <div>Content 1</div> },
           { key: '2', label: 'Item 2', children: <div>Content 2</div> },
         ]}
       />
+      <div>
+        <DatePicker.RangePicker />
+      </div>
       <div>
         <Button onClick={() => setDrawerOpen(true)}>Open Drawer</Button>
         <Drawer title="Drawer" open={drawerOpen} onClose={() => setDrawerOpen(false)} />
@@ -91,6 +99,9 @@ const Examples: React.FC = () => {
         <Tag closable>Tag 2</Tag>
         <Tag closable>Tag 3</Tag>
       </Flex>
+      <div>
+        <TimePicker.RangePicker />
+      </div>
       <div>
         <Button onClick={() => setTourOpen(true)}>Open Tour</Button>
         <Tour
