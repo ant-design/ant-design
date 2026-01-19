@@ -21,6 +21,7 @@ export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemantic
 export type SpinSemanticClassNames = {
   root?: string;
   wrapper?: string;
+  container?: string;
   mask?: string;
   indicator?: string;
   tip?: string;
@@ -29,6 +30,7 @@ export type SpinSemanticClassNames = {
 export type SpinSemanticStyles = {
   root?: React.CSSProperties;
   wrapper?: React.CSSProperties;
+  container?: React.CSSProperties;
   mask?: React.CSSProperties;
   indicator?: React.CSSProperties;
   tip?: React.CSSProperties;
@@ -189,9 +191,13 @@ const Spin: SpinType = (props) => {
     cssVarCls,
   );
 
-  const containerClassName = clsx(`${prefixCls}-container`, {
-    [`${prefixCls}-blur`]: spinning,
-  });
+  const containerClassName = clsx(
+    `${prefixCls}-container`,
+    {
+      [`${prefixCls}-blur`]: spinning,
+    },
+    mergedClassNames.container,
+  );
 
   const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
@@ -234,7 +240,7 @@ const Spin: SpinType = (props) => {
         style={mergedStyles.wrapper}
       >
         {spinning && <div key="loading">{spinElement}</div>}
-        <div className={containerClassName} key="container">
+        <div className={containerClassName} style={mergedStyles.container} key="container">
           {children}
         </div>
       </div>
