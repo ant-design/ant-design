@@ -540,11 +540,9 @@ function emitRawMd(api: IApi) {
       }
 
       const outMd = path.join(outRoot, `${relPath}.md`);
-      if (!fs.existsSync(outMd)) {
-        fs.mkdirSync(path.dirname(outMd), { recursive: true });
-        fs.writeFileSync(outMd, content, 'utf-8');
-        api.logger.event(`Build ${relPath}.md`);
-      }
+      fs.mkdirSync(path.dirname(outMd), { recursive: true });
+      fs.writeFileSync(outMd, content, 'utf-8');
+      api.logger.event(`Build ${relPath}.md`);
     } catch (e) {
       api.logger.error(`Failed to emit raw markdown for ${route.file}:`, e);
     }

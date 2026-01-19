@@ -319,7 +319,9 @@ function emitSemanticMd(api: IApi) {
           fs.writeFileSync(semanticMdPath, content, 'utf-8');
         });
       }
-    } catch {}
+    } catch (e) {
+      api.logger.error(`Failed to generate semantic md for ${componentName}:`, e);
+    }
   });
 }
 
