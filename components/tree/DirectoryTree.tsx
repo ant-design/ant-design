@@ -57,17 +57,15 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     });
 
     let initExpandedKeys: Key[];
+    const mergedExpandedKeys = props.expandedKeys || defaultExpandedKeys || [];
 
     // Expanded keys
     if (defaultExpandAll) {
       initExpandedKeys = Object.keys(keyEntities);
     } else if (defaultExpandParent) {
-      initExpandedKeys = conductExpandParent(
-        props.expandedKeys || defaultExpandedKeys || [],
-        keyEntities,
-      );
+      initExpandedKeys = conductExpandParent(mergedExpandedKeys, keyEntities);
     } else {
-      initExpandedKeys = props.expandedKeys || defaultExpandedKeys || [];
+      initExpandedKeys = mergedExpandedKeys;
     }
     return initExpandedKeys;
   };
@@ -119,7 +117,6 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     const { key = '' } = node;
 
     const treeData = getTreeData(props);
-    // const newState: DirectoryTreeState = {};
 
     // We need wrap this event since some value is not same
     const newEvent = {
@@ -174,7 +171,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     className,
     showIcon = true,
     expandAction = 'click',
-    ...otherProps
+    ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
@@ -192,7 +189,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       icon={getIcon}
       ref={ref}
       blockNode
-      {...otherProps}
+      {...restProps}
       showIcon={showIcon}
       expandAction={expandAction}
       prefixCls={prefixCls}

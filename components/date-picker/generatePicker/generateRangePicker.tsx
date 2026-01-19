@@ -26,7 +26,7 @@ import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
 import type { PickerLocale, RangePickerProps } from './interface';
-import SuffixIcon from './SuffixIcon';
+import useSuffixIcon from './useSuffixIcon';
 import useComponents from './useComponents';
 
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
@@ -113,7 +113,7 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
-    const mergedSuffixIcon = <SuffixIcon {...{ picker, hasFeedback, feedbackIcon, suffixIcon }} />;
+    const mergedSuffixIcon = useSuffixIcon({ picker, hasFeedback, feedbackIcon, suffixIcon });
     useImperativeHandle(ref, () => innerRef.current!);
 
     const [contextLocale] = useLocale('Calendar', enUS);
