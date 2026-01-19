@@ -13,7 +13,6 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import type { TypographyToken } from '.';
 import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
-import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const getTitleStyle = (
   fontSize: number,
@@ -55,21 +54,13 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 };
 
 export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
-
-  const [, btnVarRef] = genCssVar(antCls, 'btn');
+  const { componentCls } = token;
 
   return {
-    'a&, a': {
+    // fix issue: https://github.com/ant-design/ant-design/issues/56606
+    // exclude ant-btn to avoid style conflicts with Button component when it renders as <a></a> tag (variant='link' with href)
+    'a&:not(.ant-btn), a:not(.ant-btn)': {
       ...operationUnit(token),
-      // fix issue: https://github.com/ant-design/ant-design/issues/56606
-      // Reset border after operationUnit since Typography links need border styles on hover
-      border: [
-        btnVarRef('border-width'),
-        btnVarRef('border-style'),
-        btnVarRef('border-color-hover'),
-      ].join(' '),
-      userSelect: 'text',
 
       [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,

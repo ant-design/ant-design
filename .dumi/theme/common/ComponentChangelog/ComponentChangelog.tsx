@@ -72,6 +72,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     font-weight: 600;
     font-size: 20px;
     margin: 0 !important;
+    padding: 0;
   `,
   versionTag: css`
     user-select: none;
