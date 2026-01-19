@@ -53,7 +53,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
       color: cssVar.colorText,
       borderBottomColor: 'rgba(0, 0, 0, 0.5)',
     }),
-    dropdownRoot: css({
+    popupBox: css({
       borderRadius: cssVar.borderRadiusLG,
       backgroundColor: cssVar.colorBgContainer,
 
@@ -140,6 +140,9 @@ const useBootstrapTheme: UseTheme = () => {
       colorPicker: {
         classNames: {
           root: styles.boxBorder,
+          popup: {
+            root: clsx(styles.boxBorder, styles.popupBox),
+          },
         },
         arrow: false,
       },
@@ -148,7 +151,7 @@ const useBootstrapTheme: UseTheme = () => {
       },
       dropdown: {
         classNames: {
-          root: clsx(styles.boxBorder, styles.dropdownRoot),
+          root: clsx(styles.boxBorder, styles.popupBox),
           item: styles.dropdownItem,
         },
       },
