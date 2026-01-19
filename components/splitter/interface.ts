@@ -67,6 +67,12 @@ export interface SplitterProps {
   onResizeEnd?: (sizes: number[]) => void;
   onCollapse?: (collapsed: boolean[], sizes: number[]) => void;
   lazy?: boolean;
+  /**
+   * Step values for snapping during resize.
+   * Can be percentage strings (e.g., "10%") or pixel numbers (e.g., 100).
+   * @example ["10%", "30%"] or [100, 200, 500]
+   */
+  step?: (number | string)[];
 }
 
 export interface PanelProps {

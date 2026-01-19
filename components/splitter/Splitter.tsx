@@ -42,6 +42,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResize,
     onResizeEnd,
     lazy,
+    step,
   } = props;
 
   const {
@@ -111,6 +112,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     containerSize,
     updateSizes,
     reverse,
+    step,
   );
 
   // ======================== Events ========================
