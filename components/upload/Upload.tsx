@@ -476,18 +476,24 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   // ======================== Render ========================
 
   if (type === 'drag') {
-    const dragCls = clsx(hashId, prefixCls, `${prefixCls}-drag`, {
-      [`${prefixCls}-drag-uploading`]: mergedFileList.some((file) => file.status === 'uploading'),
-      [`${prefixCls}-drag-hover`]: dragState === 'dragover',
-      [`${prefixCls}-disabled`]: mergedDisabled,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    });
+    const dragCls = clsx(
+      hashId,
+      prefixCls,
+      `${prefixCls}-drag`,
+      {
+        [`${prefixCls}-drag-uploading`]: mergedFileList.some((file) => file.status === 'uploading'),
+        [`${prefixCls}-drag-hover`]: dragState === 'dragover',
+        [`${prefixCls}-disabled`]: mergedDisabled,
+        [`${prefixCls}-rtl`]: direction === 'rtl',
+      },
+      mergedClassNames.trigger,
+    );
 
     return (
       <span className={mergedRootCls} ref={wrapRef} style={mergedRootStyle}>
         <div
           className={dragCls}
-          style={mergedStyle}
+          style={{ ...mergedStyle, ...mergedStyles.trigger }}
           onDrop={onFileDrop}
           onDragOver={onFileDrop}
           onDragLeave={onFileDrop}
