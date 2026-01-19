@@ -344,6 +344,10 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
         borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
       },
 
+      [`& > ${componentCls}-body:first-child`]: {
+        borderRadius: unit(token.borderRadiusLG),
+      },
+
       [`${componentCls}-grid`]: genCardGridStyle(token),
 
       [`${componentCls}-cover`]: {
