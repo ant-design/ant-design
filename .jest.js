@@ -71,6 +71,7 @@ module.exports = {
     '!components/*/__tests__/type.test.tsx',
     '!components/**/*/interface.{ts,tsx}',
     '!components/*/__tests__/image.test.{ts,tsx}',
+    '!components/*/__tests__/demo-semantic.test.tsx',
     '!components/__tests__/node.test.tsx',
     '!components/*/demo/*.tsx',
     '!components/*/design/**',
