@@ -508,11 +508,11 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       [`${prefixCls}-disabled`]: mergedDisabled,
       [`${prefixCls}-hidden`]: !children,
     },
-    mergedClassNames.uploadButton,
+    mergedClassNames.trigger,
   );
 
   const uploadButton = (
-    <div className={uploadBtnCls} style={{ ...mergedStyle, ...mergedStyles.uploadButton }}>
+    <div className={uploadBtnCls} style={{ ...mergedStyle, ...mergedStyles.trigger }}>
       <RcUpload {...rcUploadProps} ref={upload} />
     </div>
   );

@@ -13,7 +13,7 @@ describe('Upload.Semantic', () => {
           root: 'test-upload-root',
           list: 'test-upload-list',
           item: 'test-upload-item',
-          uploadButton: 'test-upload-button',
+          trigger: 'test-upload-button',
         }}
         defaultFileList={[
           {
@@ -62,7 +62,7 @@ describe('Upload.Semantic', () => {
           root: { backgroundColor: 'rgb(255, 0, 0)' },
           list: { backgroundColor: 'rgb(0, 0, 255)' },
           item: { backgroundColor: 'rgb(0, 128, 0)' },
-          uploadButton: { backgroundColor: 'rgb(255, 255, 0)' },
+          trigger: { backgroundColor: 'rgb(255, 255, 0)' },
         }}
         defaultFileList={[{ uid: '1', name: 'test.txt', status: 'done' }]}
       >

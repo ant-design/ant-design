@@ -17,7 +17,7 @@ const stylesObject: UploadProps<any>['styles'] = {
     backgroundColor: 'rgba(5, 5, 5, 0.06)',
     height: 30,
   },
-  uploadButton: {
+  trigger: {
     backgroundColor: 'rgba(84, 89, 172, 0.1)',
     padding: 8,
     borderRadius: 4,
@@ -33,7 +33,7 @@ const stylesFn: UploadProps<any>['styles'] = (info) => {
         backgroundColor: 'rgba(5, 5, 5, 0.06)',
         height: 30,
       },
-      uploadButton: {
+      trigger: {
         backgroundColor: 'rgba(84, 89, 172, 0.2)',
         padding: 8,
         borderRadius: 4,
