@@ -96,7 +96,7 @@ const Block: React.FC<BlockProps> = ({
         treeData={treeData}
         {...(mode === 'multiple' ? multipleProps : {})}
         styles={{ popup: { zIndex: 1 } }}
-        maxTagCount={1}
+        maxTagCount="responsive"
         placeholder="Please select"
       />
     </Flex>

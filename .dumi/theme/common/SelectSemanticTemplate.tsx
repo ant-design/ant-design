@@ -104,7 +104,7 @@ const Block: React.FC<BlockProps> = ({
         options={options}
         {...(mode === 'multiple' ? multipleProps : {})}
         styles={{ popup: { zIndex: 1 } }}
-        maxTagCount={1}
+        maxTagCount="responsive"
         placeholder="Please select"
         allowClear
       />
