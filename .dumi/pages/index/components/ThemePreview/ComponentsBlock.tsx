@@ -173,6 +173,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 defaultChecked
                 checkedChildren={<CheckOutlined />}
                 unCheckedChildren={<CloseOutlined />}
+                style={{ width: 48 }}
               />
               <Checkbox.Group
                 options={[locale.apple, locale.banana, locale.orange]}
