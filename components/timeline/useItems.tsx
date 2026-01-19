@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { LoadingOutlined } from '@ant-design/icons';
+import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 

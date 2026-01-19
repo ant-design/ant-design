@@ -85686,9 +85686,6 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
           size="12"
           value=""
         />
-        <span
-          class="ant-picker-suffix"
-        />
       </div>
     </div>
     <div
@@ -86899,9 +86896,6 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
           placeholder="Select date"
           size="12"
           value=""
-        />
-        <span
-          class="ant-picker-suffix"
         />
       </div>
     </div>

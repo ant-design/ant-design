@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { createStaticStyles } from 'antd-style';
+import { createStyles, css } from 'antd-style';
 import { clsx } from 'clsx';
 
-const styles = createStaticStyles(({ cssVar, css, cx }) => {
+const useStyle = createStyles(({ cssVar, cx }) => {
   const duration = cssVar.motionDurationSlow;
 
   const marker = css`
@@ -55,6 +55,8 @@ export interface MarkerProps {
 }
 
 const Marker = React.memo<MarkerProps>((props) => {
+  const { styles } = useStyle();
+
   const { rect, primary, ...restProps } = props;
 
   const rectRef = React.useRef(rect);
