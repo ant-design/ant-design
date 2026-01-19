@@ -32,6 +32,7 @@ import type {
   DatePickerConfig,
   DirectionType,
   DrawerConfig,
+  DropdownConfig,
   EmptyConfig,
   FlexConfig,
   FloatButtonConfig,
@@ -266,7 +267,7 @@ export interface ConfigProviderProps {
   colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
-  dropdown?: ComponentStyleConfig;
+  dropdown?: DropdownConfig;
   flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.

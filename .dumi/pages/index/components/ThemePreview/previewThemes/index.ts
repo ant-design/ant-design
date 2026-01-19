@@ -3,6 +3,7 @@ import type { ConfigProviderProps } from 'antd';
 import { theme } from 'antd';
 
 import useLocale from '../../../../../hooks/useLocale';
+import useBootstrapTheme from './bootstrapTheme';
 import useGeekTheme from './geekTheme';
 import useMuiTheme from './muiTheme';
 import useShadcnTheme from './shadcnTheme';
@@ -19,6 +20,7 @@ const locales = {
     geek: '极客风格',
     mui: 'MUI 风格',
     shadcn: 'shadcn 风格',
+    bootstrap: '老派风格',
   },
   en: {
     default: 'Default Style',
@@ -26,6 +28,7 @@ const locales = {
     geek: 'Geek Style',
     mui: 'MUI Style',
     shadcn: 'shadcn Style',
+    bootstrap: 'Old School Style',
   },
 };
 
@@ -37,11 +40,17 @@ export default function usePreviewThemes() {
   const geekTheme = useGeekTheme();
   const muiTheme = useMuiTheme();
   const shadcnTheme = useShadcnTheme();
+  const bootstrapTheme = useBootstrapTheme();
 
   return React.useMemo<PreviewThemeConfig[]>(() => {
     return [
       {
         name: locale.default,
+        props: {
+          theme: {
+            algorithm: theme.defaultAlgorithm,
+          },
+        },
       },
       {
         name: locale.dark,
@@ -62,6 +71,10 @@ export default function usePreviewThemes() {
       {
         name: locale.shadcn,
         props: shadcnTheme,
+      },
+      {
+        name: locale.bootstrap,
+        props: bootstrapTheme,
       },
     ];
   }, [locale]);

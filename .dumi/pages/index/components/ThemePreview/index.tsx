@@ -92,7 +92,7 @@ export default function ThemePreview() {
 
   const previewThemes = usePreviewThemes();
 
-  const [activeName, setActiveName] = React.useState(previewThemes[2].name);
+  const [activeName, setActiveName] = React.useState(previewThemes[5].name);
 
   const handleThemeClick = (name: string) => {
     setActiveName(name);

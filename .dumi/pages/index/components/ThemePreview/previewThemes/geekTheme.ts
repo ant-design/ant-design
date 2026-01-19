@@ -45,6 +45,12 @@ const useStyles = createStyles(({ css, cssVar }) => {
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
     }),
 
+    buttonRoot: css({
+      ...lightBorder,
+      border: undefined,
+      borderWidth: cssVar.lineWidth,
+      borderColor: cssVar.colorPrimary,
+    }),
     buttonRootSolid: css({
       color: cssVar.colorBgContainer,
       border: 'none',
@@ -97,7 +103,7 @@ const useGeekTheme: UseTheme = () => {
       button: {
         classNames: ({ props }) => ({
           root: clsx(
-            styles.lightBorder,
+            styles.buttonRoot,
             props.variant === 'solid' && styles.buttonRootSolid,
             props.variant === 'solid' && props.danger && styles.buttonRootSolidDanger,
           ),
