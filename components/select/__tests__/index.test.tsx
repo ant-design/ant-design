@@ -83,6 +83,25 @@ describe('Select', () => {
     expect(onOpenChange).toHaveBeenLastCalledWith(true);
   });
 
+  it('should toggle `ant-select-has-search-value` in tags mode even when open is false', () => {
+    const { container } = render(
+      <Select mode="tags" open={false} options={[]} placeholder="Please select" />,
+    );
+
+    const root = container.querySelector('.ant-select') as HTMLElement;
+    const input = container.querySelector('input.ant-select-input') as HTMLInputElement;
+
+    expect(root).toBeTruthy();
+    expect(input).toBeTruthy();
+    expect(root.className).not.toContain('ant-select-has-search-value');
+
+    fireEvent.change(input, { target: { value: 'a' } });
+    expect(root.className).toContain('ant-select-has-search-value');
+
+    fireEvent.change(input, { target: { value: '' } });
+    expect(root.className).not.toContain('ant-select-has-search-value');
+  });
+
   it('should show search icon when showSearch and open', () => {
     jest.useFakeTimers();
     const { container } = render(<Select options={[{ label: '1', value: '1' }]} showSearch />);

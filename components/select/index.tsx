@@ -204,6 +204,8 @@ const InternalSelect = <
     popupRender,
     onDropdownVisibleChange,
     onOpenChange,
+    onSearch: onSearchProp,
+    searchValue: searchValueProp,
     styles,
     classNames,
     ...rest
@@ -258,6 +260,21 @@ const InternalSelect = <
 
   const isMultiple = mode === 'multiple' || mode === 'tags';
 
+  // Track searchValue for multiple/tags to handle edge cases in rc-select:
+  // In tags mode, when `open={false}`, placeholder stays rendered even if user typed.
+  // We add a root class when searchValue is non-empty and let CSS hide placeholder accordingly.
+  const [innerSearchValue, setInnerSearchValue] = React.useState('');
+  const mergedSearchValue = searchValueProp ?? innerSearchValue;
+  const mergedOnSearch = React.useCallback<
+    NonNullable<RcSelectProps<ValueType, OptionType>['onSearch']>
+  >(
+    (value, ...args) => {
+      setInnerSearchValue(value ?? '');
+      onSearchProp?.(value, ...args);
+    },
+    [onSearchProp],
+  );
+
   const showSuffixIcon = useShowArrow(props.suffixIcon, props.showArrow);
 
   const mergedPopupMatchSelectWidth =
@@ -299,7 +316,14 @@ const InternalSelect = <
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
-  const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
+  const selectProps = omit(
+    {
+      ...rest,
+      onSearch: mergedOnSearch,
+      ...(searchValueProp !== undefined ? { searchValue: searchValueProp } : {}),
+    },
+    ['suffixIcon', 'itemIcon' as any],
+  );
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -358,6 +382,7 @@ const InternalSelect = <
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-${variant}`]: enableVariantCls,
       [`${prefixCls}-in-form-item`]: isFormItemInput,
+      [`${prefixCls}-has-search-value`]: isMultiple && !!mergedSearchValue,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     compactItemClassnames,
