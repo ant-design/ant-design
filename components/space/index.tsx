@@ -20,6 +20,8 @@ export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 
+export type SpaceSemanticName = keyof SpaceSemanticClassNames & keyof SpaceSemanticStyles;
+
 export type SpaceSemanticClassNames = {
   root?: string;
   item?: string;

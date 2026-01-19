@@ -8,12 +8,14 @@ import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
 import { ListContext } from './context';
 
-type ListItemSemanticClassNames = {
+export type ListItemSemanticName = keyof ListItemSemanticClassNames & keyof ListItemSemanticStyles;
+
+export type ListItemSemanticClassNames = {
   actions?: string;
   extra?: string;
 };
 
-type ListItemSemanticStyles = {
+export type ListItemSemanticStyles = {
   actions?: React.CSSProperties;
   extra?: React.CSSProperties;
 };

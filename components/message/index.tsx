@@ -7,6 +7,9 @@ import type {
   ArgsProps,
   ConfigOptions,
   MessageInstance,
+  MessageSemanticClassNames,
+  MessageSemanticName,
+  MessageSemanticStyles,
   MessageType,
   NoticeType,
   TypeOpen,
@@ -15,7 +18,7 @@ import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
-export type { ArgsProps };
+export type { ArgsProps, MessageSemanticClassNames, MessageSemanticName, MessageSemanticStyles };
 
 let message: GlobalMessage | null = null;
 
@@ -43,14 +46,7 @@ interface TypeTask {
   skipped?: boolean;
 }
 
-type Task =
-  | OpenTask
-  | TypeTask
-  | {
-      type: 'destroy';
-      key?: React.Key;
-      skipped?: boolean;
-    };
+type Task = OpenTask | TypeTask | { type: 'destroy'; key?: React.Key; skipped?: boolean };
 
 let taskQueue: Task[] = [];
 

@@ -16284,7 +16284,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider componentDisabled 1`] = `
 <div
-  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined config-input-number-disabled"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined config-input-number-without-controls config-input-number-disabled"
 >
   <input
     autocomplete="off"
@@ -16294,64 +16294,6 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
     step="1"
     value=""
   />
-  <div
-    class="config-input-number-actions"
-  >
-    <span
-      aria-disabled="false"
-      aria-label="Increase Value"
-      class="config-input-number-action config-input-number-action-up"
-      role="button"
-      unselectable="on"
-    >
-      <span
-        aria-label="up"
-        class="anticon anticon-up"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="up"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-    <span
-      aria-disabled="false"
-      aria-label="Decrease Value"
-      class="config-input-number-action config-input-number-action-down"
-      role="button"
-      unselectable="on"
-    >
-      <span
-        aria-label="down"
-        class="anticon anticon-down"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
 </div>
 `;
 
@@ -25116,7 +25058,7 @@ exports[`ConfigProvider components Statistic prefixCls 1`] = `
 exports[`ConfigProvider components Steps configProvider 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25159,7 +25101,7 @@ exports[`ConfigProvider components Steps configProvider 1`] = `
 exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25202,7 +25144,7 @@ exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = 
 exports[`ConfigProvider components Steps configProvider componentSize large 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-large css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25245,7 +25187,7 @@ exports[`ConfigProvider components Steps configProvider componentSize large 1`] 
 exports[`ConfigProvider components Steps configProvider componentSize middle 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-middle css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25288,7 +25230,7 @@ exports[`ConfigProvider components Steps configProvider componentSize middle 1`]
 exports[`ConfigProvider components Steps configProvider componentSize small 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-small css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25331,7 +25273,7 @@ exports[`ConfigProvider components Steps configProvider componentSize small 1`] 
 exports[`ConfigProvider components Steps normal 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 >
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -25374,7 +25316,7 @@ exports[`ConfigProvider components Steps normal 1`] = `
 exports[`ConfigProvider components Steps prefixCls 1`] = `
 <div
   class="prefix-Steps prefix-Steps-vertical prefix-Steps-title-horizontal prefix-Steps-filled css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 >
   <div
     class="prefix-Steps-item prefix-Steps-item-process prefix-Steps-item-active"
@@ -37885,7 +37827,7 @@ Array [
 exports[`ConfigProvider components Timeline configProvider 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -37916,7 +37858,7 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
 exports[`ConfigProvider components Timeline configProvider componentDisabled 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -37947,7 +37889,7 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
 exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-large config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -37978,7 +37920,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
 exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-middle config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -38009,7 +37951,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
 exports[`ConfigProvider components Timeline configProvider componentSize small 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-small config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -38040,7 +37982,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
 exports[`ConfigProvider components Timeline normal 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -38071,7 +38013,7 @@ exports[`ConfigProvider components Timeline normal 1`] = `
 exports[`ConfigProvider components Timeline prefixCls 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot prefix-Timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-placement-start prefix-Timeline-item"

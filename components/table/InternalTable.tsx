@@ -60,10 +60,10 @@ import type {
   TablePaginationPosition,
   TableRowSelection,
 } from './interface';
-import TableMeasureRowContext from './TableMeasureRowContext';
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
+import TableMeasureRowContext from './TableMeasureRowContext';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -87,7 +87,8 @@ export type TableSemanticStyles = {
   content?: React.CSSProperties;
 };
 
-export type ComponentsSemantic = 'wrapper' | 'cell' | 'row';
+export type ComponentsSemantic = keyof ComponentsSemanticClassNames &
+  keyof ComponentsSemanticStyles;
 
 export type ComponentsSemanticClassNames = {
   wrapper?: string;

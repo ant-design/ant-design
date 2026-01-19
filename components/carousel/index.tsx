@@ -9,6 +9,7 @@ import { useComponentConfig } from '../config-provider/context';
 import useStyle, { DotDuration } from './style';
 
 export type CarouselEffect = 'scrollx' | 'fade';
+
 export type DotPlacement = 'top' | 'bottom' | 'start' | 'end';
 
 // Carousel
@@ -36,6 +37,7 @@ export interface CarouselRef {
 }
 
 const dotsClass = 'slick-dots';
+
 interface ArrowType extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   currentSlide?: number;
   slideCount?: number;

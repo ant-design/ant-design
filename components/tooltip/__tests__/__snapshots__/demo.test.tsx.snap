@@ -843,7 +843,7 @@ Array [
   </div>,
   <div
     class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
-    style="--antd-arrow-background-color:#f50"
+    style="--ant-tooltip-arrow-background-color:#f50"
   >
     <div
       class="ant-tooltip-arrow"
@@ -851,7 +851,7 @@ Array [
     <div
       class="ant-tooltip-container"
       role="tooltip"
-      style="background:#f50;--ant-tooltip-color:#FFF"
+      style="background:#f50;--ant-tooltip-overlay-color:#FFF"
     >
       Hello, Customize Color Pure Panel!
     </div>

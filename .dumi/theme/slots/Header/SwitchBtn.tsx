@@ -1,7 +1,7 @@
 import React from 'react';
 import { omit } from '@rc-component/util';
 import { Button, Tooltip } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
 export interface SwitchBtnProps {
@@ -18,7 +18,7 @@ export interface SwitchBtnProps {
 
 const BASE_SIZE = '1.2em';
 
-const useStyle = createStyles(({ cssVar, css }) => {
+const styles = createStaticStyles(({ cssVar, css }) => {
   return {
     btn: css`
       width: ${cssVar.controlHeight};
@@ -65,9 +65,7 @@ const useStyle = createStyles(({ cssVar, css }) => {
 const SwitchBtn: React.FC<SwitchBtnProps> = (props) => {
   const { label1, label2, tooltip1, tooltip2, value, pure, onClick, ...rest } = props;
 
-  const {
-    styles: { btn, innerDiv, labelStyle, label1Style, label2Style },
-  } = useStyle();
+  const { btn, innerDiv, labelStyle, label1Style, label2Style } = styles;
 
   const node = (
     <Button

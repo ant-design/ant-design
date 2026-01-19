@@ -1,21 +1,21 @@
 import React from 'react';
 import { Avatar, Badge, Card, Flex, Space } from 'antd';
 import type { BadgeProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
-const useStylesBadge = createStyles(() => ({
-  indicator: {
-    fontSize: 10,
-  },
+const badgeClassNames = createStaticStyles(({ css }) => ({
+  indicator: css`
+   font-size: 10px;
+  `,
 }));
 
-const useStylesRibbon = createStyles(() => ({
-  root: {
-    width: 400,
-    border: '1px solid #d9d9d9',
-    borderRadius: 10,
-  },
+const ribbonClassNames = createStaticStyles(({ css }) => ({
+  root: css`
+    width: 400px;
+    border: 1px solid #d9d9d9;
+    border-radius: 10px;
+  `,
 }));
 
 const badgeStyles: BadgeProps['styles'] = {
@@ -57,8 +57,6 @@ const ribbonStylesFn: RibbonProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: badgeClassNames } = useStylesBadge();
-  const { styles: ribbonClassNames } = useStylesRibbon();
   return (
     <Space size="large" vertical>
       <Flex gap="middle">

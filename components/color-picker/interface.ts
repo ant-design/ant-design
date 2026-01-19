@@ -54,12 +54,21 @@ export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
+export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames &
+  keyof ColorPickerSemanticStyles;
+
 export type ColorPickerSemanticClassNames = {
   root?: string;
+  body?: string;
+  content?: string;
+  description?: string;
 };
 
 export type ColorPickerSemanticStyles = {
   root?: React.CSSProperties;
+  body?: React.CSSProperties;
+  content?: React.CSSProperties;
+  description?: React.CSSProperties;
 };
 
 export type ColorPickerClassNamesType = SemanticClassNamesType<

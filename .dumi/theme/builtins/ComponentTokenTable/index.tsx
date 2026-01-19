@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { LinkOutlined, QuestionCircleOutlined, RightOutlined } from '@ant-design/icons';
 import { ConfigProvider, Flex, Popover, Table, Typography } from 'antd';
-import { createStyles, css, useTheme } from 'antd-style';
+import { createStaticStyles, css, useTheme } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import tokenData from 'antd/es/version/token.json';
@@ -53,7 +53,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ cssVar }) => ({
+const styles = createStaticStyles(({ cssVar }) => ({
   tableTitle: css`
     cursor: pointer;
     position: relative;
@@ -103,8 +103,6 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
   const columns = useColumns();
 
   const [open, setOpen] = useState<boolean>(defaultOpen ?? process.env.NODE_ENV !== 'production');
-
-  const { styles } = useStyle();
 
   if (!tokens.length) {
     return null;

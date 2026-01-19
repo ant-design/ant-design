@@ -164,11 +164,8 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
             aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
           />
         );
-      return cloneElement(icon, () => ({
-        className: clsx(
-          (icon as React.ReactElement<{ className?: string }>)?.props?.className,
-          `${prefixCls}-arrow`,
-        ),
+      return cloneElement(icon, (oriProps) => ({
+        className: clsx(oriProps.className, `${prefixCls}-arrow`),
       }));
     },
     [mergedExpandIcon, prefixCls, direction],
