@@ -646,6 +646,30 @@ describe('Button', () => {
     expect(container.querySelector('.ant-btn-color-dangerous')).toBeTruthy();
   });
 
+  it('support ConfigProvider loadingIcon', () => {
+    const { container } = render(
+      <ConfigProvider button={{ loadingIcon: 'foobar' }}>
+        <Button loading>
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-btn-icon')).toHaveTextContent('foobar');
+  });
+
+  it('prefer loading.icon prop over ConfigProvider loadingIcon', () => {
+    const { container } = render(
+      <ConfigProvider button={{ loadingIcon: 'foobar' }}>
+        <Button loading={{ icon: 'bamboo' }}>
+          Button
+        </Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-btn-icon')).toHaveTextContent('bamboo');
+  });
+
   describe('Button icon placement', () => {
     let consoleWarnSpy: jest.SpyInstance;
     beforeEach(() => {
