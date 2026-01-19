@@ -1,5 +1,6 @@
 import * as React from 'react';
-import { MinusOutlined, PlusOutlined } from '@ant-design/icons';
+import MinusOutlined from '@ant-design/icons/MinusOutlined';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import RcInputNumber from '@rc-component/input-number';

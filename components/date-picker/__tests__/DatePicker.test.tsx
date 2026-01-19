@@ -491,10 +491,10 @@ describe('DatePicker', () => {
     expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
 
     rerender(<DatePicker suffixIcon={false} />);
-    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
+    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
 
     rerender(<DatePicker suffixIcon={null} />);
-    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
+    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
 
     rerender(<DatePicker suffixIcon={'123'} />);
     expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
