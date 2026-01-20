@@ -79,7 +79,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
       '&:hover, &.active': {
         borderColor: cssVar.colorTextLightSolid,
         backgroundColor: 'transparent',
-      }
+      },
     },
   }),
 
@@ -91,6 +91,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     justifyContent: 'center',
     border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
     borderRadius: cssVar.borderRadius,
+    boxShadow: cssVar.boxShadow,
   }),
   componentsBlock: css({
     flex: 'none',
