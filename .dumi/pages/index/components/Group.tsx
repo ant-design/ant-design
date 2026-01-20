@@ -44,10 +44,35 @@ export interface GroupProps {
   /** 是否不使用两侧 margin */
   collapse?: boolean;
   decoration?: React.ReactNode;
+  /** 预加载的背景图片列表 */
+  backgroundPrefetchList?: string[];
 }
 
 const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
-  const { id, title, titleColor, description, children, decoration, background, collapse } = props;
+  const {
+    id,
+    title,
+    titleColor,
+    description,
+    children,
+    decoration,
+    background,
+    collapse,
+    backgroundPrefetchList,
+  } = props;
+
+  // 预加载背景图片
+  React.useEffect(() => {
+    if (backgroundPrefetchList && backgroundPrefetchList.length > 0) {
+      backgroundPrefetchList.forEach((url) => {
+        if (url && url.startsWith('https')) {
+          const img = new Image();
+          img.src = url;
+        }
+      });
+    }
+  }, [backgroundPrefetchList]);
+
   const token = useTheme();
   const { isMobile } = React.use(SiteContext);
   return (

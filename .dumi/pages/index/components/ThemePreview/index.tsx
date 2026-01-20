@@ -107,6 +107,12 @@ export default function ThemePreview() {
 
   const [activeName, setActiveName] = React.useState(previewThemes[6].name);
 
+  // 收集所有背景图片用于预加载
+  const backgroundPrefetchList = React.useMemo(
+    () => previewThemes.map((theme) => theme.bgImg).filter((img): img is string => !!img),
+    [previewThemes],
+  );
+
   const handleThemeClick = (name: string) => {
     setActiveName(name);
   };
@@ -126,6 +132,7 @@ export default function ThemePreview() {
       description={locale.themeDesc}
       background={activeTheme?.bgImg}
       titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
+      backgroundPrefetchList={backgroundPrefetchList}
     >
       <Flex className={styles.container} gap="large">
         <div className={styles.list} role="tablist" aria-label="Theme selection">
