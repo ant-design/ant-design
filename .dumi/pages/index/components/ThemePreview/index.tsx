@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Flex } from 'antd';
+import { ConfigProvider, Flex, theme } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
+import { DarkContext } from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
 import Group from '../Group';
 import ComponentsBlock from './ComponentsBlock';
@@ -23,7 +24,6 @@ const locales = {
 const useStyles = createStyles(({ css, cssVar }) => ({
   container: css({
     width: '100%',
-    // border: `${cssVar.lineWidthBold} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
     color: cssVar.colorText,
     lineHeight: cssVar.lineHeight,
     fontSize: cssVar.fontSize,
@@ -38,7 +38,6 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     margin: 0,
     padding: 0,
     listStyleType: 'none',
-    // borderInlineEnd: `${cssVar.lineWidthBold} ${cssVar.lineType} ${cssVar.colorBorderSecondary}`,
     display: 'flex',
     flexDirection: 'column',
     gap: cssVar.paddingMD,
@@ -102,10 +101,18 @@ const useStyles = createStyles(({ css, cssVar }) => ({
 export default function ThemePreview() {
   const [locale] = useLocale(locales);
   const { styles } = useStyles();
+  const isDark = React.use(DarkContext);
 
   const previewThemes = usePreviewThemes();
 
-  const [activeName, setActiveName] = React.useState(previewThemes[6].name);
+  const [activeName, setActiveName] = React.useState(() => previewThemes[0].name);
+
+  React.useEffect(() => {
+    const defaultThemeName = isDark ? 'dark' : 'light';
+    setActiveName(
+      previewThemes.find((theme) => theme.key === defaultThemeName)?.name || previewThemes[0].name,
+    );
+  }, [isDark]);
 
   // 收集所有背景图片用于预加载
   const backgroundPrefetchList = React.useMemo(
@@ -127,40 +134,42 @@ export default function ThemePreview() {
   const activeTheme = previewThemes.find((theme) => theme.name === activeName);
 
   return (
-    <Group
-      title={locale.themeTitle}
-      description={locale.themeDesc}
-      background={activeTheme?.bgImg}
-      titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
-      backgroundPrefetchList={backgroundPrefetchList}
-    >
-      <Flex className={styles.container} gap="large">
-        <div className={styles.list} role="tablist" aria-label="Theme selection">
-          {previewThemes.map((theme) => (
-            <div
-              className={clsx(
-                styles.listItem,
-                activeName === theme.name && 'active',
-                activeTheme?.bgImgDark && 'dark',
-              )}
-              key={theme.name}
-              role="tab"
-              tabIndex={activeName === theme.name ? 0 : -1}
-              aria-selected={activeName === theme.name}
-              onClick={() => handleThemeClick(theme.name)}
-              onKeyDown={(event) => handleKeyDown(event, theme.name)}
-            >
-              {theme.name}
-            </div>
-          ))}
-        </div>
-        <ComponentsBlock
-          key={activeName}
-          config={activeTheme?.props}
-          className={styles.componentsBlock}
-          containerClassName={styles.componentsBlockContainer}
-        />
-      </Flex>
-    </Group>
+    <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
+      <Group
+        title={locale.themeTitle}
+        description={locale.themeDesc}
+        background={activeTheme?.bgImg}
+        titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
+        backgroundPrefetchList={backgroundPrefetchList}
+      >
+        <Flex className={styles.container} gap="large">
+          <div className={styles.list} role="tablist" aria-label="Theme selection">
+            {previewThemes.map((theme) => (
+              <div
+                className={clsx(
+                  styles.listItem,
+                  activeName === theme.name && 'active',
+                  activeTheme?.bgImgDark && 'dark',
+                )}
+                key={theme.name}
+                role="tab"
+                tabIndex={activeName === theme.name ? 0 : -1}
+                aria-selected={activeName === theme.name}
+                onClick={() => handleThemeClick(theme.name)}
+                onKeyDown={(event) => handleKeyDown(event, theme.name)}
+              >
+                {theme.name}
+              </div>
+            ))}
+          </div>
+          <ComponentsBlock
+            key={activeName}
+            config={activeTheme?.props}
+            className={styles.componentsBlock}
+            containerClassName={styles.componentsBlockContainer}
+          />
+        </Flex>
+      </Group>
+    </ConfigProvider>
   );
 }
