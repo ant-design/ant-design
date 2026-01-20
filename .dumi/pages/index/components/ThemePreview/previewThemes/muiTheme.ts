@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import raf from '@rc-component/util/lib/raf';
-import { theme, type ConfigProviderProps, type GetProp } from 'antd';
+import { theme } from 'antd';
+import type { ConfigProviderProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
