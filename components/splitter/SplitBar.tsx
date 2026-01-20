@@ -36,6 +36,7 @@ export interface SplitBarProps {
   ariaMax: number;
   lazy?: boolean;
   containerSize: number;
+  onCalculateSnappedOffset?: (index: number, offset: number) => number;
 }
 
 function getValidNumber(num?: number): number {
@@ -69,6 +70,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     containerSize,
     showStartCollapsibleIcon,
     showEndCollapsibleIcon,
+    onCalculateSnappedOffset,
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
@@ -113,7 +115,19 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const handleLazyMove = useEvent((offsetX: number, offsetY: number) => {
     const constrainedOffsetValue = getConstrainedOffset(vertical ? offsetY : offsetX);
-    setConstrainedOffset(constrainedOffsetValue);
+
+    // Apply step snapping only if step is configured
+    // Only update constrainedOffset if snapping occurs (offset changed)
+    if (onCalculateSnappedOffset) {
+      const snappedOffset = onCalculateSnappedOffset(index, constrainedOffsetValue);
+      // Only update if offset changed (snapping occurred)
+      if (snappedOffset !== constrainedOffsetValue) {
+        setConstrainedOffset(snappedOffset);
+      }
+    } else {
+      // No step configured, update normally
+      setConstrainedOffset(constrainedOffsetValue);
+    }
   });
 
   const handleLazyEnd = useEvent(() => {
