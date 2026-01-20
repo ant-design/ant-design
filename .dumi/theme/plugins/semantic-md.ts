@@ -5,11 +5,231 @@ import type { IApi } from 'dumi';
 let COMPONENT_ROUTES: Array<{ absPath: string; componentName: string; outputPath: string }> = [];
 let SEMANTIC_MD_EMITTED = false;
 
+// 解析 locales 字符串片段为语义映射表
+function extractSemantics(objContent: string): Record<string, string> {
+  const result: Record<string, string> = {};
+  const semanticMatches = objContent.matchAll(/['"]?([^'":\s]+)['"]?\s*:\s*['"]([^'"]+)['"],?/g);
+  for (const match of semanticMatches) {
+    const [, key, value] = match;
+    if (key && value) {
+      result[key] = value;
+    }
+  }
+  return result;
+}
+
 /**
  * 从 _semantic*.tsx 文件中提取语义信息
  * @param semanticFile - _semantic*.tsx 文件的绝对路径
  * @returns 包含中文和英文语义描述的对象，失败返回 null
  */
+function extractLocaleInfoFromContent(content: string): {
+  cn: Record<string, string>;
+  en: Record<string, string>;
+} | null {
+  // 匹配 locales 对象定义
+  const localesMatch = content.match(/const locales = \{([\s\S]*?)\};/);
+  if (!localesMatch) return null;
+
+  // 提取中文和英文的语义描述
+  const cnMatch = content.match(/cn:\s*\{([\s\S]*?)\},?\s*en:/);
+  if (!cnMatch) return null;
+
+  const enMatch = content.match(/en:\s*\{([\s\S]*?)\}\s*[,;]/);
+  if (!enMatch) return null;
+
+  const cnContent = cnMatch[1];
+  const enContent = enMatch[1];
+
+  const cnSemantics = extractSemantics(cnContent);
+  const enSemantics = extractSemantics(enContent);
+
+  if (Object.keys(cnSemantics).length === 0) return null;
+
+  return { cn: cnSemantics, en: enSemantics };
+}
+
+// 根据 import 路径找到模板文件的实际路径
+function resolveTemplateFilePath(semanticFile: string, importPath: string): string | null {
+  const basePath = path.resolve(path.dirname(semanticFile), importPath);
+  const candidates = [
+    basePath,
+    `${basePath}.tsx`,
+    `${basePath}.ts`,
+    path.join(basePath, 'index.tsx'),
+    path.join(basePath, 'index.ts'),
+  ];
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return null;
+}
+
+// 识别被 JSX 使用的模板组件导入
+function parseTemplateUsage(content: string): Array<{ componentName: string; importPath: string }> {
+  const results: Array<{ componentName: string; importPath: string }> = [];
+  const importRegex = /import\s+([^;]+?)\s+from\s+['"]([^'"]+)['"];?/g;
+  for (const match of content.matchAll(importRegex)) {
+    const importClause = match[1].trim();
+    const importPath = match[2].trim();
+    if (!importPath.startsWith('.')) continue;
+
+    const componentNames: string[] = [];
+    if (importClause.startsWith('{')) {
+      const names = importClause
+        .replace(/[{}]/g, '')
+        .split(',')
+        .map((name) =>
+          name
+            .trim()
+            .split(/\s+as\s+/)[0]
+            .trim(),
+        )
+        .filter(Boolean);
+      componentNames.push(...names);
+    } else if (importClause.includes('{')) {
+      const [defaultName, namedPart] = importClause.split(',');
+      if (defaultName?.trim()) {
+        componentNames.push(defaultName.trim());
+      }
+      const names = namedPart
+        .replace(/[{}]/g, '')
+        .split(',')
+        .map((name) =>
+          name
+            .trim()
+            .split(/\s+as\s+/)[0]
+            .trim(),
+        )
+        .filter(Boolean);
+      componentNames.push(...names);
+    } else {
+      componentNames.push(importClause);
+    }
+
+    for (const componentName of componentNames) {
+      if (new RegExp(`<${componentName}\\b`).test(content)) {
+        results.push({ componentName, importPath });
+      }
+    }
+  }
+  return results;
+}
+
+// 解析 ignoreSemantics 属性值
+function parseIgnoreSemantics(propsString: string): string[] {
+  const ignoreMatch = propsString.match(/ignoreSemantics\s*=\s*\{([\s\S]*?)\}/);
+  if (!ignoreMatch) return [];
+  const ignoreContent = ignoreMatch[1];
+  return Array.from(ignoreContent.matchAll(/['"]([^'"]+)['"]/g)).map((match) => match[1]);
+}
+
+// 解析 singleOnly 属性值
+function parseSingleOnly(propsString: string): boolean {
+  const singleOnlyMatch = propsString.match(/singleOnly(\s*=\s*\{?([^}\s]+)\}?)?/);
+  if (!singleOnlyMatch) return false;
+  if (!singleOnlyMatch[1]) return true;
+  const value = singleOnlyMatch[2];
+  return value !== 'false';
+}
+
+// 抽取模板组件 JSX 的属性字符串
+function extractTemplateProps(content: string, componentName: string): string {
+  const start = content.indexOf(`<${componentName}`);
+  if (start === -1) return '';
+  let index = start + componentName.length + 1;
+  const propsStart = index;
+  let braceDepth = 0;
+  let stringChar: string | null = null;
+
+  for (; index < content.length; index += 1) {
+    const ch = content[index];
+    const prev = content[index - 1];
+
+    if (stringChar) {
+      if (ch === stringChar && prev !== '\\') {
+        stringChar = null;
+      }
+      continue;
+    }
+
+    if (ch === '"' || ch === "'" || ch === '`') {
+      stringChar = ch;
+      continue;
+    }
+
+    if (ch === '{') {
+      braceDepth += 1;
+      continue;
+    }
+
+    if (ch === '}') {
+      if (braceDepth > 0) braceDepth -= 1;
+      continue;
+    }
+
+    if (ch === '>' && braceDepth === 0) {
+      return content.slice(propsStart, index).trim();
+    }
+  }
+
+  return '';
+}
+
+// 应用 ignoreSemantics 与 singleOnly 过滤规则
+function filterSemantics(
+  semantics: Record<string, string>,
+  options: { ignoreSemantics: string[]; singleOnly: boolean; templatePath: string },
+): Record<string, string> {
+  const ignoreSet = new Set(options.ignoreSemantics);
+  const filteredEntries = Object.entries(semantics).filter(([key]) => !ignoreSet.has(key));
+
+  if (options.singleOnly) {
+    const singleOnlyKeys = new Set(['item', 'itemContent', 'itemRemove']);
+    return Object.fromEntries(filteredEntries.filter(([key]) => !singleOnlyKeys.has(key)));
+  }
+
+  return Object.fromEntries(filteredEntries);
+}
+
+// 从模板组件的 locales 提取语义信息
+function extractSemanticInfoFromTemplate(
+  semanticFile: string,
+  content: string,
+): { cn: Record<string, string>; en: Record<string, string> } | null {
+  const templates = parseTemplateUsage(content);
+  if (templates.length === 0) return null;
+
+  for (const template of templates) {
+    const templatePath = resolveTemplateFilePath(semanticFile, template.importPath);
+    if (!templatePath) continue;
+
+    const templateContent = fs.readFileSync(templatePath, 'utf-8');
+    const templateLocales = extractLocaleInfoFromContent(templateContent);
+    if (!templateLocales) continue;
+
+    const propsString = extractTemplateProps(content, template.componentName);
+    const ignoreSemantics = parseIgnoreSemantics(propsString);
+    const singleOnly = parseSingleOnly(propsString);
+
+    return {
+      cn: filterSemantics(templateLocales.cn, {
+        ignoreSemantics,
+        singleOnly,
+        templatePath,
+      }),
+      en: filterSemantics(templateLocales.en, {
+        ignoreSemantics,
+        singleOnly,
+        templatePath,
+      }),
+    };
+  }
+
+  return null;
+}
+
+// 从 _semantic*.tsx 中提取语义信息
 function extractSemanticInfo(semanticFile: string): {
   cn: Record<string, string>;
   en: Record<string, string>;
@@ -18,45 +238,13 @@ function extractSemanticInfo(semanticFile: string): {
     if (!fs.existsSync(semanticFile)) return null;
 
     const content = fs.readFileSync(semanticFile, 'utf-8');
+    const localeInfo = extractLocaleInfoFromContent(content);
+    if (localeInfo) return localeInfo;
 
-    // 匹配 locales 对象定义
-    const localesMatch = content.match(/const locales = \{([\s\S]*?)\};/);
-    if (!localesMatch) return null;
-
-    // 提取中文和英文的语义描述
-    const cnMatch = content.match(/cn:\s*\{([\s\S]*?)\},?\s*en:/);
-    if (!cnMatch) return null;
-
-    const enMatch = content.match(/en:\s*\{([\s\S]*?)\}\s*[,;]/);
-    if (!enMatch) return null;
-
-    const cnContent = cnMatch[1];
-    const enContent = enMatch[1];
-
-    const cnSemantics: Record<string, string> = {};
-    const enSemantics: Record<string, string> = {};
-
-    const extractSemantics = (objContent: string, result: Record<string, string>) => {
-      const semanticMatches = objContent.matchAll(
-        /['"]?([^'":\s]+)['"]?\s*:\s*['"]([^'"]+)['"],?/g,
-      );
-      for (const match of semanticMatches) {
-        const [, key, value] = match;
-        if (key && value) {
-          result[key] = value;
-        }
-      }
-    };
-
-    extractSemantics(cnContent, cnSemantics);
-    extractSemantics(enContent, enSemantics);
-
-    if (Object.keys(cnSemantics).length === 0) return null;
-
-    return { cn: cnSemantics, en: enSemantics };
+    return extractSemanticInfoFromTemplate(semanticFile, content);
   } catch (error) {
     if (process.env.DEBUG) {
-      console.error(`[semantic-md] Failed to extract semantic info from ${semanticFile}:`, error);
+      console.error(`Failed to extract semantic info from ${semanticFile}:`, error);
     }
     return null;
   }
