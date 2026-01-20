@@ -9,7 +9,7 @@ import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
@@ -840,5 +840,30 @@ describe('Cascader', () => {
     const input = popupElement!.querySelector('input');
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  describe('expandIcon', () => {
+    it('should support custom expandIcon', () => {
+      render(<Cascader open expandIcon={<div>bamboo</div>} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+
+    it('should support ConfigProvider expandIcon', () => {
+      render(
+        <ConfigProvider cascader={{ expandIcon: <div>foobar</div> }}>
+          <Cascader open options={options} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(2);
+    });
+
+    it('should prefer prop expandIcon over ConfigProvider expandIcon', () => {
+      render(
+        <ConfigProvider cascader={{ expandIcon: <div>foobar</div> }}>
+          <Cascader open options={options} expandIcon={<div>bamboo</div>} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
   });
 });

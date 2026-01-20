@@ -1,3 +1,4 @@
+import * as React from 'react';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
