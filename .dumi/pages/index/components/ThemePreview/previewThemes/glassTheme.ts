@@ -31,6 +31,10 @@ const useStyles = createStyles(({ css, cssVar }) => {
     app: css({
       textShadow: '0 1px rgba(0,0,0,0.1)',
     }),
+    cardRoot: css({
+      ...glassBox,
+      backgroundColor: `color-mix(in srgb, ${cssVar.colorBgContainer} 40%, transparent)`,
+    }),
     modalContainer: css({
       ...glassBox,
       backdropFilter: 'none',
@@ -84,6 +88,11 @@ const useGlassTheme: UseTheme = () => {
       },
       app: {
         className: styles.app,
+      },
+      card: {
+        classNames: {
+          root: styles.cardRoot,
+        },
       },
       modal: {
         classNames: {
