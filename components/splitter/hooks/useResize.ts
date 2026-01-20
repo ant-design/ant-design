@@ -14,49 +14,11 @@ export default function useResize(
   containerSize: number | undefined,
   updateSizes: (sizes: number[]) => void,
   reverse: boolean,
-  step?: (number | string)[],
 ) {
   const limitSizes = items.map((item) => [item.min, item.max]);
 
   const mergedContainerSize = containerSize || 0;
   const ptg2px = (ptg: number) => ptg * mergedContainerSize;
-
-  // ======================== Step Snapping ========================
-  // Convert step values to pixels
-  const stepPixels = React.useMemo(() => {
-    if (!step || step.length === 0) {
-      return undefined;
-    }
-    return step.map((s) => {
-      if (typeof s === 'string' && s.endsWith('%')) {
-        return ptg2px(getPtg(s));
-      }
-      return Number(s);
-    });
-  }, [step, mergedContainerSize]);
-
-  // Snap a value to the nearest step
-  const snapToStep = React.useCallback(
-    (value: number): number => {
-      if (!stepPixels || stepPixels.length === 0) {
-        return value;
-      }
-
-      let nearestStep = stepPixels[0];
-      let minDiff = Math.abs(value - nearestStep);
-
-      for (let i = 1; i < stepPixels.length; i += 1) {
-        const diff = Math.abs(value - stepPixels[i]);
-        if (diff < minDiff) {
-          minDiff = diff;
-          nearestStep = stepPixels[i];
-        }
-      }
-
-      return nearestStep;
-    },
-    [stepPixels],
-  );
 
   // ======================== Resize ========================
   function getLimitSize(str: string | number | undefined, defaultLimit: number) {
@@ -145,40 +107,6 @@ export default function useResize(
     // Do offset
     numSizes[mergedIndex] += mergedOffset;
     numSizes[nextIndex] -= mergedOffset;
-
-    // Apply step snapping if step is provided
-    if (stepPixels && stepPixels.length > 0) {
-      const totalSize = numSizes[mergedIndex] + numSizes[nextIndex];
-      const snappedStartSize = snapToStep(numSizes[mergedIndex]);
-      const adjustedEndSizeForStart = totalSize - snappedStartSize;
-
-      // Try to snap start panel first
-      if (
-        snappedStartSize >= startMinSize &&
-        snappedStartSize <= startMaxSize &&
-        adjustedEndSizeForStart >= endMinSize &&
-        adjustedEndSizeForStart <= endMaxSize
-      ) {
-        numSizes[mergedIndex] = snappedStartSize;
-        numSizes[nextIndex] = adjustedEndSizeForStart;
-      } else {
-        // Try to snap end panel
-        const snappedEndSize = snapToStep(numSizes[nextIndex]);
-        const adjustedStartSizeForEnd = totalSize - snappedEndSize;
-
-        if (
-          adjustedStartSizeForEnd >= startMinSize &&
-          adjustedStartSizeForEnd <= startMaxSize &&
-          snappedEndSize >= endMinSize &&
-          snappedEndSize <= endMaxSize
-        ) {
-          numSizes[mergedIndex] = adjustedStartSizeForEnd;
-          numSizes[nextIndex] = snappedEndSize;
-        }
-        // If neither snapping works within boundaries, keep the original sizes
-      }
-    }
-
     updateSizes(numSizes);
 
     return numSizes;
