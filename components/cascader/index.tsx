@@ -369,6 +369,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
   const { suffixIcon, removeIcon, clearIcon } = useIcons({
     ...props,
+    loadingIcon: mergedLoadingIcon,
     hasFeedback,
     feedbackIcon,
     showSuffixIcon,
@@ -469,9 +470,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       expandIcon={mergedExpandIcon}
       suffixIcon={suffixIcon}
       removeIcon={removeIcon}
-      loadingIcon={
-        <span className={`${prefixCls}-menu-item-loading-icon`}>{mergedLoadingIcon}</span>
-      }
+      loadingIcon={mergedLoadingIcon}
       checkable={checkable}
       popupClassName={mergedPopupClassName}
       popupPrefixCls={customizePrefixCls || cascaderPrefixCls}

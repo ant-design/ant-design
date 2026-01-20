@@ -52,7 +52,7 @@ function CascaderPanel<
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const [prefixCls, cascaderPrefixCls, mergedDirection, renderEmpty] = useBase(
+  const [_, cascaderPrefixCls, mergedDirection, renderEmpty] = useBase(
     customizePrefixCls,
     direction,
   );
@@ -91,9 +91,7 @@ function CascaderPanel<
       notFoundContent={mergedNotFoundContent}
       direction={mergedDirection}
       expandIcon={mergedExpandIcon}
-      loadingIcon={
-        <span className={`${prefixCls}-menu-item-loading-icon`}>{mergedLoadingIcon}</span>
-      }
+      loadingIcon={mergedLoadingIcon}
       disabled={mergedDisabled}
     />
   );

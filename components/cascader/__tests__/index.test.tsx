@@ -866,4 +866,29 @@ describe('Cascader', () => {
       expect(screen.getAllByText('bamboo').length).toBe(2);
     });
   });
+
+  describe('loadingIcon', () => {
+    it('should support custom loadingIcon', () => {
+      render(<Cascader loading loadingIcon={<div>bamboo</div>} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider loadingIcon', () => {
+      render(
+        <ConfigProvider cascader={{ loadingIcon: <div>foobar</div> }}>
+          <Cascader loading options={options} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop loadingIcon over ConfigProvider loadingIcon', () => {
+      render(
+        <ConfigProvider cascader={{ loadingIcon: <div>foobar</div> }}>
+          <Cascader loading options={options} loadingIcon={<div>bamboo</div>} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
 });
