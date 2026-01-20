@@ -342,12 +342,12 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`${componentCls}-body`]: {
         padding: bodyPadding,
         borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
-        [`&:first-child`]: {
+        '&:first-child': {
           borderStartStartRadius: unit(token.borderRadiusLG),
           borderStartEndRadius: unit(token.borderRadiusLG),
         },
 
-        [`&:not(:last-child)`]: {
+        '&:not(:last-child)': {
           borderEndStartRadius: 0,
           borderEndEndRadius: 0,
         },
