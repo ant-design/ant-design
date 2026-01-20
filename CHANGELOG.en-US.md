@@ -25,6 +25,7 @@ tag: vVERSION
 - 💄 Fix Card unexpected border radius for Body area. [#56653](https://github.com/ant-design/ant-design/pull/56653) [@ug-hero](https://github.com/ug-hero)
 - 💄 MISC: Fix unexpected `undefined` and `null` in the injected styles. [#56636](https://github.com/ant-design/ant-design/pull/56636) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 MISC: Improve `background` transition to `background-color` for all components. [#56598](https://github.com/ant-design/ant-design/pull/56598) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 Improve Grid use `genCssVar` method to generate more stable CSS variable names. [#56635](https://github.com/ant-design/ant-design/pull/56635) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🛠 Improve @ant-design/icons usage to avoid depend on full package since externals. [#56639](https://github.com/ant-design/ant-design/pull/56639) [@ShenHongFei](https://github.com/ShenHongFei)
 
 

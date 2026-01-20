@@ -25,7 +25,8 @@ tag: vVERSION
 - 💄 修复 Card Body 区域有非预期圆角值的问题。[#56653](https://github.com/ant-design/ant-design/pull/56653) [@ug-hero](https://github.com/ug-hero)
 - 💄 杂项：修复 `undefined` 和 `null` 值被注入到 CSS 的问题。[#56636](https://github.com/ant-design/ant-design/pull/56636) [@li-jia-nan](https://github.com/li-jia-nan)
 - 💄 杂项：优化所有组件中的 `background` 过渡为 `background-color`。[#56598](https://github.com/ant-design/ant-design/pull/56598) [@li-jia-nan](https://github.com/li-jia-nan)
-- 🛠 杂项：优化 @ant-design/icons 引入方式为独立图标引入，避免被 externals 增加前置依赖。[#56639](https://github.com/ant-design/ant-design/pull/56639) [@ShenHongFei](https://github.com/ShenHongFei)
+- 🛠 优化 Grid 使用 `genCssVar` 方法以生成更加稳定的 CSS 变量名。[#56635](https://github.com/ant-design/ant-design/pull/56635) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🛠 优化 @ant-design/icons 引入方式为独立图标引入，避免被 externals 增加前置依赖。[#56639](https://github.com/ant-design/ant-design/pull/56639) [@ShenHongFei](https://github.com/ShenHongFei)
 
 ## 6.2.0
 
