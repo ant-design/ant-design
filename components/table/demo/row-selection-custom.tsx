@@ -5,7 +5,7 @@ import type { TableColumnsType, TableProps } from 'antd';
 type TableRowSelection<T extends object = object> = TableProps<T>['rowSelection'];
 
 interface DataType {
-  key: React.Key;
+  key?: React.Key;
   name: string;
   age: number;
   address: string;
@@ -42,6 +42,7 @@ const App: React.FC = () => {
   };
 
   const rowSelection: TableRowSelection<DataType> = {
+    preserveSelectedRowKeys: true,
     selectedRowKeys,
     onChange: onSelectChange,
     selections: [
@@ -79,7 +80,12 @@ const App: React.FC = () => {
     ],
   };
 
-  return <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />;
+  return (
+    <>
+      {JSON.stringify(selectedRowKeys)}
+      <Table<DataType> rowSelection={rowSelection} columns={columns} dataSource={dataSource} />
+    </>
+  );
 };
 
 export default App;
