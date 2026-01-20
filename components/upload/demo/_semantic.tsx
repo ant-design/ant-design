@@ -68,7 +68,7 @@ const App: React.FC = () => {
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'list', desc: locale.list, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'trigger', desc: locale.trigger, version: '6.2.0' },
+        { name: 'trigger', desc: locale.trigger, version: '6.3.0' },
       ]}
     >
       <Block />
