@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { LeftOutlined, LoadingOutlined, RightOutlined } from '@ant-design/icons';
 import type {
   BaseOptionType,
   DefaultOptionType,
@@ -41,6 +40,7 @@ import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import CascaderPanel from './Panel';
 import useStyle from './style';
+import { getIcons } from './utils';
 
 // Align the design since we use `@rc-component/select` in root. This help:
 // - List search content will show all content
@@ -354,9 +354,13 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Icon ======================
-  const mergedExpandIcon =
-    expandIcon ?? contextExpandIcon ?? (isRtl ? <LeftOutlined /> : <RightOutlined />);
-  const mergedLoadingIcon = loadingIcon ?? contextLoadingIcon ?? <LoadingOutlined spin />;
+  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = getIcons({
+    contextExpandIcon,
+    contextLoadingIcon,
+    expandIcon,
+    loadingIcon,
+    isRtl,
+  });
 
   // =================== Multiple ====================
   const checkable = useCheckable(cascaderPrefixCls, multiple);

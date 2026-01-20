@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { LeftOutlined, LoadingOutlined, RightOutlined } from '@ant-design/icons';
 import type { CascaderProps as RcCascaderProps } from '@rc-component/cascader';
 import { Panel } from '@rc-component/cascader';
 import type { PickType } from '@rc-component/cascader/lib/Panel';
@@ -14,6 +13,7 @@ import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useStyle from './style';
 import usePanelStyle from './style/panel';
+import { getIcons } from './utils';
 
 export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName';
 
@@ -64,9 +64,13 @@ function CascaderPanel<
   const isRtl = mergedDirection === 'rtl';
 
   // ===================== Icon ======================
-  const mergedExpandIcon =
-    expandIcon ?? contextExpandIcon ?? (isRtl ? <LeftOutlined /> : <RightOutlined />);
-  const mergedLoadingIcon = loadingIcon ?? contextLoadingIcon ?? <LoadingOutlined spin />;
+  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = getIcons({
+    contextExpandIcon,
+    contextLoadingIcon,
+    expandIcon,
+    loadingIcon,
+    isRtl,
+  });
 
   // ===================== Empty =====================
   const mergedNotFoundContent = notFoundContent || renderEmpty?.('Cascader') || (
