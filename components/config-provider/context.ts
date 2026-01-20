@@ -255,7 +255,9 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>;
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'> & {
+    loadingIcon?: React.ReactNode;
+  };
 
 export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
 
@@ -298,6 +300,7 @@ export type FormConfig = ComponentStyleConfig &
     | 'variant'
     | 'classNames'
     | 'styles'
+    | 'tooltip'
   >;
 
 export type FloatButtonConfig = ComponentStyleConfig &
@@ -375,7 +378,8 @@ export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | '
 export type DatePickerConfig = ComponentStyleConfig &
   Pick<DatePickerProps, 'variant' | 'classNames' | 'styles'>;
 
-export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
+export type RangePickerConfig = ComponentStyleConfig &
+  Pick<RangePickerProps, 'variant' | 'separator'>;
 
 export type TimePickerConfig = ComponentStyleConfig &
   Pick<TimePickerProps, 'variant' | 'classNames' | 'styles'>;

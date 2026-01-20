@@ -2,6 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import type { AliasToken, TokenWithCommonCls } from '../theme/internal';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import type { ArrowToken } from './roundedArrow';
 import { genRoundedArrow } from './roundedArrow';
 
@@ -31,7 +32,7 @@ function isInject(valid: boolean, code: CSSObject): CSSObject {
   return code;
 }
 
-export default function getArrowStyle<
+const getArrowStyle = <
   Token extends TokenWithCommonCls<AliasToken> & ArrowOffsetToken & ArrowToken,
 >(
   token: Token,
@@ -45,8 +46,16 @@ export default function getArrowStyle<
       bottom?: boolean;
     };
   },
-): CSSInterpolation {
-  const { componentCls, boxShadowPopoverArrow, arrowOffsetVertical, arrowOffsetHorizontal } = token;
+): CSSInterpolation => {
+  const {
+    componentCls,
+    boxShadowPopoverArrow,
+    arrowOffsetVertical,
+    arrowOffsetHorizontal,
+    antCls,
+  } = token;
+
+  const [varName] = genCssVar(antCls, 'tooltip');
 
   const {
     arrowDistance = 0,
@@ -97,7 +106,7 @@ export default function getArrowStyle<
         },
 
         '&-placement-topLeft': {
-          '--arrow-offset-horizontal': arrowOffsetHorizontal,
+          [varName('arrow-offset-horizontal')]: arrowOffsetHorizontal,
 
           [`> ${componentCls}-arrow`]: {
             left: {
@@ -108,7 +117,7 @@ export default function getArrowStyle<
         },
 
         '&-placement-topRight': {
-          '--arrow-offset-horizontal': `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+          [varName('arrow-offset-horizontal')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
 
           [`> ${componentCls}-arrow`]: {
             right: {
@@ -139,7 +148,7 @@ export default function getArrowStyle<
         },
 
         '&-placement-bottomLeft': {
-          '--arrow-offset-horizontal': arrowOffsetHorizontal,
+          [varName('arrow-offset-horizontal')]: arrowOffsetHorizontal,
 
           [`> ${componentCls}-arrow`]: {
             left: {
@@ -150,7 +159,7 @@ export default function getArrowStyle<
         },
 
         '&-placement-bottomRight': {
-          '--arrow-offset-horizontal': `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+          [varName('arrow-offset-horizontal')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
 
           [`> ${componentCls}-arrow`]: {
             right: {
@@ -224,4 +233,6 @@ export default function getArrowStyle<
       }),
     },
   };
-}
+};
+
+export default getArrowStyle;

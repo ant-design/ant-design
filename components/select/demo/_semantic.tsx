@@ -10,7 +10,7 @@ const App: React.FC = () => {
       componentName="Select"
       prefix="prefix"
       style={{ width: 300 }}
-      multipleProps={{ mode: 'multiple' }}
+      multipleProps={{ mode: 'multiple', defaultValue: ['aojunhao123'] }}
       options={[
         { value: 'aojunhao123', label: 'aojunhao123' },
         { value: 'thinkasany', label: 'thinkasany' },

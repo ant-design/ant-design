@@ -47,7 +47,7 @@ export default antfu(
       'react/no-children-for-each': 'off',
       'react/no-children-map': 'off',
       'react/no-children-only': 'off',
-      'react/no-unstable-default-props': 'off',
+      'react/prefer-namespace-import': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
       'perfectionist/sort-imports': 'off',
       'regexp/strict': 'off',

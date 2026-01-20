@@ -14,6 +14,7 @@ import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import Tooltip from '../tooltip';
 import { InternalContext } from './context';
 import PanelArrow from './PanelArrow';
@@ -193,10 +194,13 @@ const Steps = (props: StepsProps) => {
     ({ classNames: contextClassNames, styles: contextStyles } = contextContent);
   }
 
+  const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('steps', props.prefixCls);
   const itemIconCls = `${prefixCls}-item-icon`;
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const [varName] = genCssVar(rootPrefixCls, 'cmp-steps');
 
   // ============================= Size =============================
   const mergedSize = useSize(size);
@@ -303,7 +307,11 @@ const Steps = (props: StepsProps) => {
 
           if (status === 'process' && mergedPercent !== undefined) {
             numNode = (
-              <ProgressIcon prefixCls={prefixCls} percent={mergedPercent}>
+              <ProgressIcon
+                prefixCls={prefixCls}
+                rootPrefixCls={rootPrefixCls}
+                percent={mergedPercent}
+              >
                 {numNode}
               </ProgressIcon>
             );
@@ -371,7 +379,7 @@ const Steps = (props: StepsProps) => {
 
   // ============================ Styles ============================
   const mergedStyle: React.CSSProperties = {
-    '--steps-items-offset': `${offset}`,
+    [varName('items-offset')]: `${offset}`,
     ...contextStyle,
     ...style,
   };

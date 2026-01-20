@@ -16,6 +16,12 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
+   * @since 6.2.0
+   * @desc 文字提示最大宽度
+   * @descEN Max width of tooltip
+   */
+  maxWidth: number;
+  /**
    * @desc 文字提示 z-index
    * @descEN z-index of tooltip
    */
@@ -29,6 +35,8 @@ interface TooltipToken extends FullToken<'Tooltip'> {
   tooltipBg: string;
   tooltipBorderRadius: number;
 }
+
+const FALL_BACK_ORIGIN = '50%';
 
 const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
   const {
@@ -75,8 +83,11 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
   const sharedTransformOrigin: CSSObject = {
     // When use `autoArrow`, origin will follow the arrow position
-    '--valid-offset-x': 'var(--arrow-offset-horizontal, var(--arrow-x))',
-    transformOrigin: [`var(--valid-offset-x, 50%)`, `var(--arrow-y, 50%)`].join(' '),
+    [varName('valid-offset-x')]: varRef('arrow-offset-horizontal', 'var(--arrow-x)'),
+    transformOrigin: [
+      varRef('valid-offset-x', FALL_BACK_ORIGIN),
+      `var(--arrow-y, ${FALL_BACK_ORIGIN})`,
+    ].join(' '),
   };
 
   return [
@@ -191,6 +202,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Tooltip'> = (token) => ({
   zIndexPopup: token.zIndexPopupBase + 70,
+  maxWidth: 250,
   ...getArrowOffsetToken({
     contentRadius: token.borderRadius,
     limitVerticalRadius: true,
@@ -206,11 +218,11 @@ export default (prefixCls: string, rootCls: string, injectStyle = true) => {
   const useStyle = genStyleHooks(
     'Tooltip',
     (token) => {
-      const { borderRadius, colorTextLightSolid, colorBgSpotlight } = token;
+      const { borderRadius, colorTextLightSolid, colorBgSpotlight, maxWidth } = token;
 
       const TooltipToken = mergeToken<TooltipToken>(token, {
         // default variables
-        tooltipMaxWidth: 250,
+        tooltipMaxWidth: maxWidth,
         tooltipColor: colorTextLightSolid,
         tooltipBorderRadius: borderRadius,
         tooltipBg: colorBgSpotlight,

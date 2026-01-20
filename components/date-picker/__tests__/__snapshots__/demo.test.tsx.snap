@@ -7564,9 +7564,6 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx correctly 1`] 
           size="12"
           value=""
         />
-        <span
-          class="ant-picker-suffix"
-        />
       </div>
     </div>
   </div>
@@ -7627,9 +7624,6 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx correctly 1`] 
           placeholder="Select date"
           size="12"
           value=""
-        />
-        <span
-          class="ant-picker-suffix"
         />
       </div>
     </div>
