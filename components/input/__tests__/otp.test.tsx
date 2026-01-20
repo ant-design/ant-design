@@ -192,7 +192,11 @@ describe('Input.OTP', () => {
 
   it('support autoComplete', () => {
     const { container } = render(<OTP autoComplete="one-time-code" />);
-    expect(container.querySelector('input')).toHaveAttribute('autocomplete', 'one-time-code');
+    const inputs = container.querySelectorAll('input');
+    expect(inputs).toHaveLength(6);
+    inputs.forEach((input) => {
+      expect(input).toHaveAttribute('autocomplete', 'one-time-code');
+    });
   });
 
   it('should call onInput with a string array when input changes', () => {
