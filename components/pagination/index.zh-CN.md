@@ -59,7 +59,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*WM86SrBC8TsAAA
 | showTitle | 是否显示原生 tooltip 页码提示 | boolean | true |  |
 | showTotal | 用于显示数据总量和当前数据顺序 | function(total, range) | - |  |
 | simple | 当添加该属性时，显示为简单分页 | boolean \| { readOnly?: boolean } | - |  |
-| size | 组件尺寸 | `default` \| `small` \| `large` | `default` |  |
+| size | 组件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
 | styles | 自定义组件内部各语义化结构的内联样式。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | total | 数据总数 | number | 0 |  |
 | onChange | 页码或 `pageSize` 改变的回调，参数是改变后的页码及每页条数 | function(page, pageSize) | - |  |
