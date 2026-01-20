@@ -59,7 +59,6 @@ jobs:
       - uses: actions/checkout@v6
       - uses: utooland/setup-utoo@v1
       - run: ut
-      - run: ut version
       - run: ut test:semantic
 
   test-react-latest:
