@@ -1,0 +1,1497 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
+<div
+  class="acss-1ucck97"
+>
+  <div
+    class="ant-row css-var-test-id"
+  >
+    <div
+      class="ant-col ant-col-16 acss-my3sst css-var-test-id"
+      style="align-items: flex-start;"
+    >
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle ant-flex-vertical"
+        style="position: absolute; margin-bottom: 80px;"
+      >
+        <div
+          aria-label="segmented control"
+          aria-orientation="horizontal"
+          class="ant-segmented css-var-test-id"
+          role="radiogroup"
+          tabindex="0"
+        >
+          <div
+            class="ant-segmented-group"
+          >
+            <label
+              class="ant-segmented-item"
+            >
+              <input
+                checked=""
+                class="ant-segmented-item-input"
+                name="test-id"
+                type="radio"
+              />
+              <div
+                class="ant-segmented-item-label"
+                title="Single"
+              >
+                Single
+              </div>
+            </label>
+            <label
+              class="ant-segmented-item ant-segmented-item-selected"
+            >
+              <input
+                class="ant-segmented-item-input"
+                name="test-id"
+                type="radio"
+              />
+              <div
+                class="ant-segmented-item-label"
+                title="Multiple"
+              >
+                Multiple
+              </div>
+            </label>
+          </div>
+        </div>
+        <div
+          class="ant-select ant-tree-select ant-select-outlined semantic-mark-root css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-multiple ant-select-allow-clear ant-select-show-arrow ant-select-open ant-select-show-search"
+          style="width: 300px;"
+        >
+          <div
+            class="ant-select-prefix semantic-mark-prefix"
+          >
+            prefix
+          </div>
+          <div
+            class="ant-select-content semantic-mark-content"
+          >
+            <div
+              class="ant-select-content-item"
+              style="opacity: 1;"
+            >
+              <span
+                class="ant-select-selection-item semantic-mark-item"
+                title="aojunhao123"
+              >
+                <span
+                  class="ant-select-selection-item-content semantic-mark-itemContent"
+                >
+                  aojunhao123
+                </span>
+                <span
+                  aria-hidden="true"
+                  class="ant-select-selection-item-remove semantic-mark-itemRemove"
+                  style="user-select: none;"
+                  unselectable="on"
+                >
+                  <span
+                    aria-label="close"
+                    class="anticon anticon-close"
+                    role="img"
+                  >
+                    <svg
+                      aria-hidden="true"
+                      data-icon="close"
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      focusable="false"
+                      height="1em"
+                      viewBox="64 64 896 896"
+                      width="1em"
+                    >
+                      <path
+                        d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                      />
+                    </svg>
+                  </span>
+                </span>
+              </span>
+            </div>
+            <div
+              class="ant-select-content-item ant-select-content-item-suffix"
+              style="opacity: 1;"
+            >
+              <input
+                aria-autocomplete="list"
+                aria-controls="test-id_list"
+                aria-expanded="true"
+                aria-haspopup="listbox"
+                aria-owns="test-id_list"
+                autocomplete="off"
+                class="ant-select-input semantic-mark-input"
+                id="test-id"
+                role="combobox"
+                style="--select-input-width: 0;"
+                type="search"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="ant-select-suffix semantic-mark-suffix"
+          >
+            <span
+              aria-label="search"
+              class="anticon anticon-search"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="search"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0011.6 0l43.6-43.5a8.2 8.2 0 000-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
+                />
+              </svg>
+            </span>
+          </div>
+          <div
+            class="ant-select-clear"
+          >
+            <span
+              aria-label="close-circle"
+              class="anticon anticon-close-circle"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="close-circle"
+                fill="currentColor"
+                fill-rule="evenodd"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64c247.4 0 448 200.6 448 448S759.4 960 512 960 64 759.4 64 512 264.6 64 512 64zm127.98 274.82h-.04l-.08.06L512 466.75 384.14 338.88c-.04-.05-.06-.06-.08-.06a.12.12 0 00-.07 0c-.03 0-.05.01-.09.05l-45.02 45.02a.2.2 0 00-.05.09.12.12 0 000 .07v.02a.27.27 0 00.06.06L466.75 512 338.88 639.86c-.05.04-.06.06-.06.08a.12.12 0 000 .07c0 .03.01.05.05.09l45.02 45.02a.2.2 0 00.09.05.12.12 0 00.07 0c.02 0 .04-.01.08-.05L512 557.25l127.86 127.87c.04.04.06.05.08.05a.12.12 0 00.07 0c.03 0 .05-.01.09-.05l45.02-45.02a.2.2 0 00.05-.09.12.12 0 000-.07v-.02a.27.27 0 00-.05-.06L557.25 512l127.87-127.86c.04-.04.05-.06.05-.08a.12.12 0 000-.07c0-.03-.01-.05-.05-.09l-45.02-45.02a.2.2 0 00-.09-.05.12.12 0 00-.07 0z"
+                />
+              </svg>
+            </span>
+          </div>
+        </div>
+        <div
+          class="ant-select-dropdown ant-tree-select-dropdown semantic-mark-root semantic-mark-popup-root css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-dropdown-placement-bottomLeft"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+        >
+          <div>
+            <div>
+              <span
+                aria-live="assertive"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              >
+                contributors
+              </span>
+              <div
+                class="ant-select-tree ant-select-tree-active-focused"
+              >
+                <div>
+                  <input
+                    aria-label="for screen reader"
+                    disabled=""
+                    style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+                    value=""
+                  />
+                </div>
+                <div
+                  aria-hidden="true"
+                  class="ant-select-tree-treenode"
+                  style="position: absolute; pointer-events: none; visibility: hidden; height: 0px; overflow: hidden; border: 0px; padding: 0px;"
+                >
+                  <div
+                    class="ant-select-tree-indent"
+                  >
+                    <div
+                      class="ant-select-tree-indent-unit"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-select-tree-list"
+                  role="tree"
+                  style="position: relative;"
+                >
+                  <div
+                    class="ant-select-tree-list-holder"
+                    style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                  >
+                    <div>
+                      <div
+                        class="ant-select-tree-list-holder-inner"
+                        style="display: flex; flex-direction: column;"
+                      >
+                        <div
+                          aria-expanded="true"
+                          class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-open ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-tree-indent"
+                          />
+                          <span
+                            class="ant-select-tree-switcher ant-select-tree-switcher_open"
+                          >
+                            <span
+                              aria-label="caret-down"
+                              class="anticon anticon-caret-down ant-select-tree-switcher-icon"
+                              role="img"
+                            >
+                              <svg
+                                aria-hidden="true"
+                                data-icon="caret-down"
+                                fill="currentColor"
+                                focusable="false"
+                                height="1em"
+                                viewBox="0 0 1024 1024"
+                                width="1em"
+                              >
+                                <path
+                                  d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                                />
+                              </svg>
+                            </span>
+                          </span>
+                          <span
+                            class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-open"
+                            title="contributors"
+                          >
+                            <span
+                              class="ant-select-tree-title semantic-mark-popup-itemTitle"
+                            >
+                              contributors
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-tree-indent"
+                          >
+                            <span
+                              class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                            />
+                          </span>
+                          <span
+                            class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                          />
+                          <span
+                            class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal ant-select-tree-node-selected"
+                            title="aojunhao123"
+                          >
+                            <span
+                              class="ant-select-tree-title semantic-mark-popup-itemTitle"
+                            >
+                              aojunhao123
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-tree-indent"
+                          >
+                            <span
+                              class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                            />
+                          </span>
+                          <span
+                            class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                          />
+                          <span
+                            class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                            title="thinkasany"
+                          >
+                            <span
+                              class="ant-select-tree-title semantic-mark-popup-itemTitle"
+                            >
+                              thinkasany
+                            </span>
+                          </span>
+                        </div>
+                        <div
+                          aria-expanded="false"
+                          class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
+                          draggable="false"
+                          role="treeitem"
+                        >
+                          <span
+                            aria-hidden="true"
+                            class="ant-select-tree-indent"
+                          >
+                            <span
+                              class="ant-select-tree-indent-unit ant-select-tree-indent-unit-start ant-select-tree-indent-unit-end"
+                            />
+                          </span>
+                          <span
+                            class="ant-select-tree-switcher ant-select-tree-switcher-noop"
+                          />
+                          <span
+                            class="ant-select-tree-node-content-wrapper ant-select-tree-node-content-wrapper-normal"
+                            title="meet-student"
+                          >
+                            <span
+                              class="ant-select-tree-title semantic-mark-popup-itemTitle"
+                            >
+                              meet-student
+                            </span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-test-id"
+    >
+      <ul
+        class="acss-1ry21g5"
+      >
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  root
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              根元素，设置树选择器的基础样式、边框、圆角容器样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  prefix
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              前缀元素，设置前缀内容的布局和样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  content
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              多选容器，包含已选项的布局、间距、换行相关样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  item
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              多选项元素，包含边框、背景、内边距、外边距样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  itemContent
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              多选项内容区域，包含文字的省略样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  itemRemove
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              多选项移除按钮，包含字体相关样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  input
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              输入框元素，设置文本输入、搜索、选择值显示等输入框的核心交互样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  placeholder
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              占位符元素，包含占位符文本的字体样式和颜色
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  suffix
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              后缀元素，设置后缀内容、清除按钮、下拉箭头等后缀区域的样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  popup.root
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              弹出菜单元素，设置下拉树形选择面板的定位、层级、背景、边框、阴影等弹层样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  popup.item
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              弹出菜单条目元素，设置树节点选项的样式、悬停态、选中态等交互状态
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  popup.itemTitle
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              弹出菜单标题元素，设置树节点标题文字的显示样式
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

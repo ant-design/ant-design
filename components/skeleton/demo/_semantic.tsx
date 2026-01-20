@@ -3,9 +3,8 @@ import { Skeleton } from 'antd';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
-import type { SkeletonSemanticName } from '../Skeleton';
 
-const locales: Record<'cn' | 'en', Record<SkeletonSemanticName, string>> = {
+const locales = {
   cn: {
     root: '根元素，包含表格显示、宽度、动画效果、圆角等骨架屏容器的基础样式',
     header: '头部元素，包含表格单元格、内边距、垂直对齐等头像占位区域的布局样式',
