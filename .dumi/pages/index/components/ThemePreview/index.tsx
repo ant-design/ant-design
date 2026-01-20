@@ -11,11 +11,12 @@ import usePreviewThemes from './previewThemes';
 const locales = {
   cn: {
     themeTitle: '定制主题，随心所欲',
-    themeDesc: 'Ant Design 开放更多样式算法，让你定制主题更简单',
+    themeDesc: '开放样式算法与语义化结构，让你与 AI 一起轻松定制主题',
   },
   en: {
     themeTitle: 'Flexible theme customization',
-    themeDesc: 'Ant Design enable extendable algorithm, make custom theme easier',
+    themeDesc:
+      'Open style algorithms and semantic structures make it easy for you and AI to customize themes',
   },
 };
 
@@ -69,6 +70,17 @@ const useStyles = createStyles(({ css, cssVar }) => ({
       backgroundColor: cssVar.colorPrimaryBg,
       color: cssVar.colorPrimary,
     },
+
+    // ========= Dark =========
+    '&.dark': {
+      color: cssVar.colorTextLightSolid,
+      backgroundColor: 'transparent',
+
+      '&:hover, &.active': {
+        borderColor: cssVar.colorTextLightSolid,
+        backgroundColor: 'transparent',
+      }
+    },
   }),
 
   // Components
@@ -92,7 +104,7 @@ export default function ThemePreview() {
 
   const previewThemes = usePreviewThemes();
 
-  const [activeName, setActiveName] = React.useState(previewThemes[5].name);
+  const [activeName, setActiveName] = React.useState(previewThemes[6].name);
 
   const handleThemeClick = (name: string) => {
     setActiveName(name);
@@ -105,13 +117,24 @@ export default function ThemePreview() {
     }
   };
 
+  const activeTheme = previewThemes.find((theme) => theme.name === activeName);
+
   return (
-    <Group title={locale.themeTitle} description={locale.themeDesc}>
+    <Group
+      title={locale.themeTitle}
+      description={locale.themeDesc}
+      background={activeTheme?.bgImg}
+      titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
+    >
       <Flex className={styles.container} gap="large">
         <div className={styles.list} role="tablist" aria-label="Theme selection">
           {previewThemes.map((theme) => (
             <div
-              className={clsx(styles.listItem, activeName === theme.name && 'active')}
+              className={clsx(
+                styles.listItem,
+                activeName === theme.name && 'active',
+                activeTheme?.bgImgDark && 'dark',
+              )}
               key={theme.name}
               role="tab"
               tabIndex={activeName === theme.name ? 0 : -1}
@@ -125,7 +148,7 @@ export default function ThemePreview() {
         </div>
         <ComponentsBlock
           key={activeName}
-          config={previewThemes.find((theme) => theme.name === activeName)?.props}
+          config={activeTheme?.props}
           className={styles.componentsBlock}
           containerClassName={styles.componentsBlockContainer}
         />

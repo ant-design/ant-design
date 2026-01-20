@@ -10,6 +10,9 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
   box: css`
     position: relative;
     transition: all ${cssVar.motionDurationSlow};
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
   `,
   container: css`
     position: absolute;
@@ -48,7 +51,14 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
   const token = useTheme();
   const { isMobile } = React.use(SiteContext);
   return (
-    <div style={{ backgroundColor: background }} className={styles.box}>
+    <div
+      style={
+        background?.startsWith('https')
+          ? { backgroundImage: `url(${background})` }
+          : { backgroundColor: background }
+      }
+      className={styles.box}
+    >
       <div className={styles.container}>{decoration}</div>
       <GroupMaskLayer style={{ paddingBlock: token.marginFarSM }}>
         <div className={styles.typographyWrapper}>

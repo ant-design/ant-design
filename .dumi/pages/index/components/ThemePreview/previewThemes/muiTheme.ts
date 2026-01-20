@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 import raf from '@rc-component/util/lib/raf';
-import type { ConfigProviderProps, GetProp } from 'antd';
+import { theme, type ConfigProviderProps, type GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
@@ -129,6 +129,7 @@ const useMuiTheme: UseTheme = () => {
   return useMemo<ConfigProviderProps>(
     () => ({
       theme: {
+        algorithm: theme.defaultAlgorithm,
         token: {
           colorPrimary: '#1976d2',
           colorSuccess: '#2e7d32',

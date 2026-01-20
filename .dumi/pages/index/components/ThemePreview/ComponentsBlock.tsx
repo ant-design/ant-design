@@ -21,6 +21,7 @@ import {
 } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
+import clsx from 'clsx';
 
 import useLocale from '../../../../hooks/useLocale';
 
@@ -71,8 +72,12 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ css }) => {
+const useStyle = createStyles(({ css, cssVar }) => {
   return {
+    container: css({
+      backgroundColor: `color-mix(in srgb, ${cssVar.colorBgContainer} 70%, transparent)`,
+      backdropFilter: 'blur(12px)',
+    }),
     flexAuto: css({ flex: 'auto' }),
   };
 });
@@ -90,7 +95,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   return (
     <ConfigProvider {...config}>
-      <Card className={containerClassName}>
+      <Card className={clsx(containerClassName, styles.container)}>
         <App>
           <Flex vertical gap="middle" style={style} className={className}>
             <ModalPanel title="Ant Design" width="100%">
