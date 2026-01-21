@@ -93,7 +93,7 @@
     "test:site": "jest --config .jest.site.js --no-cache",
     "test:site-update": "npm run site && npm run test:site -- -u",
     "test:update": "jest --config .jest.js --no-cache -u",
-    "test:semantic:update": "pnpm run version && jest --config .jest.semantic.js --no-cache -u",
+    "test:semantic:update": "npm run version && jest --config .jest.semantic.js --no-cache -u",
     "test:visual-regression": "tsx scripts/visual-regression/build.ts",
     "test:visual-regression:local": "tsx scripts/visual-regression/local.ts",
     "token:meta": "tsx scripts/generate-token-meta.ts",
