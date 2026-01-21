@@ -58,7 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showTitle | Show page item's title | boolean | true |  |
 | showTotal | To display the total number and range | function(total, range) | - |  |
 | simple | Whether to use simple mode | boolean \| { readOnly?: boolean } | - |  |
-| size | Component size | `default` \| `small` \| `large` | `default` |  |
+| size | Component size | `large` \| `middle` \| `small` | `middle` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | total | Total number of data items | number | 0 |  |
 | onChange | Called when the page number or `pageSize` is changed, and it takes the resulting page number and pageSize as its arguments | function(page, pageSize) | - |  |
