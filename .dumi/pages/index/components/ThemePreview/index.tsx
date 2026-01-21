@@ -108,11 +108,15 @@ export default function ThemePreview() {
   const [activeName, setActiveName] = React.useState(() => previewThemes[0].name);
 
   React.useEffect(() => {
-    // const defaultThemeName = isDark ? 'dark' : 'light';
-    setActiveName(
-      // previewThemes.find((theme) => theme.key === defaultThemeName)?.name || previewThemes[0].name,
-      previewThemes[5].name,
-    );
+    const defaultThemeName = isDark ? 'dark' : 'light';
+
+    const targetTheme =
+      process.env.NODE_ENV !== 'production'
+        ? previewThemes[previewThemes.length - 1].name
+        : previewThemes.find((theme) => theme.key === defaultThemeName)?.name ||
+          previewThemes[0].name;
+
+    setActiveName(targetTheme);
   }, [isDark]);
 
   // 收集所有背景图片用于预加载
