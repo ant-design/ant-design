@@ -15,8 +15,6 @@ const App: React.FC = () => (
     <Splitter
       step="10%"
       style={{ height: 200, marginTop: 16, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
-      onResize={() => console.log('resize')}
-      onResizeEnd={() => console.log('resize end')}
     >
       <Splitter.Panel defaultSize="30%" min="0" max="100%">
         <Desc text="First Panel" />
