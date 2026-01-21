@@ -5,36 +5,35 @@ import { clsx } from 'clsx';
 const styles = createStaticStyles(({ cssVar, css, cx }) => {
   const duration = cssVar.motionDurationSlow;
 
-  const marker = css`
-    --mark-border-size: 1px;
-    position: absolute;
-    border: var(--mark-border-size) solid ${cssVar.colorWarning};
-    box-sizing: border-box;
-    z-index: 999999;
-    pointer-events: none;
-    left: calc(var(--rect-left) * 1px - var(--mark-border-size));
-    top: calc(var(--rect-top) * 1px - var(--mark-border-size));
-    width: calc(var(--rect-width) * 1px + var(--mark-border-size) * 2);
-    height: calc(var(--rect-height) * 1px + var(--mark-border-size) * 2);
+  const marker = css({
+    '--mark-border-size': '1px',
+    position: 'absolute',
+    border: `var(--mark-border-size) solid ${cssVar.colorWarning}`,
+    boxSizing: 'border-box',
+    zIndex: 999999,
+    pointerEvents: 'none',
+    left: 'calc(var(--rect-left) * 1px - var(--mark-border-size))',
+    top: 'calc(var(--rect-top) * 1px - var(--mark-border-size))',
+    width: 'calc(var(--rect-width) * 1px + var(--mark-border-size) * 2)',
+    height: 'calc(var(--rect-height) * 1px + var(--mark-border-size) * 2)',
+    opacity: 0,
+    transition: `all ${duration} ease`,
+  } as any);
 
-    opacity: 0;
-    transition: all ${duration} ease;
-  `;
+  const markerActive = css({
+    [`&.${cx(marker)}`]: {
+      opacity: 0.875,
+    },
+  } as any);
 
-  const markerActive = css`
-    &.${cx(marker)} {
-      opacity: 0.85;
-    }
-  `;
-
-  const markerPrimary = css`
-    &.${cx(marker)}.${cx(markerActive)} {
-      --mark-border-size: 2px;
-      opacity: 1;
-      box-shadow: 0 0 0 1px #fff;
-      z-index: 1000000;
-    }
-  `;
+  const markerPrimary = css({
+    [`&.${cx(marker)}.${cx(markerActive)}`]: {
+      '--mark-border-size': '2px',
+      opacity: 1,
+      boxShadow: '0 0 0 1px #fff',
+      zIndex: 1000000,
+    },
+  } as any);
 
   return {
     marker,
