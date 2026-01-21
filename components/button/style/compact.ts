@@ -39,6 +39,31 @@ const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
   };
 };
 
+// Handle dropdown trigger button in compact group
+// When dropdown is open, the trigger button has elevated z-index
+// But when hovering sibling buttons, they should have higher z-index
+// to ensure proper border rendering
+// https://github.com/ant-design/ant-design/issues/56662
+const genDropdownCompactStyle: GenerateStyle<ButtonToken> = (token) => {
+  const { componentCls, antCls } = token;
+  const compactCls = `${componentCls}-compact`;
+
+  return {
+    [compactCls]: {
+      // When a button is a dropdown trigger and dropdown is open,
+      // give it elevated z-index
+      [`&-item${antCls}-dropdown-open`]: {
+        zIndex: 3,
+      },
+      // When hovering a sibling button, it should have higher z-index
+      // than the dropdown-open button to ensure proper border overlap
+      [`&-item:hover`]: {
+        zIndex: 4,
+      },
+    },
+  };
+};
+
 // ============================== Export ==============================
 export default genSubStyleComponent(
   ['Button', 'compact'],
@@ -50,6 +75,7 @@ export default genSubStyleComponent(
       genCompactItemStyle(buttonToken),
       genCompactItemVerticalStyle(buttonToken),
       genButtonCompactStyle(buttonToken),
+      genDropdownCompactStyle(buttonToken),
     ];
   },
   prepareComponentToken,
