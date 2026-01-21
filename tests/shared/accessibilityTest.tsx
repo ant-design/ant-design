@@ -1,3 +1,4 @@
+import path from 'node:path';
 import React from 'react';
 import { render } from '@testing-library/react';
 import { globSync } from 'glob';
@@ -139,7 +140,8 @@ export default function accessibilityDemoTest(component: string, options: Option
     );
 
     files.forEach((file) => {
-      const shouldSkip = Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c));
+      const shouldSkip =
+        Array.isArray(options.skip) && options.skip.some((c) => path.basename(file).endsWith(c));
       const testMethod = shouldSkip ? describe.skip : describe;
 
       testMethod(`Test ${file} accessibility`, () => {

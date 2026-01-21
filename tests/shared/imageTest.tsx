@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
@@ -303,7 +303,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
   });
 
   files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
+    if (Array.isArray(options.skip) && options.skip.some((c) => path.basename(file).endsWith(c))) {
       describeMethod = describe.skip;
     } else {
       describeMethod = describe;
