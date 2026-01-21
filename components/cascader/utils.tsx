@@ -3,6 +3,10 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 
+const defaultLoadingIcon = <LoadingOutlined spin />;
+const defaultExpandIcon = <RightOutlined />;
+const defaultRtlExpandIcon = <LeftOutlined />;
+
 export interface GetIconsOptions {
   isRtl: boolean;
   expandIcon: React.ReactNode;
@@ -19,7 +23,8 @@ export function getIcons({
   isRtl,
 }: GetIconsOptions) {
   return {
-    expandIcon: expandIcon ?? contextExpandIcon ?? (isRtl ? <LeftOutlined /> : <RightOutlined />),
-    loadingIcon: loadingIcon ?? contextLoadingIcon ?? <LoadingOutlined spin />,
+    expandIcon:
+      expandIcon ?? contextExpandIcon ?? (isRtl ? defaultRtlExpandIcon : defaultExpandIcon),
+    loadingIcon: loadingIcon ?? contextLoadingIcon ?? defaultLoadingIcon,
   };
 }
