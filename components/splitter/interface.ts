@@ -74,6 +74,7 @@ export interface PanelProps {
   min?: number | string;
   max?: number | string;
   size?: number | string;
+  collapsed?: boolean;
   collapsible?:
     | boolean
     | { start?: boolean; end?: boolean; showCollapsibleIcon?: ShowCollapsibleIconMode };

@@ -107,4 +107,19 @@ describe('useSizes', () => {
 
     expect(postPxSizes).toEqual([500, 500]);
   });
+
+  it('should force size to 0 when collapsed', () => {
+    const items = [
+      {
+        size: 100,
+        collapsed: true,
+      },
+      {},
+    ];
+
+    const { result } = renderHook(() => useSizes(items, containerSize));
+    const [sizes] = result.current;
+
+    expect(sizes).toEqual([0, 1000]);
+  });
 });

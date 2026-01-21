@@ -81,6 +81,20 @@ describe('Splitter', () => {
     expect(panels?.[2]).toHaveStyle('flex-basis: 35px');
   });
 
+  it('should render collapsed panel size as 0', async () => {
+    const { container } = render(
+      <SplitterDemo items={[{ size: 20, collapsed: true }, { size: 80 }]} />,
+    );
+
+    await resizeSplitter();
+
+    const panels = container.querySelectorAll('.ant-splitter-panel');
+
+    expect(panels?.[0]).toHaveStyle('flex-basis: 0px');
+    expect(panels?.[0]).toHaveClass('ant-splitter-panel-hidden');
+    expect(panels?.[1]).toHaveStyle('flex-basis: 100px');
+  });
+
   it('The layout should work fine', () => {
     const { container, rerender } = render(<SplitterDemo />);
     expect(container.querySelector('.ant-splitter-horizontal')).toBeTruthy();

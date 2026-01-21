@@ -66,6 +66,7 @@ demo:
 | min | 最小阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | resizable | 是否开启拖拽伸缩 | `boolean` | `true` | - |
 | size | 受控面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
+| collapsed | 受控的收起状态 | boolean | - | 6.2.2 |
 
 ## Semantic DOM
 

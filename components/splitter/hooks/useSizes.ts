@@ -17,6 +17,7 @@ function isPtg(itemSize: string | number | undefined): itemSize is string {
  */
 export default function useSizes(items: PanelProps[], containerSize?: number) {
   const propSizes = items.map((item) => item.size);
+  const propCollapsed = items.map((item) => item.collapsed);
 
   const itemsCount = items.length;
 
@@ -32,11 +33,15 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
     const mergedSizes: PanelProps['size'][] = [];
 
     for (let i = 0; i < itemsCount; i += 1) {
-      mergedSizes[i] = propSizes[i] ?? innerSizes[i];
+      if (propCollapsed[i]) {
+        mergedSizes[i] = 0;
+      } else {
+        mergedSizes[i] = propSizes[i] ?? innerSizes[i];
+      }
     }
 
     return mergedSizes;
-  }, [itemsCount, innerSizes, propSizes]);
+  }, [itemsCount, innerSizes, propSizes, propCollapsed]);
 
   const postPercentMinSizes = React.useMemo(
     () =>
