@@ -64,6 +64,9 @@ const useStyles = createStyles(({ css, cssVar }) => {
       pointerEvents: 'none',
     }),
     tooltipRoot: css({
+      padding: cssVar.padding,
+    }),
+    tooltipContainer: css({
       ...lightBorder,
       color: cssVar.colorPrimary,
     }),
@@ -138,7 +141,8 @@ const useGeekTheme: UseTheme = () => {
       tooltip: {
         arrow: false,
         classNames: {
-          container: styles.tooltipRoot,
+          root: styles.tooltipRoot,
+          container: styles.tooltipContainer,
         },
       },
       progress: {
