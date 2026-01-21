@@ -89,7 +89,7 @@ const useIllustrationTheme: UseTheme = () => {
           },
           Card: {
             boxShadow: '4px 4px 0 #2C2C2C',
-            colorBgContainer: '#F6FFED',
+            colorBgContainer: '#FFF0F6',
           },
           Tooltip: {
             colorBorder: '#2C2C2C',
