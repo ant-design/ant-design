@@ -18,13 +18,13 @@ const useStyle = createStyles(({ cssVar, cx }) => {
     height: 'calc(var(--rect-height) * 1px + var(--mark-border-size) * 2)',
     opacity: 0,
     transition: `all ${duration} ease`,
-  } as any);
+  });
 
   const markerActive = css({
     [`&.${cx(marker)}`]: {
       opacity: 0.875,
     },
-  } as any);
+  });
 
   const markerPrimary = css({
     [`&.${cx(marker)}.${cx(markerActive)}`]: {
@@ -33,7 +33,7 @@ const useStyle = createStyles(({ cssVar, cx }) => {
       boxShadow: '0 0 0 1px #fff',
       zIndex: 1000000,
     },
-  } as any);
+  });
 
   return {
     marker,
