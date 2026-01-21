@@ -40,7 +40,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
     file = file.split(path.sep).join('/');
     const testMethod =
       options.skip === true ||
-      (Array.isArray(options.skip) && options.skip.some((c) => path.basename(file).endsWith(c)))
+      (Array.isArray(options.skip) && options.skip.includes(path.basename(file)))
         ? test.skip
         : test;
 
@@ -178,7 +178,7 @@ export function semanticDemoTest(component: string, options: Options = {}) {
     file = file.split(path.sep).join('/');
     const testMethod =
       options.skip === true ||
-      (Array.isArray(options.skip) && options.skip.some((c) => path.basename(file).endsWith(c)))
+      (Array.isArray(options.skip) && options.skip.includes(path.basename(file)))
         ? test.skip
         : test;
 

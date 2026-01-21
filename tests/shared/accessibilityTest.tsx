@@ -140,8 +140,7 @@ export default function accessibilityDemoTest(component: string, options: Option
     );
 
     files.forEach((file) => {
-      const shouldSkip =
-        Array.isArray(options.skip) && options.skip.some((c) => path.basename(file).endsWith(c));
+      const shouldSkip = Array.isArray(options.skip) && options.skip.includes(path.basename(file));
       const testMethod = shouldSkip ? describe.skip : describe;
 
       testMethod(`Test ${file} accessibility`, () => {
