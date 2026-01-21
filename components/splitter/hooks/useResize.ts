@@ -97,33 +97,6 @@ export default function useResize(
 
     let mergedOffset = offset;
 
-    // 如果配置了 step，检查是否满足步进条件
-    // if (step !== undefined) {
-    //   const stepPx = stepToPixels(step);
-
-    //   // 规则1：偏移量绝对值必须 >= stepPx 才调整
-    //   if (Math.abs(mergedOffset) < stepPx) {
-    //     // 偏移量 < stepPx，不调整（保持原始 offset）
-    //     mergedOffset = 0;
-    //   } else {
-    //     // 规则2：检查拖拽方向上的可用空间
-    //     let maxAvailableSpace = 0;
-    //     if (mergedOffset > 0) {
-    //       // 向右拖拽：下一个面板的可用空间
-    //       maxAvailableSpace = numSizes[nextIndex] - endMinSize;
-    //     } else if (mergedOffset < 0) {
-    //       // 向左拖拽：当前面板的可用空间
-    //       maxAvailableSpace = numSizes[mergedIndex] - startMinSize;
-    //     }
-
-    //     // 规则3：如果可用空间 < stepPx，不允许调整
-    //     if (maxAvailableSpace < stepPx) {
-    //       mergedOffset = 0;
-    //     }
-    //     // 如果可用空间 >= stepPx，保持 offset（已经在 SplitBar 中按 step 取整）
-    //   }
-    // }
-
     // Align with the boundary (boundary check always applies after step)
     if (numSizes[mergedIndex] + mergedOffset < startMinSize) {
       mergedOffset = startMinSize - numSizes[mergedIndex];
