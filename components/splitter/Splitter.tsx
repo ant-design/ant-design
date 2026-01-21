@@ -104,266 +104,88 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ====================== Resizable =======================
   const resizableInfos = useResizable(items, itemPxSizes, reverse);
 
-  const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
-    items,
-    resizableInfos,
-    itemPtgSizes,
-    containerSize,
-    updateSizes,
-    reverse,
-  );
+  const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex, onOffsetConfirm] =
+    useResize(items, resizableInfos, itemPtgSizes, containerSize, updateSizes, reverse);
+
+  // ======================== Step Logic =====================
+  const dragStartSizesRef = React.useRef<number[]>([]);
+  const lastSnappedOffsetRef = React.useRef<number>(0);
+
+  const limitToPixels = (limit: string | number | undefined, total: number) => {
+    if (typeof limit === 'string') {
+      return (Number.parseFloat(limit) / 100) * total;
+    }
+    return limit ?? 0;
+  };
+
+  const calculateStepSnap = useEvent((index: number, offset: number) => {
+    if (step === undefined || !containerSize || dragStartSizesRef.current.length === 0) {
+      return { snappedOffset: offset, isSnapped: false };
+    }
+
+    const stepPx =
+      typeof step === 'string' ? (Number.parseFloat(step) / 100) * containerSize : step;
+    const SNAP_THRESHOLD = 10;
+
+    let effectiveIndex = movingIndex ?? index;
+    if (movingIndex === undefined && offset < 0) {
+      for (let i = index; i >= 0; i -= 1) {
+        if (itemPxSizes[i] > 0 && resizableInfos[i].resizable) {
+          effectiveIndex = i;
+          break;
+        }
+      }
+    }
+
+    const startSize = dragStartSizesRef.current[effectiveIndex];
+    const nextSize = dragStartSizesRef.current[effectiveIndex + 1];
+
+    const minSize = limitToPixels(items[effectiveIndex].min, containerSize);
+    const maxSize = limitToPixels(items[effectiveIndex].max, containerSize) || containerSize;
+    const nextMinSize = limitToPixels(items[effectiveIndex + 1].min, containerSize);
+    const nextMaxSize =
+      limitToPixels(items[effectiveIndex + 1].max, containerSize) || containerSize;
+
+    const minOffset = Math.max(minSize - startSize, nextSize - nextMaxSize);
+    const maxOffset = Math.min(maxSize - startSize, nextSize - nextMinSize);
+
+    const idealStepOffset = Math.round(offset / stepPx) * stepPx;
+    const distance = Math.abs(offset - idealStepOffset);
+
+    if (distance <= SNAP_THRESHOLD) {
+      if (idealStepOffset < minOffset - 0.01 || idealStepOffset > maxOffset + 0.01) {
+        return { snappedOffset: lastSnappedOffsetRef.current, isSnapped: false };
+      }
+
+      const clampedStepOffset = Math.max(minOffset, Math.min(maxOffset, idealStepOffset));
+      lastSnappedOffsetRef.current = clampedStepOffset;
+      return { snappedOffset: clampedStepOffset, isSnapped: true };
+    }
+
+    return { snappedOffset: lastSnappedOffsetRef.current, isSnapped: false };
+  });
 
   // ======================== Events ========================
-  // Store sizes and offset limits at drag start for step threshold checking
-  const dragStartSizesRef = React.useRef<number[]>([]);
-  const offsetMinMaxRef = React.useRef<{ min: number; max: number } | null>(null);
-  const stepPxRef = React.useRef<number | null>(null);
-
-  // Common function to calculate step snapping offset
-  const calculateStepSnap = useEvent(
-    (index: number, offset: number): { snappedOffset: number; isSnapped: boolean } => {
-      // Check if step snapping should be applied
-      if (
-        stepPxRef.current === null ||
-        !offsetMinMaxRef.current ||
-        dragStartSizesRef.current.length === 0
-      ) {
-        return { snappedOffset: offset, isSnapped: false };
-      }
-
-      const stepPx = stepPxRef.current;
-      const SNAP_THRESHOLD = 10; // ±10px threshold
-
-      // Find the effective panel index when panels overlap
-      // If the current panel size is 0, use the previous non-zero panel
-      let effectivePanelIndex = index;
-      if (dragStartSizesRef.current[index] === 0) {
-        for (let i = index - 1; i >= 0; i -= 1) {
-          if (dragStartSizesRef.current[i] > 0) {
-            effectivePanelIndex = i;
-            break;
-          }
-        }
-      }
-
-      // Calculate cumulative size from left edge to the previous splitter bar
-      // Use effectivePanelIndex instead of index for correct positioning
-      let cumulativeSize = 0;
-      for (let i = 0; i < effectivePanelIndex; i += 1) {
-        cumulativeSize += dragStartSizesRef.current[i];
-      }
-
-      const currentPanelSize = dragStartSizesRef.current[effectivePanelIndex];
-      const currentSize = cumulativeSize + currentPanelSize + offset;
-
-      // Calculate dynamic min/max range
-      const stepMin = cumulativeSize;
-      // When dragging, stepMax should consider the offset range
-      // Use offsetMinMaxRef to determine the actual maximum position
-      const maxAllowedOffset = offsetMinMaxRef.current.max;
-      const stepMax = cumulativeSize + currentPanelSize + maxAllowedOffset;
-
-      // Calculate relative position from previous splitter bar
-      const relativePosition = currentSize - cumulativeSize;
-
-      // Calculate which step multiples relativePosition is between
-      const multiplier = Math.floor(relativePosition / stepPx);
-      let lowerThreshold = cumulativeSize + multiplier * stepPx;
-      let upperThreshold = cumulativeSize + (multiplier + 1) * stepPx;
-
-      // Special handling for effectivePanelIndex=0: ensure 0 is always considered as a threshold
-      // When dragging panel1 to the left, it should snap to 0
-      // Use effectivePanelIndex instead of index to handle overlapping splitbars
-      if (effectivePanelIndex === 0) {
-        // Check if currentSize is close to 0 (within threshold)
-        const distanceToZero = Math.abs(currentSize - 0);
-        if (distanceToZero <= SNAP_THRESHOLD) {
-          lowerThreshold = 0;
-        } else if (lowerThreshold < 0) {
-          lowerThreshold = 0;
-        }
-      }
-
-      // Special handling: ensure stepMax is always considered as a threshold
-      const distanceToMax = Math.abs(currentSize - stepMax);
-      if (distanceToMax <= SNAP_THRESHOLD) {
-        upperThreshold = stepMax;
-      }
-
-      // Calculate distance to both thresholds
-      const distanceToLower = Math.abs(currentSize - lowerThreshold);
-      const distanceToUpper = Math.abs(currentSize - upperThreshold);
-
-      // Snap to the nearest threshold if within ±10px
-      let targetSize: number | null = null;
-      if (distanceToLower <= SNAP_THRESHOLD) {
-        targetSize = lowerThreshold;
-      } else if (distanceToUpper <= SNAP_THRESHOLD) {
-        targetSize = upperThreshold;
-      }
-
-      // Convert target size back to offset
-      if (targetSize !== null) {
-        // Verify targetSize is within the dynamic step range
-        // Special case: for effectivePanelIndex=0, allow snapping to 0 even if it's less than stepMin
-        // Use effectivePanelIndex instead of index to handle overlapping splitbars
-        const isWithinRange =
-          effectivePanelIndex === 0 && targetSize === 0
-            ? true
-            : targetSize >= stepMin && targetSize <= stepMax;
-
-        if (isWithinRange) {
-          const targetOffset = targetSize - cumulativeSize - currentPanelSize;
-
-          // For effectivePanelIndex=0 snapping to 0, allow negative offset even if it's less than offsetMin
-          // This allows panel1 to snap to 0 width
-          // Use effectivePanelIndex instead of index to handle overlapping splitbars
-          const isSnapToZero = effectivePanelIndex === 0 && targetSize === 0;
-          const isWithinOffsetLimits = isSnapToZero
-            ? targetOffset <= offsetMinMaxRef.current.max // Only check max limit
-            : targetOffset >= offsetMinMaxRef.current.min &&
-              targetOffset <= offsetMinMaxRef.current.max;
-
-          if (isWithinOffsetLimits) {
-            return { snappedOffset: targetOffset, isSnapped: true };
-          }
-        }
-      }
-
-      return { snappedOffset: offset, isSnapped: false };
-    },
-  );
-
-  // Function to calculate snapped offset for lazy mode preview
-  const calculateSnappedOffset = useEvent((index: number, offset: number): number => {
-    const { snappedOffset } = calculateStepSnap(index, offset);
-    return snappedOffset;
-  });
-
-  // Helper function to convert step value to pixels
-  const stepToPixels = useEvent((stepValue: number | string): number => {
-    if (typeof stepValue === 'string' && stepValue.endsWith('%')) {
-      const percent = Number(stepValue.slice(0, -1)) / 100;
-      return (containerSize || 0) * percent;
-    }
-    return Number(stepValue);
-  });
-
-  // Helper function to convert size limit to pixels
-  const limitToPixels = useEvent(
-    (limit: number | string | undefined, defaultLimit: number): number => {
-      if (typeof limit === 'string' && limit.endsWith('%')) {
-        const percent = Number(limit.slice(0, -1)) / 100;
-        return (containerSize || 0) * percent;
-      }
-      if (typeof limit === 'number') {
-        return limit;
-      }
-      return defaultLimit;
-    },
-  );
-
   const onInternalResizeStart = useEvent((index: number) => {
-    // Save current sizes at drag start
     dragStartSizesRef.current = [...itemPxSizes];
-
-    // Calculate offset min and max based on panel min/max limits
-    const panelIndex = index;
-    const nextPanelIndex = panelIndex + 1;
-
-    if (panelIndex < items.length && nextPanelIndex < items.length && containerSize) {
-      // When panels overlap (e.g., panel2 width=0), find which non-zero panel is being dragged
-      // This must be calculated first to determine correct offset limits
-      let effectivePanelIndex = panelIndex;
-
-      // If current panel size is 0, look backwards to find the first non-zero panel
-      // This handles the case when splitbars overlap
-      if (itemPxSizes[panelIndex] === 0) {
-        for (let i = panelIndex - 1; i >= 0; i -= 1) {
-          if (itemPxSizes[i] > 0) {
-            effectivePanelIndex = i;
-            break;
-          }
-        }
-      }
-
-      // Use effectivePanelIndex to calculate offset limits for step snapping
-      // This ensures limits match the panel that will actually be resized
-      const effectiveNextPanelIndex = effectivePanelIndex + 1;
-      const startSize = itemPxSizes[effectivePanelIndex];
-      const endSize = itemPxSizes[effectiveNextPanelIndex];
-
-      // Get min/max limits for both panels
-      const startMin = limitToPixels(items[effectivePanelIndex]?.min, 0);
-      const startMax = limitToPixels(items[effectivePanelIndex]?.max, containerSize);
-      const endMin = limitToPixels(items[effectiveNextPanelIndex]?.min, 0);
-      const endMax = limitToPixels(items[effectiveNextPanelIndex]?.max, containerSize);
-
-      // Calculate offset limits
-      // offset = newStartSize - startSize
-      // newStartSize >= startMin => offset >= startMin - startSize
-      // newStartSize <= startMax => offset <= startMax - startSize
-      // newEndSize >= endMin => endSize - offset >= endMin => offset <= endSize - endMin
-      // newEndSize <= endMax => endSize - offset <= endMax => offset >= endSize - endMax
-      const offsetMin = Math.max(startMin - startSize, endSize - endMax);
-      const offsetMax = Math.min(startMax - startSize, endSize - endMin);
-
-      offsetMinMaxRef.current = { min: offsetMin, max: offsetMax };
-
-      if (step && step.length > 0 && effectivePanelIndex < step.length) {
-        const panelStep = step[effectivePanelIndex];
-        if (panelStep !== undefined) {
-          stepPxRef.current = stepToPixels(panelStep);
-        } else {
-          stepPxRef.current = null;
-        }
-      } else {
-        stepPxRef.current = null;
-      }
-    } else {
-      offsetMinMaxRef.current = null;
-      stepPxRef.current = null;
-    }
-
+    lastSnappedOffsetRef.current = 0;
     onOffsetStart(index);
     onResizeStart?.(itemPxSizes);
   });
 
   const onInternalResizeUpdate = useEvent((index: number, offset: number, lazyEnd?: boolean) => {
     let finalOffset = offset;
-    let isSnapped = false;
-
-    // Apply step snapping if step is configured
-    if (step) {
-      const result = calculateStepSnap(index, offset);
-      finalOffset = result.snappedOffset;
-      isSnapped = result.isSnapped;
+    if (step !== undefined) {
+      const { snappedOffset } = calculateStepSnap(index, offset);
+      finalOffset = snappedOffset;
     }
 
-    // Only skip update if step is configured for this index and not snapped
-    // When panels overlap, use effectivePanelIndex to check if step exists
-    // This ensures snapping behavior is preserved when splitbars overlap
-    let effectivePanelIndex = index;
-    if (dragStartSizesRef.current.length > 0 && dragStartSizesRef.current[index] === 0) {
-      for (let i = index - 1; i >= 0; i -= 1) {
-        if (dragStartSizesRef.current[i] > 0) {
-          effectivePanelIndex = i;
-          break;
-        }
-      }
-    }
-    const hasStepForIndex =
-      step && step.length > effectivePanelIndex && step[effectivePanelIndex] !== undefined;
+    const nextSizes = onOffsetUpdate(index, finalOffset);
 
-    if (!hasStepForIndex || isSnapped) {
-      // Update with final offset
-      const nextSizes = onOffsetUpdate(index, finalOffset);
-
-      if (lazyEnd) {
-        onResizeEnd?.(nextSizes);
-      } else {
-        onResize?.(nextSizes);
-      }
+    if (lazyEnd) {
+      onResizeEnd?.(nextSizes);
+    } else {
+      onResize?.(nextSizes);
     }
   });
 
@@ -499,10 +321,25 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                   }
                   onInternalResizeUpdate(index, offset, lazyEnd);
                 }}
+                onOffsetConfirm={(index, offsetX, offsetY) => {
+                  let offset = isVertical ? offsetY : offsetX;
+                  if (reverse) {
+                    offset = -offset;
+                  }
+                  onOffsetConfirm(index, offset);
+                }}
                 onOffsetEnd={onInternalResizeEnd}
                 onCollapse={onInternalCollapse}
                 containerSize={containerSize || 0}
-                onCalculateSnappedOffset={step ? calculateSnappedOffset : undefined}
+                step={step}
+                onCalculateSnappedOffset={(idx, offset) => {
+                  let logicalOffset = offset;
+                  if (reverse) {
+                    logicalOffset = -logicalOffset;
+                  }
+                  const { snappedOffset } = calculateStepSnap(idx, logicalOffset);
+                  return reverse ? -snappedOffset : snappedOffset;
+                }}
               />
             );
           }

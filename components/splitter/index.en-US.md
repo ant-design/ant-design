@@ -28,6 +28,7 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/lazy.tsx" version="5.23.0">Lazy</code>
 <code src="./demo/customize.tsx" version="6.0.0">Customize</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/step.tsx" version="6.3.0">Step</code>
 <code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/size-mix.tsx" debug>Size Mix</code>
@@ -50,6 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onCollapse | Callback when expanding or collapsing | `(collapsed: boolean[], sizes: number[]) => void` | - | 5.28.0 |
 | orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| step | Step value for snapping during resize. Supports number for px or string for percentage (e.g., '10%') | `number \| string` | - | 6.3.0 |
 | vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  |
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |

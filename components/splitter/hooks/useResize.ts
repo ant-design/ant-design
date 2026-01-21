@@ -43,6 +43,31 @@ export default function useResize(
 
   const getPxSizes = () => percentSizes.map(ptg2px);
 
+  const onOffsetConfirm = (index: number, offset: number) => {
+    let confirmedIndex: number | null = null;
+
+    if (offset > 0) {
+      confirmedIndex = index;
+      setMovingIndex({
+        index,
+        confirmed: true,
+      });
+    } else if (offset < 0) {
+      for (let i = index; i >= 0; i -= 1) {
+        if (cacheSizes[i] > 0 && resizableInfos[i].resizable) {
+          confirmedIndex = i;
+          setMovingIndex({
+            index: i,
+            confirmed: true,
+          });
+          break;
+        }
+      }
+    }
+
+    return confirmedIndex ?? index;
+  };
+
   const onOffsetStart = (index: number) => {
     setCacheSizes(getPxSizes());
     setMovingIndex({
@@ -57,25 +82,7 @@ export default function useResize(
 
     // We need to know what the real index is.
     if ((!movingIndex || !movingIndex.confirmed) && offset !== 0) {
-      // Search for the real index
-      if (offset > 0) {
-        confirmedIndex = index;
-        setMovingIndex({
-          index,
-          confirmed: true,
-        });
-      } else {
-        for (let i = index; i >= 0; i -= 1) {
-          if (cacheSizes[i] > 0 && resizableInfos[i].resizable) {
-            confirmedIndex = i;
-            setMovingIndex({
-              index: i,
-              confirmed: true,
-            });
-            break;
-          }
-        }
-      }
+      confirmedIndex = onOffsetConfirm(index, offset);
     }
     const mergedIndex = confirmedIndex ?? movingIndex?.index ?? index;
 
@@ -90,7 +97,34 @@ export default function useResize(
 
     let mergedOffset = offset;
 
-    // Align with the boundary
+    // 如果配置了 step，检查是否满足步进条件
+    // if (step !== undefined) {
+    //   const stepPx = stepToPixels(step);
+
+    //   // 规则1：偏移量绝对值必须 >= stepPx 才调整
+    //   if (Math.abs(mergedOffset) < stepPx) {
+    //     // 偏移量 < stepPx，不调整（保持原始 offset）
+    //     mergedOffset = 0;
+    //   } else {
+    //     // 规则2：检查拖拽方向上的可用空间
+    //     let maxAvailableSpace = 0;
+    //     if (mergedOffset > 0) {
+    //       // 向右拖拽：下一个面板的可用空间
+    //       maxAvailableSpace = numSizes[nextIndex] - endMinSize;
+    //     } else if (mergedOffset < 0) {
+    //       // 向左拖拽：当前面板的可用空间
+    //       maxAvailableSpace = numSizes[mergedIndex] - startMinSize;
+    //     }
+
+    //     // 规则3：如果可用空间 < stepPx，不允许调整
+    //     if (maxAvailableSpace < stepPx) {
+    //       mergedOffset = 0;
+    //     }
+    //     // 如果可用空间 >= stepPx，保持 offset（已经在 SplitBar 中按 step 取整）
+    //   }
+    // }
+
+    // Align with the boundary (boundary check always applies after step)
     if (numSizes[mergedIndex] + mergedOffset < startMinSize) {
       mergedOffset = startMinSize - numSizes[mergedIndex];
     }
@@ -168,5 +202,12 @@ export default function useResize(
     return currentSizes;
   };
 
-  return [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex?.index] as const;
+  return [
+    onOffsetStart,
+    onOffsetUpdate,
+    onOffsetEnd,
+    onCollapse,
+    movingIndex?.index,
+    onOffsetConfirm,
+  ] as const;
 }
