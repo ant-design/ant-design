@@ -1,7 +1,9 @@
+/* eslint-disable compat/compat */
 import React from 'react';
 import {
   BugOutlined,
   CompassOutlined,
+  CopyOutlined,
   EditOutlined,
   GithubOutlined,
   HistoryOutlined,
@@ -32,6 +34,7 @@ const locales = {
     version: '版本',
     issueNew: '提交问题',
     issueOpen: '待解决',
+    copyError: '复制失败',
   },
   en: {
     import: 'Import',
@@ -45,6 +48,7 @@ const locales = {
     version: 'Version',
     issueNew: 'Issue',
     issueOpen: 'Open issues',
+    copyError: 'Copy failed',
   },
 };
 
@@ -128,21 +132,56 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   };
 
   // ======================== Source ========================
-  const [filledSource, abbrSource] = React.useMemo(() => {
+  const [filledSource, abbrSource, llmsPath] = React.useMemo(() => {
     if (String(source) === 'true') {
       const kebabComponent = kebabCase(component);
       return [
         `https://github.com/${repo}/blob/master/components/${kebabComponent}`,
         `components/${kebabComponent}`,
+        `/components/${kebabComponent}${isZhCN ? '-cn' : ''}.md`,
       ];
     }
 
     if (typeof source !== 'string') {
-      return [null, null];
+      return [null, null, null];
     }
 
-    return [source, source];
-  }, [component, repo, source]);
+    return [source, source, null];
+  }, [component, repo, source, isZhCN]);
+
+  const [llmsCopied, setLlmCopied] = React.useState<string>();
+  const [loading, setLoading] = React.useState(false);
+
+  const onLlmOpenChange = (open: boolean) => {
+    if (open) {
+      setLlmCopied(undefined);
+    }
+  };
+
+  const handleClick = async () => {
+    if (loading || !llmsPath) return;
+    setLoading(true);
+    try {
+      const response = await fetch(llmsPath);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const text = await response.text();
+      const isHtmlResponse = /^\s*<!doctype html>/i.test(text) || /^\s*<html[\s>]/i.test(text);
+      if (isHtmlResponse) {
+        throw new Error('Invalid markdown response');
+      }
+      if (!text) {
+        throw new Error('Empty markdown');
+      }
+      await copy(text);
+      setLlmCopied(locale.copied);
+    } catch {
+      setLlmCopied(locale.copyError);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <Descriptions
@@ -210,6 +249,24 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                     <span>{locale.design}</span>
                   </Link>
                 )}
+                <Tooltip
+                  placement="right"
+                  title={llmsCopied || locale.copy}
+                  onOpenChange={onLlmOpenChange}
+                >
+                  <Typography.Link
+                    className={styles.code}
+                    style={{ cursor: 'pointer' }}
+                    onClick={handleClick}
+                  >
+                    {loading ? (
+                      <LoadingOutlined className={styles.icon} />
+                    ) : (
+                      <CopyOutlined className={styles.icon} />
+                    )}
+                    <span>LLMs.md</span>
+                  </Typography.Link>
+                </Tooltip>
                 <ComponentChangelog>
                   <Typography.Link className={styles.code}>
                     <HistoryOutlined className={styles.icon} />
