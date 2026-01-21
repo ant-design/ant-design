@@ -4,6 +4,7 @@ import { theme } from 'antd';
 
 import useLocale from '../../../../../hooks/useLocale';
 import useBootstrapTheme from './bootstrapTheme';
+import useCartoonTheme from './cartoonTheme';
 import useGeekTheme from './geekTheme';
 import useGlassTheme from './glassTheme';
 import useMuiTheme from './muiTheme';
@@ -26,6 +27,7 @@ const locales = {
     mui: 'MUI 风格',
     shadcn: 'shadcn 风格',
     bootstrap: '老派风格',
+    cartoon: '卡通风格',
   },
   en: {
     default: 'Default Style',
@@ -35,6 +37,7 @@ const locales = {
     mui: 'MUI Style',
     shadcn: 'shadcn Style',
     bootstrap: 'Old School Style',
+    cartoon: 'Cartoon Style',
   },
 };
 
@@ -43,6 +46,7 @@ export type UseTheme = () => ConfigProviderProps;
 export default function usePreviewThemes() {
   const [locale] = useLocale(locales);
 
+  const cartoonTheme = useCartoonTheme();
   const geekTheme = useGeekTheme();
   const glassTheme = useGlassTheme();
   const muiTheme = useMuiTheme();
@@ -107,6 +111,12 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*fzA2T4ms154AAAAARtAAAAgAegCCAQ/original',
         bgImgDark: true,
         props: geekTheme,
+      },
+      {
+        name: locale.cartoon,
+        bgImg:
+          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*T8IlRaNez08AAAAARwAAAAgAegCCAQ/original',
+        props: cartoonTheme,
       },
     ];
   }, [locale]);
