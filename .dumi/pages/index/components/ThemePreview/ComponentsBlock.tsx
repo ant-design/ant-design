@@ -104,7 +104,6 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
             <Alert title={locale.infoText} type="info" />
             {/* Line */}
             <Flex gap="middle">
-              <ColorPicker style={{ flex: 'none' }} />
               <div style={{ flex: 'none' }}>
                 <Space.Compact>
                   <Button>{locale.dropdown}</Button>
@@ -120,6 +119,9 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                   </Dropdown>
                 </Space.Compact>
               </div>
+
+              <ColorPicker style={{ flex: 'none' }} />
+
               <Select
                 style={{ flex: 'auto' }}
                 mode="multiple"
