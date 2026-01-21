@@ -7,6 +7,7 @@ import useBootstrapTheme from './bootstrapTheme';
 import useCartoonTheme from './cartoonTheme';
 import useGeekTheme from './geekTheme';
 import useGlassTheme from './glassTheme';
+import useIllustrationTheme from './illustrationTheme';
 import useMuiTheme from './muiTheme';
 import useShadcnTheme from './shadcnTheme';
 
@@ -28,6 +29,7 @@ const locales = {
     shadcn: 'shadcn 风格',
     bootstrap: '老派风格',
     cartoon: '卡通风格',
+    illustration: '插画风格',
   },
   en: {
     default: 'Default Style',
@@ -38,6 +40,7 @@ const locales = {
     shadcn: 'shadcn Style',
     bootstrap: 'Old School Style',
     cartoon: 'Cartoon Style',
+    illustration: 'Illustration Style',
   },
 };
 
@@ -47,6 +50,7 @@ export default function usePreviewThemes() {
   const [locale] = useLocale(locales);
 
   const cartoonTheme = useCartoonTheme();
+  const illustrationTheme = useIllustrationTheme();
   const geekTheme = useGeekTheme();
   const glassTheme = useGlassTheme();
   const muiTheme = useMuiTheme();
@@ -96,6 +100,12 @@ export default function usePreviewThemes() {
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*tgpBT7vYIUsAAAAAQ-AAAAgAegCCAQ/original',
         props: cartoonTheme,
+      },
+      {
+        name: locale.illustration,
+        bgImg:
+          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*T8IlRaNez08AAAAARwAAAAgAegCCAQ/original',
+        props: illustrationTheme,
       },
       {
         name: locale.bootstrap,

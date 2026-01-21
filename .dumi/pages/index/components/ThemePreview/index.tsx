@@ -108,9 +108,10 @@ export default function ThemePreview() {
   const [activeName, setActiveName] = React.useState(() => previewThemes[0].name);
 
   React.useEffect(() => {
-    const defaultThemeName = isDark ? 'dark' : 'light';
+    // const defaultThemeName = isDark ? 'dark' : 'light';
     setActiveName(
-      previewThemes.find((theme) => theme.key === defaultThemeName)?.name || previewThemes[0].name,
+      // previewThemes.find((theme) => theme.key === defaultThemeName)?.name || previewThemes[0].name,
+      previewThemes[5].name,
     );
   }, [isDark]);
 
