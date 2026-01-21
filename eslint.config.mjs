@@ -129,7 +129,7 @@ export default antfu(
       'react/no-use-context': 'warn',
     },
     settings: {
-      polyfills: ['Promise', 'URL', 'URLSearchParams'],
+      polyfills: ['Promise', 'URL', 'fetch', 'URLSearchParams'],
     },
   },
   {
