@@ -74,6 +74,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | resizable | Enable resizable by dragging | boolean \| [ResizableConfig](#resizableconfig) | - | boolean: 6.1.0 |
+| maxSize | Maximum size (width or height depending on `placement`) when resizable | number | - | 6.0.0 |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
 | style | Style of Drawer panel. Use `styles.body` if want to config body only | CSSProperties | - |  |
 | styles | Customize inline style for each semantic structure inside the Drawer component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
