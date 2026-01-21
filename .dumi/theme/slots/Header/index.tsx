@@ -159,7 +159,6 @@ interface VersionItem {
 }
 
 const fetcher = (...args: Parameters<typeof fetch>) => {
-  // eslint-disable-next-line compat/compat
   return fetch(...args).then((res) => res.json());
 };
 

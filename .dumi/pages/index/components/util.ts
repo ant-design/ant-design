@@ -1,4 +1,3 @@
-/* eslint-disable compat/compat */
 import { css } from 'antd-style';
 import useSWR from 'swr';
 

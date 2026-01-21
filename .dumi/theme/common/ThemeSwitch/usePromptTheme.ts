@@ -1,4 +1,3 @@
-/* eslint-disable compat/compat */
 import { useRef, useState } from 'react';
 import { XStream } from '@ant-design/x-sdk';
 

@@ -11,7 +11,7 @@ const MotionContent: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   // This will never reach since we will not render this when no children
   /* istanbul ignore next */
-  if (!React.isValidElement<{ className?: string; style?: React.CSSProperties }>(children)) {
+  if (!React.isValidElement(children)) {
     return children;
   }
 
