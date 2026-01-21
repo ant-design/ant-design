@@ -1499,89 +1499,122 @@ exports[`renders components/splitter/demo/step.tsx correctly 1`] = `
   <div
     class="ant-space-item"
   >
-    <div>
-      <h5
-        class="ant-typography css-var-test-id"
-      >
-        Step with percentage: ["10%", "30%"]
-      </h5>
-      <span
-        class="ant-typography ant-typography-secondary css-var-test-id"
-      >
-        Drag the splitter bar and it will snap to 10% or 30% positions
-      </span>
+    <h5
+      class="ant-typography css-var-test-id"
+    >
+      Step with Percentage
+    </h5>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
+      style="height:200px;margin-top:16px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+    >
       <div
-        class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
-        style="height:200px;margin-top:16px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+        class="ant-splitter-panel"
+        style="flex-basis:30%;flex-grow:0"
       >
         <div
-          class="ant-splitter-panel"
-          style="flex-basis:20%;flex-grow:0"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+          style="height:100%"
+        >
+          <h5
+            class="ant-typography ant-typography-secondary css-var-test-id"
+            style="white-space:nowrap"
+          >
+            First Panel
+          </h5>
+        </div>
+      </div>
+      <div
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="30"
+        class="ant-splitter-bar"
+        role="separator"
+      >
+        <div
+          class="ant-splitter-bar-dragger"
+        />
+      </div>
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis:30%;flex-grow:0"
+      >
+        <div
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+          style="height:100%"
+        >
+          <h5
+            class="ant-typography ant-typography-secondary css-var-test-id"
+            style="white-space:nowrap"
+          >
+            Second Panel
+          </h5>
+        </div>
+      </div>
+      <div
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="60"
+        class="ant-splitter-bar"
+        role="separator"
+      >
+        <div
+          class="ant-splitter-bar-dragger"
+        />
+      </div>
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis:auto;flex-grow:1"
+      >
+        <div
+          class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
         >
           <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
+            class="ant-splitter-panel"
+            style="flex-basis:auto;flex-grow:1"
           >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+              style="height:100%"
             >
-              First Panel
-            </h5>
+              <h5
+                class="ant-typography ant-typography-secondary css-var-test-id"
+                style="white-space:nowrap"
+              >
+                Top
+              </h5>
+            </div>
           </div>
-        </div>
-        <div
-          aria-valuemax="0"
-          aria-valuemin="0"
-          aria-valuenow="20"
-          class="ant-splitter-bar"
-          role="separator"
-        >
           <div
-            class="ant-splitter-bar-dragger ant-splitter-bar-dragger-disabled"
-          />
-        </div>
-        <div
-          class="ant-splitter-panel"
-          style="flex-basis:auto;flex-grow:1"
-        >
-          <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
+            aria-valuemax="0"
+            aria-valuemin="0"
+            aria-valuenow="50"
+            class="ant-splitter-bar"
+            role="separator"
           >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
-            >
-              Second Panel
-            </h5>
+            <div
+              class="ant-splitter-bar-dragger"
+            />
           </div>
-        </div>
-        <div
-          aria-valuemax="0"
-          aria-valuemin="0"
-          aria-valuenow="60"
-          class="ant-splitter-bar"
-          role="separator"
-        >
           <div
-            class="ant-splitter-bar-dragger"
-          />
-        </div>
-        <div
-          class="ant-splitter-panel"
-          style="flex-basis:auto;flex-grow:1"
-        >
-          <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
+            class="ant-splitter-panel"
+            style="flex-basis:auto;flex-grow:1"
           >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+              style="height:100%"
             >
-              Third Panel
-            </h5>
+              <h5
+                class="ant-typography ant-typography-secondary css-var-test-id"
+                style="white-space:nowrap"
+              >
+                Bottom
+              </h5>
+            </div>
           </div>
         </div>
       </div>
@@ -1590,90 +1623,95 @@ exports[`renders components/splitter/demo/step.tsx correctly 1`] = `
   <div
     class="ant-space-item"
   >
-    <div>
-      <h5
-        class="ant-typography css-var-test-id"
-      >
-        Step with pixels: [100, 200, 500]
-      </h5>
-      <span
-        class="ant-typography ant-typography-secondary css-var-test-id"
-      >
-        Drag the splitter bar and it will snap to 100px, 200px, or 500px positions
-      </span>
+    <h5
+      class="ant-typography css-var-test-id"
+    >
+      Step with Lazy Mode
+    </h5>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
+      style="height:200px;margin-top:16px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+    >
       <div
-        class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
-        style="height:200px;margin-top:16px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+        class="ant-splitter-panel"
+        style="flex-basis:30%;flex-grow:0"
       >
         <div
-          class="ant-splitter-panel"
-          style="flex-basis:150px;flex-grow:0"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+          style="height:100%"
         >
-          <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
+          <h5
+            class="ant-typography ant-typography-secondary css-var-test-id"
+            style="white-space:nowrap"
           >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
-            >
-              First Panel
-            </h5>
-          </div>
+            First Panel
+          </h5>
         </div>
+      </div>
+      <div
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="30"
+        class="ant-splitter-bar"
+        role="separator"
+      >
         <div
-          aria-valuemax="0"
-          aria-valuemin="0"
-          aria-valuenow="0"
-          class="ant-splitter-bar"
-          role="separator"
-        >
-          <div
-            class="ant-splitter-bar-dragger"
-          />
-        </div>
+          class="ant-splitter-bar-preview"
+          style="--ant-splitter-bar-preview-offset:0px"
+        />
         <div
-          class="ant-splitter-panel"
-          style="flex-basis:auto;flex-grow:1"
+          class="ant-splitter-bar-dragger"
+        />
+      </div>
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis:auto;flex-grow:1"
+      >
+        <div
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+          style="height:100%"
         >
-          <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
+          <h5
+            class="ant-typography ant-typography-secondary css-var-test-id"
+            style="white-space:nowrap"
           >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
-            >
-              Second Panel
-            </h5>
-          </div>
+            Second Panel
+          </h5>
         </div>
+      </div>
+      <div
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="65"
+        class="ant-splitter-bar"
+        role="separator"
+      >
         <div
-          aria-valuemax="0"
-          aria-valuemin="0"
-          aria-valuenow="0"
-          class="ant-splitter-bar"
-          role="separator"
-        >
-          <div
-            class="ant-splitter-bar-dragger"
-          />
-        </div>
+          class="ant-splitter-bar-preview"
+          style="--ant-splitter-bar-preview-offset:0px"
+        />
         <div
-          class="ant-splitter-panel"
-          style="flex-basis:auto;flex-grow:1"
+          class="ant-splitter-bar-dragger"
+        />
+      </div>
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis:auto;flex-grow:1"
+      >
+        <div
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+          style="height:100%"
         >
-          <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
+          <h5
+            class="ant-typography ant-typography-secondary css-var-test-id"
+            style="white-space:nowrap"
           >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
-            >
-              Third Panel
-            </h5>
-          </div>
+            Third Panel
+          </h5>
         </div>
       </div>
     </div>
@@ -1681,96 +1719,55 @@ exports[`renders components/splitter/demo/step.tsx correctly 1`] = `
   <div
     class="ant-space-item"
   >
-    <div>
-      <h5
-        class="ant-typography css-var-test-id"
-      >
-        Vertical Splitter with Step
-      </h5>
-      <span
-        class="ant-typography ant-typography-secondary css-var-test-id"
-      >
-        Vertical splitter with step=
-        <!-- -->
-        20%
-        <!-- -->
-        50%
-        <!-- -->
-        80%
-      </span>
+    <div
+      class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
+      style="height:200px;margin-top:16px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+    >
       <div
-        class="ant-splitter ant-splitter-vertical css-var-test-id ant-splitter-css-var"
-        style="height:300px;margin-top:16px;box-shadow:0 0 10px rgba(0, 0, 0, 0.1)"
+        class="ant-splitter-panel"
+        style="flex-basis:5%;flex-grow:0"
       >
         <div
-          class="ant-splitter-panel"
-          style="flex-basis:25%;flex-grow:0"
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+          style="height:100%"
         >
-          <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
+          <h5
+            class="ant-typography ant-typography-secondary css-var-test-id"
+            style="white-space:nowrap"
           >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
-            >
-              Top Panel
-            </h5>
-          </div>
+            First Panel
+          </h5>
         </div>
+      </div>
+      <div
+        aria-valuemax="0"
+        aria-valuemin="0"
+        aria-valuenow="5"
+        class="ant-splitter-bar"
+        role="separator"
+      >
         <div
-          aria-valuemax="0"
-          aria-valuemin="0"
-          aria-valuenow="25"
-          class="ant-splitter-bar"
-          role="separator"
-        >
-          <div
-            class="ant-splitter-bar-dragger"
-          />
-        </div>
+          class="ant-splitter-bar-preview"
+          style="--ant-splitter-bar-preview-offset:0px"
+        />
         <div
-          class="ant-splitter-panel"
-          style="flex-basis:auto;flex-grow:1"
+          class="ant-splitter-bar-dragger"
+        />
+      </div>
+      <div
+        class="ant-splitter-panel"
+        style="flex-basis:95%;flex-grow:0"
+      >
+        <div
+          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+          style="height:100%"
         >
-          <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
+          <h5
+            class="ant-typography ant-typography-secondary css-var-test-id"
+            style="white-space:nowrap"
           >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
-            >
-              Middle Panel
-            </h5>
-          </div>
-        </div>
-        <div
-          aria-valuemax="0"
-          aria-valuemin="0"
-          aria-valuenow="63"
-          class="ant-splitter-bar"
-          role="separator"
-        >
-          <div
-            class="ant-splitter-bar-dragger"
-          />
-        </div>
-        <div
-          class="ant-splitter-panel"
-          style="flex-basis:auto;flex-grow:1"
-        >
-          <div
-            class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
-            style="height:100%"
-          >
-            <h5
-              class="ant-typography ant-typography-secondary css-var-test-id"
-              style="white-space:nowrap"
-            >
-              Bottom Panel
-            </h5>
-          </div>
+            Second Panel
+          </h5>
         </div>
       </div>
     </div>

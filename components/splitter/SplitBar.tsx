@@ -28,6 +28,7 @@ export interface SplitBarProps {
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onDraggerDoubleClick?: (index: number) => void;
   onOffsetStart: (index: number) => void;
+  onOffsetConfirm: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: (lazyEnd?: boolean) => void;
   onCollapse: (index: number, type: 'start' | 'end') => void;
@@ -37,6 +38,7 @@ export interface SplitBarProps {
   ariaMax: number;
   lazy?: boolean;
   containerSize: number;
+  step?: number | string;
   onCalculateSnappedOffset?: (index: number, offset: number) => number;
 }
 
@@ -67,11 +69,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     endCollapsible,
     onDraggerDoubleClick,
     onOffsetStart,
+    onOffsetConfirm,
     onOffsetUpdate,
     onOffsetEnd,
     onCollapse,
     lazy,
-    containerSize,
+    containerSize: _containerSize,
+    step: _step,
     showStartCollapsibleIcon,
     showEndCollapsibleIcon,
     onCalculateSnappedOffset,
@@ -116,35 +120,16 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   };
 
-  // Updated constraint calculation
-  const getConstrainedOffset = (rawOffset: number) => {
-    const currentPos = (containerSize * ariaNow) / 100;
-    const newPos = currentPos + rawOffset;
-
-    // Calculate available space
-    const minAllowed = Math.max(0, (containerSize * ariaMin) / 100);
-    const maxAllowed = Math.min(containerSize, (containerSize * ariaMax) / 100);
-
-    // Constrain new position within bounds
-    const clampedPos = Math.max(minAllowed, Math.min(maxAllowed, newPos));
-    return clampedPos - currentPos;
-  };
-
   const handleLazyMove = useEvent((offsetX: number, offsetY: number) => {
-    const constrainedOffsetValue = getConstrainedOffset(vertical ? offsetY : offsetX);
+    onOffsetConfirm(index, offsetX, offsetY);
 
-    // Apply step snapping only if step is configured
-    // Only update constrainedOffset if snapping occurs (offset changed)
+    let offset = vertical ? offsetY : offsetX;
+
     if (onCalculateSnappedOffset) {
-      const snappedOffset = onCalculateSnappedOffset(index, constrainedOffsetValue);
-      // Only update if offset changed (snapping occurred)
-      if (snappedOffset !== constrainedOffsetValue) {
-        setConstrainedOffset(snappedOffset);
-      }
-    } else {
-      // No step configured, update normally
-      setConstrainedOffset(constrainedOffsetValue);
+      offset = onCalculateSnappedOffset(index, offset);
     }
+
+    setConstrainedOffset(offset);
   });
 
   const handleLazyEnd = useEvent(() => {
@@ -171,12 +156,15 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
     const onMouseMove = (e: MouseEvent) => {
       const { pageX, pageY } = e;
-      const offsetX = pageX - startPos[0];
-      const offsetY = pageY - startPos[1];
+      const rawOffsetX = pageX - startPos[0];
+      const rawOffsetY = pageY - startPos[1];
+
+      onOffsetConfirm(index, rawOffsetX, rawOffsetY);
+
       if (lazy) {
-        handleLazyMove(offsetX, offsetY);
+        handleLazyMove(rawOffsetX, rawOffsetY);
       } else {
-        onOffsetUpdate(index, offsetX, offsetY);
+        onOffsetUpdate(index, rawOffsetX, rawOffsetY);
       }
     };
 
@@ -192,12 +180,15 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches.length === 1) {
         const touch = e.touches[0];
-        const offsetX = touch.pageX - startPos[0];
-        const offsetY = touch.pageY - startPos[1];
+        const rawOffsetX = touch.pageX - startPos[0];
+        const rawOffsetY = touch.pageY - startPos[1];
+
+        onOffsetConfirm(index, rawOffsetX, rawOffsetY);
+
         if (lazy) {
-          handleLazyMove(offsetX, offsetY);
+          handleLazyMove(rawOffsetX, rawOffsetY);
         } else {
-          onOffsetUpdate(index, offsetX, offsetY);
+          onOffsetUpdate(index, rawOffsetX, rawOffsetY);
         }
       }
     };
