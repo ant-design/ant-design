@@ -2,20 +2,21 @@ import { useMemo } from 'react';
 import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
-import clsx from 'clsx';
 
 import type { UseTheme } from '.';
 
 const useStyles = createStyles(({ css, cssVar }) => {
-  // const cartoonShadow = {
-  //   boxShadow: `4px 4px 0 ${cssVar.colorPrimaryBorder}`,
-  // };
+  const sharedBorder = {
+    border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorder}`,
+  };
 
   return {
-    // cartoonShadow,
-    // app: css({
-    //   fontWeight: 500,
-    // }),
+    sharedBorder,
+    progressTrack: css({
+      ...sharedBorder,
+      marginInlineStart: `calc(-1 * ${cssVar.lineWidth})`,
+      marginBlockStart: `calc(-1 * ${cssVar.lineWidth})`,
+    }),
   };
 });
 
@@ -27,25 +28,21 @@ const useCartoonTheme: UseTheme = () => {
       theme: {
         algorithm: theme.defaultAlgorithm,
         token: {
+          colorText: '#51463B',
+          colorPrimary: '#225555',
+          colorError: '#DA8787',
+          colorInfo: '#9CD3D3',
+          colorInfoBorder: '#225555',
           colorBorder: '#225555',
+          colorBorderSecondary: '#225555',
           lineWidth: 2,
           lineWidthBold: 2,
-          // borderRadius: 16,
-          // borderRadiusLG: 20,
-          // borderRadiusSM: 12,
-          // lineWidth: 3,
-          // colorPrimary: '#ff6b9d',
-          // colorSuccess: '#52c41a',
-          // colorWarning: '#faad14',
-          // colorError: '#ff4d4f',
-          // colorInfo: '#13c2c2',
-          // fontSize: 15,
-          // fontSizeHeading1: 42,
-          // fontSizeHeading2: 36,
-          // fontSizeHeading3: 28,
-          controlHeight: 40,
-          controlHeightSM: 32,
-          controlHeightLG: 48,
+          borderRadius: 18,
+          borderRadiusLG: 18,
+          borderRadiusSM: 18,
+          controlHeightSM: 28,
+          controlHeight: 36,
+          colorBgBase: '#FAFAEE',
         },
         components: {
           Button: {
@@ -56,11 +53,49 @@ const useCartoonTheme: UseTheme = () => {
           Modal: {
             boxShadow: 'none',
           },
+          Card: {
+            colorBgContainer: '#BBAA99',
+          },
+          Tooltip: {
+            borderRadius: 6,
+            colorBorder: '#225555',
+            algorithm: true,
+          },
+          Select: {
+            optionSelectedBg: '#CBC4AF',
+          },
         },
       },
       // app: {
       //   className: styles.app,
       // },
+      modal: {
+        classNames: {
+          container: styles.sharedBorder,
+        },
+      },
+      colorPicker: {
+        arrow: false,
+      },
+      popover: {
+        classNames: {
+          container: styles.sharedBorder,
+        },
+      },
+      progress: {
+        classNames: {
+          rail: styles.sharedBorder,
+          track: styles.progressTrack,
+        },
+        styles: {
+          rail: {
+            height: 16,
+          },
+          track: {
+            height: 16,
+          },
+        },
+      },
     }),
     [],
   );

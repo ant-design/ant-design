@@ -92,6 +92,12 @@ export default function usePreviewThemes() {
         props: shadcnTheme,
       },
       {
+        name: locale.cartoon,
+        bgImg:
+          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*tgpBT7vYIUsAAAAAQ-AAAAgAegCCAQ/original',
+        props: cartoonTheme,
+      },
+      {
         name: locale.bootstrap,
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ZrLfQIO34x4AAAAAS4AAAAgAegCCAQ/original',
@@ -111,12 +117,6 @@ export default function usePreviewThemes() {
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*fzA2T4ms154AAAAARtAAAAgAegCCAQ/original',
         bgImgDark: true,
         props: geekTheme,
-      },
-      {
-        name: locale.cartoon,
-        bgImg:
-          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*T8IlRaNez08AAAAARwAAAAgAegCCAQ/original',
-        props: cartoonTheme,
       },
     ];
   }, [locale]);
