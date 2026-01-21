@@ -30,16 +30,20 @@ const useStyles = createStyles(({ css, cssVar }) => {
     tooltipRoot: css({
       padding: cssVar.padding,
     }),
+    popupBox: css({
+      ...illustrationBox,
+      borderRadius: cssVar.borderRadiusLG,
+      backgroundColor: cssVar.colorBgContainer,
+    }),
     progressRail: css({
       border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
       boxShadow: `2px 2px 0 ${cssVar.colorBorder}`,
     }),
     progressTrack: css({
       border: 'none',
-      // border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
-      // marginInlineStart: `calc(-1 * ${cssVar.lineWidth})`,
-      // marginBlockStart: `calc(-1 * ${cssVar.lineWidth})`,
-      // boxShadow: `2px 2px 0 ${cssVar.colorPrimary}`,
+    }),
+    inputNumberActions: css({
+      width: 12,
     }),
   };
 });
@@ -85,15 +89,21 @@ const useIllustrationTheme: UseTheme = () => {
           },
           Card: {
             boxShadow: '4px 4px 0 #2C2C2C',
+            colorBgContainer: '#F6FFED',
           },
           Tooltip: {
             colorBorder: '#2C2C2C',
             colorBgSpotlight: 'rgba(100, 100, 100, 0.95)',
             borderRadius: 8,
-            algorithm: true,
           },
           Select: {
             optionSelectedBg: 'transparent',
+          },
+          Slider: {
+            dotBorderColor: '#237804',
+            dotActiveBorderColor: '#237804',
+            colorPrimaryBorder: '#237804',
+            colorPrimaryBorderHover: '#237804',
           },
         },
       },
@@ -126,6 +136,30 @@ const useIllustrationTheme: UseTheme = () => {
         classNames: {
           root: styles.tooltipRoot,
           container: styles.illustrationBox,
+        },
+      },
+      dropdown: {
+        classNames: {
+          root: styles.popupBox,
+        },
+      },
+      select: {
+        classNames: {
+          root: styles.illustrationBox,
+          popup: {
+            root: styles.popupBox,
+          },
+        },
+      },
+      input: {
+        classNames: {
+          root: styles.illustrationBox,
+        },
+      },
+      inputNumber: {
+        classNames: {
+          root: styles.illustrationBox,
+          actions: styles.inputNumberActions,
         },
       },
       progress: {

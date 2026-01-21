@@ -104,14 +104,13 @@ export default function usePreviewThemes() {
       {
         name: locale.illustration,
         bgImg:
-          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*T8IlRaNez08AAAAARwAAAAgAegCCAQ/original',
+          'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*HuVGQKqOER0AAAAARsAAAAgAegCCAQ/original',
         props: illustrationTheme,
       },
       {
         name: locale.bootstrap,
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ZrLfQIO34x4AAAAAS4AAAAgAegCCAQ/original',
-        // bgImgDark: true,
         props: bootstrapTheme,
       },
       {
