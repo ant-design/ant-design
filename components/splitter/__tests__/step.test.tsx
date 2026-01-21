@@ -262,8 +262,7 @@ describe('Splitter step', () => {
       Object.defineProperty(moveEvent, 'pageX', { value: 90 });
       Object.defineProperty(moveEvent, 'pageY', { value: 90 });
       fireEvent(window, moveEvent);
-
-      expect(container.querySelector('.ant-splitter-mask')).toBeTruthy();
+      expect(container.querySelector('.ant-splitter-bar-preview')).toBeTruthy();
 
       fireEvent.mouseUp(window);
     });
@@ -384,6 +383,53 @@ describe('Splitter step', () => {
       const lastCall = onResizeEnd.mock.calls[onResizeEnd.mock.calls.length - 1];
       const [panel1Size] = lastCall[0];
       expect(panel1Size % 100).toBe(0);
+    });
+
+    it('should find effective index when dragging left with overlapping panels', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            { defaultSize: '80%', min: '0', max: '100%' },
+            { defaultSize: '0%', min: '0', max: '100%' },
+            { defaultSize: '20%' },
+          ]}
+          step="10%"
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      await resizeSplitter();
+
+      const draggers = container.querySelectorAll('.ant-splitter-bar-dragger');
+      mockDrag(draggers[1] as HTMLElement, -90);
+      expect(onResize).toHaveBeenCalled();
+      expect(onResizeEnd).toHaveBeenCalled();
+    });
+
+    it('should return lastSnappedOffset when ideal step is outside boundaries', async () => {
+      const onResize = jest.fn();
+      const onResizeEnd = jest.fn();
+
+      const { container } = render(
+        <SplitterDemo
+          items={[{ defaultSize: '5%', min: '0', max: '5%' }, { defaultSize: '95%' }]}
+          step="10%"
+          onResize={onResize}
+          onResizeEnd={onResizeEnd}
+        />,
+      );
+
+      await resizeSplitter();
+      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 95);
+      expect(onResize).toHaveBeenCalled();
+      const firstCall = onResize.mock.calls[0];
+      const [panel1Size] = firstCall[0];
+      // Should remain at 50px (no movement when ideal step is outside boundaries)
+      expect(panel1Size).toBe(50);
     });
   });
 });
