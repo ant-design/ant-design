@@ -65,7 +65,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |
 | size | Controlled panel size support number for px or 'percent%' usage | `number \| string` | - | - |
-| collapsed | Controlled collapsed state | boolean | - | 6.2.2 |
+| collapsed | Controlled collapsed state | boolean | - | 6.3.0 |
 
 ## Semantic DOM
 
