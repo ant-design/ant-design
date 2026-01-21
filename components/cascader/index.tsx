@@ -32,7 +32,7 @@ import useVariant from '../form/hooks/useVariants';
 import type { SelectPopupSemanticClassNames, SelectPopupSemanticStyles } from '../select';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
-import useIcons from '../select/useIcons';
+import useSelectIcons from '../select/useIcons';
 import usePopupRender from '../select/usePopupRender';
 import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
@@ -40,7 +40,7 @@ import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import CascaderPanel from './Panel';
 import useStyle from './style';
-import { getIcons } from './utils';
+import useIcons from './hooks/useIcons';
 
 // Align the design since we use `@rc-component/select` in root. This help:
 // - List search content will show all content
@@ -354,7 +354,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Icon ======================
-  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = getIcons({
+  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
     contextExpandIcon,
     contextLoadingIcon,
     expandIcon,
@@ -367,7 +367,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // ===================== Icons =====================
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
-  const { suffixIcon, removeIcon, clearIcon } = useIcons({
+  const { suffixIcon, removeIcon, clearIcon } = useSelectIcons({
     ...props,
     loadingIcon: mergedLoadingIcon,
     hasFeedback,

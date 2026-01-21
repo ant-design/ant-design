@@ -13,7 +13,7 @@ import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
 import useStyle from './style';
 import usePanelStyle from './style/panel';
-import { getIcons } from './utils';
+import useIcons from './hooks/useIcons';
 
 export type PanelPickType = Exclude<PickType, 'checkable'> | 'multiple' | 'rootClassName';
 
@@ -64,7 +64,7 @@ function CascaderPanel<
   const isRtl = mergedDirection === 'rtl';
 
   // ===================== Icon ======================
-  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = getIcons({
+  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
     contextExpandIcon,
     contextLoadingIcon,
     expandIcon,
