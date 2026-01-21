@@ -72,7 +72,7 @@
     "biome": "biome check --write",
     "pub": "echo 'Please use `npm publish` instead.'",
     "postpublish": "tsx scripts/post-publish.ts",
-    "presite": "npm run prestart",
+    "presite": "npm run prestart && npm run style -- --layer='@layer theme, base, global, antd, components, utilities;'",
     "site": "dumi build && cp .surgeignore _site",
     "size-limit": "size-limit",
     "sort:api-table": "antd-tools run sort-api-table",

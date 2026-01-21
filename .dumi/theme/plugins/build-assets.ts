@@ -87,8 +87,12 @@ export default async function buildAssetsPlugin(api: IApi) {
   });
 
   if (process.env.NODE_ENV === 'production') {
+    // `addEntryImportsAhead` do not support compile,
+    // so it will build file content directly without compile.
+    // We add additional pre-site script for this,
+    // but this will not affect normal developer usage.
     api.addEntryImportsAhead(() => ({
-      source: path.join(api.paths.cwd, 'components', 'style', 'antd.css'),
+      source: path.join(api.paths.cwd, 'components', 'style', '~antd.layer.css'),
     }));
   }
 }

@@ -15,6 +15,7 @@ import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import { useCompactItemContext } from '../space/Compact';
+import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import { AggregationColor } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
@@ -42,7 +43,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     open,
     disabled,
     placement = 'bottomLeft',
-    arrow = true,
+    arrow,
     panelRender,
     showText,
     style,
@@ -73,12 +74,14 @@ const ColorPicker: CompoundedComponent = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    arrow: contextArrow,
   } = useComponentConfig('colorPicker');
 
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
+  const mergedArrow = useMergedArrow(arrow, contextArrow);
 
   // ================== Size ==================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -91,7 +94,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     allowClear,
     autoAdjustOverflow,
     disabledAlpha,
-    arrow,
+    arrow: mergedArrow,
     placement,
     disabled: mergedDisabled,
     size: mergedSize,
@@ -255,7 +258,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     open: popupOpen,
     trigger,
     placement,
-    arrow,
+    arrow: mergedArrow,
     rootClassName,
     getPopupContainer,
     autoAdjustOverflow,
