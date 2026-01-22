@@ -230,6 +230,60 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
     };
   }, [llmsPath]);
 
+  const llmsMenuItemsConfig = [
+    {
+      itemKey: 'llms-open-in-new-tab',
+      icon: (
+        <span className={styles.menuIcon}>
+          <LinkOutlined />
+        </span>
+      ),
+      label: locale.openInNewTab,
+      url: llmsViewUrls?.markdownUrl,
+    },
+    {
+      itemKey: 'llms-open-in-chatgpt',
+      icon: (
+        <span className={styles.menuIcon}>
+          <ChatGptLogoIcon />
+        </span>
+      ),
+      label: locale.openInChatGPT,
+      url: llmsViewUrls?.chatgptUrl,
+    },
+    {
+      itemKey: 'llms-open-in-claude',
+      icon: (
+        <span className={styles.menuIcon}>
+          <ClaudeLogoIcon />
+        </span>
+      ),
+      label: locale.openInClaude,
+      url: llmsViewUrls?.claudeUrl,
+    },
+  ];
+
+  const renderLlmsMenuItemLabel = (label: string, url?: string) => {
+    const content = (
+      <span className={styles.menuLabel}>
+        {label}
+        <span className={styles.menuLabelRightIcon}>
+          <ExportOutlined />
+        </span>
+      </span>
+    );
+
+    if (!url) {
+      return content;
+    }
+
+    return (
+      <a href={url} target="_blank" rel="noopener noreferrer">
+        {content}
+      </a>
+    );
+  };
+
   return (
     <Descriptions
       size="small"
@@ -299,98 +353,12 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                 <Dropdown
                   trigger={['click']}
                   menu={{
-                    items: [
-                      {
-                        key: 'llms-open-in-new-tab',
-                        icon: (
-                          <span className={styles.menuIcon}>
-                            <LinkOutlined />
-                          </span>
-                        ),
-                        label: llmsViewUrls?.markdownUrl ? (
-                          <a
-                            href={llmsViewUrls.markdownUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <span className={styles.menuLabel}>
-                              {locale.openInNewTab}
-                              <span className={styles.menuLabelRightIcon}>
-                                <ExportOutlined />
-                              </span>
-                            </span>
-                          </a>
-                        ) : (
-                          <span className={styles.menuLabel}>
-                            {locale.openInNewTab}
-                            <span className={styles.menuLabelRightIcon}>
-                              <ExportOutlined />
-                            </span>
-                          </span>
-                        ),
-                        disabled: !llmsViewUrls?.markdownUrl,
-                      },
-                      {
-                        key: 'llms-open-in-chatgpt',
-                        icon: (
-                          <span className={styles.menuIcon}>
-                            <ChatGptLogoIcon />
-                          </span>
-                        ),
-                        label: llmsViewUrls?.chatgptUrl ? (
-                          <a
-                            href={llmsViewUrls.chatgptUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <span className={styles.menuLabel}>
-                              {locale.openInChatGPT}
-                              <span className={styles.menuLabelRightIcon}>
-                                <ExportOutlined />
-                              </span>
-                            </span>
-                          </a>
-                        ) : (
-                          <span className={styles.menuLabel}>
-                            {locale.openInChatGPT}
-                            <span className={styles.menuLabelRightIcon}>
-                              <ExportOutlined />
-                            </span>
-                          </span>
-                        ),
-                        disabled: !llmsViewUrls?.chatgptUrl,
-                      },
-                      {
-                        key: 'llms-open-in-claude',
-                        icon: (
-                          <span className={styles.menuIcon}>
-                            <ClaudeLogoIcon />
-                          </span>
-                        ),
-                        label: llmsViewUrls?.claudeUrl ? (
-                          <a
-                            href={llmsViewUrls.claudeUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <span className={styles.menuLabel}>
-                              {locale.openInClaude}
-                              <span className={styles.menuLabelRightIcon}>
-                                <ExportOutlined />
-                              </span>
-                            </span>
-                          </a>
-                        ) : (
-                          <span className={styles.menuLabel}>
-                            {locale.openInClaude}
-                            <span className={styles.menuLabelRightIcon}>
-                              <ExportOutlined />
-                            </span>
-                          </span>
-                        ),
-                        disabled: !llmsViewUrls?.claudeUrl,
-                      },
-                    ],
+                    items: llmsMenuItemsConfig.map(({ itemKey, icon, label, url }) => ({
+                      key: itemKey,
+                      icon,
+                      label: renderLlmsMenuItemLabel(label, url),
+                      disabled: !url,
+                    })),
                   }}
                 >
                   <Typography.Link
