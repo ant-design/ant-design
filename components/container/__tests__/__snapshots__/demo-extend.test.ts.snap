@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders components/container/demo/basic.tsx extend context correctly 1`] = `
+<div
+  class="ant-container css-var-test-id"
+>
+  <div
+    style="background-color: rgb(240, 242, 245); padding: 24px; text-align: center;"
+  >
+    Fluid
+  </div>
+</div>
+`;
+
+exports[`renders components/container/demo/basic.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/container/demo/sizes.tsx extend context correctly 1`] = `
+<div>
+  <div
+    class="ant-container ant-container-max-width-xl ant-container-min-width-md css-var-test-id"
+    style="margin-bottom: 16px;"
+  >
+    <div
+      style="background-color: rgb(240, 242, 245); padding: 24px; text-align: center;"
+    >
+      Max: lg, Min: md
+    </div>
+  </div>
+  <div
+    class="ant-container css-var-test-id"
+    style="max-width: 800px; min-width: 600px;"
+  >
+    <div
+      style="background-color: rgb(240, 242, 245); padding: 24px; text-align: center;"
+    >
+      Max: 800px, Min: 600px
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/container/demo/sizes.tsx extend context correctly 2`] = `[]`;

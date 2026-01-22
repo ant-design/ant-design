@@ -67,6 +67,7 @@ import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
+import type { ContainerProps } from '../container';
 
 export const defaultPrefixCls = 'ant';
 
@@ -188,6 +189,8 @@ export type ImageConfig = ComponentStyleConfig &
 
 export type CollapseConfig = ComponentStyleConfig &
   Pick<CollapseProps, 'expandIcon' | 'classNames' | 'styles'>;
+
+export type ContainerConfig = ComponentStyleConfig & Pick<ContainerProps, 'maxWidth' | 'minWidth'>;
 
 export type CheckboxConfig = ComponentStyleConfig & Pick<CheckboxProps, 'classNames' | 'styles'>;
 
@@ -446,6 +449,7 @@ export interface ConfigComponentProps {
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
+  container?: ContainerConfig;
   floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   typography?: ComponentStyleConfig;
