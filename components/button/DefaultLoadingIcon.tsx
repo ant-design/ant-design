@@ -1,25 +1,24 @@
 import React, { forwardRef } from 'react';
-import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import CSSMotion from '@rc-component/motion';
 import { clsx } from 'clsx';
 
+import { defaultLoadingIcon } from '../config-provider/defaultIcons';
 import IconWrapper from './IconWrapper';
 
 type InnerLoadingIconProps = {
   prefixCls: string;
   className?: string;
   style?: React.CSSProperties;
-  iconClassName?: string;
 };
 
 const InnerLoadingIcon = forwardRef<HTMLSpanElement, InnerLoadingIconProps>((props, ref) => {
-  const { prefixCls, className, style, iconClassName } = props;
+  const { prefixCls, className, style } = props;
 
   const mergedIconCls = clsx(`${prefixCls}-loading-icon`, className);
 
   return (
     <IconWrapper prefixCls={prefixCls} className={mergedIconCls} style={style} ref={ref}>
-      <LoadingOutlined className={iconClassName} />
+      {defaultLoadingIcon}
     </IconWrapper>
   );
 });

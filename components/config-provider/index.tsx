@@ -25,17 +25,20 @@ import type {
   CascaderConfig,
   CheckboxConfig,
   CollapseConfig,
+  ColorPickerConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DatePickerConfig,
   DirectionType,
   DrawerConfig,
+  DropdownConfig,
   EmptyConfig,
   FlexConfig,
   FloatButtonConfig,
   FloatButtonGroupConfig,
   FormConfig,
+  IconsConfig,
   ImageConfig,
   InputConfig,
   InputNumberConfig,
@@ -52,6 +55,7 @@ import type {
   PopconfirmConfig,
   PopoverConfig,
   PopupOverflow,
+  ProgressConfig,
   QRcodeConfig,
   RadioConfig,
   RangePickerConfig,
@@ -60,6 +64,7 @@ import type {
   SkeletonConfig,
   SpaceConfig,
   SpinConfig,
+  SwitchStyleConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
@@ -208,10 +213,12 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  icons?: IconsConfig;
   warning?: WarningContextProps;
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
+  app?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
@@ -231,7 +238,7 @@ export interface ConfigProviderProps {
   list?: ListConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
-  progress?: ComponentStyleConfig;
+  progress?: ProgressConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   masonry?: MasonryConfig;
@@ -246,7 +253,7 @@ export interface ConfigProviderProps {
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
-  switch?: ComponentStyleConfig;
+  switch?: SwitchStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: MessageConfig;
@@ -260,10 +267,10 @@ export interface ConfigProviderProps {
   upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
-  colorPicker?: ComponentStyleConfig;
+  colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
-  dropdown?: ComponentStyleConfig;
+  dropdown?: DropdownConfig;
   flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
@@ -287,6 +294,7 @@ type holderRenderType = (children: React.ReactNode) => React.ReactNode;
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 let globalTheme: ThemeConfig;
+let globalIcons: IconsConfig;
 let globalHolderRender: holderRenderType | undefined;
 
 function getGlobalPrefixCls() {
@@ -302,10 +310,11 @@ export interface GlobalConfigProps {
   iconPrefixCls?: string;
   theme?: ThemeConfig;
   holderRender?: holderRenderType;
+  icons?: IconsConfig;
 }
 
 const setGlobalConfig = (props: GlobalConfigProps) => {
-  const { prefixCls, iconPrefixCls, theme, holderRender } = props;
+  const { prefixCls, iconPrefixCls, theme, holderRender, icons } = props;
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
@@ -318,6 +327,9 @@ const setGlobalConfig = (props: GlobalConfigProps) => {
 
   if (theme) {
     globalTheme = theme;
+  }
+  if (icons) {
+    globalIcons = icons;
   }
 };
 
@@ -339,6 +351,7 @@ export const globalConfig = () => ({
     return getGlobalPrefixCls();
   },
   getTheme: () => globalTheme,
+  getIcons: () => globalIcons,
   holderRender: globalHolderRender,
 });
 
@@ -350,6 +363,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     alert,
     affix,
     anchor,
+    app,
     form,
     locale,
     componentSize,
@@ -364,6 +378,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     parentContext,
     iconPrefixCls: customIconPrefixCls,
     theme,
+    icons,
     componentDisabled,
     segmented,
     statistic,
@@ -453,6 +468,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const csp = customCsp || parentContext.csp;
 
   const mergedTheme = useTheme(theme, parentContext.theme, { prefixCls: getPrefixCls('') });
+  const mergedIcons = { ...parentContext.icons, ...icons };
 
   if (process.env.NODE_ENV !== 'production') {
     existThemeConfig = existThemeConfig || !!mergedTheme;
@@ -464,6 +480,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     alert,
     affix,
     anchor,
+    app,
     locale: locale || legacyLocale,
     direction,
     space,
@@ -474,6 +491,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    icons: mergedIcons,
     segmented,
     statistic,
     spin,
