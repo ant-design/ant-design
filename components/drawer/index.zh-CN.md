@@ -66,7 +66,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |
 | focusable | 抽屉内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | 指定 Drawer 挂载的节点，**并在容器内展现**，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
-| ~~headerStyle~~ | 抽屉头部的样式 | CSSProperties | - |  |
+| ~~headerStyle~~ | 抽屉头部的样式，请使用 `styles.header` 替换 | CSSProperties | - |  |
 | ~~height~~ | 高度，在 `placement` 为 `top` 或 `bottom` 时使用，请使用 `size` 替换 | string \| number | 378 |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | loading | 显示骨架屏 | boolean | false | 5.17.0 |
