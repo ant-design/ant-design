@@ -1,3 +1,5 @@
+import React from 'react';
+
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';

@@ -23,3 +23,5 @@ svg.my-icon {
 ## 示例
 
 <code src="./customize-icons/bootstrap-icons.tsx">Bootstrap Icons</code>
+
+<code src="./customize-icons/unicorn-icons.tsx" debug>Unicorn Icons</code>
