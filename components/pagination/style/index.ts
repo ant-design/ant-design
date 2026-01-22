@@ -478,7 +478,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
         height: varRef(`item-size-actual`),
         marginInlineStart: token.marginXS,
         lineHeight: varRef(`item-size-actual`),
-        verticalAlign: 'top',
+        verticalAlign: 'baseline',
 
         input: {
           ...genBasicInputStyle(token),
