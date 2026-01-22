@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider, Flex, Skeleton, Spin } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { useLocation } from 'dumi';
 
 import { Common } from './styles';
 
-const useStyle = createStyles(({ css, cssVar }) => {
+const styles = createStaticStyles(({ css, cssVar }) => {
   return {
     skeletonWrapper: css`
       width: 100%;
@@ -26,8 +26,6 @@ const useStyle = createStyles(({ css, cssVar }) => {
 
 const Loading: React.FC = () => {
   const { pathname } = useLocation();
-
-  const { styles } = useStyle();
 
   let loadingNode: React.ReactNode = null;
 
