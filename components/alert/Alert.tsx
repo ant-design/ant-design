@@ -1,9 +1,4 @@
 import * as React from 'react';
-import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
-import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
-import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import CSSMotion from '@rc-component/motion';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
@@ -14,6 +9,13 @@ import { useMergeSemantic } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import {
+  defaultCloseIcon,
+  defaultErrorIcon,
+  defaultInfoIcon,
+  defaultSuccessIcon,
+  defaultWarningIcon,
+} from '../config-provider/defaultIcons';
 import useStyle from './style';
 
 export interface AlertRef {
@@ -118,10 +120,10 @@ interface IconNodeProps {
 const IconNode: React.FC<IconNodeProps> = (props) => {
   const { icon, type, className, style, successIcon, infoIcon, warningIcon, errorIcon } = props;
   const iconMapFilled = {
-    success: successIcon ?? <CheckCircleFilled />,
-    info: infoIcon ?? <InfoCircleFilled />,
-    error: errorIcon ?? <CloseCircleFilled />,
-    warning: warningIcon ?? <ExclamationCircleFilled />,
+    success: successIcon ?? defaultSuccessIcon,
+    info: infoIcon ?? defaultInfoIcon,
+    error: errorIcon ?? defaultErrorIcon,
+    warning: warningIcon ?? defaultWarningIcon,
   };
   return (
     <span className={className} style={style}>
@@ -143,7 +145,7 @@ type CloseIconProps = {
 const CloseIconNode: React.FC<CloseIconProps> = (props) => {
   const { isClosable, prefixCls, closeIcon, handleClose, ariaProps, className, style } = props;
   const mergedCloseIcon =
-    closeIcon === true || closeIcon === undefined ? <CloseOutlined /> : closeIcon;
+    closeIcon === true || closeIcon === undefined ? defaultCloseIcon : closeIcon;
   return isClosable ? (
     <button
       type="button"

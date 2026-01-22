@@ -167,9 +167,8 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<
-  RecordType extends AnyObject = AnyObject,
-> extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
@@ -499,6 +498,14 @@ export interface ConfigComponentProps {
   watermark?: ComponentStyleConfig;
 }
 
+export interface IconsConfig {
+  closeIcon?: React.ReactNode;
+  successIcon?: React.ReactNode;
+  infoIcon?: React.ReactNode;
+  errorIcon?: React.ReactNode;
+  warningIcon?: React.ReactNode;
+}
+
 export interface ConfigConsumerProps extends ConfigComponentProps {
   getTargetContainer?: () => HTMLElement | Window;
   getPopupContainer?: (triggerNode?: HTMLElement) => HTMLElement;
@@ -520,6 +527,7 @@ export interface ConfigConsumerProps extends ConfigComponentProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  icons?: IconsConfig;
   warning?: WarningContextProps;
 }
 
