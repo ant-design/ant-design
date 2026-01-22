@@ -1,8 +1,8 @@
 import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import { createEvent, fireEvent, render } from '@testing-library/react';
-import { Splitter } from 'antd';
 
+import { ConfigProvider, Splitter } from '../../index';
 import { triggerResize, waitFakeTimer } from '../../../tests/utils';
 import type { PanelProps, SplitterProps } from '../interface';
 
@@ -430,6 +430,24 @@ describe('Splitter step', () => {
       const [panel1Size] = firstCall[0];
       // Should remain at 50px (no movement when ideal step is outside boundaries)
       expect(panel1Size).toBe(50);
+    });
+
+    it('should calculate logical offset correctly in RTL', async () => {
+      const onResizeEnd = jest.fn();
+      const { container } = render(
+        <ConfigProvider direction="rtl">
+          <SplitterDemo
+            items={[{ defaultSize: '30%' }, { defaultSize: '70%' }]}
+            step="10%"
+            onResizeEnd={onResizeEnd}
+          />
+        </ConfigProvider>,
+      );
+
+      await resizeSplitter();
+      mockDrag(container.querySelector('.ant-splitter-bar-dragger')!, 110);
+      await waitFakeTimer();
+      expect(onResizeEnd).toHaveBeenCalledWith([200, 800]);
     });
   });
 });
