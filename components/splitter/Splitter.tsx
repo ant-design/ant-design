@@ -104,62 +104,18 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ====================== Resizable =======================
   const resizableInfos = useResizable(items, itemPxSizes, reverse);
 
-  const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex, onOffsetConfirm] =
-    useResize(items, resizableInfos, itemPtgSizes, containerSize, updateSizes, reverse);
-
-  // ======================== Step Logic =====================
-  const dragStartSizesRef = React.useRef<number[]>([]);
-  const lastSnappedOffsetRef = React.useRef<number>(0);
-
-  const limitToPixels = (limit: string | number | undefined, total: number) => {
-    if (typeof limit === 'string') {
-      return (Number.parseFloat(limit) / 100) * total;
-    }
-    return limit ?? 0;
-  };
-
-  const calculateStepSnap = useEvent((index: number, offset: number) => {
-    if (step === undefined || !containerSize || dragStartSizesRef.current.length === 0) {
-      return { snappedOffset: offset, isSnapped: false };
-    }
-
-    const stepPx =
-      typeof step === 'string' ? (Number.parseFloat(step) / 100) * containerSize : step;
-    const SNAP_THRESHOLD = 10;
-
-    const effectiveIndex = movingIndex ?? index;
-    const startSize = dragStartSizesRef.current[effectiveIndex];
-    const nextSize = dragStartSizesRef.current[effectiveIndex + 1];
-
-    const minSize = limitToPixels(items[effectiveIndex].min, containerSize);
-    const maxSize = limitToPixels(items[effectiveIndex].max, containerSize) || containerSize;
-    const nextMinSize = limitToPixels(items[effectiveIndex + 1].min, containerSize);
-    const nextMaxSize =
-      limitToPixels(items[effectiveIndex + 1].max, containerSize) || containerSize;
-
-    const minOffset = Math.max(minSize - startSize, nextSize - nextMaxSize);
-    const maxOffset = Math.min(maxSize - startSize, nextSize - nextMinSize);
-
-    const idealStepOffset = Math.round(offset / stepPx) * stepPx;
-    const distance = Math.abs(offset - idealStepOffset);
-
-    if (distance <= SNAP_THRESHOLD) {
-      if (idealStepOffset < minOffset - 0.01 || idealStepOffset > maxOffset + 0.01) {
-        return { snappedOffset: lastSnappedOffsetRef.current, isSnapped: false };
-      }
-
-      const clampedStepOffset = Math.max(minOffset, Math.min(maxOffset, idealStepOffset));
-      lastSnappedOffsetRef.current = clampedStepOffset;
-      return { snappedOffset: clampedStepOffset, isSnapped: true };
-    }
-
-    return { snappedOffset: lastSnappedOffsetRef.current, isSnapped: false };
-  });
+  const [
+    onOffsetStart,
+    onOffsetUpdate,
+    onOffsetEnd,
+    onCollapse,
+    movingIndex,
+    onOffsetConfirm,
+    onCalculateSnappedOffset,
+  ] = useResize(items, resizableInfos, itemPtgSizes, containerSize, updateSizes, reverse);
 
   // ======================== Events ========================
   const onInternalResizeStart = useEvent((index: number) => {
-    dragStartSizesRef.current = [...itemPxSizes];
-    lastSnappedOffsetRef.current = 0;
     onOffsetStart(index);
     onResizeStart?.(itemPxSizes);
   });
@@ -167,8 +123,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const onInternalResizeUpdate = useEvent((index: number, offset: number, lazyEnd?: boolean) => {
     let finalOffset = offset;
     if (step !== undefined) {
-      const { snappedOffset } = calculateStepSnap(index, offset);
-      finalOffset = snappedOffset;
+      finalOffset = onCalculateSnappedOffset(index, offset, step).snappedOffset;
     }
 
     const nextSizes = onOffsetUpdate(index, finalOffset);
@@ -324,11 +279,8 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 containerSize={containerSize || 0}
                 step={step}
                 onCalculateSnappedOffset={(idx, offset) => {
-                  let logicalOffset = offset;
-                  if (reverse) {
-                    logicalOffset = -logicalOffset;
-                  }
-                  const { snappedOffset } = calculateStepSnap(idx, logicalOffset);
+                  const logicalOffset = reverse ? -offset : offset;
+                  const { snappedOffset } = onCalculateSnappedOffset(idx, logicalOffset, step);
                   return reverse ? -snappedOffset : snappedOffset;
                 }}
               />

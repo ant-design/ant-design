@@ -41,6 +41,8 @@ export default function useResize(
     confirmed: boolean;
   } | null>(null);
 
+  const lastSnappedOffsetRef = React.useRef<number>(0);
+
   const getPxSizes = () => percentSizes.map(ptg2px);
 
   const onOffsetConfirm = (index: number, offset: number) => {
@@ -68,8 +70,41 @@ export default function useResize(
     return confirmedIndex ?? index;
   };
 
+  const onCalculateSnappedOffset = (index: number, offset: number, step?: number | string) => {
+    if (step === undefined || mergedContainerSize === 0 || cacheSizes.length === 0) {
+      return { snappedOffset: offset, isSnapped: false };
+    }
+
+    const stepPx =
+      typeof step === 'string' ? (Number.parseFloat(step) / 100) * mergedContainerSize : step;
+    const idealOffset = Math.round(offset / stepPx) * stepPx;
+
+    if (Math.abs(offset - idealOffset) <= 10) {
+      const mIndex = onOffsetConfirm(index, offset);
+      const startSize = cacheSizes[mIndex];
+      const nextSize = cacheSizes[mIndex + 1];
+
+      const minOffset = Math.max(
+        getLimitSize(limitSizes[mIndex][0], 0) - startSize,
+        nextSize - getLimitSize(limitSizes[mIndex + 1][1], mergedContainerSize),
+      );
+      const maxOffset = Math.min(
+        getLimitSize(limitSizes[mIndex][1], mergedContainerSize) - startSize,
+        nextSize - getLimitSize(limitSizes[mIndex + 1][0], 0),
+      );
+
+      if (idealOffset >= minOffset - 0.01 && idealOffset <= maxOffset + 0.01) {
+        lastSnappedOffsetRef.current = Math.max(minOffset, Math.min(maxOffset, idealOffset));
+        return { snappedOffset: lastSnappedOffsetRef.current, isSnapped: true };
+      }
+    }
+
+    return { snappedOffset: lastSnappedOffsetRef.current, isSnapped: false };
+  };
+
   const onOffsetStart = (index: number) => {
     setCacheSizes(getPxSizes());
+    lastSnappedOffsetRef.current = 0;
     setMovingIndex({
       index,
       confirmed: false,
@@ -182,5 +217,6 @@ export default function useResize(
     onCollapse,
     movingIndex?.index,
     onOffsetConfirm,
+    onCalculateSnappedOffset,
   ] as const;
 }
