@@ -174,6 +174,7 @@ export interface TableConfig<
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
   rowKey?: TableProps<RecordType>['rowKey'];
+  scroll?: TableProps<RecordType>['scroll'];
   classNames?: TableProps['classNames'];
   styles?: TableProps['styles'];
 }
