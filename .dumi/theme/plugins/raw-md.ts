@@ -558,7 +558,7 @@ function emitRawMd(api: IApi) {
  * @param api - Dumi API 实例
  * @param options - 插件配置选项
  */
-export default async function rawMdPlugin(api: IApi) {
+export default function rawMdPlugin(api: IApi) {
   // 注册配置键，允许用户在配置中使用 rawMd 键
   api.describe({
     key: 'rawMd',

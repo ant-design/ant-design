@@ -314,6 +314,8 @@ ${classNamesEntries.join(',\n')}
 
 /**
  * 从测试快照文件中读取组件的 HTML snapshot，并提取包含所有 semantic 元素的最小根元素
+ * 注意：此函数依赖 Jest 快照文件的路径与命名约定（含 snapshot key 规则）。
+ * 若测试目录结构或快照格式变化，文档构建可能失败或产生不完整结果，请同步调整此处逻辑。
  * @param semanticFile - _semantic*.tsx 文件的绝对路径
  * @param cwd - 项目根目录
  * @returns HTML 字符串，失败返回 null
@@ -517,7 +519,7 @@ function emitSemanticMd(api: IApi) {
  * Semantic markdown 生成插件
  * @param api - Dumi API 实例
  */
-export default async function semanticMdPlugin(api: IApi) {
+export default function semanticMdPlugin(api: IApi) {
   // 收集组件路由信息（过滤出 /components/* 和 /components/*-cn 路由）
   api.modifyRoutes((routes) => {
     COMPONENT_ROUTES = Object.values(routes)
