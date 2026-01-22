@@ -66,7 +66,7 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | forceRender | Pre-render Drawer component forcibly | boolean | false |  |
 | focusable | Configuration for focus management in the Drawer | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | mounted node and display window for Drawer | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
-| headerStyle | Style of the drawer header part | CSSProperties | - |  |
+| ~~headerStyle~~ | Style of the drawer header part | CSSProperties | - |  |
 | ~~height~~ | Placement is `top` or `bottom`, height of the Drawer dialog, please use `size` instead | string \| number | 378 |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | loading | Show the Skeleton | boolean | false | 5.17.0 |

@@ -66,14 +66,14 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |
 | focusable | 抽屉内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | 指定 Drawer 挂载的节点，**并在容器内展现**，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
-| headerStyle | 抽屉头部的样式 | CSSProperties | - |  |
+| ~~headerStyle~~ | 抽屉头部的样式 | CSSProperties | - |  |
 | ~~height~~ | 高度，在 `placement` 为 `top` 或 `bottom` 时使用，请使用 `size` 替换 | string \| number | 378 |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | loading | 显示骨架屏 | boolean | false | 5.17.0 |
 | mask | 遮罩效果 | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | maxSize | 可拖拽的最大尺寸（宽度或高度，取决于 `placement`） | number | - | 6.0.0 |
-| open | Drawer 是否可见 | boolean | false |
+| open | Drawer 是否可见 | boolean | false |  |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | resizable | 是否启用拖拽改变尺寸 | boolean \| [ResizableConfig](#resizableconfig) | - | boolean: 6.1.0 |
