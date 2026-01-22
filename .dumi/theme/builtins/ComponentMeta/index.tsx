@@ -233,31 +233,19 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   const llmsMenuItemsConfig = [
     {
       itemKey: 'llms-open-in-new-tab',
-      icon: (
-        <span className={styles.menuIcon}>
-          <LinkOutlined />
-        </span>
-      ),
+      icon: <LinkOutlined />,
       label: locale.openInNewTab,
       url: llmsViewUrls?.markdownUrl,
     },
     {
       itemKey: 'llms-open-in-chatgpt',
-      icon: (
-        <span className={styles.menuIcon}>
-          <ChatGptLogoIcon />
-        </span>
-      ),
+      icon: <ChatGptLogoIcon />,
       label: locale.openInChatGPT,
       url: llmsViewUrls?.chatgptUrl,
     },
     {
       itemKey: 'llms-open-in-claude',
-      icon: (
-        <span className={styles.menuIcon}>
-          <ClaudeLogoIcon />
-        </span>
-      ),
+      icon: <ClaudeLogoIcon />,
       label: locale.openInClaude,
       url: llmsViewUrls?.claudeUrl,
     },
@@ -355,7 +343,7 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                   menu={{
                     items: llmsMenuItemsConfig.map(({ itemKey, icon, label, url }) => ({
                       key: itemKey,
-                      icon,
+                      icon: <span className={styles.menuIcon}>{icon}</span>,
                       label: renderLlmsMenuItemLabel(label, url),
                       disabled: !url,
                     })),
