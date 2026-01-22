@@ -30,6 +30,7 @@ demo:
 <code src="./demo/customize.tsx" version="6.0.0">自定义样式</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/step.tsx" version="6.3.0">Step</code>
+<code src="./demo/reset.tsx" version="6.3.0">双击重置</code>
 <code src="./demo/nested-in-tabs.tsx" debug>标签页中嵌套</code>
 <code src="./demo/debug.tsx" debug>调试</code>
 <code src="./demo/size-mix.tsx" debug>尺寸混合</code>
@@ -54,6 +55,7 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | step | 拖拽调整大小时的吸附步长值。支持数字（px）或字符串（百分比，如 '10%'） | `number \| string` | - | 6.3.0 |
 | vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` |  |
+| onDraggerDoubleClick | 双击拖拽条回调 | `(index: number) => void` | - | 6.3.0 |
 | onResize | 面板大小变化回调 | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | 拖拽结束回调 | `(sizes: number[]) => void` | - | - |
 | onResizeStart | 开始拖拽之前回调 | `(sizes: number[]) => void` | - | - |

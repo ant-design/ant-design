@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -26,6 +26,7 @@ export interface SplitBarProps {
   collapsibleIcon?: SplitterProps['collapsibleIcon'];
   showStartCollapsibleIcon: ShowCollapsibleIconMode;
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
+  onDraggerDoubleClick?: (index: number) => void;
   onOffsetStart: (index: number) => void;
   onOffsetConfirm: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
@@ -47,6 +48,8 @@ function getValidNumber(num?: number): number {
     : 0;
 }
 
+const DOUBLE_CLICK_TIME_GAP = 300;
+
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const {
     prefixCls,
@@ -64,6 +67,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     collapsibleIcon,
     startCollapsible,
     endCollapsible,
+    onDraggerDoubleClick,
     onOffsetStart,
     onOffsetConfirm,
     onOffsetUpdate,
@@ -79,6 +83,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
+  const lastClickTimeRef = useRef<number>(0);
   const [varName] = genCssVar(rootPrefixCls, 'splitter');
 
   // ======================== Resize ========================
@@ -89,6 +94,18 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const constrainedOffsetY = vertical ? constrainedOffset : 0;
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    e.stopPropagation();
+
+    const currentTime = Date.now();
+    const timeGap = currentTime - lastClickTimeRef.current;
+
+    if (timeGap > 0 && timeGap < DOUBLE_CLICK_TIME_GAP) {
+      // Prevent drag start if it's a double-click action
+      return;
+    }
+
+    lastClickTimeRef.current = currentTime;
+
     if (resizable && e.currentTarget) {
       setStartPos([e.pageX, e.pageY]);
       onOffsetStart(index);
@@ -259,6 +276,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         )}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
+        onDoubleClick={() => onDraggerDoubleClick?.(index)}
       >
         {draggerIcon !== undefined ? (
           <div className={clsx(`${splitBarPrefixCls}-dragger-icon`)}>{draggerIcon}</div>

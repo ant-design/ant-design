@@ -37,6 +37,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     draggerIcon,
     collapsibleIcon,
     rootClassName,
+    onDraggerDoubleClick,
     onResizeStart,
     onResize,
     onResizeEnd,
@@ -259,6 +260,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 endCollapsible={resizableInfo.endCollapsible}
                 showStartCollapsibleIcon={resizableInfo.showStartCollapsibleIcon}
                 showEndCollapsibleIcon={resizableInfo.showEndCollapsibleIcon}
+                onDraggerDoubleClick={onDraggerDoubleClick}
                 onOffsetStart={onInternalResizeStart}
                 onOffsetUpdate={(index, offsetX, offsetY, lazyEnd) => {
                   let offset = isVertical ? offsetY : offsetX;
