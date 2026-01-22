@@ -173,6 +173,7 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
   rowKey?: TableProps<RecordType>['rowKey'];
+  scroll?: TableProps<RecordType>['scroll'];
   classNames?: TableProps['classNames'];
   styles?: TableProps['styles'];
 }
