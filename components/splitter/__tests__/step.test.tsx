@@ -440,6 +440,7 @@ describe('Splitter step', () => {
             items={[{ defaultSize: '30%' }, { defaultSize: '70%' }]}
             step="10%"
             onResizeEnd={onResizeEnd}
+            lazy
           />
         </ConfigProvider>,
       );
