@@ -73,7 +73,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | mask | 遮罩效果 | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | maxSize | 可拖拽的最大尺寸（宽度或高度，取决于 `placement`） | number | - | 6.0.0 |
-| open | Drawer 是否可见 | boolean | - |
+| open | Drawer 是否可见 | boolean | false |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | 用于设置多层 Drawer 的推动行为 | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | resizable | 是否启用拖拽改变尺寸 | boolean \| [ResizableConfig](#resizableconfig) | - | boolean: 6.1.0 |
