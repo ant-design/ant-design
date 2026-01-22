@@ -589,6 +589,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
 
       ...resetComponent(token),
       display: 'flex',
+      alignItems: 'center',
 
       '&-start': {
         justifyContent: 'start',
