@@ -127,16 +127,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       typeof step === 'string' ? (Number.parseFloat(step) / 100) * containerSize : step;
     const SNAP_THRESHOLD = 10;
 
-    let effectiveIndex = movingIndex ?? index;
-    if (movingIndex === undefined && offset < 0) {
-      for (let i = index; i >= 0; i -= 1) {
-        if (itemPxSizes[i] > 0 && resizableInfos[i].resizable) {
-          effectiveIndex = i;
-          break;
-        }
-      }
-    }
-
+    const effectiveIndex = movingIndex ?? index;
     const startSize = dragStartSizesRef.current[effectiveIndex];
     const nextSize = dragStartSizesRef.current[effectiveIndex + 1];
 
