@@ -167,9 +167,8 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<
-  RecordType extends AnyObject = AnyObject,
-> extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };

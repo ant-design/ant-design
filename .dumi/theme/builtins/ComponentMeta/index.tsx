@@ -3,6 +3,7 @@ import {
   BugOutlined,
   CompassOutlined,
   EditOutlined,
+  FileTextOutlined,
   GithubOutlined,
   HistoryOutlined,
   IssuesCloseOutlined,
@@ -32,6 +33,7 @@ const locales = {
     version: '版本',
     issueNew: '提交问题',
     issueOpen: '待解决',
+    copyError: '复制失败',
   },
   en: {
     import: 'Import',
@@ -45,6 +47,7 @@ const locales = {
     version: 'Version',
     issueNew: 'Issue',
     issueOpen: 'Open issues',
+    copyError: 'Copy failed',
   },
 };
 
@@ -128,21 +131,22 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
   };
 
   // ======================== Source ========================
-  const [filledSource, abbrSource] = React.useMemo(() => {
+  const [filledSource, abbrSource, llmsPath] = React.useMemo(() => {
     if (String(source) === 'true') {
       const kebabComponent = kebabCase(component);
       return [
         `https://github.com/${repo}/blob/master/components/${kebabComponent}`,
         `components/${kebabComponent}`,
+        `/components/${kebabComponent}${isZhCN ? '-cn' : ''}.md`,
       ];
     }
 
     if (typeof source !== 'string') {
-      return [null, null];
+      return [null, null, null];
     }
 
-    return [source, source];
-  }, [component, repo, source]);
+    return [source, source, null];
+  }, [component, repo, source, isZhCN]);
 
   return (
     <Descriptions
@@ -210,6 +214,15 @@ const ComponentMeta: React.FC<ComponentMetaProps> = (props) => {
                     <span>{locale.design}</span>
                   </Link>
                 )}
+                <Typography.Link
+                  className={styles.code}
+                  href={llmsPath || ''}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <FileTextOutlined className={styles.icon} />
+                  <span>LLMs.md</span>
+                </Typography.Link>
                 <ComponentChangelog>
                   <Typography.Link className={styles.code}>
                     <HistoryOutlined className={styles.icon} />
