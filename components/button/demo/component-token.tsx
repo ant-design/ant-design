@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ConfigProvider, Flex } from 'antd';
+import { Button, ConfigProvider, Flex, Input, Space } from 'antd';
 
 const App: React.FC = () => (
   <Flex gap="small" vertical>
@@ -102,6 +102,21 @@ const App: React.FC = () => (
           Default Button
         </Button>
       </Flex>
+    </ConfigProvider>
+
+    <ConfigProvider
+      theme={{
+        token: {
+          lineWidth: 2,
+          controlHeight: 36,
+          borderRadius: 18,
+        },
+      }}
+    >
+      <Space.Compact>
+        <Input />
+        <Button>Submit</Button>
+      </Space.Compact>
     </ConfigProvider>
   </Flex>
 );
