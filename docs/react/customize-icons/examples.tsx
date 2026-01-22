@@ -3,6 +3,7 @@ import {
   Alert,
   Breadcrumb,
   Button,
+  Cascader,
   Collapse,
   DatePicker,
   Drawer,
@@ -43,6 +44,22 @@ const Examples: React.FC = () => {
       />
       <Flex gap="small">
         <Button loading>Button</Button>
+      </Flex>
+      <Flex gap="small">
+        <Cascader
+          options={[
+            { label: 'Option 1', value: '1', isLeaf: false, children: [] },
+            { label: 'Option 2', value: '2' },
+          ]}
+        />
+        <Cascader
+          value={['1']}
+          options={[
+            { label: 'Option 1', value: '1', isLeaf: false, children: [] },
+            { label: 'Option 2', value: '2' },
+          ]}
+        />
+        <Cascader loading />
       </Flex>
       <Collapse
         items={[

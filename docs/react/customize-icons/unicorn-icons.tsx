@@ -6,6 +6,8 @@ import Examples from './examples';
 
 const unicorn = <span>🦄</span>;
 
+const unicornSpin = <span className="icon-spin">🦄</span>;
+
 const Demo: React.FC = () => {
   return (
     <ConfigProvider
@@ -28,7 +30,11 @@ const Demo: React.FC = () => {
         dropdownIcon: unicorn,
       }}
       button={{
-        loadingIcon: unicorn,
+        loadingIcon: unicornSpin,
+      }}
+      cascader={{
+        expandIcon: unicorn,
+        loadingIcon: unicornSpin,
       }}
       collapse={{
         expandIcon: () => unicorn,
