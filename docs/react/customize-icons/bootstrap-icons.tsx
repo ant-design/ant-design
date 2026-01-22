@@ -7,6 +7,7 @@ import {
   ArrowUp,
   CheckCircle,
   ChevronDown,
+  ChevronRight,
   ExclamationCircle,
   InfoCircle,
   Plus,
@@ -21,6 +22,13 @@ import Examples from './examples';
 const Demo: React.FC = () => {
   return (
     <ConfigProvider
+      icons={{
+        closeIcon: <XLg />,
+        successIcon: <CheckCircle />,
+        infoIcon: <InfoCircle />,
+        warningIcon: <ExclamationCircle />,
+        errorIcon: <XCircle />,
+      }}
       alert={{
         successIcon: <CheckCircle />,
         infoIcon: <InfoCircle />,
@@ -33,6 +41,10 @@ const Demo: React.FC = () => {
         dropdownIcon: <ChevronDown style={{ display: 'inline-block' }} />,
       }}
       button={{
+        loadingIcon: <ArrowRepeat className="icon-spin" />,
+      }}
+      cascader={{
+        expandIcon: <ChevronRight />,
         loadingIcon: <ArrowRepeat className="icon-spin" />,
       }}
       collapse={{
