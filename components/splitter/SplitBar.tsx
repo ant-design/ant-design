@@ -139,15 +139,17 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
     const onMouseMove = (e: MouseEvent) => {
       const { pageX, pageY } = e;
-      const rawOffsetX = pageX - startPos[0];
-      const rawOffsetY = pageY - startPos[1];
+      // const rawOffsetX = pageX - startPos[0];
+      // const rawOffsetY = pageY - startPos[1];
+      const offsetX = pageX - startPos[0];
+      const offsetY = pageY - startPos[1];
 
-      onOffsetConfirm(index, rawOffsetX, rawOffsetY);
+      onOffsetConfirm(index, offsetX, offsetY);
 
       if (lazy) {
-        handleLazyMove(rawOffsetX, rawOffsetY);
+        handleLazyMove(offsetX, offsetY);
       } else {
-        onOffsetUpdate(index, rawOffsetX, rawOffsetY);
+        onOffsetUpdate(index, offsetX, offsetY);
       }
     };
 
@@ -163,15 +165,15 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     const handleTouchMove = (e: TouchEvent) => {
       if (e.touches.length === 1) {
         const touch = e.touches[0];
-        const rawOffsetX = touch.pageX - startPos[0];
-        const rawOffsetY = touch.pageY - startPos[1];
+        const offsetX = touch.pageX - startPos[0];
+        const offsetY = touch.pageY - startPos[1];
 
-        onOffsetConfirm(index, rawOffsetX, rawOffsetY);
+        onOffsetConfirm(index, offsetX, offsetY);
 
         if (lazy) {
-          handleLazyMove(rawOffsetX, rawOffsetY);
+          handleLazyMove(offsetX, offsetY);
         } else {
-          onOffsetUpdate(index, rawOffsetX, rawOffsetY);
+          onOffsetUpdate(index, offsetX, offsetY);
         }
       }
     };
