@@ -19,6 +19,7 @@ import {
   Transfer,
   TreeSelect,
 } from 'antd';
+import dayjs from 'dayjs';
 
 const Examples: React.FC = () => {
   const [notificationApi, notificationContextHolder] = notification.useNotification();
@@ -49,25 +50,32 @@ const Examples: React.FC = () => {
           { key: '2', label: 'Item 2', children: <div>Content 2</div> },
         ]}
       />
-      <div>
+      <Flex gap="small">
+        <DatePicker value={dayjs('2024-01-01')} allowClear />
         <DatePicker.RangePicker />
-      </div>
+        <DatePicker.YearPicker />
+        <DatePicker.QuarterPicker />
+        <DatePicker.MonthPicker />
+        <DatePicker.WeekPicker />
+      </Flex>
       <div>
         <Button onClick={() => setDrawerOpen(true)}>Open Drawer</Button>
         <Drawer title="Drawer" open={drawerOpen} onClose={() => setDrawerOpen(false)} />
       </div>
       <FloatButton.BackTop />
       <Image.PreviewGroup>
-        <Image
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          width={100}
-          height={100}
-        />
-        <Image
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
-          width={100}
-          height={100}
-        />
+        <Flex gap="small">
+          <Image
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            width={100}
+            height={100}
+          />
+          <Image
+            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
+            width={100}
+            height={100}
+          />
+        </Flex>
       </Image.PreviewGroup>
       <div>
         <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
