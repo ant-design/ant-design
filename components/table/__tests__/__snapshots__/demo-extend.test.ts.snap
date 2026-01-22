@@ -10464,14 +10464,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                             <div
                               class="ant-tree ant-tree-icon-hide ant-tree-block-node ant-tree-unselectable ant-dropdown-menu css-var-test-id"
                             >
-                              <div>
-                                <input
-                                  aria-label="for screen reader"
-                                  style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                                  tabindex="0"
-                                  value=""
-                                />
-                              </div>
                               <div
                                 aria-hidden="true"
                                 class="ant-tree-treenode"
@@ -10489,6 +10481,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                 class="ant-tree-list"
                                 role="tree"
                                 style="position: relative;"
+                                tabindex="0"
                               >
                                 <div
                                   class="ant-tree-list-holder"
@@ -10499,9 +10492,11 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
-                                        aria-expanded="false"
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
+                                        id="Joe"
                                         role="treeitem"
                                       >
                                         <span
@@ -10513,7 +10508,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Joe"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -10533,9 +10527,12 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                       </div>
                                       <div
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         aria-expanded="true"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-open"
                                         draggable="false"
+                                        id="Category 1"
                                         role="treeitem"
                                       >
                                         <span
@@ -10567,7 +10564,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Category 1"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -10587,9 +10583,11 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                       </div>
                                       <div
-                                        aria-expanded="false"
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
+                                        id="Yellow"
                                         role="treeitem"
                                       >
                                         <span
@@ -10605,7 +10603,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Yellow"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -10625,9 +10622,11 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                       </div>
                                       <div
-                                        aria-expanded="false"
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                                         draggable="false"
+                                        id="Pink"
                                         role="treeitem"
                                       >
                                         <span
@@ -10643,7 +10642,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Pink"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -10663,9 +10661,12 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                       </div>
                                       <div
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         aria-expanded="true"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
                                         draggable="false"
+                                        id="Category 2"
                                         role="treeitem"
                                       >
                                         <span
@@ -10697,7 +10698,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Category 2"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -10717,9 +10717,11 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                       </div>
                                       <div
-                                        aria-expanded="false"
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
+                                        id="Green"
                                         role="treeitem"
                                       >
                                         <span
@@ -10735,7 +10737,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Green"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -10755,9 +10756,11 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                       </div>
                                       <div
-                                        aria-expanded="false"
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                                         draggable="false"
+                                        id="Black"
                                         role="treeitem"
                                       >
                                         <span
@@ -10773,7 +10776,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Black"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -11441,14 +11443,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                             <div
                               class="ant-tree ant-tree-icon-hide ant-tree-block-node ant-tree-unselectable ant-dropdown-menu css-var-test-id"
                             >
-                              <div>
-                                <input
-                                  aria-label="for screen reader"
-                                  style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                                  tabindex="0"
-                                  value=""
-                                />
-                              </div>
                               <div
                                 aria-hidden="true"
                                 class="ant-tree-treenode"
@@ -11466,6 +11460,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                 class="ant-tree-list"
                                 role="tree"
                                 style="position: relative;"
+                                tabindex="0"
                               >
                                 <div
                                   class="ant-tree-list-holder"
@@ -11476,9 +11471,11 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
-                                        aria-expanded="false"
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
+                                        id="Joe"
                                         role="treeitem"
                                       >
                                         <span
@@ -11490,7 +11487,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Joe"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -11510,9 +11506,11 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         </span>
                                       </div>
                                       <div
-                                        aria-expanded="false"
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
+                                        id="Category 1"
                                         role="treeitem"
                                       >
                                         <span
@@ -11524,7 +11522,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Category 1"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -11544,9 +11541,11 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         </span>
                                       </div>
                                       <div
-                                        aria-expanded="false"
+                                        aria-checked="false"
+                                        aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                                         draggable="false"
+                                        id="Category 2"
                                         role="treeitem"
                                       >
                                         <span
@@ -11558,7 +11557,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-label="Select Category 2"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
