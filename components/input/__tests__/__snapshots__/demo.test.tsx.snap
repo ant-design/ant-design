@@ -684,7 +684,7 @@ Array [
     style="width:100px"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
       title=""
     >
       <input

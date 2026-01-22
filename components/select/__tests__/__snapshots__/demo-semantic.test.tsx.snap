@@ -222,7 +222,6 @@ exports[`renders components/select/demo/_semantic.tsx correctly 1`] = `
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option semantic-mark-popup-listItem ant-select-item-option-active ant-select-item-option-selected"
                       title="aojunhao123"
                     >
@@ -259,7 +258,6 @@ exports[`renders components/select/demo/_semantic.tsx correctly 1`] = `
                       </span>
                     </div>
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option semantic-mark-popup-listItem"
                       title="thinkasany"
                     >
@@ -270,7 +268,6 @@ exports[`renders components/select/demo/_semantic.tsx correctly 1`] = `
                       </div>
                     </div>
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option semantic-mark-popup-listItem"
                       title="meet-student"
                     >

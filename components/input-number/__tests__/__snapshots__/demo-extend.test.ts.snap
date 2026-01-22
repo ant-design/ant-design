@@ -188,7 +188,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                       title="+"
                     >
@@ -205,7 +204,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                       />
                     </div>
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option"
                       title="-"
                     >
@@ -388,7 +386,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                       title="$"
                     >
@@ -405,7 +402,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                       />
                     </div>
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option"
                       title="€"
                     >
@@ -422,7 +418,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                       />
                     </div>
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option"
                       title="£"
                     >
@@ -439,7 +434,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
                       />
                     </div>
                     <div
-                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option"
                       title="¥"
                     >
