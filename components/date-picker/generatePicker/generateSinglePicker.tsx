@@ -80,10 +80,9 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         ...restProps
       } = props;
 
-      const datePickerConfig = useComponentConfig('datePicker');
-      const timePickerConfig = useComponentConfig('timePicker');
-      const { suffixIcon: contextSuffixIcon } =
-        displayName === TIMEPICKER ? timePickerConfig : datePickerConfig;
+      const { suffixIcon: contextSuffixIcon } = useComponentConfig(
+        displayName === TIMEPICKER ? 'timePicker' : 'datePicker',
+      );
 
       // ====================== Warning =======================
       if (process.env.NODE_ENV !== 'production') {
