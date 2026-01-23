@@ -980,7 +980,7 @@ describe('Cascader', () => {
 
   describe('searchIcon', () => {
     it('should support custom searchIcon', () => {
-      render(<Cascader open searchIcon={<div>bamboo</div>} options={options} showSearch />);
+      render(<Cascader open showSearch={{ searchIcon: <div>bamboo</div> }} options={options} />);
       expect(screen.getAllByText('bamboo').length).toBe(1);
     });
 
@@ -996,7 +996,7 @@ describe('Cascader', () => {
     it('should prefer prop searchIcon over ConfigProvider searchIcon', () => {
       render(
         <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
-          <Cascader open options={options} searchIcon={<div>bamboo</div>} showSearch />
+          <Cascader open showSearch={{ searchIcon: <div>bamboo</div> }} options={options} />
         </ConfigProvider>,
       );
       expect(screen.getAllByText('bamboo').length).toBe(1);

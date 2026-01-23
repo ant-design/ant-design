@@ -374,15 +374,8 @@ export type InputNumberConfig = ComponentStyleConfig &
 export type CascaderConfig = ComponentStyleConfig &
   Pick<
     CascaderProps,
-    | 'variant'
-    | 'styles'
-    | 'classNames'
-    | 'expandIcon'
-    | 'loadingIcon'
-    | 'removeIcon'
-    | 'suffixIcon'
-    | 'searchIcon'
-  > & { clearIcon?: React.ReactNode };
+    'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon' | 'removeIcon' | 'suffixIcon'
+  > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
   Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;

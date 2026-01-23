@@ -166,7 +166,9 @@ export interface CascaderProps<
   bordered?: boolean;
   placement?: SelectCommonPlacement;
   suffixIcon?: React.ReactNode;
-  searchIcon?: React.ReactNode;
+  showSearch?:
+    | boolean
+    | (SearchConfig<OptionType, keyof OptionType> & { searchIcon?: React.ReactNode });
   options?: OptionType[];
   status?: InputStatus;
 
@@ -248,7 +250,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     clearIcon,
     removeIcon,
     suffixIcon,
-    searchIcon,
     ...restProps
   } = props;
 
@@ -387,7 +388,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     loadingIcon: mergedLoadingIcon,
     suffixIcon,
     contextSuffixIcon,
-    searchIcon,
+    searchIcon: typeof showSearch === 'object' ? showSearch.searchIcon : undefined,
     contextSearchIcon,
     hasFeedback,
     feedbackIcon,
