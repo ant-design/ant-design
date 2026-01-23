@@ -39,8 +39,8 @@ export default function useIcons({
 }: {
   suffixIcon?: React.ReactNode;
   contextSuffixIcon?: React.ReactNode;
-  clearIcon?: RenderNode;
-  contextClearIcon?: RenderNode;
+  clearIcon?: React.ReactNode;
+  contextClearIcon?: React.ReactNode;
   menuItemSelectedIcon?: RenderNode;
   removeIcon?: RenderNode;
   contextRemoveIcon?: RenderNode;
