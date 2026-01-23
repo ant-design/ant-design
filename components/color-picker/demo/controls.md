@@ -4,4 +4,4 @@
 
 ## en-US
 
-Setting the `controls` of `InputNumber`, It affects the performance of the InputNumber components for RGB, HSB, or Alpha (opacity) in the panel.
+Setting the `controls` prop of `InputNumber` affects the display of the stepper buttons for RGB, HSB, or Alpha (opacity) input fields within the panel.
