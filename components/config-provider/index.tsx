@@ -91,6 +91,18 @@ import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
 
+/**
+ * This component registers icon styles inside the DesignTokenContext.Provider
+ * so that CSS variables use the correct cssVar key from the theme config.
+ */
+const IconStyle: React.FC<{ iconPrefixCls: string; csp?: CSPConfig }> = ({
+  iconPrefixCls,
+  csp,
+}) => {
+  useStyle(iconPrefixCls, csp);
+  return null;
+};
+
 export type { Variant };
 
 export { Variants };
@@ -440,8 +452,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
   const csp = customCsp || parentContext.csp;
 
-  useStyle(iconPrefixCls, csp);
-
   const mergedTheme = useTheme(theme, parentContext.theme, { prefixCls: getPrefixCls('') });
 
   if (process.env.NODE_ENV !== 'production') {
@@ -591,6 +601,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   let childNode = (
     <>
+      <IconStyle iconPrefixCls={iconPrefixCls} csp={csp} />
       <PropWarning dropdownMatchSelectWidth={dropdownMatchSelectWidth} />
       {children}
     </>

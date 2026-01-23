@@ -53,7 +53,7 @@ function getPresetColorsTokenList(presetColors: string[]) {
 }
 
 const main = async () => {
-  const app = await (Application as any).bootstrap(
+  const app = await Application.bootstrap(
     {
       // typedoc options here
       entryPoints: ['components/theme/interface/index.ts', 'components/*/style/index.{ts,tsx}'],
@@ -87,7 +87,7 @@ const main = async () => {
           } else if (type.name === 'AliasToken') {
             tokenMeta.alias = getTokenList(type.children, 'alias');
           } else if (type.name === 'PresetColors') {
-            presetColors = (type?.type as any)?.target?.elements?.map((item: any) => item.value);
+            presetColors = type?.type?.target?.elements?.map((item: any) => item.value);
           }
         });
 

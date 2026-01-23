@@ -1773,7 +1773,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       </div>
     </div>
     <div
-      aria-label="select"
       class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       style="width: 150px;"
     >
@@ -1892,7 +1891,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
   <div
     aria-label="segmented control"
     aria-orientation="horizontal"
-    class="ant-segmented acss-1o3848f css-var-test-id"
+    class="ant-segmented acss-1oxwpj8 css-var-test-id"
     role="radiogroup"
     style="padding: 4px; width: 260px;"
     tabindex="0"
@@ -2023,7 +2022,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
   <div
     aria-label="segmented control"
     aria-orientation="vertical"
-    class="ant-segmented ant-segmented-vertical acss-1o3848f ant-segmented-vertical css-var-test-id"
+    class="ant-segmented ant-segmented-vertical acss-1oxwpj8 ant-segmented-vertical css-var-test-id"
     role="radiogroup"
     style="border: 1px solid rgb(119, 190, 240); padding: 4px; width: 100px;"
     tabindex="0"

@@ -7,7 +7,6 @@ import {
   Flex,
   FloatButton,
   Masonry,
-  Modal,
   Splitter,
   Tag,
   Tour,
@@ -22,7 +21,6 @@ import SiteContext from '../../../theme/slots/SiteContext';
 import { DarkContext } from './../../../hooks/useDark';
 import { getCarouselStyle } from './util';
 
-const { _InternalPanelDoNotUseOrYouWillBeFired: ModalDoNotUseOrYouWillBeFired } = Modal;
 const { _InternalPanelDoNotUseOrYouWillBeFired: DatePickerDoNotUseOrYouWillBeFired } = DatePicker;
 const { _InternalPanelDoNotUseOrYouWillBeFired: TourDoNotUseOrYouWillBeFired } = Tour;
 const { _InternalPanelDoNotUseOrYouWillBeFired: FloatButtonDoNotUseOrYouWillBeFired } = FloatButton;
@@ -149,24 +147,26 @@ const ComponentsList: React.FC = () => {
   const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const { isMobile } = React.use(SiteContext);
+  const isDark = React.use(DarkContext);
   const COMPONENTS = React.useMemo<Omit<ComponentItemProps, 'index'>[]>(
     () => [
-      {
-        title: 'Modal',
-        type: 'update',
-        node: (
-          <ModalDoNotUseOrYouWillBeFired title="Ant Design" width={300}>
-            {locale.sampleContent}
-          </ModalDoNotUseOrYouWillBeFired>
-        ),
-      },
+      // {
+      //   title: 'Modal',
+      //   type: 'update',
+      //   node: (
+      //     <ModalDoNotUseOrYouWillBeFired title="Ant Design" width={300}>
+      //       {locale.sampleContent}
+      //     </ModalDoNotUseOrYouWillBeFired>
+      //   ),
+      // },
 
       {
         title: 'DatePicker',
         type: 'update',
         node: (
           <DatePickerDoNotUseOrYouWillBeFired
-            value={dayjs('2022-11-18 14:00:00')}
+            value={dayjs('2025-11-22 00:00:00')}
+            // defaultValue={dayjs('2025-11-22 00:00:00')}
             showToday={false}
             presets={
               isMobile
@@ -181,7 +181,6 @@ const ComponentsList: React.FC = () => {
           />
         ),
       },
-
       // {
       //   title: 'Progress',
       //   type: 'update',
@@ -253,10 +252,11 @@ const ComponentsList: React.FC = () => {
         type: 'new',
         node: (
           <Splitter
+            orientation="vertical"
             style={{
-              height: 200,
-              width: 300,
-              backgroundColor: '#fff',
+              height: 320,
+              width: 200,
+              background: isDark ? '#1f1f1f' : '#ffffff',
               boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
             }}
           >
@@ -286,7 +286,10 @@ const ComponentsList: React.FC = () => {
           <Masonry
             columns={2}
             gutter={8}
-            style={{ width: '300px', height: '320px' }}
+            style={{
+              width: 300,
+              height: 320,
+            }}
             items={[
               { key: '1', data: 80 },
               { key: '2', data: 60 },
@@ -321,6 +324,7 @@ const ComponentsList: React.FC = () => {
       // },
     ],
     [
+      isDark,
       isMobile,
       locale.inProgress,
       locale.lastMonth,

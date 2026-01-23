@@ -7,7 +7,7 @@ on:
 
 jobs:
   upgrade-deps:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     if: github.repository == 'ant-design/ant-design' && github.ref == 'refs/heads/master'
     permissions:
       pull-requests: write # for peter-evans/create-pull-request to create PRs

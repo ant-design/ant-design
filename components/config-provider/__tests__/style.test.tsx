@@ -2,7 +2,6 @@ import React from 'react';
 import Masonry from 'antd/es/masonry';
 
 import ConfigProvider from '..';
-import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks';
 import { fireEvent, render } from '../../../tests/utils';
 import Alert from '../../alert';
 import Anchor from '../../anchor';
@@ -44,7 +43,7 @@ import Result from '../../result';
 import Segmented from '../../segmented';
 import Select from '../../select';
 import Skeleton from '../../skeleton';
-import type { SemanticName as SkeletonSemanticName } from '../../skeleton/Skeleton';
+import type { SkeletonSemanticClassNames, SkeletonSemanticStyles } from '../../skeleton/Skeleton';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -422,22 +421,22 @@ describe('ConfigProvider support style and className props', () => {
     const titleStyle = { background: 'rgba(0, 255, 17, 0.8)' };
     const paragraphStyle = { background: 'rgba(255, 111, 0, 0.8)' };
 
-    const customStyles: SemanticStyles<SkeletonSemanticName> = {
-      root: rootStyle,
-      header: headerStyle,
-      section: sectionStyle,
-      avatar: avatarStyle,
-      title: titleStyle,
-      paragraph: paragraphStyle,
-    };
-
-    const customClassNames: Required<SemanticClassNames<SkeletonSemanticName>> = {
+    const customClassNames: Required<SkeletonSemanticClassNames> = {
       root: 'custom-root',
       header: 'custom-header',
       section: 'custom-section',
       avatar: 'custom-avatar',
       title: 'custom-title',
       paragraph: 'custom-paragraph',
+    };
+
+    const customStyles: Required<SkeletonSemanticStyles> = {
+      root: rootStyle,
+      header: headerStyle,
+      section: sectionStyle,
+      avatar: avatarStyle,
+      title: titleStyle,
+      paragraph: paragraphStyle,
     };
 
     const { container } = render(

@@ -127,8 +127,8 @@ const Actions: React.FC<ActionsProps> = ({
     editors: '001',
     css: '',
     js_external: [
-      'react@19/cjs/react.development.js',
-      'react-dom@19/cjs/react-dom.development.js',
+      'react@18/umd/react.production.min.js',
+      'react-dom@18/umd/react-dom.production.min.js',
       'dayjs@1/dayjs.min.js',
       `antd@${pkg.version}/dist/antd-with-locales.min.js`,
       `@ant-design/icons/dist/index.umd.js`,

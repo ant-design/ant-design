@@ -232,12 +232,17 @@ export type TabsConfig = ComponentStyleConfig &
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'>;
+  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'> & {
+    successIcon?: React.ReactNode;
+    infoIcon?: React.ReactNode;
+    warningIcon?: React.ReactNode;
+    errorIcon?: React.ReactNode;
+  };
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
 export type BreadcrumbConfig = ComponentStyleConfig &
-  Pick<BreadcrumbProps, 'classNames' | 'styles' | 'separator'>;
+  Pick<BreadcrumbProps, 'classNames' | 'styles' | 'separator' | 'dropdownIcon'>;
 
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
@@ -304,7 +309,7 @@ export type FloatButtonGroupConfig = ComponentStyleConfig &
   Pick<FloatButtonGroupProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type PaginationConfig = ComponentStyleConfig &
-  Pick<PaginationProps, 'showSizeChanger' | 'classNames' | 'styles'>;
+  Pick<PaginationProps, 'showSizeChanger' | 'totalBoundaryShowSizeChanger' | 'classNames' | 'styles'>;
 
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 

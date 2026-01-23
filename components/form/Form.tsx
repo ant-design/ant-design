@@ -37,10 +37,23 @@ export type FormItemLayout = 'horizontal' | 'vertical';
 
 export type { ScrollFocusOptions };
 
-export type FormSemanticName = 'root' | 'label' | 'content';
+export type FormSemanticName = keyof FormSemanticClassNames & keyof FormSemanticStyles;
 
-export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticName>;
-export type FormStylesType = SemanticStylesType<FormProps, FormSemanticName>;
+export type FormSemanticClassNames = {
+  root?: string;
+  label?: string;
+  content?: string;
+};
+
+export type FormSemanticStyles = {
+  root?: React.CSSProperties;
+  label?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type FormClassNamesType = SemanticClassNamesType<FormProps, FormSemanticClassNames>;
+
+export type FormStylesType = SemanticStylesType<FormProps, FormSemanticStyles>;
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
   classNames?: FormClassNamesType;

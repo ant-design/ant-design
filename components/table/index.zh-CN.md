@@ -98,7 +98,6 @@ const columns = [
 <code src="./demo/drag-sorting.tsx">拖拽排序</code>
 <code src="./demo/drag-column-sorting.tsx">列拖拽排序</code>
 <code src="./demo/drag-sorting-handler.tsx">拖拽手柄列</code>
-<code src="./demo/resizable-column.tsx" debug>可伸缩列</code>
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
 <code src="./demo/custom-empty.tsx">自定义空状态</code>

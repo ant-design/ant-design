@@ -4700,7 +4700,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-tree ant-tree-icon-hide css-var-test-id acss-lz3q7n"
+    class="ant-tree ant-tree-icon-hide css-var-test-id acss-14g82y5"
     style="border: 2px solid rgb(217, 217, 217);"
   >
     <div>
@@ -4739,7 +4739,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
           >
             <div
               aria-expanded="false"
-              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
               draggable="false"
               role="treeitem"
               style="margin: 2px 0px;"
@@ -4786,7 +4786,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
                 title="parent 1"
               >
                 <span
-                  class="ant-tree-title acss-1kuy7z7"
+                  class="ant-tree-title acss-xahd9c"
                 >
                   parent 1
                 </span>
@@ -4798,7 +4798,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-tree ant-tree-icon-hide css-var-test-id acss-lz3q7n"
+    class="ant-tree ant-tree-icon-hide css-var-test-id acss-14g82y5"
     style="border: 2px solid rgb(229, 217, 242); border-radius: 4px;"
   >
     <div>
@@ -4837,7 +4837,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
           >
             <div
               aria-expanded="true"
-              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
               draggable="false"
               role="treeitem"
             >
@@ -4873,7 +4873,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
                 title="parent 1"
               >
                 <span
-                  class="ant-tree-title acss-1kuy7z7"
+                  class="ant-tree-title acss-xahd9c"
                 >
                   parent 1
                 </span>
@@ -4881,7 +4881,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
             </div>
             <div
               aria-expanded="true"
-              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-open"
+              class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-open"
               draggable="false"
               role="treeitem"
             >
@@ -4921,7 +4921,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
                 title="parent 1-0"
               >
                 <span
-                  class="ant-tree-title acss-1kuy7z7"
+                  class="ant-tree-title acss-xahd9c"
                 >
                   parent 1-0
                 </span>
@@ -4929,7 +4929,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
+              class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -4952,7 +4952,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
                 title="leaf"
               >
                 <span
-                  class="ant-tree-title acss-1kuy7z7"
+                  class="ant-tree-title acss-xahd9c"
                 >
                   leaf
                 </span>
@@ -4960,7 +4960,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+              class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -4983,7 +4983,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
                 title="leaf"
               >
                 <span
-                  class="ant-tree-title acss-1kuy7z7"
+                  class="ant-tree-title acss-xahd9c"
                 >
                   leaf
                 </span>
@@ -4991,7 +4991,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
             </div>
             <div
               aria-expanded="true"
-              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
+              class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
               draggable="false"
               role="treeitem"
             >
@@ -5031,7 +5031,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
                 title="parent 1-1"
               >
                 <span
-                  class="ant-tree-title acss-1kuy7z7"
+                  class="ant-tree-title acss-xahd9c"
                 >
                   parent 1-1
                 </span>
@@ -5039,7 +5039,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
             </div>
             <div
               aria-expanded="false"
-              class="ant-tree-treenode acss-icip60 ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
+              class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
               role="treeitem"
             >
@@ -5062,7 +5062,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
                 title="leaf"
               >
                 <span
-                  class="ant-tree-title acss-1kuy7z7"
+                  class="ant-tree-title acss-xahd9c"
                 >
                   leaf
                 </span>
