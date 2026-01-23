@@ -14,8 +14,7 @@ import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
 export interface PurePanelProps
-  extends
-    Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
+  extends Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
     Pick<ModalFuncProps, 'type' | 'footer'> {
   prefixCls?: string;
   style?: React.CSSProperties;
