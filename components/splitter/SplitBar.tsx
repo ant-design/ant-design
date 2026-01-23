@@ -28,10 +28,10 @@ export interface SplitBarProps {
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onDraggerDoubleClick?: (index: number) => void;
   onOffsetStart: (index: number) => void;
-  onOffsetConfirm: (index: number, offsetX: number, offsetY: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: (lazyEnd?: boolean) => void;
   onCollapse: (index: number, type: 'start' | 'end') => void;
+  onOffsetConfirm?: (index: number, offsetX: number, offsetY: number) => void;
   vertical: boolean;
   ariaNow: number;
   ariaMin: number;
@@ -121,7 +121,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   };
 
   const handleLazyMove = useEvent((offsetX: number, offsetY: number) => {
-    onOffsetConfirm(index, offsetX, offsetY);
+    onOffsetConfirm?.(index, offsetX, offsetY);
 
     let offset = vertical ? offsetY : offsetX;
 
@@ -161,7 +161,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       const offsetX = pageX - startPos[0];
       const offsetY = pageY - startPos[1];
 
-      onOffsetConfirm(index, offsetX, offsetY);
+      onOffsetConfirm?.(index, offsetX, offsetY);
 
       if (lazy) {
         handleLazyMove(offsetX, offsetY);
@@ -185,7 +185,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         const offsetX = touch.pageX - startPos[0];
         const offsetY = touch.pageY - startPos[1];
 
-        onOffsetConfirm(index, offsetX, offsetY);
+        onOffsetConfirm?.(index, offsetX, offsetY);
 
         if (lazy) {
           handleLazyMove(offsetX, offsetY);
