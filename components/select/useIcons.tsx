@@ -8,12 +8,16 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
 import { devUseWarning } from '../_util/warning';
+import fallbackProp from '../_util/fallbackProp';
+
+const defaultClearIcon = <CloseCircleFilled />;
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
 export default function useIcons({
   suffixIcon,
   clearIcon,
+  contextClearIcon,
   menuItemSelectedIcon,
   removeIcon,
   loading,
@@ -27,6 +31,7 @@ export default function useIcons({
 }: {
   suffixIcon?: React.ReactNode;
   clearIcon?: RenderNode;
+  contextClearIcon?: RenderNode;
   menuItemSelectedIcon?: RenderNode;
   removeIcon?: RenderNode;
   loading?: boolean;
@@ -46,7 +51,7 @@ export default function useIcons({
   }
 
   // Clear Icon
-  const mergedClearIcon = clearIcon ?? <CloseCircleFilled />;
+  const mergedClearIcon = fallbackProp(clearIcon, contextClearIcon, defaultClearIcon);
 
   // Validation Feedback Icon
   const getSuffixIconNode = (arrowIcon?: ReactNode) => {

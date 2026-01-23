@@ -891,4 +891,40 @@ describe('Cascader', () => {
       expect(screen.getAllByText('bamboo').length).toBe(1);
     });
   });
+
+  describe('clearIcon', () => {
+    it('should support custom clearIcon', () => {
+      render(
+        <Cascader
+          open
+          allowClear={{ clearIcon: <div>bamboo</div> }}
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+        />,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider clearIcon', () => {
+      render(
+        <ConfigProvider cascader={{ clearIcon: <div>foobar</div> }}>
+          <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop clearIcon over ConfigProvider clearIcon', () => {
+      render(
+        <ConfigProvider cascader={{ clearIcon: <div>foobar</div> }}>
+          <Cascader
+            allowClear={{ clearIcon: <div>bamboo</div> }}
+            options={options}
+            defaultValue={['zhejiang', 'hangzhou']}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
 });

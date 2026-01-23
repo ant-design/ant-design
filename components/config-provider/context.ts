@@ -372,7 +372,10 @@ export type InputNumberConfig = ComponentStyleConfig &
   Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
 
 export type CascaderConfig = ComponentStyleConfig &
-  Pick<CascaderProps, 'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon'>;
+  Pick<
+    CascaderProps,
+    'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon' | 'removeIcon' | 'suffixIcon'
+  > & { clearIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
   Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;

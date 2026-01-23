@@ -244,6 +244,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     styles,
     classNames,
     loadingIcon,
+    clearIcon,
     ...rest
   } = props;
 
@@ -258,6 +259,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     styles: contextStyles,
     expandIcon: contextExpandIcon,
     loadingIcon: contextLoadingIcon,
+    clearIcon: contextClearIcon,
   } = useComponentConfig('cascader');
 
   const { popupOverflow } = React.useContext(ConfigContext);
@@ -367,8 +369,14 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // ===================== Icons =====================
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
-  const { suffixIcon, removeIcon, clearIcon } = useSelectIcons({
+  const {
+    suffixIcon,
+    removeIcon,
+    clearIcon: mergedClearIcon,
+  } = useSelectIcons({
     ...props,
+    clearIcon,
+    contextClearIcon,
     loadingIcon: mergedLoadingIcon,
     hasFeedback,
     feedbackIcon,
@@ -386,7 +394,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
+  const mergedAllowClear = allowClear === true ? { clearIcon: mergedClearIcon } : allowClear;
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: CascaderProps<any> = {
