@@ -13,14 +13,6 @@ exports[`renders components/tree/demo/_semantic.tsx correctly 1`] = `
       <div
         class="ant-tree css-var-test-id semantic-mark-root"
       >
-        <div>
-          <input
-            aria-label="for screen reader"
-            style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-            tabindex="0"
-            value=""
-          />
-        </div>
         <div
           aria-hidden="true"
           class="ant-tree-treenode"
@@ -38,6 +30,7 @@ exports[`renders components/tree/demo/_semantic.tsx correctly 1`] = `
           class="ant-tree-list"
           role="tree"
           style="position: relative;"
+          tabindex="0"
         >
           <div
             class="ant-tree-list-holder"
@@ -48,9 +41,12 @@ exports[`renders components/tree/demo/_semantic.tsx correctly 1`] = `
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   aria-expanded="true"
+                  aria-selected="false"
                   class="ant-tree-treenode semantic-mark-item ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
                   draggable="false"
+                  id="0-0"
                   role="treeitem"
                 >
                   <span
@@ -115,9 +111,11 @@ exports[`renders components/tree/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </div>
                 <div
-                  aria-expanded="false"
+                  aria-disabled="false"
+                  aria-selected="true"
                   class="ant-tree-treenode semantic-mark-item ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-leaf"
                   draggable="false"
+                  id="0-0-0"
                   role="treeitem"
                 >
                   <span
@@ -166,9 +164,11 @@ exports[`renders components/tree/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </div>
                 <div
-                  aria-expanded="false"
+                  aria-disabled="false"
+                  aria-selected="false"
                   class="ant-tree-treenode semantic-mark-item ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                   draggable="false"
+                  id="0-0-1"
                   role="treeitem"
                 >
                   <span

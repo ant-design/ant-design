@@ -193,16 +193,8 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                 contributors
               </span>
               <div
-                class="ant-select-tree ant-select-tree-active-focused"
+                class="ant-select-tree"
               >
-                <div>
-                  <input
-                    aria-label="for screen reader"
-                    disabled=""
-                    style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                    value=""
-                  />
-                </div>
                 <div
                   aria-hidden="true"
                   class="ant-select-tree-treenode"
@@ -217,6 +209,7 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                   </div>
                 </div>
                 <div
+                  aria-activedescendant="contributors"
                   class="ant-select-tree-list"
                   role="tree"
                   style="position: relative;"
@@ -231,9 +224,12 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           aria-expanded="true"
+                          aria-selected="false"
                           class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-open ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last"
                           draggable="false"
+                          id="contributors"
                           role="treeitem"
                         >
                           <span
@@ -275,9 +271,11 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-disabled="false"
+                          aria-selected="true"
                           class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
                           draggable="false"
+                          id="aojunhao123"
                           role="treeitem"
                         >
                           <span
@@ -303,9 +301,11 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-disabled="false"
+                          aria-selected="false"
                           class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                           draggable="false"
+                          id="thinkasany"
                           role="treeitem"
                         >
                           <span
@@ -331,9 +331,11 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-disabled="false"
+                          aria-selected="false"
                           class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                           draggable="false"
+                          id="meet-student"
                           role="treeitem"
                         >
                           <span
