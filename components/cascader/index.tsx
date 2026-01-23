@@ -245,6 +245,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     classNames,
     loadingIcon,
     clearIcon,
+    removeIcon,
     ...rest
   } = props;
 
@@ -260,6 +261,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     expandIcon: contextExpandIcon,
     loadingIcon: contextLoadingIcon,
     clearIcon: contextClearIcon,
+    removeIcon: contextRemoveIcon,
   } = useComponentConfig('cascader');
 
   const { popupOverflow } = React.useContext(ConfigContext);
@@ -371,12 +373,14 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
   const {
     suffixIcon,
-    removeIcon,
+    removeIcon: mergedRemoveIcon,
     clearIcon: mergedClearIcon,
   } = useSelectIcons({
     ...props,
     clearIcon,
     contextClearIcon,
+    removeIcon,
+    contextRemoveIcon,
     loadingIcon: mergedLoadingIcon,
     hasFeedback,
     feedbackIcon,
@@ -477,7 +481,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
       suffixIcon={suffixIcon}
-      removeIcon={removeIcon}
+      removeIcon={mergedRemoveIcon}
       loadingIcon={mergedLoadingIcon}
       checkable={checkable}
       popupClassName={mergedPopupClassName}

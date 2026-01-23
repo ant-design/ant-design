@@ -11,6 +11,7 @@ import { devUseWarning } from '../_util/warning';
 import fallbackProp from '../_util/fallbackProp';
 
 const defaultClearIcon = <CloseCircleFilled />;
+const defaultRemoveIcon = <CloseOutlined />;
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
@@ -20,6 +21,7 @@ export default function useIcons({
   contextClearIcon,
   menuItemSelectedIcon,
   removeIcon,
+  contextRemoveIcon,
   loading,
   loadingIcon,
   multiple,
@@ -34,6 +36,7 @@ export default function useIcons({
   contextClearIcon?: RenderNode;
   menuItemSelectedIcon?: RenderNode;
   removeIcon?: RenderNode;
+  contextRemoveIcon?: RenderNode;
   loading?: boolean;
   loadingIcon?: React.ReactNode;
   multiple?: boolean;
@@ -91,16 +94,11 @@ export default function useIcons({
     mergedItemIcon = null;
   }
 
-  let mergedRemoveIcon = null;
-  if (removeIcon !== undefined) {
-    mergedRemoveIcon = removeIcon;
-  } else {
-    mergedRemoveIcon = <CloseOutlined />;
-  }
+  const mergedRemoveIcon = fallbackProp(removeIcon, contextRemoveIcon, defaultRemoveIcon);
 
   return {
     // TODO: remove as when all the deps bumped
-    clearIcon: mergedClearIcon as React.ReactNode,
+    clearIcon: mergedClearIcon,
     suffixIcon: mergedSuffixIcon,
     itemIcon: mergedItemIcon,
     removeIcon: mergedRemoveIcon,
