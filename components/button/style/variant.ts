@@ -240,10 +240,10 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           },
 
           [`&${componentCls}-variant-text`]: {
-            [getCssVar('text-color')]: token.textTextColor,
-            [getCssVar('text-color-hover')]: token.textTextHoverColor,
-            [getCssVar('text-color-active')]: token.textTextActiveColor,
-            [getCssVar('bg-color-hover')]: token.textHoverBg,
+            [varName('text-color')]: token.textTextColor,
+            [varName('text-color-hover')]: token.textTextHoverColor,
+            [varName('text-color-active')]: token.textTextActiveColor,
+            [varName('bg-color-hover')]: token.textHoverBg,
           },
 
           [`&${componentCls}-background-ghost`]: {
