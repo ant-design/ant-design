@@ -23,6 +23,7 @@ import MenuItem from './MenuItem';
 import OverrideContext from './OverrideContext';
 import useStyle from './style';
 import SubMenu from './SubMenu';
+import { sortMenuItems } from './utils/sortMenuItems';
 
 function isEmptyIcon(icon?: React.ReactNode) {
   return icon === null || icon === false;
@@ -119,6 +120,7 @@ export interface MenuProps
   items?: ItemType[];
   classNames?: MenuClassNamesType;
   styles?: MenuStylesType;
+  sorted?: boolean;
 }
 
 type InternalMenuProps = MenuProps &
@@ -146,6 +148,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     overflowedIndicatorPopupClassName,
     classNames,
     styles,
+    sorted,
     ...restProps
   } = props;
 
@@ -164,6 +167,10 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
   const rootPrefixCls = getPrefixCls();
 
   const passedProps = omit(restProps, ['collapsedWidth']);
+  const menuItems = React.useMemo(
+    () => (sorted ? sortMenuItems(passedProps.items) : passedProps.items),
+    [sorted, passedProps.items],
+  );
 
   // ======================== Warning ==========================
   if (process.env.NODE_ENV !== 'production') {
@@ -306,6 +313,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
           selectable={mergedSelectable}
           onClick={onItemClick}
           {...passedProps}
+          items={menuItems}
           inlineCollapsed={mergedInlineCollapsed}
           style={{ ...mergedStyles.root, ...contextStyle, ...style }}
           className={menuClassName}
