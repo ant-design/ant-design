@@ -166,6 +166,7 @@ export interface CascaderProps<
   bordered?: boolean;
   placement?: SelectCommonPlacement;
   suffixIcon?: React.ReactNode;
+  searchIcon?: React.ReactNode;
   options?: OptionType[];
   status?: InputStatus;
 
@@ -246,10 +247,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     loadingIcon,
     clearIcon,
     removeIcon,
-    ...rest
+    suffixIcon,
+    searchIcon,
+    ...restProps
   } = props;
-
-  const restProps = omit(rest, ['suffixIcon']);
 
   const {
     getPrefixCls,
@@ -262,6 +263,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     loadingIcon: contextLoadingIcon,
     clearIcon: contextClearIcon,
     removeIcon: contextRemoveIcon,
+    suffixIcon: contextSuffixIcon,
+    searchIcon: contextSearchIcon,
   } = useComponentConfig('cascader');
 
   const { popupOverflow } = React.useContext(ConfigContext);
@@ -372,7 +375,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   // ===================== Icons =====================
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
   const {
-    suffixIcon,
+    suffixIcon: mergedSuffixIcon,
     removeIcon: mergedRemoveIcon,
     clearIcon: mergedClearIcon,
   } = useSelectIcons({
@@ -382,6 +385,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     removeIcon,
     contextRemoveIcon,
     loadingIcon: mergedLoadingIcon,
+    suffixIcon,
+    contextSuffixIcon,
+    searchIcon,
+    contextSearchIcon,
     hasFeedback,
     feedbackIcon,
     showSuffixIcon,
@@ -480,7 +487,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       allowClear={mergedAllowClear}
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
-      suffixIcon={suffixIcon}
+      suffixIcon={mergedSuffixIcon}
       removeIcon={mergedRemoveIcon}
       loadingIcon={mergedLoadingIcon}
       checkable={checkable}
