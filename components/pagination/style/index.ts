@@ -407,7 +407,6 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     ${componentCls}-jump-next
     `]: {
       display: 'inline-flex',
-      justifyContent: 'center',
       alignItems: 'center',
       minWidth: varRef(`item-size-actual`),
       height: varRef(`item-size-actual`),
