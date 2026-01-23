@@ -167,9 +167,8 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<
-  RecordType extends AnyObject = AnyObject,
-> extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
@@ -381,13 +380,13 @@ export type TreeSelectConfig = ComponentStyleConfig &
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
-  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
 
 export type RangePickerConfig = ComponentStyleConfig &
   Pick<RangePickerProps, 'variant' | 'separator'>;
 
 export type TimePickerConfig = ComponentStyleConfig &
-  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
