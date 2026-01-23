@@ -21,6 +21,7 @@ group:
 <code src="./demo/base.tsx">基本使用</code>
 <code src="./demo/size.tsx">触发器尺寸大小</code>
 <code src="./demo/controlled.tsx">受控模式</code>
+<code src="./demo/controls.tsx" version="6.3.0">controls</code>
 <code src="./demo/line-gradient.tsx" version="5.20.0">渐变色</code>
 <code src="./demo/text-render.tsx">渲染触发器文本</code>
 <code src="./demo/disabled.tsx">禁用</code>
@@ -48,6 +49,7 @@ group:
 | arrow | 配置弹出的箭头 | `boolean \| { pointAtCenter: boolean }` | true | |
 | children | 颜色选择器的触发器 | React.ReactNode | - | |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
+| controls | `InputNumber` 是否显示增减按钮，也可设置自定义箭头图标 | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 6.3.0 |
 | defaultValue | 颜色默认的值 | [ColorType](#colortype) | - | |
 | defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | 禁用颜色选择器 | boolean | - | |

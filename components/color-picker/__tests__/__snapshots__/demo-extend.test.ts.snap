@@ -1506,6 +1506,1097 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
 
 exports[`renders components/color-picker/demo/controlled.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/color-picker/demo/controls.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+>
+  <div
+    class="ant-space-item"
+  >
+    <h5
+      class="ant-typography css-var-test-id"
+    >
+      open controls
+    </h5>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-describedby="test-id"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-content"
+        >
+          <div
+            class="ant-color-picker-inner"
+          >
+            <div
+              class="ant-color-picker-inner-content"
+            >
+              <div
+                class="ant-color-picker-panel"
+              >
+                <div
+                  class="ant-color-picker-select"
+                >
+                  <div
+                    class="ant-color-picker-palette"
+                    style="position: relative;"
+                  >
+                    <div
+                      style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+                    >
+                      <div
+                        class="ant-color-picker-handler"
+                        style="background-color: rgb(22, 119, 255);"
+                      />
+                    </div>
+                    <div
+                      class="ant-color-picker-saturation"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-slider-container"
+                >
+                  <div
+                    class="ant-color-picker-slider-group"
+                  >
+                    <div
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
+                    >
+                      <div
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="359"
+                        aria-valuemin="0"
+                        aria-valuenow="215"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
+                        tabindex="0"
+                      />
+                    </div>
+                    <div
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
+                    >
+                      <div
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
+                        tabindex="0"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="ant-color-picker-color-block"
+                  >
+                    <div
+                      class="ant-color-picker-color-block-inner"
+                      style="background: rgb(22, 119, 255);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-color-picker-input-container"
+              >
+                <div
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                >
+                  <div
+                    class="ant-select-content"
+                  >
+                    <div
+                      class="ant-select-content-value"
+                      style="visibility: visible;"
+                      title="HEX"
+                    >
+                      HEX
+                    </div>
+                    <input
+                      aria-autocomplete="list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      autocomplete="off"
+                      class="ant-select-input"
+                      id="test-id"
+                      readonly=""
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="ant-select-suffix"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
+                >
+                  <div>
+                    <div
+                      id="test-id_list"
+                      role="listbox"
+                      style="height: 0px; width: 0px; overflow: hidden;"
+                    >
+                      <div
+                        aria-label="HEX"
+                        aria-selected="true"
+                        id="test-id_list_0"
+                        role="option"
+                      >
+                        hex
+                      </div>
+                      <div
+                        aria-label="HSB"
+                        aria-selected="false"
+                        id="test-id_list_1"
+                        role="option"
+                      >
+                        hsb
+                      </div>
+                    </div>
+                    <div
+                      class="rc-virtual-list"
+                      style="position: relative;"
+                    >
+                      <div
+                        class="rc-virtual-list-holder"
+                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      >
+                        <div>
+                          <div
+                            class="rc-virtual-list-holder-inner"
+                            style="display: flex; flex-direction: column;"
+                          >
+                            <div
+                              class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                              title="HEX"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                HEX
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                            <div
+                              class="ant-select-item ant-select-item-option"
+                              title="HSB"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                HSB
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                            <div
+                              class="ant-select-item ant-select-item-option"
+                              title="RGB"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                RGB
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-input"
+                >
+                  <span
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
+                  >
+                    <span
+                      class="ant-input-prefix"
+                    >
+                      #
+                    </span>
+                    <input
+                      class="ant-input ant-input-sm"
+                      type="text"
+                      value="1677ff"
+                    />
+                  </span>
+                </div>
+                <div
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
+                >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
+                  <div
+                    class="ant-input-number-actions"
+                  >
+                    <span
+                      aria-disabled="true"
+                      aria-label="Increase Value"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="up"
+                        class="anticon anticon-up"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="up"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      aria-disabled="false"
+                      aria-label="Decrease Value"
+                      class="ant-input-number-action ant-input-number-action-down"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <h5
+      class="ant-typography css-var-test-id"
+    >
+      close controls
+    </h5>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-describedby="test-id"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-content"
+        >
+          <div
+            class="ant-color-picker-inner"
+          >
+            <div
+              class="ant-color-picker-inner-content"
+            >
+              <div
+                class="ant-color-picker-panel"
+              >
+                <div
+                  class="ant-color-picker-select"
+                >
+                  <div
+                    class="ant-color-picker-palette"
+                    style="position: relative;"
+                  >
+                    <div
+                      style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+                    >
+                      <div
+                        class="ant-color-picker-handler"
+                        style="background-color: rgb(22, 119, 255);"
+                      />
+                    </div>
+                    <div
+                      class="ant-color-picker-saturation"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-slider-container"
+                >
+                  <div
+                    class="ant-color-picker-slider-group"
+                  >
+                    <div
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
+                    >
+                      <div
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="359"
+                        aria-valuemin="0"
+                        aria-valuenow="215"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
+                        tabindex="0"
+                      />
+                    </div>
+                    <div
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
+                    >
+                      <div
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
+                        tabindex="0"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="ant-color-picker-color-block"
+                  >
+                    <div
+                      class="ant-color-picker-color-block-inner"
+                      style="background: rgb(22, 119, 255);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-color-picker-input-container"
+              >
+                <div
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                >
+                  <div
+                    class="ant-select-content"
+                  >
+                    <div
+                      class="ant-select-content-value"
+                      style="visibility: visible;"
+                      title="HEX"
+                    >
+                      HEX
+                    </div>
+                    <input
+                      aria-autocomplete="list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      autocomplete="off"
+                      class="ant-select-input"
+                      id="test-id"
+                      readonly=""
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="ant-select-suffix"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
+                >
+                  <div>
+                    <div
+                      id="test-id_list"
+                      role="listbox"
+                      style="height: 0px; width: 0px; overflow: hidden;"
+                    >
+                      <div
+                        aria-label="HEX"
+                        aria-selected="true"
+                        id="test-id_list_0"
+                        role="option"
+                      >
+                        hex
+                      </div>
+                      <div
+                        aria-label="HSB"
+                        aria-selected="false"
+                        id="test-id_list_1"
+                        role="option"
+                      >
+                        hsb
+                      </div>
+                    </div>
+                    <div
+                      class="rc-virtual-list"
+                      style="position: relative;"
+                    >
+                      <div
+                        class="rc-virtual-list-holder"
+                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      >
+                        <div>
+                          <div
+                            class="rc-virtual-list-holder-inner"
+                            style="display: flex; flex-direction: column;"
+                          >
+                            <div
+                              class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                              title="HEX"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                HEX
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                            <div
+                              class="ant-select-item ant-select-item-option"
+                              title="HSB"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                HSB
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                            <div
+                              class="ant-select-item ant-select-item-option"
+                              title="RGB"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                RGB
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-input"
+                >
+                  <span
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
+                  >
+                    <span
+                      class="ant-input-prefix"
+                    >
+                      #
+                    </span>
+                    <input
+                      class="ant-input ant-input-sm"
+                      type="text"
+                      value="1677ff"
+                    />
+                  </span>
+                </div>
+                <div
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm ant-input-number-without-controls"
+                >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <h5
+      class="ant-typography css-var-test-id"
+    >
+      customize controls
+    </h5>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      aria-describedby="test-id"
+      class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var"
+    >
+      <div
+        class="ant-color-picker-color-block"
+      >
+        <div
+          class="ant-color-picker-color-block-inner"
+          style="background: rgb(22, 119, 255);"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+    >
+      <div
+        class="ant-popover-arrow"
+        style="position: absolute;"
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
+      <div
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
+      >
+        <div
+          class="ant-popover-content"
+        >
+          <div
+            class="ant-color-picker-inner"
+          >
+            <div
+              class="ant-color-picker-inner-content"
+            >
+              <div
+                class="ant-color-picker-panel"
+              >
+                <div
+                  class="ant-color-picker-select"
+                >
+                  <div
+                    class="ant-color-picker-palette"
+                    style="position: relative;"
+                  >
+                    <div
+                      style="position: absolute; left: 91.37254901960785%; top: 0%; z-index: 1; transform: translate(-50%, -50%);"
+                    >
+                      <div
+                        class="ant-color-picker-handler"
+                        style="background-color: rgb(22, 119, 255);"
+                      />
+                    </div>
+                    <div
+                      class="ant-color-picker-saturation"
+                      style="background-color: rgb(0, 106, 255); background-image: linear-gradient(0deg, #000, transparent), linear-gradient(90deg, #fff, hsla(0, 0%, 100%, 0));"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-slider-container"
+                >
+                  <div
+                    class="ant-color-picker-slider-group"
+                  >
+                    <div
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
+                    >
+                      <div
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgb(255, 0, 0) 0%, rgb(255, 255, 0) 17%, rgb(0, 255, 0) 33%, rgb(0, 255, 255) 50%, rgb(0, 0, 255) 67%, rgb(255, 0, 255) 83%, rgb(255, 0, 0) 100%);"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="359"
+                        aria-valuemin="0"
+                        aria-valuenow="215"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 59.888579387186624%; transform: translateX(-50%); background: rgb(0, 106, 255);"
+                        tabindex="0"
+                      />
+                    </div>
+                    <div
+                      class="ant-slider ant-color-picker-slider css-var-test-id ant-slider-horizontal"
+                    >
+                      <div
+                        class="ant-slider-rail ant-color-picker-slider-rail"
+                        style="background: linear-gradient(90deg, rgba(255, 0, 4, 0) 0%, rgb(22,119,255) 100%);"
+                      />
+                      <div
+                        class="ant-slider-step"
+                      />
+                      <div
+                        aria-disabled="false"
+                        aria-orientation="horizontal"
+                        aria-valuemax="100"
+                        aria-valuemin="0"
+                        aria-valuenow="100"
+                        class="ant-slider-handle ant-slider-handle-1 ant-color-picker-slider-handle"
+                        role="slider"
+                        style="left: 100%; transform: translateX(-50%); background: rgb(22, 119, 255);"
+                        tabindex="0"
+                      />
+                    </div>
+                  </div>
+                  <div
+                    class="ant-color-picker-color-block"
+                  >
+                    <div
+                      class="ant-color-picker-color-block-inner"
+                      style="background: rgb(22, 119, 255);"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                class="ant-color-picker-input-container"
+              >
+                <div
+                  class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                >
+                  <div
+                    class="ant-select-content"
+                  >
+                    <div
+                      class="ant-select-content-value"
+                      style="visibility: visible;"
+                      title="HEX"
+                    >
+                      HEX
+                    </div>
+                    <input
+                      aria-autocomplete="list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      autocomplete="off"
+                      class="ant-select-input"
+                      id="test-id"
+                      readonly=""
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="ant-select-suffix"
+                  >
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomRight"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1150; width: 68px;"
+                >
+                  <div>
+                    <div
+                      id="test-id_list"
+                      role="listbox"
+                      style="height: 0px; width: 0px; overflow: hidden;"
+                    >
+                      <div
+                        aria-label="HEX"
+                        aria-selected="true"
+                        id="test-id_list_0"
+                        role="option"
+                      >
+                        hex
+                      </div>
+                      <div
+                        aria-label="HSB"
+                        aria-selected="false"
+                        id="test-id_list_1"
+                        role="option"
+                      >
+                        hsb
+                      </div>
+                    </div>
+                    <div
+                      class="rc-virtual-list"
+                      style="position: relative;"
+                    >
+                      <div
+                        class="rc-virtual-list-holder"
+                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      >
+                        <div>
+                          <div
+                            class="rc-virtual-list-holder-inner"
+                            style="display: flex; flex-direction: column;"
+                          >
+                            <div
+                              class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                              title="HEX"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                HEX
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                            <div
+                              class="ant-select-item ant-select-item-option"
+                              title="HSB"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                HSB
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                            <div
+                              class="ant-select-item ant-select-item-option"
+                              title="RGB"
+                            >
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                RGB
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  class="ant-color-picker-input"
+                >
+                  <span
+                    class="ant-input-affix-wrapper ant-input-affix-wrapper-sm ant-input-outlined ant-color-picker-hex-input css-var-test-id ant-input-css-var"
+                  >
+                    <span
+                      class="ant-input-prefix"
+                    >
+                      #
+                    </span>
+                    <input
+                      class="ant-input ant-input-sm"
+                      type="text"
+                      value="1677ff"
+                    />
+                  </span>
+                </div>
+                <div
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm"
+                >
+                  <input
+                    aria-valuemax="100"
+                    aria-valuemin="0"
+                    aria-valuenow="100"
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value="100%"
+                  />
+                  <div
+                    class="ant-input-number-actions"
+                  >
+                    <span
+                      aria-disabled="true"
+                      aria-label="Increase Value"
+                      class="ant-input-number-action ant-input-number-action-up ant-input-number-action-up-disabled"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="caret-up"
+                        class="anticon anticon-caret-up"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="caret-up"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                    <span
+                      aria-disabled="false"
+                      aria-label="Decrease Value"
+                      class="ant-input-number-action ant-input-number-action-down"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="caret-down"
+                        class="anticon anticon-caret-down"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="caret-down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="0 0 1024 1024"
+                          width="1em"
+                        >
+                          <path
+                            d="M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/color-picker/demo/controls.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/color-picker/demo/disabled.tsx extend context correctly 1`] = `
 Array [
   <div

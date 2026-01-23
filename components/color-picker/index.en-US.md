@@ -20,6 +20,7 @@ Used when the user needs to make a customized color selection.
 <code src="./demo/base.tsx">Basic Usage</code>
 <code src="./demo/size.tsx">Trigger size</code>
 <code src="./demo/controlled.tsx">controlled mode</code>
+<code src="./demo/controls.tsx" version="6.3.0">controls</code>
 <code src="./demo/line-gradient.tsx" version="5.20.0">Line Gradient</code>
 <code src="./demo/text-render.tsx">Rendering Trigger Text</code>
 <code src="./demo/disabled.tsx">Disable</code>
@@ -46,7 +47,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | 	Allow clearing color selected | boolean | false | |
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
 | children | Trigger of ColorPicker | React.ReactNode | - | |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
+| classNames | `InputNumber` Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
+| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 6.3.0 |
 | defaultValue | Default value of color | [ColorType](#colortype) | - | |
 | defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | Disable ColorPicker | boolean | - | |
