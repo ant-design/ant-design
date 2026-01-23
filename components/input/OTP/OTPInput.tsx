@@ -16,7 +16,7 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { className, value, onChange, onActiveChange, index, mask, ...restProps } = props;
+  const { className, value, onChange, onActiveChange, index, mask, onFocus, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
   const maskValue = typeof mask === 'string' ? mask : value;
@@ -38,6 +38,11 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         inputEle.select();
       }
     });
+  };
+
+  const onInternalFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    onFocus?.(e);
+    syncSelection();
   };
 
   // ======================== Keyboard ========================
@@ -74,7 +79,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         ref={inputRef}
         value={value}
         onInput={onInternalChange}
-        onFocus={syncSelection}
+        onFocus={onInternalFocus}
         onKeyDown={onInternalKeyDown}
         onMouseDown={syncSelection}
         onMouseUp={syncSelection}

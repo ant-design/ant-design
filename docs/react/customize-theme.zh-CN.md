@@ -208,6 +208,33 @@ export default App;
 
 ## 进阶使用
 
+### 零运行时 zeroRuntime {#zero-runtime}
+
+自 6.0.0 起，我们提供了 `zeroRuntime` 模式来进一步提升应用性能。开启后，Ant Design 将不再在运行时生成组件样式，所以需要自行引入样式文件。
+
+```tsx
+import 'antd/dist/antd.css';
+
+export default () => (
+  <ConfigProvider theme={{ zeroRuntime: true }}>
+    <App />
+  </ConfigProvider>
+);
+```
+
+`antd/dist/antd.css` 包含了所有 antd 组件的样式，但是不会包含 hashed className。如果你希望引入更少的样式，或者因为修改了 `prefix` 等配置无法使用默认的样式，推荐使用 [@ant-design/static-style-extract](https://github.com/ant-design/static-style-extract) 来生成静态样式。
+
+```tsx
+import fs from 'fs';
+import { extractStyle } from '@ant-design/static-style-extract';
+
+const cssText = extractStyle({
+  includes: ['Button'], // 只包含 Button 组件的样式
+});
+
+fs.writeFileSync('/path/to/somewhere', cssText);
+```
+
 ### 动态切换
 
 在 v5 中，动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不需要任何额外配置。
@@ -440,8 +467,8 @@ const theme = {
 | inherit | 继承上层 ConfigProvider 中配置的主题。 | boolean | true |  |
 | algorithm | 用于修改 Seed Token 到 Map Token 的算法 | `(token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]` | `defaultAlgorithm` |  |
 | components | 用于修改各个组件的 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentsConfig` | - |  |
-| cssVar | CSS 变量配置，参考[使用 CSS 变量](/docs/react/css-variables-cn#api) | `{ prefix?: string; key?: string }` | false |  |
-| hashed | 组件 class Hash 值，参考[使用 CSS 变量](/docs/react/css-variables-cn#关闭-hash) | boolean | true |  |
+| cssVar | CSS 变量配置 | [cssVar](#css-var) | - |  |
+| hashed | 将样式添加至 hash className 上 | boolean | true |  |
 | zeroRuntime | 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件 | boolean | true | 6.0.0 |
 
 ### ComponentsConfig
@@ -451,6 +478,13 @@ const theme = {
 | `Component` (可以是任意 antd 组件名，如 `Button`) | 用于修改 Component Token 以及覆盖该组件消费的 Alias Token | `ComponentToken & AliasToken & { algorithm: boolean \| (token: SeedToken) => MapToken` \| `((token: SeedToken) => MapToken)[]}` | - |
 
 > 组件级别的 `algorithm` 默认为 `false`，此时组件 Token 仅仅会覆盖该组件使用的 token，不会进行派生计算。设置为 `true` 时会继承当前全局算法；也可以和全局的 `algorithm` 一样传入一个或多个算法，这将会针对该组件覆盖全局的算法。
+
+### cssVar {#css-var}
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| prefix | CSS 变量的前缀，默认与 ConfigProvider 上配置的 `prefixCls` 相同 | string | `ant` |  |
+| key | 当前主题的唯一识别 key，默认用 `useId` 填充 | string | `useId` in React 18 |  |
 
 ### SeedToken
 

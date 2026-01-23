@@ -10,7 +10,7 @@ import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
 import { PresetColors } from '../../theme/interface';
-import type { BaseButtonProps } from '../button';
+import type { BaseButtonProps } from '../Button';
 
 const { resetWarned } = warning;
 
@@ -113,6 +113,23 @@ describe('Button', () => {
       </Button>,
     );
     expect(container.querySelector('.ant-btn')).toHaveClass('ant-btn-two-chinese-chars');
+  });
+
+  // https://github.com/ant-design/ant-design/issues/56591
+  it('should preserve className when rendering two Chinese characters in child element', () => {
+    const { container } = render(
+      <Button>
+        <span className="custom-class" style={{ color: 'rgb(255, 0, 0)' }}>
+          按钮
+        </span>
+      </Button>,
+    );
+
+    const span = container.querySelector('span.custom-class');
+    expect(span).toBeTruthy();
+    expect(span).toHaveClass('custom-class');
+    expect(span).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(span).toHaveTextContent('按 钮');
   });
 
   // https://github.com/ant-design/ant-design/issues/18118

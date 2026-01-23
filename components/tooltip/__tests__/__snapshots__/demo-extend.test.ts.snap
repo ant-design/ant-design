@@ -4,6 +4,7 @@ exports[`renders components/tooltip/demo/arrow.tsx extend context correctly 1`] 
 Array [
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-test-id"
     role="radiogroup"
     style="margin-bottom: 24px;"
@@ -22,9 +23,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="Show"
         >
           Show
@@ -39,9 +38,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="Hide"
         >
           Hide
@@ -56,9 +53,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="Center"
         >
           Center
@@ -1226,7 +1221,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --antd-arrow-background-color: #f50;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #f50;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1240,7 +1235,7 @@ Array [
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
-          style="background: rgb(255, 85, 0); --ant-tooltip-color: #FFF;"
+          style="background: rgb(255, 85, 0); --ant-tooltip-overlay-color: #FFF;"
         >
           prompt text
         </div>
@@ -1260,7 +1255,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --antd-arrow-background-color: #2db7f5;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #2db7f5;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1274,7 +1269,7 @@ Array [
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
-          style="background: rgb(45, 183, 245); --ant-tooltip-color: #000;"
+          style="background: rgb(45, 183, 245); --ant-tooltip-overlay-color: #000;"
         >
           prompt text
         </div>
@@ -1294,7 +1289,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --antd-arrow-background-color: #87d068;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #87d068;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1308,7 +1303,7 @@ Array [
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
-          style="background: rgb(135, 208, 104); --ant-tooltip-color: #000;"
+          style="background: rgb(135, 208, 104); --ant-tooltip-overlay-color: #000;"
         >
           prompt text
         </div>
@@ -1328,7 +1323,7 @@ Array [
       </button>
       <div
         class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --antd-arrow-background-color: #108ee9;"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; --ant-tooltip-arrow-background-color: #108ee9;"
       >
         <div
           class="ant-tooltip-arrow"
@@ -1342,7 +1337,7 @@ Array [
           class="ant-tooltip-container"
           id="test-id"
           role="tooltip"
-          style="background: rgb(16, 142, 233); --ant-tooltip-color: #FFF;"
+          style="background: rgb(16, 142, 233); --ant-tooltip-overlay-color: #FFF;"
         >
           prompt text
         </div>
@@ -1572,7 +1567,6 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
     class="ant-space-item"
   >
     <div
-      aria-describedby="test-id"
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
     >
       <div
@@ -1584,11 +1578,9 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
         />
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-describedby="test-id"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           disabled=""
@@ -1665,10 +1657,10 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
                     stroke="#d9d9d9"
                   >
                     <path
-                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                     />
                     <path
-                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                       fill="#fafafa"
                     />
                   </g>
@@ -2143,7 +2135,7 @@ Array [
   </div>,
   <div
     class="ant-tooltip-css-var css-var-test-id ant-tooltip ant-tooltip-pure ant-tooltip-placement-top"
-    style="--antd-arrow-background-color: #f50;"
+    style="--ant-tooltip-arrow-background-color: #f50;"
   >
     <div
       class="ant-tooltip-arrow"
@@ -2151,7 +2143,7 @@ Array [
     <div
       class="ant-tooltip-container"
       role="tooltip"
-      style="background: rgb(255, 85, 0); --ant-tooltip-color: #FFF;"
+      style="background: rgb(255, 85, 0); --ant-tooltip-overlay-color: #FFF;"
     >
       Hello, Customize Color Pure Panel!
     </div>
@@ -2246,7 +2238,7 @@ exports[`renders components/tooltip/demo/style-class.tsx extend context correctl
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-tooltip-container acss-nk32ej"
+      class="ant-tooltip-container acss-ven0qr"
       id="test-id"
       role="tooltip"
       style="border-radius: 12px; box-shadow: inset 0 0 8px #ccc;"
@@ -2268,7 +2260,7 @@ exports[`renders components/tooltip/demo/style-class.tsx extend context correctl
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      class="ant-tooltip-container acss-nk32ej"
+      class="ant-tooltip-container acss-ven0qr"
       id="test-id"
       role="tooltip"
       style="background-color: rgba(53, 71, 125, 0.8); padding: 12px; color: rgb(255, 255, 255); border-radius: 4px;"

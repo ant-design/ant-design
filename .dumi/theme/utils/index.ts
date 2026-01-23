@@ -3,7 +3,6 @@ import flattenDeep from 'lodash/flattenDeep';
 import semver from 'semver';
 
 import deprecatedVersions from '../../../BUG_VERSIONS.json';
-import themeConfig from '../themeConfig';
 
 interface Meta {
   skip?: boolean;
@@ -206,4 +205,12 @@ export function matchDeprecated(v: string): MatchDeprecatedResult {
   };
 }
 
-export const getThemeConfig = () => themeConfig;
+/**
+ * Determine if a hostname is an official domain.
+ * antd creates a temporary preview site for each PR for convenient preview and testing.
+ * Usually on platforms like surge.sh or Cloudflare Pages.
+ */
+export function isOfficialHost(hostname: string) {
+  const officialHostnames = ['ant.design', 'antgroup.com'];
+  return officialHostnames.some((official) => hostname.includes(official));
+}

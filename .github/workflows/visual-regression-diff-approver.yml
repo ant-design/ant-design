@@ -17,7 +17,7 @@ jobs:
       statuses: write  # Allow to modfiy commit status
     name: Check Virtual Regression Approval
     if: github.event.issue.pull_request != ''
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
     # Check all the comments if contains `VISUAL_DIFF_SUCCESS` or `VISUAL_DIFF_FAILED`
     # Check if member of repo comment `Pass Visual Diff`

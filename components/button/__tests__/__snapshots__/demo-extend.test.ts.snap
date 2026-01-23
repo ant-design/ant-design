@@ -916,6 +916,70 @@ exports[`renders components/button/demo/debug-color-variant.tsx extend context c
       </span>
     </button>
   </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Primary
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Solid primary
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Solid danger
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Outlined
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-dashed ant-btn-color-default ant-btn-variant-dashed"
+      type="button"
+    >
+      <span>
+        Dashed
+      </span>
+    </button>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text"
+      type="button"
+    >
+      <span>
+        type="text" (Default)
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -925,6 +989,7 @@ exports[`renders components/button/demo/debug-icon.tsx extend context correctly 
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2728,6 +2793,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -4048,6 +4114,7 @@ exports[`renders components/button/demo/size.tsx extend context correctly 1`] = 
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -4359,3 +4426,52 @@ exports[`renders components/button/demo/style-class.tsx extend context correctly
 `;
 
 exports[`renders components/button/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/button/demo/wave.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-large"
+>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Disabled
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Default
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Inset
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Shake
+    </span>
+  </button>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Happy Work
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/button/demo/wave.tsx extend context correctly 2`] = `[]`;

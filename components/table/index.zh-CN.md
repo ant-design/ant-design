@@ -98,7 +98,6 @@ const columns = [
 <code src="./demo/drag-sorting.tsx">拖拽排序</code>
 <code src="./demo/drag-column-sorting.tsx">列拖拽排序</code>
 <code src="./demo/drag-sorting-handler.tsx">拖拽手柄列</code>
-<code src="./demo/resizable-column.tsx" debug>可伸缩列</code>
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
 <code src="./demo/custom-empty.tsx">自定义空状态</code>
@@ -403,4 +402,28 @@ return <Table rowKey={(record) => record.uid} />;
 
 ### 为什么 components.body.wrapper 或 components.body.row 在 virtual 开启时会报错？ {#faq-virtual-wrapper-ref}
 
-因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。
+因为虚拟表格需要获取其 ref 做一些计算，所以你需要使用 `React.forwardRef` 包裹并传递 ref 到 dom。如以下代码：
+
+```tsx
+const EditableRow = React.forwardRef<HTMLTableRowElement, EditableRowProps>(
+  ({ index, ...props }, ref) => {
+    const [form] = Form.useForm();
+    return (
+      <Form form={form} component={false}>
+        <EditableContext.Provider value={form}>
+          <tr {...props} ref={ref} />
+        </EditableContext.Provider>
+      </Form>
+    );
+  },
+);
+```
+
+对于固定行高纵向滚动的场景，可以使用以下方法：
+
+```tsx
+<Table
+  //@ts-ignore // 这个属性未导出，但能透传给内部的虚拟滚动组件
+  listItemHeight={36} // 帮助虚拟滚动正确计算高度，每行固定高度36px
+/>
+```

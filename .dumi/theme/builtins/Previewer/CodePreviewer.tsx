@@ -1,10 +1,11 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { UpOutlined } from '@ant-design/icons';
-import { Badge, Tooltip } from 'antd';
-import { createStyles, css } from 'antd-style';
+import type { MenuProps } from 'antd';
+import { Badge, Tag, Tooltip } from 'antd';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
-import { FormattedMessage, useLiveDemo } from 'dumi';
-
+import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
+import { major, minVersion } from 'semver';
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
@@ -12,9 +13,11 @@ import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
 import SiteContext from '../../slots/SiteContext';
+import DemoContext from '../../slots/DemoContext';
+import { isOfficialHost } from '../../utils';
 import Actions from './Actions';
 
-const useStyle = createStyles(({ cssVar }) => {
+const styles = createStaticStyles(({ cssVar, css }) => {
   return {
     codeHideBtn: css`
       position: sticky;
@@ -61,8 +64,10 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     clientOnly,
     pkgDependencyList,
   } = props;
+  const { showDebug } = React.use(DemoContext);
+  const { pkg } = useSiteData();
+
   const location = useLocation();
-  const { styles } = useStyle();
 
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
@@ -79,17 +84,15 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
   const { isDark } = React.use(SiteContext);
-
   const { hash, pathname, search } = location;
-  const docsOnlineUrl = `https://ant.design${pathname ?? ''}${search ?? ''}#${asset.id}`;
 
-  const [showOnlineUrl, setShowOnlineUrl] = useState<boolean>(false);
-
+  /**
+   * Record whether it is deployed on the official domain name.
+   * Note that window.location.hostname is not available on the server side due to hydration issues
+   */
+  const [deployedOnOfficialHost, setDeployedOnOfficialHost] = useState<boolean>(true);
   useEffect(() => {
-    const regexp = /preview-(\d+)-ant-design/; // matching PR preview addresses
-    setShowOnlineUrl(
-      process.env.NODE_ENV === 'development' || regexp.test(window.location.hostname),
-    );
+    setDeployedOnOfficialHost(isOfficialHost(window.location.hostname));
   }, []);
 
   useEffect(() => {
@@ -101,6 +104,33 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   useEffect(() => {
     setCodeExpand(expand);
   }, [expand]);
+
+  const generateDocUrl = (domain = 'https://ant.design') =>
+    `${domain}${pathname ?? ''}${search ?? ''}#${asset.id}`;
+
+  // Enable "Go Online Docs" only when deployed on non-official domains
+  const enableDocsOnlineUrl = process.env.NODE_ENV === 'development' || !deployedOnOfficialHost;
+
+  // Previous version demos are only available during the maintenance window
+  const [supportsPreviousVersionDemo, previousVersionDomain, previousVersion] = useMemo(() => {
+    const maintenanceDeadline = new Date('2026/12/31');
+
+    if (new Date() > maintenanceDeadline) {
+      return [false, undefined, -1] as const;
+    }
+
+    const currentMajor = major(pkg.version);
+    const previousMajor = Math.min(currentMajor - 1, 5);
+
+    let enabled = true;
+    // If the demo specifies a version, perform an additional check;
+    if (version) {
+      const minVer = minVersion(version);
+      enabled = minVer?.major ? minVer.major < currentMajor : true;
+    }
+
+    return [enabled, `https://${previousMajor}x.ant.design`, previousMajor];
+  }, [version, pkg.version]);
 
   const mergedChildren = !iframe && clientOnly ? <ClientOnly>{children}</ClientOnly> : children;
   const demoUrlWithTheme = useMemo(() => {
@@ -143,6 +173,47 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
     backgroundColor: background === 'grey' ? backgroundGrey : undefined,
   };
 
+  const debugOptions: MenuProps['items'] = [
+    {
+      key: 'online',
+      label: (
+        <a
+          aria-label="Go to online documentation"
+          href={generateDocUrl()}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FormattedMessage id="app.demo.online" />
+        </a>
+      ),
+      icon: (
+        <Tag variant="filled" color="blue">
+          ant.design
+        </Tag>
+      ),
+      enabled: enableDocsOnlineUrl,
+    },
+    {
+      key: 'previousVersion',
+      label: (
+        <a
+          aria-label="Go to previous version documentation"
+          href={generateDocUrl(previousVersionDomain)}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <FormattedMessage id="app.demo.previousVersion" values={{ version: previousVersion }} />
+        </a>
+      ),
+      icon: (
+        <Tag variant="filled" color="purple">
+          v{previousVersion}
+        </Tag>
+      ),
+      enabled: supportsPreviousVersionDemo,
+    },
+  ].filter(({ enabled }) => showDebug && enabled);
+
   const codeBox: React.ReactNode = (
     <section className={codeBoxClass} id={asset.id}>
       <section
@@ -174,8 +245,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
             />
           )}
           <Actions
-            showOnlineUrl={showOnlineUrl}
-            docsOnlineUrl={docsOnlineUrl}
+            debugOptions={debugOptions}
             entryCode={entryCode}
             styleCode={style}
             pkgDependencyList={pkgDependencyList}

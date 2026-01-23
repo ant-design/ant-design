@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { Flex, Tag, version } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
@@ -12,29 +12,28 @@ import useLocation from './useLocation';
 const locales = {
   cn: {
     deprecated: '废弃',
-    update: '更新',
+    updated: '更新',
     new: '新增',
   },
   en: {
     deprecated: 'DEPRECATED',
-    update: 'UPDATE',
+    updated: 'UPDATED',
     new: 'NEW',
   },
 };
 
 const getTagColor = (val?: string) => {
   switch (val?.toUpperCase()) {
-    case 'UPDATE':
+    case 'UPDATED':
       return 'processing';
     case 'DEPRECATED':
       return 'red';
-
     default:
       return 'success';
   }
 };
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   link: css`
     display: flex;
     align-items: center;
@@ -47,6 +46,7 @@ const useStyle = createStyles(({ css, cssVar }) => ({
     font-weight: normal;
     font-size: ${cssVar.fontSizeSM};
     opacity: 0.8;
+    margin-inline-start: ${cssVar.marginSM};
   `,
 }));
 
@@ -62,10 +62,10 @@ interface MenuItemLabelProps {
 }
 
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
-  const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
 
   const [locale] = useLocale(locales);
+
   const getLocale = (name: string) => {
     return (locale as any)[name.toLowerCase()] ?? name;
   };
@@ -73,7 +73,7 @@ const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
   if (!before && !after) {
     return (
       <Link to={`${link}${search}`} className={clsx(className, { [styles.link]: tag })}>
-        <Flex justify="flex-start" align="center" gap="small">
+        <Flex justify="flex-start" align="center">
           <span>{title}</span>
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </Flex>

@@ -17,7 +17,7 @@ jobs:
       issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     if: github.event.pull_request.merged == true && github.repository == 'ant-design/ant-design'
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: get commit count
         id: get_commit_count
@@ -28,7 +28,7 @@ jobs:
           echo "COUNT=$DATA_LENGTH" >> $GITHUB_OUTPUT
       - name: Comment on PR
         if: steps.get_commit_count.outputs.COUNT < 3
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

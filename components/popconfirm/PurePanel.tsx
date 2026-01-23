@@ -5,13 +5,12 @@ import { clsx } from 'clsx';
 import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
-import Button from '../button';
+import Button from '../button/Button';
 import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { PopoverSemanticName } from '../popover';
+import type { PopoverSemanticClassNames, PopoverSemanticStyles } from '../popover';
 import PopoverPurePanel from '../popover/PurePanel';
 import useStyle from './style';
 
@@ -38,8 +37,8 @@ export interface OverlayProps
   close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  classNames?: SemanticClassNames<PopoverSemanticName>;
-  styles?: SemanticStyles<PopoverSemanticName>;
+  classNames?: PopoverSemanticClassNames;
+  styles?: PopoverSemanticStyles;
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {

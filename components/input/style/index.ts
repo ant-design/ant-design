@@ -40,7 +40,7 @@ export const genActiveStyle = (token: InputToken) => ({
   backgroundColor: token.activeBg,
 });
 
-const genInputLargeStyle = (token: InputToken): CSSObject => {
+export const genInputLargeStyle = (token: InputToken): CSSObject => {
   const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
 
   return {
@@ -667,7 +667,10 @@ export default genStyleHooks(
       // =====================================================
       // ==             Space Compact                       ==
       // =====================================================
-      genCompactItemStyle(inputToken),
+      genCompactItemStyle(inputToken, {
+        focus: true,
+        focusElCls: `${inputToken.componentCls}-affix-wrapper-focused`,
+      }),
     ];
   },
   initComponentToken,

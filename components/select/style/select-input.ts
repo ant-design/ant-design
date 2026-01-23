@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genSelectInputCustomizeStyle from './select-input-customize';
 import genSelectInputMultipleStyle from './select-input-multiple';
 import type { SelectToken } from './token';
@@ -24,33 +25,36 @@ interface VariableColors {
 
 /** Set CSS variables and hover/focus styles for a Select input based on provided colors. */
 const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
+
+  const [varName] = genCssVar(antCls, 'select');
+
   const { border, borderHover, borderActive, borderOutline } = colors;
 
-  const baseBG = colors.background || token.colorBgContainer;
+  const baseBG = colors.background || token.selectorBg || token.colorBgContainer;
 
   return {
-    '--select-border-color': border,
-    '--select-background': baseBG,
-    '--select-color': colors.color || token.colorText,
+    [varName('border-color')]: border,
+    [varName('background-color')]: baseBG,
+    [varName('color')]: colors.color || token.colorText,
 
     [`&:not(${componentCls}-disabled)`]: {
       '&:hover': {
-        '--select-border-color': borderHover,
-        '--select-background': colors.backgroundHover || baseBG,
+        [varName('border-color')]: borderHover,
+        [varName('background-color')]: colors.backgroundHover || baseBG,
       },
 
       [`&${componentCls}-focused`]: {
-        '--select-border-color': borderActive,
-        '--select-background': colors.backgroundActive || baseBG,
+        [varName('border-color')]: borderActive,
+        [varName('background-color')]: colors.backgroundActive || baseBG,
 
         boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${borderOutline}`,
       },
     },
 
     [`&${componentCls}-disabled`]: {
-      '--select-border-color': colors.borderDisabled || colors.border,
-      '--select-background': colors.backgroundDisabled || colors.background,
+      [varName('border-color')]: colors.borderDisabled || colors.border,
+      [varName('background-color')]: colors.backgroundDisabled || colors.background,
     },
   };
 };
@@ -65,7 +69,6 @@ const genSelectInputVariantStyle = (
   patchStyle?: CSSObject,
 ): CSSObject => {
   const { componentCls } = token;
-
   return {
     [`&${componentCls}-${variant}`]: [
       genSelectInputVariableStyle(token, colors),
@@ -87,28 +90,28 @@ const genSelectInputVariantStyle = (
 };
 
 const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
-  const { componentCls, calc, fontHeight, controlHeight, iconCls } = token;
-
+  const { componentCls, fontHeight, controlHeight, iconCls, antCls, calc } = token;
+  const [varName, varRef] = genCssVar(antCls, 'select');
   return {
     [componentCls]: [
       {
         // Border
-        '--select-border-radius': token.borderRadius,
-        '--select-border-color': '#000',
-        '--select-border-size': token.lineWidth,
+        [varName('border-radius')]: token.borderRadius,
+        [varName('border-color')]: '#000',
+        [varName('border-size')]: token.lineWidth,
         // Background
-        '--select-background': token.colorBgContainer,
+        [varName('background-color')]: token.colorBgContainer,
         // Font
-        '--select-font-size': token.fontSize,
-        '--select-line-height': token.lineHeight,
-        '--select-font-height': fontHeight,
-        '--select-color': token.colorText,
+        [varName('font-size')]: token.fontSize,
+        [varName('line-height')]: token.lineHeight,
+        [varName('font-height')]: fontHeight,
+        [varName('color')]: token.colorText,
         // Size
-        '--select-height': controlHeight,
+        [varName('height')]: controlHeight,
 
-        '--select-padding-horizontal': calc(token.paddingSM).sub(token.lineWidth).equal(),
-        '--select-padding-vertical':
-          'calc((var(--select-height) - var(--select-font-height)) / 2 - var(--select-border-size))',
+        [varName('padding-horizontal')]: calc(token.paddingSM).sub(token.lineWidth).equal(),
+        [varName('padding-vertical')]:
+          `calc((${varRef('height')} - ${varRef('font-height')}) / 2 - ${varRef('border-size')})`,
 
         // ==========================================================
         // ==                         Base                         ==
@@ -126,23 +129,22 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         cursor: 'pointer',
 
         // Border
-        borderRadius: 'var(--select-border-radius)',
-        borderWidth: 'var(--select-border-size)',
+        borderRadius: varRef('border-radius'),
+        borderWidth: varRef('border-size'),
         borderStyle: token.lineType,
-        borderColor: 'var(--select-border-color)',
+        borderColor: varRef('border-color'),
 
         // Background
-        background: 'var(--select-background)',
+        background: varRef('background-color'),
 
         // Font
-        fontSize: 'var(--select-font-size)',
-        lineHeight: 'var(--select-line-height)',
-        color: 'var(--select-color)',
+        fontSize: varRef('font-size'),
+        lineHeight: varRef('line-height'),
+        color: varRef('color'),
 
         // Padding
-        paddingInline: 'var(--select-padding-horizontal)',
-        paddingBlock: 'var(--select-padding-vertical)',
-
+        paddingInline: varRef('padding-horizontal'),
+        paddingBlock: varRef('padding-vertical'),
         // ========================= Prefix =========================
         [`${componentCls}-prefix`]: {
           flex: 'none',
@@ -183,6 +185,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           // input element with readOnly use cursor pointer
           'input[readonly]': {
             cursor: 'inherit',
+            caretColor: 'transparent',
           },
         },
 
@@ -217,23 +220,31 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           background: token.colorBgContainerDisabled,
           color: token.colorTextDisabled,
           cursor: 'not-allowed',
+
+          input: {
+            cursor: 'not-allowed',
+          },
         },
 
         // ==========================================================
         // ==                         Size                         ==
         // ==========================================================
         '&-sm': {
-          '--select-height': token.controlHeightSM,
-          '--select-padding-horizontal': calc(token.paddingXS).sub(token.lineWidth).equal(),
-          '--select-border-radius': token.borderRadiusSM,
+          [varName('height')]: token.controlHeightSM,
+          [varName('padding-horizontal')]: calc(token.paddingXS).sub(token.lineWidth).equal(),
+          [varName('border-radius')]: token.borderRadiusSM,
+
+          [`${componentCls}-clear`]: {
+            insetInlineEnd: varRef('padding-horizontal'),
+          },
         },
 
         '&-lg': {
-          '--select-height': token.controlHeightLG,
-          '--select-font-size': token.fontSizeLG,
-          '--select-line-height': token.lineHeightLG,
-          '--select-font-height': token.fontHeightLG,
-          '--select-border-radius': token.borderRadiusLG,
+          [varName('height')]: token.controlHeightLG,
+          [varName('font-size')]: token.fontSizeLG,
+          [varName('line-height')]: token.lineHeightLG,
+          [varName('font-height')]: token.fontHeightLG,
+          [varName('border-radius')]: token.borderRadiusLG,
         },
       },
 
@@ -249,6 +260,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             border: 0,
             margin: 0,
             padding: 0,
+            color: 'inherit',
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
@@ -266,14 +278,21 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           [`${componentCls}-input`]: {
             position: 'absolute',
             insetInline: 0,
-            insetBlock: 'calc(var(--select-padding-vertical) * -1)',
-            lineHeight: 'calc(var(--select-font-height) + var(--select-padding-vertical) * 2)',
+            insetBlock: `calc(${varRef('padding-vertical')} * -1)`,
+            lineHeight: `calc(${varRef('font-height')} + ${varRef('padding-vertical')} * 2)`,
           },
 
           // Content center align
           [`${componentCls}-content`]: {
             alignSelf: 'center',
           },
+        },
+      },
+
+      // ======================== Show Search =======================
+      {
+        [`&-show-search:not(${componentCls}-customize-input):not(${componentCls}-disabled)`]: {
+          cursor: 'text',
         },
       },
 

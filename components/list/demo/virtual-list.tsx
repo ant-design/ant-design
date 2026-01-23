@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import VirtualList from '@rc-component/virtual-list';
 import { Avatar, List, message } from 'antd';
-import VirtualList from 'rc-virtual-list';
 
 interface UserItem {
   email: string;
@@ -25,6 +25,9 @@ const App: React.FC = () => {
         setData(data.concat(results));
         setPage(page + 1);
         showMessage && message.success(`${results.length} more items loaded!`);
+      })
+      .catch(() => {
+        console.log('fetch mock data failed');
       });
   };
 

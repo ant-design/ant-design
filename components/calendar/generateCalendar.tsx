@@ -1,9 +1,9 @@
 import * as React from 'react';
 import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-component/picker';
 import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
-import type { GenerateConfig } from '@rc-component/picker/lib/generate';
-import type { CellRenderInfo } from '@rc-component/picker/lib/interface';
-import { useControlledState } from '@rc-component/util';
+import type { GenerateConfig } from '@rc-component/picker/generate';
+import type { CellRenderInfo } from '@rc-component/picker/interface';
+import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
@@ -17,6 +17,7 @@ import enUS from './locale/en_US';
 import useStyle from './style';
 
 export type CalendarMode = 'year' | 'month';
+
 export type HeaderRender<DateType> = (config: {
   value: DateType;
   type: CalendarMode;
@@ -28,15 +29,32 @@ export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize';
 }
 
-type SemanticName = 'root' | 'header' | 'body' | 'content' | 'item';
+export type CalendarSemanticName = keyof CalendarSemanticClassNames & keyof CalendarSemanticStyles;
+
+export type CalendarSemanticClassNames = {
+  root?: string;
+  header?: string;
+  body?: string;
+  content?: string;
+  item?: string;
+};
+
+export type CalendarSemanticStyles = {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  body?: React.CSSProperties;
+  content?: React.CSSProperties;
+  item?: React.CSSProperties;
+};
 
 export type CalendarClassNamesType<DateType> = SemanticClassNamesType<
   CalendarProps<DateType>,
-  SemanticName
+  CalendarSemanticClassNames
 >;
+
 export type CalendarStylesType<DateType> = SemanticStylesType<
   CalendarProps<DateType>,
-  SemanticName
+  CalendarSemanticStyles
 >;
 
 export interface CalendarProps<DateType> {
@@ -310,7 +328,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
     const [contextLocale] = useLocale('Calendar', enUS);
 
-    const locale = { ...contextLocale, ...props.locale! };
+    const locale = merge(contextLocale, props.locale || {});
 
     const mergedCellRender: RcBasePickerPanelProps['cellRender'] = (current, info) => {
       if (info.type === 'date') {

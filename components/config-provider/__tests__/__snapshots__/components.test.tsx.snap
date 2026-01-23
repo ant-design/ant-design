@@ -377,10 +377,8 @@ exports[`ConfigProvider components AutoComplete configProvider 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -405,10 +403,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentDisabled
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -434,10 +430,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -462,10 +456,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize mid
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -490,10 +482,8 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize sma
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -518,10 +508,8 @@ exports[`ConfigProvider components AutoComplete normal 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="ant-select-input"
       id="test-id"
@@ -546,10 +534,8 @@ exports[`ConfigProvider components AutoComplete prefixCls 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="prefix-AutoComplete-input"
       id="test-id"
@@ -1140,7 +1126,9 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1153,7 +1141,9 @@ exports[`ConfigProvider components Breadcrumb configProvider 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1169,7 +1159,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1182,7 +1174,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentDisabled 1
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1198,7 +1192,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1211,7 +1207,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1227,7 +1225,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1240,7 +1240,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize middl
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1256,7 +1258,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
   class="config-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1269,7 +1273,9 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize small
     >
       /
     </li>
-    <li>
+    <li
+      class="config-breadcrumb-item"
+    >
       <span
         class="config-breadcrumb-link"
       >
@@ -1285,7 +1291,9 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
   class="ant-breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <span
         class="ant-breadcrumb-link"
       >
@@ -1298,7 +1306,9 @@ exports[`ConfigProvider components Breadcrumb normal 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="ant-breadcrumb-item"
+    >
       <span
         class="ant-breadcrumb-link"
       >
@@ -1314,7 +1324,9 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
   class="prefix-Breadcrumb css-var-root"
 >
   <ol>
-    <li>
+    <li
+      class="prefix-Breadcrumb-item"
+    >
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -1327,7 +1339,9 @@ exports[`ConfigProvider components Breadcrumb prefixCls 1`] = `
     >
       /
     </li>
-    <li>
+    <li
+      class="prefix-Breadcrumb-item"
+    >
       <span
         class="prefix-Breadcrumb-link"
       >
@@ -1595,10 +1609,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -1647,10 +1659,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -1686,6 +1696,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -2526,10 +2537,8 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -2565,6 +2574,7 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -2871,10 +2881,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -2924,10 +2932,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -2964,6 +2970,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -3806,10 +3813,8 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -3846,6 +3851,7 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -4154,10 +4160,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -4206,10 +4210,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -4245,6 +4247,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-large config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -5085,10 +5088,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5124,6 +5125,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-large config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -5430,10 +5432,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5482,10 +5482,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -5521,6 +5519,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -6361,10 +6360,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6400,6 +6397,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -6706,10 +6704,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6758,10 +6754,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -6797,6 +6791,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-small config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -7637,10 +7632,8 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -7676,6 +7669,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
       </div>
       <div
         class="config-radio-group config-radio-group-outline config-radio-group-small config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="config-radio-button-wrapper css-var-root config-radio-css-var"
@@ -7982,10 +7976,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8034,10 +8026,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8073,6 +8063,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -8913,10 +8904,8 @@ exports[`ConfigProvider components Calendar normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8952,6 +8941,7 @@ exports[`ConfigProvider components Calendar normal 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
@@ -9258,10 +9248,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -9310,10 +9298,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -9349,6 +9335,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -10189,10 +10176,8 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -10228,6 +10213,7 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline prefix-Calendar-calendar-mode-switch css-var-root ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-root ant-radio-css-var"
@@ -10724,24 +10710,6 @@ exports[`ConfigProvider components Carousel configProvider 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -10850,24 +10818,6 @@ exports[`ConfigProvider components Carousel configProvider componentDisabled 1`]
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -10984,24 +10934,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize large 1
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11110,24 +11042,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize middle 
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -11244,24 +11158,6 @@ exports[`ConfigProvider components Carousel configProvider componentSize small 1
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11370,24 +11266,6 @@ exports[`ConfigProvider components Carousel normal 1`] = `
             >
               <h3>
                 Bamboo
-              </h3>
-            </div>
-          </div>
-        </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
               </h3>
             </div>
           </div>
@@ -11504,24 +11382,6 @@ exports[`ConfigProvider components Carousel prefixCls 1`] = `
             </div>
           </div>
         </div>
-        <div
-          aria-hidden="true"
-          class="slick-slide slick-cloned"
-          data-index="3"
-          style="width: 0px;"
-          tabindex="-1"
-        >
-          <div>
-            <div
-              style="width: 100%; display: inline-block;"
-              tabindex="-1"
-            >
-              <h3>
-                Light
-              </h3>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
     <ul
@@ -11560,10 +11420,8 @@ exports[`ConfigProvider components Cascader configProvider 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11611,10 +11469,8 @@ exports[`ConfigProvider components Cascader configProvider componentDisabled 1`]
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -11663,10 +11519,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11714,10 +11568,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize middle 
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11765,10 +11617,8 @@ exports[`ConfigProvider components Cascader configProvider componentSize small 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       id="test-id"
@@ -11816,10 +11666,8 @@ exports[`ConfigProvider components Cascader normal 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="ant-select-input"
       id="test-id"
@@ -11867,10 +11715,8 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="prefix-Cascader-input"
       id="test-id"
@@ -11908,6 +11754,7 @@ exports[`ConfigProvider components Cascader prefixCls 1`] = `
 exports[`ConfigProvider components Checkbox configProvider 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -11935,6 +11782,7 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
 exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper config-checkbox-wrapper-disabled css-var-root config-checkbox-css-var"
@@ -11963,6 +11811,7 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
 exports[`ConfigProvider components Checkbox configProvider componentSize large 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -11990,6 +11839,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
 exports[`ConfigProvider components Checkbox configProvider componentSize middle 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -12017,6 +11867,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
 exports[`ConfigProvider components Checkbox configProvider componentSize small 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
+  role="group"
 >
   <label
     class="config-checkbox-wrapper css-var-root config-checkbox-css-var"
@@ -12044,6 +11895,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize small 1
 exports[`ConfigProvider components Checkbox normal 1`] = `
 <div
   class="ant-checkbox-group css-var-root ant-checkbox-css-var"
+  role="group"
 >
   <label
     class="ant-checkbox-wrapper css-var-root ant-checkbox-css-var"
@@ -12071,6 +11923,7 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
 exports[`ConfigProvider components Checkbox prefixCls 1`] = `
 <div
   class="prefix-Checkbox-group css-var-root prefix-Checkbox-css-var"
+  role="group"
 >
   <label
     class="prefix-Checkbox-wrapper css-var-root prefix-Checkbox-css-var"
@@ -12426,7 +12279,6 @@ exports[`ConfigProvider components Collapse prefixCls 1`] = `
 
 exports[`ConfigProvider components ColorPicker configProvider 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var"
 >
   <div
@@ -12437,7 +12289,6 @@ exports[`ConfigProvider components ColorPicker configProvider 1`] = `
 
 exports[`ConfigProvider components ColorPicker configProvider componentDisabled 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var config-color-picker-trigger-disabled"
 >
   <div
@@ -12448,7 +12299,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentDisabled 
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize large 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-lg css-var-root config-color-picker-css-var"
 >
   <div
@@ -12459,7 +12309,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize larg
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize middle 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger css-var-root config-color-picker-css-var"
 >
   <div
@@ -12470,7 +12319,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize midd
 
 exports[`ConfigProvider components ColorPicker configProvider componentSize small 1`] = `
 <div
-  aria-describedby="test-id"
   class="config-color-picker-trigger config-color-picker-sm css-var-root config-color-picker-css-var"
 >
   <div
@@ -12481,7 +12329,6 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize smal
 
 exports[`ConfigProvider components ColorPicker normal 1`] = `
 <div
-  aria-describedby="test-id"
   class="ant-color-picker-trigger css-var-root ant-color-picker-css-var"
 >
   <div
@@ -12492,7 +12339,6 @@ exports[`ConfigProvider components ColorPicker normal 1`] = `
 
 exports[`ConfigProvider components ColorPicker prefixCls 1`] = `
 <div
-  aria-describedby="test-id"
   class="prefix-ColorPicker-trigger css-var-root prefix-ColorPicker-css-var"
 >
   <div
@@ -14083,12 +13929,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14136,12 +13976,6 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14154,12 +13988,6 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14207,12 +14035,6 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14225,12 +14047,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14278,12 +14094,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14296,12 +14106,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14349,12 +14153,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14367,12 +14165,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
     class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
   />
   <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
-  <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
     style="width: 378px;"
   >
@@ -14420,12 +14212,6 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14436,12 +14222,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
 >
   <div
     class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
-  />
-  <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
   />
   <div
     class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
@@ -14491,12 +14271,6 @@ exports[`ConfigProvider components Drawer normal 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14507,12 +14281,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
 >
   <div
     class="prefix-Drawer-mask prefix-Drawer-mask-motion-appear prefix-Drawer-mask-motion-appear-start prefix-Drawer-mask-motion prefix-Drawer-mask-blur"
-  />
-  <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
   />
   <div
     class="prefix-Drawer-content-wrapper prefix-Drawer-panel-motion-right-appear prefix-Drawer-panel-motion-right-appear-start prefix-Drawer-panel-motion-right"
@@ -14562,12 +14330,6 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
       />
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;
 
@@ -14895,50 +14657,44 @@ exports[`ConfigProvider components Empty configProvider 1`] = `
         fill-rule="evenodd"
       >
         <g
-          transform="translate(24 31.67)"
+          transform="translate(24 31.7)"
         >
           <ellipse
-            cx="67.797"
-            cy="106.89"
+            cx="67.8"
+            cy="106.9"
             fill="#F5F5F7"
             fill-opacity=".8"
-            rx="67.797"
-            ry="12.668"
+            rx="67.8"
+            ry="12.7"
           />
           <path
-            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
-            fill="#AEB8C2"
+            d="M122 69.7 98.1 40.2a6 6 0 0 0-4.6-2.2H42.1a6 6 0 0 0-4.6 2.2l-24 29.5V85H122z"
+            fill="#aeb8c2"
           />
           <path
-            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
-            fill="url(#linearGradient-1)"
-            transform="translate(13.56)"
+            d="M33.8 0h68a4 4 0 0 1 4 4v93.3a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4"
+            fill="#f5f5f7"
           />
           <path
-            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
-            fill="#F5F5F7"
-          />
-          <path
-            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
-            fill="#DCE0E6"
+            d="M42.7 10h50.2a2 2 0 0 1 2 2v25a2 2 0 0 1-2 2H42.7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2m.2 39.8h49.8a2.3 2.3 0 1 1 0 4.5H42.9a2.3 2.3 0 0 1 0-4.5m0 11.7h49.8a2.3 2.3 0 1 1 0 4.6H42.9a2.3 2.3 0 0 1 0-4.6m79 43.5a7 7 0 0 1-6.8 5.4H20.5a7 7 0 0 1-6.7-5.4l-.2-1.8V69.7h26.3c2.9 0 5.2 2.4 5.2 5.4s2.4 5.4 5.3 5.4h34.8c2.9 0 5.3-2.4 5.3-5.4s2.3-5.4 5.2-5.4H122v33.5q0 1-.2 1.8"
+            fill="#dce0e6"
           />
         </g>
         <path
-          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
-          fill="#DCE0E6"
+          d="m149.1 33.3-6.8 2.6a1 1 0 0 1-1.3-1.2l2-6.2q-4.1-4.5-4.2-10.4c0-10 10.1-18.1 22.6-18.1S184 8.1 184 18.1s-10.1 18-22.6 18q-6.8 0-12.3-2.8"
+          fill="#dce0e6"
         />
         <g
-          fill="#FFF"
-          transform="translate(149.65 15.383)"
+          fill="#fff"
+          transform="translate(149.7 15.4)"
         >
-          <ellipse
-            cx="20.654"
-            cy="3.167"
-            rx="2.849"
-            ry="2.815"
+          <circle
+            cx="20.7"
+            cy="3.2"
+            r="2.8"
           />
           <path
-            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+            d="M5.7 5.6H0L2.9.7zM9.3.7h5v5h-5z"
           />
         </g>
       </g>
@@ -14973,50 +14729,44 @@ exports[`ConfigProvider components Empty configProvider componentDisabled 1`] = 
         fill-rule="evenodd"
       >
         <g
-          transform="translate(24 31.67)"
+          transform="translate(24 31.7)"
         >
           <ellipse
-            cx="67.797"
-            cy="106.89"
+            cx="67.8"
+            cy="106.9"
             fill="#F5F5F7"
             fill-opacity=".8"
-            rx="67.797"
-            ry="12.668"
+            rx="67.8"
+            ry="12.7"
           />
           <path
-            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
-            fill="#AEB8C2"
+            d="M122 69.7 98.1 40.2a6 6 0 0 0-4.6-2.2H42.1a6 6 0 0 0-4.6 2.2l-24 29.5V85H122z"
+            fill="#aeb8c2"
           />
           <path
-            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
-            fill="url(#linearGradient-1)"
-            transform="translate(13.56)"
+            d="M33.8 0h68a4 4 0 0 1 4 4v93.3a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4"
+            fill="#f5f5f7"
           />
           <path
-            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
-            fill="#F5F5F7"
-          />
-          <path
-            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
-            fill="#DCE0E6"
+            d="M42.7 10h50.2a2 2 0 0 1 2 2v25a2 2 0 0 1-2 2H42.7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2m.2 39.8h49.8a2.3 2.3 0 1 1 0 4.5H42.9a2.3 2.3 0 0 1 0-4.5m0 11.7h49.8a2.3 2.3 0 1 1 0 4.6H42.9a2.3 2.3 0 0 1 0-4.6m79 43.5a7 7 0 0 1-6.8 5.4H20.5a7 7 0 0 1-6.7-5.4l-.2-1.8V69.7h26.3c2.9 0 5.2 2.4 5.2 5.4s2.4 5.4 5.3 5.4h34.8c2.9 0 5.3-2.4 5.3-5.4s2.3-5.4 5.2-5.4H122v33.5q0 1-.2 1.8"
+            fill="#dce0e6"
           />
         </g>
         <path
-          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
-          fill="#DCE0E6"
+          d="m149.1 33.3-6.8 2.6a1 1 0 0 1-1.3-1.2l2-6.2q-4.1-4.5-4.2-10.4c0-10 10.1-18.1 22.6-18.1S184 8.1 184 18.1s-10.1 18-22.6 18q-6.8 0-12.3-2.8"
+          fill="#dce0e6"
         />
         <g
-          fill="#FFF"
-          transform="translate(149.65 15.383)"
+          fill="#fff"
+          transform="translate(149.7 15.4)"
         >
-          <ellipse
-            cx="20.654"
-            cy="3.167"
-            rx="2.849"
-            ry="2.815"
+          <circle
+            cx="20.7"
+            cy="3.2"
+            r="2.8"
           />
           <path
-            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+            d="M5.7 5.6H0L2.9.7zM9.3.7h5v5h-5z"
           />
         </g>
       </g>
@@ -15051,50 +14801,44 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
         fill-rule="evenodd"
       >
         <g
-          transform="translate(24 31.67)"
+          transform="translate(24 31.7)"
         >
           <ellipse
-            cx="67.797"
-            cy="106.89"
+            cx="67.8"
+            cy="106.9"
             fill="#F5F5F7"
             fill-opacity=".8"
-            rx="67.797"
-            ry="12.668"
+            rx="67.8"
+            ry="12.7"
           />
           <path
-            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
-            fill="#AEB8C2"
+            d="M122 69.7 98.1 40.2a6 6 0 0 0-4.6-2.2H42.1a6 6 0 0 0-4.6 2.2l-24 29.5V85H122z"
+            fill="#aeb8c2"
           />
           <path
-            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
-            fill="url(#linearGradient-1)"
-            transform="translate(13.56)"
+            d="M33.8 0h68a4 4 0 0 1 4 4v93.3a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4"
+            fill="#f5f5f7"
           />
           <path
-            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
-            fill="#F5F5F7"
-          />
-          <path
-            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
-            fill="#DCE0E6"
+            d="M42.7 10h50.2a2 2 0 0 1 2 2v25a2 2 0 0 1-2 2H42.7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2m.2 39.8h49.8a2.3 2.3 0 1 1 0 4.5H42.9a2.3 2.3 0 0 1 0-4.5m0 11.7h49.8a2.3 2.3 0 1 1 0 4.6H42.9a2.3 2.3 0 0 1 0-4.6m79 43.5a7 7 0 0 1-6.8 5.4H20.5a7 7 0 0 1-6.7-5.4l-.2-1.8V69.7h26.3c2.9 0 5.2 2.4 5.2 5.4s2.4 5.4 5.3 5.4h34.8c2.9 0 5.3-2.4 5.3-5.4s2.3-5.4 5.2-5.4H122v33.5q0 1-.2 1.8"
+            fill="#dce0e6"
           />
         </g>
         <path
-          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
-          fill="#DCE0E6"
+          d="m149.1 33.3-6.8 2.6a1 1 0 0 1-1.3-1.2l2-6.2q-4.1-4.5-4.2-10.4c0-10 10.1-18.1 22.6-18.1S184 8.1 184 18.1s-10.1 18-22.6 18q-6.8 0-12.3-2.8"
+          fill="#dce0e6"
         />
         <g
-          fill="#FFF"
-          transform="translate(149.65 15.383)"
+          fill="#fff"
+          transform="translate(149.7 15.4)"
         >
-          <ellipse
-            cx="20.654"
-            cy="3.167"
-            rx="2.849"
-            ry="2.815"
+          <circle
+            cx="20.7"
+            cy="3.2"
+            r="2.8"
           />
           <path
-            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+            d="M5.7 5.6H0L2.9.7zM9.3.7h5v5h-5z"
           />
         </g>
       </g>
@@ -15129,50 +14873,44 @@ exports[`ConfigProvider components Empty configProvider componentSize middle 1`]
         fill-rule="evenodd"
       >
         <g
-          transform="translate(24 31.67)"
+          transform="translate(24 31.7)"
         >
           <ellipse
-            cx="67.797"
-            cy="106.89"
+            cx="67.8"
+            cy="106.9"
             fill="#F5F5F7"
             fill-opacity=".8"
-            rx="67.797"
-            ry="12.668"
+            rx="67.8"
+            ry="12.7"
           />
           <path
-            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
-            fill="#AEB8C2"
+            d="M122 69.7 98.1 40.2a6 6 0 0 0-4.6-2.2H42.1a6 6 0 0 0-4.6 2.2l-24 29.5V85H122z"
+            fill="#aeb8c2"
           />
           <path
-            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
-            fill="url(#linearGradient-1)"
-            transform="translate(13.56)"
+            d="M33.8 0h68a4 4 0 0 1 4 4v93.3a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4"
+            fill="#f5f5f7"
           />
           <path
-            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
-            fill="#F5F5F7"
-          />
-          <path
-            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
-            fill="#DCE0E6"
+            d="M42.7 10h50.2a2 2 0 0 1 2 2v25a2 2 0 0 1-2 2H42.7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2m.2 39.8h49.8a2.3 2.3 0 1 1 0 4.5H42.9a2.3 2.3 0 0 1 0-4.5m0 11.7h49.8a2.3 2.3 0 1 1 0 4.6H42.9a2.3 2.3 0 0 1 0-4.6m79 43.5a7 7 0 0 1-6.8 5.4H20.5a7 7 0 0 1-6.7-5.4l-.2-1.8V69.7h26.3c2.9 0 5.2 2.4 5.2 5.4s2.4 5.4 5.3 5.4h34.8c2.9 0 5.3-2.4 5.3-5.4s2.3-5.4 5.2-5.4H122v33.5q0 1-.2 1.8"
+            fill="#dce0e6"
           />
         </g>
         <path
-          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
-          fill="#DCE0E6"
+          d="m149.1 33.3-6.8 2.6a1 1 0 0 1-1.3-1.2l2-6.2q-4.1-4.5-4.2-10.4c0-10 10.1-18.1 22.6-18.1S184 8.1 184 18.1s-10.1 18-22.6 18q-6.8 0-12.3-2.8"
+          fill="#dce0e6"
         />
         <g
-          fill="#FFF"
-          transform="translate(149.65 15.383)"
+          fill="#fff"
+          transform="translate(149.7 15.4)"
         >
-          <ellipse
-            cx="20.654"
-            cy="3.167"
-            rx="2.849"
-            ry="2.815"
+          <circle
+            cx="20.7"
+            cy="3.2"
+            r="2.8"
           />
           <path
-            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+            d="M5.7 5.6H0L2.9.7zM9.3.7h5v5h-5z"
           />
         </g>
       </g>
@@ -15207,50 +14945,44 @@ exports[`ConfigProvider components Empty configProvider componentSize small 1`] 
         fill-rule="evenodd"
       >
         <g
-          transform="translate(24 31.67)"
+          transform="translate(24 31.7)"
         >
           <ellipse
-            cx="67.797"
-            cy="106.89"
+            cx="67.8"
+            cy="106.9"
             fill="#F5F5F7"
             fill-opacity=".8"
-            rx="67.797"
-            ry="12.668"
+            rx="67.8"
+            ry="12.7"
           />
           <path
-            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
-            fill="#AEB8C2"
+            d="M122 69.7 98.1 40.2a6 6 0 0 0-4.6-2.2H42.1a6 6 0 0 0-4.6 2.2l-24 29.5V85H122z"
+            fill="#aeb8c2"
           />
           <path
-            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
-            fill="url(#linearGradient-1)"
-            transform="translate(13.56)"
+            d="M33.8 0h68a4 4 0 0 1 4 4v93.3a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4"
+            fill="#f5f5f7"
           />
           <path
-            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
-            fill="#F5F5F7"
-          />
-          <path
-            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
-            fill="#DCE0E6"
+            d="M42.7 10h50.2a2 2 0 0 1 2 2v25a2 2 0 0 1-2 2H42.7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2m.2 39.8h49.8a2.3 2.3 0 1 1 0 4.5H42.9a2.3 2.3 0 0 1 0-4.5m0 11.7h49.8a2.3 2.3 0 1 1 0 4.6H42.9a2.3 2.3 0 0 1 0-4.6m79 43.5a7 7 0 0 1-6.8 5.4H20.5a7 7 0 0 1-6.7-5.4l-.2-1.8V69.7h26.3c2.9 0 5.2 2.4 5.2 5.4s2.4 5.4 5.3 5.4h34.8c2.9 0 5.3-2.4 5.3-5.4s2.3-5.4 5.2-5.4H122v33.5q0 1-.2 1.8"
+            fill="#dce0e6"
           />
         </g>
         <path
-          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
-          fill="#DCE0E6"
+          d="m149.1 33.3-6.8 2.6a1 1 0 0 1-1.3-1.2l2-6.2q-4.1-4.5-4.2-10.4c0-10 10.1-18.1 22.6-18.1S184 8.1 184 18.1s-10.1 18-22.6 18q-6.8 0-12.3-2.8"
+          fill="#dce0e6"
         />
         <g
-          fill="#FFF"
-          transform="translate(149.65 15.383)"
+          fill="#fff"
+          transform="translate(149.7 15.4)"
         >
-          <ellipse
-            cx="20.654"
-            cy="3.167"
-            rx="2.849"
-            ry="2.815"
+          <circle
+            cx="20.7"
+            cy="3.2"
+            r="2.8"
           />
           <path
-            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+            d="M5.7 5.6H0L2.9.7zM9.3.7h5v5h-5z"
           />
         </g>
       </g>
@@ -15285,50 +15017,44 @@ exports[`ConfigProvider components Empty normal 1`] = `
         fill-rule="evenodd"
       >
         <g
-          transform="translate(24 31.67)"
+          transform="translate(24 31.7)"
         >
           <ellipse
-            cx="67.797"
-            cy="106.89"
+            cx="67.8"
+            cy="106.9"
             fill="#F5F5F7"
             fill-opacity=".8"
-            rx="67.797"
-            ry="12.668"
+            rx="67.8"
+            ry="12.7"
           />
           <path
-            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
-            fill="#AEB8C2"
+            d="M122 69.7 98.1 40.2a6 6 0 0 0-4.6-2.2H42.1a6 6 0 0 0-4.6 2.2l-24 29.5V85H122z"
+            fill="#aeb8c2"
           />
           <path
-            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
-            fill="url(#linearGradient-1)"
-            transform="translate(13.56)"
+            d="M33.8 0h68a4 4 0 0 1 4 4v93.3a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4"
+            fill="#f5f5f7"
           />
           <path
-            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
-            fill="#F5F5F7"
-          />
-          <path
-            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
-            fill="#DCE0E6"
+            d="M42.7 10h50.2a2 2 0 0 1 2 2v25a2 2 0 0 1-2 2H42.7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2m.2 39.8h49.8a2.3 2.3 0 1 1 0 4.5H42.9a2.3 2.3 0 0 1 0-4.5m0 11.7h49.8a2.3 2.3 0 1 1 0 4.6H42.9a2.3 2.3 0 0 1 0-4.6m79 43.5a7 7 0 0 1-6.8 5.4H20.5a7 7 0 0 1-6.7-5.4l-.2-1.8V69.7h26.3c2.9 0 5.2 2.4 5.2 5.4s2.4 5.4 5.3 5.4h34.8c2.9 0 5.3-2.4 5.3-5.4s2.3-5.4 5.2-5.4H122v33.5q0 1-.2 1.8"
+            fill="#dce0e6"
           />
         </g>
         <path
-          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
-          fill="#DCE0E6"
+          d="m149.1 33.3-6.8 2.6a1 1 0 0 1-1.3-1.2l2-6.2q-4.1-4.5-4.2-10.4c0-10 10.1-18.1 22.6-18.1S184 8.1 184 18.1s-10.1 18-22.6 18q-6.8 0-12.3-2.8"
+          fill="#dce0e6"
         />
         <g
-          fill="#FFF"
-          transform="translate(149.65 15.383)"
+          fill="#fff"
+          transform="translate(149.7 15.4)"
         >
-          <ellipse
-            cx="20.654"
-            cy="3.167"
-            rx="2.849"
-            ry="2.815"
+          <circle
+            cx="20.7"
+            cy="3.2"
+            r="2.8"
           />
           <path
-            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+            d="M5.7 5.6H0L2.9.7zM9.3.7h5v5h-5z"
           />
         </g>
       </g>
@@ -15363,50 +15089,44 @@ exports[`ConfigProvider components Empty prefixCls 1`] = `
         fill-rule="evenodd"
       >
         <g
-          transform="translate(24 31.67)"
+          transform="translate(24 31.7)"
         >
           <ellipse
-            cx="67.797"
-            cy="106.89"
+            cx="67.8"
+            cy="106.9"
             fill="#F5F5F7"
             fill-opacity=".8"
-            rx="67.797"
-            ry="12.668"
+            rx="67.8"
+            ry="12.7"
           />
           <path
-            d="M122.034 69.674L98.109 40.229c-1.148-1.386-2.826-2.225-4.593-2.225h-51.44c-1.766 0-3.444.839-4.592 2.225L13.56 69.674v15.383h108.475V69.674z"
-            fill="#AEB8C2"
+            d="M122 69.7 98.1 40.2a6 6 0 0 0-4.6-2.2H42.1a6 6 0 0 0-4.6 2.2l-24 29.5V85H122z"
+            fill="#aeb8c2"
           />
           <path
-            d="M101.537 86.214L80.63 61.102c-1.001-1.207-2.507-1.867-4.048-1.867H31.724c-1.54 0-3.047.66-4.048 1.867L6.769 86.214v13.792h94.768V86.214z"
-            fill="url(#linearGradient-1)"
-            transform="translate(13.56)"
+            d="M33.8 0h68a4 4 0 0 1 4 4v93.3a4 4 0 0 1-4 4h-68a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4"
+            fill="#f5f5f7"
           />
           <path
-            d="M33.83 0h67.933a4 4 0 0 1 4 4v93.344a4 4 0 0 1-4 4H33.83a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4z"
-            fill="#F5F5F7"
-          />
-          <path
-            d="M42.678 9.953h50.237a2 2 0 0 1 2 2V36.91a2 2 0 0 1-2 2H42.678a2 2 0 0 1-2-2V11.953a2 2 0 0 1 2-2zM42.94 49.767h49.713a2.262 2.262 0 1 1 0 4.524H42.94a2.262 2.262 0 0 1 0-4.524zM42.94 61.53h49.713a2.262 2.262 0 1 1 0 4.525H42.94a2.262 2.262 0 0 1 0-4.525zM121.813 105.032c-.775 3.071-3.497 5.36-6.735 5.36H20.515c-3.238 0-5.96-2.29-6.734-5.36a7.309 7.309 0 0 1-.222-1.79V69.675h26.318c2.907 0 5.25 2.448 5.25 5.42v.04c0 2.971 2.37 5.37 5.277 5.37h34.785c2.907 0 5.277-2.421 5.277-5.393V75.1c0-2.972 2.343-5.426 5.25-5.426h26.318v33.569c0 .617-.077 1.216-.221 1.789z"
-            fill="#DCE0E6"
+            d="M42.7 10h50.2a2 2 0 0 1 2 2v25a2 2 0 0 1-2 2H42.7a2 2 0 0 1-2-2V12a2 2 0 0 1 2-2m.2 39.8h49.8a2.3 2.3 0 1 1 0 4.5H42.9a2.3 2.3 0 0 1 0-4.5m0 11.7h49.8a2.3 2.3 0 1 1 0 4.6H42.9a2.3 2.3 0 0 1 0-4.6m79 43.5a7 7 0 0 1-6.8 5.4H20.5a7 7 0 0 1-6.7-5.4l-.2-1.8V69.7h26.3c2.9 0 5.2 2.4 5.2 5.4s2.4 5.4 5.3 5.4h34.8c2.9 0 5.3-2.4 5.3-5.4s2.3-5.4 5.2-5.4H122v33.5q0 1-.2 1.8"
+            fill="#dce0e6"
           />
         </g>
         <path
-          d="M149.121 33.292l-6.83 2.65a1 1 0 0 1-1.317-1.23l1.937-6.207c-2.589-2.944-4.109-6.534-4.109-10.408C138.802 8.102 148.92 0 161.402 0 173.881 0 184 8.102 184 18.097c0 9.995-10.118 18.097-22.599 18.097-4.528 0-8.744-1.066-12.28-2.902z"
-          fill="#DCE0E6"
+          d="m149.1 33.3-6.8 2.6a1 1 0 0 1-1.3-1.2l2-6.2q-4.1-4.5-4.2-10.4c0-10 10.1-18.1 22.6-18.1S184 8.1 184 18.1s-10.1 18-22.6 18q-6.8 0-12.3-2.8"
+          fill="#dce0e6"
         />
         <g
-          fill="#FFF"
-          transform="translate(149.65 15.383)"
+          fill="#fff"
+          transform="translate(149.7 15.4)"
         >
-          <ellipse
-            cx="20.654"
-            cy="3.167"
-            rx="2.849"
-            ry="2.815"
+          <circle
+            cx="20.7"
+            cy="3.2"
+            r="2.8"
           />
           <path
-            d="M5.698 5.63H0L2.898.704zM9.259.704h4.985V5.63H9.259z"
+            d="M5.7 5.6H0L2.9.7zM9.3.7h5v5h-5z"
           />
         </g>
       </g>
@@ -16522,7 +16242,7 @@ exports[`ConfigProvider components InputNumber configProvider 1`] = `
 
 exports[`ConfigProvider components InputNumber configProvider componentDisabled 1`] = `
 <div
-  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined config-input-number-disabled"
+  class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined config-input-number-without-controls config-input-number-disabled"
 >
   <input
     autocomplete="off"
@@ -16532,64 +16252,6 @@ exports[`ConfigProvider components InputNumber configProvider componentDisabled 
     step="1"
     value=""
   />
-  <div
-    class="config-input-number-actions"
-  >
-    <span
-      aria-disabled="false"
-      aria-label="Increase Value"
-      class="config-input-number-action config-input-number-action-up"
-      role="button"
-      unselectable="on"
-    >
-      <span
-        aria-label="up"
-        class="anticon anticon-up"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="up"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-    <span
-      aria-disabled="false"
-      aria-label="Decrease Value"
-      class="config-input-number-action config-input-number-action-down"
-      role="button"
-      unselectable="on"
-    >
-      <span
-        aria-label="down"
-        class="anticon anticon-down"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="down"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-          />
-        </svg>
-      </span>
-    </span>
-  </div>
 </div>
 `;
 
@@ -17566,7 +17228,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17644,7 +17305,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17722,7 +17382,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17800,7 +17459,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17878,7 +17536,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="config-menu-item config-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -17956,7 +17613,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="ant-menu-item ant-menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               role="menuitem"
@@ -18035,7 +17691,6 @@ Array [
             role="group"
           >
             <li
-              aria-describedby="test-id"
               class="prefix-Menu-item prefix-Menu-item-only-child"
               data-menu-id="rc-menu-uuid-1"
               prefixcls="prefix-Menu"
@@ -18071,83 +17726,74 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18164,83 +17810,74 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18257,83 +17894,74 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-lg"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-lg"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-lg"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18350,83 +17978,74 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18443,83 +18062,74 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
     />
     <div
       class="config-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="config-modal config-zoom-appear config-zoom-appear-prepare config-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="config-modal-container"
         >
-          <div
-            class="config-modal-container"
+          <button
+            aria-label="Close"
+            class="config-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="config-modal-close"
-              type="button"
+              class="config-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="config-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close config-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close config-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="config-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="config-modal-footer"
+          >
+            <button
+              class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="config-modal-body"
+            <button
+              class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="config-modal-footer"
-            >
-              <button
-                class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined config-btn-sm"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="config-btn css-var-root config-btn-primary config-btn-color-primary config-btn-variant-solid config-btn-sm"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18536,83 +18146,74 @@ exports[`ConfigProvider components Modal normal 1`] = `
     />
     <div
       class="ant-modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="ant-modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="ant-modal-container"
         >
-          <div
-            class="ant-modal-container"
+          <button
+            aria-label="Close"
+            class="ant-modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="ant-modal-close"
-              type="button"
+              class="ant-modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="ant-modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close ant-modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close ant-modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="ant-modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="ant-modal-footer"
+          >
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="ant-modal-body"
+            <button
+              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="ant-modal-footer"
-            >
-              <button
-                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18629,83 +18230,74 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
     />
     <div
       class="prefix-Modal-wrap"
-      tabindex="-1"
     >
       <div
         aria-modal="true"
         class="prefix-Modal ant-zoom-appear ant-zoom-appear-prepare ant-zoom"
         role="dialog"
         style="width: 520px;"
+        tabindex="-1"
       >
         <div
-          style="outline: none;"
-          tabindex="0"
+          class="prefix-Modal-container"
         >
-          <div
-            class="prefix-Modal-container"
+          <button
+            aria-label="Close"
+            class="prefix-Modal-close"
+            type="button"
           >
-            <button
+            <span
               aria-label="Close"
-              class="prefix-Modal-close"
-              type="button"
+              class="prefix-Modal-close-x"
             >
               <span
-                aria-label="Close"
-                class="prefix-Modal-close-x"
+                aria-label="close"
+                class="anticon anticon-close prefix-Modal-close-icon"
+                role="img"
               >
-                <span
-                  aria-label="close"
-                  class="anticon anticon-close prefix-Modal-close-icon"
-                  role="img"
+                <svg
+                  aria-hidden="true"
+                  data-icon="close"
+                  fill="currentColor"
+                  fill-rule="evenodd"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
                 >
-                  <svg
-                    aria-hidden="true"
-                    data-icon="close"
-                    fill="currentColor"
-                    fill-rule="evenodd"
-                    focusable="false"
-                    height="1em"
-                    viewBox="64 64 896 896"
-                    width="1em"
-                  >
-                    <path
-                      d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                    />
-                  </svg>
-                </span>
+                  <path
+                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
+                  />
+                </svg>
+              </span>
+            </span>
+          </button>
+          <div
+            class="prefix-Modal-body"
+          >
+            Bamboo is Little Light
+          </div>
+          <div
+            class="prefix-Modal-footer"
+          >
+            <button
+              class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+              type="button"
+            >
+              <span>
+                Cancel
               </span>
             </button>
-            <div
-              class="prefix-Modal-body"
+            <button
+              class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+              type="button"
             >
-              Bamboo is Little Light
-            </div>
-            <div
-              class="prefix-Modal-footer"
-            >
-              <button
-                class="ant-btn css-var-root ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-                type="button"
-              >
-                <span>
-                  Cancel
-                </span>
-              </button>
-              <button
-                class="ant-btn css-var-root ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-                type="button"
-              >
-                <span>
-                  OK
-                </span>
-              </button>
-            </div>
+              <span>
+                OK
+              </span>
+            </button>
           </div>
         </div>
-        <div
-          style="width: 0px; height: 0px; overflow: hidden; outline: none;"
-          tabindex="0"
-        />
       </div>
     </div>
   </div>
@@ -18796,7 +18388,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -18811,11 +18402,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -18851,7 +18440,7 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -18932,7 +18521,6 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -18947,11 +18535,9 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19073,7 +18659,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
@@ -19088,11 +18673,9 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -19129,7 +18712,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19210,7 +18793,6 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
@@ -19225,11 +18807,9 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             disabled=""
@@ -19271,7 +18851,7 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
 exports[`ConfigProvider components Pagination configProvider componentSize large 1`] = `
 <div>
   <ul
-    class="config-pagination css-var-root"
+    class="config-pagination config-pagination-large css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19352,8 +18932,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
-        class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
+        class="config-select config-select-lg config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
           class="config-select-content"
@@ -19367,11 +18946,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19407,7 +18984,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19488,7 +19065,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -19503,11 +19079,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19548,7 +19122,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
 exports[`ConfigProvider components Pagination configProvider componentSize middle 1`] = `
 <div>
   <ul
-    class="config-pagination css-var-root"
+    class="config-pagination config-pagination-middle css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19629,7 +19203,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -19644,11 +19217,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19684,7 +19255,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19765,7 +19336,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -19780,11 +19350,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19825,7 +19393,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
 exports[`ConfigProvider components Pagination configProvider componentSize small 1`] = `
 <div>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -19906,7 +19474,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -19921,11 +19488,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -19961,7 +19526,7 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
     </li>
   </ul>
   <ul
-    class="config-pagination config-pagination-mini css-var-root"
+    class="config-pagination config-pagination-small config-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -20042,7 +19607,6 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
       class="config-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
@@ -20057,11 +19621,9 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="config-select-input"
             id="test-id"
@@ -20183,7 +19745,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -20198,11 +19759,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20238,7 +19797,7 @@ exports[`ConfigProvider components Pagination normal 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-pagination ant-pagination-mini css-var-root"
+    class="ant-pagination ant-pagination-small ant-pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -20319,7 +19878,6 @@ exports[`ConfigProvider components Pagination normal 1`] = `
       class="ant-pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -20334,11 +19892,9 @@ exports[`ConfigProvider components Pagination normal 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20460,7 +20016,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -20475,11 +20030,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -20515,7 +20068,7 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
     </li>
   </ul>
   <ul
-    class="prefix-Pagination prefix-Pagination-mini css-var-root"
+    class="prefix-Pagination prefix-Pagination-small prefix-Pagination-mini css-var-root"
   >
     <li
       aria-disabled="true"
@@ -20596,7 +20149,6 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
       class="prefix-Pagination-options"
     >
       <div
-        aria-label="Page Size"
         class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
@@ -20611,11 +20163,9 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="Page Size"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -21695,6 +21245,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21721,6 +21272,7 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
   </div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21752,6 +21304,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
 <div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked config-radio-wrapper-disabled css-var-root config-radio-css-var"
@@ -21779,6 +21332,7 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
   </div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked config-radio-button-wrapper-disabled css-var-root config-radio-css-var"
@@ -21811,6 +21365,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-large css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21837,6 +21392,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-large css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21868,6 +21424,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21894,6 +21451,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21925,6 +21483,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
 <div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-small css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-wrapper config-radio-wrapper-checked css-var-root config-radio-css-var"
@@ -21951,6 +21510,7 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
   </div>
   <div
     class="config-radio-group config-radio-group-outline config-radio-group-small css-var-root config-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="config-radio-button-wrapper config-radio-button-wrapper-checked css-var-root config-radio-css-var"
@@ -21982,6 +21542,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-root ant-radio-css-var"
@@ -22008,6 +21569,7 @@ exports[`ConfigProvider components Radio normal 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-root ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -22039,6 +21601,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 <div>
   <div
     class="prefix-Radio-group prefix-Radio-group-outline css-var-root prefix-Radio-css-var"
+    role="radiogroup"
   >
     <label
       class="prefix-Radio-wrapper prefix-Radio-wrapper-checked css-var-root prefix-Radio-css-var"
@@ -22065,6 +21628,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
   </div>
   <div
     class="prefix-Radio-group prefix-Radio-group-outline css-var-root prefix-Radio-css-var"
+    role="radiogroup"
   >
     <label
       class="prefix-Radio-button-wrapper prefix-Radio-button-wrapper-checked css-var-root prefix-Radio-css-var"
@@ -24250,10 +23814,8 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
     </div>
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""
@@ -25454,7 +25016,7 @@ exports[`ConfigProvider components Statistic prefixCls 1`] = `
 exports[`ConfigProvider components Steps configProvider 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25497,7 +25059,7 @@ exports[`ConfigProvider components Steps configProvider 1`] = `
 exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25540,7 +25102,7 @@ exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = 
 exports[`ConfigProvider components Steps configProvider componentSize large 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-large css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25583,7 +25145,7 @@ exports[`ConfigProvider components Steps configProvider componentSize large 1`] 
 exports[`ConfigProvider components Steps configProvider componentSize middle 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-middle css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25626,7 +25188,7 @@ exports[`ConfigProvider components Steps configProvider componentSize middle 1`]
 exports[`ConfigProvider components Steps configProvider componentSize small 1`] = `
 <div
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-small css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <div
     class="config-steps-item config-steps-item-process config-steps-item-active"
@@ -25669,7 +25231,7 @@ exports[`ConfigProvider components Steps configProvider componentSize small 1`] 
 exports[`ConfigProvider components Steps normal 1`] = `
 <div
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 >
   <div
     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -25712,7 +25274,7 @@ exports[`ConfigProvider components Steps normal 1`] = `
 exports[`ConfigProvider components Steps prefixCls 1`] = `
 <div
   class="prefix-Steps prefix-Steps-vertical prefix-Steps-title-horizontal prefix-Steps-filled css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 >
   <div
     class="prefix-Steps-item prefix-Steps-item-process prefix-Steps-item-active"
@@ -25954,7 +25516,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26050,7 +25611,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26195,10 +25755,10 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -26263,7 +25823,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26359,7 +25918,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26506,10 +26064,10 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -26574,7 +26132,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26670,7 +26227,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -26815,10 +26371,10 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -26883,7 +26439,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -26979,7 +26534,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27124,10 +26678,10 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -27192,7 +26746,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                         class="config-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="config-table-column-sorters"
                         >
                           <span
@@ -27288,7 +26841,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="config-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27433,10 +26985,10 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -27501,7 +27053,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                         class="ant-table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="ant-table-column-sorters"
                         >
                           <span
@@ -27597,7 +27148,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -27742,10 +27292,10 @@ exports[`ConfigProvider components Table normal 1`] = `
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -27810,7 +27360,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                         class="prefix-Table-column-title"
                       >
                         <div
-                          aria-describedby="test-id"
                           class="prefix-Table-column-sorters"
                         >
                           <span
@@ -27906,7 +27455,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                             tabindex="0"
                           >
                             <li
-                              aria-describedby="test-id"
                               class="ant-dropdown-menu-item"
                               data-menu-id="rc-menu-uuid-Joe"
                               role="menuitem"
@@ -28051,10 +27599,10 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -38237,7 +37785,7 @@ Array [
 exports[`ConfigProvider components Timeline configProvider 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -38268,7 +37816,7 @@ exports[`ConfigProvider components Timeline configProvider 1`] = `
 exports[`ConfigProvider components Timeline configProvider componentDisabled 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -38299,7 +37847,7 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
 exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-large config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -38330,7 +37878,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
 exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-middle config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -38361,7 +37909,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize middle 
 exports[`ConfigProvider components Timeline configProvider componentSize small 1`] = `
 <ol
   class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-small config-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--config-cmp-steps-items-offset: 0;"
 >
   <li
     class="config-steps-item config-steps-item-finish config-steps-item-active config-steps-item-empty-header config-timeline-item-placement-start config-timeline-item"
@@ -38392,7 +37940,7 @@ exports[`ConfigProvider components Timeline configProvider componentSize small 1
 exports[`ConfigProvider components Timeline normal 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header ant-timeline-item-placement-start ant-timeline-item"
@@ -38423,7 +37971,7 @@ exports[`ConfigProvider components Timeline normal 1`] = `
 exports[`ConfigProvider components Timeline prefixCls 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot prefix-Timeline css-var-root css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 >
   <li
     class="ant-steps-item ant-steps-item-finish ant-steps-item-active ant-steps-item-empty-header prefix-Timeline-item-placement-start prefix-Timeline-item"
@@ -38762,10 +38310,10 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -38932,10 +38480,10 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -39048,10 +38596,10 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -39219,10 +38767,10 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -39334,10 +38882,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -39504,10 +39052,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -39619,10 +39167,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -39789,10 +39337,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -39904,10 +39452,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -40074,10 +39622,10 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -40189,10 +39737,10 @@ exports[`ConfigProvider components Transfer normal 1`] = `
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -40359,10 +39907,10 @@ exports[`ConfigProvider components Transfer normal 1`] = `
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -40474,10 +40022,10 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -40644,10 +40192,10 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -41853,10 +41401,8 @@ exports[`ConfigProvider components TreeSelect configProvider componentDisabled 1
     />
     <input
       aria-autocomplete="list"
-      aria-controls="test-id_list"
       aria-expanded="false"
       aria-haspopup="listbox"
-      aria-owns="test-id_list"
       autocomplete="off"
       class="config-select-input"
       disabled=""

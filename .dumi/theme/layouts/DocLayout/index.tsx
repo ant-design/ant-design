@@ -16,6 +16,7 @@ import SiteContext from '../../slots/SiteContext';
 import IndexLayout from '../IndexLayout';
 import ResourceLayout from '../ResourceLayout';
 import SidebarLayout from '../SidebarLayout';
+import VersionUpgrade from '../../common/VersionUpgrade';
 
 const locales = {
   cn: {
@@ -114,6 +115,7 @@ const DocLayout: React.FC = () => {
       >
         <GlobalStyles />
         {!hideLayout && <Header />}
+        <VersionUpgrade />
         {content}
       </ConfigProvider>
     </>

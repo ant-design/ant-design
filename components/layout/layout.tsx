@@ -13,6 +13,7 @@ export interface GeneratorProps {
   tagName: 'header' | 'footer' | 'main' | 'div';
   displayName: string;
 }
+
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   suffixCls?: string;
@@ -24,17 +25,17 @@ interface BasicPropsWithTagName extends BasicProps {
   tagName: 'header' | 'footer' | 'main' | 'div';
 }
 
-function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
-  return (BasicComponent: any) => {
+const generator = ({ suffixCls, tagName, displayName }: GeneratorProps) => {
+  return (Component: React.ComponentType<BasicPropsWithTagName & React.RefAttributes<any>>) => {
     const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => (
-      <BasicComponent ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
+      <Component ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
     ));
     if (process.env.NODE_ENV !== 'production') {
       Adapter.displayName = displayName;
     }
     return Adapter;
   };
-}
+};
 
 const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
   const {

@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import {
   genBasicInputStyle,
+  genInputLargeStyle,
   genInputSmallStyle,
   initComponentToken,
   initInputToken,
@@ -12,6 +13,7 @@ import { genBaseOutlinedStyle, genDisabledStyle } from '../../input/style/varian
 import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken {
   /**
@@ -24,6 +26,16 @@ export interface ComponentToken {
    * @descEN Size of Pagination item
    */
   itemSize: number;
+  /**
+   * @desc 小号页码尺寸
+   * @descEN Size of small Pagination item
+   */
+  itemSizeSM: number;
+  /**
+   * @desc 大号页码尺寸
+   * @descEN Size of large Pagination item
+   */
+  itemSizeLG: number;
   /**
    * @desc 页码激活态背景色
    * @descEN Background color of active Pagination item
@@ -39,11 +51,6 @@ export interface ComponentToken {
    * @descEN Text color of active Pagination item hover
    */
   itemActiveColorHover: string;
-  /**
-   * @desc 小号页码尺寸
-   * @descEN Size of small Pagination item
-   */
-  itemSizeSM: number;
   /**
    * @desc 页码链接背景色
    * @descEN Background color of Pagination item link
@@ -212,80 +219,32 @@ const genPaginationDisabledStyle: GenerateStyle<PaginationToken, CSSObject> = (t
   };
 };
 
-const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
+const genPaginationSmallStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
-    [`&${componentCls}-mini ${componentCls}-total-text, &${componentCls}-mini ${componentCls}-simple-pager`]:
-      {
-        height: token.itemSizeSM,
-        lineHeight: unit(token.itemSizeSM),
-      },
-
-    [`&${componentCls}-mini ${componentCls}-item`]: {
-      minWidth: token.itemSizeSM,
-      height: token.itemSizeSM,
-      margin: 0,
-      lineHeight: unit(token.calc(token.itemSizeSM).sub(2).equal()),
-    },
-
-    [`&${componentCls}-mini ${componentCls}-prev, &${componentCls}-mini ${componentCls}-next`]: {
-      minWidth: token.itemSizeSM,
-      height: token.itemSizeSM,
-      margin: 0,
-      lineHeight: unit(token.itemSizeSM),
-    },
-
-    [`&${componentCls}-mini:not(${componentCls}-disabled)`]: {
-      [`${componentCls}-prev, ${componentCls}-next`]: {
-        [`&:hover ${componentCls}-item-link`]: {
-          backgroundColor: token.colorBgTextHover,
-        },
-        [`&:active ${componentCls}-item-link`]: {
-          backgroundColor: token.colorBgTextActive,
-        },
-        [`&${componentCls}-disabled:hover ${componentCls}-item-link`]: {
-          backgroundColor: 'transparent',
-        },
-      },
-    },
-
-    [`
-    &${componentCls}-mini ${componentCls}-prev ${componentCls}-item-link,
-    &${componentCls}-mini ${componentCls}-next ${componentCls}-item-link
-    `]: {
-      backgroundColor: 'transparent',
-      borderColor: 'transparent',
-
-      '&::after': {
-        height: token.itemSizeSM,
-        lineHeight: unit(token.itemSizeSM),
-      },
-    },
-
-    [`&${componentCls}-mini ${componentCls}-jump-prev, &${componentCls}-mini ${componentCls}-jump-next`]:
-      {
-        height: token.itemSizeSM,
-        marginInlineEnd: 0,
-        lineHeight: unit(token.itemSizeSM),
-      },
-
-    [`&${componentCls}-mini ${componentCls}-options`]: {
+    [`&${componentCls}-small ${componentCls}-options`]: {
       marginInlineStart: token.paginationMiniOptionsMarginInlineStart,
 
-      '&-size-changer': {
-        top: token.miniOptionsSizeChangerTop,
-      },
-
       '&-quick-jumper': {
-        height: token.itemSizeSM,
-        lineHeight: unit(token.itemSizeSM),
-
         input: {
           ...genInputSmallStyle(token),
 
           width: token.paginationMiniQuickJumperInputWidth,
-          height: token.controlHeightSM,
+        },
+      },
+    },
+  };
+};
+
+const genPaginationLargeStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [`&${componentCls}-large ${componentCls}-options`]: {
+      '&-quick-jumper': {
+        input: {
+          ...genInputLargeStyle(token),
         },
       },
     },
@@ -293,16 +252,18 @@ const genPaginationMiniStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 };
 
 const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
+
+  const [, varRef] = genCssVar(antCls, 'pagination');
 
   return {
     [`&${componentCls}-simple`]: {
       [`${componentCls}-prev, ${componentCls}-next`]: {
-        height: token.itemSize,
-        lineHeight: unit(token.itemSize),
+        height: varRef(`item-size-actual`),
+        lineHeight: varRef(`item-size-actual`),
         verticalAlign: 'top',
         [`${componentCls}-item-link`]: {
-          height: token.itemSize,
+          height: varRef(`item-size-actual`),
           backgroundColor: 'transparent',
           border: 0,
           '&:hover': {
@@ -312,8 +273,8 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
             backgroundColor: token.colorBgTextActive,
           },
           '&::after': {
-            height: token.itemSize,
-            lineHeight: unit(token.itemSize),
+            height: varRef(`item-size-actual`),
+            lineHeight: varRef(`item-size-actual`),
           },
         },
       },
@@ -321,8 +282,8 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
       [`${componentCls}-simple-pager`]: {
         display: 'inline-flex',
         alignItems: 'center',
-        height: token.itemSize,
-        marginInlineEnd: token.marginXS,
+        height: varRef(`item-size-actual`),
+        marginInlineEnd: varRef(`item-spacing-actual`),
 
         input: {
           boxSizing: 'border-box',
@@ -367,22 +328,8 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
         },
       },
 
-      [`&${componentCls}-mini`]: {
-        [`${componentCls}-prev, ${componentCls}-next`]: {
-          height: token.itemSizeSM,
-          lineHeight: unit(token.itemSizeSM),
-          [`${componentCls}-item-link`]: {
-            height: token.itemSizeSM,
-            '&::after': {
-              height: token.itemSizeSM,
-              lineHeight: unit(token.itemSizeSM),
-            },
-          },
-        },
-
+      [`&${componentCls}-small`]: {
         [`${componentCls}-simple-pager`]: {
-          height: token.itemSizeSM,
-
           input: {
             width: token.paginationMiniQuickJumperInputWidth,
           },
@@ -393,7 +340,9 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
 };
 
 const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
+
+  const [, varRef] = genCssVar(antCls, 'pagination');
 
   return {
     [`${componentCls}-jump-prev, ${componentCls}-jump-next`]: {
@@ -449,7 +398,7 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     ${componentCls}-jump-prev,
     ${componentCls}-jump-next
     `]: {
-      marginInlineEnd: token.marginXS,
+      marginInlineEnd: varRef(`item-spacing-actual`),
     },
 
     [`
@@ -459,11 +408,11 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     ${componentCls}-jump-next
     `]: {
       display: 'inline-block',
-      minWidth: token.itemSize,
-      height: token.itemSize,
+      minWidth: varRef(`item-size-actual`),
+      height: varRef(`item-size-actual`),
       color: token.colorText,
       fontFamily: token.fontFamily,
-      lineHeight: unit(token.itemSize),
+      lineHeight: varRef(`item-size-actual`),
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
@@ -526,10 +475,10 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
       '&-quick-jumper': {
         display: 'inline-block',
-        height: token.controlHeight,
+        height: varRef(`item-size-actual`),
         marginInlineStart: token.marginXS,
-        lineHeight: unit(token.controlHeight),
-        verticalAlign: 'top',
+        lineHeight: varRef(`item-size-actual`),
+        verticalAlign: 'baseline',
 
         input: {
           ...genBasicInputStyle(token),
@@ -544,11 +493,11 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
           },
 
           width: token.quickJumperInputWidth,
-          height: token.controlHeight,
+          height: varRef(`item-size-actual`),
           boxSizing: 'border-box',
           margin: 0,
-          marginInlineStart: token.marginXS,
-          marginInlineEnd: token.marginXS,
+          marginInlineStart: varRef(`item-spacing-actual`),
+          marginInlineEnd: varRef(`item-spacing-actual`),
         },
       },
     },
@@ -556,16 +505,18 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 };
 
 const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
+
+  const [, varRef] = genCssVar(antCls, 'pagination');
 
   return {
     [`${componentCls}-item`]: {
       display: 'inline-block',
-      minWidth: token.itemSize,
-      height: token.itemSize,
-      marginInlineEnd: token.marginXS,
+      minWidth: varRef(`item-size-actual`),
+      height: varRef(`item-size-actual`),
+      marginInlineEnd: varRef(`item-spacing-actual`),
       fontFamily: token.fontFamily,
-      lineHeight: unit(token.calc(token.itemSize).sub(2).equal()),
+      lineHeight: unit(token.calc(varRef('item-size-actual')).sub(2).equal()),
       textAlign: 'center',
       verticalAlign: 'middle',
       listStyle: 'none',
@@ -619,12 +570,26 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 };
 
 const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, antCls } = token;
+
+  const [varName, varRef] = genCssVar(antCls, 'pagination');
 
   return {
     [componentCls]: {
+      [varName(`item-size-actual`)]: unit(token.itemSize),
+      [varName(`item-spacing-actual`)]: unit(token.marginXS),
+      '&-small': {
+        [varName(`item-size-actual`)]: unit(token.itemSizeSM),
+        [varName(`item-spacing-actual`)]: unit(token.marginXXS),
+      },
+      '&-large': {
+        [varName(`item-size-actual`)]: unit(token.itemSizeLG),
+        [varName(`item-spacing-actual`)]: unit(token.marginSM),
+      },
+
       ...resetComponent(token),
       display: 'flex',
+      alignItems: 'center',
 
       '&-start': {
         justifyContent: 'start',
@@ -655,9 +620,9 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
 
       [`${componentCls}-total-text`]: {
         display: 'inline-block',
-        height: token.itemSize,
-        marginInlineEnd: token.marginXS,
-        lineHeight: unit(token.calc(token.itemSize).sub(2).equal()),
+        height: varRef(`item-size-actual`),
+        marginInlineEnd: varRef(`item-spacing-actual`),
+        lineHeight: unit(token.calc(varRef(`item-size-actual`)).sub(2).equal()),
         verticalAlign: 'middle',
       },
 
@@ -670,8 +635,9 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
       // simple style
       ...genPaginationSimpleStyle(token),
 
-      // mini style
-      ...genPaginationMiniStyle(token),
+      // size style
+      ...genPaginationSmallStyle(token),
+      ...genPaginationLargeStyle(token),
 
       // disabled style
       ...genPaginationDisabledStyle(token),
@@ -731,6 +697,7 @@ export const prepareComponentToken: GetDefaultToken<'Pagination'> = (token) => (
   itemBg: token.colorBgContainer,
   itemSize: token.controlHeight,
   itemSizeSM: token.controlHeightSM,
+  itemSizeLG: token.controlHeightLG,
   itemActiveBg: token.colorBgContainer,
   itemActiveColor: token.colorPrimary,
   itemActiveColorHover: token.colorPrimaryHover,

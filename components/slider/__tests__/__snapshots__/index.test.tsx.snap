@@ -15,7 +15,6 @@ exports[`Slider rtl render component should be rendered correctly in RTL directi
     class="ant-slider-step"
   />
   <div
-    aria-describedby="test-id"
     aria-disabled="false"
     aria-orientation="horizontal"
     aria-valuemax="100"

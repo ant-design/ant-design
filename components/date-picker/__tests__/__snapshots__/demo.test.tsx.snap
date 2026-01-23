@@ -4861,6 +4861,7 @@ exports[`renders components/date-picker/demo/placement.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -6091,6 +6092,7 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
   >
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -7562,9 +7564,6 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx correctly 1`] 
           size="12"
           value=""
         />
-        <span
-          class="ant-picker-suffix"
-        />
       </div>
     </div>
   </div>
@@ -7626,9 +7625,6 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx correctly 1`] 
           size="12"
           value=""
         />
-        <span
-          class="ant-picker-suffix"
-        />
       </div>
     </div>
   </div>
@@ -7667,7 +7663,6 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      aria-label="Picker Type"
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
@@ -7682,11 +7677,9 @@ exports[`renders components/date-picker/demo/switchable.tsx correctly 1`] = `
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Picker Type"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"

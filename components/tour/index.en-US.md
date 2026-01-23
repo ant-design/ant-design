@@ -7,7 +7,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NMvqRZpuJfQAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*D70qQJJmzhgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: 5.0.0
 ---
 
 ## When To Use
@@ -40,6 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | closeIcon | Customize close icon | `React.ReactNode` | `true` | 5.9.0 |
 | disabledInteraction | Disable interaction on highlighted area. | `boolean` | `false` | 5.13.0 |
 | gap | Control the radius of the highlighted area and the offset between highlighted area and the element. | `{ offset?: number \| [number, number]; radius?: number }` | `{ offset?: 6 ; radius?: 2 }` | 5.0.0 (array type `offset`: 5.9.0) |
+| keyboard | Whether to enable keyboard shortcuts | boolean | true |  6.2.0 |
 | placement | Position of the guide card relative to the target element | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | Callback function on shutdown | `Function` | - |  |
 | mask | Whether to enable masking, change mask style and fill color by pass custom props | `boolean \| { style?: React.CSSProperties; color?: string; }` | `true` |  |

@@ -216,7 +216,6 @@ exports[`renders components/progress/demo/circle-micro.tsx correctly 1`] = `
     role="progressbar"
   >
     <div
-      aria-describedby="test-id"
       class="ant-progress-body"
       style="width:14px;height:14px;font-size:8.1px"
     >
@@ -489,7 +488,6 @@ Array [
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="10"
@@ -520,7 +518,6 @@ Array [
       class="ant-slider-step"
     />
     <div
-      aria-describedby="test-id"
       aria-disabled="false"
       aria-orientation="horizontal"
       aria-valuemax="40"
@@ -959,7 +956,6 @@ Array [
         role="progressbar"
       >
         <div
-          aria-describedby="test-id"
           class="ant-progress-body"
           style="width:20px;height:20px;font-size:9px"
         >
@@ -1135,7 +1131,6 @@ Array [
         role="progressbar"
       >
         <div
-          aria-describedby="test-id"
           class="ant-progress-body"
           style="width:20px;height:20px;font-size:9px"
         >
@@ -1332,6 +1327,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     gapDegree:
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented css-var-test-id"
       role="radiogroup"
       tabindex="0"
@@ -1349,9 +1345,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="true"
             class="ant-segmented-item-label"
-            role="radio"
             title="50"
           >
             50
@@ -1366,9 +1360,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="100"
           >
             100
@@ -1381,6 +1373,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
     gapPlacement:
     <div
       aria-label="segmented control"
+      aria-orientation="horizontal"
       class="ant-segmented css-var-test-id"
       role="radiogroup"
       tabindex="0"
@@ -1397,9 +1390,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="start"
           >
             start
@@ -1414,9 +1405,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="end"
           >
             end
@@ -1431,9 +1420,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="false"
             class="ant-segmented-item-label"
-            role="radio"
             title="top"
           >
             top
@@ -1449,9 +1436,7 @@ exports[`renders components/progress/demo/dashboard.tsx correctly 1`] = `
             type="radio"
           />
           <div
-            aria-checked="true"
             class="ant-segmented-item-label"
-            role="radio"
             title="bottom"
           >
             bottom
@@ -3118,7 +3103,6 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
 >
   <div
-    aria-describedby="test-id"
     aria-valuemax="100"
     aria-valuemin="0"
     aria-valuenow="30"
@@ -3154,7 +3138,6 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
   >
     <div
-      aria-describedby="test-id"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -3209,7 +3192,6 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      aria-describedby="test-id"
       aria-valuemax="100"
       aria-valuemin="0"
       aria-valuenow="30"
@@ -3480,7 +3462,6 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        aria-describedby="test-id"
         class="ant-progress-body"
         style="width:20px;height:20px;font-size:9px"
       >
@@ -3642,7 +3623,6 @@ exports[`renders components/progress/demo/size.tsx correctly 1`] = `
       role="progressbar"
     >
       <div
-        aria-describedby="test-id"
         class="ant-progress-body"
         style="width:20px;height:20px;font-size:9px"
       >

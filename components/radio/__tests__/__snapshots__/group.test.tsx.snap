@@ -3,6 +3,7 @@
 exports[`Radio Group passes prefixCls down to radio 1`] = `
 <div
   class="my-radio-group my-radio-group-outline css-var-root my-radio-css-var"
+  role="radiogroup"
 >
   <label
     class="my-radio-wrapper css-var-root my-radio-css-var"

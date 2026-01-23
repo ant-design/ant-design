@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken {
   /**
@@ -30,39 +31,6 @@ export interface ComponentToken {
 
 interface SplitterToken extends FullToken<'Splitter'> {}
 
-const genRtlStyle = (token: SplitterToken): CSSObject => {
-  const { componentCls } = token;
-  return {
-    [`&-rtl${componentCls}-horizontal`]: {
-      [`> ${componentCls}-bar`]: {
-        [`${componentCls}-bar-collapse-previous`]: {
-          insetInlineEnd: 0,
-          insetInlineStart: 'unset',
-        },
-
-        [`${componentCls}-bar-collapse-next`]: {
-          insetInlineEnd: 'unset',
-          insetInlineStart: 0,
-        },
-      },
-    },
-
-    [`&-rtl${componentCls}-vertical`]: {
-      [`> ${componentCls}-bar`]: {
-        [`${componentCls}-bar-collapse-previous`]: {
-          insetInlineEnd: '50%',
-          insetInlineStart: 'unset',
-        },
-
-        [`${componentCls}-bar-collapse-next`]: {
-          insetInlineEnd: '50%',
-          insetInlineStart: 'unset',
-        },
-      },
-    },
-  };
-};
-
 const centerStyle: CSSObject = {
   position: 'absolute',
   top: '50%',
@@ -83,17 +51,18 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
     controlItemBgHover,
     controlItemBgActive,
     controlItemBgActiveHover,
-    prefixCls,
     colorPrimary,
+    antCls,
+    calc,
   } = token;
+
+  const [, varRef] = genCssVar(antCls, 'splitter');
 
   const splitBarCls = `${componentCls}-bar`;
   const splitMaskCls = `${componentCls}-mask`;
   const splitPanelCls = `${componentCls}-panel`;
 
-  const halfTriggerSize = token.calc(splitTriggerSize).div(2).equal();
-
-  const splitterBarPreviewOffsetVar = `${prefixCls}-bar-preview-offset`;
+  const halfTriggerSize = calc(splitTriggerSize).div(2).equal();
 
   const splitterBarPreviewStyle: CSSObject = {
     position: 'absolute',
@@ -282,7 +251,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             [`&${splitBarCls}-preview-active`]: {
               display: 'block',
-              transform: `translateX(var(--${splitterBarPreviewOffsetVar}))`,
+              transform: `translate3d(${varRef('bar-preview-offset')}, 0, 0)`,
             },
           },
 
@@ -349,7 +318,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
             [`&${splitBarCls}-preview-active`]: {
               display: 'block',
-              transform: `translateY(var(--${splitterBarPreviewOffsetVar}))`,
+              transform: `translate3d(0, ${varRef('bar-preview-offset')}, 0)`,
             },
           },
 
@@ -406,8 +375,6 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
           overflow: 'hidden',
         },
       },
-
-      ...genRtlStyle(token),
     },
   };
 };
