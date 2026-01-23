@@ -47,8 +47,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | allowClear | 	Allow clearing color selected | boolean | false | |
 | arrow | Configuration for popup arrow | `boolean \| { pointAtCenter: boolean }` | true | |
 | children | Trigger of ColorPicker | React.ReactNode | - | |
-| classNames | `InputNumber` Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
-| controls | Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 6.3.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
+| controls | `InputNumber` Whether to show `+-` controls, or set custom arrow icons | boolean \| { upIcon?: React.ReactNode; downIcon?: React.ReactNode; } | - | 6.3.0 |
 | defaultValue | Default value of color | [ColorType](#colortype) | - | |
 | defaultFormat | Default format of color | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | Disable ColorPicker | boolean | - | |
