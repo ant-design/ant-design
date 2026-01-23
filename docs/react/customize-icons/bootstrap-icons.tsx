@@ -5,9 +5,11 @@ import {
   ArrowRepeat,
   ArrowRight,
   ArrowUp,
+  Calendar,
   CheckCircle,
   ChevronDown,
   ChevronRight,
+  Clock,
   ExclamationCircle,
   InfoCircle,
   Plus,
@@ -50,6 +52,9 @@ const Demo: React.FC = () => {
       collapse={{
         expandIcon: (props) => <ChevronDown {...props} />,
       }}
+      datePicker={{
+        suffixIcon: <Calendar />,
+      }}
       drawer={{
         closeIcon: <XLg />,
       }}
@@ -85,6 +90,9 @@ const Demo: React.FC = () => {
       }}
       tag={{
         closeIcon: <XLg style={{ display: 'inline-block' }} />,
+      }}
+      timePicker={{
+        suffixIcon: <Clock />,
       }}
       tour={{
         closeIcon: <XLg />,
