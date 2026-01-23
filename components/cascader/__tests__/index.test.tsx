@@ -977,4 +977,29 @@ describe('Cascader', () => {
       expect(screen.getAllByText('bamboo').length).toBe(2);
     });
   });
+
+  describe('searchIcon', () => {
+    it('should support custom searchIcon', () => {
+      render(<Cascader open searchIcon={<div>bamboo</div>} options={options} showSearch />);
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider searchIcon', () => {
+      render(
+        <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
+          <Cascader open options={options} showSearch />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop searchIcon over ConfigProvider searchIcon', () => {
+      render(
+        <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
+          <Cascader open options={options} searchIcon={<div>bamboo</div>} showSearch />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
 });
