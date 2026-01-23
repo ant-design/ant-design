@@ -261,7 +261,6 @@ const genPaginationSimpleStyle: GenerateStyle<PaginationToken, CSSObject> = (tok
       [`${componentCls}-prev, ${componentCls}-next`]: {
         height: varRef(`item-size-actual`),
         lineHeight: varRef(`item-size-actual`),
-        verticalAlign: 'top',
         [`${componentCls}-item-link`]: {
           height: varRef(`item-size-actual`),
           backgroundColor: 'transparent',
@@ -407,14 +406,15 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     ${componentCls}-jump-prev,
     ${componentCls}-jump-next
     `]: {
-      display: 'inline-block',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       minWidth: varRef(`item-size-actual`),
       height: varRef(`item-size-actual`),
       color: token.colorText,
       fontFamily: token.fontFamily,
       lineHeight: varRef(`item-size-actual`),
       textAlign: 'center',
-      verticalAlign: 'middle',
       listStyle: 'none',
       borderRadius: token.borderRadius,
       cursor: 'pointer',
@@ -465,20 +465,20 @@ const genPaginationJumpStyle: GenerateStyle<PaginationToken, CSSObject> = (token
     },
 
     [`${componentCls}-options`]: {
-      display: 'inline-block',
+      display: 'inline-flex',
+      alignItems: 'center',
       marginInlineStart: token.margin,
-      verticalAlign: 'middle',
 
       '&-size-changer': {
         width: 'auto',
       },
 
       '&-quick-jumper': {
-        display: 'inline-block',
+        display: 'inline-flex',
+        alignItems: 'center',
         height: varRef(`item-size-actual`),
         marginInlineStart: token.marginXS,
         lineHeight: varRef(`item-size-actual`),
-        verticalAlign: 'baseline',
 
         input: {
           ...genBasicInputStyle(token),
@@ -511,14 +511,15 @@ const genPaginationItemStyle: GenerateStyle<PaginationToken, CSSObject> = (token
 
   return {
     [`${componentCls}-item`]: {
-      display: 'inline-block',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
       minWidth: varRef(`item-size-actual`),
       height: varRef(`item-size-actual`),
       marginInlineEnd: varRef(`item-spacing-actual`),
       fontFamily: token.fontFamily,
       lineHeight: unit(token.calc(varRef('item-size-actual')).sub(2).equal()),
       textAlign: 'center',
-      verticalAlign: 'middle',
       listStyle: 'none',
       backgroundColor: token.itemBg,
       border: `${unit(token.lineWidth)} ${token.lineType} transparent`,
@@ -619,11 +620,11 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
       },
 
       [`${componentCls}-total-text`]: {
-        display: 'inline-block',
+        display: 'inline-flex',
+        alignItems: 'center',
         height: varRef(`item-size-actual`),
         marginInlineEnd: varRef(`item-spacing-actual`),
         lineHeight: unit(token.calc(varRef(`item-size-actual`)).sub(2).equal()),
-        verticalAlign: 'middle',
       },
 
       // item style
