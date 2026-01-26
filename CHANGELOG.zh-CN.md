@@ -21,6 +21,7 @@ tag: vVERSION
 
 - 🐞 修复被 Typography 包裹的带 href 的 Button 显示错误颜色和 hover 时 outline 闪烁的问题。[#56619](https://github.com/ant-design/ant-design/pull/56619) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🐞 修复 Button `type="text"` 时组件 Token 不生效的问题。[#56291](https://github.com/ant-design/ant-design/pull/56291) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Popover 内组件被 Form.Item 状态关联影响的问题。[#56728](https://github.com/ant-design/ant-design/pull/56728)
 - 💄 修复 Pagination 全局 `fontSize` 变大时各元素上下错位的问题。[#56715](https://github.com/ant-design/ant-design/pull/56715) [@QDyanbing](https://github.com/QDyanbing)
 - 💄 修复 Drawer 在 rtl 模式下 dragger 位置错误的样式问题。[#56693](https://github.com/ant-design/ant-design/pull/56693) [@QdabuliuQ](https://github.com/QdabuliuQ)
 
