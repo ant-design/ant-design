@@ -245,17 +245,17 @@ describe('Tree', () => {
     const data = [
       {
         title: 'parent 1',
-        key: 'parent',
+        key: '0-0',
         icon: <SmileOutlined />,
         children: [
           {
             title: 'leaf',
-            key: 'leaf-0',
+            key: '0-0-0',
             icon: <SmileOutlined />,
           },
           {
             title: 'leaf',
-            key: 'leaf-1',
+            key: '0-0-1',
             icon: <SmileOutlined />,
           },
         ],

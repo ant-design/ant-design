@@ -94,7 +94,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
-                    id="1"
+                    id="test-id-1"
                     role="treeitem"
                   >
                     <span
@@ -141,7 +141,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
-                    id="2"
+                    id="test-id-2"
                     role="treeitem"
                   >
                     <span
@@ -187,7 +187,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="3"
+                    id="test-id-3"
                     role="treeitem"
                   >
                     <span
@@ -314,7 +314,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1"
+                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -361,7 +361,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="parent 1-0"
+                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -411,7 +411,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf1"
+                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -444,7 +444,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf2"
+                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -477,7 +477,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf3"
+                    id="test-id-leaf3"
                     role="treeitem"
                   >
                     <span
@@ -510,7 +510,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf4"
+                    id="test-id-leaf4"
                     role="treeitem"
                   >
                     <span
@@ -543,7 +543,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf5"
+                    id="test-id-leaf5"
                     role="treeitem"
                   >
                     <span
@@ -576,7 +576,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf6"
+                    id="test-id-leaf6"
                     role="treeitem"
                   >
                     <span
@@ -610,7 +610,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1-1"
+                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -660,7 +660,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf11"
+                    id="test-id-leaf11"
                     role="treeitem"
                   >
                     <span
@@ -842,7 +842,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-checkbox-checked"
                     draggable="false"
-                    id="0-0"
+                    id="test-id-0-0"
                     role="treeitem"
                   >
                     <span
@@ -899,7 +899,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="0-1"
+                    id="test-id-0-1"
                     role="treeitem"
                   >
                     <span
@@ -1102,7 +1102,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-checkbox-indeterminate"
                     draggable="false"
-                    id="parent1"
+                    id="test-id-parent1"
                     role="treeitem"
                   >
                     <span
@@ -1159,7 +1159,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent2"
+                    id="test-id-parent2"
                     role="treeitem"
                   >
                     <span
@@ -1331,7 +1331,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
-                    id="0-0"
+                    id="test-id-0-0"
                     role="treeitem"
                   >
                     <span
@@ -1388,7 +1388,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="0-1"
+                    id="test-id-0-1"
                     role="treeitem"
                   >
                     <span
@@ -1555,7 +1555,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1"
+                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -1602,7 +1602,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="parent 1-0"
+                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -1652,7 +1652,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf1"
+                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -1685,7 +1685,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf2"
+                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -1719,7 +1719,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1-1"
+                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -1769,7 +1769,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="sss"
+                    id="test-id-sss"
                     role="treeitem"
                   >
                     <span
@@ -2002,7 +2002,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1"
+                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -2049,7 +2049,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="parent 1-0"
+                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -2099,7 +2099,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf1"
+                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -2132,7 +2132,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf2"
+                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -2166,7 +2166,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1-1"
+                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -2216,7 +2216,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf3"
+                    id="test-id-leaf3"
                     role="treeitem"
                   >
                     <span
@@ -2360,7 +2360,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
-                    id="0-0"
+                    id="test-id-0-0"
                     role="treeitem"
                   >
                     <span
@@ -2406,7 +2406,7 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="0-1"
+                    id="test-id-0-1"
                     role="treeitem"
                   >
                     <span
@@ -2786,7 +2786,7 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1"
+                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -2927,7 +2927,7 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1"
+                    id="test-id-parent 1"
                     role="treeitem"
                     style="color: rgb(114, 46, 209);"
                   >
@@ -3075,7 +3075,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1"
+                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -3122,7 +3122,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="parent 1-0"
+                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -3172,7 +3172,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf1"
+                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -3205,7 +3205,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf2"
+                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -3239,7 +3239,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1-1"
+                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -3289,7 +3289,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="sss"
+                    id="test-id-sss"
                     role="treeitem"
                   >
                     <span
@@ -3427,7 +3427,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1"
+                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -3474,7 +3474,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="parent 1-0"
+                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -3524,7 +3524,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf1"
+                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -3557,7 +3557,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="leaf2"
+                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -3591,7 +3591,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="parent 1-1"
+                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -3641,7 +3641,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="sss"
+                    id="test-id-sss"
                     role="treeitem"
                   >
                     <span
@@ -3780,7 +3780,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="0-0"
+                    id="test-id-0-0"
                     role="treeitem"
                   >
                     <span
@@ -3826,7 +3826,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="0-0-1"
+                    id="test-id-0-0-1"
                     role="treeitem"
                   >
                     <span
@@ -3856,7 +3856,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="0-0-2"
+                    id="test-id-0-0-2"
                     role="treeitem"
                   >
                     <span
@@ -3886,7 +3886,7 @@ Array [
                     aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="0-1"
+                    id="test-id-0-1"
                     role="treeitem"
                   >
                     <span
@@ -4101,7 +4101,7 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
                       aria-selected="false"
                       class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                       draggable="false"
-                      id="parent 1"
+                      id="test-id-parent 1"
                       role="treeitem"
                     >
                       <span

@@ -3870,7 +3870,7 @@ Array [
                           aria-expanded="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
                           draggable="false"
-                          id="0-0"
+                          id="test-id-0-0"
                           role="treeitem"
                         >
                           <span
@@ -3926,7 +3926,7 @@ Array [
                           aria-expanded="false"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
                           draggable="false"
-                          id="0-0-0"
+                          id="test-id-0-0-0"
                           role="treeitem"
                         >
                           <span
@@ -3985,7 +3985,7 @@ Array [
                           aria-disabled="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                           draggable="false"
-                          id="0-0-1"
+                          id="test-id-0-0-1"
                           role="treeitem"
                         >
                           <span
@@ -4025,7 +4025,7 @@ Array [
                           aria-expanded="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
                           draggable="false"
-                          id="0-1"
+                          id="test-id-0-1"
                           role="treeitem"
                         >
                           <span
@@ -4080,7 +4080,7 @@ Array [
                           aria-disabled="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                           draggable="false"
-                          id="0-1-0"
+                          id="test-id-0-1-0"
                           role="treeitem"
                         >
                           <span

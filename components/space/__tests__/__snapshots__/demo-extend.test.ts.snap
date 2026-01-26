@@ -8347,7 +8347,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="parent 1"
+                        id="test-id-parent 1"
                         role="treeitem"
                       >
                         <span
@@ -8394,7 +8394,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                         draggable="false"
-                        id="parent 1-0"
+                        id="test-id-parent 1-0"
                         role="treeitem"
                       >
                         <span
@@ -8444,7 +8444,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="true"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="leaf1"
+                        id="test-id-leaf1"
                         role="treeitem"
                       >
                         <span
@@ -8477,7 +8477,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="leaf2"
+                        id="test-id-leaf2"
                         role="treeitem"
                       >
                         <span
@@ -8511,7 +8511,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="parent 1-1"
+                        id="test-id-parent 1-1"
                         role="treeitem"
                       >
                         <span
@@ -8561,7 +8561,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="leaf3"
+                        id="test-id-leaf3"
                         role="treeitem"
                       >
                         <span

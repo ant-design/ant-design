@@ -7927,7 +7927,7 @@ Array [
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="parent 1"
+                        id="test-id-parent 1"
                         role="treeitem"
                       >
                         <span
@@ -7973,7 +7973,7 @@ Array [
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="long"
+                        id="test-id-long"
                         role="treeitem"
                       >
                         <span
@@ -8007,7 +8007,7 @@ Array [
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="short"
+                        id="test-id-short"
                         role="treeitem"
                       >
                         <span
@@ -8041,7 +8041,7 @@ Array [
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="normal"
+                        id="test-id-normal"
                         role="treeitem"
                       >
                         <span

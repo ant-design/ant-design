@@ -9979,7 +9979,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
                       aria-selected="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
-                      id="0-0"
+                      id="test-id-0-0"
                       role="treeitem"
                     >
                       <span
@@ -10016,7 +10016,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
                       aria-selected="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-open"
                       draggable="false"
-                      id="0-1"
+                      id="test-id-0-1"
                       role="treeitem"
                     >
                       <span
@@ -10072,7 +10072,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
                       aria-selected="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
-                      id="0-1-0"
+                      id="test-id-0-1-0"
                       role="treeitem"
                     >
                       <span
@@ -10112,7 +10112,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
                       aria-selected="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
-                      id="0-1-1"
+                      id="test-id-0-1-1"
                       role="treeitem"
                     >
                       <span
@@ -10152,7 +10152,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
                       aria-selected="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
-                      id="0-2"
+                      id="test-id-0-2"
                       role="treeitem"
                     >
                       <span
@@ -10188,7 +10188,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
                       aria-selected="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
-                      id="0-3"
+                      id="test-id-0-3"
                       role="treeitem"
                     >
                       <span
@@ -10224,7 +10224,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx correctly 1`] = `
                       aria-selected="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
-                      id="0-4"
+                      id="test-id-0-4"
                       role="treeitem"
                     >
                       <span
