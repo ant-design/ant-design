@@ -257,15 +257,16 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
   });
 
-  it('should support maskClosable global config', () => {
+  it('should not close when maskClosable is false from context', () => {
+    const onCancel = jest.fn();
     render(
       <ConfigProvider modal={{ maskClosable: false }}>
-        <ModalTester destroyOnHidden />
+        <Modal open onCancel={onCancel} />
       </ConfigProvider>,
     );
     const maskElement = document.querySelector('.ant-modal-mask');
     fireEvent.click(maskElement!);
-    expect(maskElement).toBeTruthy();
+    expect(onCancel).not.toHaveBeenCalled();
   });
 
   it('should support maskClosable prop over maskClosable global config', async () => {
