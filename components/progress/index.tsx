@@ -6,6 +6,7 @@ export type {
   ProgressSemanticClassNames,
   ProgressSemanticName,
   ProgressSemanticStyles,
+  ProgressValueItem,
 } from './progress';
 
 export default Progress;

@@ -10,7 +10,7 @@ const classNames: ProgressProps['classNames'] = {
 
 const stylesFn: ProgressProps['styles'] = (info) => {
   const percent = info?.props?.percent ?? 0;
-  const hue = 200 - (200 * percent) / 100;
+  const hue = 200 - (200 * (percent as number)) / 100;
   return {
     track: {
       backgroundImage: `

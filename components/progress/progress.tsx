@@ -59,6 +59,12 @@ export interface SuccessProps {
   strokeColor?: string;
 }
 
+export interface ProgressValueItem {
+  value: number;
+  status?: (typeof ProgressStatuses)[number];
+  strokeColor?: string;
+}
+
 export type ProgressAriaProps = Pick<React.AriaAttributes, 'aria-label' | 'aria-labelledby'>;
 
 export type GapPlacement = 'top' | 'bottom' | 'start' | 'end';
@@ -73,7 +79,7 @@ export interface ProgressProps extends ProgressAriaProps {
   styles?: ProgressStylesType;
 
   type?: ProgressType;
-  percent?: number;
+  percent?: number | ProgressValueItem[];
   format?: (percent?: number, successPercent?: number) => React.ReactNode;
   status?: (typeof ProgressStatuses)[number];
   showInfo?: boolean;
@@ -134,13 +140,18 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     return false;
   }, [strokeColor]);
 
+  const isMultiValue = Array.isArray(percent);
   const percentNumber = React.useMemo<number>(() => {
+    if (isMultiValue) {
+      const total = percent.reduce((sum, item) => sum + validProgress(item.value), 0);
+      return Number.parseInt(total.toString(), 10);
+    }
     const successPercent = getSuccessPercent(props);
     return Number.parseInt(
       successPercent !== undefined ? (successPercent ?? 0)?.toString() : (percent ?? 0)?.toString(),
       10,
     );
-  }, [percent, props.success]);
+  }, [percent, props.success, isMultiValue]);
 
   const progressStatus = React.useMemo<(typeof ProgressStatuses)[number]>(() => {
     if (!ProgressStatuses.includes(status!) && percentNumber >= 100) {
@@ -191,12 +202,17 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     let text: React.ReactNode;
     const textFormatter = format || ((number) => `${number}%`);
     const isBrightInnerColor = isLineType && strokeColorIsBright && infoPosition === 'inner';
+    const singlePercent = isMultiValue ? undefined : (percent as number);
     if (
       infoPosition === 'inner' ||
       format ||
+      isMultiValue ||
       (progressStatus !== 'exception' && progressStatus !== 'success')
     ) {
-      text = textFormatter(validProgress(percent), validProgress(successPercent));
+      text = textFormatter(
+        validProgress(isMultiValue ? percentNumber : singlePercent),
+        validProgress(successPercent),
+      );
     } else if (progressStatus === 'exception') {
       text = isLineType ? <CloseCircleFilled /> : <CloseOutlined />;
     } else if (progressStatus === 'success') {
@@ -235,6 +251,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     isPureLineType,
     mergedClassNames.indicator,
     mergedStyles.indicator,
+    isMultiValue,
+    props,
   ]);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -259,6 +277,13 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           false,
           'usage',
           'Type "circle" and "dashboard" do not accept object as `size`, please use number or preset size instead.',
+        );
+      }
+      if (isMultiValue) {
+        warning(
+          false,
+          'usage',
+          'Multi-value `percent` is only supported for type "line". Please use a single number value for "circle" and "dashboard" types.',
         );
       }
     }
@@ -293,6 +318,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           align: infoAlign,
           type: infoPosition,
         }}
+        isMultiValue={isMultiValue}
       >
         {progressInfo}
       </Line>

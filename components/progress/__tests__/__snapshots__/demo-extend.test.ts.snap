@@ -3244,6 +3244,144 @@ exports[`renders components/progress/demo/linecap.tsx extend context correctly 1
 
 exports[`renders components/progress/demo/linecap.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/progress/demo/multi-value.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="90"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail"
+        style="height: 8px; position: relative;"
+      >
+        <div
+          class="ant-progress-track"
+          style="position: absolute; inset-inline-start: 0; width: 90%; height: 8px;"
+        />
+        <div
+          class="ant-progress-track"
+          style="position: absolute; inset-inline-start: 0; width: 70%; height: 8px;"
+        />
+        <div
+          class="ant-progress-track ant-progress-track-success"
+          style="position: absolute; inset-inline-start: 0; width: 40%; height: 8px;"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+        title="90%"
+      >
+        90%
+      </span>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="100"
+    class="ant-progress ant-progress-status-success ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail"
+        style="height: 8px; position: relative;"
+      >
+        <div
+          class="ant-progress-track"
+          style="position: absolute; inset-inline-start: 0; width: 100%; height: 8px;"
+        />
+        <div
+          class="ant-progress-track"
+          style="position: absolute; inset-inline-start: 0; width: 80%; height: 8px;"
+        />
+        <div
+          class="ant-progress-track ant-progress-track-success"
+          style="position: absolute; inset-inline-start: 0; width: 30%; height: 8px;"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+      >
+        <span
+          aria-label="check-circle"
+          class="anticon anticon-check-circle"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="check-circle"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm193.5 301.7l-210.6 292a31.8 31.8 0 01-51.7 0L318.5 484.9c-3.8-5.3 0-12.7 6.5-12.7h46.9c10.2 0 19.9 4.9 25.9 13.3l71.2 98.8 157.2-218c6-8.3 15.6-13.3 25.9-13.3H699c6.5 0 10.3 7.4 6.5 12.7z"
+            />
+          </svg>
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    aria-valuemax="100"
+    aria-valuemin="0"
+    aria-valuenow="85"
+    class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-test-id"
+    role="progressbar"
+  >
+    <div
+      class="ant-progress-body"
+      style="width: 100%;"
+    >
+      <div
+        class="ant-progress-rail"
+        style="height: 8px; position: relative;"
+      >
+        <div
+          class="ant-progress-track"
+          style="position: absolute; inset-inline-start: 0; width: 85%; height: 8px; --progress-line-stroke-color: #d9d9d9; background: rgb(217, 217, 217);"
+        />
+        <div
+          class="ant-progress-track"
+          style="position: absolute; inset-inline-start: 0; width: 75%; height: 8px; --progress-line-stroke-color: #ff4d4f; background: rgb(255, 77, 79);"
+        />
+        <div
+          class="ant-progress-track"
+          style="position: absolute; inset-inline-start: 0; width: 60%; height: 8px; --progress-line-stroke-color: #1890ff; background: rgb(24, 144, 255);"
+        />
+        <div
+          class="ant-progress-track ant-progress-track-success"
+          style="position: absolute; inset-inline-start: 0; width: 25%; height: 8px; --progress-line-stroke-color: #52c41a; background: rgb(82, 196, 26);"
+        />
+      </div>
+      <span
+        class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+        title="85%"
+      >
+        85%
+      </span>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/progress/demo/multi-value.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/progress/demo/segment.tsx extend context correctly 1`] = `
 <div
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"

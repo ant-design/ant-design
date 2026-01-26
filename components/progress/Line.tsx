@@ -10,6 +10,7 @@ import type {
   ProgressProps,
   ProgressSemanticClassNames,
   ProgressSemanticStyles,
+  ProgressValueItem,
   StringGradients,
 } from './progress';
 import { LineStrokeColorVar } from './style';
@@ -22,6 +23,7 @@ interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   percentPosition: PercentPositionType;
   classNames: ProgressSemanticClassNames;
   styles: ProgressSemanticStyles;
+  isMultiValue?: boolean;
 }
 
 /**
@@ -122,20 +124,101 @@ const Line: React.FC<LineProps> = (props) => {
 
   // ======================== Tracks ========================
   const trackCls = `${prefixCls}-track`;
+  const isMultiValue = props.isMultiValue && Array.isArray(percent);
+  const successPercent = getSuccessPercent(props);
 
+  // ======================== Multi-value rendering ========================
+  if (isMultiValue) {
+    const valueItems = percent as ProgressValueItem[];
+
+    // Calculate cumulative values to stack them
+    const stackedItems = valueItems.reduce<Array<ProgressValueItem & { accumulatedValue: number }>>(
+      (acc, item) => {
+        const lastAccumulated = acc.length > 0 ? acc[acc.length - 1].accumulatedValue : 0;
+        const currentValue = validProgress(item.value);
+        return [
+          ...acc,
+          {
+            ...item,
+            accumulatedValue: lastAccumulated + currentValue,
+          },
+        ];
+      },
+      [],
+    );
+
+    // Render in reverse order so the first items (which are smaller in the stack)
+    // are rendered last (on top) in the DOM
+    const tracks = stackedItems.reverse().map((item) => {
+      const itemStatus = item.status || 'normal';
+      const itemStrokeColor = item.strokeColor || strokeColor;
+      const itemBackgroundProps =
+        itemStrokeColor && typeof itemStrokeColor !== 'string'
+          ? handleGradient(itemStrokeColor as ProgressGradient, directionConfig)
+          : { [LineStrokeColorVar]: itemStrokeColor, background: itemStrokeColor };
+
+      const itemTrackStyle: React.CSSProperties = {
+        position: 'absolute',
+        insetInlineStart: 0,
+        width: `${validProgress(item.accumulatedValue)}%`,
+        height,
+        borderRadius,
+        ...itemBackgroundProps,
+      };
+
+      return (
+        <div
+          key={`${item.value}-${item.status}`}
+          className={clsx(
+            trackCls,
+            itemStatus === 'success' && `${trackCls}-success`,
+            classNames.track,
+          )}
+          style={{
+            ...styles.track,
+            ...itemTrackStyle,
+          }}
+        />
+      );
+    });
+
+    return (
+      <div
+        className={clsx(`${prefixCls}-body`, classNames.body, {
+          [`${prefixCls}-body-layout-bottom`]: infoAlign === 'center' && infoPosition === 'outer',
+        })}
+        style={{ width: width > 0 ? width : '100%', ...styles.body }}
+      >
+        {/************** Rail **************/}
+        <div
+          className={clsx(`${prefixCls}-rail`, classNames.rail)}
+          style={{ ...railStyle, ...styles.rail, position: 'relative' }}
+        >
+          {/************* Tracks *************/}
+          {tracks}
+          {infoPosition === 'inner' && (
+            <div style={{ position: 'relative', zIndex: 1 }}>{children}</div>
+          )}
+        </div>
+
+        {/* Indicator */}
+        {infoPosition === 'outer' && children}
+      </div>
+    );
+  }
+
+  // ======================== Single-value rendering ========================
   const backgroundProps =
     strokeColor && typeof strokeColor !== 'string'
       ? handleGradient(strokeColor, directionConfig)
       : { [LineStrokeColorVar]: strokeColor, background: strokeColor };
 
   const percentTrackStyle: React.CSSProperties = {
-    width: `${validProgress(percent)}%`,
+    width: `${validProgress(percent as number)}%`,
     height,
     borderRadius,
     ...backgroundProps,
   };
-
-  const successPercent = getSuccessPercent(props);
 
   const successTrackStyle: React.CSSProperties = {
     width: `${validProgress(successPercent)}%`,

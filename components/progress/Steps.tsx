@@ -29,7 +29,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     prefixCls,
     children,
   } = props;
-  const current = customRounding(steps * (percent / 100));
+  const current = customRounding(steps * ((percent as number) / 100));
   const stepWidth = size === 'small' ? 2 : 14;
   const mergedSize = size ?? [stepWidth, strokeWidth];
   const [width, height] = getSize(mergedSize, 'step', { steps, strokeWidth });

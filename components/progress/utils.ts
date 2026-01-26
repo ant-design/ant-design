@@ -23,7 +23,7 @@ export function getSuccessPercent({ success }: ProgressProps) {
 
 export const getPercentage = ({ percent, success }: ProgressProps) => {
   const realSuccessPercent = validProgress(getSuccessPercent({ success }));
-  return [realSuccessPercent, validProgress(validProgress(percent) - realSuccessPercent)];
+  return [realSuccessPercent, validProgress(validProgress(percent as number) - realSuccessPercent)];
 };
 
 export const getStrokeColor = ({

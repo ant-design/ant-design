@@ -449,4 +449,80 @@ describe('Progress', () => {
     );
     expect(container.firstChild).toMatchSnapshot();
   });
+
+  it('should render multi-value progress', () => {
+    const { container } = render(
+      <Progress
+        percent={[
+          { value: 40, status: 'success' },
+          { value: 30, status: 'active' },
+          { value: 20, status: 'exception' },
+        ]}
+      />,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should render multi-value progress with custom strokeColor', () => {
+    const { container } = render(
+      <Progress
+        percent={[
+          { value: 25, status: 'success', strokeColor: '#52c41a' },
+          { value: 35, status: 'active', strokeColor: '#1890ff' },
+          { value: 15, status: 'exception', strokeColor: '#ff4d4f' },
+        ]}
+      />,
+    );
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should calculate total percent from multi-value array', () => {
+    const { container } = render(
+      <Progress
+        percent={[
+          { value: 30, status: 'success' },
+          { value: 50, status: 'active' },
+          { value: 20, status: 'normal' },
+        ]}
+        showInfo
+      />,
+    );
+    const indicator = container.querySelector('.ant-progress-indicator');
+    expect(indicator?.textContent).toBe('100%');
+  });
+
+  it('should maintain backward compatibility with single number percent', () => {
+    const { container } = render(<Progress percent={50} />);
+    expect(container.firstChild).toMatchSnapshot();
+  });
+
+  it('should warn when using multi-value with circle type', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <Progress
+        type="circle"
+        percent={[
+          { value: 40, status: 'success' },
+          { value: 30, status: 'active' },
+        ]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
+
+  it('should warn when using multi-value with dashboard type', () => {
+    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+    render(
+      <Progress
+        type="dashboard"
+        percent={[
+          { value: 40, status: 'success' },
+          { value: 30, status: 'active' },
+        ]}
+      />,
+    );
+    expect(errSpy).toHaveBeenCalled();
+    errSpy.mockRestore();
+  });
 });
