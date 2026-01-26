@@ -3,6 +3,7 @@ import React from 'react';
 import type { DrawerProps } from '..';
 import Drawer from '..';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const DrawerTest: React.FC<DrawerProps> = (props) => (
   <Drawer open getContainer={false} {...props}>
@@ -79,6 +80,39 @@ describe('Drawer', () => {
 
     fireEvent.click(container.querySelector('.ant-drawer-mask')!);
     expect(onClose).not.toHaveBeenCalled();
+  });
+
+  it("maskClosable no trigger onClose by ConfigProvider's drawer config", () => {
+    const onClose = jest.fn();
+    const { container } = render(
+      <ConfigProvider drawer={{ maskClosable: false }}>
+        <DrawerTest onClose={onClose} />
+      </ConfigProvider>,
+    );
+    fireEvent.click(container.querySelector('.ant-drawer-mask')!);
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
+  it("maskClosable no trigger onClose when maskClosable is false and ConfigProvider's drawer config is true", () => {
+    const onClose = jest.fn();
+    const { container } = render(
+      <ConfigProvider drawer={{ maskClosable: true }}>
+        <DrawerTest onClose={onClose} maskClosable={false} />
+      </ConfigProvider>,
+    );
+    fireEvent.click(container.querySelector('.ant-drawer-mask')!);
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
+  it("maskClosable trigger onClose when maskClosable is true and ConfigProvider's drawer config is false", () => {
+    const onClose = jest.fn();
+    const { container } = render(
+      <ConfigProvider drawer={{ maskClosable: false }}>
+        <DrawerTest onClose={onClose} maskClosable={true} />
+      </ConfigProvider>,
+    );
+    fireEvent.click(container.querySelector('.ant-drawer-mask')!);
+    expect(onClose).toHaveBeenCalled();
   });
 
   it('dom should be removed after close when destroyOnHidden is true', () => {

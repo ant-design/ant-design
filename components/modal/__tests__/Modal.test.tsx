@@ -257,6 +257,54 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
   });
 
+  it('should support maskClosable global config', () => {
+    render(
+      <ConfigProvider modal={{ maskClosable: false }}>
+        <ModalTester destroyOnHidden />
+      </ConfigProvider>,
+    );
+    const maskElement = document.querySelector('.ant-modal-mask');
+    fireEvent.click(maskElement!);
+    expect(maskElement).toBeTruthy();
+  });
+
+  it('should support maskClosable prop over maskClosable global config', async () => {
+    jest.useFakeTimers();
+
+    const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {}, ...restProps }) => {
+      const [open, setOpen] = React.useState<boolean>(false);
+      useEffect(() => {
+        setOpen(true);
+      }, []);
+      const handleCancel = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setOpen(false);
+        onCancel(event);
+      };
+
+      return <Modal open={open} onCancel={handleCancel} onOk={onOk} {...restProps} />;
+    };
+
+    const onCancel = jest.fn();
+    const onOk = jest.fn();
+
+    render(
+      <ConfigProvider modal={{ maskClosable: false }}>
+        <Demo onCancel={onCancel} onOk={onOk} maskClosable />
+      </ConfigProvider>,
+    );
+    await act(async () => {
+      await waitFakeTimer(500);
+    });
+    const modalWrap = document.body.querySelectorAll('.ant-modal-wrap')[0];
+    fireEvent.click(modalWrap!);
+    await act(async () => {
+      await waitFakeTimer(500);
+    });
+    expect(onCancel).toHaveBeenCalled();
+
+    jest.useRealTimers();
+  });
+
   it('should not close modal when confirmLoading is loading', async () => {
     jest.useFakeTimers();
 
