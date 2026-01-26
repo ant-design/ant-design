@@ -2,7 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import type { ProgressProps, ProgressSemanticClassNames, ProgressSemanticStyles } from './progress';
-import { getSize } from './utils';
+import { getSize, normalizePercent } from './utils';
 
 interface ProgressStepsProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   steps: number;
@@ -29,7 +29,8 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
     prefixCls,
     children,
   } = props;
-  const current = customRounding(steps * ((percent as number) / 100));
+  const normalizedPercent = normalizePercent(percent);
+  const current = customRounding(steps * (normalizedPercent / 100));
   const stepWidth = size === 'small' ? 2 : 14;
   const mergedSize = size ?? [stepWidth, strokeWidth];
   const [width, height] = getSize(mergedSize, 'step', { steps, strokeWidth });

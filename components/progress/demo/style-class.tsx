@@ -1,6 +1,7 @@
 import React from 'react';
 import { Flex, Progress } from 'antd';
 import type { ProgressProps } from 'antd';
+import { normalizePercent } from '../utils';
 
 const classNames: ProgressProps['classNames'] = {
   root: 'demo-progress-root',
@@ -10,7 +11,8 @@ const classNames: ProgressProps['classNames'] = {
 
 const stylesFn: ProgressProps['styles'] = (info) => {
   const percent = info?.props?.percent ?? 0;
-  const hue = 200 - (200 * (percent as number)) / 100;
+  const normalizedPercent = normalizePercent(percent);
+  const hue = 200 - (200 * normalizedPercent) / 100;
   return {
     track: {
       backgroundImage: `

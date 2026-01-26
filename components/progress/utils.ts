@@ -21,9 +21,28 @@ export function getSuccessPercent({ success }: ProgressProps) {
   return percent;
 }
 
-export const getPercentage = ({ percent, success }: ProgressProps) => {
+/**
+ * Normalizes percent value to a number between 0-100.
+ * Handles both single number values and multi-value arrays (ProgressValueItem[]).
+ * For arrays, sums all values and clamps the result.
+ */
+export function normalizePercent(percent: ProgressProps['percent']): number {
+  if (Array.isArray(percent)) {
+    // For ProgressValueItem[], sum all values
+    if (percent.length > 0 && typeof percent[0] === 'object' && 'value' in percent[0]) {
+      const total = percent.reduce((sum, item) => sum + validProgress(item.value), 0);
+      return validProgress(total);
+    }
+    return 0;
+  }
+  const numPercent = Number(percent) || 0;
+  return validProgress(numPercent);
+}
+
+export const getPercentage = ({ percent, success }: ProgressProps): [number, number] => {
   const realSuccessPercent = validProgress(getSuccessPercent({ success }));
-  return [realSuccessPercent, validProgress(validProgress(percent as number) - realSuccessPercent)];
+  const normalizedPercent = normalizePercent(percent);
+  return [realSuccessPercent, validProgress(normalizedPercent - realSuccessPercent)];
 };
 
 export const getStrokeColor = ({

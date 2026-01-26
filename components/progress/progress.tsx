@@ -144,7 +144,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   const percentNumber = React.useMemo<number>(() => {
     if (isMultiValue) {
       const total = percent.reduce((sum, item) => sum + validProgress(item.value), 0);
-      return Number.parseInt(total.toString(), 10);
+      return Number.parseInt(validProgress(total).toString(), 10);
     }
     const successPercent = getSuccessPercent(props);
     return Number.parseInt(

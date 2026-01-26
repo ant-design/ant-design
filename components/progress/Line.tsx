@@ -168,7 +168,7 @@ const Line: React.FC<LineProps> = (props) => {
 
       return (
         <div
-          key={`${item.value}-${item.status}`}
+          key={`${item.value}-${item.status}-${item.accumulatedValue}`}
           className={clsx(
             trackCls,
             itemStatus === 'success' && `${trackCls}-success`,
