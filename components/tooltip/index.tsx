@@ -270,7 +270,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   }, [overlay, title]);
 
   const memoOverlayWrapper = (
-    <ContextIsolator space>
+    <ContextIsolator space form>
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );

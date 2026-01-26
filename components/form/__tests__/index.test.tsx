@@ -27,6 +27,7 @@ import Radio from '../../radio';
 import Select from '../../select';
 import Slider from '../../slider';
 import Switch from '../../switch';
+import Popover from '../../popover';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 import type { NamePath } from '../interface';
@@ -1868,6 +1869,11 @@ describe('Form', () => {
             <Select className="drawer-select" />
           </Drawer>
         </Form.Item>
+        <Form.Item validateStatus="error">
+          <Popover open content={<Input className="custom-popup-input" />}>
+            <span>issue#56615</span>
+          </Popover>
+        </Form.Item>
       </Form>
     );
     const { container } = render(<Demo />, { container: document.body });
@@ -1875,6 +1881,11 @@ describe('Form', () => {
     expect(container.querySelector('.modal-select')).not.toHaveClass('status-error');
     expect(container.querySelector('.drawer-select')).not.toHaveClass('in-form-item');
     expect(container.querySelector('.drawer-select')).not.toHaveClass('status-error');
+
+    // https://github.com/ant-design/ant-design/issues/56615
+    expect(container.querySelector('.custom-popup-input')).not.toHaveClass(
+      'ant-input-status-error',
+    );
   });
 
   // eslint-disable-next-line jest/no-disabled-tests
