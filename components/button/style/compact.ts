@@ -10,37 +10,63 @@ import type { ButtonToken } from './token';
 import { prepareComponentToken, prepareToken } from './token';
 
 const genButtonCompactStyle: GenerateStyle<ButtonToken> = (token) => {
-  const { antCls, componentCls, lineWidth, calc } = token;
+  const { antCls, componentCls, lineWidth, calc, colorBgContainer } = token;
+
+  const solidSelector = `${componentCls}-variant-solid:not([disabled])`;
   const insetOffset = calc(lineWidth).mul(-1).equal();
 
-  const [, varRef] = genCssVar(antCls, 'btn');
+  const [varName, varRef] = genCssVar(antCls, 'btn');
 
-  const getCompactBorderStyle = (vertical?: boolean) => {
+  const getCompactBorderStyle = (vertical?: boolean): CSSObject => {
     const itemCls = `${componentCls}-compact${vertical ? '-vertical' : ''}-item`;
-    const selector = `${itemCls}${componentCls}-variant-solid:not([disabled])`;
 
     return {
       // TODO: Border color transition should be not cover when has color.
       [itemCls]: {
-        transition: `none`,
-      },
+        [varName('compact-connect-border-color')]: varRef('bg-color-hover'),
 
-      [`${selector} + ${selector}::before`]: {
-        position: 'absolute',
-        top: vertical ? insetOffset : 0,
-        insetInlineStart: vertical ? 0 : insetOffset,
-        backgroundColor: varRef('bg-color-hover'),
-        content: '""',
-        width: vertical ? '100%' : lineWidth,
-        height: vertical ? lineWidth : '100%',
-      } as CSSObject,
+        [`&${solidSelector}`]: {
+          margin: 0,
+          transition: `none`,
+
+          [`& + ${solidSelector}:before`]: [
+            {
+              position: 'absolute',
+              backgroundColor: varRef('compact-connect-border-color'),
+              content: '""',
+            },
+            vertical
+              ? {
+                  top: insetOffset,
+                  insetInline: insetOffset,
+                  height: lineWidth,
+                }
+              : {
+                  insetBlock: insetOffset,
+                  insetInlineStart: insetOffset,
+                  width: lineWidth,
+                },
+          ],
+
+          '&:hover:before': {
+            display: 'none',
+          },
+        },
+      },
     };
   };
+
   // Special styles for solid Button
-  return {
-    ...getCompactBorderStyle(),
-    ...getCompactBorderStyle(true),
-  };
+  return [
+    getCompactBorderStyle(),
+    getCompactBorderStyle(true),
+    {
+      [`${solidSelector}${componentCls}-color-default`]: {
+        [varName('compact-connect-border-color')]:
+          `color-mix(in srgb, ${varRef('bg-color-hover')} 75%, ${colorBgContainer})`,
+      },
+    },
+  ];
 };
 
 // ============================== Export ==============================
