@@ -22,6 +22,7 @@ tag: vVERSION
 - 🐞 Fix Button with href wrapped by Typography showing incorrect color and flickering outline on hover. [#56619](https://github.com/ant-design/ant-design/pull/56619) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🐞 Fix component token not taking effect for Button with `type="text"`. [#56291](https://github.com/ant-design/ant-design/pull/56291) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix where components within the Popover were affected by the state association with Form.Item. [#56728](https://github.com/ant-design/ant-design/pull/56728)
+- 🐞 Fix the placeholders displayed incorrectly when selecting multiple items in Select. [#56675](https://github.com/ant-design/ant-design/pull/56675)
 - 💄 Fix misaligned elements in Pagination when the global `fontSize` is increased. [#56715](https://github.com/ant-design/ant-design/pull/56715) [@QDyanbing](https://github.com/QDyanbing)
 - 💄 Fix incorrect Drawer dragger position in RTL mode. [#56693](https://github.com/ant-design/ant-design/pull/56693) [@QdabuliuQ](https://github.com/QdabuliuQ)
 
