@@ -21,7 +21,7 @@ tag: vVERSION
 
 - 🐞 Fix Button with href wrapped by Typography showing incorrect color and flickering outline on hover. [#56619](https://github.com/ant-design/ant-design/pull/56619) [@QdabuliuQ](https://github.com/QdabuliuQ)
 - 🐞 Fix component token not taking effect for Button with `type="text"`. [#56291](https://github.com/ant-design/ant-design/pull/56291) [@QDyanbing](https://github.com/QDyanbing)
-- 💄 Fix the elements were misaligned when the global `fontSize` of Pagination increased. [#56715](https://github.com/ant-design/ant-design/pull/56715) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix misaligned elements in Pagination when the global `fontSize` is increased. [#56715](https://github.com/ant-design/ant-design/pull/56715) [@QDyanbing](https://github.com/QDyanbing)
 - 💄 Fix incorrect Drawer dragger position in RTL mode. [#56693](https://github.com/ant-design/ant-design/pull/56693) [@QdabuliuQ](https://github.com/QdabuliuQ)
 
 ## 6.2.1
