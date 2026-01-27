@@ -466,7 +466,9 @@ const Select = React.forwardRef(InternalSelect) as unknown as (<
 ) => React.ReactElement) & {
   displayName?: string;
   SECRET_COMBOBOX_MODE_DO_NOT_USE: string;
+  /** @deprecated Please use `options` instead. */
   Option: typeof Option;
+  /** @deprecated Please use `options` instead. */
   OptGroup: typeof OptGroup;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
