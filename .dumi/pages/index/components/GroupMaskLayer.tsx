@@ -1,8 +1,8 @@
 import React from 'react';
-import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import { createStaticStyles } from 'antd-style';
+import { clsx } from 'clsx';
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   siteMask: css`
     z-index: 1;
     position: relative;
@@ -19,11 +19,10 @@ export interface GroupMaskLayerProps {
 
 const GroupMaskLayer: React.FC<React.PropsWithChildren<GroupMaskLayerProps>> = (props) => {
   const { children, className, style, onMouseMove, onMouseEnter, onMouseLeave } = props;
-  const { styles } = useStyle();
   return (
     <div
       style={style}
-      className={classNames(className, styles.siteMask)}
+      className={clsx(className, classNames.siteMask)}
       onMouseMove={onMouseMove}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

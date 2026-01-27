@@ -1,88 +1,62 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genStepsProgressStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const {
-    antCls,
-    componentCls,
-    iconSize,
-    iconSizeSM,
-    processIconColor,
-    marginXXS,
-    lineWidthBold,
-    lineWidth,
-    paddingXXS,
-  } = token;
+  const { calc, antCls, componentCls, lineWidthBold, motionDurationSlow } = token;
 
-  const progressSize = token.calc(iconSize).add(token.calc(lineWidthBold).mul(4).equal()).equal();
-  const progressSizeSM = token
-    .calc(iconSizeSM)
-    .add(token.calc(token.lineWidth).mul(4).equal())
-    .equal();
+  const itemCls = `${componentCls}-item`;
+
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
+
+  const enhanceSize = calc(lineWidthBold).add(lineWidthBold).equal();
 
   return {
-    [`&${componentCls}-with-progress`]: {
-      [`${componentCls}-item`]: {
-        paddingTop: paddingXXS,
+    [`${componentCls}${componentCls}-with-progress`]: {
+      [varName('item-wrapper-padding-top')]: enhanceSize,
 
-        [`&-process ${componentCls}-item-container ${componentCls}-item-icon ${componentCls}-icon`]:
-          {
-            color: processIconColor,
-          },
-      },
-
-      [`&${componentCls}-vertical > ${componentCls}-item `]: {
-        paddingInlineStart: paddingXXS,
-        [`> ${componentCls}-item-container > ${componentCls}-item-tail`]: {
-          top: marginXXS,
-          insetInlineStart: token.calc(iconSize).div(2).sub(lineWidth).add(paddingXXS).equal(),
+      [`${itemCls}${itemCls}-process`]: {
+        [`${itemCls}-icon`]: {
+          position: 'relative',
         },
       },
 
-      [`&, &${componentCls}-small`]: {
-        [`&${componentCls}-horizontal ${componentCls}-item:first-child`]: {
-          paddingBottom: paddingXXS,
-          paddingInlineStart: paddingXXS,
-        },
-      },
+      [`${itemCls}-progress-icon`]: {
+        '&-svg': {
+          [varName('svg-size')]: calc(enhanceSize).mul(2).add(varRef('icon-size')).equal(),
+          [varName('icon-size-ptg-unitless')]: `calc(100 / tan(atan2(${varRef('svg-size')}, 1px)))`,
+          fontSize: varRef('svg-size'),
+          lineHeight: varRef('icon-size-ptg-unitless'),
 
-      [`&${componentCls}-small${componentCls}-vertical > ${componentCls}-item > ${componentCls}-item-container > ${componentCls}-item-tail`]:
-        {
-          insetInlineStart: token.calc(iconSizeSM).div(2).sub(lineWidth).add(paddingXXS).equal(),
-        },
-
-      [`&${componentCls}-label-vertical ${componentCls}-item ${componentCls}-item-tail`]: {
-        top: token.calc(iconSize).div(2).add(paddingXXS).equal(),
-      },
-
-      [`${componentCls}-item-icon`]: {
-        position: 'relative',
-
-        [`${antCls}-progress`]: {
           position: 'absolute',
-          insetInlineStart: '50%',
-          top: '50%',
-          transform: 'translate(-50%, -50%)',
+          inset: calc(enhanceSize).mul(-1).equal(),
+          width: 'auto',
+          height: 'auto',
+        },
 
-          '&-inner': {
-            width: `${unit(progressSize)} !important`,
-            height: `${unit(progressSize)} !important`,
+        '&-circle': {
+          lineHeight: varRef('icon-size-ptg-unitless'),
+          strokeWidth: calc(varRef('icon-size-ptg-unitless')).mul(lineWidthBold).equal(),
+          [varName('progress-radius')]: calc(varRef('svg-size'))
+            .sub(lineWidthBold)
+            .mul(varRef('icon-size-ptg-unitless'))
+            .div(2)
+            .equal(),
+          r: varRef('progress-radius'),
+          fill: 'none',
+          cx: 50,
+          cy: 50,
+          transition: `all ${motionDurationSlow} ease-in-out`,
+
+          '&-rail': {
+            stroke: token.colorSplit,
           },
-        },
-      },
 
-      // ============================== Small size ==============================
-      [`&${componentCls}-small`]: {
-        [`&${componentCls}-label-vertical ${componentCls}-item ${componentCls}-item-tail`]: {
-          top: token.calc(iconSizeSM).div(2).add(paddingXXS).equal(),
-        },
-
-        [`${componentCls}-item-icon ${antCls}-progress-inner`]: {
-          width: `${unit(progressSizeSM)} !important`,
-          height: `${unit(progressSizeSM)} !important`,
+          '&-ptg': {
+            stroke: token.colorPrimary,
+          },
         },
       },
     },

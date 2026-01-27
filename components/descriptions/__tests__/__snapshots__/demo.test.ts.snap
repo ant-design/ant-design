@@ -2,7 +2,7 @@
 
 exports[`renders components/descriptions/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions css-var-test-id"
 >
   <div
     class="ant-descriptions-header"
@@ -129,7 +129,7 @@ exports[`renders components/descriptions/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/descriptions/demo/block.tsx correctly 1`] = `
 <div
-  class="ant-descriptions ant-descriptions-bordered"
+  class="ant-descriptions ant-descriptions-bordered css-var-test-id"
 >
   <div
     class="ant-descriptions-header"
@@ -229,7 +229,7 @@ exports[`renders components/descriptions/demo/block.tsx correctly 1`] = `
 
 exports[`renders components/descriptions/demo/border.tsx correctly 1`] = `
 <div
-  class="ant-descriptions ant-descriptions-bordered"
+  class="ant-descriptions ant-descriptions-bordered css-var-test-id"
 >
   <div
     class="ant-descriptions-header"
@@ -350,7 +350,7 @@ exports[`renders components/descriptions/demo/border.tsx correctly 1`] = `
           >
             <span>
               <span
-                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
               >
                 <span
                   class="ant-badge-status-dot ant-badge-status-processing"
@@ -456,10 +456,11 @@ exports[`renders components/descriptions/demo/border.tsx correctly 1`] = `
 exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -482,7 +483,7 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -504,7 +505,7 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -529,7 +530,7 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
   <br />
   <br />
   <div
-    class="ant-descriptions ant-descriptions-bordered"
+    class="ant-descriptions ant-descriptions-bordered css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -694,7 +695,7 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
   <br />
   <br />
   <div
-    class="ant-descriptions"
+    class="ant-descriptions css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -708,7 +709,7 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -853,7 +854,7 @@ exports[`renders components/descriptions/demo/component-token.tsx correctly 1`] 
 
 exports[`renders components/descriptions/demo/jsx.tsx correctly 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions css-var-test-id"
 >
   <div
     class="ant-descriptions-header"
@@ -980,14 +981,14 @@ exports[`renders components/descriptions/demo/jsx.tsx correctly 1`] = `
 
 exports[`renders components/descriptions/demo/padding.tsx correctly 1`] = `
 <div
-  class="ant-flex ant-flex-align-stretch ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
   style="gap:8px"
 >
   <div
     style="width:600px;border:1px solid;padding:20px"
   >
     <div
-      class="ant-descriptions"
+      class="ant-descriptions css-var-test-id"
     >
       <div
         class="ant-descriptions-header"
@@ -1119,7 +1120,7 @@ exports[`renders components/descriptions/demo/padding.tsx correctly 1`] = `
     style="width:600px;border:1px solid;padding:20px"
   >
     <div
-      class="ant-descriptions"
+      class="ant-descriptions css-var-test-id"
     >
       <div
         class="ant-descriptions-header"
@@ -1309,7 +1310,7 @@ exports[`renders components/descriptions/demo/padding.tsx correctly 1`] = `
 
 exports[`renders components/descriptions/demo/responsive.tsx correctly 1`] = `
 <div
-  class="ant-descriptions ant-descriptions-bordered"
+  class="ant-descriptions ant-descriptions-bordered css-var-test-id"
 >
   <div
     class="ant-descriptions-header"
@@ -1484,10 +1485,11 @@ exports[`renders components/descriptions/demo/responsive.tsx correctly 1`] = `
 exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
 <div>
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -1510,7 +1512,7 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1532,7 +1534,7 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1557,7 +1559,7 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
   <br />
   <br />
   <div
-    class="ant-descriptions ant-descriptions-bordered"
+    class="ant-descriptions ant-descriptions-bordered css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -1571,7 +1573,7 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1727,7 +1729,7 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
   <br />
   <br />
   <div
-    class="ant-descriptions"
+    class="ant-descriptions css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -1741,7 +1743,7 @@ exports[`renders components/descriptions/demo/size.tsx correctly 1`] = `
         class="ant-descriptions-extra"
       >
         <button
-          class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
           type="button"
         >
           <span>
@@ -1888,7 +1890,7 @@ exports[`renders components/descriptions/demo/style.tsx correctly 1`] = `
 Array [
   <button
     aria-checked="true"
-    class="ant-switch ant-switch-checked"
+    class="ant-switch css-var-test-id ant-switch-checked"
     role="switch"
     type="button"
   >
@@ -1911,14 +1913,15 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-radio-group ant-radio-group-outline"
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
-      class="ant-radio-wrapper ant-radio-wrapper-checked"
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target ant-radio-checked"
@@ -1941,7 +1944,7 @@ Array [
       </span>
     </label>
     <label
-      class="ant-radio-wrapper"
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
     >
       <span
         class="ant-radio ant-wave-target"
@@ -1964,11 +1967,11 @@ Array [
     </label>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-descriptions ant-descriptions-bordered"
+    class="ant-descriptions ant-descriptions-bordered css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -2043,11 +2046,11 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
     role="separator"
   />,
   <div
-    class="ant-descriptions ant-descriptions-bordered"
+    class="ant-descriptions ant-descriptions-bordered css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -2071,7 +2074,9 @@ Array [
               colspan="1"
               style="background:red"
             >
-              <span>
+              <span
+                style="background:red"
+              >
                 Product
               </span>
             </th>
@@ -2080,7 +2085,9 @@ Array [
               colspan="1"
               style="background:green"
             >
-              <span>
+              <span
+                style="background:green"
+              >
                 Cloud Database
               </span>
             </td>
@@ -2089,7 +2096,9 @@ Array [
               colspan="1"
               style="background:red"
             >
-              <span>
+              <span
+                style="background:red"
+              >
                 Billing Mode
               </span>
             </th>
@@ -2098,7 +2107,9 @@ Array [
               colspan="1"
               style="background:green"
             >
-              <span>
+              <span
+                style="background:green"
+              >
                 Prepaid
               </span>
             </td>
@@ -2107,7 +2118,9 @@ Array [
               colspan="1"
               style="background:red;color:orange"
             >
-              <span>
+              <span
+                style="background:red"
+              >
                 Automatic Renewal
               </span>
             </th>
@@ -2116,7 +2129,9 @@ Array [
               colspan="1"
               style="background:green;color:blue"
             >
-              <span>
+              <span
+                style="background:green"
+              >
                 YES
               </span>
             </td>
@@ -2128,9 +2143,181 @@ Array [
 ]
 `;
 
+exports[`renders components/descriptions/demo/style-class.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
+  <div
+    class="ant-descriptions acss-ven0qr ant-descriptions-small ant-descriptions-bordered css-var-test-id"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color:#000"
+            >
+              <span
+                style="color:#000"
+              >
+                Product
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color:#000"
+            >
+              <span
+                style="color:#000"
+              >
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color:#000"
+            >
+              <span
+                style="color:#000"
+              >
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div
+    class="ant-descriptions acss-ven0qr ant-descriptions-bordered css-var-test-id"
+    style="border-radius:8px;border:1px solid #CDC1FF"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        User Info
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color:#A294F9"
+            >
+              <span
+                style="color:#A294F9"
+              >
+                Product
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Cloud Database
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color:#A294F9"
+            >
+              <span
+                style="color:#A294F9"
+              >
+                Billing Mode
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                Prepaid
+              </span>
+            </td>
+            <th
+              class="ant-descriptions-item-label"
+              colspan="1"
+              style="color:#A294F9"
+            >
+              <span
+                style="color:#A294F9"
+              >
+                Automatic Renewal
+              </span>
+            </th>
+            <td
+              class="ant-descriptions-item-content"
+              colspan="1"
+            >
+              <span>
+                YES
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/descriptions/demo/text.tsx correctly 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions css-var-test-id"
 >
   <div
     class="ant-descriptions-header"
@@ -2276,7 +2463,7 @@ exports[`renders components/descriptions/demo/text.tsx correctly 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <span
-                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                  class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
                 >
                   <span
                     class="ant-badge-status-dot ant-badge-status-processing"
@@ -2424,16 +2611,16 @@ exports[`renders components/descriptions/demo/text.tsx correctly 1`] = `
                 class="ant-descriptions-item-content"
               >
                 <div
-                  class="ant-table-wrapper"
+                  class="css-var-test-id ant-table-css-var ant-table-wrapper"
                 >
                   <div
-                    class="ant-spin-nested-loading"
+                    class="ant-spin-nested-loading css-var-test-id"
                   >
                     <div
                       class="ant-spin-container"
                     >
                       <div
-                        class="ant-table ant-table-small"
+                        class="ant-table ant-table-small css-var-test-id ant-table-css-var"
                       >
                         <div
                           class="ant-table-container"
@@ -2531,7 +2718,7 @@ exports[`renders components/descriptions/demo/text.tsx correctly 1`] = `
 
 exports[`renders components/descriptions/demo/vertical.tsx correctly 1`] = `
 <div
-  class="ant-descriptions"
+  class="ant-descriptions css-var-test-id"
 >
   <div
     class="ant-descriptions-header"
@@ -2711,7 +2898,7 @@ exports[`renders components/descriptions/demo/vertical.tsx correctly 1`] = `
 
 exports[`renders components/descriptions/demo/vertical-border.tsx correctly 1`] = `
 <div
-  class="ant-descriptions ant-descriptions-bordered"
+  class="ant-descriptions ant-descriptions-bordered css-var-test-id"
 >
   <div
     class="ant-descriptions-header"
@@ -2844,7 +3031,7 @@ exports[`renders components/descriptions/demo/vertical-border.tsx correctly 1`] 
           >
             <span>
               <span
-                class="ant-badge ant-badge-status ant-badge-not-a-wrapper"
+                class="ant-badge ant-badge-status ant-badge-not-a-wrapper css-var-test-id"
               >
                 <span
                   class="ant-badge-status-dot ant-badge-status-processing"

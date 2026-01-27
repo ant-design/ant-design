@@ -16,11 +16,11 @@ demo:
 - 当内容空间不足时，可以用走马灯的形式进行收纳，进行轮播展现。
 - 常用于一组图片或卡片轮播。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
-<code src="./demo/position.tsx">位置</code>
+<code src="./demo/placement.tsx">位置</code>
 <code src="./demo/autoplay.tsx">自动切换</code>
 <code src="./demo/fade.tsx">渐显</code>
 <code src="./demo/arrows.tsx" version="5.17.0">切换箭头</code>
@@ -37,7 +37,8 @@ demo:
 | autoplay | 是否自动切换，如果为 object 可以指定 `dotDuration` 来展示指示点进度条 | boolean \| { dotDuration?: boolean } | false | dotDuration: 5.24.0 |
 | autoplaySpeed | 自动切换的间隔（毫秒） | number | 3000 |  |
 | adaptiveHeight | 高度自适应 | boolean | false |  |
-| dotPosition | 面板指示点位置，可选 `top` `bottom` `left` `right` | string | `bottom` |  |
+| dotPlacement | 面板指示点位置，可选 `top` `bottom` `start` `end` | string | `bottom` |  |
+| ~~dotPosition~~ | 面板指示点位置，可选 `top` `bottom` `left` `right` `start` `end`，请使用 `dotPlacement` 替换 | string | `bottom` |  |
 | dots | 是否显示面板指示点，如果为 `object` 则可以指定 `dotsClass` | boolean \| { className?: string } | true |  |
 | draggable | 是否启用拖拽切换 | boolean | false |  |
 | fade | 使用渐变切换动效 | boolean | false |  |
@@ -51,7 +52,7 @@ demo:
 
 更多 API 可参考：<https://react-slick.neostack.com/docs/api>
 
-## 方法
+## 方法 {#methods}
 
 | 名称                           | 描述                                              |
 | ------------------------------ | ------------------------------------------------- |
@@ -59,12 +60,12 @@ demo:
 | next()                         | 切换到下一面板                                    |
 | prev()                         | 切换到上一面板                                    |
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Carousel"></ComponentTokenTable>
 
 ## FAQ
 
-### 如何自定义箭头？
+### 如何自定义箭头？ {#faq-add-custom-arrows}
 
 可参考 [#12479](https://github.com/ant-design/ant-design/issues/12479)。

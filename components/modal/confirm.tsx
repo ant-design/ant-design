@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
+import { render, unmount } from '@rc-component/util/lib/React/render';
 
 import warning from '../_util/warning';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { unstableSetRender } from '../config-provider/UnstableContext';
-import type { UnmountType } from '../config-provider/UnstableContext';
 import type { ConfirmDialogProps } from './ConfirmDialog';
 import ConfirmDialog from './ConfirmDialog';
 import destroyFns from './destroyFns';
@@ -23,7 +22,15 @@ export type ModalFunc = (props: ModalFuncProps) => {
   update: (configUpdate: ConfigUpdate) => void;
 };
 
-export type ModalStaticFunctions = Record<NonNullable<ModalFuncProps['type']>, ModalFunc>;
+export type ModalStaticFunctions = {
+  info: ModalFunc;
+  success: ModalFunc;
+  error: ModalFunc;
+  warning: ModalFunc;
+  confirm: ModalFunc;
+  /** @deprecated Please use `warning` instead */
+  warn: ModalFunc;
+};
 
 const ConfirmDialogWrapper: React.FC<ConfirmDialogProps> = (props) => {
   const { prefixCls: customizePrefixCls, getContainer, direction } = props;
@@ -72,8 +79,6 @@ export default function confirm(config: ModalFuncProps) {
   let currentConfig = { ...config, close, open: true } as any;
   let timeoutId: ReturnType<typeof setTimeout>;
 
-  let reactUnmount: UnmountType;
-
   function destroy(...args: any[]) {
     const triggerCancel = args.some((param) => param?.triggerCancel);
     if (triggerCancel) {
@@ -87,7 +92,9 @@ export default function confirm(config: ModalFuncProps) {
       }
     }
 
-    reactUnmount();
+    unmount(container).then(() => {
+      // Do nothing
+    });
   }
 
   const scheduleRender = (props: ConfirmDialogProps) => {
@@ -105,9 +112,7 @@ export default function confirm(config: ModalFuncProps) {
 
       const dom = <ConfirmDialogWrapper {...props} />;
 
-      const reactRender = unstableSetRender();
-
-      reactUnmount = reactRender(
+      render(
         <ConfigProvider prefixCls={rootPrefixCls} iconPrefixCls={iconPrefixCls} theme={theme}>
           {typeof global.holderRender === 'function' ? global.holderRender(dom) : dom}
         </ConfigProvider>,
@@ -128,11 +133,6 @@ export default function confirm(config: ModalFuncProps) {
         destroy.apply(this, args);
       },
     };
-
-    // Legacy support
-    if (currentConfig.visible) {
-      delete currentConfig.visible;
-    }
 
     scheduleRender(currentConfig);
   }

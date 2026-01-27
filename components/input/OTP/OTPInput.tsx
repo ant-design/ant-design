@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import raf from 'rc-util/lib/raf';
+import raf from '@rc-component/util/lib/raf';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../../config-provider';
 import Input from '../Input';
@@ -16,7 +16,7 @@ export interface OTPInputProps extends Omit<InputProps, 'onChange'> {
 }
 
 const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
-  const { className, value, onChange, onActiveChange, index, mask, ...restProps } = props;
+  const { className, value, onChange, onActiveChange, index, mask, onFocus, ...restProps } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('otp');
   const maskValue = typeof mask === 'string' ? mask : value;
@@ -38,6 +38,11 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         inputEle.select();
       }
     });
+  };
+
+  const onInternalFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    onFocus?.(e);
+    syncSelection();
   };
 
   // ======================== Keyboard ========================
@@ -74,13 +79,11 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
         ref={inputRef}
         value={value}
         onInput={onInternalChange}
-        onFocus={syncSelection}
+        onFocus={onInternalFocus}
         onKeyDown={onInternalKeyDown}
         onMouseDown={syncSelection}
         onMouseUp={syncSelection}
-        className={classNames(className, {
-          [`${prefixCls}-mask-input`]: mask,
-        })}
+        className={clsx(className, { [`${prefixCls}-mask-input`]: mask })}
       />
     </span>
   );

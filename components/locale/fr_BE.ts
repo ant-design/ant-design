@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/fr_BE';
+import Pagination from '@rc-component/pagination/lib/locale/fr_BE';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/fr_BE';
@@ -129,9 +129,6 @@ const localeValues: Locale = {
         mismatch: 'La valeur du champ ${label} ne correspond pas au modèle ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Aperçu',
   },
 };
 

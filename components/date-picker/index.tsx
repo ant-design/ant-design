@@ -1,25 +1,39 @@
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import type { Dayjs } from 'dayjs';
-import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
 
 import genPurePanel from '../_util/PurePanel';
 import generatePicker from './generatePicker';
 import type {
   RangePickerProps as BaseRangePickerProps,
+  DatePickerPanelSemanticClassNames,
+  DatePickerPanelSemanticName,
+  DatePickerPanelSemanticStyles,
+  DatePickerSemanticClassNames,
+  DatePickerSemanticName,
+  DatePickerSemanticStyles,
   PickerProps,
   PickerPropsWithMultiple,
 } from './generatePicker/interface';
 
-export type DatePickerProps<ValueType = Dayjs | Dayjs> = PickerPropsWithMultiple<
-  Dayjs,
-  PickerProps<Dayjs>,
-  ValueType
->;
+export type DatePickerProps<
+  ValueType = Dayjs,
+  IsMultiple extends boolean = boolean,
+> = PickerPropsWithMultiple<Dayjs, PickerProps<Dayjs>, ValueType, IsMultiple>;
 export type MonthPickerProps<ValueType = Dayjs | Dayjs> = Omit<
   DatePickerProps<ValueType>,
   'picker'
 >;
 export type WeekPickerProps<ValueType = Dayjs | Dayjs> = Omit<DatePickerProps<ValueType>, 'picker'>;
 export type RangePickerProps = BaseRangePickerProps<Dayjs>;
+
+export type {
+  DatePickerPanelSemanticClassNames,
+  DatePickerPanelSemanticName,
+  DatePickerPanelSemanticStyles,
+  DatePickerSemanticClassNames,
+  DatePickerSemanticName,
+  DatePickerSemanticStyles,
+};
 
 const DatePicker = generatePicker<Dayjs>(dayjsGenerateConfig);
 

@@ -2,16 +2,16 @@
 
 exports[`Table renders empty table 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -87,7 +87,7 @@ exports[`Table renders empty table 1`] = `
                     colspan="8"
                   >
                     <div
-                      class="ant-empty ant-empty-normal"
+                      class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
                         class="ant-empty-image"
@@ -118,10 +118,10 @@ exports[`Table renders empty table 1`] = `
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -148,16 +148,16 @@ exports[`Table renders empty table 1`] = `
 
 exports[`Table renders empty table when emptyText is null 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -245,16 +245,16 @@ exports[`Table renders empty table when emptyText is null 1`] = `
 
 exports[`Table renders empty table with custom emptyText 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -344,16 +344,16 @@ exports[`Table renders empty table with custom emptyText 1`] = `
 
 exports[`Table renders empty table with fixed columns should work 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-empty ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-left ant-table-has-fix-right"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -389,16 +389,16 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
               >
                 <tr>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
                     scope="col"
-                    style="position: sticky; left: 0px;"
+                    style="inset-inline-start: 0; --z-offset: 22; --z-offset-reverse: 11;"
                   >
                     Full Name
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-left ant-table-cell-fix-left-last"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
                     scope="col"
-                    style="position: sticky; left: 0px;"
+                    style="inset-inline-start: 0; --z-offset: 21; --z-offset-reverse: 12;"
                   >
                     Age
                   </th>
@@ -451,9 +451,9 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                     Column 8
                   </th>
                   <th
-                    class="ant-table-cell ant-table-cell-fix-right ant-table-cell-fix-right-first"
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-end ant-table-cell-fix-end-shadow"
                     scope="col"
-                    style="position: sticky; right: 0px;"
+                    style="inset-inline-end: 0; --z-offset: 10; --z-offset-reverse: 1;"
                   >
                     Action
                   </th>
@@ -465,107 +465,107 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                 <tr
                   aria-hidden="true"
                   class="ant-table-measure-row"
-                  tabindex="-1"
+                  style="height: 0px;"
                 >
-                  <th
-                    class="ant-table-measure-cell"
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Full Name
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Age
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Column 1
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Column 2
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Column 3
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Column 4
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Column 5
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Column 6
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Column 7
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Column 8
                     </div>
-                  </th>
-                  <th
-                    class="ant-table-measure-cell"
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
                   >
                     <div
-                      class="ant-table-measure-cell-content"
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
                     >
                       Action
                     </div>
-                  </th>
+                  </td>
                 </tr>
                 <tr
                   class="ant-table-placeholder"
@@ -579,7 +579,7 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                       style="width: 1000px; position: sticky; left: 0px; overflow: hidden;"
                     >
                       <div
-                        class="ant-empty ant-empty-normal"
+                        class="css-var-root ant-empty ant-empty-normal"
                       >
                         <div
                           class="ant-empty-image"
@@ -610,10 +610,10 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
                                 stroke="#d9d9d9"
                               >
                                 <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                  d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                                 />
                                 <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                   fill="#fafafa"
                                 />
                               </g>
@@ -641,16 +641,16 @@ exports[`Table renders empty table with fixed columns should work 1`] = `
 
 exports[`Table renders empty table without emptyText when loading 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div>
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning"
+        class="ant-spin ant-spin-spinning css-var-root"
       >
         <span
           class="ant-spin-dot-holder"
@@ -678,7 +678,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"
@@ -754,7 +754,7 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                     colspan="8"
                   >
                     <div
-                      class="ant-empty ant-empty-normal"
+                      class="css-var-root ant-empty ant-empty-normal"
                     >
                       <div
                         class="ant-empty-image"
@@ -785,10 +785,10 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
                               stroke="#d9d9d9"
                             >
                               <path
-                                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                               />
                               <path
-                                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                 fill="#fafafa"
                               />
                             </g>
@@ -815,16 +815,16 @@ exports[`Table renders empty table without emptyText when loading 1`] = `
 
 exports[`Table should not render empty when loading 1`] = `
 <div
-  class="ant-table-wrapper"
+  class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-root"
   >
     <div>
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning"
+        class="ant-spin ant-spin-spinning css-var-root"
       >
         <span
           class="ant-spin-dot-holder"
@@ -852,7 +852,7 @@ exports[`Table should not render empty when loading 1`] = `
       class="ant-spin-container ant-spin-blur"
     >
       <div
-        class="ant-table ant-table-empty"
+        class="ant-table ant-table-empty css-var-root ant-table-css-var"
       >
         <div
           class="ant-table-container"

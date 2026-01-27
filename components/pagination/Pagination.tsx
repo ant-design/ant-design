@@ -3,14 +3,20 @@ import DoubleLeftOutlined from '@ant-design/icons/DoubleLeftOutlined';
 import DoubleRightOutlined from '@ant-design/icons/DoubleRightOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
-import classNames from 'classnames';
-import type { PaginationLocale, PaginationProps as RcPaginationProps } from 'rc-pagination';
-import RcPagination from 'rc-pagination';
-import enUS from 'rc-pagination/lib/locale/en_US';
+import type {
+  PaginationLocale,
+  PaginationProps as RcPaginationProps,
+} from '@rc-component/pagination';
+import RcPagination from '@rc-component/pagination';
+import enUS from '@rc-component/pagination/lib/locale/en_US';
+import { clsx } from 'clsx';
 
+import { useMergeSemantic } from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import type { SelectProps } from '../select';
@@ -20,10 +26,31 @@ import useStyle from './style';
 import BorderedStyle from './style/bordered';
 import useShowSizeChanger from './useShowSizeChanger';
 
+export type SemanticName = keyof PaginationSemanticClassNames & keyof PaginationSemanticStyles;
+
+export type PaginationSemanticName = SemanticName;
+
+export type PaginationSemanticClassNames = {
+  root?: string;
+  item?: string;
+};
+
+export type PaginationSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+};
+
+export type PaginationClassNamesType = SemanticClassNamesType<
+  PaginationProps,
+  PaginationSemanticClassNames
+>;
+
+export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticStyles>;
+
 export interface PaginationProps
-  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions'> {
+  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
-  size?: 'default' | 'small';
+  size?: SizeType;
   responsive?: boolean;
   role?: string;
   totalBoundaryShowSizeChanger?: number;
@@ -33,6 +60,8 @@ export interface PaginationProps
   selectComponentClass?: any;
   /** `string` type will be removed in next major version. */
   pageSizeOptions?: (string | number)[];
+  classNames?: PaginationClassNamesType;
+  styles?: PaginationStylesType;
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -57,6 +86,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     showSizeChanger,
     selectComponentClass,
     pageSizeOptions,
+    styles,
+    classNames,
     ...restProps
   } = props;
   const { xs } = useBreakpoint(responsive);
@@ -68,16 +99,34 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     showSizeChanger: contextShowSizeChangerConfig,
     className: contextClassName,
     style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    totalBoundaryShowSizeChanger: contextTotalBoundaryShowSizeChanger,
   } = useComponentConfig('pagination');
   const prefixCls = getPrefixCls('pagination', customizePrefixCls);
 
   // Style
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId, cssVarCls] = useStyle(prefixCls);
 
   // ============================== Size ==============================
   const mergedSize = useSize(customizeSize);
 
   const isSmall = mergedSize === 'small' || !!(xs && !mergedSize && responsive);
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: PaginationProps = {
+    ...props,
+    size: mergedSize,
+  };
+
+  // ========================= Style ==========================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    PaginationClassNamesType,
+    PaginationStylesType,
+    PaginationProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   // ============================= Locale =============================
   const [contextLocale] = useLocale('Pagination', enUS);
@@ -137,8 +186,8 @@ const Pagination: React.FC<PaginationProps> = (props) => {
           onSizeChange?.(nextSize);
           propSizeChangerOnChange?.(nextSize, option);
         }}
-        size={isSmall ? 'small' : 'middle'}
-        className={classNames(sizeChangerClassName, propSizeChangerClassName)}
+        size={mergedSize}
+        className={clsx(sizeChangerClassName, propSizeChangerClassName)}
       />
     );
   };
@@ -197,9 +246,11 @@ const Pagination: React.FC<PaginationProps> = (props) => {
 
   const selectPrefixCls = getPrefixCls('select', customizeSelectPrefixCls);
 
-  const extendedClassName = classNames(
+  const extendedClassName = clsx(
     {
       [`${prefixCls}-${align}`]: !!align,
+      [`${prefixCls}-${mergedSize}`]: mergedSize,
+      /** @deprecated Should be removed in v7 */
       [`${prefixCls}-mini`]: isSmall,
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-bordered`]: token.wireframe,
@@ -207,18 +258,25 @@ const Pagination: React.FC<PaginationProps> = (props) => {
     contextClassName,
     className,
     rootClassName,
+    mergedClassNames.root,
     hashId,
     cssVarCls,
   );
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  const mergedStyle: React.CSSProperties = {
+    ...mergedStyles.root,
+    ...contextStyle,
+    ...style,
+  };
 
-  return wrapCSSVar(
+  return (
     <>
       {token.wireframe && <BorderedStyle prefixCls={prefixCls} />}
       <RcPagination
         {...iconsProps}
         {...restProps}
+        styles={mergedStyles}
+        classNames={mergedClassNames}
         style={mergedStyle}
         prefixCls={prefixCls}
         selectPrefixCls={selectPrefixCls}
@@ -226,9 +284,12 @@ const Pagination: React.FC<PaginationProps> = (props) => {
         locale={locale}
         pageSizeOptions={mergedPageSizeOptions}
         showSizeChanger={mergedShowSizeChanger}
+        totalBoundaryShowSizeChanger={
+          restProps.totalBoundaryShowSizeChanger ?? contextTotalBoundaryShowSizeChanger
+        }
         sizeChangerRender={sizeChangerRender}
       />
-    </>,
+    </>
   );
 };
 

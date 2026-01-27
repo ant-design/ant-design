@@ -4,7 +4,8 @@ exports[`renders components/popover/demo/arrow.tsx extend context correctly 1`] 
 Array [
   <div
     aria-label="segmented control"
-    class="ant-segmented"
+    aria-orientation="horizontal"
+    class="ant-segmented css-var-test-id"
     role="radiogroup"
     style="margin-bottom: 24px;"
     tabindex="0"
@@ -22,7 +23,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="true"
           class="ant-segmented-item-label"
           title="Show"
         >
@@ -38,7 +38,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Hide"
         >
@@ -54,7 +53,6 @@ Array [
           type="radio"
         />
         <div
-          aria-selected="false"
           class="ant-segmented-item-label"
           title="Center"
         >
@@ -64,15 +62,15 @@ Array [
     </div>
   </div>,
   <div
-    class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+    class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="white-space: nowrap;"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -81,46 +79,46 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-topLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -129,46 +127,46 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; bottom: 0px; left: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -177,54 +175,54 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topRight"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-topRight"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
       style="width: 432px;"
     >
       <div
-        class="ant-flex ant-flex-align-center ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
       >
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -233,46 +231,46 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftTop"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-leftTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
             style="position: absolute;"
-          />
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
-            class="ant-popover-content"
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-title"
             >
-              <div
-                class="ant-popover-title"
-              >
-                <span>
-                  Title
-                </span>
-              </div>
-              <div
-                class="ant-popover-inner-content"
-              >
-                <div>
-                  <p>
-                    Content
-                  </p>
-                  <p>
-                    Content
-                  </p>
-                </div>
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
               </div>
             </div>
           </div>
         </div>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -281,46 +279,46 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-left"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-left"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
             style="position: absolute; top: 0px; right: 0px;"
-          />
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
-            class="ant-popover-content"
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-title"
             >
-              <div
-                class="ant-popover-title"
-              >
-                <span>
-                  Title
-                </span>
-              </div>
-              <div
-                class="ant-popover-inner-content"
-              >
-                <div>
-                  <p>
-                    Content
-                  </p>
-                  <p>
-                    Content
-                  </p>
-                </div>
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
               </div>
             </div>
           </div>
         </div>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -329,50 +327,50 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftBottom"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-leftBottom"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
             style="position: absolute;"
-          />
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
-            class="ant-popover-content"
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-title"
             >
-              <div
-                class="ant-popover-title"
-              >
-                <span>
-                  Title
-                </span>
-              </div>
-              <div
-                class="ant-popover-inner-content"
-              >
-                <div>
-                  <p>
-                    Content
-                  </p>
-                  <p>
-                    Content
-                  </p>
-                </div>
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
       <div
-        class="ant-flex ant-flex-align-center ant-flex-vertical"
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
       >
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -381,46 +379,46 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightTop"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-rightTop"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
             style="position: absolute;"
-          />
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
-            class="ant-popover-content"
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-title"
             >
-              <div
-                class="ant-popover-title"
-              >
-                <span>
-                  Title
-                </span>
-              </div>
-              <div
-                class="ant-popover-inner-content"
-              >
-                <div>
-                  <p>
-                    Content
-                  </p>
-                  <p>
-                    Content
-                  </p>
-                </div>
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
               </div>
             </div>
           </div>
         </div>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -429,46 +427,46 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-right"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-right"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
             style="position: absolute; top: 0px; left: 0px;"
-          />
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
-            class="ant-popover-content"
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-title"
             >
-              <div
-                class="ant-popover-title"
-              >
-                <span>
-                  Title
-                </span>
-              </div>
-              <div
-                class="ant-popover-inner-content"
-              >
-                <div>
-                  <p>
-                    Content
-                  </p>
-                  <p>
-                    Content
-                  </p>
-                </div>
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
               </div>
             </div>
           </div>
         </div>
         <button
           aria-describedby="test-id"
-          class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
           style="width: 80px; margin: 4px;"
           type="button"
         >
@@ -477,39 +475,39 @@ Array [
           </span>
         </button>
         <div
-          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightBottom"
+          class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-rightBottom"
           style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
         >
           <div
             class="ant-popover-arrow"
             style="position: absolute;"
-          />
+          >
+            <span
+              class="ant-popover-arrow-content"
+            />
+          </div>
           <div
-            class="ant-popover-content"
+            class="ant-popover-container"
+            id="test-id"
+            role="tooltip"
           >
             <div
-              class="ant-popover-inner"
-              id="test-id"
-              role="tooltip"
+              class="ant-popover-title"
             >
-              <div
-                class="ant-popover-title"
-              >
-                <span>
-                  Title
-                </span>
-              </div>
-              <div
-                class="ant-popover-inner-content"
-              >
-                <div>
-                  <p>
-                    Content
-                  </p>
-                  <p>
-                    Content
-                  </p>
-                </div>
+              <span>
+                Title
+              </span>
+            </div>
+            <div
+              class="ant-popover-content"
+            >
+              <div>
+                <p>
+                  Content
+                </p>
+                <p>
+                  Content
+                </p>
               </div>
             </div>
           </div>
@@ -517,12 +515,12 @@ Array [
       </div>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-justify-center"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
       style="white-space: nowrap;"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -531,46 +529,46 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -579,46 +577,46 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottom"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottom"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; top: 0px; left: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -627,39 +625,39 @@ Array [
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomRight"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottomRight"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1093,7 +1091,7 @@ exports[`renders components/popover/demo/basic.tsx extend context correctly 1`] 
 Array [
   <button
     aria-describedby="test-id"
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -1101,37 +1099,37 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
@@ -1144,69 +1142,61 @@ exports[`renders components/popover/demo/basic.tsx extend context correctly 2`] 
 exports[`renders components/popover/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top"
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
     style="width: 250px;"
   >
     <div
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
       style="width: 250px;"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
@@ -1220,7 +1210,7 @@ exports[`renders components/popover/demo/control.tsx extend context correctly 1`
 Array [
   <button
     aria-describedby="test-id"
-    class="ant-btn ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
     type="button"
   >
     <span>
@@ -1228,33 +1218,33 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <a>
-            Close
-          </a>
-        </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <a>
+          Close
+        </a>
       </div>
     </div>
   </div>,
@@ -1267,7 +1257,7 @@ exports[`renders components/popover/demo/hover-with-click.tsx extend context cor
 Array [
   <button
     aria-describedby="test-id"
-    class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
     type="button"
   >
     <span>
@@ -1275,68 +1265,68 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
   >
     <div
       class="ant-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Click title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
+        Click title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
           <div>
-            <div>
-              This is click content.
-            </div>
-            <a>
-              Close
-            </a>
+            This is click content.
           </div>
+          <a>
+            Close
+          </a>
         </div>
       </div>
     </div>
   </div>,
   <div
-    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
       class="ant-popover-arrow"
       style="position: absolute; bottom: 0px; left: 0px;"
-    />
+    >
+      <span
+        class="ant-popover-arrow-content"
+      />
+    </div>
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      id="test-id"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        id="test-id"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Hover title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            This is hover content.
-          </div>
+        Hover title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          This is hover content.
         </div>
       </div>
     </div>
@@ -1348,15 +1338,15 @@ exports[`renders components/popover/demo/hover-with-click.tsx extend context cor
 
 exports[`renders components/popover/demo/placement.tsx extend context correctly 1`] = `
 <div
-  class="demo ant-flex ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+  class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
 >
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
     style="white-space: nowrap;"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1365,46 +1355,46 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-topLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            <span>
-              Title
-            </span>
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1413,46 +1403,46 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            <span>
-              Title
-            </span>
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1461,54 +1451,54 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-topRight"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-topRight"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            <span>
-              Title
-            </span>
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-space-between"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
     style="width: 432px;"
   >
     <div
-      class="ant-flex ant-flex-align-center ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1517,46 +1507,46 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftTop"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-leftTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1565,46 +1555,46 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-left"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-left"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; top: 0px; right: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1613,50 +1603,50 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-leftBottom"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-leftBottom"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div
-      class="ant-flex ant-flex-align-center ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
     >
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1665,46 +1655,46 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightTop"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1713,46 +1703,46 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-right"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-right"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute; top: 0px; left: 0px;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
       </div>
       <button
         aria-describedby="test-id"
-        class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
         style="width: 80px; margin: 4px;"
         type="button"
       >
@@ -1761,39 +1751,39 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
         </span>
       </button>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-rightBottom"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-rightBottom"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
           class="ant-popover-arrow"
           style="position: absolute;"
-        />
+        >
+          <span
+            class="ant-popover-arrow-content"
+          />
+        </div>
         <div
-          class="ant-popover-content"
+          class="ant-popover-container"
+          id="test-id"
+          role="tooltip"
         >
           <div
-            class="ant-popover-inner"
-            id="test-id"
-            role="tooltip"
+            class="ant-popover-title"
           >
-            <div
-              class="ant-popover-title"
-            >
-              <span>
-                Title
-              </span>
-            </div>
-            <div
-              class="ant-popover-inner-content"
-            >
-              <div>
-                <p>
-                  Content
-                </p>
-                <p>
-                  Content
-                </p>
-              </div>
+            <span>
+              Title
+            </span>
+          </div>
+          <div
+            class="ant-popover-content"
+          >
+            <div>
+              <p>
+                Content
+              </p>
+              <p>
+                Content
+              </p>
             </div>
           </div>
         </div>
@@ -1801,12 +1791,12 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-flex ant-flex-align-center ant-flex-justify-center"
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
     style="white-space: nowrap;"
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1815,46 +1805,46 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomLeft"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottomLeft"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            <span>
-              Title
-            </span>
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1863,46 +1853,46 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottom"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottom"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute; top: 0px; left: 0px;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            <span>
-              Title
-            </span>
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
     </div>
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       style="width: 80px; margin: 4px;"
       type="button"
     >
@@ -1911,39 +1901,39 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-bottomRight"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-bottomRight"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            <span>
-              Title
-            </span>
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          <span>
+            Title
+          </span>
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
@@ -1957,69 +1947,61 @@ exports[`renders components/popover/demo/placement.tsx extend context correctly 
 exports[`renders components/popover/demo/render-panel.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top"
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
     style="width: 250px;"
   >
     <div
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
       style="width: 250px;"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
@@ -2069,9 +2051,72 @@ exports[`renders components/popover/demo/shift.tsx extend context correctly 1`] 
 
 exports[`renders components/popover/demo/shift.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/popover/demo/style-class.tsx extend context correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-gap-middle"
+>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+    type="button"
+  >
+    <span>
+      Object Style
+    </span>
+  </button>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-container acss-ven0qr"
+      id="test-id"
+      role="tooltip"
+      style="background: rgb(238, 238, 238); box-shadow: inset 5px 5px 3px #fff, inset -5px -5px 3px #ddd, 0 0 3px rgba(0,0,0,0.2);"
+    >
+      <div
+        class="ant-popover-content"
+        style="color: rgb(38, 38, 38);"
+      >
+        Object text
+      </div>
+    </div>
+  </div>
+  <button
+    aria-describedby="test-id"
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+    type="button"
+  >
+    <span>
+      Function Style
+    </span>
+  </button>
+  <div
+    class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-popover-container acss-ven0qr"
+      id="test-id"
+      role="tooltip"
+      style="background-color: rgba(53, 71, 125, 0.8); padding: 12px; border-radius: 4px;"
+    >
+      <div
+        class="ant-popover-content"
+        style="color: rgb(255, 255, 255);"
+      >
+        Function text
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/popover/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/popover/demo/triggerType.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
   style="flex-wrap: wrap;"
 >
   <div
@@ -2079,7 +2124,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -2087,37 +2132,37 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            Title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          Title
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
@@ -2128,7 +2173,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -2136,37 +2181,37 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            Title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          Title
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
@@ -2177,7 +2222,7 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
   >
     <button
       aria-describedby="test-id"
-      class="ant-btn ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
       <span>
@@ -2185,37 +2230,37 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
       </span>
     </button>
     <div
-      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-placement-top"
+      class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-popover-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
     >
       <div
         class="ant-popover-arrow"
         style="position: absolute; bottom: 0px; left: 0px;"
-      />
+      >
+        <span
+          class="ant-popover-arrow-content"
+        />
+      </div>
       <div
-        class="ant-popover-content"
+        class="ant-popover-container"
+        id="test-id"
+        role="tooltip"
       >
         <div
-          class="ant-popover-inner"
-          id="test-id"
-          role="tooltip"
+          class="ant-popover-title"
         >
-          <div
-            class="ant-popover-title"
-          >
-            Title
-          </div>
-          <div
-            class="ant-popover-inner-content"
-          >
-            <div>
-              <p>
-                Content
-              </p>
-              <p>
-                Content
-              </p>
-            </div>
+          Title
+        </div>
+        <div
+          class="ant-popover-content"
+        >
+          <div>
+            <p>
+              Content
+            </p>
+            <p>
+              Content
+            </p>
           </div>
         </div>
       </div>
@@ -2229,69 +2274,61 @@ exports[`renders components/popover/demo/triggerType.tsx extend context correctl
 exports[`renders components/popover/demo/wireframe.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-top"
+    class="ant-popover ant-popover-pure ant-popover-placement-top css-var-test-id"
   >
     <div
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>
   </div>,
   <div
-    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft"
+    class="ant-popover ant-popover-pure ant-popover-placement-bottomLeft css-var-test-id"
     style="width: 250px;"
   >
     <div
       class="ant-popover-arrow"
     />
     <div
-      class="ant-popover-content"
+      class="ant-popover-container"
+      role="tooltip"
       style="width: 250px;"
     >
       <div
-        class="ant-popover-inner"
-        role="tooltip"
+        class="ant-popover-title"
       >
-        <div
-          class="ant-popover-title"
-        >
-          Title
-        </div>
-        <div
-          class="ant-popover-inner-content"
-        >
-          <div>
-            <p>
-              Content
-            </p>
-            <p>
-              Content
-            </p>
-          </div>
+        Title
+      </div>
+      <div
+        class="ant-popover-content"
+      >
+        <div>
+          <p>
+            Content
+          </p>
+          <p>
+            Content
+          </p>
         </div>
       </div>
     </div>

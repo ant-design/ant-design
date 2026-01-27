@@ -1,10 +1,10 @@
 import React from 'react';
 import { AlertFilled, CloseSquareFilled } from '@ant-design/icons';
-import { Button, Form, Input, Tooltip, Mentions } from 'antd';
-import { createStyles, css } from 'antd-style';
+import { Button, Form, Input, Mentions, Tooltip } from 'antd';
+import { createStaticStyles } from 'antd-style';
 import uniqueId from 'lodash/uniqueId';
 
-const useStyle = createStyles(() => ({
+const classNames = createStaticStyles(({ css }) => ({
   'custom-feedback-icons': css`
     .ant-form-item-feedback-icon {
       pointer-events: all;
@@ -14,7 +14,6 @@ const useStyle = createStyles(() => ({
 
 const App: React.FC = () => {
   const [form] = Form.useForm();
-  const { styles } = useStyle();
 
   return (
     <Form
@@ -36,7 +35,7 @@ const App: React.FC = () => {
       <Form.Item
         name="custom-feedback-test-item"
         label="Test"
-        className={styles['custom-feedback-icons']}
+        className={classNames['custom-feedback-icons']}
         rules={[{ required: true, type: 'email' }, { min: 10 }]}
         help=""
         hasFeedback
@@ -46,7 +45,7 @@ const App: React.FC = () => {
       <Form.Item
         name="custom-feedback-test-item2"
         label="Test"
-        className={styles['custom-feedback-icons']}
+        className={classNames['custom-feedback-icons']}
         rules={[{ required: true, type: 'email' }, { min: 10 }]}
         help=""
         hasFeedback={{
@@ -69,7 +68,7 @@ const App: React.FC = () => {
       <Form.Item
         name="custom-feedback-test-item3"
         label="Test"
-        className={styles['custom-feedback-icons']}
+        className={classNames['custom-feedback-icons']}
         hasFeedback
         validateStatus="success"
         initialValue="@mention1"

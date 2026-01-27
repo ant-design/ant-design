@@ -157,21 +157,11 @@ const RoutesPlugin = async (api: IApi) => {
   api.modifyRoutes((routes) => {
     // TODO: append extra routes, such as home, changelog, form-v3
 
+    /**
+     * **important!** Make sure that the `id` and `path` are consistent.
+     * see: https://github.com/ant-design/ant-design/issues/55960
+     */
     const extraRoutesList: IRoute[] = [
-      {
-        id: 'changelog-cn',
-        path: 'changelog-cn',
-        absPath: '/changelog-cn',
-        parentId: 'DocLayout',
-        file: resolve('../../CHANGELOG.zh-CN.md'),
-      },
-      {
-        id: 'components-changelog-cn',
-        path: 'components/changelog-cn',
-        absPath: '/changelog-cn',
-        parentId: 'DocLayout',
-        file: resolve('../../CHANGELOG.zh-CN.md'),
-      },
       {
         id: 'changelog',
         path: 'changelog',
@@ -180,11 +170,25 @@ const RoutesPlugin = async (api: IApi) => {
         file: resolve('../../CHANGELOG.en-US.md'),
       },
       {
-        id: 'components-changelog',
+        id: 'changelog-cn',
+        path: 'changelog-cn',
+        absPath: '/changelog-cn',
+        parentId: 'DocLayout',
+        file: resolve('../../CHANGELOG.zh-CN.md'),
+      },
+      {
+        id: 'components/changelog',
         path: 'components/changelog',
-        absPath: '/changelog',
+        absPath: '/components/changelog',
         parentId: 'DocLayout',
         file: resolve('../../CHANGELOG.en-US.md'),
+      },
+      {
+        id: 'components/changelog-cn',
+        path: 'components/changelog-cn',
+        absPath: '/components/changelog-cn',
+        parentId: 'DocLayout',
+        file: resolve('../../CHANGELOG.zh-CN.md'),
       },
     ];
 
@@ -227,6 +231,12 @@ const RoutesPlugin = async (api: IApi) => {
 
     return memo;
   });
+
+  if (process.env.NODE_ENV === 'production') {
+    api.addEntryImportsAhead(() => ({
+      source: path.join(api.paths.cwd, 'components', 'style', 'antd.css'),
+    }));
+  }
 };
 
 export default RoutesPlugin;

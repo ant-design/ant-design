@@ -24,7 +24,7 @@ const selectAfter = (
 );
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <Input addonBefore="http://" addonAfter=".com" defaultValue="mysite" />
     <Input addonBefore={selectBefore} addonAfter={selectAfter} defaultValue="mysite" />
     <Input addonAfter={<SettingOutlined />} defaultValue="mysite" />

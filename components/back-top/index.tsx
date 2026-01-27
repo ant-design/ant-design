@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import VerticalAlignTopOutlined from '@ant-design/icons/VerticalAlignTopOutlined';
-import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
-import omit from 'rc-util/lib/omit';
+import CSSMotion from '@rc-component/motion';
+import omit from '@rc-component/util/lib/omit';
+import { clsx } from 'clsx';
 
 import getScroll from '../_util/getScroll';
 import { cloneElement } from '../_util/reactNode';
@@ -11,6 +11,7 @@ import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
+import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
 
 export interface BackTopProps {
@@ -18,14 +19,16 @@ export interface BackTopProps {
   onClick?: React.MouseEventHandler<HTMLElement>;
   target?: () => HTMLElement | Window | Document;
   prefixCls?: string;
-  children?: React.ReactNode;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
   duration?: number;
 }
 
-const BackTop: React.FC<BackTopProps> = (props) => {
+/**
+ * @deprecated Please use `FloatButton.BackTop` instead.
+ */
+const BackTop: React.FC<React.PropsWithChildren<BackTopProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
@@ -34,13 +37,14 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     target,
     onClick,
     duration = 450,
+    children,
   } = props;
+
   const [visible, setVisible] = React.useState<boolean>(visibilityHeight === 0);
 
   const ref = React.useRef<HTMLDivElement>(null);
 
-  const getDefaultTarget = (): HTMLElement | Document | Window =>
-    ref.current?.ownerDocument || window;
+  const getDefaultTarget = () => ref.current?.ownerDocument || window;
 
   const handleScroll = throttleByAnimationFrame(
     (e: React.UIEvent<HTMLElement, UIEvent> | { target: any }) => {
@@ -51,7 +55,6 @@ const BackTop: React.FC<BackTopProps> = (props) => {
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('BackTop');
-
     warning.deprecated(false, 'BackTop', 'FloatButton.BackTop');
   }
 
@@ -77,9 +80,11 @@ const BackTop: React.FC<BackTopProps> = (props) => {
 
   const rootPrefixCls = getPrefixCls();
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
+  const rootCls = useCSSVarCls(prefixCls);
 
-  const classString = classNames(
+  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+
+  const classString = clsx(
     hashId,
     cssVarCls,
     prefixCls,
@@ -108,21 +113,21 @@ const BackTop: React.FC<BackTopProps> = (props) => {
     </div>
   );
 
-  return wrapCSSVar(
+  return (
     <div {...divProps} className={classString} onClick={scrollToTop} ref={ref}>
       <CSSMotion visible={visible} motionName={`${rootPrefixCls}-fade`}>
         {({ className: motionClassName }) =>
-          cloneElement(props.children || defaultElement, ({ className: cloneCls }) => ({
-            className: classNames(motionClassName, cloneCls),
+          cloneElement(children || defaultElement, ({ className: cloneCls }) => ({
+            className: clsx(motionClassName, cloneCls),
           }))
         }
       </CSSMotion>
-    </div>,
+    </div>
   );
 };
 
 if (process.env.NODE_ENV !== 'production') {
-  BackTop.displayName = 'BackTop';
+  BackTop.displayName = 'Deprecated.BackTop';
 }
 
 export default BackTop;

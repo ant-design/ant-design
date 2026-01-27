@@ -1,5 +1,5 @@
 import React from 'react';
-import { AntDesignOutlined, CheckOutlined, CloseOutlined } from '@ant-design/icons';
+import { AntDesignOutlined, CheckOutlined, CloseOutlined, DownOutlined } from '@ant-design/icons';
 import {
   Alert,
   Button,
@@ -12,11 +12,12 @@ import {
   Progress,
   Select,
   Slider,
+  Space,
   Steps,
   Switch,
   Tooltip,
 } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 import useLocale from '../../../../hooks/useLocale';
 import Tilt from './Tilt';
@@ -28,7 +29,7 @@ const { _InternalPanelDoNotUseOrYouWillBeFired: InternalMessage } = message;
 const locales = {
   cn: {
     range: '设置范围',
-    text: 'Ant Design 5.0 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。',
+    text: 'Ant Design 使用 CSS-in-JS 技术以提供动态与混合主题的能力。与此同时，我们使用组件级别的 CSS-in-JS 解决方案，让你的应用获得更好的性能。',
     infoText: '信息内容展示',
     dropdown: '下拉菜单',
     finished: '已完成',
@@ -45,11 +46,11 @@ const locales = {
     dashed: '虚线按钮',
     icon: '图标按钮',
     hello: '你好，Ant Design!',
-    release: 'Ant Design 5.0 正式发布！',
+    release: 'Ant Design 6.0 正式发布！',
   },
   en: {
     range: 'Set Range',
-    text: 'Ant Design 5.0 use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.',
+    text: 'Ant Design use CSS-in-JS technology to provide dynamic & mix theme ability. And which use component level CSS-in-JS solution get your application a better performance.',
     infoText: 'Info Text',
     dropdown: 'Dropdown',
     finished: 'Finished',
@@ -66,24 +67,24 @@ const locales = {
     dashed: 'Dashed',
     icon: 'Icon',
     hello: 'Hello, Ant Design!',
-    release: 'Ant Design 5.0 is released!',
+    release: 'Ant Design 6.0 is released!',
   },
 };
 
-const useStyle = createStyles(({ token, css }) => {
-  const gap = token.padding;
+const styles = createStaticStyles(({ cssVar, css }) => {
+  const gap = cssVar.padding;
   return {
     holder: css`
       width: 500px;
       display: flex;
       flex-direction: column;
-      row-gap: ${gap}px;
+      row-gap: ${gap};
       opacity: 0.8;
     `,
     flex: css`
       display: flex;
       flex-wrap: nowrap;
-      column-gap: ${gap}px;
+      column-gap: ${gap};
     `,
     ptg_20: css`
       flex: 0 1 20%;
@@ -92,10 +93,10 @@ const useStyle = createStyles(({ token, css }) => {
       flex: none;
     `,
     block: css`
-      background-color: ${token.colorBgContainer};
-      padding: ${token.paddingXS}px ${token.paddingSM}px;
-      border-radius: ${token.borderRadius}px;
-      border: 1px solid ${token.colorBorder};
+      background-color: ${cssVar.colorBgContainer};
+      padding: ${cssVar.paddingXS} ${cssVar.paddingSM};
+      border-radius: ${cssVar.borderRadius};
+      border: 1px solid ${cssVar.colorBorder};
     `,
     noMargin: css`
       margin: 0;
@@ -105,28 +106,30 @@ const useStyle = createStyles(({ token, css }) => {
 
 const ComponentsBlock: React.FC = () => {
   const [locale] = useLocale(locales);
-  const { styles } = useStyle();
 
   return (
     <Tilt options={{ max: 4, glare: false, scale: 0.98 }} className={styles.holder}>
-      <ModalPanel title="Ant Design 5.0" width="100%">
+      <ModalPanel title="Ant Design" width="100%">
         {locale.text}
       </ModalPanel>
-      <Alert message={locale.infoText} type="info" />
+      <Alert title={locale.infoText} type="info" />
       {/* Line */}
       <div className={styles.flex}>
         <ColorPicker style={{ flex: 'none' }} />
         <div style={{ flex: 'none' }}>
-          <Dropdown.Button
-            menu={{
-              items: Array.from({ length: 5 }).map((_, index) => ({
-                key: `opt${index}`,
-                label: `${locale.option} ${index}`,
-              })),
-            }}
-          >
-            {locale.dropdown}
-          </Dropdown.Button>
+          <Space.Compact>
+            <Button>{locale.dropdown}</Button>
+            <Dropdown
+              menu={{
+                items: Array.from({ length: 5 }).map((_, index) => ({
+                  key: `opt${index}`,
+                  label: `${locale.option} ${index}`,
+                })),
+              }}
+            >
+              <Button icon={<DownOutlined />} />
+            </Dropdown>
+          </Space.Compact>
         </div>
         <Select
           style={{ flex: 'auto' }}
@@ -209,7 +212,7 @@ const ComponentsBlock: React.FC = () => {
         <InternalMessage content={locale.release} type="success" />
       </div>
       <InternalTooltip title={locale.hello} placement="topLeft" className={styles.noMargin} />
-      <Alert message="Ant Design love you!" type="success" />
+      <Alert title="Ant Design love you!" type="success" />
     </Tilt>
   );
 };

@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
+import { render } from '@rc-component/util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import { unstableSetRender } from '../config-provider/UnstableContext';
 import type {
   ArgsProps,
   ConfigOptions,
   MessageInstance,
+  MessageSemanticClassNames,
+  MessageSemanticName,
+  MessageSemanticStyles,
   MessageType,
   NoticeType,
   TypeOpen,
@@ -15,7 +18,7 @@ import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
-export type { ArgsProps };
+export type { ArgsProps, MessageSemanticClassNames, MessageSemanticName, MessageSemanticStyles };
 
 let message: GlobalMessage | null = null;
 
@@ -43,14 +46,7 @@ interface TypeTask {
   skipped?: boolean;
 }
 
-type Task =
-  | OpenTask
-  | TypeTask
-  | {
-      type: 'destroy';
-      key?: React.Key;
-      skipped?: boolean;
-    };
+type Task = OpenTask | TypeTask | { type: 'destroy'; key?: React.Key; skipped?: boolean };
 
 let taskQueue: Task[] = [];
 
@@ -132,13 +128,10 @@ const flushMessageQueue = () => {
 
     // Delay render to avoid sync issue
     act(() => {
-      const reactRender = unstableSetRender();
-
-      reactRender(
+      render(
         <GlobalHolderWrapper
           ref={(node) => {
             const { instance, sync } = node || {};
-
             // React 18 test env will throw if call immediately in ref
             Promise.resolve().then(() => {
               if (!newMessage.instance && instance) {
@@ -331,7 +324,7 @@ methods.forEach((type: keyof MessageMethods) => {
 // ==============================================================================
 const noop = () => {};
 
-let _actWrapper: (wrapper: any) => void = noop;
+let _actWrapper: (wrapper: (fn: () => void) => void) => void = noop;
 if (process.env.NODE_ENV === 'test') {
   _actWrapper = (wrapper) => {
     act = wrapper;

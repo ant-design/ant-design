@@ -1,7 +1,10 @@
 import React, { Suspense } from 'react';
+import type { SandpackSetup } from '@codesandbox/sandpack-react';
 import { Skeleton } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { useSearchParams } from 'dumi';
+
+import { version } from '../../../../package.json';
 
 const OriginSandpack = React.lazy(() => import('./Sandpack'));
 
@@ -14,23 +17,21 @@ const root = createRoot(document.getElementById("root"));
 root.render(<App />);
 `;
 
-const useStyle = createStyles(({ token, css }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   fallback: css`
     width: 100%;
     > * {
       width: 100% !important;
-      border-radius: ${token.borderRadiusLG}px;
+      border-radius: ${cssVar.borderRadiusLG};
     }
   `,
   placeholder: css`
-    color: ${token.colorTextDescription};
-    font-size: ${token.fontSizeLG}px;
+    color: ${cssVar.colorTextDescription};
+    font-size: ${cssVar.fontSizeLG};
   `,
 }));
 
-const SandpackFallback = () => {
-  const { styles } = useStyle();
-
+const SandpackFallback: React.FC = () => {
   return (
     <div className={styles.fallback}>
       <Skeleton.Node active style={{ height: 500, width: '100%' }}>
@@ -46,25 +47,23 @@ interface SandpackProps {
   dependencies?: string;
 }
 
-const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
-  children,
-  dark,
-  dependencies: extraDeps,
-  autorun = false,
-}) => {
-  const [searchParams] = useSearchParams();
-  const dependencies = extraDeps && JSON.parse(extraDeps);
+const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = (props) => {
+  const { children, dark, dependencies, autorun = false } = props;
 
-  const setup = {
+  const [searchParams] = useSearchParams();
+
+  const extraDependencies = dependencies ? JSON.parse(dependencies) : {};
+
+  const setup: SandpackSetup = {
     dependencies: {
-      react: '^18.0.0',
-      'react-dom': '^18.0.0',
-      antd: '^5.0.0',
-      ...dependencies,
+      react: '^19.0.0',
+      'react-dom': '^19.0.0',
+      antd: version,
+      ...extraDependencies,
     },
     devDependencies: {
-      '@types/react': '^18.0.0',
-      '@types/react-dom': '^18.0.0',
+      '@types/react': '^19.0.0',
+      '@types/react-dom': '^19.0.0',
       typescript: '^5',
     },
     entry: 'index.tsx',
@@ -83,13 +82,14 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = ({
       <OriginSandpack
         theme={searchParams.getAll('theme').includes('dark') ? 'dark' : undefined}
         customSetup={setup}
+        template="vite-react-ts"
         options={options}
         files={{
           'index.tsx': indexContent,
           'index.css': `html, body {
   padding: 0;
   margin: 0;
-  background: ${dark ? '#000' : '#fff'};
+  background-color: ${dark ? '#000' : '#fff'};
 }
 
 #root {

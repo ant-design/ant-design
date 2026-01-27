@@ -5,6 +5,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { createEvent, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import type { OTPProps } from '../OTP';
 
 const { OTP } = Input;
 
@@ -108,7 +109,7 @@ describe('Input.OTP', () => {
   });
 
   it('arrow key to switch', () => {
-    const { container } = render(<OTP autoFocus />);
+    const { container } = render(<OTP autoFocus defaultValue="12" />);
 
     const inputList = Array.from(container.querySelectorAll('input'));
     expect(document.activeElement).toEqual(inputList[0]);
@@ -118,6 +119,22 @@ describe('Input.OTP', () => {
 
     fireEvent.keyDown(document.activeElement!, { key: 'ArrowLeft' });
     expect(document.activeElement).toEqual(inputList[0]);
+  });
+
+  it('should not switch to next input when value is empty', () => {
+    const onFocus = jest.fn();
+    const { container } = render(<OTP autoFocus onFocus={onFocus} />);
+
+    const inputList = Array.from(container.querySelectorAll('input'));
+    expect(document.activeElement).toEqual(inputList[0]);
+
+    // Key operation
+    fireEvent.keyDown(document.activeElement!, { key: 'ArrowRight' });
+    expect(document.activeElement).toBe(inputList[0]);
+
+    // Focus directly
+    fireEvent.focus(inputList[3]);
+    expect(document.activeElement).toBe(inputList[0]);
   });
 
   it('fill last cell', () => {
@@ -236,5 +253,66 @@ describe('Input.OTP', () => {
     separators.forEach((separator) => {
       expect(separator.textContent).toBe('X');
     });
+  });
+
+  it('support function classNames and styles', () => {
+    const functionClassNames = (info: { props: OTPProps }) => {
+      const { props } = info;
+      const { disabled } = props;
+      return {
+        root: 'dynamic-root',
+        input: disabled ? 'dynamic-input-disabled' : 'dynamic-input-enabled',
+        separator: 'dynamic-separator',
+      };
+    };
+    const functionStyles = (info: { props: OTPProps }) => {
+      const { props } = info;
+      const { disabled } = props;
+      return {
+        root: { color: 'rgb(255, 0, 0)' },
+        input: { color: disabled ? 'rgb(0, 255, 0)' : 'rgb(255, 0, 0)' },
+        separator: { color: 'rgb(0, 0, 255)' },
+      };
+    };
+    const { container, rerender } = render(
+      <OTP
+        length={3}
+        separator="-"
+        classNames={functionClassNames}
+        styles={functionStyles}
+        disabled
+      />,
+    );
+    const root = container.querySelector('.ant-otp');
+    const input = container.querySelector('.ant-input');
+    const separator = container.querySelector('.ant-otp-separator');
+
+    expect(root).toHaveClass('dynamic-root');
+    expect(input).toHaveClass('dynamic-input-disabled');
+    expect(separator).toHaveClass('dynamic-separator');
+
+    expect(root).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(input).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(separator).toHaveStyle('color: rgb(0, 0, 255)');
+
+    const objectClassNames = {
+      root: 'dynamic-root-default',
+      input: 'dynamic-input-enabled',
+      separator: 'dynamic-separator-default',
+    };
+    const objectStyles = {
+      root: { color: 'rgb(0, 255, 0)' },
+      input: { color: 'rgb(255, 0, 0)' },
+      separator: { color: 'rgb(0, 0, 255)' },
+    };
+
+    rerender(<OTP length={4} separator="-" classNames={objectClassNames} styles={objectStyles} />);
+
+    expect(root).toHaveClass('dynamic-root-default');
+    expect(input).toHaveClass('dynamic-input-enabled');
+    expect(separator).toHaveClass('dynamic-separator-default');
+    expect(root).toHaveStyle('color: rgb(0, 255, 0)');
+    expect(input).toHaveStyle('color: rgb(255, 0, 0)');
+    expect(separator).toHaveStyle('color: rgb(0, 0, 255)');
   });
 });

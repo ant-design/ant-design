@@ -11,6 +11,7 @@ import type { ArrowToken } from '../../style/roundedArrow';
 import { getArrowToken } from '../../style/roundedArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   /**
@@ -68,6 +69,8 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     primaryPrevBtnBg,
   } = token;
 
+  const [varName, varRef] = genCssVar(antCls, 'tooltip');
+
   return [
     {
       [componentCls]: {
@@ -78,7 +81,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         maxWidth: 'fit-content',
         visibility: 'visible',
         width: 520,
-        '--antd-arrow-background-color': colorBgElevated,
+        [varName('arrow-background-color')]: colorBgElevated,
 
         '&-pure': {
           maxWidth: '100%',
@@ -90,11 +93,11 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         },
 
         // ============================= panel content ============================
-        [`${componentCls}-content`]: {
+        [`${componentCls}-panel`]: {
           position: 'relative',
         },
 
-        [`${componentCls}-inner`]: {
+        [`${componentCls}-section`]: {
           textAlign: 'start',
           textDecoration: 'none',
           borderRadius: tourBorderRadius,
@@ -177,7 +180,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
                 },
               },
             },
-            [`${componentCls}-buttons`]: {
+            [`${componentCls}-actions`]: {
               marginInlineStart: 'auto',
               [`${antCls}-btn`]: {
                 marginInlineStart: marginXS,
@@ -189,9 +192,9 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         // =============================  primary type  ===========================
         // `$` for panel, `&$` for pure panel
         [`${componentCls}-primary, &${componentCls}-primary`]: {
-          '--antd-arrow-background-color': colorPrimary,
+          [varName('arrow-background-color')]: colorPrimary,
 
-          [`${componentCls}-inner`]: {
+          [`${componentCls}-section`]: {
             color: colorTextLightSolid,
             textAlign: 'start',
             textDecoration: 'none',
@@ -252,14 +255,14 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
         '&-placement-rightTop',
         '&-placement-rightBottom',
       ].join(',')]: {
-        [`${componentCls}-inner`]: {
+        [`${componentCls}-section`]: {
           borderRadius: token.min(tourBorderRadius, MAX_VERTICAL_CONTENT_RADIUS),
         },
       },
     },
 
     // ============================= Arrow ===========================
-    getArrowStyle<TourToken>(token, 'var(--antd-arrow-background-color)'),
+    getArrowStyle<TourToken>(token, varRef('arrow-background-color')),
   ];
 };
 
@@ -282,12 +285,12 @@ export default genStyleHooks(
   'Tour',
   (token) => {
     const { borderRadiusLG } = token;
-    const TourToken = mergeToken<TourToken>(token, {
+    const tourToken = mergeToken<TourToken>(token, {
       indicatorWidth: 6,
       indicatorHeight: 6,
       tourBorderRadius: borderRadiusLG,
     });
-    return genBaseStyle(TourToken);
+    return genBaseStyle(tourToken);
   },
   prepareComponentToken,
 );

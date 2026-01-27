@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/he_IL';
+import Pagination from '@rc-component/pagination/lib/locale/he_IL';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/he_IL';
@@ -118,9 +118,6 @@ const localeValues: Locale = {
         mismatch: '${label} לא תואם לתבנית ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'תצוגה מקדימה',
   },
 };
 

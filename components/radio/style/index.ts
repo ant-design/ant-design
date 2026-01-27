@@ -131,6 +131,12 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
       [`> ${antCls}-badge:not(:first-child) > ${antCls}-button-wrapper`]: {
         borderInlineStart: 'none',
       },
+
+      '&-vertical': {
+        display: 'flex',
+        flexDirection: 'column',
+        rowGap: token.marginXS,
+      },
     },
   };
 };
@@ -384,7 +390,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       cursor: 'pointer',
       transition: [
         `color ${motionDurationMid}`,
-        `background ${motionDurationMid}`,
+        `background-color ${motionDurationMid}`,
         `box-shadow ${motionDurationMid}`,
       ].join(','),
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import { Divider } from 'rc-menu';
+import { Divider } from '@rc-component/menu';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 
@@ -16,12 +16,8 @@ const MenuDivider: React.FC<MenuDividerProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);
 
   const prefixCls = getPrefixCls('menu', customizePrefixCls);
-  const classString = classNames(
-    {
-      [`${prefixCls}-item-divider-dashed`]: !!dashed,
-    },
-    className,
-  );
+
+  const classString = clsx({ [`${prefixCls}-item-divider-dashed`]: !!dashed }, className);
 
   return <Divider className={classString} {...restProps} />;
 };

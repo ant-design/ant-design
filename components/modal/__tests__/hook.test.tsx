@@ -1,5 +1,4 @@
 import React from 'react';
-import KeyCode from 'rc-util/lib/KeyCode';
 
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -10,7 +9,7 @@ import Input from '../../input';
 import zhCN from '../../locale/zh_CN';
 import type { ModalFunc } from '../confirm';
 
-jest.mock('rc-util/lib/Portal');
+jest.mock('@rc-component/util/lib/Portal');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -336,7 +335,7 @@ describe('Modal.hook', () => {
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
     // Press ESC to turn off
     fireEvent.keyDown(document.body.querySelectorAll('.ant-modal')[0], {
-      keyCode: KeyCode.ESC,
+      key: 'Escape',
     });
 
     await waitFakeTimer();
@@ -418,6 +417,45 @@ describe('Modal.hook', () => {
     fireEvent.click(btns[btns.length - 1]);
 
     expect(afterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('it should call afterClose in closable', () => {
+    const closableAfterClose = jest.fn();
+    const afterClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({
+          title: 'Confirm',
+          closable: { afterClose: closableAfterClose },
+          afterClose,
+        });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(afterClose).toHaveBeenCalledTimes(1);
+    expect(closableAfterClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('it should call onClose in closable', () => {
+    const onClose = jest.fn();
+    const Demo = () => {
+      const [modal, contextHolder] = Modal.useModal();
+      React.useEffect(() => {
+        modal.confirm({ title: 'Confirm', closable: { onClose }, open: true });
+      }, []);
+      return <ConfigWarp>{contextHolder}</ConfigWarp>;
+    };
+    render(<Demo />);
+    const btns = document.body.querySelectorAll('.ant-btn');
+    fireEvent.click(btns[btns.length - 1]);
+
+    expect(onClose).toHaveBeenCalledTimes(1);
   });
 
   it('should be applied correctly locale', async () => {
@@ -518,8 +556,7 @@ describe('Modal.hook', () => {
 
     // ESC to close
     fireEvent.keyDown(document.querySelector('.ant-modal')!, {
-      key: 'Esc',
-      keyCode: KeyCode.ESC,
+      key: 'Escape',
     });
     await waitFakeTimer();
 

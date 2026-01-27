@@ -60,6 +60,9 @@ describe('FloatButton', () => {
     expect(errSpy).toHaveBeenCalledWith(
       'Warning: [antd: FloatButton] supported only when `shape` is `square`. Due to narrow space for text, short sentence is recommended.',
     );
+    expect(errSpy).toHaveBeenCalledWith(
+      'Warning: [antd: FloatButton] `description` is deprecated. Please use `content` instead.',
+    );
     errSpy.mockRestore();
   });
 
@@ -67,9 +70,11 @@ describe('FloatButton', () => {
     it('tooltip should support number `0`', async () => {
       jest.useFakeTimers();
       const { container } = render(<FloatButton tooltip={0} />);
-      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
-      const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
+      const element = container
+        .querySelector('.ant-tooltip')
+        ?.querySelector('.ant-tooltip-container');
       expect(element?.textContent).toBe('0');
       jest.clearAllTimers();
       jest.useRealTimers();
@@ -77,9 +82,11 @@ describe('FloatButton', () => {
     it('tooltip should support tooltipProps', async () => {
       jest.useFakeTimers();
       const { container } = render(<FloatButton tooltip={{ title: 'hi' }} />);
-      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn-body')!);
+      fireEvent.mouseEnter(container.querySelector<HTMLDivElement>('.ant-float-btn')!);
       await waitFakeTimer();
-      const element = container.querySelector('.ant-tooltip')?.querySelector('.ant-tooltip-inner');
+      const element = container
+        .querySelector('.ant-tooltip')
+        ?.querySelector('.ant-tooltip-container');
       expect(element?.textContent).toBe('hi');
       jest.clearAllTimers();
       jest.useRealTimers();

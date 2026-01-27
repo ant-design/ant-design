@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Full skip argms
-# npm run test-all -- --skip-changelog --skip-commit --skip-lint --skip-build --skip-dekko --skip-dist --skip-es --skip-lib --skip-test --skip-node
+# npm run test-all -- --skip-changelog --skip-lint --skip-build --skip-dekko --skip-dist --skip-es --skip-lib --skip-test --skip-node
 
 # Check exist argument
 has_arg() {
@@ -25,14 +25,6 @@ if ! has_arg '--skip-changelog' "$@"; then
   tsx ./scripts/check-version-md.ts
 else
   echo "[TEST ALL] test changelog...skip"
-fi
-
-if ! has_arg '--skip-commit' "$@"; then
-  echo "[TEST ALL] check-commit"
-  echo "[TEST ALL] check-commit" > ~test-all.txt
-  npm run check-commit
-else
-  echo "[TEST ALL] check-commit...skip"
 fi
 
 if ! has_arg '--skip-lint' "$@"; then

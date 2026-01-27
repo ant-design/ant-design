@@ -6,13 +6,13 @@ const App: React.FC = () => {
   const [passwordVisible, setPasswordVisible] = React.useState(false);
 
   return (
-    <Space direction="vertical">
+    <Space vertical>
       <Input.Password placeholder="input password" />
       <Input.Password
         placeholder="input password"
         iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
       />
-      <Space direction="horizontal">
+      <Space>
         <Input.Password
           placeholder="input password"
           visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}

@@ -13,7 +13,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 - 用于创建一个实体或收集信息。
 - 需要对输入的数据类型进行校验时。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本使用</code>
@@ -51,6 +51,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/form-dependencies.tsx">校验与更新依赖</code>
 <code src="./demo/validate-scroll-to-field.tsx" iframe="360">滑动到错误字段</code>
 <code src="./demo/validate-other.tsx">校验其他组件</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/getValueProps-normalize.tsx">getValueProps + normalize</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>测试 label 省略</code>
@@ -67,6 +68,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | colon | 配置 Form.Item 的 `colon` 的默认值。表示是否显示 label 后面的冒号 (只有在属性 layout 为 horizontal 时有效) | boolean | true |  |
 | disabled | 设置表单组件禁用，仅对 antd 组件有效 | boolean | false | 4.21.0 |
 | component | 设置 Form 渲染元素，为 `false` 则不创建 DOM 节点 | ComponentType \| false | form |  |
@@ -83,6 +85,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 | requiredMark | 必选样式，可以切换为必选或者可选展示样式。此为 Form 配置，Form.Item 无法单独配置 | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
 | scrollToFirstError | 提交失败自动滚动到第一个错误字段 | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false | focus: 5.24.0 |
 | size | 设置字段组件的尺寸（仅限 antd 组件） | `small` \| `middle` \| `large` | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | validateMessages | 验证提示模板，说明[见下](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | 统一设置字段触发验证的时机 | string \| string\[] | `onChange` | 4.3.0 |
 | variant | 表单内控件变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
@@ -510,9 +513,7 @@ form.getFieldsValue([
 ]);
 ```
 
-#### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
-
-`5.8.0` 新增接受配置参数。当 `strict` 为 `true` 时会仅匹配 Item 的值。例如 `{ list: [{ bamboo: 1, little: 2 }] }` 中，如果 List 仅绑定了 `bamboo` 字段，那么 `getFieldsValue({ strict: true })` 会只获得 `{ list: [{ bamboo: 1 }] }`。
+#### getFieldsValue({ filter?: FilterFunc })
 
 ### FilterFunc
 
@@ -553,7 +554,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | pattern | 正则表达式匹配 | RegExp |  |
 | required | 是否为必选字段 | boolean |  |
 | transform | 将字段值转换成目标值后进行校验 | (value) => any |  |
-| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/react-component/async-validator#type) | string |  |
+| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email` \| `tel`。更多请参考[此处](https://github.com/react-component/async-validator#type) | string |  |
 | validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |  |
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#form-demo-register)参考 | ([rule](#rule), value) => Promise |  |
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
@@ -566,13 +567,17 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | form     | 指定 Form 实例                        | FormInstance | 当前 context 中的 Form | 5.4.0 |
 | preserve | 是否监视没有对应的 `Form.Item` 的字段 | boolean      | false                  | 5.4.0 |
 
-## 主题变量（Design Token）
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
 
-### Switch、Checkbox 为什么不能绑定数据？
+### Switch、Checkbox 为什么不能绑定数据？ {#faq-switch-checkbox-binding}
 
 Form.Item 默认绑定值属性到 `value` 上，而 Switch、Checkbox 等组件的值属性为 `checked`。你可以通过 `valuePropName` 来修改绑定的值属性。
 
@@ -582,40 +587,40 @@ Form.Item 默认绑定值属性到 `value` 上，而 Switch、Checkbox 等组件
 </Form.Item>
 ```
 
-### name 为数组时的转换规则？
+### name 为数组时的转换规则？ {#faq-name-array-rule}
 
 当 `name` 为数组时，会按照顺序填充路径。当存在数字且 form store 中没有该字段时会自动转变成数组。因而如果需要数组为 key 时请使用 string 如：`['1', 'name']`。
 
-### 为何在 Modal 中调用 form 控制台会报错？
+### 为何在 Modal 中调用 form 控制台会报错？ {#faq-form-modal-error}
 
 > Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
 
 这是因为你在调用 form 方法时，Modal 还未初始化导致 form 没有关联任何 Form 组件。你可以通过给 Modal 设置 `forceRender` 将其预渲染。示例点击[此处](https://codesandbox.io/s/antd-reproduction-template-ibu5c)。
 
-### 为什么 Form.Item 下的子组件 `defaultValue` 不生效？
+### 为什么 Form.Item 下的子组件 `defaultValue` 不生效？ {#faq-item-default-value}
 
 当你为 Form.Item 设置 `name` 属性后，子组件会转为受控模式。因而 `defaultValue` 不会生效。你需要在 Form 上通过 `initialValues` 设置默认值。
 
-### 为什么第一次调用 `ref` 的 Form 为空？
+### 为什么第一次调用 `ref` 的 Form 为空？ {#faq-ref-first-call}
 
 `ref` 仅在节点被加载时才会被赋值，请参考 React 官方文档：<https://zh-hans.react.dev/learn/manipulating-the-dom-with-refs#when-react-attaches-the-refs>
 
-### 为什么 `resetFields` 会重新 mount 组件？
+### 为什么 `resetFields` 会重新 mount 组件？ {#faq-reset-fields-mount}
 
 `resetFields` 会重置整个 Field，因而其子组件也会重新 mount 从而消除自定义组件可能存在的副作用（例如异步数据、状态等等）。
 
-### Form 的 initialValues 与 Item 的 initialValue 区别？
+### Form 的 initialValues 与 Item 的 initialValue 区别？ {#faq-initial-values-diff}
 
 在大部分场景下，我们总是推荐优先使用 Form 的 `initialValues`。只有存在动态字段时你才应该使用 Item 的 `initialValue`。默认值遵循以下规则：
 
 1. Form 的 `initialValues` 拥有最高优先级
 2. Field 的 `initialValue` 次之 \*. 多个同 `name` Item 都设置 `initialValue` 时，则 Item 的 `initialValue` 不生效
 
-### 为什么 `getFieldsValue` 在初次渲染的时候拿不到值？
+### 为什么 `getFieldsValue` 在初次渲染的时候拿不到值？ {#faq-get-fields-value}
 
 `getFieldsValue` 默认返回收集的字段数据，而在初次渲染时 Form.Item 节点尚未渲染，因而无法收集到数据。你可以通过 `getFieldsValue(true)` 来获取所有字段数据。
 
-### 为什么 `setFieldsValue` 设置字段为 `undefined` 时，有的组件不会重置为空？
+### 为什么 `setFieldsValue` 设置字段为 `undefined` 时，有的组件不会重置为空？ {#faq-set-fields-undefined}
 
 在 React 中，`value` 从确定值改为 `undefined` 表示从受控变为非受控，因而不会重置展示值（但是 Form 中的值确实已经改变）。你可以通过 HOC 改变这一逻辑：
 
@@ -631,7 +636,7 @@ const MyInput = ({
 </Form.Item>;
 ```
 
-### 为什么字段设置 `rules` 后更改值 `onFieldsChange` 会触发三次？
+### 为什么字段设置 `rules` 后更改值 `onFieldsChange` 会触发三次？ {#faq-rules-trigger-three-times}
 
 字段除了本身的值变化外，校验也是其状态之一。因而在触发字段变化会经历以下几个阶段：
 
@@ -641,11 +646,11 @@ const MyInput = ({
 
 在触发过程中，调用 `isFieldValidating` 会经历 `false` > `true` > `false` 的变化过程。
 
-### 为什么 Form.List 不支持 `label` 还需要使用 ErrorList 展示错误？
+### 为什么 Form.List 不支持 `label` 还需要使用 ErrorList 展示错误？ {#faq-form-list-no-label}
 
 Form.List 本身是 renderProps，内部样式非常自由。因而默认配置 `label` 和 `error` 节点很难与之配合。如果你需要 antd 样式的 `label`，可以通过外部包裹 Form.Item 来实现。
 
-### 为什么 Form.Item 的 `dependencies` 对 Form.List 下的字段没有效果？
+### 为什么 Form.Item 的 `dependencies` 对 Form.List 下的字段没有效果？ {#faq-dependencies-form-list}
 
 Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
 
@@ -664,11 +669,11 @@ Form.List 下的字段需要包裹 Form.List 本身的 `name`，比如：
 
 依赖则是：`['users', 0, 'name']`
 
-### 为什么 `normalize` 不能是异步方法？
+### 为什么 `normalize` 不能是异步方法？ {#faq-normalize-async}
 
 React 中异步更新会导致受控组件交互行为异常。当用户交互触发 `onChange` 后，通过异步改变值会导致组件 `value` 不会立刻更新，使得组件呈现假死状态。如果你需要异步触发变更，请通过自定义组件实现内部异步状态。
 
-### `scrollToFirstError` 和 `scrollToField` 失效？
+### `scrollToFirstError` 和 `scrollToField` 失效？ {#faq-scroll-not-working}
 
 1. 使用了自定义表单控件
 
@@ -682,15 +687,15 @@ React 中异步更新会导致受控组件交互行为异常。当用户交互�
 
 页面内如果有多个表单，且存在表单项 `name` 重复，表单滚动定位可能会查找到另一个表单的同名表单项上。需要给表单 `Form` 组件设置不同的 `name` 以区分。
 
-### 继上，为何不通过 `ref` 绑定元素？
+### 继上，为何不通过 `ref` 绑定元素？ {#faq-ref-binding}
 
 当自定义组件不支持 `ref` 时，Form 无法获取子元素真实 DOM 节点，而通过包裹 Class Component 调用 `findDOMNode` 会在 React Strict Mode 下触发警告。因而我们使用 id 来进行元素定位。
 
-### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？
+### `setFieldsValue` 不会触发 `onFieldsChange` 和 `onValuesChange`？ {#faq-set-fields-no-trigger}
 
 是的，change 事件仅当用户交互才会触发。该设计是为了防止在 change 事件中调用 `setFieldsValue` 导致的循环问题。如果仅仅需要组件内消费，可以通过 `useWatch` 或者 `Field.renderProps` 来实现。
 
-### 为什么 Form.Item 嵌套子组件后，不更新表单值？
+### 为什么 Form.Item 嵌套子组件后，不更新表单值？ {#faq-item-nested-update}
 
 Form.Item 在渲染时会注入 `value` 与 `onChange` 事件给子元素，当你的字段组件被包裹时属性将无法传递。所以以下代码是不会生效的：
 
@@ -718,7 +723,7 @@ const MyInput = (props) => (
 </Form.Item>;
 ```
 
-### 为什么表单点击 label 会更改组件状态？
+### 为什么表单点击 label 会更改组件状态？ {#faq-label-click-change}
 
 > 相关 issue：[#47031](https://github.com/ant-design/ant-design/issues/47031),[#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
 
@@ -731,7 +736,7 @@ const MyInput = (props) => (
   </Form.Item>
 ```
 
-### 有更多参考文档吗？
+### 有更多参考文档吗？ {#faq-more-docs}
 
 - 你可以阅读[《antd v4 Form 使用心得》](https://zhuanlan.zhihu.com/p/375753910)获得一些使用帮助以及建议。
 - 想在 DatePicker、Switch 也使用 before、after？可以参考[《如何优雅的对 Form.Item 的 children 增加 before、after》](https://zhuanlan.zhihu.com/p/422752055)。

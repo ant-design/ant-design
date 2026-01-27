@@ -1,27 +1,25 @@
 import React from 'react';
 import { SoundOutlined } from '@ant-design/icons';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css, token }) => {
-  const { paddingXXS, fontSizeXL, motionDurationSlow, colorLink, colorLinkHover, colorLinkActive } =
-    token;
+const styles = createStaticStyles(({ css, cssVar }) => {
   return {
     playBtn: css`
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      column-gap: ${paddingXXS}px;
+      column-gap: ${cssVar.paddingXXS};
       margin: 0;
     `,
     icon: css`
-      font-size: ${fontSizeXL}px;
-      color: ${colorLink};
-      transition: all ${motionDurationSlow};
+      font-size: ${cssVar.fontSizeXL};
+      color: ${cssVar.colorLink};
+      transition: all ${cssVar.motionDurationSlow};
       &:hover {
-        color: ${colorLinkHover};
+        color: ${cssVar.colorLinkHover};
       }
       &:active {
-        color: ${colorLinkActive};
+        color: ${cssVar.colorLinkActive};
       }
     `,
   };
@@ -32,7 +30,6 @@ interface AudioProps {
 }
 
 const AudioControl: React.FC<React.PropsWithChildren<AudioProps>> = ({ id, children }) => {
-  const { styles } = useStyle();
   const onClick: React.MouseEventHandler<HTMLAnchorElement> = () => {
     const audio = document.querySelector<HTMLAudioElement>(`#${id}`);
     audio?.play();

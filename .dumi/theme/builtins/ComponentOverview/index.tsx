@@ -2,7 +2,7 @@ import React, { memo, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { Affix, Card, Col, Divider, Flex, Input, Row, Tag, Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import { createStaticStyles, useTheme } from 'antd-style';
 import { useIntl, useLocation, useSidebarData } from 'dumi';
 import debounce from 'lodash/debounce';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -12,13 +12,13 @@ import SiteContext from '../../slots/SiteContext';
 import type { Component } from './ProComponentsList';
 import proComponentsList from './ProComponentsList';
 
-const useStyle = createStyles(({ token, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   componentsOverviewGroupTitle: css`
-    margin-bottom: ${token.marginLG}px !important;
+    margin-bottom: ${cssVar.marginLG} !important;
   `,
   componentsOverviewTitle: css`
     overflow: hidden;
-    color: ${token.colorTextHeading};
+    color: ${cssVar.colorTextHeading};
     text-overflow: ellipsis;
   `,
   componentsOverviewImg: css`
@@ -39,23 +39,23 @@ const useStyle = createStyles(({ token, css }) => ({
   `,
   componentsOverviewAffix: css`
     display: flex;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
     justify-content: space-between;
   `,
   componentsOverviewSearch: css`
     padding: 0;
     box-shadow: none !important;
     .anticon-search {
-      color: ${token.colorTextDisabled};
+      color: ${cssVar.colorTextDisabled};
     }
   `,
   componentsOverviewContent: css`
     &:empty:after {
       display: block;
-      padding: ${token.padding}px 0 ${token.paddingMD * 2}px;
-      color: ${token.colorTextDisabled};
+      padding: ${cssVar.padding} 0 calc(${cssVar.paddingMD} * 2);
+      color: ${cssVar.colorTextDisabled};
       text-align: center;
-      border-bottom: 1px solid ${token.colorSplit};
+      border-bottom: 1px solid ${cssVar.colorSplit};
       content: 'Not Found';
     }
   `,
@@ -78,8 +78,7 @@ const reportSearch = debounce<(value: string) => void>((value) => {
 const { Title } = Typography;
 
 const Overview: React.FC = () => {
-  const { styles } = useStyle();
-  const { theme } = React.use(SiteContext);
+  const { isDark } = React.use(SiteContext);
 
   const data = useSidebarData();
   const [searchBarAffixed, setSearchBarAffixed] = useState<boolean>(false);
@@ -225,11 +224,9 @@ const Overview: React.FC = () => {
                           <img
                             draggable={false}
                             src={
-                              theme.includes('dark') && component.coverDark
-                                ? component.coverDark
-                                : component.cover
+                              isDark && component.coverDark ? component.coverDark : component.cover
                             }
-                            alt={component.title}
+                            alt=""
                           />
                         </div>
                       </Card>

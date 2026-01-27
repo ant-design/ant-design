@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { DrawerProps } from '..';
 import Drawer from '..';
+import type { MaskType } from '../../_util/hooks';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -38,7 +39,7 @@ describe('Drawer', () => {
       fireEvent.animationEnd(mask);
     }
 
-    const panel = document.querySelector('.ant-drawer-content');
+    const panel = document.querySelector('.ant-drawer-section');
     if (panel) {
       fireEvent.animationEnd(panel);
     }
@@ -58,6 +59,56 @@ describe('Drawer', () => {
     triggerMotion();
 
     expect(wrapper.firstChild).toMatchSnapshot();
+  });
+
+  it('render correctly with size default', () => {
+    const { container } = render(
+      <Drawer open size="default" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '378px' });
+  });
+
+  it('render correctly with size large', () => {
+    const { container } = render(
+      <Drawer open size="large" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    const drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '736px' });
+  });
+
+  it('render correctly with size string', () => {
+    const { container, rerender } = render(
+      <Drawer open size="20vw" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    let drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '20vw' });
+
+    rerender(
+      <Drawer open size="500" getContainer={false}>
+        Here is content of Drawer
+      </Drawer>,
+    );
+
+    triggerMotion();
+
+    drawerWrapper = container.querySelector('.ant-drawer-content-wrapper');
+    expect(drawerWrapper).toHaveStyle({ width: '500px' });
   });
 
   it('getContainer return undefined', () => {
@@ -286,6 +337,30 @@ describe('Drawer', () => {
       errorSpy.mockRestore();
     });
 
+    it('warning with deprecated width prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer width={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `width` is deprecated. Please use `size` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
+    it('warning with deprecated height prop', () => {
+      const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      resetWarned();
+
+      render(<Drawer height={400} />);
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Drawer] `height` is deprecated. Please use `size` instead.',
+      );
+
+      errorSpy.mockRestore();
+    });
+
     it('should hide close button when closeIcon is null or false', () => {
       const { baseElement, rerender } = render(
         <Drawer open closeIcon={null}>
@@ -369,7 +444,7 @@ describe('Drawer', () => {
             header: getStyle1(),
             body: getStyle1(),
             footer: getStyle1(),
-            content: getStyle1(),
+            section: getStyle1(),
             wrapper: getStyle1(),
             mask: getStyle1(),
           }}
@@ -432,38 +507,103 @@ describe('Drawer', () => {
     expect(container.querySelector('#test')).toBeTruthy();
   });
 
-  it('should support closable placement with start', () => {
-    const { container } = render(
-      <Drawer open closable={{ placement: 'start' }} getContainer={false}>
-        Test
+  it('focusable default config should pass to classNames', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <Drawer open getContainer={false} classNames={classNames}>
+        Here is content of Drawer
       </Drawer>,
     );
-    triggerMotion();
-    // 当 placement 为 'start' 时，使用默认的类名
-    expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
-    expect(container.querySelector('.ant-drawer-close-start')).toBeNull();
-    expect(container.querySelector('.ant-drawer-close-end')).toBeNull();
-    // 添加快照断言
-    expect(container.firstChild).toMatchSnapshot();
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: false,
+            focusTriggerAfterClose: true,
+          },
+        }),
+      }),
+    );
   });
 
-  it('should support closable placement with end', () => {
-    const { container } = render(
-      <Drawer open closable={{ placement: 'end' }} getContainer={false}>
-        Test
-      </Drawer>,
-    );
-    triggerMotion();
-    // 当 placement 为 'end' 时，使用新的类名
-    expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
-    expect(container.querySelector('.ant-drawer-close-end')).toBeInTheDocument();
-    // 添加快照断言
-    expect(container.firstChild).toMatchSnapshot();
+  describe('Drawer mask blur className', () => {
+    const testCases: [
+      mask?: MaskType,
+      contextMask?: MaskType,
+      expectedBlurClass?: boolean,
+      openMask?: boolean,
+    ][] = [
+      // Format: [modalMask, configMask,  expectedBlurClass, openMask]
+      [undefined, true, true, true],
+      [true, undefined, true, true],
+      [undefined, undefined, true, true],
+      [false, true, false, false],
+      [true, false, true, true],
+      [{ enabled: false }, { blur: true }, true, false],
+      [{ enabled: true }, { blur: false }, false, true],
+      [{ blur: true }, { enabled: false }, true, false],
+      [{ blur: false }, { enabled: true, blur: true }, false, true],
+      [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
+    ];
+
+    it.each(
+      testCases,
+    )('drawerMask = %s configMask = %s ,mask blur = %s', (modalMask, configMask, expectedBlurClass, openMask) => {
+      render(
+        <ConfigProvider drawer={{ mask: configMask }}>
+          <Drawer open mask={modalMask} />
+        </ConfigProvider>,
+      );
+
+      const maskElement = document.querySelector('.ant-drawer-mask');
+
+      if (!openMask) {
+        expect(maskElement).toBeNull();
+        return;
+      }
+
+      expect(maskElement).toBeInTheDocument();
+      if (expectedBlurClass) {
+        expect(maskElement!.className).toContain('ant-drawer-mask-blur');
+      } else {
+        expect(maskElement!.className).not.toContain('ant-drawer-mask-blur');
+      }
+    });
+    it('should support closable placement with start', () => {
+      const { container } = render(
+        <Drawer open closable={{ placement: 'start' }} getContainer={false}>
+          Test
+        </Drawer>,
+      );
+      triggerMotion();
+      // 当 placement 为 'start' 时，使用默认的类名
+      expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
+      expect(container.querySelector('.ant-drawer-close-start')).toBeNull();
+      expect(container.querySelector('.ant-drawer-close-end')).toBeNull();
+      // 添加快照断言
+      expect(container.firstChild).toMatchSnapshot();
+    });
+
+    it('should support closable placement with end', () => {
+      const { container } = render(
+        <Drawer open closable={{ placement: 'end' }} getContainer={false}>
+          Test
+        </Drawer>,
+      );
+      triggerMotion();
+      // 当 placement 为 'end' 时，使用新的类名
+      expect(container.querySelector('.ant-drawer-close')).toBeInTheDocument();
+      expect(container.querySelector('.ant-drawer-close-end')).toBeInTheDocument();
+      // 添加快照断言
+      expect(container.firstChild).toMatchSnapshot();
+    });
   });
 
   it('should have aria-labelledby on drawer content when title is provided', () => {
     const { baseElement, rerender } = render(<Drawer open>Here is content of Drawer</Drawer>);
-    const content = baseElement.querySelector('.ant-drawer-content');
+    const content = baseElement.querySelector('.ant-drawer-section');
     expect(content).not.toHaveAttribute('aria-labelledby');
 
     rerender(
@@ -480,5 +620,63 @@ describe('Drawer', () => {
       </Drawer>,
     );
     expect(content).toHaveAttribute('aria-labelledby', 'custom-id');
+  });
+
+  it('should support closable placement config from ConfigProvider', () => {
+    // Test default closable placement from ConfigProvider
+    const { container: container1, unmount: unmount1 } = render(
+      <ConfigProvider
+        drawer={{
+          closable: { placement: 'end' },
+        }}
+      >
+        <Drawer open title="Test Drawer" getContainer={false}>
+          Content
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    triggerMotion();
+    const closeButton1 = container1.querySelector('.ant-drawer-close-end');
+    expect(closeButton1).toBeTruthy();
+    expect(container1.querySelector('.ant-drawer-close')).toBe(closeButton1);
+    unmount1();
+
+    // Test start placement from ConfigProvider
+    const { container: container2, unmount: unmount2 } = render(
+      <ConfigProvider
+        drawer={{
+          closable: { placement: 'start' },
+        }}
+      >
+        <Drawer open title="Test Drawer" getContainer={false}>
+          Content
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    triggerMotion();
+    const closeButton2 = container2.querySelector('.ant-drawer-close');
+    expect(closeButton2).toBeTruthy();
+    expect(container2.querySelector('.ant-drawer-close-end')).toBeFalsy();
+    unmount2();
+
+    // Test props override ConfigProvider
+    const { container: container3, unmount: unmount3 } = render(
+      <ConfigProvider
+        drawer={{
+          closable: { placement: 'end' },
+        }}
+      >
+        <Drawer open title="Test Drawer" closable={{ placement: 'start' }} getContainer={false}>
+          Content
+        </Drawer>
+      </ConfigProvider>,
+    );
+    triggerMotion();
+    const closeButton3 = container3.querySelector('.ant-drawer-close');
+    expect(closeButton3).toBeTruthy();
+    expect(container3.querySelector('.ant-drawer-close-end')).toBeFalsy();
+    unmount3();
   });
 });

@@ -1,6 +1,7 @@
 ---
 group:
   title: AI
+  order: 0.9
 order: 1
 title: LLMs.txt
 tag: New
@@ -37,7 +38,7 @@ tag: New
 
 在 Claude Code 中，将 `LLMs.txt` 添加到工作区的知识库（Docs / Context Files）配置中，即可在代码补全与解释时引用其中的内容，从而提升对 Ant Design 组件的理解。
 
-[详细了解 Claude Code 文档上下文配置](https://claude.ai/docs)
+[详细了解 Claude Code 文档上下文配置](https://code.claude.com/docs)
 
 ### Gemini CLI
 

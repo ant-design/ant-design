@@ -2,17 +2,11 @@
 
 exports[`Drawer render correctly 1`] = `
 <div
-  class="ant-drawer ant-drawer-right ant-drawer-inline"
+  class="ant-drawer ant-drawer-right css-var-root ant-drawer-inline"
   tabindex="-1"
 >
   <div
-    class="ant-drawer-mask ant-drawer-mask-motion-leave ant-drawer-mask-motion-leave-start ant-drawer-mask-motion"
-  />
-  <div
-    aria-hidden="true"
-    data-sentinel="start"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
+    class="ant-drawer-mask ant-drawer-mask-motion-leave ant-drawer-mask-motion-leave-start ant-drawer-mask-motion ant-drawer-mask-blur"
   />
   <div
     class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-leave ant-drawer-panel-motion-right-leave-start ant-drawer-panel-motion-right"
@@ -20,7 +14,7 @@ exports[`Drawer render correctly 1`] = `
   >
     <div
       aria-modal="true"
-      class="ant-drawer-content"
+      class="ant-drawer-section"
       role="dialog"
     >
       <div
@@ -64,11 +58,5 @@ exports[`Drawer render correctly 1`] = `
       </div>
     </div>
   </div>
-  <div
-    aria-hidden="true"
-    data-sentinel="end"
-    style="width: 0px; height: 0px; overflow: hidden; outline: none; position: absolute;"
-    tabindex="0"
-  />
 </div>
 `;

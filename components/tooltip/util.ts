@@ -1,16 +1,17 @@
 import type * as React from 'react';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
 import { isPresetColor } from '../_util/colors';
 import type { ColorGenInput } from '../color-picker/interface';
 import { generateColor } from '../color-picker/util';
+import { genCssVar } from '../theme/util/genStyleUtils';
 
-export function parseColor(prefixCls: string, color?: string) {
+export const parseColor = (rootPrefixCls: string, prefixCls: string, color?: string) => {
   const isInternalColor = isPresetColor(color);
 
-  const className = classNames({
-    [`${prefixCls}-${color}`]: color && isInternalColor,
-  });
+  const [varName] = genCssVar(rootPrefixCls, 'tooltip');
+
+  const className = clsx({ [`${prefixCls}-${color}`]: color && isInternalColor });
 
   const overlayStyle: React.CSSProperties = {};
   const arrowStyle: React.CSSProperties = {};
@@ -19,10 +20,9 @@ export function parseColor(prefixCls: string, color?: string) {
   const textColor = luminance < 0.5 ? '#FFF' : '#000';
   if (color && !isInternalColor) {
     overlayStyle.background = color;
-    overlayStyle['--ant-tooltip-color'] = textColor;
-    // @ts-ignore
-    arrowStyle['--antd-arrow-background-color'] = color;
+    overlayStyle[varName('overlay-color')] = textColor;
+    arrowStyle[varName('arrow-background-color')] = color;
   }
 
   return { className, overlayStyle, arrowStyle };
-}
+};

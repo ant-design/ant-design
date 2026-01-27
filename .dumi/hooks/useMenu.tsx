@@ -1,34 +1,39 @@
 import React, { useMemo } from 'react';
 import type { MenuProps } from 'antd';
 import { Flex, Tag, version } from 'antd';
-import { createStyles } from 'antd-style';
-import classnames from 'classnames';
+import { createStaticStyles } from 'antd-style';
+import { clsx } from 'clsx';
 import { useFullSidebarData, useSidebarData } from 'dumi';
 
 import Link from '../theme/common/Link';
+import useLocale from './useLocale';
 import useLocation from './useLocation';
 
-function isVersionNumber(value?: string) {
-  return value && /^\d+\.\d+\.\d+$/.test(value);
-}
-
-const getTagColor = (val?: string) => {
-  if (isVersionNumber(val)) {
-    return 'success';
-  }
-  if (val?.toUpperCase() === 'NEW') {
-    return 'success';
-  }
-  if (val?.toUpperCase() === 'UPDATED') {
-    return 'processing';
-  }
-  if (val?.toUpperCase() === 'DEPRECATED') {
-    return 'red';
-  }
-  return 'success';
+const locales = {
+  cn: {
+    deprecated: '废弃',
+    updated: '更新',
+    new: '新增',
+  },
+  en: {
+    deprecated: 'DEPRECATED',
+    updated: 'UPDATED',
+    new: 'NEW',
+  },
 };
 
-const useStyle = createStyles(({ css, token }) => ({
+const getTagColor = (val?: string) => {
+  switch (val?.toUpperCase()) {
+    case 'UPDATED':
+      return 'processing';
+    case 'DEPRECATED':
+      return 'red';
+    default:
+      return 'success';
+  }
+};
+
+const styles = createStaticStyles(({ css, cssVar }) => ({
   link: css`
     display: flex;
     align-items: center;
@@ -39,8 +44,9 @@ const useStyle = createStyles(({ css, token }) => ({
   `,
   subtitle: css`
     font-weight: normal;
-    font-size: ${token.fontSizeSM}px;
+    font-size: ${cssVar.fontSizeSM};
     opacity: 0.8;
+    margin-inline-start: ${cssVar.marginSM};
   `,
 }));
 
@@ -56,19 +62,24 @@ interface MenuItemLabelProps {
 }
 
 const MenuItemLabelWithTag: React.FC<MenuItemLabelProps> = (props) => {
-  const { styles } = useStyle();
   const { before, after, link, title, subtitle, search, tag, className } = props;
+
+  const [locale] = useLocale(locales);
+
+  const getLocale = (name: string) => {
+    return (locale as any)[name.toLowerCase()] ?? name;
+  };
 
   if (!before && !after) {
     return (
-      <Link to={`${link}${search}`} className={classnames(className, { [styles.link]: tag })}>
-        <Flex justify="flex-start" align="center" gap="small">
+      <Link to={`${link}${search}`} className={clsx(className, { [styles.link]: tag })}>
+        <Flex justify="flex-start" align="center">
           <span>{title}</span>
           {subtitle && <span className={styles.subtitle}>{subtitle}</span>}
         </Flex>
         {tag && (
-          <Tag bordered={false} className={classnames(styles.tag)} color={getTagColor(tag)}>
-            {tag.replace(/VERSION/i, version)}
+          <Tag variant="filled" className={clsx(styles.tag)} color={getTagColor(tag)}>
+            {getLocale(tag.replace(/VERSION/i, version))}
           </Tag>
         )}
       </Link>

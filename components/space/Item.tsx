@@ -1,20 +1,31 @@
 import * as React from 'react';
+import { clsx } from 'clsx';
 
+import isNonNullable from '../_util/isNonNullable';
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
 
 export interface ItemProps {
   className: string;
   children: React.ReactNode;
+  prefix: string;
   index: number;
-  split?: React.ReactNode;
+  separator?: React.ReactNode;
   style?: React.CSSProperties;
+  classNames?: {
+    separator?: string;
+  };
+  styles?: {
+    separator?: React.CSSProperties;
+  };
 }
 
-const Item: React.FC<ItemProps> = ({ className, index, children, split, style }) => {
+const Item: React.FC<ItemProps> = (props) => {
+  const { className, prefix, index, children, separator, style, classNames, styles } = props;
+
   const { latestIndex } = React.useContext<SpaceContextType>(SpaceContext);
 
-  if (children === null || children === undefined) {
+  if (!isNonNullable(children)) {
     return null;
   }
 
@@ -23,7 +34,14 @@ const Item: React.FC<ItemProps> = ({ className, index, children, split, style })
       <div className={className} style={style}>
         {children}
       </div>
-      {index < latestIndex && split && <span className={`${className}-split`}>{split}</span>}
+      {index < latestIndex && separator && (
+        <span
+          className={clsx(`${prefix}-item-separator`, classNames?.separator)}
+          style={styles?.separator}
+        >
+          {separator}
+        </span>
+      )}
     </>
   );
 };

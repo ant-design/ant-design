@@ -1,28 +1,28 @@
 import * as React from 'react';
 import { App } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { useIntl } from 'dumi';
 
 import CopyableIcon from './CopyableIcon';
 import type { CategoriesKeys } from './fields';
 import type { ThemeType } from './IconSearch';
 
-const useStyle = createStyles(({ token, css }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   anticonsList: css`
-    margin: ${token.margin}px 0;
+    margin: ${cssVar.margin} 0;
     overflow: hidden;
     direction: ltr;
     list-style: none;
     display: grid;
-    grid-gap: ${token.margin}px;
+    grid-gap: ${cssVar.margin};
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     padding: 0;
   `,
   copiedCode: css`
-    padding: 0 ${token.paddingXXS}px;
-    font-size: ${token.fontSizeSM}px;
-    background-color: ${token.colorBgLayout};
-    border-radius: ${token.borderRadiusXS}px;
+    padding: 0 ${cssVar.paddingXXS};
+    font-size: ${cssVar.fontSizeSM};
+    background-color: ${cssVar.colorBgLayout};
+    border-radius: ${cssVar.borderRadiusXS};
   `,
 }));
 
@@ -36,7 +36,6 @@ interface CategoryProps {
 const Category: React.FC<CategoryProps> = (props) => {
   const { message } = App.useApp();
   const { icons, title, newIcons, theme } = props;
-  const { styles } = useStyle();
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
   const copyId = React.useRef<ReturnType<typeof setTimeout> | null>(null);

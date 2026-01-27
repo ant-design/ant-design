@@ -1,6 +1,6 @@
 /* eslint no-param-reassign: 0 */
 // This config is for building dist files
-const getWebpackConfig = require('@ant-design/tools/lib/getWebpackConfig');
+const { getWebpackConfig } = require('@ant-design/tools');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { codecovWebpackPlugin } = require('@codecov/webpack-plugin');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
@@ -72,7 +72,7 @@ function addPluginsForProduction(config) {
   return newConfig;
 }
 
-let webpackConfig = getWebpackConfig(false);
+let webpackConfig = getWebpackConfig(false, { enabledReactCompiler: true });
 
 if (process.env.PRODUCTION_ONLY) {
   console.log('🍐 Build production only');

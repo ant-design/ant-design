@@ -4,6 +4,7 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -24,7 +25,7 @@ export type ColorFormatType = typeof FORMAT_HEX | typeof FORMAT_RGB | typeof FOR
 
 export interface PresetsItem {
   label: React.ReactNode;
-  colors: (string | AggregationColor)[];
+  colors: (string | AggregationColor | LineGradientType)[];
   /**
    * Whether the initial state is collapsed
    * @since 5.11.0
@@ -44,15 +45,40 @@ export type TriggerPlacement = TooltipPlacement; // Alias, to prevent breaking c
 
 export type SingleValueType = AggregationColor | string;
 
-export type ColorValueType =
-  | SingleValueType
-  | null
-  | {
-      color: SingleValueType;
-      percent: number;
-    }[];
+export type LineGradientType = {
+  color: SingleValueType;
+  percent: number;
+}[];
+
+export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
+
+export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames &
+  keyof ColorPickerSemanticStyles;
+
+export type ColorPickerSemanticClassNames = {
+  root?: string;
+};
+
+export type ColorPickerSemanticStyles = {
+  root?: React.CSSProperties;
+};
+
+export type ColorPickerClassNamesType = SemanticClassNamesType<
+  ColorPickerProps,
+  ColorPickerSemanticClassNames,
+  { popup?: { root?: string } }
+>;
+
+export type ColorPickerStylesType = SemanticStylesType<
+  ColorPickerProps,
+  ColorPickerSemanticStyles,
+  {
+    popup?: { root?: React.CSSProperties };
+    popupOverlayInner?: React.CSSProperties;
+  }
+>;
 
 export type ColorPickerProps = Omit<
   RcColorPickerProps,
@@ -83,7 +109,8 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  styles?: { popup?: React.CSSProperties; popupOverlayInner?: React.CSSProperties };
+  classNames?: ColorPickerClassNamesType;
+  styles?: ColorPickerStylesType;
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;

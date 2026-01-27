@@ -51,6 +51,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ylFATY6w-ygAAA
 <code src="./demo/getValueProps-normalize.tsx">getValueProps + normalize</code>
 <code src="./demo/validate-scroll-to-field.tsx" iframe="360">Slide to error field</code>
 <code src="./demo/validate-other.tsx">Other Form Controls</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/disabled-input-debug.tsx" debug>Disabled Input Debug</code>
 <code src="./demo/label-debug.tsx" debug>label ellipsis</code>
 <code src="./demo/col-24-debug.tsx" debug>Test col 24 usage</code>
@@ -66,6 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | colon | Configure the default value of `colon` for Form.Item. Indicates whether the colon after the label is displayed (only effective when prop layout is horizontal) | boolean | true |  |
 | disabled | Set form component disable, only available for antd components | boolean | false | 4.21.0 |
 | component | Set the Form rendering element. Do not create a DOM node for `false` | ComponentType \| false | form |  |
@@ -82,6 +84,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false | focus: 5.24.0 |
 | size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
 | validateTrigger | Config field validate trigger | string \| string\[] | `onChange` | 4.3.0 |
 | variant | Variant of components inside form | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
@@ -511,9 +514,7 @@ form.getFieldsValue([
 ]);
 ```
 
-#### getFieldsValue({ strict?: boolean, filter?: FilterFunc })
-
-New in `5.8.0`. Accept configuration parameters. When `strict` is `true`, only the value of Item will be matched. For example, in `{ list: [{ bamboo: 1, little: 2 }] }`, if List is only bound to the `bamboo` field, then `getFieldsValue({ strict: true })` will only get `{ list: [{ bamboo: 1 }] }`.
+#### getFieldsValue({ filter?: FilterFunc })
 
 ### FilterFunc
 
@@ -554,7 +555,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | pattern | Regex pattern | RegExp |  |
 | required | Required field | boolean |  |
 | transform | Transform value to the rule before validation | (value) => any |  |
-| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/react-component/async-validator#type) | string |  |
+| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email` \| `tel`. More type to ref [here](https://github.com/react-component/async-validator#type) | string |  |
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |  |
 | validator | Customize validation rule. Accept Promise as return. See [example](#form-demo-register) | ([rule](#rule), value) => Promise |  |
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
@@ -567,13 +568,17 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | form | Form instance | FormInstance | Current form in context | 5.4.0 |
 | preserve | Whether to watch the field which has no matched `Form.Item` | boolean | false | 5.4.0 |
 
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
 
-### Why can't Switch, Checkbox bind data?
+### Why can't Switch, Checkbox bind data? {#faq-switch-checkbox-binding}
 
 Form.Item default bind value to `value` prop, but Switch or Checkbox value prop is `checked`. You can use `valuePropName` to change bind value prop.
 
@@ -583,40 +588,40 @@ Form.Item default bind value to `value` prop, but Switch or Checkbox value prop 
 </Form.Item>
 ```
 
-### How does `name` fill value when it's an array?
+### How does `name` fill value when it's an array? {#faq-name-array-rule}
 
 `name` will fill value by array order. When there exists number in it and no related field in form store, it will auto convert field to array. If you want to keep it as object, use string like: `['1', 'name']`.
 
-### Why is there a form warning when used in Modal?
+### Why is there a form warning when used in Modal? {#faq-form-modal-error}
 
 > Warning: Instance created by `useForm` is not connect to any Form element. Forget to pass `form` prop?
 
 Before Modal opens, children elements do not exist in the view. You can set `forceRender` on Modal to pre-render its children. Click [here](https://codesandbox.io/s/antd-reproduction-template-ibu5c) to view an example.
 
-### Why is component `defaultValue` not working when inside Form.Item?
+### Why is component `defaultValue` not working when inside Form.Item? {#faq-item-default-value}
 
 Components inside Form.Item with name property will turn into controlled mode, which makes `defaultValue` not work anymore. Please try `initialValues` of Form to set default value.
 
-### Why can not call `ref` of Form at first time?
+### Why can not call `ref` of Form at first time? {#faq-ref-first-call}
 
 `ref` only receives the mounted instance. please ref React official doc: <https://react.dev/learn/manipulating-the-dom-with-refs#when-react-attaches-the-refs>
 
-### Why will `resetFields` re-mount component?
+### Why will `resetFields` re-mount component? {#faq-reset-fields-mount}
 
 `resetFields` will re-mount component under Field to clean up customize component side effects (like async data, cached state, etc.). It's by design.
 
-### Difference between Form initialValues and Item initialValue?
+### Difference between Form initialValues and Item initialValue? {#faq-initial-values-diff}
 
 In most case, we always recommend to use Form `initialValues`. Use Item `initialValue` only with dynamic field usage. Priority follows the rules:
 
 1. Form `initialValues` is the first priority
 2. Field `initialValue` is secondary \*. Does not work when multiple Item with same `name` setting the `initialValue`
 
-### Why can't `getFieldsValue` get value at first render?
+### Why can't `getFieldsValue` get value at first render? {#faq-get-fields-value}
 
 `getFieldsValue` returns collected field data by default, but the Form.Item node is not ready at the first render. You can get all field data by `getFieldsValue(true)`.
 
-### Why some component not response with `setFieldsValue` to `undefined`?
+### Why some component not response with `setFieldsValue` to `undefined`? {#faq-set-fields-undefined}
 
 `value` change from certain one to `undefined` in React means from controlled mode to uncontrolled mode. Thus it will not change display value but modified FormStore in fact. You can HOC to handle this:
 
@@ -632,7 +637,7 @@ const MyInput = ({
 </Form.Item>;
 ```
 
-### Why does `onFieldsChange` trigger three times on change when field sets `rules`?
+### Why does `onFieldsChange` trigger three times on change when field sets `rules`? {#faq-rules-trigger-three-times}
 
 Validating is also part of the value updating. It pass follow steps:
 
@@ -642,11 +647,11 @@ Validating is also part of the value updating. It pass follow steps:
 
 In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
 
-### Why doesn't Form.List support `label` and need ErrorList to show errors?
+### Why doesn't Form.List support `label` and need ErrorList to show errors? {#faq-form-list-no-label}
 
 Form.List use renderProps which mean internal structure is flexible. Thus `label` and `error` can not have best place. If you want to use antd `label`, you can wrap with Form.Item instead.
 
-### Why can't Form.Item `dependencies` work on Form.List field?
+### Why can't Form.Item `dependencies` work on Form.List field? {#faq-dependencies-form-list}
 
 Your name path should also contain Form.List `name`:
 
@@ -665,11 +670,11 @@ Your name path should also contain Form.List `name`:
 
 dependencies should be `['users', 0, 'name']`
 
-### Why doesn't `normalize` support async?
+### Why doesn't `normalize` support async? {#faq-normalize-async}
 
 React can not get correct interaction of controlled component with async value update. When user trigger `onChange`, component will do no response since `value` update is async. If you want to trigger value update async, you should use customize component to handle value state internal and pass sync value control to Form instead.
 
-### `scrollToFirstError` and `scrollToField` not working?
+### `scrollToFirstError` and `scrollToField` not working? {#faq-scroll-not-working}
 
 1. use custom form control
 
@@ -683,15 +688,15 @@ Starting from version `5.17.0`, the sliding operation will prioritize using the 
 
 If there are multiple forms on the page, and there are duplicate same `name` form item, the form scroll probably may find the form item with the same name in another form. You need to set a different `name` for the `Form` component to distinguish it.
 
-### Continue, why not use `ref` to bind element?
+### Continue, why not use `ref` to bind element? {#faq-ref-binding}
 
 Form can not get real DOM node when customize component not support `ref`. It will get warning in React Strict Mode if wrap with Class Component and call `findDOMNode`. So we use `id` to locate element.
 
-### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`?
+### `setFieldsValue` do not trigger `onFieldsChange` or `onValuesChange`? {#faq-set-fields-no-trigger}
 
 It's by design. Only user interactive can trigger the change event. This design is aim to avoid call `setFieldsValue` in change event which may makes loop calling.
 
-### Why Form.Item not update value when children is nest?
+### Why Form.Item not update value when children is nest? {#faq-item-nested-update}
 
 Form.Item will inject `value` and `onChange` to children when render. Once your field component is wrapped, props will not pass to the correct node. Follow code will not work as expect:
 
@@ -719,7 +724,7 @@ const MyInput = (props) => (
 </Form.Item>;
 ```
 
-### Why does clicking the label in the form change the component state?
+### Why does clicking the label in the form change the component state? {#faq-label-click-change}
 
 > Related issue: [#47031](https://github.com/ant-design/ant-design/issues/47031), [#43175](https://github.com/ant-design/ant-design/issues/43175), [#52152](https://github.com/ant-design/ant-design/issues/52152)
 

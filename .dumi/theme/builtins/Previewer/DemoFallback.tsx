@@ -1,18 +1,17 @@
 import React from 'react';
 import { Skeleton } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ token, css }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   skeletonWrapper: css`
     width: 100% !important;
     height: 250px;
-    margin-bottom: ${token.margin}px;
-    border-radius: ${token.borderRadiusLG}px;
+    margin-bottom: ${cssVar.margin};
+    border-radius: ${cssVar.borderRadiusLG};
   `,
 }));
 
 const DemoFallback = () => {
-  const { styles } = useStyle();
   return (
     <Skeleton.Node
       active

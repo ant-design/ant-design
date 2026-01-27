@@ -58,6 +58,7 @@ export default () => {
 
         body {
           overflow-x: hidden;
+          scrollbar-width: thin;
           color: ${token.colorText};
           font-size: ${token.fontSize}px;
           font-family: ${token.fontFamily};

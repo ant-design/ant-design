@@ -62,7 +62,7 @@ const MyDatePanel = (props: GetProps<DateComponent>) => {
 };
 
 const App: React.FC = () => (
-  <Space direction="vertical">
+  <Space vertical>
     <DatePicker
       showNow={false}
       onChange={onChange}

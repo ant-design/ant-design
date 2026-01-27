@@ -16,7 +16,7 @@ demo:
 
 和 `Tooltip` 的区别是，用户可以对浮层上的元素进行操作，因此它可以承载更复杂的内容，比如链接或按钮等。
 
-## 代码演示
+## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
@@ -27,6 +27,7 @@ demo:
 <code src="./demo/shift.tsx" iframe="300">贴边偏移</code>
 <code src="./demo/control.tsx">从浮层内关闭</code>
 <code src="./demo/hover-with-click.tsx">悬停点击弹出窗口</code>
+<code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/wireframe.tsx" debug>线框风格</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
@@ -35,10 +36,12 @@ demo:
 
 通用属性参考：[通用属性](/docs/react/common-props)
 
-| 参数    | 说明     | 类型                         | 默认值 | 版本 |
-| ------- | -------- | ---------------------------- | ------ | ---- |
-| content | 卡片内容 | ReactNode \| () => ReactNode | -      |      |
-| title   | 卡片标题 | ReactNode \| () => ReactNode | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| content | 卡片内容 | ReactNode \| () => ReactNode | - |  |
+| title | 卡片标题 | ReactNode \| () => ReactNode | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 
 <!-- 共同的 API -->
 
@@ -52,7 +55,7 @@ demo:
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
-## 主题变量（Design Token）
+## 主题变量（Design Token）{#design-token}
 
 <ComponentTokenTable component="Popover"></ComponentTokenTable>
 

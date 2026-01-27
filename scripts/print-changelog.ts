@@ -74,17 +74,33 @@ async function printLog() {
   const tags = await git.tags();
   const fromVersion = await select({
     message: '🏷 Please choose tag to compare with current branch:',
-    choices: tags.all
-      .filter((item) => !item.includes('experimental'))
-      .filter((item) => !item.includes('alpha'))
-      .filter((item) => !item.includes('resource'))
-      .reverse()
-      .slice(0, 50)
-      .map((item) => ({ name: item, value: item })),
+    choices: [
+      ...tags.all
+        .filter((item) => !item.includes('experimental'))
+        .filter((item) => !item.includes('alpha'))
+        .filter((item) => !item.includes('resource'))
+        .reverse()
+        .slice(0, 50)
+        .map((item) => ({ name: item, value: item })),
+      { name: 'custom input ⌨️', value: 'custom input ⌨️' },
+    ],
   });
 
+  let finalFromVersion = fromVersion;
+  if (fromVersion.startsWith('custom input')) {
+    finalFromVersion = await input({
+      message: '🏷 Please input custom tag name:',
+      validate: (value: string) => {
+        if (!value.trim()) {
+          return 'Tag name cannot be empty';
+        }
+        return true;
+      },
+    });
+  }
+
   let toVersion = await select({
-    message: `🔀 Please choose branch to compare with ${chalk.magenta(fromVersion)}:`,
+    message: `🔀 Please choose branch to compare with ${chalk.magenta(finalFromVersion)}:`,
     choices: ['master', '4.x-stable', '3.x-stable', 'feature', 'custom input ⌨️'].map((i) => ({
       name: i,
       value: i,
@@ -95,21 +111,83 @@ async function printLog() {
     toVersion = await input({
       default: 'master',
       message: `🔀 Please input custom git hash id or branch name to compare with ${chalk.magenta(
-        fromVersion,
+        finalFromVersion,
       )}:`,
     });
   }
 
-  if (!/\d+\.\d+\.\d+/.test(fromVersion)) {
-    console.log(chalk.red(`🤪 tag (${chalk.magenta(fromVersion)}) is not valid.`));
+  // Add exclude tag option
+  const excludeOptions = ['none', 'master', 'feature', 'next', 'custom'];
+  const excludeTagChoice = await select({
+    message: `🚫 Do you want to exclude commits from a specific tag/branch?`,
+    choices: excludeOptions.map((option) => ({
+      name:
+        option === 'none'
+          ? 'No exclusion'
+          : option === 'custom'
+            ? 'Custom exclude tag ⌨️'
+            : `Exclude from ${option}`,
+      value: option,
+    })),
+  });
+
+  let excludeTag: string | undefined;
+  if (excludeTagChoice === 'custom') {
+    excludeTag = await input({
+      message: '🚫 Please input tag/branch to exclude commits from:',
+      validate: (value: string) => {
+        if (!value.trim()) {
+          return 'Tag/branch name cannot be empty';
+        }
+        return true;
+      },
+    });
+  } else if (excludeTagChoice !== 'none') {
+    excludeTag = excludeTagChoice;
   }
 
-  const logs = await git.log({ from: fromVersion, to: toVersion });
+  if (!/\d+\.\d+\.\d+/.test(finalFromVersion)) {
+    console.log(chalk.red(`🤪 tag (${chalk.magenta(finalFromVersion)}) is not valid.`));
+  }
+
+  console.log(
+    chalk.blue(
+      `📊 Getting commits from ${chalk.magenta(finalFromVersion)} to ${chalk.magenta(toVersion)}${excludeTag ? ` excluding commits from ${chalk.magenta(excludeTag)}` : ''}...`,
+    ),
+  );
+
+  const logs = await git.log({ from: finalFromVersion, to: toVersion });
+
+  // Get exclude commits if excludeTag is specified
+  let excludeCommitHashes: Set<string> = new Set();
+  if (excludeTag) {
+    try {
+      const excludeLogs = await git.log({ from: finalFromVersion, to: excludeTag });
+      excludeCommitHashes = new Set(excludeLogs.all.map((commit) => commit.hash));
+      console.log(
+        chalk.yellow(`🚫 Excluding ${excludeCommitHashes.size} commits from ${excludeTag}`),
+      );
+    } catch (error) {
+      console.log(chalk.red(`❌ Error getting exclude commits from ${excludeTag}: ${error}`));
+      console.log(chalk.yellow('⚠️  Continuing without exclusion...'));
+    }
+  }
 
   let prList: PR[] = [];
 
-  for (let i = 0; i < logs.all.length; i += 1) {
-    const { message, body, hash, author_name: author } = logs.all[i];
+  // Filter out excluded commits
+  const filteredLogs = logs.all.filter((commit) => !excludeCommitHashes.has(commit.hash));
+
+  if (excludeTag && filteredLogs.length !== logs.all.length) {
+    console.log(
+      chalk.green(
+        `✅ Filtered out ${logs.all.length - filteredLogs.length} commits that exist in ${excludeTag}`,
+      ),
+    );
+  }
+
+  for (let i = 0; i < filteredLogs.length; i += 1) {
+    const { message, body, hash, author_name: author } = filteredLogs[i];
 
     const text = `${message} ${body}`;
 
@@ -121,7 +199,7 @@ async function printLog() {
 
     console.log(
       chalk.green(
-        `[${i + 1}/${logs.all.length}]`,
+        `[${i + 1}/${filteredLogs.length}]`,
         hash.slice(0, 6),
         '-',
         prs.length

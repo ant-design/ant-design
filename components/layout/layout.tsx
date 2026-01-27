@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
-import omit from 'rc-util/lib/omit';
+import { omit } from '@rc-component/util';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -13,6 +13,7 @@ export interface GeneratorProps {
   tagName: 'header' | 'footer' | 'main' | 'div';
   displayName: string;
 }
+
 export interface BasicProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   suffixCls?: string;
@@ -24,17 +25,17 @@ interface BasicPropsWithTagName extends BasicProps {
   tagName: 'header' | 'footer' | 'main' | 'div';
 }
 
-function generator({ suffixCls, tagName, displayName }: GeneratorProps) {
-  return (BasicComponent: any) => {
+const generator = ({ suffixCls, tagName, displayName }: GeneratorProps) => {
+  return (Component: React.ComponentType<BasicPropsWithTagName & React.RefAttributes<any>>) => {
     const Adapter = React.forwardRef<HTMLElement, BasicProps>((props, ref) => (
-      <BasicComponent ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
+      <Component ref={ref} suffixCls={suffixCls} tagName={tagName} {...props} />
     ));
     if (process.env.NODE_ENV !== 'production') {
       Adapter.displayName = displayName;
     }
     return Adapter;
   };
-}
+};
 
 const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, ref) => {
   const {
@@ -48,21 +49,16 @@ const Basic = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((props, re
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('layout', customizePrefixCls);
 
-  const [wrapSSR, hashId, cssVarCls] = useStyle(prefixCls);
+  const [hashId] = useStyle(prefixCls);
 
   const prefixWithSuffixCls = suffixCls ? `${prefixCls}-${suffixCls}` : prefixCls;
 
-  return wrapSSR(
+  return (
     <TagName
-      className={classNames(
-        customizePrefixCls || prefixWithSuffixCls,
-        className,
-        hashId,
-        cssVarCls,
-      )}
+      className={clsx(customizePrefixCls || prefixWithSuffixCls, className, hashId)}
       ref={ref}
       {...others}
-    />,
+    />
   );
 });
 
@@ -93,8 +89,8 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
 
   const mergedHasSider = useHasSider(siders, children, hasSider);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(prefixCls);
-  const classString = classNames(
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+  const classString = clsx(
     prefixCls,
     {
       [`${prefixCls}-has-sider`]: mergedHasSider,
@@ -121,12 +117,12 @@ const BasicLayout = React.forwardRef<HTMLDivElement, BasicPropsWithTagName>((pro
     [],
   );
 
-  return wrapCSSVar(
+  return (
     <LayoutContext.Provider value={contextValue}>
       <Tag ref={ref} className={classString} style={{ ...contextStyle, ...style }} {...passedProps}>
         {children}
       </Tag>
-    </LayoutContext.Provider>,
+    </LayoutContext.Provider>
   );
 });
 

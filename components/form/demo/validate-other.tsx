@@ -198,7 +198,7 @@ const App: React.FC = () => (
       <ColorPicker />
     </Form.Item>
 
-    <Form.Item wrapperCol={{ span: 12, offset: 6 }}>
+    <Form.Item label={null}>
       <Space>
         <Button type="primary" htmlType="submit">
           Submit

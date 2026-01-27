@@ -64,12 +64,12 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ token, css }, isDark: boolean) => {
+const useStyle = createStyles(({ cssVar, css }, isDark: boolean) => {
   return {
     card: css`
-      padding: ${token.paddingSM}px;
-      border-radius: ${token.borderRadius * 2}px;
-      background: ${isDark ? 'rgba(0, 0, 0, 0.45)' : token.colorBgElevated};
+      padding: ${cssVar.paddingSM};
+      border-radius: calc(${cssVar.borderRadius} * 2);
+      background: ${isDark ? 'rgba(0, 0, 0, 0.45)' : cssVar.colorBgElevated};
       box-shadow:
         0 1px 2px rgba(0, 0, 0, 0.03),
         0 1px 6px -1px rgba(0, 0, 0, 0.02),
@@ -78,14 +78,14 @@ const useStyle = createStyles(({ token, css }, isDark: boolean) => {
       img {
         width: 100%;
         vertical-align: top;
-        border-radius: ${token.borderRadius}px;
+        border-radius: ${cssVar.borderRadius};
       }
     `,
 
     cardMini: css`
       display: block;
-      border-radius: ${token.borderRadius * 2}px;
-      padding: ${token.paddingMD}px ${token.paddingLG}px;
+      border-radius: calc(${cssVar.borderRadius} * 2);
+      padding: ${cssVar.paddingMD} ${cssVar.paddingLG};
       background: ${isDark ? 'rgba(0, 0, 0, 0.25)' : 'rgba(0, 0, 0, 0.02)'};
       border: 1px solid ${isDark ? 'rgba(255, 255, 255, 0.45)' : 'rgba(0, 0, 0, 0.06)'};
 

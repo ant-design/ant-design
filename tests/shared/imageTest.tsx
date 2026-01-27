@@ -1,7 +1,8 @@
-import path from 'path';
+import path from 'node:path';
 import React from 'react';
 // Reference: https://github.com/ant-design/ant-design/pull/24003#discussion_r427267386
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
+import { warning as rcWarning } from '@rc-component/util';
 import { extractStaticStyle } from 'antd-style';
 import dayjs from 'dayjs';
 import fse from 'fs-extra';
@@ -9,7 +10,6 @@ import { globSync } from 'glob';
 import { JSDOM } from 'jsdom';
 import MockDate from 'mockdate';
 import type { HTTPRequest, Viewport } from 'puppeteer';
-import rcWarning from 'rc-util/lib/warning';
 import ReactDOMServer from 'react-dom/server';
 
 import { App, ConfigProvider, theme } from '../../components';
@@ -263,24 +263,11 @@ export default function imageTest(
           <ConfigProvider theme={configTheme}>{component}</ConfigProvider>
         </div>,
       );
-      test(
-        `[CSS Var] component image screenshot should correct ${key}`,
-        `.${key}.css-var`,
-        <div style={{ background: key === 'dark' ? '#000' : '', padding: `24px 12px` }} key={key}>
-          <ConfigProvider theme={{ ...configTheme, cssVar: true }}>{component}</ConfigProvider>
-        </div>,
-      );
     });
 
     // Mobile Snapshot
   } else {
     test(identifier, `.mobile`, component, true);
-    test(
-      identifier,
-      `.mobile.css-var`,
-      <ConfigProvider theme={{ cssVar: true }}>{component}</ConfigProvider>,
-      true,
-    );
   }
 }
 
@@ -310,13 +297,13 @@ export function imageDemoTest(component: string, options: Options = {}) {
   const getTestOption = (file: string) => ({
     onlyViewport:
       options.onlyViewport === true ||
-      (Array.isArray(options.onlyViewport) && options.onlyViewport.some((c) => file.endsWith(c))),
+      (Array.isArray(options.onlyViewport) && options.onlyViewport.includes(path.basename(file))),
     ssr: options.ssr,
     openTriggerClassName: options.openTriggerClassName,
   });
 
   files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.some((c) => file.endsWith(c))) {
+    if (Array.isArray(options.skip) && options.skip.includes(path.basename(file))) {
       describeMethod = describe.skip;
     } else {
       describeMethod = describe;
@@ -330,7 +317,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
       imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
 
       // Check if need mobile test
-      if ((options.mobile || []).some((c) => file.endsWith(c))) {
+      if ((options.mobile || []).includes(path.basename(file))) {
         mobileDemos.push([file, Demo]);
       }
     });

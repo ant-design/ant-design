@@ -26,6 +26,7 @@ export default antfu(
     typescript: true,
     react: true,
     rules: {
+      'react/jsx-key-before-spread': 'off',
       'node/prefer-global/process': 'off', // TODO: remove this
       'node/prefer-global/buffer': 'off', // TODO: remove this
       'jsdoc/empty-tags': 'off',
@@ -44,14 +45,11 @@ export default antfu(
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
       'react/no-children-for-each': 'off',
-      'react/no-children-count': 'off',
       'react/no-children-map': 'off',
       'react/no-children-only': 'off',
-      'react/no-unstable-default-props': 'off',
+      'react/prefer-namespace-import': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
       'perfectionist/sort-imports': 'off',
-      'perfectionist/sort-named-imports': 'off',
-      'perfectionist/sort-named-exports': 'off',
       'regexp/strict': 'off',
       /* turn off React 19 only rules */
       'react/no-forward-ref': 'off',
@@ -131,7 +129,7 @@ export default antfu(
       'react/no-use-context': 'warn',
     },
     settings: {
-      polyfills: ['Promise', 'URL', 'URLSearchParams'],
+      polyfills: ['Promise', 'URL', 'fetch', 'URLSearchParams'],
     },
   },
   {

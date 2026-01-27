@@ -22,7 +22,7 @@ import { initPanelComponentToken, initPickerPanelToken, prepareComponentToken } 
 import genVariantsStyle from './variants';
 
 export type { ComponentToken, PanelComponentToken, PickerPanelToken };
-export { initPickerPanelToken, initPanelComponentToken, genPanelStyle };
+export { genPanelStyle, initPanelComponentToken, initPickerPanelToken };
 
 const genPickerPadding = (paddingBlock: number, paddingInline: number): CSSObject => {
   return {
@@ -157,6 +157,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         // Size
         '&-large': {
           ...genPickerPadding(token.paddingBlockLG, token.paddingInlineLG),
+          borderRadius: token.borderRadiusLG,
           [`${componentCls}-input > input`]: {
             fontSize: inputFontSizeLG ?? fontSizeLG,
             lineHeight: lineHeightLG,
@@ -165,6 +166,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
 
         '&-small': {
           ...genPickerPadding(token.paddingBlockSM, token.paddingInlineSM),
+          borderRadius: token.borderRadiusSM,
           [`${componentCls}-input > input`]: {
             fontSize: inputFontSizeSM ?? fontSizeSM,
           },

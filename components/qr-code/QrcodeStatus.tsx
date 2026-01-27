@@ -1,7 +1,7 @@
 import React from 'react';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 
-import Button from '../button';
+import Button from '../button/Button';
 import type { Locale } from '../locale';
 import Spin from '../spin';
 import type { QRCodeProps, StatusRenderInfo } from './interface';

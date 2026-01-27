@@ -1,13 +1,11 @@
-import * as React from 'react';
-import type { JSX } from 'react';
-import classnames from 'classnames';
+import React from 'react';
+import { clsx } from 'clsx';
 
+import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
+import { useMergeSemantic } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import DescriptionsContext from './DescriptionsContext';
-import type { SemanticName } from './DescriptionsContext';
-
-const isNonNullable = <T,>(val: T): val is NonNullable<T> => {
-  return val !== undefined && val !== null;
-};
+import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext';
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -15,12 +13,12 @@ export interface CellProps {
   className?: string;
   component: string;
   style?: React.CSSProperties;
-  /** @deprecated Please use `styles={{ label: {} }}` instead */
+  /** @deprecated Please use `styles.label` instead */
   labelStyle?: React.CSSProperties;
-  /** @deprecated Please use `styles={{ content: {} }}` instead */
+  /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  styles?: Partial<Record<SemanticName, React.CSSProperties>>;
-  classNames?: Partial<Record<SemanticName, string>>;
+  classNames?: CellSemanticClassNames;
+  styles?: CellSemanticStyles;
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;
@@ -43,24 +41,34 @@ const Cell: React.FC<CellProps> = (props) => {
     colon,
     type,
     styles,
+    classNames,
   } = props;
 
-  const Component = component as keyof JSX.IntrinsicElements;
+  const Component = component as keyof React.JSX.IntrinsicElements;
 
-  const { classNames: ctxClassNames } = React.useContext(DescriptionsContext);
+  const { classNames: contextClassNames, styles: contextStyles } =
+    React.useContext(DescriptionsContext);
 
-  const mergedLabelStyle: React.CSSProperties = { ...labelStyle, ...styles?.label };
-  const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...styles?.content };
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DescriptionsClassNamesType,
+    DescriptionsStylesType,
+    CellProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props,
+  });
+
+  const mergedLabelStyle: React.CSSProperties = { ...labelStyle, ...mergedStyles.label };
+  const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...mergedStyles.content };
 
   if (bordered) {
     return (
       <Component
         colSpan={span}
         style={style}
-        className={classnames(className, {
+        className={clsx(className, {
           [`${itemPrefixCls}-item-${type}`]: type === 'label' || type === 'content',
-          [ctxClassNames?.label!]: ctxClassNames?.label && type === 'label',
-          [ctxClassNames?.content!]: ctxClassNames?.content && type === 'content',
+          [mergedClassNames.label!]: mergedClassNames.label && type === 'label',
+          [mergedClassNames.content!]: mergedClassNames.content && type === 'content',
         })}
       >
         {isNonNullable(label) && <span style={mergedLabelStyle}>{label}</span>}
@@ -70,16 +78,12 @@ const Cell: React.FC<CellProps> = (props) => {
   }
 
   return (
-    <Component
-      colSpan={span}
-      style={style}
-      className={classnames(`${itemPrefixCls}-item`, className)}
-    >
+    <Component className={clsx(`${itemPrefixCls}-item`, className)} style={style} colSpan={span}>
       <div className={`${itemPrefixCls}-item-container`}>
         {isNonNullable(label) && (
           <span
             style={mergedLabelStyle}
-            className={classnames(`${itemPrefixCls}-item-label`, ctxClassNames?.label, {
+            className={clsx(`${itemPrefixCls}-item-label`, mergedClassNames.label, {
               [`${itemPrefixCls}-item-no-colon`]: !colon,
             })}
           >
@@ -89,7 +93,7 @@ const Cell: React.FC<CellProps> = (props) => {
         {isNonNullable(content) && (
           <span
             style={mergedContentStyle}
-            className={classnames(`${itemPrefixCls}-item-content`, ctxClassNames?.content)}
+            className={clsx(`${itemPrefixCls}-item-content`, mergedClassNames.content)}
           >
             {content}
           </span>

@@ -1,18 +1,20 @@
 import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
-import classNames from 'classnames';
+import { clsx } from 'clsx';
 
-import type { KeyWiseTransferItem } from '.';
+import type { KeyWiseTransferItem, TransferSemanticClassNames, TransferSemanticStyles } from '.';
 import Checkbox from '../checkbox';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
+  prefixCls: string;
+  classNames: TransferSemanticClassNames;
+  styles: TransferSemanticStyles;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
   checked?: boolean;
-  prefixCls: string;
   onClick: (item: RecordType, e: React.MouseEvent<HTMLLIElement, MouseEvent>) => void;
   onRemove?: (item: RecordType) => void;
   item: RecordType;
@@ -21,20 +23,22 @@ type ListItemProps<RecordType> = {
 
 const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<RecordType>) => {
   const {
+    prefixCls,
+    classNames,
+    styles,
     renderedText,
     renderedEl,
     item,
     checked,
     disabled,
-    prefixCls,
     onClick,
     onRemove,
     showRemove,
   } = props;
-
-  const className = classNames(`${prefixCls}-content-item`, {
-    [`${prefixCls}-content-item-disabled`]: disabled || item.disabled,
-    [`${prefixCls}-content-item-checked`]: checked && !item.disabled,
+  const mergedDisabled = disabled || item?.disabled;
+  const classes = clsx(`${prefixCls}-content-item`, classNames.item, {
+    [`${prefixCls}-content-item-disabled`]: mergedDisabled,
+    [`${prefixCls}-content-item-checked`]: checked && !mergedDisabled,
   });
 
   let title: string | undefined;
@@ -44,9 +48,20 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
 
   const [contextLocale] = useLocale('Transfer', defaultLocale.Transfer);
 
-  const liProps: React.HTMLAttributes<HTMLLIElement> = { className, title };
+  const liProps: React.HTMLAttributes<HTMLLIElement> = {
+    className: classes,
+    style: styles.item,
+    title,
+  };
 
-  const labelNode = <span className={`${prefixCls}-content-item-text`}>{renderedEl}</span>;
+  const labelNode = (
+    <span
+      className={clsx(`${prefixCls}-content-item-text`, classNames.itemContent)}
+      style={styles.itemContent}
+    >
+      {renderedEl}
+    </span>
+  );
 
   if (showRemove) {
     return (
@@ -54,7 +69,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
         {labelNode}
         <button
           type="button"
-          disabled={disabled || item.disabled}
+          disabled={mergedDisabled}
           className={`${prefixCls}-content-item-remove`}
           aria-label={contextLocale?.remove}
           onClick={() => onRemove?.(item)}
@@ -66,14 +81,15 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   }
 
   // Default click to select
-  liProps.onClick = disabled || item.disabled ? undefined : (event) => onClick(item, event);
+  liProps.onClick = mergedDisabled ? undefined : (event) => onClick(item, event);
 
   return (
     <li {...liProps}>
       <Checkbox
-        className={`${prefixCls}-checkbox`}
+        className={clsx(`${prefixCls}-checkbox`, classNames.itemIcon)}
+        style={styles.itemIcon}
         checked={checked}
-        disabled={disabled || item.disabled}
+        disabled={mergedDisabled}
       />
       {labelNode}
     </li>

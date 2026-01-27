@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/hi_IN';
+import Pagination from '@rc-component/pagination/lib/locale/hi_IN';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/hi_IN';
@@ -128,9 +128,6 @@ const localeValues: Locale = {
         mismatch: '${label} ${pattern} पैटर्न से मेल नहीं खाता',
       },
     },
-  },
-  Image: {
-    preview: 'पूर्वावलोकन',
   },
 };
 

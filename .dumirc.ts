@@ -160,22 +160,35 @@ export default defineConfig({
       }
 
       // 首页无视链接里面的语言设置 https://github.com/ant-design/ant-design/issues/4552
-      if (pathname === '/' || pathname === '/index-cn') {
-        const lang =
-          (window.localStorage && localStorage.getItem('locale')) ||
-          ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
+      const normalizedPathname = pathname || '/';
+      if (normalizedPathname === '/' || normalizedPathname === '/index-cn') {
+        let lang;
+        if (window.localStorage) {
+          const antLocale = localStorage.getItem('ANT_LOCAL_TYPE_KEY');
+          // 尝试解析 JSON，因为可能是被序列化后存储的 "en-US" / en-US https://github.com/ant-design/ant-design/issues/56606
+          try {
+            lang = antLocale ? JSON.parse(antLocale) : localStorage.getItem('locale');
+          } catch (e) {
+            lang = antLocale ? antLocale : localStorage.getItem('locale');
+          }
+        }
+        lang = lang || ((navigator.language || navigator.browserLanguage).toLowerCase() === 'zh-cn'
             ? 'zh-CN'
             : 'en-US');
         // safari is 'zh-cn', while other browser is 'zh-CN';
-        if ((lang === 'zh-CN') !== isZhCN(pathname)) {
-          location.pathname = getLocalizedPathname(pathname, lang === 'zh-CN');
+        if ((lang === 'zh-CN') !== isZhCN(normalizedPathname)) {
+          location.pathname = getLocalizedPathname(normalizedPathname, lang === 'zh-CN');
         }
       }
-      document.documentElement.className += isZhCN(pathname) ? 'zh-cn' : 'en-us';
+      document.documentElement.className += isZhCN(normalizedPathname) ? 'zh-cn' : 'en-us';
     })();
     `,
   ],
   scripts: [
+    {
+      src: 'https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4',
+      async: true,
+    },
     {
       async: true,
       content: fs

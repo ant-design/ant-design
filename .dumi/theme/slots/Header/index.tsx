@@ -2,11 +2,14 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { GithubOutlined, MenuOutlined } from '@ant-design/icons';
 import { Alert, Button, Col, ConfigProvider, Popover, Row, Select, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
-import classNames from 'classnames';
+import type { DefaultOptionType } from 'antd/es/select';
+import { clsx } from 'clsx';
 import dayjs from 'dayjs';
 import { useLocation, useSiteData } from 'dumi';
 import DumiSearchBar from 'dumi/theme-default/slots/SearchBar';
+import useSWR from 'swr';
 
+import versionsFile from '../../../../public/versions.json';
 import useLocale from '../../../hooks/useLocale';
 import useLocalStorage from '../../../hooks/useLocalStorage';
 import { getBannerData } from '../../../pages/index/components/util';
@@ -14,7 +17,6 @@ import ThemeSwitch from '../../common/ThemeSwitch';
 import DirectionIcon from '../../icons/DirectionIcon';
 import { ANT_DESIGN_NOT_SHOW_BANNER } from '../../layouts/GlobalLayout';
 import * as utils from '../../utils';
-import { getThemeConfig } from '../../utils';
 import SiteContext from '../SiteContext';
 import type { SharedProps } from './interface';
 import Logo from './Logo';
@@ -26,7 +28,7 @@ const RESPONSIVE_SM = 1200;
 
 export const ANT_LOCAL_TYPE_KEY = 'ANT_LOCAL_TYPE_KEY';
 
-const useStyle = createStyles(({ token, css }) => {
+const useStyle = createStyles(({ cssVar, token, css }) => {
   const searchIconColor = '#ced4d9';
   return {
     header: css`
@@ -34,8 +36,8 @@ const useStyle = createStyles(({ token, css }) => {
       top: 0;
       z-index: 1000;
       max-width: 100%;
-      background: ${token.colorBgContainer};
-      box-shadow: ${token.boxShadowTertiary};
+      background: ${cssVar.colorBgContainer};
+      box-shadow: ${cssVar.boxShadowTertiary};
       backdrop-filter: blur(8px);
 
       @media only screen and (max-width: ${token.mobileMaxWidth}px) {
@@ -73,14 +75,14 @@ const useStyle = createStyles(({ token, css }) => {
           color: ${searchIconColor};
           background-color: rgba(150, 150, 150, 0.06);
           border-color: rgba(100, 100, 100, 0.2);
-          border-radius: ${token.borderRadiusSM}px;
+          border-radius: ${cssVar.borderRadiusSM};
           position: static;
           top: unset;
           transform: unset;
         }
 
         .dumi-default-search-popover {
-          inset-inline-start: ${token.paddingSM}px;
+          inset-inline-start: ${cssVar.paddingSM};
           inset-inline-end: unset;
           z-index: 1;
           &::before {
@@ -98,8 +100,8 @@ const useStyle = createStyles(({ token, css }) => {
       display: flex;
       align-items: center;
       margin: 0;
-      column-gap: ${token.paddingSM}px;
-      padding-inline-end: ${token.padding}px;
+      column-gap: ${cssVar.paddingSM};
+      padding-inline-end: ${cssVar.padding};
 
       > * {
         flex: none;
@@ -132,7 +134,8 @@ const useStyle = createStyles(({ token, css }) => {
       }
     `,
     versionSelect: css`
-      min-width: 90px;
+      width: 112px;
+      min-width: 112px; // 这个宽度需要和 Empty 状态的宽度保持一致
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
@@ -149,19 +152,56 @@ interface HeaderState {
   searching: boolean;
 }
 
+interface VersionItem {
+  version: string;
+  url: string;
+  chineseMirrorUrl?: string;
+}
+
+const fetcher = (...args: Parameters<typeof fetch>) => {
+  return fetch(...args).then((res) => res.json());
+};
+
 // ================================= Header =================================
 const Header: React.FC = () => {
   const [, lang] = useLocale();
 
   const { pkg } = useSiteData();
 
-  const themeConfig = getThemeConfig();
+  const isChineseMirror =
+    typeof window !== 'undefined' && typeof window.location !== 'undefined'
+      ? window.location.hostname.includes('.antgroup.com')
+      : false;
+
+  const { data: versions = [], isLoading } = useSWR<VersionItem[]>(
+    process.env.NODE_ENV === 'production' && typeof window !== 'undefined'
+      ? `${window.location.origin}/versions.json`
+      : null,
+    fetcher,
+    {
+      fallbackData: versionsFile,
+      errorRetryCount: 3,
+    },
+  );
+
+  const versionOptions = useMemo(() => {
+    if (isLoading) {
+      return [];
+    }
+    return versions.map<DefaultOptionType>((item) => {
+      const isMatch = item.version.startsWith(pkg.version[0]);
+      const label = isMatch ? pkg.version : item.version;
+      const value = isChineseMirror && item.chineseMirrorUrl ? item.chineseMirrorUrl : item.url;
+      return { value, label };
+    });
+  }, [versions, isLoading, pkg.version, isChineseMirror]);
 
   const [headerState, setHeaderState] = useState<HeaderState>({
     menuVisible: false,
     windowWidth: 1400,
     searching: false,
   });
+
   const { direction, isMobile, bannerVisible, updateSiteConfig } = React.use(SiteContext);
   const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
@@ -252,20 +292,12 @@ const Header: React.FC = () => {
     [direction],
   );
 
-  const getDropdownStyle = useMemo<React.CSSProperties>(
+  const getPopupStyle = useMemo<React.CSSProperties>(
     () => (direction === 'rtl' ? { direction: 'ltr', textAlign: 'end' } : {}),
     [direction],
   );
 
   const { menuVisible, windowWidth, searching } = headerState;
-  const docVersions: Record<string, string> = {
-    [pkg.version]: pkg.version,
-    ...themeConfig?.docVersions,
-  };
-  const versionOptions = Object.keys(docVersions).map((version) => ({
-    value: docVersions[version],
-    label: version,
-  }));
 
   const isHome = ['', 'index', 'index-cn'].includes(pathname);
   const isZhCN = lang === 'cn';
@@ -283,9 +315,7 @@ const Header: React.FC = () => {
     responsive = 'narrow';
   }
 
-  const headerClassName = classNames(styles.header, 'clearfix', {
-    'home-header': isHome,
-  });
+  const headerClassName = clsx(styles.header, 'clearfix', { 'home-header': isHome });
 
   const sharedProps: SharedProps = {
     isZhCN,
@@ -310,10 +340,11 @@ const Header: React.FC = () => {
       key="version"
       size="small"
       variant="filled"
+      loading={isLoading}
       className={styles.versionSelect}
       defaultValue={pkg.version}
       onChange={handleVersionChange}
-      styles={{ popup: { root: getDropdownStyle } }}
+      styles={{ popup: { root: getPopupStyle } }}
       popupMatchSelectWidth={false}
       getPopupContainer={(trigger) => trigger.parentNode}
       options={versionOptions}
@@ -390,7 +421,7 @@ const Header: React.FC = () => {
         >
           <Alert
             className={styles.banner}
-            message={
+            title={
               bannerTitle && bannerHref ? (
                 <>
                   <span>{bannerTitle}</span>
@@ -413,9 +444,8 @@ const Header: React.FC = () => {
             }
             type="info"
             banner
-            closable
             showIcon={false}
-            onClose={onBannerClose}
+            closable={{ closeIcon: true, onClose: onBannerClose }}
           />
         </ConfigProvider>
       )}

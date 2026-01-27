@@ -3,13 +3,13 @@ import { Select } from 'antd';
 
 const App: React.FC = () => (
   <Select
-    showSearch
+    showSearch={{
+      optionFilterProp: 'label',
+      filterSort: (optionA, optionB) =>
+        (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase()),
+    }}
     style={{ width: 200 }}
     placeholder="Search to Select"
-    optionFilterProp="label"
-    filterSort={(optionA, optionB) =>
-      (optionA?.label ?? '').toLowerCase().localeCompare((optionB?.label ?? '').toLowerCase())
-    }
     options={[
       {
         value: '1',

@@ -15,16 +15,16 @@ permissions:
 jobs:
   test-image:
     name: test image
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
-      - uses: actions/checkout@v5
-      - uses: oven-sh/setup-bun@v2
-      - run: bun install
+      - uses: actions/checkout@v6
+      - uses: utooland/setup-utoo@v1
+      - run: ut
       - name: generate image snapshots
         run: |
           node node_modules/puppeteer/install.mjs
-          bun run version
-          bun run test:image
+          ut version
+          ut test:image
           tar -czvf imageSnapshots.tar.gz imageSnapshots/*
         env:
           NODE_OPTIONS: --max_old_space_size=4096

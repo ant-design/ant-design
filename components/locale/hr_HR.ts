@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/hr_HR';
+import Pagination from '@rc-component/pagination/lib/locale/hr_HR';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/hr_HR';
@@ -127,9 +127,6 @@ const localeValues: Locale = {
         mismatch: '${label} ne odgovara obrascu ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Pregled',
   },
 };
 

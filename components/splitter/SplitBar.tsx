@@ -3,19 +3,27 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
-import classNames from 'classnames';
-import useEvent from 'rc-util/lib/hooks/useEvent';
-import useLayoutEffect from 'rc-util/lib/hooks/useLayoutEffect';
+import { useEvent } from '@rc-component/util';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { clsx } from 'clsx';
+
+import { genCssVar } from '../theme/util/genStyleUtils';
+import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
 
 export type ShowCollapsibleIconMode = boolean | 'auto';
 
 export interface SplitBarProps {
   index: number;
   active: boolean;
+  draggerStyle?: React.CSSProperties;
+  draggerClassName?: SplitterSemanticDraggerClassNames;
   prefixCls: string;
+  rootPrefixCls: string;
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
+  draggerIcon?: SplitterProps['draggerIcon'];
+  collapsibleIcon?: SplitterProps['collapsibleIcon'];
   showStartCollapsibleIcon: ShowCollapsibleIconMode;
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onOffsetStart: (index: number) => void;
@@ -39,6 +47,7 @@ function getValidNumber(num?: number): number {
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const {
     prefixCls,
+    rootPrefixCls,
     vertical,
     index,
     active,
@@ -46,6 +55,10 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     ariaMin,
     ariaMax,
     resizable,
+    draggerIcon,
+    draggerStyle,
+    draggerClassName,
+    collapsibleIcon,
     startCollapsible,
     endCollapsible,
     onOffsetStart,
@@ -59,6 +72,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
+
+  const [varName] = genCssVar(rootPrefixCls, 'splitter');
 
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
@@ -185,12 +200,26 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   }, [startPos, index, lazy]);
 
   const transformStyle: React.CSSProperties = {
-    [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
+    [varName('bar-preview-offset')]: `${constrainedOffset}px`,
   };
 
   // ======================== Render ========================
-  const StartIcon = vertical ? UpOutlined : LeftOutlined;
-  const EndIcon = vertical ? DownOutlined : RightOutlined;
+  const [startIcon, endIcon, startCustomize, endCustomize] = React.useMemo(() => {
+    let startIcon = null;
+    let endIcon = null;
+    const startCustomize = collapsibleIcon?.start !== undefined;
+    const endCustomize = collapsibleIcon?.end !== undefined;
+
+    if (vertical) {
+      startIcon = startCustomize ? collapsibleIcon.start : <UpOutlined />;
+      endIcon = endCustomize ? collapsibleIcon.end : <DownOutlined />;
+    } else {
+      startIcon = startCustomize ? collapsibleIcon.start : <LeftOutlined />;
+      endIcon = endCustomize ? collapsibleIcon.end : <RightOutlined />;
+    }
+
+    return [startIcon, endIcon, startCustomize, endCustomize];
+  }, [collapsibleIcon, vertical]);
 
   return (
     <div
@@ -202,7 +231,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     >
       {lazy && (
         <div
-          className={classNames(`${splitBarPrefixCls}-preview`, {
+          className={clsx(`${splitBarPrefixCls}-preview`, {
             [`${splitBarPrefixCls}-preview-active`]: !!constrainedOffset,
           })}
           style={transformStyle}
@@ -210,49 +239,70 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       )}
 
       <div
-        className={classNames(`${splitBarPrefixCls}-dragger`, {
-          [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
-          [`${splitBarPrefixCls}-dragger-active`]: active,
-        })}
+        style={draggerStyle}
+        className={clsx(
+          `${splitBarPrefixCls}-dragger`,
+          {
+            [`${splitBarPrefixCls}-dragger-disabled`]: !resizable,
+            [`${splitBarPrefixCls}-dragger-active`]: active,
+            [`${splitBarPrefixCls}-dragger-customize`]: draggerIcon !== undefined,
+          },
+          draggerClassName?.default,
+          active && draggerClassName?.active,
+        )}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
-      />
+      >
+        {draggerIcon !== undefined ? (
+          <div className={clsx(`${splitBarPrefixCls}-dragger-icon`)}>{draggerIcon}</div>
+        ) : null}
+      </div>
 
       {/* Start Collapsible */}
       {startCollapsible && (
         <div
-          className={classNames(
+          className={clsx(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-start`,
+            {
+              [`${splitBarPrefixCls}-collapse-bar-customize`]: startCustomize,
+            },
             getVisibilityClass(showStartCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'start')}
         >
-          <StartIcon
-            className={classNames(
+          <span
+            className={clsx(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-start`,
             )}
-          />
+          >
+            {startIcon}
+          </span>
         </div>
       )}
 
       {/* End Collapsible */}
       {endCollapsible && (
         <div
-          className={classNames(
+          className={clsx(
             `${splitBarPrefixCls}-collapse-bar`,
             `${splitBarPrefixCls}-collapse-bar-end`,
+            {
+              [`${splitBarPrefixCls}-collapse-bar-customize`]: endCustomize,
+            },
             getVisibilityClass(showEndCollapsibleIcon),
           )}
           onClick={() => onCollapse(index, 'end')}
         >
-          <EndIcon
-            className={classNames(
+          <span
+            className={clsx(
               `${splitBarPrefixCls}-collapse-icon`,
               `${splitBarPrefixCls}-collapse-end`,
             )}
-          />
+          >
+            {endIcon}
+          </span>
         </div>
       )}
     </div>

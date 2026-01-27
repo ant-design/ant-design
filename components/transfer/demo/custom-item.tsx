@@ -14,8 +14,8 @@ const App: React.FC = () => {
   const [targetKeys, setTargetKeys] = useState<React.Key[]>([]);
 
   const getMock = () => {
-    const tempTargetKeys = [];
-    const tempMockData = [];
+    const tempTargetKeys: React.Key[] = [];
+    const tempMockData: RecordType[] = [];
     for (let i = 0; i < 20; i++) {
       const data = {
         key: i.toString(),
@@ -57,9 +57,11 @@ const App: React.FC = () => {
   return (
     <Transfer
       dataSource={mockData}
-      listStyle={{
-        width: 300,
-        height: 300,
+      styles={{
+        section: {
+          width: 300,
+          height: 300,
+        },
       }}
       targetKeys={targetKeys}
       onChange={handleChange}

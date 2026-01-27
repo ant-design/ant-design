@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import React, { useCallback, useMemo, useState } from 'react';
 import Icon, * as AntdIcons from '@ant-design/icons';
 import { Affix, Empty, Input, Segmented } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import { createStaticStyles, useTheme } from 'antd-style';
 import type { SegmentedOptions } from 'antd/es/segmented';
 import { useIntl } from 'dumi';
 import debounce from 'lodash/debounce';
@@ -22,10 +22,10 @@ export enum ThemeType {
 
 const allIcons: { [key: string]: any } = AntdIcons;
 
-const useStyle = createStyles(({ token, css }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   iconSearchAffix: css`
     display: flex;
-    transition: all ${token.motionDurationSlow};
+    transition: all ${cssVar.motionDurationSlow};
     justify-content: space-between;
   `,
 }));
@@ -39,7 +39,6 @@ const NEW_ICON_NAMES: ReadonlyArray<string> = [];
 
 const IconSearch: React.FC = () => {
   const intl = useIntl();
-  const { styles } = useStyle();
   const [displayState, setDisplayState] = useState<IconSearchState>({
     searchKey: '',
     theme: ThemeType.Outlined,

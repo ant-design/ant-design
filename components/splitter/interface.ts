@@ -1,12 +1,66 @@
+import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
-// ================ outside ================
+export type SplitterSemanticName = keyof SplitterSemanticClassNames & keyof SplitterSemanticStyles;
+
+export type SplitterSemanticClassNames = {
+  root?: string;
+  panel?: string;
+};
+
+export type SplitterSemanticStyles = {
+  root?: React.CSSProperties;
+  panel?: React.CSSProperties;
+};
+
+export type DraggerSemantic = keyof DraggerSemanticClassNames & keyof DraggerSemanticStyles;
+
+export type DraggerSemanticClassNames = {
+  default?: string;
+  active?: string;
+};
+
+export type DraggerSemanticStyles = {
+  default?: React.CSSProperties;
+  active?: React.CSSProperties;
+};
+
+export interface SplitterSemanticDraggerClassNames {
+  default?: string;
+  active?: string;
+}
+
+export type SplitterClassNamesType = SemanticClassNamesType<
+  SplitterProps,
+  SplitterSemanticClassNames,
+  { dragger?: string | DraggerSemanticClassNames }
+>;
+
+export type SplitterStylesType = SemanticStylesType<
+  SplitterProps,
+  SplitterSemanticStyles,
+  { dragger?: React.CSSProperties | DraggerSemanticStyles }
+>;
+
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
+  classNames?: SplitterClassNamesType;
   style?: React.CSSProperties;
+  styles?: SplitterStylesType;
   rootClassName?: string;
-  layout?: 'horizontal' | 'vertical';
+  /**
+   * @deprecated please use `orientation`
+   * @default horizontal
+   */
+  layout?: Orientation;
+  orientation?: Orientation;
+  vertical?: boolean;
+  draggerIcon?: React.ReactNode;
+  collapsibleIcon?: {
+    start?: React.ReactNode;
+    end?: React.ReactNode;
+  };
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
   onResizeEnd?: (sizes: number[]) => void;

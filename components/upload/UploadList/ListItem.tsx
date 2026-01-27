@@ -2,8 +2,8 @@ import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import DownloadOutlined from '@ant-design/icons/DownloadOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import classNames from 'classnames';
-import CSSMotion from 'rc-motion';
+import CSSMotion from '@rc-component/motion';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
@@ -14,12 +14,16 @@ import type {
   UploadListProgressProps,
   UploadListType,
   UploadLocale,
+  UploadSemanticClassNames,
+  UploadSemanticStyles,
 } from '../interface';
 
 export interface ListItemProps {
   prefixCls: string;
   className?: string;
   style?: React.CSSProperties;
+  classNames?: UploadSemanticClassNames;
+  styles?: UploadSemanticStyles;
   locale: UploadLocale;
   file: UploadFile;
   items: UploadFile[];
@@ -53,6 +57,8 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       prefixCls,
       className,
       style,
+      classNames: itemClassNames,
+      styles,
       locale,
       listType,
       file,
@@ -99,7 +105,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     let icon = <div className={`${prefixCls}-icon`}>{iconNode}</div>;
     if (listType === 'picture' || listType === 'picture-card' || listType === 'picture-circle') {
       if (mergedStatus === 'uploading' || (!file.thumbUrl && !file.url)) {
-        const uploadingClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
+        const uploadingClassName = clsx(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: mergedStatus !== 'uploading',
         });
         icon = <div className={uploadingClassName}>{iconNode}</div>;
@@ -114,7 +120,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
         ) : (
           iconNode
         );
-        const aClassName = classNames(`${prefixCls}-list-item-thumbnail`, {
+        const aClassName = clsx(`${prefixCls}-list-item-thumbnail`, {
           [`${prefixCls}-list-item-file`]: isImgUrl && !isImgUrl(file),
         });
         icon = (
@@ -131,9 +137,10 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       }
     }
 
-    const listItemClassName = classNames(
+    const listItemClassName = clsx(
       `${prefixCls}-list-item`,
       `${prefixCls}-list-item-${mergedStatus}`,
+      itemClassNames?.item,
     );
     const linkProps =
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
@@ -171,9 +178,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const downloadOrDelete = listType !== 'picture-card' && listType !== 'picture-circle' && (
       <span
         key="download-delete"
-        className={classNames(`${prefixCls}-list-item-actions`, {
-          picture: listType === 'picture',
-        })}
+        className={clsx(`${prefixCls}-list-item-actions`, { picture: listType === 'picture' })}
       >
         {downloadIcon}
         {removeIcon}
@@ -185,7 +190,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       <span className={`${prefixCls}-list-item-extra`}>{extraContent}</span>
     );
 
-    const listItemNameClass = classNames(`${prefixCls}-list-item-name`);
+    const listItemNameClass = clsx(`${prefixCls}-list-item-name`);
     const fileName = file.url ? (
       <a
         key="view"
@@ -241,7 +246,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const rootPrefixCls = getPrefixCls();
 
     const dom = (
-      <div className={listItemClassName}>
+      <div className={listItemClassName} style={styles?.item}>
         {icon}
         {fileName}
         {downloadOrDelete}
@@ -266,7 +271,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
                 ) : null;
 
               return (
-                <div className={classNames(`${prefixCls}-list-item-progress`, motionClassName)}>
+                <div className={clsx(`${prefixCls}-list-item-progress`, motionClassName)}>
                   {loadingProgress}
                 </div>
               );
@@ -290,11 +295,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       );
 
     return (
-      <div
-        className={classNames(`${prefixCls}-list-item-container`, className)}
-        style={style}
-        ref={ref}
-      >
+      <div className={clsx(`${prefixCls}-list-item-container`, className)} style={style} ref={ref}>
         {itemRender
           ? itemRender(item, file, items, {
               download: onDownload.bind(null, file),

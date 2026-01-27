@@ -1,10 +1,9 @@
 import React from 'react';
-import classNames from 'classnames';
-import ResizeObserver from 'rc-resize-observer';
+import ResizeObserver from '@rc-component/resize-observer';
+import { clsx } from 'clsx';
 
 import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { ConfigContext, useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 import { getFixedBottom, getFixedTop, getTargetRect } from './utils';
 
@@ -74,7 +73,12 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
     ...restProps
   } = props;
 
-  const { getPrefixCls, getTargetContainer } = React.useContext<ConfigConsumerProps>(ConfigContext);
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('affix');
+  const { getTargetContainer } = React.useContext(ConfigContext);
 
   const affixPrefixCls = getPrefixCls('affix', prefixCls);
 
@@ -251,21 +255,26 @@ const Affix = React.forwardRef<AffixRef, InternalAffixProps>((props, ref) => {
     updatePosition();
   }, [target, offsetTop, offsetBottom]);
 
-  const [wrapCSSVar, hashId, cssVarCls] = useStyle(affixPrefixCls);
+  const [hashId, cssVarCls] = useStyle(affixPrefixCls);
 
-  const rootCls = classNames(rootClassName, hashId, affixPrefixCls, cssVarCls);
+  const rootCls = clsx(rootClassName, hashId, affixPrefixCls, cssVarCls);
 
-  const mergedCls = classNames({ [rootCls]: affixStyle });
+  const mergedCls = clsx({ [rootCls]: affixStyle });
 
-  return wrapCSSVar(
+  return (
     <ResizeObserver onResize={updatePosition}>
-      <div style={style} className={className} ref={placeholderNodeRef} {...restProps}>
+      <div
+        style={{ ...contextStyle, ...style }}
+        className={clsx(className, contextClassName)}
+        ref={placeholderNodeRef}
+        {...restProps}
+      >
         {affixStyle && <div style={placeholderStyle} aria-hidden="true" />}
         <div className={mergedCls} ref={fixedNodeRef} style={affixStyle}>
           <ResizeObserver onResize={updatePosition}>{children}</ResizeObserver>
         </div>
       </div>
-    </ResizeObserver>,
+    </ResizeObserver>
   );
 });
 

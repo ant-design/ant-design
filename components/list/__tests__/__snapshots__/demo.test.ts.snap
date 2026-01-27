@@ -2,10 +2,10 @@
 
 exports[`renders components/list/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -23,7 +23,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
                   src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -60,7 +60,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
                   src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -97,7 +97,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
                   src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -134,7 +134,7 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
               class="ant-list-item-meta-avatar"
             >
               <span
-                class="ant-avatar ant-avatar-circle ant-avatar-image"
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
               >
                 <img
                   src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -170,17 +170,23 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
 exports[`renders components/list/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Default Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -190,7 +196,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -202,7 +208,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -215,7 +221,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -228,7 +234,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -241,7 +247,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -254,7 +260,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -275,17 +281,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Small Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -295,7 +307,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -340,17 +352,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Large Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -360,7 +378,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -405,20 +423,26 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Meta
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-split"
+    class="ant-list ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -436,7 +460,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -473,7 +497,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -510,7 +534,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -547,7 +571,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -579,20 +603,26 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Vertical
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-vertical ant-list-split"
+    class="ant-list ant-list-vertical ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -610,7 +640,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -647,7 +677,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -684,7 +714,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -721,7 +751,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -753,20 +783,26 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Empty Text
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-split"
+    class="ant-list ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -775,7 +811,7 @@ Array [
           class="ant-list-empty-text"
         >
           <div
-            class="ant-empty ant-empty-normal"
+            class="css-var-test-id ant-empty ant-empty-normal"
           >
             <div
               class="ant-empty-image"
@@ -806,10 +842,10 @@ Array [
                     stroke="#d9d9d9"
                   >
                     <path
-                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                     />
                     <path
-                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                       fill="#fafafa"
                     />
                   </g>
@@ -831,10 +867,10 @@ Array [
 
 exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -935,10 +971,10 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
 
 exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split"
+  class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -953,7 +989,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -996,7 +1032,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1039,7 +1075,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1082,7 +1118,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1125,7 +1161,7 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
             aria-describedby="list-drag-sorting-handler"
             aria-disabled="false"
             aria-roledescription="sortable"
-            class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+            class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
             role="button"
             style="cursor:move"
             tabindex="0"
@@ -1169,30 +1205,30 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
 
 exports[`renders components/list/demo/grid.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        class="ant-row css-var-test-id"
+        style="margin-inline:-8px"
       >
         <div
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1220,14 +1256,14 @@ exports[`renders components/list/demo/grid.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1255,14 +1291,14 @@ exports[`renders components/list/demo/grid.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1290,14 +1326,14 @@ exports[`renders components/list/demo/grid.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1329,24 +1365,24 @@ exports[`renders components/list/demo/grid.tsx correctly 1`] = `
 
 exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        class="ant-row css-var-test-id"
+        style="margin-inline:-8px"
       >
         <div
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1358,7 +1394,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1386,8 +1422,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1399,7 +1435,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1427,8 +1463,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1440,7 +1476,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1468,8 +1504,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1481,7 +1517,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1509,8 +1545,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1522,7 +1558,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1550,8 +1586,8 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               aria-describedby="list-grid-drag-sorting"
@@ -1563,7 +1599,7 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
               tabindex="0"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1595,30 +1631,30 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
 
 exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        class="ant-row css-var-test-id"
+        style="margin-inline:-8px"
       >
         <div
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1633,7 +1669,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1680,14 +1716,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1702,7 +1738,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1749,14 +1785,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1771,7 +1807,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1818,14 +1854,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1840,7 +1876,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1887,14 +1923,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1909,7 +1945,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -1956,14 +1992,14 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
           style="width:25%;max-width:25%"
         >
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -1978,7 +2014,7 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
                         aria-describedby="list-grid-drag-sorting-handler"
                         aria-disabled="false"
                         aria-roledescription="sortable"
-                        class="ant-btn ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                        class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
                         role="button"
                         style="cursor:move"
                         tabindex="0"
@@ -2030,30 +2066,30 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
 exports[`renders components/list/demo/grid-test.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-list ant-list-split ant-list-grid"
+    class="ant-list ant-list-split ant-list-grid css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          class="ant-row css-var-test-id"
+          style="margin-inline:-8px"
         >
           <div
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2081,14 +2117,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2116,14 +2152,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2151,14 +2187,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2186,14 +2222,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2221,14 +2257,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2257,30 +2293,30 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-list ant-list-split ant-list-grid"
+    class="ant-list ant-list-split ant-list-grid css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          class="ant-row css-var-test-id"
+          style="margin-inline:-8px"
         >
           <div
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2308,14 +2344,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2343,14 +2379,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2378,14 +2414,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2413,14 +2449,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2448,14 +2484,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2484,30 +2520,30 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-list ant-list-split ant-list-grid"
+    class="ant-list ant-list-split ant-list-grid css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-row"
-          style="margin-left:-8px;margin-right:-8px"
+          class="ant-row css-var-test-id"
+          style="margin-inline:-8px"
         >
           <div
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2536,14 +2572,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2572,14 +2608,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2608,14 +2644,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2644,14 +2680,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2680,14 +2716,14 @@ Array [
             style="width:25%;max-width:25%"
           >
             <div
-              class="ant-col"
-              style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+              class="ant-col css-var-test-id"
+              style="padding-inline:8px;flex:1 1 auto"
             >
               <div
                 class="ant-list-item"
               >
                 <div
-                  class="ant-card ant-card-bordered"
+                  class="ant-card ant-card-bordered css-var-test-id"
                 >
                   <div
                     class="ant-card-head"
@@ -2732,10 +2768,10 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
       style="height:auto;overflow:auto;-webkit-overflow-scrolling:touch"
     >
       <div
-        class="ant-list ant-list-split"
+        class="ant-list ant-list-split css-var-test-id"
       >
         <div
-          class="ant-spin-nested-loading"
+          class="ant-spin-nested-loading css-var-test-id"
         >
           <div
             class="ant-spin-container"
@@ -2744,7 +2780,7 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
               class="ant-list-empty-text"
             >
               <div
-                class="ant-empty ant-empty-normal"
+                class="css-var-test-id ant-empty ant-empty-normal"
               >
                 <div
                   class="ant-empty-image"
@@ -2775,10 +2811,10 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
                         stroke="#d9d9d9"
                       >
                         <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                          d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                         />
                         <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                           fill="#fafafa"
                         />
                       </g>
@@ -2796,7 +2832,7 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
         </div>
       </div>
       <div
-        class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active"
+        class="ant-skeleton ant-skeleton-with-avatar ant-skeleton-active css-var-test-id"
       >
         <div
           class="ant-skeleton-header"
@@ -2806,7 +2842,7 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
           />
         </div>
         <div
-          class="ant-skeleton-content"
+          class="ant-skeleton-section"
         >
           <h3
             class="ant-skeleton-title"
@@ -2826,16 +2862,16 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
 
 exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-loading demo-loadmore-list"
+  class="ant-list ant-list-split ant-list-loading demo-loadmore-list css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div>
       <div
         aria-busy="true"
         aria-live="polite"
-        class="ant-spin ant-spin-spinning"
+        class="ant-spin ant-spin-spinning css-var-test-id"
       >
         <span
           class="ant-spin-dot-holder"
@@ -2873,14 +2909,14 @@ exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
 exports[`renders components/list/demo/pagination.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle"
+    class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
     style="margin-bottom:20px"
   >
     <div
       class="ant-space-item"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
       >
         <div
           class="ant-space-item"
@@ -2893,10 +2929,11 @@ Array [
           class="ant-space-item"
         >
           <div
-            class="ant-radio-group ant-radio-group-outline"
+            class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+            role="radiogroup"
           >
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -2918,7 +2955,7 @@ Array [
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -2941,7 +2978,7 @@ Array [
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -2970,7 +3007,7 @@ Array [
       class="ant-space-item"
     >
       <div
-        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
       >
         <div
           class="ant-space-item"
@@ -2983,10 +3020,11 @@ Array [
           class="ant-space-item"
         >
           <div
-            class="ant-radio-group ant-radio-group-outline"
+            class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+            role="radiogroup"
           >
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -3008,7 +3046,7 @@ Array [
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked"
+              class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
             >
               <span
                 class="ant-radio-button ant-radio-button-checked"
@@ -3031,7 +3069,7 @@ Array [
               </span>
             </label>
             <label
-              class="ant-radio-button-wrapper"
+              class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
             >
               <span
                 class="ant-radio-button"
@@ -3058,10 +3096,10 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-list ant-list-split ant-list-something-after-last-item"
+    class="ant-list ant-list-split ant-list-something-after-last-item css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -3079,7 +3117,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -3116,7 +3154,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -3153,7 +3191,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -3190,7 +3228,7 @@ Array [
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=3"
@@ -3224,7 +3262,7 @@ Array [
       class="ant-list-pagination"
     >
       <ul
-        class="ant-pagination ant-pagination-center"
+        class="ant-pagination ant-pagination-center css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -3309,28 +3347,28 @@ Array [
 
 exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-split ant-list-grid"
+  class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row"
-        style="margin-left:-8px;margin-right:-8px"
+        class="ant-row css-var-test-id"
+        style="margin-inline:-8px"
       >
         <div>
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -3356,14 +3394,14 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
         </div>
         <div>
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -3389,14 +3427,14 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
         </div>
         <div>
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -3422,14 +3460,14 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
         </div>
         <div>
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -3455,14 +3493,14 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
         </div>
         <div>
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -3488,14 +3526,14 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
         </div>
         <div>
           <div
-            class="ant-col"
-            style="padding-left:8px;padding-right:8px;flex:1 1 auto"
+            class="ant-col css-var-test-id"
+            style="padding-inline:8px;flex:1 1 auto"
           >
             <div
               class="ant-list-item"
             >
               <div
-                class="ant-card ant-card-bordered"
+                class="ant-card ant-card-bordered css-var-test-id"
               >
                 <div
                   class="ant-card-head"
@@ -3528,17 +3566,23 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
 exports[`renders components/list/demo/simple.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Default Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -3548,7 +3592,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -3560,7 +3604,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -3573,7 +3617,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -3586,7 +3630,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -3599,7 +3643,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -3612,7 +3656,7 @@ Array [
             class="ant-list-item ant-list-item-no-flex"
           >
             <span
-              class="ant-typography"
+              class="ant-typography css-var-test-id"
             >
               <mark>
                 [ITEM]
@@ -3633,17 +3677,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Small Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-sm ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -3653,7 +3703,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -3698,17 +3748,23 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-divider ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
     role="separator"
   >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
     <span
       class="ant-divider-inner-text"
     >
       Large Size
     </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
   </div>,
   <div
-    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item"
+    class="ant-list ant-list-lg ant-list-split ant-list-bordered ant-list-something-after-last-item css-var-test-id"
   >
     <div
       class="ant-list-header"
@@ -3718,7 +3774,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading"
+      class="ant-spin-nested-loading css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -3767,10 +3823,10 @@ Array [
 
 exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item"
+  class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading"
+    class="ant-spin-nested-loading css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -3791,7 +3847,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
@@ -3823,7 +3879,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -3860,7 +3916,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -3897,7 +3953,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -3955,7 +4011,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=1"
@@ -3987,7 +4043,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -4024,7 +4080,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -4061,7 +4117,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -4119,7 +4175,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
                 class="ant-list-item-meta-avatar"
               >
                 <span
-                  class="ant-avatar ant-avatar-circle ant-avatar-image"
+                  class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
                 >
                   <img
                     src="https://api.dicebear.com/7.x/miniavs/svg?seed=2"
@@ -4151,7 +4207,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
             >
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -4188,7 +4244,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -4225,7 +4281,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
               </li>
               <li>
                 <div
-                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small"
+                  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
                 >
                   <div
                     class="ant-space-item"
@@ -4287,7 +4343,7 @@ exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
     class="ant-list-pagination"
   >
     <ul
-      class="ant-pagination ant-pagination-end"
+      class="ant-pagination ant-pagination-end css-var-test-id"
     >
       <li
         aria-disabled="true"

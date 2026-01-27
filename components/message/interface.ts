@@ -1,6 +1,26 @@
 import type * as React from 'react';
 
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
+
+export type MessageSemanticName = keyof MessageSemanticClassNames & keyof MessageSemanticStyles;
+
+export type MessageSemanticClassNames = {
+  root?: string;
+  icon?: string;
+  content?: string;
+};
+
+export type MessageSemanticStyles = {
+  root?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type ArgsClassNamesType = SemanticClassNamesType<ArgsProps, MessageSemanticClassNames>;
+
+export type ArgsStylesType = SemanticStylesType<ArgsProps, MessageSemanticStyles>;
 
 export interface ConfigOptions {
   top?: string | number;
@@ -10,6 +30,13 @@ export interface ConfigOptions {
   transitionName?: string;
   maxCount?: number;
   rtl?: boolean;
+  /**
+   * @descCN 悬停时是否暂停计时器
+   * @descEN keep the timer running or not on hover
+   */
+  pauseOnHover?: boolean;
+  classNames?: ArgsClassNamesType;
+  styles?: ArgsStylesType;
 }
 
 export interface ArgsProps {
@@ -37,11 +64,18 @@ export interface ArgsProps {
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;
+  classNames?: ArgsClassNamesType;
+  styles?: ArgsStylesType;
   /**
    * @descCN 消息通知点击时的回调函数
    * @descEN Callback function when message notification is clicked
    */
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  /**
+   * @descCN 悬停时是否暂停计时器
+   * @descEN keep the timer running or not on hover
+   */
+  pauseOnHover?: boolean;
 }
 
 export type JointContent = React.ReactNode | ArgsProps;

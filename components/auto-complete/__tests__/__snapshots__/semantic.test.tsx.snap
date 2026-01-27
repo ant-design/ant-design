@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`AutoComplete.Semantic rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-select ant-select-rtl ant-select-outlined ant-select-auto-complete css-var-root ant-select-css-var ant-select-single ant-select-show-search"
+>
+  <div
+    class="ant-select-content"
+  >
+    <div
+      class="ant-select-placeholder"
+      style="visibility: visible;"
+    />
+    <input
+      aria-autocomplete="list"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      autocomplete="off"
+      class="ant-select-input"
+      id="test-id"
+      role="combobox"
+      type="text"
+      value=""
+    />
+  </div>
+</div>
+`;

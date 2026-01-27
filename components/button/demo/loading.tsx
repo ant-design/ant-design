@@ -45,7 +45,7 @@ const App: React.FC = () => {
           type="primary"
           loading={loadings[2]}
           onClick={() => enterLoading(2)}
-          iconPosition="end"
+          iconPlacement="end"
         >
           Icon End
         </Button>

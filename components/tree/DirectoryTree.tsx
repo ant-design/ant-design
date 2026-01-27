@@ -2,12 +2,12 @@ import * as React from 'react';
 import FileOutlined from '@ant-design/icons/FileOutlined';
 import FolderOpenOutlined from '@ant-design/icons/FolderOpenOutlined';
 import FolderOutlined from '@ant-design/icons/FolderOutlined';
-import classNames from 'classnames';
-import type RcTree from 'rc-tree';
-import type { BasicDataNode } from 'rc-tree';
-import type { DataNode, EventDataNode, Key } from 'rc-tree/lib/interface';
-import { conductExpandParent } from 'rc-tree/lib/util';
-import { convertDataToEntities, convertTreeToData } from 'rc-tree/lib/utils/treeUtil';
+import type RcTree from '@rc-component/tree';
+import type { BasicDataNode } from '@rc-component/tree';
+import type { DataNode, EventDataNode, Key } from '@rc-component/tree/lib/interface';
+import { conductExpandParent } from '@rc-component/tree/lib/util';
+import { convertDataToEntities, convertTreeToData } from '@rc-component/tree/lib/utils/treeUtil';
+import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
 import type { AntdTreeNodeAttribute, TreeProps } from './Tree';
@@ -57,17 +57,15 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     });
 
     let initExpandedKeys: Key[];
+    const mergedExpandedKeys = props.expandedKeys || defaultExpandedKeys || [];
 
     // Expanded keys
     if (defaultExpandAll) {
       initExpandedKeys = Object.keys(keyEntities);
     } else if (defaultExpandParent) {
-      initExpandedKeys = conductExpandParent(
-        props.expandedKeys || defaultExpandedKeys || [],
-        keyEntities,
-      );
+      initExpandedKeys = conductExpandParent(mergedExpandedKeys, keyEntities);
     } else {
-      initExpandedKeys = props.expandedKeys || defaultExpandedKeys || [];
+      initExpandedKeys = mergedExpandedKeys;
     }
     return initExpandedKeys;
   };
@@ -119,7 +117,6 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     const { key = '' } = node;
 
     const treeData = getTreeData(props);
-    // const newState: DirectoryTreeState = {};
 
     // We need wrap this event since some value is not same
     const newEvent = {
@@ -174,11 +171,12 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
     className,
     showIcon = true,
     expandAction = 'click',
-    ...otherProps
+    ...restProps
   } = props;
 
   const prefixCls = getPrefixCls('tree', customizePrefixCls);
-  const connectClassName = classNames(
+
+  const connectClassName = clsx(
     `${prefixCls}-directory`,
     {
       [`${prefixCls}-directory-rtl`]: direction === 'rtl',
@@ -191,7 +189,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       icon={getIcon}
       ref={ref}
       blockNode
-      {...otherProps}
+      {...restProps}
       showIcon={showIcon}
       expandAction={expandAction}
       prefixCls={prefixCls}

@@ -1,6 +1,7 @@
 ---
 group:
   title: AI
+  order: 0.9
 order: 1
 title: LLMs.txt
 tag: New
@@ -37,7 +38,7 @@ Reference the LLMs.txt files using `@` or in your `.windsurf/rules` files to enh
 
 In Claude Code, add `LLMs.txt` to the workspace Knowledge Base (Docs / Context Files) configuration. This allows the file to be referenced during code completion and explanation, improving understanding of Ant Design components.
 
-[Learn more about Claude Code document context configuration](https://claude.ai/docs)
+[Learn more about Claude Code document context configuration](https://code.claude.com/docs)
 
 ### Gemini CLI
 

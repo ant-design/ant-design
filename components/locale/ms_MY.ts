@@ -1,4 +1,4 @@
-import Pagination from 'rc-pagination/lib/locale/ms_MY';
+import Pagination from '@rc-component/pagination/lib/locale/ms_MY';
 
 import type { Locale } from '.';
 import Calendar from '../calendar/locale/ms_MY';
@@ -131,9 +131,6 @@ const localeValues: Locale = {
         mismatch: '${label} tidak sesuai ${pattern}',
       },
     },
-  },
-  Image: {
-    preview: 'Pratonton',
   },
   QRCode: {
     expired: 'Kod QR luput',

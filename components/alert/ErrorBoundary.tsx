@@ -2,7 +2,11 @@ import * as React from 'react';
 
 import Alert from './Alert';
 
-interface ErrorBoundaryProps {
+export interface ErrorBoundaryProps {
+  title?: React.ReactNode;
+  /**
+   * @deprecated please use `title` instead.
+   */
   message?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
@@ -29,17 +33,19 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
   }
 
   render() {
-    const { message, description, id, children } = this.props;
+    const { message, title, description, id, children } = this.props;
     const { error, info } = this.state;
+    const mergedTitle = title ?? message;
     const componentStack = info?.componentStack || null;
-    const errorMessage = typeof message === 'undefined' ? (error || '').toString() : message;
+    const errorMessage =
+      typeof mergedTitle === 'undefined' ? (error || '').toString() : mergedTitle;
     const errorDescription = typeof description === 'undefined' ? componentStack : description;
     if (error) {
       return (
         <Alert
           id={id}
           type="error"
-          message={errorMessage}
+          title={errorMessage}
           description={
             <pre style={{ fontSize: '0.9em', overflowX: 'auto' }}>{errorDescription}</pre>
           }
