@@ -3,6 +3,7 @@ import ErrorBoundary from './ErrorBoundary';
 
 export type {
   AlertProps,
+  AlertResultType,
   AlertSemanticClassNames,
   AlertSemanticName,
   AlertSemanticStyles,

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, Button, Flex } from 'antd';
-import type { AlertProps } from 'antd';
+import type { AlertProps, AlertResultType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -11,7 +11,7 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
+const styleFn: AlertProps['styles'] = ({ props: { type } }): AlertResultType['styles'] => {
   if (type === 'success') {
     return {
       root: {
@@ -21,7 +21,7 @@ const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
       icon: {
         color: '#52c41a',
       },
-    } satisfies AlertProps['styles'];
+    };
   }
 
   if (type === 'warning') {
@@ -33,7 +33,7 @@ const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
       icon: {
         color: '#faad14',
       },
-    } satisfies AlertProps['styles'];
+    };
   }
 
   return {};
