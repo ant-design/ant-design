@@ -23,6 +23,7 @@ export type SemanticStylesType<
 
 // new types v2
 export type SemanticTypeV2<P = any, T = any> = T | ((info: { props: P }) => T);
+export type SemanticResultTypeV2<S = any, C = any> = { styles: S; classNames: C };
 
 // ========================= ClassNames =========================
 export const mergeClassNames = <
