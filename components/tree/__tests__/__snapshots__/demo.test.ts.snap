@@ -4,6 +4,14 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide css-var-test-id"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -21,7 +29,6 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -32,13 +39,9 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-checked="true"
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
             draggable="false"
-            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -70,7 +73,7 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0"
+              aria-label="Select parent 1"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -90,11 +93,9 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="true"
             aria-expanded="true"
             class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
             draggable="false"
-            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -131,7 +132,7 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             <span
               aria-checked="true"
               aria-disabled="true"
-              aria-labelledby="test-id-0-0-0"
+              aria-label="Select parent 1-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -151,12 +152,9 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-0"
             role="treeitem"
           >
             <span
@@ -176,7 +174,7 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             <span
               aria-checked="false"
               aria-disabled="true"
-              aria-labelledby="test-id-0-0-0-0"
+              aria-label="Select leaf"
               class="ant-tree-checkbox ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -196,12 +194,9 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-1"
             role="treeitem"
           >
             <span
@@ -220,7 +215,7 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             />
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-0-0-1"
+              aria-label="Select leaf"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -240,13 +235,9 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="true"
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
-            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -282,7 +273,7 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0-1"
+              aria-label="Select parent 1-1"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -302,12 +293,9 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="true"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-1-0"
             role="treeitem"
           >
             <span
@@ -326,7 +314,7 @@ exports[`renders components/tree/demo/basic.tsx correctly 1`] = `
             />
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0-1-0"
+              aria-label="Select tree node"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -360,6 +348,14 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide css-var-test-id"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -377,7 +373,6 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -388,13 +383,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-checked="mixed"
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
             draggable="false"
-            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -426,7 +417,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="mixed"
-              aria-labelledby="test-id-0-0"
+              aria-label="Select 0-0"
               class="ant-tree-checkbox ant-tree-checkbox-indeterminate"
               role="checkbox"
             >
@@ -446,13 +437,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="true"
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
             draggable="false"
-            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -488,7 +475,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0-0"
+              aria-label="Select 0-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -508,12 +495,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="true"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-0"
             role="treeitem"
           >
             <span
@@ -532,7 +516,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             />
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0-0-0"
+              aria-label="Select 0-0-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -552,12 +536,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="true"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-1"
             role="treeitem"
           >
             <span
@@ -576,7 +557,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             />
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0-0-1"
+              aria-label="Select 0-0-0-1"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -596,12 +577,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="true"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-2"
             role="treeitem"
           >
             <span
@@ -620,7 +598,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             />
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0-0-2"
+              aria-label="Select 0-0-0-2"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -640,13 +618,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
             draggable="false"
-            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -682,7 +656,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-0-1"
+              aria-label="Select 0-0-1"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -702,12 +676,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-1-0"
             role="treeitem"
           >
             <span
@@ -726,7 +697,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             />
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-0-1-0"
+              aria-label="Select 0-0-1-0"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -746,12 +717,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-1-1"
             role="treeitem"
           >
             <span
@@ -770,7 +738,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             />
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-0-1-1"
+              aria-label="Select 0-0-1-1"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -790,12 +758,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-1-2"
             role="treeitem"
           >
             <span
@@ -814,7 +779,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             />
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-0-1-2"
+              aria-label="Select 0-0-1-2"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -834,12 +799,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-2"
             role="treeitem"
           >
             <span
@@ -855,7 +817,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             />
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-0-2"
+              aria-label="Select 0-0-2"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -875,13 +837,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
             aria-expanded="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -913,7 +871,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-1"
+              aria-label="Select 0-1"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -933,12 +891,9 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-2"
             role="treeitem"
           >
             <span
@@ -950,7 +905,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx correctly 1`] = `
             />
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-2"
+              aria-label="Select 0-2"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -980,6 +935,14 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node css-var-test-id"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -997,7 +960,6 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -1008,13 +970,9 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-checked="false"
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
-            id="test-id-0"
             role="treeitem"
           >
             <span
@@ -1046,7 +1004,7 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0"
+              aria-label="Select parent"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -1066,10 +1024,9 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="true"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -1086,7 +1043,7 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
             <span
               aria-checked="false"
               aria-disabled="true"
-              aria-labelledby="test-id-0-0"
+              aria-label="Select child 1"
               class="ant-tree-checkbox ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -1106,12 +1063,9 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="true"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -1128,7 +1082,7 @@ exports[`renders components/tree/demo/block-node.tsx correctly 1`] = `
             <span
               aria-checked="false"
               aria-disabled="true"
-              aria-labelledby="test-id-0-1"
+              aria-label="Select child 2"
               class="ant-tree-checkbox ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -1158,6 +1112,14 @@ exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
 <div
   class="ant-tree css-var-test-id"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -1175,7 +1137,6 @@ exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -1186,12 +1147,9 @@ exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
-            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -1256,11 +1214,9 @@ exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="true"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -1309,11 +1265,9 @@ exports[`renders components/tree/demo/customized-icon.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -1372,6 +1326,14 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-block-node ant-tree-directory css-var-test-id"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -1389,7 +1351,6 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -1400,12 +1361,9 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
             draggable="true"
-            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -1493,11 +1451,8 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -1569,11 +1524,8 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -1645,12 +1597,9 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last ant-tree-treenode-draggable"
             draggable="true"
-            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -1738,11 +1687,8 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-1-0"
             role="treeitem"
           >
             <span
@@ -1814,11 +1760,8 @@ exports[`renders components/tree/demo/directory.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-1-1"
             role="treeitem"
           >
             <span
@@ -1972,6 +1915,14 @@ Array [
   <div
     class="ant-tree ant-tree-block-node draggable-tree css-var-test-id ant-tree-show-line"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
@@ -1989,7 +1940,6 @@ Array [
       class="ant-tree-list"
       role="tree"
       style="position:relative"
-      tabindex="0"
     >
       <div
         class="ant-tree-list-holder"
@@ -2000,12 +1950,9 @@ Array [
             style="display:flex;flex-direction:column"
           >
             <div
-              aria-disabled="false"
               aria-expanded="true"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
               draggable="true"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -2096,12 +2043,9 @@ Array [
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="true"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
               draggable="true"
-              id="test-id-0-0-0"
               role="treeitem"
             >
               <span
@@ -2196,11 +2140,9 @@ Array [
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="true"
               class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
-              id="test-id-0-0-0-0"
               role="treeitem"
             >
               <span
@@ -2279,11 +2221,9 @@ Array [
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
-              id="test-id-0-0-0-1"
               role="treeitem"
             >
               <span
@@ -2362,11 +2302,9 @@ Array [
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
-              id="test-id-0-0-0-2"
               role="treeitem"
             >
               <span
@@ -2445,12 +2383,9 @@ Array [
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="false"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
               draggable="true"
-              id="test-id-0-0-1"
               role="treeitem"
             >
               <span
@@ -2545,11 +2480,9 @@ Array [
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
-              id="test-id-0-0-2"
               role="treeitem"
             >
               <span
@@ -2625,12 +2558,9 @@ Array [
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="false"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
               draggable="true"
-              id="test-id-0-1"
               role="treeitem"
             >
               <span
@@ -2721,11 +2651,9 @@ Array [
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
               draggable="true"
-              id="test-id-0-2"
               role="treeitem"
             >
               <span
@@ -2808,6 +2736,14 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide ant-tree-block-node draggable-tree css-var-test-id"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -2825,7 +2761,6 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -2836,12 +2771,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
             draggable="true"
-            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -2906,12 +2838,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable"
             draggable="true"
-            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -2980,11 +2909,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-0-0-0"
             role="treeitem"
           >
             <span
@@ -3036,11 +2963,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-0-0-1"
             role="treeitem"
           >
             <span
@@ -3092,11 +3017,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-0-0-2"
             role="treeitem"
           >
             <span
@@ -3148,12 +3071,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
             aria-expanded="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
             draggable="true"
-            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -3222,11 +3142,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-0-2"
             role="treeitem"
           >
             <span
@@ -3275,12 +3193,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
             aria-expanded="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-draggable"
             draggable="true"
-            id="test-id-0-1"
             role="treeitem"
           >
             <span
@@ -3345,11 +3260,9 @@ exports[`renders components/tree/demo/draggable.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-draggable ant-tree-treenode-leaf"
             draggable="true"
-            id="test-id-0-2"
             role="treeitem"
           >
             <span
@@ -3404,6 +3317,14 @@ exports[`renders components/tree/demo/dynamic.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide css-var-test-id"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -3421,7 +3342,6 @@ exports[`renders components/tree/demo/dynamic.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -3432,12 +3352,9 @@ exports[`renders components/tree/demo/dynamic.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-disabled="false"
             aria-expanded="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            id="test-id-0"
             role="treeitem"
           >
             <span
@@ -3479,12 +3396,9 @@ exports[`renders components/tree/demo/dynamic.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
             aria-expanded="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            id="test-id-1"
             role="treeitem"
           >
             <span
@@ -3526,11 +3440,8 @@ exports[`renders components/tree/demo/dynamic.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-2"
             role="treeitem"
           >
             <span
@@ -3664,6 +3575,14 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
   <div
     class="ant-tree ant-tree-icon-hide css-var-test-id ant-tree-show-line"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
@@ -3681,7 +3600,6 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
       class="ant-tree-list"
       role="tree"
       style="position:relative"
-      tabindex="0"
     >
       <div
         class="ant-tree-list-holder"
@@ -3692,12 +3610,9 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
-              aria-disabled="false"
               aria-expanded="true"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-open"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -3742,12 +3657,9 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="true"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-open"
               draggable="false"
-              id="test-id-0-0-0"
               role="treeitem"
             >
               <span
@@ -3796,11 +3708,9 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0-0-0"
               role="treeitem"
             >
               <span
@@ -3849,11 +3759,9 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0-0-1"
               role="treeitem"
             >
               <span
@@ -3907,11 +3815,9 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0-0-2"
               role="treeitem"
             >
               <span
@@ -3960,12 +3866,9 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="false"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
               draggable="false"
-              id="test-id-0-0-1"
               role="treeitem"
             >
               <span
@@ -4014,12 +3917,9 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="false"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
               draggable="false"
-              id="test-id-0-0-2"
               role="treeitem"
             >
               <span
@@ -4068,12 +3968,9 @@ exports[`renders components/tree/demo/line.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="false"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
               draggable="false"
-              id="test-id-0-1"
               role="treeitem"
             >
               <span
@@ -4129,6 +4026,14 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide css-var-test-id"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -4146,7 +4051,6 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="width:200px;position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -4157,13 +4061,9 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-checked="true"
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
             draggable="false"
-            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -4195,7 +4095,7 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0"
+              aria-label="Select parent 1"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -4215,11 +4115,9 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="true"
             aria-expanded="true"
             class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked"
             draggable="false"
-            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -4256,7 +4154,7 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             <span
               aria-checked="true"
               aria-disabled="true"
-              aria-labelledby="test-id-0-0-0"
+              aria-label="Select parent 1-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -4276,12 +4174,9 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-0"
             role="treeitem"
           >
             <span
@@ -4301,7 +4196,7 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             <span
               aria-checked="false"
               aria-disabled="true"
-              aria-labelledby="test-id-0-0-0-0"
+              aria-label="Select This is a very very very very long text"
               class="ant-tree-checkbox ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -4321,12 +4216,9 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="false"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-1"
             role="treeitem"
           >
             <span
@@ -4345,7 +4237,7 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             />
             <span
               aria-checked="false"
-              aria-labelledby="test-id-0-0-0-1"
+              aria-label="Select This is also a very very very very very long text"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -4365,13 +4257,9 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="true"
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="true"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-selected ant-tree-treenode-leaf-last"
             draggable="false"
-            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -4407,7 +4295,7 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             </span>
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0-1"
+              aria-label="Select parent 1-1"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -4427,12 +4315,9 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-checked="true"
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-1-0"
             role="treeitem"
           >
             <span
@@ -4451,7 +4336,7 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             />
             <span
               aria-checked="true"
-              aria-labelledby="test-id-0-0-1-0"
+              aria-label="Select tree node"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -4525,6 +4410,14 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
   <div
     class="ant-tree ant-tree-icon-hide css-var-test-id"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
@@ -4542,7 +4435,6 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
       class="ant-tree-list"
       role="tree"
       style="position:relative"
-      tabindex="0"
     >
       <div
         class="ant-tree-list-holder"
@@ -4553,12 +4445,9 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
-              aria-disabled="false"
               aria-expanded="false"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -4605,12 +4494,9 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="false"
-              aria-selected="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close"
               draggable="false"
-              id="test-id-0-1"
               role="treeitem"
             >
               <span
@@ -4657,11 +4543,9 @@ exports[`renders components/tree/demo/search.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-2"
               role="treeitem"
             >
               <span
@@ -4703,6 +4587,14 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
     class="ant-tree ant-tree-icon-hide css-var-test-id acss-14g82y5"
     style="border:2px solid #d9d9d9"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
@@ -4720,7 +4612,6 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
       class="ant-tree-list"
       role="tree"
       style="position:relative"
-      tabindex="0"
     >
       <div
         class="ant-tree-list-holder"
@@ -4731,13 +4622,9 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
-              aria-checked="false"
-              aria-disabled="false"
               aria-expanded="false"
-              aria-selected="false"
               class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
               style="margin:2px 0"
             >
@@ -4770,7 +4657,7 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
               </span>
               <span
                 aria-checked="false"
-                aria-labelledby="test-id-0-0"
+                aria-label="Select parent 1"
                 class="ant-tree-checkbox"
                 role="checkbox"
               >
@@ -4798,6 +4685,14 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
     class="ant-tree ant-tree-icon-hide css-var-test-id acss-14g82y5"
     style="border:2px solid #E5D9F2;border-radius:4px"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
@@ -4815,7 +4710,6 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
       class="ant-tree-list"
       role="tree"
       style="position:relative"
-      tabindex="0"
     >
       <div
         class="ant-tree-list-holder"
@@ -4826,12 +4720,9 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
             style="display:flex;flex-direction:column"
           >
             <div
-              aria-disabled="false"
               aria-expanded="true"
-              aria-selected="false"
               class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -4873,12 +4764,9 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="true"
-              aria-selected="false"
               class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-open"
               draggable="false"
-              id="test-id-0-0-0"
               role="treeitem"
             >
               <span
@@ -4924,11 +4812,9 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0-0-0"
               role="treeitem"
             >
               <span
@@ -4957,11 +4843,9 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0-0-1"
               role="treeitem"
             >
               <span
@@ -4990,12 +4874,9 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
               aria-expanded="true"
-              aria-selected="true"
               class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-open ant-tree-treenode-selected ant-tree-treenode-leaf-last"
               draggable="false"
-              id="test-id-0-0-1"
               role="treeitem"
             >
               <span
@@ -5041,11 +4922,9 @@ exports[`renders components/tree/demo/style-class.tsx correctly 1`] = `
               </span>
             </div>
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode acss-11j0zmd ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0-1-0"
               role="treeitem"
             >
               <span
@@ -5085,6 +4964,14 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
 <div
   class="ant-tree ant-tree-icon-hide css-var-test-id ant-tree-show-line"
 >
+  <div>
+    <input
+      aria-label="for screen reader"
+      style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+      tabindex="0"
+      value=""
+    />
+  </div>
   <div
     aria-hidden="true"
     class="ant-tree-treenode"
@@ -5102,7 +4989,6 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
     class="ant-tree-list"
     role="tree"
     style="position:relative"
-    tabindex="0"
   >
     <div
       class="ant-tree-list-holder"
@@ -5113,12 +4999,9 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
           style="display:flex;flex-direction:column"
         >
           <div
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
             draggable="false"
-            id="test-id-0-0"
             role="treeitem"
           >
             <span
@@ -5160,12 +5043,9 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
             aria-expanded="true"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-open"
             draggable="false"
-            id="test-id-0-0-0"
             role="treeitem"
           >
             <span
@@ -5211,11 +5091,9 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-0"
             role="treeitem"
           >
             <span
@@ -5248,11 +5126,9 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-1"
             role="treeitem"
           >
             <span
@@ -5285,11 +5161,9 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
-            aria-selected="false"
+            aria-expanded="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
             draggable="false"
-            id="test-id-0-0-0-2"
             role="treeitem"
           >
             <span
@@ -5322,12 +5196,9 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
             aria-expanded="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close"
             draggable="false"
-            id="test-id-0-0-1"
             role="treeitem"
           >
             <span
@@ -5373,12 +5244,9 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             </span>
           </div>
           <div
-            aria-disabled="false"
             aria-expanded="false"
-            aria-selected="false"
             class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last"
             draggable="false"
-            id="test-id-0-0-2"
             role="treeitem"
           >
             <span

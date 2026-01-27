@@ -8307,6 +8307,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             <div
               class="ant-select-tree"
             >
+              <div>
+                <input
+                  aria-label="for screen reader"
+                  disabled=""
+                  style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+                  value=""
+                />
+              </div>
               <div
                 aria-hidden="true"
                 class="ant-select-tree-treenode"
@@ -8335,12 +8343,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       style="display: flex; flex-direction: column;"
                     >
                       <div
-                        aria-disabled="false"
                         aria-expanded="true"
-                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="test-id-parent 1"
                         role="treeitem"
                       >
                         <span
@@ -8382,12 +8387,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        aria-disabled="false"
                         aria-expanded="true"
-                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                         draggable="false"
-                        id="test-id-parent 1-0"
                         role="treeitem"
                       >
                         <span
@@ -8433,11 +8435,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        aria-disabled="false"
-                        aria-selected="true"
+                        aria-expanded="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="test-id-leaf1"
                         role="treeitem"
                       >
                         <span
@@ -8466,11 +8466,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        aria-disabled="false"
-                        aria-selected="false"
+                        aria-expanded="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="test-id-leaf2"
                         role="treeitem"
                       >
                         <span
@@ -8499,12 +8497,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        aria-disabled="false"
                         aria-expanded="true"
-                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="test-id-parent 1-1"
                         role="treeitem"
                       >
                         <span
@@ -8550,11 +8545,9 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        aria-disabled="false"
-                        aria-selected="false"
+                        aria-expanded="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                         draggable="false"
-                        id="test-id-leaf3"
                         role="treeitem"
                       >
                         <span
