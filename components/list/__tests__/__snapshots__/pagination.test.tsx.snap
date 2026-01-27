@@ -317,7 +317,6 @@ exports[`List.pagination should default work 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="3 / page"
         >
           3 / page
