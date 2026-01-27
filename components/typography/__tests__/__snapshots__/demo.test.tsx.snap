@@ -1586,6 +1586,45 @@ exports[`renders components/typography/demo/ellipsis-middle.tsx correctly 1`] = 
 </span>
 `;
 
+exports[`renders components/typography/demo/link-danger-debug.tsx correctly 1`] = `
+<article
+  class="ant-typography css-var-test-id"
+>
+  <span
+    class="ant-typography css-var-test-id"
+  >
+    Typography.Link 的 type="danger" 颜色应为 error 文本色。
+  </span>
+  <br />
+  <a
+    class="ant-typography ant-typography-danger css-var-test-id"
+    href="https://ant.design"
+  >
+    Danger Link
+  </a>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <span
+    class="ant-typography css-var-test-id"
+  >
+    Button 以 a 标签渲染时，不应被 Typography 链接样式影响。
+  </span>
+  <br />
+  <a
+    aria-disabled="false"
+    class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
+    href="https://ant.design"
+    tabindex="0"
+  >
+    <span>
+      Button Link
+    </span>
+  </a>
+</article>
+`;
+
 exports[`renders components/typography/demo/paragraph-debug.tsx correctly 1`] = `
 Array [
   <h1
