@@ -1165,7 +1165,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility: visible;"
       title="Zhejiang / Hangzhou"
     >
       Zhejiang / Hangzhou
@@ -1454,7 +1453,6 @@ exports[`Cascader support controlled mode 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility: visible;"
       title="Zhejiang / Hangzhou / West Lake"
     >
       Zhejiang / Hangzhou / West Lake

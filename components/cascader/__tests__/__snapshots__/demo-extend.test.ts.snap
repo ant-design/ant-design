@@ -601,7 +601,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
       >
         <span>
           Zhejiang / 
@@ -880,7 +879,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title="Zhejiang / Hangzhou / West Lake"
       >
         Zhejiang / Hangzhou / West Lake

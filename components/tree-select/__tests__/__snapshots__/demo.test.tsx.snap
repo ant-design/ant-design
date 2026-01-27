@@ -594,7 +594,6 @@ exports[`renders components/tree-select/demo/render-panel.tsx correctly 1`] = `
     >
       <div
         class="ant-select-content-value"
-        style="visibility:visible"
         title="lucy"
       >
         lucy
