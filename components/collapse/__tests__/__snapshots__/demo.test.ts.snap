@@ -1090,7 +1090,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility:visible"
         title="start"
       >
         start

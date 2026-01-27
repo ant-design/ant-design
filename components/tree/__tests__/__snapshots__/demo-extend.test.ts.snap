@@ -3545,7 +3545,6 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="True"
         >
           True
