@@ -9004,7 +9004,6 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
             >
               <div
                 class="ant-select-content-value"
-                style="visibility: visible;"
                 title="10 / page"
               >
                 10 / page
@@ -13643,7 +13642,6 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
             >
               <div
                 class="ant-select-content-value"
-                style="visibility: visible;"
                 title="50 / page"
               >
                 50 / page
@@ -15068,7 +15066,6 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             >
               <div
                 class="ant-select-content-value"
-                style="visibility: visible;"
                 title="10 / page"
               >
                 10 / page
@@ -18875,7 +18872,6 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="10 / page"
                 >
                   10 / page

@@ -93,7 +93,6 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
                         longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
@@ -346,7 +345,6 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
                         longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
@@ -2158,7 +2156,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="RMB"
                   >
                     RMB
@@ -5299,7 +5296,6 @@ Array [
                             >
                               <div
                                 class="ant-select-content-value"
-                                style="visibility: visible;"
                                 title="HEX"
                               >
                                 HEX
@@ -11352,7 +11348,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Zhejiang / Hangzhou / West Lake"
                 >
                   Zhejiang / Hangzhou / West Lake
@@ -11552,7 +11547,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="+86"
                   >
                     +86
@@ -11794,7 +11788,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="$"
                   >
                     $
@@ -12075,7 +12068,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Male"
                 >
                   Male
@@ -24532,7 +24524,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           >
                             <div
                               class="ant-select-content-value"
-                              style="visibility: visible;"
                               title="HEX"
                             >
                               HEX
@@ -29166,7 +29157,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Option 1"
                 >
                   Option 1

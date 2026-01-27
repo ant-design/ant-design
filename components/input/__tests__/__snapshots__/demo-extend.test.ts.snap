@@ -51,7 +51,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
             >
               <div
                 class="ant-select-content-value"
-                style="visibility: visible;"
                 title="http://"
               >
                 http://
@@ -188,7 +187,6 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
             >
               <div
                 class="ant-select-content-value"
-                style="visibility: visible;"
                 title=".com"
               >
                 .com
@@ -3032,7 +3030,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title="Jack"
       >
         Jack
@@ -3161,7 +3158,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title=""
       />
       <input
@@ -3521,7 +3517,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title="Zhejiang / Hangzhou / West Lake"
       >
         Zhejiang / Hangzhou / West Lake
@@ -5778,7 +5773,6 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Zhejiang"
           >
             Zhejiang
@@ -6720,7 +6714,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Zhejiang"
         >
           Zhejiang
@@ -7024,7 +7017,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Option1"
         >
           Option1
@@ -9070,7 +9062,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Option1-1"
         >
           Option1-1
@@ -9198,7 +9189,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Option2-2"
         >
           Option2-2
@@ -9331,7 +9321,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Between"
         >
           Between
@@ -9487,7 +9476,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Sign Up"
         >
           Sign Up
@@ -9716,7 +9704,6 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Home"
         >
           Home

@@ -93,7 +93,6 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility:visible"
                         title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
                         longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
@@ -268,7 +267,6 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility:visible"
                         title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
                         longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
@@ -1666,7 +1664,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility:visible"
                     title="RMB"
                   >
                     RMB
@@ -7662,7 +7659,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility:visible"
                   title="Zhejiang / Hangzhou / West Lake"
                 >
                   Zhejiang / Hangzhou / West Lake
@@ -7774,7 +7770,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility:visible"
                     title="+86"
                   >
                     +86
@@ -7938,7 +7933,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility:visible"
                     title="$"
                   >
                     $
@@ -8129,7 +8123,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility:visible"
                   title="Male"
                 >
                   Male
@@ -12893,7 +12886,6 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility:visible"
                   title="Option 1"
                 >
                   Option 1

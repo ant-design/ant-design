@@ -2280,7 +2280,6 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title="lucy"
       >
         lucy

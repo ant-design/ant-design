@@ -32,7 +32,7 @@ const Block: React.FC<Readonly<ColorPickerProps>> = (props) => {
         open
         showText
         {...props}
-        getPopupContainer={() => divRef!.current!}
+        getPopupContainer={() => divRef.current || document.body}
         styles={{
           popup: {
             root: { zIndex: 1 },
