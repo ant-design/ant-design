@@ -6,7 +6,7 @@ export type { GetProp, GetProps, GetRef } from './_util/type';
 export { default as Affix } from './affix';
 export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
-export type { AlertProps, AlertResultType, ErrorBoundaryProps } from './alert';
+export type { AlertProps, AlertSemanticType, ErrorBoundaryProps } from './alert';
 export { default as Anchor } from './anchor';
 export type { AnchorLinkProps, AnchorProps } from './anchor';
 export { default as App } from './app';
