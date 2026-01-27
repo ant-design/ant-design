@@ -31,12 +31,15 @@ export interface SplitBarProps {
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: (lazyEnd?: boolean) => void;
   onCollapse: (index: number, type: 'start' | 'end') => void;
+  onOffsetConfirm?: (index: number, offsetX: number, offsetY: number) => void;
   vertical: boolean;
   ariaNow: number;
   ariaMin: number;
   ariaMax: number;
   lazy?: boolean;
   containerSize: number;
+  step?: number | string;
+  onCalculateSnappedOffset?: (index: number, offset: number) => number;
 }
 
 function getValidNumber(num?: number): number {
@@ -66,13 +69,16 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     endCollapsible,
     onDraggerDoubleClick,
     onOffsetStart,
+    onOffsetConfirm,
     onOffsetUpdate,
     onOffsetEnd,
     onCollapse,
     lazy,
-    containerSize,
+    containerSize: _containerSize,
+    step: _step,
     showStartCollapsibleIcon,
     showEndCollapsibleIcon,
+    onCalculateSnappedOffset,
   } = props;
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
@@ -114,23 +120,16 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     }
   };
 
-  // Updated constraint calculation
-  const getConstrainedOffset = (rawOffset: number) => {
-    const currentPos = (containerSize * ariaNow) / 100;
-    const newPos = currentPos + rawOffset;
-
-    // Calculate available space
-    const minAllowed = Math.max(0, (containerSize * ariaMin) / 100);
-    const maxAllowed = Math.min(containerSize, (containerSize * ariaMax) / 100);
-
-    // Constrain new position within bounds
-    const clampedPos = Math.max(minAllowed, Math.min(maxAllowed, newPos));
-    return clampedPos - currentPos;
-  };
-
   const handleLazyMove = useEvent((offsetX: number, offsetY: number) => {
-    const constrainedOffsetValue = getConstrainedOffset(vertical ? offsetY : offsetX);
-    setConstrainedOffset(constrainedOffsetValue);
+    onOffsetConfirm?.(index, offsetX, offsetY);
+
+    let offset = vertical ? offsetY : offsetX;
+
+    if (onCalculateSnappedOffset) {
+      offset = onCalculateSnappedOffset(index, offset);
+    }
+
+    setConstrainedOffset(offset);
   });
 
   const handleLazyEnd = useEvent(() => {
@@ -157,8 +156,13 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
     const onMouseMove = (e: MouseEvent) => {
       const { pageX, pageY } = e;
+      // const rawOffsetX = pageX - startPos[0];
+      // const rawOffsetY = pageY - startPos[1];
       const offsetX = pageX - startPos[0];
       const offsetY = pageY - startPos[1];
+
+      onOffsetConfirm?.(index, offsetX, offsetY);
+
       if (lazy) {
         handleLazyMove(offsetX, offsetY);
       } else {
@@ -180,6 +184,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         const touch = e.touches[0];
         const offsetX = touch.pageX - startPos[0];
         const offsetY = touch.pageY - startPos[1];
+
+        onOffsetConfirm?.(index, offsetX, offsetY);
+
         if (lazy) {
           handleLazyMove(offsetX, offsetY);
         } else {
