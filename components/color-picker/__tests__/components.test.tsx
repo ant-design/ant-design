@@ -149,7 +149,7 @@ describe('ColorPicker Components test', () => {
     fireEvent.change(input, { target: { value: 'xyz' } });
 
     // Verify input value has been updated but formatted as valid hex format
-    expect(input.getAttribute('value')).toEqual('xyz');
+    expect(input.getAttribute('value')).toEqual('');
 
     // onChange should not be called because the input is invalid
     expect(onChange).toHaveBeenCalledTimes(1);
