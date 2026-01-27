@@ -34,32 +34,20 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       color: token.colorText,
       wordBreak: 'break-word',
       lineHeight: token.lineHeight,
-      [`&${componentCls}-secondary`]: {
+      [`&${componentCls}-secondary, &${componentCls}-link${componentCls}-secondary`]: {
         color: token.colorTextDescription,
-        [`&${componentCls}-link`]: {
-          color: token.colorTextDescription,
-        },
       },
 
-      [`&${componentCls}-success`]: {
+      [`&${componentCls}-success, &${componentCls}-link${componentCls}-success`]: {
         color: token.colorSuccessText,
-        [`&${componentCls}-link`]: {
-          color: token.colorSuccessText,
-        },
       },
 
-      [`&${componentCls}-warning`]: {
+      [`&${componentCls}-warning, &${componentCls}-link${componentCls}-warning`]: {
         color: token.colorWarningText,
-        [`&${componentCls}-link`]: {
-          color: token.colorWarningText,
-        },
       },
 
-      [`&${componentCls}-danger`]: {
+      [`&${componentCls}-danger, &${componentCls}-link${componentCls}-danger`]: {
         color: token.colorErrorText,
-        [`&${componentCls}-link`]: {
-          color: token.colorErrorText,
-        },
         [`&${componentCls}-link:active, &${componentCls}-link:focus`]: {
           color: token.colorErrorTextActive,
         },
