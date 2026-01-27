@@ -110,7 +110,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="+"
             >
               +
@@ -313,7 +312,6 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="$"
             >
               $

@@ -1781,7 +1781,6 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
