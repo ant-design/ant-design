@@ -257,7 +257,6 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                             >
                               <div
                                 class="ant-select-content-value"
-                                style="visibility: visible;"
                                 title="HEX"
                               >
                                 HEX

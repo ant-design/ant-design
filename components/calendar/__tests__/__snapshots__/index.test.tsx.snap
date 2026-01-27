@@ -15,7 +15,6 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2019"
         >
           2019
@@ -65,7 +64,6 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Jan"
         >
           Jan
@@ -946,7 +944,6 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2018年"
         >
           2018年
@@ -996,7 +993,6 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="10月"
         >
           10月
@@ -1877,7 +1873,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2000"
         >
           2000
@@ -1927,7 +1922,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Sep"
         >
           Sep
@@ -2808,7 +2802,6 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2000"
         >
           2000
@@ -2858,7 +2851,6 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Jan"
         >
           Jan
