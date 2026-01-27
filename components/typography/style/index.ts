@@ -36,22 +36,34 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       lineHeight: token.lineHeight,
       [`&${componentCls}-secondary`]: {
         color: token.colorTextDescription,
+        [`&${componentCls}-link`]: {
+          color: token.colorTextDescription,
+        },
       },
 
       [`&${componentCls}-success`]: {
         color: token.colorSuccessText,
+        [`&${componentCls}-link`]: {
+          color: token.colorSuccessText,
+        },
       },
 
       [`&${componentCls}-warning`]: {
         color: token.colorWarningText,
+        [`&${componentCls}-link`]: {
+          color: token.colorWarningText,
+        },
       },
 
       [`&${componentCls}-danger`]: {
         color: token.colorErrorText,
-        'a&:active, a&:focus': {
+        [`&${componentCls}-link`]: {
+          color: token.colorErrorText,
+        },
+        [`&${componentCls}-link:active, &${componentCls}-link:focus`]: {
           color: token.colorErrorTextActive,
         },
-        'a&:hover': {
+        [`&${componentCls}-link:hover`]: {
           color: token.colorErrorTextHover,
         },
       },
