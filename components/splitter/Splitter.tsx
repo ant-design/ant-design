@@ -34,6 +34,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     orientation,
     vertical,
     children,
+    destroyOnHidden,
     draggerIcon,
     collapsibleIcon,
     rootClassName,
@@ -219,7 +220,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
           // Panel
           const panel = (
-            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
+            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} destroyOnHidden={item.destroyOnHidden ?? destroyOnHidden} />
           );
 
           // Split Bar

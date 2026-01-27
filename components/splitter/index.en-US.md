@@ -45,6 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 6.0.0 |
+| destroyOnHidden | Destroy panel content when collapsed (size is 0). Applies to all panels, can be overridden per panel | `boolean` | `false` | 6.2.3 |
 | draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
@@ -63,6 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | collapsible | Quick folding | `boolean \| { start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' }` | `false` | showCollapsibleIcon: 5.27.0 |
 | defaultSize | Initial panel size support number for px or 'percent%' usage | `number \| string` | - | - |
+| destroyOnHidden | Destroy panel content when collapsed (size is 0). Overrides Splitter's `destroyOnHidden` | `boolean` | - | 6.2.3 |
 | max | Maximum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | min | Minimum threshold support number for px or 'percent%' usage | `number \| string` | - | - |
 | resizable | Whether to enable drag and drop | `boolean` | `true` | - |

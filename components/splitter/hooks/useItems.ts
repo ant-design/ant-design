@@ -38,10 +38,11 @@ function useItems(children: React.ReactNode): ItemType[] {
         .filter((item) => React.isValidElement<PanelProps>(item))
         .map((node) => {
           const { props } = node;
-          const { collapsible, ...restProps } = props;
+          const { collapsible, destroyOnHidden, ...restProps } = props;
           return {
             ...restProps,
             collapsible: getCollapsible(collapsible),
+            destroyOnHidden,
           };
         }),
     [children],

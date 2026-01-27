@@ -7,7 +7,7 @@ export const InternalPanel = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
-  const { prefixCls, className, children, size, style = {} } = props;
+  const { prefixCls, className, children, destroyOnHidden = false, size, style = {} } = props;
 
   const panelClassName = clsx(
     `${prefixCls}-panel`,
@@ -16,6 +16,7 @@ export const InternalPanel = forwardRef<
   );
 
   const hasSize = size !== undefined;
+  const isCollapsed = size === 0;
 
   return (
     <div
@@ -28,7 +29,7 @@ export const InternalPanel = forwardRef<
         flexGrow: hasSize ? 0 : 1,
       }}
     >
-      {children}
+      {!(destroyOnHidden && isCollapsed) && children}
     </div>
   );
 });
