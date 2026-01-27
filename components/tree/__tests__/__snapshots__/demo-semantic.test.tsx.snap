@@ -46,7 +46,7 @@ exports[`renders components/tree/demo/_semantic.tsx correctly 1`] = `
                   aria-selected="false"
                   class="ant-tree-treenode semantic-mark-item ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
                   draggable="false"
-                  id="0-0"
+                  id="test-id-0-0"
                   role="treeitem"
                 >
                   <span
@@ -115,7 +115,7 @@ exports[`renders components/tree/demo/_semantic.tsx correctly 1`] = `
                   aria-selected="true"
                   class="ant-tree-treenode semantic-mark-item ant-tree-treenode-switcher-close ant-tree-treenode-selected ant-tree-treenode-leaf"
                   draggable="false"
-                  id="0-0-0"
+                  id="test-id-0-0-0"
                   role="treeitem"
                 >
                   <span
@@ -168,7 +168,7 @@ exports[`renders components/tree/demo/_semantic.tsx correctly 1`] = `
                   aria-selected="false"
                   class="ant-tree-treenode semantic-mark-item ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                   draggable="false"
-                  id="0-0-1"
+                  id="test-id-0-0-1"
                   role="treeitem"
                 >
                   <span

@@ -209,7 +209,7 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                   </div>
                 </div>
                 <div
-                  aria-activedescendant="contributors"
+                  aria-activedescendant="test-id-contributors"
                   class="ant-select-tree-list"
                   role="tree"
                   style="position: relative;"
@@ -229,7 +229,7 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                           aria-selected="false"
                           class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-open ant-select-tree-treenode-active ant-select-tree-treenode-leaf-last"
                           draggable="false"
-                          id="contributors"
+                          id="test-id-contributors"
                           role="treeitem"
                         >
                           <span
@@ -275,7 +275,7 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                           aria-selected="true"
                           class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
                           draggable="false"
-                          id="aojunhao123"
+                          id="test-id-aojunhao123"
                           role="treeitem"
                         >
                           <span
@@ -305,7 +305,7 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                           aria-selected="false"
                           class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                           draggable="false"
-                          id="thinkasany"
+                          id="test-id-thinkasany"
                           role="treeitem"
                         >
                           <span
@@ -335,7 +335,7 @@ exports[`renders components/tree-select/demo/_semantic.tsx correctly 1`] = `
                           aria-selected="false"
                           class="ant-select-tree-treenode semantic-mark-popup-item ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                           draggable="false"
-                          id="meet-student"
+                          id="test-id-meet-student"
                           role="treeitem"
                         >
                           <span
