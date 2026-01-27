@@ -468,7 +468,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Zhejiang"
           >
             Zhejiang
@@ -1011,7 +1010,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option1"
           >
             Option1
@@ -4281,7 +4279,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option1-1"
           >
             Option1-1
@@ -4409,7 +4406,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option2-2"
           >
             Option2-2
@@ -4545,7 +4541,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Between"
           >
             Between
@@ -4704,7 +4699,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Sign Up"
           >
             Sign Up
@@ -8240,7 +8234,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="leaf1"
           >
             leaf1
@@ -8912,7 +8905,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="HEX"
                       >
                         HEX
@@ -10415,7 +10407,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="http://"
                 >
                   http://
@@ -10552,7 +10543,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title=".com"
                 >
                   .com
@@ -12407,7 +12397,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Sign Up"
           >
             Sign Up
@@ -14117,7 +14106,6 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="Opt1"
             >
               Opt1

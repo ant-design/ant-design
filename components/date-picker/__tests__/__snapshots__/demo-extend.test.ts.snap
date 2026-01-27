@@ -88094,7 +88094,6 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Time"
         >
           Time
