@@ -31,9 +31,9 @@ export interface AutoCompleteProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
+> {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
   status?: InputStatus;

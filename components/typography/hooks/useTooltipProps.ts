@@ -1,11 +1,12 @@
 import { isValidElement, useMemo } from 'react';
+
 import type { TooltipProps } from '../../tooltip';
 
 const useTooltipProps = (
   tooltip: React.ReactNode | TooltipProps,
   editConfigText: React.ReactNode,
   children: React.ReactNode,
-) =>
+): Partial<TooltipProps> =>
   useMemo(() => {
     if (tooltip === true) {
       return { title: editConfigText ?? children };

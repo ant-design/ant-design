@@ -50,7 +50,8 @@ export interface LabeledValue {
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
-  extends React.AriaAttributes,
+  extends
+    React.AriaAttributes,
     Omit<
       RcTreeSelectProps<ValueType, OptionType>,
       | 'showTreeIcon'

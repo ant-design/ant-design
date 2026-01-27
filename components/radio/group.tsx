@@ -7,6 +7,8 @@ import pickAttrs from 'rc-util/lib/pickAttrs';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
+import { FormItemInputContext } from '../form/context';
+import { toNamePathStr } from '../form/hooks/useForm';
 import { RadioGroupContextProvider } from './context';
 import type {
   RadioChangeEvent,
@@ -16,8 +18,6 @@ import type {
 } from './interface';
 import Radio from './radio';
 import useStyle from './style';
-import { FormItemInputContext } from '../form/context';
-import { toNamePathStr } from '../form/hooks/useForm';
 
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);

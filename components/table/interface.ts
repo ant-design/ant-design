@@ -125,20 +125,21 @@ export interface FilterDropdownProps {
 }
 
 // 非必要请勿导出
-interface CoverableDropdownProps
-  extends Omit<
-    DropdownProps,
-    | 'onOpenChange'
-    // === deprecated ===
-    | 'overlay'
-    | 'visible'
-    | 'onVisibleChange'
-  > {
+interface CoverableDropdownProps extends Omit<
+  DropdownProps,
+  | 'onOpenChange'
+  // === deprecated ===
+  | 'overlay'
+  | 'visible'
+  | 'onVisibleChange'
+> {
   onOpenChange?: (open: boolean) => void;
 }
 
-export interface ColumnType<RecordType = AnyObject>
-  extends Omit<RcColumnType<RecordType>, 'title'> {
+export interface ColumnType<RecordType = AnyObject> extends Omit<
+  RcColumnType<RecordType>,
+  'title'
+> {
   title?: ColumnTitle<RecordType>;
   // Sorter
   sorter?:
@@ -194,8 +195,10 @@ export interface ColumnType<RecordType = AnyObject>
   onFilterDropdownVisibleChange?: (visible: boolean) => void;
 }
 
-export interface ColumnGroupType<RecordType = AnyObject>
-  extends Omit<ColumnType<RecordType>, 'dataIndex'> {
+export interface ColumnGroupType<RecordType = AnyObject> extends Omit<
+  ColumnType<RecordType>,
+  'dataIndex'
+> {
   children: ColumnsType<RecordType>;
 }
 

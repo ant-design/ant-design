@@ -2,8 +2,8 @@ import * as React from 'react';
 import { useMemo } from 'react';
 import { FastColor } from '@ant-design/fast-color';
 
-import { useToken } from '../theme/internal';
 import { useLocale } from '../locale';
+import { useToken } from '../theme/internal';
 
 const Simple: React.FC = () => {
   const [, token] = useToken();

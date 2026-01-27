@@ -1,5 +1,5 @@
-import $ from 'dekko';
 import chalk from 'chalk';
+import $ from 'dekko';
 
 $('dist')
   .isDirectory()

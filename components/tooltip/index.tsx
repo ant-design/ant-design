@@ -64,18 +64,17 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 // remove this after RcTooltip switch visible to open.
-interface LegacyTooltipProps
-  extends Partial<
-    Omit<
-      RcTooltipProps,
-      | 'children'
-      | 'visible'
-      | 'defaultVisible'
-      | 'onVisibleChange'
-      | 'afterVisibleChange'
-      | 'destroyTooltipOnHide'
-    >
-  > {
+interface LegacyTooltipProps extends Partial<
+  Omit<
+    RcTooltipProps,
+    | 'children'
+    | 'visible'
+    | 'defaultVisible'
+    | 'onVisibleChange'
+    | 'afterVisibleChange'
+    | 'destroyTooltipOnHide'
+  >
+> {
   open?: RcTooltipProps['visible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
   onOpenChange?: RcTooltipProps['onVisibleChange'];

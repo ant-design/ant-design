@@ -1,6 +1,6 @@
+import path from 'path';
 import fg from 'fast-glob';
 import fs from 'fs-extra';
-import path from 'path';
 import cloneDeep from 'lodash/cloneDeep';
 import isPlainObject from 'lodash/isPlainObject';
 

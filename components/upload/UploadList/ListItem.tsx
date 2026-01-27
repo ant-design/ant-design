@@ -139,9 +139,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
     const removeIcon = (
-      typeof showRemoveIcon === 'function'
-        ? showRemoveIcon(file)
-        : showRemoveIcon
+      typeof showRemoveIcon === 'function' ? showRemoveIcon(file) : showRemoveIcon
     )
       ? actionIconRender(
           (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || (

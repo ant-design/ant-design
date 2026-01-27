@@ -6,9 +6,9 @@ import type { RateRef, RateProps as RcRateProps } from 'rc-rate/lib/Rate';
 import type { StarProps as RcStarProps } from 'rc-rate/lib/Star';
 
 import { ConfigContext } from '../config-provider';
+import DisabledContext from '../config-provider/DisabledContext';
 import Tooltip from '../tooltip';
 import useStyle from './style';
-import DisabledContext from '../config-provider/DisabledContext';
 
 export interface RateProps extends RcRateProps {
   rootClassName?: string;

@@ -6,12 +6,12 @@ import omit from 'rc-util/lib/omit';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import useSize from '../config-provider/hooks/useSize';
+import useVariant from '../form/hooks/useVariants';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
 import Tabs from '../tabs';
 import Grid from './Grid';
 import useStyle from './style';
-import useVariant from '../form/hooks/useVariants';
 
 export type CardType = 'inner';
 export type CardSize = 'default' | 'small';

@@ -8,8 +8,9 @@ import type { DirectionType } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 
-export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
-  extends React.HTMLAttributes<HTMLElement> {
+export interface TypographyProps<
+  C extends keyof JSX.IntrinsicElements,
+> extends React.HTMLAttributes<HTMLElement> {
   id?: string;
   prefixCls?: string;
   className?: string;
@@ -22,8 +23,9 @@ export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   direction?: DirectionType;
 }
 
-interface InternalTypographyProps<C extends keyof JSX.IntrinsicElements>
-  extends TypographyProps<C> {
+interface InternalTypographyProps<
+  C extends keyof JSX.IntrinsicElements,
+> extends TypographyProps<C> {
   /** @deprecated Use `ref` directly if using React 16 */
   setContentRef?: (node: HTMLElement) => void;
 }

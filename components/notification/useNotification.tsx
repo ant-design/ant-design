@@ -17,7 +17,7 @@ import type {
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
-import { getMotion, getPlacementStyle, getCloseIconConfig } from './util';
+import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
 const DEFAULT_OFFSET = 24;
 const DEFAULT_DURATION = 4.5;

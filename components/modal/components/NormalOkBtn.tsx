@@ -6,8 +6,10 @@ import { convertLegacyProps } from '../../button/buttonHelpers';
 import { ModalContext } from '../context';
 import type { ModalProps } from '../interface';
 
-export interface NormalOkBtnProps
-  extends Pick<ModalProps, 'confirmLoading' | 'okType' | 'okButtonProps' | 'onOk'> {
+export interface NormalOkBtnProps extends Pick<
+  ModalProps,
+  'confirmLoading' | 'okType' | 'okButtonProps' | 'onOk'
+> {
   okTextLocale?: React.ReactNode;
 }
 

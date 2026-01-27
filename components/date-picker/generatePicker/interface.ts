@@ -7,8 +7,8 @@ import type { Locale as RcPickerLocale } from 'rc-picker/lib/interface';
 
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
-import type { SizeType } from '../../config-provider/SizeContext';
 import type { Variant } from '../../config-provider';
+import type { SizeType } from '../../config-provider/SizeContext';
 import type { TimePickerLocale } from '../../time-picker';
 
 const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight'] as const;

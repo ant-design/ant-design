@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, notification, Space, ConfigProvider } from 'antd';
+import { Button, ConfigProvider, notification, Space } from 'antd';
 
 type NotificationType = 'success' | 'info' | 'warning' | 'error';
 

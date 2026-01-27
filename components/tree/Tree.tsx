@@ -109,11 +109,10 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<
-    RcTreeProps<T>,
-    'prefixCls' | 'showLine' | 'direction' | 'draggable' | 'icon' | 'switcherIcon'
-  > {
+export interface TreeProps<T extends BasicDataNode = DataNode> extends Omit<
+  RcTreeProps<T>,
+  'prefixCls' | 'showLine' | 'direction' | 'draggable' | 'icon' | 'switcherIcon'
+> {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
   /** Whether to support multiple selection */

@@ -81,9 +81,9 @@ export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  'mode' | 'getInputElement' | 'getRawInputElement' | 'backfill' | 'placement'
+> {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;

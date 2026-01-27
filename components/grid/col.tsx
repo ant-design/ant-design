@@ -22,8 +22,7 @@ export interface ColSize {
 }
 
 export interface ColProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    Partial<Record<Breakpoint, ColSpanType | ColSize>> {
+  extends React.HTMLAttributes<HTMLDivElement>, Partial<Record<Breakpoint, ColSpanType | ColSize>> {
   flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;

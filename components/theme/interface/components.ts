@@ -49,6 +49,7 @@ import type { ComponentToken as SkeletonComponentToken } from '../../skeleton/st
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
+import type { ComponentToken as SplitterComponentToken } from '../../splitter/style';
 import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
 import type { ComponentToken as StepsComponentToken } from '../../steps/style';
 import type { ComponentToken as SwitchComponentToken } from '../../switch/style';
@@ -63,7 +64,6 @@ import type { ComponentToken as TreeSelectComponentToken } from '../../tree-sele
 import type { ComponentToken as TreeComponentToken } from '../../tree/style';
 import type { ComponentToken as TypographyComponentToken } from '../../typography/style';
 import type { ComponentToken as UploadComponentToken } from '../../upload/style';
-import type { ComponentToken as SplitterComponentToken } from '../../splitter/style';
 
 export interface ComponentTokenMap {
   Affix?: AffixComponentToken;

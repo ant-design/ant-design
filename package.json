@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "5.29.1",
+  "version": "5.30.0-guidelines-alpha.1",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -38,6 +38,7 @@
     "dist",
     "es",
     "lib",
+    "guidelines",
     "locale"
   ],
   "scripts": {
@@ -70,7 +71,7 @@
     "lint:style": "tsx scripts/check-cssinjs.tsx",
     "llms": "tsx scripts/generate-llms.ts",
     "prepare": "is-ci || husky && dumi setup",
-    "prepublishOnly": "tsx ./scripts/pre-publish.ts",
+    "prepublishOnly": "npm run build",
     "prettier": "prettier -c --write . --cache",
     "prettier-import-sort": "npm run prettier -- --plugin=@ianvs/prettier-plugin-sort-imports",
     "biome": "biome check --write",

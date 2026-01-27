@@ -24,8 +24,10 @@ import useVariant from '../form/hooks/useVariants';
 import { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
-export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls'> {
+export interface InputNumberProps<T extends ValueType = ValueType> extends Omit<
+  RcInputNumberProps<T>,
+  'prefix' | 'size' | 'controls'
+> {
   prefixCls?: string;
   rootClassName?: string;
   /**

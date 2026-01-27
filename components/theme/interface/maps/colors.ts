@@ -600,7 +600,8 @@ export interface ColorLinkMapToken {
 }
 
 export interface ColorMapToken
-  extends ColorNeutralMapToken,
+  extends
+    ColorNeutralMapToken,
     ColorPrimaryMapToken,
     ColorSuccessMapToken,
     ColorWarningMapToken,

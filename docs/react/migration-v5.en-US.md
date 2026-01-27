@@ -48,7 +48,6 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
 #### Component API adjustment
 
 - The classname API of the component popup box is unified to `popupClassName`, and `dropdownClassName` and other similar APIs will be replaced.
-
   - AutoComplete
   - Cascader
   - Select
@@ -71,7 +70,6 @@ This document will help you upgrade from antd `4.x` version to antd `5.x` versio
   ```
 
 - The controlled visible API of the component popup is unified to `open`, and `visible` and other similar APIs will be replaced.
-
   - Drawer `visible` changed to `open`.
   - Modal `visible` changed to `open`.
   - Dropdown `visible` changed to `open`.

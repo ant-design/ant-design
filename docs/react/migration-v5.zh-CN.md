@@ -40,7 +40,6 @@ title: 从 v4 到 v5
 #### 组件 API 调整
 
 - 组件弹框的 classname API 统一为 `popupClassName`，`dropdownClassName` 等类似 API 都会被替换。
-
   - AutoComplete 组件
   - Cascader 组件
   - Select 组件
@@ -63,7 +62,6 @@ title: 从 v4 到 v5
   ```
 
 - 组件弹框的受控可见 API 统一为 `open`，`visible` 等类似 API 都会被替换。
-
   - Drawer 组件 `visible` 变为 `open`。
   - Modal 组件 `visible` 变为 `open`。
   - Dropdown 组件 `visible` 变为 `open`。

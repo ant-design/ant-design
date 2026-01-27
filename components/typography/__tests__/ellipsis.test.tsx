@@ -9,11 +9,12 @@ import {
   waitFakeTimer,
   waitFor,
 } from '../../../tests/utils';
-import type { EllipsisConfig } from '../Base';
-import Base from '../Base';
 import ConfigProvider from '../../config-provider';
 import type { ConfigProviderProps } from '../../config-provider';
 import zhCN from '../../locale/zh_CN';
+import type { EllipsisConfig } from '../Base';
+import Base from '../Base';
+
 type Locale = ConfigProviderProps['locale'];
 jest.mock('copy-to-clipboard');
 

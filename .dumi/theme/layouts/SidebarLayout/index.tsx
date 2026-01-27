@@ -1,11 +1,11 @@
 import type { PropsWithChildren } from 'react';
 import React from 'react';
 import { createStyles } from 'antd-style';
+import { useSearchParams } from 'dumi';
 
 import CommonHelmet from '../../common/CommonHelmet';
 import Content from '../../slots/Content';
 import Sidebar from '../../slots/Sidebar';
-import { useSearchParams } from 'dumi';
 
 const useStyle = createStyles(({ css, token }) => ({
   main: css`

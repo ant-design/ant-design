@@ -30,11 +30,10 @@ export { triggerFocus };
 
 type SemanticName = 'prefix' | 'suffix' | 'input' | 'count';
 
-export interface InputProps
-  extends Omit<
-    RcInputProps,
-    'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName' | 'classes'
-  > {
+export interface InputProps extends Omit<
+  RcInputProps,
+  'wrapperClassName' | 'groupClassName' | 'inputClassName' | 'affixWrapperClassName' | 'classes'
+> {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;

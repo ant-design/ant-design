@@ -4,9 +4,9 @@ import { unit } from '@ant-design/cssinjs';
 
 import { AggregationColor } from '../../color-picker/color';
 import { isBright } from '../../color-picker/components/ColorPresets';
+import { PresetColors } from '../../theme/interface';
 import type { FullToken, GenStyleFn, GetDefaultToken, PresetColorKey } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
-import { PresetColors } from '../../theme/interface';
 import getAlphaColor from '../../theme/util/getAlphaColor';
 
 /** Component only token. Which will handle additional calculation of alias token */

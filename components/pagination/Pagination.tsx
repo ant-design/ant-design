@@ -20,8 +20,10 @@ import useStyle from './style';
 import BorderedStyle from './style/bordered';
 import useShowSizeChanger from './useShowSizeChanger';
 
-export interface PaginationProps
-  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions'> {
+export interface PaginationProps extends Omit<
+  RcPaginationProps,
+  'showSizeChanger' | 'pageSizeOptions'
+> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: 'default' | 'small';
   responsive?: boolean;

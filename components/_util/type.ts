@@ -22,13 +22,8 @@ export type CustomComponent<P = AnyObject> = React.ComponentType<P> | string;
  * ```
  * @since 5.13.0
  */
-export type GetProps<T extends React.ComponentType<any> | object> = T extends React.ComponentType<
-  infer P
->
-  ? P
-  : T extends object
-    ? T
-    : never;
+export type GetProps<T extends React.ComponentType<any> | object> =
+  T extends React.ComponentType<infer P> ? P : T extends object ? T : never;
 
 /**
  * Get component props by component name

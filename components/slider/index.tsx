@@ -7,13 +7,13 @@ import raf from 'rc-util/lib/raf';
 
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import type { AbstractTooltipProps, TooltipPlacement } from '../tooltip';
 import SliderInternalContext from './Context';
 import SliderTooltip from './SliderTooltip';
 import useStyle from './style';
 import useRafLock from './useRafLock';
-import { useComponentConfig } from '../config-provider/context';
 
 export type SliderMarks = RcSliderProps['marks'];
 

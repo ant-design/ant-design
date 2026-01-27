@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { TreeSelect } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
+import { TreeSelect } from 'antd';
 
 const treeData = [
   {

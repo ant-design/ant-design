@@ -1,5 +1,5 @@
-import $ from 'dekko';
 import chalk from 'chalk';
+import $ from 'dekko';
 
 $('lib').isDirectory().hasFile('index.js').hasFile('index.d.ts');
 

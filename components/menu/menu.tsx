@@ -33,8 +33,10 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export interface MenuProps
-  extends Omit<RcMenuProps, 'items' | '_internalComponents' | 'activeKey' | 'defaultActiveFirst'> {
+export interface MenuProps extends Omit<
+  RcMenuProps,
+  'items' | '_internalComponents' | 'activeKey' | 'defaultActiveFirst'
+> {
   theme?: MenuTheme;
   inlineIndent?: number;
 

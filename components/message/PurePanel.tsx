@@ -36,7 +36,8 @@ export const PureContent: React.FC<PureContentProps> = ({ prefixCls, type, icon,
 );
 
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey'>,
+  extends
+    Omit<NoticeProps, 'prefixCls' | 'eventKey'>,
     Omit<PureContentProps, 'prefixCls' | 'children'> {
   prefixCls?: string;
 }

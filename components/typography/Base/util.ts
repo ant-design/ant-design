@@ -5,7 +5,11 @@ export function toList<T>(val: T | T[]): T[] {
   return Array.isArray(val) ? val : [val];
 }
 
-export function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
+export function getNode(
+  dom: React.ReactNode,
+  defaultNode: React.ReactNode,
+  needDom?: boolean,
+): React.ReactNode {
   if (dom === true || dom === undefined) {
     return defaultNode;
   }

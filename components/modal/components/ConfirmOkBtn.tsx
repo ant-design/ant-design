@@ -5,11 +5,10 @@ import ActionButton from '../../_util/ActionButton';
 import type { ConfirmDialogProps } from '../ConfirmDialog';
 import { ModalContext } from '../context';
 
-export interface ConfirmOkBtnProps
-  extends Pick<
-    ConfirmDialogProps,
-    'close' | 'isSilent' | 'okType' | 'okButtonProps' | 'rootPrefixCls' | 'onConfirm' | 'onOk'
-  > {
+export interface ConfirmOkBtnProps extends Pick<
+  ConfirmDialogProps,
+  'close' | 'isSilent' | 'okType' | 'okButtonProps' | 'rootPrefixCls' | 'onConfirm' | 'onOk'
+> {
   autoFocusButton?: false | 'ok' | 'cancel' | null;
   okTextLocale?: React.ReactNode;
 }

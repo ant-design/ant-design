@@ -51,11 +51,9 @@ const useStyle = createStyles(({ token, css }, isDark: boolean) => {
     banner: css`
       padding: 0 ${resourcePadding}px;
       overflow: hidden;
-      ${
-        isDark
-          ? ``
-          : `background: url('https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ');`
-      }
+      ${isDark
+        ? ``
+        : `background: url('https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*y_r7RogIG1wAAAAAAAAAAABkARQnAQ');`}
       background-size: cover;
 
       h1 {

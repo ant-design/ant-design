@@ -23,8 +23,10 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
+export interface OTPProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'onInput'
+> {
   prefixCls?: string;
   length?: number;
 

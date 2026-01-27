@@ -2,8 +2,8 @@ import React from 'react';
 import { TreeSelect } from 'antd';
 import type { TreeSelectProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {

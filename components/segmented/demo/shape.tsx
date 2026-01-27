@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MoonOutlined, SunOutlined } from '@ant-design/icons';
 import { Flex, Segmented } from 'antd';
+
 import type { SizeType } from '../../config-provider/SizeContext';
 
 const Demo: React.FC = () => {

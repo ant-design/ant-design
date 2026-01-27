@@ -17,12 +17,12 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import type { Variant } from '../config-provider';
 import DefaultRenderEmpty from '../config-provider/defaultRenderEmpty';
+import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
 import Spin from '../spin';
 import useStyle from './style';
-import DisabledContext from '../config-provider/DisabledContext';
 
 export const { Option } = RcMentions;
 

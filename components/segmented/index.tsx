@@ -16,13 +16,16 @@ import useStyle from './style';
 
 export type { SegmentedValue } from 'rc-segmented';
 
-interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
-  extends RcSegmentedLabeledOption<ValueType> {
+interface SegmentedLabeledOptionWithoutIcon<
+  ValueType = RcSegmentedValue,
+> extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
 }
 
-interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
-  extends Omit<RcSegmentedLabeledOption<ValueType>, 'label'> {
+interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue> extends Omit<
+  RcSegmentedLabeledOption<ValueType>,
+  'label'
+> {
   label?: RcSegmentedLabeledOption['label'];
   /** Set icon for Segmented item */
   icon: React.ReactNode;
@@ -40,8 +43,10 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
 
-export interface SegmentedProps<ValueType = RcSegmentedValue>
-  extends Omit<RCSegmentedProps<ValueType>, 'size' | 'options'> {
+export interface SegmentedProps<ValueType = RcSegmentedValue> extends Omit<
+  RCSegmentedProps<ValueType>,
+  'size' | 'options'
+> {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */

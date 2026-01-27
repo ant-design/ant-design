@@ -38,8 +38,7 @@ export interface TabsRef {
 }
 
 export interface TabsProps
-  extends CompatibilityProps,
-    Omit<RcTabsProps, 'editable' | 'destroyInactiveTabPane' | 'items'> {
+  extends CompatibilityProps, Omit<RcTabsProps, 'editable' | 'destroyInactiveTabPane' | 'items'> {
   rootClassName?: string;
   type?: TabsType;
   size?: SizeType;

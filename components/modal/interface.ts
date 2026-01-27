@@ -5,17 +5,16 @@ import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/button';
 import type { DirectionType } from '../config-provider';
 
-interface ModalCommonProps
-  extends Omit<
-    DialogProps,
-    | 'footer'
-    | 'width'
-    | 'onClose'
-    | 'animation'
-    | 'maskAnimation'
-    | 'transitionName'
-    | 'maskTransitionName'
-  > {
+interface ModalCommonProps extends Omit<
+  DialogProps,
+  | 'footer'
+  | 'width'
+  | 'onClose'
+  | 'animation'
+  | 'maskAnimation'
+  | 'transitionName'
+  | 'maskTransitionName'
+> {
   footer?:
     | React.ReactNode
     | ((

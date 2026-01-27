@@ -1,10 +1,12 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Select, Spin, Avatar } from 'antd';
+import { Avatar, Select, Spin } from 'antd';
 import type { SelectProps } from 'antd';
 import debounce from 'lodash/debounce';
 
-export interface DebounceSelectProps<ValueType = any>
-  extends Omit<SelectProps<ValueType | ValueType[]>, 'options' | 'children'> {
+export interface DebounceSelectProps<ValueType = any> extends Omit<
+  SelectProps<ValueType | ValueType[]>,
+  'options' | 'children'
+> {
   fetchOptions: (search: string) => Promise<ValueType[]>;
   debounceTimeout?: number;
 }

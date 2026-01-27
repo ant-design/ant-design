@@ -28,7 +28,8 @@ export interface PushState {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
+  extends
+    Omit<RcDrawerProps, 'maskStyle' | 'destroyOnClose'>,
     Omit<DrawerPanelProps, 'prefixCls' | 'ariaId'> {
   size?: sizeType;
 

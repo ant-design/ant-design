@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { isValidElement } from 'react';
+
 import type { TooltipProps } from '../tooltip';
 
 function convertToTooltipProps<P extends TooltipProps>(tooltip: P | ReactNode): P | null {

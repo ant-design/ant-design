@@ -68,7 +68,8 @@ background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent);
 
 ```css
 background-color: rgb(0, 106, 255);
-background-image: linear-gradient(0deg, rgb(0, 0, 0), transparent),
+background-image:
+  linear-gradient(0deg, rgb(0, 0, 0), transparent),
   linear-gradient(90deg, rgb(255, 255, 255), rgba(255, 255, 255, 0));
 ```
 
