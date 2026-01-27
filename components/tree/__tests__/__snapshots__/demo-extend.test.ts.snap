@@ -70,6 +70,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
             </span>
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -130,6 +131,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
             <span
               aria-checked="true"
               aria-disabled="true"
+              aria-labelledby="test-id-0-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -174,6 +176,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
             <span
               aria-checked="false"
               aria-disabled="true"
+              aria-labelledby="test-id-0-0-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -217,6 +220,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
             />
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-0-0-1"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -278,6 +282,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
             </span>
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0-1"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -321,6 +326,7 @@ exports[`renders components/tree/demo/basic.tsx extend context correctly 1`] = `
             />
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0-1-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -422,6 +428,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             </span>
             <span
               aria-checked="mixed"
+              aria-labelledby="test-id-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-indeterminate"
               role="checkbox"
             >
@@ -483,6 +490,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             </span>
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -526,6 +534,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             />
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -569,6 +578,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             />
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0-0-1"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -612,6 +622,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             />
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0-0-2"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -673,6 +684,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             </span>
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-0-1"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -716,6 +728,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             />
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-0-1-0"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -759,6 +772,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             />
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-0-1-1"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -802,6 +816,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             />
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-0-1-2"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -842,6 +857,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             />
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-0-2"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -899,6 +915,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             </span>
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-1"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -935,6 +952,7 @@ exports[`renders components/tree/demo/basic-controlled.tsx extend context correc
             />
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-2"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -1032,6 +1050,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
             </span>
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -1071,6 +1090,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
             <span
               aria-checked="false"
               aria-disabled="true"
+              aria-labelledby="test-id-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -1112,6 +1132,7 @@ exports[`renders components/tree/demo/block-node.tsx extend context correctly 1`
             <span
               aria-checked="false"
               aria-disabled="true"
+              aria-labelledby="test-id-0-1"
               class="ant-tree-checkbox ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -4286,6 +4307,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
             </span>
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -4346,6 +4368,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
             <span
               aria-checked="true"
               aria-disabled="true"
+              aria-labelledby="test-id-0-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -4390,6 +4413,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
             <span
               aria-checked="false"
               aria-disabled="true"
+              aria-labelledby="test-id-0-0-0-0"
               class="ant-tree-checkbox ant-tree-checkbox-disabled"
               role="checkbox"
             >
@@ -4433,6 +4457,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
             />
             <span
               aria-checked="false"
+              aria-labelledby="test-id-0-0-0-1"
               class="ant-tree-checkbox"
               role="checkbox"
             >
@@ -4494,6 +4519,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
             </span>
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0-1"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -4537,6 +4563,7 @@ exports[`renders components/tree/demo/multiple-line.tsx extend context correctly
             />
             <span
               aria-checked="true"
+              aria-labelledby="test-id-0-0-1-0"
               class="ant-tree-checkbox ant-tree-checkbox-checked"
               role="checkbox"
             >
@@ -4859,6 +4886,7 @@ exports[`renders components/tree/demo/style-class.tsx extend context correctly 1
               </span>
               <span
                 aria-checked="false"
+                aria-labelledby="test-id-0-0"
                 class="ant-tree-checkbox"
                 role="checkbox"
               >

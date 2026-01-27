@@ -14519,6 +14519,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
+                        aria-labelledby="test-id-0-0"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -14576,6 +14577,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                       <span
                         aria-checked="false"
+                        aria-labelledby="test-id-0-1"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -14616,6 +14618,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
+                        aria-labelledby="test-id-0-1-0"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -14656,6 +14659,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
+                        aria-labelledby="test-id-0-1-1"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -14692,6 +14696,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
+                        aria-labelledby="test-id-0-2"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -14728,6 +14733,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
+                        aria-labelledby="test-id-0-3"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -14764,6 +14770,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
+                        aria-labelledby="test-id-0-4"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >

@@ -874,6 +874,7 @@ Array [
                     </span>
                     <span
                       aria-checked="true"
+                      aria-labelledby="test-id-0-0"
                       class="ant-select-tree-checkbox ant-select-tree-checkbox-checked"
                       role="checkbox"
                     >
@@ -931,6 +932,7 @@ Array [
                     </span>
                     <span
                       aria-checked="false"
+                      aria-labelledby="test-id-0-1"
                       class="ant-select-tree-checkbox"
                       role="checkbox"
                     >
@@ -1134,6 +1136,7 @@ Array [
                     </span>
                     <span
                       aria-checked="mixed"
+                      aria-labelledby="test-id-parent1"
                       class="ant-select-tree-checkbox ant-select-tree-checkbox-indeterminate"
                       role="checkbox"
                     >
@@ -1191,6 +1194,7 @@ Array [
                     </span>
                     <span
                       aria-checked="false"
+                      aria-labelledby="test-id-parent2"
                       class="ant-select-tree-checkbox"
                       role="checkbox"
                     >
@@ -1363,6 +1367,7 @@ Array [
                     </span>
                     <span
                       aria-checked="false"
+                      aria-labelledby="test-id-0-0"
                       class="ant-select-tree-checkbox"
                       role="checkbox"
                     >
@@ -1420,6 +1425,7 @@ Array [
                     </span>
                     <span
                       aria-checked="false"
+                      aria-labelledby="test-id-0-1"
                       class="ant-select-tree-checkbox"
                       role="checkbox"
                     >

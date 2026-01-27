@@ -6831,6 +6831,7 @@ Array [
                           <span
                             aria-checked="mixed"
                             aria-disabled="true"
+                            aria-labelledby="test-id-0-0"
                             class="ant-tree-checkbox ant-tree-checkbox-indeterminate ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -6891,6 +6892,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
+                            aria-labelledby="test-id-0-0-0"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -6930,6 +6932,7 @@ Array [
                           <span
                             aria-checked="false"
                             aria-disabled="true"
+                            aria-labelledby="test-id-0-0-1"
                             class="ant-tree-checkbox ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -6986,6 +6989,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
+                            aria-labelledby="test-id-0-1"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -7025,6 +7029,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
+                            aria-labelledby="test-id-0-1-0"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
