@@ -9278,6 +9278,38 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       </button>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-vertical"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        type="button"
+      >
+        <span>
+          Button 1
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item"
+        type="button"
+      >
+        <span>
+          Button 2
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        type="button"
+      >
+        <span>
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
 </div>
 `;
 
@@ -13956,7 +13988,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
 `;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-space-compact ant-space-compact-block"
   >
@@ -14305,8 +14339,7 @@ Array [
         </button>
       </div>
     </div>
-  </div>,
-  <br />,
+  </div>
   <div
     class="ant-space-compact ant-space-compact-block"
   >
@@ -15879,6 +15912,22 @@ Array [
         </span>
       </button>
     </div>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        ~
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        ~
+      </span>
+    </button>
     <div
       class="ant-space-compact"
     >
@@ -16028,8 +16077,44 @@ Array [
         </span>
       </button>
     </div>
-  </div>,
-]
+  </div>
+  <div
+    class="ant-space-compact"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+      type="button"
+    >
+      <span>
+        Button 1
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 2
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 3
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+      type="button"
+    >
+      <span>
+        Button 4
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 2`] = `[]`;
