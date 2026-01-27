@@ -6,7 +6,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import type { WaveProps } from '.';
-import { ConfigContext } from '../../config-provider';
+import { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
@@ -19,19 +19,18 @@ function validateNum(value: number) {
 export interface WaveEffectProps {
   className: string;
   target: HTMLElement;
+  rootPrefixCls?: string;
   component?: string;
   colorSource?: WaveProps['colorSource'];
 }
 
 const WaveEffect: React.FC<WaveEffectProps> = (props) => {
-  const { className, target, component, colorSource } = props;
+  const { className, target, component, colorSource, rootPrefixCls } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const mergedPrefix = rootPrefixCls || defaultPrefixCls;
 
-  const rootPrefixCls = getPrefixCls();
-
-  const [varName] = genCssVar(rootPrefixCls, 'wave');
+  const [varName] = genCssVar(mergedPrefix, 'wave');
 
   // ===================== Effect =====================
   const [color, setWaveColor] = React.useState<string | null>(null);
