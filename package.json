@@ -115,7 +115,7 @@
     "@ant-design/icons": "^6.1.0",
     "@ant-design/react-slick": "~2.0.0",
     "@babel/runtime": "^7.28.4",
-    "@rc-component/cascader": "~1.12.1",
+    "@rc-component/cascader": "~1.13.0",
     "@rc-component/checkbox": "~1.0.1",
     "@rc-component/collapse": "~1.2.0",
     "@rc-component/color-picker": "~3.1.0",
