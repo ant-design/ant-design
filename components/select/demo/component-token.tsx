@@ -93,6 +93,45 @@ const App: React.FC = () => (
         />
       </Space>
     </ConfigProvider>
+
+    <ConfigProvider
+      theme={{
+        components: {
+          Select: {
+            activeShadow: '0 0 0 4px rgba(24, 144, 255, 0.2)',
+            errorActiveShadow: '0 0 0 4px rgba(255, 77, 79, 0.2)',
+            warningActiveShadow: '0 0 0 4px rgba(255, 177, 0, 0.2)',
+          },
+        },
+      }}
+    >
+      <div style={{ marginBottom: 16 }}>
+        <strong>Active Shadow Demo</strong>
+        <p>Click on the select boxes to see the custom active shadows</p>
+      </div>
+      <Space style={{ width: '100%' }} vertical>
+        <Select
+          style={{ width: '100%' }}
+          defaultValue="a10"
+          options={options}
+          placeholder="Normal state active shadow"
+        />
+        <Select
+          style={{ width: '100%' }}
+          defaultValue="a10"
+          options={options}
+          status="error"
+          placeholder="Error state active shadow"
+        />
+        <Select
+          style={{ width: '100%' }}
+          defaultValue="a10"
+          options={options}
+          status="warning"
+          placeholder="Warning state active shadow"
+        />
+      </Space>
+    </ConfigProvider>
   </Space>
 );
 

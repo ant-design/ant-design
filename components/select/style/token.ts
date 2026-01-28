@@ -128,6 +128,21 @@ export interface ComponentToken extends MultipleSelectorToken {
    * @descEN Active outline color
    */
   activeOutlineColor: string;
+  /**
+   * @desc 激活态阴影
+   * @descEN Active shadow
+   */
+  activeShadow: string;
+  /**
+   * @desc 错误激活态阴影
+   * @descEN Error active shadow
+   */
+  errorActiveShadow: string;
+  /**
+   * @desc 警告激活态阴影
+   * @descEN Warning active shadow
+   */
+  warningActiveShadow: string;
 }
 
 export interface SelectorToken {
@@ -220,5 +235,8 @@ export const prepareComponentToken: GetDefaultToken<'Select'> = (token) => {
     activeBorderColor: colorPrimary,
     activeOutlineColor: controlOutline,
     selectAffixPadding: paddingXXS,
+    activeShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.controlOutline}`,
+    errorActiveShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorErrorOutline}`,
+    warningActiveShadow: `0 0 0 ${token.controlOutlineWidth}px ${token.colorWarningOutline}`,
   };
 };
