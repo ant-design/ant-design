@@ -9004,7 +9004,6 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
             >
               <div
                 class="ant-select-content-value"
-                style="visibility: visible;"
                 title="10 / page"
               >
                 10 / page
@@ -10320,6 +10319,345 @@ exports[`renders components/table/demo/expand.tsx extend context correctly 1`] =
 `;
 
 exports[`renders components/table/demo/expand.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/table/demo/expand-sticky.tsx extend context correctly 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    class="ant-spin-nested-loading css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-bordered css-var-test-id ant-table-css-var ant-table-has-fix-start"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: auto;"
+            >
+              <colgroup>
+                <col
+                  style="width: 100px;"
+                />
+                <col
+                  class="ant-table-expand-icon-col"
+                />
+                <col
+                  style="width: 150px;"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    scope="col"
+                    style="inset-inline-start: 0; --z-offset: 12; --z-offset-reverse: 6;"
+                  >
+                    Team
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start: 0; --z-offset: 11; --z-offset-reverse: 7;"
+                  />
+                  <th
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    scope="col"
+                    style="inset-inline-start: 0; --z-offset: 10; --z-offset-reverse: 8;"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Age
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Address
+                  </th>
+                  <th
+                    class="ant-table-cell"
+                    scope="col"
+                  >
+                    Action
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    rowspan="2"
+                    style="inset-inline-start: 0; --z-offset: 12; --z-offset-reverse: 6;"
+                  >
+                    Team A
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start: 0; --z-offset: 11; --z-offset-reverse: 7;"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 10; --z-offset-reverse: 8;"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start: 0; --z-offset: 11; --z-offset-reverse: 7;"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 10; --z-offset-reverse: 8;"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    rowspan="2"
+                    style="inset-inline-start: 0; --z-offset: 12; --z-offset-reverse: 6;"
+                  >
+                    Team B
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start: 0; --z-offset: 11; --z-offset-reverse: 7;"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 10; --z-offset-reverse: 8;"
+                  >
+                    Not Expandable
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    29
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jiangsu No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell ant-table-row-expand-icon-cell ant-table-cell-fix ant-table-cell-fix-start"
+                    style="inset-inline-start: 0; --z-offset: 11; --z-offset-reverse: 7;"
+                  >
+                    <button
+                      aria-expanded="false"
+                      aria-label="Expand row"
+                      class="ant-table-row-expand-icon ant-table-row-expand-icon-collapsed"
+                      type="button"
+                    />
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-fix ant-table-cell-fix-start ant-table-cell-fix-start-shadow"
+                    style="inset-inline-start: 0; --z-offset: 10; --z-offset-reverse: 8;"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sydney No. 1 Lake Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    <a>
+                      Delete
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <ul
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
+      >
+        <li
+          aria-disabled="true"
+          class="ant-pagination-prev ant-pagination-disabled"
+          title="Previous Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="left"
+              class="anticon anticon-left"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="left"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8a31.86 31.86 0 000 50.3l450.8 352.1c5.3 4.1 12.9.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+        <li
+          class="ant-pagination-item ant-pagination-item-1 ant-pagination-item-active"
+          tabindex="0"
+          title="1"
+        >
+          <a
+            rel="nofollow"
+          >
+            1
+          </a>
+        </li>
+        <li
+          aria-disabled="true"
+          class="ant-pagination-next ant-pagination-disabled"
+          title="Next Page"
+        >
+          <button
+            class="ant-pagination-item-link"
+            disabled=""
+            tabindex="-1"
+            type="button"
+          >
+            <span
+              aria-label="right"
+              class="anticon anticon-right"
+              role="img"
+            >
+              <svg
+                aria-hidden="true"
+                data-icon="right"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                />
+              </svg>
+            </span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/expand-sticky.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/table/demo/filter-in-tree.tsx extend context correctly 1`] = `
 <div
@@ -13296,7 +13634,6 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
             >
               <div
                 class="ant-select-content-value"
-                style="visibility: visible;"
                 title="50 / page"
               >
                 50 / page
@@ -14721,7 +15058,6 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
             >
               <div
                 class="ant-select-content-value"
-                style="visibility: visible;"
                 title="10 / page"
               >
                 10 / page
@@ -18528,7 +18864,6 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="10 / page"
                 >
                   10 / page
