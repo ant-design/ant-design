@@ -52,6 +52,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     styles: contextStyles,
   } = useComponentConfig('splitter');
   const prefixCls = getPrefixCls('splitter', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
@@ -100,7 +101,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     useSizes(items, containerSize);
 
   // ====================== Resizable =======================
-  const resizableInfos = useResizable(items, itemPxSizes, isRTL);
+  const resizableInfos = useResizable(items, itemPxSizes, reverse);
 
   const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
     items,
@@ -108,7 +109,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     itemPtgSizes,
     containerSize,
     updateSizes,
-    isRTL,
+    reverse,
   );
 
   // ======================== Events ========================
@@ -237,6 +238,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 index={idx}
                 active={movingIndex === idx}
                 prefixCls={prefixCls}
+                rootPrefixCls={rootPrefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
                 draggerStyle={mergedStyles.dragger}

@@ -15,17 +15,14 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2019"
         >
           2019
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -67,17 +64,14 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Jan"
         >
           Jan
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -113,6 +107,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -949,17 +944,14 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2018年"
         >
           2018年
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -1001,17 +993,14 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="10月"
         >
           10月
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -1047,6 +1036,7 @@ exports[`Calendar Calendar should support locale 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -1883,17 +1873,14 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2000"
         >
           2000
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -1935,17 +1922,14 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Sep"
         >
           Sep
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -1981,6 +1965,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl css-var-root ant-radio-css-var"
@@ -2817,17 +2802,14 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2000"
         >
           2000
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -2869,17 +2851,14 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Jan"
         >
           Jan
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"
@@ -2915,6 +2894,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"

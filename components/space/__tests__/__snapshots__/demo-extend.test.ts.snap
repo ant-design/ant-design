@@ -468,17 +468,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Zhejiang"
           >
             Zhejiang
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -683,10 +680,8 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           >
             <input
               aria-autocomplete="list"
-              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-input"
               id="test-id"
@@ -1015,17 +1010,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option1"
           >
             Option1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -4287,17 +4279,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option1-1"
           >
             Option1-1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -4417,17 +4406,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option2-2"
           >
             Option2-2
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -4555,17 +4541,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Between"
           >
             Between
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -4716,17 +4699,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Sign Up"
           >
             Sign Up
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -4853,10 +4833,8 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -6516,10 +6494,8 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8258,17 +8234,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="leaf1"
           >
             leaf1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -8932,17 +8905,14 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="HEX"
                       >
                         HEX
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="test-id_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="test-id_list"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"
@@ -9292,6 +9262,38 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       </button>
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        type="button"
+      >
+        <span>
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-vertical"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        type="button"
+      >
+        <span>
+          Button 1
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item"
+        type="button"
+      >
+        <span>
+          Button 2
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -10405,17 +10407,14 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="http://"
                 >
                   http://
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -10544,17 +10543,14 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title=".com"
                 >
                   .com
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -11011,10 +11007,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -11101,10 +11095,10 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                                   stroke="#d9d9d9"
                                 >
                                   <path
-                                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                                   />
                                   <path
-                                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                     fill="#fafafa"
                                   />
                                 </g>
@@ -12196,10 +12190,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -12275,10 +12267,10 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                             stroke="#d9d9d9"
                           >
                             <path
-                              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                              d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                             />
                             <path
-                              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                              d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                               fill="#fafafa"
                             />
                           </g>
@@ -12405,17 +12397,14 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Sign Up"
           >
             Sign Up
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -13833,10 +13822,8 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -13990,7 +13977,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
 `;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-space-compact ant-space-compact-block"
   >
@@ -14117,17 +14106,14 @@ Array [
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="Opt1"
             >
               Opt1
             </div>
             <input
               aria-autocomplete="list"
-              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-input"
               id="test-id"
@@ -14341,8 +14327,7 @@ Array [
         </button>
       </div>
     </div>
-  </div>,
-  <br />,
+  </div>
   <div
     class="ant-space-compact ant-space-compact-block"
   >
@@ -15915,6 +15900,22 @@ Array [
         </span>
       </button>
     </div>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        ~
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        ~
+      </span>
+    </button>
     <div
       class="ant-space-compact"
     >
@@ -15932,10 +15933,8 @@ Array [
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -16066,8 +16065,44 @@ Array [
         </span>
       </button>
     </div>
-  </div>,
-]
+  </div>
+  <div
+    class="ant-space-compact"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+      type="button"
+    >
+      <span>
+        Button 1
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 2
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 3
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+      type="button"
+    >
+      <span>
+        Button 4
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 2`] = `[]`;
@@ -16378,7 +16413,7 @@ exports[`renders components/space/demo/separator.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -16395,7 +16430,7 @@ exports[`renders components/space/demo/separator.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -16412,7 +16447,7 @@ exports[`renders components/space/demo/separator.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -16426,6 +16461,7 @@ exports[`renders components/space/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"

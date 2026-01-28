@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import React, { useEffect, useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import copy from '../../../../components/_util/copy';
 import { nodeToGroup } from 'html2sketch';
 
@@ -22,7 +22,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   wrapper: css`
     position: relative;
     border: 1px solid ${cssVar.colorBorderSecondary};
@@ -72,7 +72,6 @@ const useStyle = createStyles(({ cssVar, css }) => ({
 }));
 
 const DesignPreviewer: FC<AntdPreviewerProps> = ({ children, title, description, tip, asset }) => {
-  const { styles } = useStyle();
   const demoRef = useRef<HTMLDivElement>(null);
   const [copied, setCopied] = React.useState<boolean>(false);
   const { message } = App.useApp();

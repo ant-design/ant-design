@@ -2385,6 +2385,7 @@ exports[`renders components/tabs/demo/custom-indicator.tsx correctly 1`] = `
 Array [
   <div
     aria-label="segmented control"
+    aria-orientation="horizontal"
     class="ant-segmented css-var-test-id"
     role="radiogroup"
     style="margin-bottom:8px"
@@ -2402,9 +2403,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="start"
         >
           start
@@ -2420,9 +2419,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="true"
           class="ant-segmented-item-label"
-          role="radio"
           title="center"
         >
           center
@@ -2437,9 +2434,7 @@ Array [
           type="radio"
         />
         <div
-          aria-checked="false"
           class="ant-segmented-item-label"
-          role="radio"
           title="end"
         >
           end
@@ -3283,6 +3278,7 @@ Array [
   />,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -3633,10 +3629,8 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -3683,10 +3677,8 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -3733,10 +3725,8 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -3783,10 +3773,8 @@ exports[`renders components/tabs/demo/nest.tsx correctly 1`] = `
       />
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -4267,6 +4255,7 @@ Array [
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -4477,6 +4466,7 @@ exports[`renders components/tabs/demo/size.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:16px"
   >
     <label
@@ -5023,6 +5013,7 @@ exports[`renders components/tabs/demo/slide.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:8px"
   >
     <label
@@ -5570,7 +5561,7 @@ exports[`renders components/tabs/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-tabs ant-tabs-top acss-1lyenb6 css-var-test-id ant-tabs-css-var"
+    class="ant-tabs ant-tabs-top acss-1umkjc1 css-var-test-id ant-tabs-css-var"
     style="border-width:2px;border-style:dashed;padding:16px;margin-bottom:10px"
   >
     <div
@@ -5687,7 +5678,7 @@ exports[`renders components/tabs/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-tabs ant-tabs-left ant-tabs-card acss-1lyenb6 css-var-test-id ant-tabs-css-var"
+    class="ant-tabs ant-tabs-left ant-tabs-card acss-1umkjc1 css-var-test-id ant-tabs-css-var"
     style="background-color:rgba(250,250,250, 0.8);border-color:#d9d9d9"
   >
     <div

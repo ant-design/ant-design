@@ -12,10 +12,10 @@ jobs:
     permissions:
       issues: write  # for actions-cool/issues-helper to update issues
       pull-requests: write  # for actions-cool/issues-helper to update PRs
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     if: (github.event.pull_request.head.ref == 'next' || github.event.pull_request.head.ref == 'feature' || github.event.pull_request.head.ref == 'master') && github.event.pull_request.head.user.login == 'ant-design'
     steps:
-      - uses: actions-cool/issues-helper@9861779a695cf1898bd984c727f685f351cfc372
+      - uses: actions-cool/issues-helper@e2ff99831a4f13625d35064e2b3dfe65c07a0396
         with:
           actions: create-comment
           issue-number: ${{ github.event.number }}

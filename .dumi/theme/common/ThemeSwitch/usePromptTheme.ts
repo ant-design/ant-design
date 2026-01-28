@@ -1,6 +1,5 @@
-/* eslint-disable compat/compat */
 import { useRef, useState } from 'react';
-import { XStream } from '@ant-design/x';
+import { XStream } from '@ant-design/x-sdk';
 
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';
 

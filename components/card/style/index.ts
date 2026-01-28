@@ -342,6 +342,14 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
       [`${componentCls}-body`]: {
         padding: bodyPadding,
         borderRadius: `0 0 ${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)}`,
+        '&:first-child': {
+          borderStartStartRadius: token.borderRadiusLG,
+          borderStartEndRadius: token.borderRadiusLG,
+        },
+        '&:not(:last-child)': {
+          borderEndStartRadius: 0,
+          borderEndEndRadius: 0,
+        },
       },
 
       [`${componentCls}-grid`]: genCardGridStyle(token),
@@ -381,6 +389,12 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${componentCls}-contain-grid`]: {
       borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0 `,
+
+      // Reset border radius when no head exists
+      [`&:not(:has(> ${componentCls}-head))`]: {
+        borderRadius: 0,
+      },
+
       [`${componentCls}-body`]: {
         display: 'flex',
         flexWrap: 'wrap',

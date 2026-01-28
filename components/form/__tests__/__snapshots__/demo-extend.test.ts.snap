@@ -86,7 +86,6 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    aria-required="true"
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
@@ -94,17 +93,14 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
                         longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="advanced_search_field-1_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="advanced_search_field-1_list"
                         aria-required="true"
                         autocomplete="off"
                         class="ant-select-input"
@@ -342,7 +338,6 @@ Array [
                   class="ant-form-item-control-input-content"
                 >
                   <div
-                    aria-required="true"
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
@@ -350,17 +345,14 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
                         longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="advanced_search_field-4_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="advanced_search_field-4_list"
                         aria-required="true"
                         autocomplete="off"
                         class="ant-select-input"
@@ -987,10 +979,8 @@ Array [
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="col-24-debug_select_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="col-24-debug_select_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="col-24-debug_select"
@@ -1397,10 +1387,8 @@ Array [
                   >
                     <input
                       aria-autocomplete="list"
-                      aria-controls="select_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="select_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="select"
@@ -1656,7 +1644,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -1670,10 +1657,8 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="control-hooks_gender_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="control-hooks_gender_list"
                   aria-required="true"
                   autocomplete="off"
                   class="ant-select-input"
@@ -2171,17 +2156,14 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="RMB"
                   >
                     RMB
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -2439,6 +2421,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-wrapper ant-radio-wrapper-disabled ant-radio-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -2565,10 +2548,8 @@ Array [
                   />
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     disabled=""
@@ -2699,10 +2680,8 @@ Array [
                   />
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     disabled=""
@@ -2875,10 +2854,8 @@ Array [
                   />
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     disabled=""
@@ -4868,7 +4845,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-disabled"
+                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined ant-input-number-in-form-item ant-input-number-without-controls ant-input-number-disabled"
               >
                 <input
                   autocomplete="off"
@@ -4878,64 +4855,6 @@ Array [
                   step="1"
                   value=""
                 />
-                <div
-                  class="ant-input-number-actions"
-                >
-                  <span
-                    aria-disabled="false"
-                    aria-label="Increase Value"
-                    class="ant-input-number-action ant-input-number-action-up"
-                    role="button"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="up"
-                      class="anticon anticon-up"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="up"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                  <span
-                    aria-disabled="false"
-                    aria-label="Decrease Value"
-                    class="ant-input-number-action ant-input-number-action-down"
-                    role="button"
-                    unselectable="on"
-                  >
-                    <span
-                      aria-label="down"
-                      class="anticon anticon-down"
-                      role="img"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="down"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
-                      >
-                        <path
-                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                        />
-                      </svg>
-                    </span>
-                  </span>
-                </div>
               </div>
             </div>
           </div>
@@ -5382,17 +5301,14 @@ Array [
                             >
                               <div
                                 class="ant-select-content-value"
-                                style="visibility: visible;"
                                 title="HEX"
                               >
                                 HEX
                               </div>
                               <input
                                 aria-autocomplete="list"
-                                aria-controls="test-id_list"
                                 aria-expanded="false"
                                 aria-haspopup="listbox"
-                                aria-owns="test-id_list"
                                 autocomplete="off"
                                 class="ant-select-input"
                                 disabled=""
@@ -5541,7 +5457,7 @@ Array [
                             </span>
                           </div>
                           <div
-                            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm ant-input-number-disabled"
+                            class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-color-picker-steppers ant-color-picker-alpha-input ant-input-number-outlined ant-input-number-sm ant-input-number-without-controls ant-input-number-disabled"
                           >
                             <input
                               aria-valuemax="100"
@@ -5554,64 +5470,6 @@ Array [
                               step="1"
                               value="0%"
                             />
-                            <div
-                              class="ant-input-number-actions"
-                            >
-                              <span
-                                aria-disabled="false"
-                                aria-label="Increase Value"
-                                class="ant-input-number-action ant-input-number-action-up"
-                                role="button"
-                                unselectable="on"
-                              >
-                                <span
-                                  aria-label="up"
-                                  class="anticon anticon-up"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="up"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                              <span
-                                aria-disabled="true"
-                                aria-label="Decrease Value"
-                                class="ant-input-number-action ant-input-number-action-down ant-input-number-action-down-disabled"
-                                role="button"
-                                unselectable="on"
-                              >
-                                <span
-                                  aria-label="down"
-                                  class="anticon anticon-down"
-                                  role="img"
-                                >
-                                  <svg
-                                    aria-hidden="true"
-                                    data-icon="down"
-                                    fill="currentColor"
-                                    focusable="false"
-                                    height="1em"
-                                    viewBox="64 64 896 896"
-                                    width="1em"
-                                  >
-                                    <path
-                                      d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                                    />
-                                  </svg>
-                                </span>
-                              </span>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -8659,23 +8517,27 @@ exports[`renders components/form/demo/form-dependencies.tsx extend context corre
     role="alert"
   >
     <span
-      aria-label="info-circle"
-      class="anticon anticon-info-circle ant-alert-icon"
-      role="img"
+      class="ant-alert-icon"
     >
-      <svg
-        aria-hidden="true"
-        data-icon="info-circle"
-        fill="currentColor"
-        focusable="false"
-        height="1em"
-        viewBox="64 64 896 896"
-        width="1em"
+      <span
+        aria-label="info-circle"
+        class="anticon anticon-info-circle"
+        role="img"
       >
-        <path
-          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
-        />
-      </svg>
+        <svg
+          aria-hidden="true"
+          data-icon="info-circle"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm32 664c0 4.4-3.6 8-8 8h-48c-4.4 0-8-3.6-8-8V456c0-4.4 3.6-8 8-8h48c4.4 0 8 3.6 8 8v272zm-32-344a48.01 48.01 0 010-96 48.01 48.01 0 010 96z"
+          />
+        </svg>
+      </span>
     </span>
     <div
       class="ant-alert-section"
@@ -10010,6 +9872,7 @@ exports[`renders components/form/demo/layout.tsx extend context correctly 1`] = 
             <div
               class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="layout"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -11480,7 +11343,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
@@ -11488,17 +11350,14 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Zhejiang / Hangzhou / West Lake"
                 >
                   Zhejiang / Hangzhou / West Lake
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="register_residence_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="register_residence_list"
                   aria-required="true"
                   autocomplete="off"
                   class="ant-select-input"
@@ -11690,17 +11549,14 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="+86"
                   >
                     +86
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="register_prefix_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="register_prefix_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="register_prefix"
@@ -11934,17 +11790,14 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="$"
                   >
                     $
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="register_suffix_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="register_suffix_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="register_suffix"
@@ -12089,7 +11942,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete ant-select-customize css-var-test-id ant-select-css-var ant-select-single ant-select-customize-input ant-select-show-search"
             >
               <div
@@ -12103,10 +11955,8 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="register_website_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="register_website_list"
                   aria-required="true"
                   autocomplete="off"
                   class="ant-input ant-input-outlined ant-select-input css-var-test-id ant-input-css-var"
@@ -12213,7 +12063,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -12221,17 +12070,14 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Male"
                 >
                   Male
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="register_gender_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="register_gender_list"
                   aria-required="true"
                   autocomplete="off"
                   class="ant-select-input"
@@ -12556,6 +12402,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
             <div
               class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="requiredMarkValue"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -12885,6 +12732,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             <div
               class="ant-radio-group ant-radio-group-outline ant-radio-group-default css-var-test-id ant-radio-css-var"
               id="size"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -13031,10 +12879,8 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -13164,10 +13010,8 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -13339,10 +13183,8 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -23000,7 +22842,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-has-feedback css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -23014,10 +22855,8 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="validate_other_select_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="validate_other_select_list"
                   aria-required="true"
                   autocomplete="off"
                   class="ant-select-input"
@@ -23162,7 +23001,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
             >
               <div
@@ -23185,10 +23023,8 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 >
                   <input
                     aria-autocomplete="list"
-                    aria-controls="validate_other_select-multiple_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="validate_other_select-multiple_list"
                     aria-required="true"
                     autocomplete="off"
                     class="ant-select-input"
@@ -23638,6 +23474,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             <div
               class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="validate_other_radio-group"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-wrapper ant-radio-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -23741,6 +23578,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
               aria-required="true"
               class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="validate_other_radio-button"
+              role="radiogroup"
             >
               <label
                 class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -23843,6 +23681,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             <div
               class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
               id="validate_other_checkbox-group"
+              role="group"
             >
               <div
                 class="ant-row css-var-test-id"
@@ -24684,17 +24523,14 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           >
                             <div
                               class="ant-select-content-value"
-                              style="visibility: visible;"
                               title="HEX"
                             >
                               HEX
                             </div>
                             <input
                               aria-autocomplete="list"
-                              aria-controls="test-id_list"
                               aria-expanded="false"
                               aria-haspopup="listbox"
-                              aria-owns="test-id_list"
                               autocomplete="off"
                               class="ant-select-input"
                               id="test-id"
@@ -25085,10 +24921,8 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="occupation_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="occupation_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="occupation"
@@ -29322,17 +29156,14 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Option 1"
                 >
                   Option 1
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -29552,10 +29383,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -29700,10 +29529,8 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -32302,6 +32129,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
           >
             <div
               aria-label="segmented control"
+              aria-orientation="horizontal"
               class="ant-segmented css-var-test-id"
               id="variant"
               role="radiogroup"
@@ -32319,9 +32147,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
-                    aria-checked="false"
                     class="ant-segmented-item-label"
-                    role="radio"
                     title="outlined"
                   >
                     outlined
@@ -32337,9 +32163,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
-                    aria-checked="true"
                     class="ant-segmented-item-label"
-                    role="radio"
                     title="filled"
                   >
                     filled
@@ -32354,9 +32178,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
-                    aria-checked="false"
                     class="ant-segmented-item-label"
-                    role="radio"
                     title="borderless"
                   >
                     borderless
@@ -32371,9 +32193,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                     type="radio"
                   />
                   <div
-                    aria-checked="false"
                     class="ant-segmented-item-label"
-                    role="radio"
                     title="underlined"
                   >
                     underlined
@@ -32631,7 +32451,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-select-filled ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -32643,10 +32462,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="Select_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="Select_list"
                   aria-required="true"
                   autocomplete="off"
                   class="ant-select-input"
@@ -32723,10 +32540,10 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                             stroke="#d9d9d9"
                           >
                             <path
-                              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                              d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                             />
                             <path
-                              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                              d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                               fill="#fafafa"
                             />
                           </g>
@@ -32774,7 +32591,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-cascader ant-select-filled ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"
             >
               <div
@@ -32786,10 +32602,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="Cascader_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="Cascader_list"
                   aria-required="true"
                   autocomplete="off"
                   class="ant-select-input"
@@ -32877,10 +32691,10 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                   stroke="#d9d9d9"
                                 >
                                   <path
-                                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                                   />
                                   <path
-                                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                     fill="#fafafa"
                                   />
                                 </g>
@@ -32931,7 +32745,6 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
             class="ant-form-item-control-input-content"
           >
             <div
-              aria-required="true"
               class="ant-select ant-tree-select ant-select-filled ant-select-in-form-item css-var-test-id ant-select-css-var ant-tree-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
@@ -32943,10 +32756,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 />
                 <input
                   aria-autocomplete="list"
-                  aria-controls="TreeSelect_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="TreeSelect_list"
                   aria-required="true"
                   autocomplete="off"
                   class="ant-select-input"
@@ -33022,10 +32833,10 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                             stroke="#d9d9d9"
                           >
                             <path
-                              d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                              d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                             />
                             <path
-                              d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                              d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                               fill="#fafafa"
                             />
                           </g>

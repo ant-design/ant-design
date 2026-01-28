@@ -224,7 +224,6 @@ exports[`renders components/space/demo/base.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -317,7 +316,6 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value="git@github.com:ant-design/ant-design.git"
       />
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -361,17 +359,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Zhejiang"
           >
             Zhejiang
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -498,10 +493,8 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           >
             <input
               aria-autocomplete="list"
-              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-input"
               id="test-id"
@@ -737,17 +730,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Option1"
           >
             Option1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -1130,17 +1120,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Option1-1"
           >
             Option1-1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -1182,17 +1169,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Option2-2"
           >
             Option2-2
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -1242,17 +1226,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Between"
           >
             Between
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -1325,17 +1306,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Sign Up"
           >
             Sign Up
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -1384,10 +1362,8 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -1462,10 +1438,8 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -1602,17 +1576,14 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="leaf1"
           >
             leaf1
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -1858,7 +1829,6 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         value=""
       />
       <div
-        aria-describedby="test-id"
         class="ant-color-picker-trigger ant-color-picker-compact-item ant-color-picker-compact-last-item css-var-test-id ant-color-picker-css-var"
       >
         <div
@@ -1997,6 +1967,38 @@ exports[`renders components/space/demo/compact-button-vertical.tsx correctly 1`]
       </button>
     </div>
   </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-vertical"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        type="button"
+      >
+        <span>
+          Button 1
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item"
+        type="button"
+      >
+        <span>
+          Button 2
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        type="button"
+      >
+        <span>
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
 </div>
 `;
 
@@ -2006,7 +2008,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
     class="ant-space-compact ant-space-compact-block"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-first-item"
       type="button"
     >
@@ -2035,7 +2036,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2073,7 +2073,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2102,7 +2101,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2131,7 +2129,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2160,7 +2157,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2254,7 +2250,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -2284,7 +2279,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
       type="button"
     >
@@ -2342,7 +2336,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       disabled=""
       type="button"
@@ -2372,7 +2365,6 @@ exports[`renders components/space/demo/compact-buttons.tsx correctly 1`] = `
       </span>
     </button>
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item"
       type="button"
     >
@@ -2491,7 +2483,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         </span>
       </button>
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-icon-only ant-btn-compact-item ant-btn-compact-last-item"
         disabled=""
         type="button"
@@ -2603,17 +2594,14 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility:visible"
                   title="http://"
                 >
                   http://
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -2664,17 +2652,14 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility:visible"
                   title=".com"
                 >
                   .com
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -3021,10 +3006,8 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
                 </div>
                 <input
                   aria-autocomplete="list"
-                  aria-controls="test-id_list"
                   aria-expanded="false"
                   aria-haspopup="listbox"
-                  aria-owns="test-id_list"
                   autocomplete="off"
                   class="ant-select-input"
                   id="test-id"
@@ -3306,7 +3289,6 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         value=""
       />
       <button
-        aria-describedby="test-id"
         class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-item ant-btn-compact-last-item"
         type="button"
       >
@@ -3422,17 +3404,14 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Sign Up"
           >
             Sign Up
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -3659,10 +3638,8 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -3718,7 +3695,9 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
 `;
 
 exports[`renders components/space/demo/compact-nested.tsx correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-space-compact ant-space-compact-block"
   >
@@ -3845,17 +3824,14 @@ Array [
           >
             <div
               class="ant-select-content-value"
-              style="visibility:visible"
               title="Opt1"
             >
               Opt1
             </div>
             <input
               aria-autocomplete="list"
-              aria-controls="test-id_list"
               aria-expanded="false"
               aria-haspopup="listbox"
-              aria-owns="test-id_list"
               autocomplete="off"
               class="ant-select-input"
               id="test-id"
@@ -3991,8 +3967,7 @@ Array [
         </button>
       </div>
     </div>
-  </div>,
-  <br />,
+  </div>
   <div
     class="ant-space-compact ant-space-compact-block"
   >
@@ -4049,6 +4024,22 @@ Array [
         </span>
       </button>
     </div>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        ~
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        ~
+      </span>
+    </button>
     <div
       class="ant-space-compact"
     >
@@ -4066,10 +4057,8 @@ Array [
           </div>
           <input
             aria-autocomplete="list"
-            aria-controls="test-id_list"
             aria-expanded="false"
             aria-haspopup="listbox"
-            aria-owns="test-id_list"
             autocomplete="off"
             class="ant-select-input"
             id="test-id"
@@ -4112,8 +4101,44 @@ Array [
         </span>
       </button>
     </div>
-  </div>,
-]
+  </div>
+  <div
+    class="ant-space-compact"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+      type="button"
+    >
+      <span>
+        Button 1
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 2
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 3
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+      type="button"
+    >
+      <span>
+        Button 4
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders components/space/demo/debug.tsx correctly 1`] = `
@@ -4146,7 +4171,6 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       type="button"
     >
@@ -4159,7 +4183,6 @@ exports[`renders components/space/demo/debug.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <button
-      aria-describedby="test-id"
       class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
       disabled=""
       type="button"
@@ -4252,7 +4275,7 @@ exports[`renders components/space/demo/separator.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -4269,7 +4292,7 @@ exports[`renders components/space/demo/separator.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -4286,7 +4309,7 @@ exports[`renders components/space/demo/separator.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -4298,6 +4321,7 @@ exports[`renders components/space/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"

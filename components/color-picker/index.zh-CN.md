@@ -5,7 +5,6 @@ subtitle: 颜色选择器
 description: 用于选择颜色。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*PpY4RYNM8UcAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*EHL-QYJofZsAAAAAAAAAAAAADrJ8AQ/original
-tag: 5.5.0
 demo:
   cols: 2
 group:
@@ -53,7 +52,7 @@ group:
 | defaultFormat | 颜色格式默认的值 | `rgb` \| `hex` \| `hsb` | `hex` | 5.9.0 |
 | disabled | 禁用颜色选择器 | boolean | - | |
 | disabledAlpha | 禁用透明度 | boolean | - | 5.8.0 |
-| disabledFormat | 禁用选择颜色格式 | boolean | - | |
+| disabledFormat | 禁用选择颜色格式 | boolean | - | 5.22.0 |
 | ~~destroyTooltipOnHide~~ | 关闭后是否销毁弹窗 | `boolean` | false | 5.7.0 |
 | destroyOnHidden | 关闭后是否销毁弹窗 | `boolean` | false | 5.25.0 |
 | format | 颜色格式 | `rgb` \| `hex` \| `hsb` | - | |

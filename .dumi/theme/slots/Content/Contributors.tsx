@@ -1,13 +1,13 @@
 import React, { Suspense } from 'react';
 import ContributorsList from '@qixian.cs/github-contributors-list';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { useIntl } from 'dumi';
 
 import SiteContext from '../SiteContext';
 import ContributorAvatar from './ContributorAvatar';
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   listMobile: css`
     margin: 1em 0 !important;
   `,
@@ -38,11 +38,16 @@ interface ContributorsProps {
 }
 
 // 这些机器人账号不需要展示
-const blockList = ['github-actions', 'copilot', 'renovate', 'dependabot'];
+const blockList = [
+  'github-actions',
+  'copilot',
+  'renovate',
+  'dependabot',
+  'gemini-code-assist[bot]',
+];
 
 const Contributors: React.FC<ContributorsProps> = ({ filename }) => {
   const { formatMessage } = useIntl();
-  const { styles } = useStyle();
   const { isMobile } = React.use(SiteContext);
 
   if (!filename) {

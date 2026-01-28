@@ -1102,17 +1102,14 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title="start"
       >
         start
       </div>
       <input
         aria-autocomplete="list"
-        aria-controls="test-id_list"
         aria-expanded="false"
         aria-haspopup="listbox"
-        aria-owns="test-id_list"
         autocomplete="off"
         class="ant-select-input"
         id="test-id"
@@ -1773,7 +1770,7 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id acss-c792w8"
+    class="ant-collapse ant-collapse-icon-placement-start css-var-test-id acss-1xdwrp5"
     style="background-color: rgb(250, 250, 250); border: 1px solid rgb(224, 224, 224); border-radius: 8px;"
   >
     <div
@@ -1913,7 +1910,7 @@ exports[`renders components/collapse/demo/style-class.tsx extend context correct
     </div>
   </div>
   <div
-    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-large css-var-test-id acss-c792w8"
+    class="ant-collapse ant-collapse-icon-placement-start ant-collapse-large css-var-test-id acss-1xdwrp5"
     style="background-color: rgb(255, 255, 255); border: 1px solid rgb(105, 111, 199); border-radius: 8px;"
   >
     <div

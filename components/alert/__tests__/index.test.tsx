@@ -10,6 +10,7 @@ import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
 import type { AlertProps, AlertRef } from '../Alert';
+import ConfigProvider from 'antd/es/config-provider';
 
 const { resetWarned } = warning;
 
@@ -231,6 +232,7 @@ describe('Alert', () => {
       title: 'custom-title',
       description: 'custom-description',
       actions: 'custom-actions',
+      close: 'custom-close',
     };
 
     const customStyles: AlertProps['styles'] = {
@@ -240,10 +242,12 @@ describe('Alert', () => {
       title: { backgroundColor: 'rgb(0, 0, 255)' },
       description: { fontSize: '20px' },
       actions: { color: 'rgb(0, 128, 0)' },
+      close: { color: 'rgb(128, 0, 128)' },
     };
 
     render(
       <Alert
+        closable
         styles={customStyles}
         classNames={customClassNames}
         title="Info Text"
@@ -265,6 +269,7 @@ describe('Alert', () => {
     const titleElement = document.querySelector<HTMLElement>('.ant-alert-title');
     const descriptionElement = document.querySelector<HTMLElement>('.ant-alert-description');
     const actionElement = document.querySelector<HTMLElement>('.ant-alert-actions');
+    const closeElement = document.querySelector<HTMLElement>('.ant-alert-close-icon');
 
     // check classNames
     expect(rootElement).toHaveClass(customClassNames.root!);
@@ -273,6 +278,7 @@ describe('Alert', () => {
     expect(titleElement).toHaveClass(customClassNames.title!);
     expect(descriptionElement).toHaveClass(customClassNames.description!);
     expect(actionElement).toHaveClass(customClassNames.actions!);
+    expect(closeElement).toHaveClass(customClassNames.close!);
 
     // check styles
     expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
@@ -281,5 +287,15 @@ describe('Alert', () => {
     expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title?.backgroundColor });
     expect(descriptionElement).toHaveStyle({ fontSize: customStyles.description?.fontSize });
     expect(actionElement).toHaveStyle({ color: customStyles.actions?.color });
+    expect(closeElement).toHaveStyle({ color: customStyles.close?.color });
+  });
+
+  it('should support custom success icon', () => {
+    render(
+      <ConfigProvider alert={{ successIcon: 'foobar' }}>
+        <Alert title="Success Tips" type="success" showIcon />
+      </ConfigProvider>,
+    );
+    expect(screen.getByRole('alert')).toHaveTextContent(/foobar/i);
   });
 });

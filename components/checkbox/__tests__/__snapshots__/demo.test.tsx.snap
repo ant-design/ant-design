@@ -51,6 +51,7 @@ Array [
   />,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -248,7 +249,6 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx correctly 1`
       class="ant-checkbox ant-wave-target ant-checkbox-checked ant-checkbox-disabled"
     >
       <input
-        aria-describedby="test-id"
         checked=""
         class="ant-checkbox-input"
         disabled=""
@@ -577,6 +577,7 @@ exports[`renders components/checkbox/demo/group.tsx correctly 1`] = `
 Array [
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -647,6 +648,7 @@ Array [
   <br />,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-group-item label-1 css-var-test-id ant-checkbox-css-var"
@@ -717,6 +719,7 @@ Array [
   <br />,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-wrapper-disabled ant-checkbox-group-item label-1 css-var-test-id ant-checkbox-css-var"
@@ -792,6 +795,7 @@ Array [
 exports[`renders components/checkbox/demo/layout.tsx correctly 1`] = `
 <div
   class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+  role="group"
   style="width:100%"
 >
   <div

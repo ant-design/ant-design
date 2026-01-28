@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, notification, Space } from 'antd';
+import { Button, Flex, notification } from 'antd';
 
 type NotificationType = 'success' | 'info' | 'warning' | 'error';
 
@@ -17,12 +17,28 @@ const App: React.FC = () => {
   return (
     <>
       {contextHolder}
-      <Space>
-        <Button onClick={() => openNotificationWithIcon('success')}>Success</Button>
-        <Button onClick={() => openNotificationWithIcon('info')}>Info</Button>
-        <Button onClick={() => openNotificationWithIcon('warning')}>Warning</Button>
-        <Button onClick={() => openNotificationWithIcon('error')}>Error</Button>
-      </Space>
+      <Flex gap={8} wrap="wrap">
+        <Button
+          color="green"
+          variant="outlined"
+          onClick={() => openNotificationWithIcon('success')}
+        >
+          Success
+        </Button>
+        <Button color="blue" variant="outlined" onClick={() => openNotificationWithIcon('info')}>
+          Info
+        </Button>
+        <Button
+          color="yellow"
+          variant="outlined"
+          onClick={() => openNotificationWithIcon('warning')}
+        >
+          Warning
+        </Button>
+        <Button color="red" variant="outlined" onClick={() => openNotificationWithIcon('error')}>
+          Error
+        </Button>
+      </Flex>
     </>
   );
 };

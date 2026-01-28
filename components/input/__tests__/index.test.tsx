@@ -6,9 +6,10 @@ import Input from '..';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 import Form from '../../form';
 import { triggerFocus } from '../Input';
+import { ConfigProvider } from 'antd';
 
 describe('Input', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -152,6 +153,23 @@ describe('prefix and suffix', () => {
 
     expect(container.querySelector('.prefix-with-hidden')?.getAttribute('hidden')).toBe('');
     expect(container.querySelector('.suffix-with-hidden')?.getAttribute('hidden')).toBe('');
+  });
+
+  it('should apply colorText token to filled variant without affix', async () => {
+    const colorText = '#445566';
+
+    const { container } = render(
+      <ConfigProvider theme={{ token: { colorText } }}>
+        <Input variant="filled" placeholder="Filled" defaultValue="Default" />
+      </ConfigProvider>,
+    );
+
+    const input = container.querySelector('input') as HTMLInputElement;
+
+    await waitFor(() => {
+      const computed = getComputedStyle(input).color;
+      expect(computed).toBe('var(--ant-color-text)');
+    });
   });
 });
 

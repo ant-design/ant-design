@@ -310,7 +310,6 @@ exports[`List.pagination should default work 1`] = `
     class="ant-pagination-options"
   >
     <div
-      aria-label="Page Size"
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
@@ -318,18 +317,15 @@ exports[`List.pagination should default work 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="3 / page"
         >
           3 / page
         </div>
         <input
           aria-autocomplete="list"
-          aria-controls="test-id_list"
           aria-expanded="false"
           aria-haspopup="listbox"
           aria-label="Page Size"
-          aria-owns="test-id_list"
           autocomplete="off"
           class="ant-select-input"
           id="test-id"

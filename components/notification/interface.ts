@@ -19,16 +19,36 @@ export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-export type NotificationSemantic = 'root' | 'title' | 'description' | 'actions' | 'icon';
+export type NotificationSemanticName = keyof NotificationSemanticClassNames &
+  keyof NotificationSemanticStyles;
 
-export type NotificationClassNamesType = SemanticClassNamesType<ArgsProps, NotificationSemantic>;
+export type NotificationSemanticClassNames = {
+  root?: string;
+  title?: string;
+  description?: string;
+  actions?: string;
+  icon?: string;
+};
 
-export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationSemantic>;
+export type NotificationSemanticStyles = {
+  root?: React.CSSProperties;
+  title?: React.CSSProperties;
+  description?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  icon?: React.CSSProperties;
+};
+
+export type NotificationClassNamesType = SemanticClassNamesType<
+  ArgsProps,
+  NotificationSemanticClassNames
+>;
+
+export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationSemanticStyles>;
 
 export interface ArgsProps {
   /** @deprecated Please use `title` instead */
   message?: React.ReactNode;
-  title: React.ReactNode;
+  title?: React.ReactNode;
   description?: React.ReactNode;
   /** @deprecated Please use `actions` instead */
   btn?: React.ReactNode;
@@ -47,11 +67,7 @@ export interface ArgsProps {
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
-  closable?:
-    | boolean
-    | (Exclude<ClosableType, boolean> & {
-        onClose?: () => void;
-      });
+  closable?: boolean | (Exclude<ClosableType, boolean> & { onClose?: () => void });
   props?: DivProps;
   role?: 'alert' | 'status';
 }

@@ -1,7 +1,8 @@
 import React, { Suspense, useRef } from 'react';
-import { LinkOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import { BugOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import stackblitzSdk from '@stackblitz/sdk';
-import { Flex, Tooltip } from 'antd';
+import type { MenuProps } from 'antd';
+import { Button, Dropdown, Flex, Tooltip } from 'antd';
 import { FormattedMessage, useSiteData } from 'dumi';
 import LZString from 'lz-string';
 
@@ -28,8 +29,6 @@ function compress(string: string): string {
 }
 
 interface ActionsProps {
-  showOnlineUrl: boolean;
-  docsOnlineUrl?: string;
   assetId: string;
   title?: string;
   pkgDependencyList: Record<PropertyKey, string>;
@@ -39,11 +38,10 @@ interface ActionsProps {
   onCodeExpand: () => void;
   entryCode: string;
   styleCode: string;
+  debugOptions?: MenuProps['items'];
 }
 
 const Actions: React.FC<ActionsProps> = ({
-  showOnlineUrl,
-  docsOnlineUrl,
   assetId,
   title,
   jsx,
@@ -53,6 +51,7 @@ const Actions: React.FC<ActionsProps> = ({
   pkgDependencyList,
   entryCode,
   styleCode,
+  debugOptions,
 }) => {
   const [, lang] = useLocale();
   const isZhCN = lang === 'cn';
@@ -128,8 +127,8 @@ const Actions: React.FC<ActionsProps> = ({
     editors: '001',
     css: '',
     js_external: [
-      'react@19/cjs/react.development.js',
-      'react-dom@19/cjs/react-dom.development.js',
+      'react@18/umd/react.production.min.js',
+      'react-dom@18/umd/react-dom.production.min.js',
       'dayjs@1/dayjs.min.js',
       `antd@${pkg.version}/dist/antd-with-locales.min.js`,
       `@ant-design/icons/dist/index.umd.js`,
@@ -213,21 +212,15 @@ createRoot(document.getElementById('container')).render(<Demo />);
   });
 
   return (
-    <Flex wrap gap="middle" className="code-box-actions">
-      {/* 在线文档按钮 */}
-      {showOnlineUrl && (
-        <Tooltip title={<FormattedMessage id="app.demo.online" />}>
-          <a
-            className="code-box-code-action"
-            aria-label="open in new tab"
-            target="_blank"
-            rel="noreferrer"
-            href={docsOnlineUrl || ''}
-          >
-            <LinkOutlined className="code-box-online" />
-          </a>
-        </Tooltip>
-      )}
+    <Flex wrap gap="middle" className="code-box-actions" align="center">
+      {
+        // 调试选项
+        debugOptions?.length ? (
+          <Dropdown menu={{ items: debugOptions }} arrow={{ pointAtCenter: true }}>
+            <Button icon={<BugOutlined />} color="purple" variant="filled" size="small" />
+          </Dropdown>
+        ) : null
+      }
       {/* CodeSandbox 按钮 */}
       <form
         className="code-box-code-action"

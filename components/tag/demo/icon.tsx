@@ -19,7 +19,7 @@ const App: React.FC = () => {
   return (
     <>
       <Divider titlePlacement="start">Tag with icon</Divider>
-      <Flex gap="4px 0" wrap align="center">
+      <Flex gap="small" wrap align="center">
         <Tag icon={<TwitterOutlined />} color="#55acee">
           Twitter
         </Tag>
@@ -34,7 +34,7 @@ const App: React.FC = () => {
         </Tag>
       </Flex>
       <Divider titlePlacement="start">CheckableTag with icon</Divider>
-      <Flex gap="4px 0" wrap align="center">
+      <Flex gap="small" wrap align="center">
         <Tag.CheckableTag
           icon={<TwitterOutlined />}
           checked={checked[0]}

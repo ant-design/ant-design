@@ -9,18 +9,18 @@ permissions:
 
 jobs:
   send-to-dingtalk:
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: send to dingtalk
-        uses: visiky/dingtalk-release-notify@c996ccb05a9b21755a87bf3bd5615a5e250ed3f1
+        uses: visiky/dingtalk-release-notify@64fcb0373782b6c2f6d9b9ea3c68af80ca189585
         with:
           DING_TALK_TOKEN: |
             ${{ secrets.DINGDING_BOT_TOKEN }}
             ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
           notify_title: '🔥 @${{ github.event.pull_request.user.login }} 创建了 PR：${{ github.event.pull_request.title }} ${{ github.event.pull_request.html_url }}'
           notify_body: |
-            ### 🔥 [@${{ github.event.pull_request.user.login }}](https://github.com/${{ github.event.pull_request.user.login }}) 创建了 PR：
-            [${{ github.event.pull_request.title }}](${{ github.event.pull_request.html_url }})
+            ### 🔥 ![](${{ github.event.pull_request.user.avatar_url }}&s=36) [@${{ github.event.pull_request.user.login }}](https://github.com/${{ github.event.pull_request.user.login }}) 创建了 PR：
+            [${{ github.event.pull_request.title }} · PR #${{ github.event.pull_request.number }}](${{ github.event.pull_request.html_url }})
             <hr />
           notify_footer: '> 🫵🏻 快去 Review 吧，社区需要你的帮助！'
           at_all: false # whether to ding everybody

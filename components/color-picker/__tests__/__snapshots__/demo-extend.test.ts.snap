@@ -144,17 +144,14 @@ Array [
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="HEX"
                   >
                     HEX
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -520,17 +517,14 @@ Array [
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="HEX"
                   >
                     HEX
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -901,17 +895,14 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -1274,17 +1265,14 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -1656,17 +1644,14 @@ Array [
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="HEX"
                   >
                     HEX
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -2010,17 +1995,14 @@ Array [
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="HEX"
                   >
                     HEX
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -2326,17 +2308,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="HEX"
                         >
                           HEX
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -2714,17 +2693,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="HSB"
                         >
                           HSB
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -3308,17 +3284,14 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="RGB"
                         >
                           RGB
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -3828,6 +3801,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
               >
                 <div
                   aria-label="segmented control"
+                  aria-orientation="horizontal"
                   class="ant-segmented ant-segmented-sm css-var-test-id"
                   role="radiogroup"
                   tabindex="0"
@@ -3845,9 +3819,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         type="radio"
                       />
                       <div
-                        aria-checked="false"
                         class="ant-segmented-item-label"
-                        role="radio"
                         title="Single"
                       >
                         Single
@@ -3862,9 +3834,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                         type="radio"
                       />
                       <div
-                        aria-checked="true"
                         class="ant-segmented-item-label"
-                        role="radio"
                         title="Gradient"
                       >
                         Gradient
@@ -4005,17 +3975,14 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -4432,17 +4399,14 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -4835,17 +4799,14 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         >
                           <div
                             class="ant-select-content-value"
-                            style="visibility: visible;"
                             title="HEX"
                           >
                             HEX
                           </div>
                           <input
                             aria-autocomplete="list"
-                            aria-controls="test-id_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="test-id_list"
                             autocomplete="off"
                             class="ant-select-input"
                             id="test-id"
@@ -5794,17 +5755,14 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         >
                           <div
                             class="ant-select-content-value"
-                            style="visibility: visible;"
                             title="HEX"
                           >
                             HEX
                           </div>
                           <input
                             aria-autocomplete="list"
-                            aria-controls="test-id_list"
                             aria-expanded="false"
                             aria-haspopup="listbox"
-                            aria-owns="test-id_list"
                             autocomplete="off"
                             class="ant-select-input"
                             id="test-id"
@@ -6174,17 +6132,14 @@ Array [
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="HEX"
                   >
                     HEX
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -6979,17 +6934,14 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -7367,17 +7319,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="HEX"
                         >
                           HEX
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -7740,17 +7689,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="HEX"
                         >
                           HEX
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8113,17 +8059,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="HEX"
                         >
                           HEX
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8499,17 +8442,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="HEX"
                         >
                           HEX
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -8877,17 +8817,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="HEX"
                         >
                           HEX
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -9255,17 +9192,14 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       >
                         <div
                           class="ant-select-content-value"
-                          style="visibility: visible;"
                           title="HEX"
                         >
                           HEX
                         </div>
                         <input
                           aria-autocomplete="list"
-                          aria-controls="test-id_list"
                           aria-expanded="false"
                           aria-haspopup="listbox"
-                          aria-owns="test-id_list"
                           autocomplete="off"
                           class="ant-select-input"
                           id="test-id"
@@ -9635,17 +9569,14 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="HEX"
                       >
                         HEX
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="test-id_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="test-id_list"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"
@@ -10004,17 +9935,14 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="HEX"
                       >
                         HEX
                       </div>
                       <input
                         aria-autocomplete="list"
-                        aria-controls="test-id_list"
                         aria-expanded="false"
                         aria-haspopup="listbox"
-                        aria-owns="test-id_list"
                         autocomplete="off"
                         class="ant-select-input"
                         id="test-id"
@@ -10399,17 +10327,14 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -10779,17 +10704,14 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -11176,17 +11098,14 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
                     </div>
                     <input
                       aria-autocomplete="list"
-                      aria-controls="test-id_list"
                       aria-expanded="false"
                       aria-haspopup="listbox"
-                      aria-owns="test-id_list"
                       autocomplete="off"
                       class="ant-select-input"
                       id="test-id"
@@ -11550,17 +11469,14 @@ Array [
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="HEX"
                   >
                     HEX
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
@@ -11926,17 +11842,14 @@ Array [
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="HEX"
                   >
                     HEX
                   </div>
                   <input
                     aria-autocomplete="list"
-                    aria-controls="test-id_list"
                     aria-expanded="false"
                     aria-haspopup="listbox"
-                    aria-owns="test-id_list"
                     autocomplete="off"
                     class="ant-select-input"
                     id="test-id"
