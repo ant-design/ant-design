@@ -93,7 +93,6 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
                         longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
@@ -346,7 +345,6 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                       >
                         longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
@@ -2158,7 +2156,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="RMB"
                   >
                     RMB
@@ -2728,14 +2725,6 @@ Array [
                     <div
                       class="ant-select-tree"
                     >
-                      <div>
-                        <input
-                          aria-label="for screen reader"
-                          disabled=""
-                          style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                          value=""
-                        />
-                      </div>
                       <div
                         aria-hidden="true"
                         class="ant-select-tree-treenode"
@@ -2764,9 +2753,12 @@ Array [
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 aria-expanded="false"
+                                aria-selected="false"
                                 class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                                 draggable="false"
+                                id="test-id-light"
                                 role="treeitem"
                               >
                                 <span
@@ -5304,7 +5296,6 @@ Array [
                             >
                               <div
                                 class="ant-select-content-value"
-                                style="visibility: visible;"
                                 title="HEX"
                               >
                                 HEX
@@ -6772,15 +6763,6 @@ Array [
               <div
                 class="ant-tree ant-tree-icon-hide ant-tree-disabled css-var-test-id"
               >
-                <div>
-                  <input
-                    aria-label="for screen reader"
-                    disabled=""
-                    style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                    tabindex="0"
-                    value=""
-                  />
-                </div>
                 <div
                   aria-hidden="true"
                   class="ant-tree-treenode"
@@ -6808,9 +6790,11 @@ Array [
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="true"
                           aria-expanded="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
                           draggable="false"
+                          id="test-id-0-0"
                           role="treeitem"
                         >
                           <span
@@ -6843,7 +6827,7 @@ Array [
                           <span
                             aria-checked="mixed"
                             aria-disabled="true"
-                            aria-label="Select Parent 1"
+                            aria-labelledby="test-id-0-0"
                             class="ant-tree-checkbox ant-tree-checkbox-indeterminate ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -6863,9 +6847,11 @@ Array [
                           </span>
                         </div>
                         <div
+                          aria-disabled="true"
                           aria-expanded="false"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
                           draggable="false"
+                          id="test-id-0-0-0"
                           role="treeitem"
                         >
                           <span
@@ -6902,7 +6888,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-label="Select Child 1-1"
+                            aria-labelledby="test-id-0-0-0"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -6922,9 +6908,10 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-disabled="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                           draggable="false"
+                          id="test-id-0-0-1"
                           role="treeitem"
                         >
                           <span
@@ -6941,7 +6928,7 @@ Array [
                           <span
                             aria-checked="false"
                             aria-disabled="true"
-                            aria-label="Select Child 1-2"
+                            aria-labelledby="test-id-0-0-1"
                             class="ant-tree-checkbox ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -6961,9 +6948,11 @@ Array [
                           </span>
                         </div>
                         <div
+                          aria-disabled="true"
                           aria-expanded="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
                           draggable="false"
+                          id="test-id-0-1"
                           role="treeitem"
                         >
                           <span
@@ -6996,7 +6985,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-label="Select Parent 2"
+                            aria-labelledby="test-id-0-1"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -7016,9 +7005,10 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-disabled="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                           draggable="false"
+                          id="test-id-0-1-0"
                           role="treeitem"
                         >
                           <span
@@ -7035,7 +7025,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-label="Select Child 2-1"
+                            aria-labelledby="test-id-0-1-0"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -11358,7 +11348,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Zhejiang / Hangzhou / West Lake"
                 >
                   Zhejiang / Hangzhou / West Lake
@@ -11439,7 +11428,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   >
                     <li
                       aria-checked="false"
-                      class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+                      class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
                       data-path-key="zhejiang"
                       role="menuitemcheckbox"
                       title="Zhejiang"
@@ -11510,6 +11499,65 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                       </div>
                     </li>
                   </ul>
+                  <ul
+                    class="ant-cascader-menu"
+                    role="menu"
+                  >
+                    <li
+                      aria-checked="false"
+                      class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+                      data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+                      role="menuitemcheckbox"
+                      title="Hangzhou"
+                    >
+                      <div
+                        class="ant-cascader-menu-item-content"
+                      >
+                        Hangzhou
+                      </div>
+                      <div
+                        class="ant-cascader-menu-item-expand-icon"
+                      >
+                        <span
+                          aria-label="right"
+                          class="anticon anticon-right"
+                          role="img"
+                        >
+                          <svg
+                            aria-hidden="true"
+                            data-icon="right"
+                            fill="currentColor"
+                            focusable="false"
+                            height="1em"
+                            viewBox="64 64 896 896"
+                            width="1em"
+                          >
+                            <path
+                              d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                            />
+                          </svg>
+                        </span>
+                      </div>
+                    </li>
+                  </ul>
+                  <ul
+                    class="ant-cascader-menu"
+                    role="menu"
+                  >
+                    <li
+                      aria-checked="true"
+                      class="ant-cascader-menu-item ant-cascader-menu-item-active"
+                      data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+                      role="menuitemcheckbox"
+                      title="West Lake"
+                    >
+                      <div
+                        class="ant-cascader-menu-item-content"
+                      >
+                        West Lake
+                      </div>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -11558,7 +11606,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="+86"
                   >
                     +86
@@ -11800,7 +11847,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="$"
                   >
                     $
@@ -12081,7 +12127,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Male"
                 >
                   Male
@@ -13074,14 +13119,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   <div
                     class="ant-select-tree"
                   >
-                    <div>
-                      <input
-                        aria-label="for screen reader"
-                        disabled=""
-                        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                        value=""
-                      />
-                    </div>
                     <div
                       aria-hidden="true"
                       class="ant-select-tree-treenode"
@@ -13110,9 +13147,12 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               aria-expanded="false"
+                              aria-selected="false"
                               class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                               draggable="false"
+                              id="test-id-light"
                               role="treeitem"
                             >
                               <span
@@ -24543,7 +24583,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           >
                             <div
                               class="ant-select-content-value"
-                              style="visibility: visible;"
                               title="HEX"
                             >
                               HEX
@@ -29177,7 +29216,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="Option 1"
                 >
                   Option 1
@@ -29618,14 +29656,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   <div
                     class="ant-select-tree"
                   >
-                    <div>
-                      <input
-                        aria-label="for screen reader"
-                        disabled=""
-                        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                        value=""
-                      />
-                    </div>
                     <div
                       aria-hidden="true"
                       class="ant-select-tree-treenode"
@@ -29654,9 +29684,11 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             style="display: flex; flex-direction: column;"
                           >
                             <div
-                              aria-expanded="false"
+                              aria-disabled="false"
+                              aria-selected="false"
                               class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                               draggable="false"
+                              id="test-id-xx"
                               role="treeitem"
                             >
                               <span

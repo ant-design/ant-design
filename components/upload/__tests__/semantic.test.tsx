@@ -13,6 +13,7 @@ describe('Upload.Semantic', () => {
           root: 'test-upload-root',
           list: 'test-upload-list',
           item: 'test-upload-item',
+          trigger: 'test-upload-button',
         }}
         defaultFileList={[
           {
@@ -29,6 +30,7 @@ describe('Upload.Semantic', () => {
     expect(container.querySelector('.test-upload-root')).toBeTruthy();
     expect(container.querySelector('.test-upload-list')).toBeTruthy();
     expect(container.querySelector('.test-upload-item')).toBeTruthy();
+    expect(container.querySelector('.test-upload-button')).toBeTruthy();
   });
 
   it('should work with classNames function', () => {
@@ -60,6 +62,7 @@ describe('Upload.Semantic', () => {
           root: { backgroundColor: 'rgb(255, 0, 0)' },
           list: { backgroundColor: 'rgb(0, 0, 255)' },
           item: { backgroundColor: 'rgb(0, 128, 0)' },
+          trigger: { backgroundColor: 'rgb(255, 255, 0)' },
         }}
         defaultFileList={[{ uid: '1', name: 'test.txt', status: 'done' }]}
       >
@@ -78,6 +81,10 @@ describe('Upload.Semantic', () => {
     const itemElement = container.querySelector<HTMLElement>('.ant-upload-list-item');
     expect(itemElement).toBeTruthy();
     expect(itemElement).toHaveStyle({ backgroundColor: 'rgb(0, 128, 0)' });
+
+    const uploadButtonElement = container.querySelector<HTMLElement>('.ant-upload-select');
+    expect(uploadButtonElement).toBeTruthy();
+    expect(uploadButtonElement).toHaveStyle({ backgroundColor: 'rgb(255, 255, 0)' });
   });
 
   it('should work with styles function', () => {

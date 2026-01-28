@@ -1165,7 +1165,6 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility: visible;"
       title="Zhejiang / Hangzhou"
     >
       Zhejiang / Hangzhou
@@ -1288,6 +1287,38 @@ exports[`Cascader rtl render component should be rendered correctly in RTL direc
 exports[`Cascader should highlight keyword and filter when search in Cascader 1`] = `"<div><div class="ant-cascader-menus"><ul class="ant-cascader-menu" role="menu"><li class="ant-cascader-menu-item" role="menuitemcheckbox" aria-checked="false" data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"><div class="ant-cascader-menu-item-content"><span class="ant-cascader-menu-item-keyword">Z</span>hejiang / Hang<span class="ant-cascader-menu-item-keyword">z</span>hou / West Lake</div></li><li class="ant-cascader-menu-item" role="menuitemcheckbox" aria-checked="false" data-path-key="jiangsu__RC_CASCADER_SPLIT__nanjing__RC_CASCADER_SPLIT__zhonghuamen"><div class="ant-cascader-menu-item-content">Jiangsu / Nanjing / <span class="ant-cascader-menu-item-keyword">Z</span>hong Hua Men</div></li></ul></div></div>"`;
 
 exports[`Cascader should highlight keyword and filter when search in Cascader with same field name of label and value 1`] = `"<div><div class="ant-cascader-menus"><ul class="ant-cascader-menu" role="menu"><li class="ant-cascader-menu-item" role="menuitemcheckbox" aria-checked="false" data-path-key="Zhejiang__RC_CASCADER_SPLIT__Hangzhou__RC_CASCADER_SPLIT__West Lake"><div class="ant-cascader-menu-item-content"><span class="ant-cascader-menu-item-keyword">Z</span>hejiang / Hang<span class="ant-cascader-menu-item-keyword">z</span>hou / West Lake</div></li><li class="ant-cascader-menu-item ant-cascader-menu-item-disabled" role="menuitemcheckbox" aria-checked="false" data-path-key="Zhejiang__RC_CASCADER_SPLIT__Hangzhou__RC_CASCADER_SPLIT__Xia Sha"><div class="ant-cascader-menu-item-content"><span class="ant-cascader-menu-item-keyword">Z</span>hejiang / Hang<span class="ant-cascader-menu-item-keyword">z</span>hou / Xia Sha</div></li></ul></div></div>"`;
+
+exports[`Cascader should render custom notFoundContent when search returns no results 1`] = `
+<div
+  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up ant-cascader-dropdown ant-select-css-var ant-cascader-css-var css-var-root ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+>
+  <div>
+    <div
+      class="ant-cascader-menus ant-cascader-menu-empty"
+    >
+      <ul
+        class="ant-cascader-menu"
+        role="menu"
+      >
+        <li
+          aria-checked="false"
+          class="ant-cascader-menu-item ant-cascader-menu-item-disabled"
+          data-path-key="__EMPTY__"
+          role="menuitemcheckbox"
+          title="no data"
+        >
+          <div
+            class="ant-cascader-menu-item-content"
+          >
+            no data
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
 
 exports[`Cascader should render not found content 1`] = `
 <div
@@ -1454,7 +1485,6 @@ exports[`Cascader support controlled mode 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility: visible;"
       title="Zhejiang / Hangzhou / West Lake"
     >
       Zhejiang / Hangzhou / West Lake

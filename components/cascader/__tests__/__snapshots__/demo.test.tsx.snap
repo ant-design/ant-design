@@ -216,7 +216,6 @@ exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility:visible"
     >
       <span>
         Zhejiang
@@ -320,7 +319,6 @@ exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility:visible"
       title="Zhejiang / Hangzhou / West Lake"
     >
       Zhejiang / Hangzhou / West Lake

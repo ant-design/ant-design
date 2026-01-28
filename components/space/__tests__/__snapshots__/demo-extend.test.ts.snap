@@ -468,7 +468,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Zhejiang"
           >
             Zhejiang
@@ -1011,7 +1010,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option1"
           >
             Option1
@@ -4281,7 +4279,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option1-1"
           >
             Option1-1
@@ -4409,7 +4406,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Option2-2"
           >
             Option2-2
@@ -4545,7 +4541,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Between"
           >
             Between
@@ -4704,7 +4699,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Sign Up"
           >
             Sign Up
@@ -8240,7 +8234,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="leaf1"
           >
             leaf1
@@ -8314,14 +8307,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
             <div
               class="ant-select-tree"
             >
-              <div>
-                <input
-                  aria-label="for screen reader"
-                  disabled=""
-                  style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                  value=""
-                />
-              </div>
               <div
                 aria-hidden="true"
                 class="ant-select-tree-treenode"
@@ -8350,9 +8335,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         aria-expanded="true"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
+                        id="test-id-parent 1"
                         role="treeitem"
                       >
                         <span
@@ -8394,9 +8382,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-expanded="true"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                         draggable="false"
+                        id="test-id-parent 1-0"
                         role="treeitem"
                       >
                         <span
@@ -8442,9 +8433,11 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        aria-expanded="false"
+                        aria-disabled="false"
+                        aria-selected="true"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-selected ant-select-tree-treenode-leaf"
                         draggable="false"
+                        id="test-id-leaf1"
                         role="treeitem"
                       >
                         <span
@@ -8473,9 +8466,11 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        aria-expanded="false"
+                        aria-disabled="false"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                         draggable="false"
+                        id="test-id-leaf2"
                         role="treeitem"
                       >
                         <span
@@ -8504,9 +8499,12 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-expanded="true"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
+                        id="test-id-parent 1-1"
                         role="treeitem"
                       >
                         <span
@@ -8552,9 +8550,11 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         </span>
                       </div>
                       <div
-                        aria-expanded="false"
+                        aria-disabled="false"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                         draggable="false"
+                        id="test-id-leaf3"
                         role="treeitem"
                       >
                         <span
@@ -8912,7 +8912,6 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="HEX"
                       >
                         HEX
@@ -9270,6 +9269,38 @@ exports[`renders components/space/demo/compact-button-vertical.tsx extend contex
       </button>
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
+        type="button"
+      >
+        <span>
+          Button 3
+        </span>
+      </button>
+    </div>
+  </div>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-space-compact ant-space-compact-vertical"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-first-item"
+        type="button"
+      >
+        <span>
+          Button 1
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item"
+        type="button"
+      >
+        <span>
+          Button 2
+        </span>
+      </button>
+      <button
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined ant-btn-compact-vertical-item ant-btn-compact-vertical-last-item"
         type="button"
       >
         <span>
@@ -10383,7 +10414,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title="http://"
                 >
                   http://
@@ -10520,7 +10550,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility: visible;"
                   title=".com"
                 >
                   .com
@@ -12375,7 +12404,6 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Sign Up"
           >
             Sign Up
@@ -13956,7 +13984,9 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
 `;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-space-compact ant-space-compact-block"
   >
@@ -14083,7 +14113,6 @@ Array [
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="Opt1"
             >
               Opt1
@@ -14305,8 +14334,7 @@ Array [
         </button>
       </div>
     </div>
-  </div>,
-  <br />,
+  </div>
   <div
     class="ant-space-compact ant-space-compact-block"
   >
@@ -15879,6 +15907,22 @@ Array [
         </span>
       </button>
     </div>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        ~
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        ~
+      </span>
+    </button>
     <div
       class="ant-space-compact"
     >
@@ -16028,8 +16072,44 @@ Array [
         </span>
       </button>
     </div>
-  </div>,
-]
+  </div>
+  <div
+    class="ant-space-compact"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-first-item"
+      type="button"
+    >
+      <span>
+        Button 1
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 2
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-compact-item"
+      type="button"
+    >
+      <span>
+        Button 3
+      </span>
+    </button>
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-dangerous ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+      type="button"
+    >
+      <span>
+        Button 4
+      </span>
+    </button>
+  </div>
+</div>
 `;
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 2`] = `[]`;

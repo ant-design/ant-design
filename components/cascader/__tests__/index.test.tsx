@@ -207,6 +207,26 @@ describe('Cascader', () => {
     expect(getDropdown(container)).toMatchSnapshot();
   });
 
+  it('should render custom notFoundContent when search returns no results', () => {
+    const { container } = render(
+      <Cascader
+        options={options}
+        placeholder="Please select"
+        showSearch={{ filter }}
+        notFoundContent="no data"
+        optionRender={(option) => option?.label}
+      />,
+    );
+    fireEvent.change(container.querySelector('input')!, {
+      target: { value: '__notfoundkeyword__' },
+    });
+    const dropdown = getDropdown(container);
+    expect(dropdown).toBeTruthy();
+    const notFoundElement = dropdown?.querySelector('.ant-cascader-menu-item-content');
+    expect(notFoundElement?.textContent).toBe('no data');
+    expect(dropdown).toMatchSnapshot();
+  });
+
   it('should support to clear selection', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
