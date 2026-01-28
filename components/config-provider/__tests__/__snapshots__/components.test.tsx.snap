@@ -40177,6 +40177,14 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
   <div
     class="config-tree config-tree-icon-hide css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40194,7 +40202,6 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
       class="config-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="config-tree-list-holder"
@@ -40205,11 +40212,9 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40238,6 +40243,14 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
   <div
     class="config-tree config-tree-block-node config-tree-directory css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40255,7 +40268,6 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
       class="config-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="config-tree-list-holder"
@@ -40266,11 +40278,9 @@ exports[`ConfigProvider components Tree configProvider 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40327,6 +40337,15 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
   <div
     class="config-tree config-tree-icon-hide config-tree-disabled css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        disabled=""
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40354,10 +40373,9 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="true"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-disabled config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40386,6 +40404,15 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
   <div
     class="config-tree config-tree-block-node config-tree-disabled config-tree-directory css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        disabled=""
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40413,10 +40440,9 @@ exports[`ConfigProvider components Tree configProvider componentDisabled 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="true"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-disabled config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40473,6 +40499,14 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
   <div
     class="config-tree config-tree-icon-hide css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40490,7 +40524,6 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
       class="config-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="config-tree-list-holder"
@@ -40501,11 +40534,9 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40534,6 +40565,14 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
   <div
     class="config-tree config-tree-block-node config-tree-directory css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40551,7 +40590,6 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
       class="config-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="config-tree-list-holder"
@@ -40562,11 +40600,9 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40623,6 +40659,14 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
   <div
     class="config-tree config-tree-icon-hide css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40640,7 +40684,6 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
       class="config-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="config-tree-list-holder"
@@ -40651,11 +40694,9 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40684,6 +40725,14 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
   <div
     class="config-tree config-tree-block-node config-tree-directory css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40701,7 +40750,6 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
       class="config-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="config-tree-list-holder"
@@ -40712,11 +40760,9 @@ exports[`ConfigProvider components Tree configProvider componentSize middle 1`] 
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40773,6 +40819,14 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
   <div
     class="config-tree config-tree-icon-hide css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40790,7 +40844,6 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
       class="config-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="config-tree-list-holder"
@@ -40801,11 +40854,9 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40834,6 +40885,14 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
   <div
     class="config-tree config-tree-block-node config-tree-directory css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="config-tree-treenode"
@@ -40851,7 +40910,6 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
       class="config-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="config-tree-list-holder"
@@ -40862,11 +40920,9 @@ exports[`ConfigProvider components Tree configProvider componentSize small 1`] =
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="config-tree-treenode config-tree-treenode-switcher-close config-tree-treenode-leaf-last config-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40923,6 +40979,14 @@ exports[`ConfigProvider components Tree normal 1`] = `
   <div
     class="ant-tree ant-tree-icon-hide css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
@@ -40940,7 +41004,6 @@ exports[`ConfigProvider components Tree normal 1`] = `
       class="ant-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="ant-tree-list-holder"
@@ -40951,11 +41014,9 @@ exports[`ConfigProvider components Tree normal 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -40984,6 +41045,14 @@ exports[`ConfigProvider components Tree normal 1`] = `
   <div
     class="ant-tree ant-tree-block-node ant-tree-directory css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="ant-tree-treenode"
@@ -41001,7 +41070,6 @@ exports[`ConfigProvider components Tree normal 1`] = `
       class="ant-tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="ant-tree-list-holder"
@@ -41012,11 +41080,9 @@ exports[`ConfigProvider components Tree normal 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -41073,6 +41139,14 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
   <div
     class="prefix-Tree prefix-Tree-icon-hide css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="prefix-Tree-treenode"
@@ -41090,7 +41164,6 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
       class="prefix-Tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="prefix-Tree-list-holder"
@@ -41101,11 +41174,9 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last prefix-Tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span
@@ -41134,6 +41205,14 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
   <div
     class="prefix-Tree prefix-Tree-block-node prefix-Tree-directory css-var-root"
   >
+    <div>
+      <input
+        aria-label="for screen reader"
+        style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+        tabindex="0"
+        value=""
+      />
+    </div>
     <div
       aria-hidden="true"
       class="prefix-Tree-treenode"
@@ -41151,7 +41230,6 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
       class="prefix-Tree-list"
       role="tree"
       style="position: relative;"
-      tabindex="0"
     >
       <div
         class="prefix-Tree-list-holder"
@@ -41162,11 +41240,9 @@ exports[`ConfigProvider components Tree prefixCls 1`] = `
             style="display: flex; flex-direction: column;"
           >
             <div
-              aria-disabled="false"
-              aria-selected="false"
+              aria-expanded="false"
               class="prefix-Tree-treenode prefix-Tree-treenode-switcher-close prefix-Tree-treenode-leaf-last prefix-Tree-treenode-leaf"
               draggable="false"
-              id="test-id-0-0"
               role="treeitem"
             >
               <span

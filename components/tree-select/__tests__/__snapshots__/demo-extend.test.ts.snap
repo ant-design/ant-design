@@ -61,6 +61,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -89,12 +97,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
-                    id="test-id-1"
                     role="treeitem"
                   >
                     <span
@@ -136,12 +141,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
-                    id="test-id-2"
                     role="treeitem"
                   >
                     <span
@@ -183,11 +185,8 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-3"
                     role="treeitem"
                   >
                     <span
@@ -281,6 +280,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -309,12 +316,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -356,12 +360,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -407,11 +408,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -440,11 +439,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -473,11 +470,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf3"
                     role="treeitem"
                   >
                     <span
@@ -506,11 +501,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf4"
                     role="treeitem"
                   >
                     <span
@@ -539,11 +532,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf5"
                     role="treeitem"
                   >
                     <span
@@ -572,11 +563,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf6"
                     role="treeitem"
                   >
                     <span
@@ -605,12 +594,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -656,11 +642,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf11"
                     role="treeitem"
                   >
                     <span
@@ -808,6 +792,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -836,13 +828,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-checked="true"
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-checkbox-checked"
                     draggable="false"
-                    id="test-id-0-0"
                     role="treeitem"
                   >
                     <span
@@ -874,7 +862,7 @@ Array [
                     </span>
                     <span
                       aria-checked="true"
-                      aria-labelledby="test-id-0-0"
+                      aria-label="Select Node1"
                       class="ant-select-tree-checkbox ant-select-tree-checkbox-checked"
                       role="checkbox"
                     >
@@ -894,13 +882,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-checked="false"
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-0-1"
                     role="treeitem"
                   >
                     <span
@@ -932,7 +916,7 @@ Array [
                     </span>
                     <span
                       aria-checked="false"
-                      aria-labelledby="test-id-0-1"
+                      aria-label="Select Node2"
                       class="ant-select-tree-checkbox"
                       role="checkbox"
                     >
@@ -1070,6 +1054,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -1098,13 +1090,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-checked="mixed"
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-checkbox-indeterminate"
                     draggable="false"
-                    id="test-id-parent1"
                     role="treeitem"
                   >
                     <span
@@ -1136,7 +1124,7 @@ Array [
                     </span>
                     <span
                       aria-checked="mixed"
-                      aria-labelledby="test-id-parent1"
+                      aria-label="Select Parent 1"
                       class="ant-select-tree-checkbox ant-select-tree-checkbox-indeterminate"
                       role="checkbox"
                     >
@@ -1156,13 +1144,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-checked="false"
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent2"
                     role="treeitem"
                   >
                     <span
@@ -1194,7 +1178,7 @@ Array [
                     </span>
                     <span
                       aria-checked="false"
-                      aria-labelledby="test-id-parent2"
+                      aria-label="Select Parent 2"
                       class="ant-select-tree-checkbox"
                       role="checkbox"
                     >
@@ -1301,6 +1285,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -1329,13 +1321,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-checked="false"
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
-                    id="test-id-0-0"
                     role="treeitem"
                   >
                     <span
@@ -1367,7 +1355,7 @@ Array [
                     </span>
                     <span
                       aria-checked="false"
-                      aria-labelledby="test-id-0-0"
+                      aria-label="Select Node1"
                       class="ant-select-tree-checkbox"
                       role="checkbox"
                     >
@@ -1387,13 +1375,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-checked="false"
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-0-1"
                     role="treeitem"
                   >
                     <span
@@ -1425,7 +1409,7 @@ Array [
                     </span>
                     <span
                       aria-checked="false"
-                      aria-labelledby="test-id-0-1"
+                      aria-label="Select Node2"
                       class="ant-select-tree-checkbox"
                       role="checkbox"
                     >
@@ -1528,6 +1512,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -1556,12 +1548,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -1603,12 +1592,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -1654,11 +1640,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -1687,11 +1671,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -1720,12 +1702,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -1771,11 +1750,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-sss"
                     role="treeitem"
                   >
                     <span
@@ -1975,6 +1952,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -2003,12 +1988,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -2050,12 +2032,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -2101,11 +2080,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -2134,11 +2111,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -2167,12 +2142,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -2218,11 +2190,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf3"
                     role="treeitem"
                   >
                     <span
@@ -2330,8 +2300,16 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
     <div>
       <div>
         <div
-          class="ant-select-tree"
+          class="ant-select-tree ant-select-tree-active-focused"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -2360,12 +2338,9 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close"
                     draggable="false"
-                    id="test-id-0-0"
                     role="treeitem"
                   >
                     <span
@@ -2407,11 +2382,9 @@ exports[`renders components/tree-select/demo/render-panel.tsx extend context cor
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-0-1"
                     role="treeitem"
                   >
                     <span
@@ -2758,6 +2731,14 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -2786,12 +2767,9 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -2899,6 +2877,14 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -2927,12 +2913,9 @@ exports[`renders components/tree-select/demo/style-class.tsx extend context corr
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="false"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1"
                     role="treeitem"
                     style="color: rgb(114, 46, 209);"
                   >
@@ -3047,6 +3030,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -3075,12 +3066,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -3122,12 +3110,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -3173,11 +3158,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -3206,11 +3189,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -3239,12 +3220,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -3290,11 +3268,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-sss"
                     role="treeitem"
                   >
                     <span
@@ -3399,6 +3375,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -3427,12 +3411,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1"
                     role="treeitem"
                   >
                     <span
@@ -3474,12 +3455,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="test-id-parent 1-0"
                     role="treeitem"
                   >
                     <span
@@ -3525,11 +3503,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf1"
                     role="treeitem"
                   >
                     <span
@@ -3558,11 +3534,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-leaf2"
                     role="treeitem"
                   >
                     <span
@@ -3591,12 +3565,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                     draggable="false"
-                    id="test-id-parent 1-1"
                     role="treeitem"
                   >
                     <span
@@ -3642,11 +3613,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-sss"
                     role="treeitem"
                   >
                     <span
@@ -3752,6 +3721,14 @@ Array [
         <div
           class="ant-select-tree"
         >
+          <div>
+            <input
+              aria-label="for screen reader"
+              disabled=""
+              style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+              value=""
+            />
+          </div>
           <div
             aria-hidden="true"
             class="ant-select-tree-treenode"
@@ -3780,12 +3757,9 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
-                    aria-disabled="false"
                     aria-expanded="true"
-                    aria-selected="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                     draggable="false"
-                    id="test-id-0-0"
                     role="treeitem"
                   >
                     <span
@@ -3827,11 +3801,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-0-0-1"
                     role="treeitem"
                   >
                     <span
@@ -3857,11 +3829,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-0-0-2"
                     role="treeitem"
                   >
                     <span
@@ -3887,11 +3857,9 @@ Array [
                     </span>
                   </div>
                   <div
-                    aria-disabled="false"
-                    aria-selected="false"
+                    aria-expanded="false"
                     class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                     draggable="false"
-                    id="test-id-0-1"
                     role="treeitem"
                   >
                     <span
@@ -4073,6 +4041,14 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
           <div
             class="ant-select-tree ant-select-tree-show-line"
           >
+            <div>
+              <input
+                aria-label="for screen reader"
+                disabled=""
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+                value=""
+              />
+            </div>
             <div
               aria-hidden="true"
               class="ant-select-tree-treenode"
@@ -4101,12 +4077,9 @@ exports[`renders components/tree-select/demo/treeLine.tsx extend context correct
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-disabled="false"
                       aria-expanded="false"
-                      aria-selected="false"
                       class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last"
                       draggable="false"
-                      id="test-id-parent 1"
                       role="treeitem"
                     >
                       <span
