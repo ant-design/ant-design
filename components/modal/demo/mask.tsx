@@ -21,7 +21,7 @@ const App: React.FC = () => {
         </Button>
         <Button
           onClick={() => {
-            modal.confirm({ ...modalConfig });
+            modal.confirm(modalConfig);
           }}
         >
           Dimmed mask
