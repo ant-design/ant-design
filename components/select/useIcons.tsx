@@ -10,12 +10,6 @@ import SearchOutlined from '@ant-design/icons/SearchOutlined';
 import { devUseWarning } from '../_util/warning';
 import fallbackProp from '../_util/fallbackProp';
 
-const defaultClearIcon = <CloseCircleFilled />;
-const defaultRemoveIcon = <CloseOutlined />;
-const defaultSuffixIcon = <DownOutlined />;
-const defaultLoadingIcon = <LoadingOutlined spin />;
-const defaultSearchIcon = <SearchOutlined />;
-
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
 export default function useIcons({
@@ -63,7 +57,7 @@ export default function useIcons({
   }
 
   // Clear Icon
-  const mergedClearIcon = fallbackProp(clearIcon, contextClearIcon, defaultClearIcon);
+  const mergedClearIcon = fallbackProp(clearIcon, contextClearIcon, <CloseCircleFilled />);
 
   // Validation Feedback Icon
   const getSuffixIconNode = (arrowIcon?: ReactNode) => {
@@ -83,13 +77,13 @@ export default function useIcons({
   if (suffixIcon !== undefined) {
     mergedSuffixIcon = getSuffixIconNode(suffixIcon);
   } else if (loading) {
-    mergedSuffixIcon = getSuffixIconNode(fallbackProp(loadingIcon, defaultLoadingIcon));
+    mergedSuffixIcon = getSuffixIconNode(fallbackProp(loadingIcon, <LoadingOutlined spin />));
   } else {
     mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
       if (open && showSearch) {
-        return getSuffixIconNode(fallbackProp(searchIcon, contextSearchIcon, defaultSearchIcon));
+        return getSuffixIconNode(fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined />));
       }
-      return getSuffixIconNode(fallbackProp(contextSuffixIcon, defaultSuffixIcon));
+      return getSuffixIconNode(fallbackProp(contextSuffixIcon, <DownOutlined />));
     };
   }
 
@@ -103,10 +97,9 @@ export default function useIcons({
     mergedItemIcon = null;
   }
 
-  const mergedRemoveIcon = fallbackProp(removeIcon, contextRemoveIcon, defaultRemoveIcon);
+  const mergedRemoveIcon = fallbackProp(removeIcon, contextRemoveIcon, <CloseOutlined />);
 
   return {
-    // TODO: remove as when all the deps bumped
     clearIcon: mergedClearIcon,
     suffixIcon: mergedSuffixIcon,
     itemIcon: mergedItemIcon,
