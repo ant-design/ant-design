@@ -6,13 +6,13 @@ const App: React.FC = () => {
     <Space>
       <Image
         width={100}
-        alt="Default blur"
+        alt="blur"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         preview={{
           mask: true,
           cover: (
             <Space vertical align="center">
-              Default blur
+              blur
             </Space>
           ),
         }}

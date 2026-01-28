@@ -9,7 +9,7 @@ type DrawerConfig = {
 };
 
 const drawerList: DrawerConfig[] = [
-  { type: 'blur', mask: true, title: 'Default blur' },
+  { type: 'blur', mask: true, title: 'blur' },
   { type: 'dimmed', mask: { blur: false }, title: 'Dimmed mask' },
   { type: 'none', mask: false, title: 'No mask' },
 ];

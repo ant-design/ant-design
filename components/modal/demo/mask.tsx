@@ -17,7 +17,7 @@ const App: React.FC = () => {
             modal.confirm({ ...modalConfig });
           }}
         >
-          Default blur
+          blur
         </Button>
         <Button
           onClick={() => {
