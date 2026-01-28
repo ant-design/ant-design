@@ -150,11 +150,10 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
 
   const onInternalChange = useEvent((event) => {
     setInnerChecked(event.target.checked);
+    onChange?.(event);
 
     if (!skipGroup && checkboxGroup?.toggleOption) {
       checkboxGroup.toggleOption({ label: children, value });
-    } else {
-      onChange?.(event);
     }
   });
 
@@ -163,9 +162,18 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     mergedChecked = checkboxGroup.value.includes(value);
   }
 
-  const prevValue = React.useRef(null);
+  const prevValue = React.useRef(value);
   const checkboxRef = React.useRef<CheckboxRef>(null);
   const mergedRef = useComposeRef(ref, checkboxRef);
+
+  React.useEffect(() => {
+    if (skipGroup || !checkboxGroup) {
+      return;
+    }
+
+    checkboxGroup.registerValue(value);
+    return () => checkboxGroup.cancelValue(value);
+  }, [value]);
 
   React.useEffect(() => {
     if (skipGroup || !checkboxGroup) {
