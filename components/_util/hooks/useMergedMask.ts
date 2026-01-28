@@ -13,7 +13,7 @@ const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
   if (typeof mask === 'boolean') {
     return {
       enabled: mask,
-      blur: mask,
+      blur: false,
     };
   }
   return {};

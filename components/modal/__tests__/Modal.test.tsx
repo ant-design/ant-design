@@ -366,11 +366,11 @@ describe('Modal', () => {
       openMask?: boolean,
     ][] = [
       // Format: [modalMask, configMask,  expectedBlurClass, openMask]
-      [undefined, true, true, true],
-      [true, undefined, true, true],
+      [undefined, true, false, true],
+      [true, undefined, false, true],
       [undefined, undefined, false, true],
       [false, true, false, false],
-      [true, false, true, true],
+      [true, false, false, true],
       [{ enabled: false }, { blur: true }, true, false],
       [{ enabled: true }, { blur: false }, false, true],
       [{ blur: true }, { enabled: false }, true, false],

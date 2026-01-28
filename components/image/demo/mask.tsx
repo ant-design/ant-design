@@ -9,7 +9,7 @@ const App: React.FC = () => {
         alt="blur"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         preview={{
-          mask: true,
+          mask: { blur: true },
           cover: (
             <Space vertical align="center">
               blur
@@ -22,7 +22,6 @@ const App: React.FC = () => {
         width={100}
         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
         preview={{
-          mask: { blur: false },
           cover: (
             <Space vertical align="center">
               Dimmed mask

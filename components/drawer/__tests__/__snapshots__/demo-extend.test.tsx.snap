@@ -2964,7 +2964,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
                 class="ant-drawer-title"
                 id="test-id"
               >
-                Drawer blur
+                blur
               </div>
             </div>
           </div>
@@ -3053,7 +3053,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
                 class="ant-drawer-title"
                 id="test-id"
               >
-                Drawer blur
+                Dimmed mask
               </div>
             </div>
           </div>
@@ -3139,7 +3139,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
                 class="ant-drawer-title"
                 id="test-id"
               >
-                Drawer blur
+                No mask
               </div>
             </div>
           </div>
