@@ -8550,7 +8550,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8579,7 +8579,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8608,7 +8608,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8637,7 +8637,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8666,7 +8666,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8695,7 +8695,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8724,7 +8724,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8753,7 +8753,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8782,7 +8782,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -8811,7 +8811,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>

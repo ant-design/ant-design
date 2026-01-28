@@ -28,6 +28,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/ellipsis-debug.tsx" debug>省略号 Debug</code>
 <code src="./demo/suffix.tsx">后缀</code>
 <code src="./demo/componentToken-debug.tsx" debug>组件 Token</code>
+<code src="./demo/link-danger-debug.tsx" debug>Link danger Debug</code>
 
 ## API
 

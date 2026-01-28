@@ -964,6 +964,18 @@ exports[`renders components/button/demo/debug-color-variant.tsx correctly 1`] = 
       </span>
     </button>
   </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        default button token
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
