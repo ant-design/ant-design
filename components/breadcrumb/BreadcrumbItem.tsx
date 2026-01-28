@@ -1,5 +1,5 @@
 import * as React from 'react';
-import DownOutlined from '@ant-design/icons/DownOutlined';
+import { clsx } from 'clsx';
 
 import isNonNullable from '../_util/isNonNullable';
 import { ConfigContext } from '../config-provider';
@@ -16,6 +16,7 @@ export interface SeparatorType {
 }
 
 type MenuType = NonNullable<DropdownProps['menu']>;
+
 interface MenuItem {
   key?: React.Key;
   title?: React.ReactNode;
@@ -31,6 +32,7 @@ export interface BreadcrumbItemProps extends SeparatorType {
     items?: MenuItem[];
   };
   dropdownProps?: DropdownProps;
+  dropdownIcon?: React.ReactNode;
   onClick?: React.MouseEventHandler<HTMLAnchorElement | HTMLSpanElement>;
   className?: string;
   style?: React.CSSProperties;
@@ -38,7 +40,7 @@ export interface BreadcrumbItemProps extends SeparatorType {
 }
 
 export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => {
-  const { prefixCls, separator = '/', children, menu, dropdownProps, href } = props;
+  const { prefixCls, separator = '/', children, menu, dropdownProps, href, dropdownIcon } = props;
   const breadcrumbContext = React.useContext(BreadcrumbContext);
   const { classNames: mergedClassNames, styles: mergedStyles } = breadcrumbContext;
   /** If overlay is have Wrap a Dropdown */
@@ -72,7 +74,7 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
         <Dropdown placement="bottom" {...mergeDropDownProps}>
           <span className={`${prefixCls}-overlay-link`}>
             {breadcrumbItem}
-            <DownOutlined />
+            {dropdownIcon}
           </span>
         </Dropdown>
       );
@@ -86,7 +88,10 @@ export const InternalBreadcrumbItem: React.FC<BreadcrumbItemProps> = (props) => 
   if (isNonNullable(link)) {
     return (
       <>
-        <li className={mergedClassNames?.item} style={mergedStyles?.item}>
+        <li
+          className={clsx(`${prefixCls}-item`, mergedClassNames?.item)}
+          style={mergedStyles?.item}
+        >
           {link}
         </li>
         {separator && <BreadcrumbSeparator>{separator}</BreadcrumbSeparator>}

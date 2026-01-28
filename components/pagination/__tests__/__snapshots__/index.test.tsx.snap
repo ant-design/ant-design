@@ -128,7 +128,7 @@ exports[`Pagination ConfigProvider should be rendered correctly in RTL 1`] = `
 
 exports[`Pagination ConfigProvider should be rendered correctly when componentSize is large 1`] = `
 <ul
-  class="ant-pagination css-var-root"
+  class="ant-pagination ant-pagination-large css-var-root"
 >
   <li
     aria-disabled="true"
@@ -253,15 +253,13 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
     class="ant-pagination-options"
   >
     <div
-      aria-label="Page Size"
-      class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+      class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
         class="ant-select-content"
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="10 / page"
         >
           10 / page

@@ -34,6 +34,19 @@ const genRadiusStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           borderStartStartRadius: tableRadius,
           borderStartEndRadius: tableRadius,
 
+          '&::before': {
+            borderStartStartRadius: tableRadius,
+          },
+
+          '&::after': {
+            borderStartEndRadius: tableRadius,
+          },
+
+          [`> ${componentCls}-content`]: {
+            borderStartStartRadius: tableRadius,
+            borderStartEndRadius: tableRadius,
+          },
+
           'table > thead > tr:first-child': {
             '> *:first-child': {
               borderStartStartRadius: tableRadius,

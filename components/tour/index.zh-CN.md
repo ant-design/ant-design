@@ -8,7 +8,6 @@ cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*NMvqRZpuJfQAAAAAAA
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*D70qQJJmzhgAAAAAAAAAAAAADrJ8AQ/original
 demo:
   cols: 2
-tag: 5.0.0
 ---
 
 ## 何时使用 {#when-to-use}
@@ -41,6 +40,7 @@ tag: 5.0.0
 | closeIcon | 自定义关闭按钮 | `React.ReactNode` | `true` | 5.9.0 |
 | disabledInteraction | 禁用高亮区域交互 | `boolean` | `false` | 5.13.0 |
 | gap | 控制高亮区域的圆角边框和显示间距 | `{ offset?: number \| [number, number]; radius?: number }` | `{ offset?: 6 ; radius?: 2 }` | 5.0.0 (数组类型的 `offset`: 5.9.0 ) |
+| keyboard | 是否启用键盘快捷行为 | boolean | true | 6.2.0 |
 | placement | 引导卡片相对于目标元素的位置 | `center` `left` `leftTop` `leftBottom` `right` `rightTop` `rightBottom` `top` `topLeft` `topRight` `bottom` `bottomLeft` `bottomRight` | `bottom` |  |
 | onClose | 关闭引导时的回调函数 | `Function` | - |  |
 | onFinish | 引导完成时的回调 | `Function` | - |  |

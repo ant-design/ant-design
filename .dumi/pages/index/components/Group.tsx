@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Typography } from 'antd';
-import { createStyles, useTheme } from 'antd-style';
+import { createStaticStyles, useTheme } from 'antd-style';
 import { clsx } from 'clsx';
 
 import SiteContext from '../../../theme/slots/SiteContext';
 import GroupMaskLayer from './GroupMaskLayer';
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   box: css`
     position: relative;
     transition: all ${cssVar.motionDurationSlow};
@@ -46,7 +46,6 @@ export interface GroupProps {
 const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
   const { id, title, titleColor, description, children, decoration, background, collapse } = props;
   const token = useTheme();
-  const { styles } = useStyle();
   const { isMobile } = React.use(SiteContext);
   return (
     <div style={{ backgroundColor: background }} className={styles.box}>

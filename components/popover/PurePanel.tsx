@@ -5,12 +5,12 @@ import { clsx } from 'clsx';
 import type {
   PopoverClassNamesType,
   PopoverProps,
-  PopoverSemanticName,
+  PopoverSemanticClassNames,
+  PopoverSemanticStyles,
   PopoverStylesType,
 } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
@@ -18,8 +18,8 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  classNames?: SemanticClassNames<PopoverSemanticName>;
-  styles?: SemanticStyles<PopoverSemanticName>;
+  classNames?: PopoverSemanticClassNames;
+  styles?: PopoverSemanticStyles;
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {

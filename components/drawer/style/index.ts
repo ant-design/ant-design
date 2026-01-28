@@ -77,6 +77,7 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
         background: colorBgElevated,
         display: 'flex',
         flexDirection: 'column',
+        pointerEvents: 'auto',
 
         [`&${componentCls}-left`]: {
           boxShadow: token.boxShadowDrawerLeft,
@@ -277,7 +278,10 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       [`${draggerCls}-left`]: {
         top: 0,
         bottom: 0,
-        insetInlineEnd: 0,
+        right: {
+          _skip_check_: true,
+          value: 0,
+        },
         width: draggerSize,
         cursor: 'col-resize',
       },
@@ -285,7 +289,10 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       [`${draggerCls}-right`]: {
         top: 0,
         bottom: 0,
-        insetInlineStart: 0,
+        left: {
+          _skip_check_: true,
+          value: 0,
+        },
         width: draggerSize,
         cursor: 'col-resize',
       },

@@ -9,6 +9,8 @@ const compileModules = [
   '@rc-component',
   // jsdom 27+ depends on ESM parse5, need transform
   'parse5',
+  '@exodus',
+  'jsdom',
 ];
 
 // cnpm use `_` as prefix
@@ -46,7 +48,14 @@ module.exports = {
     '^antd/lib/(.*)$': '<rootDir>/components/$1',
     '^antd/locale/(.*)$': '<rootDir>/components/locale/$1',
   },
-  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    'dekko',
+    'node',
+    'image.test.js',
+    'image.test.ts',
+    'demo-semantic.test',
+  ],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
@@ -62,6 +71,7 @@ module.exports = {
     '!components/*/__tests__/type.test.tsx',
     '!components/**/*/interface.{ts,tsx}',
     '!components/*/__tests__/image.test.{ts,tsx}',
+    '!components/*/__tests__/demo-semantic.test.tsx',
     '!components/__tests__/node.test.tsx',
     '!components/*/demo/*.tsx',
     '!components/*/design/**',

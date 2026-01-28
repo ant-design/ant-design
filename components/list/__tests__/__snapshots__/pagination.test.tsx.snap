@@ -310,7 +310,6 @@ exports[`List.pagination should default work 1`] = `
     class="ant-pagination-options"
   >
     <div
-      aria-label="Page Size"
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
@@ -318,7 +317,6 @@ exports[`List.pagination should default work 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="3 / page"
         >
           3 / page

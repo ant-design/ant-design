@@ -660,7 +660,7 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-filled css-var-test-id"
-        style="background-color:#e8f6fd;color:#2db7f5"
+        style="background-color:#e7f6fe;color:#2db7f5"
       >
         #2db7f5
       </span>
@@ -672,7 +672,7 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-filled css-var-test-id"
-        style="background-color:#e6f4fe;color:#108ee9"
+        style="background-color:#e7f4fd;color:#108ee9"
       >
         #108ee9
       </span>
@@ -760,7 +760,7 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-outlined css-var-test-id"
-        style="background-color:#e8f6fd;color:#2db7f5;border-color:#2db7f5"
+        style="background-color:#e7f6fe;color:#2db7f5;border-color:#2db7f5"
       >
         #2db7f5
       </span>
@@ -772,7 +772,7 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-outlined css-var-test-id"
-        style="background-color:#e6f4fe;color:#108ee9;border-color:#108ee9"
+        style="background-color:#e7f4fd;color:#108ee9;border-color:#108ee9"
       >
         #108ee9
       </span>
@@ -1260,7 +1260,7 @@ Array [
   >
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
-      style="background-color:#eaf3fa;color:#55acee"
+      style="background-color:#e8f4fd;color:#55acee"
     >
       <span
         aria-label="twitter"
@@ -1287,7 +1287,7 @@ Array [
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
-      style="background-color:#fde7e7;color:#cd201f"
+      style="background-color:#fce9e9;color:#cd201f"
     >
       <span
         aria-label="youtube"
@@ -1314,7 +1314,7 @@ Array [
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
-      style="background-color:#eaeffa;color:#3b5999"
+      style="background-color:#edf0f8;color:#3b5999"
     >
       <span
         aria-label="facebook"
@@ -1341,7 +1341,7 @@ Array [
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
-      style="background-color:#eaf3fa;color:#55acee"
+      style="background-color:#e8f4fd;color:#55acee"
     >
       <span
         aria-label="linkedin"
@@ -2008,7 +2008,7 @@ exports[`renders components/tag/demo/style-class.tsx correctly 1`] = `
       class="ant-flex css-var-test-id ant-flex-gap-middle"
     >
       <span
-        class="ant-tag acss-eq4848 ant-tag-filled css-var-test-id"
+        class="ant-tag acss-1cdgefp ant-tag-filled css-var-test-id"
         style="background-color:#e6f7ff"
       >
         <span
@@ -2041,7 +2041,7 @@ exports[`renders components/tag/demo/style-class.tsx correctly 1`] = `
         </span>
       </span>
       <span
-        class="ant-tag acss-eq4848 ant-tag-filled css-var-test-id"
+        class="ant-tag acss-1cdgefp ant-tag-filled css-var-test-id"
         style="background-color:#F5EFFF"
       >
         <span
@@ -2080,7 +2080,7 @@ exports[`renders components/tag/demo/style-class.tsx correctly 1`] = `
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
     >
       <div
-        class="ant-tag-checkable-group css-var-test-id acss-eq4848"
+        class="ant-tag-checkable-group css-var-test-id acss-1cdgefp"
         style="gap:12px;padding:8px 12px;background-color:rgba(82, 196, 26, 0.08);border-radius:8px"
       >
         <span
@@ -2109,7 +2109,7 @@ exports[`renders components/tag/demo/style-class.tsx correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-tag-checkable-group css-var-test-id acss-eq4848"
+        class="ant-tag-checkable-group css-var-test-id acss-1cdgefp"
         style="gap:16px;padding:8px 12px;background-color:rgba(143, 135, 241, 0.08);border-radius:8px"
       >
         <span

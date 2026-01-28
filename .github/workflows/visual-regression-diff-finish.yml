@@ -14,7 +14,7 @@ permissions:
 jobs:
   upstream-workflow-summary:
     name: upstream workflow summary
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     outputs:
       jobs: ${{ steps.visual_diff_build_job_status.outputs.result }}
       upstream-job-link: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}/job/${{ steps.visual_diff_build_job_status.outputs.job-id }}
@@ -62,7 +62,7 @@ jobs:
       issues: write  # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
       statuses: write
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: [upstream-workflow-summary]
     steps:
       - uses: actions/checkout@v6
@@ -70,7 +70,7 @@ jobs:
 
       # We need get persist-index first
       - name: download image snapshot artifact
-        uses: dawidd6/action-download-artifact@v11
+        uses: dawidd6/action-download-artifact@v12
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -92,7 +92,7 @@ jobs:
       - name: download report artifact
         id: download_report
         if: ${{ needs.upstream-workflow-summary.outputs.build-status == 'success' || needs.upstream-workflow-summary.outputs.build-status == 'failure' }}
-        uses: dawidd6/action-download-artifact@v11
+        uses: dawidd6/action-download-artifact@v12
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}

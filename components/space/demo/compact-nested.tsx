@@ -1,9 +1,9 @@
 import React from 'react';
 import { CopyOutlined, SearchOutlined } from '@ant-design/icons';
-import { Button, Cascader, Input, InputNumber, Select, Space, TimePicker } from 'antd';
+import { Button, Cascader, Flex, Input, InputNumber, Select, Space, TimePicker } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Flex vertical gap="middle">
     <Space.Compact block>
       <Space.Compact>
         <Space.Compact>
@@ -33,12 +33,14 @@ const App: React.FC = () => (
         </Space.Compact>
       </Space.Compact>
     </Space.Compact>
-    <br />
+
     <Space.Compact block>
       <Space.Compact>
         <TimePicker />
         <Button type="primary">Submit</Button>
       </Space.Compact>
+      <Button type="primary">~</Button>
+      <Button type="primary">~</Button>
       <Space.Compact>
         <Cascader
           options={[
@@ -80,7 +82,22 @@ const App: React.FC = () => (
         <Button type="primary">Submit</Button>
       </Space.Compact>
     </Space.Compact>
-  </>
+
+    <Space.Compact>
+      <Button color="default" variant="solid">
+        Button 1
+      </Button>
+      <Button color="default" variant="solid">
+        Button 2
+      </Button>
+      <Button color="danger" variant="solid">
+        Button 3
+      </Button>
+      <Button color="danger" variant="solid">
+        Button 4
+      </Button>
+    </Space.Compact>
+  </Flex>
 );
 
 export default App;

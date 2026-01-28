@@ -22,7 +22,7 @@ jobs:
     strategy:
       matrix:
         shard: [1/2, 2/2]
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v6
       - uses: utooland/setup-utoo@v1
@@ -37,7 +37,7 @@ jobs:
         env:
           NODE_OPTIONS: --max_old_space_size=4096
 
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v4
         name: artifact snapshot
         with:
           name: snapshot-artifacts-${{ strategy.job-index }}
@@ -47,7 +47,7 @@ jobs:
   ############################### Diff Images ##############################
   visual-diff-report:
     name: visual-diff report
-    runs-on: ubuntu-latest
+    runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: visual-diff-snapshot
     steps:
       - uses: actions/checkout@v6
@@ -71,7 +71,7 @@ jobs:
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         if: ${{ always() }}
         with:
           name: visual-regression-report
@@ -85,7 +85,7 @@ jobs:
 
       - name: Upload persist key
         if: ${{ always() }}
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v4
         with:
           name: visual-regression-diff-ref
           path: ./visual-regression-pr-id.txt

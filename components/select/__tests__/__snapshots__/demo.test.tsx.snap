@@ -77,7 +77,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -132,7 +131,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -188,7 +186,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -243,7 +240,6 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -447,7 +443,6 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Zhejiang"
         >
           Zhejiang
@@ -502,7 +497,6 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Hangzhou"
         >
           Hangzhou
@@ -611,7 +605,6 @@ exports[`renders components/select/demo/custom-label-render.tsx correctly 1`] = 
   >
     <div
       class="ant-select-content-value"
-      style="visibility:visible"
     >
       <span>
         No option match
@@ -1126,7 +1119,6 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -1247,7 +1239,6 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -1393,7 +1384,6 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -1576,7 +1566,6 @@ exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility:visible"
       title="Lucy (101)"
     >
       Lucy (101)
@@ -1981,7 +1970,6 @@ exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility:visible"
       title="lucy"
     >
       lucy
@@ -2043,7 +2031,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="long, long, long piece of text"
           >
             long, long, long piece of text
@@ -2176,7 +2163,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
           >
             <div>
               normal
@@ -2802,7 +2788,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Bamboo"
           >
             Bamboo
@@ -2885,7 +2870,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Bamboo"
           >
             Bamboo
@@ -2993,7 +2977,6 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility:visible"
                         title="Bamboo"
                       >
                         Bamboo
@@ -3264,7 +3247,6 @@ Array [
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Bamboo"
         >
           Bamboo
@@ -3782,6 +3764,7 @@ exports[`renders components/select/demo/placement.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -3884,7 +3867,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility:visible"
         title="HangZhou #310000"
       >
         HangZhou #310000
@@ -3942,6 +3924,7 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
     >
       <div
         class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -4631,6 +4614,7 @@ exports[`renders components/select/demo/size.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -4718,7 +4702,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="a1"
           >
             a1
@@ -5154,7 +5137,7 @@ exports[`renders components/select/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-select ant-select-outlined acss-5u7vj1 css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-outlined acss-xqfhlq css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
   >
     <div
       class="ant-select-prefix"
@@ -5228,7 +5211,7 @@ exports[`renders components/select/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="ant-select ant-select-filled acss-5u7vj1 css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+    class="ant-select ant-select-filled acss-xqfhlq css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
   >
     <div
       class="ant-select-prefix"
@@ -5326,7 +5309,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -5404,7 +5386,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy
@@ -5459,7 +5440,6 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Lucy"
         >
           Lucy

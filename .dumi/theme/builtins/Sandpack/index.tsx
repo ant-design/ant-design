@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import type { SandpackSetup } from '@codesandbox/sandpack-react';
 import { Skeleton } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { useSearchParams } from 'dumi';
 
 import { version } from '../../../../package.json';
@@ -17,7 +17,7 @@ const root = createRoot(document.getElementById("root"));
 root.render(<App />);
 `;
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   fallback: css`
     width: 100%;
     > * {
@@ -32,7 +32,6 @@ const useStyle = createStyles(({ css, cssVar }) => ({
 }));
 
 const SandpackFallback: React.FC = () => {
-  const { styles } = useStyle();
   return (
     <div className={styles.fallback}>
       <Skeleton.Node active style={{ height: 500, width: '100%' }}>
@@ -83,6 +82,7 @@ const Sandpack: React.FC<React.PropsWithChildren<SandpackProps>> = (props) => {
       <OriginSandpack
         theme={searchParams.getAll('theme').includes('dark') ? 'dark' : undefined}
         customSetup={setup}
+        template="vite-react-ts"
         options={options}
         files={{
           'index.tsx': indexContent,

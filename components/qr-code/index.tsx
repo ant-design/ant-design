@@ -9,11 +9,29 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type { QRCodeClassNamesType, QRCodeProps, QRCodeStylesType, QRProps } from './interface';
+import type {
+  QRCodeClassNamesType,
+  QRCodeProps,
+  QRCodeSemanticClassNames,
+  QRCodeSemanticName,
+  QRCodeSemanticStyles,
+  QRCodeStylesType,
+  QRProps,
+  QRPropsCanvas,
+  QRPropsSvg,
+} from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
-export type { QRCodeProps, QRProps };
+export type {
+  QRCodeProps,
+  QRCodeSemanticClassNames,
+  QRCodeSemanticName,
+  QRCodeSemanticStyles,
+  QRProps,
+  QRPropsCanvas,
+  QRPropsSvg,
+};
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -33,6 +51,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     rootClassName,
     prefixCls: customizePrefixCls,
     bgColor = 'transparent',
+    marginSize,
     statusRender,
     classNames,
     styles,
@@ -96,6 +115,7 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     fgColor: color,
     style: { width: style?.width, height: style?.height },
     imageSettings: icon ? imageSettings : undefined,
+    marginSize,
     boostLevel,
     ...a11yProps,
   };

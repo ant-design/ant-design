@@ -11,6 +11,9 @@ export type {
   RadioGroupProps,
   RadioProps,
   RadioRef,
+  RadioSemanticClassNames,
+  RadioSemanticName,
+  RadioSemanticStyles,
 } from './interface';
 export { Button, Group };
 
@@ -25,4 +28,5 @@ const Radio = InternalRadio as CompoundedComponent;
 Radio.Button = Button;
 Radio.Group = Group;
 Radio.__ANT_RADIO = true;
+
 export default Radio;

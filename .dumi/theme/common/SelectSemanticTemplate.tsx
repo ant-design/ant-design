@@ -11,6 +11,7 @@ export const locales = {
     suffix: '后缀元素，包含后缀内容的布局和样式，如清除按钮、箭头图标等',
     input: '输入框元素，包含搜索输入框的样式、光标控制、字体继承等搜索相关样式，去除了边框样式',
     content: '多选容器，包含已选项的布局、间距、换行相关样式',
+    clear: '清除按钮元素，包含清除按钮的布局、样式和交互效果',
     item: '多选项元素，包含边框、背景、内边距、外边距样式',
     itemContent: '多选项内容区域，包含文字的省略样式',
     itemRemove: '多选项移除按钮，包含字体相关样式',
@@ -29,6 +30,7 @@ export const locales = {
       'Input element with search input styling, cursor control, font inheritance and other search-related styles. Remove border styles',
     content:
       'Multiple selection container with layout, spacing, and wrapping styles for selected items',
+    clear: 'Clear button element with layout, styling and interactive effects for clear button',
     item: 'Multiple selection item element with border, background, padding, and margin styles',
     itemContent: 'Multiple selection item content area with text ellipsis styles',
     itemRemove: 'Multiple selection item remove button with font-related styles',
@@ -65,11 +67,14 @@ const Block: React.FC<BlockProps> = ({
   ...props
 }) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-  const [value, setValue] = React.useState(defaultValue);
+  // 多选模式下，优先使用 multipleProps 中的 defaultValue
+  const multipleDefaultValue = (multipleProps as any)?.defaultValue;
+  const initialValue = mode === 'single' ? defaultValue : multipleDefaultValue;
+  const [value, setValue] = React.useState(initialValue);
 
   React.useEffect(() => {
-    setValue(defaultValue);
-  }, [mode]);
+    setValue(mode === 'single' ? defaultValue : multipleDefaultValue);
+  }, [mode, defaultValue, multipleDefaultValue]);
 
   return (
     <Flex
@@ -99,7 +104,7 @@ const Block: React.FC<BlockProps> = ({
         options={options}
         {...(mode === 'multiple' ? multipleProps : {})}
         styles={{ popup: { zIndex: 1 } }}
-        maxTagCount="responsive"
+        maxTagCount={process.env.NODE_ENV === 'test' ? 1 : 'responsive'}
         placeholder="Please select"
         allowClear
       />
@@ -142,6 +147,7 @@ const SelectSemanticTemplate: React.FC<SelectSemanticTemplateProps> = ({
           { name: 'prefix', desc: locale.prefix },
           { name: 'content', desc: locale.content },
           { name: 'placeholder', desc: locale.placeholder },
+          { name: 'clear', desc: locale.clear },
           { name: 'input', desc: locale.input },
           { name: 'suffix', desc: locale.suffix },
           { name: 'popup.root', desc: locale['popup.root'] },
@@ -152,11 +158,12 @@ const SelectSemanticTemplate: React.FC<SelectSemanticTemplateProps> = ({
           { name: 'root', desc: locale.root },
           { name: 'prefix', desc: locale.prefix },
           { name: 'content', desc: locale.content },
+          { name: 'placeholder', desc: locale.placeholder },
+          { name: 'clear', desc: locale.clear },
           { name: 'item', desc: locale.item },
           { name: 'itemContent', desc: locale.itemContent },
           { name: 'itemRemove', desc: locale.itemRemove },
           { name: 'input', desc: locale.input },
-          { name: 'placeholder', desc: locale.placeholder },
           { name: 'suffix', desc: locale.suffix },
           { name: 'popup.root', desc: locale['popup.root'] },
           { name: 'popup.list', desc: locale['popup.list'] },

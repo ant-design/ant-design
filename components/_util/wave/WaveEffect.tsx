@@ -6,6 +6,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import type { WaveProps } from '.';
+import { ConfigContext } from '../../config-provider';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -21,9 +23,15 @@ export interface WaveEffectProps {
   colorSource?: WaveProps['colorSource'];
 }
 
-const WaveEffect = (props: WaveEffectProps) => {
+const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target, component, colorSource } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
+
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const rootPrefixCls = getPrefixCls();
+
+  const [varName] = genCssVar(rootPrefixCls, 'wave');
 
   // ===================== Effect =====================
   const [color, setWaveColor] = React.useState<string | null>(null);
@@ -43,7 +51,7 @@ const WaveEffect = (props: WaveEffectProps) => {
   };
 
   if (color) {
-    waveStyle['--wave-color'] = color;
+    waveStyle[varName('color')] = color;
   }
 
   function syncPos() {

@@ -15,7 +15,6 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2019"
         >
           2019
@@ -65,7 +64,6 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Jan"
         >
           Jan
@@ -109,6 +107,7 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -945,7 +944,6 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2018年"
         >
           2018年
@@ -995,7 +993,6 @@ exports[`Calendar Calendar should support locale 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="10月"
         >
           10月
@@ -1039,6 +1036,7 @@ exports[`Calendar Calendar should support locale 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
@@ -1875,7 +1873,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2000"
         >
           2000
@@ -1925,7 +1922,6 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Sep"
         >
           Sep
@@ -1969,6 +1965,7 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-rtl css-var-root ant-radio-css-var"
@@ -2805,7 +2802,6 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2000"
         >
           2000
@@ -2855,7 +2851,6 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Jan"
         >
           Jan
@@ -2899,6 +2894,7 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-root ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-root ant-radio-css-var"
