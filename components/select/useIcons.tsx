@@ -7,8 +7,8 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import SearchOutlined from '@ant-design/icons/SearchOutlined';
 
-import { devUseWarning } from '../_util/warning';
 import fallbackProp from '../_util/fallbackProp';
+import { devUseWarning } from '../_util/warning';
 
 type RenderNode = React.ReactNode | ((props: any) => React.ReactNode);
 
@@ -56,53 +56,72 @@ export default function useIcons({
     warning.deprecated(!clearIcon, 'clearIcon', 'allowClear={{ clearIcon: React.ReactNode }}');
   }
 
-  // Clear Icon
-  const mergedClearIcon = fallbackProp(clearIcon, contextClearIcon, <CloseCircleFilled />);
+  return React.useMemo(() => {
+    // Clear Icon
+    const mergedClearIcon = fallbackProp(clearIcon, contextClearIcon, <CloseCircleFilled />);
 
-  // Validation Feedback Icon
-  const getSuffixIconNode = (arrowIcon?: ReactNode) => {
-    if (suffixIcon === null && !hasFeedback && !showArrow) {
-      return null;
-    }
-    return (
-      <>
-        {showSuffixIcon !== false && arrowIcon}
-        {hasFeedback && feedbackIcon}
-      </>
-    );
-  };
-
-  // Arrow item icon
-  let mergedSuffixIcon = null;
-  if (suffixIcon !== undefined) {
-    mergedSuffixIcon = getSuffixIconNode(suffixIcon);
-  } else if (loading) {
-    mergedSuffixIcon = getSuffixIconNode(fallbackProp(loadingIcon, <LoadingOutlined spin />));
-  } else {
-    mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
-      if (open && showSearch) {
-        return getSuffixIconNode(fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined />));
+    // Validation Feedback Icon
+    const getSuffixIconNode = (arrowIcon?: ReactNode) => {
+      if (suffixIcon === null && !hasFeedback && !showArrow) {
+        return null;
       }
-      return getSuffixIconNode(fallbackProp(contextSuffixIcon, <DownOutlined />));
+      return (
+        <>
+          {showSuffixIcon !== false && arrowIcon}
+          {hasFeedback && feedbackIcon}
+        </>
+      );
     };
-  }
 
-  // Checked item icon
-  let mergedItemIcon = null;
-  if (menuItemSelectedIcon !== undefined) {
-    mergedItemIcon = menuItemSelectedIcon;
-  } else if (multiple) {
-    mergedItemIcon = <CheckOutlined />;
-  } else {
-    mergedItemIcon = null;
-  }
+    // Arrow item icon
+    let mergedSuffixIcon = null;
+    if (suffixIcon !== undefined) {
+      mergedSuffixIcon = getSuffixIconNode(suffixIcon);
+    } else if (loading) {
+      mergedSuffixIcon = getSuffixIconNode(fallbackProp(loadingIcon, <LoadingOutlined spin />));
+    } else {
+      mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
+        if (open && showSearch) {
+          return getSuffixIconNode(fallbackProp(searchIcon, contextSearchIcon, <SearchOutlined />));
+        }
+        return getSuffixIconNode(fallbackProp(contextSuffixIcon, <DownOutlined />));
+      };
+    }
 
-  const mergedRemoveIcon = fallbackProp(removeIcon, contextRemoveIcon, <CloseOutlined />);
+    // Checked item icon
+    let mergedItemIcon = null;
+    if (menuItemSelectedIcon !== undefined) {
+      mergedItemIcon = menuItemSelectedIcon;
+    } else if (multiple) {
+      mergedItemIcon = <CheckOutlined />;
+    } else {
+      mergedItemIcon = null;
+    }
 
-  return {
-    clearIcon: mergedClearIcon,
-    suffixIcon: mergedSuffixIcon,
-    itemIcon: mergedItemIcon,
-    removeIcon: mergedRemoveIcon,
-  };
+    const mergedRemoveIcon = fallbackProp(removeIcon, contextRemoveIcon, <CloseOutlined />);
+
+    return {
+      clearIcon: mergedClearIcon,
+      suffixIcon: mergedSuffixIcon,
+      itemIcon: mergedItemIcon,
+      removeIcon: mergedRemoveIcon,
+    };
+  }, [
+    suffixIcon,
+    contextSuffixIcon,
+    clearIcon,
+    contextClearIcon,
+    menuItemSelectedIcon,
+    removeIcon,
+    contextRemoveIcon,
+    loading,
+    loadingIcon,
+    searchIcon,
+    contextSearchIcon,
+    multiple,
+    hasFeedback,
+    showSuffixIcon,
+    feedbackIcon,
+    showArrow,
+  ]);
 }
