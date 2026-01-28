@@ -211,7 +211,7 @@ describe('Image', () => {
       // Format: [imageMask, configMask,  expectedBlurClass, openMask]
       [undefined, true, true, true],
       [true, undefined, true, true],
-      [undefined, undefined, true, true],
+      [undefined, undefined, false, true],
       [false, true, false, false],
       [true, false, true, true],
       [{ enabled: false }, { blur: true }, true, false],

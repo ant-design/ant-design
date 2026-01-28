@@ -15,7 +15,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -123,7 +123,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
+      class="ant-drawer-mask acss-c0hvaj"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -205,7 +205,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
+      class="ant-drawer-mask acss-c0hvaj"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -302,7 +302,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -456,7 +456,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -650,7 +650,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -796,7 +796,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -2806,7 +2806,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3180,7 +3180,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3223,7 +3223,7 @@ Array [
             tabindex="-1"
           >
             <div
-              class="ant-drawer-mask ant-drawer-mask-blur"
+              class="ant-drawer-mask"
             />
             <div
               class="ant-drawer-content-wrapper"
@@ -3472,7 +3472,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3541,7 +3541,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3770,7 +3770,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3968,7 +3968,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4030,7 +4030,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
             tabindex="-1"
           >
             <div
-              class="ant-drawer-mask ant-drawer-mask-blur"
+              class="ant-drawer-mask"
             />
             <div
               class="ant-drawer-content-wrapper"
@@ -4099,7 +4099,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4325,7 +4325,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4455,7 +4455,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
       style="background-image: linear-gradient(to top, #18181b 0, rgba(21, 21, 22, 0.2) 100%);"
     />
     <div
@@ -4798,7 +4798,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
