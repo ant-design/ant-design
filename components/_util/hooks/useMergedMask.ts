@@ -30,7 +30,7 @@ export const useMergedMask = (
 
     const mergedConfig: MaskConfig = { ...contextMaskConfig, ...maskConfig };
 
-    const className = mergedConfig.blur === true ? `${prefixCls}-mask-blur` : undefined;
+    const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
 
     return [mergedConfig.enabled !== false, { mask: className }];
   }, [mask, contextMask, prefixCls]);
