@@ -77,6 +77,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     closable,
     mask: modalMask,
     modalRender,
+    maskClosable,
 
     // Focusable
     focusTriggerAfterClose,
@@ -97,6 +98,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     cancelButtonProps: contextCancelButtonProps,
     okButtonProps: contextOkButtonProps,
     mask: contextMask,
+    maskClosable: contextMaskClosable,
   } = useComponentConfig('modal');
 
   const { modal: modalContext } = React.useContext(ConfigContext);
@@ -259,6 +261,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           mask={mergedMask}
+          maskClosable={maskClosable ?? contextMaskClosable}
           className={clsx(hashId, className, contextClassName)}
           style={{ ...contextStyle, ...style, ...responsiveWidthVars }}
           classNames={{

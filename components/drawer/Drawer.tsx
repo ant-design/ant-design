@@ -115,6 +115,7 @@ const Drawer: React.FC<DrawerProps> & {
     classNames: contextClassNames,
     styles: contextStyles,
     mask: contextMask,
+    maskClosable: contextMaskClosable,
   } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -212,7 +213,7 @@ const Drawer: React.FC<DrawerProps> & {
   const mergedFocusable = useFocusable(focusable, getContainer !== false && mergedMask);
 
   // =========================== Render ===========================
-  const { classNames, styles, rootStyle } = rest;
+  const { classNames, styles, rootStyle, maskClosable } = rest;
   const mergedProps: DrawerProps = {
     ...props,
     zIndex,
@@ -265,6 +266,7 @@ const Drawer: React.FC<DrawerProps> & {
           }}
           open={open}
           mask={mergedMask}
+          maskClosable={maskClosable ?? contextMaskClosable}
           push={push}
           size={drawerSize}
           defaultSize={defaultSize}
