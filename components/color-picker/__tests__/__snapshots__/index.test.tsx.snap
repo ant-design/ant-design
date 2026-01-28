@@ -147,7 +147,6 @@ exports[`ColorPicker Should panelRender work 1`] = `
                   >
                     <div
                       class="ant-select-content-value"
-                      style="visibility: visible;"
                       title="HEX"
                     >
                       HEX
@@ -421,7 +420,6 @@ exports[`ColorPicker Should panelRender work 2`] = `
                 >
                   <div
                     class="ant-select-content-value"
-                    style="visibility: visible;"
                     title="HEX"
                   >
                     HEX

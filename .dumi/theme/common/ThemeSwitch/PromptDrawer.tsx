@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react';
-import { StyleProvider } from '@ant-design/cssinjs';
 import { AntDesignOutlined, UserOutlined } from '@ant-design/icons';
 import { Bubble, Sender } from '@ant-design/x';
 import type { SenderRef } from '@ant-design/x/es/sender';
@@ -100,21 +99,16 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       afterOpenChange={handleAfterOpenChange}
     >
       <Flex vertical style={{ height: '100%' }}>
-        {/* Workaround for layer incompat between site `StyleProvider layer` and `@ant-design/x`.
-         * See: https://github.com/ant-design/x/issues/1588
-         */}
-        <StyleProvider layer={false}>
-          <Bubble.List style={{ flex: 1, overflow: 'auto' }} items={items} />
-          <Sender
-            ref={senderRef}
-            style={{ flex: 0 }}
-            value={inputValue}
-            onChange={setInputValue}
-            onSubmit={handleSubmit}
-            loading={loading}
-            onCancel={cancelRequest}
-          />
-        </StyleProvider>
+        <Bubble.List style={{ flex: 1, overflow: 'auto' }} items={items} />
+        <Sender
+          ref={senderRef}
+          style={{ flex: 0 }}
+          value={inputValue}
+          onChange={setInputValue}
+          onSubmit={handleSubmit}
+          loading={loading}
+          onCancel={cancelRequest}
+        />
       </Flex>
     </Drawer>
   );

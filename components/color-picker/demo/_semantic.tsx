@@ -2,8 +2,8 @@ import React from 'react';
 import type { ColorPickerProps } from 'antd';
 import { ColorPicker } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -25,7 +25,7 @@ const Block: React.FC<Readonly<ColorPickerProps>> = (props) => {
         defaultValue="#1677ff"
         open
         {...props}
-        getPopupContainer={() => divRef!.current!}
+        getPopupContainer={() => divRef.current || document.body}
         styles={{
           popup: {
             root: { zIndex: 1 },
