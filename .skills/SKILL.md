@@ -1,4 +1,7 @@
-name: ant-design-ecosystem description: Skill for working across the Ant Design ecosystem: ant-design 6.x, ant-design-x 2.x, and ant-design-pro v5.x. Provides structured, version-aware guidance for UI components, AI interfaces, and enterprise application scaffolding.
+---
+
+name: ant-design-ecosystem
+description: Skill for working across the Ant Design ecosystem: ant-design 6.x, ant-design-x 2.x, and ant-design-pro v5.x. Provides structured, version-aware guidance for UI components, AI interfaces, and enterprise application scaffolding.
 
 ---
 
