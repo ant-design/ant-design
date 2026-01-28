@@ -376,7 +376,7 @@ exports[`renders components/image/demo/mask.tsx extend context correctly 1`] = `
       style="width: 100px;"
     >
       <img
-        alt="Default blur"
+        alt="blur"
         class="ant-image-img"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         width="100"
@@ -390,7 +390,7 @@ exports[`renders components/image/demo/mask.tsx extend context correctly 1`] = `
           <div
             class="ant-space-item"
           >
-            Default blur
+            blur
           </div>
         </div>
       </div>
