@@ -151,16 +151,13 @@ describe('ColorPicker Components test', () => {
     // Verify input value has been updated but formatted as valid hex format
     expect(input.getAttribute('value')).toEqual('');
 
-    // onChange should not be called because the input is invalid
-    expect(onChange).toHaveBeenCalledTimes(1);
-
-    // Simulate invalid input 2
+    // Simulate another invalid input
     fireEvent.change(input, { target: { value: 'ff_00_gg' } });
 
-    // Verify input value has been updated but formatted as valid hex format
+    // Verify input value is filtered
     expect(input.getAttribute('value')).toEqual('ff00');
 
-    // onChange should not be called because the input is invalid
+    // onChange should not be called for invalid inputs
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
