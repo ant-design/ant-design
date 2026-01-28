@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type { CheckboxRef, CheckboxProps as RcCheckboxProps } from '@rc-component/checkbox';
+import type { CheckboxRef } from '@rc-component/checkbox';
 import RcCheckbox from '@rc-component/checkbox';
 import { useControlledState, useEvent } from '@rc-component/util';
 import { useComposeRef } from '@rc-component/util/lib/ref';
@@ -148,16 +148,15 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
   const [innerChecked, setInnerChecked] = useControlledState(defaultChecked, checked);
   let mergedChecked = innerChecked;
 
-  const onInternalChange: RcCheckboxProps['onChange'] = useEvent(
-    ({ target: { checked: nextChecked } }) => {
-      setInnerChecked(nextChecked);
-      setInnerChecked(nextChecked);
+  const onInternalChange = useEvent((event) => {
+    setInnerChecked(event.target.checked);
 
-      if (!skipGroup && checkboxGroup?.toggleOption) {
-        checkboxGroup.toggleOption({ label: children, value });
-      }
-    },
-  );
+    if (!skipGroup && checkboxGroup?.toggleOption) {
+      checkboxGroup.toggleOption({ label: children, value });
+    } else {
+      onChange?.(event);
+    }
+  });
 
   // ============================== Group ===============================
   if (checkboxGroup && !skipGroup) {
