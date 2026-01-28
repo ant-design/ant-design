@@ -15,7 +15,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2016"
         >
           2016
@@ -431,7 +430,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Nov"
         >
           Nov
@@ -1555,7 +1553,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -1971,7 +1968,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -3094,7 +3090,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -3510,7 +3505,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -4627,7 +4621,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -5043,7 +5036,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -6227,7 +6219,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="2016"
             >
               2016
@@ -6683,7 +6674,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="Nov"
             >
               Nov
@@ -7772,7 +7762,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2016"
         >
           2016
@@ -8188,7 +8177,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Nov"
         >
           Nov
@@ -9722,7 +9710,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2017"
           >
             2017
@@ -10138,7 +10125,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Jan"
           >
             Jan
@@ -11264,7 +11250,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -11680,7 +11665,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -12797,7 +12781,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -13213,7 +13196,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -14336,7 +14318,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -14752,7 +14733,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -15930,7 +15910,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -16346,7 +16325,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov

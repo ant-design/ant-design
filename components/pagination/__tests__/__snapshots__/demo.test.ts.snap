@@ -564,7 +564,6 @@ exports[`renders components/pagination/demo/all.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="10 / page"
         >
           10 / page
@@ -931,7 +930,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -1158,7 +1156,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -1351,7 +1348,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -1589,7 +1585,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -1903,7 +1898,6 @@ exports[`renders components/pagination/demo/itemRender.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="10 / page"
         >
           10 / page
@@ -2133,7 +2127,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -2371,7 +2364,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -2707,7 +2699,6 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -3028,7 +3019,6 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -3357,7 +3347,6 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -3678,7 +3667,6 @@ exports[`renders components/pagination/demo/mini.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -3970,7 +3958,6 @@ exports[`renders components/pagination/demo/more.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="10 / page"
         >
           10 / page
@@ -4468,7 +4455,6 @@ exports[`renders components/pagination/demo/style-class.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -4702,7 +4688,6 @@ exports[`renders components/pagination/demo/style-class.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -4889,7 +4874,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="20 / page"
           >
             20 / page
@@ -5072,7 +5056,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="20 / page"
           >
             20 / page
@@ -5303,7 +5286,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -5530,7 +5512,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -5758,7 +5739,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
@@ -5985,7 +5965,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="10 / page"
           >
             10 / page
