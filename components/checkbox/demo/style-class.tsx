@@ -2,63 +2,63 @@ import React from 'react';
 import { Checkbox, Flex } from 'antd';
 import type { CheckboxProps } from 'antd';
 import { createStyles } from 'antd-style';
+import clsx from 'clsx';
 
 const useStyles = createStyles(({ token, css }) => ({
   root: css`
-    border-radius: ${token.borderRadius};
-    width: 300px;
+    border-radius: ${token.borderRadius}px;
+    background-color: ${token.colorBgContainer};
   `,
-  fnRoot: css`
-    border-radius: ${token.borderRadius};
-    width: 300px;
-    &:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox.ant-wave-target,
-    .ant-checkbox-checked:not(.ant-checkbox-disabled):hover {
-      border-color: lab(7.78201% -0.0000149012 0);
-      background-color: lab(7.78201% -0.0000149012 0);
-    }
-    & .ant-checkbox-checked {
-      border-color: lab(7.78201% -0.0000149012 0);
-      background-color: lab(7.78201% -0.0000149012 0);
-    }
-    &:hover .ant-checkbox {
-      border-color: #d9d9d9;
-    }
+  icon: css`
+    border-color: ${token.colorWarning};
+  `,
+  label: css`
+    color: ${token.colorTextDisabled};
+    font-weight: bold;
+  `,
+
+  iconChecked: css`
+    background-color: ${token.colorWarning};
+  `,
+  labelChecked: css`
+    color: ${token.colorWarning};
   `,
 }));
 
+// Object style
 const styles: CheckboxProps['styles'] = {
-  root: {
-    padding: 8,
-    borderRadius: 4,
-    borderColor: '#ccc',
+  icon: {
+    borderRadius: 6,
+  },
+  label: {
+    color: 'blue',
   },
 };
 
-const stylesFn: CheckboxProps['styles'] = (info) => {
-  if (info.props.checked) {
-    return {
-      root: { padding: 8, borderRadius: 4 },
-      label: { fontWeight: 'bold', color: '#333' },
-    } satisfies CheckboxProps['styles'];
-  }
-  return {};
-};
-
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
+  const { styles: classNamesStyles } = useStyles();
+
+  // Function classNames - dynamically adjust based on checked state
+  const classNamesFn: CheckboxProps['classNames'] = (info) => {
+    if (info.props.checked) {
+      return {
+        root: clsx(classNamesStyles.root),
+        icon: clsx(classNamesStyles.icon, classNamesStyles.iconChecked),
+        label: clsx(classNamesStyles.label, classNamesStyles.labelChecked),
+      };
+    }
+    return {
+      root: classNamesStyles.root,
+      icon: classNamesStyles.icon,
+      label: classNamesStyles.label,
+    };
+  };
+
   return (
     <Flex vertical gap="middle">
-      <Checkbox classNames={classNames} styles={styles}>
-        Object
-      </Checkbox>
-      <Checkbox
-        checked
-        classNames={{
-          root: classNames.fnRoot,
-        }}
-        styles={stylesFn}
-      >
-        Function
+      <Checkbox styles={styles}>Object styles</Checkbox>
+      <Checkbox classNames={classNamesFn} defaultChecked>
+        Function styles
       </Checkbox>
     </Flex>
   );

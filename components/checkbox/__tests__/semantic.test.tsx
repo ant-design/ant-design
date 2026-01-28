@@ -78,4 +78,21 @@ describe('Checkbox.Semantic', () => {
     expect(iconElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
     expect(labelElement).toHaveStyle({ color: 'rgb(139, 0, 139)' });
   });
+
+  it('should get correct checked prop when defaultChecked is true', () => {
+    const classNamesFn = ({ props }: { props: CheckboxProps }) => {
+      return {
+        root: props.checked ? 'checked-checkbox' : 'unchecked-checkbox',
+      };
+    };
+
+    const { container } = render(
+      <Checkbox defaultChecked classNames={classNamesFn}>
+        Checkbox
+      </Checkbox>,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-checkbox-wrapper');
+    expect(rootElement).toHaveClass('checked-checkbox');
+  });
 });
