@@ -15,7 +15,7 @@ exports[`renders components/drawer/demo/_semantic.tsx correctly 1`] = `
         tabindex="-1"
       >
         <div
-          class="ant-drawer-mask semantic-mark-mask ant-drawer-mask-blur"
+          class="ant-drawer-mask semantic-mark-mask"
         />
         <div
           class="ant-drawer-content-wrapper"

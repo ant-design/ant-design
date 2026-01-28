@@ -53,7 +53,7 @@ exports[`Modal render correctly 1`] = `
       class="ant-modal-root css-var-root ant-modal-css-var"
     >
       <div
-        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade ant-modal-mask-blur"
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
       />
       <div
         class="ant-modal-wrap"
@@ -139,7 +139,7 @@ exports[`Modal render without footer 1`] = `
       class="ant-modal-root css-var-root ant-modal-css-var"
     >
       <div
-        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade ant-modal-mask-blur"
+        class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
       />
       <div
         class="ant-modal-wrap"
@@ -205,7 +205,7 @@ exports[`Modal support closeIcon 1`] = `
   class="ant-modal-root css-var-root ant-modal-css-var"
 >
   <div
-    class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade ant-modal-mask-blur"
+    class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
   />
   <div
     class="ant-modal-wrap"

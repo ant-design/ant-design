@@ -13,7 +13,7 @@ const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
   if (typeof mask === 'boolean') {
     return {
       enabled: mask,
-      blur: mask,
+      blur: false,
     };
   }
   return {};
@@ -30,7 +30,7 @@ export const useMergedMask = (
 
     const mergedConfig: MaskConfig = { ...contextMaskConfig, ...maskConfig };
 
-    const className = mergedConfig.blur !== false ? `${prefixCls}-mask-blur` : undefined;
+    const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
 
     return [mergedConfig.enabled !== false, { mask: className }];
   }, [mask, contextMask, prefixCls]);
