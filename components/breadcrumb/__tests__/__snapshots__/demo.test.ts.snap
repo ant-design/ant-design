@@ -2,6 +2,7 @@
 
 exports[`renders components/breadcrumb/demo/basic.tsx correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -73,6 +74,7 @@ exports[`renders components/breadcrumb/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/breadcrumb/demo/component-token.tsx correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -239,6 +241,7 @@ exports[`renders components/breadcrumb/demo/component-token.tsx correctly 1`] = 
 
 exports[`renders components/breadcrumb/demo/debug-routes.tsx correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -297,6 +300,7 @@ exports[`renders components/breadcrumb/demo/debug-routes.tsx correctly 1`] = `
 
 exports[`renders components/breadcrumb/demo/overlay.tsx correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -391,6 +395,7 @@ exports[`renders components/breadcrumb/demo/overlay.tsx correctly 1`] = `
 
 exports[`renders components/breadcrumb/demo/separator.tsx correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -456,6 +461,7 @@ exports[`renders components/breadcrumb/demo/separator.tsx correctly 1`] = `
 
 exports[`renders components/breadcrumb/demo/separator-component.tsx correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -621,6 +627,7 @@ exports[`renders components/breadcrumb/demo/style-class.tsx correctly 1`] = `
 
 exports[`renders components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
@@ -710,6 +717,7 @@ exports[`renders components/breadcrumb/demo/withIcon.tsx correctly 1`] = `
 
 exports[`renders components/breadcrumb/demo/withParams.tsx correctly 1`] = `
 <nav
+  aria-label="Breadcrumb"
   class="ant-breadcrumb css-var-test-id"
 >
   <ol>
