@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 import React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from '@rc-component/dialog';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
@@ -9,6 +8,7 @@ import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 import extendsObject from '../extendsObject';
 import isNonNullable from '../isNonNullable';
+import { defaultCloseIcon } from '../../config-provider/defaultIcons';
 
 export type ClosableType = DialogProps['closable'];
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
@@ -147,7 +147,7 @@ export const computeClosable = (
   );
 
   const mergedFallback = {
-    closeIcon: <CloseOutlined />,
+    closeIcon: defaultCloseIcon,
     ...fallbackCloseCollection,
   };
 
@@ -173,7 +173,7 @@ export const useClosable = (
       propCloseCollection,
       contextCloseCollection,
       {
-        closeIcon: <CloseOutlined />,
+        closeIcon: defaultCloseIcon,
         ...fallbackCloseCollection,
       },
       contextLocale.close,

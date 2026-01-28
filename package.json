@@ -293,6 +293,7 @@
     "rc-footer": "^0.6.8",
     "rc-tween-one": "^3.0.6",
     "react": "^19.2.3",
+    "react-bootstrap-icons": "^1.11.6",
     "react-countup": "^6.5.3",
     "react-dom": "^19.2.3",
     "react-draggable": "^4.5.0",

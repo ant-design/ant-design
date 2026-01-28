@@ -1,5 +1,4 @@
 import React from 'react';
-import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import FileTextOutlined from '@ant-design/icons/FileTextOutlined';
 import CSSMotion from '@rc-component/motion';
 import { useControlledState, useEvent } from '@rc-component/util';
@@ -17,6 +16,7 @@ import type { GroupContextProps } from './context';
 import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupTrigger, FloatButtonProps } from './FloatButton';
 import useStyle from './style';
+import { defaultCloseIcon } from '../config-provider/defaultIcons';
 
 export type FloatButtonGroupSemanticName = keyof FloatButtonGroupSemanticClassNames &
   keyof FloatButtonGroupSemanticStyles;
@@ -101,7 +101,7 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
     style: contextStyle,
   } = useComponentConfig('floatButtonGroup');
 
-  const mergedCloseIcon = closeIcon ?? contextCloseIcon ?? <CloseOutlined />;
+  const mergedCloseIcon = closeIcon ?? contextCloseIcon ?? defaultCloseIcon;
 
   const prefixCls = getPrefixCls(floatButtonPrefixCls, customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
