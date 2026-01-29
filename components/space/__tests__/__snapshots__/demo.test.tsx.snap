@@ -4336,9 +4336,6 @@ Array [
           type="radio"
           value="small"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -4357,9 +4354,6 @@ Array [
           name="test-id"
           type="radio"
           value="middle"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -4380,9 +4374,6 @@ Array [
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -4401,9 +4392,6 @@ Array [
           name="test-id"
           type="radio"
           value="customize"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
