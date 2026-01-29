@@ -103,22 +103,29 @@ const App: React.FC = () => (
         </Button>
       </Flex>
     </ConfigProvider>
-    <ConfigProvider
-      theme={{
-        components: {
-          Button: {
-            defaultBg: '#000',
-            defaultColor: '#f00',
-            defaultHoverColor: '#0f0',
-            defaultActiveColor: '#00f',
-          },
-        },
-      }}
-    >
-      <Flex gap="small" vertical align="start">
-        <Button>Default Button</Button>
-      </Flex>
-    </ConfigProvider>
+<ConfigProvider
+  theme={{
+    components: {
+      Button: {
+        defaultBg: "red",
+        defaultColor: "blue",
+        defaultHoverColor: "green",
+        defaultActiveColor: "yellow",
+
+        textTextColor: "purple",
+        textTextHoverColor: "orange",
+        textTextActiveColor: "pink",
+        textHoverBg: "brown",
+      },
+    },
+  }}
+>
+  <Flex gap="small" align="start">
+    <Button>Default Button</Button>
+    <Button type="dashed">Dashed Button</Button>
+    <Button type="text">Text Button</Button>
+  </Flex>
+</ConfigProvider>
   </Flex>
 );
 
