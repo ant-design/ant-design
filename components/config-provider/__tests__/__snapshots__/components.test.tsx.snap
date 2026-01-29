@@ -13800,7 +13800,7 @@ exports[`ConfigProvider components Drawer configProvider 1`] = `
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
   />
   <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
@@ -13859,7 +13859,7 @@ exports[`ConfigProvider components Drawer configProvider componentDisabled 1`] =
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
   />
   <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
@@ -13918,7 +13918,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
   />
   <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
@@ -13977,7 +13977,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize middle 1`
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
   />
   <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
@@ -14036,7 +14036,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize small 1`]
   tabindex="-1"
 >
   <div
-    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion config-drawer-mask-blur"
+    class="config-drawer-mask config-drawer-mask-motion-appear config-drawer-mask-motion-appear-start config-drawer-mask-motion"
   />
   <div
     class="config-drawer-content-wrapper config-drawer-panel-motion-right-appear config-drawer-panel-motion-right-appear-start config-drawer-panel-motion-right"
@@ -14095,7 +14095,7 @@ exports[`ConfigProvider components Drawer normal 1`] = `
   tabindex="-1"
 >
   <div
-    class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion ant-drawer-mask-blur"
+    class="ant-drawer-mask ant-drawer-mask-motion-appear ant-drawer-mask-motion-appear-start ant-drawer-mask-motion"
   />
   <div
     class="ant-drawer-content-wrapper ant-drawer-panel-motion-right-appear ant-drawer-panel-motion-right-appear-start ant-drawer-panel-motion-right"
@@ -14154,7 +14154,7 @@ exports[`ConfigProvider components Drawer prefixCls 1`] = `
   tabindex="-1"
 >
   <div
-    class="prefix-Drawer-mask prefix-Drawer-mask-motion-appear prefix-Drawer-mask-motion-appear-start prefix-Drawer-mask-motion prefix-Drawer-mask-blur"
+    class="prefix-Drawer-mask prefix-Drawer-mask-motion-appear prefix-Drawer-mask-motion-appear-start prefix-Drawer-mask-motion"
   />
   <div
     class="prefix-Drawer-content-wrapper prefix-Drawer-panel-motion-right-appear prefix-Drawer-panel-motion-right-appear-start prefix-Drawer-panel-motion-right"
@@ -17596,7 +17596,7 @@ exports[`ConfigProvider components Modal configProvider 1`] = `
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
     />
     <div
       class="config-modal-wrap"
@@ -17680,7 +17680,7 @@ exports[`ConfigProvider components Modal configProvider componentDisabled 1`] = 
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
     />
     <div
       class="config-modal-wrap"
@@ -17764,7 +17764,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
     />
     <div
       class="config-modal-wrap"
@@ -17848,7 +17848,7 @@ exports[`ConfigProvider components Modal configProvider componentSize middle 1`]
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
     />
     <div
       class="config-modal-wrap"
@@ -17932,7 +17932,7 @@ exports[`ConfigProvider components Modal configProvider componentSize small 1`] 
     class="config-modal-root css-var-root config-modal-css-var"
   >
     <div
-      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade config-modal-mask-blur"
+      class="config-modal-mask config-fade-appear config-fade-appear-start config-fade"
     />
     <div
       class="config-modal-wrap"
@@ -18016,7 +18016,7 @@ exports[`ConfigProvider components Modal normal 1`] = `
     class="ant-modal-root css-var-root ant-modal-css-var"
   >
     <div
-      class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade ant-modal-mask-blur"
+      class="ant-modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
     />
     <div
       class="ant-modal-wrap"
@@ -18100,7 +18100,7 @@ exports[`ConfigProvider components Modal prefixCls 1`] = `
     class="prefix-Modal-root css-var-root prefix-Modal-css-var"
   >
     <div
-      class="prefix-Modal-mask ant-fade-appear ant-fade-appear-start ant-fade prefix-Modal-mask-blur"
+      class="prefix-Modal-mask ant-fade-appear ant-fade-appear-start ant-fade"
     />
     <div
       class="prefix-Modal-wrap"

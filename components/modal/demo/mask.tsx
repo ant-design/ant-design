@@ -14,14 +14,14 @@ const App: React.FC = () => {
       <Space>
         <Button
           onClick={() => {
-            modal.confirm({ ...modalConfig });
+            modal.confirm({ ...modalConfig, mask: { blur: true } });
           }}
         >
-          Default blur
+          blur
         </Button>
         <Button
           onClick={() => {
-            modal.confirm({ ...modalConfig, mask: { blur: false } });
+            modal.confirm(modalConfig);
           }}
         >
           Dimmed mask

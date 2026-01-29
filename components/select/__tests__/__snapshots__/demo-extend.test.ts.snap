@@ -7913,7 +7913,7 @@ Array [
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="test-id-parent 1"
+                        id="test-id-parent-1"
                         role="treeitem"
                       >
                         <span

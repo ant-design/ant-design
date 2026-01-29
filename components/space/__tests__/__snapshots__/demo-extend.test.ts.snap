@@ -8340,7 +8340,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="test-id-parent 1"
+                        id="test-id-parent-1"
                         role="treeitem"
                       >
                         <span
@@ -8387,7 +8387,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open"
                         draggable="false"
-                        id="test-id-parent 1-0"
+                        id="test-id-parent-1-0"
                         role="treeitem"
                       >
                         <span
@@ -8504,7 +8504,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="test-id-parent 1-1"
+                        id="test-id-parent-1-1"
                         role="treeitem"
                       >
                         <span
@@ -16420,7 +16420,7 @@ exports[`renders components/space/demo/separator.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -16437,7 +16437,7 @@ exports[`renders components/space/demo/separator.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -16454,7 +16454,7 @@ exports[`renders components/space/demo/separator.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>

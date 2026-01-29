@@ -17,7 +17,7 @@ exports[`renders components/modal/demo/_semantic.tsx correctly 1`] = `
           class="ant-modal-root css-var-test-id ant-modal-css-var semantic-mark-root"
         >
           <div
-            class="ant-modal-mask semantic-mark-mask ant-modal-mask-blur"
+            class="ant-modal-mask semantic-mark-mask"
             style="z-index: 1; position: absolute;"
           />
           <div

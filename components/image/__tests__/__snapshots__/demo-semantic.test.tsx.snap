@@ -40,7 +40,7 @@ exports[`renders components/image/demo/_semantic.tsx correctly 1`] = `
             style="position: absolute;"
           >
             <div
-              class="ant-image-preview-mask semantic-mark-popup-mask ant-image-preview-mask-blur"
+              class="ant-image-preview-mask semantic-mark-popup-mask"
             />
             <div
               class="ant-image-preview-body semantic-mark-popup-body"

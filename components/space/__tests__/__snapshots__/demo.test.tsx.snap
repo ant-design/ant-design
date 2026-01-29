@@ -4275,7 +4275,7 @@ exports[`renders components/space/demo/separator.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -4292,7 +4292,7 @@ exports[`renders components/space/demo/separator.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>
@@ -4309,7 +4309,7 @@ exports[`renders components/space/demo/separator.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
     >
       Link
     </a>

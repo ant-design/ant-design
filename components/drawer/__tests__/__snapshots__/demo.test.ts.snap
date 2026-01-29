@@ -295,7 +295,7 @@ exports[`renders components/drawer/demo/mask.tsx correctly 1`] = `
       type="button"
     >
       <span>
-        Default blur
+        blur
       </span>
     </button>
   </div>
