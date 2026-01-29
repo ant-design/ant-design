@@ -615,7 +615,7 @@ exports[`renders components/modal/demo/mask.tsx correctly 1`] = `
       type="button"
     >
       <span>
-        Default blur
+        blur
       </span>
     </button>
   </div>
@@ -1014,7 +1014,7 @@ exports[`renders components/modal/demo/render-panel.tsx correctly 1`] = `
           class="ant-typography css-var-test-id"
         >
           <a
-            class="ant-typography css-var-test-id"
+            class="ant-typography ant-typography-link css-var-test-id"
             href="https://github.com/ant-design/ant-design/pull/44318"
           >
             Feature #44318

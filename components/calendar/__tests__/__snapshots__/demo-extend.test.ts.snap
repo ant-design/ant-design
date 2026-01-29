@@ -15,7 +15,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2016"
         >
           2016
@@ -431,7 +430,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Nov"
         >
           Nov
@@ -728,9 +726,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
             type="radio"
             value="month"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -749,9 +744,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
             name="test-id"
             type="radio"
             value="year"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -1555,7 +1547,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -1971,7 +1962,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -2268,9 +2258,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -2289,9 +2276,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -3094,7 +3078,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -3510,7 +3493,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -3807,9 +3789,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -3828,9 +3807,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -4627,7 +4603,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -5043,7 +5018,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -5340,9 +5314,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -5361,9 +5332,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -6186,9 +6154,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 type="radio"
                 value="month"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -6208,9 +6173,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 type="radio"
                 value="year"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -6227,7 +6189,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="2016"
             >
               2016
@@ -6683,7 +6644,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           >
             <div
               class="ant-select-content-value"
-              style="visibility: visible;"
               title="Nov"
             >
               Nov
@@ -7772,7 +7732,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="2016"
         >
           2016
@@ -8188,7 +8147,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Nov"
         >
           Nov
@@ -8485,9 +8443,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
             type="radio"
             value="month"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -8506,9 +8461,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
             name="test-id"
             type="radio"
             value="year"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -9722,7 +9674,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2017"
           >
             2017
@@ -10138,7 +10089,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Jan"
           >
             Jan
@@ -10435,9 +10385,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -10456,9 +10403,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -11264,7 +11208,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -11680,7 +11623,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -11977,9 +11919,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -11998,9 +11937,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -12797,7 +12733,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -13213,7 +13148,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -13510,9 +13444,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -13531,9 +13462,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -14336,7 +14264,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -14752,7 +14679,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -15049,9 +14975,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -15070,9 +14993,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -15930,7 +15850,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="2016"
           >
             2016
@@ -16346,7 +16265,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Nov"
           >
             Nov
@@ -16643,9 +16561,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -16664,9 +16579,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span

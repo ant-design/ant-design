@@ -2082,9 +2082,6 @@ Array [
           type="radio"
           value="start"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2104,9 +2101,6 @@ Array [
           type="radio"
           value="end"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2125,9 +2119,6 @@ Array [
           name="test-id"
           type="radio"
           value="alternate"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

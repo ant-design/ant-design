@@ -388,7 +388,6 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -553,7 +552,6 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -663,7 +661,6 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -772,7 +769,6 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -915,7 +911,6 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Zhejiang"
         >
           Zhejiang
@@ -1048,7 +1043,6 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Hangzhou"
         >
           Hangzhou
@@ -1394,7 +1388,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
       >
         <span>
           No option match
@@ -4140,7 +4133,6 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -4458,7 +4450,6 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -4801,7 +4792,6 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -5279,7 +5269,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title="Lucy (101)"
       >
         Lucy (101)
@@ -6649,7 +6638,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title="lucy"
       >
         lucy
@@ -6847,7 +6835,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="long, long, long piece of text"
           >
             long, long, long piece of text
@@ -7178,7 +7165,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
           >
             <div>
               normal
@@ -7927,7 +7913,7 @@ Array [
                         aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
-                        id="test-id-parent 1"
+                        id="test-id-parent-1"
                         role="treeitem"
                       >
                         <span
@@ -8635,7 +8621,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Bamboo"
           >
             Bamboo
@@ -8817,7 +8802,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="Bamboo"
           >
             Bamboo
@@ -9024,7 +9008,6 @@ Array [
                     >
                       <div
                         class="ant-select-content-value"
-                        style="visibility: visible;"
                         title="Bamboo"
                       >
                         Bamboo
@@ -9585,7 +9568,6 @@ Array [
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Bamboo"
         >
           Bamboo
@@ -10768,9 +10750,6 @@ Array [
           type="radio"
           value="topLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -10789,9 +10768,6 @@ Array [
           name="test-id"
           type="radio"
           value="topRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -10812,9 +10788,6 @@ Array [
           type="radio"
           value="bottomLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -10833,9 +10806,6 @@ Array [
           name="test-id"
           type="radio"
           value="bottomRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -10856,7 +10826,6 @@ Array [
     >
       <div
         class="ant-select-content-value"
-        style="visibility: visible;"
         title="HangZhou #310000"
       >
         HangZhou #310000
@@ -11014,9 +10983,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               type="radio"
               value="topLeft"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -11035,9 +11001,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               name="test-id"
               type="radio"
               value="topRight"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -11058,9 +11021,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               type="radio"
               value="bottomLeft"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -11079,9 +11039,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               name="test-id"
               type="radio"
               value="bottomRight"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -13495,9 +13452,6 @@ Array [
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -13518,9 +13472,6 @@ Array [
           type="radio"
           value="middle"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -13539,9 +13490,6 @@ Array [
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -13569,7 +13517,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility: visible;"
             title="a1"
           >
             a1
@@ -15641,7 +15588,6 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -15829,7 +15775,6 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy
@@ -15994,7 +15939,6 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       >
         <div
           class="ant-select-content-value"
-          style="visibility: visible;"
           title="Lucy"
         >
           Lucy

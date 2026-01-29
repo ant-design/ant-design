@@ -131,9 +131,6 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx correctly 1`] = `
             type="radio"
             value="auto"
           />
-          <span
-            class="ant-radio-inner"
-          />
         </span>
         <span
           class="ant-radio-label"
@@ -154,9 +151,6 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx correctly 1`] = `
             type="radio"
             value="true"
           />
-          <span
-            class="ant-radio-inner"
-          />
         </span>
         <span
           class="ant-radio-label"
@@ -175,9 +169,6 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="false"
-          />
-          <span
-            class="ant-radio-inner"
           />
         </span>
         <span
@@ -1380,9 +1371,6 @@ Array [
           type="radio"
           value="1"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1401,9 +1389,6 @@ Array [
           name="test-id"
           type="radio"
           value="2"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span

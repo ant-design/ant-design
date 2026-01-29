@@ -11,9 +11,6 @@ exports[`Radio Button rtl render component should be rendered correctly in RTL d
       class="ant-radio-button-input"
       type="radio"
     />
-    <span
-      class="ant-radio-button-inner"
-    />
   </span>
 </label>
 `;
@@ -28,9 +25,6 @@ exports[`Radio Button should render correctly 1`] = `
     <input
       class="ant-radio-button-input"
       type="radio"
-    />
-    <span
-      class="ant-radio-button-inner"
     />
   </span>
   <span
@@ -58,9 +52,6 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         type="radio"
         value="Apple"
       />
-      <span
-        class="my-radio-inner"
-      />
     </span>
     <span
       class="my-radio-label"
@@ -80,9 +71,6 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         name="test-id"
         type="radio"
         value="Orange"
-      />
-      <span
-        class="my-radio-inner"
       />
     </span>
     <span

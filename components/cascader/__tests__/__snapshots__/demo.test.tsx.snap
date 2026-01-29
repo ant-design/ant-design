@@ -216,7 +216,6 @@ exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility:visible"
     >
       <span>
         Zhejiang
@@ -320,7 +319,6 @@ exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
   >
     <div
       class="ant-select-content-value"
-      style="visibility:visible"
       title="Zhejiang / Hangzhou / West Lake"
     >
       Zhejiang / Hangzhou / West Lake
@@ -938,9 +936,6 @@ Array [
           type="radio"
           value="topLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -959,9 +954,6 @@ Array [
           name="test-id"
           type="radio"
           value="topRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -982,9 +974,6 @@ Array [
           type="radio"
           value="bottomLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1003,9 +992,6 @@ Array [
           name="test-id"
           type="radio"
           value="bottomRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
