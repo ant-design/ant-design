@@ -36,8 +36,7 @@ function getTestRegex(libDir) {
 
 const shouldIgnoreSemantic =
   ['dist', 'lib', 'es', 'dist-min'].includes(process.env.LIB_DIR) ||
-  process.env.SKIP_SEMANTIC === '1' ||
-  process.env.SKIP_SEMANTIC === 'true';
+  ['1', 'true'].includes(process.env.SKIP_SEMANTIC);
 
 module.exports = {
   verbose: true,
