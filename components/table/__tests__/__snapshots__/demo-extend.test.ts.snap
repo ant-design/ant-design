@@ -10871,7 +10871,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         aria-expanded="true"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-open"
                                         draggable="false"
-                                        id="test-id-Category 1"
+                                        id="test-id-Category-1"
                                         role="treeitem"
                                       >
                                         <span
@@ -10903,7 +10903,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                         <span
                                           aria-checked="false"
-                                          aria-labelledby="test-id-Category 1"
+                                          aria-labelledby="test-id-Category-1"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -11008,7 +11008,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         aria-expanded="true"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-open ant-tree-treenode-leaf-last"
                                         draggable="false"
-                                        id="test-id-Category 2"
+                                        id="test-id-Category-2"
                                         role="treeitem"
                                       >
                                         <span
@@ -11040,7 +11040,7 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                         </span>
                                         <span
                                           aria-checked="false"
-                                          aria-labelledby="test-id-Category 2"
+                                          aria-labelledby="test-id-Category-2"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -11856,7 +11856,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                                         draggable="false"
-                                        id="test-id-Category 1"
+                                        id="test-id-Category-1"
                                         role="treeitem"
                                       >
                                         <span
@@ -11868,7 +11868,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-labelledby="test-id-Category 1"
+                                          aria-labelledby="test-id-Category-1"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
@@ -11892,7 +11892,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         aria-disabled="false"
                                         class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                                         draggable="false"
-                                        id="test-id-Category 2"
+                                        id="test-id-Category-2"
                                         role="treeitem"
                                       >
                                         <span
@@ -11904,7 +11904,7 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                         />
                                         <span
                                           aria-checked="false"
-                                          aria-labelledby="test-id-Category 2"
+                                          aria-labelledby="test-id-Category-2"
                                           class="ant-tree-checkbox"
                                           role="checkbox"
                                         >
