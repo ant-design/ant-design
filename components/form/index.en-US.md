@@ -578,6 +578,10 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 ## FAQ
 
+### Why can't Segmented be disabled? {#faq-segmented-cannot-disabled}
+
+Segmented is not Radio, it is a data display component. If Segmented is used for data selection rather than layout switching display, it can easily cause a break change. [#54749](https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096)
+
 ### Why can't Switch, Checkbox bind data? {#faq-switch-checkbox-binding}
 
 Form.Item default bind value to `value` prop, but Switch or Checkbox value prop is `checked`. You can use `valuePropName` to change bind value prop.
