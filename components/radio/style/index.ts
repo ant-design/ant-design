@@ -159,15 +159,11 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     colorTextDisabled,
     paddingXS,
     dotColorDisabled,
+    dotSize,
     lineType,
     radioColor,
     radioBgColor,
-    calc,
   } = token;
-
-  const dotPadding = 4;
-  const radioDotDisabledSize = calc(radioSize).sub(calc(dotPadding).mul(2));
-  const radioSizeCalc = calc(1).mul(radioSize).equal({ unit: true });
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -204,19 +200,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         justifyContent: 'center',
       },
 
-      [`${componentCls}-checked::after`]: {
-        position: 'absolute',
-        insetBlockStart: 0,
-        insetInlineStart: 0,
-        width: '100%',
-        height: '100%',
-        border: `${unit(lineWidth)} ${lineType} ${colorPrimary}`,
-        borderRadius: '50%',
-        visibility: 'hidden',
-        opacity: 0,
-        content: '""',
-      },
-
       // ===================== Radio =====================
       [componentCls]: {
         ...resetComponent(token),
@@ -229,32 +212,27 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         // Styles moved from inner
         boxSizing: 'border-box',
         display: 'block',
-        width: radioSizeCalc,
-        height: radioSizeCalc,
+        width: `calc(${radioSize} * 1px)`,
+        height: `calc(${radioSize} * 1px)`,
         backgroundColor: colorBgContainer,
         border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
         borderRadius: '50%',
         transition: `all ${motionDurationMid}`,
 
-        // Dot (::after pseudo element)
-        '&::after': {
-          boxSizing: 'border-box',
+        // Dot
+        '&:after': {
+          content: '""',
           position: 'absolute',
-          insetBlockStart: '50%',
-          insetInlineStart: '50%',
-          display: 'block',
-          width: radioSizeCalc,
-          height: radioSizeCalc,
-          marginBlockStart: calc(1).mul(radioSize).div(-2).equal({ unit: true }),
-          marginInlineStart: calc(1).mul(radioSize).div(-2).equal({ unit: true }),
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%) scale(0)',
+          width: `calc(${dotSize} * 1px)`,
+          height: `calc(${dotSize} * 1px)`,
           backgroundColor: radioColor,
-          borderBlockStart: 0,
-          borderInlineStart: 0,
-          borderRadius: radioSizeCalc,
-          transform: 'scale(0)',
+          borderRadius: '50%',
+          transformOrigin: '50% 50%',
           opacity: 0,
           transition: `all ${motionDurationSlow} ${motionEaseInOutCirc}`,
-          content: '""',
         },
 
         // Wrapper > Radio > input
@@ -287,9 +265,8 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         borderColor: colorPrimary,
 
         '&::after': {
-          transform: `scale(${token.calc(token.dotSize).div(radioSize).equal()})`,
+          transform: `translate(-50%, -50%)`,
           opacity: 1,
-          transition: `all ${motionDurationSlow} ${motionEaseInOutCirc}`,
         },
       },
 
@@ -308,12 +285,6 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
 
         '&::after': {
           backgroundColor: dotColorDisabled,
-        },
-
-        [`&${componentCls}-checked`]: {
-          '&::after': {
-            transform: `scale(${calc(radioDotDisabledSize).div(radioSize).equal()})`,
-          },
         },
       },
 
