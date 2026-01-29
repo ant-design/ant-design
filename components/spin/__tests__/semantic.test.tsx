@@ -25,6 +25,38 @@ describe('Spin.Semantic', () => {
     expect(indicator).toHaveStyle(styles.indicator);
   });
 
+  it('supports object classNames and styles for nested mode', () => {
+    const classNames = {
+      root: 'custom-root',
+      wrapper: 'custom-wrapper',
+      container: 'custom-container',
+      indicator: 'custom-indicator',
+    } as const;
+    const styles = {
+      root: { backgroundColor: 'rgb(255, 0, 0)' },
+      wrapper: { padding: '10px' },
+      container: { height: '100%' },
+      indicator: { color: 'rgb(0, 0, 255)' },
+    } as const;
+
+    const { container } = render(
+      <Spin spinning classNames={classNames} styles={styles}>
+        <div />
+      </Spin>,
+    );
+
+    const root = container.querySelector(`.${classNames.root}`)!;
+    const wrapper = container.querySelector(`.${classNames.wrapper}`)!;
+    const indicator = container.querySelector(`.${classNames.indicator}`)!;
+    const containerEl = container.querySelector(`.${classNames.container}`)!;
+
+    expect(root).toHaveClass('ant-spin');
+    expect(root).toHaveStyle(styles.root);
+    expect(wrapper).toHaveStyle(styles.wrapper);
+    expect(indicator).toHaveStyle(styles.indicator);
+    expect(containerEl).toHaveStyle(styles.container);
+  });
+
   it('supports object classNames and styles for fullscreen mask', () => {
     const classNames = {
       mask: 'custom-mask',
