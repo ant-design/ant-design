@@ -579,7 +579,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 ### Segmented 为什么不能被禁用? {#faq-segmented-cannot-disabled}
 
-Segmented 不是 Radio，是数据展示类组件。如果 Segmented 被用作布局切换而非数据选择的话，容易造成 break change。[#54749](https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096)
+Segmented 不是 Radio，是数据展示类组件。如果 Segmented 被用作数据选择而非布局切换展示的话，容易造成 break change。[#54749](https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096)
 
 ### Switch、Checkbox 为什么不能绑定数据？ {#faq-switch-checkbox-binding}
 
