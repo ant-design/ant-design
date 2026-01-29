@@ -35,7 +35,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         [varName('bg-color-hover')]: varRef('bg-color'),
         [varName('bg-color-active')]: varRef('bg-color'),
         [varName('bg-color-disabled')]: token.colorBgContainerDisabled,
-        [varName('bg-color-container')]: token.colorBgContainer,
+        [varName('bg-color-container')]: token.defaultBg ?? token.colorBgContainer,
 
         // Shadow
         [varName('shadow')]: 'none',
@@ -235,6 +235,9 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           },
 
           [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
+            [varName('text-color')]: token.defaultColor,
+            [varName('text-color-hover')]: token.defaultHoverColor,
+            [varName('text-color-active')]: token.defaultActiveColor,
             [varName('bg-color-hover')]: token.defaultHoverBg,
             [varName('bg-color-active')]: token.defaultActiveBg,
           },
