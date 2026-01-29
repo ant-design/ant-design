@@ -35,7 +35,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
         [varName('bg-color-hover')]: varRef('bg-color'),
         [varName('bg-color-active')]: varRef('bg-color'),
         [varName('bg-color-disabled')]: token.colorBgContainerDisabled,
-        [varName('bg-color-container')]: token.defaultBg ?? token.colorBgContainer,
+        [varName('bg-color-container')]: token.defaultBg,
 
         // Shadow
         [varName('shadow')]: 'none',
