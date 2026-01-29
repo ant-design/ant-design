@@ -28,6 +28,7 @@ If it will take a long time to complete an operation, you can use `Progress` to 
 <code src="./demo/format.tsx">Custom text format</code>
 <code src="./demo/dashboard.tsx">Dashboard</code>
 <code src="./demo/segment.tsx">Progress bar with success segment</code>
+<code src="./demo/multi-value.tsx">Multi-value progress</code>
 <code src="./demo/linecap.tsx">Stroke Linecap</code>
 <code src="./demo/gradient-line.tsx">Custom line gradient</code>
 <code src="./demo/steps.tsx">Progress bar with steps</code>
@@ -46,7 +47,7 @@ Properties that shared by all types.
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | format | The template function of the content | function(percent, successPercent) | (percent) => percent + `%` | - |
-| percent | To set the completion percentage | number | 0 | - |
+| percent | To set the completion percentage. When passing an array, each item represents a segment with `value` and optional `status` and `strokeColor` | number \| Array<{ value: number; status?: 'success' \| 'exception' \| 'active' \| 'normal'; strokeColor?: string }> | 0 | - |
 | railColor | The color of unfilled part | string | - | - |
 | showInfo | Whether to display the progress value and the status icon | boolean | true |
 | status | To set the status of the Progress, options: `success` `exception` `normal` `active`(line only) | string | - |
