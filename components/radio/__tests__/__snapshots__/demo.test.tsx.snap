@@ -2067,13 +2067,16 @@ exports[`renders components/radio/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <label
-    class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target"
+      class="ant-radio ant-wave-target ant-radio-checked"
+      style="border-radius:6px"
     >
       <input
+        checked=""
         class="ant-radio-input"
+        name="style-class"
         type="radio"
       />
     </span>
@@ -2088,11 +2091,11 @@ exports[`renders components/radio/demo/style-class.tsx correctly 1`] = `
     class="ant-radio-wrapper acss-1q9j8js css-var-test-id ant-radio-css-var"
   >
     <span
-      class="ant-radio ant-wave-target ant-radio-checked"
+      class="ant-radio acss-1sy50lm ant-wave-target"
     >
       <input
-        checked=""
         class="ant-radio-input"
+        name="style-class"
         type="radio"
       />
     </span>
