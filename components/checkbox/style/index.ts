@@ -26,7 +26,7 @@ interface CheckboxToken extends FullToken<'Checkbox'> {
 
 // ============================== Styles ==============================
 export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
-  const { checkboxCls } = token;
+  const { checkboxCls, checkboxSize, lineWidth } = token;
   const wrapperCls = `${checkboxCls}-wrapper`;
 
   return [
@@ -91,11 +91,11 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         // Styles moved from inner
         boxSizing: 'border-box',
         display: 'block',
-        width: token.checkboxSize,
-        height: token.checkboxSize,
+        width: checkboxSize,
+        height: checkboxSize,
         direction: 'ltr',
         backgroundColor: token.colorBgContainer,
-        border: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+        border: `${unit(lineWidth)} ${token.lineType} ${token.colorBorder}`,
         borderRadius: token.borderRadiusSM,
         borderCollapse: 'separate',
         transition: `all ${token.motionDurationSlow}`,
@@ -104,11 +104,11 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         '&:after': {
           boxSizing: 'border-box',
           position: 'absolute',
-          top: '50%',
-          insetInlineStart: '20%',
+          top: `calc(${checkboxSize} / 2 - ${lineWidth})`,
+          insetInlineStart: `calc(${checkboxSize} / 4 - ${lineWidth})`,
           display: 'table',
-          width: token.calc(token.checkboxSize).div(14).mul(5).equal(),
-          height: token.calc(token.checkboxSize).div(14).mul(8).equal(),
+          width: token.calc(checkboxSize).div(14).mul(5).equal(),
+          height: token.calc(checkboxSize).div(14).mul(8).equal(),
           border: `${unit(token.lineWidthBold)} solid ${token.colorWhite}`,
           borderTop: 0,
           borderInlineStart: 0,
@@ -124,7 +124,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           // Since baseline align will get additional space offset,
           // we need to move input to top to make it align with text.
           // Ref: https://github.com/ant-design/ant-design/issues/38926#issuecomment-1486137799
-          inset: 0,
+          inset: `calc(-1 * (${lineWidth}))`,
           zIndex: 1,
           cursor: 'pointer',
           opacity: 0,
