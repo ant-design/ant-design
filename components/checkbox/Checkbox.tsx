@@ -162,7 +162,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     mergedChecked = checkboxGroup.value.includes(value);
   }
 
-  const prevValue = React.useRef(value);
   const checkboxRef = React.useRef<CheckboxRef>(null);
   const mergedRef = useComposeRef(ref, checkboxRef);
 
@@ -170,23 +169,11 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
     if (skipGroup || !checkboxGroup) {
       return;
     }
-
     checkboxGroup.registerValue(value);
-    return () => checkboxGroup.cancelValue(value);
-  }, [value]);
-
-  React.useEffect(() => {
-    if (skipGroup || !checkboxGroup) {
-      return;
-    }
-
-    if (value !== prevValue.current) {
-      checkboxGroup.cancelValue(prevValue.current);
-      checkboxGroup.registerValue(value);
-      prevValue.current = value;
-    }
-    return () => checkboxGroup.cancelValue(value);
-  }, [value]);
+    return () => {
+      checkboxGroup.cancelValue(value);
+    };
+  }, [value, skipGroup]);
 
   // ========================== Indeterminate ===========================
   React.useEffect(() => {
