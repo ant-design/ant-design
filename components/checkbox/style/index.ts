@@ -105,7 +105,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           boxSizing: 'border-box',
           position: 'absolute',
           top: '50%',
-          insetInlineStart: '25%',
+          insetInlineStart: '20%',
           display: 'table',
           width: token.calc(token.checkboxSize).div(14).mul(5).equal(),
           height: token.calc(token.checkboxSize).div(14).mul(8).equal(),
