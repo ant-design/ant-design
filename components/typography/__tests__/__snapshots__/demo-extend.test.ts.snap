@@ -925,9 +925,6 @@ Array [
           type="radio"
           value="icon"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -947,9 +944,6 @@ Array [
           type="radio"
           value="text"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -968,9 +962,6 @@ Array [
           name="test-id"
           type="radio"
           value="both"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

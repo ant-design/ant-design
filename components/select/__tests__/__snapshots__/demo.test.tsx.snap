@@ -3779,9 +3779,6 @@ Array [
           type="radio"
           value="topLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -3800,9 +3797,6 @@ Array [
           name="test-id"
           type="radio"
           value="topRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -3823,9 +3817,6 @@ Array [
           type="radio"
           value="bottomLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -3844,9 +3835,6 @@ Array [
           name="test-id"
           type="radio"
           value="bottomRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -3939,9 +3927,6 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               type="radio"
               value="topLeft"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -3960,9 +3945,6 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               name="test-id"
               type="radio"
               value="topRight"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -3983,9 +3965,6 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               type="radio"
               value="bottomLeft"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -4004,9 +3983,6 @@ exports[`renders components/select/demo/placement-debug.tsx correctly 1`] = `
               name="test-id"
               type="radio"
               value="bottomRight"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -4628,9 +4604,6 @@ Array [
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -4651,9 +4624,6 @@ Array [
           type="radio"
           value="middle"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -4672,9 +4642,6 @@ Array [
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span

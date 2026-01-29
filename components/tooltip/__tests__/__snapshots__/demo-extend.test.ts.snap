@@ -1537,9 +1537,6 @@ exports[`renders components/tooltip/demo/disabled-children.tsx extend context co
           disabled=""
           type="checkbox"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
     </label>
     <div

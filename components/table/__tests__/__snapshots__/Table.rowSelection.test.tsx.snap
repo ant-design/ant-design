@@ -104,9 +104,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                       <div
@@ -218,9 +215,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -246,9 +240,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -276,9 +267,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -304,9 +292,6 @@ exports[`Table.rowSelection should support getPopupContainer 1`] = `
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -455,9 +440,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                       <div
@@ -569,9 +551,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -597,9 +576,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -627,9 +603,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -655,9 +628,6 @@ exports[`Table.rowSelection should support getPopupContainer from ConfigProvider
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -806,9 +776,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </div>
@@ -841,9 +808,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -869,9 +833,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -899,9 +860,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -927,9 +885,6 @@ exports[`Table.rowSelection use column as selection column when key is \`selecti
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>

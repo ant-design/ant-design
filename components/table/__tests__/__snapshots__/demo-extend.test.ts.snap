@@ -1421,9 +1421,6 @@ Array [
                       type="radio"
                       value="large"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1443,9 +1440,6 @@ Array [
                       type="radio"
                       value="middle"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1464,9 +1458,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="small"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1523,9 +1514,6 @@ Array [
                       type="radio"
                       value="unset"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1545,9 +1533,6 @@ Array [
                       type="radio"
                       value="scroll"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1566,9 +1551,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="fixed"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1625,9 +1607,6 @@ Array [
                       type="radio"
                       value="unset"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1646,9 +1625,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="fixed"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1704,9 +1680,6 @@ Array [
                       type="radio"
                       value="topStart"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1725,9 +1698,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="topCenter"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1748,9 +1718,6 @@ Array [
                       type="radio"
                       value="topEnd"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1770,9 +1737,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="none"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1828,9 +1792,6 @@ Array [
                       type="radio"
                       value="bottomStart"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1849,9 +1810,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="bottomCenter"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1873,9 +1831,6 @@ Array [
                       type="radio"
                       value="bottomEnd"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -1894,9 +1849,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="none"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -1965,9 +1917,6 @@ Array [
                               aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -2134,9 +2083,6 @@ Array [
                                         class="ant-checkbox-input"
                                         type="checkbox"
                                       />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
                                     </span>
                                   </label>
                                   <span>
@@ -2181,9 +2127,6 @@ Array [
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
                                       />
                                     </span>
                                   </label>
@@ -2357,9 +2300,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2458,9 +2398,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -2561,9 +2498,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2662,9 +2596,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -2765,9 +2696,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -2866,9 +2794,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -2969,9 +2894,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -3070,9 +2992,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -3173,9 +3092,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -3274,9 +3190,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -3561,9 +3474,6 @@ Array [
                                         class="ant-checkbox-input"
                                         type="checkbox"
                                       />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
                                     </span>
                                   </label>
                                   <span>
@@ -3608,9 +3518,6 @@ Array [
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
                                       />
                                     </span>
                                   </label>
@@ -6039,9 +5946,6 @@ Array [
                       type="radio"
                       value="large"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6061,9 +5965,6 @@ Array [
                       type="radio"
                       value="middle"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6082,9 +5983,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="small"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -6141,9 +6039,6 @@ Array [
                       type="radio"
                       value="unset"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6163,9 +6058,6 @@ Array [
                       type="radio"
                       value="scroll"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6184,9 +6076,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="fixed"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -6243,9 +6132,6 @@ Array [
                       type="radio"
                       value="unset"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6264,9 +6150,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="fixed"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -6322,9 +6205,6 @@ Array [
                       type="radio"
                       value="topStart"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6343,9 +6223,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="topCenter"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -6366,9 +6243,6 @@ Array [
                       type="radio"
                       value="topEnd"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6388,9 +6262,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="none"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -6446,9 +6317,6 @@ Array [
                       type="radio"
                       value="bottomStart"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6467,9 +6335,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="bottomCenter"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -6491,9 +6356,6 @@ Array [
                       type="radio"
                       value="bottomEnd"
                     />
-                    <span
-                      class="ant-radio-button-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-button-label"
@@ -6512,9 +6374,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="none"
-                    />
-                    <span
-                      class="ant-radio-button-inner"
                     />
                   </span>
                   <span
@@ -6583,9 +6442,6 @@ Array [
                               aria-label="Select all"
                               class="ant-checkbox-input"
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -6752,9 +6608,6 @@ Array [
                                         class="ant-checkbox-input"
                                         type="checkbox"
                                       />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
                                     </span>
                                   </label>
                                   <span>
@@ -6799,9 +6652,6 @@ Array [
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
                                       />
                                     </span>
                                   </label>
@@ -6975,9 +6825,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -7076,9 +6923,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -7179,9 +7023,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -7280,9 +7121,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -7383,9 +7221,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -7484,9 +7319,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -7587,9 +7419,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -7688,9 +7517,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -7791,9 +7617,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -7892,9 +7715,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -10789,9 +10609,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                   class="ant-checkbox-input"
                                   type="checkbox"
                                 />
-                                <span
-                                  class="ant-checkbox-inner"
-                                />
                               </span>
                               <span
                                 class="ant-checkbox-label"
@@ -11363,9 +11180,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -11410,9 +11224,6 @@ exports[`renders components/table/demo/filter-in-tree.tsx extend context correct
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -11774,9 +11585,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                 <input
                                   class="ant-checkbox-input"
                                   type="checkbox"
-                                />
-                                <span
-                                  class="ant-checkbox-inner"
                                 />
                               </span>
                               <span
@@ -12147,9 +11955,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -12194,9 +11999,6 @@ exports[`renders components/table/demo/filter-search.tsx extend context correctl
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -13917,9 +13719,6 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -13964,9 +13763,6 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -15374,9 +15170,6 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -15421,9 +15214,6 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -15522,9 +15312,6 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                             class="ant-checkbox-input"
                                             type="checkbox"
                                           />
-                                          <span
-                                            class="ant-checkbox-inner"
-                                          />
                                         </span>
                                       </label>
                                       <span>
@@ -15569,9 +15356,6 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                           <input
                                             class="ant-checkbox-input"
                                             type="checkbox"
-                                          />
-                                          <span
-                                            class="ant-checkbox-inner"
                                           />
                                         </span>
                                       </label>
@@ -15787,9 +15571,6 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -15834,9 +15615,6 @@ exports[`renders components/table/demo/head.tsx extend context correctly 1`] = `
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -16103,9 +15881,6 @@ Array [
           type="checkbox"
           value="1"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -16124,9 +15899,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="2"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -16147,9 +15919,6 @@ Array [
           type="checkbox"
           value="3"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -16168,9 +15937,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="4"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -16191,9 +15957,6 @@ Array [
           type="checkbox"
           value="5"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -16212,9 +15975,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="6"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -16235,9 +15995,6 @@ Array [
           type="checkbox"
           value="7"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -16256,9 +16013,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="8"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -17132,9 +16886,6 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -17180,9 +16931,6 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -17227,9 +16975,6 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -22222,9 +21967,6 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </div>
@@ -22277,9 +22019,6 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -22325,9 +22064,6 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -22375,9 +22111,6 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -22423,9 +22156,6 @@ exports[`renders components/table/demo/order-column.tsx extend context correctly
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -22548,9 +22278,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
             type="radio"
             value="topStart"
           />
-          <span
-            class="ant-radio-inner"
-          />
         </span>
         <span
           class="ant-radio-label"
@@ -22569,9 +22296,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
             name="test-id"
             type="radio"
             value="topCenter"
-          />
-          <span
-            class="ant-radio-inner"
           />
         </span>
         <span
@@ -22592,9 +22316,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
             type="radio"
             value="topEnd"
           />
-          <span
-            class="ant-radio-inner"
-          />
         </span>
         <span
           class="ant-radio-label"
@@ -22613,9 +22334,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
             name="test-id"
             type="radio"
             value="none"
-          />
-          <span
-            class="ant-radio-inner"
           />
         </span>
         <span
@@ -22643,9 +22361,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           type="radio"
           value="bottomStart"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -22664,9 +22379,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           name="test-id"
           type="radio"
           value="bottomCenter"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -22688,9 +22400,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           type="radio"
           value="bottomEnd"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -22709,9 +22418,6 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
           name="test-id"
           type="radio"
           value="none"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -23351,9 +23057,6 @@ Array [
                                         class="ant-checkbox-input"
                                         type="checkbox"
                                       />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
                                     </span>
                                   </label>
                                   <span>
@@ -23398,9 +23101,6 @@ Array [
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
                                       />
                                     </span>
                                   </label>
@@ -23693,9 +23393,6 @@ Array [
                                         class="ant-checkbox-input"
                                         type="checkbox"
                                       />
-                                      <span
-                                        class="ant-checkbox-inner"
-                                      />
                                     </span>
                                   </label>
                                   <span>
@@ -23740,9 +23437,6 @@ Array [
                                       <input
                                         class="ant-checkbox-input"
                                         type="checkbox"
-                                      />
-                                      <span
-                                        class="ant-checkbox-inner"
                                       />
                                     </span>
                                   </label>
@@ -24147,9 +23841,6 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
           type="radio"
           value="checkbox"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -24168,9 +23859,6 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
           name="test-id"
           type="radio"
           value="radio"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -24232,9 +23920,6 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                       </div>
@@ -24280,9 +23965,6 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                             name="John Brown"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24321,9 +24003,6 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                             class="ant-checkbox-input"
                             name="Jim Green"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24364,9 +24043,6 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                             name="Joe Black"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24406,9 +24082,6 @@ exports[`renders components/table/demo/row-selection.tsx extend context correctl
                             disabled=""
                             name="Disabled User"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24588,9 +24261,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                       </div>
@@ -24635,9 +24305,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24673,9 +24340,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24713,9 +24377,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24751,9 +24412,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24791,9 +24449,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24829,9 +24484,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24869,9 +24521,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24907,9 +24556,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -24947,9 +24593,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -24985,9 +24628,6 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx extend co
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25192,9 +24832,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                             aria-label="Custom selection"
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -25438,9 +25075,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -25476,9 +25110,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -25516,9 +25147,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -25554,9 +25182,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -25594,9 +25219,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -25632,9 +25254,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -25672,9 +25291,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -25710,9 +25326,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -25750,9 +25363,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -25788,9 +25398,6 @@ exports[`renders components/table/demo/row-selection-custom.tsx extend context c
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -25995,9 +25602,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </div>
@@ -26031,9 +25635,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -26073,9 +25674,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -26113,9 +25711,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -26155,9 +25750,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -26195,9 +25787,6 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx extend con
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -28673,9 +28262,6 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                       <div
@@ -28856,9 +28442,6 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -28895,9 +28478,6 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                           class="ant-checkbox-input"
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                   </td>
@@ -28933,9 +28513,6 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
                         <input
                           class="ant-checkbox-input"
                           type="checkbox"
-                        />
-                        <span
-                          class="ant-checkbox-inner"
                         />
                       </span>
                     </label>
@@ -30051,9 +29628,6 @@ Array [
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                       </div>
@@ -30097,9 +29671,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30146,9 +29717,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30363,9 +29931,6 @@ Array [
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                       </div>
@@ -30416,9 +29981,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30473,9 +30035,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -30528,9 +30087,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30585,9 +30141,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -30640,9 +30193,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30697,9 +30247,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -30752,9 +30299,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -30809,9 +30353,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -30864,9 +30405,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -31119,9 +30657,6 @@ Array [
                               class="ant-checkbox-input"
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                       </div>
@@ -31165,9 +30700,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -31215,9 +30747,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -31263,9 +30792,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>
@@ -31313,9 +30839,6 @@ Array [
                             class="ant-checkbox-input"
                             type="checkbox"
                           />
-                          <span
-                            class="ant-checkbox-inner"
-                          />
                         </span>
                       </label>
                     </td>
@@ -31361,9 +30884,6 @@ Array [
                           <input
                             class="ant-checkbox-input"
                             type="checkbox"
-                          />
-                          <span
-                            class="ant-checkbox-inner"
                           />
                         </span>
                       </label>

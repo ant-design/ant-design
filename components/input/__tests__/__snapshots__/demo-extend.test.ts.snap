@@ -5180,9 +5180,6 @@ Array [
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -5201,9 +5198,6 @@ Array [
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
