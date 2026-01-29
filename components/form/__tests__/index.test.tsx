@@ -1388,7 +1388,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(container.querySelectorAll('.ant-segmented')[0]).not.toHaveClass(
+    expect(container.querySelector('.ant-segmented')).not.toHaveClass(
       'ant-segmented-disabled',
     );
   });
