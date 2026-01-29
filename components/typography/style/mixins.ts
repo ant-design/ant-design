@@ -54,14 +54,13 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 };
 
 export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
-  const { componentCls, antCls } = token;
-  const btnCls = `${antCls}-btn`;
+  const { componentCls } = token;
+  const linkCls = `${componentCls}-link`;
 
   return {
-    // fix issue: https://github.com/ant-design/ant-design/issues/56606
-    // exclude ant-btn to avoid style conflicts with Button component when it renders as <a></a> tag (variant='link' with href)
-    [`a&:not(${btnCls}), a:not(${btnCls})`]: {
+    [`&${linkCls}`]: {
       ...operationUnit(token),
+      userSelect: 'text',
 
       [`&[disabled], &${componentCls}-disabled`]: {
         color: token.colorTextDisabled,
