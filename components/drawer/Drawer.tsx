@@ -59,6 +59,8 @@ export interface DrawerProps
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+  /** @deprecated Please use `mask.closable` instead */
+  maskClosable?: boolean;
   mask?: MaskType;
 
   focusable?: FocusableConfig;
@@ -94,6 +96,7 @@ const Drawer: React.FC<DrawerProps> & {
     focusable,
 
     // Deprecated
+    maskClosable,
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
@@ -115,7 +118,6 @@ const Drawer: React.FC<DrawerProps> & {
     classNames: contextClassNames,
     styles: contextStyles,
     mask: contextMask,
-    maskClosable: contextMaskClosable,
   } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -141,6 +143,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['destroyInactivePanel', 'destroyOnHidden'],
       ['width', 'size'],
       ['height', 'size'],
+      ['maskClosable', 'mask.closable'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -207,13 +210,17 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // ============================ Mask ============================
-  const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
+  const [mergedMask, maskBlurClassName, mergedMaskClosable] = useMergedMask(
+    drawerMask,
+    contextMask,
+    prefixCls,
+  );
 
   // ========================== Focusable =========================
   const mergedFocusable = useFocusable(focusable, getContainer !== false && mergedMask);
 
   // =========================== Render ===========================
-  const { classNames, styles, rootStyle, maskClosable } = rest;
+  const { classNames, styles, rootStyle } = rest;
   const mergedProps: DrawerProps = {
     ...props,
     zIndex,
@@ -266,7 +273,7 @@ const Drawer: React.FC<DrawerProps> & {
           }}
           open={open}
           mask={mergedMask}
-          maskClosable={maskClosable ?? contextMaskClosable}
+          maskClosable={maskClosable ?? mergedMaskClosable}
           push={push}
           size={drawerSize}
           defaultSize={defaultSize}

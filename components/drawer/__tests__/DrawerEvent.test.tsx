@@ -82,10 +82,18 @@ describe('Drawer', () => {
     expect(onClose).not.toHaveBeenCalled();
   });
 
-  it("maskClosable no trigger onClose by ConfigProvider's drawer config", () => {
+  it('mask.closable no trigger onClose', () => {
+    const onClose = jest.fn();
+    const { container } = render(<DrawerTest onClose={onClose} mask={{ closable: false }} />);
+
+    fireEvent.click(container.querySelector('.ant-drawer-mask')!);
+    expect(onClose).not.toHaveBeenCalled();
+  });
+
+  it("mask.closable no trigger onClose by ConfigProvider's drawer config", () => {
     const onClose = jest.fn();
     const { container } = render(
-      <ConfigProvider drawer={{ maskClosable: false }}>
+      <ConfigProvider drawer={{ mask: { closable: false } }}>
         <DrawerTest onClose={onClose} />
       </ConfigProvider>,
     );
@@ -93,10 +101,10 @@ describe('Drawer', () => {
     expect(onClose).not.toHaveBeenCalled();
   });
 
-  it("maskClosable no trigger onClose when maskClosable is false and ConfigProvider's drawer config is true", () => {
+  it("mask.closable no trigger onClose when maskClosable is false and ConfigProvider's drawer config is true", () => {
     const onClose = jest.fn();
     const { container } = render(
-      <ConfigProvider drawer={{ maskClosable: true }}>
+      <ConfigProvider drawer={{ mask: { closable: false } }}>
         <DrawerTest onClose={onClose} maskClosable={false} />
       </ConfigProvider>,
     );
@@ -104,10 +112,10 @@ describe('Drawer', () => {
     expect(onClose).not.toHaveBeenCalled();
   });
 
-  it("maskClosable trigger onClose when maskClosable is true and ConfigProvider's drawer config is false", () => {
+  it("mask.closable trigger onClose when maskClosable is true and ConfigProvider's drawer config is false", () => {
     const onClose = jest.fn();
     const { container } = render(
-      <ConfigProvider drawer={{ maskClosable: false }}>
+      <ConfigProvider drawer={{ mask: { closable: false } }}>
         <DrawerTest onClose={onClose} maskClosable={true} />
       </ConfigProvider>,
     );

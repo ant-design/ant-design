@@ -70,8 +70,8 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | ~~height~~ | Placement is `top` or `bottom`, height of the Drawer dialog, please use `size` instead | string \| number | 378 |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | loading | Show the Skeleton | boolean | false | 5.17.0 |
-| mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
-| maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
+| mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean, closable?: boolean }` | true |  |
+| ~~maskClosable~~ | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
 | maxSize | Maximum size (width or height depending on `placement`) when resizable | number | - | 6.0.0 |
 | open | Whether the Drawer dialog is visible or not | boolean | false |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |

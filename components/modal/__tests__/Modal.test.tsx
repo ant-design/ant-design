@@ -257,10 +257,10 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
   });
 
-  it('should not close when maskClosable is false from context', () => {
+  it('should not close when mask.closable is false from context', () => {
     const onCancel = jest.fn();
     render(
-      <ConfigProvider modal={{ maskClosable: false }}>
+      <ConfigProvider modal={{ mask: { closable: false } }}>
         <Modal open onCancel={onCancel} />
       </ConfigProvider>,
     );
@@ -269,7 +269,7 @@ describe('Modal', () => {
     expect(onCancel).not.toHaveBeenCalled();
   });
 
-  it('should support maskClosable prop over maskClosable global config', async () => {
+  it('should support maskClosable prop over mask.closable global config', async () => {
     jest.useFakeTimers();
 
     const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {}, ...restProps }) => {
@@ -289,7 +289,7 @@ describe('Modal', () => {
     const onOk = jest.fn();
 
     render(
-      <ConfigProvider modal={{ maskClosable: false }}>
+      <ConfigProvider modal={{ mask: { closable: false } }}>
         <Demo onCancel={onCancel} onOk={onOk} maskClosable />
       </ConfigProvider>,
     );
