@@ -30,10 +30,10 @@ const App: React.FC = () => {
       <p>Select align :</p>
       <Segmented options={alignOptions} onChange={setAlignItems} />
       <Flex style={boxStyle} justify={justify} align={alignItems}>
-        <Button type="primary">Primary</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="primary">Primary</Button>
-        <Button type="primary">Primary</Button>
+        <Button type="primary">start</Button>
+        <Button type="primary">Middle</Button>
+        <Button type="primary">rightMiddle</Button>
+        <Button type="primary">end</Button>
       </Flex>
     </Flex>
   );
