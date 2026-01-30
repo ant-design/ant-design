@@ -9,17 +9,19 @@ import type { ButtonProps } from '../button/Button';
 import Button from '../button/Button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { TourProps, TourStepProps } from './interface';
+import type { TourProps, TourSemanticType, TourStepProps } from './interface';
 
 interface TourPanelProps {
-  stepProps: Omit<TourStepProps, 'closable'> & {
+  stepProps: Omit<TourStepProps, 'closable' | 'styles' | 'classNames'> & {
     closable?: Exclude<TourStepProps['closable'], boolean>;
+    classNames?: TourSemanticType['classNames'];
+    styles?: TourSemanticType['styles'];
   };
   current: number;
   type: TourProps['type'];
   indicatorsRender?: TourProps['indicatorsRender'];
-  classNames?: TourProps['classNames'];
-  styles?: TourProps['styles'];
+  classNames?: TourSemanticType['classNames'];
+  styles?: TourSemanticType['styles'];
   actionsRender?: TourProps['actionsRender'];
 }
 

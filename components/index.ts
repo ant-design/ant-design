@@ -26,12 +26,12 @@ export type { ButtonProps, ButtonSemanticType } from './button';
 export { default as Calendar } from './calendar';
 export type { CalendarMode, CalendarProps, CalendarSemanticType } from './calendar';
 export { default as Card } from './card';
-export type { CardProps } from './card';
+export type { CardMetaSemanticType, CardProps, CardSemanticType } from './card';
 export type { CardMetaProps } from './card/CardMeta';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
-export type { CascaderAutoProps, CascaderProps } from './cascader';
+export type { CascaderAutoProps, CascaderProps, CascaderSemanticType } from './cascader';
 export type { CascaderPanelAutoProps, CascaderPanelProps } from './cascader/Panel';
 export { default as Checkbox } from './checkbox';
 export type {
@@ -55,7 +55,7 @@ export type { DescriptionsProps } from './descriptions';
 export { default as Divider } from './divider';
 export type { DividerProps } from './divider';
 export { default as Drawer } from './drawer';
-export type { DrawerProps } from './drawer';
+export type { DrawerProps, DrawerSemanticType } from './drawer';
 export { default as Dropdown } from './dropdown';
 export type {
   // typo, but we need to support it for backwards compatibility
@@ -63,13 +63,20 @@ export type {
   /** @deprecated Use `DropdownProps` instead. */
   DropdownProps as DropDownProps,
   DropdownProps,
+  DropdownSemanticType,
 } from './dropdown';
 export { default as Empty } from './empty';
-export type { EmptyProps } from './empty';
+export type { EmptyProps, EmptySemanticType } from './empty';
 export { default as Flex } from './flex';
 export type { FlexProps } from './flex/interface';
 export { default as FloatButton } from './float-button';
-export type { FloatButtonGroupProps, FloatButtonProps, FloatButtonRef } from './float-button';
+export type {
+  FloatButtonGroupProps,
+  FloatButtonGroupSemanticType,
+  FloatButtonProps,
+  FloatButtonRef,
+  FloatButtonSemanticType,
+} from './float-button';
 export { default as Form } from './form';
 export type {
   FormInstance,
@@ -78,68 +85,86 @@ export type {
   FormListOperation,
   FormProps,
   Rule as FormRule,
+  FormSemanticType,
 } from './form';
 export { default as Grid } from './grid';
 export { default as Image } from './image';
-export type { ImageProps } from './image';
+export type { ImageProps, ImageSemanticType } from './image';
 export { default as Input } from './input';
-export type { InputProps, InputRef } from './input';
+export type {
+  InputProps,
+  InputRef,
+  InputSearchSemanticType,
+  InputSemanticType,
+  OTPSemanticType,
+  TextAreaSemanticType,
+} from './input';
 export { default as InputNumber } from './input-number';
-export type { InputNumberProps } from './input-number';
+export type { InputNumberProps, InputNumberSemanticType } from './input-number';
 export { default as Layout } from './layout';
 export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
 export type { ListProps } from './list';
 export { default as Masonry } from './masonry';
-export type { MasonryProps } from './masonry';
+export type { MasonryProps, MasonrySemanticType } from './masonry';
 export { default as Mentions } from './mentions';
-export type { MentionProps, MentionsProps } from './mentions';
+export type { MentionProps, MentionSemanticType, MentionsProps } from './mentions';
 export { default as Menu } from './menu';
 export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from './menu';
 export { default as message } from './message';
 export type { ArgsProps as MessageArgsProps } from './message';
 export { default as Modal } from './modal';
-export type { ModalFuncProps, ModalLocale, ModalProps } from './modal';
+export type { ModalFuncProps, ModalLocale, ModalProps, ModalSemanticType } from './modal';
 export { default as notification } from './notification';
 export type { ArgsProps as NotificationArgsProps } from './notification';
 export { default as Pagination } from './pagination';
 export type { PaginationProps } from './pagination';
 export { default as Popconfirm } from './popconfirm';
-export type { PopconfirmProps } from './popconfirm';
+export type { PopconfirmProps, PopconfirmSemanticType } from './popconfirm';
 export { default as Popover } from './popover';
-export type { PopoverProps } from './popover';
+export type { PopoverProps, PopoverSemanticType } from './popover';
 export { default as Progress } from './progress';
-export type { ProgressProps } from './progress';
+export type { ProgressProps, ProgressSemanticType } from './progress';
 export { default as QRCode } from './qr-code';
-export type { QRCodeProps, QRPropsCanvas, QRPropsSvg } from './qr-code/interface';
+export type {
+  QRCodeProps,
+  QRCodeSemanticType,
+  QRPropsCanvas,
+  QRPropsSvg,
+} from './qr-code/interface';
 export { default as Radio } from './radio';
-export type { RadioChangeEvent, RadioGroupProps, RadioProps } from './radio';
+export type { RadioChangeEvent, RadioGroupProps, RadioProps, RadioSemanticType } from './radio';
 export { default as Rate } from './rate';
 export type { RateProps } from './rate';
 export { default as Result } from './result';
-export type { ResultProps } from './result';
+export type { ResultProps, ResultSemanticType } from './result';
 export { default as Row } from './row';
 export type { RowProps } from './row';
 export { default as Segmented } from './segmented';
-export type { SegmentedProps } from './segmented';
+export type { SegmentedProps, SegmentedSemanticType } from './segmented';
 export { default as Select } from './select';
 export type { RefSelectProps, SelectProps, SelectSemanticType } from './select';
 export { default as Skeleton } from './skeleton';
-export type { SkeletonProps } from './skeleton';
+export type { SkeletonProps, SkeletonSemanticType } from './skeleton';
 export { default as Slider } from './slider';
-export type { SliderSingleProps } from './slider';
+export type { SliderSemanticClassType, SliderSingleProps } from './slider';
 export { default as Space } from './space';
-export type { SpaceProps } from './space';
+export type { SpaceProps, SpaceSemanticType } from './space';
 export { default as Spin } from './spin';
-export type { SpinProps } from './spin';
+export type { SpinProps, SpinSemanticType } from './spin';
 export { default as Splitter } from './splitter';
-export type { SplitterProps } from './splitter';
+export type { SplitterProps, SplitterSemanticType } from './splitter';
 export { default as Statistic } from './statistic';
-export type { CountdownProps, StatisticProps, StatisticTimerProps } from './statistic';
+export type {
+  CountdownProps,
+  StatisticProps,
+  StatisticSemanticType,
+  StatisticTimerProps,
+} from './statistic';
 export { default as Steps } from './steps';
 export type { StepsProps } from './steps';
 export { default as Switch } from './switch';
-export type { SwitchProps } from './switch';
+export type { SwitchProps, SwitchSemanticType } from './switch';
 export { default as Table } from './table';
 export type {
   ColumnGroupType as TableColumnGroupType,
@@ -148,23 +173,24 @@ export type {
   ColumnType as TableColumnType,
   TablePaginationConfig,
   TableProps,
+  TableSemanticType,
 } from './table';
 export { default as Tabs } from './tabs';
-export type { TabPaneProps, TabsProps } from './tabs';
+export type { TabPaneProps, TabsProps, TabsSemanticType } from './tabs';
 export { default as Tag } from './tag';
-export type { TagProps, TagType } from './tag';
+export type { CheckableTagGroupSemanticType, TagProps, TagSemanticType, TagType } from './tag';
 export { default as theme } from './theme';
 export type { GlobalToken, MappingAlgorithm } from './theme';
 export { default as TimePicker } from './time-picker';
-export type { TimePickerProps, TimeRangePickerProps } from './time-picker';
+export type { TimePickerProps, TimePickerSemanticType, TimeRangePickerProps } from './time-picker';
 export { default as Timeline } from './timeline';
-export type { TimelineItemProps, TimelineProps } from './timeline';
+export type { TimelineItemProps, TimelineProps, TimelineSemanticType } from './timeline';
 export { default as Tooltip } from './tooltip';
 export type { TooltipProps } from './tooltip';
 export { default as Tour } from './tour';
-export type { TourProps, TourStepProps } from './tour/interface';
+export type { TourProps, TourSemanticType, TourStepProps } from './tour/interface';
 export { default as Transfer } from './transfer';
-export type { TransferProps } from './transfer';
+export type { TransferProps, TransferSemanticType } from './transfer';
 export { default as Tree } from './tree';
 export type {
   DataNode as TreeDataNode,
@@ -173,11 +199,11 @@ export type {
   TreeSemanticType,
 } from './tree';
 export { default as TreeSelect } from './tree-select';
-export type { TreeSelectProps } from './tree-select';
+export type { TreeSelectProps, TreeSelectSemanticType } from './tree-select';
 export { default as Typography } from './typography';
 export type { TypographyProps } from './typography';
 export { default as Upload } from './upload';
-export type { DraggerProps, UploadFile, UploadProps } from './upload';
+export type { DraggerProps, UploadFile, UploadProps, UploadSemanticType } from './upload';
 export { default as version } from './version';
 export { default as Watermark } from './watermark';
 export type { WatermarkProps } from './watermark';

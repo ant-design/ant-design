@@ -8,8 +8,7 @@ import type {
   PercentPositionType,
   ProgressGradient,
   ProgressProps,
-  ProgressSemanticClassNames,
-  ProgressSemanticStyles,
+  ProgressSemanticType,
   StringGradients,
 } from './progress';
 import { LineStrokeColorVar } from './style';
@@ -20,8 +19,8 @@ interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
-  classNames: ProgressSemanticClassNames;
-  styles: ProgressSemanticStyles;
+  classNames: ProgressSemanticType['classNames'];
+  styles: ProgressSemanticType['styles'];
 }
 
 /**
@@ -81,8 +80,8 @@ export const handleGradient = (
 const Line: React.FC<LineProps> = (props) => {
   const {
     prefixCls,
-    classNames,
-    styles,
+    classNames = {},
+    styles = {},
     direction: directionConfig,
     percent,
     size,

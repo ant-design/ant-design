@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { Orientation, SemanticType } from '../_util/hooks';
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -44,23 +44,22 @@ export interface RadioGroupContextProps {
   block?: boolean;
 }
 
-export type RadioSemanticName = keyof RadioSemanticClassNames & keyof RadioSemanticStyles;
-
-export type RadioSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  label?: string;
+export type RadioSemanticType = {
+  className: {
+    root?: string;
+    icon?: string;
+    label?: string;
+  };
+  style: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    label?: React.CSSProperties;
+  };
 };
 
-export type RadioSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  label?: React.CSSProperties;
-};
+export type RadioClassNamesType = SemanticType<RadioProps, RadioSemanticType['className']>;
 
-export type RadioClassNamesType = SemanticClassNamesType<RadioProps, RadioSemanticClassNames>;
-
-export type RadioStylesType = SemanticStylesType<RadioProps, RadioSemanticStyles>;
+export type RadioStylesType = SemanticType<RadioProps, RadioSemanticType['style']>;
 
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
   /**

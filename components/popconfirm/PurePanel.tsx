@@ -10,7 +10,7 @@ import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { PopoverSemanticClassNames, PopoverSemanticStyles } from '../popover';
+import type { PopoverSemanticType } from '../popover';
 import PopoverPurePanel from '../popover/PurePanel';
 import useStyle from './style';
 
@@ -19,26 +19,25 @@ export interface PopconfirmLocale {
   cancelText: string;
 }
 
-export interface OverlayProps
-  extends Pick<
-    PopconfirmProps,
-    | 'icon'
-    | 'okButtonProps'
-    | 'cancelButtonProps'
-    | 'cancelText'
-    | 'okText'
-    | 'okType'
-    | 'showCancel'
-    | 'title'
-    | 'description'
-    | 'onPopupClick'
-  > {
+export interface OverlayProps extends Pick<
+  PopconfirmProps,
+  | 'icon'
+  | 'okButtonProps'
+  | 'cancelButtonProps'
+  | 'cancelText'
+  | 'okText'
+  | 'okType'
+  | 'showCancel'
+  | 'title'
+  | 'description'
+  | 'onPopupClick'
+> {
   prefixCls: string;
   close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  classNames?: PopoverSemanticClassNames;
-  styles?: PopoverSemanticStyles;
+  classNames?: PopoverSemanticType['classNames'];
+  styles?: PopoverSemanticType['styles'];
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
@@ -114,8 +113,7 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
 };
 
 export interface PurePanelProps
-  extends Omit<OverlayProps, 'prefixCls'>,
-    Pick<PopconfirmProps, 'placement'> {
+  extends Omit<OverlayProps, 'prefixCls'>, Pick<PopconfirmProps, 'placement'> {
   className?: string;
   style?: React.CSSProperties;
   prefixCls?: string;

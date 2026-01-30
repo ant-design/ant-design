@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Skeleton } from 'antd';
-import type { SkeletonProps } from 'antd';
+import type { SkeletonProps, SkeletonSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classnames = createStaticStyles(({ css }) => ({
@@ -30,7 +30,7 @@ const styles: SkeletonProps['styles'] = {
   },
 };
 
-const stylesFn: SkeletonProps['styles'] = (info) => {
+const stylesFn: SkeletonProps['styles'] = (info): SkeletonSemanticType['styles'] => {
   if (info.props.active) {
     return {
       root: {
@@ -41,7 +41,7 @@ const stylesFn: SkeletonProps['styles'] = (info) => {
         height: 20,
         borderRadius: 20,
       },
-    } satisfies SkeletonProps['styles'];
+    };
   }
   return {};
 };

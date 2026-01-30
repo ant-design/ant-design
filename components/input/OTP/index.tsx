@@ -4,7 +4,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks';
+import type { SemanticType } from '../../_util/hooks';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
@@ -19,21 +19,22 @@ import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
 
-export type OTPSemanticClassNames = {
-  root?: string;
-  input?: string;
-  separator?: string;
+export type OTPSemanticType = {
+  classNames?: {
+    root?: string;
+    input?: string;
+    separator?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    input?: React.CSSProperties;
+    separator?: React.CSSProperties;
+  };
 };
 
-export type OTPSemanticStyles = {
-  root?: React.CSSProperties;
-  input?: React.CSSProperties;
-  separator?: React.CSSProperties;
-};
+export type OTPClassNamesType = SemanticType<OTPProps, OTPSemanticType['classNames']>;
 
-export type OTPClassNamesType = SemanticClassNamesType<OTPProps, OTPSemanticClassNames>;
-
-export type OTPStylesType = SemanticStylesType<OTPProps, OTPSemanticStyles>;
+export type OTPStylesType = SemanticType<OTPProps, OTPSemanticType['styles']>;
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -41,8 +42,10 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
+export interface OTPProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'onInput'
+> {
   prefixCls?: string;
   length?: number;
 
@@ -152,13 +155,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     length,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    OTPClassNamesType,
-    OTPStylesType,
-    OTPProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const domAttrs = pickAttrs(restProps, {
     aria: true,

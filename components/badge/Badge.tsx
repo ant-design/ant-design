@@ -97,13 +97,13 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
     showZero,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    BadgeClassNamesType,
-    BadgeStylesType,
-    BadgeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ================================ Misc ================================
   const numberedDisplayCount = (

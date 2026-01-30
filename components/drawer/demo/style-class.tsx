@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Flex } from 'antd';
-import type { DrawerProps } from 'antd';
+import type { DrawerProps, DrawerSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const lineStyle: React.CSSProperties = {
@@ -23,6 +23,7 @@ const sharedContent = (
 );
 
 const classNames = createStaticStyles(({ css }) => ({
+  // TODO
   container: css`
     border-radius: 10px;
     padding: 10px;
@@ -35,7 +36,7 @@ const styles: DrawerProps['styles'] = {
   },
 };
 
-const stylesFn: DrawerProps['styles'] = (info) => {
+const stylesFn: DrawerProps['styles'] = (info): DrawerSemanticType['styles'] => {
   if (info.props.footer) {
     return {
       header: {
@@ -48,9 +49,8 @@ const stylesFn: DrawerProps['styles'] = (info) => {
         padding: '16px 10px',
         backgroundColor: '#fafafa',
       },
-    } satisfies DrawerProps['styles'];
+    };
   }
-  return {};
 };
 
 const App: React.FC = () => {

@@ -1,60 +1,53 @@
 import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
-import type {
-  ClosableType,
-  MaskType,
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { ClosableType, MaskType, SemanticType } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
 import type { FocusableConfig, OmitFocusType } from '../drawer/useFocusable';
 
-export type ModalSemanticName = keyof ModalSemanticClassNames & keyof ModalSemanticStyles;
-
-export type ModalSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  footer?: string;
-  container?: string;
-  title?: string;
-  wrapper?: string;
-  mask?: string;
+export type ModalSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    footer?: string;
+    container?: string;
+    title?: string;
+    wrapper?: string;
+    mask?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    footer?: React.CSSProperties;
+    container?: React.CSSProperties;
+    title?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
+    mask?: React.CSSProperties;
+  };
 };
 
-export type ModalSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  container?: React.CSSProperties;
-  title?: React.CSSProperties;
-  wrapper?: React.CSSProperties;
-  mask?: React.CSSProperties;
-};
+export type ModalClassNamesType = SemanticType<ModalProps, ModalSemanticType['classNames']>;
 
-export type ModalClassNamesType = SemanticClassNamesType<ModalProps, ModalSemanticClassNames>;
+export type ModalStylesType = SemanticType<ModalProps, ModalSemanticType['styles']>;
 
-export type ModalStylesType = SemanticStylesType<ModalProps, ModalSemanticStyles>;
-
-interface ModalCommonProps
-  extends Omit<
-    DialogProps,
-    | 'footer'
-    | 'width'
-    | 'onClose'
-    | 'animation'
-    | 'maskAnimation'
-    | 'transitionName'
-    | 'maskTransitionName'
-    | 'mask'
-    | 'classNames'
-    | 'styles'
-    | OmitFocusType
-  > {
+interface ModalCommonProps extends Omit<
+  DialogProps,
+  | 'footer'
+  | 'width'
+  | 'onClose'
+  | 'animation'
+  | 'maskAnimation'
+  | 'transitionName'
+  | 'maskTransitionName'
+  | 'mask'
+  | 'classNames'
+  | 'styles'
+  | OmitFocusType
+> {
   footer?:
     | React.ReactNode
     | ((

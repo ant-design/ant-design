@@ -133,13 +133,13 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
     expandIconPlacement: mergedPlacement,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CollapseClassNamesType,
-    CollapseStylesType,
-    CollapseProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const mergedExpandIcon = expandIcon ?? contextExpandIcon;
 

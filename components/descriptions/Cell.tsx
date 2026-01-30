@@ -49,13 +49,13 @@ const Cell: React.FC<CellProps> = (props) => {
   const { classNames: contextClassNames, styles: contextStyles } =
     React.useContext(DescriptionsContext);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DescriptionsClassNamesType,
-    DescriptionsStylesType,
-    CellProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   const mergedLabelStyle: React.CSSProperties = { ...labelStyle, ...mergedStyles.label };
   const mergedContentStyle: React.CSSProperties = { ...contentStyle, ...mergedStyles.content };

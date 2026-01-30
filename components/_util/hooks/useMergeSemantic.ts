@@ -1,25 +1,11 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { AnyObject, EmptyObject, ValidChar } from '../type';
+import type { ValidChar } from '../type';
 
 export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
-
-export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T);
-
-export type SemanticClassNamesType<
-  Props extends AnyObject,
-  SemanticClassNames extends Record<PropertyKey, string>,
-  NestedStructure extends EmptyObject = EmptyObject,
-> = Resolvable<Readonly<SemanticClassNames>, Props> & NestedStructure;
-
-export type SemanticStylesType<
-  Props extends AnyObject,
-  SemanticStyles extends Record<PropertyKey, React.CSSProperties>,
-  NestedStructure extends EmptyObject = EmptyObject,
-> = Resolvable<Readonly<SemanticStyles>, Props> & NestedStructure;
 
 export type SemanticType<P = any, T = any> = T | ((info: { props: P }) => T);
 

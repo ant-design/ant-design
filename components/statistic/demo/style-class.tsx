@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowUpOutlined } from '@ant-design/icons';
 import { Flex, Statistic } from 'antd';
-import type { StatisticProps } from 'antd';
+import type { StatisticProps, StatisticSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -12,7 +12,7 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: StatisticProps['styles'] = ({ props }) => {
+const styleFn: StatisticProps['styles'] = ({ props }): StatisticSemanticType['styles'] => {
   const numValue = Number(props.value ?? 0);
   const isNegative = Number.isFinite(numValue) && numValue < 0;
   if (isNegative) {
@@ -23,7 +23,7 @@ const styleFn: StatisticProps['styles'] = ({ props }) => {
       content: {
         color: '#ff7875',
       },
-    } satisfies StatisticProps['styles'];
+    };
   }
   return {};
 };

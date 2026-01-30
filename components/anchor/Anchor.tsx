@@ -124,8 +124,8 @@ export interface AntAnchor {
     link: { title: React.ReactNode; href: string },
   ) => void;
   direction: AnchorDirection;
-  classNames?: AnchorSemanticType['classNames'];
-  styles?: AnchorSemanticType['styles'];
+  classNames?: AnchorClassNamesType;
+  styles?: AnchorStylesType;
 }
 
 const Anchor: React.FC<AnchorProps> = (props) => {
@@ -319,13 +319,13 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     direction: anchorDirection,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    AnchorClassNamesType,
-    AnchorStylesType,
-    AnchorProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const wrapperClass = clsx(
     hashId,

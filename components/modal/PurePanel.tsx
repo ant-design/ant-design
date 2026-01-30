@@ -14,7 +14,8 @@ import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
 export interface PurePanelProps
-  extends Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
+  extends
+    Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
     Pick<ModalFuncProps, 'type' | 'footer'> {
   prefixCls?: string;
   style?: React.CSSProperties;
@@ -49,13 +50,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootCls = useCSSVarCls(rootPrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ModalClassNamesType,
-    ModalStylesType,
-    PurePanelProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
 

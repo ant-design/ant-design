@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Result } from 'antd';
-import type { ResultProps } from 'antd';
+import type { ResultProps, ResultSemanticType } from 'antd';
 
 const classNamesObject: ResultProps['classNames'] = {
   root: 'demo-result-root',
@@ -11,15 +11,15 @@ const classNamesObject: ResultProps['classNames'] = {
   body: 'demo-result-body',
 };
 
-const classNamesFn: ResultProps['classNames'] = (info) => {
+const classNamesFn: ResultProps['classNames'] = (info): ResultSemanticType['classNames'] => {
   if (info.props.status === 'success') {
     return {
       root: 'demo-result-root--success',
-    } satisfies ResultProps['classNames'];
+    };
   }
   return {
     root: 'demo-result-root--default',
-  } satisfies ResultProps['classNames'];
+  };
 };
 
 const stylesObject: ResultProps['styles'] = {

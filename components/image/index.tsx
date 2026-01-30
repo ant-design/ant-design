@@ -3,7 +3,7 @@ import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { clsx } from 'clsx';
 
-import type { MaskType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { MaskType, SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -47,23 +47,6 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-export type ImageSemanticName = keyof ImageSemanticClassNames & keyof ImageSemanticStyles;
-
-export type ImageSemanticClassNames = {
-  root?: string;
-  image?: string;
-  cover?: string;
-};
-
-export type ImageSemanticStyles = {
-  root?: React.CSSProperties;
-  image?: React.CSSProperties;
-  cover?: React.CSSProperties;
-};
-
-export type ImagePopupSemanticName = keyof ImagePopupSemanticClassNames &
-  keyof ImagePopupSemanticStyles;
-
 export type ImagePopupSemanticClassNames = {
   root?: string;
   mask?: string;
@@ -80,17 +63,24 @@ export type ImagePopupSemanticStyles = {
   actions?: React.CSSProperties;
 };
 
-export type ImageClassNamesType = SemanticClassNamesType<
-  ImageProps,
-  ImageSemanticClassNames,
-  { popup?: ImagePopupSemanticClassNames }
->;
+export type ImageSemanticType = {
+  classNames?: {
+    root?: string;
+    image?: string;
+    cover?: string;
+    popup?: ImagePopupSemanticClassNames;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    image?: React.CSSProperties;
+    cover?: React.CSSProperties;
+    popup?: ImagePopupSemanticStyles;
+  };
+};
 
-export type ImageStylesType = SemanticStylesType<
-  ImageProps,
-  ImageSemanticStyles,
-  { popup?: ImagePopupSemanticStyles }
->;
+export type ImageClassNamesType = SemanticType<ImageProps, ImageSemanticType['classNames']>;
+
+export type ImageStylesType = SemanticType<ImageProps, ImageSemanticType['styles']>;
 
 export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {
   preview?: boolean | PreviewConfig;
@@ -201,11 +191,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ImageClassNamesType,
-    ImageStylesType,
-    ImageProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     internalClassNames,
     [contextStyles, { root: wrapperStyle }, styles],
     {

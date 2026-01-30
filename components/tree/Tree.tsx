@@ -131,18 +131,17 @@ export type TreeClassNamesType = SemanticType<TreeProps, TreeSemanticType['class
 
 export type TreeStylesType = SemanticType<TreeProps, TreeSemanticType['styles']>;
 
-export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<
-    RcTreeProps<T>,
-    | 'prefixCls'
-    | 'showLine'
-    | 'direction'
-    | 'draggable'
-    | 'icon'
-    | 'switcherIcon'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TreeProps<T extends BasicDataNode = DataNode> extends Omit<
+  RcTreeProps<T>,
+  | 'prefixCls'
+  | 'showLine'
+  | 'direction'
+  | 'draggable'
+  | 'icon'
+  | 'switcherIcon'
+  | 'classNames'
+  | 'styles'
+> {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
   classNames?: TreeClassNamesType;
@@ -241,13 +240,13 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TreeSemanticType['classNames'],
-    TreeSemanticType['styles'],
-    TreeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const newProps = {
     ...props,

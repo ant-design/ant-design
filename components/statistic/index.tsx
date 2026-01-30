@@ -1,23 +1,11 @@
 import type { CountdownProps } from './Countdown';
 import Countdown from './Countdown';
-import type {
-  StatisticProps,
-  StatisticSemanticClassNames,
-  StatisticSemanticName,
-  StatisticSemanticStyles,
-} from './Statistic';
+import type { StatisticProps, StatisticSemanticType } from './Statistic';
 import Statistic from './Statistic';
 import type { StatisticTimerProps } from './Timer';
 import Timer from './Timer';
 
-export type {
-  CountdownProps,
-  StatisticProps,
-  StatisticSemanticClassNames,
-  StatisticSemanticName,
-  StatisticSemanticStyles,
-  StatisticTimerProps,
-};
+export type { CountdownProps, StatisticProps, StatisticSemanticType, StatisticTimerProps };
 
 type CompoundedComponent = {
   /**

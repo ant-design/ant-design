@@ -14,9 +14,9 @@ import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type {
   ArgsClassNamesType,
+  ArgsProps,
   ArgsStylesType,
-  MessageSemanticClassNames,
-  MessageSemanticStyles,
+  MessageSemanticType,
   NoticeType,
 } from './interface';
 import useStyle from './style';
@@ -33,8 +33,8 @@ export interface PureContentProps {
   prefixCls: string;
   type?: NoticeType;
   icon?: React.ReactNode;
-  classNames?: MessageSemanticClassNames;
-  styles?: MessageSemanticStyles;
+  classNames?: MessageSemanticType['classNames'];
+  styles?: MessageSemanticType['styles'];
 }
 
 export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
@@ -58,7 +58,8 @@ export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = 
 };
 
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends
+    Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
   classNames?: ArgsClassNamesType;
@@ -91,13 +92,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ArgsClassNamesType,
-    ArgsStylesType,
-    PurePanelProps
-  >([contextClassNames, messageClassNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, messageClassNames],
+    [contextStyles, styles],
+    {
+      props: props as unknown as ArgsProps,
+    },
+  );
 
   return (
     <Notice

@@ -2,19 +2,14 @@ import * as React from 'react';
 import { UnstableContext } from '@rc-component/steps';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Steps from '../steps';
-import type {
-  StepsProps,
-  StepsSemanticClassNames,
-  StepsSemanticName,
-  StepsSemanticStyles,
-} from '../steps';
+import type { StepsProps, StepsSemanticType } from '../steps';
 import { InternalContext } from '../steps/context';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import useStyle from './style';
@@ -62,18 +57,14 @@ export interface TimelineItemType {
   dot?: React.ReactNode;
 }
 
-export type TimelineSemanticName = StepsSemanticName;
+export type TimelineSemanticType = StepsSemanticType;
 
-export type TimelineSemanticClassNames = StepsSemanticClassNames;
-
-export type TimelineSemanticStyles = StepsSemanticStyles;
-
-export type TimelineClassNamesType = SemanticClassNamesType<
+export type TimelineClassNamesType = SemanticType<
   TimelineProps,
-  TimelineSemanticClassNames
+  TimelineSemanticType['classNames']
 >;
 
-export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSemanticStyles>;
+export type TimelineStylesType = SemanticType<TimelineProps, TimelineSemanticType['styles']>;
 
 export interface TimelineProps {
   // Style
@@ -208,13 +199,13 @@ const Timeline: CompoundedComponent = (props) => {
     items: mergedItems,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TimelineClassNamesType,
-    TimelineStylesType,
-    TimelineProps
-  >([stepsClassNames, contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [stepsClassNames, contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const stepContext = React.useMemo<GetProps<typeof UnstableContext>>(
     () => ({ railFollowPrevStatus: reverse }),

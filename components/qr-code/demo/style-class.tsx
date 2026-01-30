@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, QRCode } from 'antd';
-import type { QRCodeProps } from 'antd';
+import type { QRCodeProps, QRCodeSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -20,7 +20,7 @@ const stylesObject: QRCodeProps['styles'] = {
   },
 };
 
-const stylesFunction: QRCodeProps['styles'] = (info) => {
+const stylesFunction: QRCodeProps['styles'] = (info): QRCodeSemanticType['style'] => {
   if (info.props.type === 'canvas') {
     return {
       root: {
@@ -29,7 +29,7 @@ const stylesFunction: QRCodeProps['styles'] = (info) => {
         padding: 16,
         backgroundColor: 'rgba(255, 77, 79, 0.1)',
       },
-    } satisfies QRCodeProps['styles'];
+    };
   }
 };
 

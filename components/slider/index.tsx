@@ -6,7 +6,7 @@ import raf from '@rc-component/util/lib/raf';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { Orientation, SemanticType } from '../_util/hooks';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -19,30 +19,29 @@ import useRafLock from './useRafLock';
 
 export type SliderMarks = RcSliderProps['marks'];
 
-export type SliderSemanticName = keyof SliderSemanticClassNames & keyof SliderSemanticStyles;
-
-export type SliderSemanticClassNames = {
-  root?: string;
-  tracks?: string;
-  track?: string;
-  rail?: string;
-  handle?: string;
+export type SliderSemanticClassType = {
+  classNames: {
+    root?: string;
+    tracks?: string;
+    track?: string;
+    rail?: string;
+    handle?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    tracks?: React.CSSProperties;
+    track?: React.CSSProperties;
+    rail?: React.CSSProperties;
+    handle?: React.CSSProperties;
+  };
 };
 
-export type SliderSemanticStyles = {
-  root?: React.CSSProperties;
-  tracks?: React.CSSProperties;
-  track?: React.CSSProperties;
-  rail?: React.CSSProperties;
-  handle?: React.CSSProperties;
-};
-
-export type SliderClassNamesType = SemanticClassNamesType<
+export type SliderClassNamesType = SemanticType<
   SliderBaseProps,
-  SliderSemanticClassNames
+  SliderSemanticClassType['classNames']
 >;
 
-export type SliderStylesType = SemanticStylesType<SliderBaseProps, SliderSemanticStyles>;
+export type SliderStylesType = SemanticType<SliderBaseProps, SliderSemanticClassType['styles']>;
 
 export interface SliderProps extends Omit<RcSliderProps, 'styles' | 'classNames'> {
   classNames?: SliderClassNamesType;
@@ -186,13 +185,13 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     vertical: mergedVertical,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SliderClassNamesType,
-    SliderStylesType,
-    SliderSingleProps | SliderRangeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Context ==============================
   const { handleRender: contextHandleRender, direction: internalContextDirection } =

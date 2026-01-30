@@ -8,15 +8,15 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
 import { genCssVar } from '../theme/util/genStyleUtils';
-import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
+import type { SplitterProps, SplitterSemanticType } from './interface';
 
 export type ShowCollapsibleIconMode = boolean | 'auto';
 
 export interface SplitBarProps {
   index: number;
   active: boolean;
-  draggerStyle?: React.CSSProperties;
-  draggerClassName?: SplitterSemanticDraggerClassNames;
+  draggerStyle?: SplitterSemanticType['styles']['dragger'];
+  draggerClassName?: SplitterSemanticType['classNames']['dragger'];
   prefixCls: string;
   rootPrefixCls: string;
   resizable: boolean;
@@ -60,7 +60,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     resizable,
     draggerIcon,
     draggerStyle,
-    draggerClassName,
+    draggerClassName = {},
     collapsibleIcon,
     startCollapsible,
     endCollapsible,
@@ -264,8 +264,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             [`${splitBarPrefixCls}-dragger-active`]: active,
             [`${splitBarPrefixCls}-dragger-customize`]: draggerIcon !== undefined,
           },
-          draggerClassName?.default,
-          active && draggerClassName?.active,
+          draggerClassName?.default as string,
+          active && (draggerClassName?.active as string),
         )}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}

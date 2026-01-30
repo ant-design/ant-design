@@ -2,8 +2,8 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Indicator from './Indicator';
@@ -16,31 +16,26 @@ export type SpinSize = (typeof _SpinSizes)[number];
 
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
-export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemanticStyles;
-
-export type SpinSemanticClassNames = {
-  root?: string;
-  wrapper?: string;
-  mask?: string;
-  indicator?: string;
-  tip?: string;
+export type SpinSemanticType = {
+  classNames: {
+    root?: string;
+    wrapper?: string;
+    mask?: string;
+    indicator?: string;
+    tip?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
+    mask?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+    tip?: React.CSSProperties;
+  };
 };
 
-export type SpinSemanticStyles = {
-  root?: React.CSSProperties;
-  wrapper?: React.CSSProperties;
-  mask?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-  tip?: React.CSSProperties;
-};
+export type SpinClassNamesType = SemanticType<SpinProps, SpinSemanticType['classNames']>;
 
-export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticClassNames>;
-
-export type SpinStylesType = SemanticStylesType<
-  SpinProps,
-  SpinSemanticStyles,
-  { wrapper?: React.CSSProperties }
->;
+export type SpinStylesType = SemanticType<SpinProps, SpinSemanticType['styles']>;
 
 export interface SpinProps {
   /** Customize prefix class name */
@@ -154,13 +149,13 @@ const Spin: SpinType = (props) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SpinClassNamesType,
-    SpinStylesType,
-    SpinProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');

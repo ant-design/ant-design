@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useComponentConfig } from '../config-provider/context';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
@@ -20,32 +20,28 @@ import Title from './Title';
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
-export type SkeletonSemanticName = keyof SkeletonSemanticClassNames & keyof SkeletonSemanticStyles;
-
-export type SkeletonSemanticClassNames = {
-  root?: string;
-  header?: string;
-  section?: string;
-  avatar?: string;
-  title?: string;
-  paragraph?: string;
+export type SkeletonSemanticType = {
+  className: {
+    root?: string;
+    header?: string;
+    section?: string;
+    avatar?: string;
+    title?: string;
+    paragraph?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    section?: React.CSSProperties;
+    avatar?: React.CSSProperties;
+    title?: React.CSSProperties;
+    paragraph?: React.CSSProperties;
+  };
 };
 
-export type SkeletonSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  section?: React.CSSProperties;
-  avatar?: React.CSSProperties;
-  title?: React.CSSProperties;
-  paragraph?: React.CSSProperties;
-};
+export type SkeletonClassNamesType = SemanticType<SkeletonProps, SkeletonSemanticType['className']>;
 
-export type SkeletonClassNamesType = SemanticClassNamesType<
-  SkeletonProps,
-  SkeletonSemanticClassNames
->;
-
-export type SkeletonStylesType = SemanticStylesType<SkeletonProps, SkeletonSemanticStyles>;
+export type SkeletonStylesType = SemanticType<SkeletonProps, SkeletonSemanticType['styles']>;
 
 export interface SkeletonProps {
   active?: boolean;
@@ -157,13 +153,13 @@ const Skeleton: React.FC<React.PropsWithChildren<SkeletonProps>> & CompoundedCom
     paragraph,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SkeletonClassNamesType,
-    SkeletonStylesType,
-    SkeletonProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   if (loading || !('loading' in props)) {
     const hasAvatar = !!avatar;

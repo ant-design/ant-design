@@ -7,8 +7,8 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -33,29 +33,28 @@ export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
 
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
-export type ResultSemanticName = keyof ResultSemanticClassNames & keyof ResultSemanticStyles;
-
-export type ResultSemanticClassNames = {
-  root?: string;
-  title?: string;
-  subTitle?: string;
-  body?: string;
-  extra?: string;
-  icon?: string;
+export type ResultSemanticType = {
+  classNames: {
+    root?: string;
+    title?: string;
+    subTitle?: string;
+    body?: string;
+    extra?: string;
+    icon?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    title?: React.CSSProperties;
+    subTitle?: React.CSSProperties;
+    body?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    icon?: React.CSSProperties;
+  };
 };
 
-export type ResultSemanticStyles = {
-  root?: React.CSSProperties;
-  title?: React.CSSProperties;
-  subTitle?: React.CSSProperties;
-  body?: React.CSSProperties;
-  extra?: React.CSSProperties;
-  icon?: React.CSSProperties;
-};
+export type ResultClassNamesType = SemanticType<ResultProps, ResultSemanticType['classNames']>;
 
-export type ResultClassNamesType = SemanticClassNamesType<ResultProps, ResultSemanticClassNames>;
-
-export type ResultStylesType = SemanticStylesType<ResultProps, ResultSemanticStyles>;
+export type ResultStylesType = SemanticType<ResultProps, ResultSemanticType['styles']>;
 
 export interface ResultProps extends HTMLAriaDataAttributes {
   icon?: React.ReactNode;
@@ -178,13 +177,13 @@ const Result: ResultType = (props) => {
     status,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ResultClassNamesType,
-    ResultStylesType,
-    ResultProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const prefixCls = getPrefixCls('result', customizePrefixCls);
 

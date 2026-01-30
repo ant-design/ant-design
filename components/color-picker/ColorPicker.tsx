@@ -100,11 +100,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    NonNullable<ColorPickerProps['classNames']>,
-    NonNullable<ColorPickerProps['styles']>,
-    ColorPickerProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {

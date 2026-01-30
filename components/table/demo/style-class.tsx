@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Table } from 'antd';
-import type { TableProps } from 'antd';
+import type { TableProps, TableSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -69,7 +69,7 @@ const styles: TableProps<DataType>['styles'] = {
   },
 };
 
-const stylesFn: TableProps<DataType>['styles'] = (info) => {
+const stylesFn: TableProps<DataType>['styles'] = (info): TableSemanticType['styles'] => {
   if (info?.props?.size === 'middle') {
     return {
       root: {
@@ -104,7 +104,7 @@ const stylesFn: TableProps<DataType>['styles'] = (info) => {
           color: '#b8bdfd',
         },
       },
-    } satisfies TableProps<DataType>['styles'];
+    };
   }
   return {};
 };

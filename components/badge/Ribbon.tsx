@@ -73,13 +73,13 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     placement,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    RibbonClassNamesType,
-    RibbonStylesType,
-    RibbonProps
-  >([contextClassNames, ribbonClassNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, ribbonClassNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const colorInPreset = isPresetColor(color, false);
   const ribbonCls = clsx(

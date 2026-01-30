@@ -41,8 +41,8 @@ const TransferListBody: React.ForwardRefRenderFunction<
 ) => {
   const {
     prefixCls,
-    classNames,
-    styles,
+    classNames = {},
+    styles = {},
     filteredRenderItems,
     selectedKeys,
     disabled: globalDisabled,

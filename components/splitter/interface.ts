@@ -1,28 +1,23 @@
-import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { Orientation, SemanticType } from '../_util/hooks';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
-export type SplitterSemanticName = keyof SplitterSemanticClassNames & keyof SplitterSemanticStyles;
-
-export type SplitterSemanticClassNames = {
-  root?: string;
-  panel?: string;
-};
-
-export type SplitterSemanticStyles = {
-  root?: React.CSSProperties;
-  panel?: React.CSSProperties;
-};
-
-export type DraggerSemantic = keyof DraggerSemanticClassNames & keyof DraggerSemanticStyles;
-
-export type DraggerSemanticClassNames = {
-  default?: string;
-  active?: string;
-};
-
-export type DraggerSemanticStyles = {
-  default?: React.CSSProperties;
-  active?: React.CSSProperties;
+export type SplitterSemanticType = {
+  classNames: {
+    root?: string;
+    panel?: string;
+    dragger?: {
+      default?: string;
+      active?: string;
+    };
+  };
+  styles: {
+    root?: React.CSSProperties;
+    panel?: React.CSSProperties;
+    dragger?: {
+      default?: React.CSSProperties;
+      active?: React.CSSProperties;
+    };
+  };
 };
 
 export interface SplitterSemanticDraggerClassNames {
@@ -30,17 +25,12 @@ export interface SplitterSemanticDraggerClassNames {
   active?: string;
 }
 
-export type SplitterClassNamesType = SemanticClassNamesType<
+export type SplitterClassNamesType = SemanticType<
   SplitterProps,
-  SplitterSemanticClassNames,
-  { dragger?: string | DraggerSemanticClassNames }
+  SplitterSemanticType['classNames']
 >;
 
-export type SplitterStylesType = SemanticStylesType<
-  SplitterProps,
-  SplitterSemanticStyles,
-  { dragger?: React.CSSProperties | DraggerSemanticStyles }
->;
+export type SplitterStylesType = SemanticType<SplitterProps, SplitterSemanticType['styles']>;
 
 export interface SplitterProps {
   prefixCls?: string;
@@ -102,8 +92,10 @@ export interface UseResize {
   setOffset: (offset: number, containerSize: number, index: number) => void;
 }
 
-export interface UseHandleProps
-  extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResizeEnd'> {
+export interface UseHandleProps extends Pick<
+  SplitterProps,
+  'layout' | 'onResizeStart' | 'onResizeEnd'
+> {
   basicsState: number[];
   containerRef?: React.RefObject<HTMLDivElement | null>;
   setOffset: UseResize['setOffset'];

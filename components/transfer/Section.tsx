@@ -15,8 +15,7 @@ import type {
   TransferDirection,
   TransferLocale,
   TransferSearchOption,
-  TransferSemanticClassNames,
-  TransferSemanticStyles,
+  TransferSemanticType,
 } from './';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
@@ -50,8 +49,8 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   style?: React.CSSProperties;
-  classNames: TransferSemanticClassNames;
-  styles: TransferSemanticStyles;
+  classNames: TransferSemanticType['classNames'];
+  styles: TransferSemanticType['styles'];
 
   titleText: React.ReactNode;
   dataSource: RecordType[];
@@ -108,8 +107,8 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const {
     prefixCls,
     style,
-    classNames,
-    styles,
+    classNames = {},
+    styles = {},
 
     dataSource = [],
     titleText = '',

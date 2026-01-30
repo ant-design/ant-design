@@ -131,13 +131,13 @@ const Divider: React.FC<DividerProps> = (props) => {
     size: sizeFullName,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DividerClassNamesType,
-    DividerStylesType,
-    DividerProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const classString = clsx(
     prefixCls,

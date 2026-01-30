@@ -266,13 +266,13 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     closable: isClosable,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    AlertClassNamesType,
-    AlertStylesType,
-    AlertProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const alertCls = clsx(
     prefixCls,

@@ -24,10 +24,10 @@ const resizeSplitter = async () => {
 
 describe('Splitter.Semantic', () => {
   it('should support classNames as function', async () => {
-    const classNamesFn = jest.fn(({ props }) => ({
+    const classNamesFn: SplitterProps['classNames'] = jest.fn(({ props }) => ({
       root: `custom-root-${props.orientation}`,
       panel: 'custom-panel',
-      dragger: 'custom-dragger',
+      dragger: { default: 'custom-dragger' },
     }));
 
     const { container } = render(
@@ -55,13 +55,13 @@ describe('Splitter.Semantic', () => {
   });
 
   it('should support styles as function', async () => {
-    const stylesFn = jest.fn(({ props }) => ({
+    const stylesFn: SplitterProps['styles'] = jest.fn(({ props }) => ({
       root: {
         backgroundColor:
           props.orientation === 'horizontal' ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 0, 255, 0.5)',
       },
       panel: { padding: '10px' },
-      dragger: { width: '8px' },
+      dragger: { default: { width: '8px' } },
     }));
 
     const { container } = render(

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Image } from 'antd';
-import type { ImageProps } from 'antd';
+import type { ImageProps, ImageSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -17,7 +17,7 @@ const styles: ImageProps['styles'] = {
   },
 };
 
-const stylesFn: ImageProps['styles'] = (info) => {
+const stylesFn: ImageProps['styles'] = (info): ImageSemanticType['styles'] => {
   if (info.props.preview) {
     return {
       root: {
@@ -30,7 +30,7 @@ const stylesFn: ImageProps['styles'] = (info) => {
         borderRadius: 4,
         filter: 'grayscale(50%)',
       },
-    } satisfies ImageProps['styles'];
+    };
   }
   return {};
 };

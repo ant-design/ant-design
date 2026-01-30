@@ -1064,12 +1064,12 @@ describe('Splitter', () => {
     });
 
     it('styles', () => {
-      const customStyles = {
+      const customStyles: SplitterProps['styles'] = {
         root: { background: 'red' },
         panel: { background: 'blue' },
-        dragger: { background: 'green' },
+        dragger: { default: { background: 'green' } },
       };
-      const customClassNames = {
+      const customClassNames: SplitterProps['classNames'] = {
         root: 'custom-root',
         panel: 'custom-panel',
         dragger: { default: 'custom-dragger', active: 'custom-dragger-active' },
@@ -1080,22 +1080,21 @@ describe('Splitter', () => {
       );
 
       const root = container.querySelector('.ant-splitter');
-      expect(root).toHaveStyle(customStyles.root);
-      expect(root).toHaveClass(customClassNames.root);
+      expect(root).toHaveStyle(customStyles.root as Record<string, string>);
+      expect(root).toHaveClass(customClassNames.root as string);
 
       const panel = container.querySelector('.ant-splitter-panel');
-      expect(panel).toHaveStyle(customStyles.panel);
-      expect(panel).toHaveClass(customClassNames.panel);
-
+      expect(panel).toHaveStyle(customStyles.panel as Record<string, string>);
+      expect(panel).toHaveClass(customClassNames.panel as string);
       const dragger = container.querySelector('.ant-splitter-bar-dragger');
-      expect(dragger).toHaveStyle(customStyles.dragger);
-      expect(dragger).toHaveClass(customClassNames.dragger.default);
-      expect(dragger).not.toHaveClass(customClassNames.dragger.active);
+      expect(dragger).toHaveStyle(customStyles.dragger?.default as Record<string, string>);
+      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
+      expect(dragger).not.toHaveClass(customClassNames.dragger?.active as string);
 
       // Dragging
       fireEvent.mouseDown(dragger!);
-      expect(dragger).toHaveClass(customClassNames.dragger.default);
-      expect(dragger).toHaveClass(customClassNames.dragger.active);
+      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
+      expect(dragger).toHaveClass(customClassNames.dragger?.active as string);
     });
   });
 

@@ -5,7 +5,7 @@ import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-comp
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -17,23 +17,22 @@ export type SwitchSize = 'small' | 'default';
 
 export type { SwitchChangeEventHandler, SwitchClickEventHandler };
 
-export type SwitchSemanticName = keyof SwitchSemanticClassNames & keyof SwitchSemanticStyles;
-
-export type SwitchSemanticClassNames = {
-  root?: string;
-  content?: string;
-  indicator?: string;
+export type SwitchSemanticType = {
+  classNames?: {
+    root?: string;
+    content?: string;
+    indicator?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    content?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+  };
 };
 
-export type SwitchSemanticStyles = {
-  root?: React.CSSProperties;
-  content?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-};
+export type SwitchClassNamesType = SemanticType<SwitchProps, SwitchSemanticType['classNames']>;
 
-export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SwitchSemanticClassNames>;
-
-export type SwitchStylesType = SemanticStylesType<SwitchProps, SwitchSemanticStyles>;
+export type SwitchStylesType = SemanticType<SwitchProps, SwitchSemanticType['styles']>;
 
 export interface SwitchProps {
   prefixCls?: string;
@@ -117,13 +116,13 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SwitchClassNamesType,
-    SwitchStylesType,
-    SwitchProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const loadingIcon = (
     <div

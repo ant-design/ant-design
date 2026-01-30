@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, TimePicker } from 'antd';
-import type { TimePickerProps } from 'antd';
+import type { TimePickerProps, TimePickerSemanticType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -16,7 +16,7 @@ const stylesObject: TimePickerProps['styles'] = {
   },
 };
 
-const stylesFn: TimePickerProps['styles'] = (info) => {
+const stylesFn: TimePickerProps['styles'] = (info): TimePickerSemanticType['styles'] => {
   if (info.props.size === 'large') {
     return {
       root: {
@@ -28,7 +28,7 @@ const stylesFn: TimePickerProps['styles'] = (info) => {
       popup: {
         container: { border: '1px solid #722ed1', borderRadius: 8 },
       },
-    } satisfies TimePickerProps['styles'];
+    };
   }
   return {};
 };

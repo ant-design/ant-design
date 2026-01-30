@@ -4,9 +4,7 @@ import DropdownButton from './dropdown-button';
 export type {
   DropdownProps as DropDownProps,
   DropdownProps,
-  DropdownSemanticClassNames,
-  DropdownSemanticName,
-  DropdownSemanticStyles,
+  DropdownSemanticType,
 } from './dropdown';
 export type { DropdownButtonProps, DropdownButtonType } from './dropdown-button';
 

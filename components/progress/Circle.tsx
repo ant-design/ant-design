@@ -10,8 +10,7 @@ import type {
   GapPosition,
   ProgressGradient,
   ProgressProps,
-  ProgressSemanticClassNames,
-  ProgressSemanticStyles,
+  ProgressSemanticType,
 } from './progress';
 import { getPercentage, getSize, getStrokeColor } from './utils';
 
@@ -26,15 +25,15 @@ export interface CircleProps extends Omit<ProgressProps, 'classNames' | 'styles'
   children: React.ReactNode;
   progressStatus: string;
   strokeColor?: string | ProgressGradient;
-  classNames: ProgressSemanticClassNames;
-  styles: ProgressSemanticStyles;
+  classNames: ProgressSemanticType['classNames'];
+  styles: ProgressSemanticType['styles'];
 }
 
 const Circle: React.FC<CircleProps> = (props) => {
   const {
     prefixCls,
-    classNames,
-    styles,
+    classNames = {},
+    styles = {},
     railColor,
     trailColor,
     strokeLinecap = 'round',

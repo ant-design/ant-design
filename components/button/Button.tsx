@@ -30,12 +30,12 @@ import Compact from './style/compact';
 export type LegacyButtonType = ButtonType | 'danger';
 
 export type ButtonSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     icon?: string;
     content?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     content?: React.CSSProperties;
@@ -357,11 +357,7 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ButtonClassNamesType,
-    ButtonStylesType,
-    ButtonProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [_skipSemantic ? undefined : contextClassNames, classNames],
     [_skipSemantic ? undefined : contextStyles, styles],
     { props: mergedProps },

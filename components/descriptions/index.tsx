@@ -161,13 +161,13 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DescriptionsClassNamesType,
-    DescriptionsStylesType,
-    DescriptionsProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ======================== Render ========================
   const memoizedValue = React.useMemo<DescriptionsContextProps>(

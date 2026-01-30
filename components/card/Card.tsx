@@ -154,11 +154,11 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     loading,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CardSemanticType['classNames'],
-    CardSemanticType['styles'],
-    CardProps
-  >([contextClassNames, classNames], [contextStyles, styles], { props: mergedProps });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    { props: mergedProps },
+  );
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {

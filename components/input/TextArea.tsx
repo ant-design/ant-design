@@ -9,7 +9,7 @@ import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -27,26 +27,25 @@ import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
 
-export type TextAreaSemanticName = keyof TextAreaSemanticClassNames & keyof TextAreaSemanticStyles;
-
-export type TextAreaSemanticClassNames = {
-  root?: string;
-  textarea?: string;
-  count?: string;
+export type TextAreaSemanticType = {
+  classNames?: {
+    root?: string;
+    textarea?: string;
+    count?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    textarea?: React.CSSProperties;
+    count?: React.CSSProperties;
+  };
 };
 
-export type TextAreaSemanticStyles = {
-  root?: React.CSSProperties;
-  textarea?: React.CSSProperties;
-  count?: React.CSSProperties;
-};
-
-export type TextAreaClassNamesType = SemanticClassNamesType<
+export type TextAreaClassNamesType = SemanticType<
   TextAreaProps,
-  TextAreaSemanticClassNames
+  TextAreaSemanticType['classNames']
 >;
 
-export type TextAreaStylesType = SemanticStylesType<TextAreaProps, TextAreaSemanticStyles>;
+export type TextAreaStylesType = SemanticType<TextAreaProps, TextAreaSemanticType['styles']>;
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix' | 'classNames' | 'styles'> {
   /** @deprecated Use `variant` instead */
@@ -117,13 +116,13 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
   } = React.useContext(FormItemInputContext);
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TextAreaClassNamesType,
-    TextAreaStylesType,
-    TextAreaProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   // ===================== Ref ======================
   const innerRef = React.useRef<RcTextAreaRef>(null);

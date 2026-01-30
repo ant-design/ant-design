@@ -55,7 +55,11 @@ export type SelectSemanticType = {
     itemContent?: string;
     itemRemove?: string;
     clear?: string;
-    popup?: SelectPopupSemanticClassNames;
+    popup?: {
+      root?: string;
+      listItem?: string;
+      list?: string;
+    };
   };
   styles: {
     root?: React.CSSProperties;
@@ -68,7 +72,11 @@ export type SelectSemanticType = {
     itemContent?: React.CSSProperties;
     itemRemove?: React.CSSProperties;
     clear?: React.CSSProperties;
-    popup?: SelectPopupSemanticStyles;
+    popup?: {
+      root?: React.CSSProperties;
+      listItem?: React.CSSProperties;
+      list?: React.CSSProperties;
+    };
   };
 };
 
@@ -100,21 +108,6 @@ export interface InternalSelectProps<
   classNames?: SelectClassNamesType;
 }
 
-export type SelectPopupSemanticName = keyof SelectPopupSemanticClassNames &
-  keyof SelectPopupSemanticStyles;
-
-export type SelectPopupSemanticClassNames = {
-  root?: string;
-  listItem?: string;
-  list?: string;
-};
-
-export type SelectPopupSemanticStyles = {
-  root?: React.CSSProperties;
-  listItem?: React.CSSProperties;
-  list?: React.CSSProperties;
-};
-
 export type SelectClassNamesType = SemanticType<SelectProps, SelectSemanticType['classNames']>;
 export type SelectStylesType = SemanticType<SelectProps, SelectSemanticType['styles']>;
 
@@ -122,15 +115,15 @@ export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    | 'mode'
-    | 'getInputElement'
-    | 'getRawInputElement'
-    | 'backfill'
-    | 'placement'
-    | 'dropdownClassName'
-    | 'dropdownStyle'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  | 'mode'
+  | 'getInputElement'
+  | 'getRawInputElement'
+  | 'backfill'
+  | 'placement'
+  | 'dropdownClassName'
+  | 'dropdownStyle'
+> {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
@@ -308,15 +301,11 @@ const InternalSelect = <
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SelectClassNamesType,
-    SelectStylesType,
-    SelectProps<any, OptionType>
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
-      props: mergedProps,
+      props: mergedProps as unknown as SelectProps,
     },
     {
       popup: {

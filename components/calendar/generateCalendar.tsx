@@ -146,13 +146,13 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
       showWeek,
     };
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      CalendarClassNamesType<DateType>,
-      CalendarStylesType<DateType>,
-      CalendarProps<DateType>
-    >([contextClassNames, classNames], [contextStyles, styles], {
-      props: mergedProps,
-    });
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, classNames],
+      [contextStyles, styles],
+      {
+        props: mergedProps,
+      },
+    );
 
     const [rootCls, headerCls, panelClassNames, rootStyle, headerStyle, panelStyles] =
       React.useMemo(() => {
