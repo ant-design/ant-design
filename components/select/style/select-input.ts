@@ -178,6 +178,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             ...textEllipsis,
             transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
             zIndex: 1,
+            visibility: 'inherit',
           },
 
           // >>> Input: should only take effect for not customize mode
