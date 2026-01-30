@@ -7,7 +7,7 @@ import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -29,32 +29,31 @@ export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize';
 }
 
-export type CalendarSemanticName = keyof CalendarSemanticClassNames & keyof CalendarSemanticStyles;
-
-export type CalendarSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  content?: string;
-  item?: string;
+export type CalendarSemanticType = {
+  classNames: {
+    root: string;
+    header: string;
+    body: string;
+    content: string;
+    item: string;
+  };
+  styles: {
+    root: React.CSSProperties;
+    header: React.CSSProperties;
+    body: React.CSSProperties;
+    content: React.CSSProperties;
+    item: React.CSSProperties;
+  };
 };
 
-export type CalendarSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  content?: React.CSSProperties;
-  item?: React.CSSProperties;
-};
-
-export type CalendarClassNamesType<DateType> = SemanticClassNamesType<
+export type CalendarClassNamesType<DateType> = SemanticType<
   CalendarProps<DateType>,
-  CalendarSemanticClassNames
+  CalendarSemanticType['classNames']
 >;
 
-export type CalendarStylesType<DateType> = SemanticStylesType<
+export type CalendarStylesType<DateType> = SemanticType<
   CalendarProps<DateType>,
-  CalendarSemanticStyles
+  CalendarSemanticType['styles']
 >;
 
 export interface CalendarProps<DateType> {

@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
@@ -15,21 +15,20 @@ import type { PresetColorKey } from '../theme/internal';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
 
-export type BadgeSemanticName = keyof BadgeSemanticClassNames & keyof BadgeSemanticStyles;
-
-export type BadgeSemanticClassNames = {
-  root?: string;
-  indicator?: string;
+export type BadgeSemanticType = {
+  classNames: {
+    root?: string;
+    indicator?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+  };
 };
 
-export type BadgeSemanticStyles = {
-  root?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-};
+export type BadgeClassNamesType = SemanticType<BadgeProps, BadgeSemanticType['classNames']>;
 
-export type BadgeClassNamesType = SemanticClassNamesType<BadgeProps, BadgeSemanticClassNames>;
-
-export type BadgeStylesType = SemanticStylesType<BadgeProps, BadgeSemanticStyles>;
+export type BadgeStylesType = SemanticType<BadgeProps, BadgeSemanticType['styles']>;
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Number to show in badge */

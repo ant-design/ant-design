@@ -4,7 +4,7 @@ import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -26,31 +26,30 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
-export type CardSemanticName = keyof CardSemanticClassNames & keyof CardSemanticStyles;
-
-export type CardSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  extra?: string;
-  title?: string;
-  actions?: string;
-  cover?: string;
+export type CardSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    extra?: string;
+    title?: string;
+    actions?: string;
+    cover?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    title?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    cover?: React.CSSProperties;
+  };
 };
 
-export type CardSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  extra?: React.CSSProperties;
-  title?: React.CSSProperties;
-  actions?: React.CSSProperties;
-  cover?: React.CSSProperties;
-};
+export type CardClassNamesType = SemanticType<CardProps, CardSemanticType['classNames']>;
 
-export type CardClassNamesType = SemanticClassNamesType<CardProps, CardSemanticClassNames>;
-
-export type CardStylesType = SemanticStylesType<CardProps, CardSemanticStyles>;
+export type CardStylesType = SemanticType<CardProps, CardSemanticType['styles']>;
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
@@ -156,12 +155,10 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CardClassNamesType,
-    CardStylesType,
+    CardSemanticType['classNames'],
+    CardSemanticType['styles'],
     CardProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  >([contextClassNames, classNames], [contextStyles, styles], { props: mergedProps });
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {

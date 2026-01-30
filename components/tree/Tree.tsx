@@ -8,7 +8,7 @@ import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -112,25 +112,24 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-export type TreeSemanticName = keyof TreeSemanticClassNames & keyof TreeSemanticStyles;
-
-export type TreeSemanticClassNames = {
-  root?: string;
-  item?: string;
-  itemIcon?: string;
-  itemTitle?: string;
+export type TreeSemanticType = {
+  classNames: {
+    root?: string;
+    item?: string;
+    itemIcon?: string;
+    itemTitle?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+  };
 };
 
-export type TreeSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-};
+export type TreeClassNamesType = SemanticType<TreeProps, TreeSemanticType['classNames']>;
 
-export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticClassNames>;
-
-export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticStyles>;
+export type TreeStylesType = SemanticType<TreeProps, TreeSemanticType['styles']>;
 
 export interface TreeProps<T extends BasicDataNode = DataNode>
   extends Omit<
@@ -243,8 +242,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TreeClassNamesType,
-    TreeStylesType,
+    TreeSemanticType['classNames'],
+    TreeSemanticType['styles'],
     TreeProps
   >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,

@@ -3,7 +3,7 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -20,23 +20,23 @@ import type {
 } from '../select';
 import Select from '../select';
 
-export type AutoCompleteSemanticName = keyof AutoCompleteSemanticClassNames &
-  keyof AutoCompleteSemanticStyles;
-
-export type AutoCompleteSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  input?: string;
-  placeholder?: string;
-  content?: string;
-};
-
-export type AutoCompleteSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  placeholder?: React.CSSProperties;
-  content?: React.CSSProperties;
+export type AutoCompleteSemanticType = {
+  classNames: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    placeholder?: string;
+    content?: string;
+    popup?: SelectPopupSemanticClassNames;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    placeholder?: React.CSSProperties;
+    content?: React.CSSProperties;
+    popup?: SelectPopupSemanticStyles;
+  };
 };
 
 const { Option } = Select;
@@ -48,16 +48,13 @@ export interface DataSourceItemObject {
 
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
-export type AutoCompleteClassNamesType = SemanticClassNamesType<
+export type AutoCompleteClassNamesType = SemanticType<
   AutoCompleteProps,
-  AutoCompleteSemanticClassNames,
-  { popup?: SelectPopupSemanticClassNames }
+  AutoCompleteSemanticType['classNames']
 >;
-
-export type AutoCompleteStylesType = SemanticStylesType<
+export type AutoCompleteStylesType = SemanticType<
   AutoCompleteProps,
-  AutoCompleteSemanticStyles,
-  { popup?: SelectPopupSemanticStyles }
+  AutoCompleteSemanticType['styles']
 >;
 
 export interface AutoCompleteProps<
@@ -78,7 +75,7 @@ export interface AutoCompleteProps<
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
   styles?: AutoCompleteStylesType;
-  classNames?: AutoCompleteClassNamesType;
+  // classNames?: AutoCompleteClassNamesType;
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;

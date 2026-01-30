@@ -1,12 +1,12 @@
 import React from 'react';
 import { Avatar, Badge, Card, Flex, Space } from 'antd';
-import type { BadgeProps } from 'antd';
+import type { BadgeProps, BadgeSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
-import type { RibbonProps } from 'antd/es/badge/Ribbon';
+import type { RibbonProps, RibbonSemanticType } from 'antd/es/badge/Ribbon';
 
 const badgeClassNames = createStaticStyles(({ css }) => ({
   indicator: css`
-   font-size: 10px;
+    font-size: 10px;
   `,
 }));
 
@@ -30,7 +30,7 @@ const ribbonStyles: RibbonProps['styles'] = {
   },
 };
 
-const badgeStylesFn: BadgeProps['styles'] = (info) => {
+const badgeStylesFn: BadgeProps['styles'] = (info): BadgeSemanticType['styles'] => {
   if (info.props.size === 'default') {
     return {
       indicator: {
@@ -42,7 +42,7 @@ const badgeStylesFn: BadgeProps['styles'] = (info) => {
   return {};
 };
 
-const ribbonStylesFn: RibbonProps['styles'] = (info) => {
+const ribbonStylesFn: RibbonProps['styles'] = (info): RibbonSemanticType['styles'] => {
   if (info.props.color === '#696FC7') {
     return {
       content: {
@@ -51,7 +51,7 @@ const ribbonStylesFn: RibbonProps['styles'] = (info) => {
       indicator: {
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
       },
-    } satisfies RibbonProps['styles'];
+    };
   }
   return {};
 };

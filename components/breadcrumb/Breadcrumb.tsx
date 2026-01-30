@@ -5,7 +5,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -53,29 +53,27 @@ export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
-export type BreadcrumbSemanticName = keyof BreadcrumbSemanticClassNames &
-  keyof BreadcrumbSemanticStyles;
-
-export type BreadcrumbSemanticClassNames = {
-  root?: string;
-  item?: string;
-  separator?: string;
+export type BreadcrumbSemanticType = {
+  classNames: {
+    root?: string;
+    item?: string;
+    separator?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    separator?: React.CSSProperties;
+  };
 };
 
-export type BreadcrumbSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  separator?: React.CSSProperties;
-};
-
-export type BreadcrumbClassNamesType<T extends AnyObject = AnyObject> = SemanticClassNamesType<
+export type BreadcrumbClassNamesType<T extends AnyObject = AnyObject> = SemanticType<
   BreadcrumbProps<T>,
-  BreadcrumbSemanticClassNames
+  BreadcrumbSemanticType['classNames']
 >;
 
-export type BreadcrumbStylesType<T extends AnyObject = AnyObject> = SemanticStylesType<
+export type BreadcrumbStylesType<T extends AnyObject = AnyObject> = SemanticType<
   BreadcrumbProps<T>,
-  BreadcrumbSemanticStyles
+  BreadcrumbSemanticType['styles']
 >;
 
 export interface BreadcrumbProps<T extends AnyObject = AnyObject> {

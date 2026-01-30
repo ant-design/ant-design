@@ -4,7 +4,7 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -29,26 +29,22 @@ import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-export type ButtonSemanticName = keyof ButtonSemanticClassNames & keyof ButtonSemanticStyles;
-
-export type ButtonSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  content?: string;
+export type ButtonSemanticType = {
+  classNames: {
+    root?: string;
+    icon?: string;
+    content?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type ButtonSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
+export type ButtonClassNamesType = SemanticType<BaseButtonProps, ButtonSemanticType['classNames']>;
 
-export type ButtonClassNamesType = SemanticClassNamesType<
-  BaseButtonProps,
-  ButtonSemanticClassNames
->;
-
-export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticStyles>;
+export type ButtonStylesType = SemanticType<BaseButtonProps, ButtonSemanticType['styles']>;
 
 export interface BaseButtonProps {
   type?: ButtonType;

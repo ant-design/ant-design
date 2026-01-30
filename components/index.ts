@@ -8,23 +8,23 @@ export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
 export type { AlertProps, AlertSemanticType, ErrorBoundaryProps } from './alert';
 export { default as Anchor } from './anchor';
-export type { AnchorLinkProps, AnchorProps } from './anchor';
+export type { AnchorLinkProps, AnchorProps, AnchorSemanticType } from './anchor';
 export { default as App } from './app';
 export type { AppProps } from './app';
 export { default as AutoComplete } from './auto-complete';
-export type { AutoCompleteProps } from './auto-complete';
+export type { AutoCompleteProps, AutoCompleteSemanticType } from './auto-complete';
 export { default as Avatar } from './avatar';
 export type { AvatarProps } from './avatar';
 export { default as BackTop } from './back-top';
 export type { BackTopProps } from './back-top';
 export { default as Badge } from './badge';
-export type { BadgeProps } from './badge';
+export type { BadgeProps, BadgeSemanticType } from './badge';
 export { default as Breadcrumb } from './breadcrumb';
-export type { BreadcrumbItemProps, BreadcrumbProps } from './breadcrumb';
+export type { BreadcrumbItemProps, BreadcrumbProps, BreadcrumbSemanticType } from './breadcrumb';
 export { default as Button } from './button';
-export type { ButtonProps } from './button';
+export type { ButtonProps, ButtonSemanticType } from './button';
 export { default as Calendar } from './calendar';
-export type { CalendarMode, CalendarProps } from './calendar';
+export type { CalendarMode, CalendarProps, CalendarSemanticType } from './calendar';
 export { default as Card } from './card';
 export type { CardProps } from './card';
 export type { CardMetaProps } from './card/CardMeta';
@@ -123,7 +123,7 @@ export type { RowProps } from './row';
 export { default as Segmented } from './segmented';
 export type { SegmentedProps } from './segmented';
 export { default as Select } from './select';
-export type { RefSelectProps, SelectProps } from './select';
+export type { RefSelectProps, SelectProps, SelectSemanticType } from './select';
 export { default as Skeleton } from './skeleton';
 export type { SkeletonProps } from './skeleton';
 export { default as Slider } from './slider';
@@ -170,6 +170,7 @@ export type {
   DataNode as TreeDataNode,
   AntTreeNodeProps as TreeNodeProps,
   TreeProps,
+  TreeSemanticType,
 } from './tree';
 export { default as TreeSelect } from './tree-select';
 export type { TreeSelectProps } from './tree-select';
