@@ -101,6 +101,7 @@ const columns = [
 <code src="./demo/custom-empty.tsx">Custom empty</code>
 <code src="./demo/summary.tsx">Summary</code>
 <code src="./demo/virtual-list.tsx" version="5.9.0">Virtual list</code>
+<code src="./demo/infinite-scroll.tsx">Infinite Scroll</code>
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/nest-table-border-debug.tsx" debug>Nested Bordered Table Debug</code>
 <code src="./demo/pagination.tsx">Pagination Settings</code>
