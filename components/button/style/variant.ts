@@ -238,7 +238,8 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
             [varName('text-color')]: token.defaultColor,
             [varName('text-color-hover')]: token.defaultHoverColor,
             [varName('text-color-active')]: token.defaultActiveColor,
-            [varName('bg-color-hover')]: token.defaultHoverBg,
+            [varName('bg-color-container')]: token.defaultBg,
+            [varName('bg-color-hover')]: token.defaultHoverBg,     
             [varName('bg-color-active')]: token.defaultActiveBg,
           },
 
