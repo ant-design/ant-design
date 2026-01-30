@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
 import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
@@ -9,7 +9,6 @@ import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import useCollapseAnimation from './hooks/useCollapseAnimation';
 import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
@@ -86,7 +85,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // ====================== Container =======================
   const [containerSize, setContainerSize] = useState<number | undefined>();
-  const [isCollapsing, triggerCollapseAnimation] = useCollapseAnimation();
+
+  // Collapse animation state
+  const [isCollapsing, setIsCollapsing] = useState(false);
+  const collapseTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(collapseTimerRef.current), []);
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
     const { offsetWidth, offsetHeight } = size;
@@ -140,7 +143,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
-    triggerCollapseAnimation();
+    // Trigger collapse animation
+    clearTimeout(collapseTimerRef.current);
+    setIsCollapsing(true);
+    collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), 200);
+
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
     onResizeEnd?.(nextSizes);
