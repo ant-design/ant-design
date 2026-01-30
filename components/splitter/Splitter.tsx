@@ -9,6 +9,7 @@ import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useCollapseAnimation from './hooks/useCollapseAnimation';
 import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
@@ -85,6 +86,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // ====================== Container =======================
   const [containerSize, setContainerSize] = useState<number | undefined>();
+  const [isCollapsing, triggerCollapseAnimation] = useCollapseAnimation();
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
     const { offsetWidth, offsetHeight } = size;
@@ -138,6 +140,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
+    triggerCollapseAnimation();
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
     onResizeEnd?.(nextSizes);
@@ -217,9 +220,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             style: { ...mergedStyles.panel, ...item.style },
           };
 
-          // Panel
           const panel = (
-            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
+            <InternalPanel
+              {...panelProps}
+              prefixCls={prefixCls}
+              size={panelSizes[idx]}
+              isCollapsing={isCollapsing}
+            />
           );
 
           // Split Bar

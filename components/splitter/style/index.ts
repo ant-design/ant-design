@@ -374,6 +374,18 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         [`&:has(${componentCls}:only-child)`]: {
           overflow: 'hidden',
         },
+
+        '&-transition': {
+          transition: `flex-basis ${token.motionDurationMid} ${token.motionEaseInOut}`,
+        },
+      },
+
+      '@media (prefers-reduced-motion: reduce)': {
+        [splitPanelCls]: {
+          '&-transition': {
+            transition: 'none',
+          },
+        },
       },
     },
   };

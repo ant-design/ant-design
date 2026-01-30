@@ -997,6 +997,129 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledTimes(2);
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });
+
+    it('should apply transition class during collapse animation', async () => {
+      const { container } = render(
+        <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
+      );
+      await resizeSplitter();
+
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
+
+      act(() => {
+        jest.advanceTimersByTime(350);
+      });
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+    });
+
+    it('should apply transition class during expand animation', async () => {
+      const { container } = render(
+        <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
+      );
+      await resizeSplitter();
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      act(() => {
+        jest.advanceTimersByTime(350);
+      });
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
+
+      act(() => {
+        jest.advanceTimersByTime(350);
+      });
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+    });
+
+    it('should apply transition class in vertical layout', async () => {
+      const { container } = render(
+        <SplitterDemo layout="vertical" items={[{ collapsible: true }, { collapsible: true }]} />,
+      );
+      await resizeSplitter();
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
+
+      act(() => {
+        jest.advanceTimersByTime(350);
+      });
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+    });
+
+    it('should apply transition class to all panels with multiple panels', async () => {
+      const { container } = render(
+        <SplitterDemo items={[{ collapsible: true }, {}, { collapsible: true }]} />,
+      );
+      await resizeSplitter();
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(3);
+
+      act(() => {
+        jest.advanceTimersByTime(350);
+      });
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+    });
+
+    it('should handle rapid collapse clicks correctly', async () => {
+      const { container } = render(
+        <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
+      );
+      await resizeSplitter();
+
+      // Rapid clicks before animation completes
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
+
+      act(() => {
+        jest.advanceTimersByTime(100);
+      });
+
+      // Click again before animation ends
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
+
+      // Wait for all animations to complete
+      act(() => {
+        jest.advanceTimersByTime(400);
+      });
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+    });
+
+    it('should not apply transition class during drag resize', async () => {
+      const { container } = render(
+        <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
+      );
+      await resizeSplitter();
+
+      // Simulate drag resize
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+      fireEvent.mouseDown(dragger, { clientX: 50 });
+      fireEvent.mouseMove(dragger, { clientX: 70 });
+      fireEvent.mouseUp(dragger);
+
+      // Should not have transition class during drag
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+    });
+
+    it('should apply transition class with min constraint', async () => {
+      const { container } = render(
+        <SplitterDemo items={[{ collapsible: true, min: 50 }, { collapsible: true }]} />,
+      );
+      await resizeSplitter();
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
+
+      act(() => {
+        jest.advanceTimersByTime(350);
+      });
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+    });
   });
 
   it('auto resize', async () => {
