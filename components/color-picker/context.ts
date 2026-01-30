@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { GetProp } from '../_util/type';
+import type { InputNumberProps } from '../input-number';
 import type { AggregationColor } from './color';
 import type { ModeOptions } from './hooks/useModeColor';
 import type { ColorFormatType, ColorPickerProps, ModeType, PresetsItem } from './interface';
@@ -32,6 +33,8 @@ export interface PanelPickerContextProps {
 
   onClear?: () => void;
   disabledFormat?: boolean;
+
+  controls: InputNumberProps['controls'];
 }
 
 export interface PanelPresetsContextProps {
