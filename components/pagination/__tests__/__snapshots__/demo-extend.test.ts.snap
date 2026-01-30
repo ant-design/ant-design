@@ -562,14 +562,10 @@ exports[`renders components/pagination/demo/all.tsx extend context correctly 1`]
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="10 / page"
       >
-        <div
-          class="ant-select-content-value"
-          title="10 / page"
-        >
-          10 / page
-        </div>
+        10 / page
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1034,14 +1030,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1362,14 +1354,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1658,14 +1646,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1997,14 +1981,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2416,14 +2396,10 @@ exports[`renders components/pagination/demo/itemRender.tsx extend context correc
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="10 / page"
       >
-        <div
-          class="ant-select-content-value"
-          title="10 / page"
-        >
-          10 / page
-        </div>
+        10 / page
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -2749,14 +2725,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3088,14 +3060,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3527,14 +3495,10 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3949,14 +3913,10 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -4379,14 +4339,10 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
         class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -4801,14 +4757,10 @@ exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`
         class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5196,14 +5148,10 @@ exports[`renders components/pagination/demo/more.tsx extend context correctly 1`
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="10 / page"
       >
-        <div
-          class="ant-select-content-value"
-          title="10 / page"
-        >
-          10 / page
-        </div>
+        10 / page
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -5799,14 +5747,10 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6134,14 +6078,10 @@ exports[`renders components/pagination/demo/style-class.tsx extend context corre
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6424,14 +6364,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="20 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="20 / page"
-          >
-            20 / page
-          </div>
+          20 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6708,14 +6644,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="20 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="20 / page"
-          >
-            20 / page
-          </div>
+          20 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7042,14 +6974,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7370,14 +7298,10 @@ Array [
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7699,14 +7623,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -8027,14 +7947,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
