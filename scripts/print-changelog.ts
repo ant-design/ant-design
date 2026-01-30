@@ -4,7 +4,6 @@ import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
 import fs from 'fs-extra';
 import fetch from 'isomorphic-fetch';
-import jQuery from 'jquery';
 import jsdom from 'jsdom';
 import openWindow from 'open';
 import simpleGit from 'simple-git';
@@ -14,8 +13,11 @@ const { window } = new JSDOM();
 const { document } = new JSDOM('').window;
 
 global.document = document;
+global.window = window as any;
 
-const $ = jQuery<jsdom.DOMWindow>(window) as unknown as JQueryStatic;
+const jQuery = require('jquery');
+
+const $ = jQuery(window) as unknown as JQueryStatic;
 
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
