@@ -41,10 +41,70 @@ export default function useResize(
     confirmed: boolean;
   } | null>(null);
 
+  const lastSnappedOffsetRef = React.useRef<number>(0);
+
   const getPxSizes = () => percentSizes.map(ptg2px);
+
+  const onOffsetConfirm = (index: number, offset: number) => {
+    let confirmedIndex: number | null = null;
+
+    if (offset > 0) {
+      confirmedIndex = index;
+      setMovingIndex({
+        index,
+        confirmed: true,
+      });
+    } else if (offset < 0) {
+      for (let i = index; i >= 0; i -= 1) {
+        if (cacheSizes[i] > 0 && resizableInfos[i].resizable) {
+          confirmedIndex = i;
+          setMovingIndex({
+            index: i,
+            confirmed: true,
+          });
+          break;
+        }
+      }
+    }
+
+    return confirmedIndex ?? index;
+  };
+
+  const onCalculateSnappedOffset = (index: number, offset: number, step?: number | string) => {
+    if (step === undefined || mergedContainerSize === 0 || cacheSizes.length === 0) {
+      return { snappedOffset: offset, isSnapped: false };
+    }
+
+    const stepPx =
+      typeof step === 'string' ? (Number.parseFloat(step) / 100) * mergedContainerSize : step;
+    const idealOffset = Math.round(offset / stepPx) * stepPx;
+
+    if (Math.abs(offset - idealOffset) <= 10) {
+      const mIndex = onOffsetConfirm(index, offset);
+      const startSize = cacheSizes[mIndex];
+      const nextSize = cacheSizes[mIndex + 1];
+
+      const minOffset = Math.max(
+        getLimitSize(limitSizes[mIndex][0], 0) - startSize,
+        nextSize - getLimitSize(limitSizes[mIndex + 1][1], mergedContainerSize),
+      );
+      const maxOffset = Math.min(
+        getLimitSize(limitSizes[mIndex][1], mergedContainerSize) - startSize,
+        nextSize - getLimitSize(limitSizes[mIndex + 1][0], 0),
+      );
+
+      if (idealOffset >= minOffset - 0.01 && idealOffset <= maxOffset + 0.01) {
+        lastSnappedOffsetRef.current = Math.max(minOffset, Math.min(maxOffset, idealOffset));
+        return { snappedOffset: lastSnappedOffsetRef.current, isSnapped: true };
+      }
+    }
+
+    return { snappedOffset: lastSnappedOffsetRef.current, isSnapped: false };
+  };
 
   const onOffsetStart = (index: number) => {
     setCacheSizes(getPxSizes());
+    lastSnappedOffsetRef.current = 0;
     setMovingIndex({
       index,
       confirmed: false,
@@ -57,25 +117,7 @@ export default function useResize(
 
     // We need to know what the real index is.
     if ((!movingIndex || !movingIndex.confirmed) && offset !== 0) {
-      // Search for the real index
-      if (offset > 0) {
-        confirmedIndex = index;
-        setMovingIndex({
-          index,
-          confirmed: true,
-        });
-      } else {
-        for (let i = index; i >= 0; i -= 1) {
-          if (cacheSizes[i] > 0 && resizableInfos[i].resizable) {
-            confirmedIndex = i;
-            setMovingIndex({
-              index: i,
-              confirmed: true,
-            });
-            break;
-          }
-        }
-      }
+      confirmedIndex = onOffsetConfirm(index, offset);
     }
     const mergedIndex = confirmedIndex ?? movingIndex?.index ?? index;
 
@@ -90,7 +132,7 @@ export default function useResize(
 
     let mergedOffset = offset;
 
-    // Align with the boundary
+    // Align with the boundary (boundary check always applies after step)
     if (numSizes[mergedIndex] + mergedOffset < startMinSize) {
       mergedOffset = startMinSize - numSizes[mergedIndex];
     }
@@ -107,7 +149,6 @@ export default function useResize(
     // Do offset
     numSizes[mergedIndex] += mergedOffset;
     numSizes[nextIndex] -= mergedOffset;
-
     updateSizes(numSizes);
 
     return numSizes;
@@ -169,5 +210,13 @@ export default function useResize(
     return currentSizes;
   };
 
-  return [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex?.index] as const;
+  return [
+    onOffsetStart,
+    onOffsetUpdate,
+    onOffsetEnd,
+    onCollapse,
+    movingIndex?.index,
+    onOffsetConfirm,
+    onCalculateSnappedOffset,
+  ] as const;
 }

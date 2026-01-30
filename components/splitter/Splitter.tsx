@@ -42,6 +42,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     onResize,
     onResizeEnd,
     lazy,
+    step,
   } = props;
 
   const {
@@ -104,14 +105,15 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ====================== Resizable =======================
   const resizableInfos = useResizable(items, itemPxSizes, reverse);
 
-  const [onOffsetStart, onOffsetUpdate, onOffsetEnd, onCollapse, movingIndex] = useResize(
-    items,
-    resizableInfos,
-    itemPtgSizes,
-    containerSize,
-    updateSizes,
-    reverse,
-  );
+  const [
+    onOffsetStart,
+    onOffsetUpdate,
+    onOffsetEnd,
+    onCollapse,
+    movingIndex,
+    onOffsetConfirm,
+    onCalculateSnappedOffset,
+  ] = useResize(items, resizableInfos, itemPtgSizes, containerSize, updateSizes, reverse);
 
   // ======================== Events ========================
   const onInternalResizeStart = useEvent((index: number) => {
@@ -120,7 +122,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalResizeUpdate = useEvent((index: number, offset: number, lazyEnd?: boolean) => {
-    const nextSizes = onOffsetUpdate(index, offset);
+    let finalOffset = offset;
+    if (step !== undefined) {
+      finalOffset = onCalculateSnappedOffset(index, offset, step).snappedOffset;
+    }
+
+    const nextSizes = onOffsetUpdate(index, finalOffset);
 
     if (lazyEnd) {
       onResizeEnd?.(nextSizes);
@@ -262,9 +269,22 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                   }
                   onInternalResizeUpdate(index, offset, lazyEnd);
                 }}
+                onOffsetConfirm={(index, offsetX, offsetY) => {
+                  let offset = isVertical ? offsetY : offsetX;
+                  if (reverse) {
+                    offset = -offset;
+                  }
+                  onOffsetConfirm(index, offset);
+                }}
                 onOffsetEnd={onInternalResizeEnd}
                 onCollapse={onInternalCollapse}
                 containerSize={containerSize || 0}
+                step={step}
+                onCalculateSnappedOffset={(idx, offset) => {
+                  const logicalOffset = reverse ? -offset : offset;
+                  const { snappedOffset } = onCalculateSnappedOffset(idx, logicalOffset, step);
+                  return reverse ? -snappedOffset : snappedOffset;
+                }}
               />
             );
           }

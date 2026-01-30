@@ -58,9 +58,11 @@ export default function useResizable(items: ItemType[], pxSizes: number[], rever
         prevResizable &&
         nextResizable &&
         // Prev is not collapsed and limit min size
-        (prevSize !== 0 || !prevMin) &&
+        // Allow size=0 if min=0 (explicit zero min), otherwise check if size > 0
+        (prevSize !== 0 || prevMin === 0 || prevMin === '0' || prevMin === '0%' || !prevMin) &&
         // Next is not collapsed and limit min size
-        (nextSize !== 0 || !nextMin);
+        // Allow size=0 if min=0 (explicit zero min), otherwise check if size > 0
+        (nextSize !== 0 || nextMin === 0 || nextMin === '0' || nextMin === '0%' || !nextMin);
 
       const prevEndCollapsible = !!prevCollapsible.end && prevSize > 0;
       const nextStartExpandable = !!nextCollapsible.start && nextSize === 0 && prevSize > 0;
