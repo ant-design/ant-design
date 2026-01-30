@@ -4,7 +4,7 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ButtonToken } from './token';
 
 const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls, antCls, lineWidth } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'btn');
 
@@ -15,7 +15,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       // ==============================================================
       {
         // Border
-        [varName('border-width')]: '1px',
+        [varName('border-width')]: lineWidth,
 
         [varName('border-color')]: '#000',
         [varName('border-color-hover')]: varRef('border-color'),
@@ -218,9 +218,9 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [varName('color-light-hover')]: token.colorFillSecondary,
           [varName('color-light-active')]: token.colorFill,
 
-          [varName('text-color')]: token.colorText,
-          [varName('text-color-hover')]: token.defaultHoverBorderColor,
-          [varName('text-color-active')]: token.defaultActiveBorderColor,
+          [varName('text-color')]: token.defaultColor,
+          [varName('text-color-hover')]: token.defaultHoverColor,
+          [varName('text-color-active')]: token.defaultActiveColor,
           [varName('shadow')]: token.defaultShadow,
 
           [`&${componentCls}-variant-solid`]: {

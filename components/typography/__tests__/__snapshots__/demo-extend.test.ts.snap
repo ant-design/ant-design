@@ -59,7 +59,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     <ul>
       <li>
         <a
-          class="ant-typography css-var-test-id"
+          class="ant-typography ant-typography-link css-var-test-id"
           href="/docs/spec/proximity"
         >
           Principles
@@ -67,7 +67,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
       </li>
       <li>
         <a
-          class="ant-typography css-var-test-id"
+          class="ant-typography ant-typography-link css-var-test-id"
           href="/docs/spec/overview"
         >
           Patterns
@@ -75,7 +75,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
       </li>
       <li>
         <a
-          class="ant-typography css-var-test-id"
+          class="ant-typography ant-typography-link css-var-test-id"
           href="/docs/resources"
         >
           Resource Download
@@ -163,7 +163,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
     <ul>
       <li>
         <a
-          class="ant-typography css-var-test-id"
+          class="ant-typography ant-typography-link css-var-test-id"
           href="/docs/spec/proximity-cn"
         >
           设计原则
@@ -171,7 +171,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
       </li>
       <li>
         <a
-          class="ant-typography css-var-test-id"
+          class="ant-typography ant-typography-link css-var-test-id"
           href="/docs/spec/overview-cn"
         >
           设计模式
@@ -179,7 +179,7 @@ exports[`renders components/typography/demo/basic.tsx extend context correctly 1
       </li>
       <li>
         <a
-          class="ant-typography css-var-test-id"
+          class="ant-typography ant-typography-link css-var-test-id"
           href="/docs/resources-cn"
         >
           设计资源
@@ -272,7 +272,7 @@ Array [
       <ul>
         <li>
           <a
-            class="ant-typography css-var-test-id"
+            class="ant-typography ant-typography-link css-var-test-id"
             href="/docs/spec/proximity"
           >
             Principles
@@ -280,7 +280,7 @@ Array [
         </li>
         <li>
           <a
-            class="ant-typography css-var-test-id"
+            class="ant-typography ant-typography-link css-var-test-id"
             href="/docs/spec/overview"
           >
             Patterns
@@ -288,7 +288,7 @@ Array [
         </li>
         <li>
           <a
-            class="ant-typography css-var-test-id"
+            class="ant-typography ant-typography-link css-var-test-id"
             href="/docs/resources"
           >
             Resource Download
@@ -371,7 +371,7 @@ Array [
       <ul>
         <li>
           <a
-            class="ant-typography css-var-test-id"
+            class="ant-typography ant-typography-link css-var-test-id"
             href="/docs/spec/proximity-cn"
           >
             设计原则
@@ -379,7 +379,7 @@ Array [
         </li>
         <li>
           <a
-            class="ant-typography css-var-test-id"
+            class="ant-typography ant-typography-link css-var-test-id"
             href="/docs/spec/overview-cn"
           >
             设计模式
@@ -387,7 +387,7 @@ Array [
         </li>
         <li>
           <a
-            class="ant-typography css-var-test-id"
+            class="ant-typography ant-typography-link css-var-test-id"
             href="/docs/resources-cn"
           >
             设计资源
@@ -925,9 +925,6 @@ Array [
           type="radio"
           value="icon"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -947,9 +944,6 @@ Array [
           type="radio"
           value="text"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -968,9 +962,6 @@ Array [
           name="test-id"
           type="radio"
           value="both"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2233,6 +2224,47 @@ exports[`renders components/typography/demo/ellipsis-middle.tsx extend context c
 
 exports[`renders components/typography/demo/ellipsis-middle.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/typography/demo/link-danger-debug.tsx extend context correctly 1`] = `
+<article
+  class="ant-typography css-var-test-id"
+>
+  <span
+    class="ant-typography css-var-test-id"
+  >
+    Typography.Link 的 type="danger" 颜色应为 error 文本色。
+  </span>
+  <br />
+  <a
+    class="ant-typography ant-typography-danger ant-typography-link css-var-test-id"
+    href="https://ant.design"
+  >
+    Danger Link
+  </a>
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-rail"
+    role="separator"
+  />
+  <span
+    class="ant-typography css-var-test-id"
+  >
+    Button 以 a 标签渲染时，不应被 Typography 链接样式影响。
+  </span>
+  <br />
+  <a
+    aria-disabled="false"
+    class="ant-btn css-var-test-id ant-btn-link ant-btn-color-link ant-btn-variant-link"
+    href="https://ant.design"
+    tabindex="0"
+  >
+    <span>
+      Button Link
+    </span>
+  </a>
+</article>
+`;
+
+exports[`renders components/typography/demo/link-danger-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/paragraph-debug.tsx extend context correctly 1`] = `
 Array [
   <h1
@@ -2635,7 +2667,7 @@ exports[`renders components/typography/demo/text.tsx extend context correctly 1`
     class="ant-space-item"
   >
     <a
-      class="ant-typography css-var-test-id"
+      class="ant-typography ant-typography-link css-var-test-id"
       href="https://ant.design"
       rel="noopener noreferrer"
       target="_blank"

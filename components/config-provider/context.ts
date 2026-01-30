@@ -173,6 +173,7 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
   rowKey?: TableProps<RecordType>['rowKey'];
+  scroll?: TableProps<RecordType>['scroll'];
   classNames?: TableProps['classNames'];
   styles?: TableProps['styles'];
 }
@@ -255,7 +256,9 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>;
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'> & {
+    loadingIcon?: React.ReactNode;
+  };
 
 export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
 
@@ -269,7 +272,7 @@ export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
 
 export type ColorPickerConfig = ComponentStyleConfig &
-  Pick<ColorPickerProps, 'classNames' | 'styles'>;
+  Pick<ColorPickerProps, 'classNames' | 'styles' | 'arrow'>;
 
 export type CalendarConfig = ComponentStyleConfig &
   Pick<CalendarProps<AnyObject>, 'classNames' | 'styles'>;
@@ -298,6 +301,7 @@ export type FormConfig = ComponentStyleConfig &
     | 'variant'
     | 'classNames'
     | 'styles'
+    | 'tooltip'
   >;
 
 export type FloatButtonConfig = ComponentStyleConfig &
@@ -309,7 +313,10 @@ export type FloatButtonGroupConfig = ComponentStyleConfig &
   Pick<FloatButtonGroupProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type PaginationConfig = ComponentStyleConfig &
-  Pick<PaginationProps, 'showSizeChanger' | 'totalBoundaryShowSizeChanger' | 'classNames' | 'styles'>;
+  Pick<
+    PaginationProps,
+    'showSizeChanger' | 'totalBoundaryShowSizeChanger' | 'classNames' | 'styles'
+  >;
 
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 
@@ -365,7 +372,7 @@ export type InputNumberConfig = ComponentStyleConfig &
   Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
 
 export type CascaderConfig = ComponentStyleConfig &
-  Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
+  Pick<CascaderProps, 'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon'>;
 
 export type TreeSelectConfig = ComponentStyleConfig &
   Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
@@ -373,12 +380,13 @@ export type TreeSelectConfig = ComponentStyleConfig &
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
-  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
 
-export type RangePickerConfig = ComponentStyleConfig & Pick<RangePickerProps, 'variant'>;
+export type RangePickerConfig = ComponentStyleConfig &
+  Pick<RangePickerProps, 'variant' | 'separator'>;
 
 export type TimePickerConfig = ComponentStyleConfig &
-  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
@@ -428,6 +436,7 @@ export interface ConfigComponentProps {
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
   anchor?: AnchorStyleConfig;
+  app?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: DividerConfig;
   drawer?: DrawerConfig;

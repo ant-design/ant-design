@@ -2723,9 +2723,6 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
           class="ant-checkbox-input"
           type="checkbox"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"

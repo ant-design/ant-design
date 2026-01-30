@@ -9444,7 +9444,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
     >
       <div
         aria-describedby="test-id"
-        class="ant-color-picker-trigger acss-pbemrr css-var-test-id ant-color-picker-css-var"
+        class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var acss-pbemrr"
       >
         <div
           class="ant-color-picker-color-block"
@@ -9456,7 +9456,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
         </div>
       </div>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker acss-pbemrr css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 1px solid rgb(255, 255, 255);"
       >
         <div
@@ -9810,7 +9810,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
     >
       <div
         aria-describedby="test-id"
-        class="ant-color-picker-trigger ant-color-picker-lg acss-pbemrr css-var-test-id ant-color-picker-css-var"
+        class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var acss-pbemrr"
       >
         <div
           class="ant-color-picker-color-block"
@@ -9822,7 +9822,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
         </div>
       </div>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker acss-pbemrr css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 1px solid rgb(114, 46, 209);"
       >
         <div

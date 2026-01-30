@@ -9,8 +9,8 @@ type DrawerConfig = {
 };
 
 const drawerList: DrawerConfig[] = [
-  { type: 'blur', mask: true, title: 'Default blur' },
-  { type: 'dimmed', mask: { blur: false }, title: 'Dimmed mask' },
+  { type: 'blur', mask: { blur: true }, title: 'blur' },
+  { type: 'dimmed', mask: true, title: 'Dimmed mask' },
   { type: 'none', mask: false, title: 'No mask' },
 ];
 const App: React.FC = () => {
@@ -36,7 +36,7 @@ const App: React.FC = () => {
             {item.title}
           </Button>
           <Drawer
-            title="Drawer blur"
+            title={item.title}
             placement="right"
             mask={item.mask}
             onClose={onClose}

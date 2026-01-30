@@ -15,6 +15,7 @@ import { FormItemInputContext } from '../form/context';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import { useCompactItemContext } from '../space/Compact';
+import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import { AggregationColor } from './color';
 import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
@@ -42,7 +43,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     open,
     disabled,
     placement = 'bottomLeft',
-    arrow = true,
+    arrow,
     panelRender,
     showText,
     style,
@@ -73,12 +74,14 @@ const ColorPicker: CompoundedComponent = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
+    arrow: contextArrow,
   } = useComponentConfig('colorPicker');
 
   const contextDisabled = useContext(DisabledContext);
   const mergedDisabled = disabled ?? contextDisabled;
 
   const prefixCls = getPrefixCls('color-picker', customizePrefixCls);
+  const mergedArrow = useMergedArrow(arrow, contextArrow);
 
   // ================== Size ==================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
@@ -91,7 +94,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     allowClear,
     autoAdjustOverflow,
     disabledAlpha,
-    arrow,
+    arrow: mergedArrow,
     placement,
     disabled: mergedDisabled,
     size: mergedSize,
@@ -225,7 +228,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const rtlCls = { [`${prefixCls}-rtl`]: direction };
-  const mergedRootCls = clsx(mergedClassNames.root, rootClassName, cssVarCls, rootCls, rtlCls);
+  const mergedRootCls = clsx(rootClassName, cssVarCls, rootCls, rtlCls);
   const mergedCls = clsx(
     getStatusClassNames(prefixCls, contextStatus),
     {
@@ -255,14 +258,14 @@ const ColorPicker: CompoundedComponent = (props) => {
     open: popupOpen,
     trigger,
     placement,
-    arrow,
+    arrow: mergedArrow,
     rootClassName,
     getPopupContainer,
     autoAdjustOverflow,
     destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
   };
 
-  const mergedStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };
+  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   // ============================ zIndex ============================
 
@@ -305,6 +308,8 @@ const ColorPicker: CompoundedComponent = (props) => {
           open={popupOpen}
           className={mergedCls}
           style={mergedStyle}
+          classNames={mergedClassNames}
+          styles={mergedStyles}
           prefixCls={prefixCls}
           disabled={mergedDisabled}
           showText={showText}
