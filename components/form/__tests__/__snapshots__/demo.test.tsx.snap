@@ -570,9 +570,6 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
                   id="basic_remember"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <span
                 class="ant-checkbox-label"
@@ -1755,9 +1752,6 @@ Array [
         class="ant-checkbox-input"
         type="checkbox"
       />
-      <span
-        class="ant-checkbox-inner"
-      />
     </span>
     <span
       class="ant-checkbox-label"
@@ -1806,9 +1800,6 @@ Array [
                     disabled=""
                     id="disabled"
                     type="checkbox"
-                  />
-                  <span
-                    class="ant-checkbox-inner"
                   />
                 </span>
                 <span
@@ -1864,9 +1855,6 @@ Array [
                       type="radio"
                       value="apple"
                     />
-                    <span
-                      class="ant-radio-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-label"
@@ -1886,9 +1874,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="pear"
-                    />
-                    <span
-                      class="ant-radio-inner"
                     />
                   </span>
                   <span
@@ -3111,9 +3096,6 @@ Array [
                           disabled=""
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                     <span
@@ -3169,9 +3151,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3194,9 +3173,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3221,9 +3197,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3246,9 +3219,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3273,9 +3243,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3298,9 +3265,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3325,9 +3289,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3350,9 +3311,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3377,9 +3335,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3402,9 +3357,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3429,9 +3381,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3454,9 +3403,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3481,9 +3427,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3506,9 +3449,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3533,9 +3473,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3559,9 +3496,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3584,9 +3518,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3678,9 +3609,6 @@ Array [
                           disabled=""
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                     <span
@@ -3736,9 +3664,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3762,9 +3687,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3787,9 +3709,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3836,15 +3755,6 @@ Array [
               <div
                 class="ant-tree ant-tree-icon-hide ant-tree-disabled css-var-test-id"
               >
-                <div>
-                  <input
-                    aria-label="for screen reader"
-                    disabled=""
-                    style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
-                    tabindex="0"
-                    value=""
-                  />
-                </div>
                 <div
                   aria-hidden="true"
                   class="ant-tree-treenode"
@@ -3872,9 +3782,11 @@ Array [
                         style="display:flex;flex-direction:column"
                       >
                         <div
+                          aria-disabled="true"
                           aria-expanded="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
                           draggable="false"
+                          id="test-id-0-0"
                           role="treeitem"
                         >
                           <span
@@ -3907,7 +3819,7 @@ Array [
                           <span
                             aria-checked="mixed"
                             aria-disabled="true"
-                            aria-label="Select Parent 1"
+                            aria-labelledby="test-id-0-0"
                             class="ant-tree-checkbox ant-tree-checkbox-indeterminate ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -3927,9 +3839,11 @@ Array [
                           </span>
                         </div>
                         <div
+                          aria-disabled="true"
                           aria-expanded="false"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
                           draggable="false"
+                          id="test-id-0-0-0"
                           role="treeitem"
                         >
                           <span
@@ -3966,7 +3880,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-label="Select Child 1-1"
+                            aria-labelledby="test-id-0-0-0"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -3986,9 +3900,10 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-disabled="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                           draggable="false"
+                          id="test-id-0-0-1"
                           role="treeitem"
                         >
                           <span
@@ -4005,7 +3920,7 @@ Array [
                           <span
                             aria-checked="false"
                             aria-disabled="true"
-                            aria-label="Select Child 1-2"
+                            aria-labelledby="test-id-0-0-1"
                             class="ant-tree-checkbox ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -4025,9 +3940,11 @@ Array [
                           </span>
                         </div>
                         <div
+                          aria-disabled="true"
                           aria-expanded="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
                           draggable="false"
+                          id="test-id-0-1"
                           role="treeitem"
                         >
                           <span
@@ -4060,7 +3977,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-label="Select Parent 2"
+                            aria-labelledby="test-id-0-1"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -4080,9 +3997,10 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-expanded="false"
+                          aria-disabled="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                           draggable="false"
+                          id="test-id-0-1-0"
                           role="treeitem"
                         >
                           <span
@@ -4099,7 +4017,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-label="Select Child 2-1"
+                            aria-labelledby="test-id-0-1-0"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -5245,9 +5163,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <span
                 class="ant-checkbox-label"
@@ -6226,9 +6141,6 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                     type="radio"
                     value="horizontal"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -6248,9 +6160,6 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                     type="radio"
                     value="vertical"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -6269,9 +6178,6 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                     name="layout"
                     type="radio"
                     value="inline"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
                   />
                 </span>
                 <span
@@ -6949,9 +6855,6 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
                     id="login_remember"
                     type="checkbox"
                   />
-                  <span
-                    class="ant-checkbox-inner"
-                  />
                 </span>
                 <span
                   class="ant-checkbox-label"
@@ -7577,27 +7480,31 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
         >
           Nickname
           <span
-            aria-label="question-circle"
-            class="anticon anticon-question-circle ant-form-item-tooltip"
-            role="img"
-            title=""
+            class="ant-form-item-tooltip"
+            tabindex="-1"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="question-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="question-circle"
+              class="anticon anticon-question-circle"
+              role="img"
             >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-              />
-              <path
-                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="question-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                />
+              </svg>
+            </span>
           </span>
         </label>
       </div>
@@ -8262,9 +8169,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   id="register_agreement"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <span
                 class="ant-checkbox-label"
@@ -8366,9 +8270,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                     type="radio"
                     value="true"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8389,9 +8290,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                     type="radio"
                     value="optional"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8411,9 +8309,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                     type="radio"
                     value="false"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8432,9 +8327,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                     name="requiredMarkValue"
                     type="radio"
                     value="customize"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
                   />
                 </span>
                 <span
@@ -8464,27 +8356,31 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
         >
           Field A
           <span
-            aria-label="question-circle"
-            class="anticon anticon-question-circle ant-form-item-tooltip"
-            role="img"
-            title=""
+            class="ant-form-item-tooltip"
+            tabindex="-1"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="question-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="question-circle"
+              class="anticon anticon-question-circle"
+              role="img"
             >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-              />
-              <path
-                d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="question-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"
+                />
+              </svg>
+            </span>
           </span>
         </label>
       </div>
@@ -8523,27 +8419,31 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
         >
           Field B
           <span
-            aria-label="info-circle"
-            class="anticon anticon-info-circle ant-form-item-tooltip"
-            role="img"
-            title=""
+            class="ant-form-item-tooltip"
+            tabindex="-1"
           >
-            <svg
-              aria-hidden="true"
-              data-icon="info-circle"
-              fill="currentColor"
-              focusable="false"
-              height="1em"
-              viewBox="64 64 896 896"
-              width="1em"
+            <span
+              aria-label="info-circle"
+              class="anticon anticon-info-circle"
+              role="img"
             >
-              <path
-                d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
-              />
-              <path
-                d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
-              />
-            </svg>
+              <svg
+                aria-hidden="true"
+                data-icon="info-circle"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                viewBox="64 64 896 896"
+                width="1em"
+              >
+                <path
+                  d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                />
+                <path
+                  d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                />
+              </svg>
+            </span>
           </span>
           <span
             class="ant-form-item-optional"
@@ -8652,9 +8552,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     type="radio"
                     value="small"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8675,9 +8572,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     type="radio"
                     value="default"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8696,9 +8590,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     name="size"
                     type="radio"
                     value="large"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
                   />
                 </span>
                 <span
@@ -10905,9 +10796,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="radio"
                     value="a"
                   />
-                  <span
-                    class="ant-radio-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-label"
@@ -10927,9 +10815,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="radio"
                     value="b"
                   />
-                  <span
-                    class="ant-radio-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-label"
@@ -10948,9 +10833,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     name="radio-group"
                     type="radio"
                     value="c"
-                  />
-                  <span
-                    class="ant-radio-inner"
                   />
                 </span>
                 <span
@@ -11009,9 +10891,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="radio"
                     value="a"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -11031,9 +10910,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="radio"
                     value="b"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -11052,9 +10928,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     name="radio-button"
                     type="radio"
                     value="c"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
                   />
                 </span>
                 <span
@@ -11119,9 +10992,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         type="checkbox"
                         value="A"
                       />
-                      <span
-                        class="ant-checkbox-inner"
-                      />
                     </span>
                     <span
                       class="ant-checkbox-label"
@@ -11147,9 +11017,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         type="checkbox"
                         value="B"
                       />
-                      <span
-                        class="ant-checkbox-inner"
-                      />
                     </span>
                     <span
                       class="ant-checkbox-label"
@@ -11172,9 +11039,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         class="ant-checkbox-input"
                         type="checkbox"
                         value="C"
-                      />
-                      <span
-                        class="ant-checkbox-inner"
                       />
                     </span>
                     <span
@@ -11199,9 +11063,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         type="checkbox"
                         value="D"
                       />
-                      <span
-                        class="ant-checkbox-inner"
-                      />
                     </span>
                     <span
                       class="ant-checkbox-label"
@@ -11225,9 +11086,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         type="checkbox"
                         value="E"
                       />
-                      <span
-                        class="ant-checkbox-inner"
-                      />
                     </span>
                     <span
                       class="ant-checkbox-label"
@@ -11250,9 +11108,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         class="ant-checkbox-input"
                         type="checkbox"
                         value="F"
-                      />
-                      <span
-                        class="ant-checkbox-inner"
                       />
                     </span>
                     <span

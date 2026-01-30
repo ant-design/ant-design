@@ -347,6 +347,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   // ============================ RowKey ============================
   const rowKey = customizeRowKey || table?.rowKey || 'key';
 
+  // ============================ Scroll ============================
+  const mergedScroll = scroll ?? table?.scroll;
+
   if (process.env.NODE_ENV !== 'production') {
     warning(
       !(typeof rowKey === 'function' && rowKey.length > 1),
@@ -721,6 +724,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         <TableComponent
           {...virtualProps}
           {...tableProps}
+          scroll={mergedScroll}
           classNames={mergedClassNames as RcTableProps<RecordType>['classNames']}
           styles={mergedStyles as RcTableProps<RecordType>['styles']}
           ref={tblRef}

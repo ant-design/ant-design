@@ -30,9 +30,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -152,9 +149,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -176,9 +170,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -202,9 +193,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -226,9 +214,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -252,9 +237,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -276,9 +258,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -302,9 +281,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -326,9 +302,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -352,9 +325,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -376,9 +346,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -402,9 +369,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -426,9 +390,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -452,9 +413,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -476,9 +434,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -502,9 +457,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -526,9 +478,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -552,9 +501,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -576,9 +522,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>
@@ -678,9 +621,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -801,9 +741,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                       class="ant-checkbox-input"
                       type="checkbox"
                     />
-                    <span
-                      class="ant-checkbox-inner"
-                    />
                   </span>
                 </label>
                 <span
@@ -825,9 +762,6 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                     <input
                       class="ant-checkbox-input"
                       type="checkbox"
-                    />
-                    <span
-                      class="ant-checkbox-inner"
                     />
                   </span>
                 </label>

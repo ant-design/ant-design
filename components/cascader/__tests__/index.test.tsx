@@ -9,7 +9,7 @@ import excludeAllWarning from '../../../tests/shared/excludeWarning';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
@@ -205,6 +205,26 @@ describe('Cascader', () => {
       target: { value: '__notfoundkeyword__' },
     });
     expect(getDropdown(container)).toMatchSnapshot();
+  });
+
+  it('should render custom notFoundContent when search returns no results', () => {
+    const { container } = render(
+      <Cascader
+        options={options}
+        placeholder="Please select"
+        showSearch={{ filter }}
+        notFoundContent="no data"
+        optionRender={(option) => option?.label}
+      />,
+    );
+    fireEvent.change(container.querySelector('input')!, {
+      target: { value: '__notfoundkeyword__' },
+    });
+    const dropdown = getDropdown(container);
+    expect(dropdown).toBeTruthy();
+    const notFoundElement = dropdown?.querySelector('.ant-cascader-menu-item-content');
+    expect(notFoundElement?.textContent).toBe('no data');
+    expect(dropdown).toMatchSnapshot();
   });
 
   it('should support to clear selection', () => {
@@ -840,5 +860,55 @@ describe('Cascader', () => {
     const input = popupElement!.querySelector('input');
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  describe('expandIcon', () => {
+    it('should support custom expandIcon', () => {
+      render(<Cascader open expandIcon={<div>bamboo</div>} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+
+    it('should support ConfigProvider expandIcon', () => {
+      render(
+        <ConfigProvider cascader={{ expandIcon: <div>foobar</div> }}>
+          <Cascader open options={options} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(2);
+    });
+
+    it('should prefer prop expandIcon over ConfigProvider expandIcon', () => {
+      render(
+        <ConfigProvider cascader={{ expandIcon: <div>foobar</div> }}>
+          <Cascader open options={options} expandIcon={<div>bamboo</div>} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+  });
+
+  describe('loadingIcon', () => {
+    it('should support custom loadingIcon', () => {
+      render(<Cascader loading loadingIcon={<div>bamboo</div>} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider loadingIcon', () => {
+      render(
+        <ConfigProvider cascader={{ loadingIcon: <div>foobar</div> }}>
+          <Cascader loading options={options} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop loadingIcon over ConfigProvider loadingIcon', () => {
+      render(
+        <ConfigProvider cascader={{ loadingIcon: <div>foobar</div> }}>
+          <Cascader loading options={options} loadingIcon={<div>bamboo</div>} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
   });
 });

@@ -980,6 +980,18 @@ exports[`renders components/button/demo/debug-color-variant.tsx extend context c
       </span>
     </button>
   </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
+  >
+    <button
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        default button token
+      </span>
+    </button>
+  </div>
 </div>
 `;
 
@@ -1004,9 +1016,6 @@ Array [
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1026,9 +1035,6 @@ Array [
           type="radio"
           value="default"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1047,9 +1053,6 @@ Array [
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -2807,9 +2810,6 @@ Array [
               type="radio"
               value="start"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -2829,9 +2829,6 @@ Array [
               name="test-id"
               type="radio"
               value="end"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -4129,9 +4126,6 @@ Array [
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -4151,9 +4145,6 @@ Array [
           type="radio"
           value="default"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -4172,9 +4163,6 @@ Array [
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span

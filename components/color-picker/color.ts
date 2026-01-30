@@ -3,7 +3,7 @@ import { Color as RcColor } from '@rc-component/color-picker';
 import type { ColorGenInput, Colors } from './interface';
 
 export const toHexFormat = (value?: string, alpha?: boolean) =>
-  value?.replace(/[^\w/]/g, '').slice(0, alpha ? 8 : 6) || '';
+  value?.replace(/[^0-9a-f]/gi, '').slice(0, alpha ? 8 : 6) || '';
 
 export const getHex = (value?: string, alpha?: boolean) => (value ? toHexFormat(value, alpha) : '');
 

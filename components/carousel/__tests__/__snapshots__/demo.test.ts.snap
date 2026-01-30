@@ -1147,9 +1147,6 @@ Array [
           type="radio"
           value="top"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1168,9 +1165,6 @@ Array [
           name="test-id"
           type="radio"
           value="bottom"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1191,9 +1185,6 @@ Array [
           type="radio"
           value="start"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1212,9 +1203,6 @@ Array [
           name="test-id"
           type="radio"
           value="end"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span

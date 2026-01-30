@@ -21,9 +21,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -191,9 +188,6 @@ exports[`Transfer rtl render component should be rendered correctly in RTL direc
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -306,9 +300,6 @@ exports[`Transfer should render correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -360,9 +351,6 @@ exports[`Transfer should render correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -382,9 +370,6 @@ exports[`Transfer should render correctly 1`] = `
                 class="ant-checkbox-input"
                 disabled=""
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -472,9 +457,6 @@ exports[`Transfer should render correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -525,9 +507,6 @@ exports[`Transfer should render correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -559,9 +538,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
       </label>
@@ -613,9 +589,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -706,9 +679,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -760,9 +730,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -784,9 +751,6 @@ exports[`Transfer should show sorted targetKey 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -821,9 +785,6 @@ exports[`Transfer should support render value and label in item 1`] = `
           <input
             class="ant-checkbox-input"
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
       </label>
@@ -875,9 +836,6 @@ exports[`Transfer should support render value and label in item 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -968,9 +926,6 @@ exports[`Transfer should support render value and label in item 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
       </label>
@@ -1083,9 +1038,6 @@ exports[`immutable data dataSource is frozen 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -1135,9 +1087,6 @@ exports[`immutable data dataSource is frozen 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1226,9 +1175,6 @@ exports[`immutable data dataSource is frozen 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
       </label>
