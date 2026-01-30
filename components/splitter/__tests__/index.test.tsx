@@ -1010,7 +1010,7 @@ describe('Splitter', () => {
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
 
       act(() => {
-        jest.advanceTimersByTime(350);
+        jest.advanceTimersByTime(250);
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1023,14 +1023,14 @@ describe('Splitter', () => {
 
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
       act(() => {
-        jest.advanceTimersByTime(350);
+        jest.advanceTimersByTime(250);
       });
 
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
 
       act(() => {
-        jest.advanceTimersByTime(350);
+        jest.advanceTimersByTime(250);
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1045,7 +1045,7 @@ describe('Splitter', () => {
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
 
       act(() => {
-        jest.advanceTimersByTime(350);
+        jest.advanceTimersByTime(250);
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1060,7 +1060,7 @@ describe('Splitter', () => {
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(3);
 
       act(() => {
-        jest.advanceTimersByTime(350);
+        jest.advanceTimersByTime(250);
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1085,7 +1085,7 @@ describe('Splitter', () => {
 
       // Wait for all animations to complete
       act(() => {
-        jest.advanceTimersByTime(400);
+        jest.advanceTimersByTime(250);
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1116,7 +1116,7 @@ describe('Splitter', () => {
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
 
       act(() => {
-        jest.advanceTimersByTime(350);
+        jest.advanceTimersByTime(250);
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });

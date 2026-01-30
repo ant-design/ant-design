@@ -1,12 +1,18 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-export default function useCollapseAnimation(duration: number = 300) {
+export default function useCollapseAnimation(duration: number = 200) {
   const [isCollapsing, setIsCollapsing] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const triggerAnimation = useCallback(() => {
+    clearTimeout(timerRef.current);
     setIsCollapsing(true);
-    setTimeout(() => setIsCollapsing(false), duration);
+    timerRef.current = setTimeout(() => {
+      setIsCollapsing(false);
+    }, duration);
   }, [duration]);
+
+  useEffect(() => () => clearTimeout(timerRef.current), []);
 
   return [isCollapsing, triggerAnimation] as const;
 }
