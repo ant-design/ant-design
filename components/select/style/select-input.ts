@@ -276,6 +276,14 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             ...textEllipsis,
             alignSelf: 'center',
 
+            '&-has-value': {
+              display: 'block',
+
+              '&:before': {
+                display: 'none',
+              },
+            },
+
             // >>> Value
             '&-value': {
               transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
