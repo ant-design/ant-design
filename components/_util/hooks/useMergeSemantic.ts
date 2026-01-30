@@ -21,8 +21,7 @@ export type SemanticStylesType<
   NestedStructure extends EmptyObject = EmptyObject,
 > = Resolvable<Readonly<SemanticStyles>, Props> & NestedStructure;
 
-// new types v2
-export type SemanticTypeV2<P = any, T = any> = T | ((info: { props: P }) => T);
+export type SemanticType<P = any, T = any> = T | ((info: { props: P }) => T);
 
 // ========================= ClassNames =========================
 export const mergeClassNames = <

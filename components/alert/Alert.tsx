@@ -9,7 +9,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { ClosableType, SemanticTypeV2 } from '../_util/hooks';
+import type { ClosableType, SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
@@ -40,8 +40,8 @@ export type AlertSemanticType = {
     close?: React.CSSProperties;
   };
 };
-export type AlertClassNamesType = SemanticTypeV2<AlertProps, AlertSemanticType['classNames']>;
-export type AlertStylesType = SemanticTypeV2<AlertProps, AlertSemanticType['styles']>;
+export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classNames']>;
+export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>;
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
