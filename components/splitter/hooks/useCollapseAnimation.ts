@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 export default function useCollapseAnimation(duration: number = 200) {
   const [isCollapsing, setIsCollapsing] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
 
   const triggerAnimation = useCallback(() => {
     clearTimeout(timerRef.current);
