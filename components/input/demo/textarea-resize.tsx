@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Button, Input } from 'antd';
+import React, { useRef, useState } from 'react';
+import { Button, Input, Tooltip } from 'antd';
+import type { TextAreaRef } from 'antd/es/input/TextArea';
 
 const { TextArea } = Input;
 
@@ -8,6 +9,7 @@ const defaultValue =
 
 const App: React.FC = () => {
   const [autoResize, setAutoResize] = useState(false);
+  const textAreaRef = useRef<TextAreaRef>(null);
 
   return (
     <>
@@ -23,6 +25,15 @@ const App: React.FC = () => {
         }}
         showCount
       />
+      <br />
+      <Tooltip title="Debug TextArea with Tooltip">
+        <TextArea
+          ref={textAreaRef}
+          placeholder="TextArea wrapped in Tooltip for debugging"
+          style={{ marginTop: 16 }}
+          onFocus={() => console.log('nativeElement:', textAreaRef.current?.nativeElement)}
+        />
+      </Tooltip>
     </>
   );
 };
