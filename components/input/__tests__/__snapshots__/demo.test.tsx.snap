@@ -5157,7 +5157,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
     value=""
   />
   <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     name="input-fn"
     placeholder="Function"
     style="border-color:#696FC7"
@@ -5165,7 +5165,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
     value=""
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     data-count="8"
     style="border-color:#BDE3C3"
   >
@@ -5188,7 +5188,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-test-id ant-input-css-var"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-test-id ant-input-css-var acss-c5jr4n"
     style="border-color:#F5D3C4"
   >
     <input
@@ -5226,7 +5226,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
     </span>
   </span>
   <div
-    class="ant-otp css-var-test-id"
+    class="ant-otp css-var-test-id acss-c5jr4n"
     role="group"
   >
     <span
@@ -5334,7 +5334,7 @@ exports[`renders components/input/demo/style-class.tsx correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large"
+    class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large acss-c5jr4n"
     style="color:#4DA8DA"
   >
     <input
