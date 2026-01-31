@@ -31,6 +31,7 @@ const stylesFn: EmptyProps['styles'] = ({ props }): EmptySemanticType['styles'] 
       image: { filter: 'hue-rotate(180deg)' },
     };
   }
+  return {};
 };
 
 const App: React.FC = () => {
