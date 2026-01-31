@@ -6,8 +6,8 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -20,30 +20,29 @@ import useStyle from './style';
 
 export type ExpandIconPlacement = 'start' | 'end';
 
-export type CollapseSemanticName = keyof CollapseSemanticClassNames & keyof CollapseSemanticStyles;
-
-export type CollapseSemanticClassNames = {
-  root?: string;
-  header?: string;
-  title?: string;
-  body?: string;
-  icon?: string;
+export type CollapseSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    title?: string;
+    body?: string;
+    icon?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    body?: React.CSSProperties;
+    icon?: React.CSSProperties;
+  };
 };
 
-export type CollapseSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  title?: React.CSSProperties;
-  body?: React.CSSProperties;
-  icon?: React.CSSProperties;
-};
-
-export type CollapseClassNamesType = SemanticClassNamesType<
+export type CollapseClassNamesType = SemanticType<
   CollapseProps,
-  CollapseSemanticClassNames
+  CollapseSemanticType['classNames']
 >;
 
-export type CollapseStylesType = SemanticStylesType<CollapseProps, CollapseSemanticStyles>;
+export type CollapseStylesType = SemanticType<CollapseProps, CollapseSemanticType['styles']>;
 
 export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
@@ -86,8 +85,8 @@ interface PanelProps {
   forceRender?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
-  classNames?: CollapseSemanticClassNames;
-  styles?: CollapseSemanticStyles;
+  classNames?: CollapseSemanticType['classNames'];
+  styles?: CollapseSemanticType['styles'];
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {

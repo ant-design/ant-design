@@ -3,11 +3,16 @@ import { render } from '@rc-component/util/lib/React/render';
 
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
-import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
+import type {
+  ArgsProps,
+  GlobalConfigProps,
+  NotificationInstance,
+  NotificationSemanticType,
+} from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
 
-export type { ArgsProps };
+export type { ArgsProps, NotificationSemanticType };
 
 let notification: GlobalNotification | null = null;
 

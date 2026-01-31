@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, message, Space } from 'antd';
-import type { MessageArgsProps } from 'antd';
+import type { MessageArgsProps, MessageSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const messageClassNames = createStaticStyles(({ css }) => ({
@@ -13,7 +13,7 @@ const stylesObject: MessageArgsProps['styles'] = {
   icon: { fontSize: 20 },
 };
 
-const stylesFn: MessageArgsProps['styles'] = ({ props }) => {
+const stylesFn: MessageArgsProps['styles'] = ({ props }): MessageSemanticType['styles'] => {
   if (props.type === 'success') {
     return {
       root: {
@@ -22,7 +22,7 @@ const stylesFn: MessageArgsProps['styles'] = ({ props }) => {
         borderRadius: 10,
         overflow: 'hidden',
       },
-    } satisfies MessageArgsProps['styles'];
+    };
   }
   return {};
 };

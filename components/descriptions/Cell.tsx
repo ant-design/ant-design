@@ -1,11 +1,10 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
 import { useMergeSemantic } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
+import type { CellSemanticType } from './DescriptionsContext';
 import DescriptionsContext from './DescriptionsContext';
-import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext';
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -17,8 +16,8 @@ export interface CellProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  classNames?: CellSemanticClassNames;
-  styles?: CellSemanticStyles;
+  classNames?: CellSemanticType['classNames'];
+  styles?: CellSemanticType['styles'];
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;

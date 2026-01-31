@@ -137,7 +137,7 @@ const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => 
     variant: mergedVariant,
   };
   // =========== Merged Semantic ===========
-  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<TimePickerProps>(
+  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
     'timePicker',
     classNames,
     styles,
@@ -153,8 +153,8 @@ const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => 
       ref={ref}
       renderExtraFooter={internalRenderExtraFooter}
       variant={mergedVariant}
-      classNames={mergedClassNames}
-      styles={mergedStyles}
+      classNames={mergedClassNames as unknown as TimePickerSemanticType['classNames']}
+      styles={mergedStyles as unknown as TimePickerSemanticType['styles']}
     />
   );
 });

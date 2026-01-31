@@ -12,12 +12,12 @@ import useStyle from './style/ribbon';
 type RibbonPlacement = 'start' | 'end';
 
 export type RibbonSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     content?: string;
     indicator?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     content?: React.CSSProperties;
     indicator?: React.CSSProperties;

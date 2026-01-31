@@ -34,7 +34,7 @@ export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
 export type ResultSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     title?: string;
     subTitle?: string;
@@ -42,7 +42,7 @@ export type ResultSemanticType = {
     extra?: string;
     icon?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     title?: React.CSSProperties;
     subTitle?: React.CSSProperties;

@@ -15,8 +15,8 @@ export type ShowCollapsibleIconMode = boolean | 'auto';
 export interface SplitBarProps {
   index: number;
   active: boolean;
-  draggerStyle?: SplitterSemanticType['styles']['dragger'];
-  draggerClassName?: SplitterSemanticType['classNames']['dragger'];
+  draggerStyle?: NonNullable<SplitterSemanticType['styles']>['dragger'];
+  draggerClassName?: NonNullable<SplitterSemanticType['classNames']>['dragger'];
   prefixCls: string;
   rootPrefixCls: string;
   resizable: boolean;

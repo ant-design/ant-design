@@ -38,7 +38,7 @@ const stylesFn: SplitterProps['styles'] = ({ props }): SplitterSemanticType['sty
         borderStyle: 'dashed',
         marginBottom: 10,
       },
-    } satisfies SplitterProps['styles'];
+    };
   }
   return {};
 };

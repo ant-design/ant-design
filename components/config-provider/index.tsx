@@ -571,7 +571,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   // Pass the props used by `useContext` directly with child component.
   // These props should merged into `config`.
   PASSED_PROPS.forEach((propName) => {
-    const propValue = props[propName];
+    const propValue = (props as any)[propName];
     if (propValue) {
       (config as any)[propName] = propValue;
     }

@@ -30,19 +30,19 @@ export interface SelectInfo {
 }
 
 export type CalendarSemanticType = {
-  classNames: {
-    root: string;
-    header: string;
-    body: string;
-    content: string;
-    item: string;
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    content?: string;
+    item?: string;
   };
-  styles: {
-    root: React.CSSProperties;
-    header: React.CSSProperties;
-    body: React.CSSProperties;
-    content: React.CSSProperties;
-    item: React.CSSProperties;
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    content?: React.CSSProperties;
+    item?: React.CSSProperties;
   };
 };
 

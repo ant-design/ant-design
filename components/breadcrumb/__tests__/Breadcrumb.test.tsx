@@ -5,7 +5,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { ItemType } from '../Breadcrumb';
+import type { BreadcrumbProps, ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
@@ -389,12 +389,12 @@ describe('Breadcrumb', () => {
   });
 
   it('support classNames and styles', async () => {
-    const customClassNames = {
+    const customClassNames: BreadcrumbProps['classNames'] = {
       root: 'custom-root',
       item: 'custom-item',
       separator: 'custom-separator',
     };
-    const customStyles = {
+    const customStyles: BreadcrumbProps['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 128, 0)' },
       separator: { color: 'rgb(0, 0, 255)' },
@@ -427,9 +427,9 @@ describe('Breadcrumb', () => {
     const item = container.querySelector<HTMLElement>('.custom-item');
     const separator = container.querySelector<HTMLElement>('.ant-breadcrumb-separator');
 
-    expect(root).toHaveClass(customClassNames.root);
-    expect(item).toHaveClass(customClassNames.item);
-    expect(separator).toHaveClass(customClassNames.separator);
+    expect(root).toHaveClass(customClassNames.root as string);
+    expect(item).toHaveClass(customClassNames.item as string);
+    expect(separator).toHaveClass(customClassNames.separator as string);
 
     expect(root).toHaveStyle({ color: customStyles.root?.color });
     expect(item).toHaveStyle({ color: customStyles.item?.color });

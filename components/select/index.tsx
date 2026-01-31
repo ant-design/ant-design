@@ -44,7 +44,7 @@ export interface LabeledValue {
 }
 
 export type SelectSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     prefix?: string;
     suffix?: string;
@@ -61,7 +61,7 @@ export type SelectSemanticType = {
       list?: string;
     };
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     prefix?: React.CSSProperties;
     suffix?: React.CSSProperties;
@@ -79,6 +79,9 @@ export type SelectSemanticType = {
     };
   };
 };
+
+export type SelectClassNamesType = SemanticType<SelectProps, SelectSemanticType['classNames']>;
+export type SelectStylesType = SemanticType<SelectProps, SelectSemanticType['styles']>;
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
@@ -107,9 +110,6 @@ export interface InternalSelectProps<
   styles?: SelectStylesType;
   classNames?: SelectClassNamesType;
 }
-
-export type SelectClassNamesType = SemanticType<SelectProps, SelectSemanticType['classNames']>;
-export type SelectStylesType = SemanticType<SelectProps, SelectSemanticType['styles']>;
 
 export interface SelectProps<
   ValueType = any,
@@ -140,8 +140,6 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  styles?: SelectStylesType;
-  classNames?: SelectClassNamesType;
   onOpenChange?: (visible: boolean) => void;
 }
 

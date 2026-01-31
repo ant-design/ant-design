@@ -31,17 +31,17 @@ const stylesObject: ResultProps['styles'] = {
   body: { backgroundColor: '#fafafa', padding: 12 },
 };
 
-const stylesFn: ResultProps['styles'] = (info) => {
+const stylesFn: ResultProps['styles'] = (info): ResultSemanticType['styles'] => {
   if (info.props.status === 'error') {
     return {
       root: { backgroundColor: '#fff2f0', borderColor: '#ff4d4f' },
       title: { color: '#ff4d4f' },
-    } satisfies ResultProps['styles'];
+    };
   } else {
     return {
       root: { backgroundColor: '#f6ffed', borderColor: '#52c41a' },
       title: { color: '#52c41a' },
-    } satisfies ResultProps['styles'];
+    };
   }
 };
 

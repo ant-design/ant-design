@@ -1,5 +1,7 @@
 import React from 'react';
+import type { Dayjs } from 'dayjs';
 
+import type { DatePickerProps } from '..';
 import DatePicker from '..';
 import { render } from '../../../tests/utils';
 
@@ -144,7 +146,7 @@ describe('DatePicker.Semantic', () => {
   });
 
   it('should support semantic classNames as function', () => {
-    const classNamesFn = (info: { props: Record<string, unknown> }) => {
+    const classNamesFn: DatePickerProps<Dayjs>['classNames'] = (info) => {
       if (info.props.disabled) {
         return { root: 'disabled-root' };
       }
@@ -159,7 +161,7 @@ describe('DatePicker.Semantic', () => {
   });
 
   it('should support semantic styles as function', () => {
-    const stylesFn = (info: { props: Record<string, unknown> }) => {
+    const stylesFn: DatePickerProps<Dayjs>['styles'] = (info) => {
       if (info.props.size === 'large') {
         return { root: { fontSize: '18px' } };
       }

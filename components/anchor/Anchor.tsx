@@ -53,13 +53,13 @@ interface Section {
 }
 
 export type AnchorSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     item?: string;
     itemTitle?: string;
     indicator?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     item?: React.CSSProperties;
     itemTitle?: React.CSSProperties;
@@ -124,8 +124,8 @@ export interface AntAnchor {
     link: { title: React.ReactNode; href: string },
   ) => void;
   direction: AnchorDirection;
-  classNames?: AnchorClassNamesType;
-  styles?: AnchorStylesType;
+  classNames?: AnchorSemanticType['classNames'];
+  styles?: AnchorSemanticType['styles'];
 }
 
 const Anchor: React.FC<AnchorProps> = (props) => {

@@ -2,8 +2,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -34,35 +34,33 @@ export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'prefi
   key?: React.Key;
 }
 
-export type DescriptionsSemanticName = keyof DescriptionsSemanticClassNames &
-  keyof DescriptionsSemanticStyles;
-
-export type DescriptionsSemanticClassNames = {
-  root?: string;
-  header?: string;
-  title?: string;
-  extra?: string;
-  label?: string;
-  content?: string;
+export type DescriptionsSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    title?: string;
+    extra?: string;
+    label?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    label?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type DescriptionsSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  title?: React.CSSProperties;
-  extra?: React.CSSProperties;
-  label?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type DescriptionsClassNamesType = SemanticClassNamesType<
+export type DescriptionsClassNamesType = SemanticType<
   DescriptionsProps,
-  DescriptionsSemanticClassNames
+  DescriptionsSemanticType['classNames']
 >;
 
-export type DescriptionsStylesType = SemanticStylesType<
+export type DescriptionsStylesType = SemanticType<
   DescriptionsProps,
-  DescriptionsSemanticStyles
+  DescriptionsSemanticType['styles']
 >;
 
 export interface DescriptionsProps {

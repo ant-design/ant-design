@@ -113,13 +113,13 @@ interface DraggableConfig {
 }
 
 export type TreeSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     item?: string;
     itemIcon?: string;
     itemTitle?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     item?: React.CSSProperties;
     itemIcon?: React.CSSProperties;

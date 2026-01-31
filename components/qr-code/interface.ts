@@ -21,7 +21,7 @@ export type StatusRenderInfo = {
 };
 
 export type QRCodeSemanticType = {
-  className?: {
+  classNames?: {
     root?: string;
     cover?: string;
   };
@@ -31,7 +31,7 @@ export type QRCodeSemanticType = {
   };
 };
 
-export type QRCodeClassNamesType = SemanticType<QRCodeProps, QRCodeSemanticType['className']>;
+export type QRCodeClassNamesType = SemanticType<QRCodeProps, QRCodeSemanticType['classNames']>;
 
 export type QRCodeStylesType = SemanticType<QRCodeProps, QRCodeSemanticType['style']>;
 

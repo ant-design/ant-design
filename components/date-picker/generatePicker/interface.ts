@@ -4,8 +4,8 @@ import type {
   RangePickerProps as RcRangePickerProps,
 } from '@rc-component/picker';
 import type { Locale as RcPickerLocale } from '@rc-component/picker/interface';
+import type { SemanticType } from 'antd/es/_util/hooks';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks';
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import type { Variant } from '../../config-provider';
@@ -16,30 +16,7 @@ const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
-export type DatePickerSemanticName = keyof DatePickerSemanticClassNames &
-  keyof DatePickerSemanticStyles;
-
-export type DatePickerPanelSemanticName = keyof DatePickerPanelSemanticClassNames &
-  keyof DatePickerPanelSemanticStyles;
-
-// import type {SemanticName} from "@rc-component/picker/interface"
-export type DatePickerSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  input?: string;
-  suffix?: string;
-};
-
-// import type {SemanticName} from "@rc-component/picker/interface"
-export type DatePickerSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-};
-
-// import type {PanelSemanticName} from "@rc-component/picker/interface"
-export type DatePickerPanelSemanticClassNames = {
+type DatePickerPanelSemanticClassNames = {
   root?: string;
   header?: string;
   body?: string;
@@ -49,8 +26,7 @@ export type DatePickerPanelSemanticClassNames = {
   container?: string;
 };
 
-// import type {PanelSemanticName} from "@rc-component/picker/interface"
-export type DatePickerPanelSemanticStyles = {
+type DatePickerPanelSemanticStyles = {
   root?: React.CSSProperties;
   header?: React.CSSProperties;
   body?: React.CSSProperties;
@@ -60,16 +36,31 @@ export type DatePickerPanelSemanticStyles = {
   container?: React.CSSProperties;
 };
 
-export type DatePickerClassNamesType<P> = SemanticClassNamesType<
+export type DatePickerSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    suffix?: string;
+    popup?: DatePickerPanelSemanticClassNames;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    popup?: DatePickerPanelSemanticStyles;
+  };
+};
+
+export type DatePickerClassNamesType<P> = SemanticType<
   InjectDefaultProps<P>,
-  DatePickerSemanticClassNames,
-  { popup?: string | DatePickerPanelSemanticClassNames }
+  DatePickerSemanticType['classNames']
 >;
 
-export type DatePickerStylesType<P> = SemanticStylesType<
+export type DatePickerStylesType<P> = SemanticType<
   InjectDefaultProps<P>,
-  DatePickerSemanticStyles,
-  { popup?: DatePickerPanelSemanticStyles }
+  DatePickerSemanticType['styles']
 >;
 
 export type PickerLocale = {
@@ -118,15 +109,6 @@ export type PickerClassNames = Omit<NonNullable<RcPickerProps['classNames']>, 'p
   popup?: string | NonNullable<RcPickerProps['classNames']>['popup'];
 };
 
-export type DatePickerPickerClassNames<T> = DatePickerClassNamesType<T>;
-
-export type RequiredSemanticPicker = Readonly<
-  [
-    classNames: DatePickerSemanticClassNames & { popup: DatePickerPanelSemanticClassNames },
-    styles: DatePickerSemanticStyles & { popup: DatePickerPanelSemanticStyles },
-  ]
->;
-
 export type InjectDefaultProps<Props> = Omit<
   Props,
   'locale' | 'generateConfig' | 'hideHeader' | 'classNames' | 'styles'
@@ -156,7 +138,7 @@ export type InjectDefaultProps<Props> = Omit<
    * @deprecated please use `styles.popup.root` instead
    */
   popupStyle?: React.CSSProperties;
-  classNames?: DatePickerPickerClassNames<Props>;
+  classNames?: DatePickerClassNamesType<Props>;
   styles?: DatePickerStylesType<Props>;
 };
 

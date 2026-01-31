@@ -19,7 +19,7 @@ import useRafLock from './useRafLock';
 
 export type SliderMarks = RcSliderProps['marks'];
 
-export type SliderSemanticClassType = {
+export type SliderSemanticType = {
   classNames: {
     root?: string;
     tracks?: string;
@@ -36,12 +36,9 @@ export type SliderSemanticClassType = {
   };
 };
 
-export type SliderClassNamesType = SemanticType<
-  SliderBaseProps,
-  SliderSemanticClassType['classNames']
->;
+export type SliderClassNamesType = SemanticType<SliderBaseProps, SliderSemanticType['classNames']>;
 
-export type SliderStylesType = SemanticType<SliderBaseProps, SliderSemanticClassType['styles']>;
+export type SliderStylesType = SemanticType<SliderBaseProps, SliderSemanticType['styles']>;
 
 export interface SliderProps extends Omit<RcSliderProps, 'styles' | 'classNames'> {
   classNames?: SliderClassNamesType;

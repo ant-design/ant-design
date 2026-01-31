@@ -50,7 +50,7 @@ const stylesCardFn: CardProps['styles'] = (info) => {
         fontWeight: 500,
         color: '#A7AAE1',
       },
-    } satisfies CardProps['styles'];
+    };
   }
 };
 

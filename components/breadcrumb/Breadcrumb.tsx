@@ -54,12 +54,12 @@ export type ItemType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 export type InternalRouteType = Partial<BreadcrumbItemType & BreadcrumbSeparatorType>;
 
 export type BreadcrumbSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     item?: string;
     separator?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     item?: React.CSSProperties;
     separator?: React.CSSProperties;

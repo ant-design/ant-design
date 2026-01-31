@@ -268,7 +268,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return (
     <Popover
       classNames={{ root: mergedPopupCls }}
-      styles={{ root: mergedStyles.popup?.root, container: styles?.popupOverlayInner }}
+      styles={{ root: mergedStyles.popup?.root, container: mergedStyles?.popupOverlayInner }}
       onOpenChange={triggerOpenChange}
       content={
         <ContextIsolator form>

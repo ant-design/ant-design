@@ -23,7 +23,7 @@ export type { CheckableTagProps } from './CheckableTag';
 export type { CheckableTagGroupProps, CheckableTagGroupSemanticType } from './CheckableTagGroup';
 
 export type TagSemanticType = {
-  className?: {
+  classNames?: {
     root?: string;
     icon?: string;
     content?: string;
@@ -35,7 +35,7 @@ export type TagSemanticType = {
   };
 };
 
-export type TagClassNamesType = SemanticType<TagProps, TagSemanticType['className']>;
+export type TagClassNamesType = SemanticType<TagProps, TagSemanticType['classNames']>;
 
 export type TagStylesType = SemanticType<TagProps, TagSemanticType['style']>;
 

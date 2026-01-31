@@ -21,7 +21,7 @@ export interface AlertRef {
 }
 
 export type AlertSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     icon?: string;
     section?: string;
@@ -30,7 +30,7 @@ export type AlertSemanticType = {
     actions?: string;
     close?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     section?: React.CSSProperties;

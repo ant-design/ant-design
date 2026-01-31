@@ -37,7 +37,7 @@ const badgeStylesFn: BadgeProps['styles'] = (info): BadgeSemanticType['styles'] 
         fontSize: 14,
         backgroundColor: '#696FC7',
       },
-    } satisfies BadgeProps['styles'];
+    };
   }
   return {};
 };

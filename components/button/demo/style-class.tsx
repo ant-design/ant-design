@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Flex } from 'antd';
-import type { ButtonProps } from 'antd';
+import type { ButtonProps, ButtonSemanticType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -21,7 +21,7 @@ const stylesObject: ButtonProps['styles'] = {
   },
 };
 
-const stylesFn: ButtonProps['styles'] = (info) => {
+const stylesFn: ButtonProps['styles'] = (info): ButtonSemanticType['styles'] => {
   if (info.props.type === 'primary') {
     return {
       root: {
@@ -30,7 +30,7 @@ const stylesFn: ButtonProps['styles'] = (info) => {
       content: {
         color: '#fff',
       },
-    } satisfies ButtonProps['styles'];
+    };
   }
   return {};
 };

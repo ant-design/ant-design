@@ -64,7 +64,7 @@ export type CascaderSemanticType = {
     item?: string;
     itemContent?: string;
     itemRemove?: string;
-    popup?: SelectSemanticType['classNames']['popup'];
+    popup?: NonNullable<SelectSemanticType['classNames']>['popup'];
   };
   style: {
     root?: React.CSSProperties;
@@ -76,7 +76,7 @@ export type CascaderSemanticType = {
     item?: React.CSSProperties;
     itemContent?: React.CSSProperties;
     itemRemove?: React.CSSProperties;
-    popup?: SelectSemanticType['styles']['popup'];
+    popup?: NonNullable<SelectSemanticType['styles']>['popup'];
   };
 };
 

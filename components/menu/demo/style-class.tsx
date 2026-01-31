@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Menu } from 'antd';
-import type { MenuProps } from 'antd';
+import type { MenuProps, MenuSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -40,13 +40,13 @@ const styles: MenuProps['styles'] = {
   subMenu: { list: { color: '#fa541c' } },
 };
 
-const stylesFn: MenuProps['styles'] = (info) => {
+const stylesFn: MenuProps['styles'] = (info): MenuSemanticType['styles'] => {
   const hasSub = info.props.items?.[0];
   return {
     root: {
       backgroundColor: hasSub ? 'rgba(240,249,255, 0.6)' : 'rgba(255,255,255)',
     },
-  } satisfies MenuProps['styles'];
+  };
 };
 
 const App: React.FC = () => {

@@ -21,7 +21,7 @@ import Title from './Title';
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
 export type SkeletonSemanticType = {
-  className: {
+  classNames?: {
     root?: string;
     header?: string;
     section?: string;
@@ -29,7 +29,7 @@ export type SkeletonSemanticType = {
     title?: string;
     paragraph?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     header?: React.CSSProperties;
     section?: React.CSSProperties;
@@ -39,7 +39,10 @@ export type SkeletonSemanticType = {
   };
 };
 
-export type SkeletonClassNamesType = SemanticType<SkeletonProps, SkeletonSemanticType['className']>;
+export type SkeletonClassNamesType = SemanticType<
+  SkeletonProps,
+  SkeletonSemanticType['classNames']
+>;
 
 export type SkeletonStylesType = SemanticType<SkeletonProps, SkeletonSemanticType['styles']>;
 

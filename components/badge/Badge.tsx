@@ -16,11 +16,11 @@ import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
 
 export type BadgeSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     indicator?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     indicator?: React.CSSProperties;
   };

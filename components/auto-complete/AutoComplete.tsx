@@ -14,28 +14,27 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
-  SelectPopupSemanticClassNames,
-  SelectPopupSemanticStyles,
   SelectProps,
+  SelectSemanticType,
 } from '../select';
 import Select from '../select';
 
 export type AutoCompleteSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     prefix?: string;
     input?: string;
     placeholder?: string;
     content?: string;
-    popup?: SelectPopupSemanticClassNames;
+    popup?: NonNullable<SelectSemanticType['classNames']>['popup'];
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     prefix?: React.CSSProperties;
     input?: React.CSSProperties;
     placeholder?: React.CSSProperties;
     content?: React.CSSProperties;
-    popup?: SelectPopupSemanticStyles;
+    popup?: NonNullable<SelectSemanticType['styles']>['popup'];
   };
 };
 
@@ -62,7 +61,7 @@ export interface AutoCompleteProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
   InternalSelectProps<ValueType, OptionType>,
-  'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
+  'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames'
 > {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
@@ -75,7 +74,7 @@ export interface AutoCompleteProps<
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
   styles?: AutoCompleteStylesType;
-  // classNames?: AutoCompleteClassNamesType;
+  classNames?: AutoCompleteClassNamesType;
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;

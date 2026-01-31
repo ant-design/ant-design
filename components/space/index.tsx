@@ -21,12 +21,12 @@ export { SpaceContext } from './context';
 export type SpaceSize = SizeType | number;
 
 export type SpaceSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     item?: string;
     separator?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     item?: React.CSSProperties;
     separator?: React.CSSProperties;

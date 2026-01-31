@@ -5,8 +5,8 @@ import { useControlledState, useEvent } from '@rc-component/util';
 import { useComposeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -57,27 +57,25 @@ export interface CheckboxChangeEvent {
   preventDefault: () => void;
   nativeEvent: MouseEvent;
 }
-
-export type CheckboxSemanticName = keyof CheckboxSemanticClassNames & keyof CheckboxSemanticStyles;
-
-export type CheckboxSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  label?: string;
+export type CheckboxSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    label?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    label?: React.CSSProperties;
+  };
 };
 
-export type CheckboxSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  label?: React.CSSProperties;
-};
-
-export type CheckboxClassNamesType = SemanticClassNamesType<
+export type CheckboxClassNamesType = SemanticType<
   CheckboxProps,
-  CheckboxSemanticClassNames
+  CheckboxSemanticType['classNames']
 >;
 
-export type CheckboxStylesType = SemanticStylesType<CheckboxProps, CheckboxSemanticStyles>;
+export type CheckboxStylesType = SemanticType<CheckboxProps, CheckboxSemanticType['styles']>;
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;

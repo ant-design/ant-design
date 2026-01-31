@@ -16,7 +16,7 @@ describe('Skeleton.Semantic', () => {
     const titleStyle = { background: 'red' };
     const paragraphStyle = { background: 'orange' };
 
-    const customClassNames: SkeletonSemanticType['className'] = {
+    const customClassNames: SkeletonSemanticType['classNames'] = {
       root: 'custom-root',
       header: 'custom-header',
       section: 'custom-section',

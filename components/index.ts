@@ -39,21 +39,22 @@ export type {
   CheckboxOptionType,
   CheckboxProps,
   CheckboxRef,
+  CheckboxSemanticType,
 } from './checkbox';
 export { default as Col } from './col';
 export type { ColProps } from './col';
 export { default as Collapse } from './collapse';
-export type { CollapsePanelProps, CollapseProps } from './collapse';
+export type { CollapsePanelProps, CollapseProps, CollapseSemanticType } from './collapse';
 export { default as ColorPicker } from './color-picker';
-export type { ColorPickerProps } from './color-picker';
+export type { ColorPickerProps, ColorPickerSemanticType } from './color-picker';
 export { default as ConfigProvider } from './config-provider';
 export type { ConfigProviderProps, ThemeConfig } from './config-provider';
 export { default as DatePicker } from './date-picker';
-export type { DatePickerProps } from './date-picker';
+export type { DatePickerProps, DatePickerSemanticType } from './date-picker';
 export { default as Descriptions } from './descriptions';
-export type { DescriptionsProps } from './descriptions';
+export type { DescriptionsProps, DescriptionsSemanticType } from './descriptions';
 export { default as Divider } from './divider';
-export type { DividerProps } from './divider';
+export type { DividerProps, DividerSemanticType } from './divider';
 export { default as Drawer } from './drawer';
 export type { DrawerProps, DrawerSemanticType } from './drawer';
 export { default as Dropdown } from './dropdown';
@@ -110,15 +111,22 @@ export type { MasonryProps, MasonrySemanticType } from './masonry';
 export { default as Mentions } from './mentions';
 export type { MentionProps, MentionSemanticType, MentionsProps } from './mentions';
 export { default as Menu } from './menu';
-export type { MenuItemProps, MenuProps, MenuRef, MenuTheme, SubMenuProps } from './menu';
+export type {
+  MenuItemProps,
+  MenuProps,
+  MenuRef,
+  MenuSemanticType,
+  MenuTheme,
+  SubMenuProps,
+} from './menu';
 export { default as message } from './message';
-export type { ArgsProps as MessageArgsProps } from './message';
+export type { ArgsProps as MessageArgsProps, MessageSemanticType } from './message';
 export { default as Modal } from './modal';
 export type { ModalFuncProps, ModalLocale, ModalProps, ModalSemanticType } from './modal';
 export { default as notification } from './notification';
-export type { ArgsProps as NotificationArgsProps } from './notification';
+export type { ArgsProps as NotificationArgsProps, NotificationSemanticType } from './notification';
 export { default as Pagination } from './pagination';
-export type { PaginationProps } from './pagination';
+export type { PaginationProps, PaginationSemanticType } from './pagination';
 export { default as Popconfirm } from './popconfirm';
 export type { PopconfirmProps, PopconfirmSemanticType } from './popconfirm';
 export { default as Popover } from './popover';
@@ -147,7 +155,7 @@ export type { RefSelectProps, SelectProps, SelectSemanticType } from './select';
 export { default as Skeleton } from './skeleton';
 export type { SkeletonProps, SkeletonSemanticType } from './skeleton';
 export { default as Slider } from './slider';
-export type { SliderSemanticClassType, SliderSingleProps } from './slider';
+export type { SliderSemanticType, SliderSingleProps } from './slider';
 export { default as Space } from './space';
 export type { SpaceProps, SpaceSemanticType } from './space';
 export { default as Spin } from './spin';
@@ -162,7 +170,7 @@ export type {
   StatisticTimerProps,
 } from './statistic';
 export { default as Steps } from './steps';
-export type { StepsProps } from './steps';
+export type { StepsProps, StepsSemanticType } from './steps';
 export { default as Switch } from './switch';
 export type { SwitchProps, SwitchSemanticType } from './switch';
 export { default as Table } from './table';
@@ -186,7 +194,7 @@ export type { TimePickerProps, TimePickerSemanticType, TimeRangePickerProps } fr
 export { default as Timeline } from './timeline';
 export type { TimelineItemProps, TimelineProps, TimelineSemanticType } from './timeline';
 export { default as Tooltip } from './tooltip';
-export type { TooltipProps } from './tooltip';
+export type { TooltipProps, TooltipSemanticType } from './tooltip';
 export { default as Tour } from './tour';
 export type { TourProps, TourSemanticType, TourStepProps } from './tour/interface';
 export { default as Transfer } from './transfer';

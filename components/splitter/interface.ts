@@ -2,7 +2,7 @@ import type { Orientation, SemanticType } from '../_util/hooks';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 export type SplitterSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     panel?: string;
     dragger?: {
@@ -10,7 +10,7 @@ export type SplitterSemanticType = {
       active?: string;
     };
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     panel?: React.CSSProperties;
     dragger?: {

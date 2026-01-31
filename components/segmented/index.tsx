@@ -21,13 +21,13 @@ import useStyle from './style';
 export type { SegmentedValue } from '@rc-component/segmented';
 
 export type SegmentedSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     icon?: string;
     label?: string;
     item?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     label?: React.CSSProperties;

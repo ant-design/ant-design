@@ -17,14 +17,14 @@ export type SpinSize = (typeof _SpinSizes)[number];
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
 export type SpinSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     wrapper?: string;
     mask?: string;
     indicator?: string;
     tip?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     wrapper?: React.CSSProperties;
     mask?: React.CSSProperties;
