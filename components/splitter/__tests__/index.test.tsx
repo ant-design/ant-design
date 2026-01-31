@@ -4,6 +4,7 @@ import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
 
+import { getFilterStringType } from '../../_util/hooks';
 import type { Orientation } from '../../_util/hooks';
 import { resetWarned } from '../../_util/warning';
 import {
@@ -1088,13 +1089,16 @@ describe('Splitter', () => {
       expect(panel).toHaveClass(customClassNames.panel as string);
       const dragger = container.querySelector('.ant-splitter-bar-dragger');
       expect(dragger).toHaveStyle(customStyles.dragger as Record<string, string>);
-      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
-      expect(dragger).not.toHaveClass(customClassNames.dragger?.active as string);
+
+      const draggerClassNames = getFilterStringType(customClassNames.dragger, 'default');
+
+      expect(dragger).toHaveClass(draggerClassNames?.default as string);
+      expect(dragger).not.toHaveClass(draggerClassNames?.active as string);
 
       // Dragging
       fireEvent.mouseDown(dragger!);
-      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
-      expect(dragger).toHaveClass(customClassNames.dragger?.active as string);
+      expect(dragger).toHaveClass(draggerClassNames?.default as string);
+      expect(dragger).toHaveClass(draggerClassNames?.active as string);
     });
   });
 

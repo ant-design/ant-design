@@ -53,7 +53,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('Menu');
 
-  const filterString = getFilterStringType(classNames?.popup, 'root');
+  const popupClassNames = getFilterStringType(classNames?.popup, 'root');
 
   return (
     <MenuContext.Provider value={contextValue}>
@@ -65,7 +65,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         popupClassName={clsx(
           prefixCls,
           popupClassName,
-          filterString,
+          popupClassNames?.root,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
         popupStyle={{

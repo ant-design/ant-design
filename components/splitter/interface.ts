@@ -5,12 +5,12 @@ export type SplitterSemanticType = {
   classNames?: {
     root?: string;
     panel?: string;
-    dragger?: { default?: string; active?: string };
+    dragger?: { default?: string; active?: string } | string;
   };
   styles?: {
     root?: React.CSSProperties;
     panel?: React.CSSProperties;
-    dragger?: React.CSSProperties & { default?: React.CSSProperties; active?: React.CSSProperties };
+    dragger?: React.CSSProperties | { default?: React.CSSProperties; active?: React.CSSProperties };
   };
 };
 

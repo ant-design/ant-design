@@ -7,6 +7,7 @@ import { useEvent } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
+import { getFilterStringType } from '../_util/hooks';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import type { SplitterProps, SplitterSemanticType } from './interface';
 
@@ -60,7 +61,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     resizable,
     draggerIcon,
     draggerStyle,
-    draggerClassName = {},
+    draggerClassName,
     collapsibleIcon,
     startCollapsible,
     endCollapsible,
@@ -74,6 +75,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     showStartCollapsibleIcon,
     showEndCollapsibleIcon,
   } = props;
+  const draggerClassNames = getFilterStringType(draggerClassName, 'default');
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
@@ -264,8 +266,8 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
             [`${splitBarPrefixCls}-dragger-active`]: active,
             [`${splitBarPrefixCls}-dragger-customize`]: draggerIcon !== undefined,
           },
-          draggerClassName?.default as string,
-          active && (draggerClassName?.active as string),
+          draggerClassNames?.default,
+          active && draggerClassNames?.active,
         )}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
