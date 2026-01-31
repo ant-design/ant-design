@@ -9,6 +9,19 @@ export type SemanticSchema = { _default?: string } & {
 
 export type SemanticType<P = any, T = any> = T | ((info: { props: P }) => T);
 
+type RemoveString<T> = T extends string ? never : T;
+
+type RemoveStringKey<T, K extends keyof T> = string | Record<string, any> extends T[K]
+  ? RemoveString<T[K]>
+  : T[K];
+
+export type RemoveClassNamesString<T> = { [K in keyof T]: RemoveStringKey<T, K> };
+
+export type RemoveStringSemanticType<T extends { classNames?: any; styles?: any }> = {
+  styles?: T['styles'];
+  classNames?: RemoveClassNamesString<NonNullable<T['classNames']>>;
+};
+
 // ========================= ClassNames =========================
 export const mergeClassNames = <SemanticClassNames = any>(
   schema?: SemanticSchema,
@@ -120,10 +133,10 @@ export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props =
       fillObjectBySchema(mergedStyles, schema),
     ] as const;
   }, [mergedClassNames, mergedStyles, schema]);
-  return result as [NonNullable<ClassNamesType>, NonNullable<StylesType>];
+  return result as [RemoveClassNamesString<NonNullable<ClassNamesType>>, NonNullable<StylesType>];
 };
 
-type Result<T> = T extends string ? never : T;
-export function getFilterStringType<T, K extends string>(classNames: T, key: K): Result<T> {
-  return (typeof classNames === 'string' ? { [key]: classNames } : classNames) as Result<T>;
-}
+// type Result<T> = T extends string ? never : T;
+// export function getFilterStringType<T, K extends string>(classNames: T, key: K): Result<T> {
+//   return (typeof classNames === 'string' ? { [key]: classNames } : classNames) as Result<T>;
+// }

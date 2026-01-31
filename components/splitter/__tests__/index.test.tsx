@@ -4,7 +4,6 @@ import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import type { GetProps, SplitterProps } from 'antd';
 import { ConfigProvider, Splitter } from 'antd';
 
-import { getFilterStringType } from '../../_util/hooks';
 import type { Orientation } from '../../_util/hooks';
 import { resetWarned } from '../../_util/warning';
 import {
@@ -15,6 +14,7 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
+import type { InternalSplitterSemanticType } from '../interface';
 import SplitBar from '../SplitBar';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
@@ -1070,7 +1070,7 @@ describe('Splitter', () => {
         panel: { background: 'blue' },
         dragger: { background: 'green' },
       };
-      const customClassNames: SplitterProps['classNames'] = {
+      const customClassNames: InternalSplitterSemanticType['classNames'] = {
         root: 'custom-root',
         panel: 'custom-panel',
         dragger: { default: 'custom-dragger', active: 'custom-dragger-active' },
@@ -1090,15 +1090,13 @@ describe('Splitter', () => {
       const dragger = container.querySelector('.ant-splitter-bar-dragger');
       expect(dragger).toHaveStyle(customStyles.dragger as Record<string, string>);
 
-      const draggerClassNames = getFilterStringType(customClassNames.dragger, 'default');
-
-      expect(dragger).toHaveClass(draggerClassNames?.default as string);
-      expect(dragger).not.toHaveClass(draggerClassNames?.active as string);
+      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
+      expect(dragger).not.toHaveClass(customClassNames.dragger?.active as string);
 
       // Dragging
       fireEvent.mouseDown(dragger!);
-      expect(dragger).toHaveClass(draggerClassNames?.default as string);
-      expect(dragger).toHaveClass(draggerClassNames?.active as string);
+      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
+      expect(dragger).toHaveClass(customClassNames.dragger?.active as string);
     });
   });
 

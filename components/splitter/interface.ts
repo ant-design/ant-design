@@ -1,4 +1,4 @@
-import type { Orientation, SemanticType } from '../_util/hooks';
+import type { Orientation, RemoveStringSemanticType, SemanticType } from '../_util/hooks';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 export type SplitterSemanticType = {
@@ -13,6 +13,8 @@ export type SplitterSemanticType = {
     dragger?: React.CSSProperties | { default?: React.CSSProperties; active?: React.CSSProperties };
   };
 };
+
+export type InternalSplitterSemanticType = RemoveStringSemanticType<SplitterSemanticType>;
 
 export interface SplitterSemanticDraggerClassNames {
   default?: string;

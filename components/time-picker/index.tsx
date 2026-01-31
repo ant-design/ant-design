@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { PickerRef } from '@rc-component/picker';
 import type { Dayjs } from 'dayjs';
 
-import type { SemanticType } from '../_util/hooks';
+import type { RemoveStringSemanticType, SemanticType } from '../_util/hooks';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import type { AnyObject } from '../_util/type';
@@ -46,6 +46,7 @@ export type TimePickerSemanticType = {
     };
   };
 };
+export type InternalTimePickerSemanticType = RemoveStringSemanticType<TimePickerSemanticType>;
 
 export type TimePickerClassNames = SemanticType<
   TimePickerProps,

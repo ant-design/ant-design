@@ -2,7 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-import type { TimePickerProps, TimePickerSemanticType } from '..';
+import type { TimePickerSemanticType } from '..';
 import TimePicker from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
@@ -101,7 +101,7 @@ describe('TimePicker', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
   it('should support classNames and styles', () => {
-    const testClassNames: TimePickerProps['classNames'] = {
+    const testClassNames: TimePickerSemanticType['classNames'] = {
       root: 'test-root',
       prefix: 'test-prefix',
       input: 'test-input',
@@ -112,12 +112,12 @@ describe('TimePicker', () => {
       content: 'test-popup-content',
       item: 'test-popup-item',
     };
-    const mergedTestClassNames: TimePickerProps['classNames'] = {
+    const mergedTestClassNames: TimePickerSemanticType['classNames'] = {
       ...testClassNames,
       popup: testPopupClassNames,
     };
 
-    const testStyles: TimePickerProps['styles'] = {
+    const testStyles: TimePickerSemanticType['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       prefix: { color: 'rgb(0, 0, 255)' },
       input: { color: 'rgb(0, 255, 0)' },
@@ -128,7 +128,7 @@ describe('TimePicker', () => {
       content: { color: 'rgb(0, 255, 255)' },
       item: { color: 'rgb(255, 0, 255)' },
     };
-    const mergedTestStyles: TimePickerProps['styles'] = {
+    const mergedTestStyles: TimePickerSemanticType['styles'] = {
       ...testStyles,
       popup: testPopupStyles,
     };
@@ -154,7 +154,7 @@ describe('TimePicker', () => {
     ];
 
     const testPopupSelectors: {
-      key: keyof typeof testPopupClassNames;
+      key: string;
       selector: string;
     }[] = [
       { key: 'root', selector: '.ant-picker-dropdown' },
@@ -174,12 +174,7 @@ describe('TimePicker', () => {
     );
 
     testSelectors.forEach(({ key, selector }) => {
-      checkElement(
-        container,
-        selector,
-        (testClassNames as Record<string, string>)[key],
-        (testStyles as Record<string, React.CSSProperties>)[key],
-      );
+      checkElement(container, selector, (testClassNames as any)[key], (testStyles as any)[key]);
     });
     testPopupSelectors.forEach(({ key, selector }) => {
       checkElement(
@@ -204,16 +199,16 @@ describe('TimePicker', () => {
       checkElement(
         rangePickerContainer,
         selector,
-        (testClassNames as Record<string, string>)[key],
-        (testStyles as Record<string, React.CSSProperties>)[key],
+        (testClassNames as any)[key],
+        (testStyles as any)[key],
       );
     });
     testPopupSelectors.forEach(({ key, selector }) => {
       checkElement(
         rangePickerContainer,
         selector,
-        testPopupClassNames[key] as string,
-        testPopupStyles[key] as React.CSSProperties,
+        (testPopupClassNames as any)[key],
+        (testPopupStyles as any)[key],
       );
     });
   });

@@ -6,7 +6,7 @@ import RcMenu from '@rc-component/menu';
 import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
+import type { RemoveStringSemanticType, SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
@@ -69,6 +69,7 @@ export type MenuSemanticType = {
     };
   };
 };
+export type InternalMenuClassNamesType = RemoveStringSemanticType<MenuSemanticType>;
 
 export type MenuClassNamesType = SemanticType<MenuProps, MenuSemanticType['classNames']>;
 

@@ -4,7 +4,7 @@ import type {
   RangePickerProps as RcRangePickerProps,
 } from '@rc-component/picker';
 import type { Locale as RcPickerLocale } from '@rc-component/picker/interface';
-import type { SemanticType } from 'antd/es/_util/hooks';
+import type { RemoveStringSemanticType, SemanticType } from 'antd/es/_util/hooks';
 
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
@@ -50,6 +50,7 @@ export type DatePickerSemanticType = {
     };
   };
 };
+export type InternalDatePickerClassNamesType = RemoveStringSemanticType<DatePickerSemanticType>;
 
 export type DatePickerClassNamesType<P> = SemanticType<
   InjectDefaultProps<P>,
