@@ -27,7 +27,7 @@ describe('Splitter.Semantic', () => {
     const classNamesFn: SplitterProps['classNames'] = jest.fn(({ props }) => ({
       root: `custom-root-${props.orientation}`,
       panel: 'custom-panel',
-      dragger: { default: 'custom-dragger' },
+      dragger: 'custom-dragger',
     }));
 
     const { container } = render(
