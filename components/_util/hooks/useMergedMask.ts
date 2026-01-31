@@ -3,6 +3,7 @@ import { useMemo } from 'react';
 export interface MaskConfig {
   enabled?: boolean;
   blur?: boolean;
+  closable?: boolean;
 }
 export type MaskType = MaskConfig | boolean;
 
@@ -14,6 +15,7 @@ const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
     return {
       enabled: mask,
       blur: false,
+      closable: true,
     };
   }
   return {};
@@ -23,7 +25,7 @@ export const useMergedMask = (
   mask?: MaskType,
   contextMask?: MaskType,
   prefixCls?: string,
-): [boolean, { [key: string]: string | undefined }] => {
+): [boolean, { [key: string]: string | undefined }, boolean | undefined] => {
   return useMemo(() => {
     const maskConfig = normalizeMaskConfig(mask);
     const contextMaskConfig = normalizeMaskConfig(contextMask);
@@ -32,6 +34,6 @@ export const useMergedMask = (
 
     const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
 
-    return [mergedConfig.enabled !== false, { mask: className }];
+    return [mergedConfig.enabled !== false, { mask: className }, mergedConfig.closable];
   }, [mask, contextMask, prefixCls]);
 };
