@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Flex, Tooltip } from 'antd';
-import type { TooltipProps } from 'antd';
+import type { TooltipProps, TooltipSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -16,7 +16,7 @@ const styles: TooltipProps['styles'] = {
   },
 };
 
-const stylesFn: TooltipProps['styles'] = (info) => {
+const stylesFn: TooltipProps['styles'] = (info): TooltipSemanticType['styles'] => {
   if (!info.props.arrow) {
     return {
       container: {
@@ -25,7 +25,7 @@ const stylesFn: TooltipProps['styles'] = (info) => {
         color: '#fff',
         borderRadius: 4,
       },
-    } satisfies TooltipProps['styles'];
+    };
   }
   return {};
 };

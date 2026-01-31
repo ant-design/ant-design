@@ -5,8 +5,8 @@ import RcSteps from '@rc-component/steps';
 import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -28,37 +28,36 @@ export type IconRenderType = (
   info: Pick<RcIconRenderTypeInfo, 'index' | 'active' | 'item' | 'components'>,
 ) => React.ReactNode;
 
-export type StepsSemanticName = keyof StepsSemanticClassNames & keyof StepsSemanticStyles;
-
-export type StepsSemanticClassNames = {
-  root?: string;
-  item?: string;
-  itemWrapper?: string;
-  itemIcon?: string;
-  itemSection?: string;
-  itemHeader?: string;
-  itemTitle?: string;
-  itemSubtitle?: string;
-  itemContent?: string;
-  itemRail?: string;
+export type StepsSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemWrapper?: string;
+    itemIcon?: string;
+    itemSection?: string;
+    itemHeader?: string;
+    itemTitle?: string;
+    itemSubtitle?: string;
+    itemContent?: string;
+    itemRail?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemWrapper?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemSection?: React.CSSProperties;
+    itemHeader?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+    itemSubtitle?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    itemRail?: React.CSSProperties;
+  };
 };
 
-export type StepsSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemWrapper?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemSection?: React.CSSProperties;
-  itemHeader?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-  itemSubtitle?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-  itemRail?: React.CSSProperties;
-};
+export type StepsClassNamesType = SemanticType<StepsProps, StepsSemanticType['classNames']>;
 
-export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticClassNames>;
-
-export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticStyles>;
+export type StepsStylesType = SemanticType<StepsProps, StepsSemanticType['styles']>;
 
 interface StepItem {
   className?: string;
@@ -271,13 +270,13 @@ const Steps = (props: StepsProps) => {
   };
 
   // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    StepsClassNamesType,
-    StepsStylesType,
-    StepsProps
-  >([waveEffectClassNames, contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [waveEffectClassNames, contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Icon =============================
   const internalIconRender: RcStepsProps['iconRender'] = (_, info) => {

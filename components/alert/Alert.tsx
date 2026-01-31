@@ -21,7 +21,7 @@ export interface AlertRef {
 }
 
 export type AlertSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     icon?: string;
     section?: string;
@@ -30,7 +30,7 @@ export type AlertSemanticType = {
     actions?: string;
     close?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     section?: React.CSSProperties;
@@ -266,13 +266,13 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     closable: isClosable,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    AlertClassNamesType,
-    AlertStylesType,
-    AlertProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const alertCls = clsx(
     prefixCls,

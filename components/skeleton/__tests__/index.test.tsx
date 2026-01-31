@@ -6,7 +6,6 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import type { AvatarProps } from '../Avatar';
 import type { SkeletonButtonProps } from '../Button';
-import type { ElementSemanticName } from '../Element';
 import type { SkeletonImageProps } from '../Image';
 import type { SkeletonInputProps } from '../Input';
 import type { SkeletonNodeProps } from '../Node';
@@ -189,7 +188,7 @@ describe('Skeleton', () => {
     const elementStyle = { background: 'green' };
 
     type Elements = (typeof elements)[number];
-    type SemanticRecord<T> = Partial<Record<Elements, Record<ElementSemanticName, T>>>;
+    type SemanticRecord<T> = Partial<Record<Elements, Record<any, T>>>;
 
     const customStyles = elements.reduce<SemanticRecord<React.CSSProperties>>(
       (prev, cur) => ({ ...prev, [cur]: { root: rootStyle, content: elementStyle } }),

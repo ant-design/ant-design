@@ -3,9 +3,7 @@ import Collapse from './Collapse';
 export type {
   CollapseClassNamesType,
   CollapseProps,
-  CollapseSemanticClassNames,
-  CollapseSemanticName,
-  CollapseSemanticStyles,
+  CollapseSemanticType,
   CollapseStylesType,
 } from './Collapse';
 export type { CollapsePanelProps } from './CollapsePanel';

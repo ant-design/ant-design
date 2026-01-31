@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Flex, Space, Switch } from 'antd';
-import type { SwitchProps } from 'antd';
+import type { SwitchProps, SwitchSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -23,7 +23,7 @@ const stylesObject: SwitchProps['styles'] = {
 
 // 创建一个自定义 Hook 来获取 classNames 函数
 const useClassNames = () => {
-  const classNamesFn: SwitchProps['classNames'] = (info) => {
+  const classNamesFn: SwitchProps['classNames'] = (info): SwitchSemanticType['classNames'] => {
     if (info.props.size === 'small') {
       return {
         root: classNames.root,

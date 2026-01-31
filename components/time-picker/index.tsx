@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { PickerRef } from '@rc-component/picker';
 import type { Dayjs } from 'dayjs';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { RemoveStringSemanticType, SemanticType } from '../_util/hooks';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import type { AnyObject } from '../_util/type';
@@ -16,55 +16,45 @@ import type {
 import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic';
 import useVariant from '../form/hooks/useVariants';
 
-export type TimePickerSemanticName = keyof TimePickerSemanticClassNames &
-  keyof TimePickerSemanticStyles;
-
-// import type { SemanticName } from '@rc-component/picker/interface';
-export type TimePickerSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  input?: string;
-  suffix?: string;
+export type TimePickerSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    suffix?: string;
+    popup?:
+      | string
+      | {
+          root?: string;
+          content?: string;
+          item?: string;
+          footer?: string;
+          container?: string;
+        };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    popup?: {
+      root?: React.CSSProperties;
+      content?: React.CSSProperties;
+      item?: React.CSSProperties;
+      footer?: React.CSSProperties;
+      container?: React.CSSProperties;
+    };
+  };
 };
 
-// import type { SemanticName } from '@rc-component/picker/interface';
-export type TimePickerSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-};
+export type TimePickerSemanticNoStringType = RemoveStringSemanticType<TimePickerSemanticType>;
 
-export type TimePickerPanelSemanticName = keyof TimePickerPanelSemanticClassNames &
-  keyof TimePickerPanelSemanticStyles;
-
-export type TimePickerPanelSemanticClassNames = {
-  root?: string;
-  content?: string;
-  item?: string;
-  footer?: string;
-  container?: string;
-};
-
-export type TimePickerPanelSemanticStyles = {
-  root?: React.CSSProperties;
-  content?: React.CSSProperties;
-  item?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  container?: React.CSSProperties;
-};
-
-export type TimePickerClassNames = SemanticClassNamesType<
+export type TimePickerClassNames = SemanticType<
   TimePickerProps,
-  TimePickerSemanticClassNames,
-  { popup?: string | TimePickerPanelSemanticClassNames }
+  TimePickerSemanticType['classNames']
 >;
 
-export type TimePickerStyles = SemanticStylesType<
-  TimePickerProps,
-  TimePickerSemanticStyles,
-  { popup?: TimePickerPanelSemanticStyles }
->;
+export type TimePickerStyles = SemanticType<TimePickerProps, TimePickerSemanticType['styles']>;
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
@@ -145,14 +135,17 @@ const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => 
     variant: mergedVariant,
   };
   // =========== Merged Semantic ===========
-  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<TimePickerProps>(
+  const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
     'timePicker',
     classNames,
     styles,
     popupClassName,
     popupStyle,
     mergedProps,
-  );
+  ) as [
+    NonNullable<TimePickerSemanticNoStringType['classNames']>,
+    NonNullable<TimePickerSemanticNoStringType['styles']>,
+  ];
 
   return (
     <InternalTimePicker

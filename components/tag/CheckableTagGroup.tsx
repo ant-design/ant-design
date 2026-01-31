@@ -4,7 +4,7 @@ import { useControlledState } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -30,16 +30,15 @@ interface CheckableTagGroupMultipleProps<CheckableTagValue> {
   onChange?: (value: CheckableTagValue[]) => void;
 }
 
-export type SemanticName = keyof TagGroupSemanticClassNames & keyof TagGroupSemanticStyles;
-
-export type TagGroupSemanticClassNames = {
-  root?: string;
-  item?: string;
-};
-
-export type TagGroupSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
+export type CheckableTagGroupSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+  };
 };
 
 type CheckableTagGroupBaseProps<CheckableTagValue> = {
@@ -57,17 +56,17 @@ type CheckableTagGroupBaseProps<CheckableTagValue> = {
     [key: `aria-${string}`]: any;
   };
 
-export type CheckableTagGroupClassNamesType = SemanticClassNamesType<
+export type CheckableTagGroupClassNamesType = SemanticType<
   CheckableTagGroupBaseProps<any>,
-  TagGroupSemanticClassNames
+  CheckableTagGroupSemanticType['classNames']
 >;
 
-export type CheckableTagGroupStylesType = SemanticStylesType<
+export type CheckableTagGroupStylesType = SemanticType<
   CheckableTagGroupBaseProps<any>,
-  TagGroupSemanticStyles
+  CheckableTagGroupSemanticType['styles']
 >;
 
-export type CheckableTagGroupProps<CheckableTagValue> =
+export type CheckableTagGroupProps<CheckableTagValue = any> =
   CheckableTagGroupBaseProps<CheckableTagValue> & {
     classNames?: CheckableTagGroupClassNamesType;
     styles?: CheckableTagGroupStylesType;
@@ -108,7 +107,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
-  } = useComponentConfig('tag');
+  } = useComponentConfig('checkableTagGroup');
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-checkable-group`;
@@ -117,13 +116,13 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CheckableTagGroupClassNamesType,
-    CheckableTagGroupStylesType,
-    typeof props
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   // =============================== Option ===============================
   const parsedOptions = useMemo(

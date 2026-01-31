@@ -2,13 +2,7 @@ import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
 import { clsx } from 'clsx';
 
-import type {
-  PopoverClassNamesType,
-  PopoverProps,
-  PopoverSemanticClassNames,
-  PopoverSemanticStyles,
-  PopoverStylesType,
-} from '.';
+import type { PopoverProps, PopoverSemanticType } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks';
 import { ConfigContext } from '../config-provider';
@@ -18,8 +12,8 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  classNames?: PopoverSemanticClassNames;
-  styles?: PopoverSemanticStyles;
+  classNames?: PopoverSemanticType['classNames'];
+  styles?: PopoverSemanticType['styles'];
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
@@ -75,11 +69,7 @@ export const RawPurePanel: React.FC<RawPurePanelProps> = (props) => {
     placement,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    PopoverClassNamesType,
-    PopoverStylesType,
-    PopoverProps
-  >([classNames], [styles], {
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [styles], {
     props: mergedProps,
   });
 

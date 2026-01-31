@@ -100,11 +100,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    NonNullable<ColorPickerProps['classNames']>,
-    NonNullable<ColorPickerProps['styles']>,
-    ColorPickerProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -272,7 +268,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return (
     <Popover
       classNames={{ root: mergedPopupCls }}
-      styles={{ root: mergedStyles.popup?.root, container: styles?.popupOverlayInner }}
+      styles={{ root: mergedStyles.popup?.root, container: mergedStyles?.popupOverlayInner }}
       onOpenChange={triggerOpenChange}
       content={
         <ContextIsolator form>

@@ -1,26 +1,25 @@
 import type * as React from 'react';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
-export type MessageSemanticName = keyof MessageSemanticClassNames & keyof MessageSemanticStyles;
-
-export type MessageSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  content?: string;
+export type MessageSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type MessageSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
+export type ArgsClassNamesType = SemanticType<ArgsProps, MessageSemanticType['classNames']>;
 
-export type ArgsClassNamesType = SemanticClassNamesType<ArgsProps, MessageSemanticClassNames>;
-
-export type ArgsStylesType = SemanticStylesType<ArgsProps, MessageSemanticStyles>;
+export type ArgsStylesType = SemanticType<ArgsProps, MessageSemanticType['styles']>;
 
 export interface ConfigOptions {
   top?: string | number;

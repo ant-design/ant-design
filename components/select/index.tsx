@@ -8,7 +8,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -43,12 +43,52 @@ export interface LabeledValue {
   label: React.ReactNode;
 }
 
+export type SelectSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    suffix?: string;
+    input?: string;
+    placeholder?: string;
+    content?: string;
+    item?: string;
+    itemContent?: string;
+    itemRemove?: string;
+    clear?: string;
+    popup?: {
+      root?: string;
+      listItem?: string;
+      list?: string;
+    };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    placeholder?: React.CSSProperties;
+    content?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    itemRemove?: React.CSSProperties;
+    clear?: React.CSSProperties;
+    popup?: {
+      root?: React.CSSProperties;
+      listItem?: React.CSSProperties;
+      list?: React.CSSProperties;
+    };
+  };
+};
+
+export type SelectClassNamesType = SemanticType<SelectProps, SelectSemanticType['classNames']>;
+export type SelectStylesType = SemanticType<SelectProps, SelectSemanticType['styles']>;
+
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
 export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
+> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode' | 'styles' | 'classNames'> {
   rootClassName?: string;
   prefix?: React.ReactNode;
   suffixIcon?: React.ReactNode;
@@ -67,78 +107,23 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: SelectSemanticClassNames & { popup?: SelectPopupSemanticClassNames };
-  styles?: SelectSemanticStyles & { popup?: SelectPopupSemanticStyles };
+  styles?: SelectStylesType;
+  classNames?: SelectClassNamesType;
 }
-
-export type SelectSemanticName = keyof SelectSemanticClassNames & keyof SelectSemanticStyles;
-
-export type SelectSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  suffix?: string;
-  input?: string;
-  placeholder?: string;
-  content?: string;
-  item?: string;
-  itemContent?: string;
-  itemRemove?: string;
-  clear?: string;
-};
-
-export type SelectSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  placeholder?: React.CSSProperties;
-  content?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-  itemRemove?: React.CSSProperties;
-  clear?: React.CSSProperties;
-};
-
-export type SelectPopupSemanticName = keyof SelectPopupSemanticClassNames &
-  keyof SelectPopupSemanticStyles;
-
-export type SelectPopupSemanticClassNames = {
-  root?: string;
-  listItem?: string;
-  list?: string;
-};
-
-export type SelectPopupSemanticStyles = {
-  root?: React.CSSProperties;
-  listItem?: React.CSSProperties;
-  list?: React.CSSProperties;
-};
-
-export type SelectClassNamesType = SemanticClassNamesType<
-  SelectProps,
-  SelectSemanticClassNames,
-  { popup?: SelectPopupSemanticClassNames }
->;
-
-export type SelectStylesType = SemanticStylesType<
-  SelectProps,
-  SelectSemanticStyles,
-  { popup?: SelectPopupSemanticStyles }
->;
 
 export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    | 'mode'
-    | 'getInputElement'
-    | 'getRawInputElement'
-    | 'backfill'
-    | 'placement'
-    | 'dropdownClassName'
-    | 'dropdownStyle'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  | 'mode'
+  | 'getInputElement'
+  | 'getRawInputElement'
+  | 'backfill'
+  | 'placement'
+  | 'dropdownClassName'
+  | 'dropdownStyle'
+> {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;
@@ -155,8 +140,6 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  styles?: SelectStylesType;
-  classNames?: SelectClassNamesType;
   onOpenChange?: (visible: boolean) => void;
 }
 
@@ -316,15 +299,11 @@ const InternalSelect = <
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SelectClassNamesType,
-    SelectStylesType,
-    SelectProps<any, OptionType>
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
-      props: mergedProps,
+      props: mergedProps as unknown as SelectProps,
     },
     {
       popup: {

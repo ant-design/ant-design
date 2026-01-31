@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { ClosableType, SemanticType } from '../_util/hooks';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -19,31 +19,29 @@ export type NotificationPlacement = (typeof NotificationPlacements)[number];
 
 export type IconType = 'success' | 'info' | 'error' | 'warning';
 
-export type NotificationSemanticName = keyof NotificationSemanticClassNames &
-  keyof NotificationSemanticStyles;
-
-export type NotificationSemanticClassNames = {
-  root?: string;
-  title?: string;
-  description?: string;
-  actions?: string;
-  icon?: string;
+export type NotificationSemanticType = {
+  classNames?: {
+    root?: string;
+    title?: string;
+    description?: string;
+    actions?: string;
+    icon?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    title?: React.CSSProperties;
+    description?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    icon?: React.CSSProperties;
+  };
 };
 
-export type NotificationSemanticStyles = {
-  root?: React.CSSProperties;
-  title?: React.CSSProperties;
-  description?: React.CSSProperties;
-  actions?: React.CSSProperties;
-  icon?: React.CSSProperties;
-};
-
-export type NotificationClassNamesType = SemanticClassNamesType<
+export type NotificationClassNamesType = SemanticType<
   ArgsProps,
-  NotificationSemanticClassNames
+  NotificationSemanticType['classNames']
 >;
 
-export type NotificationStylesType = SemanticStylesType<ArgsProps, NotificationSemanticStyles>;
+export type NotificationStylesType = SemanticType<ArgsProps, NotificationSemanticType['styles']>;
 
 export interface ArgsProps {
   /** @deprecated Please use `title` instead */

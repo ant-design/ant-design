@@ -8,7 +8,7 @@ import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -112,38 +112,36 @@ interface DraggableConfig {
   nodeDraggable?: DraggableFn;
 }
 
-export type TreeSemanticName = keyof TreeSemanticClassNames & keyof TreeSemanticStyles;
-
-export type TreeSemanticClassNames = {
-  root?: string;
-  item?: string;
-  itemIcon?: string;
-  itemTitle?: string;
+export type TreeSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemIcon?: string;
+    itemTitle?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+  };
 };
 
-export type TreeSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-};
+export type TreeClassNamesType = SemanticType<TreeProps, TreeSemanticType['classNames']>;
 
-export type TreeClassNamesType = SemanticClassNamesType<TreeProps, TreeSemanticClassNames>;
+export type TreeStylesType = SemanticType<TreeProps, TreeSemanticType['styles']>;
 
-export type TreeStylesType = SemanticStylesType<TreeProps, TreeSemanticStyles>;
-
-export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<
-    RcTreeProps<T>,
-    | 'prefixCls'
-    | 'showLine'
-    | 'direction'
-    | 'draggable'
-    | 'icon'
-    | 'switcherIcon'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TreeProps<T extends BasicDataNode = DataNode> extends Omit<
+  RcTreeProps<T>,
+  | 'prefixCls'
+  | 'showLine'
+  | 'direction'
+  | 'draggable'
+  | 'icon'
+  | 'switcherIcon'
+  | 'classNames'
+  | 'styles'
+> {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
   classNames?: TreeClassNamesType;
@@ -242,13 +240,13 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     motion,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TreeClassNamesType,
-    TreeStylesType,
-    TreeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const newProps = {
     ...props,

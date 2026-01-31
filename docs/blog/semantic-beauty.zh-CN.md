@@ -87,15 +87,11 @@ author: meet-student,thinkasany
 - 可以为特定的语义区域定义样式和类名，更友好地实现局部样式和主题的定制
 
 ```tsx
-const classNamesFn: ButtonProps['classNames'] = (info) => {
+const classNamesFn: ButtonProps['classNames'] = (info): ButtonSemanticType['styles'] => {
   if (info.props.type === 'primary') {
-    return {
-      root: 'demo-btn-root--primary',
-    } satisfies ButtonProps['classNames'];
+    return { root: 'demo-btn-root--primary' };
   }
-  return {
-    root: 'demo-btn-root--default',
-  } satisfies ButtonProps['classNames'];
+  return { root: 'demo-btn-root--default' };
 };
 
 const styles: ButtonProps['styles'] = {

@@ -1686,14 +1686,14 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
     role="separator"
   />
   <div
-    class="ant-tour css-var-test-id acss-1u5x7y9 ant-tour-placement-bottom"
+    class="ant-tour css-var-test-id acss-1rj0z6b ant-tour-placement-bottom"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-panel"
     >
       <div
-        class="ant-tour-section acss-115dty2"
+        class="ant-tour-section acss-1ts3ij4"
         style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); border: 2px solid rgb(64, 150, 255);"
       >
         <button
@@ -1778,14 +1778,14 @@ exports[`renders components/tour/demo/style-class.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-tour css-var-test-id acss-1u5x7y9 ant-tour-primary ant-tour-placement-bottom"
+    class="ant-tour css-var-test-id acss-1rj0z6b ant-tour-primary ant-tour-placement-bottom"
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1001;"
   >
     <div
       class="ant-tour-panel"
     >
       <div
-        class="ant-tour-section acss-115dty2"
+        class="ant-tour-section acss-1ts3ij4"
         style="background-color: rgba(205, 193, 255, 0.8); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);"
       >
         <button

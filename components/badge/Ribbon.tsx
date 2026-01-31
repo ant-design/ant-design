@@ -4,30 +4,29 @@ import { clsx } from 'clsx';
 import type { PresetColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import type { LiteralUnion } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
-export type RibbonSemanticName = keyof RibbonSemanticClassNames & keyof RibbonSemanticStyles;
-
-export type RibbonSemanticClassNames = {
-  root?: string;
-  content?: string;
-  indicator?: string;
+export type RibbonSemanticType = {
+  classNames?: {
+    root?: string;
+    content?: string;
+    indicator?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    content?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+  };
 };
 
-export type RibbonSemanticStyles = {
-  root?: React.CSSProperties;
-  content?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-};
+export type RibbonClassNamesType = SemanticType<RibbonProps, RibbonSemanticType['classNames']>;
 
-export type RibbonClassNamesType = SemanticClassNamesType<RibbonProps, RibbonSemanticClassNames>;
-
-export type RibbonStylesType = SemanticStylesType<RibbonProps, RibbonSemanticStyles>;
+export type RibbonStylesType = SemanticType<RibbonProps, RibbonSemanticType['styles']>;
 
 export interface RibbonProps {
   className?: string;
@@ -74,13 +73,13 @@ const Ribbon: React.FC<RibbonProps> = (props) => {
     placement,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    RibbonClassNamesType,
-    RibbonStylesType,
-    RibbonProps
-  >([contextClassNames, ribbonClassNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, ribbonClassNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const colorInPreset = isPresetColor(color, false);
   const ribbonCls = clsx(

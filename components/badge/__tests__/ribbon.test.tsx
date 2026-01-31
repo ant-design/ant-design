@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
+import type { RibbonProps } from '../index';
 import Badge from '../index';
 
 describe('Ribbon', () => {
@@ -81,13 +82,13 @@ describe('Ribbon', () => {
     });
   });
   it('should apply custom styles to Badge.Ribbon', () => {
-    const customClassNames = {
+    const customClassNames: RibbonProps['classNames'] = {
       root: 'custom-root',
       indicator: 'custom-indicator',
       content: 'custom-content',
     };
 
-    const customStyles = {
+    const customStyles: RibbonProps['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       indicator: { color: 'rgb(0, 128, 0)' },
       content: { color: 'rgb(255, 255, 0)' },
@@ -104,9 +105,9 @@ describe('Ribbon', () => {
     const contentElement = container.querySelector<HTMLElement>('.ant-ribbon-content');
 
     // check classNames
-    expect(rootElement).toHaveClass(customClassNames.root);
-    expect(indicatorElement).toHaveClass(customClassNames.indicator);
-    expect(contentElement).toHaveClass(customClassNames.content);
+    expect(rootElement).toHaveClass(customClassNames.root as string);
+    expect(indicatorElement).toHaveClass(customClassNames.indicator as string);
+    expect(contentElement).toHaveClass(customClassNames.content as string);
 
     // check styles
     expect(rootElement).toHaveStyle({ color: customStyles.root?.color });

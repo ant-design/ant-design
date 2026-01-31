@@ -11895,7 +11895,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     value=""
   />
   <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     name="input-fn"
     placeholder="Function"
     style="border-color: rgb(105, 111, 199);"
@@ -11903,7 +11903,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     value=""
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     data-count="8"
     style="border-color: rgb(189, 227, 195);"
   >
@@ -11926,7 +11926,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-test-id ant-input-css-var"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-test-id ant-input-css-var acss-c5jr4n"
     style="border-color: rgb(245, 211, 196);"
   >
     <input
@@ -11964,7 +11964,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </span>
   <div
-    class="ant-otp css-var-test-id"
+    class="ant-otp css-var-test-id acss-c5jr4n"
     role="group"
   >
     <span
@@ -12072,7 +12072,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </div>
   <div
-    class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large"
+    class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large acss-c5jr4n"
     style="color: rgb(77, 168, 218);"
   >
     <input
