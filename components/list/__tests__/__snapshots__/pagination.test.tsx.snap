@@ -313,14 +313,10 @@ exports[`List.pagination should default work 1`] = `
       class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="3 / page"
       >
-        <div
-          class="ant-select-content-value"
-          title="3 / page"
-        >
-          3 / page
-        </div>
+        3 / page
         <input
           aria-autocomplete="list"
           aria-expanded="false"

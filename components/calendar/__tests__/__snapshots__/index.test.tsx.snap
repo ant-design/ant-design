@@ -11,14 +11,10 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2019"
       >
-        <div
-          class="ant-select-content-value"
-          title="2019"
-        >
-          2019
-        </div>
+        2019
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -60,14 +56,10 @@ exports[`Calendar Calendar MonthSelect should display correct label 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Jan"
       >
-        <div
-          class="ant-select-content-value"
-          title="Jan"
-        >
-          Jan
-        </div>
+        Jan
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -934,14 +926,10 @@ exports[`Calendar Calendar should support locale 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2018年"
       >
-        <div
-          class="ant-select-content-value"
-          title="2018年"
-        >
-          2018年
-        </div>
+        2018年
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -983,14 +971,10 @@ exports[`Calendar Calendar should support locale 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="10月"
       >
-        <div
-          class="ant-select-content-value"
-          title="10月"
-        >
-          10月
-        </div>
+        10月
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1857,14 +1841,10 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2000"
       >
-        <div
-          class="ant-select-content-value"
-          title="2000"
-        >
-          2000
-        </div>
+        2000
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1906,14 +1886,10 @@ exports[`Calendar rtl render component should be rendered correctly in RTL direc
       class="ant-select ant-select-rtl ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Sep"
       >
-        <div
-          class="ant-select-content-value"
-          title="Sep"
-        >
-          Sep
-        </div>
+        Sep
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -2780,14 +2756,10 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2000"
       >
-        <div
-          class="ant-select-content-value"
-          title="2000"
-        >
-          2000
-        </div>
+        2000
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -2829,14 +2801,10 @@ exports[`Calendar support Calendar.generateCalendar 1`] = `
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Jan"
       >
-        <div
-          class="ant-select-content-value"
-          title="Jan"
-        >
-          Jan
-        </div>
+        Jan
         <input
           aria-autocomplete="list"
           aria-expanded="false"

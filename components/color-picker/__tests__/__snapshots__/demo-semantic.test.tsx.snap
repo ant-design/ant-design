@@ -150,14 +150,10 @@ exports[`renders components/color-picker/demo/_semantic.tsx correctly 1`] = `
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"

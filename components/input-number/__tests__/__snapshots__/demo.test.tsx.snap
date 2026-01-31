@@ -106,14 +106,10 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
           style="width:60px"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="+"
           >
-            <div
-              class="ant-select-content-value"
-              title="+"
-            >
-              +
-            </div>
+            +
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -230,14 +226,10 @@ exports[`renders components/input-number/demo/addon.tsx correctly 1`] = `
           style="width:60px"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="$"
           >
-            <div
-              class="ant-select-content-value"
-              title="$"
-            >
-              $
-            </div>
+            $
             <input
               aria-autocomplete="list"
               aria-expanded="false"

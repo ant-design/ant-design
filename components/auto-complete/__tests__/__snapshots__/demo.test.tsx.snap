@@ -13,15 +13,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -63,15 +58,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -94,15 +84,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -144,15 +129,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -175,15 +155,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -225,15 +200,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1307,15 +1277,10 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
       style="width:120px;margin:0"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"

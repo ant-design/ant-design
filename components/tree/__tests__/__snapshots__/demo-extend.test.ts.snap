@@ -3630,14 +3630,10 @@ exports[`renders components/tree/demo/line.tsx extend context correctly 1`] = `
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="True"
       >
-        <div
-          class="ant-select-content-value"
-          title="True"
-        >
-          True
-        </div>
+        True
         <input
           aria-autocomplete="list"
           aria-expanded="false"
