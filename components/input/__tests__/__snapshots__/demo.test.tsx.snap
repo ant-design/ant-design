@@ -5471,6 +5471,12 @@ Array [
       </span>
     </span>
   </span>,
+  <br />,
+  <textarea
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+    placeholder="TextArea wrapped in Tooltip for debugging"
+    style="margin-top:16px"
+  />,
 ]
 `;
 
