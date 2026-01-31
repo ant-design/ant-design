@@ -24,6 +24,8 @@ A masonry layout component for displaying content with different heights.
 <code src="./demo/responsive.tsx">Responsive</code>
 <code src="./demo/image.tsx">Image</code>
 <code src="./demo/dynamic.tsx">Dynamic</code>
+<code src="./demo/virtual.tsx">Virtual Scroll</code>
+<code src="./demo/virtual-dynamic.tsx">Virtual Scroll with Dynamic Loading</code>
 <code src="./demo/style-class.tsx">Custom semantic dom styling</code>
 <code src="./demo/fresh.tsx" debug>Fresh</code>
 
@@ -42,7 +44,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | items | Masonry items | [MasonryItem](#masonryitem)[] | - |  |
 | itemRender | Custom item rendering function | `(item: MasonryItem) => React.ReactNode` | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| virtual | Enable virtual scrolling for large datasets | [VirtualConfig](#virtualconfig) | - |  |
 | onLayoutChange | Callback for column sorting changes | `({ key: React.Key; column: number }[]) => void` | - |  |
+| onScrollEnd | Callback when scroll reaches near the end (for infinite loading, requires virtual) | `() => void` | - |  |
 
 ### MasonryItem
 
@@ -61,6 +65,16 @@ Common props ref：[Common props](/docs/react/common-props)
 ```ts
 type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>;
 ```
+
+### VirtualConfig
+
+Configuration for virtual scrolling. When enabled, only visible items are rendered for better performance with large datasets.
+
+| Parameter | Description | Type | Default |
+| --- | --- | --- | --- |
+| height | Container height in pixels (required) | `number` | - |
+| itemHeight | Estimated item height for position calculation (required) | `number` | - |
+| buffer | Number of items to render outside visible area | `number` | `columnCount * 2` |
 
 ## Semantic DOM
 
