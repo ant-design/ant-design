@@ -43,9 +43,7 @@ export type MenuSemanticType = {
     item?: string;
     itemIcon?: string;
     itemContent?: string;
-    popup?: {
-      root?: string;
-    };
+    popup?: string & { root?: string };
     subMenu?: {
       item?: string;
       itemTitle?: string;
@@ -61,9 +59,7 @@ export type MenuSemanticType = {
     item?: React.CSSProperties;
     itemIcon?: React.CSSProperties;
     itemContent?: React.CSSProperties;
-    popup?: {
-      root?: React.CSSProperties;
-    };
+    popup?: React.CSSProperties & { root?: React.CSSProperties };
     subMenu?: {
       item?: React.CSSProperties;
       itemTitle?: React.CSSProperties;
@@ -78,10 +74,11 @@ export type MenuClassNamesType = SemanticType<MenuProps, MenuSemanticType['class
 
 export type MenuStylesType = SemanticType<MenuProps, MenuSemanticType['styles']>;
 
-export interface MenuProps extends Omit<
-  RcMenuProps,
-  'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
-> {
+export interface MenuProps
+  extends Omit<
+    RcMenuProps,
+    'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
+  > {
   theme?: MenuTheme;
   inlineIndent?: number;
 

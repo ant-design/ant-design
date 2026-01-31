@@ -22,7 +22,7 @@ export type TimePickerSemanticType = {
     prefix?: string;
     input?: string;
     suffix?: string;
-    popup?: {
+    popup?: string & {
       root?: string;
       content?: string;
       item?: string;
@@ -80,10 +80,8 @@ const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, re
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
-export interface TimePickerProps extends Omit<
-  PickerTimeProps<Dayjs>,
-  'picker' | 'classNames' | 'styles'
-> {
+export interface TimePickerProps
+  extends Omit<PickerTimeProps<Dayjs>, 'picker' | 'classNames' | 'styles'> {
   addon?: () => React.ReactNode;
   status?: InputStatus;
   /** @deprecated Please use `classNames.popup` instead */

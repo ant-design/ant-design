@@ -1067,7 +1067,7 @@ describe('Splitter', () => {
       const customStyles: SplitterProps['styles'] = {
         root: { background: 'red' },
         panel: { background: 'blue' },
-        dragger: { default: { background: 'green' } },
+        dragger: { background: 'green' },
       };
       const customClassNames: SplitterProps['classNames'] = {
         root: 'custom-root',
@@ -1087,7 +1087,7 @@ describe('Splitter', () => {
       expect(panel).toHaveStyle(customStyles.panel as Record<string, string>);
       expect(panel).toHaveClass(customClassNames.panel as string);
       const dragger = container.querySelector('.ant-splitter-bar-dragger');
-      expect(dragger).toHaveStyle(customStyles.dragger?.default as Record<string, string>);
+      expect(dragger).toHaveStyle(customStyles.dragger as Record<string, string>);
       expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
       expect(dragger).not.toHaveClass(customClassNames.dragger?.active as string);
 

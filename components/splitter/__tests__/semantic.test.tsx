@@ -61,7 +61,7 @@ describe('Splitter.Semantic', () => {
           props.orientation === 'horizontal' ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 0, 255, 0.5)',
       },
       panel: { padding: '10px' },
-      dragger: { default: { width: '8px' } },
+      dragger: { width: '8px' },
     }));
 
     const { container } = render(

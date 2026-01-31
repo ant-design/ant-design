@@ -12,7 +12,7 @@ describe('TimePicker.Semantic', () => {
       prefix: 'semantic-prefix',
       input: 'semantic-input',
       suffix: 'semantic-suffix',
-      popup: { root: 'semantic-popup-root' },
+      popup: 'semantic-popup-root',
     };
 
     const semanticStyles = {

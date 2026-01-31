@@ -5,18 +5,12 @@ export type SplitterSemanticType = {
   classNames?: {
     root?: string;
     panel?: string;
-    dragger?: {
-      default?: string;
-      active?: string;
-    };
+    dragger?: { default?: string; active?: string };
   };
   styles?: {
     root?: React.CSSProperties;
     panel?: React.CSSProperties;
-    dragger?: {
-      default?: React.CSSProperties;
-      active?: React.CSSProperties;
-    };
+    dragger?: React.CSSProperties & { default?: React.CSSProperties; active?: React.CSSProperties };
   };
 };
 
@@ -92,10 +86,8 @@ export interface UseResize {
   setOffset: (offset: number, containerSize: number, index: number) => void;
 }
 
-export interface UseHandleProps extends Pick<
-  SplitterProps,
-  'layout' | 'onResizeStart' | 'onResizeEnd'
-> {
+export interface UseHandleProps
+  extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResizeEnd'> {
   basicsState: number[];
   containerRef?: React.RefObject<HTMLDivElement | null>;
   setOffset: UseResize['setOffset'];
