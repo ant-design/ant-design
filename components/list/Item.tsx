@@ -8,24 +8,25 @@ import { ConfigContext } from '../config-provider';
 import { Col } from '../grid';
 import { ListContext } from './context';
 
-export type ListItemSemanticType = {
-  classNames?: {
-    actions?: string;
-    extra?: string;
-  };
-  styles?: {
-    actions?: React.CSSProperties;
-    extra?: React.CSSProperties;
-  };
+export type ListItemSemanticName = keyof ListItemSemanticClassNames & keyof ListItemSemanticStyles;
+
+export type ListItemSemanticClassNames = {
+  actions?: string;
+  extra?: string;
+};
+
+export type ListItemSemanticStyles = {
+  actions?: React.CSSProperties;
+  extra?: React.CSSProperties;
 };
 
 export interface ListItemProps extends HTMLAttributes<HTMLDivElement> {
   className?: string;
-  classNames?: ListItemSemanticType['classNames'];
+  classNames?: ListItemSemanticClassNames;
   children?: ReactNode;
   prefixCls?: string;
   style?: CSSProperties;
-  styles?: ListItemSemanticType['styles'];
+  styles?: ListItemSemanticStyles;
   extra?: ReactNode;
   actions?: ReactNode[];
   colStyle?: CSSProperties;
