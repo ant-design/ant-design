@@ -142,7 +142,10 @@ const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => 
     popupClassName,
     popupStyle,
     mergedProps,
-  );
+  ) as [
+    NonNullable<TimePickerSemanticNoStringType['classNames']>,
+    NonNullable<TimePickerSemanticNoStringType['styles']>,
+  ];
 
   return (
     <InternalTimePicker
@@ -151,8 +154,8 @@ const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => 
       ref={ref}
       renderExtraFooter={internalRenderExtraFooter}
       variant={mergedVariant}
-      classNames={mergedClassNames as unknown as TimePickerSemanticType['classNames']}
-      styles={mergedStyles as unknown as TimePickerSemanticType['styles']}
+      classNames={mergedClassNames}
+      styles={mergedStyles}
     />
   );
 });
