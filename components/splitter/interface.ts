@@ -5,7 +5,7 @@ export type SplitterSemanticType = {
   classNames?: {
     root?: string;
     panel?: string;
-    dragger?: { default?: string; active?: string } | string;
+    dragger?: string | { default?: string; active?: string };
   };
   styles?: {
     root?: React.CSSProperties;

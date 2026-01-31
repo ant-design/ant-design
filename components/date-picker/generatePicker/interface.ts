@@ -23,6 +23,7 @@ export type DatePickerSemanticType = {
     input?: string;
     suffix?: string;
     popup?:
+      | string
       | {
           root?: string;
           header?: string;
@@ -31,8 +32,7 @@ export type DatePickerSemanticType = {
           item?: string;
           footer?: string;
           container?: string;
-        }
-      | string;
+        };
   };
   styles?: {
     root?: React.CSSProperties;
@@ -50,7 +50,7 @@ export type DatePickerSemanticType = {
     };
   };
 };
-export type DatePickerSemanticNoStringType = RemoveStringSemanticType<DatePickerSemanticType>;
+export type DatePickerSemanticNoStringT = RemoveStringSemanticType<DatePickerSemanticType>;
 
 export type DatePickerClassNamesType<P> = SemanticType<
   InjectDefaultProps<P>,

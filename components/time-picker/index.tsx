@@ -23,14 +23,14 @@ export type TimePickerSemanticType = {
     input?: string;
     suffix?: string;
     popup?:
+      | string
       | {
           root?: string;
           content?: string;
           item?: string;
           footer?: string;
           container?: string;
-        }
-      | string;
+        };
   };
   styles?: {
     root?: React.CSSProperties;
