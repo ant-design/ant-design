@@ -12,10 +12,8 @@ import defaultLocale from '../locale/en_US';
 import type { TourProps, TourSemanticType, TourStepProps } from './interface';
 
 interface TourPanelProps {
-  stepProps: Omit<TourStepProps, 'closable' | 'styles' | 'classNames'> & {
+  stepProps: Omit<TourStepProps, 'closable'> & {
     closable?: Exclude<TourStepProps['closable'], boolean>;
-    classNames?: TourSemanticType['classNames'];
-    styles?: TourSemanticType['styles'];
   };
   current: number;
   type: TourProps['type'];
