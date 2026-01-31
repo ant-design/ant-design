@@ -49,8 +49,8 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   style?: React.CSSProperties;
-  classNames: TransferSemanticType['classNames'];
-  styles: TransferSemanticType['styles'];
+  classNames: NonNullable<TransferSemanticType['classNames']>;
+  styles: NonNullable<TransferSemanticType['styles']>;
 
   titleText: React.ReactNode;
   dataSource: RecordType[];
@@ -107,8 +107,8 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const {
     prefixCls,
     style,
-    classNames = {},
-    styles = {},
+    classNames,
+    styles,
 
     dataSource = [],
     titleText = '',

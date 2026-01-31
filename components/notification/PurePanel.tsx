@@ -53,8 +53,8 @@ export interface PureContentProps {
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames?: NotificationSemanticType['classNames'];
-  styles?: NotificationSemanticType['styles'];
+  classNames: NonNullable<NotificationSemanticType['classNames']>;
+  styles: NonNullable<NotificationSemanticType['styles']>;
 }
 
 const typeToIcon = {
@@ -73,8 +73,8 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
     description,
     actions,
     role = 'alert',
-    styles = {},
-    classNames: pureContentCls = {},
+    styles,
+    classNames: pureContentCls,
   } = props;
 
   let iconNode: React.ReactNode = null;
@@ -117,8 +117,7 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
 };
 
 export interface PurePanelProps
-  extends
-    Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
   classNames?: PurePanelClassNamesType;

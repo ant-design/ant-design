@@ -32,7 +32,6 @@ import type {
   NotificationSemanticType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
-import type { PureContentProps } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
@@ -254,8 +253,8 @@ export function useInternalNotification(
             description={description}
             actions={mergedActions}
             role={role}
-            classNames={mergedClassNames as PureContentProps['classNames']}
-            styles={mergedStyles as PureContentProps['styles']}
+            classNames={mergedClassNames}
+            styles={mergedStyles}
           />
         ),
         className: clsx(

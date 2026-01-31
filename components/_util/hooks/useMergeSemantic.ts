@@ -57,7 +57,7 @@ export const mergeStyles = <StylesType = any>(...styles: (StylesType | undefined
       });
     }
     return acc;
-  }, {});
+  }, {}) as StylesType;
 };
 
 const useSemanticStyles = <StylesType = any>(...styles: (StylesType | undefined)[]) => {

@@ -9,8 +9,8 @@ import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
   prefixCls: string;
-  classNames: TransferSemanticType['classNames'];
-  styles: TransferSemanticType['styles'];
+  classNames: NonNullable<TransferSemanticType['classNames']>;
+  styles: NonNullable<TransferSemanticType['styles']>;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;
@@ -24,8 +24,8 @@ type ListItemProps<RecordType> = {
 const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<RecordType>) => {
   const {
     prefixCls,
-    classNames = {},
-    styles = {},
+    classNames,
+    styles,
     renderedText,
     renderedEl,
     item,
