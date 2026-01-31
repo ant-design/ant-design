@@ -20,13 +20,7 @@ import Item from './Item';
 import useStyle from './style';
 
 export type { ListConsumerProps } from './context';
-export type {
-  ListItemMetaProps,
-  ListItemProps,
-  ListItemSemanticClassNames,
-  ListItemSemanticName,
-  ListItemSemanticStyles,
-} from './Item';
+export type { ListItemMetaProps, ListItemProps, ListItemSemanticType } from './Item';
 
 export type ColumnCount = number;
 

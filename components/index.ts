@@ -105,7 +105,7 @@ export type { InputNumberProps, InputNumberSemanticType } from './input-number';
 export { default as Layout } from './layout';
 export type { LayoutProps, SiderProps } from './layout';
 export { default as List } from './list';
-export type { ListProps } from './list';
+export type { ListItemSemanticType,ListProps   } from './list';
 export { default as Masonry } from './masonry';
 export type { MasonryProps, MasonrySemanticType } from './masonry';
 export { default as Mentions } from './mentions';

@@ -16,36 +16,32 @@ import type {
 import useMergedPickerSemantic from '../date-picker/hooks/useMergedPickerSemantic';
 import useVariant from '../form/hooks/useVariants';
 
-export type TimePickerPanelSemanticClassNames = {
-  root?: string;
-  content?: string;
-  item?: string;
-  footer?: string;
-  container?: string;
-};
-
-export type TimePickerPanelSemanticStyles = {
-  root?: React.CSSProperties;
-  content?: React.CSSProperties;
-  item?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  container?: React.CSSProperties;
-};
-
 export type TimePickerSemanticType = {
   classNames?: {
     root?: string;
     prefix?: string;
     input?: string;
     suffix?: string;
-    popup?: TimePickerPanelSemanticClassNames;
+    popup?: {
+      root?: string;
+      content?: string;
+      item?: string;
+      footer?: string;
+      container?: string;
+    };
   };
   styles?: {
     root?: React.CSSProperties;
     prefix?: React.CSSProperties;
     input?: React.CSSProperties;
     suffix?: React.CSSProperties;
-    popup?: TimePickerPanelSemanticStyles;
+    popup?: {
+      root?: React.CSSProperties;
+      content?: React.CSSProperties;
+      item?: React.CSSProperties;
+      footer?: React.CSSProperties;
+      container?: React.CSSProperties;
+    };
   };
 };
 

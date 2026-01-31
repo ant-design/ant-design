@@ -47,34 +47,30 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-export type ImagePopupSemanticClassNames = {
-  root?: string;
-  mask?: string;
-  body?: string;
-  footer?: string;
-  actions?: string;
-};
-
-export type ImagePopupSemanticStyles = {
-  root?: React.CSSProperties;
-  mask?: React.CSSProperties;
-  body?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  actions?: React.CSSProperties;
-};
-
 export type ImageSemanticType = {
   classNames?: {
     root?: string;
     image?: string;
     cover?: string;
-    popup?: ImagePopupSemanticClassNames;
+    popup?: {
+      root?: string;
+      mask?: string;
+      body?: string;
+      footer?: string;
+      actions?: string;
+    };
   };
   styles?: {
     root?: React.CSSProperties;
     image?: React.CSSProperties;
     cover?: React.CSSProperties;
-    popup?: ImagePopupSemanticStyles;
+    popup?: {
+      root?: React.CSSProperties;
+      mask?: React.CSSProperties;
+      body?: React.CSSProperties;
+      footer?: React.CSSProperties;
+      actions?: React.CSSProperties;
+    };
   };
 };
 

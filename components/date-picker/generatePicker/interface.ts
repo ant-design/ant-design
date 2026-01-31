@@ -16,40 +16,36 @@ const _DataPickerPlacements = ['bottomLeft', 'bottomRight', 'topLeft', 'topRight
 
 type DataPickerPlacement = (typeof _DataPickerPlacements)[number];
 
-type DatePickerPanelSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  content?: string;
-  item?: string;
-  footer?: string;
-  container?: string;
-};
-
-type DatePickerPanelSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  content?: React.CSSProperties;
-  item?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  container?: React.CSSProperties;
-};
-
 export type DatePickerSemanticType = {
   classNames?: {
     root?: string;
     prefix?: string;
     input?: string;
     suffix?: string;
-    popup?: DatePickerPanelSemanticClassNames;
+    popup?: {
+      root?: string;
+      header?: string;
+      body?: string;
+      content?: string;
+      item?: string;
+      footer?: string;
+      container?: string;
+    };
   };
   styles?: {
     root?: React.CSSProperties;
     prefix?: React.CSSProperties;
     input?: React.CSSProperties;
     suffix?: React.CSSProperties;
-    popup?: DatePickerPanelSemanticStyles;
+    popup?: {
+      root?: React.CSSProperties;
+      header?: React.CSSProperties;
+      body?: React.CSSProperties;
+      content?: React.CSSProperties;
+      item?: React.CSSProperties;
+      footer?: React.CSSProperties;
+      container?: React.CSSProperties;
+    };
   };
 };
 

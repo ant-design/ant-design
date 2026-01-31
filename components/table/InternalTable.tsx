@@ -66,13 +66,13 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-export type ComponentsSemanticClassNames = {
+type ComponentsSemanticClassNames = {
   wrapper?: string;
   cell?: string;
   row?: string;
 };
 
-export type ComponentsSemanticStyles = {
+type ComponentsSemanticStyles = {
   wrapper?: React.CSSProperties;
   cell?: React.CSSProperties;
   row?: React.CSSProperties;
