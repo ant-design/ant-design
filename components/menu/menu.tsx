@@ -43,7 +43,7 @@ export type MenuSemanticType = {
     item?: string;
     itemIcon?: string;
     itemContent?: string;
-    popup?: string & { root?: string };
+    popup?: string | { root?: string };
     subMenu?: {
       item?: string;
       itemTitle?: string;
@@ -59,7 +59,7 @@ export type MenuSemanticType = {
     item?: React.CSSProperties;
     itemIcon?: React.CSSProperties;
     itemContent?: React.CSSProperties;
-    popup?: React.CSSProperties & { root?: React.CSSProperties };
+    popup?: { root?: React.CSSProperties };
     subMenu?: {
       item?: React.CSSProperties;
       itemTitle?: React.CSSProperties;

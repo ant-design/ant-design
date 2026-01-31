@@ -3,7 +3,7 @@ import { SubMenu as RcSubMenu, useFullPath } from '@rc-component/menu';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useZIndex } from '../_util/hooks';
+import { getFilterStringType, useZIndex } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import type { SubMenuType } from './interface';
 import type { MenuContextProps } from './MenuContext';
@@ -53,6 +53,8 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('Menu');
 
+  const filterString = getFilterStringType(classNames?.popup, 'root');
+
   return (
     <MenuContext.Provider value={contextValue}>
       <RcSubMenu
@@ -63,7 +65,7 @@ const SubMenu: React.FC<SubMenuProps> = (props) => {
         popupClassName={clsx(
           prefixCls,
           popupClassName,
-          classNames?.popup?.root,
+          filterString,
           `${prefixCls}-${customTheme || contextTheme}`,
         )}
         popupStyle={{

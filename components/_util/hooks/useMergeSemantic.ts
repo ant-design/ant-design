@@ -122,3 +122,13 @@ export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props =
   }, [mergedClassNames, mergedStyles, schema]);
   return result as [NonNullable<ClassNamesType>, NonNullable<StylesType>];
 };
+
+type GetKeyType<T, K extends string> = K extends keyof T ? T[K] : never;
+type Result<T, K extends string> = T extends string ? GetKeyType<T, K> : GetKeyType<T, K>;
+
+export function getFilterStringType<T, K extends string>(classNames: T, key: K): Result<T, K> {
+  if (typeof classNames === 'string') {
+    return classNames as Result<T, K>;
+  }
+  return (classNames as Record<string, any>)[key] as Result<T, K>;
+}
