@@ -46,7 +46,8 @@ export type TimePickerSemanticType = {
     };
   };
 };
-export type InternalTimePickerSemanticType = RemoveStringSemanticType<TimePickerSemanticType>;
+
+export type TimePickerSemanticNoStringType = RemoveStringSemanticType<TimePickerSemanticType>;
 
 export type TimePickerClassNames = SemanticType<
   TimePickerProps,

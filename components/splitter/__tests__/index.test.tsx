@@ -14,7 +14,7 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
-import type { InternalSplitterSemanticType } from '../interface';
+import type { SplitterSemanticNoStringType } from '../interface';
 import SplitBar from '../SplitBar';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
@@ -1070,7 +1070,7 @@ describe('Splitter', () => {
         panel: { background: 'blue' },
         dragger: { background: 'green' },
       };
-      const customClassNames: InternalSplitterSemanticType['classNames'] = {
+      const customClassNames: SplitterSemanticNoStringType['classNames'] = {
         root: 'custom-root',
         panel: 'custom-panel',
         dragger: { default: 'custom-dragger', active: 'custom-dragger-active' },

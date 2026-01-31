@@ -4,7 +4,7 @@ import type { Dayjs } from 'dayjs';
 import type { DatePickerProps } from '..';
 import DatePicker from '..';
 import { render } from '../../../tests/utils';
-import type { InternalDatePickerClassNamesType } from '../generatePicker/interface';
+import type { DatePickerSemanticNoStringType } from '../generatePicker/interface';
 
 describe('DatePicker.Semantic', () => {
   describe('inline', () => {
@@ -73,7 +73,7 @@ describe('DatePicker.Semantic', () => {
       ignoreTimePickerMissing = false,
     ) {
       it(name, () => {
-        const classNames: InternalDatePickerClassNamesType['classNames'] = {
+        const classNames: DatePickerSemanticNoStringType['classNames'] = {
           popup: {
             header: 'my-header',
             body: 'my-body',

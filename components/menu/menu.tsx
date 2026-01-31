@@ -69,7 +69,7 @@ export type MenuSemanticType = {
     };
   };
 };
-export type InternalMenuClassNamesType = RemoveStringSemanticType<MenuSemanticType>;
+export type MenuSemanticNoStringType = RemoveStringSemanticType<MenuSemanticType>;
 
 export type MenuClassNamesType = SemanticType<MenuProps, MenuSemanticType['classNames']>;
 

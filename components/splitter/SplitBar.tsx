@@ -9,8 +9,8 @@ import { clsx } from 'clsx';
 
 import { genCssVar } from '../theme/util/genStyleUtils';
 import type {
-  InternalSplitterSemanticType,
   SplitterProps,
+  SplitterSemanticNoStringType,
   SplitterSemanticType,
 } from './interface';
 
@@ -20,7 +20,7 @@ export interface SplitBarProps {
   index: number;
   active: boolean;
   draggerStyle?: NonNullable<SplitterSemanticType['styles']>['dragger'];
-  draggerClassName?: NonNullable<InternalSplitterSemanticType['classNames']>['dragger'];
+  draggerClassName?: NonNullable<SplitterSemanticNoStringType['classNames']>['dragger'];
   prefixCls: string;
   rootPrefixCls: string;
   resizable: boolean;

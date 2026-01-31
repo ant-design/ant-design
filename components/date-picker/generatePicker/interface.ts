@@ -50,7 +50,7 @@ export type DatePickerSemanticType = {
     };
   };
 };
-export type InternalDatePickerClassNamesType = RemoveStringSemanticType<DatePickerSemanticType>;
+export type DatePickerSemanticNoStringType = RemoveStringSemanticType<DatePickerSemanticType>;
 
 export type DatePickerClassNamesType<P> = SemanticType<
   InjectDefaultProps<P>,

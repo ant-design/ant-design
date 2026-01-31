@@ -14,7 +14,7 @@ export type SplitterSemanticType = {
   };
 };
 
-export type InternalSplitterSemanticType = RemoveStringSemanticType<SplitterSemanticType>;
+export type SplitterSemanticNoStringType = RemoveStringSemanticType<SplitterSemanticType>;
 
 export interface SplitterSemanticDraggerClassNames {
   default?: string;
