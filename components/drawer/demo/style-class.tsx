@@ -23,7 +23,6 @@ const sharedContent = (
 );
 
 const classNames = createStaticStyles(({ css }) => ({
-  // TODO
   container: css`
     border-radius: 10px;
     padding: 10px;
