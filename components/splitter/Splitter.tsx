@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
 import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
@@ -86,6 +86,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // ====================== Container =======================
   const [containerSize, setContainerSize] = useState<number | undefined>();
 
+  // Collapse animation state
+  const [isCollapsing, setIsCollapsing] = useState(false);
+  const collapseTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  useEffect(() => () => clearTimeout(collapseTimerRef.current), []);
+
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
     const { offsetWidth, offsetHeight } = size;
     const containerSize = isVertical ? offsetHeight : offsetWidth;
@@ -138,6 +143,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
+    // Trigger collapse animation
+    clearTimeout(collapseTimerRef.current);
+    setIsCollapsing(true);
+    collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), 200);
+
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
     onResizeEnd?.(nextSizes);
@@ -217,9 +227,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             style: { ...mergedStyles.panel, ...item.style },
           };
 
-          // Panel
           const panel = (
-            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
+            <InternalPanel
+              {...panelProps}
+              prefixCls={prefixCls}
+              size={panelSizes[idx]}
+              isCollapsing={isCollapsing}
+            />
           );
 
           // Split Bar
