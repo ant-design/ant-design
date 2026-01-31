@@ -28,6 +28,7 @@ import Select from '../../select';
 import Slider from '../../slider';
 import Switch from '../../switch';
 import Popover from '../../popover';
+import Segmented from '../../segmented';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 import type { NamePath } from '../interface';
@@ -1376,6 +1377,18 @@ describe('Form', () => {
     );
     const { container } = render(<App />);
     expect(container.firstChild).toMatchSnapshot();
+  });
+
+  // https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096
+  it('Segmented should not be disabled even Form is disabled', () => {
+    const { container } = render(
+      <Form disabled>
+        <Form.Item name="segmented">
+          <Segmented options={['Daily', 'Weekly', 'Monthly']} />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('.ant-segmented')).not.toHaveClass('ant-segmented-disabled');
   });
 
   it('form.item should support layout', () => {
