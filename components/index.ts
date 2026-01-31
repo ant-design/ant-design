@@ -111,6 +111,7 @@ export type { MasonryProps, MasonrySemanticType } from './masonry';
 export { default as Mentions } from './mentions';
 export type { MentionProps, MentionSemanticType, MentionsProps } from './mentions';
 export { default as Menu } from './menu';
+
 export type {
   MenuItemProps,
   MenuProps,
