@@ -10,14 +10,14 @@ interface ProgressStepsProps extends Omit<ProgressProps, 'classNames' | 'styles'
   railColor?: string;
   /** @deprecated Please use `railColor` instead */
   trailColor?: string;
-  classNames: ProgressSemanticType['classNames'];
-  styles: ProgressSemanticType['styles'];
+  classNames: NonNullable<ProgressSemanticType['classNames']>;
+  styles: NonNullable<ProgressSemanticType['styles']>;
 }
 
 const Steps: React.FC<ProgressStepsProps> = (props) => {
   const {
-    classNames = {},
-    styles = {},
+    classNames,
+    styles,
     size,
     steps,
     rounding: customRounding = Math.round,

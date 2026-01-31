@@ -22,15 +22,17 @@ export type DatePickerSemanticType = {
     prefix?: string;
     input?: string;
     suffix?: string;
-    popup?: {
-      root?: string;
-      header?: string;
-      body?: string;
-      content?: string;
-      item?: string;
-      footer?: string;
-      container?: string;
-    };
+    popup?:
+      | {
+          root?: string;
+          header?: string;
+          body?: string;
+          content?: string;
+          item?: string;
+          footer?: string;
+          container?: string;
+        }
+      | string;
   };
   styles?: {
     root?: React.CSSProperties;

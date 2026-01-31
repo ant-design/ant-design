@@ -237,7 +237,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             )}
             style={{ ...contextPickerConfig?.style, ...style }}
             // Semantic Style
-            classNames={mergedClassNames as unknown as DatePickerSemanticType['classNames']}
+            classNames={mergedClassNames as any}
             styles={
               {
                 ...mergedStyles,
