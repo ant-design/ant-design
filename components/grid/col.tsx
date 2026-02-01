@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { responsiveArray } from '../_util/responsiveObserver';
+import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
@@ -84,7 +84,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const sizeStyle: Record<string, string> = {};
 
   let sizeClassObj: Record<string, boolean | ColSpanType> = {};
-  responsiveArray.forEach((size) => {
+  responsiveArrayReversed.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
     if (typeof propSize === 'number') {

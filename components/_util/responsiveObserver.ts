@@ -4,6 +4,7 @@ import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
 
 export const responsiveArray = ['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
+export const responsiveArrayReversed = [...responsiveArray].reverse();
 
 export type Breakpoint = (typeof responsiveArray)[number];
 export type BreakpointMap = Record<Breakpoint, string>;
