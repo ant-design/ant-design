@@ -1,6 +1,15 @@
 // FIXME: workaround for avoid searchbar styles be extracted to async chunk
 @import 'dumi/theme-default/slots/SearchBar/index.less';
 
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 .demo-logo {
   width: 120px;
   min-width: 120px;
