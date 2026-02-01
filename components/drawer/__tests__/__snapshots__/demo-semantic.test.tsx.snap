@@ -93,7 +93,7 @@ exports[`renders components/drawer/demo/_semantic.tsx correctly 1`] = `
               class="ant-drawer-footer semantic-mark-footer"
             >
               <a
-                class="ant-typography css-var-test-id"
+                class="ant-typography ant-typography-link css-var-test-id"
               >
                 Footer
               </a>
