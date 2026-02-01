@@ -1,5 +1,5 @@
 type RemoveString<T> = T extends string ? never : T;
-type RemoveStringKey<T, K extends keyof T> = string | Record<string, any> extends T[K]
+type RemoveStringKey<T, K extends keyof T> = string extends T[K]
   ? RemoveString<T[K]>
   : T[K];
 export type RemoveClassNamesString<T> = { [K in keyof T]: RemoveStringKey<T, K> };
