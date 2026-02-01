@@ -82,7 +82,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | lg | `窗口宽度 ≥ 992px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xl | `窗口宽度 ≥ 1200px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | xxl | `窗口宽度 ≥ 1600px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
-| xxxl | `窗口宽度 ≥ 2000px` 响应式栈格，可为栈格数或一个包含其他属性的对象 | number \| object | - | 6.3.0 |
+| xxxl | `窗口宽度 ≥ 1920px` 响应式栈格，可为栈格数或一个包含其他属性的对象 | number \| object | - | 6.3.0 |
 
 您可以使用 [主题定制](/docs/react/customize-theme-cn) 修改 `screen[XS|SM|MD|LG|XL|XXL|XXXL]` 来修改断点值（自 5.1.0 起，[codesandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)）。
 

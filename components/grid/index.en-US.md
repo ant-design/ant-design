@@ -83,7 +83,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | lg | `screen ≥ 992px`, could be a `span` value or an object containing above props | number \| object | - |  |
 | xl | `screen ≥ 1200px`, could be a `span` value or an object containing above props | number \| object | - |  |
 | xxl | `screen ≥ 1600px`, could be a `span` value or an object containing above props | number \| object | - |  |
-| xxxl | `screen ≥ 2000px`, could be a `span` value or an object containing above props | number \| object | - | 6.3.0 |
+| xxxl | `screen ≥ 1920px`, could be a `span` value or an object containing above props | number \| object | - | 6.3.0 |
 
 You can modify the breakpoints values using by modifying `screen[XS|SM|MD|LG|XL|XXL|XXXL]` with [theme customization](/docs/react/customize-theme) (since 5.1.0, [sandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)).
 
