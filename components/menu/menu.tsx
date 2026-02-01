@@ -6,7 +6,6 @@ import RcMenu from '@rc-component/menu';
 import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import initCollapseMotion from '../_util/motion';
@@ -72,10 +71,6 @@ export type MenuSemanticType = {
 };
 
 export type MenuSemanticAllType = GenerateSemantic<MenuSemanticType, MenuProps>;
-
-export type MenuClassNamesType = SemanticType<MenuProps, MenuSemanticType['classNames']>;
-
-export type MenuStylesType = SemanticType<MenuProps, MenuSemanticType['styles']>;
 
 export interface MenuProps
   extends Omit<

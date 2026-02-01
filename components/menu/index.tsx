@@ -5,7 +5,7 @@ import { ItemGroup } from '@rc-component/menu';
 
 import { SiderContext } from '../layout/Sider';
 import type { ItemType, MenuItemType } from './interface';
-import type { MenuProps, MenuSemanticAllType, MenuSemanticType } from './menu';
+import type { MenuProps, MenuSemanticAllType } from './menu';
 import InternalMenu from './menu';
 import type { MenuTheme } from './MenuContext';
 import MenuDivider from './MenuDivider';
@@ -18,14 +18,7 @@ export type { MenuDividerProps } from './MenuDivider';
 
 export type { MenuItemGroupProps } from '@rc-component/menu';
 
-export type {
-  MenuItemProps,
-  MenuProps,
-  MenuSemanticAllType,
-  MenuSemanticType,
-  MenuTheme,
-  SubMenuProps,
-};
+export type { MenuItemProps, MenuProps, MenuSemanticAllType, MenuTheme, SubMenuProps };
 
 export type MenuRef = {
   menu: RcMenuRef | null;

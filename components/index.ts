@@ -117,7 +117,6 @@ export type {
   MenuProps,
   MenuRef,
   MenuSemanticAllType,
-  MenuSemanticType,
   MenuTheme,
   SubMenuProps,
 } from './menu';
