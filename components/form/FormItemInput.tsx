@@ -4,6 +4,7 @@ import { get, set } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
+import { responsiveArray } from '../_util/responsiveObserver';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { FormContext, FormItemPrefixContext } from './context';
@@ -68,7 +69,7 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const mergedWrapperCol = React.useMemo(() => {
     let mergedWrapper: ColProps = { ...(wrapperCol || formContext.wrapperCol || {}) };
     if (label === null && !labelCol && !wrapperCol && formContext.labelCol) {
-      const list = [undefined, 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+      const list = [undefined, ...responsiveArray] as const;
 
       list.forEach((size) => {
         const _size = size ? [size] : [];

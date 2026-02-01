@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
@@ -54,8 +55,6 @@ function parseFlex(flex: FlexType): string {
   return flex;
 }
 
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
-
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { gutter, wrap } = React.useContext(RowContext);
@@ -85,7 +84,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const sizeStyle: Record<string, string> = {};
 
   let sizeClassObj: Record<string, boolean | ColSpanType> = {};
-  sizes.forEach((size) => {
+  responsiveArray.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
     if (typeof propSize === 'number') {

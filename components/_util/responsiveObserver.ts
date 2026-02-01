@@ -3,12 +3,13 @@ import React from 'react';
 import type { GlobalToken } from '../theme/internal';
 import { useToken } from '../theme/internal';
 
-export type Breakpoint = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+export const responsiveArray = ['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs'] as const;
+
+export type Breakpoint = (typeof responsiveArray)[number];
 export type BreakpointMap = Record<Breakpoint, string>;
 export type ScreenMap = Partial<Record<Breakpoint, boolean>>;
 export type ScreenSizeMap = Partial<Record<Breakpoint, number>>;
 
-export const responsiveArray: Breakpoint[] = ['xxl', 'xl', 'lg', 'md', 'sm', 'xs'];
 type SubscribeFunc = (screens: ScreenMap) => void;
 
 const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
@@ -18,6 +19,7 @@ const getResponsiveMap = (token: GlobalToken): BreakpointMap => ({
   lg: `(min-width: ${token.screenLG}px)`,
   xl: `(min-width: ${token.screenXL}px)`,
   xxl: `(min-width: ${token.screenXXL}px)`,
+  xxxl: `(min-width: ${token.screenXXXL}px)`,
 });
 
 /**

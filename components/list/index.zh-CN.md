@@ -75,16 +75,17 @@ List 组件已经进入废弃阶段，将于下个 major 版本移除。
 
 ### List grid props
 
-| 参数   | 说明                 | 类型   | 默认值 | 版本 |
-| ------ | -------------------- | ------ | ------ | ---- |
-| column | 列数                 | number | -      |      |
-| gutter | 栅格间隔             | number | 0      |      |
-| xs     | `<576px` 展示的列数  | number | -      |      |
-| sm     | `≥576px` 展示的列数  | number | -      |      |
-| md     | `≥768px` 展示的列数  | number | -      |      |
-| lg     | `≥992px` 展示的列数  | number | -      |      |
-| xl     | `≥1200px` 展示的列数 | number | -      |      |
-| xxl    | `≥1600px` 展示的列数 | number | -      |      |
+| 参数   | 说明                 | 类型   | 默认值 | 版本  |
+| ------ | -------------------- | ------ | ------ | ----- |
+| column | 列数                 | number | -      |       |
+| gutter | 栅格间隔             | number | 0      |       |
+| xs     | `<576px` 展示的列数  | number | -      |       |
+| sm     | `≥576px` 展示的列数  | number | -      |       |
+| md     | `≥768px` 展示的列数  | number | -      |       |
+| lg     | `≥992px` 展示的列数  | number | -      |       |
+| xl     | `≥1200px` 展示的列数 | number | -      |       |
+| xxl    | `≥1600px` 展示的列数 | number | -      |       |
+| xxxl   | `≥1840px` 展示的列数 | number | -      | 6.3.0 |
 
 ### List.Item
 
