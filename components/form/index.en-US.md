@@ -579,6 +579,10 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 ## FAQ
 
+### Why can't Segmented be disabled by Form `disabled`? {#faq-segmented-cannot-disabled}
+
+Segmented is designed as a data display component, not a form control component. Although it can be used as a form control similar to Radio, it was not designed for this purpose. Therefore, its behavior is more similar to the Tabs component and will not be disabled by Form's `disabled` prop. For related discussions, see [#54749](https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096).
+
 ### Why can't Switch, Checkbox bind data? {#faq-switch-checkbox-binding}
 
 Form.Item default bind value to `value` prop, but Switch or Checkbox value prop is `checked`. You can use `valuePropName` to change bind value prop.

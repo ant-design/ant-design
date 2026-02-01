@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ConfigProvider, Flex, Input, Space } from 'antd';
+import { Button, ConfigProvider, Flex } from 'antd';
 
 const App: React.FC = () => (
   <Flex gap="small" vertical>
@@ -103,20 +103,28 @@ const App: React.FC = () => (
         </Button>
       </Flex>
     </ConfigProvider>
-
     <ConfigProvider
       theme={{
-        token: {
-          lineWidth: 2,
-          controlHeight: 36,
-          borderRadius: 18,
+        components: {
+          Button: {
+            defaultBg: 'red',
+            defaultColor: 'blue',
+            defaultHoverColor: 'green',
+            defaultActiveColor: 'yellow',
+
+            textTextColor: 'purple',
+            textTextHoverColor: 'orange',
+            textTextActiveColor: 'pink',
+            textHoverBg: 'brown',
+          },
         },
       }}
     >
-      <Space.Compact>
-        <Input />
-        <Button>Submit</Button>
-      </Space.Compact>
+      <Flex gap="small" align="start">
+        <Button>Default Button</Button>
+        <Button type="dashed">Dashed Button</Button>
+        <Button type="text">Text Button</Button>
+      </Flex>
     </ConfigProvider>
   </Flex>
 );
