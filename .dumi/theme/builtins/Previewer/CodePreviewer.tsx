@@ -6,14 +6,15 @@ import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import { major, minVersion } from 'semver';
+
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
-import SiteContext from '../../slots/SiteContext';
 import DemoContext from '../../slots/DemoContext';
+import SiteContext from '../../slots/SiteContext';
 import { isOfficialHost } from '../../utils';
 import Actions from './Actions';
 
@@ -34,6 +35,9 @@ const styles = createStaticStyles(({ cssVar, css }) => {
       transition: all ${cssVar.motionDurationMid} ease-in-out;
       background-color: ${cssVar.colorBgElevated};
       cursor: pointer;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
       &:hover {
         color: ${cssVar.colorPrimary};
       }

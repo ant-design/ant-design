@@ -33,11 +33,17 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       border-radius: ${cssVar.borderRadiusSM};
       cursor: pointer;
       transition: all ${cssVar.motionDurationSlow} ease-in-out;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
       ${token.iconCls} {
         margin: ${cssVar.marginXS} 0;
         font-size: 36px;
         transition: transform ${cssVar.motionDurationSlow} ease-in-out;
         will-change: transform;
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
       &:hover {
         color: ${cssVar.colorWhite};
@@ -68,6 +74,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         background-color: ${cssVar.colorPrimary};
         opacity: 0;
         transition: all ${cssVar.motionDurationSlow} cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
       &.copied::after {
         opacity: 1;
@@ -81,6 +90,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       transform: scale(0.8);
       ${antCls}-badge {
         transition: color ${cssVar.motionDurationSlow} ease-in-out;
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
     `,
   };

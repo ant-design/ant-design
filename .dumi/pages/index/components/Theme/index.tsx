@@ -100,6 +100,9 @@ const styles = createStaticStyles(({ cssVar, css, cx }) => {
     backdrop-filter: blur(50px);
     box-shadow: 0 2px 10px 2px rgba(0, 0, 0, 0.1);
     transition: all ${cssVar.motionDurationSlow};
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   `;
 
   return {
@@ -220,6 +223,9 @@ const styles = createStaticStyles(({ cssVar, css, cx }) => {
     `,
     motion: css`
       transition: all ${cssVar.motionDurationSlow};
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     `,
     op1: css`
       opacity: 1;

@@ -42,6 +42,9 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
     cursor: pointer;
     padding: ${cssVar.paddingSM};
     transition: background-color ${cssVar.motionDurationFast} ease;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
     &:hover {
       background-color: ${cssVar.controlItemBgHover};
     }

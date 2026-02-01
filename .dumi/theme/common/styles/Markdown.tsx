@@ -227,7 +227,9 @@ const GlobalStyle: React.FC = () => {
           margin-inline-start: ${token.marginXS}px;
           opacity: 0;
           transition: opacity ${token.motionDurationSlow};
-
+          @media (prefers-reduced-motion: reduce) {
+            transition: none;
+          }
           .rtl & {
             margin-inline-end: ${token.marginXS}px;
             margin-inline-start: 0;
@@ -255,7 +257,9 @@ const GlobalStyle: React.FC = () => {
             color: ${token.colorTextSecondary};
             font-size: ${token.fontSizeLG}px;
             transition: all ${token.motionDurationSlow};
-
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+            }
             &:hover {
               color: ${token.colorText};
             }
@@ -321,7 +325,9 @@ const GlobalStyle: React.FC = () => {
 
             tbody tr {
               transition: all ${token.motionDurationSlow};
-
+              @media (prefers-reduced-motion: reduce) {
+                transition: none;
+              }
               &:hover {
                 background: rgba(60, 90, 100, 0.04);
               }

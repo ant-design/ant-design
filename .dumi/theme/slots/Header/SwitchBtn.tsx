@@ -25,6 +25,9 @@ const styles = createStaticStyles(({ cssVar, css }) => {
       .btn-inner {
         transition: all ${cssVar.motionDurationMid};
         display: flex;
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
       img {
         width: ${BASE_SIZE};

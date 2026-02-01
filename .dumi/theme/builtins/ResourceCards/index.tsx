@@ -17,6 +17,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     img {
       display: block;
       transition: all ${cssVar.motionDurationSlow} ease-out;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
     &:hover img {
       transform: scale(1.3);

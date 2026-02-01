@@ -67,6 +67,9 @@ const useStyle = createStyles(({ cssVar }) => ({
     font-size: ${cssVar.fontSizeLG};
     & svg {
       transition: all ${cssVar.motionDurationSlow};
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
   `,
   help: css`

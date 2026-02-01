@@ -34,6 +34,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         color: #999;
         font-size: ${fontSizeIcon};
         transition: all ${cssVar.motionDurationSlow};
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
 
       .chinese {
@@ -57,6 +60,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         transition: inset-inline-end ${cssVar.motionDurationSlow};
         margin-inline-end: 1em;
         inset-inline-end: 0;
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
 
       &:hover .footer-nav-icon-before {
@@ -81,6 +87,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         transition: inset-inline-start ${cssVar.motionDurationSlow};
         margin-inline-start: 1em;
         inset-inline-start: 0;
+        @media (prefers-reduced-motion: reduce) {
+          transition: none;
+        }
       }
 
       &:hover .footer-nav-icon-after {

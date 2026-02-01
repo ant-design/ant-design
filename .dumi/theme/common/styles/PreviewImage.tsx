@@ -123,7 +123,9 @@ export default () => {
           border-radius: ${token.borderRadius}px;
           cursor: pointer;
           transition: all ${token.motionDurationSlow};
-
+          @media (prefers-reduced-motion: reduce) {
+            transition: none;
+          }
           &.no-padding {
             padding: 0;
             background: none;

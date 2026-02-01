@@ -27,6 +27,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
           color: ${colorIcon};
           font-size: ${cssVar.fontSizeLG};
           transition: all ${cssVar.motionDurationSlow};
+          @media (prefers-reduced-motion: reduce) {
+            transition: none;
+          }
           &:hover {
             color: ${colorText};
           }

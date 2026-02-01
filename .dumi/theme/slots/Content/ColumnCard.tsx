@@ -16,6 +16,9 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     margin: calc(${cssVar.marginMD} * 2) 0;
     transition: all ${cssVar.motionDurationMid};
     background-color: ${cssVar.colorFillQuaternary};
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   `,
   bigTitle: css`
     color: #121212;

@@ -15,8 +15,11 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     height: calc(${cssVar.controlHeightLG} / 2);
     border-radius: 100%;
     cursor: pointer;
-    transition: all ${cssVar.motionDurationFast};
     display: inline-block;
+    transition: all ${cssVar.motionDurationFast};
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
 
     & > input[type='radio'] {
       width: 0;

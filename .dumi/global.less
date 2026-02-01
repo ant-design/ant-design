@@ -37,6 +37,9 @@ html {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: all 0.3s;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 .rc-footer a:hover {
   color: #40a9ff;

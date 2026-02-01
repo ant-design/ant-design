@@ -30,6 +30,9 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
   componentsOverviewCard: css`
     cursor: pointer;
     transition: all 0.5s;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
     &:hover {
       box-shadow:
         0 6px 16px -8px #00000014,
@@ -41,6 +44,9 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     display: flex;
     transition: all ${cssVar.motionDurationSlow};
     justify-content: space-between;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   `,
   componentsOverviewSearch: css`
     padding: 0;

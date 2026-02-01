@@ -20,6 +20,9 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
     width: 100%;
     object-fit: cover;
     object-position: right top;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   `,
 }));
 

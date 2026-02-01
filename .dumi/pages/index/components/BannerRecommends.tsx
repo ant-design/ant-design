@@ -28,7 +28,9 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
     padding-inline: ${cssVar.paddingLG};
     box-sizing: border-box;
     position: relative;
-
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
     &:before {
       content: '';
       inset: calc(${cssVar.lineWidth} * -1);
@@ -41,6 +43,9 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
       );
       opacity: 0;
       transition: all 0.3s ease;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
       mask:
         linear-gradient(#fff 0 0) content-box,
         linear-gradient(#fff 0 0);

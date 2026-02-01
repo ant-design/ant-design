@@ -39,6 +39,9 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     transition: all ${cssVar.motionDurationSlow};
     overflow: hidden;
     display: inline-block;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
 
     & > input[type='radio'] {
       width: 0;

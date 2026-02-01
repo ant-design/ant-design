@@ -15,6 +15,9 @@ const styles = createStaticStyles(({ css, cx, cssVar }) => {
     color: rgba(0, 0, 0, 0.65);
     opacity: 0;
     transition: opacity ${cssVar.motionDurationSlow};
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   `;
 
   return {

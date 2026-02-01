@@ -28,7 +28,9 @@ const GlobalDemoStyles: React.FC = () => {
           border: 1px solid ${token.colorSplit};
           border-radius: ${token.borderRadiusLG}px;
           transition: all ${token.motionDurationMid};
-
+          @media (prefers-reduced-motion: reduce) {
+            transition: none;
+          }
           &.code-box-simplify {
             border-radius: 0;
             margin-bottom: 0;
@@ -80,7 +82,9 @@ const GlobalDemoStyles: React.FC = () => {
             border-radius: ${token.borderRadius}px ${token.borderRadius}px 0 0;
             transition: background-color 0.4s;
             margin-inline-start: ${token.margin}px;
-
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+            }
             a,
             a:hover {
               color: ${token.colorText};
@@ -106,7 +110,9 @@ const GlobalDemoStyles: React.FC = () => {
             ${iconCls} {
               color: ${token.colorTextSecondary};
               transition: all ${token.motionDurationSlow};
-
+              @media (prefers-reduced-motion: reduce) {
+                transition: none;
+              }
               &:hover {
                 color: ${token.colorText};
               }
@@ -136,6 +142,9 @@ const GlobalDemoStyles: React.FC = () => {
               font-size: ${token.fontSize}px;
               border-radius: 0 0 ${token.borderRadius}px ${token.borderRadius}px;
               transition: background-color 0.4s;
+              @media (prefers-reduced-motion: reduce) {
+                transition: none;
+              }
             }
 
             blockquote {
@@ -198,7 +207,9 @@ const GlobalDemoStyles: React.FC = () => {
             border-top: 1px dashed ${token.colorSplit};
             opacity: 0.7;
             transition: opacity ${token.motionDurationSlow};
-
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+            }
             &:hover {
               opacity: 1;
             }
@@ -213,7 +224,9 @@ const GlobalDemoStyles: React.FC = () => {
             color: ${token.colorTextSecondary};
             cursor: pointer;
             transition: all 0.24s;
-
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+            }
             &:hover {
               color: ${token.colorText};
             }
@@ -231,7 +244,9 @@ const GlobalDemoStyles: React.FC = () => {
             background: ${token.colorBgContainer};
             cursor: pointer;
             transition: transform 0.24s;
-
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+            }
             &${iconCls}-check {
               color: ${token.green6} !important;
               font-weight: bold;
@@ -246,7 +261,7 @@ const GlobalDemoStyles: React.FC = () => {
             cursor: pointer;
           }
 
-           &-codeblock {
+          &-codeblock {
             width: 16px;
             height: 16px;
             overflow: hidden;

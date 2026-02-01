@@ -13,6 +13,9 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
     background-size: cover;
     background-position: 50% 0%;
     background-repeat: no-repeat;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   `,
   container: css`
     position: absolute;

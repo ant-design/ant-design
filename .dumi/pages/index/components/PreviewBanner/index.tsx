@@ -35,6 +35,9 @@ const useStyle = createStyles(({ cssVar, css, cx }) => {
     inset-inline-end: -60px;
     top: -24px;
     transition: all 1s cubic-bezier(0.03, 0.98, 0.52, 0.99);
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   `);
 
   return {

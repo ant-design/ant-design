@@ -27,6 +27,9 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
     display: flex;
     transition: all ${cssVar.motionDurationSlow};
     justify-content: space-between;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
   `,
 }));
 

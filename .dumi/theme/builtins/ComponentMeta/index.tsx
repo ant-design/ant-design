@@ -76,6 +76,9 @@ const useStyle = createStyles(({ cssVar, token }) => ({
     transition: all ${cssVar.motionDurationSlow} !important;
     font-family: ${token.codeFamily};
     color: ${cssVar.colorTextSecondary} !important;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+    }
     &:hover {
       background: ${cssVar.controlItemBgHover};
     }

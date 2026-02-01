@@ -24,6 +24,9 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
       height: 24px;
       transition: all ${cssVar.motionDurationSlow};
       margin-inline-end: calc(-1 * ${cssVar.marginXS});
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
     &:hover {
       li {

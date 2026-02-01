@@ -15,6 +15,9 @@ const styles = createStaticStyles(({ css, cssVar }) => {
       font-size: ${cssVar.fontSizeXL};
       color: ${cssVar.colorLink};
       transition: all ${cssVar.motionDurationSlow};
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
       &:hover {
         color: ${cssVar.colorLinkHover};
       }

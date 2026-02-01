@@ -154,7 +154,9 @@ ${makeGrayPalette(index + 1)}
             line-height: 44px;
             cursor: pointer;
             transition: all ${token.motionDurationMid};
-
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+            }
             &:first-child {
               border-radius: ${token.borderRadiusSM}px ${token.borderRadiusSM}px 0 0;
             }
@@ -172,6 +174,9 @@ ${makeGrayPalette(index + 1)}
           &-item &-text {
             float: left;
             transition: all ${token.motionDurationSlow};
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+            }
           }
 
           &-item &-value {
@@ -182,6 +187,9 @@ ${makeGrayPalette(index + 1)}
             transform-origin: 100% 50%;
             opacity: 0;
             transition: all ${token.motionDurationSlow};
+            @media (prefers-reduced-motion: reduce) {
+              transition: none;
+            }
           }
         }
 
