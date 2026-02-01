@@ -10,8 +10,8 @@ export type DeepStylesType<T> = {
 };
 export type GenerateSemantic<T extends { classNames?: any; styles?: any }, Props> = {
   classNames: DeepClassNameType<T['classNames']>;
-  styles: DeepStylesType<T['styles']>;
   classNamesFn: (info: { props: Props }) => DeepClassNameType<T['classNames']>;
-  stylesFn: (info: { props: Props }) => DeepStylesType<T['styles']>;
   classNamesNoString: RemoveClassNamesString<DeepClassNameType<T['classNames']>>;
+  styles: DeepStylesType<T['styles']>;
+  stylesFn: (info: { props: Props }) => DeepStylesType<T['styles']>;
 };
