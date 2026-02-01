@@ -12,6 +12,10 @@ const viewTransitionStyle = `
   animation: keepAlive ${duration}s linear;
   animation-fill-mode: forwards;
   mix-blend-mode: normal;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+    transition: none;
+  }
 }
 
 .dark::view-transition-old(root) {

@@ -4,6 +4,25 @@ import { createStyles } from 'antd-style';
 
 import { DarkContext } from '../../../../hooks/useDark';
 
+const useStyles = createStyles(({ css, cssVar }) => ({
+  container: css`
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: ${cssVar.colorBgContainer};
+  `,
+  bubble: css`
+    filter: blur(100px);
+    border-radius: 50%;
+    position: absolute;
+    transition: all 5s ease-in-out;
+    @media (prefers-reduced-motion: reduce) {
+      transition: none;
+      animation: none;
+    }
+  `,
+}));
+
 interface BubbleProps {
   size: number | string;
   left?: number | string;
@@ -16,16 +35,20 @@ interface BubbleProps {
 
 const MAX_OFFSET = 200;
 
-const Bubble = ({
-  size,
-  left,
-  top,
-  color,
-  offsetXMultiple = 1,
-  offsetYMultiple = 1,
-  defaultOpacity = 0.1,
-}: BubbleProps) => {
-  const [offset, setOffset] = useState([0, 0]);
+const Bubble: React.FC<BubbleProps> = (props) => {
+  const {
+    size,
+    left,
+    top,
+    color,
+    offsetXMultiple = 1,
+    offsetYMultiple = 1,
+    defaultOpacity = 0.1,
+  } = props;
+
+  const { styles } = useStyles();
+
+  const [offset, setOffset] = useState<[number, number]>([0, 0]);
   const [opacity, setOpacity] = useState(defaultOpacity);
   const [sizeOffset, setSizeOffset] = useState(1);
 
@@ -47,7 +70,6 @@ const Bubble = ({
   useEffect(() => {
     const randomTimeout = Math.random() * 2000 + 3000;
     const id = setTimeout(randomPos, randomTimeout);
-
     return () => clearTimeout(id);
   }, [offset]);
 
@@ -55,39 +77,27 @@ const Bubble = ({
     <div
       aria-hidden="true"
       data-desc="luminous-bubble"
+      className={styles.bubble}
+      draggable={false}
       style={{
         opacity,
         width: size,
         height: size,
-        borderRadius: '50%',
         background: color,
-        filter: 'blur(100px)',
         left,
         top,
-        transform: `translate(-50%, -50%) translate(${offset[0]}px, ${offset[1]}px) scale(${sizeOffset})`,
-        transition: 'all 5s ease-in-out',
-        position: 'absolute',
+        transform: `translate3d(-50%, -50%, 0) translate3d(${offset[0]}px, ${offset[1]}px, 0) scale(${sizeOffset})`,
       }}
     />
   );
 };
 
-const useStyles = createStyles(({ css, cssVar }) => ({
-  container: css`
-    position: absolute;
-    inset: 0;
-    overflow: hidden;
-    background: ${cssVar.colorBgContainer};
-  `,
-}));
-
 interface LuminousBgProps {
   className?: string;
 }
 
-export default function LuminousBg({ className }: LuminousBgProps) {
+const LuminousBg: React.FC<LuminousBgProps> = ({ className }) => {
   const { styles, cx } = useStyles();
-
   return (
     <div className={cx(styles.container, className)}>
       {/* Left + Top */}
@@ -112,4 +122,6 @@ export default function LuminousBg({ className }: LuminousBgProps) {
       />
     </div>
   );
-}
+};
+
+export default LuminousBg;

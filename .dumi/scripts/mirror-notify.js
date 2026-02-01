@@ -52,6 +52,10 @@
       border-radius: 4px;
       overflow: hidden;
       animation: slideInRight 0.3s ease-in-out;
+      @media (prefers-reduced-motion: reduce) {
+        animation: none;
+        transition: none;
+      }
     }
     .${prefixCls}-content {
       padding: 16px;
