@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Menu } from 'antd';
-import type { MenuProps, MenuSemanticType } from 'antd';
+import type { MenuProps, MenuSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -34,13 +34,13 @@ const items: Required<MenuProps>['items'] = [
   { key: 'mail', label: 'Navigation Two' },
 ];
 
-const styles: MenuProps['styles'] = {
+const styles: MenuSemanticAllType['styles'] = {
   root: { border: '1px solid #f0f0f0', padding: 8, borderRadius: 4 },
   item: { color: '#1677ff' },
   subMenu: { list: { color: '#fa541c' } },
 };
 
-const stylesFn: MenuProps['styles'] = (info): MenuSemanticType['styles'] => {
+const stylesFn: MenuSemanticAllType['stylesFn'] = (info): MenuSemanticAllType['styles'] => {
   const hasSub = info.props.items?.[0];
   return {
     root: {

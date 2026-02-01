@@ -1,7 +1,7 @@
 import { createContext } from 'react';
 
 import type { DirectionType } from '../config-provider';
-import type { MenuSemanticNoStringType, MenuSemanticType } from './menu';
+import type { MenuSemanticAllType } from './menu';
 
 export type MenuTheme = 'light' | 'dark';
 
@@ -13,8 +13,8 @@ export interface MenuContextProps {
   firstLevel: boolean;
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
-  classNames?: MenuSemanticNoStringType['classNames'];
-  styles?: MenuSemanticType['styles'];
+  classNames?: MenuSemanticAllType['classNamesNoString'];
+  styles?: MenuSemanticAllType['styles'];
 }
 
 const MenuContext = createContext<MenuContextProps>({

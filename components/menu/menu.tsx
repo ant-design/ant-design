@@ -6,8 +6,9 @@ import RcMenu from '@rc-component/menu';
 import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { RemoveStringSemanticType, SemanticType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
@@ -69,7 +70,8 @@ export type MenuSemanticType = {
     };
   };
 };
-export type MenuSemanticNoStringType = RemoveStringSemanticType<MenuSemanticType>;
+
+export type MenuSemanticAllType = GenerateSemantic<MenuSemanticType, MenuProps>;
 
 export type MenuClassNamesType = SemanticType<MenuProps, MenuSemanticType['classNames']>;
 
@@ -91,8 +93,8 @@ export interface MenuProps
   _internalDisableMenuItemTitleTooltip?: boolean;
 
   items?: ItemType[];
-  classNames?: MenuClassNamesType;
-  styles?: MenuStylesType;
+  classNames?: MenuSemanticAllType['classNamesFn'] | MenuSemanticAllType['classNames'];
+  styles?: MenuSemanticAllType['stylesFn'] | MenuSemanticAllType['styles'];
 }
 
 type InternalMenuProps = MenuProps &
