@@ -3,7 +3,7 @@ type RemoveStringKey<T, K extends keyof T> = string extends T[K] ? RemoveString<
 export type RemoveClassNamesString<T> = { [K in keyof T]: RemoveStringKey<T, K> };
 
 export type DeepClassNameType<T> = {
-  [K in keyof T]?: T[K] extends string ? string | DeepClassNameType<T[K]> : DeepClassNameType<T[K]>;
+  [K in keyof T]?: string extends T[K] ? string | DeepClassNameType<T[K]> : DeepClassNameType<T[K]>;
 };
 export type DeepStylesType<T> = {
   [K in keyof T]?: React.CSSProperties extends T[K] ? React.CSSProperties : DeepStylesType<T[K]>;
