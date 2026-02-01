@@ -71,13 +71,24 @@ const useSemanticStyles = <StylesType = any>(...styles: (StylesType | undefined)
 };
 
 // =========================== Export ===========================
-const fillObjectBySchema = <T = any>(obj: T, schema: SemanticSchema): T => {
+// const fillObjectBySchema = <T = any>(obj: T, schema: SemanticSchema): T => {
+//   const newObj: any = { ...obj };
+//   Object.keys(schema).forEach((key) => {
+//     if (key !== '_default') {
+//       const nestSchema = (schema as any)[key] as SemanticSchema;
+//       const nextValue = newObj[key] || {};
+//       newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
+//     }
+//   });
+//   return newObj;
+// };
+const fillObjectBySchema = <T>(obj: T, schema: any): T => {
   const newObj: any = { ...obj };
   Object.keys(schema).forEach((key) => {
     if (key !== '_default') {
-      const nestSchema = (schema as any)[key] as SemanticSchema;
-      const nextValue = newObj[key] || {};
-      newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
+      newObj[key] = fillObjectBySchema(newObj[key] || {}, schema[key]);
+    } else if (!newObj[schema._default]) {
+      newObj[schema._default] = { ...newObj };
     }
   });
   return newObj;
@@ -128,8 +139,3 @@ export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props =
   }, [mergedClassNames, mergedStyles, schema]);
   return result as [RemoveClassNamesString<NonNullable<ClassNamesType>>, NonNullable<StylesType>];
 };
-
-// type Result<T> = T extends string ? never : T;
-// export function getFilterStringType<T, K extends string>(classNames: T, key: K): Result<T> {
-//   return (typeof classNames === 'string' ? { [key]: classNames } : classNames) as Result<T>;
-// }
