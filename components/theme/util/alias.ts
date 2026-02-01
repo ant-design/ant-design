@@ -31,7 +31,7 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
   const screenLG = 992;
   const screenXL = 1200;
   const screenXXL = 1600;
-  const screenXXXL = 1840;
+  const screenXXXL = 1920;
 
   // Motion
   if (mergedToken.motion === false) {

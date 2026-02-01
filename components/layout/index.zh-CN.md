@@ -128,7 +128,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAA
   lg: '992px',
   xl: '1200px',
   xxl: '1600px',
-  xxxl: '1840px',
+  xxxl: '1920px',
 }
 ```
 

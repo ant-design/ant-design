@@ -85,7 +85,7 @@ List 组件已经进入废弃阶段，将于下个 major 版本移除。
 | lg     | `≥992px` 展示的列数  | number | -      |       |
 | xl     | `≥1200px` 展示的列数 | number | -      |       |
 | xxl    | `≥1600px` 展示的列数 | number | -      |       |
-| xxxl   | `≥1840px` 展示的列数 | number | -      | 6.3.0 |
+| xxxl   | `≥1920px` 展示的列数 | number | -      | 6.3.0 |
 
 ### List.Item
 
