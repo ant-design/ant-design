@@ -4,8 +4,8 @@ import type {
   RangePickerProps as RcRangePickerProps,
 } from '@rc-component/picker';
 import type { Locale as RcPickerLocale } from '@rc-component/picker/interface';
-import type { RemoveStringSemanticType, SemanticType } from 'antd/es/_util/hooks';
 
+import type { GenerateSemantic } from '../../_util/hooks/semanticType';
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import type { Variant } from '../../config-provider';
@@ -50,16 +50,9 @@ export type DatePickerSemanticType = {
     };
   };
 };
-export type DatePickerSemanticNoStringType = RemoveStringSemanticType<DatePickerSemanticType>;
-
-export type DatePickerClassNamesType<P> = SemanticType<
-  InjectDefaultProps<P>,
-  DatePickerSemanticType['classNames']
->;
-
-export type DatePickerStylesType<P> = SemanticType<
-  InjectDefaultProps<P>,
-  DatePickerSemanticType['styles']
+export type DatePickerSemanticAllType<P = any> = GenerateSemantic<
+  DatePickerSemanticType,
+  InjectDefaultProps<P>
 >;
 
 export type PickerLocale = {
@@ -137,8 +130,12 @@ export type InjectDefaultProps<Props> = Omit<
    * @deprecated please use `styles.popup.root` instead
    */
   popupStyle?: React.CSSProperties;
-  classNames?: DatePickerClassNamesType<Props>;
-  styles?: DatePickerStylesType<Props>;
+  classNames?:
+    | DatePickerSemanticAllType<Props>['classNamesFn']
+    | DatePickerSemanticAllType<Props>['classNames'];
+  styles?:
+    | DatePickerSemanticAllType<Props>['stylesFn']
+    | DatePickerSemanticAllType<Props>['styles'];
 };
 
 /** Base Single Picker props */

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, TimePicker } from 'antd';
-import type { TimePickerProps, TimePickerSemanticType } from 'antd';
+import type { TimePickerProps, TimePickerSemanticAllType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -16,7 +16,7 @@ const stylesObject: TimePickerProps['styles'] = {
   },
 };
 
-const stylesFn: TimePickerProps['styles'] = (info): TimePickerSemanticType['styles'] => {
+const stylesFn: TimePickerProps['styles'] = (info): TimePickerSemanticAllType['styles'] => {
   if (info.props.size === 'large') {
     return {
       root: {

@@ -1,4 +1,5 @@
-import type { Orientation, RemoveStringSemanticType, SemanticType } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 export type SplitterSemanticType = {
@@ -10,30 +11,19 @@ export type SplitterSemanticType = {
   styles?: {
     root?: React.CSSProperties;
     panel?: React.CSSProperties;
-    dragger?: React.CSSProperties | { default?: React.CSSProperties; active?: React.CSSProperties };
+    // remove React.CSSProperties
+    dragger?: { default?: React.CSSProperties; active?: React.CSSProperties };
   };
 };
 
-export type SplitterSemanticNoStringType = RemoveStringSemanticType<SplitterSemanticType>;
-
-export interface SplitterSemanticDraggerClassNames {
-  default?: string;
-  active?: string;
-}
-
-export type SplitterClassNamesType = SemanticType<
-  SplitterProps,
-  SplitterSemanticType['classNames']
->;
-
-export type SplitterStylesType = SemanticType<SplitterProps, SplitterSemanticType['styles']>;
+export type SplitterSemanticAllType = GenerateSemantic<SplitterSemanticType, SplitterProps>;
 
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
-  classNames?: SplitterClassNamesType;
+  classNames?: SplitterSemanticAllType['classNames'] | SplitterSemanticAllType['classNamesFn'];
   style?: React.CSSProperties;
-  styles?: SplitterStylesType;
+  styles?: SplitterSemanticAllType['styles'] | SplitterSemanticAllType['stylesFn'];
   rootClassName?: string;
   /**
    * @deprecated please use `orientation`

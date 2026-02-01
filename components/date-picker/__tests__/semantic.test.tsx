@@ -1,16 +1,14 @@
 import React from 'react';
-import type { Dayjs } from 'dayjs';
 
-import type { DatePickerProps } from '..';
 import DatePicker from '..';
 import { render } from '../../../tests/utils';
-import type { DatePickerSemanticNoStringType } from '../generatePicker/interface';
+import type { DatePickerSemanticAllType } from '../generatePicker/interface';
 
 describe('DatePicker.Semantic', () => {
   describe('inline', () => {
     function test(name: string, renderFn: (props: any) => React.ReactElement) {
       it(name, () => {
-        const classNames: DatePickerProps['classNames'] = {
+        const classNames: DatePickerSemanticAllType['classNames'] = {
           root: 'my-root',
           prefix: 'my-prefix',
           input: 'my-input',
@@ -18,7 +16,7 @@ describe('DatePicker.Semantic', () => {
           popup: 'my-popup',
         };
 
-        const styles: DatePickerProps['styles'] = {
+        const styles: DatePickerSemanticAllType['styles'] = {
           root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
           prefix: { backgroundColor: 'rgba(40, 167, 69, 0.9)' },
           input: { backgroundColor: 'rgba(255, 193, 7, 0.7)' },
@@ -73,7 +71,7 @@ describe('DatePicker.Semantic', () => {
       ignoreTimePickerMissing = false,
     ) {
       it(name, () => {
-        const classNames: DatePickerSemanticNoStringType['classNames'] = {
+        const classNames: DatePickerSemanticAllType['classNamesNoString'] = {
           popup: {
             header: 'my-header',
             body: 'my-body',
@@ -83,7 +81,7 @@ describe('DatePicker.Semantic', () => {
           },
         };
 
-        const styles: DatePickerProps['styles'] = {
+        const styles: DatePickerSemanticAllType['styles'] = {
           popup: {
             header: { backgroundColor: 'rgb(255, 0, 0)' },
             body: { backgroundColor: 'rgb(0, 0, 255)' },
@@ -161,7 +159,9 @@ describe('DatePicker.Semantic', () => {
   });
 
   it('should support semantic classNames as function', () => {
-    const classNamesFn: DatePickerProps<Dayjs>['classNames'] = (info) => {
+    const classNamesFn: DatePickerSemanticAllType['classNamesFn'] = (
+      info,
+    ): DatePickerSemanticAllType['classNames'] => {
       if (info.props.disabled) {
         return { root: 'disabled-root' };
       }
@@ -176,7 +176,9 @@ describe('DatePicker.Semantic', () => {
   });
 
   it('should support semantic styles as function', () => {
-    const stylesFn: DatePickerProps<Dayjs>['styles'] = (info) => {
+    const stylesFn: DatePickerSemanticAllType['stylesFn'] = (
+      info,
+    ): DatePickerSemanticAllType['styles'] => {
       if (info.props.size === 'large') {
         return { root: { fontSize: '18px' } };
       }

@@ -162,7 +162,7 @@ export type { SpaceProps, SpaceSemanticType } from './space';
 export { default as Spin } from './spin';
 export type { SpinProps, SpinSemanticType } from './spin';
 export { default as Splitter } from './splitter';
-export type { SplitterProps, SplitterSemanticType } from './splitter';
+export type { SplitterProps, SplitterSemanticAllType } from './splitter';
 export { default as Statistic } from './statistic';
 export type {
   CountdownProps,
@@ -191,7 +191,11 @@ export type { CheckableTagGroupSemanticType, TagProps, TagSemanticType, TagType 
 export { default as theme } from './theme';
 export type { GlobalToken, MappingAlgorithm } from './theme';
 export { default as TimePicker } from './time-picker';
-export type { TimePickerProps, TimePickerSemanticType, TimeRangePickerProps } from './time-picker';
+export type {
+  TimePickerProps,
+  TimePickerSemanticAllType,
+  TimeRangePickerProps,
+} from './time-picker';
 export { default as Timeline } from './timeline';
 export type { TimelineItemProps, TimelineProps, TimelineSemanticType } from './timeline';
 export { default as Tooltip } from './tooltip';

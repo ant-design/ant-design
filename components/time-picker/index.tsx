@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { PickerRef } from '@rc-component/picker';
 import type { Dayjs } from 'dayjs';
 
-import type { RemoveStringSemanticType, SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import type { AnyObject } from '../_util/type';
@@ -47,14 +47,7 @@ export type TimePickerSemanticType = {
   };
 };
 
-export type TimePickerSemanticNoStringType = RemoveStringSemanticType<TimePickerSemanticType>;
-
-export type TimePickerClassNames = SemanticType<
-  TimePickerProps,
-  TimePickerSemanticType['classNames']
->;
-
-export type TimePickerStyles = SemanticType<TimePickerProps, TimePickerSemanticType['styles']>;
+export type TimePickerSemanticAllType = GenerateSemantic<TimePickerSemanticType, TimePickerProps>;
 
 export type PickerTimeProps<DateType extends AnyObject> = PickerPropsWithMultiple<
   DateType,
@@ -94,8 +87,8 @@ export interface TimePickerProps
   popupStyle?: React.CSSProperties;
   rootClassName?: string;
 
-  classNames?: TimePickerClassNames;
-  styles?: TimePickerStyles;
+  classNames?: TimePickerSemanticAllType['classNamesFn'] | TimePickerSemanticAllType['classNames'];
+  styles?: TimePickerSemanticAllType['stylesFn'] | TimePickerSemanticAllType['styles'];
 }
 
 const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => {
@@ -143,8 +136,8 @@ const TimePicker = React.forwardRef<PickerRef, TimePickerProps>((props, ref) => 
     popupStyle,
     mergedProps,
   ) as [
-    NonNullable<TimePickerSemanticNoStringType['classNames']>,
-    NonNullable<TimePickerSemanticNoStringType['styles']>,
+    NonNullable<TimePickerSemanticAllType['classNames']>,
+    NonNullable<TimePickerSemanticAllType['styles']>,
   ];
 
   return (

@@ -1,13 +1,13 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
-import type { TimePickerSemanticType } from '..';
+import type { TimePickerSemanticAllType } from '..';
 import TimePicker from '..';
 import { render } from '../../../tests/utils';
 
 describe('TimePicker.Semantic', () => {
   it('should support semantic classNames and styles with useMergeSemantic', () => {
-    const semanticClassNames: TimePickerSemanticType['classNames'] = {
+    const semanticClassNames: TimePickerSemanticAllType['classNames'] = {
       root: 'semantic-root',
       prefix: 'semantic-prefix',
       input: 'semantic-input',

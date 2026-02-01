@@ -14,7 +14,7 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
-import type { SplitterSemanticNoStringType } from '../interface';
+import type { SplitterSemanticAllType } from '../interface';
 import SplitBar from '../SplitBar';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
@@ -1068,9 +1068,10 @@ describe('Splitter', () => {
       const customStyles: SplitterProps['styles'] = {
         root: { background: 'red' },
         panel: { background: 'blue' },
-        dragger: { background: 'green' },
+        // dragger: { background: 'green' },
+        dragger: { default: { background: 'green' } },
       };
-      const customClassNames: SplitterSemanticNoStringType['classNames'] = {
+      const customClassNames: SplitterSemanticAllType['classNamesNoString'] = {
         root: 'custom-root',
         panel: 'custom-panel',
         dragger: { default: 'custom-dragger', active: 'custom-dragger-active' },
@@ -1088,7 +1089,7 @@ describe('Splitter', () => {
       expect(panel).toHaveStyle(customStyles.panel as Record<string, string>);
       expect(panel).toHaveClass(customClassNames.panel as string);
       const dragger = container.querySelector('.ant-splitter-bar-dragger');
-      expect(dragger).toHaveStyle(customStyles.dragger as Record<string, string>);
+      expect(dragger).toHaveStyle(customStyles.dragger?.default as Record<string, string>);
 
       expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
       expect(dragger).not.toHaveClass(customClassNames.dragger?.active as string);

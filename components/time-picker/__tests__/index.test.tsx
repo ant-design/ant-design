@@ -2,7 +2,7 @@ import React from 'react';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
-import type { TimePickerSemanticType } from '..';
+import type { TimePickerSemanticAllType } from '..';
 import TimePicker from '..';
 import { resetWarned } from '../../_util/warning';
 import focusTest from '../../../tests/shared/focusTest';
@@ -101,34 +101,34 @@ describe('TimePicker', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
   it('should support classNames and styles', () => {
-    const testClassNames: TimePickerSemanticType['classNames'] = {
+    const testClassNames: TimePickerSemanticAllType['classNames'] = {
       root: 'test-root',
       prefix: 'test-prefix',
       input: 'test-input',
       suffix: 'test-suffix',
     };
-    const testPopupClassNames: NonNullable<TimePickerSemanticType['classNames']>['popup'] = {
+    const testPopupClassNames: NonNullable<TimePickerSemanticAllType['classNames']>['popup'] = {
       root: 'test-popup-root',
       content: 'test-popup-content',
       item: 'test-popup-item',
     };
-    const mergedTestClassNames: TimePickerSemanticType['classNames'] = {
+    const mergedTestClassNames: TimePickerSemanticAllType['classNames'] = {
       ...testClassNames,
       popup: testPopupClassNames,
     };
 
-    const testStyles: TimePickerSemanticType['styles'] = {
+    const testStyles: TimePickerSemanticAllType['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       prefix: { color: 'rgb(0, 0, 255)' },
       input: { color: 'rgb(0, 255, 0)' },
       suffix: { color: 'rgb(255, 255, 0)' },
     };
-    const testPopupStyles: NonNullable<TimePickerSemanticType['styles']>['popup'] = {
+    const testPopupStyles: NonNullable<TimePickerSemanticAllType['styles']>['popup'] = {
       root: { color: 'rgb(128, 0, 128)' },
       content: { color: 'rgb(0, 255, 255)' },
       item: { color: 'rgb(255, 0, 255)' },
     };
-    const mergedTestStyles: TimePickerSemanticType['styles'] = {
+    const mergedTestStyles: TimePickerSemanticAllType['styles'] = {
       ...testStyles,
       popup: testPopupStyles,
     };
