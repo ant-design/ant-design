@@ -9,6 +9,7 @@ import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { useToken } from '../theme/internal';
 import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
@@ -56,6 +57,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const rootPrefixCls = getPrefixCls();
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
+  const [, token] = useToken();
 
   // ======================== Direct ========================
   const [mergedOrientation, isVertical] = useOrientation(orientation, vertical, layout);
@@ -143,10 +145,10 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
-    // Trigger collapse animation
     clearTimeout(collapseTimerRef.current);
     setIsCollapsing(true);
-    collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), 200);
+    const durationMs = Number.parseFloat(token.motionDurationMid) * 1000;
+    collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), durationMs);
 
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
