@@ -1,6 +1,19 @@
 // FIXME: workaround for avoid searchbar styles be extracted to async chunk
 @import 'dumi/theme-default/slots/SearchBar/index.less';
 
+// Global prefers-reduced-motion support for accessibility
+// This respects user preferences for reduced motion by disabling transitions and animations
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 .demo-logo {
   width: 120px;
   min-width: 120px;
