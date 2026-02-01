@@ -4,7 +4,6 @@ type MenuSemanticType = {
   classNames: {
     root?: string;
     popup?: string | { root?: string };
-    popup2?: { root?: string };
   };
   styles: {
     root?: React.CSSProperties;
@@ -28,7 +27,7 @@ describe('semanticType', () => {
       classNamesNoString: { popup: { root: 'popup-root-class' } },
     };
     const menuConfig3: MenuProps = {
-      classNames: { root: 'root-class', popup: 'string', popup2: { root: 'root' } },
+      classNames: { root: 'root-class', popup: 'string' },
       styles: { root: { color: 'red' }, popup: { root: { backgroundColor: 'blue' } } },
     };
 
