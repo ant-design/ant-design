@@ -23,6 +23,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
 
   // ========================== Ref ===========================
   const inputRef = React.useRef<InputRef>(null);
+
   React.useImperativeHandle(ref, () => inputRef.current!);
 
   // ========================= Input ==========================
@@ -40,7 +41,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
     });
   };
 
-  const onInternalFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+  const onInternalFocus: React.FocusEventHandler<HTMLInputElement> = (e) => {
     onFocus?.(e);
     syncSelection();
   };
