@@ -249,7 +249,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             border: 0,
             margin: 0,
             padding: 0,
-            color: 'inherit',
+            color: varRef('color'),
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
@@ -282,6 +282,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
               '&:before': {
                 display: 'none',
               },
+            },
+
+            '&-has-search-value': {
+              color: 'transparent',
             },
 
             // >>> Value
