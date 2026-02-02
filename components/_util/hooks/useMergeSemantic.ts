@@ -87,20 +87,14 @@ const useSemanticStyles = <StylesType extends AnyObject>(
 };
 
 // =========================== Export ===========================
-export const fillObjectBySchema = (
-  obj: Record<string, any>,
-  schema: Record<string, any>,
-): Record<string, any> => {
+export const fillObjectBySchema = (obj: Record<string, any>, schema: Record<string, any>) => {
   const newObj: Record<string, any> = { ...obj };
   Object.keys(schema).forEach((key) => {
     const thisData = newObj[key];
-    const isLast = !!schema[key]._default;
-    const value = isLast ? { [schema[key]._default]: thisData } : undefined;
-    if (typeof thisData === 'string') {
-      newObj[key] = value;
-    } else if (typeof thisData === 'object') {
-      newObj[key] = isLast ? value : fillObjectBySchema(thisData, schema[key]);
-    }
+    const thisType = typeof thisData;
+    const thisKey = schema[key]._default;
+    const isLast = !!thisKey || thisType === 'string';
+    newObj[key] = isLast ? { [thisKey]: thisData } : fillObjectBySchema(thisData, schema[key]);
   });
   return newObj;
 };
