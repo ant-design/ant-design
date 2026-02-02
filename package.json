@@ -54,7 +54,7 @@
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
     "predist": "npm run version && npm run token:statistic && npm run token:meta && npm run style",
-    "dist": "antd-tools run dist",
+    "dist": "npm run ut-install-react-18 && antd-tools run dist",
     "format": "biome format --write .",
     "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@16",
     "ut-install-react-18": "ut i react@18 react-dom@18 @testing-library/react@16 --save-dev",
@@ -173,7 +173,7 @@
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
-    "@eslint-react/eslint-plugin": "^2.7.2",
+    "@eslint-react/eslint-plugin": "2.8.4",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@inquirer/prompts": "^8.0.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
@@ -235,7 +235,7 @@
     "dekko": "^0.2.1",
     "domparser-rs": "0.0.7",
     "dotenv": "^17.2.3",
-    "dumi": "~2.4.21",
+    "dumi": "~2.4.23",
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^4.0.0",
     "eslint": "^9.39.2",
@@ -266,7 +266,7 @@
     "jest-image-snapshot": "^6.5.1",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^4.0.0",
-    "jsdom": "^27.4.0",
+    "jsdom": "^28.0.0",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^16.2.7",
@@ -332,17 +332,28 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "524 KiB",
+      "limit": "434 KiB",
       "gzip": true
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "618 KiB",
+      "limit": "526 KiB",
       "gzip": true
     }
   ],
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
+  },
+  "pnpm": {
+    "overrides": {
+      "@eslint-react/var": "2.9.1"
+    }
+  },
+  "overrides": {
+    "@eslint-react/var": "2.9.1"
+  },
+  "resolutions": {
+    "@eslint-react/var": "2.9.1"
   }
 }
