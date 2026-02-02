@@ -15,7 +15,7 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const items: Required<MenuProps>['items'] = [
+const items: MenuProps['items'] = [
   {
     key: 'SubMenu',
     label: 'Navigation One',
