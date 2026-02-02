@@ -46,8 +46,8 @@ export type GroupPreviewConfig = OriginPreviewConfig &
 export interface PreviewGroupProps
   extends Omit<RcPreviewGroupProps, 'preview' | 'styles' | 'classNames'> {
   preview?: boolean | GroupPreviewConfig;
-  classNames?: ImageSemanticAllType['classNames'];
-  styles?: ImageSemanticAllType['styles'];
+  classNames?: ImageSemanticAllType['classNames'] | ImageSemanticAllType['classNamesFn'];
+  styles?: ImageSemanticAllType['styles'] | ImageSemanticAllType['stylesFn'];
 }
 
 const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
