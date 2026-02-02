@@ -9,18 +9,17 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { ConfirmContent } from './ConfirmDialog';
-import type { ModalClassNamesType, ModalFuncProps, ModalStylesType } from './interface';
+import type { ModalFuncProps, ModalSemanticAllType } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
 export interface PurePanelProps
-  extends
-    Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
+  extends Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
     Pick<ModalFuncProps, 'type' | 'footer'> {
   prefixCls?: string;
   style?: React.CSSProperties;
-  classNames?: ModalClassNamesType;
-  styles?: ModalStylesType;
+  classNames?: ModalSemanticAllType['classNames'];
+  styles?: ModalSemanticAllType['styles'];
 }
 
 const PurePanel: React.FC<PurePanelProps> = (props) => {

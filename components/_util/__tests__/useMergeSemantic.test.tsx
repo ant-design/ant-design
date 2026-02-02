@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 
-import { mergeClassNames, useMergeSemantic } from '../hooks';
+import { fillObjectBySchema, mergeClassNames, useMergeSemantic } from '../hooks';
 
 const mockSchema = {
   _default: 'root',
@@ -68,5 +68,18 @@ describe('useMergeSemantic', () => {
     const [classNames, styles] = result.current;
     expect(classNames.container.header).toHaveProperty('header-root', 'foo');
     expect(styles.container.header).toEqual({ color: 'red' });
+
+    const schema = { dragger: { _default: 'default' } };
+    const res = { test: 'test', dragger: { default: 'aaa' } };
+
+    // string
+    expect(fillObjectBySchema({ test: 'test', dragger: 'aaa' }, schema)).toBe(res);
+    expect(fillObjectBySchema({ test: 'test', dragger: { default: 'aaa' } }, schema)).toBe(res);
+    const res2 = { test: 'test', dragger: { default: { color: 'red' } } };
+    // CSS
+    expect(fillObjectBySchema({ test: 'test', dragger: { color: 'red' } }, schema)).toBe(res2);
+    expect(
+      fillObjectBySchema({ test: 'test', dragger: { default: { color: 'red' } } }, schema),
+    ).toBe(res2);
   });
 });
