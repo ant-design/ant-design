@@ -4,11 +4,29 @@ import type { DOMWindow } from 'jsdom';
 import { MessagePort } from 'node:worker_threads';
 import { ReadableStream } from 'node:stream/web';
 
-// @ts-ignore - Polyfill Web Streams API for jsdom 28+ / undici
-globalThis.ReadableStream = ReadableStream;
-// @ts-ignore
-globalThis.MessagePort = MessagePort;
+if (typeof globalThis.ReadableStream === 'undefined') {
+  Object.defineProperty(
+    globalThis as typeof globalThis & { ReadableStream: typeof ReadableStream },
+    'ReadableStream',
+    {
+      value: ReadableStream,
+      writable: true,
+      configurable: true,
+    },
+  );
+}
 
+if (typeof globalThis.MessagePort === 'undefined') {
+  Object.defineProperty(
+    globalThis as typeof globalThis & { MessagePort: typeof MessagePort },
+    'MessagePort',
+    {
+      value: MessagePort,
+      writable: true,
+      configurable: true,
+    },
+  );
+}
 console.log('Current React Version:', React.version);
 
 const originConsoleErr = console.error;
