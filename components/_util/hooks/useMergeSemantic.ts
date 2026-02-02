@@ -8,11 +8,6 @@ export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
-export type RemoveStringSemanticType<T extends { classNames?: any; styles?: any }> = {
-  styles?: T['styles'];
-  classNames?: RemoveClassNamesString<NonNullable<T['classNames']>>;
-};
-
 // ========================= ClassNames =========================
 export const mergeClassNames = <SemanticClassNames = any>(
   schema?: SemanticSchema,
