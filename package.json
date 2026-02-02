@@ -346,5 +346,16 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
+  },
+  "pnpm": {
+    "overrides": {
+      "@eslint-react/var": "2.9.1"
+    }
+  },
+  "overrides": {
+    "@eslint-react/var": "2.9.1"
+  },
+  "resolutions": {
+    "@eslint-react/var": "2.9.1"
   }
 }
