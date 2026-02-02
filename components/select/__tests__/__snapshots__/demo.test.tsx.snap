@@ -3010,7 +3010,7 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-search"
                   >
                     <div
-                      class="ant-select-content ant-select-content-has-value"
+                      class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
                       title="Bamboo"
                     >
                       Bamboo

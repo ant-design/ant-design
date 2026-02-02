@@ -13,7 +13,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
         title="centered"
       >
         centered
@@ -58,7 +58,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
         title="centered"
       >
         centered
@@ -84,7 +84,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
         title="centered"
       >
         centered
@@ -129,7 +129,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
         title="centered"
       >
         centered
@@ -155,7 +155,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
         title="centered"
       >
         centered
@@ -200,7 +200,7 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
         title="centered"
       >
         centered
@@ -1277,7 +1277,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
       style="width:120px;margin:0"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
         title="Lucy"
       >
         Lucy
