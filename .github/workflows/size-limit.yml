@@ -17,12 +17,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - uses: oven-sh/setup-bun@v2
       - name: size-limit
         uses: ant-design/size-limit-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          package_manager: bun
+          package_manager: npm
           build_script: dist
         env:
           NODE_OPTIONS: --max_old_space_size=4096

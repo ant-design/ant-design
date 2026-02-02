@@ -54,7 +54,7 @@
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
     "predist": "npm run version && npm run token:statistic && npm run token:meta && npm run style",
-    "dist": "npm run install-react-18 && antd-tools run dist",
+    "dist": "npm run ut-install-react-18 && antd-tools run dist",
     "format": "biome format --write .",
     "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@16",
     "ut-install-react-18": "ut i react@18 react-dom@18 @testing-library/react@16 --save-dev",
