@@ -998,9 +998,19 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });
 
-    it('should apply transition class during collapse animation', async () => {
+    it('should not apply transition class by default', async () => {
       const { container } = render(
         <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
+      );
+      await resizeSplitter();
+
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
+    });
+
+    it('should apply transition class during collapse animation', async () => {
+      const { container } = render(
+        <SplitterDemo collapseAnimation items={[{ collapsible: true }, { collapsible: true }]} />,
       );
       await resizeSplitter();
 
@@ -1017,7 +1027,7 @@ describe('Splitter', () => {
 
     it('should apply transition class during expand animation', async () => {
       const { container } = render(
-        <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
+        <SplitterDemo collapseAnimation items={[{ collapsible: true }, { collapsible: true }]} />,
       );
       await resizeSplitter();
 
@@ -1037,7 +1047,11 @@ describe('Splitter', () => {
 
     it('should apply transition class in vertical layout', async () => {
       const { container } = render(
-        <SplitterDemo layout="vertical" items={[{ collapsible: true }, { collapsible: true }]} />,
+        <SplitterDemo
+          collapseAnimation
+          layout="vertical"
+          items={[{ collapsible: true }, { collapsible: true }]}
+        />,
       );
       await resizeSplitter();
 
@@ -1052,7 +1066,10 @@ describe('Splitter', () => {
 
     it('should apply transition class to all panels with multiple panels', async () => {
       const { container } = render(
-        <SplitterDemo items={[{ collapsible: true }, {}, { collapsible: true }]} />,
+        <SplitterDemo
+          collapseAnimation
+          items={[{ collapsible: true }, {}, { collapsible: true }]}
+        />,
       );
       await resizeSplitter();
 
@@ -1067,7 +1084,7 @@ describe('Splitter', () => {
 
     it('should handle rapid collapse clicks correctly', async () => {
       const { container } = render(
-        <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
+        <SplitterDemo collapseAnimation items={[{ collapsible: true }, { collapsible: true }]} />,
       );
       await resizeSplitter();
 
@@ -1092,7 +1109,7 @@ describe('Splitter', () => {
 
     it('should not apply transition class during drag resize', async () => {
       const { container } = render(
-        <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
+        <SplitterDemo collapseAnimation items={[{ collapsible: true }, { collapsible: true }]} />,
       );
       await resizeSplitter();
 
@@ -1108,7 +1125,10 @@ describe('Splitter', () => {
 
     it('should apply transition class with min constraint', async () => {
       const { container } = render(
-        <SplitterDemo items={[{ collapsible: true, min: 50 }, { collapsible: true }]} />,
+        <SplitterDemo
+          collapseAnimation
+          items={[{ collapsible: true, min: 50 }, { collapsible: true }]}
+        />,
       );
       await resizeSplitter();
 

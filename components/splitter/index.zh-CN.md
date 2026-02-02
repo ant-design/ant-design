@@ -45,6 +45,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| collapseAnimation | 是否启用折叠动画 | boolean | false | 6.4.0 |
 | collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |

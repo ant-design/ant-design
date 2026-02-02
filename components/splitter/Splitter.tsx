@@ -29,6 +29,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     classNames,
+    collapseAnimation = false,
     style,
     styles,
     layout,
@@ -92,6 +93,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [isCollapsing, setIsCollapsing] = useState(false);
   const collapseTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   useEffect(() => () => clearTimeout(collapseTimerRef.current), []);
+  useEffect(() => {
+    if (!collapseAnimation) {
+      clearTimeout(collapseTimerRef.current);
+      setIsCollapsing(false);
+    }
+  }, [collapseAnimation]);
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
     const { offsetWidth, offsetHeight } = size;
@@ -146,9 +153,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
     clearTimeout(collapseTimerRef.current);
-    setIsCollapsing(true);
-    const durationMs = Number.parseFloat(token.motionDurationMid) * 1000;
-    collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), durationMs);
+    if (collapseAnimation) {
+      setIsCollapsing(true);
+      const durationMs = Number.parseFloat(token.motionDurationMid) * 1000;
+      collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), durationMs);
+    }
 
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);

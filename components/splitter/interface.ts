@@ -46,6 +46,7 @@ export interface SplitterProps {
   prefixCls?: string;
   className?: string;
   classNames?: SplitterClassNamesType;
+  collapseAnimation?: boolean;
   style?: React.CSSProperties;
   styles?: SplitterStylesType;
   rootClassName?: string;
