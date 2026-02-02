@@ -26,6 +26,14 @@ function finalizeDist() {
   if (fs.existsSync(path.join(__dirname, './dist'))) {
     fs.copyFileSync(restCssPath, path.join(process.cwd(), 'dist', 'reset.css'));
     fs.copyFileSync(antdCssPath, path.join(process.cwd(), 'dist', 'antd.css'));
+
+    // Print dist/antd.js content for CI debugging
+    const antdJsPath = path.join(process.cwd(), 'dist', 'antd.js');
+    if (fs.existsSync(antdJsPath)) {
+      console.log('===== dist/antd.js content =====');
+      console.log(fs.readFileSync(antdJsPath, 'utf-8'));
+      console.log('===== end of dist/antd.js =====');
+    }
   }
 }
 
