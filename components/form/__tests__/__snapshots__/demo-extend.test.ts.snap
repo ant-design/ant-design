@@ -89,14 +89,10 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                      >
-                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                      </div>
+                      longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -341,14 +337,10 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                      >
-                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                      </div>
+                      longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -2149,14 +2141,10 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                 style="width: 80px; margin: 0px 8px;"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="RMB"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    title="RMB"
-                  >
-                    RMB
-                  </div>
+                  RMB
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -5277,14 +5265,10 @@ Array [
                             class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-disabled"
                           >
                             <div
-                              class="ant-select-content"
+                              class="ant-select-content ant-select-content-has-value"
+                              title="HEX"
                             >
-                              <div
-                                class="ant-select-content-value"
-                                title="HEX"
-                              >
-                                HEX
-                              </div>
+                              HEX
                               <input
                                 aria-autocomplete="list"
                                 aria-expanded="false"
@@ -11248,14 +11232,10 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title="Zhejiang / Hangzhou / West Lake"
               >
-                <div
-                  class="ant-select-content-value"
-                  title="Zhejiang / Hangzhou / West Lake"
-                >
-                  Zhejiang / Hangzhou / West Lake
-                </div>
+                Zhejiang / Hangzhou / West Lake
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -11506,14 +11486,10 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 style="width: 70px;"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="+86"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    title="+86"
-                  >
-                    +86
-                  </div>
+                  +86
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -11747,14 +11723,10 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                 style="width: 70px;"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="$"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    title="$"
-                  >
-                    $
-                  </div>
+                  $
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -12027,14 +11999,10 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title="Male"
               >
-                <div
-                  class="ant-select-content-value"
-                  title="Male"
-                >
-                  Male
-                </div>
+                Male
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -24423,14 +24391,10 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                         >
                           <div
-                            class="ant-select-content"
+                            class="ant-select-content ant-select-content-has-value"
+                            title="HEX"
                           >
-                            <div
-                              class="ant-select-content-value"
-                              title="HEX"
-                            >
-                              HEX
-                            </div>
+                            HEX
                             <input
                               aria-autocomplete="list"
                               aria-expanded="false"
@@ -29056,14 +29020,10 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title="Option 1"
               >
-                <div
-                  class="ant-select-content-value"
-                  title="Option 1"
-                >
-                  Option 1
-                </div>
+                Option 1
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
