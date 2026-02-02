@@ -63,7 +63,7 @@ jobs:
     steps:
       # We need get PR id first
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v13
+        uses: dawidd6/action-download-artifact@v14
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -83,7 +83,7 @@ jobs:
       # Download site artifact
       - name: download site artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v13
+        uses: dawidd6/action-download-artifact@v14
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
