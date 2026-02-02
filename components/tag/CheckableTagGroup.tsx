@@ -106,7 +106,7 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
-  } = useComponentConfig('checkableTagGroup');
+  } = useComponentConfig('tag');
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-checkable-group`;

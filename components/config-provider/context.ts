@@ -37,7 +37,6 @@ import type { MenuProps } from '../menu';
 import type { ArgsProps as MessageProps } from '../message';
 import type { ModalProps } from '../modal';
 import type { ArgsProps as NotificationProps } from '../notification';
-import type { PurePanelProps } from '../notification/PurePanel';
 import type { PaginationProps } from '../pagination';
 import type { PopconfirmProps } from '../popconfirm';
 import type { PopoverProps } from '../popover';
@@ -57,7 +56,7 @@ import type { StepsProps } from '../steps';
 import type { SwitchProps } from '../switch';
 import type { TableProps } from '../table';
 import type { TabsProps } from '../tabs';
-import type { CheckableTagGroupProps, TagProps } from '../tag';
+import type { TagProps } from '../tag';
 import type { AliasToken, MappingAlgorithm, OverrideToken } from '../theme/interface';
 import type { TimePickerProps } from '../time-picker';
 import type { TimelineProps } from '../timeline';
@@ -168,9 +167,8 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<
-  RecordType extends AnyObject = AnyObject,
-> extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
@@ -267,14 +265,8 @@ export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'className
 export type NotificationConfig = ComponentStyleConfig &
   Pick<NotificationProps, 'closeIcon' | 'classNames' | 'styles'>;
 
-export type NotificationPurePanelConfig = ComponentStyleConfig &
-  Pick<PurePanelProps, 'classNames' | 'styles'>;
-
 export type TagConfig = ComponentStyleConfig &
   Pick<TagProps, 'variant' | 'closeIcon' | 'closable' | 'classNames' | 'styles'>;
-
-export type CheckableTagGroupConfig = ComponentStyleConfig &
-  Pick<CheckableTagGroupProps, 'classNames' | 'styles'>;
 
 export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
@@ -483,7 +475,6 @@ export interface ConfigComponentProps {
   avatar?: ComponentStyleConfig;
   message?: MessageConfig;
   tag?: TagConfig;
-  checkableTagGroup?: CheckableTagGroupConfig;
   table?: TableConfig;
   card?: CardConfig;
   cardMeta?: CardMetaConfig;
@@ -496,7 +487,6 @@ export interface ConfigComponentProps {
   popconfirm?: PopconfirmConfig;
   upload?: UploadConfig;
   notification?: NotificationConfig;
-  notificationPurePanel?: NotificationPurePanelConfig;
   tree?: TreeConfig;
   colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
