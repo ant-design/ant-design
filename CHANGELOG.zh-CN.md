@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 6.2.3
+
+`2026-02-02`
+
+- Button
+  - 🐞 修复 Button `defaultBg`、`defaultColor`、`defaultHoverColor` 和 `defaultActiveColor` token 不生效的问题。[#56238](https://github.com/ant-design/ant-design/pull/56238) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 修复 Button 默认 token 不生效的问题。[#56719](https://github.com/ant-design/ant-design/pull/56719) [@unknowntocka](https://github.com/unknowntocka)
+  - 🐞 修复 Button `variant="solid"` 在 Space.Compact 中边框显示异常的问题。[#56486](https://github.com/ant-design/ant-design/pull/56486) [@Pareder](https://github.com/Pareder)
+- 🐞 修复 Input.TextArea ref 缺少 `nativeElement` 属性的问题。[#56803](https://github.com/ant-design/ant-design/pull/56803) [@smith3816](https://github.com/smith3816)
+- 🐞 修复 Flex 使用 `orientation` 时默认 `align` 不生效的问题。[#55950](https://github.com/ant-design/ant-design/pull/55950) [@YingtaoMo](https://github.com/YingtaoMo)
+- 🐞 修复 Typography 链接选择器特异性过低导致样式被覆盖的问题。[#56759](https://github.com/ant-design/ant-design/pull/56759) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 ColorPicker HEX 输入框可以输入无效字符的问题。[#56752](https://github.com/ant-design/ant-design/pull/56752) [@treephesians](https://github.com/treephesians)
+
 ## 6.2.2
 
 `2026-01-26`

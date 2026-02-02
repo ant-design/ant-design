@@ -15,6 +15,19 @@ tag: vVERSION
 
 ---
 
+## 6.2.3
+
+`2026-02-01`
+
+- Button
+  - 🐞 Fix Button `defaultBg`, `defaultColor`, `defaultHoverColor` and `defaultActiveColor` tokens not taking effect. [#56238](https://github.com/ant-design/ant-design/pull/56238) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 Fix Button default tokens not taking effect. [#56719](https://github.com/ant-design/ant-design/pull/56719) [@unknowntocka](https://github.com/unknowntocka)
+  - 🐞 Fix Button `variant="solid"` borders displaying incorrectly inside Space.Compact. [#56486](https://github.com/ant-design/ant-design/pull/56486) [@Pareder](https://github.com/Pareder)
+- 🐞 Fix Input.TextArea ref missing `nativeElement` property. [#56803](https://github.com/ant-design/ant-design/pull/56803) [@smith3816](https://github.com/smith3816)
+- 🐞 Fix Flex default `align` not taking effect when using `orientation`. [#55950](https://github.com/ant-design/ant-design/pull/55950) [@YingtaoMo](https://github.com/YingtaoMo)
+- 🐞 Fix Typography link selector specificity being too low causing styles to be overridden. [#56759](https://github.com/ant-design/ant-design/pull/56759) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix ColorPicker HEX input allowing invalid characters. [#56752](https://github.com/ant-design/ant-design/pull/56752) [@treephesians](https://github.com/treephesians)
+
 ## 6.2.2
 
 `2026-01-26`
