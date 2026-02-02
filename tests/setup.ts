@@ -1,6 +1,13 @@
 import util from 'util';
 import React from 'react';
 import type { DOMWindow } from 'jsdom';
+import { MessagePort } from 'node:worker_threads';
+import { ReadableStream } from 'node:stream/web';
+
+// @ts-ignore - Polyfill Web Streams API for jsdom 28+ / undici
+globalThis.ReadableStream = ReadableStream;
+// @ts-ignore
+globalThis.MessagePort = MessagePort;
 
 console.log('Current React Version:', React.version);
 
