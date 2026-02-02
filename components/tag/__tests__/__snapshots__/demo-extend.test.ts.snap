@@ -650,7 +650,7 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-filled css-var-test-id"
-        style="background-color: rgb(232, 246, 253); color: rgb(45, 183, 245);"
+        style="background-color: rgb(231, 246, 254); color: rgb(45, 183, 245);"
       >
         #2db7f5
       </span>
@@ -662,7 +662,7 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-filled css-var-test-id"
-        style="background-color: rgb(230, 244, 254); color: rgb(16, 142, 233);"
+        style="background-color: rgb(231, 244, 253); color: rgb(16, 142, 233);"
       >
         #108ee9
       </span>
@@ -742,7 +742,7 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-outlined css-var-test-id"
-        style="background-color: rgb(232, 246, 253); color: rgb(45, 183, 245); border-color: rgb(45, 183, 245);"
+        style="background-color: rgb(231, 246, 254); color: rgb(45, 183, 245); border-color: rgb(45, 183, 245);"
       >
         #2db7f5
       </span>
@@ -754,7 +754,7 @@ Array [
       </span>
       <span
         class="ant-tag ant-tag-outlined css-var-test-id"
-        style="background-color: rgb(230, 244, 254); color: rgb(16, 142, 233); border-color: rgb(16, 142, 233);"
+        style="background-color: rgb(231, 244, 253); color: rgb(16, 142, 233); border-color: rgb(16, 142, 233);"
       >
         #108ee9
       </span>
@@ -1270,7 +1270,7 @@ Array [
   >
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
-      style="background-color: rgb(234, 243, 250); color: rgb(85, 172, 238);"
+      style="background-color: rgb(232, 244, 253); color: rgb(85, 172, 238);"
     >
       <span
         aria-label="twitter"
@@ -1297,7 +1297,7 @@ Array [
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
-      style="background-color: rgb(253, 231, 231); color: rgb(205, 32, 31);"
+      style="background-color: rgb(252, 233, 233); color: rgb(205, 32, 31);"
     >
       <span
         aria-label="youtube"
@@ -1324,7 +1324,7 @@ Array [
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
-      style="background-color: rgb(234, 239, 250); color: rgb(59, 89, 153);"
+      style="background-color: rgb(237, 240, 248); color: rgb(59, 89, 153);"
     >
       <span
         aria-label="facebook"
@@ -1351,7 +1351,7 @@ Array [
     </span>
     <span
       class="ant-tag ant-tag-filled css-var-test-id"
-      style="background-color: rgb(234, 243, 250); color: rgb(85, 172, 238);"
+      style="background-color: rgb(232, 244, 253); color: rgb(85, 172, 238);"
     >
       <span
         aria-label="linkedin"
@@ -2010,7 +2010,7 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
       class="ant-flex css-var-test-id ant-flex-gap-middle"
     >
       <span
-        class="ant-tag acss-eq4848 ant-tag-filled css-var-test-id"
+        class="ant-tag acss-1cdgefp ant-tag-filled css-var-test-id"
         style="background-color: rgb(230, 247, 255);"
       >
         <span
@@ -2043,7 +2043,7 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
         </span>
       </span>
       <span
-        class="ant-tag acss-eq4848 ant-tag-filled css-var-test-id"
+        class="ant-tag acss-1cdgefp ant-tag-filled css-var-test-id"
         style="background-color: rgb(245, 239, 255);"
       >
         <span
@@ -2082,7 +2082,7 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
     >
       <div
-        class="ant-tag-checkable-group css-var-test-id acss-eq4848"
+        class="ant-tag-checkable-group css-var-test-id acss-1cdgefp"
         style="gap: 12px; padding: 8px 12px; background-color: rgba(82, 196, 26, 0.08); border-radius: 8px;"
       >
         <span
@@ -2111,7 +2111,7 @@ exports[`renders components/tag/demo/style-class.tsx extend context correctly 1`
         </span>
       </div>
       <div
-        class="ant-tag-checkable-group css-var-test-id acss-eq4848"
+        class="ant-tag-checkable-group css-var-test-id acss-1cdgefp"
         style="gap: 16px; padding: 8px 12px; background-color: rgba(143, 135, 241, 0.08); border-radius: 8px;"
       >
         <span

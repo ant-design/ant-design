@@ -2,7 +2,7 @@ import type React from 'react';
 import { unit } from '@ant-design/cssinjs';
 
 import { getMediaSize } from '../../grid/style';
-import { genFocusStyle, resetComponent } from '../../style';
+import { genFocusOutline, genFocusStyle, resetComponent } from '../../style';
 import { initFadeMotion, initZoomMotion } from '../../style/motion';
 import type {
   AliasToken,
@@ -237,7 +237,11 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
         width: 'auto',
         maxWidth: `calc(100vw - ${unit(token.calc(token.margin).mul(2).equal())})`,
         margin: '0 auto',
-        paddingBottom: token.paddingLG,
+
+        '&:focus-visible': {
+          borderRadius: token.borderRadiusLG,
+          ...genFocusOutline(token),
+        },
 
         [`${componentCls}-title`]: {
           margin: 0,

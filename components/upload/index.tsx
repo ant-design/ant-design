@@ -9,9 +9,13 @@ export type {
   UploadFile,
   UploadListProps,
   UploadProps,
+  UploadSemanticClassNames,
+  UploadSemanticName,
+  UploadSemanticStyles,
 } from './interface';
 
 type InternalUploadType = typeof InternalUpload;
+
 type CompoundedComponent<T = any> = InternalUploadType & {
   <U extends T>(
     props: React.PropsWithChildren<UploadProps<U>> & React.RefAttributes<any>,

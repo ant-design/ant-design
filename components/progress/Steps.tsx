@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
-import type { ProgressProps, SemanticName } from './progress';
+import type { ProgressProps, ProgressSemanticClassNames, ProgressSemanticStyles } from './progress';
 import { getSize } from './utils';
 
 interface ProgressStepsProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
@@ -11,8 +10,8 @@ interface ProgressStepsProps extends Omit<ProgressProps, 'classNames' | 'styles'
   railColor?: string;
   /** @deprecated Please use `railColor` instead */
   trailColor?: string;
-  classNames: SemanticClassNames<SemanticName>;
-  styles: SemanticStyles<SemanticName>;
+  classNames: ProgressSemanticClassNames;
+  styles: ProgressSemanticStyles;
 }
 
 const Steps: React.FC<ProgressStepsProps> = (props) => {
@@ -46,9 +45,7 @@ const Steps: React.FC<ProgressStepsProps> = (props) => {
         key={i}
         className={clsx(
           `${prefixCls}-steps-item`,
-          {
-            [`${prefixCls}-steps-item-active`]: i <= current - 1,
-          },
+          { [`${prefixCls}-steps-item-active`]: i <= current - 1 },
           classNames.track,
         )}
         style={{

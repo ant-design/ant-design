@@ -21,6 +21,7 @@ exports[`Radio rtl render component should be rendered correctly in RTL directio
 exports[`Radio rtl render component should be rendered correctly in RTL direction 2`] = `
 <div
   class="ant-radio-group ant-radio-group-outline ant-radio-group-rtl css-var-root ant-radio-css-var"
+  role="radiogroup"
 />
 `;
 

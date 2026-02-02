@@ -63,6 +63,8 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
     footer,
     // Legacy for static function usage
     locale: staticLocale,
+    autoFocusButton,
+    focusable,
     ...restProps
   } = props;
 
@@ -102,7 +104,10 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
   // 默认为 true，保持向下兼容
   const mergedOkCancel = okCancel ?? type === 'confirm';
 
-  const autoFocusButton = props.autoFocusButton === null ? false : props.autoFocusButton || 'ok';
+  const mergedAutoFocusButton = React.useMemo(() => {
+    const base = focusable?.autoFocusButton || autoFocusButton;
+    return base || base === null ? base : 'ok';
+  }, [autoFocusButton, focusable?.autoFocusButton]);
 
   const [locale] = useLocale('Modal');
 
@@ -118,14 +123,14 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
 
   const memoizedValue = React.useMemo<ModalContextProps>(() => {
     return {
-      autoFocusButton,
+      autoFocusButton: mergedAutoFocusButton,
       cancelTextLocale,
       okTextLocale,
       mergedOkCancel,
       onClose,
       ...restProps,
     };
-  }, [autoFocusButton, cancelTextLocale, okTextLocale, mergedOkCancel, onClose, restProps]);
+  }, [mergedAutoFocusButton, cancelTextLocale, okTextLocale, mergedOkCancel, onClose, restProps]);
 
   // ====================== Footer Origin Node ======================
   const footerOriginNode = (
@@ -200,8 +205,6 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   const width = props.width || 416;
   const style = props.style || {};
-  // 默认为 false，保持旧版默认行为
-  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
 
   const classString = clsx(
     confirmPrefixCls,
@@ -209,6 +212,10 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     { [`${confirmPrefixCls}-rtl`]: direction === 'rtl' },
     props.className,
   );
+
+  // ========================== Mask ==========================
+  // 默认为 false，保持旧版默认行为
+  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
 
   // ========================= zIndex =========================
   const [, token] = useToken();

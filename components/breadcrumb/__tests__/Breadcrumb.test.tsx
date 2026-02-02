@@ -3,7 +3,7 @@ import React from 'react';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { render } from '../../../tests/utils';
+import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
@@ -309,6 +309,75 @@ describe('Breadcrumb', () => {
       />,
     );
     expect(document.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('should support custom dropdownIcon', () => {
+    render(
+      <Breadcrumb
+        items={[
+          {
+            title: 'test',
+            menu: {
+              items: [
+                {
+                  key: '1',
+                  label: 'label',
+                },
+              ],
+            },
+          },
+        ]}
+        dropdownIcon={<span>foobar</span>}
+      />,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should support custom dropdownIcon in ConfigProvider', () => {
+    render(
+      <ConfigProvider breadcrumb={{ dropdownIcon: <span>foobar</span> }}>
+        <Breadcrumb
+          items={[
+            {
+              title: 'test',
+              menu: {
+                items: [
+                  {
+                    key: '1',
+                    label: 'label',
+                  },
+                ],
+              },
+            },
+          ]}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('foobar')).toBeTruthy();
+  });
+
+  it('should prefer custom dropdownIcon prop than ConfigProvider', () => {
+    render(
+      <ConfigProvider breadcrumb={{ dropdownIcon: <span>foobar</span> }}>
+        <Breadcrumb
+          items={[
+            {
+              title: 'test',
+              menu: {
+                items: [
+                  {
+                    key: '1',
+                    label: 'label',
+                  },
+                ],
+              },
+            },
+          ]}
+          dropdownIcon={<span>bamboo</span>}
+        />
+      </ConfigProvider>,
+    );
+    expect(screen.getByText('bamboo')).toBeTruthy();
   });
 
   it('Breadcrumb params type test', () => {

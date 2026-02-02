@@ -15,7 +15,6 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="2016"
         >
           2016
@@ -65,7 +64,6 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Nov"
         >
           Nov
@@ -109,6 +107,7 @@ exports[`renders components/calendar/demo/basic.tsx correctly 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -948,7 +947,6 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="2016"
           >
             2016
@@ -998,7 +996,6 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Nov"
           >
             Nov
@@ -1042,6 +1039,7 @@ exports[`renders components/calendar/demo/card.tsx correctly 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -1880,7 +1878,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="2016"
           >
             2016
@@ -1930,7 +1927,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Nov"
           >
             Nov
@@ -1974,6 +1970,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2808,7 +2805,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="2016"
           >
             2016
@@ -2858,7 +2854,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Nov"
           >
             Nov
@@ -2902,6 +2897,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -3745,6 +3741,7 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
       >
         <div
           class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-test-id ant-radio-css-var"
+          role="radiogroup"
         >
           <label
             class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -3800,7 +3797,6 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
           >
             <div
               class="ant-select-content-value"
-              style="visibility:visible"
               title="2016"
             >
               2016
@@ -3850,7 +3846,6 @@ exports[`renders components/calendar/demo/customize-header.tsx correctly 1`] = `
           >
             <div
               class="ant-select-content-value"
-              style="visibility:visible"
               title="Nov"
             >
               Nov
@@ -4683,7 +4678,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="2016"
         >
           2016
@@ -4733,7 +4727,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
       >
         <div
           class="ant-select-content-value"
-          style="visibility:visible"
           title="Nov"
         >
           Nov
@@ -4777,6 +4770,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx correctly 1`] = `
     </div>
     <div
       class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -6026,7 +6020,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="2017"
           >
             2017
@@ -6076,7 +6069,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Jan"
           >
             Jan
@@ -6120,6 +6112,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -6961,7 +6954,6 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="2016"
           >
             2016
@@ -7011,7 +7003,6 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Nov"
           >
             Nov
@@ -7055,6 +7046,7 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -7889,7 +7881,6 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="2016"
           >
             2016
@@ -7939,7 +7930,6 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Nov"
           >
             Nov
@@ -7983,6 +7973,7 @@ exports[`renders components/calendar/demo/style-class.tsx correctly 1`] = `
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -8821,7 +8812,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="2016"
           >
             2016
@@ -8871,7 +8861,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Nov"
           >
             Nov
@@ -8915,6 +8904,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -9810,7 +9800,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="2016"
           >
             2016
@@ -9860,7 +9849,6 @@ Array [
         >
           <div
             class="ant-select-content-value"
-            style="visibility:visible"
             title="Nov"
           >
             Nov
@@ -9904,6 +9892,7 @@ Array [
       </div>
       <div
         class="ant-radio-group ant-radio-group-outline ant-radio-group-small ant-picker-calendar-mode-switch css-var-test-id ant-radio-css-var"
+        role="radiogroup"
       >
         <label
           class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"

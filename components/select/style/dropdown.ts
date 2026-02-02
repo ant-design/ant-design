@@ -96,7 +96,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         [selectItemCls]: {
           ...genItemStyle(token),
           cursor: 'pointer',
-          transition: `background ${token.motionDurationSlow} ease`,
+          transition: `background-color ${token.motionDurationSlow} ease`,
           borderRadius: token.borderRadiusSM,
 
           // =========== Group ============

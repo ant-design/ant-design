@@ -4,7 +4,12 @@ import genPurePanel from '../_util/PurePanel';
 import Select from '../select';
 import RefAutoComplete from './AutoComplete';
 
-export type { AutoCompleteProps } from './AutoComplete';
+export type {
+  AutoCompleteProps,
+  AutoCompleteSemanticClassNames,
+  AutoCompleteSemanticName,
+  AutoCompleteSemanticStyles,
+} from './AutoComplete';
 
 const { Option } = Select;
 
@@ -15,6 +20,7 @@ const PurePanel = genPurePanel(RefAutoComplete, 'popupAlign', (props: any) =>
 );
 
 type CompoundedComponent = typeof RefAutoComplete & {
+  /** @deprecated Please use `options` instead. */
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };

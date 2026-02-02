@@ -503,6 +503,7 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -1603,6 +1604,7 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2068,6 +2070,7 @@ Array [
   />,
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2315,7 +2318,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-descriptions acss-nk32ej ant-descriptions-small ant-descriptions-bordered css-var-test-id"
+    class="ant-descriptions acss-ven0qr ant-descriptions-small ant-descriptions-bordered css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -2405,7 +2408,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-descriptions acss-nk32ej ant-descriptions-bordered css-var-test-id"
+    class="ant-descriptions acss-ven0qr ant-descriptions-bordered css-var-test-id"
     style="border-radius: 8px; border: 1px solid rgb(205, 193, 255);"
   >
     <div

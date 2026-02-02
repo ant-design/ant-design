@@ -25,6 +25,9 @@ export interface BackTopProps {
   duration?: number;
 }
 
+/**
+ * @deprecated Please use `FloatButton.BackTop` instead.
+ */
 const BackTop: React.FC<React.PropsWithChildren<BackTopProps>> = (props) => {
   const {
     prefixCls: customizePrefixCls,

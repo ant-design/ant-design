@@ -2,13 +2,13 @@ import React from 'react';
 import { Flex, Image, theme } from 'antd';
 import type { ImageProps } from 'antd';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
-const useStyle = createStyles(() => ({
+const styles = createStaticStyles(({ css }) => ({
   cover: css`
     &.semantic-mark-active {
       opacity: 1;
@@ -52,8 +52,6 @@ const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }
   const holderRef = React.useRef<HTMLDivElement>(null);
 
   const { token } = theme.useToken();
-
-  const { styles } = useStyle();
 
   return (
     <Flex vertical align="center" style={{ minHeight: '100%', width: '100%' }}>

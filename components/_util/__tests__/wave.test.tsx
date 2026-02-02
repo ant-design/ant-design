@@ -4,10 +4,14 @@ import { clsx } from 'clsx';
 import mountTest from '../../../tests/shared/mountTest';
 import { act, fireEvent, getByText, render, waitFakeTimer } from '../../../tests/utils';
 import Checkbox from '../../checkbox';
+import { defaultPrefixCls } from '../../config-provider';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import Wave from '../wave';
 import { TARGET_CLS } from '../wave/interface';
 
 (global as any).isVisible = true;
+
+const [varName] = genCssVar(defaultPrefixCls, 'wave');
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -139,9 +143,8 @@ describe('Wave component', () => {
 
     fireEvent.click(container.querySelector('button')!);
     waitRaf();
-
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual(undefined);
+    expect(style[varName('color')]).toBe(undefined);
 
     unmount();
   });
@@ -159,7 +162,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
+    expect(style[varName('color')]).toBe('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -175,7 +178,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(0, 0, 255)');
+    expect(style[varName('color')]).toBe('rgb(0, 0, 255)');
 
     unmount();
   });
@@ -191,7 +194,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(0, 128, 0)');
+    expect(style[varName('color')]).toBe('rgb(0, 128, 0)');
 
     unmount();
   });
@@ -207,7 +210,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(255, 255, 0)');
+    expect(style[varName('color')]).toBe('rgb(255, 255, 0)');
 
     unmount();
   });
@@ -288,7 +291,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
+    expect(style[varName('color')]).toBe('rgb(255, 0, 0)');
 
     unmount();
   });
@@ -306,7 +309,7 @@ describe('Wave component', () => {
     waitRaf();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('red');
+    expect(style[varName('color')]).toBe('red');
 
     unmount();
   });
@@ -374,7 +377,7 @@ describe('Wave component', () => {
     expect(document.querySelector('.ant-wave')).toBeTruthy();
 
     const style = getWaveStyle();
-    expect(style['--wave-color']).toEqual('rgb(255, 0, 0)');
+    expect(style[varName('color')]).toBe('rgb(255, 0, 0)');
 
     unmount();
   });

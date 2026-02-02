@@ -4,12 +4,7 @@ import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
@@ -42,7 +37,7 @@ function getOffsetTop(element: HTMLElement, container: AnchorContainer): number 
 
   if (rect.width || rect.height) {
     if (container === window) {
-      return rect.top - element.ownerDocument!.documentElement!.clientTop;
+      return rect.top - element.ownerDocument.documentElement!.clientTop;
     }
     return rect.top - (container as HTMLElement).getBoundingClientRect().top;
   }
@@ -57,9 +52,26 @@ interface Section {
   top: number;
 }
 
-type SemanticName = 'root' | 'item' | 'itemTitle' | 'indicator';
-export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, SemanticName>;
-export type AnchorStylesType = SemanticStylesType<AnchorProps, SemanticName>;
+export type AnchorSemanticName = keyof AnchorSemanticClassNames & keyof AnchorSemanticStyles;
+
+export type AnchorSemanticClassNames = {
+  root?: string;
+  item?: string;
+  itemTitle?: string;
+  indicator?: string;
+};
+
+export type AnchorSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+  indicator?: React.CSSProperties;
+};
+
+export type AnchorClassNamesType = SemanticClassNamesType<AnchorProps, AnchorSemanticClassNames>;
+
+export type AnchorStylesType = SemanticStylesType<AnchorProps, AnchorSemanticStyles>;
+
 export interface AnchorProps {
   prefixCls?: string;
   className?: string;
@@ -114,8 +126,8 @@ export interface AntAnchor {
     link: { title: React.ReactNode; href: string },
   ) => void;
   direction: AnchorDirection;
-  classNames?: SemanticClassNames<SemanticName>;
-  styles?: SemanticStyles<SemanticName>;
+  classNames?: AnchorSemanticClassNames;
+  styles?: AnchorSemanticStyles;
 }
 
 const Anchor: React.FC<AnchorProps> = (props) => {

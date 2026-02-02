@@ -1,7 +1,21 @@
 import InternalBadge from './Badge';
 import Ribbon from './Ribbon';
 
-export type { BadgeClassNamesType, BadgeProps, BadgeStylesType } from './Badge';
+export type {
+  BadgeClassNamesType,
+  BadgeProps,
+  BadgeSemanticClassNames,
+  BadgeSemanticName,
+  BadgeSemanticStyles,
+  BadgeStylesType,
+} from './Badge';
+
+export type {
+  RibbonProps,
+  RibbonSemanticClassNames,
+  RibbonSemanticName,
+  RibbonSemanticStyles,
+} from './Ribbon';
 
 export type { ScrollNumberProps } from './ScrollNumber';
 

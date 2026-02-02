@@ -10,6 +10,7 @@ import Button from '../../button';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
 import type { AlertProps, AlertRef } from '../Alert';
+import ConfigProvider from 'antd/es/config-provider';
 
 const { resetWarned } = warning;
 
@@ -287,5 +288,14 @@ describe('Alert', () => {
     expect(descriptionElement).toHaveStyle({ fontSize: customStyles.description?.fontSize });
     expect(actionElement).toHaveStyle({ color: customStyles.actions?.color });
     expect(closeElement).toHaveStyle({ color: customStyles.close?.color });
+  });
+
+  it('should support custom success icon', () => {
+    render(
+      <ConfigProvider alert={{ successIcon: 'foobar' }}>
+        <Alert title="Success Tips" type="success" showIcon />
+      </ConfigProvider>,
+    );
+    expect(screen.getByRole('alert')).toHaveTextContent(/foobar/i);
   });
 });

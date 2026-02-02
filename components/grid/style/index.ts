@@ -3,6 +3,7 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
@@ -98,7 +99,10 @@ const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
 };
 
 const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObject => {
-  const { prefixCls, componentCls, gridColumns } = token;
+  const { componentCls, gridColumns, antCls } = token;
+
+  const [gridVarName, gridVarRef] = genCssVar(antCls, 'grid');
+  const [, colVarRef] = genCssVar(antCls, 'col');
 
   const gridColumnsStyle: CSSObject = {};
   for (let i = gridColumns; i >= 0; i--) {
@@ -130,12 +134,12 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
         // Form set `display: flex` on Col which will override `display: block`.
         // Let's get it from css variable to support override.
         {
-          ['--ant-display' as any]: 'block',
+          [gridVarName('display')]: 'block',
           // Fallback to display if variable not support
           display: 'block',
         },
         {
-          display: 'var(--ant-display)',
+          display: gridVarRef('display'),
           flex: `0 0 ${(i / gridColumns) * 100}%`,
           maxWidth: `${(i / gridColumns) * 100}%`,
         },
@@ -157,7 +161,7 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
 
   // Flex CSS Var
   gridColumnsStyle[`${componentCls}${sizeCls}-flex`] = {
-    flex: `var(--${prefixCls}${sizeCls}-flex)`,
+    flex: colVarRef(`${sizeCls.replace(/-/, '')}-flex`),
   };
 
   return gridColumnsStyle;
@@ -204,14 +208,13 @@ export const useColStyle = genStyleHooks(
     });
     const gridMediaSizesMap: Record<string, number> = getMediaSize(gridToken);
     delete gridMediaSizesMap.xs;
-
     return [
       genGridColStyle(gridToken),
       genGridStyle(gridToken, ''),
       genGridStyle(gridToken, '-xs'),
       Object.keys(gridMediaSizesMap)
         .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key], `-${key}`))
-        .reduce((pre, cur) => ({ ...pre, ...cur }), {}),
+        .reduce<CSSObject>((pre, cur) => ({ ...pre, ...cur }), {}),
     ];
   },
   prepareColComponentToken,

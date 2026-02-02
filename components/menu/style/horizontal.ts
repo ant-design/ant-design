@@ -43,9 +43,10 @@ const getHorizontalStyle: GenerateStyle<MenuToken> = (token) => {
       },
 
       [`${componentCls}-item, ${componentCls}-submenu-title`]: {
-        transition: [`border-color ${motionDurationSlow}`, `background ${motionDurationSlow}`].join(
-          ',',
-        ),
+        transition: [
+          `border-color ${motionDurationSlow}`,
+          `background-color ${motionDurationSlow}`,
+        ].join(','),
       },
 
       // ===================== Sub Menu =====================

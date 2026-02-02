@@ -13,11 +13,7 @@ import type { AvatarContextType, AvatarSize } from './AvatarContext';
 import AvatarContext from './AvatarContext';
 import useStyle from './style';
 
-interface ContextProps {
-  children?: React.ReactNode;
-}
-
-const AvatarContextProvider: React.FC<AvatarContextType & ContextProps> = (props) => {
+const AvatarContextProvider: React.FC<React.PropsWithChildren<AvatarContextType>> = (props) => {
   const { size, shape } = React.useContext<AvatarContextType>(AvatarContext);
   const avatarContextValue = React.useMemo<AvatarContextType>(
     () => ({ size: props.size || size, shape: props.shape || shape }),

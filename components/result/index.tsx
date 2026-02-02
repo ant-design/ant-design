@@ -3,8 +3,8 @@ import CheckCircleFilled from '@ant-design/icons/CheckCircleFilled';
 import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import WarningFilled from '@ant-design/icons/WarningFilled';
-import { clsx } from 'clsx';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
+import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic } from '../_util/hooks';
@@ -33,11 +33,29 @@ export type ExceptionStatusType = 403 | 404 | 500 | '403' | '404' | '500';
 
 export type ResultStatusType = ExceptionStatusType | keyof typeof IconMap;
 
-type SemanticName = 'root' | 'title' | 'subTitle' | 'body' | 'extra' | 'icon';
+export type ResultSemanticName = keyof ResultSemanticClassNames & keyof ResultSemanticStyles;
 
-export type ResultClassNamesType = SemanticClassNamesType<ResultProps, SemanticName>;
+export type ResultSemanticClassNames = {
+  root?: string;
+  title?: string;
+  subTitle?: string;
+  body?: string;
+  extra?: string;
+  icon?: string;
+};
 
-export type ResultStylesType = SemanticStylesType<ResultProps, SemanticName>;
+export type ResultSemanticStyles = {
+  root?: React.CSSProperties;
+  title?: React.CSSProperties;
+  subTitle?: React.CSSProperties;
+  body?: React.CSSProperties;
+  extra?: React.CSSProperties;
+  icon?: React.CSSProperties;
+};
+
+export type ResultClassNamesType = SemanticClassNamesType<ResultProps, ResultSemanticClassNames>;
+
+export type ResultStylesType = SemanticStylesType<ResultProps, ResultSemanticStyles>;
 
 export interface ResultProps extends HTMLAriaDataAttributes {
   icon?: React.ReactNode;
@@ -74,7 +92,6 @@ interface IconProps {
 const Icon: React.FC<IconProps> = ({ icon, status, className, style }) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Result');
-
     warning(
       !(typeof icon === 'string' && icon.length > 2),
       'breaking',

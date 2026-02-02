@@ -54,6 +54,7 @@ return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| dropdownIcon | 自定义下拉图标 | ReactNode | `<DownOutlined />` | 6.2.0 |
 | itemRender | 自定义链接函数，和 react-router 配置使用 | (route, params, routes, paths) => ReactNode | - |  |
 | params | 路由的参数 | object | - |  |
 | items | 路由栈信息 | [items\[\]](#itemtype) | - | 5.3.0 |

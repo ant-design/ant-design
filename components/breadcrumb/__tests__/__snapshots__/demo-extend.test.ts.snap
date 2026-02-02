@@ -881,12 +881,12 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
 >
   <nav
     aria-label="Breadcrumb with Object"
-    class="ant-breadcrumb acss-lz3q7n css-var-test-id"
+    class="ant-breadcrumb acss-14g82y5 css-var-test-id"
     style="border: 1px solid rgb(240, 240, 240); padding: 8px; border-radius: 4px;"
   >
     <ol>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-11xwyle"
         style="color: rgb(24, 144, 255);"
       >
         <span
@@ -897,13 +897,13 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator acss-t9kin8"
+        class="ant-breadcrumb-separator acss-1qxitnl"
         style="color: rgba(0, 0, 0, 0.45);"
       >
         /
       </li>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-11xwyle"
         style="color: rgb(24, 144, 255);"
       >
         <span
@@ -920,12 +920,12 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
   </nav>
   <nav
     aria-label="Breadcrumb with Function"
-    class="ant-breadcrumb acss-lz3q7n css-var-test-id"
+    class="ant-breadcrumb acss-14g82y5 css-var-test-id"
     style="border: 1px solid rgb(245, 239, 255); padding: 8px; border-radius: 4px;"
   >
     <ol>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-11xwyle"
         style="color: rgb(143, 135, 241);"
       >
         <span
@@ -936,12 +936,12 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator acss-t9kin8"
+        class="ant-breadcrumb-separator acss-1qxitnl"
       >
         /
       </li>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-11xwyle"
         style="color: rgb(143, 135, 241);"
       >
         <span
@@ -956,12 +956,12 @@ exports[`renders components/breadcrumb/demo/style-class.tsx extend context corre
       </li>
       <li
         aria-hidden="true"
-        class="ant-breadcrumb-separator acss-t9kin8"
+        class="ant-breadcrumb-separator acss-1qxitnl"
       >
         /
       </li>
       <li
-        class="ant-breadcrumb-item acss-3btzkp"
+        class="ant-breadcrumb-item acss-11xwyle"
         style="color: rgb(143, 135, 241);"
       >
         <span

@@ -4,6 +4,7 @@ import RCPicker from '@rc-component/picker';
 import type { PickerRef } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/generate/index';
 import type { PickerMode } from '@rc-component/picker/interface';
+import { merge } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
@@ -35,8 +36,13 @@ import {
   YEAR,
   YEARPICKER,
 } from './constant';
-import type { GenericTimePickerProps, PickerProps, PickerPropsWithMultiple } from './interface';
-import SuffixIcon from './SuffixIcon';
+import type {
+  GenericTimePickerProps,
+  PickerLocale,
+  PickerProps,
+  PickerPropsWithMultiple,
+} from './interface';
+import useSuffixIcon from './useSuffixIcon';
 import useComponents from './useComponents';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
@@ -172,12 +178,16 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const mergedSuffixIcon = (
-        <SuffixIcon {...{ picker: mergedPicker, hasFeedback, feedbackIcon, suffixIcon }} />
-      );
+      const mergedSuffixIcon = useSuffixIcon({
+        picker: mergedPicker,
+        hasFeedback,
+        feedbackIcon,
+        suffixIcon,
+      });
       const [contextLocale] = useLocale('DatePicker', enUS);
 
-      const locale = { ...contextLocale, ...props.locale! };
+      const locale = merge(contextLocale, (props.locale || {}) as PickerLocale);
+
       // ============================ zIndex ============================
       const [zIndex] = useZIndex('DatePicker', mergedStyles?.popup?.root?.zIndex as number);
       return (

@@ -3,10 +3,14 @@ import { removeCSS, updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
 
 import theme from '../../components/theme';
 
+const duration = 0.5;
 const viewTransitionStyle = `
+@keyframes keepAlive {100% { z-index: -1 }}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: none;
+  animation: keepAlive ${duration}s linear;
+  animation-fill-mode: forwards;
   mix-blend-mode: normal;
 }
 
@@ -50,7 +54,7 @@ const useThemeAnimation = () => {
           clipPath: isDark ? [...clipPath].reverse() : clipPath,
         },
         {
-          duration: 500,
+          duration: duration * 1000,
           easing: 'ease-in',
           pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
         },

@@ -45,7 +45,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
     prefixCls,
     hashId,
     cssVarCls,
-    createFlexClassNames(prefixCls, props),
+    createFlexClassNames(prefixCls, { ...props, vertical: mergedVertical }),
     {
       [`${prefixCls}-rtl`]: ctxDirection === 'rtl',
       [`${prefixCls}-gap-${gap}`]: isPresetSize(gap),

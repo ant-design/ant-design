@@ -20,7 +20,7 @@ import {
   theme,
   Typography,
 } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
 import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
@@ -92,7 +92,7 @@ const locales = {
 };
 
 // ============================= Style =============================
-const useStyle = createStyles(({ cssVar, css, cx }) => {
+const styles = createStaticStyles(({ cssVar, css, cx }) => {
   const { carousel } = getCarouselStyle();
   const demo = css`
     overflow: hidden;
@@ -345,7 +345,6 @@ function rgbToColorMatrix(color: string) {
 }
 
 const Theme: React.FC = () => {
-  const { styles } = useStyle();
   const [locale, lang] = useLocale(locales);
   const isZhCN = lang === 'cn';
   const { search } = useLocation();

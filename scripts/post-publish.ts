@@ -33,13 +33,18 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
 
   // git tag
   const spinner = ora(chalk.cyan(`Tagging ${packageVersion}`)).start();
-  execSync(`git tag ${packageVersion}`);
-  execSync(`git push origin ${packageVersion}:${packageVersion}`);
-  spinner.succeed(
-    chalk.cyan(
-      `Tagged ${packageVersion} 📦: https://github.com/ant-design/ant-design/releases/tag/${packageVersion}`,
-    ),
-  );
+  try {
+    execSync(`git tag ${packageVersion}`);
+    execSync(`git push origin ${packageVersion}:${packageVersion}`);
+    spinner.succeed(
+      chalk.cyan(
+        `Tagged ${packageVersion} 📦: https://github.com/ant-design/ant-design/releases/tag/${packageVersion}`,
+      ),
+    );
+  } catch (error) {
+    spinner.fail(chalk.red('Git Tagging Failed!'));
+    console.log(error);
+  }
   console.log();
 
   const { time, 'dist-tags': distTags } = await fetch('http://registry.npmjs.org/antd').then(
@@ -99,7 +104,7 @@ const SAFE_DAYS_DIFF = 1000 * 60 * 60 * 24 * 3; // 3 days not update seems to be
   let defaultVersion = defaultVersionObj ? defaultVersionObj.value : null;
 
   // If default version is less than current, use current
-  if (semver.compare(defaultVersion ?? '', distTags[CONCH_TAG]) < 0) {
+  if (distTags[CONCH_TAG] && semver.compare(defaultVersion ?? '', distTags[CONCH_TAG]) < 0) {
     defaultVersion = distTags[CONCH_TAG];
   }
 

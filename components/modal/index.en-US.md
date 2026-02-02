@@ -59,9 +59,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | confirmLoading | Whether to apply loading visual effect for OK button or not | boolean | false |  |
 | ~~destroyOnClose~~ | Whether to unmount child components on onClose | boolean | false |  |
 | destroyOnHidden | Whether to unmount child components on onClose | boolean | false | 5.25.0 |
-| focusTriggerAfterClose | Whether need to focus trigger element after dialog is closed | boolean | true | 4.9.0 |
+| ~~focusTriggerAfterClose~~ | Whether need to focus trigger element after dialog is closed. Please use `focusable.focusTriggerAfterClose` instead | boolean | true | 4.9.0 |
 | footer | Footer content, set as `footer={null}` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | (OK and Cancel buttons) | renderFunction: 5.9.0 |
 | forceRender | Force render Modal | boolean | false |  |
+| focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | mask | Mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
@@ -103,7 +104,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterClose | Specify a function that will be called when modal is closed completely | function | - | 4.9.0 |
-| autoFocusButton | Specify which button to autofocus | null \| `ok` \| `cancel` | `ok` |  |
+| ~~autoFocusButton~~ | Specify which button to autofocus. Please use `focusable.autoFocusButton` instead | null \| `ok` \| `cancel` | `ok` |  |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | Text of the Cancel button with Modal.confirm | string | `Cancel` |  |
 | centered | Centered Modal | boolean | false |  |
@@ -111,6 +112,7 @@ The items listed above are all functions, expecting a settings object as paramet
 | closable | Whether a close (x) button is visible on top right of the confirm dialog or not | boolean \| [ClosableType](#closabletype) | false | - |
 | closeIcon | Custom close icon | ReactNode | undefined | 4.9.0 |
 | content | Content | ReactNode | - |  |
+| focusable.autoFocusButton | Specify which button to autofocus | null \| `ok` \| `cancel` | `ok` | 6.2.0 |
 | footer | Footer content, set as `footer: null` when you don't need default buttons | ReactNode \| (originNode: ReactNode, extra: { OkBtn: React.FC, CancelBtn: React.FC }) => ReactNode | - | renderFunction: 5.9.0 |
 | getContainer | Return the mount node for Modal | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | Custom icon | ReactNode | &lt;ExclamationCircleFilled /> |  |

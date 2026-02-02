@@ -1406,6 +1406,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1507,6 +1508,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1608,6 +1610,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1687,6 +1690,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -1810,6 +1814,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5326,6 +5331,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5427,6 +5433,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5528,6 +5535,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5607,6 +5615,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -5730,6 +5739,7 @@ Array [
             >
               <div
                 class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+                role="radiogroup"
               >
                 <label
                   class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
@@ -7494,7 +7504,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7523,7 +7533,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7552,7 +7562,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7581,7 +7591,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7610,7 +7620,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7639,7 +7649,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7668,7 +7678,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7697,7 +7707,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7726,7 +7736,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7755,7 +7765,7 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <a
-                      class="ant-typography css-var-test-id"
+                      class="ant-typography ant-typography-link css-var-test-id"
                     >
                       Edit
                     </a>
@@ -7948,7 +7958,6 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
             >
               <div
                 class="ant-select-content-value"
-                style="visibility:visible"
                 title="10 / page"
               >
                 10 / page
@@ -12642,7 +12651,6 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
             >
               <div
                 class="ant-select-content-value"
-                style="visibility:visible"
                 title="10 / page"
               >
                 10 / page
@@ -14648,7 +14656,6 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
             >
               <div
                 class="ant-select-content-value"
-                style="visibility:visible"
                 title="50 / page"
               >
                 50 / page
@@ -15609,7 +15616,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -15790,7 +15797,6 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
             >
               <div
                 class="ant-select-content-value"
-                style="visibility:visible"
                 title="10 / page"
               >
                 10 / page
@@ -16241,6 +16247,7 @@ Array [
   </div>,
   <div
     class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
   >
     <label
       class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
@@ -17719,7 +17726,7 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="false"
@@ -17949,7 +17956,6 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
               >
                 <div
                   class="ant-select-content-value"
-                  style="visibility:visible"
                   title="10 / page"
                 >
                   10 / page
@@ -19679,7 +19685,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20337,7 +20343,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -20798,6 +20804,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
   <div>
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
       style="margin-bottom:10px"
     >
       <label
@@ -20893,6 +20900,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:10px"
   >
     <label
@@ -22059,6 +22067,7 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
 <div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -26815,7 +26824,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -27026,7 +27035,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -28319,7 +28328,6 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
             >
               <div
                 class="ant-select-content-value"
-                style="visibility:visible"
                 title="10 / page"
               >
                 10 / page
@@ -28373,7 +28381,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-6e6dke"
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1s9zu93"
     style="padding:10px;border-radius:8px"
   >
     <div
@@ -28518,7 +28526,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
           style="padding:10px"
         >
           <li
@@ -28606,7 +28614,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
     </div>
   </div>
   <div
-    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-6e6dke"
+    class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1s9zu93"
     style="color:#e0e0e0;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3)"
   >
     <div
@@ -28757,7 +28765,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
           style="padding:10px"
         >
           <li

@@ -390,7 +390,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       cursor: 'pointer',
       transition: [
         `color ${motionDurationMid}`,
-        `background ${motionDurationMid}`,
+        `background-color ${motionDurationMid}`,
         `box-shadow ${motionDurationMid}`,
       ].join(','),
 

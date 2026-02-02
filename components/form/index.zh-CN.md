@@ -554,7 +554,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | pattern | 正则表达式匹配 | RegExp |  |
 | required | 是否为必选字段 | boolean |  |
 | transform | 将字段值转换成目标值后进行校验 | (value) => any |  |
-| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email`。更多请参考[此处](https://github.com/react-component/async-validator#type) | string |  |
+| type | 类型，常见有 `string` \|`number` \|`boolean` \|`url` \| `email` \| `tel`。更多请参考[此处](https://github.com/react-component/async-validator#type) | string |  |
 | validateTrigger | 设置触发验证时机，必须是 Form.Item 的 `validateTrigger` 的子集 | string \| string\[] |  |
 | validator | 自定义校验，接收 Promise 作为返回值。[示例](#form-demo-register)参考 | ([rule](#rule), value) => Promise |  |
 | warningOnly | 仅警告，不阻塞表单提交 | boolean | 4.17.0 |
@@ -576,6 +576,10 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 <ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
+
+### Segmented 为什么不能被 Form `disabled` 禁用? {#faq-segmented-cannot-disabled}
+
+Segmented 设计上为数据展示类组件，而非表单控件组件。虽然它可以作为类似 Radio 的表单控件使用，但并非为此设计。因而行为上更类似于 Tabs 组件，不会被 Form 的 `disabled` 所禁用。相关讨论参考 [#54749](https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096)。
 
 ### Switch、Checkbox 为什么不能绑定数据？ {#faq-switch-checkbox-binding}
 

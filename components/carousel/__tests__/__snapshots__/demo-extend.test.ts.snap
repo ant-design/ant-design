@@ -1144,6 +1144,7 @@ exports[`renders components/carousel/demo/placement.tsx extend context correctly
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom: 8px;"
   >
     <label

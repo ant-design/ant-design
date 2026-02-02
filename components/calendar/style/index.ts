@@ -196,7 +196,7 @@ export const genCalendarStyles = (token: CalendarToken): CSSObject => {
         border: 0,
         borderTop: `${unit(token.lineWidthBold)} ${token.lineType} ${token.colorSplit}`,
         borderRadius: 0,
-        transition: `background ${token.motionDurationSlow}`,
+        transition: `background-color ${token.motionDurationSlow}`,
         '&-value': {
           lineHeight: unit(token.dateValueHeight),
           transition: `color ${token.motionDurationSlow}`,

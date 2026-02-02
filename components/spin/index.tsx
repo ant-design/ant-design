@@ -11,17 +11,35 @@ import useStyle from './style/index';
 import usePercent from './usePercent';
 
 const _SpinSizes = ['small', 'default', 'large'] as const;
-export type SpinSize = (typeof _SpinSizes)[number];
-export type SpinIndicator = React.ReactElement<HTMLElement>;
-type SemanticName = 'root' | 'wrapper' | 'mask' | 'indicator' | 'tip';
 
-export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SemanticName>;
+export type SpinSize = (typeof _SpinSizes)[number];
+
+export type SpinIndicator = React.ReactElement<HTMLElement>;
+
+export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemanticStyles;
+
+export type SpinSemanticClassNames = {
+  root?: string;
+  wrapper?: string;
+  mask?: string;
+  indicator?: string;
+  tip?: string;
+};
+
+export type SpinSemanticStyles = {
+  root?: React.CSSProperties;
+  wrapper?: React.CSSProperties;
+  mask?: React.CSSProperties;
+  indicator?: React.CSSProperties;
+  tip?: React.CSSProperties;
+};
+
+export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticClassNames>;
+
 export type SpinStylesType = SemanticStylesType<
   SpinProps,
-  SemanticName,
-  {
-    wrapper?: React.CSSProperties;
-  }
+  SpinSemanticStyles,
+  { wrapper?: React.CSSProperties }
 >;
 
 export interface SpinProps {

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Button, message, Space } from 'antd';
 import type { MessageArgsProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(() => ({
-  icon: { fontSize: 14 },
+const messageClassNames = createStaticStyles(({ css }) => ({
+  icon: css`
+    font-size: 14px;
+  `,
 }));
 
 const stylesObject: MessageArgsProps['styles'] = {
@@ -26,14 +28,13 @@ const stylesFn: MessageArgsProps['styles'] = ({ props }) => {
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
   const [messageApi, contextHolder] = message.useMessage();
 
   const showObjectStyle = () => {
     messageApi.open({
       type: 'info',
       content: 'This is a message with object classNames and styles',
-      classNames: styles,
+      classNames: messageClassNames,
       styles: stylesObject,
     });
   };
@@ -42,7 +43,7 @@ const App: React.FC = () => {
     messageApi.open({
       type: 'success',
       content: 'This is a message with function classNames and styles',
-      classNames: styles,
+      classNames: messageClassNames,
       styles: stylesFn,
       duration: 60 * 1000,
     });

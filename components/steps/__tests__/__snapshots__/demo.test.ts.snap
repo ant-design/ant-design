@@ -4,7 +4,7 @@ exports[`renders components/steps/demo/clickable.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -130,7 +130,7 @@ Array [
   />,
   <div
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -257,7 +257,7 @@ exports[`renders components/steps/demo/component-token.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -393,7 +393,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -529,7 +529,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active"
@@ -719,7 +719,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-dot css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -817,7 +817,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -969,7 +969,7 @@ Array [
 exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-dot css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -1102,7 +1102,7 @@ exports[`renders components/steps/demo/customized-progress-dot.tsx correctly 1`]
 exports[`renders components/steps/demo/error.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -1250,7 +1250,7 @@ exports[`renders components/steps/demo/error.tsx correctly 1`] = `
 exports[`renders components/steps/demo/icon.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <div
     class="ant-steps-item ant-steps-item-finish ant-steps-item-custom ant-steps-item-active"
@@ -1491,7 +1491,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
           </div>
           <div
             class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-            style="--steps-items-offset:0;margin-top:8px"
+            style="--ant-cmp-steps-items-offset:0;margin-top:8px"
           >
             <div
               class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -1626,7 +1626,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
           </div>
           <div
             class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-            style="--steps-items-offset:0;margin-top:8px"
+            style="--ant-cmp-steps-items-offset:0;margin-top:8px"
           >
             <div
               class="ant-steps-item ant-steps-item-finish"
@@ -1761,7 +1761,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
           </div>
           <div
             class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-            style="--steps-items-offset:0;margin-top:8px"
+            style="--ant-cmp-steps-items-offset:0;margin-top:8px"
           >
             <div
               class="ant-steps-item ant-steps-item-finish"
@@ -1896,7 +1896,7 @@ exports[`renders components/steps/demo/inline.tsx correctly 1`] = `
           </div>
           <div
             class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-            style="--steps-items-offset:0;margin-top:8px"
+            style="--ant-cmp-steps-items-offset:0;margin-top:8px"
           >
             <div
               class="ant-steps-item ant-steps-item-finish"
@@ -2005,7 +2005,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -2197,7 +2197,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -2403,7 +2403,7 @@ exports[`renders components/steps/demo/inline-variant.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-inline ant-steps-dot css-var-test-id"
-    style="--steps-items-offset:2"
+    style="--ant-cmp-steps-items-offset:2"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -2526,7 +2526,7 @@ exports[`renders components/steps/demo/nav.tsx correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -2680,7 +2680,7 @@ exports[`renders components/steps/demo/nav.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -2836,7 +2836,7 @@ exports[`renders components/steps/demo/nav.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish ant-steps-item-active"
@@ -3011,7 +3011,7 @@ exports[`renders components/steps/demo/panel.tsx correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-panel css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -3193,7 +3193,7 @@ exports[`renders components/steps/demo/panel.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined ant-steps-panel ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -3379,7 +3379,7 @@ exports[`renders components/steps/demo/panel.tsx correctly 1`] = `
 exports[`renders components/steps/demo/progress.tsx correctly 1`] = `
 <div
   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-with-progress css-var-test-id"
-  style="--steps-items-offset:0"
+  style="--ant-cmp-steps-items-offset:0"
 >
   <div
     class="ant-steps-item ant-steps-item-finish"
@@ -3460,7 +3460,7 @@ exports[`renders components/steps/demo/progress.tsx correctly 1`] = `
           />
           <circle
             class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-            stroke-dasharray="calc(var(--progress-r) * 2 * 1.8849555921538756) 9999"
+            stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 1.8849555921538756) 9999"
             transform="rotate(-90 50 50)"
           />
         </svg>
@@ -3602,7 +3602,7 @@ Array [
   <br />,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-with-progress css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -3683,7 +3683,7 @@ Array [
             />
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-              stroke-dasharray="calc(var(--progress-r) * 2 * 0) 9999"
+              stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 0) 9999"
               transform="rotate(-90 50 50)"
             />
           </svg>
@@ -3760,7 +3760,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-with-progress ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -3841,7 +3841,7 @@ Array [
             />
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-              stroke-dasharray="calc(var(--progress-r) * 2 * 0) 9999"
+              stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 0) 9999"
               transform="rotate(-90 50 50)"
             />
           </svg>
@@ -3918,7 +3918,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-with-progress css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -3999,7 +3999,7 @@ Array [
             />
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-              stroke-dasharray="calc(var(--progress-r) * 2 * 0) 9999"
+              stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 0) 9999"
               transform="rotate(-90 50 50)"
             />
           </svg>
@@ -4076,7 +4076,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-with-progress ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4157,7 +4157,7 @@ Array [
             />
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-              stroke-dasharray="calc(var(--progress-r) * 2 * 0) 9999"
+              stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 0) 9999"
               transform="rotate(-90 50 50)"
             />
           </svg>
@@ -4242,7 +4242,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-dot css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4340,7 +4340,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4445,7 +4445,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot css-var-test-id"
-      style="--steps-items-offset:0;flex:auto"
+      style="--ant-cmp-steps-items-offset:0;flex:auto"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -4543,7 +4543,7 @@ exports[`renders components/steps/demo/progress-dot.tsx correctly 1`] = `
     </div>
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot css-var-test-id"
-      style="--steps-items-offset:0;flex:auto"
+      style="--ant-cmp-steps-items-offset:0;flex:auto"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -4649,7 +4649,7 @@ exports[`renders components/steps/demo/simple.tsx correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4785,7 +4785,7 @@ exports[`renders components/steps/demo/simple.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -4921,7 +4921,7 @@ exports[`renders components/steps/demo/simple.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -5057,7 +5057,7 @@ exports[`renders components/steps/demo/simple.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -5198,7 +5198,7 @@ exports[`renders components/steps/demo/step-next.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -5321,6 +5321,7 @@ exports[`renders components/steps/demo/steps-in-steps.tsx correctly 1`] = `
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
     style="margin-bottom:16px"
   >
     <label
@@ -5371,7 +5372,7 @@ Array [
   </div>,
   <div
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-default css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -5414,7 +5415,7 @@ Array [
               >
                 <div
                   class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-default css-var-test-id"
-                  style="--steps-items-offset:0"
+                  style="--ant-cmp-steps-items-offset:0"
                 >
                   <div
                     class="ant-steps-item ant-steps-item-process ant-steps-item-active"
@@ -5617,7 +5618,7 @@ exports[`renders components/steps/demo/style-class.tsx correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id acss-1tcbvg1"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -5753,7 +5754,7 @@ exports[`renders components/steps/demo/style-class.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-navigation css-var-test-id acss-1tcbvg1"
-    style="--steps-items-offset:0;border-color:#1890ff"
+    style="--ant-cmp-steps-items-offset:0;border-color:#1890ff"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -5888,7 +5889,7 @@ exports[`renders components/steps/demo/title-placement.tsx correctly 1`] = `
 Array [
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-ellipsis css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -6019,7 +6020,7 @@ Array [
   <br />,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-with-progress css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -6100,7 +6101,7 @@ Array [
             />
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-              stroke-dasharray="calc(var(--progress-r) * 2 * 1.8849555921538756) 9999"
+              stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 1.8849555921538756) 9999"
               transform="rotate(-90 50 50)"
             />
           </svg>
@@ -6172,7 +6173,7 @@ Array [
   <br />,
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-filled ant-steps-with-progress ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -6253,7 +6254,7 @@ Array [
             />
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-              stroke-dasharray="calc(var(--progress-r) * 2 * 2.5132741228718345) 9999"
+              stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 2.5132741228718345) 9999"
               transform="rotate(-90 50 50)"
             />
           </svg>
@@ -6331,7 +6332,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -6482,7 +6483,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -6633,7 +6634,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -6784,7 +6785,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-outlined ant-steps-with-progress ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -6869,7 +6870,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
             />
             <circle
               class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-              stroke-dasharray="calc(var(--progress-r) * 2 * 1.8849555921538756) 9999"
+              stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 1.8849555921538756) 9999"
               transform="rotate(-90 50 50)"
             />
           </svg>
@@ -6945,7 +6946,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-with-progress css-var-test-id"
-      style="--steps-items-offset:0"
+      style="--ant-cmp-steps-items-offset:0"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -7030,7 +7031,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
               />
               <circle
                 class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-                stroke-dasharray="calc(var(--progress-r) * 2 * 1.8849555921538756) 9999"
+                stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 1.8849555921538756) 9999"
                 transform="rotate(-90 50 50)"
               />
             </svg>
@@ -7103,7 +7104,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-with-progress ant-steps-small css-var-test-id"
-      style="--steps-items-offset:0"
+      style="--ant-cmp-steps-items-offset:0"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -7188,7 +7189,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
               />
               <circle
                 class="ant-steps-item-progress-icon-circle ant-steps-item-progress-icon-circle-ptg"
-                stroke-dasharray="calc(var(--progress-r) * 2 * 1.8849555921538756) 9999"
+                stroke-dasharray="calc(var(--ant-cmp-steps-progress-radius) * 2 * 1.8849555921538756) 9999"
                 transform="rotate(-90 50 50)"
               />
             </svg>
@@ -7265,7 +7266,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined css-var-test-id"
-      style="--steps-items-offset:0"
+      style="--ant-cmp-steps-items-offset:0"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -7416,7 +7417,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-small css-var-test-id"
-      style="--steps-items-offset:0"
+      style="--ant-cmp-steps-items-offset:0"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -7568,7 +7569,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -7675,7 +7676,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-steps-small css-var-test-id"
-      style="--steps-items-offset:0"
+      style="--ant-cmp-steps-items-offset:0"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -7779,7 +7780,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
     </div>
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-navigation ant-steps-small css-var-test-id"
-      style="--steps-items-offset:0"
+      style="--ant-cmp-steps-items-offset:0"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -7935,7 +7936,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   />
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -8039,7 +8040,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -8190,7 +8191,7 @@ exports[`renders components/steps/demo/variant-debug.tsx correctly 1`] = `
   </div>
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-small css-var-test-id"
-    style="--steps-items-offset:0"
+    style="--ant-cmp-steps-items-offset:0"
   >
     <div
       class="ant-steps-item ant-steps-item-finish"
@@ -8351,7 +8352,7 @@ exports[`renders components/steps/demo/vertical.tsx correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-test-id"
-      style="--steps-items-offset:0"
+      style="--ant-cmp-steps-items-offset:0"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"
@@ -8485,7 +8486,7 @@ exports[`renders components/steps/demo/vertical.tsx correctly 1`] = `
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-small css-var-test-id"
-      style="--steps-items-offset:0"
+      style="--ant-cmp-steps-items-offset:0"
     >
       <div
         class="ant-steps-item ant-steps-item-finish"

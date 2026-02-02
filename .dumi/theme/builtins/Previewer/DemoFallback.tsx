@@ -1,8 +1,8 @@
 import React from 'react';
 import { Skeleton } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   skeletonWrapper: css`
     width: 100% !important;
     height: 250px;
@@ -12,7 +12,6 @@ const useStyle = createStyles(({ css, cssVar }) => ({
 }));
 
 const DemoFallback = () => {
-  const { styles } = useStyle();
   return (
     <Skeleton.Node
       active

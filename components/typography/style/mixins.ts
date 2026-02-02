@@ -55,9 +55,10 @@ export const getTitleStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
 
 export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const { componentCls } = token;
+  const linkCls = `${componentCls}-link`;
 
   return {
-    'a&, a': {
+    [`&${linkCls}`]: {
       ...operationUnit(token),
       userSelect: 'text',
 

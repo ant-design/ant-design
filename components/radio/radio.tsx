@@ -14,7 +14,13 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
-import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
+import type {
+  RadioChangeEvent,
+  RadioProps,
+  RadioRef,
+  RadioSemanticClassNames,
+  RadioSemanticStyles,
+} from './interface';
 import useStyle from './style';
 
 const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
@@ -85,8 +91,8 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SemanticClassNamesType<RadioProps, 'root' | 'icon' | 'label'>,
-    SemanticStylesType<RadioProps, 'root' | 'icon' | 'label'>,
+    SemanticClassNamesType<RadioProps, RadioSemanticClassNames>,
+    SemanticStylesType<RadioProps, RadioSemanticStyles>,
     RadioProps
   >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,

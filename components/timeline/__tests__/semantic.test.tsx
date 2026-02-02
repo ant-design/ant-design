@@ -1,23 +1,12 @@
 import React from 'react';
 
 import TimeLine from '..';
-import type { SemanticClassNames, SemanticStyles } from '../../_util/hooks';
 import { render } from '../../../tests/utils';
-
-type StepsSemanticName =
-  | 'root'
-  | 'item'
-  | 'itemWrapper'
-  | 'itemIcon'
-  | 'itemSection'
-  | 'itemHeader'
-  | 'itemTitle'
-  | 'itemContent'
-  | 'itemRail';
+import type { StepsSemanticClassNames, StepsSemanticName, StepsSemanticStyles } from '../../steps';
 
 describe('Timeline.Semantic', () => {
   it('semantic structure', () => {
-    const classNames: SemanticClassNames<StepsSemanticName> = {
+    const classNames: StepsSemanticClassNames = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -29,7 +18,7 @@ describe('Timeline.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: SemanticClassNames<StepsSemanticName> = {
+    const classNamesTargets: StepsSemanticClassNames = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -41,7 +30,7 @@ describe('Timeline.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: SemanticStyles<StepsSemanticName> = {
+    const styles: StepsSemanticStyles = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -84,14 +73,8 @@ describe('Timeline.Semantic', () => {
         variant="filled"
         orientation="vertical"
         items={[
-          {
-            title: '项目启动',
-            content: '开始新项目的规划和设计',
-          },
-          {
-            title: '开发阶段',
-            content: '进行核心功能的开发工作',
-          },
+          { title: '项目启动', content: '开始新项目的规划和设计' },
+          { title: '开发阶段', content: '进行核心功能的开发工作' },
         ]}
         classNames={(info) => ({
           root: info.props.variant === 'filled' ? 'filled-timeline' : 'outlined-timeline',

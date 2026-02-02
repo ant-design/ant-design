@@ -12,12 +12,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -34,6 +29,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
+import type { SelectPopupSemanticClassNames, SelectPopupSemanticStyles } from '../select';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useIcons from '../select/useIcons';
@@ -57,21 +53,35 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-type SemanticName =
-  | 'root'
-  | 'prefix'
-  | 'suffix'
-  | 'input'
-  | 'placeholder'
-  | 'content'
-  | 'item'
-  | 'itemContent'
-  | 'itemRemove';
-type PopupSemantic = 'root' | 'listItem' | 'list';
+export type CascaderSemanticName = keyof CascaderSemanticClassNames & keyof CascaderSemanticStyles;
+
+export type CascaderSemanticClassNames = {
+  root?: string;
+  prefix?: string;
+  suffix?: string;
+  input?: string;
+  placeholder?: string;
+  content?: string;
+  item?: string;
+  itemContent?: string;
+  itemRemove?: string;
+};
+
+export type CascaderSemanticStyles = {
+  root?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+  input?: React.CSSProperties;
+  placeholder?: React.CSSProperties;
+  content?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  itemRemove?: React.CSSProperties;
+};
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
-function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string) {
+const highlightKeyword = (str: string, lowerKeyword: string, prefixCls?: string) => {
   const cells = str
     .toLowerCase()
     .split(lowerKeyword)
@@ -100,7 +110,7 @@ function highlightKeyword(str: string, lowerKeyword: string, prefixCls?: string)
   });
 
   return fillCells;
-}
+};
 
 const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls, fieldNames) => {
   const optionList: React.ReactNode[] = [];
@@ -126,14 +136,14 @@ const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls
 
 export type CascaderClassNamesType = SemanticClassNamesType<
   CascaderProps,
-  SemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  CascaderSemanticClassNames,
+  { popup?: SelectPopupSemanticClassNames }
 >;
 
 export type CascaderStylesType = SemanticStylesType<
   CascaderProps,
-  SemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  CascaderSemanticStyles,
+  { popup?: SelectPopupSemanticStyles }
 >;
 
 export interface CascaderProps<

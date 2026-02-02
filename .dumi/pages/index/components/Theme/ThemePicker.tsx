@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Flex } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 
 import useLocale from '../../../../hooks/useLocale';
@@ -32,7 +32,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   themeCard: css`
     border-radius: ${cssVar.borderRadius};
     cursor: pointer;
@@ -80,7 +80,6 @@ export interface ThemePickerProps {
 
 const ThemePicker: React.FC<ThemePickerProps> = (props) => {
   const { value, id, onChange } = props;
-  const { styles } = useStyle();
   const [locale] = useLocale(locales);
   return (
     <Flex gap="large" wrap>

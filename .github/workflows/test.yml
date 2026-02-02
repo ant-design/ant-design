@@ -34,6 +34,7 @@ jobs:
         shard: [1/2, 2/2]
     env:
       REACT: ${{ matrix.react }}
+      SKIP_SEMANTIC: '1'
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v6

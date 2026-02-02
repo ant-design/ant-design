@@ -21,6 +21,7 @@ const _RowJustify = [
 ] as const;
 
 type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+
 type ResponsiveLike<T> = {
   [key in Responsive]?: T;
 };
@@ -28,7 +29,9 @@ type ResponsiveLike<T> = {
 export type Gutter = number | string | undefined | Partial<Record<Breakpoint, number>>;
 
 type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
+
 type ResponsiveJustify = ResponsiveLike<(typeof _RowJustify)[number]>;
+
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   gutter?: Gutter | [Gutter, Gutter];
   align?: (typeof _RowAligns)[number] | ResponsiveAligns;

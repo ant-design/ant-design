@@ -24,7 +24,6 @@ export interface CollapsePanelProps {
 const CollapsePanel = React.forwardRef<HTMLDivElement, CollapsePanelProps>((props, ref) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Collapse.Panel');
-
     warning.deprecated(!('disabled' in props), 'disabled', 'collapsible="disabled"');
   }
 

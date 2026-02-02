@@ -1,14 +1,14 @@
 import React from 'react';
 import { Flex, Table } from 'antd';
 import type { TableProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    color: '#e0e0e0',
-    borderRadius: 12,
-    boxShadow: '0 4px 20px rgba(0,0,0,0.3)',
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    color: #e0e0e0;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  `,
 }));
 
 interface DataType {
@@ -110,8 +110,6 @@ const stylesFn: TableProps<DataType>['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   const sharedProps: TableProps<DataType> = {
     columns,
     dataSource,

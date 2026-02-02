@@ -1,16 +1,22 @@
 import React from 'react';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
+export type CellSemanticClassNames = {
+  label?: string;
+  content?: string;
+};
 
-export type SemanticName = 'label' | 'content';
+export type CellSemanticStyles = {
+  label?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
 
 export interface DescriptionsContextProps {
   /** @deprecated Please use `styles.label` instead */
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  styles: SemanticStyles<SemanticName>;
-  classNames: SemanticClassNames<SemanticName>;
+  classNames?: CellSemanticClassNames;
+  styles?: CellSemanticStyles;
 }
 
 const DescriptionsContext = React.createContext<DescriptionsContextProps>(null!);

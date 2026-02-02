@@ -145,7 +145,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 We don't provide this since performance consideration. You can get by this way: <https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
-### Why sometime customize Option cause scroll break? {#faq-custom-option-scroll}
+### Why sometimes customize Option cause scroll break? {#faq-custom-option-scroll}
 
 You can ref Select [FAQ](/components/select).
 

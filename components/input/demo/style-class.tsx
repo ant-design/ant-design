@@ -1,9 +1,9 @@
 import React from 'react';
 import { Flex, Input } from 'antd';
 import type { GetProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   focusEffect: css`
     border-width: ${cssVar.lineWidth};
     border-radius: ${cssVar.borderRadius};
@@ -89,7 +89,7 @@ const stylesFnSearch: SearchProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
+  const classNames = styles;
   return (
     <Flex vertical gap="large">
       <Input

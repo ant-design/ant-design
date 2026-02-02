@@ -1,13 +1,11 @@
-import * as React from 'react';
-import type { JSX } from 'react';
+import React from 'react';
 import { clsx } from 'clsx';
 
 import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import DescriptionsContext from './DescriptionsContext';
-import type { SemanticName } from './DescriptionsContext';
+import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext';
 
 export interface CellProps {
   itemPrefixCls: string;
@@ -19,8 +17,8 @@ export interface CellProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  classNames?: SemanticClassNames<SemanticName>;
-  styles?: SemanticStyles<SemanticName>;
+  classNames?: CellSemanticClassNames;
+  styles?: CellSemanticStyles;
   bordered?: boolean;
   label?: React.ReactNode;
   content?: React.ReactNode;
@@ -46,7 +44,7 @@ const Cell: React.FC<CellProps> = (props) => {
     classNames,
   } = props;
 
-  const Component = component as keyof JSX.IntrinsicElements;
+  const Component = component as keyof React.JSX.IntrinsicElements;
 
   const { classNames: contextClassNames, styles: contextStyles } =
     React.useContext(DescriptionsContext);

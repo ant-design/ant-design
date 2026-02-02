@@ -1,6 +1,3 @@
-const chineseMirror =
-  typeof location !== 'undefined' && location.hostname.includes('.antgroup.com');
-
 export default {
   categoryOrder: {
     'Ant Design': 0,
@@ -44,16 +41,5 @@ export default {
     'Global Rules': 2,
     模板文档: 3,
     'Template Document': 3,
-  },
-  docVersions: {
-    '5.x': chineseMirror ? 'https://5x-ant-design.antgroup.com' : 'https://5x.ant.design',
-    '4.x': chineseMirror ? 'https://4x-ant-design.antgroup.com' : 'https://4x.ant.design',
-    '3.x': 'https://3x.ant.design',
-    '2.x': 'https://2x.ant.design',
-    '1.x': 'https://1x.ant.design',
-    '0.12.x': 'https://012x.ant.design',
-    '0.11.x': 'https://011x.ant.design',
-    '0.10.x': 'https://010x.ant.design',
-    '0.9.x': 'https://09x.ant.design',
   },
 };

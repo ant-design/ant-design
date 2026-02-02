@@ -13,12 +13,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -57,25 +52,57 @@ export interface LabeledValue {
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[];
 
-type SemanticName =
-  | 'root'
-  | 'prefix'
-  | 'input'
-  | 'suffix'
-  | 'content'
-  | 'placeholder'
-  | 'item'
-  | 'itemContent'
-  | 'itemRemove';
+export type TreeSelectSemanticName = keyof TreeSelectSemanticClassNames &
+  keyof TreeSelectSemanticStyles;
 
-type PopupSemantic = 'item' | 'itemTitle' | 'root';
-
-export type TreeSelectClassNamesType = SemanticClassNamesType<TreeSelectProps, SemanticName> & {
-  popup?: SemanticClassNames<PopupSemantic>;
+export type TreeSelectSemanticClassNames = {
+  root?: string;
+  prefix?: string;
+  input?: string;
+  suffix?: string;
+  content?: string;
+  placeholder?: string;
+  item?: string;
+  itemContent?: string;
+  itemRemove?: string;
 };
 
-export type TreeSelectStylesType = SemanticStylesType<TreeSelectProps, SemanticName> & {
-  popup?: SemanticStyles<PopupSemantic>;
+export type TreeSelectSemanticStyles = {
+  root?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  input?: React.CSSProperties;
+  suffix?: React.CSSProperties;
+  content?: React.CSSProperties;
+  placeholder?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  itemRemove?: React.CSSProperties;
+};
+
+export type TreeSelectPopupSemanticName = keyof TreeSelectPopupSemanticClassNames &
+  keyof TreeSelectPopupSemanticStyles;
+
+export type TreeSelectPopupSemanticClassNames = {
+  root?: string;
+  item?: string;
+  itemTitle?: string;
+};
+
+export type TreeSelectPopupSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+};
+
+export type TreeSelectClassNamesType = SemanticClassNamesType<
+  TreeSelectProps,
+  TreeSelectSemanticClassNames
+> & {
+  popup?: TreeSelectPopupSemanticClassNames;
+};
+
+export type TreeSelectStylesType = SemanticStylesType<TreeSelectProps, TreeSelectSemanticStyles> & {
+  popup?: TreeSelectPopupSemanticStyles;
 };
 
 interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>

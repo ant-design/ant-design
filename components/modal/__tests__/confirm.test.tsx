@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
-import KeyCode from '@rc-component/util/lib/KeyCode';
 
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import App from '../../app';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import type { GlobalConfigProps } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -203,7 +202,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     await waitFakeTimer();
 
     expect($$(`.ant-modal-confirm-confirm`)).toHaveLength(1);
-    fireEvent.keyDown($$('.ant-modal')[0], { keyCode: KeyCode.ESC });
+    fireEvent.keyDown(window, { key: 'Escape' });
 
     await waitFakeTimer(0);
 
@@ -710,7 +709,7 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         await waitFakeTimer();
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-        fireEvent.keyDown($$('.ant-modal')[0], { keyCode: KeyCode.ESC });
+        fireEvent.keyDown(window, { key: 'Escape' });
 
         await waitFakeTimer(0);
 
@@ -977,6 +976,20 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn')[0].click();
     await waitFakeTimer();
     expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+  });
+
+  it('focusable.autoFocusButton should working', async () => {
+    Modal.confirm({
+      title: 'Test',
+      content: 'Test content',
+      focusable: { autoFocusButton: 'cancel' },
+    });
+
+    await waitFakeTimer();
+
+    expect(document.activeElement).toBe(
+      document.querySelector('.ant-modal-confirm-btns .ant-btn-default'),
+    );
   });
 
   it('should support cancelButtonProps global config', () => {

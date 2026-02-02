@@ -6589,7 +6589,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1"
+    class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var acss-1upo6w8"
     data-menu-list="true"
     role="menu"
     style="border: 1px solid rgb(240, 240, 240); padding: 8px; border-radius: 4px;"
@@ -6618,7 +6618,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
         />
       </div>
       <div
-        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1 ant-menu-submenu-placement-rightTop"
+        class="ant-menu-submenu ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var acss-1upo6w8 ant-menu-submenu-placement-rightTop"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
@@ -6712,7 +6712,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
     </li>
     <li
       aria-describedby="test-id"
-      class="ant-menu-item acss-r4s437 ant-menu-item-only-child"
+      class="ant-menu-item acss-w0donz ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
       style="color: rgb(22, 119, 255);"
@@ -6748,7 +6748,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
     style="display: none;"
   />
   <ul
-    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1"
+    class="ant-menu ant-menu-root ant-menu-inline ant-menu-light css-var-test-id ant-menu-css-var acss-1upo6w8"
     data-menu-list="true"
     role="menu"
     style="background-color: rgba(240, 249, 255, 0.6);"
@@ -6778,7 +6778,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
         />
       </div>
       <div
-        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var acss-150axg1"
+        class="ant-menu-submenu ant-menu-submenu-popup ant-menu ant-menu-light css-var-test-id ant-menu-css-var acss-1upo6w8"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <ul
@@ -6873,7 +6873,7 @@ exports[`renders components/menu/demo/style-class.tsx extend context correctly 1
     </li>
     <li
       aria-describedby="test-id"
-      class="ant-menu-item acss-r4s437 ant-menu-item-only-child"
+      class="ant-menu-item acss-w0donz ant-menu-item-only-child"
       data-menu-id="rc-menu-uuid-mail"
       role="menuitem"
       style="padding-left: 24px;"

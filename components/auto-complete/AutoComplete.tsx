@@ -3,12 +3,7 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type {
-  SemanticClassNames,
-  SemanticClassNamesType,
-  SemanticStyles,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -19,13 +14,30 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
+  SelectPopupSemanticClassNames,
+  SelectPopupSemanticStyles,
   SelectProps,
 } from '../select';
 import Select from '../select';
 
-export type AutoCompleteSemanticName = 'root' | 'prefix' | 'input' | 'placeholder' | 'content';
+export type AutoCompleteSemanticName = keyof AutoCompleteSemanticClassNames &
+  keyof AutoCompleteSemanticStyles;
 
-type PopupSemantic = 'root' | 'listItem' | 'list';
+export type AutoCompleteSemanticClassNames = {
+  root?: string;
+  prefix?: string;
+  input?: string;
+  placeholder?: string;
+  content?: string;
+};
+
+export type AutoCompleteSemanticStyles = {
+  root?: React.CSSProperties;
+  prefix?: React.CSSProperties;
+  input?: React.CSSProperties;
+  placeholder?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
 
 const { Option } = Select;
 
@@ -38,14 +50,14 @@ export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
 export type AutoCompleteClassNamesType = SemanticClassNamesType<
   AutoCompleteProps,
-  AutoCompleteSemanticName,
-  { popup?: SemanticClassNames<PopupSemantic> }
+  AutoCompleteSemanticClassNames,
+  { popup?: SelectPopupSemanticClassNames }
 >;
 
 export type AutoCompleteStylesType = SemanticStylesType<
   AutoCompleteProps,
-  AutoCompleteSemanticName,
-  { popup?: SemanticStyles<PopupSemantic> }
+  AutoCompleteSemanticStyles,
+  { popup?: SelectPopupSemanticStyles }
 >;
 
 export interface AutoCompleteProps<

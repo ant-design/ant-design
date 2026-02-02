@@ -49,6 +49,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
     onBlur,
     orientation,
     vertical,
+    role = 'radiogroup',
   } = props;
 
   const [value, setValue] = useControlledState(defaultValue, customizedValue);
@@ -137,6 +138,7 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>((props, ref
   return (
     <div
       {...pickAttrs(props, { aria: true, data: true })}
+      role={role}
       className={clsx(classString, { [`${prefixCls}-group-vertical`]: mergedVertical })}
       style={style}
       onMouseEnter={onMouseEnter}

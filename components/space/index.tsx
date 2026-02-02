@@ -9,8 +9,8 @@ import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
-import Compact from './Compact';
 import Addon from './Addon';
+import Compact from './Compact';
 import { SpaceContextProvider } from './context';
 import type { SpaceContextType } from './context';
 import Item from './Item';
@@ -20,11 +20,23 @@ export { SpaceContext } from './context';
 
 export type SpaceSize = SizeType | number;
 
-type SemanticName = 'root' | 'item' | 'separator';
+export type SpaceSemanticName = keyof SpaceSemanticClassNames & keyof SpaceSemanticStyles;
 
-export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SemanticName>;
+export type SpaceSemanticClassNames = {
+  root?: string;
+  item?: string;
+  separator?: string;
+};
 
-export type SpaceStylesType = SemanticStylesType<SpaceProps, SemanticName>;
+export type SpaceSemanticStyles = {
+  root?: React.CSSProperties;
+  item?: React.CSSProperties;
+  separator?: React.CSSProperties;
+};
+
+export type SpaceClassNamesType = SemanticClassNamesType<SpaceProps, SpaceSemanticClassNames>;
+
+export type SpaceStylesType = SemanticStylesType<SpaceProps, SpaceSemanticStyles>;
 
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;

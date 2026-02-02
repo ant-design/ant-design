@@ -555,7 +555,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 | pattern | Regex pattern | RegExp |  |
 | required | Required field | boolean |  |
 | transform | Transform value to the rule before validation | (value) => any |  |
-| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email`. More type to ref [here](https://github.com/react-component/async-validator#type) | string |  |
+| type | Normally `string` \|`number` \|`boolean` \|`url` \| `email` \| `tel`. More type to ref [here](https://github.com/react-component/async-validator#type) | string |  |
 | validateTrigger | Set validate trigger event. Must be the sub set of `validateTrigger` in Form.Item | string \| string\[] |  |
 | validator | Customize validation rule. Accept Promise as return. See [example](#form-demo-register) | ([rule](#rule), value) => Promise |  |
 | warningOnly | Warning only. Not block form submit | boolean | 4.17.0 |
@@ -577,6 +577,10 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 <ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
+
+### Why can't Segmented be disabled by Form `disabled`? {#faq-segmented-cannot-disabled}
+
+Segmented is designed as a data display component, not a form control component. Although it can be used as a form control similar to Radio, it was not designed for this purpose. Therefore, its behavior is more similar to the Tabs component and will not be disabled by Form's `disabled` prop. For related discussions, see [#54749](https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096).
 
 ### Why can't Switch, Checkbox bind data? {#faq-switch-checkbox-binding}
 

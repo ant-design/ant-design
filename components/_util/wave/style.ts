@@ -1,5 +1,6 @@
 import { genComponentStyleHook } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
@@ -7,15 +8,15 @@ export interface ComponentToken {}
 export interface WaveToken extends FullToken<'Wave'> {}
 
 const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
-  const { componentCls, colorPrimary } = token;
+  const { componentCls, colorPrimary, antCls } = token;
+  const [, varRef] = genCssVar(antCls, 'wave');
   return {
     [componentCls]: {
       position: 'absolute',
       background: 'transparent',
       pointerEvents: 'none',
       boxSizing: 'border-box',
-      color: `var(--wave-color, ${colorPrimary})`,
-
+      color: varRef('color', colorPrimary),
       boxShadow: `0 0 0 0 currentcolor`,
       opacity: 0.2,
 

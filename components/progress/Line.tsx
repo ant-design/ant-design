@@ -2,14 +2,14 @@ import * as React from 'react';
 import { presetPrimaryColors } from '@ant-design/colors';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNames, SemanticStyles } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import type { DirectionType } from '../config-provider';
 import type {
   PercentPositionType,
   ProgressGradient,
   ProgressProps,
-  SemanticName,
+  ProgressSemanticClassNames,
+  ProgressSemanticStyles,
   StringGradients,
 } from './progress';
 import { LineStrokeColorVar } from './style';
@@ -20,8 +20,8 @@ interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
-  classNames: SemanticClassNames<SemanticName>;
-  styles: SemanticStyles<SemanticName>;
+  classNames: ProgressSemanticClassNames;
+  styles: ProgressSemanticStyles;
 }
 
 /**

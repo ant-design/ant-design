@@ -93,7 +93,7 @@ describe('Pagination', () => {
         </ConfigProvider>,
       );
       expect(asFragment().firstChild).toMatchSnapshot();
-      expect(container.querySelectorAll('.ant-select-lg').length).toBe(0);
+      expect(container.querySelectorAll('.ant-select-lg').length).toBe(1);
     });
   });
 

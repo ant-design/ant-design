@@ -11,10 +11,23 @@ import useStyle from './style/ribbon';
 
 type RibbonPlacement = 'start' | 'end';
 
-type SemanticName = 'root' | 'content' | 'indicator';
+export type RibbonSemanticName = keyof RibbonSemanticClassNames & keyof RibbonSemanticStyles;
 
-export type RibbonClassNamesType = SemanticClassNamesType<RibbonProps, SemanticName>;
-export type RibbonStylesType = SemanticStylesType<RibbonProps, SemanticName>;
+export type RibbonSemanticClassNames = {
+  root?: string;
+  content?: string;
+  indicator?: string;
+};
+
+export type RibbonSemanticStyles = {
+  root?: React.CSSProperties;
+  content?: React.CSSProperties;
+  indicator?: React.CSSProperties;
+};
+
+export type RibbonClassNamesType = SemanticClassNamesType<RibbonProps, RibbonSemanticClassNames>;
+
+export type RibbonStylesType = SemanticStylesType<RibbonProps, RibbonSemanticStyles>;
 
 export interface RibbonProps {
   className?: string;

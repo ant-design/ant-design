@@ -1,11 +1,11 @@
 import type { ComponentProps, FC } from 'react';
 import React from 'react';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import SourceCodeEditor from 'dumi/theme-default/slots/SourceCodeEditor';
 
 import LiveError from '../slots/LiveError';
 
-const useStyle = createStyles(({ cssVar, css }) => {
+const styles = createStaticStyles(({ cssVar, css }) => {
   return {
     editor: css`
       // override dumi editor styles
@@ -54,7 +54,6 @@ const LiveCode: FC<
     error: Error | null;
   } & Pick<ComponentProps<typeof SourceCodeEditor>, 'lang' | 'initialValue' | 'onChange'>
 > = (props) => {
-  const { styles } = useStyle();
   return (
     <div className={styles.editor}>
       <SourceCodeEditor

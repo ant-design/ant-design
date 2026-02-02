@@ -2,13 +2,13 @@
 import React from 'react';
 import { FastColor } from '@ant-design/fast-color';
 import { Flex, theme } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import tokenMeta from 'antd/es/version/token-meta.json';
 import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
 
-const useStyle = createStyles(({ cssVar, css }) => {
+const styles = createStaticStyles(({ cssVar, css }) => {
   const height = cssVar.controlHeightLG;
   const dotSize = height / 5;
 
@@ -63,7 +63,6 @@ interface ColorCircleProps {
 }
 
 const ColorCircle: React.FC<ColorCircleProps> = ({ color }) => {
-  const { styles } = useStyle();
   return (
     <Flex align="center" gap={4}>
       <div className={styles.dot} style={{ background: color }} />
@@ -79,7 +78,6 @@ export interface TokenCompareProps {
 const TokenCompare: React.FC<TokenCompareProps> = (props) => {
   const { tokenNames = '' } = props;
   const [, lang] = useLocale();
-  const { styles } = useStyle();
 
   const tokenList = React.useMemo(() => {
     const list = tokenNames.split('|');

@@ -1,0 +1,45 @@
+[
+  {
+    "version": "6.x",
+    "url": "https://ant.design",
+    "chineseMirrorUrl": "https://ant-design.antgroup.com"
+  },
+  {
+    "version": "5.x",
+    "url": "https://5x.ant.design",
+    "chineseMirrorUrl": "https://5x-ant-design.antgroup.com"
+  },
+  {
+    "version": "4.x",
+    "url": "https://4x.ant.design",
+    "chineseMirrorUrl": "https://4x-ant-design.antgroup.com"
+  },
+  {
+    "version": "3.x",
+    "url": "https://3x.ant.design"
+  },
+  {
+    "version": "2.x",
+    "url": "https://2x.ant.design"
+  },
+  {
+    "version": "1.x",
+    "url": "https://1x.ant.design"
+  },
+  {
+    "version": "0.12.x",
+    "url": "https://012x.ant.design"
+  },
+  {
+    "version": "0.11.x",
+    "url": "https://011x.ant.design"
+  },
+  {
+    "version": "0.10.x",
+    "url": "https://010x.ant.design"
+  },
+  {
+    "version": "0.9.x",
+    "url": "https://09x.ant.design"
+  }
+]

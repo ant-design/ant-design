@@ -13,7 +13,14 @@ import OriginModal from './Modal';
 import PurePanel from './PurePanel';
 import useModal from './useModal';
 
-export type { ModalFuncProps, ModalLocale, ModalProps } from './interface';
+export type {
+  ModalFuncProps,
+  ModalLocale,
+  ModalProps,
+  ModalSemanticClassNames,
+  ModalSemanticName,
+  ModalSemanticStyles,
+} from './interface';
 
 function modalWarn(props: ModalFuncProps) {
   return confirm(withWarn(props));

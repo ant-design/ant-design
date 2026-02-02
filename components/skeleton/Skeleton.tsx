@@ -20,11 +20,32 @@ import Title from './Title';
 /* This only for skeleton internal. */
 type SkeletonAvatarProps = Omit<AvatarProps, 'active'>;
 
-export type SemanticName = 'root' | 'header' | 'section' | 'avatar' | 'title' | 'paragraph';
+export type SkeletonSemanticName = keyof SkeletonSemanticClassNames & keyof SkeletonSemanticStyles;
 
-export type SkeletonClassNamesType = SemanticClassNamesType<SkeletonProps, SemanticName>;
+export type SkeletonSemanticClassNames = {
+  root?: string;
+  header?: string;
+  section?: string;
+  avatar?: string;
+  title?: string;
+  paragraph?: string;
+};
 
-export type SkeletonStylesType = SemanticStylesType<SkeletonProps, SemanticName>;
+export type SkeletonSemanticStyles = {
+  root?: React.CSSProperties;
+  header?: React.CSSProperties;
+  section?: React.CSSProperties;
+  avatar?: React.CSSProperties;
+  title?: React.CSSProperties;
+  paragraph?: React.CSSProperties;
+};
+
+export type SkeletonClassNamesType = SemanticClassNamesType<
+  SkeletonProps,
+  SkeletonSemanticClassNames
+>;
+
+export type SkeletonStylesType = SemanticStylesType<SkeletonProps, SkeletonSemanticStyles>;
 
 export interface SkeletonProps {
   active?: boolean;

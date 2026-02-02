@@ -64,22 +64,24 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
 | forceRender | Pre-render Drawer component forcibly | boolean | false |  |
+| focusable | Configuration for focus management in the Drawer | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | mounted node and display window for Drawer | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
-| headerStyle | Style of the drawer header part | CSSProperties | - |  |
+| ~~headerStyle~~ | Style of the drawer header part, please use `styles.header` instead | CSSProperties | - |  |
 | ~~height~~ | Placement is `top` or `bottom`, height of the Drawer dialog, please use `size` instead | string \| number | 378 |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
+| loading | Show the Skeleton | boolean | false | 5.17.0 |
 | mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
 | maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
+| maxSize | Maximum size (width or height depending on `placement`) when resizable | number | - | 6.0.0 |
+| open | Whether the Drawer dialog is visible or not | boolean | false |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |
 | push | Nested drawers push behavior | boolean \| { distance: string \| number } | { distance: 180 } | 4.5.0+ |
 | resizable | Enable resizable by dragging | boolean \| [ResizableConfig](#resizableconfig) | - | boolean: 6.1.0 |
 | rootStyle | Style of wrapper element which **contains mask** compare to `style` | CSSProperties | - |  |
+| size | preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number \| string | 'default' | 4.17.0, string: 6.2.0 |
 | style | Style of Drawer panel. Use `styles.body` if want to config body only | CSSProperties | - |  |
 | styles | Customize inline style for each semantic structure inside the Drawer component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| size | preset size of drawer, default `378px` and large `736px`, or a custom number | 'default' \| 'large' \| number | 'default' | 4.17.0 |
 | title | The title for Drawer | ReactNode | - |  |
-| loading | Show the Skeleton | boolean | false | 5.17.0 |
-| open | Whether the Drawer dialog is visible or not | boolean | false |  |
 | ~~width~~ | Width of the Drawer dialog, please use `size` instead | string \| number | 378 |  |
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |

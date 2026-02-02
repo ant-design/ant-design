@@ -86,11 +86,23 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export type SemanticName = 'root' | 'container' | 'arrow';
+export type TooltipSemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
 
-export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, SemanticName>;
+export type TooltipSemanticClassNames = {
+  root?: string;
+  container?: string;
+  arrow?: string;
+};
 
-export type TooltipStylesType = SemanticStylesType<TooltipProps, SemanticName>;
+export type TooltipSemanticStyles = {
+  root?: React.CSSProperties;
+  container?: React.CSSProperties;
+  arrow?: React.CSSProperties;
+};
+
+export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, TooltipSemanticClassNames>;
+
+export type TooltipStylesType = SemanticStylesType<TooltipProps, TooltipSemanticStyles>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
@@ -258,7 +270,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   }, [overlay, title]);
 
   const memoOverlayWrapper = (
-    <ContextIsolator space>
+    <ContextIsolator space form>
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
@@ -313,7 +325,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !injectFromPopover);
 
   // Color
-  const colorInfo = parseColor(prefixCls, color);
+  const colorInfo = parseColor(rootPrefixCls, prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
   const themeCls = clsx(rootCls, hashId, cssVarCls);

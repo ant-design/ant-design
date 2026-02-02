@@ -212,7 +212,10 @@ const App: React.FC = () => {
       <Form.Item
         name="phone"
         label="Phone Number"
-        rules={[{ required: true, message: 'Please input your phone number!' }]}
+        rules={[
+          { required: true, message: 'Please input your phone number!' },
+          { type: 'tel', message: 'The input is not valid phone number!' },
+        ]}
       >
         {/* Demo only, real usage should wrap as custom component */}
         <Space.Compact block>

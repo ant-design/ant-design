@@ -3,6 +3,7 @@
 exports[`renders components/radio/demo/badge.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
+  role="radiogroup"
 >
   <span
     class="ant-badge css-var-test-id"
@@ -182,6 +183,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   >
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -279,6 +281,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   >
     <div
       class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
@@ -380,6 +383,7 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
   >
     <div
       class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
+      role="radiogroup"
     >
       <label
         class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -642,6 +646,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -735,6 +740,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -829,6 +835,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-disabled css-var-test-id ant-radio-css-var"
@@ -935,6 +942,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
 >
   <div
     class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -1028,6 +1036,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
   </div>
   <div
     class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper css-var-test-id ant-radio-css-var"
@@ -1128,6 +1137,7 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx extend context corr
 exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+  role="radiogroup"
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked option-1 css-var-test-id ant-radio-css-var"
@@ -1325,6 +1335,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
 >
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-block css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-block css-var-test-id ant-radio-css-var"
@@ -1396,6 +1407,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
   </div>
   <div
     class="ant-radio-group ant-radio-group-solid ant-radio-group-block css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-block css-var-test-id ant-radio-css-var"
@@ -1467,6 +1479,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-block css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-block css-var-test-id ant-radio-css-var"
@@ -1544,6 +1557,7 @@ exports[`renders components/radio/demo/radiogroup-block.tsx extend context corre
 exports[`renders components/radio/demo/radiogroup-more.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var ant-radio-group-vertical"
+  role="radiogroup"
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -1643,6 +1657,7 @@ exports[`renders components/radio/demo/radiogroup-options.tsx extend context cor
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -1715,6 +1730,7 @@ Array [
   <br />,
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked label-1 css-var-test-id ant-radio-css-var"
@@ -1789,6 +1805,7 @@ Array [
   <br />,
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked label-1 css-var-test-id ant-radio-css-var"
@@ -1863,6 +1880,7 @@ Array [
   <br />,
   <div
     class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked label-1 css-var-test-id ant-radio-css-var"
@@ -1941,6 +1959,7 @@ exports[`renders components/radio/demo/radiogroup-options.tsx extend context cor
 exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context correctly 1`] = `
 <div
   class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+  role="radiogroup"
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2042,6 +2061,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
 >
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-large css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2135,6 +2155,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2228,6 +2249,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
   </div>
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-small css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-button-wrapper ant-radio-button-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2381,6 +2403,7 @@ exports[`renders components/radio/demo/wireframe.tsx extend context correctly 1`
 Array [
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
@@ -2475,6 +2498,7 @@ Array [
   <br />,
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
   >
     <label
       class="ant-radio-wrapper ant-radio-wrapper-checked ant-radio-wrapper-disabled css-var-test-id ant-radio-css-var"

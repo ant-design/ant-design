@@ -192,7 +192,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
         background: token.badgeColor,
         borderRadius: calc(indicatorHeight).div(2).equal(),
         boxShadow: `0 0 0 ${unit(badgeShadowSize)} ${token.badgeShadowColor}`,
-        transition: `background ${token.motionDurationMid}`,
+        transition: `background-color ${token.motionDurationMid}`,
 
         a: {
           color: token.badgeTextColor,

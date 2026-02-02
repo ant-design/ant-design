@@ -1,8 +1,12 @@
 import React from 'react';
 
 import Steps from '..';
-import type { StepsProps, StepsSemanticName } from '..';
-import type { SemanticClassNames } from '../../_util/hooks';
+import type {
+  StepsProps,
+  StepsSemanticClassNames,
+  StepsSemanticName,
+  StepsSemanticStyles,
+} from '..';
 import { render } from '../../../tests/utils';
 
 describe('Steps.Semantic', () => {
@@ -18,7 +22,7 @@ describe('Steps.Semantic', () => {
   );
 
   it('semantic structure', () => {
-    const classNames: SemanticClassNames<StepsSemanticName> = {
+    const classNames: Required<StepsSemanticClassNames> = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -31,7 +35,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: Required<SemanticClassNames<StepsSemanticName>> = {
+    const classNamesTargets: Required<StepsSemanticClassNames> = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -44,7 +48,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: Record<StepsSemanticName, Record<string, any>> = {
+    const styles: Required<StepsSemanticStyles> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -63,11 +67,10 @@ describe('Steps.Semantic', () => {
       const className = classNames[key as StepsSemanticName];
       const oriClassName = classNamesTargets[key as StepsSemanticName];
       const style = styles[key as StepsSemanticName];
-
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName);
-      expect(element).toHaveStyle(style);
+      expect(element).toHaveStyle(style as any);
     });
   });
 

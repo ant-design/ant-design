@@ -4,6 +4,8 @@ import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import Masonry from '..';
 import type { MasonryProps } from '..';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
+import { defaultPrefixCls } from '../../config-provider';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const resizeMasonry = async () => {
   triggerResize(document.body.querySelector('.ant-masonry')!);
@@ -198,15 +200,14 @@ describe('Masonry', () => {
   });
 
   describe('gutter', () => {
+    const [varName] = genCssVar(defaultPrefixCls, 'masonry');
     const getGutter = () => {
       const itemElements = document.body.querySelectorAll<HTMLElement>('.ant-masonry-item');
-
       const horizontalGutter = itemElements[0].style
-        .getPropertyValue('--item-width')
-        .match(/\d+px/)![0];
-      const verticalGutter = itemElements[2].style.top.match(/\d+px/)![0];
-
-      return [Number.parseInt(horizontalGutter, 10), Number.parseInt(verticalGutter, 10)];
+        .getPropertyValue(varName('item-width'))
+        .match(/\d+px/)?.[0];
+      const verticalGutter = itemElements[2].style.top.match(/\d+px/)?.[0];
+      return [Number.parseInt(horizontalGutter!, 10), Number.parseInt(verticalGutter!, 10)];
     };
 
     const renderGutter = (gutter: MasonryProps['gutter']) => (
