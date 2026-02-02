@@ -34,13 +34,13 @@ const items: Required<MenuProps>['items'] = [
   { key: 'mail', label: 'Navigation Two' },
 ];
 
-const styles: MenuSemanticAllType['styles'] = {
+const styles: MenuProps['styles'] = {
   root: { border: '1px solid #f0f0f0', padding: 8, borderRadius: 4 },
   item: { color: '#1677ff' },
   subMenu: { list: { color: '#fa541c' } },
 };
 
-const stylesFn: MenuSemanticAllType['stylesFn'] = (info): MenuSemanticAllType['styles'] => {
+const stylesFn: MenuProps['styles'] = (info): MenuSemanticAllType['styles'] => {
   const hasSub = info.props.items?.[0];
   return {
     root: {
