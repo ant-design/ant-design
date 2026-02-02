@@ -605,4 +605,18 @@ describe('TextArea allowClear', () => {
     fireEvent.mouseUp(container.querySelector('textarea')!);
     expect(container.querySelector('.ant-input-mouse-active')).toBeFalsy();
   });
+
+  describe('ref.nativeElement should be the root div', () => {
+    it('basic', () => {
+      const ref = React.createRef<TextAreaRef>();
+      const { container } = render(<TextArea ref={ref} />);
+      expect(ref.current?.nativeElement).toBe(container.firstChild);
+    });
+
+    it('with showCount', () => {
+      const ref = React.createRef<TextAreaRef>();
+      const { container } = render(<TextArea ref={ref} showCount />);
+      expect(ref.current?.nativeElement).toBe(container.firstChild);
+    });
+  });
 });
