@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.2.3
 
-`2026-01-30`
+`2026-02-01`
 
 - Button
   - 🐞 Fix Button `defaultBg`, `defaultColor`, `defaultHoverColor` and `defaultActiveColor` tokens not taking effect. [#56238](https://github.com/ant-design/ant-design/pull/56238) [@ug-hero](https://github.com/ug-hero)
