@@ -69,17 +69,6 @@ const useSemanticStyles = <StylesType = any>(...styles: (StylesType | undefined)
 };
 
 // =========================== Export ===========================
-// const fillObjectBySchema = <T = any>(obj: T, schema: SemanticSchema): T => {
-//   const newObj: any = { ...obj };
-//   Object.keys(schema).forEach((key) => {
-//     if (key !== '_default') {
-//       const nestSchema = (schema as any)[key] as SemanticSchema;
-//       const nextValue = newObj[key] || {};
-//       newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
-//     }
-//   });
-//   return newObj;
-// };
 const fillObjectBySchema = <T>(obj: T, schema: any): T => {
   const newObj: any = { ...obj };
   Object.keys(schema).forEach((key) => {

@@ -10,10 +10,6 @@ type CSS = React.CSSProperties;
 export type DeepStylesType<T> = {
   [K in keyof T]?: CSS extends T[K] ? CSS : DeepStylesType<T[K]>;
 };
-// export type demo = DeepStylesType<{ a: CSS; popup: { root: CSS } }>;
-// export type demo1 = NonNullable<demo['a']>['color'];
-// export type demo3 = NonNullable<demo['popup']>['root'];
-// export const ddd2: NonNullable<demo['popup']> = { root: { color: 'red' } };
 
 export type GenerateSemantic<T extends { classNames?: any; styles?: any }, Props> = {
   classNames: DeepClassNameType<T['classNames']>;
