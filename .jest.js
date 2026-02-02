@@ -34,6 +34,10 @@ function getTestRegex(libDir) {
   return '.*\\.test\\.(j|t)sx?$';
 }
 
+const shouldIgnoreSemantic =
+  ['dist', 'lib', 'es', 'dist-min'].includes(process.env.LIB_DIR) ||
+  ['1', 'true'].includes(process.env.SKIP_SEMANTIC);
+
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
@@ -54,7 +58,7 @@ module.exports = {
     'node',
     'image.test.js',
     'image.test.ts',
-    'demo-semantic.test',
+    ...(shouldIgnoreSemantic ? ['demo-semantic.test'] : []),
   ],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',

@@ -34,6 +34,7 @@ jobs:
         shard: [1/2, 2/2]
     env:
       REACT: ${{ matrix.react }}
+      SKIP_SEMANTIC: '1'
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v6
@@ -51,15 +52,6 @@ jobs:
       - uses: utooland/setup-utoo@v1
       - run: ut
       - run: ut test:node
-
-  test-semantic:
-    name: test-semantic
-    runs-on: blacksmith-4vcpu-ubuntu-2404
-    steps:
-      - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@v1
-      - run: ut
-      - run: ut test:semantic
 
   test-react-latest:
     name: test-react-latest
