@@ -91,23 +91,15 @@ export const fillObjectBySchema = (
   obj: Record<string, any>,
   schema: Record<string, any>,
 ): Record<string, any> => {
-  const newObj: Record<string, any> = typeof obj === 'object' ? { ...obj } : {};
+  const newObj: Record<string, any> = { ...obj };
   Object.keys(schema).forEach((key) => {
-    if (typeof obj === 'object') {
-      if (schema[key]._default && obj[key] !== undefined) {
-        newObj[key] = {};
-        if (obj[key][schema[key]._default] === undefined) {
-          newObj[key][schema[key]._default] = obj[key];
-        } else {
-          newObj[key] = obj[key];
-        }
-      } else {
-        newObj[key] = fillObjectBySchema(newObj[key] || {}, schema[key]);
-      }
-    } else if (key !== '_default') {
-      newObj[key] = fillObjectBySchema(newObj[key] || {}, schema[key]);
-    } else if (!newObj[schema._default]) {
-      newObj[schema._default] = { ...newObj };
+    const thisData = newObj[key];
+    const isLast = !!schema[key]._default;
+    const value = isLast ? { [schema[key]._default]: thisData } : undefined;
+    if (typeof thisData === 'string') {
+      newObj[key] = value;
+    } else if (typeof thisData === 'object') {
+      newObj[key] = isLast ? value : fillObjectBySchema(thisData, schema[key]);
     }
   });
   return newObj;
