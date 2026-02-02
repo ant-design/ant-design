@@ -88069,14 +88069,10 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Time"
       >
-        <div
-          class="ant-select-content-value"
-          title="Time"
-        >
-          Time
-        </div>
+        Time
         <input
           aria-autocomplete="list"
           aria-expanded="false"
