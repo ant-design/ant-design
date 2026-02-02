@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Result } from 'antd';
-import type { ResultProps, ResultSemanticType } from 'antd';
+import type { ResultProps, ResultSemanticAllType } from 'antd';
 
 const classNamesObject: ResultProps['classNames'] = {
   root: 'demo-result-root',
@@ -11,7 +11,7 @@ const classNamesObject: ResultProps['classNames'] = {
   body: 'demo-result-body',
 };
 
-const classNamesFn: ResultProps['classNames'] = (info): ResultSemanticType['classNames'] => {
+const classNamesFn: ResultProps['classNames'] = (info): ResultSemanticAllType['classNames'] => {
   if (info.props.status === 'success') {
     return {
       root: 'demo-result-root--success',
@@ -31,7 +31,7 @@ const stylesObject: ResultProps['styles'] = {
   body: { backgroundColor: '#fafafa', padding: 12 },
 };
 
-const stylesFn: ResultProps['styles'] = (info): ResultSemanticType['styles'] => {
+const stylesFn: ResultProps['styles'] = (info): ResultSemanticAllType['styles'] => {
   if (info.props.status === 'error') {
     return {
       root: { backgroundColor: '#fff2f0', borderColor: '#ff4d4f' },

@@ -4,7 +4,7 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -72,14 +72,9 @@ export type ColorPickerSemanticType = {
   };
 };
 
-export type ColorPickerClassNamesType = SemanticType<
-  ColorPickerProps,
-  ColorPickerSemanticType['classNames']
->;
-
-export type ColorPickerStylesType = SemanticType<
-  ColorPickerProps,
-  ColorPickerSemanticType['styles']
+export type ColorPickerSemanticAllType = GenerateSemantic<
+  ColorPickerSemanticType,
+  ColorPickerProps
 >;
 
 export type ColorPickerProps = Omit<
@@ -111,8 +106,10 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  classNames?: ColorPickerClassNamesType;
-  styles?: ColorPickerStylesType;
+  classNames?:
+    | ColorPickerSemanticAllType['classNames']
+    | ColorPickerSemanticAllType['classNamesFn'];
+  styles?: ColorPickerSemanticAllType['styles'] | ColorPickerSemanticAllType['stylesFn'];
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;

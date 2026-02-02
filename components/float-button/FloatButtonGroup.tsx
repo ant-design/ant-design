@@ -5,8 +5,8 @@ import CSSMotion from '@rc-component/motion';
 import { useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -41,20 +41,17 @@ export type FloatButtonGroupSemanticType = {
   };
 };
 
-export type FloatButtonGroupClassNamesType = SemanticType<
-  FloatButtonGroupProps,
-  FloatButtonGroupSemanticType['classNames']
->;
-
-export type FloatButtonGroupStylesType = SemanticType<
-  FloatButtonGroupProps,
-  FloatButtonGroupSemanticType['styles']
+export type FloatButtonGroupSemanticAllType = GenerateSemantic<
+  FloatButtonGroupSemanticType,
+  FloatButtonGroupProps
 >;
 
 export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classNames' | 'styles'> {
   // Styles
-  classNames?: FloatButtonGroupClassNamesType;
-  styles?: FloatButtonGroupStylesType;
+  classNames?:
+    | FloatButtonGroupSemanticAllType['classNames']
+    | FloatButtonGroupSemanticAllType['classNamesFn'];
+  styles?: FloatButtonGroupSemanticAllType['styles'] | FloatButtonGroupSemanticAllType['stylesFn'];
 
   // Control
   trigger?: FloatButtonGroupTrigger;

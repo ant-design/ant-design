@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
@@ -39,12 +39,7 @@ export type SkeletonSemanticType = {
   };
 };
 
-export type SkeletonClassNamesType = SemanticType<
-  SkeletonProps,
-  SkeletonSemanticType['classNames']
->;
-
-export type SkeletonStylesType = SemanticType<SkeletonProps, SkeletonSemanticType['styles']>;
+export type SkeletonSemanticAllType = GenerateSemantic<SkeletonSemanticType, SkeletonProps>;
 
 export interface SkeletonProps {
   active?: boolean;
@@ -57,8 +52,8 @@ export interface SkeletonProps {
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
   round?: boolean;
-  classNames?: SkeletonClassNamesType;
-  styles?: SkeletonStylesType;
+  classNames?: SkeletonSemanticAllType['classNames'] | SkeletonSemanticAllType['classNamesFn'];
+  styles?: SkeletonSemanticAllType['styles'] | SkeletonSemanticAllType['stylesFn'];
 }
 
 function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {

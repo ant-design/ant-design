@@ -9,22 +9,17 @@ import { Notice } from '@rc-component/notification';
 import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { IconType, NotificationSemanticType } from './interface';
+import type { IconType, NotificationSemanticAllType, NotificationSemanticType } from './interface';
 import useStyle from './style';
 import PurePanelStyle from './style/pure-panel';
 
-export type PurePanelClassNamesType = SemanticType<
-  PurePanelProps,
-  NotificationSemanticType['classNames']
->;
-
-export type PurePanelStylesType = SemanticType<PurePanelProps, NotificationSemanticType['styles']>;
+export type AnchorSemanticAllType = GenerateSemantic<NotificationSemanticType, PurePanelProps>;
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -53,8 +48,8 @@ export interface PureContentProps {
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames: NonNullable<NotificationSemanticType['classNames']>;
-  styles: NonNullable<NotificationSemanticType['styles']>;
+  classNames: NonNullable<NotificationSemanticAllType['classNames']>;
+  styles: NonNullable<NotificationSemanticAllType['styles']>;
 }
 
 const typeToIcon = {
@@ -120,8 +115,8 @@ export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
-  classNames?: PurePanelClassNamesType;
-  styles?: PurePanelStylesType;
+  classNames?: AnchorSemanticAllType['classNames'] | AnchorSemanticAllType['classNamesFn'];
+  styles?: AnchorSemanticAllType['styles'] | AnchorSemanticAllType['stylesFn'];
   closeIcon?: React.ReactNode;
 }
 

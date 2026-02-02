@@ -25,7 +25,7 @@ import type {
   ArgsProps,
   ConfigOptions,
   MessageInstance,
-  MessageSemanticType,
+  MessageSemanticAllType,
   MessageType,
   NoticeType,
   TypeOpen,
@@ -47,8 +47,8 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   message?: MessageConfig;
-  classNames?: MessageSemanticType['classNames'];
-  styles?: MessageSemanticType['styles'];
+  classNames?: MessageSemanticAllType['classNames'];
+  styles?: MessageSemanticAllType['styles'];
 }
 
 const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({

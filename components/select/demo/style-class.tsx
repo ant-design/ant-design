@@ -1,7 +1,7 @@
 import React from 'react';
 import { MehOutlined } from '@ant-design/icons';
 import { Flex, Select } from 'antd';
-import type { SelectProps, SelectSemanticType } from 'antd';
+import type { SelectProps, SelectSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -25,7 +25,7 @@ const stylesObject: SelectProps['styles'] = {
   },
 };
 
-const stylesFn: SelectProps['styles'] = ({ props }): SelectSemanticType['styles'] => {
+const stylesFn: SelectProps['styles'] = ({ props }): SelectSemanticAllType['styles'] => {
   if (props.variant === 'filled') {
     return {
       prefix: {

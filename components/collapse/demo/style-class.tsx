@@ -1,5 +1,5 @@
 import React from 'react';
-import type { CollapseProps, CollapseSemanticType } from 'antd';
+import type { CollapseProps, CollapseSemanticAllType } from 'antd';
 import { Collapse, Flex } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
@@ -49,7 +49,7 @@ const styles: CollapseProps['styles'] = {
   },
 };
 
-const stylesFn: CollapseProps['styles'] = ({ props }): CollapseSemanticType['styles'] => {
+const stylesFn: CollapseProps['styles'] = ({ props }): CollapseSemanticAllType['styles'] => {
   if (props.size === 'large') {
     return {
       root: {

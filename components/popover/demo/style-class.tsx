@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Flex, Popover } from 'antd';
-import type { PopoverProps, PopoverSemanticType } from 'antd';
+import type { PopoverProps, PopoverSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -19,7 +19,7 @@ const styles: PopoverProps['styles'] = {
   },
 };
 
-const stylesFn: PopoverProps['styles'] = (info): PopoverSemanticType['styles'] => {
+const stylesFn: PopoverProps['styles'] = (info): PopoverSemanticAllType['styles'] => {
   if (!info.props.arrow) {
     return {
       container: {

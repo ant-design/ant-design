@@ -14,15 +14,15 @@ import type {
   UploadListProgressProps,
   UploadListType,
   UploadLocale,
-  UploadSemanticType,
+  UploadSemanticAllType,
 } from '../interface';
 
 export interface ListItemProps {
   prefixCls: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: UploadSemanticType['classNames'];
-  styles?: UploadSemanticType['styles'];
+  classNames?: UploadSemanticAllType['classNames'];
+  styles?: UploadSemanticAllType['styles'];
   locale: UploadLocale;
   file: UploadFile;
   items: UploadFile[];
@@ -145,7 +145,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
     const removeIcon = (
-      typeof showRemoveIcon === 'function' ? showRemoveIcon(file) : showRemoveIcon
+      typeof showRemoveIcon === 'function'
+        ? showRemoveIcon(file)
+        : showRemoveIcon
     )
       ? actionIconRender(
           (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || (

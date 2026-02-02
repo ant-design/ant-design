@@ -1,12 +1,12 @@
 import React from 'react';
 
-import type { TimelineSemanticType } from '..';
+import type { TimelineSemanticAllType } from '..';
 import TimeLine from '..';
 import { render } from '../../../tests/utils';
 
 describe('Timeline.Semantic', () => {
   it('semantic structure', () => {
-    const classNames: TimelineSemanticType['classNames'] = {
+    const classNames: TimelineSemanticAllType['classNames'] = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -18,7 +18,7 @@ describe('Timeline.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: TimelineSemanticType['classNames'] = {
+    const classNamesTargets: TimelineSemanticAllType['classNames'] = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -30,7 +30,7 @@ describe('Timeline.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: TimelineSemanticType['styles'] = {
+    const styles: TimelineSemanticAllType['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -57,9 +57,9 @@ describe('Timeline.Semantic', () => {
     );
 
     Object.keys(classNames).forEach((key) => {
-      const className = classNames[key as keyof TimelineSemanticType['classNames']];
-      const oriClassName = classNamesTargets[key as keyof TimelineSemanticType['classNames']];
-      const style = styles[key as keyof TimelineSemanticType['styles']];
+      const className = classNames[key as keyof TimelineSemanticAllType['classNames']];
+      const oriClassName = classNamesTargets[key as keyof TimelineSemanticAllType['classNames']];
+      const style = styles[key as keyof TimelineSemanticAllType['styles']];
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName as any);

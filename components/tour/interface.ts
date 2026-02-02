@@ -4,7 +4,7 @@ import type {
   TourStepProps as RCTourStepProps,
 } from '@rc-component/tour';
 
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 
 export type TourSemanticType = {
   classNames?: {
@@ -35,9 +35,7 @@ export type TourSemanticType = {
   };
 };
 
-export type TourClassNamesType = SemanticType<TourProps, TourSemanticType['classNames']>;
-
-export type TourStylesType = SemanticType<TourProps, TourSemanticType['styles']>;
+export type TourSemanticAllType = GenerateSemantic<TourSemanticType, TourProps>;
 
 export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'classNames' | 'styles'> {
   steps?: TourStepProps[];
@@ -47,8 +45,8 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'classNames
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: TourStepProps['actionsRender'];
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
-  classNames?: TourClassNamesType;
-  styles?: TourStylesType;
+  classNames?: TourSemanticAllType['classNames'] | TourSemanticAllType['classNamesFn'];
+  styles?: TourSemanticAllType['styles'] | TourSemanticAllType['stylesFn'];
   className?: string;
   style?: React.CSSProperties;
 }
@@ -70,8 +68,8 @@ export interface TourStepProps extends Omit<RCTourStepProps, 'styles' | 'classNa
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: (originNode: ReactNode, info: { current: number; total: number }) => ReactNode;
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
-  classNames?: TourSemanticType['classNames'];
-  styles?: TourSemanticType['styles'];
+  classNames?: TourSemanticAllType['classNames'];
+  styles?: TourSemanticAllType['styles'];
 }
 
 export interface TourLocale {

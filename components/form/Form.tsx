@@ -8,8 +8,8 @@ import type {
 } from '@rc-component/form/lib/interface';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';
@@ -51,13 +51,11 @@ export type FormSemanticType = {
   };
 };
 
-export type FormClassNamesType = SemanticType<FormProps, FormSemanticType['classNames']>;
-
-export type FormStylesType = SemanticType<FormProps, FormSemanticType['styles']>;
+export type FormSemanticAllType = GenerateSemantic<FormSemanticType, FormProps>;
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
-  classNames?: FormClassNamesType;
-  styles?: FormStylesType;
+  classNames?: FormSemanticAllType['classNames'] | FormSemanticAllType['classNamesFn'];
+  styles?: FormSemanticAllType['styles'] | FormSemanticAllType['stylesFn'];
   prefixCls?: string;
   colon?: boolean;
   name?: string;

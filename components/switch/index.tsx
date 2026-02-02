@@ -5,8 +5,8 @@ import type { SwitchChangeEventHandler, SwitchClickEventHandler } from '@rc-comp
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -30,9 +30,7 @@ export type SwitchSemanticType = {
   };
 };
 
-export type SwitchClassNamesType = SemanticType<SwitchProps, SwitchSemanticType['classNames']>;
-
-export type SwitchStylesType = SemanticType<SwitchProps, SwitchSemanticType['styles']>;
+export type SwitchSemanticAllType = GenerateSemantic<SwitchSemanticType, SwitchProps>;
 
 export interface SwitchProps {
   prefixCls?: string;
@@ -62,8 +60,8 @@ export interface SwitchProps {
   title?: string;
   tabIndex?: number;
   id?: string;
-  classNames?: SwitchClassNamesType;
-  styles?: SwitchStylesType;
+  classNames?: SwitchSemanticAllType['classNames'] | SwitchSemanticAllType['classNamesFn'];
+  styles?: SwitchSemanticAllType['styles'] | SwitchSemanticAllType['stylesFn'];
 }
 
 const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {

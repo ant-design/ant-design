@@ -4,26 +4,21 @@ import { omit, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
-import type { PopoverProps, PopoverSemanticType } from '../popover';
+import type { PopoverProps, PopoverSemanticAllType } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
 
-export type PopconfirmSemanticType = PopoverSemanticType;
+export type PopconfirmSemanticType = PopoverSemanticAllType;
 
-export type PopconfirmClassNamesType = SemanticType<
-  PopconfirmProps,
-  PopconfirmSemanticType['classNames']
->;
-
-export type PopconfirmStylesType = SemanticType<PopconfirmProps, PopconfirmSemanticType['styles']>;
+export type PopconfirmSemanticAllType = GenerateSemantic<PopconfirmSemanticType, PopconfirmProps>;
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -40,8 +35,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   icon?: React.ReactNode;
   onOpenChange?: (open: boolean) => void;
   onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
-  classNames?: PopconfirmClassNamesType;
-  styles?: PopconfirmStylesType;
+  classNames?: PopconfirmSemanticAllType['classNames'] | PopconfirmSemanticAllType['classNamesFn'];
+  styles?: PopconfirmSemanticAllType['styles'] | PopconfirmSemanticAllType['stylesFn'];
 }
 
 export interface PopconfirmState {

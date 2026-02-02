@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Mentions } from 'antd';
-import type { MentionSemanticType, MentionsProps } from 'antd';
+import type { MentionSemanticAllType, MentionsProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -26,7 +26,7 @@ const stylesObject: MentionsProps['styles'] = {
   },
 };
 
-const stylesFunction: MentionsProps['styles'] = (info): MentionSemanticType['styles'] => {
+const stylesFunction: MentionsProps['styles'] = (info): MentionSemanticAllType['styles'] => {
   if (info.props.variant === 'filled') {
     return {
       root: {

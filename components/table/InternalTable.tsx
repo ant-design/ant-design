@@ -6,7 +6,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -99,15 +99,7 @@ export type TableSemanticType = {
   };
 };
 
-export type TableClassNamesType<RecordType = any> = SemanticType<
-  TableProps<RecordType>,
-  TableSemanticType['classNames']
->;
-
-export type TableStylesType<RecordType = any> = SemanticType<
-  TableProps<RecordType>,
-  TableSemanticType['styles']
->;
+export type TableSemanticAllType<T = any> = GenerateSemantic<TableSemanticType, TableProps<T>>;
 
 interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
@@ -124,20 +116,25 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject> extends Omit<
-  RcTableProps<RecordType>,
-  | 'transformColumns'
-  | 'internalHooks'
-  | 'internalRefs'
-  | 'data'
-  | 'columns'
-  | 'scroll'
-  | 'emptyText'
-  | 'classNames'
-  | 'styles'
-> {
-  classNames?: TableClassNamesType<RecordType>;
-  styles?: TableStylesType<RecordType>;
+export interface TableProps<RecordType = AnyObject>
+  extends Omit<
+    RcTableProps<RecordType>,
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'columns'
+    | 'scroll'
+    | 'emptyText'
+    | 'classNames'
+    | 'styles'
+  > {
+  classNames?:
+    | TableSemanticAllType<RecordType>['classNames']
+    | TableSemanticAllType<RecordType>['classNamesFn'];
+  styles?:
+    | TableSemanticAllType<RecordType>['styles']
+    | TableSemanticAllType<RecordType>['stylesFn'];
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;

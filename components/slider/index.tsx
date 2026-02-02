@@ -6,7 +6,8 @@ import raf from '@rc-component/util/lib/raf';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation, SemanticType } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -20,14 +21,14 @@ import useRafLock from './useRafLock';
 export type SliderMarks = RcSliderProps['marks'];
 
 export type SliderSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     tracks?: string;
     track?: string;
     rail?: string;
     handle?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     tracks?: React.CSSProperties;
     track?: React.CSSProperties;
@@ -36,13 +37,11 @@ export type SliderSemanticType = {
   };
 };
 
-export type SliderClassNamesType = SemanticType<SliderBaseProps, SliderSemanticType['classNames']>;
-
-export type SliderStylesType = SemanticType<SliderBaseProps, SliderSemanticType['styles']>;
+export type SliderSemanticAllType = GenerateSemantic<SliderSemanticType, SliderBaseProps>;
 
 export interface SliderProps extends Omit<RcSliderProps, 'styles' | 'classNames'> {
-  classNames?: SliderClassNamesType;
-  styles?: SliderStylesType;
+  classNames?: SliderSemanticAllType['classNames'] | SliderSemanticAllType['classNamesFn'];
+  styles?: SliderSemanticAllType['styles'] | SliderSemanticAllType['stylesFn'];
 }
 
 interface HandleGeneratorInfo {
@@ -88,8 +87,8 @@ export interface SliderBaseProps {
   tooltip?: SliderTooltipProps;
   autoFocus?: boolean;
 
-  styles?: SliderStylesType;
-  classNames?: SliderClassNamesType;
+  classNames?: SliderSemanticAllType['classNames'] | SliderSemanticAllType['classNamesFn'];
+  styles?: SliderSemanticAllType['styles'] | SliderSemanticAllType['stylesFn'];
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
 

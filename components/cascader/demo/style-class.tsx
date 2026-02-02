@@ -1,6 +1,6 @@
 import React from 'react';
 import { Cascader, Flex } from 'antd';
-import type { CascaderProps, CascaderSemanticType } from 'antd';
+import type { CascaderProps, CascaderSemanticAllType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => {
@@ -61,7 +61,7 @@ const stylesObject: CascaderProps['styles'] = {
   },
 };
 
-const stylesFn: CascaderProps['styles'] = (info): CascaderSemanticType['style'] => {
+const stylesFn: CascaderProps['styles'] = (info): CascaderSemanticAllType['styles'] => {
   if (info.props.variant === 'filled') {
     return {
       prefix: {

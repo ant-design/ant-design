@@ -7,8 +7,8 @@ import isEqual from '@rc-component/util/lib/isEqual';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { useComponentConfig } from '../config-provider/context';
@@ -40,9 +40,7 @@ export type MasonrySemanticType = {
   };
 };
 
-export type MasonryClassNamesType = SemanticType<MasonryProps, MasonrySemanticType['classNames']>;
-
-export type MasonryStylesType = SemanticType<MasonryProps, MasonrySemanticType['styles']>;
+export type MasonrySemanticAllType = GenerateSemantic<MasonrySemanticType, MasonryProps>;
 
 export interface MasonryProps<ItemDataType = any> {
   // Style
@@ -51,8 +49,8 @@ export interface MasonryProps<ItemDataType = any> {
   rootClassName?: string;
   style?: CSSProperties;
 
-  classNames?: MasonryClassNamesType;
-  styles?: MasonryStylesType;
+  classNames?: MasonrySemanticAllType['classNames'] | MasonrySemanticAllType['classNamesFn'];
+  styles?: MasonrySemanticAllType['styles'] | MasonrySemanticAllType['stylesFn'];
 
   /** Spacing between items */
   gutter?: RowProps['gutter'];

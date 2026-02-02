@@ -6,7 +6,7 @@ import type {
   UploadProps as RcUploadProps,
 } from '@rc-component/upload/lib/interface';
 
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
@@ -103,17 +103,10 @@ export type UploadSemanticType = {
   };
 };
 
-export type UploadClassNamesType<T = any> = SemanticType<
-  UploadProps<T>,
-  UploadSemanticType['classNames']
->;
+export type UploadSemanticAllType<T = any> = GenerateSemantic<UploadSemanticType, UploadProps<T>>;
 
-export type UploadStylesType<T = any> = SemanticType<UploadProps<T>, UploadSemanticType['styles']>;
-
-export interface UploadProps<T = any> extends Pick<
-  RcUploadProps,
-  'capture' | 'hasControlInside' | 'pastable'
-> {
+export interface UploadProps<T = any>
+  extends Pick<RcUploadProps, 'capture' | 'hasControlInside' | 'pastable'> {
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
@@ -136,8 +129,8 @@ export interface UploadProps<T = any> extends Pick<
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
-  classNames?: UploadClassNamesType<T>;
-  styles?: UploadStylesType<T>;
+  classNames?: UploadSemanticAllType<T>['classNames'] | UploadSemanticAllType<T>['classNamesFn'];
+  styles?: UploadSemanticAllType<T>['styles'] | UploadSemanticAllType<T>['stylesFn'];
   rootClassName?: string;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;
@@ -175,8 +168,8 @@ export interface UploadState<T = any> {
 }
 
 export interface UploadListProps<T = any> {
-  classNames?: UploadSemanticType['classNames'];
-  styles?: UploadSemanticType['styles'];
+  classNames?: UploadSemanticAllType['classNames'];
+  styles?: UploadSemanticAllType['styles'];
   listType?: UploadListType;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;

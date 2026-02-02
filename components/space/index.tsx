@@ -4,7 +4,8 @@ import { clsx } from 'clsx';
 
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation, SemanticType } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -33,9 +34,7 @@ export type SpaceSemanticType = {
   };
 };
 
-export type SpaceClassNamesType = SemanticType<SpaceProps, SpaceSemanticType['classNames']>;
-
-export type SpaceStylesType = SemanticType<SpaceProps, SpaceSemanticType['styles']>;
+export type SpaceSemanticAllType = GenerateSemantic<SpaceSemanticType, SpaceProps>;
 
 export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
@@ -53,8 +52,8 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   split?: React.ReactNode;
   separator?: React.ReactNode;
   wrap?: boolean;
-  classNames?: SpaceClassNamesType;
-  styles?: SpaceStylesType;
+  classNames?: SpaceSemanticAllType['classNames'] | SpaceSemanticAllType['classNamesFn'];
+  styles?: SpaceSemanticAllType['styles'] | SpaceSemanticAllType['stylesFn'];
 }
 
 const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {

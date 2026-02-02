@@ -21,7 +21,7 @@ export type {
   AntTreeNodeProps,
   AntTreeNodeSelectedEvent,
   TreeProps,
-  TreeSemanticType,
+  TreeSemanticAllType,
 } from './Tree';
 
 export type { EventDataNode } from '@rc-component/tree/lib/interface';

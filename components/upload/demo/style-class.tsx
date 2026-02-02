@@ -1,7 +1,7 @@
 import React from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Flex, Upload } from 'antd';
-import type { UploadProps, UploadSemanticType } from 'antd';
+import type { UploadProps, UploadSemanticAllType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -24,7 +24,7 @@ const stylesObject: UploadProps<any>['styles'] = {
   },
 };
 
-const stylesFn: UploadProps<any>['styles'] = (info): UploadSemanticType['styles'] => {
+const stylesFn: UploadProps<any>['styles'] = (info): UploadSemanticAllType['styles'] => {
   if (info.props.multiple) {
     return {
       root: { border: '1px solid #5459AC' },

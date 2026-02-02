@@ -2,8 +2,8 @@ import * as React from 'react';
 import { UnstableContext } from '@rc-component/steps';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -59,20 +59,15 @@ export interface TimelineItemType {
 
 export type TimelineSemanticType = StepsSemanticType;
 
-export type TimelineClassNamesType = SemanticType<
-  TimelineProps,
-  TimelineSemanticType['classNames']
->;
-
-export type TimelineStylesType = SemanticType<TimelineProps, TimelineSemanticType['styles']>;
+export type TimelineSemanticAllType = GenerateSemantic<TimelineSemanticType, TimelineProps>;
 
 export interface TimelineProps {
   // Style
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: TimelineClassNamesType;
-  styles?: TimelineStylesType;
+  classNames?: TimelineSemanticAllType['classNames'] | TimelineSemanticAllType['classNamesFn'];
+  styles?: TimelineSemanticAllType['styles'] | TimelineSemanticAllType['stylesFn'];
   rootClassName?: string;
 
   // Design

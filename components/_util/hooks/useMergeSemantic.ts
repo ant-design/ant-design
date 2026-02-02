@@ -8,8 +8,6 @@ export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
-export type SemanticType<P = any, T = any> = T | ((info: { props: P }) => T);
-
 export type RemoveStringSemanticType<T extends { classNames?: any; styles?: any }> = {
   styles?: T['styles'];
   classNames?: RemoveClassNamesString<NonNullable<T['classNames']>>;

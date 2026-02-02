@@ -1,7 +1,8 @@
 import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
-import type { ClosableType, MaskType, SemanticType } from '../_util/hooks';
+import type { ClosableType, MaskType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
@@ -30,24 +31,23 @@ export type ModalSemanticType = {
   };
 };
 
-export type ModalClassNamesType = SemanticType<ModalProps, ModalSemanticType['classNames']>;
+export type ModalSemanticAllType = GenerateSemantic<ModalSemanticType, ModalProps>;
 
-export type ModalStylesType = SemanticType<ModalProps, ModalSemanticType['styles']>;
-
-interface ModalCommonProps extends Omit<
-  DialogProps,
-  | 'footer'
-  | 'width'
-  | 'onClose'
-  | 'animation'
-  | 'maskAnimation'
-  | 'transitionName'
-  | 'maskTransitionName'
-  | 'mask'
-  | 'classNames'
-  | 'styles'
-  | OmitFocusType
-> {
+interface ModalCommonProps
+  extends Omit<
+    DialogProps,
+    | 'footer'
+    | 'width'
+    | 'onClose'
+    | 'animation'
+    | 'maskAnimation'
+    | 'transitionName'
+    | 'maskTransitionName'
+    | 'mask'
+    | 'classNames'
+    | 'styles'
+    | OmitFocusType
+  > {
   footer?:
     | React.ReactNode
     | ((
@@ -57,8 +57,8 @@ interface ModalCommonProps extends Omit<
   closable?:
     | boolean
     | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
-  classNames?: ModalClassNamesType;
-  styles?: ModalStylesType;
+  classNames?: ModalSemanticAllType['classNames'] | ModalSemanticAllType['classNamesFn'];
+  styles?: ModalSemanticAllType['styles'] | ModalSemanticAllType['stylesFn'];
 }
 
 export interface ModalProps extends ModalCommonProps {

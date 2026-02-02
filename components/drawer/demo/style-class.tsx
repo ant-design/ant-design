@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Flex } from 'antd';
-import type { DrawerProps, DrawerSemanticType } from 'antd';
+import type { DrawerProps, DrawerSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const lineStyle: React.CSSProperties = {
@@ -35,7 +35,7 @@ const styles: DrawerProps['styles'] = {
   },
 };
 
-const stylesFn: DrawerProps['styles'] = (info): DrawerSemanticType['styles'] => {
+const stylesFn: DrawerProps['styles'] = (info): DrawerSemanticAllType['styles'] => {
   if (info.props.footer) {
     return {
       header: {

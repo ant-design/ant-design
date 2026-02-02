@@ -7,8 +7,8 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Circle from './Circle';
@@ -34,12 +34,7 @@ export type ProgressSemanticType = {
   };
 };
 
-export type ProgressClassNamesType = SemanticType<
-  ProgressProps,
-  ProgressSemanticType['classNames']
->;
-
-export type ProgressStylesType = SemanticType<ProgressProps, ProgressSemanticType['styles']>;
+export type ProgressSemanticAllType = GenerateSemantic<ProgressSemanticType, ProgressProps>;
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -68,8 +63,8 @@ export interface ProgressProps extends ProgressAriaProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: ProgressClassNamesType;
-  styles?: ProgressStylesType;
+  classNames?: ProgressSemanticAllType['classNames'] | ProgressSemanticAllType['classNamesFn'];
+  styles?: ProgressSemanticAllType['styles'] | ProgressSemanticAllType['stylesFn'];
 
   type?: ProgressType;
   percent?: number;

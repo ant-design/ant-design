@@ -4,12 +4,12 @@ import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
-import type { AbstractTooltipProps, TooltipRef, TooltipSemanticType } from '../tooltip';
+import type { AbstractTooltipProps, TooltipRef, TooltipSemanticAllType } from '../tooltip';
 import Tooltip from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
@@ -20,23 +20,21 @@ export type PopoverSemanticType = {
   classNames?: {
     title?: string;
     content?: string;
-  } & TooltipSemanticType['classNames'];
+  } & TooltipSemanticAllType['classNames'];
   styles?: {
     title?: React.CSSProperties;
     content?: React.CSSProperties;
-  } & TooltipSemanticType['styles'];
+  } & TooltipSemanticAllType['styles'];
 };
 
-export type PopoverClassNamesType = SemanticType<PopoverProps, PopoverSemanticType['classNames']>;
-
-export type PopoverStylesType = SemanticType<PopoverProps, PopoverSemanticType['styles']>;
+export type PopoverSemanticAllType = GenerateSemantic<PopoverSemanticType, PopoverProps>;
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   content?: React.ReactNode | RenderFunction;
   onOpenChange?: (open: boolean) => void;
-  classNames?: PopoverClassNamesType;
-  styles?: PopoverStylesType;
+  classNames?: PopoverSemanticAllType['classNames'] | PopoverSemanticAllType['classNamesFn'];
+  styles?: PopoverSemanticAllType['styles'] | PopoverSemanticAllType['stylesFn'];
 }
 
 const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {

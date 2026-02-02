@@ -4,7 +4,8 @@ import { clsx } from 'clsx';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
-import type { ClosableType, SemanticType } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -20,7 +21,7 @@ import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
 
 export type { CheckableTagProps } from './CheckableTag';
-export type { CheckableTagGroupProps, CheckableTagGroupSemanticType } from './CheckableTagGroup';
+export type { CheckableTagGroupProps, CheckableTagGroupSemanticAllType } from './CheckableTagGroup';
 
 export type TagSemanticType = {
   classNames?: {
@@ -28,16 +29,14 @@ export type TagSemanticType = {
     icon?: string;
     content?: string;
   };
-  style?: {
+  styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     content?: React.CSSProperties;
   };
 };
 
-export type TagClassNamesType = SemanticType<TagProps, TagSemanticType['classNames']>;
-
-export type TagStylesType = SemanticType<TagProps, TagSemanticType['style']>;
+export type TagSemanticAllType = GenerateSemantic<TagSemanticType, TagProps>;
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
@@ -56,8 +55,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   href?: string;
   target?: string;
   disabled?: boolean;
-  classNames?: TagClassNamesType;
-  styles?: TagStylesType;
+  classNames?: TagSemanticAllType['classNames'] | TagSemanticAllType['classNamesFn'];
+  styles?: TagSemanticAllType['styles'] | TagSemanticAllType['stylesFn'];
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(

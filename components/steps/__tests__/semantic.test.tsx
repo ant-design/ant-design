@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Steps from '..';
-import type { StepsProps, StepsSemanticType } from '..';
+import type { StepsProps, StepsSemanticAllType } from '..';
 import { render } from '../../../tests/utils';
 
 describe('Steps.Semantic', () => {
@@ -17,7 +17,7 @@ describe('Steps.Semantic', () => {
   );
 
   it('semantic structure', () => {
-    const classNames: StepsSemanticType['classNames'] = {
+    const classNames: StepsSemanticAllType['classNames'] = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -30,7 +30,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: StepsSemanticType['classNames'] = {
+    const classNamesTargets: StepsSemanticAllType['classNames'] = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -43,7 +43,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: StepsSemanticType['styles'] = {
+    const styles: StepsSemanticAllType['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -59,9 +59,9 @@ describe('Steps.Semantic', () => {
     const { container } = render(renderSteps({ classNames, styles }));
 
     Object.keys(classNames).forEach((key) => {
-      const className = classNames[key as keyof StepsSemanticType['classNames']];
-      const oriClassName = classNamesTargets[key as keyof StepsSemanticType['classNames']];
-      const style = styles[key as keyof StepsSemanticType['styles']];
+      const className = classNames[key as keyof StepsSemanticAllType['classNames']];
+      const oriClassName = classNamesTargets[key as keyof StepsSemanticAllType['classNames']];
+      const style = styles[key as keyof StepsSemanticAllType['styles']];
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName);

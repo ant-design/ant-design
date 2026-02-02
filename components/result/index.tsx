@@ -7,8 +7,8 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import noFound from './noFound';
@@ -52,9 +52,7 @@ export type ResultSemanticType = {
   };
 };
 
-export type ResultClassNamesType = SemanticType<ResultProps, ResultSemanticType['classNames']>;
-
-export type ResultStylesType = SemanticType<ResultProps, ResultSemanticType['styles']>;
+export type ResultSemanticAllType = GenerateSemantic<ResultSemanticType, ResultProps>;
 
 export interface ResultProps extends HTMLAriaDataAttributes {
   icon?: React.ReactNode;
@@ -67,8 +65,8 @@ export interface ResultProps extends HTMLAriaDataAttributes {
   rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  classNames?: ResultClassNamesType;
-  styles?: ResultStylesType;
+  classNames?: ResultSemanticAllType['classNames'] | ResultSemanticAllType['classNamesFn'];
+  styles?: ResultSemanticAllType['styles'] | ResultSemanticAllType['stylesFn'];
 }
 
 // ExceptionImageMap keys

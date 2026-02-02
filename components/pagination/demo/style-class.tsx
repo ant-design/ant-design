@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Pagination } from 'antd';
-import type { PaginationProps, PaginationSemanticType } from 'antd';
+import type { PaginationProps, PaginationSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -10,7 +10,7 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: PaginationProps['styles'] = ({ props }): PaginationSemanticType['styles'] => {
+const styleFn: PaginationProps['styles'] = ({ props }): PaginationSemanticAllType['styles'] => {
   if (props.size === 'small') {
     return {
       item: {

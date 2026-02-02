@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider } from 'antd';
-import type { DividerProps, DividerSemanticType } from 'antd';
+import type { DividerProps, DividerSemanticAllType } from 'antd';
 
 const classNamesObject: DividerProps['classNames'] = {
   root: 'demo-divider-root',
@@ -8,7 +8,7 @@ const classNamesObject: DividerProps['classNames'] = {
   rail: 'demo-divider-rail',
 };
 
-const classNamesFn: DividerProps['classNames'] = (info): DividerSemanticType['classNames'] => {
+const classNamesFn: DividerProps['classNames'] = (info): DividerSemanticAllType['classNames'] => {
   if (info.props.titlePlacement === 'start') {
     return {
       root: 'demo-divider-root--start',
@@ -25,7 +25,7 @@ const stylesObject: DividerProps['styles'] = {
   rail: { opacity: 0.85 },
 };
 
-const stylesFn: DividerProps['styles'] = (info): DividerSemanticType['styles'] => {
+const stylesFn: DividerProps['styles'] = (info): DividerSemanticAllType['styles'] => {
   if (info.props.size === 'small') {
     return {
       root: { opacity: 0.6, cursor: 'default' },

@@ -1,6 +1,7 @@
 import type * as React from 'react';
 
-import type { Orientation, SemanticType } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -45,21 +46,19 @@ export interface RadioGroupContextProps {
 }
 
 export type RadioSemanticType = {
-  className: {
+  classNames?: {
     root?: string;
     icon?: string;
     label?: string;
   };
-  style: {
+  styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     label?: React.CSSProperties;
   };
 };
 
-export type RadioClassNamesType = SemanticType<RadioProps, RadioSemanticType['className']>;
-
-export type RadioStylesType = SemanticType<RadioProps, RadioSemanticType['style']>;
+export type RadioSemanticAllType = GenerateSemantic<RadioSemanticType, RadioProps>;
 
 export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
   /**
@@ -69,8 +68,8 @@ export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
    * @internal
    */
   optionType?: RadioGroupOptionType;
-  classNames?: RadioClassNamesType;
-  styles?: RadioStylesType;
+  classNames?: RadioSemanticAllType['classNames'] | RadioSemanticAllType['classNamesFn'];
+  styles?: RadioSemanticAllType['styles'] | RadioSemanticAllType['stylesFn'];
 }
 
 export interface RadioChangeEventTarget extends RadioProps {

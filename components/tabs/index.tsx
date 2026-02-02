@@ -8,8 +8,8 @@ import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator
 import type { EditableConfig, MoreProps, Tab } from '@rc-component/tabs/lib/interface';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -49,9 +49,7 @@ export type TabsSemanticType = {
   };
 };
 
-export type TabsClassNamesType = SemanticType<TabsProps, TabsSemanticType['classNames']>;
-
-export type TabsStylesType = SemanticType<TabsProps, TabsSemanticType['styles']>;
+export type TabsSemanticAllType = GenerateSemantic<TabsSemanticType, TabsProps>;
 
 export interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
@@ -69,8 +67,8 @@ export interface BaseTabsProps {
   centered?: boolean;
   className?: string;
   rootClassName?: string;
-  classNames?: TabsClassNamesType;
-  styles?: TabsStylesType;
+  classNames?: TabsSemanticAllType['classNames'] | TabsSemanticAllType['classNamesFn'];
+  styles?: TabsSemanticAllType['styles'] | TabsSemanticAllType['stylesFn'];
   /** @deprecated please use `tabPlacement` instead */
   tabPosition?: TabPosition;
   tabPlacement?: TabPlacement;
@@ -82,16 +80,13 @@ export interface BaseTabsProps {
 }
 
 export interface TabsProps
-  extends
-    BaseTabsProps,
+  extends BaseTabsProps,
     CompatibilityProps,
     Omit<RcTabsProps, 'editable' | 'items' | 'classNames' | 'styles' | 'popupClassName'> {
   addIcon?: React.ReactNode;
   moreIcon?: React.ReactNode;
   more?: MoreProps;
   removeIcon?: React.ReactNode;
-  styles?: TabsStylesType;
-  classNames?: TabsClassNamesType;
   /** @deprecated Please use `classNames.popup` instead */
   popupClassName?: string;
 }

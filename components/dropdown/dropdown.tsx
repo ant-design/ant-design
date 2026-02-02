@@ -7,8 +7,8 @@ import type { AlignType } from '@rc-component/trigger';
 import { omit, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -59,16 +59,11 @@ export type DropdownSemanticType = {
   };
 };
 
-export type DropdownClassNamesType = SemanticType<
-  DropdownProps,
-  DropdownSemanticType['classNames']
->;
-
-export type DropdownStylesType = SemanticType<DropdownProps, DropdownSemanticType['styles']>;
+export type DropdownSemanticAllType = GenerateSemantic<DropdownSemanticType, DropdownProps>;
 
 export interface DropdownProps {
-  classNames?: DropdownClassNamesType;
-  styles?: DropdownStylesType;
+  classNames?: DropdownSemanticAllType['classNames'] | DropdownSemanticAllType['classNamesFn'];
+  styles?: DropdownSemanticAllType['styles'] | DropdownSemanticAllType['stylesFn'];
   menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;

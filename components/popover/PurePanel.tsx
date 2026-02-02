@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
 import { clsx } from 'clsx';
 
-import type { PopoverProps, PopoverSemanticType } from '.';
+import type { PopoverProps, PopoverSemanticAllType } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks';
 import { ConfigContext } from '../config-provider';
@@ -12,8 +12,8 @@ interface OverlayProps {
   prefixCls?: string;
   title?: React.ReactNode;
   content?: React.ReactNode;
-  classNames?: PopoverSemanticType['classNames'];
-  styles?: PopoverSemanticType['styles'];
+  classNames?: PopoverSemanticAllType['classNames'];
+  styles?: PopoverSemanticAllType['styles'];
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {

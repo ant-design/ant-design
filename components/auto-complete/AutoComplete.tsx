@@ -3,8 +3,8 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -15,7 +15,7 @@ import type {
   InternalSelectProps,
   RefSelectProps,
   SelectProps,
-  SelectSemanticType,
+  SelectSemanticAllType,
 } from '../select';
 import Select from '../select';
 
@@ -26,7 +26,7 @@ export type AutoCompleteSemanticType = {
     input?: string;
     placeholder?: string;
     content?: string;
-    popup?: NonNullable<SelectSemanticType['classNames']>['popup'];
+    popup?: NonNullable<SelectSemanticAllType['classNames']>['popup'];
   };
   styles?: {
     root?: React.CSSProperties;
@@ -34,7 +34,7 @@ export type AutoCompleteSemanticType = {
     input?: React.CSSProperties;
     placeholder?: React.CSSProperties;
     content?: React.CSSProperties;
-    popup?: NonNullable<SelectSemanticType['styles']>['popup'];
+    popup?: NonNullable<SelectSemanticAllType['styles']>['popup'];
   };
 };
 
@@ -47,22 +47,18 @@ export interface DataSourceItemObject {
 
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
-export type AutoCompleteClassNamesType = SemanticType<
-  AutoCompleteProps,
-  AutoCompleteSemanticType['classNames']
->;
-export type AutoCompleteStylesType = SemanticType<
-  AutoCompleteProps,
-  AutoCompleteSemanticType['styles']
+export type AutoCompleteSemanticAllType = GenerateSemantic<
+  AutoCompleteSemanticType,
+  AutoCompleteProps
 >;
 
 export interface AutoCompleteProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-  InternalSelectProps<ValueType, OptionType>,
-  'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames'
-> {
+    InternalSelectProps<ValueType, OptionType>,
+    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames'
+  > {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
@@ -73,8 +69,10 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  styles?: AutoCompleteStylesType;
-  classNames?: AutoCompleteClassNamesType;
+  classNames?:
+    | AutoCompleteSemanticAllType['classNames']
+    | AutoCompleteSemanticAllType['classNamesFn'];
+  styles?: AutoCompleteSemanticAllType['styles'] | AutoCompleteSemanticAllType['stylesFn'];
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;

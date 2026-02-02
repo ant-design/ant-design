@@ -6,7 +6,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
 import type { ButtonSemanticType } from '../button/Button';
@@ -36,12 +36,7 @@ export type InputSearchSemanticType = {
   };
 };
 
-export type InputSearchClassNamesType = SemanticType<
-  SearchProps,
-  InputSearchSemanticType['classNames']
->;
-
-export type InputSearchStylesType = SemanticType<SearchProps, InputSearchSemanticType['styles']>;
+export type InputSearchSemanticAllType = GenerateSemantic<InputSearchSemanticType, SearchProps>;
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -58,8 +53,10 @@ export interface SearchProps extends InputProps {
   enterButton?: React.ReactNode;
   loading?: boolean;
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  classNames?: InputSearchClassNamesType;
-  styles?: InputSearchStylesType;
+  classNames?:
+    | InputSearchSemanticAllType['classNames']
+    | InputSearchSemanticAllType['classNamesFn'];
+  styles?: InputSearchSemanticAllType['styles'] | InputSearchSemanticAllType['stylesFn'];
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {

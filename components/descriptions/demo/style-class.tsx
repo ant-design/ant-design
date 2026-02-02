@@ -1,6 +1,6 @@
 import React from 'react';
 import { Descriptions, Flex } from 'antd';
-import type { DescriptionsProps, DescriptionsSemanticType } from 'antd';
+import type { DescriptionsProps, DescriptionsSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -33,7 +33,7 @@ const styles: DescriptionsProps['styles'] = {
   },
 };
 
-const stylesFn: DescriptionsProps['styles'] = (info): DescriptionsSemanticType['styles'] => {
+const stylesFn: DescriptionsProps['styles'] = (info): DescriptionsSemanticAllType['styles'] => {
   if (info.props.size === 'default') {
     return {
       root: {

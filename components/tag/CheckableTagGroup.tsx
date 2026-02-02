@@ -4,8 +4,8 @@ import { useControlledState } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import CheckableTag from './CheckableTag';
@@ -41,6 +41,11 @@ export type CheckableTagGroupSemanticType = {
   };
 };
 
+export type CheckableTagGroupSemanticAllType = GenerateSemantic<
+  CheckableTagGroupSemanticType,
+  CheckableTagGroupBaseProps<any>
+>;
+
 type CheckableTagGroupBaseProps<CheckableTagValue> = {
   // style
   prefixCls?: string;
@@ -56,20 +61,14 @@ type CheckableTagGroupBaseProps<CheckableTagValue> = {
     [key: `aria-${string}`]: any;
   };
 
-export type CheckableTagGroupClassNamesType = SemanticType<
-  CheckableTagGroupBaseProps<any>,
-  CheckableTagGroupSemanticType['classNames']
->;
-
-export type CheckableTagGroupStylesType = SemanticType<
-  CheckableTagGroupBaseProps<any>,
-  CheckableTagGroupSemanticType['styles']
->;
-
 export type CheckableTagGroupProps<CheckableTagValue = any> =
   CheckableTagGroupBaseProps<CheckableTagValue> & {
-    classNames?: CheckableTagGroupClassNamesType;
-    styles?: CheckableTagGroupStylesType;
+    classNames?:
+      | CheckableTagGroupSemanticAllType['classNames']
+      | CheckableTagGroupSemanticAllType['classNamesFn'];
+    styles?:
+      | CheckableTagGroupSemanticAllType['styles']
+      | CheckableTagGroupSemanticAllType['stylesFn'];
   };
 
 export interface CheckableTagGroupRef {

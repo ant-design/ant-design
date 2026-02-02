@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import type { PresetColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { LiteralUnion } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style/ribbon';
@@ -24,9 +24,7 @@ export type RibbonSemanticType = {
   };
 };
 
-export type RibbonClassNamesType = SemanticType<RibbonProps, RibbonSemanticType['classNames']>;
-
-export type RibbonStylesType = SemanticType<RibbonProps, RibbonSemanticType['styles']>;
+export type RibbonSemanticAllType = GenerateSemantic<RibbonSemanticType, RibbonProps>;
 
 export interface RibbonProps {
   className?: string;
@@ -37,8 +35,8 @@ export interface RibbonProps {
   children?: React.ReactNode;
   placement?: RibbonPlacement;
   rootClassName?: string;
-  classNames?: RibbonClassNamesType;
-  styles?: RibbonStylesType;
+  classNames?: RibbonSemanticAllType['classNames'] | RibbonSemanticAllType['classNamesFn'];
+  styles?: RibbonSemanticAllType['styles'] | RibbonSemanticAllType['stylesFn'];
 }
 
 const Ribbon: React.FC<RibbonProps> = (props) => {

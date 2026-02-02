@@ -43,7 +43,7 @@ import Result from '../../result';
 import Segmented from '../../segmented';
 import Select from '../../select';
 import Skeleton from '../../skeleton';
-import type { SkeletonSemanticType } from '../../skeleton/Skeleton';
+import type { SkeletonSemanticAllType } from '../../skeleton/Skeleton';
 import Slider from '../../slider';
 import Space from '../../space';
 import Spin from '../../spin';
@@ -421,7 +421,7 @@ describe('ConfigProvider support style and className props', () => {
     const titleStyle = { background: 'rgba(0, 255, 17, 0.8)' };
     const paragraphStyle = { background: 'rgba(255, 111, 0, 0.8)' };
 
-    const customClassNames: SkeletonSemanticType['classNames'] = {
+    const customClassNames: SkeletonSemanticAllType['classNames'] = {
       root: 'custom-root',
       header: 'custom-header',
       section: 'custom-section',
@@ -430,7 +430,7 @@ describe('ConfigProvider support style and className props', () => {
       paragraph: 'custom-paragraph',
     };
 
-    const customStyles: SkeletonSemanticType['styles'] = {
+    const customStyles: SkeletonSemanticAllType['styles'] = {
       root: rootStyle,
       header: headerStyle,
       section: sectionStyle,

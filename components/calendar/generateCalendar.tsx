@@ -7,7 +7,7 @@ import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -46,14 +46,9 @@ export type CalendarSemanticType = {
   };
 };
 
-export type CalendarClassNamesType<DateType> = SemanticType<
-  CalendarProps<DateType>,
-  CalendarSemanticType['classNames']
->;
-
-export type CalendarStylesType<DateType> = SemanticType<
-  CalendarProps<DateType>,
-  CalendarSemanticType['styles']
+export type CalendarSemanticAllType<T = any> = GenerateSemantic<
+  CalendarSemanticType,
+  CalendarProps<T>
 >;
 
 export interface CalendarProps<DateType> {
@@ -61,8 +56,12 @@ export interface CalendarProps<DateType> {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: CalendarClassNamesType<DateType>;
-  styles?: CalendarStylesType<DateType>;
+  classNames?:
+    | CalendarSemanticAllType<DateType>['classNames']
+    | CalendarSemanticAllType<DateType>['classNamesFn'];
+  styles?:
+    | CalendarSemanticAllType<DateType>['styles']
+    | CalendarSemanticAllType<DateType>['stylesFn'];
   locale?: typeof enUS;
   validRange?: [DateType, DateType];
   disabledDate?: (date: DateType) => boolean;

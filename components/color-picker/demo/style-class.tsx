@@ -1,6 +1,6 @@
 import React from 'react';
 import { ColorPicker, Flex, Space } from 'antd';
-import type { ColorPickerProps, ColorPickerSemanticType } from 'antd';
+import type { ColorPickerProps, ColorPickerSemanticAllType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -17,7 +17,7 @@ const stylesObject: ColorPickerProps['styles'] = {
   },
 };
 
-const stylesFn: ColorPickerProps['styles'] = (info): ColorPickerSemanticType['styles'] => {
+const stylesFn: ColorPickerProps['styles'] = (info): ColorPickerSemanticAllType['styles'] => {
   if (info.props.size === 'large') {
     return {
       popup: {

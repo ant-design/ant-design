@@ -11,7 +11,7 @@ export type {
   RadioGroupProps,
   RadioProps,
   RadioRef,
-  RadioSemanticType,
+  RadioSemanticAllType,
 } from './interface';
 export { Button, Group };
 

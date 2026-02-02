@@ -12,8 +12,8 @@ import { clsx } from 'clsx';
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -66,19 +66,20 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 // remove this after RcTooltip switch visible to open.
-interface LegacyTooltipProps extends Partial<
-  Omit<
-    RcTooltipProps,
-    | 'children'
-    | 'visible'
-    | 'defaultVisible'
-    | 'onVisibleChange'
-    | 'afterVisibleChange'
-    | 'destroyTooltipOnHide'
-    | 'classNames'
-    | 'styles'
-  >
-> {
+interface LegacyTooltipProps
+  extends Partial<
+    Omit<
+      RcTooltipProps,
+      | 'children'
+      | 'visible'
+      | 'defaultVisible'
+      | 'onVisibleChange'
+      | 'afterVisibleChange'
+      | 'destroyTooltipOnHide'
+      | 'classNames'
+      | 'styles'
+    >
+  > {
   open?: RcTooltipProps['visible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
   onOpenChange?: RcTooltipProps['onVisibleChange'];
@@ -98,9 +99,7 @@ export type TooltipSemanticType = {
   };
 };
 
-export type TooltipClassNamesType = SemanticType<TooltipProps, TooltipSemanticType['classNames']>;
-
-export type TooltipStylesType = SemanticType<TooltipProps, TooltipSemanticType['styles']>;
+export type TooltipSemanticAllType = GenerateSemantic<TooltipSemanticType, TooltipProps>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
@@ -135,8 +134,8 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
 export interface TooltipProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
-  classNames?: TooltipClassNamesType;
-  styles?: TooltipStylesType;
+  classNames?: TooltipSemanticAllType['classNames'] | TooltipSemanticAllType['classNamesFn'];
+  styles?: TooltipSemanticAllType['styles'] | TooltipSemanticAllType['stylesFn'];
 }
 
 interface InternalTooltipProps extends TooltipProps {

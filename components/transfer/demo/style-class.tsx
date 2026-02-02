@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Transfer } from 'antd';
-import type { TransferProps, TransferSemanticType } from 'antd';
+import type { TransferProps, TransferSemanticAllType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token, css }) => ({
@@ -25,7 +25,7 @@ const stylesObject: TransferProps['styles'] = {
   header: { fontWeight: 'bold' },
 };
 
-const stylesFn: TransferProps['styles'] = (info): TransferSemanticType['styles'] => {
+const stylesFn: TransferProps['styles'] = (info): TransferSemanticAllType['styles'] => {
   if (info.props.status === 'warning') {
     return {
       section: { backgroundColor: 'rgba(246,255,237, 0.6)', borderColor: '#b7eb8f' },

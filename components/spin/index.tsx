@@ -2,8 +2,8 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Indicator from './Indicator';
@@ -33,9 +33,7 @@ export type SpinSemanticType = {
   };
 };
 
-export type SpinClassNamesType = SemanticType<SpinProps, SpinSemanticType['classNames']>;
-
-export type SpinStylesType = SemanticType<SpinProps, SpinSemanticType['styles']>;
+export type SpinSemanticAllType = GenerateSemantic<SpinSemanticType, SpinProps>;
 
 export interface SpinProps {
   /** Customize prefix class name */
@@ -63,8 +61,8 @@ export interface SpinProps {
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
   percent?: number | 'auto';
-  classNames?: SpinClassNamesType;
-  styles?: SpinStylesType;
+  classNames?: SpinSemanticAllType['classNames'] | SpinSemanticAllType['classNamesFn'];
+  styles?: SpinSemanticAllType['styles'] | SpinSemanticAllType['stylesFn'];
 }
 
 export type SpinType = React.FC<SpinProps> & {

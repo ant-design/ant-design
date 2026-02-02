@@ -10,7 +10,8 @@ import useId from '@rc-component/util/lib/hooks/useId';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation, SemanticType } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -35,17 +36,16 @@ export type SegmentedSemanticType = {
   };
 };
 
-interface SegmentedLabeledOptionWithoutIcon<
-  ValueType = RcSegmentedValue,
-> extends RcSegmentedLabeledOption<ValueType> {
+export type SegmentedSemanticAllType = GenerateSemantic<SegmentedSemanticType, SegmentedProps>;
+
+interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
+  extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
   tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
-interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue> extends Omit<
-  RcSegmentedLabeledOption<ValueType>,
-  'label'
-> {
+interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
+  extends Omit<RcSegmentedLabeledOption<ValueType>, 'label'> {
   label?: RcSegmentedLabeledOption['label'];
   /** Set icon for Segmented item */
   icon: React.ReactNode;
@@ -64,17 +64,11 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
 
-export type SegmentedClassNamesType = SemanticType<
-  SegmentedProps,
-  SegmentedSemanticType['classNames']
->;
-
-export type SegmentedStylesType = SemanticType<SegmentedProps, SegmentedSemanticType['styles']>;
-
-export interface SegmentedProps<ValueType = RcSegmentedValue> extends Omit<
-  RCSegmentedProps<ValueType>,
-  'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
-> {
+export interface SegmentedProps<ValueType = RcSegmentedValue>
+  extends Omit<
+    RCSegmentedProps<ValueType>,
+    'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
+  > {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */
@@ -83,8 +77,8 @@ export interface SegmentedProps<ValueType = RcSegmentedValue> extends Omit<
   size?: SizeType;
   vertical?: boolean;
   orientation?: Orientation;
-  classNames?: SegmentedClassNamesType;
-  styles?: SegmentedStylesType;
+  classNames?: SegmentedSemanticAllType['classNames'] | SegmentedSemanticAllType['classNamesFn'];
+  styles?: SegmentedSemanticAllType['styles'] | SegmentedSemanticAllType['stylesFn'];
   shape?: 'default' | 'round';
 }
 

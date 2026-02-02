@@ -29,7 +29,7 @@ import type {
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-  NotificationSemanticType,
+  NotificationSemanticAllType,
 } from './interface';
 import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
@@ -49,8 +49,8 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
-  classNames?: NotificationSemanticType['classNames'];
-  styles?: NotificationSemanticType['styles'];
+  classNames?: NotificationSemanticAllType['classNames'];
+  styles?: NotificationSemanticAllType['styles'];
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {

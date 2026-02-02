@@ -4,7 +4,7 @@ import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -47,9 +47,7 @@ export type CardSemanticType = {
   };
 };
 
-export type CardClassNamesType = SemanticType<CardProps, CardSemanticType['classNames']>;
-
-export type CardStylesType = SemanticType<CardProps, CardSemanticType['styles']>;
+export type CardSemanticAllType = GenerateSemantic<CardSemanticType, CardProps>;
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
@@ -78,8 +76,8 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   activeTabKey?: string;
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
-  classNames?: CardClassNamesType;
-  styles?: CardStylesType;
+  classNames?: CardSemanticAllType['classNames'] | CardSemanticAllType['classNamesFn'];
+  styles?: CardSemanticAllType['styles'] | CardSemanticAllType['stylesFn'];
   variant?: 'borderless' | 'outlined';
 }
 

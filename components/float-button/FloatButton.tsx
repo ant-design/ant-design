@@ -4,8 +4,8 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { BadgeProps } from '../badge';
@@ -38,14 +38,9 @@ export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title'
 
 export type FloatButtonSemanticType = ButtonSemanticType;
 
-export type FloatButtonClassNamesType = SemanticType<
-  FloatButtonProps,
-  FloatButtonSemanticType['classNames']
->;
-
-export type FloatButtonStylesType = SemanticType<
-  FloatButtonProps,
-  FloatButtonSemanticType['styles']
+export type FloatButtonSemanticAllType = GenerateSemantic<
+  FloatButtonSemanticType,
+  FloatButtonProps
 >;
 
 export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement> {
@@ -54,8 +49,10 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: FloatButtonClassNamesType;
-  styles?: FloatButtonStylesType;
+  classNames?:
+    | FloatButtonSemanticAllType['classNames']
+    | FloatButtonSemanticAllType['classNamesFn'];
+  styles?: FloatButtonSemanticAllType['styles'] | FloatButtonSemanticAllType['stylesFn'];
 
   // Others
   icon?: React.ReactNode;

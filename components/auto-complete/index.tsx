@@ -4,7 +4,7 @@ import genPurePanel from '../_util/PurePanel';
 import Select from '../select';
 import RefAutoComplete from './AutoComplete';
 
-export type { AutoCompleteProps, AutoCompleteSemanticType } from './AutoComplete';
+export type { AutoCompleteProps, AutoCompleteSemanticAllType } from './AutoComplete';
 
 const { Option } = Select;
 

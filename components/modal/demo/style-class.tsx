@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Flex, Modal } from 'antd';
-import type { ModalProps, ModalSemanticType } from 'antd';
+import type { ModalProps, ModalSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const lineStyle: React.CSSProperties = {
@@ -35,7 +35,7 @@ const styles: ModalProps['styles'] = {
   },
 };
 
-const stylesFn: ModalProps['styles'] = (info): ModalSemanticType['styles'] => {
+const stylesFn: ModalProps['styles'] = (info): ModalSemanticAllType['styles'] => {
   if (info.props.footer) {
     return {
       container: {

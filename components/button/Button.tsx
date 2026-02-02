@@ -4,7 +4,7 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -42,9 +42,7 @@ export type ButtonSemanticType = {
   };
 };
 
-export type ButtonClassNamesType = SemanticType<BaseButtonProps, ButtonSemanticType['classNames']>;
-
-export type ButtonStylesType = SemanticType<BaseButtonProps, ButtonSemanticType['styles']>;
+export type ButtonSemanticAllType = GenerateSemantic<ButtonSemanticType, BaseButtonProps>;
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -66,8 +64,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: ButtonClassNamesType;
-  styles?: ButtonStylesType;
+  classNames?: ButtonSemanticAllType['classNames'] | ButtonSemanticAllType['classNamesFn'];
+  styles?: ButtonSemanticAllType['styles'] | ButtonSemanticAllType['stylesFn'];
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.

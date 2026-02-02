@@ -9,7 +9,7 @@ import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -40,12 +40,7 @@ export type TextAreaSemanticType = {
   };
 };
 
-export type TextAreaClassNamesType = SemanticType<
-  TextAreaProps,
-  TextAreaSemanticType['classNames']
->;
-
-export type TextAreaStylesType = SemanticType<TextAreaProps, TextAreaSemanticType['styles']>;
+export type TextAreaSemanticAllType = GenerateSemantic<TextAreaSemanticType, TextAreaProps>;
 
 export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix' | 'classNames' | 'styles'> {
   /** @deprecated Use `variant` instead */
@@ -58,8 +53,8 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix' | 'classNa
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: TextAreaClassNamesType;
-  styles?: TextAreaStylesType;
+  classNames?: TextAreaSemanticAllType['classNames'] | TextAreaSemanticAllType['classNamesFn'];
+  styles?: TextAreaSemanticAllType['styles'] | TextAreaSemanticAllType['stylesFn'];
 }
 
 export interface TextAreaRef {

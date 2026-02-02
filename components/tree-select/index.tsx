@@ -13,7 +13,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -92,16 +92,10 @@ export type TreeSelectSemanticType = {
   };
 };
 
-export type TreeSelectClassNamesType = SemanticType<
-  TreeSelectProps,
-  TreeSelectSemanticType['classNames']
->;
-
-export type TreeSelectStylesType = SemanticType<TreeSelectProps, TreeSelectSemanticType['styles']>;
+export type TreeSelectSemanticAllType = GenerateSemantic<TreeSelectSemanticType, TreeSelectProps>;
 
 interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
-  extends
-    React.AriaAttributes,
+  extends React.AriaAttributes,
     Omit<
       RcTreeSelectProps<ValueType, OptionType>,
       | 'showTreeIcon'
@@ -120,12 +114,10 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
   variant?: Variant;
 }
 
-export interface TreeSelectProps<
-  ValueType = any,
-  OptionType extends DataNode = DataNode,
-> extends BaseTreeSelectProps<ValueType, OptionType> {
-  styles?: TreeSelectStylesType;
-  classNames?: TreeSelectClassNamesType;
+export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
+  extends BaseTreeSelectProps<ValueType, OptionType> {
+  classNames?: TreeSelectSemanticAllType['classNames'] | TreeSelectSemanticAllType['classNamesFn'];
+  styles?: TreeSelectSemanticAllType['styles'] | TreeSelectSemanticAllType['stylesFn'];
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;

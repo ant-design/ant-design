@@ -3,8 +3,9 @@ import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { clsx } from 'clsx';
 
-import type { MaskType, SemanticType } from '../_util/hooks';
+import type { MaskType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -74,16 +75,14 @@ export type ImageSemanticType = {
   };
 };
 
-export type ImageClassNamesType = SemanticType<ImageProps, ImageSemanticType['classNames']>;
-
-export type ImageStylesType = SemanticType<ImageProps, ImageSemanticType['styles']>;
+export type ImageSemanticAllType = GenerateSemantic<ImageSemanticType, ImageProps>;
 
 export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;
-  classNames?: ImageClassNamesType;
-  styles?: ImageStylesType;
+  classNames?: ImageSemanticAllType['classNames'] | ImageSemanticAllType['classNamesFn'];
+  styles?: ImageSemanticAllType['styles'] | ImageSemanticAllType['stylesFn'];
 }
 
 const Image: CompositionImage<ImageProps> = (props) => {

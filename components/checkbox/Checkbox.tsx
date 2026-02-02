@@ -5,8 +5,8 @@ import { useControlledState, useEvent } from '@rc-component/util';
 import { useComposeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -70,17 +70,12 @@ export type CheckboxSemanticType = {
   };
 };
 
-export type CheckboxClassNamesType = SemanticType<
-  CheckboxProps,
-  CheckboxSemanticType['classNames']
->;
-
-export type CheckboxStylesType = SemanticType<CheckboxProps, CheckboxSemanticType['styles']>;
+export type CheckboxSemanticAllType = GenerateSemantic<CheckboxSemanticType, CheckboxProps>;
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;
-  classNames?: CheckboxClassNamesType;
-  styles?: CheckboxStylesType;
+  classNames?: CheckboxSemanticAllType['classNames'] | CheckboxSemanticAllType['classNamesFn'];
+  styles?: CheckboxSemanticAllType['styles'] | CheckboxSemanticAllType['stylesFn'];
 }
 
 const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (

@@ -3,7 +3,8 @@ import React, { useCallback, useContext } from 'react';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useMultipleSelect } from '../_util/hooks';
-import type { PrevSelectedIndex, SemanticType } from '../_util/hooks';
+import type { PrevSelectedIndex } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -57,12 +58,7 @@ export type TransferSemanticType = {
   };
 };
 
-export type TransferClassNamesType = SemanticType<
-  TransferProps,
-  TransferSemanticType['classNames']
->;
-
-export type TransferStylesType = SemanticType<TransferProps, TransferSemanticType['styles']>;
+export type TransferSemanticAllType = GenerateSemantic<TransferSemanticType, TransferProps>;
 
 export type TransferDirection = 'left' | 'right';
 
@@ -124,8 +120,8 @@ export interface TransferProps<RecordType = any> {
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   /** @deprecated Please use `styles.actions` instead. */
   operationStyle?: CSSProperties;
-  classNames?: TransferClassNamesType;
-  styles?: TransferStylesType;
+  classNames?: TransferSemanticAllType['classNames'] | TransferSemanticAllType['classNamesFn'];
+  styles?: TransferSemanticAllType['styles'] | TransferSemanticAllType['stylesFn'];
 
   disabled?: boolean;
   dataSource?: RecordType[];

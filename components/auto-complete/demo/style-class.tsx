@@ -1,6 +1,6 @@
 import React from 'react';
 import { AutoComplete, Flex } from 'antd';
-import type { AutoCompleteProps, AutoCompleteSemanticType } from 'antd';
+import type { AutoCompleteProps, AutoCompleteSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -17,7 +17,9 @@ const stylesObject: AutoCompleteProps['styles'] = {
   },
 };
 
-const stylesFn: AutoCompleteProps['styles'] = ({ props }): AutoCompleteSemanticType['styles'] => {
+const stylesFn: AutoCompleteProps['styles'] = ({
+  props,
+}): AutoCompleteSemanticAllType['styles'] => {
   if (props.variant === 'filled') {
     return {
       popup: {

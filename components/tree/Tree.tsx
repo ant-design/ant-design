@@ -8,7 +8,7 @@ import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -127,25 +127,24 @@ export type TreeSemanticType = {
   };
 };
 
-export type TreeClassNamesType = SemanticType<TreeProps, TreeSemanticType['classNames']>;
+export type TreeSemanticAllType = GenerateSemantic<TreeSemanticType, TreeProps>;
 
-export type TreeStylesType = SemanticType<TreeProps, TreeSemanticType['styles']>;
-
-export interface TreeProps<T extends BasicDataNode = DataNode> extends Omit<
-  RcTreeProps<T>,
-  | 'prefixCls'
-  | 'showLine'
-  | 'direction'
-  | 'draggable'
-  | 'icon'
-  | 'switcherIcon'
-  | 'classNames'
-  | 'styles'
-> {
+export interface TreeProps<T extends BasicDataNode = DataNode>
+  extends Omit<
+    RcTreeProps<T>,
+    | 'prefixCls'
+    | 'showLine'
+    | 'direction'
+    | 'draggable'
+    | 'icon'
+    | 'switcherIcon'
+    | 'classNames'
+    | 'styles'
+  > {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
-  classNames?: TreeClassNamesType;
-  styles?: TreeStylesType;
+  classNames?: TreeSemanticAllType['classNames'] | TreeSemanticAllType['classNamesFn'];
+  styles?: TreeSemanticAllType['styles'] | TreeSemanticAllType['stylesFn'];
   /** Whether to support multiple selection */
   multiple?: boolean;
   /** Whether to automatically expand the parent node */

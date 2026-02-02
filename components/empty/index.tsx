@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
@@ -32,9 +32,7 @@ export type EmptySemanticType = {
   };
 };
 
-export type EmptyClassNamesType = SemanticType<EmptyProps, EmptySemanticType['classNames']>;
-
-export type EmptyStylesType = SemanticType<EmptyProps, EmptySemanticType['styles']>;
+export type EmptySemanticAllType = GenerateSemantic<EmptySemanticType, EmptyProps>;
 
 export interface EmptyProps {
   prefixCls?: string;
@@ -46,8 +44,8 @@ export interface EmptyProps {
   image?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
-  classNames?: EmptyClassNamesType;
-  styles?: EmptyStylesType;
+  classNames?: EmptySemanticAllType['classNames'] | EmptySemanticAllType['classNamesFn'];
+  styles?: EmptySemanticAllType['styles'] | EmptySemanticAllType['stylesFn'];
 }
 
 type CompoundedComponent = React.FC<EmptyProps> & {

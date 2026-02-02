@@ -9,8 +9,9 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { ClosableType, SemanticType } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -40,8 +41,7 @@ export type AlertSemanticType = {
     close?: React.CSSProperties;
   };
 };
-export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classNames']>;
-export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>;
+export type AlertSemanticAllType = GenerateSemantic<AlertSemanticType, AlertProps>;
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
@@ -82,8 +82,8 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  classNames?: AlertClassNamesType;
-  styles?: AlertStylesType;
+  classNames?: AlertSemanticAllType['classNames'] | AlertSemanticAllType['classNamesFn'];
+  styles?: AlertSemanticAllType['styles'] | AlertSemanticAllType['stylesFn'];
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;

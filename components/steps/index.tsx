@@ -5,8 +5,8 @@ import RcSteps from '@rc-component/steps';
 import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -55,9 +55,7 @@ export type StepsSemanticType = {
   };
 };
 
-export type StepsClassNamesType = SemanticType<StepsProps, StepsSemanticType['classNames']>;
-
-export type StepsStylesType = SemanticType<StepsProps, StepsSemanticType['styles']>;
+export type StepsSemanticAllType = GenerateSemantic<StepsSemanticType, StepsProps>;
 
 interface StepItem {
   className?: string;
@@ -92,8 +90,8 @@ export interface BaseStepsProps {
   // Style
   className?: string;
   rootClassName?: string;
-  classNames?: StepsClassNamesType;
-  styles?: StepsStylesType;
+  classNames?: StepsSemanticAllType['classNames'] | StepsSemanticAllType['classNamesFn'];
+  styles?: StepsSemanticAllType['styles'] | StepsSemanticAllType['stylesFn'];
   variant?: 'filled' | 'outlined';
   size?: 'default' | 'small';
 

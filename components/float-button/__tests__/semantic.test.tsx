@@ -1,27 +1,31 @@
 import React from 'react';
 
 import FloatButton from '..';
-import type { FloatButtonGroupSemanticType, FloatButtonProps, FloatButtonSemanticType } from '..';
+import type {
+  FloatButtonGroupSemanticAllType,
+  FloatButtonProps,
+  FloatButtonSemanticAllType,
+} from '..';
 import { render } from '../../../tests/utils';
 
 describe('FloatButton.Semantic', () => {
   it('should update classNames when props change (FloatButton)', () => {
-    const initialClassNames: FloatButtonSemanticType['classNames'] = {
+    const initialClassNames: FloatButtonSemanticAllType['classNames'] = {
       root: 'custom-root',
       icon: 'custom-icon',
       content: 'custom-content',
     };
-    const updatedClassNames: FloatButtonSemanticType['classNames'] = {
+    const updatedClassNames: FloatButtonSemanticAllType['classNames'] = {
       root: 'custom-root-2',
       icon: 'custom-icon-2',
       content: 'custom-content-2',
     };
-    const styles: FloatButtonSemanticType['styles'] = {
+    const styles: FloatButtonSemanticAllType['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       icon: { color: 'rgb(0, 0, 255)' },
       content: { color: 'rgb(0, 255, 0)' },
     };
-    const classNamesTargets: FloatButtonSemanticType['classNames'] = {
+    const classNamesTargets: FloatButtonSemanticAllType['classNames'] = {
       root: 'ant-float-btn',
       icon: 'ant-float-btn-icon',
       content: 'ant-float-btn-content',
@@ -30,8 +34,8 @@ describe('FloatButton.Semantic', () => {
       <FloatButton icon="little" content="bamboo" classNames={initialClassNames} styles={styles} />,
     );
     Object.keys(initialClassNames).forEach((key) => {
-      const className = initialClassNames[key as keyof FloatButtonSemanticType['classNames']];
-      const oriClassName = classNamesTargets[key as keyof FloatButtonSemanticType['classNames']];
+      const className = initialClassNames[key as keyof FloatButtonSemanticAllType['classNames']];
+      const oriClassName = classNamesTargets[key as keyof FloatButtonSemanticAllType['classNames']];
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName);
@@ -40,8 +44,8 @@ describe('FloatButton.Semantic', () => {
       <FloatButton icon="little" content="bamboo" classNames={updatedClassNames} styles={styles} />,
     );
     Object.keys(updatedClassNames).forEach((key) => {
-      const className = updatedClassNames[key as keyof FloatButtonSemanticType['classNames']];
-      const oriClassName = classNamesTargets[key as keyof FloatButtonSemanticType['classNames']];
+      const className = updatedClassNames[key as keyof FloatButtonSemanticAllType['classNames']];
+      const oriClassName = classNamesTargets[key as keyof FloatButtonSemanticAllType['classNames']];
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName);
@@ -49,7 +53,7 @@ describe('FloatButton.Semantic', () => {
   });
 
   it('should update classNames when props change (Group)', () => {
-    const initialClassNames: FloatButtonGroupSemanticType['classNames'] = {
+    const initialClassNames: FloatButtonGroupSemanticAllType['classNames'] = {
       root: 'custom-root',
       list: 'custom-list',
       item: 'custom-item',
@@ -59,7 +63,7 @@ describe('FloatButton.Semantic', () => {
       triggerIcon: 'custom-trigger-icon',
       triggerContent: 'custom-trigger-content',
     };
-    const updatedClassNames: FloatButtonGroupSemanticType['classNames'] = {
+    const updatedClassNames: FloatButtonGroupSemanticAllType['classNames'] = {
       root: 'custom-root-2',
       list: 'custom-list-2',
       item: 'custom-item-2',
@@ -69,7 +73,7 @@ describe('FloatButton.Semantic', () => {
       triggerIcon: 'custom-trigger-icon-2',
       triggerContent: 'custom-trigger-content-2',
     };
-    const initialStyles: FloatButtonGroupSemanticType['styles'] = {
+    const initialStyles: FloatButtonGroupSemanticAllType['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       list: { color: 'rgb(0, 0, 255)' },
       item: { color: 'rgb(0, 255, 0)' },
@@ -79,7 +83,7 @@ describe('FloatButton.Semantic', () => {
       triggerIcon: { color: 'rgb(255, 192, 203)' },
       triggerContent: { color: 'rgb(0, 255, 255)' },
     };
-    const updatedStyles: FloatButtonGroupSemanticType['styles'] = {
+    const updatedStyles: FloatButtonGroupSemanticAllType['styles'] = {
       root: { color: 'rgb(0, 0, 0)' },
       list: { color: 'rgb(128, 128, 128)' },
       item: { color: 'rgb(0, 255, 0)' },
@@ -89,7 +93,7 @@ describe('FloatButton.Semantic', () => {
       triggerIcon: { color: 'rgb(0, 0, 128)' },
       triggerContent: { color: 'rgb(0, 255, 255)' },
     };
-    const classNamesTargets: FloatButtonGroupSemanticType['classNames'] = {
+    const classNamesTargets: FloatButtonGroupSemanticAllType['classNames'] = {
       root: '.ant-float-btn-group',
       list: '.ant-float-btn-group-list',
       item: '.ant-float-btn-group-list .ant-float-btn',

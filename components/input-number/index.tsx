@@ -12,8 +12,8 @@ import type {
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -47,24 +47,19 @@ export type InputNumberSemanticType = {
   };
 };
 
-export type InputNumberClassNamesType<T extends ValueType = ValueType> = SemanticType<
-  InputNumberProps<T>,
-  InputNumberSemanticType['classNames']
+export type InputNumberSemanticAllType = GenerateSemantic<
+  InputNumberSemanticType,
+  InputNumberProps
 >;
 
-export type InputNumberStylesType<T extends ValueType = ValueType> = SemanticType<
-  InputNumberProps<T>,
-  InputNumberSemanticType['styles']
->;
-
-export interface InputNumberProps<T extends ValueType = ValueType> extends Omit<
-  RcInputNumberProps<T>,
-  'prefix' | 'size' | 'controls' | 'classNames' | 'styles'
-> {
+export interface InputNumberProps<T extends ValueType = ValueType>
+  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
   prefixCls?: string;
   rootClassName?: string;
-  classNames?: InputNumberClassNamesType;
-  styles?: InputNumberStylesType;
+  classNames?:
+    | InputNumberSemanticAllType['classNames']
+    | InputNumberSemanticAllType['classNamesFn'];
+  styles?: InputNumberSemanticAllType['styles'] | InputNumberSemanticAllType['stylesFn'];
   /**
    * @deprecated Use `Space.Compact` instead.
    *

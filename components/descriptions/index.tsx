@@ -2,8 +2,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -53,14 +53,9 @@ export type DescriptionsSemanticType = {
   };
 };
 
-export type DescriptionsClassNamesType = SemanticType<
-  DescriptionsProps,
-  DescriptionsSemanticType['classNames']
->;
-
-export type DescriptionsStylesType = SemanticType<
-  DescriptionsProps,
-  DescriptionsSemanticType['styles']
+export type DescriptionsSemanticAllType = GenerateSemantic<
+  DescriptionsSemanticType,
+  DescriptionsProps
 >;
 
 export interface DescriptionsProps {
@@ -81,8 +76,10 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
-  styles?: DescriptionsStylesType;
-  classNames?: DescriptionsClassNamesType;
+  classNames?:
+    | DescriptionsSemanticAllType['classNames']
+    | DescriptionsSemanticAllType['classNamesFn'];
+  styles?: DescriptionsSemanticAllType['styles'] | DescriptionsSemanticAllType['stylesFn'];
   items?: DescriptionsItemType[];
   id?: string;
 }

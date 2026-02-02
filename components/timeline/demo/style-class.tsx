@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Timeline } from 'antd';
-import type { TimelineProps, TimelineSemanticType } from 'antd';
+import type { TimelineProps, TimelineSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -16,7 +16,7 @@ const styles: TimelineProps['styles'] = {
   },
 };
 
-const stylesFn: TimelineProps['styles'] = (info): TimelineSemanticType['styles'] => {
+const stylesFn: TimelineProps['styles'] = (info): TimelineSemanticAllType['styles'] => {
   if (info.props.orientation === 'vertical') {
     return {
       root: {

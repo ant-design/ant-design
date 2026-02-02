@@ -4,7 +4,8 @@ import { clsx } from 'clsx';
 
 import type { DrawerProps } from '.';
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
-import type { ClosableType, SemanticType } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
@@ -39,9 +40,7 @@ export type DrawerSemanticType = {
   };
 };
 
-export type DrawerClassNamesType = SemanticType<DrawerProps, DrawerSemanticType['classNames']>;
-
-export type DrawerStylesType = SemanticType<DrawerProps, DrawerSemanticType['styles']>;
+export type DrawerSemanticAllType = GenerateSemantic<DrawerSemanticType, DrawerProps>;
 
 export interface DrawerPanelProps {
   prefixCls: string;
@@ -62,8 +61,8 @@ export interface DrawerPanelProps {
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
-  classNames?: DrawerClassNamesType;
-  styles?: DrawerStylesType;
+  classNames?: DrawerSemanticAllType['classNames'] | DrawerSemanticAllType['classNamesFn'];
+  styles?: DrawerSemanticAllType['styles'] | DrawerSemanticAllType['stylesFn'];
   loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */

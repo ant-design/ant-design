@@ -11,8 +11,8 @@ import RcPagination from '@rc-component/pagination';
 import enUS from '@rc-component/pagination/lib/locale/en_US';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -37,17 +37,10 @@ export type PaginationSemanticType = {
   };
 };
 
-export type PaginationClassNamesType = SemanticType<
-  PaginationProps,
-  PaginationSemanticType['classNames']
->;
+export type PaginationSemanticAllType = GenerateSemantic<PaginationSemanticType, PaginationProps>;
 
-export type PaginationStylesType = SemanticType<PaginationProps, PaginationSemanticType['styles']>;
-
-export interface PaginationProps extends Omit<
-  RcPaginationProps,
-  'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'
-> {
+export interface PaginationProps
+  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: SizeType;
   responsive?: boolean;
@@ -59,8 +52,8 @@ export interface PaginationProps extends Omit<
   selectComponentClass?: any;
   /** `string` type will be removed in next major version. */
   pageSizeOptions?: (string | number)[];
-  classNames?: PaginationClassNamesType;
-  styles?: PaginationStylesType;
+  classNames?: PaginationSemanticAllType['classNames'] | PaginationSemanticAllType['classNamesFn'];
+  styles?: PaginationSemanticAllType['styles'] | PaginationSemanticAllType['stylesFn'];
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';

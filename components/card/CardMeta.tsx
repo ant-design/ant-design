@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 
 export type CardMetaSemanticType = {
@@ -22,12 +22,7 @@ export type CardMetaSemanticType = {
   };
 };
 
-export type CardMetaClassNamesType = SemanticType<
-  CardMetaProps,
-  CardMetaSemanticType['classNames']
->;
-
-export type CardMetaStylesType = SemanticType<CardMetaProps, CardMetaSemanticType['styles']>;
+export type CardMetaSemanticAllType = GenerateSemantic<CardMetaSemanticType, CardMetaProps>;
 
 export interface CardMetaProps {
   prefixCls?: string;
@@ -36,8 +31,8 @@ export interface CardMetaProps {
   avatar?: React.ReactNode;
   title?: React.ReactNode;
   description?: React.ReactNode;
-  classNames?: CardMetaClassNamesType;
-  styles?: CardMetaStylesType;
+  classNames?: CardMetaSemanticAllType['classNames'] | CardMetaSemanticAllType['classNamesFn'];
+  styles?: CardMetaSemanticAllType['styles'] | CardMetaSemanticAllType['stylesFn'];
 }
 
 const CardMeta: React.FC<CardMetaProps> = (props) => {

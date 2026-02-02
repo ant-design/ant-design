@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import Select from '..';
-import type { SelectProps, SelectSemanticType } from '..';
+import type { SelectProps, SelectSemanticAllType } from '..';
 import { render } from '../../../tests/utils';
 
 describe('Select.Semantic', () => {
@@ -16,7 +16,7 @@ describe('Select.Semantic', () => {
     },
   ];
   it('support classNames and styles', () => {
-    const classNames: SelectSemanticType['classNames'] = {
+    const classNames: SelectSemanticAllType['classNames'] = {
       root: 'custom-root',
       prefix: 'custom-prefix',
       suffix: 'custom-suffix',
@@ -68,7 +68,7 @@ describe('Select.Semantic', () => {
   });
 
   it('support multiple mode classNames and styles', () => {
-    const customClassNames: SelectSemanticType['classNames'] = {
+    const customClassNames: SelectSemanticAllType['classNames'] = {
       root: 'custom-root',
       prefix: 'custom-prefix',
       suffix: 'custom-suffix',

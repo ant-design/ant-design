@@ -4,7 +4,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../../_util/hooks';
-import type { SemanticType } from '../../_util/hooks';
+import type { GenerateSemantic } from '../../_util/hooks/semanticType';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
@@ -32,9 +32,7 @@ export type OTPSemanticType = {
   };
 };
 
-export type OTPClassNamesType = SemanticType<OTPProps, OTPSemanticType['classNames']>;
-
-export type OTPStylesType = SemanticType<OTPProps, OTPSemanticType['styles']>;
+export type OTPSemanticAllType = GenerateSemantic<OTPSemanticType, OTPProps>;
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -42,10 +40,8 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps extends Omit<
-  React.HTMLAttributes<HTMLDivElement>,
-  'onChange' | 'onInput'
-> {
+export interface OTPProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
   prefixCls?: string;
   length?: number;
 
@@ -75,8 +71,8 @@ export interface OTPProps extends Omit<
 
   onInput?: (value: string[]) => void;
 
-  classNames?: OTPClassNamesType;
-  styles?: OTPStylesType;
+  classNames?: OTPSemanticAllType['classNames'] | OTPSemanticAllType['classNamesFn'];
+  styles?: OTPSemanticAllType['styles'] | OTPSemanticAllType['stylesFn'];
 }
 
 function strToArr(str: string) {

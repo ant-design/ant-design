@@ -3,8 +3,8 @@ import FloatButton from './FloatButton';
 import FloatButtonGroup from './FloatButtonGroup';
 import PurePanel from './PurePanel';
 
-export type { FloatButtonProps, FloatButtonRef, FloatButtonSemanticType } from './FloatButton';
-export type { FloatButtonGroupProps, FloatButtonGroupSemanticType } from './FloatButtonGroup';
+export type { FloatButtonProps, FloatButtonRef, FloatButtonSemanticAllType } from './FloatButton';
+export type { FloatButtonGroupProps, FloatButtonGroupSemanticAllType } from './FloatButtonGroup';
 
 FloatButton.BackTop = BackTop;
 FloatButton.Group = FloatButtonGroup;

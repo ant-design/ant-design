@@ -6,8 +6,8 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -37,12 +37,7 @@ export type CollapseSemanticType = {
   };
 };
 
-export type CollapseClassNamesType = SemanticType<
-  CollapseProps,
-  CollapseSemanticType['classNames']
->;
-
-export type CollapseStylesType = SemanticType<CollapseProps, CollapseSemanticType['styles']>;
+export type CollapseSemanticAllType = GenerateSemantic<CollapseSemanticType, CollapseProps>;
 
 export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
   activeKey?: Array<string | number> | string | number;
@@ -72,8 +67,8 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
    * @deprecated use `items` instead
    */
   children?: React.ReactNode;
-  classNames?: CollapseClassNamesType;
-  styles?: CollapseStylesType;
+  classNames?: CollapseSemanticAllType['classNames'] | CollapseSemanticAllType['classNamesFn'];
+  styles?: CollapseSemanticAllType['styles'] | CollapseSemanticAllType['stylesFn'];
 }
 
 interface PanelProps {
@@ -85,8 +80,8 @@ interface PanelProps {
   forceRender?: boolean;
   extra?: React.ReactNode;
   collapsible?: CollapsibleType;
-  classNames?: CollapseSemanticType['classNames'];
-  styles?: CollapseSemanticType['styles'];
+  classNames?: CollapseSemanticAllType['classNames'];
+  styles?: CollapseSemanticAllType['styles'];
 }
 
 const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) => {

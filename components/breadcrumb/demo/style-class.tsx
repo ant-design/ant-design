@@ -1,6 +1,6 @@
 import React from 'react';
 import { Breadcrumb, Flex } from 'antd';
-import type { BreadcrumbProps, BreadcrumbSemanticType } from 'antd';
+import type { BreadcrumbProps, BreadcrumbSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -22,7 +22,7 @@ const styles: BreadcrumbProps['styles'] = {
   separator: { color: 'rgba(0, 0, 0, 0.45)' },
 };
 
-const stylesFn: BreadcrumbProps['styles'] = (info): BreadcrumbSemanticType['styles'] => {
+const stylesFn: BreadcrumbProps['styles'] = (info): BreadcrumbSemanticAllType['styles'] => {
   const items = info.props.items || [];
   if (items.length > 2) {
     return {

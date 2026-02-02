@@ -9,8 +9,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -60,9 +60,7 @@ export type MentionSemanticType = {
   };
 };
 
-export type MentionsClassNamesType = SemanticType<MentionProps, MentionSemanticType['classNames']>;
-
-export type MentionsStylesType = SemanticType<MentionProps, MentionSemanticType['styles']>;
+export type MentionSemanticAllType = GenerateSemantic<MentionSemanticType, MentionProps>;
 
 export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNames' | 'styles'> {
   rootClassName?: string;
@@ -75,8 +73,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNam
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: MentionsClassNamesType;
-  styles?: MentionsStylesType;
+  classNames?: MentionSemanticAllType['classNames'] | MentionSemanticAllType['classNamesFn'];
+  styles?: MentionSemanticAllType['styles'] | MentionSemanticAllType['stylesFn'];
   size?: SizeType;
 }
 

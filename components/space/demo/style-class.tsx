@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Button, Space } from 'antd';
-import type { SpaceProps, SpaceSemanticType } from 'antd';
+import type { SpaceProps, SpaceSemanticAllType } from 'antd';
 
 const classNamesObject: SpaceProps['classNames'] = {
   root: 'demo-space-root',
@@ -8,7 +8,7 @@ const classNamesObject: SpaceProps['classNames'] = {
   separator: 'demo-space-separator',
 };
 
-const classNamesFn: SpaceProps['classNames'] = (info): SpaceSemanticType['classNames'] => {
+const classNamesFn: SpaceProps['classNames'] = (info): SpaceSemanticAllType['classNames'] => {
   if (info.props.orientation === 'vertical') {
     return {
       root: 'demo-space-root--vertical',
@@ -26,7 +26,7 @@ const stylesObject: SpaceProps['styles'] = {
   separator: { color: 'red', fontWeight: 'bold' },
 };
 
-const stylesFn: SpaceProps['styles'] = (info): SpaceSemanticType['styles'] => {
+const stylesFn: SpaceProps['styles'] = (info): SpaceSemanticAllType['styles'] => {
   if (info.props.size === 'large') {
     return {
       root: {

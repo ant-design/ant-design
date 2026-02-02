@@ -4,8 +4,8 @@ import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -67,16 +67,15 @@ export type AnchorSemanticType = {
   };
 };
 
-export type AnchorClassNamesType = SemanticType<AnchorProps, AnchorSemanticType['classNames']>;
-export type AnchorStylesType = SemanticType<AnchorProps, AnchorSemanticType['styles']>;
+export type AnchorSemanticAllType = GenerateSemantic<AnchorSemanticType, AnchorProps>;
 
 export interface AnchorProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: AnchorClassNamesType;
-  styles?: AnchorStylesType;
+  classNames?: AnchorSemanticAllType['classNames'] | AnchorSemanticAllType['classNamesFn'];
+  styles?: AnchorSemanticAllType['styles'] | AnchorSemanticAllType['stylesFn'];
   /**
    * @deprecated Please use `items` instead.
    */
@@ -124,8 +123,8 @@ export interface AntAnchor {
     link: { title: React.ReactNode; href: string },
   ) => void;
   direction: AnchorDirection;
-  classNames?: AnchorSemanticType['classNames'];
-  styles?: AnchorSemanticType['styles'];
+  classNames?: AnchorSemanticAllType['classNames'];
+  styles?: AnchorSemanticAllType['styles'];
 }
 
 const Anchor: React.FC<AnchorProps> = (props) => {

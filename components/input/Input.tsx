@@ -9,7 +9,7 @@ import { clsx } from 'clsx';
 import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -47,20 +47,19 @@ export type InputSemanticType = {
   };
 };
 
-export type InputClassNamesType = SemanticType<InputProps, InputSemanticType['classNames']>;
+export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
-export type InputStylesType = SemanticType<InputProps, InputSemanticType['styles']>;
-
-export interface InputProps extends Omit<
-  RcInputProps,
-  | 'wrapperClassName'
-  | 'groupClassName'
-  | 'inputClassName'
-  | 'affixWrapperClassName'
-  | 'classes'
-  | 'classNames'
-  | 'styles'
-> {
+export interface InputProps
+  extends Omit<
+    RcInputProps,
+    | 'wrapperClassName'
+    | 'groupClassName'
+    | 'inputClassName'
+    | 'affixWrapperClassName'
+    | 'classes'
+    | 'classNames'
+    | 'styles'
+  > {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;
@@ -100,8 +99,8 @@ export interface InputProps extends Omit<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: InputClassNamesType;
-  styles?: InputStylesType;
+  classNames?: InputSemanticAllType['classNames'] | InputSemanticAllType['classNamesFn'];
+  styles?: InputSemanticAllType['styles'] | InputSemanticAllType['stylesFn'];
   [key: `data-${string}`]: string | undefined;
 }
 

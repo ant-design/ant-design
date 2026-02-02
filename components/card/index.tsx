@@ -2,9 +2,9 @@ import InternalCard from './Card';
 import CardGrid from './CardGrid';
 import CardMeta from './CardMeta';
 
-export type { CardProps, CardSemanticType, CardTabListType } from './Card';
+export type { CardProps, CardSemanticAllType, CardTabListType } from './Card';
 export type { CardGridProps } from './CardGrid';
-export type { CardMetaProps, CardMetaSemanticType } from './CardMeta';
+export type { CardMetaProps, CardMetaSemanticAllType } from './CardMeta';
 
 type InternalCardType = typeof InternalCard;
 

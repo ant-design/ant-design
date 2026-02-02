@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Empty, Flex } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-import type { EmptyProps, EmptySemanticType } from '..';
+import type { EmptyProps, EmptySemanticAllType } from '..';
 
 const emptySharedProps: EmptyProps = {
   image: Empty.PRESENTED_IMAGE_SIMPLE,
@@ -23,7 +23,7 @@ const stylesObject: EmptyProps['styles'] = {
   footer: { marginTop: '16px' },
 };
 
-const stylesFn: EmptyProps['styles'] = ({ props }): EmptySemanticType['styles'] => {
+const stylesFn: EmptyProps['styles'] = ({ props }): EmptySemanticAllType['styles'] => {
   if (props.description) {
     return {
       root: { backgroundColor: '#e6f7ff', border: '1px solid #91d5ff' },

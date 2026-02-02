@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react';
 import type { QRProps } from '@rc-component/qrcode';
 
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { Locale } from '../locale';
 
 type ImageSettings = QRProps['imageSettings'];
@@ -25,15 +25,13 @@ export type QRCodeSemanticType = {
     root?: string;
     cover?: string;
   };
-  style?: {
+  styles?: {
     root?: React.CSSProperties;
     cover?: React.CSSProperties;
   };
 };
 
-export type QRCodeClassNamesType = SemanticType<QRCodeProps, QRCodeSemanticType['classNames']>;
-
-export type QRCodeStylesType = SemanticType<QRCodeProps, QRCodeSemanticType['style']>;
+export type QRCodeSemanticAllType = GenerateSemantic<QRCodeSemanticType, QRCodeProps>;
 
 export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElement> {
   type?: 'canvas' | 'svg';
@@ -47,6 +45,6 @@ export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElemen
   status?: QRStatus;
   onRefresh?: () => void;
   statusRender?: (info: StatusRenderInfo) => ReactNode;
-  classNames?: QRCodeClassNamesType;
-  styles?: QRCodeStylesType;
+  classNames?: QRCodeSemanticAllType['classNames'] | QRCodeSemanticAllType['classNamesFn'];
+  styles?: QRCodeSemanticAllType['styles'] | QRCodeSemanticAllType['stylesFn'];
 }

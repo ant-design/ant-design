@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, Divider, Flex, Space, Tour } from 'antd';
-import type { TourProps, TourSemanticType, TourStepProps } from 'antd';
+import type { TourProps, TourSemanticAllType, TourStepProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const btnProps: {
@@ -43,7 +43,7 @@ const stylesObject: TourProps['styles'] = {
   },
 };
 
-const stylesFunction: TourProps['styles'] = (info): TourSemanticType['styles'] => {
+const stylesFunction: TourProps['styles'] = (info): TourSemanticAllType['styles'] => {
   if (info.props.type === 'primary') {
     return {
       mask: {

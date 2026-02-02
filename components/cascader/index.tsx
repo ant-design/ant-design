@@ -11,8 +11,8 @@ import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -54,7 +54,7 @@ export type FieldNamesType = FieldNames;
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
 export type CascaderSemanticType = {
-  className: {
+  classNames?: {
     root?: string;
     prefix?: string;
     suffix?: string;
@@ -66,7 +66,7 @@ export type CascaderSemanticType = {
     itemRemove?: string;
     popup?: NonNullable<SelectSemanticType['classNames']>['popup'];
   };
-  style: {
+  styles?: {
     root?: React.CSSProperties;
     prefix?: React.CSSProperties;
     suffix?: React.CSSProperties;
@@ -80,9 +80,7 @@ export type CascaderSemanticType = {
   };
 };
 
-export type CascaderClassNamesType = SemanticType<CascaderProps, CascaderSemanticType['className']>;
-
-export type CascaderStylesType = SemanticType<CascaderProps, CascaderSemanticType['style']>;
+export type CascaderSemanticAllType = GenerateSemantic<CascaderSemanticType, CascaderProps>;
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
@@ -144,9 +142,9 @@ export interface CascaderProps<
   ValueField extends keyof OptionType = keyof OptionType,
   Multiple extends boolean = boolean,
 > extends Omit<
-  RcCascaderProps<OptionType, ValueField, Multiple>,
-  'checkable' | 'classNames' | 'styles'
-> {
+    RcCascaderProps<OptionType, ValueField, Multiple>,
+    'checkable' | 'classNames' | 'styles'
+  > {
   multiple?: Multiple;
   size?: SizeType;
   /**
@@ -185,8 +183,8 @@ export interface CascaderProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: CascaderClassNamesType;
-  styles?: CascaderStylesType;
+  classNames?: CascaderSemanticAllType['classNames'] | CascaderSemanticAllType['classNamesFn'];
+  styles?: CascaderSemanticAllType['styles'] | CascaderSemanticAllType['stylesFn'];
 }
 
 export type CascaderAutoProps<

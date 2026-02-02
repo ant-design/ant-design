@@ -2,7 +2,8 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation, SemanticType } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -31,9 +32,7 @@ export type DividerSemanticType = {
   };
 };
 
-export type DividerClassNamesType = SemanticType<DividerProps, DividerSemanticType['classNames']>;
-
-export type DividerStylesType = SemanticType<DividerProps, DividerSemanticType['styles']>;
+export type DividerSemanticAllType = GenerateSemantic<DividerSemanticType, DividerProps>;
 
 export interface DividerProps {
   prefixCls?: string;
@@ -56,8 +55,8 @@ export interface DividerProps {
   style?: React.CSSProperties;
   size?: SizeType;
   plain?: boolean;
-  classNames?: DividerClassNamesType;
-  styles?: DividerStylesType;
+  classNames?: DividerSemanticAllType['classNames'] | DividerSemanticAllType['classNamesFn'];
+  styles?: DividerSemanticAllType['styles'] | DividerSemanticAllType['stylesFn'];
 }
 
 const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };

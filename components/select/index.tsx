@@ -8,7 +8,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -80,8 +80,7 @@ export type SelectSemanticType = {
   };
 };
 
-export type SelectClassNamesType = SemanticType<SelectProps, SelectSemanticType['classNames']>;
-export type SelectStylesType = SemanticType<SelectProps, SelectSemanticType['styles']>;
+export type SelectSemanticAllType = GenerateSemantic<SelectSemanticType, SelectProps>;
 
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
@@ -107,23 +106,23 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  styles?: SelectStylesType;
-  classNames?: SelectClassNamesType;
+  classNames?: SelectSemanticAllType['classNames'] | SelectSemanticAllType['classNamesFn'];
+  styles?: SelectSemanticAllType['styles'] | SelectSemanticAllType['stylesFn'];
 }
 
 export interface SelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-  InternalSelectProps<ValueType, OptionType>,
-  | 'mode'
-  | 'getInputElement'
-  | 'getRawInputElement'
-  | 'backfill'
-  | 'placement'
-  | 'dropdownClassName'
-  | 'dropdownStyle'
-> {
+    InternalSelectProps<ValueType, OptionType>,
+    | 'mode'
+    | 'getInputElement'
+    | 'getRawInputElement'
+    | 'backfill'
+    | 'placement'
+    | 'dropdownClassName'
+    | 'dropdownStyle'
+  > {
   placement?: SelectCommonPlacement;
   mode?: 'multiple' | 'tags';
   status?: InputStatus;

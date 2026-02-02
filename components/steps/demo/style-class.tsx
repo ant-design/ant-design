@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Steps } from 'antd';
-import type { StepsProps, StepsSemanticType } from 'antd';
+import type { StepsProps, StepsSemanticAllType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -16,7 +16,7 @@ const stylesObject: StepsProps['styles'] = {
   itemContent: { fontStyle: 'italic' },
 };
 
-const stylesFn: StepsProps['styles'] = (info): StepsSemanticType['styles'] => {
+const stylesFn: StepsProps['styles'] = (info): StepsSemanticAllType['styles'] => {
   if (info.props.type === 'navigation') {
     return {
       root: {

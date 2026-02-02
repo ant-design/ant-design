@@ -1,7 +1,7 @@
 import React from 'react';
 import { DownOutlined, LogoutOutlined, SettingOutlined } from '@ant-design/icons';
 import { Button, Dropdown, Flex, Space } from 'antd';
-import type { DropdownProps, DropdownSemanticType, MenuProps } from 'antd';
+import type { DropdownProps, DropdownSemanticAllType, MenuProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -55,7 +55,7 @@ const objectStyles: DropdownProps['styles'] = {
   },
 };
 
-const functionStyles: DropdownProps['styles'] = (info): DropdownSemanticType['styles'] => {
+const functionStyles: DropdownProps['styles'] = (info): DropdownSemanticAllType['styles'] => {
   const { props } = info;
   const isClick = props.trigger?.includes('click');
   if (isClick) {

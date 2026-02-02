@@ -1,6 +1,7 @@
 import type * as React from 'react';
 
-import type { ClosableType, SemanticType } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 
 interface DivProps extends React.HTMLProps<HTMLDivElement> {
   'data-testid'?: string;
@@ -36,12 +37,7 @@ export type NotificationSemanticType = {
   };
 };
 
-export type NotificationClassNamesType = SemanticType<
-  ArgsProps,
-  NotificationSemanticType['classNames']
->;
-
-export type NotificationStylesType = SemanticType<ArgsProps, NotificationSemanticType['styles']>;
+export type NotificationSemanticAllType = GenerateSemantic<NotificationSemanticType, ArgsProps>;
 
 export interface ArgsProps {
   /** @deprecated Please use `title` instead */
@@ -60,8 +56,10 @@ export interface ArgsProps {
   placement?: NotificationPlacement;
   style?: React.CSSProperties;
   className?: string;
-  classNames?: NotificationClassNamesType;
-  styles?: NotificationStylesType;
+  classNames?:
+    | NotificationSemanticAllType['classNames']
+    | NotificationSemanticAllType['classNamesFn'];
+  styles?: NotificationSemanticAllType['styles'] | NotificationSemanticAllType['stylesFn'];
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
@@ -110,6 +108,8 @@ export interface NotificationConfig {
   showProgress?: boolean;
   pauseOnHover?: boolean;
   closeIcon?: React.ReactNode;
-  classNames?: NotificationClassNamesType;
-  styles?: NotificationStylesType;
+  classNames?:
+    | NotificationSemanticAllType['classNames']
+    | NotificationSemanticAllType['classNamesFn'];
+  styles?: NotificationSemanticAllType['styles'] | NotificationSemanticAllType['stylesFn'];
 }

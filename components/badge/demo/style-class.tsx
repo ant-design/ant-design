@@ -1,8 +1,8 @@
 import React from 'react';
 import { Avatar, Badge, Card, Flex, Space } from 'antd';
-import type { BadgeProps, BadgeSemanticType } from 'antd';
+import type { BadgeProps, BadgeSemanticAllType, RibbonSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
-import type { RibbonProps, RibbonSemanticType } from 'antd/es/badge/Ribbon';
+import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
 const badgeClassNames = createStaticStyles(({ css }) => ({
   indicator: css`
@@ -30,7 +30,7 @@ const ribbonStyles: RibbonProps['styles'] = {
   },
 };
 
-const badgeStylesFn: BadgeProps['styles'] = (info): BadgeSemanticType['styles'] => {
+const badgeStylesFn: BadgeProps['styles'] = (info): BadgeSemanticAllType['styles'] => {
   if (info.props.size === 'default') {
     return {
       indicator: {
@@ -42,7 +42,7 @@ const badgeStylesFn: BadgeProps['styles'] = (info): BadgeSemanticType['styles'] 
   return {};
 };
 
-const ribbonStylesFn: RibbonProps['styles'] = (info): RibbonSemanticType['styles'] => {
+const ribbonStylesFn: RibbonProps['styles'] = (info): RibbonSemanticAllType['styles'] => {
   if (info.props.color === '#696FC7') {
     return {
       content: {

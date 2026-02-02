@@ -12,13 +12,7 @@ import { useMergeSemantic } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type {
-  ArgsClassNamesType,
-  ArgsProps,
-  ArgsStylesType,
-  MessageSemanticType,
-  NoticeType,
-} from './interface';
+import type { ArgsProps, MessageSemanticAllType, NoticeType } from './interface';
 import useStyle from './style';
 
 export const TypeIcon = {
@@ -33,8 +27,8 @@ export interface PureContentProps {
   prefixCls: string;
   type?: NoticeType;
   icon?: React.ReactNode;
-  classNames?: MessageSemanticType['classNames'];
-  styles?: MessageSemanticType['styles'];
+  classNames?: MessageSemanticAllType['classNames'];
+  styles?: MessageSemanticAllType['styles'];
 }
 
 export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
@@ -58,12 +52,11 @@ export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = 
 };
 
 export interface PurePanelProps
-  extends
-    Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
-  classNames?: ArgsClassNamesType;
-  styles?: ArgsStylesType;
+  classNames?: MessageSemanticAllType['classNames'] | MessageSemanticAllType['classNamesFn'];
+  styles?: MessageSemanticAllType['styles'] | MessageSemanticAllType['stylesFn'];
 }
 
 /** @private Internal Component. Do not use in your production. */

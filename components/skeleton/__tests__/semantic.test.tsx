@@ -3,7 +3,7 @@ import React from 'react';
 import Skeleton from '..';
 import type { SkeletonProps } from '..';
 import { render } from '../../../tests/utils';
-import type { SkeletonSemanticType } from '../Skeleton';
+import type { SkeletonSemanticAllType } from '../Skeleton';
 
 const genSkeleton = (props?: SkeletonProps) => render(<Skeleton {...props} />);
 
@@ -16,7 +16,7 @@ describe('Skeleton.Semantic', () => {
     const titleStyle = { background: 'red' };
     const paragraphStyle = { background: 'orange' };
 
-    const customClassNames: SkeletonSemanticType['classNames'] = {
+    const customClassNames: SkeletonSemanticAllType['classNames'] = {
       root: 'custom-root',
       header: 'custom-header',
       section: 'custom-section',
@@ -25,7 +25,7 @@ describe('Skeleton.Semantic', () => {
       paragraph: 'custom-paragraph',
     };
 
-    const customStyles: SkeletonSemanticType['styles'] = {
+    const customStyles: SkeletonSemanticAllType['styles'] = {
       root: rootStyle,
       header: headerStyle,
       section: sectionStyle,

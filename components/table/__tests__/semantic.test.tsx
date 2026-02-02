@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { TableProps, TableSemanticType } from '..';
+import type { TableProps, TableSemanticAllType } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
@@ -220,7 +220,7 @@ describe('Table', () => {
 
     const functionClassNames: TableProps<any>['classNames'] = (
       info,
-    ): TableSemanticType['classNames'] => ({
+    ): TableSemanticAllType['classNames'] => ({
       root: info.props.bordered ? 'test-bordered-root' : 'test-borderless-root',
       header: {
         wrapper: info.props.size === 'small' ? 'test-header-small' : 'test-header-default',
@@ -233,7 +233,7 @@ describe('Table', () => {
       },
     });
 
-    const functionStyles: TableProps<any>['styles'] = (info): TableSemanticType['styles'] => ({
+    const functionStyles: TableProps<any>['styles'] = (info): TableSemanticAllType['styles'] => ({
       root: {
         border: info.props.bordered ? '2px solid blue' : '1px solid gray',
       },
