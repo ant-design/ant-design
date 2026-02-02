@@ -7,9 +7,7 @@ title: SKILL.md
 tag: New
 ---
 
-<SkillsDocActions> </SkillsDocActions>
-
-This guide describes the Ant Design skill package, its structure, and usage.
+This guide describes the Ant Design skill package, its structure, and usage. It helps you decide when to use the skill, where to start reading, and what outputs to expect.
 
 ## What is SKILL.md? {#what-is-skill-md}
 
@@ -19,6 +17,28 @@ This guide describes the Ant Design skill package, its structure, and usage.
 - `references/` (optional, for advanced topics)
 - `scripts/` or other assets (optional)
 
+## Scope {#scope}
+
+In scope:
+
+- antd 6.x with React 18/19: component selection and behavior
+- theming and tokens; ConfigProvider and StyleProvider setup
+- SSR, style order, and hydration issues
+- common interaction and accessibility checks
+
+## When to use this skill {#when-to-use}
+
+- You need guidance on antd component selection or usage
+- Theming or styles are conflicting and you want a stable approach
+- SSR or style injection order is incorrect
+- You only need decisions, not a full tutorial
+
+## Triggers {#triggers}
+
+- Cross-component or cross-field linkage
+- SSR/hydration or style order issues
+- Picking between multiple valid options
+
 ## Available resources {#available-resources}
 
 Skill content in this repository:
@@ -26,91 +46,65 @@ Skill content in this repository:
 - `antd-skill/skills/ant-design/SKILL.md`
 - `antd-skill/skills/ant-design/references/`
 
-## Use in Cursor {#use-in-cursor}
+## Expected outputs {#expected-output}
 
-Cursor automatically loads skills from skill directories (see [Cursor Skills docs](https://cursor.com/cn/docs/context/skills)).
+Outputs usually include (as needed):
 
-### Install (project scope)
+- recommended components with short reasoning
+- minimal provider setup guidance
+- risks and mitigations
+- reference path for complex cases
 
-1. Create `.cursor/skills/ant-design/`
-2. Add `SKILL.md` and `references/`
-3. Reopen the project or refresh indexing
+## Install {#install}
 
-### Install (user scope)
+Prefer installing via CLI:
 
-Place the skill in `~/.cursor/skills/ant-design/` to reuse across projects.
+```bash
+pnpx skills add ant-design/antd-skill
+# or
+npx skills add ant-design/antd-skill
+```
 
-### Trigger
+## Use in editors {#use-in-editors}
 
-- Auto trigger: when the request mentions antd v6, ConfigProvider, tokens, SSR, Form, or Table.
+For manual setup, refer to each editor's official skills docs:
 
-## Use in Claude Code {#use-in-claude-code}
-
-Claude Code supports skill directories and `SKILL.md` (see [Claude Code Skills docs](https://code.claude.com/docs/en/skills#extend-claude-with-skills)).
-
-### Install (project scope)
-
-1. Create `.claude/skills/ant-design/`
-2. Add `SKILL.md` and `references/`
-3. Reopen the project or refresh indexing
-
-### Install (user scope)
-
-Place the skill in `~/.claude/skills/ant-design/` to reuse across projects.
-
-### Trigger
-
-- Auto trigger: when the request matches the skill description.
-- Manual trigger: invoke `/ant-design`.
-
-## Use in Trae {#use-in-trae}
-
-Trae provides a skills mechanism and directory conventions (see [Trae Skills docs](https://docs.trae.ai/ide/skills?_lang=zh)).
-
-### Install
-
-Place the skill directory in Trae's skills path with `SKILL.md` and `references/`.
-
-### Trigger
-
-- Auto trigger: when the request matches the skill description.
-- Manual trigger: use Trae's skill invocation entry.
-
-## Use in Qoder {#use-in-qoder}
-
-Qoder CLI supports skills with `SKILL.md` (see [Qoder Skills docs](https://docs.qoder.com/cli/Skills#skills)).
-
-### Install (project scope)
-
-1. Create `.qoder/skills/ant-design/`
-2. Add `SKILL.md` and `references/`
-3. Restart Qoder CLI or refresh the session
-
-### Install (user scope)
-
-Place the skill in `~/.qoder/skills/ant-design/` to reuse across projects.
-
-### Trigger
-
-- Auto trigger: when the request matches the skill description.
-- Manual trigger: invoke `/ant-design`.
+- Cursor Skills docs: https://cursor.com/cn/docs/context/skills
+- Claude Code Skills docs: https://code.claude.com/docs/en/skills#extend-claude-with-skills
+- Trae Skills docs: https://docs.trae.ai/ide/skills?_lang=zh
+- Qoder Skills docs: https://docs.qoder.com/cli/Skills#skills
 
 ## How to use {#usage}
 
-### Main skill
+1. Pick a skill: `ant-design` / `ant-design-pro` / `ant-design-x`.
+2. Open `skills/<skill>/SKILL.md` to check scope and expected outputs.
+3. For complex cases, read `skills/<skill>/references/*.md`.
+4. If you only need decisions, the main `SKILL.md` is enough; it is not a tutorial.
 
-- For component selection, provider/theme decisions, SSR setup, and common risks.
-- Complex cases should link to references for details.
+## Use cases {#cases}
 
-### References
+These questions are good triggers for this skill:
 
-- For complex interaction, async, or large-data scenarios.
-- Use them when implementation details are required.
-
-### Examples
-
+- “I need to customize antd theme. Should I prefer tokens or local styles?”
 - “In Next.js SSR, antd styles are out of order. How should ConfigProvider and StyleProvider be set?”
+- “For cross-field validation in Form, should I use dependencies or useWatch?”
+- “For server-side sorting/paging in Table, which reference should I start with?”
+- “I need a controlled Upload with fileList and custom request. What is the recommended flow?”
 - “How should I handle cross-field linkage in Form?”
+
+## Common entry points {#entry-points}
+
+- Form linkage and dynamic lists: `references/form-advanced.md`
+- Table paging/sort/virtual: `references/table-advanced.md`
+- Remote search and custom rendering: `references/select-advanced.md`
+- Controlled upload and custom request: `references/upload-advanced.md`
+- Async tree and check strategy: `references/tree-advanced.md`
+
+## FAQ {#faq}
+
+- **Do I need code?** If you only want decisions, usually no. Use references for complex cases.
+- **Version not stated?** Assume antd 6.x; call out older versions explicitly.
+- **Too many states/links?** Jump to the matching reference.
 
 ## Usage tips {#usage-tips}
 

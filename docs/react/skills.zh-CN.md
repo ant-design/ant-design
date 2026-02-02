@@ -7,9 +7,7 @@ title: SKILL.md
 tag: New
 ---
 
-<SkillsDocActions> </SkillsDocActions>
-
-本文说明 Ant Design 技能包的定位、结构与用法。
+本文说明 Ant Design 技能包的定位、结构与用法，并给出适用范围、触发条件与输出要求。目标是让你快速判断何时调用技能、从哪里开始读、以及期望产出什么。
 
 ## 什么是 SKILL.md？ {#what-is-skill-md}
 
@@ -19,98 +17,94 @@ tag: New
 - `references/`（可选，用于拆分复杂内容）
 - `scripts/` 或其他资源（可选）
 
+## 适用范围 {#scope}
+
+适用范围：
+
+- antd 6.x 与 React 18/19 相关的组件选型、用法与表现问题
+- 主题与 tokens、ConfigProvider 与 StyleProvider 配置
+- SSR/样式顺序/水合相关问题
+- 常见交互与可访问性检查点
+
+## 什么时候用这套技能 {#when-to-use}
+
+- 你在做 antd 组件选型或想确认合适的用法
+- 主题/样式有冲突，想要可维护的处理方式
+- SSR 或样式注入顺序异常
+- 你只需要决策建议，不需要长篇教程
+
+## 触发条件 {#triggers}
+
+- 出现跨组件或跨字段联动
+- 遇到 SSR/水合或样式顺序问题
+- 需要在多种可选方案中做取舍
+
 ## 可用资源 {#available-resources}
 
-本仓库提供的技能内容位置：
+本仓库内相关技能内容位置：
 
 - `antd-skill/skills/ant-design/SKILL.md`
 - `antd-skill/skills/ant-design/references/`
 
-## 在 Cursor 中使用 {#use-in-cursor}
+## 输出期望 {#expected-output}
 
-Cursor 会从技能目录加载技能（详见 [Cursor Skills 文档](https://cursor.com/cn/docs/context/skills)）。
+输出通常包含以下内容（按需提供）：
 
-### 安装方式（项目级）
+- 推荐的组件与简短理由
+- 最小可行的 Provider 配置思路
+- 可能的风险点与规避手段
+- 命中复杂条件时，给出对应 reference 路径
 
-1. 在项目中创建目录：`.cursor/skills/ant-design/`
-2. 将 `SKILL.md` 与 `references/` 放入该目录
-3. 重新打开项目或触发索引刷新
+## 安装 {#install}
 
-### 安装方式（用户级）
+优先使用命令行安装：
 
-将技能放入 `~/.cursor/skills/ant-design/`，可在多个项目复用。
+```bash
+pnpx skills add ant-design/antd-skill
+# or
+npx skills add ant-design/antd-skill
+```
 
-### 触发方式
+## 在编辑器中使用 {#use-in-editor}
 
-- 自动触发：描述 antd v6、ConfigProvider、token、SSR、Form、Table 等场景时，模型会选择该 skill。
+如需手动安装，请参考各编辑器官方文档中的技能目录约定与触发方式：
 
-## 在 Claude Code 中使用 {#use-in-claude-code}
-
-Claude Code 支持技能目录与 `SKILL.md` 机制（详见 [Claude Code Skills 文档](https://code.claude.com/docs/en/skills#extend-claude-with-skills)）。
-
-### 安装方式（项目级）
-
-1. 在项目中创建目录：`.claude/skills/ant-design/`
-2. 将 `SKILL.md` 与 `references/` 放入该目录
-3. 重新打开项目或触发索引刷新
-
-### 安装方式（用户级）
-
-将技能放入 `~/.claude/skills/ant-design/`，可在多个项目复用。
-
-### 触发方式
-
-- 自动触发：当需求与 skill 描述匹配时自动启用。
-- 手动触发：使用 `/ant-design` 显式调用。
-
-## 在 Trae 中使用 {#use-in-trae}
-
-Trae 提供技能机制与目录约定（详见 [Trae Skills 文档](https://docs.trae.ai/ide/skills?_lang=zh)）。
-
-### 安装方式
-
-将技能目录放入 Trae 约定的 skills 路径，并确保包含 `SKILL.md` 与 `references/`。
-
-### 触发方式
-
-- 自动触发：当需求与 skill 描述匹配时启用。
-- 手动触发：使用 Trae 的技能调用入口执行。
-
-## 在 Qoder 中使用 {#use-in-qoder}
-
-Qoder CLI 支持以 `SKILL.md` 形式加载技能（详见 [Qoder Skills 文档](https://docs.qoder.com/cli/Skills#skills)）。
-
-### 安装方式（项目级）
-
-1. 在项目中创建目录：`.qoder/skills/ant-design/`
-2. 将 `SKILL.md` 与 `references/` 放入该目录
-3. 重启 Qoder CLI 或刷新会话
-
-### 安装方式（用户级）
-
-将技能放入 `~/.qoder/skills/ant-design/`，可在多个项目复用。
-
-### 触发方式
-
-- 自动触发：当需求与 skill 描述匹配时启用。
-- 手动触发：使用 `/ant-design` 调用。
+- Cursor Skills 文档：https://cursor.com/cn/docs/context/skills
+- Claude Code Skills 文档：https://code.claude.com/docs/en/skills#extend-claude-with-skills
+- Trae Skills 文档：https://docs.trae.ai/ide/skills?_lang=zh
+- Qoder Skills 文档：https://docs.qoder.com/cli/Skills#skills
 
 ## 使用方式 {#usage}
 
-### 主 Skill
+1. 先确定要用的技能：`ant-design` / `ant-design-pro` / `ant-design-x`。
+2. 打开对应 `skills/<skill>/SKILL.md`，先看适用范围与输出要求。
+3. 复杂场景再查 `skills/<skill>/references/*.md`。
+4. 只要决策建议时，主 `SKILL.md` 就够用；不要当成教程。
 
-- 适合组件选型、Provider/主题决策、SSR 与常见风险提示。
-- 复杂场景只给结论与入口，细节下沉至 reference。
+## 使用案例 {#cases}
 
-### Reference
+以下是可触发该技能的提问示例：
 
-- 用于复杂交互、异步或大数据量场景。
-- 需要实现细节时再打开对应文件。
-
-### 使用示例
-
-- “Next.js SSR 下 antd 样式顺序有问题，ConfigProvider 和 StyleProvider 怎么配？”
+- “我要做 antd 主题定制，优先用 tokens 还是局部样式？”
+- “Next.js SSR 下 antd 样式顺序乱了，ConfigProvider 和 StyleProvider 怎么配？”
+- “Form 里做跨字段联动校验，用 dependencies 还是 useWatch？”
+- “表格要服务端排序/分页，入口应该看哪个 reference？”
+- “Upload 做受控 fileList，还要自定义请求，推荐的处理方式是什么？”
 - “表单跨字段联动要怎么做？”
+
+## 常见场景入口 {#entry-points}
+
+- 表单联动、动态列表：`references/form-advanced.md`
+- 表格分页/排序/虚拟滚动：`references/table-advanced.md`
+- 远程搜索与自定义渲染：`references/select-advanced.md`
+- 受控上传、自定义请求：`references/upload-advanced.md`
+- 异步树、勾选策略：`references/tree-advanced.md`
+
+## 常见问题 {#faq}
+
+- **要代码吗？** 如果你只要决策建议，一般不需要代码；遇到复杂交互再看 reference。
+- **版本不明确怎么办？** 默认按 antd 6.x 处理，旧版本请说明。
+- **遇到多状态/联动？** 直接看对应 reference，避免把内容挤在主文档里。
 
 ## 使用建议 {#usage-tips}
 
