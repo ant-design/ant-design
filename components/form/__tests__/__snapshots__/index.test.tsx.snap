@@ -139,9 +139,6 @@ exports[`Form form should support disabled 1`] = `
                   id="disabled"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <span
                 class="ant-checkbox-label"
@@ -196,9 +193,6 @@ exports[`Form form should support disabled 1`] = `
                     type="radio"
                     value="apple"
                   />
-                  <span
-                    class="ant-radio-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-label"
@@ -218,9 +212,6 @@ exports[`Form form should support disabled 1`] = `
                     name="test-id"
                     type="radio"
                     value="pear"
-                  />
-                  <span
-                    class="ant-radio-inner"
                   />
                 </span>
                 <span

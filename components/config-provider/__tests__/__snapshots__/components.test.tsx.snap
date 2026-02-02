@@ -1598,14 +1598,10 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1647,14 +1643,10 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         class="config-select config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="Sep"
         >
-          <div
-            class="config-select-content-value"
-            title="Sep"
-          >
-            Sep
-          </div>
+          Sep
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1709,9 +1701,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -1730,9 +1719,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -2524,14 +2510,10 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2585,9 +2567,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -2607,9 +2586,6 @@ exports[`ConfigProvider components Calendar configProvider 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -2867,14 +2843,10 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2917,14 +2889,10 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         class="config-select config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="Sep"
         >
-          <div
-            class="config-select-content-value"
-            title="Sep"
-          >
-            Sep
-          </div>
+          Sep
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2981,9 +2949,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -3003,9 +2968,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -3797,14 +3759,10 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3860,9 +3818,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -3883,9 +3838,6 @@ exports[`ConfigProvider components Calendar configProvider componentDisabled 1`]
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -4143,14 +4095,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         class="config-select config-select-lg config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -4192,14 +4140,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         class="config-select config-select-lg config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="Sep"
         >
-          <div
-            class="config-select-content-value"
-            title="Sep"
-          >
-            Sep
-          </div>
+          Sep
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -4254,9 +4198,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -4275,9 +4216,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -5069,14 +5007,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
         class="config-select config-select-lg config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5130,9 +5064,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -5152,9 +5083,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -5412,14 +5340,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5461,14 +5385,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         class="config-select config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="Sep"
         >
-          <div
-            class="config-select-content-value"
-            title="Sep"
-          >
-            Sep
-          </div>
+          Sep
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5523,9 +5443,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -5544,9 +5461,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -6338,14 +6252,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         class="config-select config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6399,9 +6309,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -6421,9 +6328,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -6681,14 +6585,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         class="config-select config-select-sm config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6730,14 +6630,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         class="config-select config-select-sm config-select-outlined config-picker-calendar-month-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="Sep"
         >
-          <div
-            class="config-select-content-value"
-            title="Sep"
-          >
-            Sep
-          </div>
+          Sep
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6792,9 +6688,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -6813,9 +6706,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -7607,14 +7497,10 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
         class="config-select config-select-sm config-select-outlined config-picker-calendar-year-select css-var-root config-select-css-var config-select-single config-select-show-arrow"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="config-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7668,9 +7554,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               type="radio"
               value="month"
             />
-            <span
-              class="config-radio-button-inner"
-            />
           </span>
           <span
             class="config-radio-button-label"
@@ -7690,9 +7573,6 @@ exports[`ConfigProvider components Calendar configProvider componentSize small 1
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="config-radio-button-inner"
             />
           </span>
           <span
@@ -7950,14 +7830,10 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="ant-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7999,14 +7875,10 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Sep"
         >
-          <div
-            class="ant-select-content-value"
-            title="Sep"
-          >
-            Sep
-          </div>
+          Sep
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -8061,9 +7933,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -8082,9 +7951,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -8876,14 +8742,10 @@ exports[`ConfigProvider components Calendar normal 1`] = `
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="ant-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -8937,9 +8799,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -8959,9 +8818,6 @@ exports[`ConfigProvider components Calendar normal 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -9219,14 +9075,10 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         class="ant-select ant-select-outlined prefix-Calendar-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="ant-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -9268,14 +9120,10 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         class="ant-select ant-select-outlined prefix-Calendar-calendar-month-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Sep"
         >
-          <div
-            class="ant-select-content-value"
-            title="Sep"
-          >
-            Sep
-          </div>
+          Sep
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -9330,9 +9178,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -9351,9 +9196,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -10145,14 +9987,10 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
         class="ant-select ant-select-outlined prefix-Calendar-calendar-year-select css-var-root ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2000"
         >
-          <div
-            class="ant-select-content-value"
-            title="2000"
-          >
-            2000
-          </div>
+          2000
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -10206,9 +10044,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -10228,9 +10063,6 @@ exports[`ConfigProvider components Calendar prefixCls 1`] = `
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -11745,9 +11577,6 @@ exports[`ConfigProvider components Checkbox configProvider 1`] = `
         class="config-checkbox-input"
         type="checkbox"
       />
-      <span
-        class="config-checkbox-inner"
-      />
     </span>
     <span
       class="config-checkbox-label"
@@ -11774,9 +11603,6 @@ exports[`ConfigProvider components Checkbox configProvider componentDisabled 1`]
         disabled=""
         type="checkbox"
       />
-      <span
-        class="config-checkbox-inner"
-      />
     </span>
     <span
       class="config-checkbox-label"
@@ -11801,9 +11627,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
       <input
         class="config-checkbox-input"
         type="checkbox"
-      />
-      <span
-        class="config-checkbox-inner"
       />
     </span>
     <span
@@ -11830,9 +11653,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize middle 
         class="config-checkbox-input"
         type="checkbox"
       />
-      <span
-        class="config-checkbox-inner"
-      />
     </span>
     <span
       class="config-checkbox-label"
@@ -11857,9 +11677,6 @@ exports[`ConfigProvider components Checkbox configProvider componentSize small 1
       <input
         class="config-checkbox-input"
         type="checkbox"
-      />
-      <span
-        class="config-checkbox-inner"
       />
     </span>
     <span
@@ -11886,9 +11703,6 @@ exports[`ConfigProvider components Checkbox normal 1`] = `
         class="ant-checkbox-input"
         type="checkbox"
       />
-      <span
-        class="ant-checkbox-inner"
-      />
     </span>
     <span
       class="ant-checkbox-label"
@@ -11913,9 +11727,6 @@ exports[`ConfigProvider components Checkbox prefixCls 1`] = `
       <input
         class="prefix-Checkbox-input"
         type="checkbox"
-      />
-      <span
-        class="prefix-Checkbox-inner"
       />
     </span>
     <span
@@ -18370,14 +18181,10 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -18502,14 +18309,10 @@ exports[`ConfigProvider components Pagination configProvider 1`] = `
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -18639,14 +18442,10 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -18772,14 +18571,10 @@ exports[`ConfigProvider components Pagination configProvider componentDisabled 1
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -18910,14 +18705,10 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         class="config-select config-select-lg config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -19042,14 +18833,10 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -19179,14 +18966,10 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         class="config-select config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -19311,14 +19094,10 @@ exports[`ConfigProvider components Pagination configProvider componentSize middl
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -19448,14 +19227,10 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -19580,14 +19355,10 @@ exports[`ConfigProvider components Pagination configProvider componentSize small
         class="config-select config-select-sm config-select-outlined config-pagination-options-size-changer css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-show-search"
       >
         <div
-          class="config-select-content"
+          class="config-select-content config-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="config-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -19717,14 +19488,10 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -19849,14 +19616,10 @@ exports[`ConfigProvider components Pagination normal 1`] = `
         class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -19986,14 +19749,10 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         class="ant-select ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -20118,14 +19877,10 @@ exports[`ConfigProvider components Pagination prefixCls 1`] = `
         class="ant-select ant-select-sm ant-select-outlined prefix-Pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="10 / page"
         >
-          <div
-            class="ant-select-content-value"
-            title="10 / page"
-          >
-            10 / page
-          </div>
+          10 / page
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -21224,9 +20979,6 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           name="test-id"
           type="radio"
         />
-        <span
-          class="config-radio-inner"
-        />
       </span>
       <span
         class="config-radio-label"
@@ -21250,9 +21002,6 @@ exports[`ConfigProvider components Radio configProvider 1`] = `
           class="config-radio-button-input"
           name="test-id"
           type="radio"
-        />
-        <span
-          class="config-radio-button-inner"
         />
       </span>
       <span
@@ -21284,9 +21033,6 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           name="test-id"
           type="radio"
         />
-        <span
-          class="config-radio-inner"
-        />
       </span>
       <span
         class="config-radio-label"
@@ -21311,9 +21057,6 @@ exports[`ConfigProvider components Radio configProvider componentDisabled 1`] = 
           disabled=""
           name="test-id"
           type="radio"
-        />
-        <span
-          class="config-radio-button-inner"
         />
       </span>
       <span
@@ -21344,9 +21087,6 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           name="test-id"
           type="radio"
         />
-        <span
-          class="config-radio-inner"
-        />
       </span>
       <span
         class="config-radio-label"
@@ -21370,9 +21110,6 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
           class="config-radio-button-input"
           name="test-id"
           type="radio"
-        />
-        <span
-          class="config-radio-button-inner"
         />
       </span>
       <span
@@ -21403,9 +21140,6 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           name="test-id"
           type="radio"
         />
-        <span
-          class="config-radio-inner"
-        />
       </span>
       <span
         class="config-radio-label"
@@ -21429,9 +21163,6 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
           class="config-radio-button-input"
           name="test-id"
           type="radio"
-        />
-        <span
-          class="config-radio-button-inner"
         />
       </span>
       <span
@@ -21462,9 +21193,6 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
           name="test-id"
           type="radio"
         />
-        <span
-          class="config-radio-inner"
-        />
       </span>
       <span
         class="config-radio-label"
@@ -21488,9 +21216,6 @@ exports[`ConfigProvider components Radio configProvider componentSize small 1`] 
           class="config-radio-button-input"
           name="test-id"
           type="radio"
-        />
-        <span
-          class="config-radio-button-inner"
         />
       </span>
       <span
@@ -21521,9 +21246,6 @@ exports[`ConfigProvider components Radio normal 1`] = `
           name="test-id"
           type="radio"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -21547,9 +21269,6 @@ exports[`ConfigProvider components Radio normal 1`] = `
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -21580,9 +21299,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           name="test-id"
           type="radio"
         />
-        <span
-          class="prefix-Radio-inner"
-        />
       </span>
       <span
         class="prefix-Radio-label"
@@ -21606,9 +21322,6 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
           class="prefix-Radio-button-input"
           name="test-id"
           type="radio"
-        />
-        <span
-          class="prefix-Radio-button-inner"
         />
       </span>
       <span
@@ -23712,14 +23425,10 @@ exports[`ConfigProvider components Select configProvider 1`] = `
   class="config-select config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-content"
+    class="config-select-content config-select-content-has-value"
+    title="Light"
   >
-    <div
-      class="config-select-content-value"
-      title="Light"
-    >
-      Light
-    </div>
+    Light
     <input
       aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
@@ -23767,14 +23476,10 @@ exports[`ConfigProvider components Select configProvider componentDisabled 1`] =
   class="config-select config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-disabled"
 >
   <div
-    class="config-select-content"
+    class="config-select-content config-select-content-has-value"
+    title="Light"
   >
-    <div
-      class="config-select-content-value"
-      title="Light"
-    >
-      Light
-    </div>
+    Light
     <input
       aria-autocomplete="list"
       aria-expanded="false"
@@ -23820,14 +23525,10 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
   class="config-select config-select-lg config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-content"
+    class="config-select-content config-select-content-has-value"
+    title="Light"
   >
-    <div
-      class="config-select-content-value"
-      title="Light"
-    >
-      Light
-    </div>
+    Light
     <input
       aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
@@ -23875,14 +23576,10 @@ exports[`ConfigProvider components Select configProvider componentSize middle 1`
   class="config-select config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-content"
+    class="config-select-content config-select-content-has-value"
+    title="Light"
   >
-    <div
-      class="config-select-content-value"
-      title="Light"
-    >
-      Light
-    </div>
+    Light
     <input
       aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
@@ -23930,14 +23627,10 @@ exports[`ConfigProvider components Select configProvider componentSize small 1`]
   class="config-select config-select-sm config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
   <div
-    class="config-select-content"
+    class="config-select-content config-select-content-has-value"
+    title="Light"
   >
-    <div
-      class="config-select-content-value"
-      title="Light"
-    >
-      Light
-    </div>
+    Light
     <input
       aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
@@ -23985,14 +23678,10 @@ exports[`ConfigProvider components Select normal 1`] = `
   class="ant-select ant-select-outlined css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-open"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
+    title="Light"
   >
-    <div
-      class="ant-select-content-value"
-      title="Light"
-    >
-      Light
-    </div>
+    Light
     <input
       aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
@@ -24040,14 +23729,10 @@ exports[`ConfigProvider components Select prefixCls 1`] = `
   class="prefix-Select prefix-Select-outlined css-var-root prefix-Select-css-var prefix-Select-single prefix-Select-show-arrow prefix-Select-open"
 >
   <div
-    class="prefix-Select-content"
+    class="prefix-Select-content prefix-Select-content-has-value"
+    title="Light"
   >
-    <div
-      class="prefix-Select-content-value"
-      title="Light"
-    >
-      Light
-    </div>
+    Light
     <input
       aria-activedescendant="test-id_list_0"
       aria-autocomplete="list"
@@ -25587,9 +25272,6 @@ exports[`ConfigProvider components Table configProvider 1`] = `
                                       class="config-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="config-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -25894,9 +25576,6 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
                                       class="config-checkbox-input"
                                       disabled=""
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="config-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -26203,9 +25882,6 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
                                       class="config-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="config-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -26509,9 +26185,6 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
                                     <input
                                       class="config-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="config-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -26817,9 +26490,6 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
                                       class="config-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="config-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -27124,9 +26794,6 @@ exports[`ConfigProvider components Table normal 1`] = `
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <span>
@@ -27430,9 +27097,6 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
                                     <input
                                       class="ant-checkbox-input"
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
                                     />
                                   </span>
                                 </label>
@@ -38196,9 +37860,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="config-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -38366,9 +38027,6 @@ exports[`ConfigProvider components Transfer configProvider 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="config-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -38480,9 +38138,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="config-checkbox-inner"
           />
         </span>
       </label>
@@ -38651,9 +38306,6 @@ exports[`ConfigProvider components Transfer configProvider componentDisabled 1`]
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="config-checkbox-inner"
           />
         </span>
       </label>
@@ -38768,9 +38420,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
             disabled=""
             type="checkbox"
           />
-          <span
-            class="config-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -38937,9 +38586,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="config-checkbox-inner"
           />
         </span>
       </label>
@@ -39053,9 +38699,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
             disabled=""
             type="checkbox"
           />
-          <span
-            class="config-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -39222,9 +38865,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize middle 
             class="config-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="config-checkbox-inner"
           />
         </span>
       </label>
@@ -39338,9 +38978,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
             disabled=""
             type="checkbox"
           />
-          <span
-            class="config-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -39508,9 +39145,6 @@ exports[`ConfigProvider components Transfer configProvider componentSize small 1
             disabled=""
             type="checkbox"
           />
-          <span
-            class="config-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -39622,9 +39256,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
       </label>
@@ -39793,9 +39424,6 @@ exports[`ConfigProvider components Transfer normal 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -39907,9 +39535,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
       </label>
@@ -40077,9 +39702,6 @@ exports[`ConfigProvider components Transfer prefixCls 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
       </label>

@@ -553,9 +553,6 @@ Array [
               type="radio"
               value="top"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -576,9 +573,6 @@ Array [
               type="radio"
               value="right"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -598,9 +592,6 @@ Array [
               type="radio"
               value="bottom"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -619,9 +610,6 @@ Array [
               name="test-id"
               type="radio"
               value="left"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -3375,9 +3363,6 @@ Array [
               type="radio"
               value="top"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3396,9 +3381,6 @@ Array [
               name="test-id"
               type="radio"
               value="right"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -3419,9 +3401,6 @@ Array [
               type="radio"
               value="bottom"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3441,9 +3420,6 @@ Array [
               name="test-id"
               type="radio"
               value="left"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -3670,9 +3646,6 @@ Array [
               type="radio"
               value="top"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3693,9 +3666,6 @@ Array [
               type="radio"
               value="right"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3715,9 +3685,6 @@ Array [
               type="radio"
               value="bottom"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3736,9 +3703,6 @@ Array [
               name="test-id"
               type="radio"
               value="left"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -4189,9 +4153,6 @@ Array [
               type="radio"
               value="large"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -4210,9 +4171,6 @@ Array [
               name="test-id"
               type="radio"
               value="default"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -4233,9 +4191,6 @@ Array [
               type="radio"
               value="256"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -4254,9 +4209,6 @@ Array [
               name="test-id"
               type="radio"
               value="500px"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -4277,9 +4229,6 @@ Array [
               type="radio"
               value="50%"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -4298,9 +4247,6 @@ Array [
               name="test-id"
               type="radio"
               value="20vw"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span

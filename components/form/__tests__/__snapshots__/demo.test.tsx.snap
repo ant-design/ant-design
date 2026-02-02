@@ -89,14 +89,10 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                      >
-                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                      </div>
+                      longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -263,14 +259,10 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
-                      >
-                        longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
-                      </div>
+                      longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -569,9 +561,6 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   id="basic_remember"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
               <span
@@ -1660,14 +1649,10 @@ exports[`renders components/form/demo/customized-form-controls.tsx correctly 1`]
                 style="width:80px;margin:0 8px"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="RMB"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    title="RMB"
-                  >
-                    RMB
-                  </div>
+                  RMB
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -1755,9 +1740,6 @@ Array [
         class="ant-checkbox-input"
         type="checkbox"
       />
-      <span
-        class="ant-checkbox-inner"
-      />
     </span>
     <span
       class="ant-checkbox-label"
@@ -1806,9 +1788,6 @@ Array [
                     disabled=""
                     id="disabled"
                     type="checkbox"
-                  />
-                  <span
-                    class="ant-checkbox-inner"
                   />
                 </span>
                 <span
@@ -1864,9 +1843,6 @@ Array [
                       type="radio"
                       value="apple"
                     />
-                    <span
-                      class="ant-radio-inner"
-                    />
                   </span>
                   <span
                     class="ant-radio-label"
@@ -1886,9 +1862,6 @@ Array [
                       name="test-id"
                       type="radio"
                       value="pear"
-                    />
-                    <span
-                      class="ant-radio-inner"
                     />
                   </span>
                   <span
@@ -3111,9 +3084,6 @@ Array [
                           disabled=""
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                     <span
@@ -3169,9 +3139,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3194,9 +3161,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3221,9 +3185,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3246,9 +3207,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3273,9 +3231,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3298,9 +3253,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3325,9 +3277,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3350,9 +3299,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3377,9 +3323,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3402,9 +3345,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3429,9 +3369,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3454,9 +3391,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3481,9 +3415,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3506,9 +3437,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3533,9 +3461,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3559,9 +3484,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3584,9 +3506,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -3678,9 +3597,6 @@ Array [
                           disabled=""
                           type="checkbox"
                         />
-                        <span
-                          class="ant-checkbox-inner"
-                        />
                       </span>
                     </label>
                     <span
@@ -3736,9 +3652,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3762,9 +3675,6 @@ Array [
                               disabled=""
                               type="checkbox"
                             />
-                            <span
-                              class="ant-checkbox-inner"
-                            />
                           </span>
                         </label>
                         <span
@@ -3787,9 +3697,6 @@ Array [
                               class="ant-checkbox-input"
                               disabled=""
                               type="checkbox"
-                            />
-                            <span
-                              class="ant-checkbox-inner"
                             />
                           </span>
                         </label>
@@ -5245,9 +5152,6 @@ exports[`renders components/form/demo/dynamic-rule.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <span
                 class="ant-checkbox-label"
@@ -6226,9 +6130,6 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                     type="radio"
                     value="horizontal"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -6248,9 +6149,6 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                     type="radio"
                     value="vertical"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -6269,9 +6167,6 @@ exports[`renders components/form/demo/layout.tsx correctly 1`] = `
                     name="layout"
                     type="radio"
                     value="inline"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
                   />
                 </span>
                 <span
@@ -6948,9 +6843,6 @@ exports[`renders components/form/demo/login.tsx correctly 1`] = `
                     class="ant-checkbox-input"
                     id="login_remember"
                     type="checkbox"
-                  />
-                  <span
-                    class="ant-checkbox-inner"
                   />
                 </span>
                 <span
@@ -7656,14 +7548,10 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
               class="ant-select ant-cascader ant-select-outlined ant-select-in-form-item ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title="Zhejiang / Hangzhou / West Lake"
               >
-                <div
-                  class="ant-select-content-value"
-                  title="Zhejiang / Hangzhou / West Lake"
-                >
-                  Zhejiang / Hangzhou / West Lake
-                </div>
+                Zhejiang / Hangzhou / West Lake
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -7767,14 +7655,10 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 style="width:70px"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="+86"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    title="+86"
-                  >
-                    +86
-                  </div>
+                  +86
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -7930,14 +7814,10 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 style="width:70px"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="$"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    title="$"
-                  >
-                    $
-                  </div>
+                  $
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -8120,14 +8000,10 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
               class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title="Male"
               >
-                <div
-                  class="ant-select-content-value"
-                  title="Male"
-                >
-                  Male
-                </div>
+                Male
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -8266,9 +8142,6 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                   id="register_agreement"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
               <span
                 class="ant-checkbox-label"
@@ -8370,9 +8243,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                     type="radio"
                     value="true"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8393,9 +8263,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                     type="radio"
                     value="optional"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8415,9 +8282,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                     type="radio"
                     value="false"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8436,9 +8300,6 @@ exports[`renders components/form/demo/required-mark.tsx correctly 1`] = `
                     name="requiredMarkValue"
                     type="radio"
                     value="customize"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
                   />
                 </span>
                 <span
@@ -8664,9 +8525,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     type="radio"
                     value="small"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8687,9 +8545,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     type="radio"
                     value="default"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -8708,9 +8563,6 @@ exports[`renders components/form/demo/size.tsx correctly 1`] = `
                     name="size"
                     type="radio"
                     value="large"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
                   />
                 </span>
                 <span
@@ -10917,9 +10769,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="radio"
                     value="a"
                   />
-                  <span
-                    class="ant-radio-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-label"
@@ -10939,9 +10788,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="radio"
                     value="b"
                   />
-                  <span
-                    class="ant-radio-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-label"
@@ -10960,9 +10806,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     name="radio-group"
                     type="radio"
                     value="c"
-                  />
-                  <span
-                    class="ant-radio-inner"
                   />
                 </span>
                 <span
@@ -11021,9 +10864,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="radio"
                     value="a"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -11043,9 +10883,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     type="radio"
                     value="b"
                   />
-                  <span
-                    class="ant-radio-button-inner"
-                  />
                 </span>
                 <span
                   class="ant-radio-button-label"
@@ -11064,9 +10901,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                     name="radio-button"
                     type="radio"
                     value="c"
-                  />
-                  <span
-                    class="ant-radio-button-inner"
                   />
                 </span>
                 <span
@@ -11131,9 +10965,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         type="checkbox"
                         value="A"
                       />
-                      <span
-                        class="ant-checkbox-inner"
-                      />
                     </span>
                     <span
                       class="ant-checkbox-label"
@@ -11159,9 +10990,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         type="checkbox"
                         value="B"
                       />
-                      <span
-                        class="ant-checkbox-inner"
-                      />
                     </span>
                     <span
                       class="ant-checkbox-label"
@@ -11184,9 +11012,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         class="ant-checkbox-input"
                         type="checkbox"
                         value="C"
-                      />
-                      <span
-                        class="ant-checkbox-inner"
                       />
                     </span>
                     <span
@@ -11211,9 +11036,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         type="checkbox"
                         value="D"
                       />
-                      <span
-                        class="ant-checkbox-inner"
-                      />
                     </span>
                     <span
                       class="ant-checkbox-label"
@@ -11237,9 +11059,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         type="checkbox"
                         value="E"
                       />
-                      <span
-                        class="ant-checkbox-inner"
-                      />
                     </span>
                     <span
                       class="ant-checkbox-label"
@@ -11262,9 +11081,6 @@ exports[`renders components/form/demo/validate-other.tsx correctly 1`] = `
                         class="ant-checkbox-input"
                         type="checkbox"
                         value="F"
-                      />
-                      <span
-                        class="ant-checkbox-inner"
                       />
                     </span>
                     <span
@@ -12883,14 +12699,10 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
               class="ant-select ant-select-outlined ant-select-in-form-item ant-select-status-error ant-select-has-feedback css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title="Option 1"
               >
-                <div
-                  class="ant-select-content-value"
-                  title="Option 1"
-                >
-                  Option 1
-                </div>
+                Option 1
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"

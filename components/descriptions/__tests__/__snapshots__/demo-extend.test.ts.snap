@@ -518,9 +518,6 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           type="radio"
           value="default"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -540,9 +537,6 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           type="radio"
           value="middle"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -561,9 +555,6 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -1619,9 +1610,6 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           type="radio"
           value="default"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1641,9 +1629,6 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           type="radio"
           value="middle"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1662,9 +1647,6 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2085,9 +2067,6 @@ Array [
           type="radio"
           value="horizontal"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2106,9 +2085,6 @@ Array [
           name="test-id"
           type="radio"
           value="vertical"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

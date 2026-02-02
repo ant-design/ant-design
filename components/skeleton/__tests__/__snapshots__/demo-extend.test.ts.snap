@@ -437,9 +437,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="default"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -459,9 +456,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="large"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -480,9 +474,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           name="test-id"
                           type="radio"
                           value="small"
-                        />
-                        <span
-                          class="ant-radio-button-inner"
                         />
                       </span>
                       <span
@@ -543,9 +534,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="default"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -564,9 +552,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           name="test-id"
                           type="radio"
                           value="square"
-                        />
-                        <span
-                          class="ant-radio-button-inner"
                         />
                       </span>
                       <span
@@ -587,9 +572,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="round"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -608,9 +590,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           name="test-id"
                           type="radio"
                           value="circle"
-                        />
-                        <span
-                          class="ant-radio-button-inner"
                         />
                       </span>
                       <span
@@ -670,9 +649,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="square"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -692,9 +668,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           name="test-id"
                           type="radio"
                           value="circle"
-                        />
-                        <span
-                          class="ant-radio-button-inner"
                         />
                       </span>
                       <span
