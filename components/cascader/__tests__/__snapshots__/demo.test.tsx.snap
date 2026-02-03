@@ -212,31 +212,27 @@ exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
   style="width:100%"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
   >
-    <div
-      class="ant-select-content-value"
-    >
-      <span>
-        Zhejiang
-        <!-- -->
-         / 
-      </span>
-      <span>
-        Hangzhou
-        <!-- -->
-         / 
-      </span>
-      <span>
-        West Lake
-        <!-- -->
-         (
-        <a>
-          752100
-        </a>
-        )
-      </span>
-    </div>
+    <span>
+      Zhejiang
+      <!-- -->
+       / 
+    </span>
+    <span>
+      Hangzhou
+      <!-- -->
+       / 
+    </span>
+    <span>
+      West Lake
+      <!-- -->
+       (
+      <a>
+        752100
+      </a>
+      )
+    </span>
     <input
       aria-autocomplete="list"
       aria-expanded="false"
@@ -315,14 +311,10 @@ exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
+    title="Zhejiang / Hangzhou / West Lake"
   >
-    <div
-      class="ant-select-content-value"
-      title="Zhejiang / Hangzhou / West Lake"
-    >
-      Zhejiang / Hangzhou / West Lake
-    </div>
+    Zhejiang / Hangzhou / West Lake
     <input
       aria-autocomplete="list"
       aria-expanded="false"

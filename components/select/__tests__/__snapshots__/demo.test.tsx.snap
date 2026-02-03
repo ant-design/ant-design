@@ -73,14 +73,10 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
       style="width:120px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -127,14 +123,10 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
       style="width:120px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -182,14 +174,10 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
       style="width:120px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -236,14 +224,10 @@ exports[`renders components/select/demo/basic.tsx correctly 1`] = `
       style="width:120px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -439,14 +423,10 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
       style="width:120px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Zhejiang"
       >
-        <div
-          class="ant-select-content-value"
-          title="Zhejiang"
-        >
-          Zhejiang
-        </div>
+        Zhejiang
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -493,14 +473,10 @@ exports[`renders components/select/demo/coordinate.tsx correctly 1`] = `
       style="width:120px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Hangzhou"
       >
-        <div
-          class="ant-select-content-value"
-          title="Hangzhou"
-        >
-          Hangzhou
-        </div>
+        Hangzhou
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -601,15 +577,11 @@ exports[`renders components/select/demo/custom-label-render.tsx correctly 1`] = 
   style="width:100%"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
   >
-    <div
-      class="ant-select-content-value"
-    >
-      <span>
-        No option match
-      </span>
-    </div>
+    <span>
+      No option match
+    </span>
     <input
       aria-autocomplete="list"
       aria-expanded="false"
@@ -1115,14 +1087,10 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
       style="flex:1 1 50%;min-width:0"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1235,14 +1203,10 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
       style="flex:1 1 50%;min-width:0"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1380,14 +1344,10 @@ exports[`renders components/select/demo/filled-debug.tsx correctly 1`] = `
       style="flex:1 1 50%;min-width:0"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1562,14 +1522,10 @@ exports[`renders components/select/demo/label-in-value.tsx correctly 1`] = `
   style="width:120px"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
+    title="Lucy (101)"
   >
-    <div
-      class="ant-select-content-value"
-      title="Lucy (101)"
-    >
-      Lucy (101)
-    </div>
+    Lucy (101)
     <input
       aria-autocomplete="list"
       aria-expanded="false"
@@ -1966,14 +1922,10 @@ exports[`renders components/select/demo/optgroup.tsx correctly 1`] = `
   style="width:200px"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
+    title="lucy"
   >
-    <div
-      class="ant-select-content-value"
-      title="lucy"
-    >
-      lucy
-    </div>
+    lucy
     <input
       aria-autocomplete="list"
       aria-expanded="false"
@@ -2027,14 +1979,10 @@ Array [
         style="width:120px"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="long, long, long piece of text"
         >
-          <div
-            class="ant-select-content-value"
-            title="long, long, long piece of text"
-          >
-            long, long, long piece of text
-          </div>
+          long, long, long piece of text
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2159,14 +2107,10 @@ Array [
         style="width:120px"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
         >
-          <div
-            class="ant-select-content-value"
-          >
-            <div>
-              normal
-            </div>
+          <div>
+            normal
           </div>
           <input
             aria-autocomplete="list"
@@ -2784,14 +2728,10 @@ Array [
           Hi
         </div>
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Bamboo"
         >
-          <div
-            class="ant-select-content-value"
-            title="Bamboo"
-          >
-            Bamboo
-          </div>
+          Bamboo
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2866,14 +2806,10 @@ Array [
           Hi
         </div>
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Bamboo"
         >
-          <div
-            class="ant-select-content-value"
-            title="Bamboo"
-          >
-            Bamboo
-          </div>
+          Bamboo
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2973,14 +2909,10 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="Bamboo"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        title="Bamboo"
-                      >
-                        Bamboo
-                      </div>
+                      Bamboo
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -3078,15 +3010,10 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-search"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+                      title="Bamboo"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility:hidden"
-                        title="Bamboo"
-                      >
-                        Bamboo
-                      </div>
+                      Bamboo
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -3243,14 +3170,10 @@ Array [
         Hi
       </div>
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Bamboo"
       >
-        <div
-          class="ant-select-content-value"
-          title="Bamboo"
-        >
-          Bamboo
-        </div>
+        Bamboo
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -3851,14 +3774,10 @@ Array [
     style="width:120px"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="HangZhou #310000"
     >
-      <div
-        class="ant-select-content-value"
-        title="HangZhou #310000"
-      >
-        HangZhou #310000
-      </div>
+      HangZhou #310000
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -4665,14 +4584,10 @@ Array [
         style="width:200px"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="a1"
         >
-          <div
-            class="ant-select-content-value"
-            title="a1"
-          >
-            a1
-          </div>
+          a1
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5272,14 +5187,10 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
         User
       </div>
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -5349,14 +5260,10 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
       style="width:120px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -5403,14 +5310,10 @@ exports[`renders components/select/demo/suffix.tsx correctly 1`] = `
       style="width:120px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
