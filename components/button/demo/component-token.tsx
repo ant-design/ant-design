@@ -1,8 +1,223 @@
 import React from 'react';
+import { SearchOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Flex } from 'antd';
 
 const App: React.FC = () => (
   <Flex gap="small" vertical>
+    <div>Component Token</div>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            fontWeight: '900',
+            contentFontSizeSM: 20,
+            contentLineHeightSM: 2,
+            contentFontSize: 30,
+            contentLineHeight: 2,
+            contentFontSizeLG: 40,
+            contentLineHeightLG: 2,
+            paddingBlockSM: 20,
+            paddingBlock: 30,
+            paddingBlockLG: 40,
+            paddingInlineSM: 20,
+            paddingInline: 30,
+            paddingInlineLG: 40,
+          },
+        },
+      }}
+    >
+      <Flex gap="small" align="center">
+        <Button size="small">Small</Button>
+        <Button>Default</Button>
+        <Button size="large">Large</Button>
+      </Flex>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            dangerColor: 'green',
+            dangerShadow: 'yellow',
+          },
+        },
+      }}
+    >
+      <Flex gap="small" align="center">
+        <Button danger>Default</Button>
+        <Button danger type="primary">
+          Primary
+        </Button>
+        <Button danger type="dashed">
+          Dashed
+        </Button>
+        <Button danger type="text">
+          Text
+        </Button>
+        <Button danger type="link">
+          Link
+        </Button>
+      </Flex>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            dashedBgDisabled: 'red',
+          },
+        },
+      }}
+    >
+      <Button type="dashed" disabled>
+        Dashed Disabled
+      </Button>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            defaultColor: 'red',
+            defaultBg: 'blue',
+            defaultBorderColor: 'green',
+            defaultShadow: 'yellow',
+            defaultBgDisabled: 'pink',
+
+            defaultHoverColor: 'brown',
+            defaultHoverBg: 'orange',
+            defaultHoverBorderColor: 'purple',
+
+            defaultActiveColor: 'fuchsia',
+            defaultActiveBg: 'aqua',
+            defaultActiveBorderColor: 'lime',
+          },
+        },
+      }}
+    >
+      <Flex gap="small" align="start">
+        <Button>Default</Button>
+        <Button type="dashed">Dashed</Button>
+        <Button type="text">Text</Button>
+        <Button disabled>Disabled</Button>
+      </Flex>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            ghostBg: 'red',
+            defaultGhostColor: 'yellow',
+            defaultGhostBorderColor: 'green',
+          },
+        },
+      }}
+    >
+      <Flex gap="small" align="start">
+        <Button ghost>Default</Button>
+        <Button ghost type="dashed">
+          Dashed
+        </Button>
+        <Button ghost type="text">
+          Text
+        </Button>
+        <Button ghost type="link">
+          Link
+        </Button>
+        <Button ghost type="primary">
+          Primary
+        </Button>
+      </Flex>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            iconGap: 40,
+          },
+        },
+      }}
+    >
+      <Button icon={<SearchOutlined />}>icon gap 40</Button>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            linkHoverBg: 'red',
+          },
+        },
+      }}
+    >
+      <Button type="link" href="https://ant.design">
+        Link
+      </Button>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            onlyIconSizeSM: 20,
+            onlyIconSize: 30,
+            onlyIconSizeLG: 40,
+          },
+        },
+      }}
+    >
+      <Flex gap="small" align="center">
+        <Button size="small" icon={<SearchOutlined />} />
+        <Button icon={<SearchOutlined />} />
+        <Button size="large" icon={<SearchOutlined />} />
+      </Flex>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            primaryColor: 'red',
+            primaryShadow: 'yellow',
+          },
+        },
+      }}
+    >
+      <Button type="primary">Primary</Button>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            solidTextColor: 'red',
+          },
+        },
+      }}
+    >
+      <Button variant="solid" color="default">
+        Solid
+      </Button>
+    </ConfigProvider>
+    <ConfigProvider
+      theme={{
+        components: {
+          Button: {
+            textTextColor: 'red',
+            textHoverBg: 'yellow',
+            textTextHoverColor: 'blue',
+            textTextActiveColor: 'green',
+          },
+        },
+      }}
+    >
+      <Flex gap="small" align="start">
+        <Button type="text">Text</Button>
+        <Button variant="text" color="default">
+          Default Text
+        </Button>
+        <Button variant="text" color="primary">
+          Primary Text
+        </Button>
+        <Button variant="text" color="danger">
+          Danger Text
+        </Button>
+      </Flex>
+    </ConfigProvider>
+    <div>Global Token</div>
     <ConfigProvider
       theme={{
         components: {
@@ -83,47 +298,6 @@ const App: React.FC = () => (
         <Button color="primary" variant="link">
           Primary Link
         </Button>
-      </Flex>
-    </ConfigProvider>
-    <ConfigProvider
-      theme={{
-        components: { Button: { paddingInline: 100, paddingInlineLG: 150, paddingInlineSM: 50 } },
-      }}
-    >
-      <Flex gap="small" vertical align="start">
-        <Button>Default Button</Button>
-        <Button shape="round">Default Button</Button>
-        <Button size="large">Default Button</Button>
-        <Button shape="round" size="large">
-          Default Button
-        </Button>
-        <Button size="small">Default Button</Button>
-        <Button shape="round" size="small">
-          Default Button
-        </Button>
-      </Flex>
-    </ConfigProvider>
-    <ConfigProvider
-      theme={{
-        components: {
-          Button: {
-            defaultBg: 'red',
-            defaultColor: 'blue',
-            defaultHoverColor: 'green',
-            defaultActiveColor: 'yellow',
-
-            textTextColor: 'purple',
-            textTextHoverColor: 'orange',
-            textTextActiveColor: 'pink',
-            textHoverBg: 'brown',
-          },
-        },
-      }}
-    >
-      <Flex gap="small" align="start">
-        <Button>Default Button</Button>
-        <Button type="dashed">Dashed Button</Button>
-        <Button type="text">Text Button</Button>
       </Flex>
     </ConfigProvider>
   </Flex>
