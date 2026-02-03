@@ -222,6 +222,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [varName('text-color')]: token.defaultColor,
           [varName('text-color-hover')]: token.defaultHoverColor,
           [varName('text-color-active')]: token.defaultActiveColor,
+          [varName('bg-color-disabled')]: token.defaultBgDisabled,
           [varName('shadow')]: token.defaultShadow,
 
           [`&${componentCls}-variant-solid`]: {
