@@ -92,24 +92,21 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // Collapse animation state
   const [isCollapsing, setIsCollapsing] = useState(false);
   const collapseTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
-  useEffect(() => () => clearTimeout(collapseTimerRef.current), []);
 
   // Calculate animation duration
-  const getCollapseDuration = (): number | null => {
-    if (collapseDuration === false) return null;
-    if (collapseDuration === true) {
-      return Number.parseFloat(token.motionDurationMid) * 1000;
-    }
-    return collapseDuration;
-  };
-
-  const collapseDurationMs = getCollapseDuration();
+  const collapseDurationMs =
+    collapseDuration === false
+      ? null
+      : collapseDuration === true
+        ? Number.parseFloat(token.motionDurationMid) * 1000
+        : collapseDuration;
 
   useEffect(() => {
     if (collapseDurationMs === null) {
       clearTimeout(collapseTimerRef.current);
       setIsCollapsing(false);
     }
+    return () => clearTimeout(collapseTimerRef.current);
   }, [collapseDurationMs]);
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
