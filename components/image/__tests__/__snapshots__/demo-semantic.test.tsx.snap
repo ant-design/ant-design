@@ -36,7 +36,7 @@ exports[`renders components/image/demo/_semantic.tsx correctly 1`] = `
           style="flex: 1 1 0%; position: relative; min-height: 500px; width: 100%;"
         >
           <div
-            class="ant-image-preview css-var-test-id ant-image-css-var semantic-mark-popup-root"
+            class="ant-image-preview css-var-test-id ant-image-css-var semantic-mark-popup-root ant-image-preview-fade-appear ant-image-preview-fade-appear-start ant-image-preview-fade"
             style="position: absolute;"
           >
             <div
