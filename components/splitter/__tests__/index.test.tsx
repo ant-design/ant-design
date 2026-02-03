@@ -15,6 +15,7 @@ import {
   waitFakeTimer,
 } from '../../../tests/utils';
 import SplitBar from '../SplitBar';
+import { InternalPanel } from '../Panel';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
@@ -1304,6 +1305,20 @@ describe('Splitter', () => {
           'Warning: [antd: Splitter] `layout` is deprecated. Please use `orientation` instead.',
         );
       }
+    });
+  });
+
+  // ============================= Panel Internal =============================
+  describe('InternalPanel', () => {
+    it('should handle undefined style prop with default value', () => {
+      const { container } = render(
+        <InternalPanel prefixCls="ant-splitter" style={undefined}>
+          Test Content
+        </InternalPanel>,
+      );
+      const panel = container.querySelector('.ant-splitter-panel');
+      expect(panel).toBeTruthy();
+      expect(panel?.textContent).toBe('Test Content');
     });
   });
 });
