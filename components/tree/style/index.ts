@@ -121,7 +121,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     treeNodePadding,
     titleHeight,
     indentSize,
-    switchSize = indentSize,
+    switchSize,
     nodeSelectedBg,
     nodeHoverBg,
     colorTextQuaternary,
