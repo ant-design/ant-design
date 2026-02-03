@@ -28,6 +28,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/suffix.tsx">suffix</code>
 <code src="./demo/componentToken-debug.tsx" debug>Component Token</code>
 <code src="./demo/link-danger-debug.tsx" debug>Link danger Debug</code>
+<code src="./demo/_semantic.tsx" version="6.3.0">Semantic Custom</code>
 
 ## API
 
@@ -37,6 +38,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Semantic className | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
@@ -47,6 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
+| styles | Semantic style | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | italic | Italic style | boolean | false | 4.16.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
@@ -55,6 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Semantic className | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
@@ -64,6 +68,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
+| styles | Semantic style | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | italic | Italic style | boolean | false | 4.16.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
@@ -72,6 +77,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Semantic className | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
@@ -81,6 +87,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | mark | Marked style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
+| styles | Semantic style | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | italic | Italic style | boolean | false | 4.16.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
@@ -171,6 +178,10 @@ interface EllipsisConfig {
 | expanded | Expand or Collapse | boolean |  | 5.16.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token
 

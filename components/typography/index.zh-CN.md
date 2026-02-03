@@ -29,6 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/suffix.tsx">后缀</code>
 <code src="./demo/componentToken-debug.tsx" debug>组件 Token</code>
 <code src="./demo/link-danger-debug.tsx" debug>Link danger Debug</code>
+<code src="./demo/_semantic.tsx" version="6.3.0">语义化自定义</code>
 
 ## API
 
@@ -38,6 +39,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 语义化 className | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
 | delete | 添加删除线样式 | boolean | false |  |
@@ -48,6 +50,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | mark | 添加标记样式 | boolean | false |  |
 | onClick | 点击 Text 时的回调 | (event) => void | - |  |
 | strong | 是否加粗 | boolean | false |  |
+| styles | 语义化 style | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | italic | 是否斜体 | boolean | false | 4.16.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
@@ -56,6 +59,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 语义化 className | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
 | delete | 添加删除线样式 | boolean | false |  |
@@ -65,6 +69,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | 添加标记样式 | boolean | false |  |
 | onClick | 点击 Title 时的回调 | (event) => void | - |  |
+| styles | 语义化 style | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | italic | 是否斜体 | boolean | false | 4.16.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
@@ -73,6 +78,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 语义化 className | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
 | delete | 添加删除线样式 | boolean | false |  |
@@ -82,6 +88,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | mark | 添加标记样式 | boolean | false |  |
 | onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
 | strong | 是否加粗 | boolean | false |  |
+| styles | 语义化 style | [SemanticDOM](#semantic-dom) | - | 6.3.0 |
 | italic | 是否斜体 | boolean | false | 4.16.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
@@ -172,6 +179,10 @@ interface EllipsisConfig {
 | expanded | 展开或收起 | boolean |  | 5.16.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开或收起时的回调 | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
+
+## Semantic DOM
+
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 
