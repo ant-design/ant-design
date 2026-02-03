@@ -146,9 +146,14 @@ const App: React.FC = () => (
         },
       }}
     >
-      <Button type="link" href="https://ant.design">
-        Link
-      </Button>
+      <Flex gap="small" align="center">
+        <Button type="link" href="https://ant.design">
+          Link
+        </Button>
+        <Button disabled type="link" href="https://ant.design">
+          Link(disabled)
+        </Button>
+      </Flex>
     </ConfigProvider>
     <ConfigProvider
       theme={{

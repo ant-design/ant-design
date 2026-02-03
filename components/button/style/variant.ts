@@ -165,6 +165,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [varName('color-base')]: token.colorLink,
           [varName('color-hover')]: token.colorLinkHover,
           [varName('color-active')]: token.colorLinkActive,
+          [varName('bg-color-hover')]: token.linkHoverBg,
         },
 
         // ======================== Compatible ========================
@@ -239,7 +240,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
             [varName('text-color-hover')]: token.defaultHoverColor,
             [varName('text-color-active')]: token.defaultActiveColor,
             [varName('bg-color-container')]: token.defaultBg,
-            [varName('bg-color-hover')]: token.defaultHoverBg,     
+            [varName('bg-color-hover')]: token.defaultHoverBg,
             [varName('bg-color-active')]: token.defaultActiveBg,
           },
 
