@@ -52,13 +52,7 @@ demo:
 
 ## Semantic DOM
 
-### 默认
-
 <code src="./demo/_semantic.tsx" simplify="true"></code>
-
-### 全屏
-
-<code src="./demo/_semantic_fullscreen.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 
