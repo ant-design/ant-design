@@ -355,14 +355,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Zhejiang"
         >
-          <div
-            class="ant-select-content-value"
-            title="Zhejiang"
-          >
-            Zhejiang
-          </div>
+          Zhejiang
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -726,14 +722,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Option1"
         >
-          <div
-            class="ant-select-content-value"
-            title="Option1"
-          >
-            Option1
-          </div>
+          Option1
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1116,14 +1108,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Option1-1"
         >
-          <div
-            class="ant-select-content-value"
-            title="Option1-1"
-          >
-            Option1-1
-          </div>
+          Option1-1
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1165,14 +1153,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Option2-2"
         >
-          <div
-            class="ant-select-content-value"
-            title="Option2-2"
-          >
-            Option2-2
-          </div>
+          Option2-2
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1222,14 +1206,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Between"
         >
-          <div
-            class="ant-select-content-value"
-            title="Between"
-          >
-            Between
-          </div>
+          Between
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1302,14 +1282,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         style="width:30%"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Sign Up"
         >
-          <div
-            class="ant-select-content-value"
-            title="Sign Up"
-          >
-            Sign Up
-          </div>
+          Sign Up
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1572,14 +1548,10 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
         style="width:60%"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="leaf1"
         >
-          <div
-            class="ant-select-content-value"
-            title="leaf1"
-          >
-            leaf1
-          </div>
+          leaf1
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2590,14 +2562,10 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
               class="ant-select ant-select-outlined select-before css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title="http://"
               >
-                <div
-                  class="ant-select-content-value"
-                  title="http://"
-                >
-                  http://
-                </div>
+                http://
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -2648,14 +2616,10 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
               class="ant-select ant-select-outlined select-after css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
             >
               <div
-                class="ant-select-content"
+                class="ant-select-content ant-select-content-has-value"
+                title=".com"
               >
-                <div
-                  class="ant-select-content-value"
-                  title=".com"
-                >
-                  .com
-                </div>
+                .com
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -3400,14 +3364,10 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Sign Up"
         >
-          <div
-            class="ant-select-content-value"
-            title="Sign Up"
-          >
-            Sign Up
-          </div>
+          Sign Up
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3820,14 +3780,10 @@ exports[`renders components/space/demo/compact-nested.tsx correctly 1`] = `
           class="ant-select ant-select-outlined ant-select-compact-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="Opt1"
           >
-            <div
-              class="ant-select-content-value"
-              title="Opt1"
-            >
-              Opt1
-            </div>
+            Opt1
             <input
               aria-autocomplete="list"
               aria-expanded="false"

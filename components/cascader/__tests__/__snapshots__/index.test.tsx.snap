@@ -1161,14 +1161,10 @@ exports[`Cascader popup correctly with defaultValue RTL 1`] = `
   class="ant-select ant-cascader ant-select-rtl ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow ant-select-open"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
+    title="Zhejiang / Hangzhou"
   >
-    <div
-      class="ant-select-content-value"
-      title="Zhejiang / Hangzhou"
-    >
-      Zhejiang / Hangzhou
-    </div>
+    Zhejiang / Hangzhou
     <input
       aria-autocomplete="list"
       aria-controls="test-id_list"
@@ -1481,14 +1477,10 @@ exports[`Cascader support controlled mode 1`] = `
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-root ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
+    title="Zhejiang / Hangzhou / West Lake"
   >
-    <div
-      class="ant-select-content-value"
-      title="Zhejiang / Hangzhou / West Lake"
-    >
-      Zhejiang / Hangzhou / West Lake
-    </div>
+    Zhejiang / Hangzhou / West Lake
     <input
       aria-autocomplete="list"
       aria-expanded="false"
