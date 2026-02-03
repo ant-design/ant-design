@@ -1,7 +1,7 @@
 import React from 'react';
 import { QuestionCircleOutlined } from '@ant-design/icons';
 import { FloatButton } from 'antd';
-import type { FloatButtonProps } from 'antd';
+import type { FloatButtonProps, FloatButtonSemanticType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -22,7 +22,7 @@ const stylesObject: FloatButtonProps['styles'] = {
   },
 };
 
-const stylesFn: FloatButtonProps['styles'] = (info) => {
+const stylesFn: FloatButtonProps['styles'] = (info): FloatButtonSemanticType['styles'] => {
   if (info.props.type === 'primary') {
     return {
       root: {
@@ -31,9 +31,8 @@ const stylesFn: FloatButtonProps['styles'] = (info) => {
       content: {
         color: '#fff',
       },
-    } satisfies FloatButtonProps['styles'];
+    };
   }
-  return {};
 };
 
 const App: React.FC = () => {

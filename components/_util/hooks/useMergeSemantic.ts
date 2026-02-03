@@ -1,33 +1,29 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { AnyObject, EmptyObject, ValidChar } from '../type';
+import type { ValidChar } from '../type';
 
 export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
-export type Resolvable<T, P extends AnyObject> = T | ((info: { props: P }) => T);
-
-export type SemanticClassNamesType<
-  Props extends AnyObject,
-  SemanticClassNames extends Record<PropertyKey, string>,
-  NestedStructure extends EmptyObject = EmptyObject,
-> = Resolvable<Readonly<SemanticClassNames>, Props> & NestedStructure;
-
-export type SemanticStylesType<
-  Props extends AnyObject,
-  SemanticStyles extends Record<PropertyKey, React.CSSProperties>,
-  NestedStructure extends EmptyObject = EmptyObject,
-> = Resolvable<Readonly<SemanticStyles>, Props> & NestedStructure;
-
 export type SemanticType<P = any, T = any> = T | ((info: { props: P }) => T);
 
+type RemoveString<T> = T extends string ? never : T;
+
+type RemoveStringKey<T, K extends keyof T> = string | Record<string, any> extends T[K]
+  ? RemoveString<T[K]>
+  : T[K];
+
+export type RemoveClassNamesString<T> = { [K in keyof T]: RemoveStringKey<T, K> };
+
+export type RemoveStringSemanticType<T extends { classNames?: any; styles?: any }> = {
+  styles?: T['styles'];
+  classNames?: RemoveClassNamesString<NonNullable<T['classNames']>>;
+};
+
 // ========================= ClassNames =========================
-export const mergeClassNames = <
-  Name extends string,
-  SemanticClassNames extends Partial<Record<Name, any>>,
->(
+export const mergeClassNames = <SemanticClassNames = any>(
   schema?: SemanticSchema,
   ...classNames: (SemanticClassNames | undefined)[]
 ) => {
@@ -44,12 +40,12 @@ export const mergeClassNames = <
         } else {
           // Covert string to object structure
           const { _default: defaultField } = keySchema;
-          if (defaultField) {
+          if (defaultField && curVal) {
             acc[key] = acc[key] || {};
             acc[key][defaultField] = clsx(acc[key][defaultField], curVal);
           }
         }
-      } else {
+      } else if (curVal) {
         // Flatten fill
         acc[key] = clsx(acc[key], curVal);
       }
@@ -58,35 +54,31 @@ export const mergeClassNames = <
   }, {} as SemanticClassNames);
 };
 
-const useSemanticClassNames = <ClassNamesType extends AnyObject>(
+const useSemanticClassNames = <ClassNamesType = any>(
   schema?: SemanticSchema,
-  ...classNames: (Partial<ClassNamesType> | undefined)[]
+  ...classNames: ClassNamesType[]
 ): Partial<ClassNamesType> => {
   return React.useMemo(() => mergeClassNames(schema, ...classNames), [schema, ...classNames]);
 };
 
 // =========================== Styles ===========================
-export const mergeStyles = <StylesType extends AnyObject>(
-  ...styles: (Partial<StylesType> | undefined)[]
-) => {
-  return styles
-    .filter(Boolean)
-    .reduce<Record<PropertyKey, React.CSSProperties>>((acc, cur = {}) => {
+export const mergeStyles = <StylesType = any>(...styles: (StylesType | undefined)[]) => {
+  return styles.filter(Boolean).reduce<Record<string, any>>((acc, cur) => {
+    if (cur) {
       Object.keys(cur).forEach((key) => {
-        acc[key] = { ...acc[key], ...cur[key] };
+        acc[key] = { ...acc[key], ...(cur as Record<string, any>)[key] };
       });
-      return acc;
-    }, {});
+    }
+    return acc;
+  }, {}) as StylesType;
 };
 
-const useSemanticStyles = <StylesType extends AnyObject>(
-  ...styles: (Partial<StylesType> | undefined)[]
-) => {
+const useSemanticStyles = <StylesType = any>(...styles: (StylesType | undefined)[]) => {
   return React.useMemo(() => mergeStyles(...styles), [...styles]) as StylesType;
 };
 
 // =========================== Export ===========================
-const fillObjectBySchema = <T extends AnyObject>(obj: T, schema: SemanticSchema): T => {
+const fillObjectBySchema = <T = any>(obj: T, schema: SemanticSchema): T => {
   const newObj: any = { ...obj };
   Object.keys(schema).forEach((key) => {
     if (key !== '_default') {
@@ -98,26 +90,23 @@ const fillObjectBySchema = <T extends AnyObject>(obj: T, schema: SemanticSchema)
   return newObj;
 };
 
-export const resolveStyleOrClass = <T extends AnyObject>(
+export const resolveStyleOrClass = <T = any, P = any>(
   value: T | ((config: any) => T),
-  info: { props: AnyObject },
+  info: { props: P },
 ) => {
-  return typeof value === 'function' ? value(info) : value;
+  if (typeof value === 'function') {
+    return (value as (config: any) => T)(info);
+  }
+  return value;
 };
 
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
-
-type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
 
 /**
  * @desc Merge classNames and styles from multiple sources. When `schema` is provided, it **must** provide the nest object structure.
  * @descZH 合并来自多个来源的 classNames 和 styles，当提供了 `schema` 时，必须提供嵌套的对象结构。
  */
-export const useMergeSemantic = <
-  ClassNamesType extends AnyObject,
-  StylesType extends AnyObject,
-  Props extends AnyObject,
->(
+export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props = any>(
   classNamesList: MaybeFn<ClassNamesType, Props>[],
   stylesList: MaybeFn<StylesType, Props>[],
   info: { props: Props },
@@ -131,20 +120,23 @@ export const useMergeSemantic = <
     styles ? resolveStyleOrClass(styles, info) : undefined,
   );
 
-  const mergedClassNames = useSemanticClassNames(
-    schema,
-    ...resolvedClassNamesList,
-  ) as ObjectOnly<ClassNamesType>;
+  const mergedClassNames = useSemanticClassNames(schema, ...resolvedClassNamesList);
 
-  const mergedStyles = useSemanticStyles(...resolvedStylesList) as ObjectOnly<StylesType>;
+  const mergedStyles = useSemanticStyles(...resolvedStylesList);
 
-  return React.useMemo(() => {
+  const result = React.useMemo(() => {
     if (!schema) {
       return [mergedClassNames, mergedStyles] as const;
     }
     return [
-      fillObjectBySchema<ObjectOnly<ClassNamesType>>(mergedClassNames, schema),
-      fillObjectBySchema<ObjectOnly<StylesType>>(mergedStyles, schema),
+      fillObjectBySchema(mergedClassNames, schema),
+      fillObjectBySchema(mergedStyles, schema),
     ] as const;
   }, [mergedClassNames, mergedStyles, schema]);
+  return result as [RemoveClassNamesString<NonNullable<ClassNamesType>>, NonNullable<StylesType>];
 };
+
+// type Result<T> = T extends string ? never : T;
+// export function getFilterStringType<T, K extends string>(classNames: T, key: K): Result<T> {
+//   return (typeof classNames === 'string' ? { [key]: classNames } : classNames) as Result<T>;
+// }

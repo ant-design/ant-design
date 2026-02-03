@@ -1,10 +1,10 @@
 import React from 'react';
 
-import type { BreadcrumbSemanticClassNames, BreadcrumbSemanticStyles } from './Breadcrumb';
+import type { BreadcrumbSemanticType } from './Breadcrumb';
 
 export interface BreadcrumbContextProps {
-  classNames?: BreadcrumbSemanticClassNames;
-  styles?: BreadcrumbSemanticStyles;
+  classNames?: BreadcrumbSemanticType['classNames'];
+  styles?: BreadcrumbSemanticType['styles'];
 }
 
 const BreadcrumbContext = React.createContext<BreadcrumbContextProps>({});

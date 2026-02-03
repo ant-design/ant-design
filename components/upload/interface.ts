@@ -6,7 +6,7 @@ import type {
   UploadProps as RcUploadProps,
 } from '@rc-component/upload/lib/interface';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
@@ -88,31 +88,32 @@ type PreviewFileHandler = (file: File | Blob) => PromiseLike<string>;
 
 type BeforeUploadValueType = void | boolean | string | Blob | File;
 
-export type UploadSemanticName = keyof UploadSemanticClassNames & keyof UploadSemanticStyles;
-
-export type UploadSemanticClassNames = {
-  root?: string;
-  list?: string;
-  item?: string;
-  trigger?: string;
+export type UploadSemanticType = {
+  classNames?: {
+    root?: string;
+    list?: string;
+    item?: string;
+    trigger?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    list?: React.CSSProperties;
+    item?: React.CSSProperties;
+    trigger?: React.CSSProperties;
+  };
 };
 
-export type UploadSemanticStyles = {
-  root?: React.CSSProperties;
-  list?: React.CSSProperties;
-  item?: React.CSSProperties;
-  trigger?: React.CSSProperties;
-};
-
-export type UploadClassNamesType<T = any> = SemanticClassNamesType<
+export type UploadClassNamesType<T = any> = SemanticType<
   UploadProps<T>,
-  UploadSemanticClassNames
+  UploadSemanticType['classNames']
 >;
 
-export type UploadStylesType<T = any> = SemanticStylesType<UploadProps<T>, UploadSemanticStyles>;
+export type UploadStylesType<T = any> = SemanticType<UploadProps<T>, UploadSemanticType['styles']>;
 
-export interface UploadProps<T = any>
-  extends Pick<RcUploadProps, 'capture' | 'hasControlInside' | 'pastable'> {
+export interface UploadProps<T = any> extends Pick<
+  RcUploadProps,
+  'capture' | 'hasControlInside' | 'pastable'
+> {
   type?: UploadType;
   name?: string;
   defaultFileList?: Array<UploadFile<T>>;
@@ -174,8 +175,8 @@ export interface UploadState<T = any> {
 }
 
 export interface UploadListProps<T = any> {
-  classNames?: UploadSemanticClassNames;
-  styles?: UploadSemanticStyles;
+  classNames?: UploadSemanticType['classNames'];
+  styles?: UploadSemanticType['styles'];
   listType?: UploadListType;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;

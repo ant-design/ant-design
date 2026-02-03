@@ -5,8 +5,8 @@ import CSSMotion from '@rc-component/motion';
 import { useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -18,39 +18,37 @@ import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupTrigger, FloatButtonProps } from './FloatButton';
 import useStyle from './style';
 
-export type FloatButtonGroupSemanticName = keyof FloatButtonGroupSemanticClassNames &
-  keyof FloatButtonGroupSemanticStyles;
-
-export type FloatButtonGroupSemanticClassNames = {
-  root?: string;
-  list?: string;
-  item?: string;
-  itemIcon?: string;
-  itemContent?: string;
-  trigger?: string;
-  triggerIcon?: string;
-  triggerContent?: string;
+export type FloatButtonGroupSemanticType = {
+  classNames?: {
+    root?: string;
+    list?: string;
+    item?: string;
+    itemIcon?: string;
+    itemContent?: string;
+    trigger?: string;
+    triggerIcon?: string;
+    triggerContent?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    list?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    trigger?: React.CSSProperties;
+    triggerIcon?: React.CSSProperties;
+    triggerContent?: React.CSSProperties;
+  };
 };
 
-export type FloatButtonGroupSemanticStyles = {
-  root?: React.CSSProperties;
-  list?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-  trigger?: React.CSSProperties;
-  triggerIcon?: React.CSSProperties;
-  triggerContent?: React.CSSProperties;
-};
-
-export type FloatButtonGroupClassNamesType = SemanticClassNamesType<
+export type FloatButtonGroupClassNamesType = SemanticType<
   FloatButtonGroupProps,
-  FloatButtonGroupSemanticClassNames
+  FloatButtonGroupSemanticType['classNames']
 >;
 
-export type FloatButtonGroupStylesType = SemanticStylesType<
+export type FloatButtonGroupStylesType = SemanticType<
   FloatButtonGroupProps,
-  FloatButtonGroupSemanticStyles
+  FloatButtonGroupSemanticType['styles']
 >;
 
 export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classNames' | 'styles'> {
@@ -193,13 +191,13 @@ const FloatButtonGroup: React.FC<Readonly<FloatButtonGroupProps>> = (props) => {
   };
 
   // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    FloatButtonGroupClassNamesType,
-    FloatButtonGroupStylesType,
-    FloatButtonGroupProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const listContext = React.useMemo<GroupContextProps>(
     () => ({

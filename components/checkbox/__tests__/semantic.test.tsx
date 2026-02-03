@@ -6,13 +6,13 @@ import { render } from '../../../tests/utils';
 
 describe('Checkbox.Semantic', () => {
   it('should support custom styles', () => {
-    const customClassNames = {
+    const customClassNames: CheckboxProps['classNames'] = {
       root: 'custom-root',
       icon: 'custom-icon',
       label: 'custom-label',
     };
 
-    const customStyles = {
+    const customStyles: CheckboxProps['styles'] = {
       root: { backgroundColor: 'rgb(255, 0, 0)' },
       icon: { backgroundColor: 'rgb(0, 0, 0)' },
       label: { backgroundColor: 'rgb(128, 128, 128)' },
@@ -28,13 +28,13 @@ describe('Checkbox.Semantic', () => {
     const iconElement = container.querySelector<HTMLElement>('.ant-checkbox');
     const labelElement = container.querySelector<HTMLElement>('.ant-checkbox-label');
 
-    expect(rootElement).toHaveClass(customClassNames.root);
-    expect(iconElement).toHaveClass(customClassNames.icon);
-    expect(labelElement).toHaveClass(customClassNames.label);
+    expect(rootElement).toHaveClass(customClassNames.root as string);
+    expect(iconElement).toHaveClass(customClassNames.icon as string);
+    expect(labelElement).toHaveClass(customClassNames.label as string);
 
-    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
-    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
-    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root?.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon?.backgroundColor });
+    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label?.backgroundColor });
   });
 
   it('should support function-based classNames and styles', () => {

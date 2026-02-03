@@ -8,26 +8,12 @@ import getPlacements from '../_util/placements';
 import zIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
-import type {
-  TourClassNamesType,
-  TourProps,
-  TourSemanticClassNames,
-  TourSemanticName,
-  TourSemanticStyles,
-  TourStepProps,
-  TourStylesType,
-} from './interface';
+import type { TourProps, TourSemanticType, TourStepProps } from './interface';
 import TourPanel from './panelRender';
 import PurePanel from './PurePanel';
 import useStyle from './style';
 
-export type {
-  TourProps,
-  TourSemanticClassNames,
-  TourSemanticName,
-  TourSemanticStyles,
-  TourStepProps,
-};
+export type { TourProps, TourSemanticType, TourStepProps };
 
 const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel } = (
   props,
@@ -79,13 +65,13 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
     steps: mergedSteps,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TourClassNamesType,
-    TourStylesType,
-    TourProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const builtinPlacements: TourProps['builtinPlacements'] = (config) =>
     getPlacements({

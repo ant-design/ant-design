@@ -4,7 +4,6 @@ import { clsx } from 'clsx';
 import { useMergeSemantic } from '../../_util/hooks';
 import type { AnyObject } from '../../_util/type';
 import { useComponentConfig } from '../../config-provider/context';
-import type { RequiredSemanticPicker } from '../generatePicker/interface';
 
 const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
   pickerType: 'timePicker' | 'datePicker',
@@ -44,7 +43,7 @@ const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
     };
 
     // Return
-    return [filledClassNames, filledStyles] as unknown as RequiredSemanticPicker;
+    return [filledClassNames, filledStyles];
   }, [mergedClassNames, mergedStyles, popupClassName, popupStyle]);
 };
 

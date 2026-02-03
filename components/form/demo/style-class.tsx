@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, Input, Space } from 'antd';
-import type { FormProps } from 'antd';
+import type { FormProps, FormSemanticType } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -25,7 +25,7 @@ const stylesObject: FormProps['styles'] = {
   },
 };
 
-const stylesFunction: FormProps['styles'] = (info) => {
+const stylesFunction: FormProps['styles'] = (info): FormSemanticType['styles'] => {
   if (info.props.variant === 'filled') {
     return {
       root: {
@@ -38,7 +38,7 @@ const stylesFunction: FormProps['styles'] = (info) => {
       content: {
         paddingInlineStart: 12,
       },
-    } satisfies FormProps['styles'];
+    };
   }
   return {};
 };

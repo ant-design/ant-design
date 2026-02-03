@@ -12,8 +12,8 @@ import { clsx } from 'clsx';
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -66,43 +66,41 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 // remove this after RcTooltip switch visible to open.
-interface LegacyTooltipProps
-  extends Partial<
-    Omit<
-      RcTooltipProps,
-      | 'children'
-      | 'visible'
-      | 'defaultVisible'
-      | 'onVisibleChange'
-      | 'afterVisibleChange'
-      | 'destroyTooltipOnHide'
-      | 'classNames'
-      | 'styles'
-    >
-  > {
+interface LegacyTooltipProps extends Partial<
+  Omit<
+    RcTooltipProps,
+    | 'children'
+    | 'visible'
+    | 'defaultVisible'
+    | 'onVisibleChange'
+    | 'afterVisibleChange'
+    | 'destroyTooltipOnHide'
+    | 'classNames'
+    | 'styles'
+  >
+> {
   open?: RcTooltipProps['visible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
   onOpenChange?: RcTooltipProps['onVisibleChange'];
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export type TooltipSemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
-
-export type TooltipSemanticClassNames = {
-  root?: string;
-  container?: string;
-  arrow?: string;
+export type TooltipSemanticType = {
+  classNames?: {
+    root?: string;
+    container?: string;
+    arrow?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    container?: React.CSSProperties;
+    arrow?: React.CSSProperties;
+  };
 };
 
-export type TooltipSemanticStyles = {
-  root?: React.CSSProperties;
-  container?: React.CSSProperties;
-  arrow?: React.CSSProperties;
-};
+export type TooltipClassNamesType = SemanticType<TooltipProps, TooltipSemanticType['classNames']>;
 
-export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, TooltipSemanticClassNames>;
-
-export type TooltipStylesType = SemanticStylesType<TooltipProps, TooltipSemanticStyles>;
+export type TooltipStylesType = SemanticType<TooltipProps, TooltipSemanticType['styles']>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
@@ -291,13 +289,13 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     destroyOnHidden,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TooltipClassNamesType,
-    TooltipStylesType,
-    TooltipProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 

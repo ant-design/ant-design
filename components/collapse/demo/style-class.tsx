@@ -1,8 +1,7 @@
 import React from 'react';
+import type { CollapseProps, CollapseSemanticType } from 'antd';
 import { Collapse, Flex } from 'antd';
 import { createStaticStyles } from 'antd-style';
-
-import type { CollapseProps } from '..';
 
 const classNames = createStaticStyles(({ css }) => ({
   root: css`
@@ -50,7 +49,7 @@ const styles: CollapseProps['styles'] = {
   },
 };
 
-const stylesFn: CollapseProps['styles'] = ({ props }) => {
+const stylesFn: CollapseProps['styles'] = ({ props }): CollapseSemanticType['styles'] => {
   if (props.size === 'large') {
     return {
       root: {
@@ -63,8 +62,9 @@ const stylesFn: CollapseProps['styles'] = ({ props }) => {
         padding: '12px 16px',
         color: '#141414',
       },
-    } satisfies CollapseProps['styles'];
+    };
   }
+  return {};
 };
 
 const App: React.FC = () => {

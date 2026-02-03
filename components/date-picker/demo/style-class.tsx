@@ -1,6 +1,6 @@
 import React from 'react';
 import { DatePicker, Flex } from 'antd';
-import type { DatePickerProps } from 'antd';
+import type { DatePickerProps, DatePickerSemanticType } from 'antd';
 import { createStyles } from 'antd-style';
 import type { Dayjs } from 'dayjs';
 
@@ -16,14 +16,14 @@ const stylesObject: DatePickerProps<Dayjs>['styles'] = {
   suffix: { opacity: 0.85 },
 };
 
-const stylesFn: DatePickerProps<Dayjs>['styles'] = (info) => {
+const stylesFn: DatePickerProps<Dayjs>['styles'] = (info): DatePickerSemanticType['styles'] => {
   if (info.props.size === 'large') {
     return {
       root: { borderColor: '#722ed1' },
       popup: {
         container: { border: '1px solid #722ed1', borderRadius: 8 },
       },
-    } satisfies DatePickerProps<Dayjs>['styles'];
+    };
   }
   return {};
 };

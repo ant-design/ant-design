@@ -1,46 +1,32 @@
-import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { Orientation, RemoveStringSemanticType, SemanticType } from '../_util/hooks';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
-export type SplitterSemanticName = keyof SplitterSemanticClassNames & keyof SplitterSemanticStyles;
-
-export type SplitterSemanticClassNames = {
-  root?: string;
-  panel?: string;
+export type SplitterSemanticType = {
+  classNames?: {
+    root?: string;
+    panel?: string;
+    dragger?: string | { default?: string; active?: string };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    panel?: React.CSSProperties;
+    dragger?: React.CSSProperties | { default?: React.CSSProperties; active?: React.CSSProperties };
+  };
 };
 
-export type SplitterSemanticStyles = {
-  root?: React.CSSProperties;
-  panel?: React.CSSProperties;
-};
-
-export type DraggerSemantic = keyof DraggerSemanticClassNames & keyof DraggerSemanticStyles;
-
-export type DraggerSemanticClassNames = {
-  default?: string;
-  active?: string;
-};
-
-export type DraggerSemanticStyles = {
-  default?: React.CSSProperties;
-  active?: React.CSSProperties;
-};
+export type SplitterSemanticNoStringType = RemoveStringSemanticType<SplitterSemanticType>;
 
 export interface SplitterSemanticDraggerClassNames {
   default?: string;
   active?: string;
 }
 
-export type SplitterClassNamesType = SemanticClassNamesType<
+export type SplitterClassNamesType = SemanticType<
   SplitterProps,
-  SplitterSemanticClassNames,
-  { dragger?: string | DraggerSemanticClassNames }
+  SplitterSemanticType['classNames']
 >;
 
-export type SplitterStylesType = SemanticStylesType<
-  SplitterProps,
-  SplitterSemanticStyles,
-  { dragger?: React.CSSProperties | DraggerSemanticStyles }
->;
+export type SplitterStylesType = SemanticType<SplitterProps, SplitterSemanticType['styles']>;
 
 export interface SplitterProps {
   prefixCls?: string;

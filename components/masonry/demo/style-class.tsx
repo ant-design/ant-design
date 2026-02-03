@@ -1,8 +1,9 @@
 import React from 'react';
 import { Card, Divider, Flex, Masonry, Typography } from 'antd';
-import type { MasonryProps } from 'antd';
+import type { MasonryProps, MasonrySemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import type { MasonryItemType } from 'antd/es/masonry/MasonryItem';
+
 const { Title } = Typography;
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -43,7 +44,7 @@ const styles: MasonryProps['styles'] = {
   },
 };
 
-const stylesFn: MasonryProps['styles'] = (info) => {
+const stylesFn: MasonryProps['styles'] = (info): MasonrySemanticType['styles'] => {
   const { props } = info;
   return {
     root: {
@@ -56,7 +57,7 @@ const stylesFn: MasonryProps['styles'] = (info) => {
       boxShadow: '0 2px 8px rgba(0,0,0,0.1)',
       border: '1px solid #1890ff',
     },
-  } satisfies MasonryProps['styles'];
+  };
 };
 
 const App: React.FC = () => {

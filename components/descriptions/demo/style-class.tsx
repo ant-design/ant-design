@@ -1,6 +1,6 @@
 import React from 'react';
 import { Descriptions, Flex } from 'antd';
-import type { DescriptionsProps } from 'antd';
+import type { DescriptionsProps, DescriptionsSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -33,7 +33,7 @@ const styles: DescriptionsProps['styles'] = {
   },
 };
 
-const stylesFn: DescriptionsProps['styles'] = (info) => {
+const stylesFn: DescriptionsProps['styles'] = (info): DescriptionsSemanticType['styles'] => {
   if (info.props.size === 'default') {
     return {
       root: {
@@ -41,7 +41,7 @@ const stylesFn: DescriptionsProps['styles'] = (info) => {
         border: '1px solid #CDC1FF',
       },
       label: { color: '#A294F9' },
-    } satisfies DescriptionsProps['styles'];
+    };
   }
   return {};
 };

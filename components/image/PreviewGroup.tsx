@@ -10,7 +10,7 @@ import ZoomOutOutlined from '@ant-design/icons/ZoomOutOutlined';
 import RcImage from '@rc-component/image';
 import { clsx } from 'clsx';
 
-import type { DeprecatedPreviewConfig, ImageClassNamesType, ImageStylesType } from '.';
+import type { DeprecatedPreviewConfig, ImageClassNamesType, ImageProps, ImageStylesType } from '.';
 import { useMergeSemantic } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
 import type { GetProps } from '../_util/type';
@@ -43,7 +43,10 @@ export type GroupPreviewConfig = OriginPreviewConfig &
     mask?: MaskType;
   };
 
-export interface PreviewGroupProps extends Omit<RcPreviewGroupProps, 'preview'> {
+export interface PreviewGroupProps extends Omit<
+  RcPreviewGroupProps,
+  'preview' | 'styles' | 'classNames'
+> {
   preview?: boolean | GroupPreviewConfig;
   classNames?: ImageClassNamesType;
   styles?: ImageStylesType;
@@ -113,11 +116,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     styles,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ImageClassNamesType,
-    ImageStylesType,
-    PreviewGroupProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [
       contextClassNames,
       classNames,
@@ -136,7 +135,7 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     ],
     [contextStyles, styles],
     {
-      props: mergedProps,
+      props: mergedProps as unknown as ImageProps,
     },
     {
       popup: {

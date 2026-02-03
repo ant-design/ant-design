@@ -6,10 +6,10 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
-import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button';
+import type { ButtonSemanticType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import Compact, { useCompactItemContext } from '../space/Compact';
@@ -17,35 +17,31 @@ import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 import useStyle from './style/search';
 
-export type InputSearchSemanticName = keyof InputSearchSemanticClassNames &
-  keyof InputSearchSemanticStyles;
-
-export type InputSearchSemanticClassNames = {
-  root?: string;
-  input?: string;
-  prefix?: string;
-  suffix?: string;
-  count?: string;
+export type InputSearchSemanticType = {
+  classNames?: {
+    root?: string;
+    input?: string;
+    prefix?: string;
+    suffix?: string;
+    count?: string;
+    button?: ButtonSemanticType['classNames'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    input?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    count?: React.CSSProperties;
+    button?: ButtonSemanticType['styles'];
+  };
 };
 
-export type InputSearchSemanticStyles = {
-  root?: React.CSSProperties;
-  input?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-  count?: React.CSSProperties;
-};
-
-export type InputSearchClassNamesType = SemanticClassNamesType<
+export type InputSearchClassNamesType = SemanticType<
   SearchProps,
-  InputSearchSemanticClassNames
-> & {
-  button?: ButtonSemanticClassNames;
-};
+  InputSearchSemanticType['classNames']
+>;
 
-export type InputSearchStylesType = SemanticStylesType<SearchProps, InputSearchSemanticStyles> & {
-  button?: ButtonSemanticStyles;
-};
+export type InputSearchStylesType = SemanticType<SearchProps, InputSearchSemanticType['styles']>;
 
 export interface SearchProps extends InputProps {
   inputPrefixCls?: string;
@@ -101,11 +97,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     enterButton,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    InputSearchClassNamesType,
-    InputSearchStylesType,
-    SearchProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     { props: mergedProps },

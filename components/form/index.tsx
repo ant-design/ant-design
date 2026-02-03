@@ -4,13 +4,7 @@ import { FormProvider } from './context';
 import ErrorList from './ErrorList';
 import type { ErrorListProps } from './ErrorList';
 import InternalForm, { useForm, useWatch } from './Form';
-import type {
-  FormInstance,
-  FormProps,
-  FormSemanticClassNames,
-  FormSemanticName,
-  FormSemanticStyles,
-} from './Form';
+import type { FormInstance, FormProps, FormSemanticType } from './Form';
 import Item from './FormItem';
 import type { FormItemProps } from './FormItem';
 import List from './FormList';
@@ -47,9 +41,7 @@ export type {
   FormListOperation,
   FormListProps,
   FormProps,
-  FormSemanticClassNames,
-  FormSemanticName,
-  FormSemanticStyles,
+  FormSemanticType,
   Rule,
   RuleObject,
   RuleRender,

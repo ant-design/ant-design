@@ -4,7 +4,7 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -54,36 +54,32 @@ export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
-export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames &
-  keyof ColorPickerSemanticStyles;
-
-export type ColorPickerSemanticClassNames = {
-  root?: string;
-  body?: string;
-  content?: string;
-  description?: string;
+export type ColorPickerSemanticType = {
+  classNames?: {
+    root?: string;
+    body?: string;
+    content?: string;
+    description?: string;
+    popup?: { root?: string };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    body?: React.CSSProperties;
+    content?: React.CSSProperties;
+    description?: React.CSSProperties;
+    popupOverlayInner?: React.CSSProperties;
+    popup?: { root?: React.CSSProperties };
+  };
 };
 
-export type ColorPickerSemanticStyles = {
-  root?: React.CSSProperties;
-  body?: React.CSSProperties;
-  content?: React.CSSProperties;
-  description?: React.CSSProperties;
-};
-
-export type ColorPickerClassNamesType = SemanticClassNamesType<
+export type ColorPickerClassNamesType = SemanticType<
   ColorPickerProps,
-  ColorPickerSemanticClassNames,
-  { popup?: { root?: string } }
+  ColorPickerSemanticType['classNames']
 >;
 
-export type ColorPickerStylesType = SemanticStylesType<
+export type ColorPickerStylesType = SemanticType<
   ColorPickerProps,
-  ColorPickerSemanticStyles,
-  {
-    popup?: { root?: React.CSSProperties };
-    popupOverlayInner?: React.CSSProperties;
-  }
+  ColorPickerSemanticType['styles']
 >;
 
 export type ColorPickerProps = Omit<

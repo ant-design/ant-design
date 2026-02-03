@@ -7,12 +7,7 @@ import { clsx } from 'clsx';
 
 import { useLocale } from '../../locale';
 import type { AggregationColor } from '../color';
-import type {
-  ColorFormatType,
-  ColorPickerProps,
-  ColorPickerSemanticClassNames,
-  ColorPickerSemanticStyles,
-} from '../interface';
+import type { ColorFormatType, ColorPickerProps, ColorPickerSemanticType } from '../interface';
 import { getColorAlpha } from '../util';
 import ColorClear from './ColorClear';
 
@@ -25,8 +20,8 @@ export interface ColorTriggerProps {
   showText?: ColorPickerProps['showText'];
   className?: string;
   style?: CSSProperties;
-  classNames: ColorPickerSemanticClassNames;
-  styles: ColorPickerSemanticStyles;
+  classNames: NonNullable<ColorPickerSemanticType['classNames']>;
+  styles: NonNullable<ColorPickerSemanticType['styles']>;
   onClick?: MouseEventHandler<HTMLDivElement>;
   onMouseEnter?: MouseEventHandler<HTMLDivElement>;
   onMouseLeave?: MouseEventHandler<HTMLDivElement>;

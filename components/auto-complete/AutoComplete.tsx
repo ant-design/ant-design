@@ -3,7 +3,7 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -14,29 +14,28 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
-  SelectPopupSemanticClassNames,
-  SelectPopupSemanticStyles,
   SelectProps,
+  SelectSemanticType,
 } from '../select';
 import Select from '../select';
 
-export type AutoCompleteSemanticName = keyof AutoCompleteSemanticClassNames &
-  keyof AutoCompleteSemanticStyles;
-
-export type AutoCompleteSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  input?: string;
-  placeholder?: string;
-  content?: string;
-};
-
-export type AutoCompleteSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  placeholder?: React.CSSProperties;
-  content?: React.CSSProperties;
+export type AutoCompleteSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    placeholder?: string;
+    content?: string;
+    popup?: NonNullable<SelectSemanticType['classNames']>['popup'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    placeholder?: React.CSSProperties;
+    content?: React.CSSProperties;
+    popup?: NonNullable<SelectSemanticType['styles']>['popup'];
+  };
 };
 
 const { Option } = Select;
@@ -48,25 +47,22 @@ export interface DataSourceItemObject {
 
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
-export type AutoCompleteClassNamesType = SemanticClassNamesType<
+export type AutoCompleteClassNamesType = SemanticType<
   AutoCompleteProps,
-  AutoCompleteSemanticClassNames,
-  { popup?: SelectPopupSemanticClassNames }
+  AutoCompleteSemanticType['classNames']
 >;
-
-export type AutoCompleteStylesType = SemanticStylesType<
+export type AutoCompleteStylesType = SemanticType<
   AutoCompleteProps,
-  AutoCompleteSemanticStyles,
-  { popup?: SelectPopupSemanticStyles }
+  AutoCompleteSemanticType['styles']
 >;
 
 export interface AutoCompleteProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
-    InternalSelectProps<ValueType, OptionType>,
-    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
-  > {
+  InternalSelectProps<ValueType, OptionType>,
+  'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames'
+> {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
   status?: InputStatus;
@@ -205,11 +201,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    AutoCompleteClassNamesType,
-    AutoCompleteStylesType,
-    AutoCompleteProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [classNames],
     [styles],
     {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Radio } from 'antd';
-import type { RadioProps } from 'antd';
+import type { RadioProps, RadioSemanticType } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
@@ -40,7 +40,7 @@ const App: React.FC = () => {
   const { styles: classNamesStyles } = useStyles();
 
   // Function classNames - dynamically adjust based on checked state
-  const classNamesFn: RadioProps['classNames'] = (info) => {
+  const classNamesFn: RadioProps['classNames'] = (info): RadioSemanticType['className'] => {
     if (info.props.checked) {
       return {
         root: clsx(classNamesStyles.root),

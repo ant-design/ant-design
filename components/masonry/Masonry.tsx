@@ -7,8 +7,8 @@ import isEqual from '@rc-component/util/lib/isEqual';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { useComponentConfig } from '../config-provider/context';
@@ -29,21 +29,20 @@ export type Gap = number | undefined;
 
 export type Key = string | number;
 
-export type MasonrySemanticName = keyof MasonrySemanticClassNames & keyof MasonrySemanticStyles;
-
-export type MasonrySemanticClassNames = {
-  root?: string;
-  item?: string;
+export type MasonrySemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+  };
 };
 
-export type MasonrySemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-};
+export type MasonryClassNamesType = SemanticType<MasonryProps, MasonrySemanticType['classNames']>;
 
-export type MasonryClassNamesType = SemanticClassNamesType<MasonryProps, MasonrySemanticClassNames>;
-
-export type MasonryStylesType = SemanticStylesType<MasonryProps, MasonrySemanticStyles>;
+export type MasonryStylesType = SemanticType<MasonryProps, MasonrySemanticType['styles']>;
 
 export interface MasonryProps<ItemDataType = any> {
   // Style
@@ -160,13 +159,13 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     columns: columnCount,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    MasonryClassNamesType,
-    MasonryStylesType,
-    MasonryProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);

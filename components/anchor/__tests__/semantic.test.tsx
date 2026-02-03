@@ -1,16 +1,16 @@
 import React from 'react';
 
 import Anchor from '..';
-import type { AnchorProps } from '..';
+import type { AnchorProps, AnchorSemanticType } from '..';
 import { render } from '../../../tests/utils';
 
-const classNames: AnchorProps['classNames'] = (info) => {
+const classNames: AnchorProps['classNames'] = (info): AnchorSemanticType['classNames'] => {
   if (info.props.direction === 'horizontal') {
     return { root: 'anchor-horizontal' };
   }
   return { root: 'anchor-vertical' };
 };
-const styles: AnchorProps['styles'] = (info) => {
+const styles: AnchorProps['styles'] = (info): AnchorSemanticType['styles'] => {
   if (info.props.direction === 'horizontal') {
     return { root: { padding: 12 } };
   }

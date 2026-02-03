@@ -23,7 +23,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useFocusable from '../drawer/useFocusable';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
-import type { ModalClassNamesType, ModalProps, ModalStylesType, MousePosition } from './interface';
+import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
@@ -206,13 +206,13 @@ const Modal: React.FC<ModalProps> = (props) => {
     zIndex,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ModalClassNamesType,
-    ModalStylesType,
-    ModalProps
-  >([contextClassNames, classNames, maskBlurClassName], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames, maskBlurClassName],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<

@@ -8,8 +8,8 @@ import type { GetIndicatorSize } from '@rc-component/tabs/lib/hooks/useIndicator
 import type { EditableConfig, MoreProps, Tab } from '@rc-component/tabs/lib/interface';
 import { clsx } from 'clsx';
 
+import type { SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -30,39 +30,28 @@ export type TabPlacement = 'top' | 'end' | 'bottom' | 'start';
 
 export type { TabPaneProps };
 
-export type TabsSemanticName = keyof TabsSemanticClassNames & keyof TabsSemanticStyles;
-
-export type TabsSemanticClassNames = {
-  root?: string;
-  item?: string;
-  indicator?: string;
-  content?: string;
-  header?: string;
-};
-
-export type TabsSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-  content?: React.CSSProperties;
-  header?: React.CSSProperties;
-};
-
-export type TabsClassNamesType = SemanticClassNamesType<
-  TabsProps,
-  TabsSemanticClassNames,
-  {
+export type TabsSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    indicator?: string;
+    content?: string;
+    header?: string;
     popup?: { root?: string };
-  }
->;
-
-export type TabsStylesType = SemanticStylesType<
-  TabsProps,
-  TabsSemanticStyles,
-  {
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+    content?: React.CSSProperties;
+    header?: React.CSSProperties;
     popup?: { root?: React.CSSProperties };
-  }
->;
+  };
+};
+
+export type TabsClassNamesType = SemanticType<TabsProps, TabsSemanticType['classNames']>;
+
+export type TabsStylesType = SemanticType<TabsProps, TabsSemanticType['styles']>;
 
 export interface CompatibilityProps {
   /** @deprecated Please use `destroyOnHidden` instead */
@@ -93,7 +82,8 @@ export interface BaseTabsProps {
 }
 
 export interface TabsProps
-  extends BaseTabsProps,
+  extends
+    BaseTabsProps,
     CompatibilityProps,
     Omit<RcTabsProps, 'editable' | 'items' | 'classNames' | 'styles' | 'popupClassName'> {
   addIcon?: React.ReactNode;
@@ -233,11 +223,7 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TabsClassNamesType,
-    TabsStylesType,
-    TabsProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Timeline } from 'antd';
-import type { TimelineProps } from 'antd';
+import type { TimelineProps, TimelineSemanticType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -16,7 +16,7 @@ const styles: TimelineProps['styles'] = {
   },
 };
 
-const stylesFn: TimelineProps['styles'] = (info) => {
+const stylesFn: TimelineProps['styles'] = (info): TimelineSemanticType['styles'] => {
   if (info.props.orientation === 'vertical') {
     return {
       root: {
@@ -26,7 +26,7 @@ const stylesFn: TimelineProps['styles'] = (info) => {
       itemIcon: {
         borderColor: '#A294F9',
       },
-    } satisfies TimelineProps['styles'];
+    };
   }
   return {};
 };

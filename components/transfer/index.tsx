@@ -3,7 +3,7 @@ import React, { useCallback, useContext } from 'react';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useMultipleSelect } from '../_util/hooks';
-import type { PrevSelectedIndex, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { PrevSelectedIndex, SemanticType } from '../_util/hooks';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -28,42 +28,41 @@ export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
 export type { TransferListProps } from './Section';
 
-export type TransferSemanticName = keyof TransferSemanticClassNames & keyof TransferSemanticStyles;
-
-export type TransferSemanticClassNames = {
-  root?: string;
-  section?: string;
-  header?: string;
-  title?: string;
-  body?: string;
-  list?: string;
-  item?: string;
-  itemIcon?: string;
-  itemContent?: string;
-  footer?: string;
-  actions?: string;
+export type TransferSemanticType = {
+  classNames?: {
+    root?: string;
+    section?: string;
+    header?: string;
+    title?: string;
+    body?: string;
+    list?: string;
+    item?: string;
+    itemIcon?: string;
+    itemContent?: string;
+    footer?: string;
+    actions?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    section?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    body?: React.CSSProperties;
+    list?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    footer?: React.CSSProperties;
+    actions?: React.CSSProperties;
+  };
 };
 
-export type TransferSemanticStyles = {
-  root?: React.CSSProperties;
-  section?: React.CSSProperties;
-  header?: React.CSSProperties;
-  title?: React.CSSProperties;
-  body?: React.CSSProperties;
-  list?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  actions?: React.CSSProperties;
-};
-
-export type TransferClassNamesType = SemanticClassNamesType<
+export type TransferClassNamesType = SemanticType<
   TransferProps,
-  TransferSemanticClassNames
+  TransferSemanticType['classNames']
 >;
 
-export type TransferStylesType = SemanticStylesType<TransferProps, TransferSemanticStyles>;
+export type TransferStylesType = SemanticType<TransferProps, TransferSemanticType['styles']>;
 
 export type TransferDirection = 'left' | 'right';
 
@@ -480,13 +479,13 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       .length > 0;
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TransferClassNamesType,
-    TransferStylesType,
-    TransferProps<RecordType>
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const cls = clsx(
     prefixCls,
