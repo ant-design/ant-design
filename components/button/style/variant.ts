@@ -304,8 +304,15 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       {
         // Ghost
         [`&${componentCls}-background-ghost`]: {
-          [varName('bg-color')]: 'transparent',
+          [varName('bg-color')]: token.ghostBg,
+          [varName('bg-color-hover')]: token.ghostBg,
+          [varName('bg-color-active')]: token.ghostBg,
           [varName('shadow')]: 'none',
+
+          [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
+            [varName('bg-color-hover')]: token.ghostBg,
+            [varName('bg-color-active')]: token.ghostBg,
+          },
         },
       },
     ],
