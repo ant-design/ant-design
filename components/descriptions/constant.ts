@@ -1,6 +1,7 @@
 import type { Breakpoint } from '../_util/responsiveObserver';
 
 const DEFAULT_COLUMN_MAP: Record<Breakpoint, number> = {
+  xxxl: 4,
   xxl: 3,
   xl: 3,
   lg: 3,

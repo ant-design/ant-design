@@ -114,7 +114,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'medium');
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
+    responsiveArray.includes(key as Breakpoint),
   );
   const screens = useBreakpoint(needResponsive);
   const responsiveSizeStyle = React.useMemo<React.CSSProperties>(() => {
