@@ -41,7 +41,7 @@ const antRotate = new Keyframes('antRotate', {
 });
 
 const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => {
-  const { componentCls, calc } = token;
+  const { componentCls, motionDurationSlow, calc } = token;
   return {
     [componentCls]: {
       ...resetComponent(token),
@@ -52,7 +52,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
       textAlign: 'center',
       verticalAlign: 'middle',
       opacity: 0,
-      transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
+      transition: `transform ${motionDurationSlow} ${token.motionEaseInOutCirc}`,
 
       '&-spinning': {
         position: 'relative',
@@ -148,7 +148,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
 
         [`${componentCls}-container`]: {
           position: 'relative',
-          transition: `opacity ${token.motionDurationSlow}`,
+          transition: `opacity ${motionDurationSlow}`,
 
           '&::after': {
             position: 'absolute',
@@ -161,7 +161,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
             height: '100%',
             background: token.colorBgContainer,
             opacity: 0,
-            transition: `all ${token.motionDurationSlow}`,
+            transition: `all ${motionDurationSlow}`,
             content: '""',
             pointerEvents: 'none',
           },
@@ -193,7 +193,9 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         height: '1em',
         fontSize: token.dotSize,
         display: 'inline-block',
-        transition: `transform ${token.motionDurationSlow} ease, opacity ${token.motionDurationSlow} ease`,
+        transition: [`transform`, `opacity`]
+          .map((prop) => `${prop} ${motionDurationSlow} ease`)
+          .join(', '),
         transformOrigin: '50% 50%',
         lineHeight: 1,
         color: token.colorPrimary,
@@ -272,7 +274,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         '&-circle': {
           strokeLinecap: 'round',
           transition: ['stroke-dashoffset', 'stroke-dasharray', 'stroke', 'stroke-width', 'opacity']
-            .map((item) => `${item} ${token.motionDurationSlow} ease`)
+            .map((item) => `${item} ${motionDurationSlow} ease`)
             .join(','),
           fillOpacity: 0,
           stroke: 'currentcolor',
