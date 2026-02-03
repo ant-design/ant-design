@@ -70,16 +70,31 @@ describe('useMergeSemantic', () => {
     expect(styles.container.header).toEqual({ 'header-root': { color: 'red' } });
 
     const schema = { dragger: { _default: 'default' } };
-    const res = { test: 'test', dragger: { default: 'aaa' } };
 
     // string
+    const res = { test: 'test', dragger: { default: 'aaa' } };
     expect(fillObjectBySchema({ test: 'test', dragger: 'aaa' }, schema)).toEqual(res);
     expect(fillObjectBySchema({ test: 'test', dragger: { default: 'aaa' } }, schema)).toEqual(res);
-    const res2 = { test: 'test', dragger: { default: { color: 'red' } } };
+    // more fields
+    expect(
+      fillObjectBySchema({ test: 'test', dragger: { test: 'test', default: 'aaa' } }, schema),
+    ).toEqual({ test: 'test', dragger: { test: 'test', default: 'aaa' } });
+
     // CSS
+    const res2 = { test: 'test', dragger: { default: { color: 'red' } } };
     expect(fillObjectBySchema({ test: 'test', dragger: { color: 'red' } }, schema)).toEqual(res2);
     expect(
       fillObjectBySchema({ test: 'test', dragger: { default: { color: 'red' } } }, schema),
     ).toEqual(res2);
+    // more fields
+    expect(
+      fillObjectBySchema(
+        { test: 'test', dragger: { test: { background: 'blue' }, default: { color: 'red' } } },
+        schema,
+      ),
+    ).toEqual({
+      test: 'test',
+      dragger: { test: { background: 'blue' }, default: { color: 'red' } },
+    });
   });
 });
