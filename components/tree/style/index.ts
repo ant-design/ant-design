@@ -15,6 +15,11 @@ export interface TreeSharedToken {
    */
   titleHeight: number;
   /**
+   * @desc 展开按钮宽度
+   * @descEN Switcher width of tree
+   */
+  switchSize?: number;
+  /**
    * @desc 缩进宽度
    * @descEN Indent width of tree
    */
@@ -116,6 +121,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     treeNodePadding,
     titleHeight,
     indentSize,
+    switchSize = indentSize,
     nodeSelectedBg,
     nodeHoverBg,
     colorTextQuaternary,
@@ -235,7 +241,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           [`${treeCls}-draggable-icon`]: {
             // https://github.com/ant-design/ant-design/issues/41915
             flexShrink: 0,
-            width: indentSize,
+            width: switchSize,
             textAlign: 'center',
             visibility: 'visible',
             color: colorTextQuaternary,
@@ -266,7 +272,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       // Switcher / Checkbox
       [`${treeCls}-switcher, ${treeCls}-checkbox`]: {
         marginInlineEnd: token
-          .calc(token.calc(indentSize).sub(token.controlInteractiveSize))
+          .calc(token.calc(switchSize).sub(token.controlInteractiveSize))
           .div(2)
           .equal(),
       },
@@ -277,7 +283,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         position: 'relative',
         flex: 'none',
         alignSelf: 'stretch',
-        width: indentSize,
+        width: switchSize,
         textAlign: 'center',
         cursor: 'pointer',
         userSelect: 'none',
@@ -290,7 +296,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         '&:before': {
           pointerEvents: 'none',
           content: '""',
-          width: indentSize,
+          width: switchSize,
           height: titleHeight,
           position: 'absolute',
           left: {
@@ -325,7 +331,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           '&:before': {
             position: 'absolute',
             top: 0,
-            insetInlineEnd: token.calc(indentSize).div(2).equal(),
+            insetInlineEnd: token.calc(switchSize).div(2).equal(),
             bottom: token.calc(treeNodePadding).mul(-1).equal(),
             marginInlineStart: -1,
             borderInlineEnd: `1px solid ${token.colorBorder}`,
@@ -334,7 +340,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
 
           '&:after': {
             position: 'absolute',
-            width: token.calc(token.calc(indentSize).div(2).equal()).mul(0.8).equal(),
+            width: token.calc(token.calc(switchSize).div(2).equal()).mul(0.8).equal(),
             height: token.calc(titleHeight).div(2).equal(),
             borderBottom: `1px solid ${token.colorBorder}`,
             content: '""',
@@ -367,7 +373,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         // Icon
         [`${treeCls}-iconEle`]: {
           display: 'inline-block',
-          width: indentSize,
+          width: switchSize,
           height: titleHeight,
           textAlign: 'center',
           verticalAlign: 'top',
@@ -397,7 +403,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           '&:before': {
             position: 'absolute',
             top: 0,
-            insetInlineEnd: token.calc(indentSize).div(2).equal(),
+            insetInlineEnd: token.calc(switchSize).div(2).equal(),
             bottom: token.calc(treeNodePadding).mul(-1).equal(),
             borderInlineEnd: `1px solid ${token.colorBorder}`,
             content: '""',
@@ -464,6 +470,7 @@ export const initComponentToken = (token: AliasToken): TreeSharedToken => {
 
   return {
     titleHeight,
+    switchSize: titleHeight,
     indentSize: titleHeight,
     nodeHoverBg: controlItemBgHover,
     nodeHoverColor: token.colorText,
