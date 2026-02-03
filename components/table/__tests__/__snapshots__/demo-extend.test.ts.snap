@@ -29309,28 +29309,24 @@ exports[`renders components/table/demo/style-class.tsx extend context correctly 
                     <th
                       class="ant-table-cell"
                       scope="col"
-                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
                     >
                       Name
                     </th>
                     <th
                       class="ant-table-cell"
                       scope="col"
-                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
                     >
                       Age
                     </th>
                     <th
                       class="ant-table-cell"
                       scope="col"
-                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
                     >
                       Address
                     </th>
                     <th
                       class="ant-table-cell"
                       scope="col"
-                      style="font-weight: 600; font-size: 0.95rem; color: rgb(184, 189, 253); padding: 12px 16px; border-bottom: 1px solid rgba(255, 255, 255, 0.08);"
                     >
                       Description
                     </th>
