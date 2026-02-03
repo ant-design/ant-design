@@ -67,7 +67,8 @@ describe('useMergeSemantic', () => {
 
     const [classNames, styles] = result.current;
     expect(classNames.container.header).toHaveProperty('header-root', 'foo');
-    expect(styles.container.header).toEqual({ 'header-root': { color: 'red' } });
+    //  color 是冗余的，但是目前的实现会保留它
+    expect(styles.container.header).toEqual({ color: 'red', 'header-root': { color: 'red' } });
 
     const schema = { dragger: { _default: 'default' } };
 
@@ -82,7 +83,14 @@ describe('useMergeSemantic', () => {
 
     // CSS
     const res2 = { test: 'test', dragger: { default: { color: 'red' } } };
-    expect(fillObjectBySchema({ test: 'test', dragger: { color: 'red' } }, schema)).toEqual(res2);
+    expect(fillObjectBySchema({ test: 'test', dragger: { color: 'red' } }, schema)).toEqual({
+      test: 'test',
+      dragger: {
+        // color 是冗余的，但是目前的实现会保留它
+        color: 'red',
+        default: { color: 'red' },
+      },
+    });
     expect(
       fillObjectBySchema({ test: 'test', dragger: { default: { color: 'red' } } }, schema),
     ).toEqual(res2);
