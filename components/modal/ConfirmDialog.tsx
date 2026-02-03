@@ -183,6 +183,8 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     onConfirm,
     styles,
     title,
+    mask,
+    maskClosable,
     okButtonProps,
     cancelButtonProps,
   } = props;
@@ -215,7 +217,25 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   // ========================== Mask ==========================
   // 默认为 false，保持旧版默认行为
-  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
+  const mergedMask = React.useMemo(() => {
+    if (mask && typeof mask === 'object') {
+      return {
+        ...mask,
+        closable: maskClosable ?? mask.closable ?? false,
+      };
+    }
+    if (typeof mask === 'boolean') {
+      return {
+        enabled: mask,
+        blur: false,
+        closable: maskClosable ?? false,
+      };
+    }
+    // 保持旧版默认行为
+    return {
+      closable: maskClosable ?? false,
+    };
+  }, [mask, maskClosable]);
 
   // ========================= zIndex =========================
   const [, token] = useToken();
@@ -243,7 +263,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       footer={null}
       transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}
-      maskClosable={maskClosable}
+      mask={mergedMask}
       style={style}
       styles={{ body: bodyStyle, mask: maskStyle, ...styles }}
       width={width}

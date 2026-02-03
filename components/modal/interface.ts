@@ -160,8 +160,9 @@ export interface ModalFuncProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  mask?: MaskType;
+  /** @deprecated Please use `mask.closable` instead */
   maskClosable?: boolean;
+  mask?: MaskType;
   zIndex?: number;
   okCancel?: boolean;
   style?: React.CSSProperties;
