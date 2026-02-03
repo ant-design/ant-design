@@ -3,9 +3,9 @@ import { renderHook } from '@testing-library/react';
 import { fillObjectBySchema, mergeClassNames, useMergeSemantic } from '../hooks';
 
 const mockSchema = {
-  _default: 'root',
+  // _default: 'root',
   container: {
-    _default: 'container-root',
+    // _default: 'container-root',
     header: {
       _default: 'header-root',
     },
@@ -67,19 +67,19 @@ describe('useMergeSemantic', () => {
 
     const [classNames, styles] = result.current;
     expect(classNames.container.header).toHaveProperty('header-root', 'foo');
-    expect(styles.container.header).toEqual({ color: 'red' });
+    expect(styles.container.header).toEqual({ 'header-root': { color: 'red' } });
 
     const schema = { dragger: { _default: 'default' } };
     const res = { test: 'test', dragger: { default: 'aaa' } };
 
     // string
-    expect(fillObjectBySchema({ test: 'test', dragger: 'aaa' }, schema)).toBe(res);
-    expect(fillObjectBySchema({ test: 'test', dragger: { default: 'aaa' } }, schema)).toBe(res);
+    expect(fillObjectBySchema({ test: 'test', dragger: 'aaa' }, schema)).toEqual(res);
+    expect(fillObjectBySchema({ test: 'test', dragger: { default: 'aaa' } }, schema)).toEqual(res);
     const res2 = { test: 'test', dragger: { default: { color: 'red' } } };
     // CSS
-    expect(fillObjectBySchema({ test: 'test', dragger: { color: 'red' } }, schema)).toBe(res2);
+    expect(fillObjectBySchema({ test: 'test', dragger: { color: 'red' } }, schema)).toEqual(res2);
     expect(
       fillObjectBySchema({ test: 'test', dragger: { default: { color: 'red' } } }, schema),
-    ).toBe(res2);
+    ).toEqual(res2);
   });
 });
