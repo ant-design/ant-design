@@ -2,8 +2,8 @@ import React from 'react';
 import { Spin } from 'antd';
 import type { SpinProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
@@ -17,19 +17,40 @@ const locales = {
   },
 };
 
+const sharedStyles: React.CSSProperties = {
+  position: 'relative',
+  width: 500,
+  height: 100,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flex: '1',
+};
+
 const SpinBlock: React.FC<Readonly<SpinProps>> = (props) => {
   return (
     <div
       style={{
-        position: 'relative',
-        width: 500,
-        height: 100,
         display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
       }}
     >
-      <Spin percent={0} {...props} />
+      <div style={sharedStyles}>
+        <Spin percent={0} {...props} />
+      </div>
+      <div style={sharedStyles}>
+        <Spin percent={0} {...props} description="Loading" />
+      </div>
+      <div style={sharedStyles}>
+        <Spin
+          percent={0}
+          {...props}
+          fullscreen
+          description="Loading"
+          style={{
+            position: 'absolute',
+          }}
+        />
+      </div>
     </div>
   );
 };
