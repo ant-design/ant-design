@@ -46,7 +46,7 @@ export interface SplitterProps {
   prefixCls?: string;
   className?: string;
   classNames?: SplitterClassNamesType;
-  collapseAnimation?: boolean;
+  collapseDuration?: number | boolean;
   style?: React.CSSProperties;
   styles?: SplitterStylesType;
   rootClassName?: string;
@@ -89,6 +89,7 @@ export interface InternalPanelProps extends PanelProps {
   className?: string;
   prefixCls?: string;
   isCollapsing?: boolean;
+  collapseDuration?: number | null;
 }
 
 export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {

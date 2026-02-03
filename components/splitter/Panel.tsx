@@ -7,7 +7,15 @@ export const InternalPanel = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
-  const { prefixCls, className, children, size, style = {}, isCollapsing } = props;
+  const {
+    prefixCls,
+    className,
+    children,
+    size,
+    style = {},
+    isCollapsing,
+    collapseDuration,
+  } = props;
 
   const panelClassName = clsx(
     `${prefixCls}-panel`,
@@ -20,6 +28,12 @@ export const InternalPanel = forwardRef<
 
   const hasSize = size !== undefined;
 
+  // Apply custom duration if provided (number), otherwise use CSS default (token.motionDurationMid)
+  const transitionStyle: React.CSSProperties =
+    isCollapsing && collapseDuration !== null && typeof collapseDuration === 'number'
+      ? { transitionDuration: `${collapseDuration}ms` }
+      : {};
+
   return (
     <div
       ref={ref}
@@ -29,6 +43,7 @@ export const InternalPanel = forwardRef<
         // Use auto when start from ssr
         flexBasis: hasSize ? size : 'auto',
         flexGrow: hasSize ? 0 : 1,
+        ...transitionStyle,
       }}
     >
       {children}

@@ -29,7 +29,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     classNames,
-    collapseAnimation = false,
+    collapseDuration = false,
     style,
     styles,
     layout,
@@ -93,12 +93,24 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [isCollapsing, setIsCollapsing] = useState(false);
   const collapseTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
   useEffect(() => () => clearTimeout(collapseTimerRef.current), []);
+
+  // Calculate animation duration
+  const getCollapseDuration = (): number | null => {
+    if (collapseDuration === false) return null;
+    if (collapseDuration === true) {
+      return Number.parseFloat(token.motionDurationMid) * 1000;
+    }
+    return collapseDuration;
+  };
+
+  const collapseDurationMs = getCollapseDuration();
+
   useEffect(() => {
-    if (!collapseAnimation) {
+    if (collapseDurationMs === null) {
       clearTimeout(collapseTimerRef.current);
       setIsCollapsing(false);
     }
-  }, [collapseAnimation]);
+  }, [collapseDurationMs]);
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
     const { offsetWidth, offsetHeight } = size;
@@ -153,10 +165,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
     clearTimeout(collapseTimerRef.current);
-    if (collapseAnimation) {
+    if (collapseDurationMs !== null) {
       setIsCollapsing(true);
-      const durationMs = Number.parseFloat(token.motionDurationMid) * 1000;
-      collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), durationMs);
+      collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), collapseDurationMs);
     }
 
     const nextSizes = onCollapse(index, type);
@@ -244,6 +255,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
               prefixCls={prefixCls}
               size={panelSizes[idx]}
               isCollapsing={isCollapsing}
+              collapseDuration={collapseDurationMs}
             />
           );
 
