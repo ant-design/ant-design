@@ -98,7 +98,8 @@ export const fillObjectBySchema = (obj: Record<string, any>, schema: Record<stri
       const keyData = defaultData || thisData;
       const isLast = !!thisKey || thisType === 'string';
       if (isLast) {
-        newObj[key] = defaultData ? { ...thisData } : {};
+        // all fill to thisKey
+        newObj[key] = thisType === 'string' ? {} : { ...thisData };
         newObj[key][thisKey] = keyData;
       } else {
         newObj[key] = fillObjectBySchema(keyData, schema[key]);
