@@ -154,16 +154,19 @@ export interface ComponentToken {
   /**
    * @desc 按钮纵向内间距
    * @descEN Vertical padding of button
+   * @deprecated not used
    */
   paddingBlock: CSSProperties['paddingBlock'];
   /**
    * @desc 大号按钮纵向内间距
    * @descEN Vertical padding of large button
+   * @deprecated not used
    */
   paddingBlockLG: CSSProperties['paddingBlock'];
   /**
    * @desc 小号按钮纵向内间距
    * @descEN Vertical padding of small button
+   * @deprecated not used
    */
   paddingBlockSM: CSSProperties['paddingBlock'];
   /**
@@ -209,16 +212,19 @@ export interface ComponentToken {
   /**
    * @desc 按钮内容字体行高
    * @descEN Line height of button content
+   * @deprecated not used
    */
   contentLineHeight: number;
   /**
    * @desc 大号按钮内容字体行高
    * @descEN Line height of large button content
+   * @deprecated not used
    */
   contentLineHeightLG: number;
   /**
    * @desc 小号按钮内容字体行高
    * @descEN Line height of small button content
+   * @deprecated not used
    */
   contentLineHeightSM: number;
   /**
