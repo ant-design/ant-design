@@ -59,6 +59,7 @@ const App: React.FC = () => (
     expandable={{
       expandedRowRender: (record) => <p style={{ margin: 0 }}>{record.description}</p>,
       rowExpandable: (record) => record.name !== 'Not Expandable',
+      columnWidth: "30px",
     }}
     dataSource={data}
   />

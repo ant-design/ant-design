@@ -73,6 +73,7 @@ const App: React.FC = () => (
     expandable={{
       expandedRowOffset: 3,
       expandedRowRender: (record) => <div>{record.description}</div>,
+      columnWidth: "30px",
     }}
     dataSource={data}
   />
