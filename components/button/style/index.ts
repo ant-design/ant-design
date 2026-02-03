@@ -179,6 +179,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
 const genSizeBaseButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   const baseToken = mergeToken<ButtonToken>(token, {
     fontSize: token.contentFontSize,
+    buttonPaddingVertical: token.paddingBlock,
   });
   return genButtonStyle(baseToken, token.componentCls);
 };
@@ -189,7 +190,7 @@ const genSizeSmallButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     fontSize: token.contentFontSizeSM,
     padding: token.paddingXS,
     buttonPaddingHorizontal: token.paddingInlineSM,
-    buttonPaddingVertical: 0,
+    buttonPaddingVertical: token.paddingBlockSM,
     borderRadius: token.borderRadiusSM,
     buttonIconOnlyFontSize: token.onlyIconSizeSM,
   });
@@ -202,7 +203,7 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
     controlHeight: token.controlHeightLG,
     fontSize: token.contentFontSizeLG,
     buttonPaddingHorizontal: token.paddingInlineLG,
-    buttonPaddingVertical: 0,
+    buttonPaddingVertical: token.paddingBlockLG,
     borderRadius: token.borderRadiusLG,
     buttonIconOnlyFontSize: token.onlyIconSizeLG,
   });
