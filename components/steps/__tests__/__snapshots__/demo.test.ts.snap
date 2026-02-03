@@ -5336,9 +5336,6 @@ Array [
           type="radio"
           value="small"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -5358,9 +5355,6 @@ Array [
           name="test-id"
           type="radio"
           value="default"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

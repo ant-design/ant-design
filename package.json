@@ -1,6 +1,6 @@
 {
   "name": "antd",
-  "version": "6.2.2",
+  "version": "6.2.3",
   "description": "An enterprise-class UI design language and React components implementation",
   "license": "MIT",
   "funding": {
@@ -54,7 +54,7 @@
     "deploy": "gh-pages -d _site -b gh-pages -f",
     "deploy:china-mirror": "git checkout gh-pages && git pull origin gh-pages && git push git@gitee.com:ant-design/ant-design.git gh-pages -f",
     "predist": "npm run version && npm run token:statistic && npm run token:meta && npm run style",
-    "dist": "antd-tools run dist",
+    "dist": "npm run ut-install-react-18 && antd-tools run dist",
     "format": "biome format --write .",
     "install-react-18": "npm i --no-save --legacy-peer-deps react@18 react-dom@18 @testing-library/react@16",
     "ut-install-react-18": "ut i react@18 react-dom@18 @testing-library/react@16 --save-dev",
@@ -86,12 +86,10 @@
     "test:dekko": "tsx ./tests/dekko/index.test.ts",
     "test:image": "cross-env MOCK_USE_ID=false jest --config .jest.image.js --no-cache -i -u --forceExit",
     "test:node": "npm run version && jest --config .jest.node.js --no-cache",
-    "test:semantic": "npm run version && jest --config .jest.semantic.js --no-cache",
     "test:package-diff": "antd-tools run package-diff",
     "test:site": "jest --config .jest.site.js --no-cache",
     "test:site-update": "npm run site && npm run test:site -- -u",
     "test:update": "jest --config .jest.js --no-cache -u",
-    "test:semantic:update": "npm run version && jest --config .jest.semantic.js --no-cache -u",
     "test:visual-regression": "tsx scripts/visual-regression/build.ts",
     "test:visual-regression:local": "tsx scripts/visual-regression/local.ts",
     "token:meta": "tsx scripts/generate-token-meta.ts",
@@ -115,11 +113,11 @@
     "@ant-design/icons": "^6.1.0",
     "@ant-design/react-slick": "~2.0.0",
     "@babel/runtime": "^7.28.4",
-    "@rc-component/cascader": "~1.13.0",
-    "@rc-component/checkbox": "~1.0.1",
+    "@rc-component/cascader": "~1.14.0",
+    "@rc-component/checkbox": "~2.0.0",
     "@rc-component/collapse": "~1.2.0",
     "@rc-component/color-picker": "~3.1.0",
-    "@rc-component/dialog": "~1.8.1",
+    "@rc-component/dialog": "~1.8.2",
     "@rc-component/drawer": "~1.4.1",
     "@rc-component/dropdown": "~1.0.2",
     "@rc-component/form": "~1.6.2",
@@ -138,7 +136,7 @@
     "@rc-component/rate": "~1.0.1",
     "@rc-component/resize-observer": "^1.1.1",
     "@rc-component/segmented": "~1.3.0",
-    "@rc-component/select": "~1.5.2",
+    "@rc-component/select": "~1.6.2",
     "@rc-component/slider": "~1.0.1",
     "@rc-component/steps": "~1.2.2",
     "@rc-component/switch": "~1.0.3",
@@ -147,11 +145,11 @@
     "@rc-component/textarea": "~1.1.2",
     "@rc-component/tooltip": "~1.4.0",
     "@rc-component/tour": "~2.3.0",
-    "@rc-component/tree": "~1.2.2",
-    "@rc-component/tree-select": "~1.7.0",
+    "@rc-component/tree": "~1.2.3",
+    "@rc-component/tree-select": "~1.8.0",
     "@rc-component/trigger": "^3.9.0",
     "@rc-component/upload": "~1.1.0",
-    "@rc-component/util": "^1.7.0",
+    "@rc-component/util": "^1.8.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "scroll-into-view-if-needed": "^3.1.0",
@@ -175,7 +173,7 @@
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
-    "@eslint-react/eslint-plugin": "^2.7.2",
+    "@eslint-react/eslint-plugin": "2.8.4",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@inquirer/prompts": "^8.0.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
@@ -212,7 +210,7 @@
     "@types/pngjs": "^6.0.5",
     "@types/prismjs": "^1.26.5",
     "@types/progress": "^2.0.7",
-    "@types/react": "19.2.7",
+    "@types/react": "19.2.9",
     "@types/react-dom": "^19.2.3",
     "@types/react-highlight-words": "^0.20.0",
     "@types/semver": "^7.7.1",
@@ -237,7 +235,7 @@
     "dekko": "^0.2.1",
     "domparser-rs": "0.0.7",
     "dotenv": "^17.2.3",
-    "dumi": "~2.4.21",
+    "dumi": "~2.4.23",
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^4.0.0",
     "eslint": "^9.39.2",
@@ -245,7 +243,7 @@
     "eslint-plugin-jest": "^29.12.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.26",
+    "eslint-plugin-react-refresh": "^0.5.0",
     "fast-glob": "^3.3.3",
     "father": "4.6.13",
     "fs-extra": "^11.3.2",
@@ -268,7 +266,7 @@
     "jest-image-snapshot": "^6.5.1",
     "jest-puppeteer": "^11.0.0",
     "jquery": "^4.0.0",
-    "jsdom": "^27.4.0",
+    "jsdom": "^28.0.0",
     "jsonml-to-react-element": "^1.1.11",
     "jsonml.js": "^0.1.0",
     "lint-staged": "^16.2.7",
@@ -334,17 +332,28 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "524 KiB",
+      "limit": "434 KiB",
       "gzip": true
     },
     {
       "path": "./dist/antd-with-locales.min.js",
-      "limit": "618 KiB",
+      "limit": "526 KiB",
       "gzip": true
     }
   ],
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
+  },
+  "pnpm": {
+    "overrides": {
+      "@eslint-react/var": "2.9.1"
+    }
+  },
+  "overrides": {
+    "@eslint-react/var": "2.9.1"
+  },
+  "resolutions": {
+    "@eslint-react/var": "2.9.1"
   }
 }

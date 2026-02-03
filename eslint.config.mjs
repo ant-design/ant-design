@@ -85,6 +85,7 @@ export default antfu(
       'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
+      'react/no-nested-component-definitions': 'off',
       'react/no-nested-components': 'off',
       'react/no-useless-fragment': 'off',
       'no-console': 'off',

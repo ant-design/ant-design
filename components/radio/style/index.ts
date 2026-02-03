@@ -147,6 +147,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     componentCls,
     wrapperMarginInlineEnd,
     colorPrimary,
+    colorPrimaryHover,
     radioSize,
     motionDurationSlow,
     motionDurationMid,
@@ -158,16 +159,11 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
     colorTextDisabled,
     paddingXS,
     dotColorDisabled,
+    dotSize,
     lineType,
     radioColor,
     radioBgColor,
-    calc,
   } = token;
-  const radioInnerPrefixCls = `${componentCls}-inner`;
-
-  const dotPadding = 4;
-  const radioDotDisabledSize = calc(radioSize).sub(calc(dotPadding).mul(2));
-  const radioSizeCalc = calc(1).mul(radioSize).equal({ unit: true });
 
   return {
     [`${componentCls}-wrapper`]: {
@@ -204,128 +200,97 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         justifyContent: 'center',
       },
 
-      // hashId 在 wrapper 上，只能铺平
-      [`${componentCls}-checked::after`]: {
-        position: 'absolute',
-        insetBlockStart: 0,
-        insetInlineStart: 0,
-        width: '100%',
-        height: '100%',
-        border: `${unit(lineWidth)} ${lineType} ${colorPrimary}`,
-        borderRadius: '50%',
-        visibility: 'hidden',
-        opacity: 0,
-        content: '""',
-      },
-
+      // ===================== Radio =====================
       [componentCls]: {
         ...resetComponent(token),
         position: 'relative',
-        display: 'inline-block',
-        outline: 'none',
+        whiteSpace: 'nowrap',
+        lineHeight: 1,
         cursor: 'pointer',
         alignSelf: 'center',
+
+        // Styles moved from inner
+        boxSizing: 'border-box',
+        display: 'block',
+        width: `calc(${radioSize} * 1px)`,
+        height: `calc(${radioSize} * 1px)`,
+        backgroundColor: colorBgContainer,
+        border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
         borderRadius: '50%',
+        transition: `all ${motionDurationMid}`,
+
+        // Dot
+        '&:after': {
+          content: '""',
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%) scale(0)',
+          width: `calc(${dotSize} * 1px)`,
+          height: `calc(${dotSize} * 1px)`,
+          backgroundColor: radioColor,
+          borderRadius: '50%',
+          transformOrigin: '50% 50%',
+          opacity: 0,
+          transition: `all ${motionDurationSlow} ${motionEaseInOutCirc}`,
+        },
+
+        // Wrapper > Radio > input
+        [`${componentCls}-input`]: {
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          cursor: 'pointer',
+          opacity: 0,
+          margin: 0,
+        },
+
+        // Focus outline on radio when input is focus-visible
+        [`&:has(${componentCls}-input:focus-visible)`]: genFocusOutline(token),
       },
 
-      [`${componentCls}-wrapper:hover &,
-        &:hover ${radioInnerPrefixCls}`]: {
+      // ===================== Hover =====================
+      [`&:hover ${componentCls}`]: {
         borderColor: colorPrimary,
       },
 
-      [`${componentCls}-input:focus-visible + ${radioInnerPrefixCls}`]: genFocusOutline(token),
-
-      [`${componentCls}:hover::after, ${componentCls}-wrapper:hover &::after`]: {
-        visibility: 'visible',
+      [`&:hover ${componentCls}-checked:not(${componentCls}-disabled)`]: {
+        backgroundColor: colorPrimaryHover,
+        borderColor: 'transparent',
       },
 
-      [`${componentCls}-inner`]: {
-        '&::after': {
-          boxSizing: 'border-box',
-          position: 'absolute',
-          insetBlockStart: '50%',
-          insetInlineStart: '50%',
-          display: 'block',
-          width: radioSizeCalc,
-          height: radioSizeCalc,
-          marginBlockStart: calc(1).mul(radioSize).div(-2).equal({ unit: true }),
-          marginInlineStart: calc(1).mul(radioSize).div(-2).equal({ unit: true }),
-          backgroundColor: radioColor,
-          borderBlockStart: 0,
-          borderInlineStart: 0,
-          borderRadius: radioSizeCalc,
-          transform: 'scale(0)',
-          opacity: 0,
-          transition: `all ${motionDurationSlow} ${motionEaseInOutCirc}`,
-          content: '""',
-        },
-
-        boxSizing: 'border-box',
-        position: 'relative',
-        insetBlockStart: 0,
-        insetInlineStart: 0,
-        display: 'block',
-        width: radioSizeCalc,
-        height: radioSizeCalc,
-        backgroundColor: colorBgContainer,
-        borderColor: colorBorder,
-        borderStyle: 'solid',
-        borderWidth: lineWidth,
-        borderRadius: '50%',
-        transition: `all ${motionDurationMid}`,
-      },
-
-      [`${componentCls}-input`]: {
-        position: 'absolute',
-        inset: 0,
-        zIndex: 1,
-        cursor: 'pointer',
-        opacity: 0,
-      },
-
-      // 选中状态
+      // ==================== Checked ====================
       [`${componentCls}-checked`]: {
-        [radioInnerPrefixCls]: {
-          borderColor: colorPrimary,
-          backgroundColor: radioBgColor,
+        backgroundColor: radioBgColor,
+        borderColor: colorPrimary,
 
-          '&::after': {
-            transform: `scale(${token.calc(token.dotSize).div(radioSize).equal()})`,
-            opacity: 1,
-            transition: `all ${motionDurationSlow} ${motionEaseInOutCirc}`,
-          },
+        '&::after': {
+          transform: `translate(-50%, -50%)`,
+          opacity: 1,
         },
       },
 
+      // ==================== Disable ====================
       [`${componentCls}-disabled`]: {
+        // Wrapper > Radio > input
+        [`&, ${componentCls}-input`]: {
+          cursor: 'not-allowed',
+          // Disabled for native input to enable Tooltip event handler
+          pointerEvents: 'none',
+        },
+
+        // Disabled radio styles
+        background: colorBgContainerDisabled,
+        borderColor: colorBorder,
+
+        '&::after': {
+          backgroundColor: dotColorDisabled,
+        },
+      },
+
+      [`${componentCls}-disabled + span`]: {
+        color: colorTextDisabled,
         cursor: 'not-allowed',
-
-        [radioInnerPrefixCls]: {
-          backgroundColor: colorBgContainerDisabled,
-          borderColor: colorBorder,
-          cursor: 'not-allowed',
-
-          '&::after': {
-            backgroundColor: dotColorDisabled,
-          },
-        },
-
-        [`${componentCls}-input`]: {
-          cursor: 'not-allowed',
-        },
-
-        [`${componentCls}-disabled + span`]: {
-          color: colorTextDisabled,
-          cursor: 'not-allowed',
-        },
-
-        [`&${componentCls}-checked`]: {
-          [radioInnerPrefixCls]: {
-            '&::after': {
-              transform: `scale(${calc(radioDotDisabledSize).div(radioSize).equal()})`,
-            },
-          },
-        },
       },
 
       [`span${componentCls} + *`]: {
@@ -466,7 +431,7 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
 
       '&:has(:focus-visible)': genFocusOutline(token),
 
-      [`${componentCls}-inner, input[type='checkbox'], input[type='radio']`]: {
+      [`${componentCls}, input[type='checkbox'], input[type='radio']`]: {
         width: 0,
         height: 0,
         opacity: 0,

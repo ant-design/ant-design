@@ -3917,9 +3917,6 @@ Array [
           type="checkbox"
           value="left"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
       <span
         class="ant-checkbox-label"
@@ -3938,9 +3935,6 @@ Array [
           class="ant-checkbox-input"
           type="checkbox"
           value="right"
-        />
-        <span
-          class="ant-checkbox-inner"
         />
       </span>
       <span
@@ -5438,9 +5432,6 @@ Array [
               type="radio"
               value="top"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -5459,9 +5450,6 @@ Array [
               name="test-id"
               type="radio"
               value="bottom"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -5483,9 +5471,6 @@ Array [
               type="radio"
               value="start"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -5504,9 +5489,6 @@ Array [
               name="test-id"
               type="radio"
               value="end"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -5678,9 +5660,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           type="radio"
           value="small"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -5700,9 +5679,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           type="radio"
           value="middle"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -5721,9 +5697,6 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="large"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -6302,9 +6275,6 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
           type="radio"
           value="top"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -6323,9 +6293,6 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="left"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span

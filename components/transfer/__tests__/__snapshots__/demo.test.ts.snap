@@ -20,9 +20,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -76,9 +73,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -100,9 +94,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -126,9 +117,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -150,9 +138,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -176,9 +161,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -200,9 +182,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -226,9 +205,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -250,9 +226,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -276,9 +249,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -301,9 +271,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -325,9 +292,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -424,9 +388,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -480,9 +441,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -504,9 +462,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -530,9 +485,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -554,9 +506,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -580,9 +529,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -604,9 +550,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -630,9 +573,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -655,9 +595,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -679,9 +616,6 @@ exports[`renders components/transfer/demo/actions.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -718,9 +652,6 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
             class="ant-checkbox-input"
             disabled=""
             type="checkbox"
-          />
-          <span
-            class="ant-checkbox-inner"
           />
         </span>
       </label>
@@ -978,9 +909,6 @@ exports[`renders components/transfer/demo/advanced.tsx correctly 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -1174,9 +1102,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -1232,9 +1157,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1256,9 +1178,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1282,9 +1201,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1306,9 +1222,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1332,9 +1245,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1356,9 +1266,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1382,9 +1289,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1406,9 +1310,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1432,9 +1333,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1457,9 +1355,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1481,9 +1376,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1574,9 +1466,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -1632,9 +1521,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1656,9 +1542,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1682,9 +1565,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1706,9 +1586,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1732,9 +1609,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1756,9 +1630,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1782,9 +1653,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1807,9 +1675,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -1831,9 +1696,6 @@ exports[`renders components/transfer/demo/basic.tsx correctly 1`] = `
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -1869,9 +1731,6 @@ Array [
             <input
               class="ant-checkbox-input"
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -1929,9 +1788,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -1953,9 +1809,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -1979,9 +1832,6 @@ Array [
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2003,9 +1853,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -2030,9 +1877,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2054,9 +1898,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -2080,9 +1921,6 @@ Array [
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2104,9 +1942,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -2131,9 +1966,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2156,9 +1988,6 @@ Array [
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2180,9 +2009,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -2273,9 +2099,6 @@ Array [
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -2331,9 +2154,6 @@ Array [
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2357,9 +2177,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2381,9 +2198,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -2407,9 +2221,6 @@ Array [
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2431,9 +2242,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -2458,9 +2266,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2482,9 +2287,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -2508,9 +2310,6 @@ Array [
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -2532,9 +2331,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -2567,9 +2363,6 @@ Array [
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -2739,9 +2532,6 @@ Array [
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -2853,9 +2643,6 @@ Array [
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -3092,9 +2879,6 @@ Array [
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -3273,9 +3057,6 @@ Array [
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -3363,9 +3144,6 @@ Array [
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                               </div>
@@ -3411,9 +3189,6 @@ Array [
                                     disabled=""
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -3453,9 +3228,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -3497,9 +3269,6 @@ Array [
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -3539,9 +3308,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -3584,9 +3350,6 @@ Array [
                                     disabled=""
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -3626,9 +3389,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -3670,9 +3430,6 @@ Array [
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -3712,9 +3469,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -3757,9 +3511,6 @@ Array [
                                     disabled=""
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -3799,9 +3550,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -4005,9 +3753,6 @@ Array [
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -4095,9 +3840,6 @@ Array [
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                               </div>
@@ -4130,9 +3872,6 @@ Array [
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -4160,9 +3899,6 @@ Array [
                                     disabled=""
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -4188,9 +3924,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -4218,9 +3951,6 @@ Array [
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -4246,9 +3976,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -4277,9 +4004,6 @@ Array [
                                     disabled=""
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -4305,9 +4029,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -4335,9 +4056,6 @@ Array [
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -4363,9 +4081,6 @@ Array [
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -4553,9 +4268,6 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -4726,9 +4438,6 @@ exports[`renders components/transfer/demo/custom-item.tsx correctly 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -4842,9 +4551,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -4895,9 +4601,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -4919,9 +4622,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -4945,9 +4645,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -4969,9 +4666,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -4995,9 +4689,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -5020,9 +4711,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -5044,9 +4732,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -5137,9 +4822,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
             class="ant-checkbox-input"
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -5190,9 +4872,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -5215,9 +4894,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
           </label>
           <span
@@ -5239,9 +4915,6 @@ exports[`renders components/transfer/demo/custom-select-all-labels.tsx correctly
               <input
                 class="ant-checkbox-input"
                 type="checkbox"
-              />
-              <span
-                class="ant-checkbox-inner"
               />
             </span>
           </label>
@@ -5563,9 +5236,6 @@ Array [
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -5622,9 +5292,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -5646,9 +5313,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -5673,9 +5337,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -5697,9 +5358,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -5724,9 +5382,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -5748,9 +5403,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -5775,9 +5427,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -5799,9 +5448,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -5826,9 +5472,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -5850,9 +5493,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -5877,9 +5517,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -5901,9 +5538,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -5928,9 +5562,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -5952,9 +5583,6 @@ Array [
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -6307,9 +5935,6 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -6546,9 +6171,6 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
             disabled=""
             type="checkbox"
           />
-          <span
-            class="ant-checkbox-inner"
-          />
         </span>
       </label>
       <span
@@ -6733,9 +6355,6 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
               disabled=""
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -6905,9 +6524,6 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
               disabled=""
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -7018,9 +6634,6 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -7257,9 +6870,6 @@ exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -7447,9 +7057,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -7503,9 +7110,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -7527,9 +7131,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -7553,9 +7154,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -7577,9 +7175,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -7603,9 +7198,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -7627,9 +7219,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -7653,9 +7242,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -7677,9 +7263,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -7703,9 +7286,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -7728,9 +7308,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -7752,9 +7329,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -7846,9 +7420,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -7902,9 +7473,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -7926,9 +7494,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -7952,9 +7517,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -7976,9 +7538,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8002,9 +7561,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8026,9 +7582,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8052,9 +7605,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8077,9 +7627,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8101,9 +7648,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8137,9 +7681,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -8194,9 +7735,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8218,9 +7756,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8244,9 +7779,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8268,9 +7800,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8294,9 +7823,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8318,9 +7844,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8344,9 +7867,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8368,9 +7888,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8394,9 +7911,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8419,9 +7933,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8443,9 +7954,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8538,9 +8046,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -8594,9 +8099,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8618,9 +8120,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8644,9 +8143,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8668,9 +8164,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8694,9 +8187,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8718,9 +8208,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8744,9 +8231,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8769,9 +8253,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                   class="ant-checkbox-input"
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -8793,9 +8274,6 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
                 <input
                   class="ant-checkbox-input"
                   type="checkbox"
-                />
-                <span
-                  class="ant-checkbox-inner"
                 />
               </span>
             </label>
@@ -8959,9 +8437,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                       class="ant-checkbox-input"
                                       type="checkbox"
                                     />
-                                    <span
-                                      class="ant-checkbox-inner"
-                                    />
                                   </span>
                                 </label>
                                 <div
@@ -9033,9 +8508,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -9076,9 +8548,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -9121,9 +8590,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -9164,9 +8630,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -9209,9 +8672,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -9252,9 +8712,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -9297,9 +8754,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -9340,9 +8794,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -9385,9 +8836,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                     class="ant-checkbox-input"
                                     type="checkbox"
                                   />
-                                  <span
-                                    class="ant-checkbox-inner"
-                                  />
                                 </span>
                               </label>
                             </td>
@@ -9428,9 +8876,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                   <input
                                     class="ant-checkbox-input"
                                     type="checkbox"
-                                  />
-                                  <span
-                                    class="ant-checkbox-inner"
                                   />
                                 </span>
                               </label>
@@ -9758,9 +9203,6 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
                                       class="ant-checkbox-input"
                                       disabled=""
                                       type="checkbox"
-                                    />
-                                    <span
-                                      class="ant-checkbox-inner"
                                     />
                                   </span>
                                 </label>
