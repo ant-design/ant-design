@@ -101,6 +101,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     {
       button: {
         _default: 'root',
+        _remove: ['icon', 'content'],
       },
     },
   );

@@ -208,6 +208,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     {
       popup: {
         _default: 'root',
+        _remove: ['listItem', 'list'],
       },
     },
   );

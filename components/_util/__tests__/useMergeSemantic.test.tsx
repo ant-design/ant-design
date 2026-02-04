@@ -1,6 +1,6 @@
 import { renderHook } from '@testing-library/react';
 
-import { fillObjectBySchema, mergeClassNames, useMergeSemantic } from '../hooks';
+import { mergeClassNames, useMergeSemantic } from '../hooks';
 
 const mockSchema = {
   // _default: 'root',
@@ -67,42 +67,6 @@ describe('useMergeSemantic', () => {
 
     const [classNames, styles] = result.current;
     expect(classNames.container.header).toHaveProperty('header-root', 'foo');
-    //  color 是冗余的，但是目前的实现会保留它
-    expect(styles.container.header).toEqual({ color: 'red', 'header-root': { color: 'red' } });
-
-    const schema = { dragger: { _default: 'default' } };
-
-    // string
-    const res = { test: 'test', dragger: { default: 'aaa' } };
-    expect(fillObjectBySchema({ test: 'test', dragger: 'aaa' }, schema)).toEqual(res);
-    expect(fillObjectBySchema({ test: 'test', dragger: { default: 'aaa' } }, schema)).toEqual(res);
-    // more fields
-    expect(
-      fillObjectBySchema({ test: 'test', dragger: { test: 'test', default: 'aaa' } }, schema),
-    ).toEqual({ test: 'test', dragger: { test: 'test', default: 'aaa' } });
-
-    // CSS
-    const res2 = { test: 'test', dragger: { default: { color: 'red' } } };
-    expect(fillObjectBySchema({ test: 'test', dragger: { color: 'red' } }, schema)).toEqual({
-      test: 'test',
-      dragger: {
-        // color 是冗余的，但是目前的实现会保留它
-        color: 'red',
-        default: { color: 'red' },
-      },
-    });
-    expect(
-      fillObjectBySchema({ test: 'test', dragger: { default: { color: 'red' } } }, schema),
-    ).toEqual(res2);
-    // more fields
-    expect(
-      fillObjectBySchema(
-        { test: 'test', dragger: { test: { background: 'blue' }, default: { color: 'red' } } },
-        schema,
-      ),
-    ).toEqual({
-      test: 'test',
-      dragger: { test: { background: 'blue' }, default: { color: 'red' } },
-    });
+    expect(styles.container.header).toEqual({ color: 'red' });
   });
 });

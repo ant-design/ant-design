@@ -11,7 +11,6 @@ export type SplitterSemanticType = {
   styles?: {
     root?: React.CSSProperties;
     panel?: React.CSSProperties;
-    // remove React.CSSProperties
     dragger?: { default?: React.CSSProperties; active?: React.CSSProperties };
   };
 };

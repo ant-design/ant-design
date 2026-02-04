@@ -255,12 +255,15 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     {
       pagination: {
         _default: 'root',
+        _remove: ['item'],
       },
       header: {
         _default: 'wrapper',
+        _remove: ['cell', 'row'],
       },
       body: {
         _default: 'wrapper',
+        _remove: ['cell', 'row'],
       },
     },
   );

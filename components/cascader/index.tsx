@@ -395,6 +395,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     {
       popup: {
         _default: 'root',
+        _remove: ['listItem', 'list'],
       },
     },
   );

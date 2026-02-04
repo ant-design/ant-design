@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { classNameFillObjectBySchema, styleFillObjectBySchema } from '../fillObjectBySchema';
 import type { AnyObject, EmptyObject, ValidChar } from '../type';
 import type { RemoveClassNamesString } from './semanticType';
 
-export type SemanticSchema = { _default?: string } & {
+export type SemanticSchema = { _default?: string; _remove?: string[] } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
@@ -87,27 +88,6 @@ const useSemanticStyles = <StylesType extends AnyObject>(
 };
 
 // =========================== Export ===========================
-export const fillObjectBySchema = (obj: Record<string, any>, schema: Record<string, any>) => {
-  const newObj: Record<string, any> = { ...obj };
-  Object.keys(schema).forEach((key) => {
-    const thisData = newObj[key];
-    if (thisData) {
-      const thisType = typeof thisData;
-      const thisKey = schema[key]._default;
-      const defaultData = thisData[schema[key]._default];
-      const keyData = defaultData || thisData;
-      const isLast = !!thisKey || thisType === 'string';
-      if (isLast) {
-        // all fill to thisKey
-        newObj[key] = thisType === 'string' ? {} : { ...thisData };
-        newObj[key][thisKey] = keyData;
-      } else {
-        newObj[key] = fillObjectBySchema(keyData, schema[key]);
-      }
-    }
-  });
-  return newObj;
-};
 
 export const resolveStyleOrClass = <T = any>(
   value: T | ((config: any) => T),
@@ -145,8 +125,8 @@ export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props =
       return [mergedClassNames, mergedStyles] as const;
     }
     return [
-      fillObjectBySchema(mergedClassNames, schema),
-      fillObjectBySchema(mergedStyles, schema),
+      classNameFillObjectBySchema(mergedClassNames, schema),
+      styleFillObjectBySchema(mergedStyles, schema),
     ] as const;
   }, [mergedClassNames, mergedStyles, schema]) as [
     RemoveClassNamesString<NonNullable<ClassNamesType>>,

@@ -193,7 +193,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       props: mergedProps,
     },
     {
-      popup: { _default: 'root' },
+      popup: { _default: 'root', _remove: ['mask', 'body', 'footer', 'actions'] },
     },
   );
 

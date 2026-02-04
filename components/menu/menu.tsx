@@ -187,6 +187,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       },
       subMenu: {
         _default: 'item',
+        _remove: ['itemTitle', 'list', 'itemContent', 'itemIcon'],
       },
     },
   );

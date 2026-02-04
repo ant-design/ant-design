@@ -298,6 +298,7 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     {
       popup: {
         _default: 'root',
+        _remove: ['item', 'itemTitle'],
       },
     },
   );
