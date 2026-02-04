@@ -91,7 +91,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // Collapse animation state
   const [isCollapsing, setIsCollapsing] = useState(false);
-  const collapseTimerRef = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Calculate animation duration
   const collapseDurationMs =
@@ -103,10 +103,18 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   useEffect(() => {
     if (collapseDurationMs === null) {
-      clearTimeout(collapseTimerRef.current);
+      if (collapseTimerRef.current) {
+        clearTimeout(collapseTimerRef.current);
+        collapseTimerRef.current = null;
+      }
       setIsCollapsing(false);
     }
-    return () => clearTimeout(collapseTimerRef.current);
+    return () => {
+      if (collapseTimerRef.current) {
+        clearTimeout(collapseTimerRef.current);
+        collapseTimerRef.current = null;
+      }
+    };
   }, [collapseDurationMs]);
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
@@ -161,7 +169,10 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
-    clearTimeout(collapseTimerRef.current);
+    if (collapseTimerRef.current) {
+      clearTimeout(collapseTimerRef.current);
+      collapseTimerRef.current = null;
+    }
     if (collapseDurationMs !== null) {
       setIsCollapsing(true);
       collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), collapseDurationMs);

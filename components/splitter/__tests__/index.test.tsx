@@ -1024,7 +1024,7 @@ describe('Splitter', () => {
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
 
       act(() => {
-        jest.advanceTimersByTime(250);
+        jest.runOnlyPendingTimers();
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1040,14 +1040,14 @@ describe('Splitter', () => {
 
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
       act(() => {
-        jest.advanceTimersByTime(250);
+        jest.runOnlyPendingTimers();
       });
 
       fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
 
       act(() => {
-        jest.advanceTimersByTime(250);
+        jest.runOnlyPendingTimers();
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1066,7 +1066,7 @@ describe('Splitter', () => {
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
 
       act(() => {
-        jest.advanceTimersByTime(250);
+        jest.runOnlyPendingTimers();
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1084,7 +1084,7 @@ describe('Splitter', () => {
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(3);
 
       act(() => {
-        jest.advanceTimersByTime(250);
+        jest.runOnlyPendingTimers();
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1112,7 +1112,7 @@ describe('Splitter', () => {
 
       // Wait for all animations to complete
       act(() => {
-        jest.advanceTimersByTime(250);
+        jest.runOnlyPendingTimers();
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
@@ -1128,9 +1128,20 @@ describe('Splitter', () => {
 
       // Simulate drag resize
       const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
-      fireEvent.mouseDown(dragger, { clientX: 50 });
-      fireEvent.mouseMove(dragger, { clientX: 70 });
-      fireEvent.mouseUp(dragger);
+      const mouseDownEvent = createEvent.mouseDown(dragger);
+      Object.defineProperty(mouseDownEvent, 'pageX', { value: 50 });
+      Object.defineProperty(mouseDownEvent, 'pageY', { value: 50 });
+      fireEvent(dragger, mouseDownEvent);
+
+      const mouseMoveEvent = createEvent.mouseMove(window);
+      Object.defineProperty(mouseMoveEvent, 'pageX', { value: 70 });
+      Object.defineProperty(mouseMoveEvent, 'pageY', { value: 70 });
+      fireEvent(window, mouseMoveEvent);
+
+      const mouseUpEvent = createEvent.mouseUp(window);
+      Object.defineProperty(mouseUpEvent, 'pageX', { value: 70 });
+      Object.defineProperty(mouseUpEvent, 'pageY', { value: 70 });
+      fireEvent(window, mouseUpEvent);
 
       // Should not have transition class during drag
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
@@ -1149,7 +1160,7 @@ describe('Splitter', () => {
       expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
 
       act(() => {
-        jest.advanceTimersByTime(250);
+        jest.runOnlyPendingTimers();
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
