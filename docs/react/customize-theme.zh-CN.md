@@ -32,7 +32,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 通过 `theme` 中的 `token` 属性，可以修改一些主题变量。部分主题变量会引起其他主题变量的变化，我们把这些主题变量称为 Seed Token。
 
 <!-- prettier-ignore -->
-<code src="./customize-theme/demo/modify-theme-token.tsx">修改主题变量</code>
+<code src="./demo/modify-theme-token.tsx">修改主题变量</code>
 
 ### 使用预设算法
 
@@ -45,7 +45,7 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 你可以通过 `theme` 中的 `algorithm` 属性来切换算法，并且支持配置多种算法，将会依次生效。
 
 <!-- prettier-ignore -->
-<code src="./customize-theme/demo/preset-algorithm.tsx">使用预设算法</code>
+<code src="./demo/preset-algorithm.tsx">使用预设算法</code>
 
 ### 修改组件变量
 
@@ -60,14 +60,14 @@ Ant Design 设计规范和技术上支持灵活的样式定制，以满足业务
 :::
 
 <!-- prettier-ignore -->
-<code src="./customize-theme/demo/component-token.tsx">修改组件变量</code>
+<code src="./demo/component-token.tsx">修改组件变量</code>
 
 ### 禁用动画
 
 antd 默认内置了一些组件交互动效让企业级页面更加富有细节，在一些极端场景可能会影响页面交互性能，如需关闭动画可以 `token` 中的 `motion` 修改为 `false`：
 
 <!-- prettier-ignore -->
-<code src="./customize-theme/demo/disable-motion.tsx">禁用动画</code>
+<code src="./demo/disable-motion.tsx">禁用动画</code>
 
 ## 进阶使用
 
@@ -103,21 +103,21 @@ fs.writeFileSync('/path/to/somewhere', cssText);
 在 v5 中，动态切换主题对用户来说是非常简单的，你可以在任何时候通过 `ConfigProvider` 的 `theme` 属性来动态切换主题，而不需要任何额外配置。
 
 <!-- prettier-ignore -->
-<code src="./customize-theme/demo/dynamic-theme.tsx">动态切换</code>
+<code src="./demo/dynamic-theme.tsx">动态切换</code>
 
 ### 局部主题（嵌套主题）
 
 可以嵌套使用 `ConfigProvider` 来实现局部主题的更换。在子主题中未被改变的 Design Token 将会继承父主题。
 
 <!-- prettier-ignore -->
-<code src="./customize-theme/demo/local-theme.tsx">局部主题</code>
+<code src="./demo/local-theme.tsx">局部主题</code>
 
 ### 使用 Design Token
 
 如果你希望使用当前主题下的 Design Token，我们提供了 `useToken` 这个 hook 来获取 Design Token。
 
 <!-- prettier-ignore -->
-<code src="./customize-theme/demo/use-token.tsx">使用 Design Token</code>
+<code src="./demo/use-token.tsx">使用 Design Token</code>
 
 ### 静态消费（如 less）
 
