@@ -101,7 +101,9 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         alignItems: 'center',
         lineHeight: 1,
         borderRadius,
-        transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
+        transition: [`border`, `box-shadow`, `background-color`]
+          .map((prop) => `${prop} ${motionDurationMid}`)
+          .join(', '),
 
         [`${componentCls}-prefix`]: {
           flex: '0 0 auto',

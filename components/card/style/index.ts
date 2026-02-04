@@ -315,6 +315,7 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
     boxShadowTertiary,
     bodyPadding,
     extraColor,
+    motionDurationMid,
   } = token;
 
   return {
@@ -379,7 +380,9 @@ const genCardStyle: GenerateStyle<CardToken> = (token): CSSObject => {
 
     [`${componentCls}-hoverable`]: {
       cursor: 'pointer',
-      transition: `box-shadow ${token.motionDurationMid}, border-color ${token.motionDurationMid}`,
+      transition: [`box-shadow`, `border-color`]
+        .map((prop) => `${prop} ${motionDurationMid}`)
+        .join(', '),
 
       '&:hover': {
         borderColor: 'transparent',
