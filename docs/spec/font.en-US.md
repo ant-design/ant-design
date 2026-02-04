@@ -26,7 +26,7 @@ In order to implement a good font system, the first thing is to choose an approp
   'Noto Color Emoji';
 ```
 
-> References：https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ and https://markdotto.com/blog/github-system-fonts/
+> References: https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/ and https://markdotto.com/blog/github-system-fonts/
 
 In addition, in many applications, numbers often need to be displayed vertically. We recommend setting the CSS property `font-variant-numeric` to `tabular-nums` to use [tabular figures](https://www.fonts.com/content/learning/fontology/level-3/numbers/proportional-vs-tabular-figures).
 
