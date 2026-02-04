@@ -5,7 +5,9 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -342,7 +344,9 @@ exports[`renders components/table/demo/bordered.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -560,7 +564,9 @@ exports[`renders components/table/demo/colspan-rowspan.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -1868,7 +1874,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -3202,7 +3210,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -3474,7 +3484,9 @@ exports[`renders components/table/demo/custom-filter-panel.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -3857,7 +3869,9 @@ exports[`renders components/table/demo/drag-column-sorting.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -4182,7 +4196,9 @@ exports[`renders components/table/demo/drag-sorting.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -4398,7 +4414,9 @@ exports[`renders components/table/demo/drag-sorting-handler.tsx correctly 1`] = 
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -5712,7 +5730,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -7044,7 +7064,9 @@ exports[`renders components/table/demo/edit-cell.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -7258,7 +7280,9 @@ exports[`renders components/table/demo/edit-row.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -7845,7 +7869,9 @@ exports[`renders components/table/demo/ellipsis.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -8136,7 +8162,9 @@ exports[`renders components/table/demo/ellipsis-custom-tooltip.tsx correctly 1`]
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -8439,7 +8467,9 @@ exports[`renders components/table/demo/expand.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -8739,7 +8769,9 @@ exports[`renders components/table/demo/expand-sticky.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -9076,7 +9108,9 @@ exports[`renders components/table/demo/filter-in-tree.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -9427,7 +9461,9 @@ exports[`renders components/table/demo/filter-search.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -9778,7 +9814,9 @@ exports[`renders components/table/demo/fixed-columns.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -10568,7 +10606,9 @@ exports[`renders components/table/demo/fixed-columns-header.tsx correctly 1`] = 
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -12534,7 +12574,9 @@ exports[`renders components/table/demo/fixed-gapped-columns.tsx correctly 1`] = 
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -13278,7 +13320,9 @@ exports[`renders components/table/demo/fixed-header.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -14535,7 +14579,9 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -15672,7 +15718,9 @@ exports[`renders components/table/demo/head.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -16229,7 +16277,9 @@ Array [
     style="margin-top:24px"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -16488,7 +16538,9 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -16853,7 +16905,9 @@ exports[`renders components/table/demo/multiple-sorter.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -17274,7 +17328,9 @@ exports[`renders components/table/demo/narrow.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -17910,7 +17966,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -18248,7 +18306,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -18387,7 +18447,9 @@ Array [
                         class="css-var-test-id ant-table-css-var ant-table-wrapper"
                       >
                         <div
-                          class="ant-spin-nested-loading css-var-test-id"
+                          aria-busy="false"
+                          aria-live="polite"
+                          class="ant-spin css-var-test-id"
                         >
                           <div
                             class="ant-spin-container"
@@ -18906,7 +18968,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -19045,7 +19109,9 @@ Array [
                         class="css-var-test-id ant-table-css-var ant-table-wrapper"
                       >
                         <div
-                          class="ant-spin-nested-loading css-var-test-id"
+                          aria-busy="false"
+                          aria-live="polite"
+                          class="ant-spin css-var-test-id"
                         >
                           <div
                             class="ant-spin-container"
@@ -19564,7 +19630,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -19703,7 +19771,9 @@ Array [
                         class="css-var-test-id ant-table-css-var ant-table-wrapper"
                       >
                         <div
-                          class="ant-spin-nested-loading css-var-test-id"
+                          aria-busy="false"
+                          aria-live="polite"
+                          class="ant-spin css-var-test-id"
                         >
                           <div
                             class="ant-spin-container"
@@ -20226,7 +20296,9 @@ exports[`renders components/table/demo/order-column.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -20752,7 +20824,9 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -21211,7 +21285,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -21685,7 +21761,9 @@ exports[`renders components/table/demo/responsive.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -21872,7 +21950,9 @@ exports[`renders components/table/demo/row-selection.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -22211,7 +22291,9 @@ exports[`renders components/table/demo/row-selection-and-operation.tsx correctly
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -22781,7 +22863,9 @@ exports[`renders components/table/demo/row-selection-custom.tsx correctly 1`] = 
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -23377,7 +23461,9 @@ exports[`renders components/table/demo/row-selection-custom-debug.tsx correctly 
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -23845,7 +23931,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -25882,7 +25970,9 @@ exports[`renders components/table/demo/selections-debug.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -26199,7 +26289,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -26410,7 +26502,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -26609,7 +26703,9 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -27866,7 +27962,9 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
     style="padding:10px;border-radius:8px"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -28099,7 +28197,9 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
     style="color:#e0e0e0;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3)"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -28347,7 +28447,9 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -28529,7 +28631,9 @@ exports[`renders components/table/demo/summary.tsx correctly 1`] = `
     class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1v0ot46"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -29014,7 +29118,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -29314,7 +29420,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -30039,7 +30147,9 @@ Array [
     class="css-var-test-id ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
