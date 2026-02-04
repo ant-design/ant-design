@@ -66,7 +66,7 @@ demo:
 | focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean, closable?: boolean}` | true | mask.closable: 6.4.0 |
+| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |

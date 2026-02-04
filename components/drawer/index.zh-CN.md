@@ -70,7 +70,7 @@ v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v
 | ~~height~~ | 高度，在 `placement` 为 `top` 或 `bottom` 时使用，请使用 `size` 替换 | string \| number | 378 |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
 | loading | 显示骨架屏 | boolean | false | 5.17.0 |
-| mask | 遮罩效果 | boolean \| `{ enabled?: boolean, blur?: boolean, closable?: boolean }` | true | mask.closable: 6.4.0 |
+| mask | 遮罩效果 | boolean \| `{ enabled?: boolean, blur?: boolean, closable?: boolean }` | true | mask.closable: 6.3.0 |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭 | boolean | true |  |
 | maxSize | 可拖拽的最大尺寸（宽度或高度，取决于 `placement`） | number | - | 6.0.0 |
 | open | Drawer 是否可见 | boolean | false |  |
