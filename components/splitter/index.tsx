@@ -1,15 +1,7 @@
 import Panel from './Panel';
 import SplitterComp from './Splitter';
 
-export type {
-  DraggerSemantic,
-  DraggerSemanticClassNames,
-  DraggerSemanticStyles,
-  SplitterProps,
-  SplitterSemanticClassNames,
-  SplitterSemanticName,
-  SplitterSemanticStyles,
-} from './interface';
+export type { SplitterProps, SplitterSemanticAllType } from './interface';
 
 type CompoundedComponent = typeof SplitterComp & {
   Panel: typeof Panel;
