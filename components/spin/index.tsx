@@ -40,9 +40,9 @@ export type SpinSemanticStyles = {
 
   container?: React.CSSProperties;
 
-  /** @deprecated Use `description` instead */
+  /** @deprecated Please use `description` instead */
   tip?: React.CSSProperties;
-  /** @deprecated Use `root` instead */
+  /** @deprecated Please use `root` instead */
   mask?: React.CSSProperties;
 };
 
