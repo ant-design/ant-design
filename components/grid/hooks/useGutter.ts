@@ -19,6 +19,7 @@ export default function useGutter(
     lg: true,
     xl: true,
     xxl: true,
+    xxxl: true,
   };
 
   normalizedGutter.forEach((g, index) => {
