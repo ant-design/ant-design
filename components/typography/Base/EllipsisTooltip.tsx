@@ -7,12 +7,15 @@ export interface EllipsisTooltipProps {
   tooltipProps?: TooltipProps;
   enableEllipsis: boolean;
   isEllipsis?: boolean;
+  /** When true, show the ellipsis tooltip; when false, hide it. Fully controlled so tooltip re-opens when moving from copy button back to text. */
+  showEllipsisTooltip?: boolean;
   children: React.ReactElement;
 }
 
 const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
   enableEllipsis,
   isEllipsis,
+  showEllipsisTooltip,
   children,
   tooltipProps,
 }) => {
@@ -20,8 +23,10 @@ const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
     return children;
   }
 
+  const open =
+    showEllipsisTooltip !== undefined ? showEllipsisTooltip : isEllipsis ? undefined : false;
   return (
-    <Tooltip open={isEllipsis ? undefined : false} {...tooltipProps}>
+    <Tooltip open={open} {...tooltipProps}>
       {children}
     </Tooltip>
   );

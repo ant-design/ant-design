@@ -262,6 +262,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
+  const [isHoveringOperations, setIsHoveringOperations] = React.useState(false);
+  const [isHoveringTypography, setIsHoveringTypography] = React.useState(false);
   const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
   };
@@ -407,11 +409,18 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (canEllipsis: boolean) => [
-    canEllipsis && renderExpand(),
-    renderEdit(),
-    renderCopy(),
-  ];
+  const renderOperations = (canEllipsis: boolean) => (
+    <span
+      key="operations"
+      onMouseEnter={() => setIsHoveringOperations(true)}
+      onMouseLeave={() => setIsHoveringOperations(false)}
+      style={{ display: 'inline' }}
+    >
+      {canEllipsis && renderExpand()}
+      {renderEdit()}
+      {renderCopy()}
+    </span>
+  );
 
   const renderEllipsis = (canEllipsis: boolean) => [
     canEllipsis && !expanded && (
@@ -423,6 +432,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     renderOperations(canEllipsis),
   ];
 
+  const {
+    onMouseEnter: onMouseEnterText,
+    onMouseLeave: onMouseLeaveText,
+    ...restTextProps
+  } = textProps;
+
   return (
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis}>
       {(resizeRef: React.RefObject<HTMLElement>) => (
@@ -430,8 +445,17 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tooltipProps={tooltipProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
+          showEllipsisTooltip={isMergedEllipsis && isHoveringTypography && !isHoveringOperations}
         >
           <Typography
+            onMouseEnter={(e) => {
+              setIsHoveringTypography(true);
+              onMouseEnterText?.(e);
+            }}
+            onMouseLeave={(e) => {
+              setIsHoveringTypography(false);
+              onMouseLeaveText?.(e);
+            }}
             className={clsx(
               {
                 [`${prefixCls}-${type}`]: type,
@@ -454,7 +478,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             onClick={triggerType.includes('text') ? onEditClick : undefined}
             aria-label={topAriaLabel?.toString()}
             title={title}
-            {...textProps}
+            {...restTextProps}
           >
             <Ellipsis
               enableMeasure={mergedEnableEllipsis && !cssEllipsis}
