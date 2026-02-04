@@ -1,6 +1,7 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
+import { responsiveArrayReversed } from 'antd/es/_util/responsiveObserver';
 import type { ColProps } from 'antd/es/grid';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -23,12 +24,12 @@ import type { InputProps } from '../../input';
 import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Popover from '../../popover';
 import Radio from '../../radio';
+import Segmented from '../../segmented';
 import Select from '../../select';
 import Slider from '../../slider';
 import Switch from '../../switch';
-import Popover from '../../popover';
-import Segmented from '../../segmented';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 import type { NamePath } from '../interface';
@@ -1442,7 +1443,7 @@ describe('Form', () => {
     expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
 
     // more size
-    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    const list = responsiveArrayReversed;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
@@ -1491,7 +1492,7 @@ describe('Form', () => {
     expect(twoItem?.className.includes('offset')).toBeFalsy();
 
     // more size
-    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    const list = responsiveArrayReversed;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
