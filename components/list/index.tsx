@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 
 import extendsObject from '../_util/extendsObject';
 import { responsiveArray } from '../_util/responsiveObserver';
+import type { Breakpoint } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -30,7 +31,7 @@ export type {
 
 export type ColumnCount = number;
 
-export type ColumnType = 'gutter' | 'column' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export type ColumnType = 'gutter' | 'column' | Breakpoint;
 
 export interface ListGridType {
   gutter?: RowProps['gutter'];
@@ -41,6 +42,7 @@ export interface ListGridType {
   lg?: ColumnCount;
   xl?: ColumnCount;
   xxl?: ColumnCount;
+  xxxl?: ColumnCount;
 }
 
 export type ListSize = 'small' | 'default' | 'large';
@@ -241,7 +243,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
   }
 
   const needResponsive = Object.keys(grid || {}).some((key) =>
-    ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'].includes(key),
+    responsiveArray.includes(key as Breakpoint),
   );
   const screens = useBreakpoint(needResponsive);
   const currentBreakpoint = React.useMemo(() => {
