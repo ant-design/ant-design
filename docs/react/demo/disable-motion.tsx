@@ -3,7 +3,7 @@ import { Checkbox, Col, ConfigProvider, Flex, Radio, Row, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [checked, setChecked] = useState<boolean>(false);
-  const timerRef = useRef<ReturnType<typeof setInterval>>();
+  const timerRef = useRef<ReturnType<typeof setInterval>>(null);
 
   useEffect(() => {
     timerRef.current = setInterval(() => {
