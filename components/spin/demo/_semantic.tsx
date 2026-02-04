@@ -83,8 +83,8 @@ const App: React.FC = () => {
       componentName="Spin"
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
-        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
         { name: 'section', desc: locale.section, version: '6.3.0' },
+        { name: 'indicator', desc: locale.indicator, version: '6.0.0' },
         { name: 'description', desc: locale.description, version: '6.3.0' },
         { name: 'container', desc: locale.container, version: '6.3.0' },
       ]}
