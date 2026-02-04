@@ -1,4 +1,4 @@
-import { classNameFillObjectBySchema } from '../fillObjectBySchema';
+import { classNameFillObjectBySchema, styleFillObjectBySchema } from '../fillObjectBySchema';
 
 type DemoSemanticType = {
   classNames?: {
@@ -13,47 +13,38 @@ type DemoSemanticType = {
 
 describe('fillObjectBySchema,', () => {
   it('classNameFillObjectBySchema', () => {
-    const data1: DemoSemanticType['classNames'] = {
-      root: 'root-class',
-      dragger: 'dragger-class',
-    };
-    const schema1 = { body: { _default: 'wrapper' } };
+    const schema1 = { dragger: { _default: 'default' } };
+
     const result1 = { root: 'root-class', dragger: { default: 'dragger-class' } };
-    // need fill
-    expect(classNameFillObjectBySchema(data1, schema1)).toEqual(result1);
-    const data2: DemoSemanticType['classNames'] = {
-      root: 'root-class',
-      dragger: { default: 'dragger-class' },
-    };
-    // no need fill
-    expect(classNameFillObjectBySchema(data2, schema1)).toEqual(result1);
+    const list: NonNullable<DemoSemanticType['classNames']>[] = [
+      // need fill
+      { root: 'root-class', dragger: 'dragger-class' },
+      // no need fill
+      { root: 'root-class', dragger: { default: 'dragger-class' } },
+    ];
+    expect(classNameFillObjectBySchema(list[0], schema1)).toEqual(result1);
+    expect(classNameFillObjectBySchema(list[1], schema1)).toEqual(result1);
   });
   it('styleFillObjectBySchema', () => {
-    const data1: DemoSemanticType['styles'] = {
-      root: { color: 'red' },
-      dragger: { background: 'blue' },
-    };
-    const schema1 = { body: { _default: 'wrapper', _remove: ['active'] } };
+    const schema1 = { dragger: { _default: 'default', _remove: ['active'] } };
+
     const result1 = {
       root: { color: 'red' },
       dragger: { default: { background: 'blue' } },
     };
-    // need fill
-    expect(classNameFillObjectBySchema(data1, schema1)).toEqual(result1);
-    const data2: DemoSemanticType['styles'] = {
+    const list: NonNullable<DemoSemanticType['styles']>[] = [
+      // need fill
+      { root: { color: 'red' }, dragger: { background: 'blue' } },
+      // no need fill
+      { root: { color: 'red' }, dragger: { default: { background: 'blue' } } },
+      // remove active
+      { root: { color: 'red' }, dragger: { width: 1, active: { background: 'blue' } } },
+    ];
+    expect(styleFillObjectBySchema(list[0], schema1)).toEqual(result1);
+    expect(styleFillObjectBySchema(list[1], schema1)).toEqual(result1);
+    expect(styleFillObjectBySchema(list[2], schema1)).toEqual({
       root: { color: 'red' },
-      dragger: { default: { background: 'blue' } },
-    };
-    // no need fill
-    expect(classNameFillObjectBySchema(data2, schema1)).toEqual(result1);
-    const data3: DemoSemanticType['styles'] = {
-      root: { color: 'red' },
-      dragger: { width: 1, active: { background: 'blue' } },
-    };
-    // remove active
-    expect(classNameFillObjectBySchema(data3, schema1)).toEqual({
-      root: { color: 'red' },
-      dragger: { width: 1, default: { width: 1 }, active: { background: 'blue' } },
+      dragger: { default: { width: 1 }, active: { background: 'blue' } },
     });
   });
 });

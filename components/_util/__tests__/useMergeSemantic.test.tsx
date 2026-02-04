@@ -67,6 +67,6 @@ describe('useMergeSemantic', () => {
 
     const [classNames, styles] = result.current;
     expect(classNames.container.header).toHaveProperty('header-root', 'foo');
-    expect(styles.container.header).toEqual({ color: 'red' });
+    expect(styles.container.header).toEqual({ 'header-root': { color: 'red' } });
   });
 });
