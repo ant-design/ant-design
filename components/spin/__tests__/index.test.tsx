@@ -209,5 +209,20 @@ describe('Spin', () => {
 
       expect(container.querySelector('.ant-spin-description')?.textContent).toBe('Loading...');
     });
+
+    it('should warning when using wrapperClassName', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+      render(
+        <Spin wrapperClassName="custom-wrapper">
+          <div>content</div>
+        </Spin>,
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Spin] `wrapperClassName` is deprecated. Please use `classNames.root` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
   });
 });

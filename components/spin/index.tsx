@@ -71,6 +71,7 @@ export interface SpinProps {
   /** Specifies a delay in milliseconds for loading state (prevent flush) */
   delay?: number;
   /** The className of wrapper when Spin has children */
+  /** @deprecated Please use `classNames.root` instead */
   wrapperClassName?: string;
   /** React node of the spinning indicator */
   indicator?: SpinIndicator;
@@ -197,6 +198,8 @@ const Spin: SpinType = (props) => {
       'classNames.mask and styles.mask',
       'classNames.root and styles.root',
     );
+
+    warning.deprecated(!wrapperClassName, 'wrapperClassName', 'classNames.root');
   }
 
   const indicatorNode = (
@@ -244,6 +247,7 @@ const Spin: SpinType = (props) => {
         !isNested && `${prefixCls}-section`,
         !isNested && mergedClassNames.section,
         fullscreen && mergedClassNames.mask,
+        isNested && wrapperClassName,
         contextClassName,
         className,
         hashId,

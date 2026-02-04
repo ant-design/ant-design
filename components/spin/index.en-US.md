@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | spinning | Whether Spin is visible | boolean | true |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | ~~tip~~ | Customize description content when Spin has children. Deprecated, use `description` instead | ReactNode | - |  |
-| wrapperClassName | The className of wrapper when Spin has children | string | - |  |
+| ~~wrapperClassName~~ | The className of wrapper when Spin has children. Deprecated, use `classNames.root` instead | string | - |  |
 
 ### Static Method
 
