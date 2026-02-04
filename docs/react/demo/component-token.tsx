@@ -8,17 +8,17 @@ const App: React.FC = () => (
         components: {
           Button: {
             colorPrimary: '#00b96b',
-            algorithm: true, // 启用算法
+            algorithm: true, // Enable algorithm
           },
           Input: {
             colorPrimary: '#eb2f96',
-            algorithm: true, // 启用算法
+            algorithm: true, // Enable algorithm
           },
         },
       }}
     >
       <Space>
-        <div style={{ fontSize: 14 }}>开启算法：</div>
+        <div style={{ fontSize: 14 }}>Algorithm Enabled:</div>
         <Input placeholder="Please Input" />
         <Button type="primary">Submit</Button>
       </Space>
@@ -37,7 +37,7 @@ const App: React.FC = () => (
       }}
     >
       <Space>
-        <div style={{ fontSize: 14 }}>禁用算法：</div>
+        <div style={{ fontSize: 14 }}>Algorithm Disabled:</div>
         <Input placeholder="Please Input" />
         <Button type="primary">Submit</Button>
       </Space>

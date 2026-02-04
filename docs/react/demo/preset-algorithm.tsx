@@ -4,10 +4,10 @@ import { Button, ConfigProvider, Input, Space, theme } from 'antd';
 const App: React.FC = () => (
   <ConfigProvider
     theme={{
-      // 1. 单独使用暗色算法
+      // 1. Use dark algorithm alone
       algorithm: theme.darkAlgorithm,
 
-      // 2. 组合使用暗色算法与紧凑算法
+      // 2. Combine dark algorithm and compact algorithm
       // algorithm: [theme.darkAlgorithm, theme.compactAlgorithm],
     }}
   >

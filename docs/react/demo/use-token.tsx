@@ -16,7 +16,7 @@ const App: React.FC = () => {
         fontSize: token.fontSize,
       }}
     >
-      使用 Design Token
+      Use Design Token
     </div>
   );
 };
