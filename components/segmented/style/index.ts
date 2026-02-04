@@ -78,7 +78,7 @@ const segmentedTextEllipsisCss: CSSObject = {
 
 // ============================== Styles ==============================
 const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
-  const { componentCls } = token;
+  const { componentCls, motionDurationSlow, motionEaseInOut } = token;
 
   const labelHeight = token
     .calc(token.controlHeight)
@@ -262,8 +262,10 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
 
       // transition effect when `appear-active`
       [`${componentCls}-thumb-motion-appear-active`]: {
-        transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOut}, width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
         willChange: 'transform, width',
+        transition: [`transform`, `width`]
+          .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+          .join(', '),
       },
 
       [`&${componentCls}-shape-round`]: {
