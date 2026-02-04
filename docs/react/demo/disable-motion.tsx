@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Checkbox, Col, ConfigProvider, Flex, Row, Switch } from 'antd';
+import { Checkbox, Col, ConfigProvider, Flex, Radio, Row, Switch } from 'antd';
 
 const App: React.FC = () => {
   const [checked, setChecked] = useState<boolean>(false);
@@ -19,6 +19,7 @@ const App: React.FC = () => {
   const nodes = (
     <Flex gap="small">
       <Checkbox checked={checked}>Checkbox</Checkbox>
+      <Radio checked={checked}>Radio</Radio>
       <Switch checked={checked} />
     </Flex>
   );
