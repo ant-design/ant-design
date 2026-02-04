@@ -20,7 +20,7 @@ interface MenuProps {
 }
 
 describe('semanticType', () => {
-  it('test scrollTo', async () => {
+  it('type test', async () => {
     const menuConfig: MenuProps = {
       classNames: { root: 'root-class', popup: { root: 'popup-root-class' } },
       styles: { root: { color: 'red' }, popup: { root: { backgroundColor: 'blue' } } },
