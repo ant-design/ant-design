@@ -4,7 +4,7 @@ exports[`renders components/spin/demo/basic.tsx extend context correctly 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="ant-spin ant-spin-spinning css-var-test-id"
+  class="ant-spin ant-spin-spinning ant-spin-section css-var-test-id"
 >
   <span
     class="ant-spin-dot-holder"
@@ -38,7 +38,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       aria-label="loading"
@@ -63,7 +63,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       aria-label="loading"
@@ -88,7 +88,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-lg ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       aria-label="loading"
@@ -113,7 +113,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx extend context correc
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       aria-label="loading"
@@ -146,7 +146,9 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx extend context correc
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -212,35 +214,10 @@ Array [
     </span>
   </button>,
   <div
-    class="ant-spin-fullscreen css-var-test-id"
-  >
-    <div
-      aria-busy="false"
-      aria-live="polite"
-      class="ant-spin css-var-test-id"
-    >
-      <span
-        class="ant-spin-dot-holder"
-      >
-        <span
-          class="ant-spin-dot ant-spin-dot-spin"
-        >
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-          <i
-            class="ant-spin-dot-item"
-          />
-        </span>
-      </span>
-    </div>
-  </div>,
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin ant-spin-fullscreen css-var-test-id"
+  />,
 ]
 `;
 
@@ -251,7 +228,9 @@ exports[`renders components/spin/demo/nested.tsx extend context correctly 1`] = 
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
@@ -337,7 +316,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -390,7 +369,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -443,7 +422,7 @@ exports[`renders components/spin/demo/percent.tsx extend context correctly 1`] =
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-lg ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -505,7 +484,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -531,7 +510,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -557,7 +536,7 @@ exports[`renders components/spin/demo/size.tsx extend context correctly 1`] = `
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-lg ant-spin-spinning css-var-test-id"
+    class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-section css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -592,7 +571,7 @@ exports[`renders components/spin/demo/style-class.tsx extend context correctly 1
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-spinning acss-11z55jn css-var-test-id"
+    class="ant-spin ant-spin-spinning acss-11z55jn ant-spin-section css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -619,7 +598,7 @@ exports[`renders components/spin/demo/style-class.tsx extend context correctly 1
   <div
     aria-busy="true"
     aria-live="polite"
-    class="ant-spin ant-spin-sm ant-spin-spinning acss-11z55jn css-var-test-id"
+    class="ant-spin ant-spin-sm ant-spin-spinning acss-11z55jn ant-spin-section css-var-test-id"
   >
     <span
       class="ant-spin-dot-holder"
@@ -656,146 +635,12 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
     class="ant-flex css-var-test-id ant-flex-gap-middle"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-sm ant-spin-spinning css-var-test-id"
     >
-      <div>
-        <div
-          aria-busy="true"
-          aria-live="polite"
-          class="ant-spin ant-spin-sm ant-spin-spinning ant-spin-show-text css-var-test-id"
-        >
-          <span
-            class="ant-spin-dot-holder"
-          >
-            <span
-              class="ant-spin-dot ant-spin-dot-spin"
-            >
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-            </span>
-          </span>
-          <div
-            class="ant-spin-text"
-          >
-            Loading
-          </div>
-        </div>
-      </div>
       <div
-        class="ant-spin-container ant-spin-blur"
-      >
-        <div
-          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
-        />
-      </div>
-    </div>
-    <div
-      class="ant-spin-nested-loading css-var-test-id"
-    >
-      <div>
-        <div
-          aria-busy="true"
-          aria-live="polite"
-          class="ant-spin ant-spin-spinning ant-spin-show-text css-var-test-id"
-        >
-          <span
-            class="ant-spin-dot-holder"
-          >
-            <span
-              class="ant-spin-dot ant-spin-dot-spin"
-            >
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-            </span>
-          </span>
-          <div
-            class="ant-spin-text"
-          >
-            Loading
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-spin-container ant-spin-blur"
-      >
-        <div
-          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
-        />
-      </div>
-    </div>
-    <div
-      class="ant-spin-nested-loading css-var-test-id"
-    >
-      <div>
-        <div
-          aria-busy="true"
-          aria-live="polite"
-          class="ant-spin ant-spin-lg ant-spin-spinning ant-spin-show-text css-var-test-id"
-        >
-          <span
-            class="ant-spin-dot-holder"
-          >
-            <span
-              class="ant-spin-dot ant-spin-dot-spin"
-            >
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-              <i
-                class="ant-spin-dot-item"
-              />
-            </span>
-          </span>
-          <div
-            class="ant-spin-text"
-          >
-            Loading
-          </div>
-        </div>
-      </div>
-      <div
-        class="ant-spin-container ant-spin-blur"
-      >
-        <div
-          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
-        />
-      </div>
-    </div>
-  </div>
-  <div
-    class="ant-spin-nested-loading css-var-test-id"
-  >
-    <div>
-      <div
-        aria-busy="true"
-        aria-live="polite"
-        class="ant-spin ant-spin-spinning ant-spin-show-text css-var-test-id"
+        class="ant-spin-section"
       >
         <span
           class="ant-spin-dot-holder"
@@ -818,14 +663,140 @@ exports[`renders components/spin/demo/tip.tsx extend context correctly 1`] = `
           </span>
         </span>
         <div
-          class="ant-spin-text"
+          class="ant-spin-description"
         >
-          Loading...
+          Loading
         </div>
+      </div>
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
+        />
       </div>
     </div>
     <div
-      class="ant-spin-container ant-spin-blur"
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-spinning css-var-test-id"
+    >
+      <div
+        class="ant-spin-section"
+      >
+        <span
+          class="ant-spin-dot-holder"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+        </span>
+        <div
+          class="ant-spin-description"
+        >
+          Loading
+        </div>
+      </div>
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
+        />
+      </div>
+    </div>
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-lg ant-spin-spinning css-var-test-id"
+    >
+      <div
+        class="ant-spin-section"
+      >
+        <span
+          class="ant-spin-dot-holder"
+        >
+          <span
+            class="ant-spin-dot ant-spin-dot-spin"
+          >
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+            <i
+              class="ant-spin-dot-item"
+            />
+          </span>
+        </span>
+        <div
+          class="ant-spin-description"
+        >
+          Loading
+        </div>
+      </div>
+      <div
+        class="ant-spin-container"
+      >
+        <div
+          style="padding: 50px; background: rgba(0, 0, 0, 0.05); border-radius: 4px;"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-spinning css-var-test-id"
+  >
+    <div
+      class="ant-spin-section"
+    >
+      <span
+        class="ant-spin-dot-holder"
+      >
+        <span
+          class="ant-spin-dot ant-spin-dot-spin"
+        >
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+        </span>
+      </span>
+      <div
+        class="ant-spin-description"
+      >
+        Loading...
+      </div>
+    </div>
+    <div
+      class="ant-spin-container"
     >
       <div
         class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
