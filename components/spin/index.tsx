@@ -177,6 +177,28 @@ const Spin: SpinType = (props) => {
   const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
   // ========================= Render =========================
+  const hasChildren = typeof children !== 'undefined';
+  const isNested = hasChildren || fullscreen;
+
+  // ======================== Warning =========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Spin');
+
+    warning.deprecated(!tip, 'tip', 'description');
+
+    warning.deprecated(
+      !(mergedClassNames?.tip || mergedStyles?.tip),
+      'classNames.tip and styles.tip',
+      'classNames.description and styles.description',
+    );
+
+    warning.deprecated(
+      !(mergedClassNames?.mask || mergedStyles?.mask),
+      'classNames.mask and styles.mask',
+      'classNames.root and styles.root',
+    );
+  }
+
   const indicatorNode = (
     <>
       <Indicator
@@ -203,9 +225,6 @@ const Spin: SpinType = (props) => {
       )}
     </>
   );
-
-  const hasChildren = typeof children !== 'undefined';
-  const isNested = hasChildren || fullscreen;
 
   return (
     <div
@@ -265,107 +284,6 @@ const Spin: SpinType = (props) => {
       )}
     </div>
   );
-
-  // if (process.env.NODE_ENV !== 'production') {
-  //   const warning = devUseWarning('Spin');
-
-  //   warning(
-  //     !tip || isNestedPattern || fullscreen,
-  //     'usage',
-  //     '`tip` only work in nest or fullscreen pattern.',
-  //   );
-  // }
-
-  // const spinClassName = clsx(
-  //   prefixCls,
-  //   contextClassName,
-  //   {
-  //     [`${prefixCls}-sm`]: size === 'small',
-  //     [`${prefixCls}-lg`]: size === 'large',
-  //     [`${prefixCls}-spinning`]: spinning,
-  //     [`${prefixCls}-show-text`]: !!tip,
-  //     [`${prefixCls}-rtl`]: direction === 'rtl',
-  //   },
-  //   className,
-  //   !fullscreen && rootClassName,
-  //   !fullscreen && mergedClassNames.root,
-  //   hashId,
-  //   cssVarCls,
-  // );
-
-  // const containerClassName = clsx(`${prefixCls}-container`, {
-  //   [`${prefixCls}-blur`]: spinning,
-  // });
-
-  // const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
-
-  // const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
-
-  // const spinElement: React.ReactNode = (
-  //   <div
-  //     {...restProps}
-  //     style={fullscreen ? mergedStyle : { ...mergedStyles.root, ...mergedStyle }}
-  //     className={spinClassName}
-  //     aria-live="polite"
-  //     aria-busy={spinning}
-  //   >
-  //     <Indicator
-  //       className={mergedClassNames.indicator}
-  //       style={mergedStyles.indicator}
-  //       prefixCls={prefixCls}
-  //       indicator={mergedIndicator}
-  //       percent={mergedPercent}
-  //     />
-  //     {tip && (isNestedPattern || fullscreen) ? (
-  //       <div className={clsx(`${prefixCls}-text`, mergedClassNames.tip)} style={mergedStyles.tip}>
-  //         {tip}
-  //       </div>
-  //     ) : null}
-  //   </div>
-  // );
-
-  // if (isNestedPattern) {
-  //   return (
-  //     <div
-  //       {...restProps}
-  //       className={clsx(
-  //         `${prefixCls}-nested-loading`,
-  //         wrapperClassName,
-  //         mergedClassNames.wrapper,
-  //         hashId,
-  //         cssVarCls,
-  //       )}
-  //       style={mergedStyles.wrapper}
-  //     >
-  //       {spinning && <div key="loading">{spinElement}</div>}
-  //       <div className={containerClassName} key="container">
-  //         {children}
-  //       </div>
-  //     </div>
-  //   );
-  // }
-
-  // if (fullscreen) {
-  //   return (
-  //     <div
-  //       className={clsx(
-  //         `${prefixCls}-fullscreen`,
-  //         {
-  //           [`${prefixCls}-fullscreen-show`]: spinning,
-  //         },
-  //         rootClassName,
-  //         hashId,
-  //         cssVarCls,
-  //         mergedClassNames.mask,
-  //       )}
-  //       style={mergedStyles.mask}
-  //     >
-  //       {spinElement}
-  //     </div>
-  //   );
-  // }
-
-  // return spinElement;
 };
 
 Spin.setDefaultIndicator = (indicator: React.ReactNode) => {

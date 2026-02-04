@@ -25,7 +25,7 @@ describe('Spin', () => {
         <div>content</div>
       </Spin>,
     );
-    expect(container.querySelector('.ant-spin-nested-loading')).not.toHaveAttribute('style');
+    // After refactoring, the root element is the spin element itself
     expect(container.querySelector<HTMLElement>('.ant-spin')).toHaveStyle({ padding: '20px' });
   });
 
@@ -70,30 +70,6 @@ describe('Spin', () => {
   it('should render 0', () => {
     const { container } = render(<Spin>{0}</Spin>);
     expect(container.querySelector('.ant-spin-container')?.textContent).toBe('0');
-  });
-
-  it('warning tip without nest', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { container } = render(<Spin tip="Not Show" />);
-    expect(container.querySelector('.ant-spin-text')).toBeFalsy();
-
-    expect(errSpy).toHaveBeenCalledWith(
-      'Warning: [antd: Spin] `tip` only work in nest or fullscreen pattern.',
-    );
-
-    errSpy.mockRestore();
-  });
-
-  it('should not warn tip with fullscreen', () => {
-    const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
-
-    const { container } = render(<Spin fullscreen tip="Fullscreen" />);
-    expect(container.querySelector('.ant-spin-fullscreen')).toBeTruthy();
-
-    expect(errSpy).not.toHaveBeenCalled();
-
-    errSpy.mockRestore();
   });
 
   it('right style when fullscreen', () => {
@@ -157,5 +133,81 @@ describe('Spin', () => {
     expect(fullscreenContainer.querySelector('.custom-indicator'))?.toHaveStyle(
       'color: rgb(0, 0, 255)',
     );
+  });
+
+  describe('deprecated API warnings', () => {
+    it('should warn when using deprecated tip prop', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      render(
+        <Spin tip="Loading...">
+          <div>content</div>
+        </Spin>,
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Spin] `tip` is deprecated. Please use `description` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('should warn when using deprecated tip in classNames', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      render(<Spin classNames={{ tip: 'custom-tip' }} />);
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Spin] `classNames.tip and styles.tip` is deprecated. Please use `classNames.description and styles.description` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('should warn when using deprecated tip in styles', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      render(<Spin styles={{ tip: { color: 'blue' } }} />);
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Spin] `classNames.tip and styles.tip` is deprecated. Please use `classNames.description and styles.description` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('should warn when using deprecated mask in classNames', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      render(<Spin classNames={{ mask: 'custom-mask' }} />);
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Spin] `classNames.mask and styles.mask` is deprecated. Please use `classNames.root and styles.root` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('should warn when using deprecated mask in styles', () => {
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      render(<Spin styles={{ mask: { background: 'red' } }} />);
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Spin] `classNames.mask and styles.mask` is deprecated. Please use `classNames.root and styles.root` instead.',
+      );
+
+      errSpy.mockRestore();
+    });
+
+    it('should use description instead of tip', () => {
+      const { container } = render(
+        <Spin description="Loading...">
+          <div>content</div>
+        </Spin>,
+      );
+
+      expect(container.querySelector('.ant-spin-description')?.textContent).toBe('Loading...');
+    });
   });
 });
