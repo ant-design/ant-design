@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, Button, Flex } from 'antd';
-import type { AlertProps, AlertSemanticType } from 'antd';
+import type { AlertProps, AlertSemanticAllType } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -11,7 +11,7 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: AlertProps['styles'] = ({ props: { type } }): AlertSemanticType['styles'] => {
+const styleFn: AlertProps['styles'] = ({ props: { type } }): AlertSemanticAllType['styles'] => {
   if (type === 'success') {
     return {
       root: {

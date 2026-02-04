@@ -9,8 +9,9 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { ClosableType, SemanticType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -21,7 +22,7 @@ export interface AlertRef {
 }
 
 export type AlertSemanticType = {
-  classNames: {
+  classNames?: {
     root?: string;
     icon?: string;
     section?: string;
@@ -30,7 +31,7 @@ export type AlertSemanticType = {
     actions?: string;
     close?: string;
   };
-  styles: {
+  styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     section?: React.CSSProperties;
@@ -40,8 +41,7 @@ export type AlertSemanticType = {
     close?: React.CSSProperties;
   };
 };
-export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classNames']>;
-export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>;
+export type AlertSemanticAllType = GenerateSemantic<AlertSemanticType, AlertProps>;
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */
@@ -82,8 +82,8 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  classNames?: AlertClassNamesType;
-  styles?: AlertStylesType;
+  classNames?: AlertSemanticAllType['classNames'] | AlertSemanticAllType['classNamesFn'];
+  styles?: AlertSemanticAllType['styles'] | AlertSemanticAllType['stylesFn'];
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
@@ -266,13 +266,13 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     closable: isClosable,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    AlertClassNamesType,
-    AlertStylesType,
-    AlertProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const alertCls = clsx(
     prefixCls,
