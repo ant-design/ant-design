@@ -214,6 +214,7 @@ const Drawer: React.FC<DrawerProps> & {
     drawerMask,
     contextMask,
     prefixCls,
+    maskClosable,
   );
 
   // ========================== Focusable =========================
@@ -273,7 +274,7 @@ const Drawer: React.FC<DrawerProps> & {
           }}
           open={open}
           mask={mergedMask}
-          maskClosable={maskClosable ?? mergedMaskClosable}
+          maskClosable={mergedMaskClosable}
           push={push}
           size={drawerSize}
           defaultSize={defaultSize}

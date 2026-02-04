@@ -116,6 +116,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     modalMask,
     contextMask,
     prefixCls,
+    maskClosable,
   );
 
   // ========================== Focusable =========================
@@ -265,7 +266,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           mask={mergedMask}
-          maskClosable={maskClosable ?? mergeMaskClosable}
+          maskClosable={mergeMaskClosable}
           className={clsx(hashId, className, contextClassName)}
           style={{ ...contextStyle, ...style, ...responsiveWidthVars }}
           classNames={{

@@ -25,6 +25,7 @@ export const useMergedMask = (
   mask?: MaskType,
   contextMask?: MaskType,
   prefixCls?: string,
+  maskClosable?: boolean,
 ): [boolean, { [key: string]: string | undefined }, boolean | undefined] => {
   return useMemo(() => {
     const maskConfig = normalizeMaskConfig(mask);
@@ -32,8 +33,11 @@ export const useMergedMask = (
 
     const mergedConfig: MaskConfig = { ...contextMaskConfig, ...maskConfig };
 
+    // Handle legacy maskClosable prop with mask.closable
+    const mergedClosable = maskClosable !== undefined ? maskClosable : mergedConfig.closable;
+
     const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
 
-    return [mergedConfig.enabled !== false, { mask: className }, mergedConfig.closable];
-  }, [mask, contextMask, prefixCls]);
+    return [mergedConfig.enabled !== false, { mask: className }, mergedClosable];
+  }, [mask, contextMask, prefixCls, maskClosable]);
 };
