@@ -353,11 +353,9 @@ const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
       borderBlockStartWidth: calc(lineWidth).add(0.02).equal(),
       borderInlineEndWidth: lineWidth,
       cursor: 'pointer',
-      transition: [
-        `color ${motionDurationMid}`,
-        `background-color ${motionDurationMid}`,
-        `box-shadow ${motionDurationMid}`,
-      ].join(','),
+      transition: [`color`, `background-color`, `box-shadow`]
+        .map((prop) => `${prop} ${motionDurationMid}`)
+        .join(','),
 
       a: {
         color: buttonColor,

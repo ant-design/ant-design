@@ -184,7 +184,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 };
 
 const genModalStyle: GenerateStyle<ModalToken> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, motionDurationMid } = token;
 
   return [
     // ======================== Root =========================
@@ -284,8 +284,9 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           border: 0,
           outline: 0,
           cursor: 'pointer',
-          transition: `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
-
+          transition: ['color', 'background-color']
+            .map((prop) => `${prop} ${motionDurationMid}`)
+            .join(', '),
           '&-x': {
             display: 'flex',
             fontSize: token.fontSizeLG,
