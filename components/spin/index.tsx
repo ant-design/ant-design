@@ -59,7 +59,7 @@ export interface SpinProps {
   style?: React.CSSProperties;
   size?: SpinSize;
   /** Customize description content when Spin has children */
-  /** @deprecated Use `description` instead */
+  /** @deprecated Please use `description` instead */
   tip?: React.ReactNode;
   description?: React.ReactNode;
   /** Specifies a delay in milliseconds for loading state (prevent flush) */
