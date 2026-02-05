@@ -227,6 +227,7 @@ const Drawer: React.FC<DrawerProps> & {
     zIndex,
     panelRef,
     mask: mergedMask,
+    maskClosable: mergedMaskClosable,
     defaultSize,
     push,
     focusable: mergedFocusable,

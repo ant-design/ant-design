@@ -210,6 +210,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     focusTriggerAfterClose: mergedFocusable.focusTriggerAfterClose,
     focusable: mergedFocusable,
     mask: mergedMask,
+    maskClosable: mergeMaskClosable,
     zIndex,
   };
 
