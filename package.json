@@ -33,6 +33,18 @@
   "module": "es/index.js",
   "unpkg": "dist/antd.min.js",
   "typings": "es/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./es/index.js",
+      "require": "./lib/index.js",
+      "types": "./es/index.d.ts"
+    },
+    "./es/*": "./es/*",
+    "./lib/*": "./lib/*",
+    "./locale/*": "./locale/*",
+    "./dist/*": "./dist/*",
+    "./package.json": "./package.json"
+  },
   "files": [
     "BUG_VERSIONS.json",
     "dist",
