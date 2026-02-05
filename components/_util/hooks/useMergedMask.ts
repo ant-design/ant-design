@@ -3,35 +3,52 @@ import { useMemo } from 'react';
 export interface MaskConfig {
   enabled?: boolean;
   blur?: boolean;
+  closable?: boolean;
 }
 export type MaskType = MaskConfig | boolean;
 
-const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
+export const normalizeMaskConfig = (mask?: MaskType, maskClosable?: boolean): MaskConfig => {
+  let maskConfig: MaskConfig = {};
+
   if (mask && typeof mask === 'object') {
-    return mask;
+    maskConfig = mask;
   }
   if (typeof mask === 'boolean') {
-    return {
+    maskConfig = {
       enabled: mask,
-      blur: false,
     };
   }
-  return {};
+
+  if (maskConfig.closable === undefined && maskClosable !== undefined) {
+    maskConfig.closable = maskClosable;
+  }
+
+  return maskConfig;
 };
 
 export const useMergedMask = (
   mask?: MaskType,
   contextMask?: MaskType,
   prefixCls?: string,
-): [boolean, { [key: string]: string | undefined }] => {
+  maskClosable?: boolean,
+): [
+  config: boolean,
+  maskBlurClassName: { [key: string]: string | undefined },
+  maskClosable: boolean,
+] => {
   return useMemo(() => {
-    const maskConfig = normalizeMaskConfig(mask);
+    const maskConfig = normalizeMaskConfig(mask, maskClosable);
     const contextMaskConfig = normalizeMaskConfig(contextMask);
 
-    const mergedConfig: MaskConfig = { ...contextMaskConfig, ...maskConfig };
+    const mergedConfig: MaskConfig = {
+      blur: false,
+      ...contextMaskConfig,
+      ...maskConfig,
+      closable: maskConfig.closable ?? maskClosable ?? contextMaskConfig.closable ?? true,
+    };
 
     const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
 
-    return [mergedConfig.enabled !== false, { mask: className }];
-  }, [mask, contextMask, prefixCls]);
+    return [mergedConfig.enabled !== false, { mask: className }, !!mergedConfig.closable];
+  }, [mask, contextMask, prefixCls, maskClosable]);
 };
