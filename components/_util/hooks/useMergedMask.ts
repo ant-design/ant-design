@@ -7,16 +7,23 @@ export interface MaskConfig {
 }
 export type MaskType = MaskConfig | boolean;
 
-export const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
+export const normalizeMaskConfig = (mask?: MaskType, maskClosable?: boolean): MaskConfig => {
+  let maskConfig: MaskConfig = {};
+
   if (mask && typeof mask === 'object') {
-    return mask;
+    maskConfig = mask;
   }
   if (typeof mask === 'boolean') {
-    return {
+    maskConfig = {
       enabled: mask,
     };
   }
-  return {};
+
+  if (maskConfig.closable === undefined && maskClosable !== undefined) {
+    maskConfig.closable = maskClosable;
+  }
+
+  return maskConfig;
 };
 
 export const useMergedMask = (
@@ -30,7 +37,7 @@ export const useMergedMask = (
   maskClosable: boolean,
 ] => {
   return useMemo(() => {
-    const maskConfig = normalizeMaskConfig(mask);
+    const maskConfig = normalizeMaskConfig(mask, maskClosable);
     const contextMaskConfig = normalizeMaskConfig(contextMask);
 
     const mergedConfig: MaskConfig = {
@@ -39,9 +46,7 @@ export const useMergedMask = (
       ...maskConfig,
     };
 
-    if (mergedConfig.closable === undefined) {
-      mergedConfig.closable = maskClosable ?? true;
-    }
+    mergedConfig.closable = mergedConfig.closable ?? true;
 
     const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
 

@@ -218,11 +218,9 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   // ========================== Mask ==========================
   // 默认为 false，保持旧版默认行为
   const mergedMask = React.useMemo(() => {
-    const nextMaskConfig = normalizeMaskConfig(mask);
+    const nextMaskConfig = normalizeMaskConfig(mask, maskClosable);
 
-    if (nextMaskConfig.closable !== undefined) {
-      nextMaskConfig.closable = maskClosable ?? false;
-    }
+    nextMaskConfig.closable ??= false;
 
     return nextMaskConfig;
   }, [mask, maskClosable]);
