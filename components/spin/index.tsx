@@ -26,9 +26,9 @@ export type SpinSemanticClassNames = {
 
   container?: string;
 
-  /** @deprecated Use `description` instead */
+  /** @deprecated Please use `description` instead */
   tip?: string;
-  /** @deprecated Use `root` instead */
+  /** @deprecated Please use `root` instead */
   mask?: string;
 };
 
@@ -40,9 +40,9 @@ export type SpinSemanticStyles = {
 
   container?: React.CSSProperties;
 
-  /** @deprecated Use `description` instead */
+  /** @deprecated Please use `description` instead */
   tip?: React.CSSProperties;
-  /** @deprecated Use `root` instead */
+  /** @deprecated Please use `root` instead */
   mask?: React.CSSProperties;
 };
 
@@ -51,22 +51,16 @@ export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticC
 export type SpinStylesType = SemanticStylesType<SpinProps, SpinSemanticStyles>;
 
 export interface SpinProps {
-  /** Customize prefix class name */
   prefixCls?: string;
-  /** Additional class name of Spin */
   className?: string;
-  /** Additional root class name of Spin */
   rootClassName?: string;
   /** Whether Spin is spinning */
   spinning?: boolean;
-  /** Style of Spin */
   style?: React.CSSProperties;
-  /** Size of Spin, options: `small`, `default` and `large` */
   size?: SpinSize;
   /** Customize description content when Spin has children */
-  /** @deprecated Use `description` instead */
+  /** @deprecated Please use `description` instead */
   tip?: React.ReactNode;
-  /** Customize description content when Spin has children */
   description?: React.ReactNode;
   /** Specifies a delay in milliseconds for loading state (prevent flush) */
   delay?: number;
@@ -75,7 +69,6 @@ export interface SpinProps {
   wrapperClassName?: string;
   /** React node of the spinning indicator */
   indicator?: SpinIndicator;
-  /** Children of Spin */
   children?: React.ReactNode;
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
@@ -174,33 +167,31 @@ const Spin: SpinType = (props) => {
     props: mergedProps,
   });
 
-  // ======================= Indicator ========================
-  const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
-
-  // ========================= Render =========================
-  const hasChildren = typeof children !== 'undefined';
-  const isNested = hasChildren || fullscreen;
-
   // ======================== Warning =========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
 
     warning.deprecated(!tip, 'tip', 'description');
+    warning.deprecated(!wrapperClassName, 'wrapperClassName', 'classNames.root');
 
     warning.deprecated(
       !(mergedClassNames?.tip || mergedStyles?.tip),
       'classNames.tip and styles.tip',
       'classNames.description and styles.description',
     );
-
     warning.deprecated(
       !(mergedClassNames?.mask || mergedStyles?.mask),
       'classNames.mask and styles.mask',
       'classNames.root and styles.root',
     );
-
-    warning.deprecated(!wrapperClassName, 'wrapperClassName', 'classNames.root');
   }
+
+  // ======================= Indicator ========================
+  const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
+
+  // ========================= Render =========================
+  const hasChildren = typeof children !== 'undefined';
+  const isNested = hasChildren || fullscreen;
 
   const indicatorNode = (
     <>
@@ -233,7 +224,6 @@ const Spin: SpinType = (props) => {
     <div
       className={clsx(
         prefixCls,
-
         {
           [`${prefixCls}-sm`]: size === 'small',
           [`${prefixCls}-lg`]: size === 'large',
@@ -241,13 +231,10 @@ const Spin: SpinType = (props) => {
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-fullscreen`]: fullscreen,
         },
-
         rootClassName,
         mergedClassNames.root,
-        !isNested && `${prefixCls}-section`,
-        !isNested && mergedClassNames.section,
         fullscreen && mergedClassNames.mask,
-        isNested && wrapperClassName,
+        isNested ? wrapperClassName : [`${prefixCls}-section`, mergedClassNames.section],
         contextClassName,
         className,
         hashId,
