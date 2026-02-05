@@ -100,7 +100,7 @@ These questions are good triggers for this skill:
 - Controlled upload and custom request: `references/upload-advanced.md`
 - Async tree and check strategy: `references/tree-advanced.md`
 
-## FAQ {#faq}
+## FAQ {#faq-general}
 
 - **Do I need code?** If you only want decisions, usually no. Use references for complex cases.
 - **Version not stated?** Assume antd 6.x; call out older versions explicitly.

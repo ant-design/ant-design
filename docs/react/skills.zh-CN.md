@@ -65,7 +65,7 @@ pnpx skills add ant-design/antd-skill
 npx skills add ant-design/antd-skill
 ```
 
-## 在编辑器中使用 {#use-in-editor}
+## 在编辑器中使用 {#use-in-editors}
 
 如需手动安装，请参考各编辑器官方文档中的技能目录约定与触发方式：
 
@@ -100,7 +100,7 @@ npx skills add ant-design/antd-skill
 - 受控上传、自定义请求：`references/upload-advanced.md`
 - 异步树、勾选策略：`references/tree-advanced.md`
 
-## 常见问题 {#faq}
+## 常见问题 {#faq-general}
 
 - **要代码吗？** 如果你只要决策建议，一般不需要代码；遇到复杂交互再看 reference。
 - **版本不明确怎么办？** 默认按 antd 6.x 处理，旧版本请说明。
