@@ -7,7 +7,7 @@ export interface MaskConfig {
 }
 export type MaskType = MaskConfig | boolean;
 
-const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
+export const normalizeMaskConfig = (mask?: MaskType): MaskConfig => {
   if (mask && typeof mask === 'object') {
     return mask;
   }

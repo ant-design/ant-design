@@ -5,7 +5,7 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import { clsx } from 'clsx';
 
-import { CONTAINER_MAX_OFFSET } from '../_util/hooks';
+import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
@@ -218,23 +218,13 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
   // ========================== Mask ==========================
   // 默认为 false，保持旧版默认行为
   const mergedMask = React.useMemo(() => {
-    if (mask && typeof mask === 'object') {
-      return {
-        ...mask,
-        closable: maskClosable ?? mask.closable ?? false,
-      };
+    const nextMaskConfig = normalizeMaskConfig(mask);
+
+    if (nextMaskConfig.closable !== undefined) {
+      nextMaskConfig.closable = maskClosable ?? false;
     }
-    if (typeof mask === 'boolean') {
-      return {
-        enabled: mask,
-        blur: false,
-        closable: maskClosable ?? false,
-      };
-    }
-    // 保持旧版默认行为
-    return {
-      closable: maskClosable ?? false,
-    };
+
+    return nextMaskConfig;
   }, [mask, maskClosable]);
 
   // ========================= zIndex =========================
