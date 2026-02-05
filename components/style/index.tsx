@@ -135,7 +135,7 @@ export const genCommonStyle = (
 export const genFocusOutline = (token: AliasToken, offset?: number): CSSObject => ({
   outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
   outlineOffset: offset ?? 1,
-  transition: 'outline-offset 0s, outline 0s',
+  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
 });
 
 export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => ({

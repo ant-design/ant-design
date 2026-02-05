@@ -369,6 +369,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
     horizontalMargin,
     verticalItemPadding,
     verticalItemMargin,
+    motionDurationSlow,
     calc,
   } = token;
   return {
@@ -397,8 +398,9 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           height: token.lineWidthBold,
 
           '&-animated': {
-            transition: `width ${token.motionDurationSlow}, left ${token.motionDurationSlow},
-            right ${token.motionDurationSlow}`,
+            transition: ['width', 'left', 'right']
+              .map((prop) => `${prop} ${motionDurationSlow}`)
+              .join(', '),
           },
         },
 
@@ -524,7 +526,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
           width: token.lineWidthBold,
 
           '&-animated': {
-            transition: `height ${token.motionDurationSlow}, top ${token.motionDurationSlow}`,
+            transition: ['height', 'top'].map((prop) => `${prop} ${motionDurationSlow}`).join(', '),
           },
         },
 
