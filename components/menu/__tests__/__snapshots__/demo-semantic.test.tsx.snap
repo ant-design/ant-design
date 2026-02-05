@@ -157,11 +157,10 @@ exports[`renders components/menu/demo/_semantic.tsx correctly 1`] = `
                 />
               </div>
               <ul
-                class="ant-menu ant-menu-sub ant-menu-inline ant-motion-collapse-appear ant-motion-collapse-appear-active ant-motion-collapse"
+                class="ant-menu ant-menu-sub ant-menu-inline"
                 data-menu-list="true"
                 id="rc-menu-uuid-SubMenu-popup"
                 role="menu"
-                style="height: 0px; opacity: 1;"
               >
                 <li
                   class="ant-menu-item-group"
