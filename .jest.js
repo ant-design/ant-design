@@ -11,6 +11,7 @@ const compileModules = [
   'parse5',
   '@exodus',
   'jsdom',
+  '@csstools',
 ];
 
 // cnpm use `_` as prefix
