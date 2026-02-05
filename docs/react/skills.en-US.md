@@ -43,8 +43,9 @@ In scope:
 
 Skill content in this repository:
 
-- `antd-skill/skills/ant-design/SKILL.md`
-- `antd-skill/skills/ant-design/references/`
+- `antd-skill/skills/ant-design/` (skill directory)
+- `antd-skill/skills/ant-design/SKILL.md` (entry)
+- `antd-skill/skills/ant-design/references/` (advanced cases)
 
 ## Expected outputs {#expected-output}
 
@@ -76,9 +77,9 @@ For manual setup, refer to each editor's official skills docs:
 
 ## How to use {#usage}
 
-1. Pick a skill: `ant-design` / `ant-design-pro` / `ant-design-x`.
-2. Open `skills/<skill>/SKILL.md` to check scope and expected outputs.
-3. For complex cases, read `skills/<skill>/references/*.md`.
+1. This package provides one skill: `ant-design` (covers antd / Pro / X decisions).
+2. Open `skills/ant-design/SKILL.md` to review scope and expected outputs.
+3. For complex cases, refer to `skills/ant-design/references/*.md`.
 4. If you only need decisions, the main `SKILL.md` is enough; it is not a tutorial.
 
 ## Use cases {#cases}

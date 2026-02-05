@@ -43,8 +43,9 @@ tag: New
 
 本仓库内相关技能内容位置：
 
-- `antd-skill/skills/ant-design/SKILL.md`
-- `antd-skill/skills/ant-design/references/`
+- `antd-skill/skills/ant-design/`（技能目录）
+- `antd-skill/skills/ant-design/SKILL.md`（入口）
+- `antd-skill/skills/ant-design/references/`（复杂场景）
 
 ## 输出期望 {#expected-output}
 
@@ -76,9 +77,9 @@ npx skills add ant-design/antd-skill
 
 ## 使用方式 {#usage}
 
-1. 先确定要用的技能：`ant-design` / `ant-design-pro` / `ant-design-x`。
-2. 打开对应 `skills/<skill>/SKILL.md`，先看适用范围与输出要求。
-3. 复杂场景再查 `skills/<skill>/references/*.md`。
+1. 本包提供的技能为：`ant-design`（覆盖 antd / Pro / X 的决策内容）。
+2. 打开 `skills/ant-design/SKILL.md`，先阅读适用范围与输出要求。
+3. 复杂场景请查 `skills/ant-design/references/*.md`。
 4. 只要决策建议时，主 `SKILL.md` 就够用；不要当成教程。
 
 ## 使用案例 {#cases}
