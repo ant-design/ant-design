@@ -18,7 +18,9 @@ exports[`renders components/list/demo/_semantic.tsx correctly 1`] = `
           class="ant-list ant-list-vertical ant-list-lg ant-list-split css-var-test-id"
         >
           <div
-            class="ant-spin-nested-loading css-var-test-id"
+            aria-busy="false"
+            aria-live="polite"
+            class="ant-spin css-var-test-id"
           >
             <div
               class="ant-spin-container"

@@ -250,6 +250,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
     innerMinMargin,
     innerMaxMargin,
     handleSize,
+    switchDuration,
     calc,
   } = token;
   const switchInnerCls = `${componentCls}-inner`;
@@ -266,15 +267,19 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
         height: '100%',
         paddingInlineStart: innerMaxMargin,
         paddingInlineEnd: innerMinMargin,
-        transition: `padding-inline-start ${token.switchDuration} ease-in-out, padding-inline-end ${token.switchDuration} ease-in-out`,
+        transition: [`padding-inline-start`, `padding-inline-end`]
+          .map((prop) => `${prop} ${switchDuration} ease-in-out`)
+          .join(', '),
 
         [`${switchInnerCls}-checked, ${switchInnerCls}-unchecked`]: {
           display: 'block',
           color: token.colorTextLightSolid,
           fontSize: token.fontSizeSM,
-          transition: `margin-inline-start ${token.switchDuration} ease-in-out, margin-inline-end ${token.switchDuration} ease-in-out`,
           pointerEvents: 'none',
           minHeight: trackHeight,
+          transition: [`margin-inline-start`, `margin-inline-end`]
+            .map((prop) => `${prop} ${switchDuration} ease-in-out`)
+            .join(', '),
         },
 
         [`${switchInnerCls}-checked`]: {

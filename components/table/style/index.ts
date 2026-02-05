@@ -345,8 +345,10 @@ const genTableStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       [`${componentCls}-tbody`]: {
         '> tr': {
           '> th, > td': {
-            transition: `background-color ${motionDurationMid}, border-color ${motionDurationMid}`,
             borderBottom: tableBorder,
+            transition: [`background-color`, `border-color`]
+              .map((prop) => `${prop} ${motionDurationMid}`)
+              .join(', '),
 
             // ========================= Nest Table ===========================
             [`
