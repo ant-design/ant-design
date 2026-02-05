@@ -323,6 +323,7 @@ describe('Modal.hook', () => {
 
     expect(document.body.querySelectorAll('.ant-modal-confirm-confirm')).toHaveLength(1);
     // Click mask to close
+    fireEvent.mouseDown(document.body.querySelectorAll('.ant-modal-wrap')[0]);
     fireEvent.click(document.body.querySelectorAll('.ant-modal-wrap')[0]);
 
     await waitFakeTimer();
