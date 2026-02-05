@@ -12,13 +12,14 @@ export type DeepStylesType<T> = {
 };
 
 export type GenerateSemantic<T extends { classNames?: any; styles?: any }, Props> = {
+  // classNames
   classNames: DeepClassNameType<T['classNames']>;
   classNamesNoString: RemoveClassNamesString<DeepClassNameType<T['classNames']>>;
   classNamesFn: (info: { props: Props }) => DeepClassNameType<T['classNames']>;
   classNamesAndFn:
     | DeepClassNameType<T['classNames']>
     | ((info: { props: Props }) => DeepClassNameType<T['classNames']>);
-
+  // styles
   styles: DeepStylesType<T['styles']>;
   stylesFn: (info: { props: Props }) => DeepStylesType<T['styles']>;
   stylesAndFn:
