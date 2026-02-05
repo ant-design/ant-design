@@ -31,7 +31,7 @@ export type { CardMetaProps } from './card/CardMeta';
 export { default as Carousel } from './carousel';
 export type { CarouselProps } from './carousel';
 export { default as Cascader } from './cascader';
-export type { CascaderAutoProps, CascaderProps } from './cascader';
+export type { CascaderAutoProps, CascaderProps, CascaderSemanticAllType } from './cascader';
 export type { CascaderPanelAutoProps, CascaderPanelProps } from './cascader/Panel';
 export { default as Checkbox } from './checkbox';
 export type {

@@ -11,8 +11,9 @@ import type { Placement } from '@rc-component/select/lib/BaseSelect';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useZIndex } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -29,7 +30,7 @@ import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
 import { FormItemInputContext } from '../form/context';
 import useVariant from '../form/hooks/useVariants';
-import type { SelectPopupSemanticClassNames, SelectPopupSemanticStyles } from '../select';
+import type { SelectSemanticType } from '../select';
 import mergedBuiltinPlacements from '../select/mergedBuiltinPlacements';
 import useSelectStyle from '../select/style';
 import useSelectIcons from '../select/useIcons';
@@ -38,9 +39,9 @@ import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
+import useIcons from './hooks/useIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
-import useIcons from './hooks/useIcons';
 
 // Align the design since we use `@rc-component/select` in root. This help:
 // - List search content will show all content
@@ -53,31 +54,34 @@ export type FieldNamesType = FieldNames;
 
 export type FilledFieldNamesType = Required<FieldNamesType>;
 
-export type CascaderSemanticName = keyof CascaderSemanticClassNames & keyof CascaderSemanticStyles;
-
-export type CascaderSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  suffix?: string;
-  input?: string;
-  placeholder?: string;
-  content?: string;
-  item?: string;
-  itemContent?: string;
-  itemRemove?: string;
+export type CascaderSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    suffix?: string;
+    input?: string;
+    placeholder?: string;
+    content?: string;
+    item?: string;
+    itemContent?: string;
+    itemRemove?: string;
+    popup?: NonNullable<SelectSemanticType['classNames']>['popup'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    placeholder?: React.CSSProperties;
+    content?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    itemRemove?: React.CSSProperties;
+    popup?: NonNullable<SelectSemanticType['styles']>['popup'];
+  };
 };
 
-export type CascaderSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  placeholder?: React.CSSProperties;
-  content?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-  itemRemove?: React.CSSProperties;
-};
+export type CascaderSemanticAllType = GenerateSemantic<CascaderSemanticType, CascaderProps>;
 
 const { SHOW_CHILD, SHOW_PARENT } = RcCascader;
 
@@ -134,18 +138,6 @@ const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls
   return optionList;
 };
 
-export type CascaderClassNamesType = SemanticClassNamesType<
-  CascaderProps,
-  CascaderSemanticClassNames,
-  { popup?: SelectPopupSemanticClassNames }
->;
-
-export type CascaderStylesType = SemanticStylesType<
-  CascaderProps,
-  CascaderSemanticStyles,
-  { popup?: SelectPopupSemanticStyles }
->;
-
 export interface CascaderProps<
   OptionType extends DefaultOptionType = DefaultOptionType,
   ValueField extends keyof OptionType = keyof OptionType,
@@ -192,8 +184,8 @@ export interface CascaderProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: CascaderClassNamesType;
-  styles?: CascaderStylesType;
+  classNames?: CascaderSemanticAllType['classNames'] | CascaderSemanticAllType['classNamesFn'];
+  styles?: CascaderSemanticAllType['styles'] | CascaderSemanticAllType['stylesFn'];
 }
 
 export type CascaderAutoProps<
@@ -397,17 +389,14 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CascaderClassNamesType,
-    CascaderStylesType,
-    CascaderProps<any>
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
-    { props: mergedProps },
+    { props: mergedProps as CascaderProps },
     {
       popup: {
         _default: 'root',
+        _remove: ['listItem', 'list'],
       },
     },
   );
