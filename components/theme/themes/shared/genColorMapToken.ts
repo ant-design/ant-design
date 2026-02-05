@@ -39,19 +39,12 @@ export default function genColorMapToken(
     .toHexString();
 
   const presetColorTokens: Record<string, string> = {};
-  const isDark = seed.colorBgBase === '#000';
-
   PresetColors.forEach((colorKey) => {
     const colorBase = seed[colorKey];
     if (colorBase) {
       const colorPalette = generateColorPalettes(colorBase);
-      if (isDark) {
-        presetColorTokens[`${colorKey}Hover`] = colorPalette[7];
-        presetColorTokens[`${colorKey}Active`] = colorPalette[5];
-      } else {
-        presetColorTokens[`${colorKey}Hover`] = colorPalette[5];
-        presetColorTokens[`${colorKey}Active`] = colorPalette[7];
-      }
+      presetColorTokens[`${colorKey}Hover`] = colorPalette[5];
+      presetColorTokens[`${colorKey}Active`] = colorPalette[7];
     }
   });
 
