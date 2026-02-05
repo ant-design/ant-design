@@ -12,7 +12,7 @@ export type DataAttributes = {
 export interface MenuItemType extends RcMenuItemType, DataAttributes {
   danger?: boolean;
   icon?: React.ReactNode;
-  title?: string;
+  title?: string | null;
 }
 
 export interface SubMenuType<T extends MenuItemType = MenuItemType>

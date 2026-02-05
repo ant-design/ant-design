@@ -88,7 +88,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 | icon     | 菜单图标                 | ReactNode | -      |        |
 | key      | item 的唯一标志          | string    | -      |        |
 | label    | 菜单项标题               | ReactNode | -      |        |
-| title    | 设置收缩时展示的悬浮标题 | string    | -      |        |
+| title    | 设置收缩时展示的悬浮标题 | string \| null | -      |        |
 
 #### SubMenuType
 
