@@ -20,9 +20,9 @@ export type SplitterSemanticAllType = GenerateSemantic<SplitterSemanticType, Spl
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
-  classNames?: SplitterSemanticAllType['classNames'] | SplitterSemanticAllType['classNamesFn'];
+  classNames?: SplitterSemanticAllType['classNamesAndFn'];
   style?: React.CSSProperties;
-  styles?: SplitterSemanticAllType['styles'] | SplitterSemanticAllType['stylesFn'];
+  styles?: SplitterSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   /**
    * @deprecated please use `orientation`

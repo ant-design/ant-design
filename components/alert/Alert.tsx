@@ -82,8 +82,8 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  classNames?: AlertSemanticAllType['classNames'] | AlertSemanticAllType['classNamesFn'];
-  styles?: AlertSemanticAllType['styles'] | AlertSemanticAllType['stylesFn'];
+  classNames?: AlertSemanticAllType['classNamesAndFn'];
+  styles?: AlertSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;
