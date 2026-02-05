@@ -3,8 +3,9 @@ import RcImage from '@rc-component/image';
 import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { clsx } from 'clsx';
 
-import type { MaskType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
+import type { MaskType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -47,57 +48,41 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-export type ImageSemanticName = keyof ImageSemanticClassNames & keyof ImageSemanticStyles;
-
-export type ImageSemanticClassNames = {
-  root?: string;
-  image?: string;
-  cover?: string;
+export type ImageSemanticType = {
+  classNames?: {
+    root?: string;
+    image?: string;
+    cover?: string;
+    popup?: {
+      root?: string;
+      mask?: string;
+      body?: string;
+      footer?: string;
+      actions?: string;
+    };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    image?: React.CSSProperties;
+    cover?: React.CSSProperties;
+    popup?: {
+      root?: React.CSSProperties;
+      mask?: React.CSSProperties;
+      body?: React.CSSProperties;
+      footer?: React.CSSProperties;
+      actions?: React.CSSProperties;
+    };
+  };
 };
 
-export type ImageSemanticStyles = {
-  root?: React.CSSProperties;
-  image?: React.CSSProperties;
-  cover?: React.CSSProperties;
-};
-
-export type ImagePopupSemanticName = keyof ImagePopupSemanticClassNames &
-  keyof ImagePopupSemanticStyles;
-
-export type ImagePopupSemanticClassNames = {
-  root?: string;
-  mask?: string;
-  body?: string;
-  footer?: string;
-  actions?: string;
-};
-
-export type ImagePopupSemanticStyles = {
-  root?: React.CSSProperties;
-  mask?: React.CSSProperties;
-  body?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  actions?: React.CSSProperties;
-};
-
-export type ImageClassNamesType = SemanticClassNamesType<
-  ImageProps,
-  ImageSemanticClassNames,
-  { popup?: ImagePopupSemanticClassNames }
->;
-
-export type ImageStylesType = SemanticStylesType<
-  ImageProps,
-  ImageSemanticStyles,
-  { popup?: ImagePopupSemanticStyles }
->;
+export type ImageSemanticAllType = GenerateSemantic<ImageSemanticType, ImageProps>;
 
 export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;
-  classNames?: ImageClassNamesType;
-  styles?: ImageStylesType;
+  classNames?: ImageSemanticAllType['classNamesAndFn'];
+  styles?: ImageSemanticAllType['stylesAndFn'];
 }
 
 const Image: CompositionImage<ImageProps> = (props) => {
@@ -201,18 +186,14 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ImageClassNamesType,
-    ImageStylesType,
-    ImageProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     internalClassNames,
     [contextStyles, { root: wrapperStyle }, styles],
     {
       props: mergedProps,
     },
     {
-      popup: { _default: 'root' },
+      popup: { _default: 'root', _remove: ['mask', 'body', 'footer', 'actions'] },
     },
   );
 

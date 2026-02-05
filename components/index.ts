@@ -81,7 +81,7 @@ export type {
 } from './form';
 export { default as Grid } from './grid';
 export { default as Image } from './image';
-export type { ImageProps } from './image';
+export type { ImageProps, ImageSemanticAllType } from './image';
 export { default as Input } from './input';
 export type { InputProps, InputRef } from './input';
 export { default as InputNumber } from './input-number';
