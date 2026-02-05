@@ -242,8 +242,8 @@ const Spin: SpinType = (props) => {
       )}
       style={{
         ...mergedStyles.root,
-        ...(!isNested && mergedStyles.section),
-        ...(fullscreen && mergedStyles.mask),
+        ...(!isNested ? mergedStyles.section : {}),
+        ...(fullscreen ? mergedStyles.mask : {}),
         ...contextStyle,
         ...style,
       }}
