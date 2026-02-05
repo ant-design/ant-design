@@ -44,9 +44,8 @@ export const useMergedMask = (
       blur: false,
       ...contextMaskConfig,
       ...maskConfig,
+      closable: maskConfig.closable ?? maskClosable ?? contextMaskConfig.closable ?? true,
     };
-
-    mergedConfig.closable = mergedConfig.closable ?? true;
 
     const className = mergedConfig.blur ? `${prefixCls}-mask-blur` : undefined;
 
