@@ -99,8 +99,8 @@ export interface InputProps
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: InputSemanticAllType['classNames'] | InputSemanticAllType['classNamesFn'];
-  styles?: InputSemanticAllType['styles'] | InputSemanticAllType['stylesFn'];
+  classNames?: InputSemanticAllType['classNamesAndFn'];
+  styles?: InputSemanticAllType['stylesAndFn'];
   [key: `data-${string}`]: string | undefined;
 }
 

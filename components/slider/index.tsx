@@ -40,8 +40,8 @@ export type SliderSemanticType = {
 export type SliderSemanticAllType = GenerateSemantic<SliderSemanticType, SliderBaseProps>;
 
 export interface SliderProps extends Omit<RcSliderProps, 'styles' | 'classNames'> {
-  classNames?: SliderSemanticAllType['classNames'] | SliderSemanticAllType['classNamesFn'];
-  styles?: SliderSemanticAllType['styles'] | SliderSemanticAllType['stylesFn'];
+  classNames?: SliderSemanticAllType['classNamesAndFn'];
+  styles?: SliderSemanticAllType['stylesAndFn'];
 }
 
 interface HandleGeneratorInfo {
@@ -87,8 +87,8 @@ export interface SliderBaseProps {
   tooltip?: SliderTooltipProps;
   autoFocus?: boolean;
 
-  classNames?: SliderSemanticAllType['classNames'] | SliderSemanticAllType['classNamesFn'];
-  styles?: SliderSemanticAllType['styles'] | SliderSemanticAllType['stylesFn'];
+  classNames?: SliderSemanticAllType['classNamesAndFn'];
+  styles?: SliderSemanticAllType['stylesAndFn'];
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
 

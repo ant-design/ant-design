@@ -49,10 +49,8 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?:
-    | FloatButtonSemanticAllType['classNames']
-    | FloatButtonSemanticAllType['classNamesFn'];
-  styles?: FloatButtonSemanticAllType['styles'] | FloatButtonSemanticAllType['stylesFn'];
+  classNames?: FloatButtonSemanticAllType['classNamesAndFn'];
+  styles?: FloatButtonSemanticAllType['stylesAndFn'];
 
   // Others
   icon?: React.ReactNode;

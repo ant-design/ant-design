@@ -70,8 +70,8 @@ export interface SpinProps {
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
   percent?: number | 'auto';
-  classNames?: SpinSemanticAllType['classNames'] | SpinSemanticAllType['classNamesFn'];
-  styles?: SpinSemanticAllType['styles'] | SpinSemanticAllType['stylesFn'];
+  classNames?: SpinSemanticAllType['classNamesAndFn'];
+  styles?: SpinSemanticAllType['stylesAndFn'];
 }
 
 export type SpinType = React.FC<SpinProps> & {

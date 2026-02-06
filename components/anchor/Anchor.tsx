@@ -74,8 +74,8 @@ export interface AnchorProps {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: AnchorSemanticAllType['classNames'] | AnchorSemanticAllType['classNamesFn'];
-  styles?: AnchorSemanticAllType['styles'] | AnchorSemanticAllType['stylesFn'];
+  classNames?: AnchorSemanticAllType['classNamesAndFn'];
+  styles?: AnchorSemanticAllType['stylesAndFn'];
   /**
    * @deprecated Please use `items` instead.
    */

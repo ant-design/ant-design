@@ -52,8 +52,8 @@ export interface SkeletonProps {
   title?: SkeletonTitleProps | boolean;
   paragraph?: SkeletonParagraphProps | boolean;
   round?: boolean;
-  classNames?: SkeletonSemanticAllType['classNames'] | SkeletonSemanticAllType['classNamesFn'];
-  styles?: SkeletonSemanticAllType['styles'] | SkeletonSemanticAllType['stylesFn'];
+  classNames?: SkeletonSemanticAllType['classNamesAndFn'];
+  styles?: SkeletonSemanticAllType['stylesAndFn'];
 }
 
 function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {

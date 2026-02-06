@@ -184,8 +184,8 @@ export interface CascaderProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: CascaderSemanticAllType['classNames'] | CascaderSemanticAllType['classNamesFn'];
-  styles?: CascaderSemanticAllType['styles'] | CascaderSemanticAllType['stylesFn'];
+  classNames?: CascaderSemanticAllType['classNamesAndFn'];
+  styles?: CascaderSemanticAllType['stylesAndFn'];
 }
 
 export type CascaderAutoProps<

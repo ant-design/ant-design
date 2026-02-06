@@ -73,8 +73,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNam
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: MentionSemanticAllType['classNames'] | MentionSemanticAllType['classNamesFn'];
-  styles?: MentionSemanticAllType['styles'] | MentionSemanticAllType['stylesFn'];
+  classNames?: MentionSemanticAllType['classNamesAndFn'];
+  styles?: MentionSemanticAllType['stylesAndFn'];
   size?: SizeType;
 }
 

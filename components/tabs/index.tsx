@@ -67,8 +67,8 @@ export interface BaseTabsProps {
   centered?: boolean;
   className?: string;
   rootClassName?: string;
-  classNames?: TabsSemanticAllType['classNames'] | TabsSemanticAllType['classNamesFn'];
-  styles?: TabsSemanticAllType['styles'] | TabsSemanticAllType['stylesFn'];
+  classNames?: TabsSemanticAllType['classNamesAndFn'];
+  styles?: TabsSemanticAllType['stylesAndFn'];
   /** @deprecated please use `tabPlacement` instead */
   tabPosition?: TabPosition;
   tabPlacement?: TabPlacement;

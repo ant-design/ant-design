@@ -76,10 +76,8 @@ export interface DescriptionsProps {
   colon?: boolean;
   labelStyle?: React.CSSProperties;
   contentStyle?: React.CSSProperties;
-  classNames?:
-    | DescriptionsSemanticAllType['classNames']
-    | DescriptionsSemanticAllType['classNamesFn'];
-  styles?: DescriptionsSemanticAllType['styles'] | DescriptionsSemanticAllType['stylesFn'];
+  classNames?: DescriptionsSemanticAllType['classNamesAndFn'];
+  styles?: DescriptionsSemanticAllType['stylesAndFn'];
   items?: DescriptionsItemType[];
   id?: string;
 }

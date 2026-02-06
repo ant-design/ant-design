@@ -77,8 +77,8 @@ export interface SegmentedProps<ValueType = RcSegmentedValue>
   size?: SizeType;
   vertical?: boolean;
   orientation?: Orientation;
-  classNames?: SegmentedSemanticAllType['classNames'] | SegmentedSemanticAllType['classNamesFn'];
-  styles?: SegmentedSemanticAllType['styles'] | SegmentedSemanticAllType['stylesFn'];
+  classNames?: SegmentedSemanticAllType['classNamesAndFn'];
+  styles?: SegmentedSemanticAllType['stylesAndFn'];
   shape?: 'default' | 'round';
 }
 

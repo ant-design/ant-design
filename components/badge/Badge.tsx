@@ -48,8 +48,8 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   offset?: [number | string, number | string];
   title?: string;
   children?: React.ReactNode;
-  classNames?: BadgeSemanticAllType['classNames'] | BadgeSemanticAllType['classNamesFn'];
-  styles?: BadgeSemanticAllType['styles'] | BadgeSemanticAllType['stylesFn'];
+  classNames?: BadgeSemanticAllType['classNamesAndFn'];
+  styles?: BadgeSemanticAllType['stylesAndFn'];
 }
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {

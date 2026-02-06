@@ -55,8 +55,8 @@ export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
-  classNames?: MessageSemanticAllType['classNames'] | MessageSemanticAllType['classNamesFn'];
-  styles?: MessageSemanticAllType['styles'] | MessageSemanticAllType['stylesFn'];
+  classNames?: MessageSemanticAllType['classNamesAndFn'];
+  styles?: MessageSemanticAllType['stylesAndFn'];
 }
 
 /** @private Internal Component. Do not use in your production. */

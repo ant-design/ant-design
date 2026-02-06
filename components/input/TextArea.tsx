@@ -53,8 +53,8 @@ export interface TextAreaProps extends Omit<RcTextAreaProps, 'suffix' | 'classNa
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: TextAreaSemanticAllType['classNames'] | TextAreaSemanticAllType['classNamesFn'];
-  styles?: TextAreaSemanticAllType['styles'] | TextAreaSemanticAllType['stylesFn'];
+  classNames?: TextAreaSemanticAllType['classNamesAndFn'];
+  styles?: TextAreaSemanticAllType['stylesAndFn'];
 }
 
 export interface TextAreaRef {

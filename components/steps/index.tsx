@@ -90,8 +90,8 @@ export interface BaseStepsProps {
   // Style
   className?: string;
   rootClassName?: string;
-  classNames?: StepsSemanticAllType['classNames'] | StepsSemanticAllType['classNamesFn'];
-  styles?: StepsSemanticAllType['styles'] | StepsSemanticAllType['stylesFn'];
+  classNames?: StepsSemanticAllType['classNamesAndFn'];
+  styles?: StepsSemanticAllType['stylesAndFn'];
   variant?: 'filled' | 'outlined';
   size?: 'default' | 'small';
 

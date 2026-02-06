@@ -35,8 +35,8 @@ export interface RibbonProps {
   children?: React.ReactNode;
   placement?: RibbonPlacement;
   rootClassName?: string;
-  classNames?: RibbonSemanticAllType['classNames'] | RibbonSemanticAllType['classNamesFn'];
-  styles?: RibbonSemanticAllType['styles'] | RibbonSemanticAllType['stylesFn'];
+  classNames?: RibbonSemanticAllType['classNamesAndFn'];
+  styles?: RibbonSemanticAllType['stylesAndFn'];
 }
 
 const Ribbon: React.FC<RibbonProps> = (props) => {

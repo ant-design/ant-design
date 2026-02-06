@@ -115,8 +115,8 @@ export interface PurePanelProps
   extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
-  classNames?: AnchorSemanticAllType['classNames'] | AnchorSemanticAllType['classNamesFn'];
-  styles?: AnchorSemanticAllType['styles'] | AnchorSemanticAllType['stylesFn'];
+  classNames?: AnchorSemanticAllType['classNamesAndFn'];
+  styles?: AnchorSemanticAllType['stylesAndFn'];
   closeIcon?: React.ReactNode;
 }
 

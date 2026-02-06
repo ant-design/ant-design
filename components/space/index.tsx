@@ -52,8 +52,8 @@ export interface SpaceProps extends React.HTMLAttributes<HTMLDivElement> {
   split?: React.ReactNode;
   separator?: React.ReactNode;
   wrap?: boolean;
-  classNames?: SpaceSemanticAllType['classNames'] | SpaceSemanticAllType['classNamesFn'];
-  styles?: SpaceSemanticAllType['styles'] | SpaceSemanticAllType['stylesFn'];
+  classNames?: SpaceSemanticAllType['classNamesAndFn'];
+  styles?: SpaceSemanticAllType['stylesAndFn'];
 }
 
 const InternalSpace = React.forwardRef<HTMLDivElement, SpaceProps>((props, ref) => {

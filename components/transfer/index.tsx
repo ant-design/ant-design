@@ -120,8 +120,8 @@ export interface TransferProps<RecordType = any> {
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   /** @deprecated Please use `styles.actions` instead. */
   operationStyle?: CSSProperties;
-  classNames?: TransferSemanticAllType['classNames'] | TransferSemanticAllType['classNamesFn'];
-  styles?: TransferSemanticAllType['styles'] | TransferSemanticAllType['stylesFn'];
+  classNames?: TransferSemanticAllType['classNamesAndFn'];
+  styles?: TransferSemanticAllType['stylesAndFn'];
 
   disabled?: boolean;
   dataSource?: RecordType[];

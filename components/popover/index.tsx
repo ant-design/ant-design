@@ -33,8 +33,8 @@ export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   content?: React.ReactNode | RenderFunction;
   onOpenChange?: (open: boolean) => void;
-  classNames?: PopoverSemanticAllType['classNames'] | PopoverSemanticAllType['classNamesFn'];
-  styles?: PopoverSemanticAllType['styles'] | PopoverSemanticAllType['stylesFn'];
+  classNames?: PopoverSemanticAllType['classNamesAndFn'];
+  styles?: PopoverSemanticAllType['stylesAndFn'];
 }
 
 const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {

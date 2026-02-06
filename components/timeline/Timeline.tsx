@@ -66,8 +66,8 @@ export interface TimelineProps {
   prefixCls?: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: TimelineSemanticAllType['classNames'] | TimelineSemanticAllType['classNamesFn'];
-  styles?: TimelineSemanticAllType['styles'] | TimelineSemanticAllType['stylesFn'];
+  classNames?: TimelineSemanticAllType['classNamesAndFn'];
+  styles?: TimelineSemanticAllType['stylesAndFn'];
   rootClassName?: string;
 
   // Design

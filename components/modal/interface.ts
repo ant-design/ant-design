@@ -57,8 +57,8 @@ interface ModalCommonProps
   closable?:
     | boolean
     | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
-  classNames?: ModalSemanticAllType['classNames'] | ModalSemanticAllType['classNamesFn'];
-  styles?: ModalSemanticAllType['styles'] | ModalSemanticAllType['stylesFn'];
+  classNames?: ModalSemanticAllType['classNamesAndFn'];
+  styles?: ModalSemanticAllType['stylesAndFn'];
 }
 
 export interface ModalProps extends ModalCommonProps {

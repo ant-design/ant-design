@@ -35,8 +35,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   icon?: React.ReactNode;
   onOpenChange?: (open: boolean) => void;
   onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
-  classNames?: PopconfirmSemanticAllType['classNames'] | PopconfirmSemanticAllType['classNamesFn'];
-  styles?: PopconfirmSemanticAllType['styles'] | PopconfirmSemanticAllType['stylesFn'];
+  classNames?: PopconfirmSemanticAllType['classNamesAndFn'];
+  styles?: PopconfirmSemanticAllType['stylesAndFn'];
 }
 
 export interface PopconfirmState {

@@ -45,6 +45,6 @@ export interface QRCodeProps extends QRProps, React.HTMLAttributes<HTMLDivElemen
   status?: QRStatus;
   onRefresh?: () => void;
   statusRender?: (info: StatusRenderInfo) => ReactNode;
-  classNames?: QRCodeSemanticAllType['classNames'] | QRCodeSemanticAllType['classNamesFn'];
-  styles?: QRCodeSemanticAllType['styles'] | QRCodeSemanticAllType['stylesFn'];
+  classNames?: QRCodeSemanticAllType['classNamesAndFn'];
+  styles?: QRCodeSemanticAllType['stylesAndFn'];
 }

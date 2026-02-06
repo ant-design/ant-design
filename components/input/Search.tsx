@@ -53,10 +53,8 @@ export interface SearchProps extends InputProps {
   enterButton?: React.ReactNode;
   loading?: boolean;
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
-  classNames?:
-    | InputSearchSemanticAllType['classNames']
-    | InputSearchSemanticAllType['classNamesFn'];
-  styles?: InputSearchSemanticAllType['styles'] | InputSearchSemanticAllType['stylesFn'];
+  classNames?: InputSearchSemanticAllType['classNamesAndFn'];
+  styles?: InputSearchSemanticAllType['stylesAndFn'];
 }
 
 const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {

@@ -60,8 +60,8 @@ export interface SwitchProps {
   title?: string;
   tabIndex?: number;
   id?: string;
-  classNames?: SwitchSemanticAllType['classNames'] | SwitchSemanticAllType['classNamesFn'];
-  styles?: SwitchSemanticAllType['styles'] | SwitchSemanticAllType['stylesFn'];
+  classNames?: SwitchSemanticAllType['classNamesAndFn'];
+  styles?: SwitchSemanticAllType['stylesAndFn'];
 }
 
 const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, ref) => {

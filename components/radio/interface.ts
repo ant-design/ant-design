@@ -68,8 +68,8 @@ export interface RadioProps extends AbstractCheckboxProps<RadioChangeEvent> {
    * @internal
    */
   optionType?: RadioGroupOptionType;
-  classNames?: RadioSemanticAllType['classNames'] | RadioSemanticAllType['classNamesFn'];
-  styles?: RadioSemanticAllType['styles'] | RadioSemanticAllType['stylesFn'];
+  classNames?: RadioSemanticAllType['classNamesAndFn'];
+  styles?: RadioSemanticAllType['stylesAndFn'];
 }
 
 export interface RadioChangeEventTarget extends RadioProps {

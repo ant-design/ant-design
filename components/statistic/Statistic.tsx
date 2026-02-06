@@ -40,8 +40,8 @@ export interface StatisticRef {
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
-  classNames?: StatisticSemanticAllType['classNames'] | StatisticSemanticAllType['classNamesFn'];
-  styles?: StatisticSemanticAllType['styles'] | StatisticSemanticAllType['stylesFn'];
+  classNames?: StatisticSemanticAllType['classNamesAndFn'];
+  styles?: StatisticSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;

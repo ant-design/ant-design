@@ -134,8 +134,8 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
 export interface TooltipProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
-  classNames?: TooltipSemanticAllType['classNames'] | TooltipSemanticAllType['classNamesFn'];
-  styles?: TooltipSemanticAllType['styles'] | TooltipSemanticAllType['stylesFn'];
+  classNames?: TooltipSemanticAllType['classNamesAndFn'];
+  styles?: TooltipSemanticAllType['stylesAndFn'];
 }
 
 interface InternalTooltipProps extends TooltipProps {

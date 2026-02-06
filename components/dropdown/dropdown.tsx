@@ -62,8 +62,8 @@ export type DropdownSemanticType = {
 export type DropdownSemanticAllType = GenerateSemantic<DropdownSemanticType, DropdownProps>;
 
 export interface DropdownProps {
-  classNames?: DropdownSemanticAllType['classNames'] | DropdownSemanticAllType['classNamesFn'];
-  styles?: DropdownSemanticAllType['styles'] | DropdownSemanticAllType['stylesFn'];
+  classNames?: DropdownSemanticAllType['classNamesAndFn'];
+  styles?: DropdownSemanticAllType['stylesAndFn'];
   menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;

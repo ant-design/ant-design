@@ -56,10 +56,8 @@ export interface InputNumberProps<T extends ValueType = ValueType>
   extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
   prefixCls?: string;
   rootClassName?: string;
-  classNames?:
-    | InputNumberSemanticAllType['classNames']
-    | InputNumberSemanticAllType['classNamesFn'];
-  styles?: InputNumberSemanticAllType['styles'] | InputNumberSemanticAllType['stylesFn'];
+  classNames?: InputNumberSemanticAllType['classNamesAndFn'];
+  styles?: InputNumberSemanticAllType['stylesAndFn'];
   /**
    * @deprecated Use `Space.Compact` instead.
    *

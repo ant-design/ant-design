@@ -67,8 +67,8 @@ export interface CollapseProps extends Pick<RcCollapseProps, 'items'> {
    * @deprecated use `items` instead
    */
   children?: React.ReactNode;
-  classNames?: CollapseSemanticAllType['classNames'] | CollapseSemanticAllType['classNamesFn'];
-  styles?: CollapseSemanticAllType['styles'] | CollapseSemanticAllType['stylesFn'];
+  classNames?: CollapseSemanticAllType['classNamesAndFn'];
+  styles?: CollapseSemanticAllType['stylesAndFn'];
 }
 
 interface PanelProps {

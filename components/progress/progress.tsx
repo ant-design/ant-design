@@ -63,8 +63,8 @@ export interface ProgressProps extends ProgressAriaProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: ProgressSemanticAllType['classNames'] | ProgressSemanticAllType['classNamesFn'];
-  styles?: ProgressSemanticAllType['styles'] | ProgressSemanticAllType['stylesFn'];
+  classNames?: ProgressSemanticAllType['classNamesAndFn'];
+  styles?: ProgressSemanticAllType['stylesAndFn'];
 
   type?: ProgressType;
   percent?: number;

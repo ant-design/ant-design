@@ -74,8 +74,8 @@ export type CheckboxSemanticAllType = GenerateSemantic<CheckboxSemanticType, Che
 
 export interface CheckboxProps extends AbstractCheckboxProps<CheckboxChangeEvent> {
   indeterminate?: boolean;
-  classNames?: CheckboxSemanticAllType['classNames'] | CheckboxSemanticAllType['classNamesFn'];
-  styles?: CheckboxSemanticAllType['styles'] | CheckboxSemanticAllType['stylesFn'];
+  classNames?: CheckboxSemanticAllType['classNamesAndFn'];
+  styles?: CheckboxSemanticAllType['stylesAndFn'];
 }
 
 const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProps> = (

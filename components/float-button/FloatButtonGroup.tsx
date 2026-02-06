@@ -48,10 +48,8 @@ export type FloatButtonGroupSemanticAllType = GenerateSemantic<
 
 export interface FloatButtonGroupProps extends Omit<FloatButtonProps, 'classNames' | 'styles'> {
   // Styles
-  classNames?:
-    | FloatButtonGroupSemanticAllType['classNames']
-    | FloatButtonGroupSemanticAllType['classNamesFn'];
-  styles?: FloatButtonGroupSemanticAllType['styles'] | FloatButtonGroupSemanticAllType['stylesFn'];
+  classNames?: FloatButtonGroupSemanticAllType['classNamesAndFn'];
+  styles?: FloatButtonGroupSemanticAllType['stylesAndFn'];
 
   // Control
   trigger?: FloatButtonGroupTrigger;

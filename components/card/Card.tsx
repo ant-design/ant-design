@@ -76,8 +76,8 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   activeTabKey?: string;
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
-  classNames?: CardSemanticAllType['classNames'] | CardSemanticAllType['classNamesFn'];
-  styles?: CardSemanticAllType['styles'] | CardSemanticAllType['stylesFn'];
+  classNames?: CardSemanticAllType['classNamesAndFn'];
+  styles?: CardSemanticAllType['stylesAndFn'];
   variant?: 'borderless' | 'outlined';
 }
 

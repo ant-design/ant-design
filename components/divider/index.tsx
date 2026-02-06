@@ -55,8 +55,8 @@ export interface DividerProps {
   style?: React.CSSProperties;
   size?: SizeType;
   plain?: boolean;
-  classNames?: DividerSemanticAllType['classNames'] | DividerSemanticAllType['classNamesFn'];
-  styles?: DividerSemanticAllType['styles'] | DividerSemanticAllType['stylesFn'];
+  classNames?: DividerSemanticAllType['classNamesAndFn'];
+  styles?: DividerSemanticAllType['stylesAndFn'];
 }
 
 const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };

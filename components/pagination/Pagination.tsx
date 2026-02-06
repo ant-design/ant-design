@@ -52,8 +52,8 @@ export interface PaginationProps
   selectComponentClass?: any;
   /** `string` type will be removed in next major version. */
   pageSizeOptions?: (string | number)[];
-  classNames?: PaginationSemanticAllType['classNames'] | PaginationSemanticAllType['classNamesFn'];
-  styles?: PaginationSemanticAllType['styles'] | PaginationSemanticAllType['stylesFn'];
+  classNames?: PaginationSemanticAllType['classNamesAndFn'];
+  styles?: PaginationSemanticAllType['stylesAndFn'];
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';

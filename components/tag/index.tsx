@@ -55,8 +55,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   href?: string;
   target?: string;
   disabled?: boolean;
-  classNames?: TagSemanticAllType['classNames'] | TagSemanticAllType['classNamesFn'];
-  styles?: TagSemanticAllType['styles'] | TagSemanticAllType['stylesFn'];
+  classNames?: TagSemanticAllType['classNamesAndFn'];
+  styles?: TagSemanticAllType['stylesAndFn'];
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(

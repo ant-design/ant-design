@@ -45,8 +45,8 @@ export interface TourProps extends Omit<RCTourProps, 'renderPanel' | 'classNames
   indicatorsRender?: (current: number, total: number) => ReactNode;
   actionsRender?: TourStepProps['actionsRender'];
   type?: 'default' | 'primary'; //	default type, affects the background color and text color
-  classNames?: TourSemanticAllType['classNames'] | TourSemanticAllType['classNamesFn'];
-  styles?: TourSemanticAllType['styles'] | TourSemanticAllType['stylesFn'];
+  classNames?: TourSemanticAllType['classNamesAndFn'];
+  styles?: TourSemanticAllType['stylesAndFn'];
   className?: string;
   style?: React.CSSProperties;
 }

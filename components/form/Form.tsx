@@ -54,8 +54,8 @@ export type FormSemanticType = {
 export type FormSemanticAllType = GenerateSemantic<FormSemanticType, FormProps>;
 
 export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form'> {
-  classNames?: FormSemanticAllType['classNames'] | FormSemanticAllType['classNamesFn'];
-  styles?: FormSemanticAllType['styles'] | FormSemanticAllType['stylesFn'];
+  classNames?: FormSemanticAllType['classNamesAndFn'];
+  styles?: FormSemanticAllType['stylesAndFn'];
   prefixCls?: string;
   colon?: boolean;
   name?: string;

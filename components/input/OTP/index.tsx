@@ -71,8 +71,8 @@ export interface OTPProps
 
   onInput?: (value: string[]) => void;
 
-  classNames?: OTPSemanticAllType['classNames'] | OTPSemanticAllType['classNamesFn'];
-  styles?: OTPSemanticAllType['styles'] | OTPSemanticAllType['stylesFn'];
+  classNames?: OTPSemanticAllType['classNamesAndFn'];
+  styles?: OTPSemanticAllType['stylesAndFn'];
 }
 
 function strToArr(str: string) {

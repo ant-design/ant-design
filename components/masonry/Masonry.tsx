@@ -49,8 +49,8 @@ export interface MasonryProps<ItemDataType = any> {
   rootClassName?: string;
   style?: CSSProperties;
 
-  classNames?: MasonrySemanticAllType['classNames'] | MasonrySemanticAllType['classNamesFn'];
-  styles?: MasonrySemanticAllType['styles'] | MasonrySemanticAllType['stylesFn'];
+  classNames?: MasonrySemanticAllType['classNamesAndFn'];
+  styles?: MasonrySemanticAllType['stylesAndFn'];
 
   /** Spacing between items */
   gutter?: RowProps['gutter'];

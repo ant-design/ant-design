@@ -64,8 +64,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: ButtonSemanticAllType['classNames'] | ButtonSemanticAllType['classNamesFn'];
-  styles?: ButtonSemanticAllType['styles'] | ButtonSemanticAllType['stylesFn'];
+  classNames?: ButtonSemanticAllType['classNamesAndFn'];
+  styles?: ButtonSemanticAllType['stylesAndFn'];
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.

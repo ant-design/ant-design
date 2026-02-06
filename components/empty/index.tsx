@@ -44,8 +44,8 @@ export interface EmptyProps {
   image?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
-  classNames?: EmptySemanticAllType['classNames'] | EmptySemanticAllType['classNamesFn'];
-  styles?: EmptySemanticAllType['styles'] | EmptySemanticAllType['stylesFn'];
+  classNames?: EmptySemanticAllType['classNamesAndFn'];
+  styles?: EmptySemanticAllType['stylesAndFn'];
 }
 
 type CompoundedComponent = React.FC<EmptyProps> & {

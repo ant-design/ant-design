@@ -32,8 +32,8 @@ export interface ConfigOptions {
    * @descEN keep the timer running or not on hover
    */
   pauseOnHover?: boolean;
-  classNames?: MessageSemanticAllType['classNames'] | MessageSemanticAllType['classNamesFn'];
-  styles?: MessageSemanticAllType['styles'] | MessageSemanticAllType['stylesFn'];
+  classNames?: MessageSemanticAllType['classNamesAndFn'];
+  styles?: MessageSemanticAllType['stylesAndFn'];
 }
 
 export interface ArgsProps {
@@ -61,8 +61,8 @@ export interface ArgsProps {
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;
-  classNames?: MessageSemanticAllType['classNames'] | MessageSemanticAllType['classNamesFn'];
-  styles?: MessageSemanticAllType['styles'] | MessageSemanticAllType['stylesFn'];
+  classNames?: MessageSemanticAllType['classNamesAndFn'];
+  styles?: MessageSemanticAllType['stylesAndFn'];
   /**
    * @descCN 消息通知点击时的回调函数
    * @descEN Callback function when message notification is clicked

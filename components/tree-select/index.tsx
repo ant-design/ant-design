@@ -116,8 +116,8 @@ interface BaseTreeSelectProps<ValueType = any, OptionType extends DataNode = Dat
 
 export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = DataNode>
   extends BaseTreeSelectProps<ValueType, OptionType> {
-  classNames?: TreeSelectSemanticAllType['classNames'] | TreeSelectSemanticAllType['classNamesFn'];
-  styles?: TreeSelectSemanticAllType['styles'] | TreeSelectSemanticAllType['stylesFn'];
+  classNames?: TreeSelectSemanticAllType['classNamesAndFn'];
+  styles?: TreeSelectSemanticAllType['stylesAndFn'];
   suffixIcon?: React.ReactNode;
   size?: SizeType;
   disabled?: boolean;

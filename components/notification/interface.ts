@@ -56,10 +56,8 @@ export interface ArgsProps {
   placement?: NotificationPlacement;
   style?: React.CSSProperties;
   className?: string;
-  classNames?:
-    | NotificationSemanticAllType['classNames']
-    | NotificationSemanticAllType['classNamesFn'];
-  styles?: NotificationSemanticAllType['styles'] | NotificationSemanticAllType['stylesFn'];
+  classNames?: NotificationSemanticAllType['classNamesAndFn'];
+  styles?: NotificationSemanticAllType['stylesAndFn'];
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
@@ -108,8 +106,6 @@ export interface NotificationConfig {
   showProgress?: boolean;
   pauseOnHover?: boolean;
   closeIcon?: React.ReactNode;
-  classNames?:
-    | NotificationSemanticAllType['classNames']
-    | NotificationSemanticAllType['classNamesFn'];
-  styles?: NotificationSemanticAllType['styles'] | NotificationSemanticAllType['stylesFn'];
+  classNames?: NotificationSemanticAllType['classNamesAndFn'];
+  styles?: NotificationSemanticAllType['stylesAndFn'];
 }

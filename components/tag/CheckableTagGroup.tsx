@@ -63,12 +63,8 @@ type CheckableTagGroupBaseProps<CheckableTagValue> = {
 
 export type CheckableTagGroupProps<CheckableTagValue = any> =
   CheckableTagGroupBaseProps<CheckableTagValue> & {
-    classNames?:
-      | CheckableTagGroupSemanticAllType['classNames']
-      | CheckableTagGroupSemanticAllType['classNamesFn'];
-    styles?:
-      | CheckableTagGroupSemanticAllType['styles']
-      | CheckableTagGroupSemanticAllType['stylesFn'];
+    classNames?: CheckableTagGroupSemanticAllType['classNamesAndFn'];
+    styles?: CheckableTagGroupSemanticAllType['stylesAndFn'];
   };
 
 export interface CheckableTagGroupRef {

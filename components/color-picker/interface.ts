@@ -106,10 +106,8 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  classNames?:
-    | ColorPickerSemanticAllType['classNames']
-    | ColorPickerSemanticAllType['classNamesFn'];
-  styles?: ColorPickerSemanticAllType['styles'] | ColorPickerSemanticAllType['stylesFn'];
+  classNames?: ColorPickerSemanticAllType['classNamesAndFn'];
+  styles?: ColorPickerSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;

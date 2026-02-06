@@ -61,8 +61,8 @@ export interface DrawerPanelProps {
   onClose?: RCDrawerProps['onClose'];
 
   children?: React.ReactNode;
-  classNames?: DrawerSemanticAllType['classNames'] | DrawerSemanticAllType['classNamesFn'];
-  styles?: DrawerSemanticAllType['styles'] | DrawerSemanticAllType['stylesFn'];
+  classNames?: DrawerSemanticAllType['classNamesAndFn'];
+  styles?: DrawerSemanticAllType['stylesAndFn'];
   loading?: boolean;
 
   /** @deprecated Please use `styles.header` instead */

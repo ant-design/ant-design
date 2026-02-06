@@ -31,8 +31,8 @@ export interface CardMetaProps {
   avatar?: React.ReactNode;
   title?: React.ReactNode;
   description?: React.ReactNode;
-  classNames?: CardMetaSemanticAllType['classNames'] | CardMetaSemanticAllType['classNamesFn'];
-  styles?: CardMetaSemanticAllType['styles'] | CardMetaSemanticAllType['stylesFn'];
+  classNames?: CardMetaSemanticAllType['classNamesAndFn'];
+  styles?: CardMetaSemanticAllType['stylesAndFn'];
 }
 
 const CardMeta: React.FC<CardMetaProps> = (props) => {

@@ -143,8 +143,8 @@ export interface TreeProps<T extends BasicDataNode = DataNode>
   > {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
-  classNames?: TreeSemanticAllType['classNames'] | TreeSemanticAllType['classNamesFn'];
-  styles?: TreeSemanticAllType['styles'] | TreeSemanticAllType['stylesFn'];
+  classNames?: TreeSemanticAllType['classNamesAndFn'];
+  styles?: TreeSemanticAllType['stylesAndFn'];
   /** Whether to support multiple selection */
   multiple?: boolean;
   /** Whether to automatically expand the parent node */

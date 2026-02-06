@@ -65,8 +65,8 @@ export interface ResultProps extends HTMLAriaDataAttributes {
   rootClassName?: string;
   style?: React.CSSProperties;
   children?: React.ReactNode;
-  classNames?: ResultSemanticAllType['classNames'] | ResultSemanticAllType['classNamesFn'];
-  styles?: ResultSemanticAllType['styles'] | ResultSemanticAllType['stylesFn'];
+  classNames?: ResultSemanticAllType['classNamesAndFn'];
+  styles?: ResultSemanticAllType['stylesAndFn'];
 }
 
 // ExceptionImageMap keys
