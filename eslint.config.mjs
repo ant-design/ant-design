@@ -63,6 +63,7 @@ export default antfu(
       'react-hooks/preserve-manual-memoization': 'off',
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
+      'react/no-implicit-key': 'off',
     },
   },
   compat.configs['flat/recommended'],
