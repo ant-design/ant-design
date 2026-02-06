@@ -3,8 +3,8 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
 import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -69,10 +69,8 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  classNames?:
-    | AutoCompleteSemanticAllType['classNames']
-    | AutoCompleteSemanticAllType['classNamesFn'];
-  styles?: AutoCompleteSemanticAllType['styles'] | AutoCompleteSemanticAllType['stylesFn'];
+  classNames?: AutoCompleteSemanticAllType['classNamesAndFn'];
+  styles?: AutoCompleteSemanticAllType['stylesAndFn'];
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;

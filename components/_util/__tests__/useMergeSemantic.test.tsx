@@ -1,6 +1,7 @@
 import { renderHook } from '@testing-library/react';
 
-import { mergeClassNames, useMergeSemantic } from '../hooks';
+import { mergeClassNames } from '../hooks';
+import { useMergeSemantic } from '../hooks/useMergeSemanticNew';
 
 const mockSchema = {
   // _default: 'root',

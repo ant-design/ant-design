@@ -10,8 +10,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import type { ClosableType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
 import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -82,8 +82,8 @@ export interface AlertProps {
   style?: React.CSSProperties;
   prefixCls?: string;
   className?: string;
-  classNames?: AlertSemanticAllType['classNames'] | AlertSemanticAllType['classNamesFn'];
-  styles?: AlertSemanticAllType['styles'] | AlertSemanticAllType['stylesFn'];
+  classNames?: AlertSemanticAllType['classNamesAndFn'];
+  styles?: AlertSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   banner?: boolean;
   icon?: React.ReactNode;

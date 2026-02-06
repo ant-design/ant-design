@@ -11,8 +11,8 @@ import RcImage from '@rc-component/image';
 import { clsx } from 'clsx';
 
 import type { DeprecatedPreviewConfig, ImageProps, ImageSemanticAllType } from '.';
-import { useMergeSemantic } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { GetProps } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -46,8 +46,8 @@ export type GroupPreviewConfig = OriginPreviewConfig &
 export interface PreviewGroupProps
   extends Omit<RcPreviewGroupProps, 'preview' | 'styles' | 'classNames'> {
   preview?: boolean | GroupPreviewConfig;
-  classNames?: ImageSemanticAllType['classNames'] | ImageSemanticAllType['classNamesFn'];
-  styles?: ImageSemanticAllType['styles'] | ImageSemanticAllType['stylesFn'];
+  classNames?: ImageSemanticAllType['classNamesAndFn'];
+  styles?: ImageSemanticAllType['stylesAndFn'];
 }
 
 const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
