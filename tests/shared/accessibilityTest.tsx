@@ -124,6 +124,15 @@ type Options = {
 
 // eslint-disable-next-line jest/no-export
 export default function accessibilityDemoTest(component: string, options: Options = {}) {
+  // If skip is true, return immediately without executing any tests
+  if (options.skip === true) {
+    // eslint-disable-next-line jest/no-disabled-tests
+    describe.skip(`${component} demo a11y`, () => {
+      it('skipped', () => {});
+    });
+    return;
+  }
+
   describe(`${component} demo a11y`, () => {
     const files = globSync(`./components/${component}/demo/*.tsx`).filter(
       (file) =>
@@ -132,8 +141,9 @@ export default function accessibilityDemoTest(component: string, options: Option
 
     files.forEach((file) => {
       const shouldSkip = Array.isArray(options.skip) && options.skip.includes(path.basename(file));
+      const testMethod = shouldSkip ? describe.skip : describe;
 
-      describe(`Test ${file} accessibility`, () => {
+      testMethod(`Test ${file} accessibility`, () => {
         if (!shouldSkip) {
           const Demo: React.ComponentType<any> = require(`../../${file}`).default;
           accessibilityTest(Demo, options.disabledRules);
