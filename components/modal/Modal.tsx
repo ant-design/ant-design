@@ -77,6 +77,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     closable,
     mask: modalMask,
     modalRender,
+    maskClosable,
 
     // Focusable
     focusTriggerAfterClose,
@@ -111,7 +112,12 @@ const Modal: React.FC<ModalProps> = (props) => {
   const rootPrefixCls = getPrefixCls();
 
   // ============================ Mask ============================
-  const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
+  const [mergedMask, maskBlurClassName, mergeMaskClosable] = useMergedMask(
+    modalMask,
+    contextMask,
+    prefixCls,
+    maskClosable,
+  );
 
   // ========================== Focusable =========================
   const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose);
@@ -139,6 +145,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       ['destroyOnClose', 'destroyOnHidden'],
       ['autoFocusButton', 'focusable.autoFocusButton'],
       ['focusTriggerAfterClose', 'focusable.focusTriggerAfterClose'],
+      ['maskClosable', 'mask.closable'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -203,6 +210,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     focusTriggerAfterClose: mergedFocusable.focusTriggerAfterClose,
     focusable: mergedFocusable,
     mask: mergedMask,
+    maskClosable: mergeMaskClosable,
     zIndex,
   };
 
@@ -259,6 +267,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           mask={mergedMask}
+          maskClosable={mergeMaskClosable}
           className={clsx(hashId, className, contextClassName)}
           style={{ ...contextStyle, ...style, ...responsiveWidthVars }}
           classNames={{
