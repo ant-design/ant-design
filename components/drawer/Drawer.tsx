@@ -59,6 +59,8 @@ export interface DrawerProps
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+  /** @deprecated Please use `mask.closable` instead */
+  maskClosable?: boolean;
   mask?: MaskType;
 
   focusable?: FocusableConfig;
@@ -94,6 +96,7 @@ const Drawer: React.FC<DrawerProps> & {
     focusable,
 
     // Deprecated
+    maskClosable,
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
@@ -140,6 +143,7 @@ const Drawer: React.FC<DrawerProps> & {
       ['destroyInactivePanel', 'destroyOnHidden'],
       ['width', 'size'],
       ['height', 'size'],
+      ['maskClosable', 'mask.closable'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -206,7 +210,12 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // ============================ Mask ============================
-  const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
+  const [mergedMask, maskBlurClassName, mergedMaskClosable] = useMergedMask(
+    drawerMask,
+    contextMask,
+    prefixCls,
+    maskClosable,
+  );
 
   // ========================== Focusable =========================
   const mergedFocusable = useFocusable(focusable, getContainer !== false && mergedMask);
@@ -218,6 +227,7 @@ const Drawer: React.FC<DrawerProps> & {
     zIndex,
     panelRef,
     mask: mergedMask,
+    maskClosable: mergedMaskClosable,
     defaultSize,
     push,
     focusable: mergedFocusable,
@@ -265,6 +275,7 @@ const Drawer: React.FC<DrawerProps> & {
           }}
           open={open}
           mask={mergedMask}
+          maskClosable={mergedMaskClosable}
           push={push}
           size={drawerSize}
           defaultSize={defaultSize}
