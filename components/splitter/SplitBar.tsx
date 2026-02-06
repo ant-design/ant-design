@@ -8,14 +8,14 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
 import { genCssVar } from '../theme/util/genStyleUtils';
-import type { SplitterProps, SplitterSemanticAllType, SplitterSemanticType } from './interface';
+import type { SplitterProps, SplitterSemanticAllType } from './interface';
 
 export type ShowCollapsibleIconMode = boolean | 'auto';
 
 export interface SplitBarProps {
   index: number;
   active: boolean;
-  draggerStyle?: NonNullable<NonNullable<SplitterSemanticType['styles']>['dragger']>['default'];
+  draggerStyle?: NonNullable<NonNullable<SplitterSemanticAllType['styles']>['dragger']>['default'];
   draggerClassName?: NonNullable<SplitterSemanticAllType['classNamesNoString']>['dragger'];
   prefixCls: string;
   rootPrefixCls: string;
