@@ -4,9 +4,9 @@ import { unit } from '@ant-design/cssinjs';
 
 import { AggregationColor } from '../../color-picker/color';
 import { isBright } from '../../color-picker/components/ColorPresets';
+import { PresetColors } from '../../theme/interface';
 import type { FullToken, GenStyleFn, GetDefaultToken, PresetColorKey } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
-import { PresetColors } from '../../theme/interface';
 import getAlphaColor from '../../theme/util/getAlphaColor';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -247,6 +247,10 @@ type ShadowColorMap = {
   [Key in `${PresetColorKey}ShadowColor`]: string;
 };
 
+type PresetColorHoverActiveMap = {
+  [Key in `${PresetColorKey}Hover` | `${PresetColorKey}Active`]: string;
+};
+
 type GroupToken = {
   /**
    * @desc 按钮组边框颜色
@@ -257,7 +261,11 @@ type GroupToken = {
   groupBorderColor: string;
 };
 
-export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap, GroupToken {
+export interface ButtonToken
+  extends FullToken<'Button'>,
+    ShadowColorMap,
+    PresetColorHoverActiveMap,
+    GroupToken {
   /**
    * @desc 按钮横向内边距
    * @descEN Horizontal padding of button
