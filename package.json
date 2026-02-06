@@ -35,9 +35,14 @@
   "typings": "es/index.d.ts",
   "exports": {
     ".": {
-      "import": "./es/index.js",
-      "require": "./lib/index.js",
-      "types": "./es/index.d.ts"
+      "import": {
+        "types": "./es/index.d.ts",
+        "default": "./es/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      }
     },
     "./es/*": "./es/*",
     "./lib/*": "./lib/*",
