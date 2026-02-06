@@ -344,6 +344,17 @@
     }
   ],
   "title": "Ant Design",
+  "pnpm": {
+    "overrides": {
+      "@asamuzakjp/css-color": "4.1.1"
+    }
+  },
+  "overrides": {
+    "@asamuzakjp/css-color": "4.1.1"
+  },
+  "resolutions": {
+    "@asamuzakjp/css-color": "4.1.1"
+  },
   "tnpm": {
     "mode": "npm"
   }
