@@ -223,7 +223,7 @@
     "adm-zip": "^0.5.16",
     "ajv": "^8.17.1",
     "ali-oss": "^6.23.0",
-    "antd-img-crop": "~4.27.0",
+    "antd-img-crop": "~4.28.0",
     "antd-style": "^4.1.0",
     "antd-token-previewer": "^3.0.0",
     "axios": "^1.13.2",
