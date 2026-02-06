@@ -297,6 +297,7 @@ describe('Modal', () => {
       await waitFakeTimer(500);
     });
     const modalWrap = document.body.querySelectorAll('.ant-modal-wrap')[0];
+    fireEvent.mouseDown(modalWrap!);
     fireEvent.click(modalWrap!);
     await act(async () => {
       await waitFakeTimer(500);
