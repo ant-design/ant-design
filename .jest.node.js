@@ -1,15 +1,12 @@
 const { moduleNameMapper, transformIgnorePatterns } = require('./.jest');
 
-// jest config for server render environment
 module.exports = {
   setupFiles: ['./tests/setup.ts'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'md'],
   moduleNameMapper,
   transform: {
-    '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.mjs$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+    '^.+\\.(ts|tsx|js|mjs)$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },

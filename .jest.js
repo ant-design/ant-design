@@ -12,6 +12,7 @@ const compileModules = [
   'parse5',
   '@exodus',
   'jsdom',
+  '@csstools',
 ];
 
 // cnpm use `_` as prefix
@@ -63,7 +64,7 @@ module.exports = {
   ],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+    '\\.(m?)js(m)?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },
