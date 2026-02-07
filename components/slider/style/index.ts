@@ -228,14 +228,16 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           outline: `0px solid transparent`,
           borderRadius: '50%',
           cursor: 'pointer',
-          transition: `
-            inset-inline-start ${motionDurationMid},
-            inset-block-start ${motionDurationMid},
-            width ${motionDurationMid},
-            height ${motionDurationMid},
-            box-shadow ${motionDurationMid},
-            outline ${motionDurationMid}
-          `,
+          transition: [
+            'inset-inline-start',
+            'inset-block-start',
+            'width',
+            'height',
+            'box-shadow',
+            'outline',
+          ]
+            .map((prop) => `${prop} ${motionDurationMid}`)
+            .join(', '),
         },
 
         '&:hover, &:active, &:focus': {
