@@ -506,7 +506,7 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         color: 'currentcolor',
         transform: 'translateY(-50%)',
         transition: ['transform', 'opacity']
-          .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+          .map((prop) => `${prop} ${motionDurationSlow}`)
           .join(','),
       },
 
