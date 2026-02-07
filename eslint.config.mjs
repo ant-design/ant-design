@@ -63,9 +63,16 @@ export default antfu(
       'react-hooks/preserve-manual-memoization': 'off',
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
+      'react/no-implicit-key': 'off',
     },
   },
-  compat.configs['flat/recommended'],
+  {
+    ...compat.configs['flat/recommended'],
+    rules: {
+      ...compat.configs['flat/recommended'].rules,
+      'compat/compat': 'off', // Disabled due to incompatibility with ESLint 10.0.0
+    },
+  },
   jest.configs['flat/recommended'],
   {
     ...jsxA11y.flatConfigs.recommended,
