@@ -67,7 +67,7 @@ const DEFAULT_PUSH_STATE: PushState = { distance: 180 };
 
 const DEFAULT_SIZE = 378;
 
-const MOTION_CONFIG = {
+const MOTION_CONFIG: CSSMotionProps = {
   motionAppear: true,
   motionEnter: true,
   motionLeave: true,
