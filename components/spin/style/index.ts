@@ -154,7 +154,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token) => {
 
 // ============================ Indicator =============================
 const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls, antCls, motionDurationSlow } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'spin');
 
@@ -171,7 +171,9 @@ const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
           height: '1em',
           fontSize: varRef('dot-holder-size'),
           display: 'inline-block',
-          transition: `transform ${token.motionDurationSlow} ease, opacity ${token.motionDurationSlow} ease`,
+          transition: ['transform', 'opacity']
+            .map((prop) => `${prop} ${motionDurationSlow} ease`)
+            .join(', '),
           transformOrigin: '50% 50%',
           lineHeight: 1,
 
@@ -249,7 +251,7 @@ const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
         '&-circle': {
           strokeLinecap: 'round',
           transition: ['stroke-dashoffset', 'stroke-dasharray', 'stroke', 'stroke-width', 'opacity']
-            .map((item) => `${item} ${token.motionDurationSlow} ease`)
+            .map((item) => `${item} ${motionDurationSlow} ease`)
             .join(','),
           fillOpacity: 0,
           stroke: 'currentcolor',
