@@ -182,6 +182,10 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
         marginInlineEnd: 0,
       },
 
+      [`${componentCls}-group-vertical &`]: {
+        marginInlineEnd: 0,
+      },
+
       // RTL
       [`&${componentCls}-wrapper-rtl`]: {
         direction: 'rtl',
