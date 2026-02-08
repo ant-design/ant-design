@@ -40,7 +40,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
       userSelect: 'none',
       touchAction: 'manipulation',
-
+      //
       '&:disabled > *': {
         pointerEvents: 'none',
       },
