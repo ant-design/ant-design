@@ -116,6 +116,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     treeNodePadding,
     titleHeight,
     indentSize,
+    motionDurationMid,
     nodeSelectedBg,
     nodeHoverBg,
     colorTextQuaternary,
@@ -352,7 +353,13 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         background: 'transparent',
         borderRadius: token.borderRadius,
         cursor: 'pointer',
-        transition: `all ${token.motionDurationMid}, border 0s, line-height 0s, box-shadow 0s`,
+        transition: [
+          `all ${motionDurationMid}`,
+          'border 0s',
+          'line-height 0s',
+          'box-shadow 0s',
+        ].join(', '),
+
         ...getDropIndicatorStyle(prefixCls, token),
 
         '&:hover': {
