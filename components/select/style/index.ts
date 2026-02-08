@@ -13,7 +13,7 @@ export type { ComponentToken };
 
 // =============================== Base ===============================
 const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
-  const { antCls, componentCls, inputPaddingHorizontalBase } = token;
+  const { antCls, componentCls, motionDurationMid, inputPaddingHorizontalBase } = token;
 
   const hoverShowClearStyle: CSSObject = {
     [`${componentCls}-clear`]: {
@@ -66,7 +66,9 @@ const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
         textTransform: 'none',
         cursor: 'pointer',
         opacity: 0,
-        transition: `color ${token.motionDurationMid} ease, opacity ${token.motionDurationSlow} ease`,
+        transition: ['color', 'opacity']
+          .map((prop) => `${prop} ${motionDurationMid} ease`)
+          .join(', '),
         textRendering: 'auto',
         // https://github.com/ant-design/ant-design/issues/54205
         // Force GPU compositing on Safari to prevent flickering on opacity/transform transitions

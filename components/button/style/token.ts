@@ -4,9 +4,9 @@ import { unit } from '@ant-design/cssinjs';
 
 import { AggregationColor } from '../../color-picker/color';
 import { isBright } from '../../color-picker/components/ColorPresets';
+import { PresetColors } from '../../theme/interface';
 import type { FullToken, GenStyleFn, GetDefaultToken, PresetColorKey } from '../../theme/internal';
 import { getLineHeight, mergeToken } from '../../theme/internal';
-import { PresetColors } from '../../theme/interface';
 import getAlphaColor from '../../theme/util/getAlphaColor';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -154,16 +154,19 @@ export interface ComponentToken {
   /**
    * @desc 按钮纵向内间距
    * @descEN Vertical padding of button
+   * @deprecated not used
    */
   paddingBlock: CSSProperties['paddingBlock'];
   /**
    * @desc 大号按钮纵向内间距
    * @descEN Vertical padding of large button
+   * @deprecated not used
    */
   paddingBlockLG: CSSProperties['paddingBlock'];
   /**
    * @desc 小号按钮纵向内间距
    * @descEN Vertical padding of small button
+   * @deprecated not used
    */
   paddingBlockSM: CSSProperties['paddingBlock'];
   /**
@@ -209,16 +212,19 @@ export interface ComponentToken {
   /**
    * @desc 按钮内容字体行高
    * @descEN Line height of button content
+   * @deprecated not used
    */
   contentLineHeight: number;
   /**
    * @desc 大号按钮内容字体行高
    * @descEN Line height of large button content
+   * @deprecated not used
    */
   contentLineHeightLG: number;
   /**
    * @desc 小号按钮内容字体行高
    * @descEN Line height of small button content
+   * @deprecated not used
    */
   contentLineHeightSM: number;
   /**
@@ -241,6 +247,10 @@ type ShadowColorMap = {
   [Key in `${PresetColorKey}ShadowColor`]: string;
 };
 
+type PresetColorHoverActiveMap = {
+  [Key in `${PresetColorKey}Hover` | `${PresetColorKey}Active`]: string;
+};
+
 type GroupToken = {
   /**
    * @desc 按钮组边框颜色
@@ -251,7 +261,11 @@ type GroupToken = {
   groupBorderColor: string;
 };
 
-export interface ButtonToken extends FullToken<'Button'>, ShadowColorMap, GroupToken {
+export interface ButtonToken
+  extends FullToken<'Button'>,
+    ShadowColorMap,
+    PresetColorHoverActiveMap,
+    GroupToken {
   /**
    * @desc 按钮横向内边距
    * @descEN Horizontal padding of button
