@@ -130,33 +130,6 @@ const Drawer: React.FC<DrawerProps> & {
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
 
-  // ========================== Warning ===========================
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Drawer');
-    [
-      ['headerStyle', 'styles.header'],
-      ['bodyStyle', 'styles.body'],
-      ['footerStyle', 'styles.footer'],
-      ['contentWrapperStyle', 'styles.wrapper'],
-      ['maskStyle', 'styles.mask'],
-      ['drawerStyle', 'styles.section'],
-      ['destroyInactivePanel', 'destroyOnHidden'],
-      ['width', 'size'],
-      ['height', 'size'],
-      ['maskClosable', 'mask.closable'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
-
-    if (getContainer !== undefined && props.style?.position === 'absolute') {
-      warning(
-        false,
-        'breaking',
-        '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
-      );
-    }
-  }
-
   // ============================ Size ============================
   const drawerSize = React.useMemo<string | number | undefined>(() => {
     if (typeof size === 'number') {
@@ -240,6 +213,38 @@ const Drawer: React.FC<DrawerProps> & {
   >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
+
+  // ========================== Warning ===========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Drawer');
+    [
+      ['headerStyle', 'styles.header'],
+      ['bodyStyle', 'styles.body'],
+      ['footerStyle', 'styles.footer'],
+      ['contentWrapperStyle', 'styles.wrapper'],
+      ['maskStyle', 'styles.mask'],
+      ['drawerStyle', 'styles.section'],
+      ['destroyInactivePanel', 'destroyOnHidden'],
+      ['width', 'size'],
+      ['height', 'size'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+
+    if (getContainer !== undefined && props.style?.position === 'absolute') {
+      warning(
+        false,
+        'breaking',
+        '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
+      );
+    }
+
+    warning.deprecated(
+      !(mergedClassNames?.content || mergedStyles?.content),
+      'classNames.content and styles.content',
+      'classNames.section and styles.section',
+    );
+  }
 
   const drawerClassName = clsx(
     {
