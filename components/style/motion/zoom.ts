@@ -162,6 +162,7 @@ type ZoomMotionTypes =
   | 'zoom-right'
   | 'zoom-up'
   | 'zoom-down';
+
 const zoomMotion: Record<ZoomMotionTypes, { inKeyframes: Keyframes; outKeyframes: Keyframes }> = {
   zoom: {
     inKeyframes: zoomIn,
