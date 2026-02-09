@@ -23,7 +23,7 @@ tag: vVERSION
   - 🆕 ConfigProvider 支持 Modal 和 Drawer 的 `maskClosable` 全局配置。[#56739](https://github.com/ant-design/ant-design/pull/56739) [@luozz1994](https://github.com/luozz1994)
   - 🆕 ConfigProvider 支持 DatePicker 和 TimePicker 的 `suffixIcon` 全局配置。[#56709](https://github.com/ant-design/ant-design/pull/56709) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider 支持 Cascader 的 `expandIcon` 和 `loadingIcon` 全局配置。[#56482](https://github.com/ant-design/ant-design/pull/56482) [@guoyunhe](https://github.com/guoyunhe)
-  - 🆕 ConfigProvider 支持 Table 的 `scroll` 全局配置。[#56628](https://github.com/ant-design/ant-design/commit/568a398) [@Clayton](https://github.com/Clayton)
+  - 🆕 ConfigProvider 支持 Table 的 `scroll` 全局配置。[#56628](https://github.com/ant-design/ant-design/pull/56628) [@Clayton](https://github.com/Clayton)
   - 🆕 ConfigProvider 支持配置 App 的 `className` 与 `style`，以及 ColorPicker 的 `arrow` 属性。[#56573](https://github.com/ant-design/ant-design/pull/56573) [@zombieJ](https://github.com/zombieJ)
   - 🆕 ConfigProvider 支持 Button 的 `loadingIcon` 全局配置。[#56439](https://github.com/ant-design/ant-design/pull/56439) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider 支持 `rangePicker.separator` 全局配置。[#56499](https://github.com/ant-design/ant-design/pull/56499) [@guoyunhe](https://github.com/guoyunhe)
