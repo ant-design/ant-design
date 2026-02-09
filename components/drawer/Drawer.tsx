@@ -60,13 +60,19 @@ export interface DrawerProps
    */
   destroyOnHidden?: boolean;
   mask?: MaskType;
-
   focusable?: FocusableConfig;
 }
 
-const defaultPushState: PushState = { distance: 180 };
+const DEFAULT_PUSH_STATE: PushState = { distance: 180 };
 
 const DEFAULT_SIZE = 378;
+
+const MOTION_CONFIG: CSSMotionProps = {
+  motionAppear: true,
+  motionEnter: true,
+  motionLeave: true,
+  motionDeadline: 500,
+} as const;
 
 const Drawer: React.FC<DrawerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -78,7 +84,7 @@ const Drawer: React.FC<DrawerProps> & {
     height,
     width,
     mask: drawerMask,
-    push = defaultPushState,
+    push = DEFAULT_PUSH_STATE,
     open,
     afterOpenChange,
     onClose,
@@ -157,18 +163,12 @@ const Drawer: React.FC<DrawerProps> & {
   // =========================== Motion ===========================
   const maskMotion: CSSMotionProps = {
     motionName: getTransitionName(prefixCls, 'mask-motion'),
-    motionAppear: true,
-    motionEnter: true,
-    motionLeave: true,
-    motionDeadline: 500,
+    ...MOTION_CONFIG,
   };
 
   const panelMotion: RcDrawerProps['motion'] = (motionPlacement) => ({
     motionName: getTransitionName(prefixCls, `panel-motion-${motionPlacement}`),
-    motionAppear: true,
-    motionEnter: true,
-    motionLeave: true,
-    motionDeadline: 500,
+    ...MOTION_CONFIG,
   });
 
   // ============================ Refs ============================
@@ -205,6 +205,17 @@ const Drawer: React.FC<DrawerProps> & {
     props: mergedProps,
   });
 
+  const drawerClassName = clsx(
+    {
+      'no-mask': !mergedMask,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    rootClassName,
+    hashId,
+    cssVarCls,
+    mergedClassNames.root,
+  );
+
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Drawer');
@@ -236,17 +247,6 @@ const Drawer: React.FC<DrawerProps> & {
       'classNames.section and styles.section',
     );
   }
-
-  const drawerClassName = clsx(
-    {
-      'no-mask': !mergedMask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    hashId,
-    cssVarCls,
-    mergedClassNames.root,
-  );
 
   return (
     <ContextIsolator form space>
