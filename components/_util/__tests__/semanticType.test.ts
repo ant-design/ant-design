@@ -1,4 +1,4 @@
-import type { GenerateSemantic } from '../hooks/semanticType';
+import type { GenerateSemantic } from '../hooks/useMergeSemanticNew/semanticType';
 
 type DemoSemanticType = {
   classNames: {

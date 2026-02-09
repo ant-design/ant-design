@@ -3,8 +3,8 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';

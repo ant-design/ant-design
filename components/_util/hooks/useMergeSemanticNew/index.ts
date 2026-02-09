@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { classNameFillObjectBySchema, styleFillObjectBySchema } from '../fillObjectBySchema';
-import type { AnyObject, ValidChar } from '../type';
+import type { AnyObject, ValidChar } from '../../type';
 import type { RemoveClassNamesString } from './semanticType';
+import { classNameFillObjectBySchema, styleFillObjectBySchema } from './utils';
 
 export type SemanticSchema = { _default?: string; _remove?: string[] } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;

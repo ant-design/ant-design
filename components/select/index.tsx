@@ -8,8 +8,8 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';

@@ -1,5 +1,5 @@
 import type { Orientation } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 export type SplitterSemanticType = {
