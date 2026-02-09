@@ -645,7 +645,7 @@ exports[`renders components/modal/demo/mask.tsx extend context correctly 1`] = `
       type="button"
     >
       <span>
-        Default blur
+        blur
       </span>
     </button>
   </div>

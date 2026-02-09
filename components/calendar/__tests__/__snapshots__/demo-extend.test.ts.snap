@@ -11,14 +11,10 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2016"
       >
-        <div
-          class="ant-select-content-value"
-          title="2016"
-        >
-          2016
-        </div>
+        2016
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -426,14 +422,10 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Nov"
       >
-        <div
-          class="ant-select-content-value"
-          title="Nov"
-        >
-          Nov
-        </div>
+        Nov
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -726,9 +718,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
             type="radio"
             value="month"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -747,9 +736,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
             name="test-id"
             type="radio"
             value="year"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -1549,14 +1535,10 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1964,14 +1946,10 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2264,9 +2242,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -2285,9 +2260,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -3086,14 +3058,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3501,14 +3469,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3801,9 +3765,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -3822,9 +3783,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -4617,14 +4575,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5032,14 +4986,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5332,9 +5282,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -5353,9 +5300,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -6178,9 +6122,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 type="radio"
                 value="month"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -6200,9 +6141,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 type="radio"
                 value="year"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -6215,14 +6153,10 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="2016"
           >
-            <div
-              class="ant-select-content-value"
-              title="2016"
-            >
-              2016
-            </div>
+            2016
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -6670,14 +6604,10 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="Nov"
           >
-            <div
-              class="ant-select-content-value"
-              title="Nov"
-            >
-              Nov
-            </div>
+            Nov
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -7758,14 +7688,10 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2016"
       >
-        <div
-          class="ant-select-content-value"
-          title="2016"
-        >
-          2016
-        </div>
+        2016
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -8173,14 +8099,10 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Nov"
       >
-        <div
-          class="ant-select-content-value"
-          title="Nov"
-        >
-          Nov
-        </div>
+        Nov
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -8473,9 +8395,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
             type="radio"
             value="month"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -8494,9 +8413,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
             name="test-id"
             type="radio"
             value="year"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -9706,14 +9622,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2017"
         >
-          <div
-            class="ant-select-content-value"
-            title="2017"
-          >
-            2017
-          </div>
+          2017
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -10121,14 +10033,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Jan"
         >
-          <div
-            class="ant-select-content-value"
-            title="Jan"
-          >
-            Jan
-          </div>
+          Jan
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -10421,9 +10329,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -10442,9 +10347,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -11246,14 +11148,10 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -11661,14 +11559,10 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -11961,9 +11855,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -11982,9 +11873,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -12777,14 +12665,10 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -13192,14 +13076,10 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -13492,9 +13372,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -13513,9 +13390,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -14314,14 +14188,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -14729,14 +14599,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -15029,9 +14895,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -15050,9 +14913,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -15906,14 +15766,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -16321,14 +16177,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -16621,9 +16473,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -16642,9 +16491,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
