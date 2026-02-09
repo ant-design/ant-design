@@ -6,7 +6,6 @@ const compileModules = [
   'countup.js',
   '.pnpm',
   '@asamuzakjp/css-color',
-  '@csstools',
   '@rc-component',
   // jsdom 27+ depends on ESM parse5, need transform
   'parse5',

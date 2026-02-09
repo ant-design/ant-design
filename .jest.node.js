@@ -3,7 +3,7 @@ const { moduleNameMapper, transformIgnorePatterns } = require('./.jest');
 module.exports = {
   setupFiles: ['./tests/setup.ts'],
   setupFilesAfterEnv: ['./tests/setupAfterEnv.ts'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'md'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'md'],
   moduleNameMapper,
   transform: {
     '^.+\\.(ts|tsx|js|mjs)$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
