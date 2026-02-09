@@ -136,6 +136,10 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
         display: 'flex',
         flexDirection: 'column',
         rowGap: token.marginXS,
+
+        [`${componentCls}-wrapper`]: {
+          marginInlineEnd: 0,
+        },
       },
     },
   };
