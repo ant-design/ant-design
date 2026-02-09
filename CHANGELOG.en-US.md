@@ -32,7 +32,7 @@ tag: vVERSION
   - 🐞 Fix Button reversed `hover` and `active` colors for `color` in dark theme. [#56872](https://github.com/ant-design/ant-design/pull/56872) [@zombieJ](https://github.com/zombieJ)
   - 🐞 Fix Button border size not following Design Token `lineWidth`. [#56683](https://github.com/ant-design/ant-design/pull/56683) [@zombieJ](https://github.com/zombieJ)
 - Upload
-  - 🆕 Add Upload `classNames.uploadButton` and `styles.uploadButton` props. [#56578](https://github.com/ant-design/ant-design/pull/56578) [@QdabuliuQ](https://github.com/QdabuliuQ)
+  - 🆕 Add Upload `classNames.trigger` and `styles.trigger` props. [#56578](https://github.com/ant-design/ant-design/pull/56578) [@QdabuliuQ](https://github.com/QdabuliuQ)
   - 🆕 Support Upload.Dragger `onDoubleClick` event. [#56579](https://github.com/ant-design/ant-design/pull/56579) [@ug-hero](https://github.com/ug-hero)
   - 🐞 Fix Upload missing default height for `picture-card` / `picture-circle` parent nodes. [#56864](https://github.com/ant-design/ant-design/pull/56864) [@wanpan11](https://github.com/wanpan11)
 - Select
