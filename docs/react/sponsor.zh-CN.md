@@ -13,17 +13,13 @@ Ant Design 使用 MIT 协议开源并永久免费使用。维护与演进一个�
 
 感谢以下企业与个人对 Ant Design 项目的赞助与支持！
 
-## Sponsors {#sponsors}
-
-[![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
+## Sponsors {#sponsors} [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
 
 [![TRACTIAN](https://images.opencollective.com/tractian/0235da9/logo/256.png?height=80)](https://tractian.com) [![LobeHub](https://images.opencollective.com/lobehub/ac07c4c/logo/256.png?height=80)](https://lobehub.com/)
 
 [查看所有 Sponsors ❤️](https://opencollective.com/ant-design/contribute/sponsors-218)
 
-## Backers {#backers}
-
-[![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design/contribute/backers-217)
+## Backers {#backers} [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design/contribute/backers-217)
 
 [![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/backers-217)
 

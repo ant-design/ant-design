@@ -18,7 +18,6 @@ const locales = {
     components: '组件',
     resources: '资源',
     blog: '博客',
-    sponsor: '赞助',
   },
   en: {
     design: 'Design',
@@ -26,7 +25,6 @@ const locales = {
     components: 'Components',
     resources: 'Resources',
     blog: 'Blog',
-    sponsor: 'Sponsor',
   },
 };
 

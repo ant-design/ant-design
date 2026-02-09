@@ -13,17 +13,13 @@ Ant Design is MIT licensed and free to use. The effort required to maintain and 
 
 We'd like to thank the following companies and individuals for their generous sponsorship and support!
 
-## Sponsors
-
-[![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
+## Sponsors [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
 
 [![TRACTIAN](https://images.opencollective.com/tractian/0235da9/logo/256.png?height=80)](https://tractian.com) [![LobeHub](https://images.opencollective.com/lobehub/ac07c4c/logo/256.png?height=80)](https://lobehub.com/)
 
 [View all Sponsors ❤️](https://opencollective.com/ant-design/contribute/sponsors-218)
 
-## Backers
-
-[![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design/contribute/backers-217)
+## Backers [![](https://opencollective.com/ant-design/tiers/backers/badge.svg?label=Backers&color=brightgreen)](https://opencollective.com/ant-design/contribute/backers-217)
 
 [![](https://opencollective.com/ant-design/tiers/backers.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/backers-217)
 
