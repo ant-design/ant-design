@@ -94,12 +94,14 @@ export type UploadSemanticClassNames = {
   root?: string;
   list?: string;
   item?: string;
+  trigger?: string;
 };
 
 export type UploadSemanticStyles = {
   root?: React.CSSProperties;
   list?: React.CSSProperties;
   item?: React.CSSProperties;
+  trigger?: React.CSSProperties;
 };
 
 export type UploadClassNamesType<T = any> = SemanticClassNamesType<

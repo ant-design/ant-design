@@ -1,6 +1,7 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
+import { responsiveArrayReversed } from 'antd/es/_util/responsiveObserver';
 import type { ColProps } from 'antd/es/grid';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -23,12 +24,12 @@ import type { InputProps } from '../../input';
 import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Popover from '../../popover';
 import Radio from '../../radio';
+import Segmented from '../../segmented';
 import Select from '../../select';
 import Slider from '../../slider';
 import Switch from '../../switch';
-import Popover from '../../popover';
-import Segmented from '../../segmented';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 import type { NamePath } from '../interface';
@@ -1388,9 +1389,7 @@ describe('Form', () => {
         </Form.Item>
       </Form>,
     );
-    expect(container.querySelector('.ant-segmented')).not.toHaveClass(
-      'ant-segmented-disabled',
-    );
+    expect(container.querySelector('.ant-segmented')).not.toHaveClass('ant-segmented-disabled');
   });
 
   it('form.item should support layout', () => {
@@ -1444,7 +1443,7 @@ describe('Form', () => {
     expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
 
     // more size
-    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    const list = responsiveArrayReversed;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
@@ -1493,7 +1492,7 @@ describe('Form', () => {
     expect(twoItem?.className.includes('offset')).toBeFalsy();
 
     // more size
-    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    const list = responsiveArrayReversed;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
@@ -1617,7 +1616,7 @@ describe('Form', () => {
       expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
 
-    it('config tooltip should show when hover on icon', async () => {
+    it('TooltipProps', async () => {
       const { container } = render(
         <Form>
           <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
@@ -1628,6 +1627,24 @@ describe('Form', () => {
 
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
       fireEvent.click(container.querySelector('.anticon-question-circle')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
+    });
+
+    it('ConfigProvider', async () => {
+      const { container } = render(
+        <ConfigProvider form={{ tooltip: { icon: <span className="foobar">Foobar</span> } }}>
+          <Form>
+            <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.foobar')!);
+      fireEvent.click(container.querySelector('.foobar')!);
       await waitFakeTimer();
 
       expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
