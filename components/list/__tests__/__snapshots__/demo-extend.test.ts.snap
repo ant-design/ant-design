@@ -13,7 +13,7 @@ exports[`renders components/list/demo/basic.tsx extend context correctly 1`] = `
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
@@ -212,7 +212,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -320,7 +320,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -393,7 +393,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -459,7 +459,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -641,7 +641,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -1250,7 +1250,7 @@ exports[`renders components/list/demo/grid.tsx extend context correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-row css-var-test-id"
+        class="ant-row ant-list-container css-var-test-id css-var-test-id"
         style="margin-inline: -8px;"
       >
         <div
@@ -2157,7 +2157,7 @@ Array [
         class="ant-spin-container"
       >
         <div
-          class="ant-row css-var-test-id"
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
           style="margin-inline: -8px;"
         >
           <div
@@ -2386,7 +2386,7 @@ Array [
         class="ant-spin-container"
       >
         <div
-          class="ant-row css-var-test-id"
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
           style="margin-inline: -8px;"
         >
           <div
@@ -2615,7 +2615,7 @@ Array [
         class="ant-spin-container"
       >
         <div
-          class="ant-row css-var-test-id"
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
           style="margin-inline: -8px;"
         >
           <div
@@ -3193,7 +3193,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -3452,7 +3452,7 @@ exports[`renders components/list/demo/responsive.tsx extend context correctly 1`
       class="ant-spin-container"
     >
       <div
-        class="ant-row css-var-test-id"
+        class="ant-row ant-list-container css-var-test-id css-var-test-id"
         style="margin-inline: -8px;"
       >
         <div
@@ -3714,7 +3714,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -3822,7 +3822,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -3895,7 +3895,7 @@ Array [
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -3942,6 +3942,70 @@ exports[`renders components/list/demo/simple.tsx extend context correctly 2`] = 
 ]
 `;
 
+exports[`renders components/list/demo/spin-debug.tsx extend context correctly 1`] = `
+<div
+  class="ant-list ant-list-split css-var-test-id"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items ant-list-container css-var-test-id"
+      >
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+              >
+                <img
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 1
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/spin-debug.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: List] The \`List\` component is deprecated. And will be removed in next major version.",
+]
+`;
+
 exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] = `
 <div
   class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item css-var-test-id"
@@ -3955,7 +4019,7 @@ exports[`renders components/list/demo/vertical.tsx extend context correctly 1`] 
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
