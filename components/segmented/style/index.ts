@@ -78,7 +78,7 @@ const segmentedTextEllipsisCss: CSSObject = {
 
 // ============================== Styles ==============================
 const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
-  const { componentCls, motionDurationSlow, motionEaseInOut } = token;
+  const { componentCls, motionDurationSlow, motionEaseInOut, motionDurationMid } = token;
 
   const labelHeight = token
     .calc(token.controlHeight)
@@ -102,7 +102,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
       color: token.itemColor,
       background: token.trackBg,
       borderRadius: token.borderRadius,
-      transition: `all ${token.motionDurationMid}`,
+      transition: `all ${motionDurationMid}`,
       ...genFocusStyle(token),
 
       [`${componentCls}-group`]: {
@@ -146,7 +146,7 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
         position: 'relative',
         textAlign: 'center',
         cursor: 'pointer',
-        transition: `color ${token.motionDurationMid}`,
+        transition: `color ${motionDurationMid}`,
         borderRadius: token.borderRadiusSM,
         // Fix Safari render bug
         // https://github.com/ant-design/ant-design/issues/45250
@@ -169,10 +169,12 @@ const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken)
           insetInlineStart: 0,
           borderRadius: 'inherit',
           opacity: 0,
-          transition: `opacity ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
           // This is mandatory to make it not clickable or hoverable
           // Ref: https://github.com/ant-design/ant-design/issues/40888
           pointerEvents: 'none',
+          transition: ['opacity', 'background-color']
+            .map((prop) => `${prop} ${motionDurationMid}`)
+            .join(', '),
         },
 
         [`&:not(${componentCls}-item-selected):not(${componentCls}-item-disabled)`]: {
