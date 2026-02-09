@@ -80,7 +80,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       [`${componentCls}-loading-icon`]: {
         transition: ['width', 'opacity', 'margin']
-          .map((transition) => `${transition} ${motionDurationSlow} ${motionEaseInOut}`)
+          .map((props) => `${props} ${motionDurationSlow} ${motionEaseInOut}`)
           .join(','),
       },
 
