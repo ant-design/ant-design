@@ -1,8 +1,23 @@
-const React = require('react');
-const { render } = require('../../../tests/utils');
-const Splitter = require('../Splitter').default;
+import React from 'react';
+
+import { render } from '../../../tests/utils';
 
 describe('Splitter dev branches', () => {
+  let prevEnv: string | undefined;
+  let Splitter: any;
+
+  beforeEach(() => {
+    prevEnv = process.env.NODE_ENV;
+    process.env.NODE_ENV = 'development';
+    jest.isolateModules(() => {
+      Splitter = require('../Splitter').default;
+    });
+  });
+
+  afterEach(() => {
+    process.env.NODE_ENV = prevEnv;
+  });
+
   it('sets displayName in development', () => {
     expect(Splitter.displayName).toBe('Splitter');
   });
