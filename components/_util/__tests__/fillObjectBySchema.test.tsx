@@ -1,4 +1,7 @@
-import { classNameFillObjectBySchema, styleFillObjectBySchema } from '../fillObjectBySchema';
+import {
+  classNameFillObjectBySchema,
+  styleFillObjectBySchema,
+} from '../hooks/useMergeSemanticNew/utils';
 
 type DemoSemanticType = {
   classNames?: {
