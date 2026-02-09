@@ -16614,7 +16614,7 @@ exports[`ConfigProvider components List configProvider 1`] = `
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16668,7 +16668,7 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16722,7 +16722,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16776,7 +16776,7 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16830,7 +16830,7 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16884,7 +16884,7 @@ exports[`ConfigProvider components List normal 1`] = `
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-root"
       >
         <li
           class="ant-list-item"
@@ -16938,7 +16938,7 @@ exports[`ConfigProvider components List prefixCls 1`] = `
       class="ant-spin-container"
     >
       <ul
-        class="prefix-List-items"
+        class="prefix-List-items prefix-List-container css-var-root"
       >
         <li
           class="prefix-List-item"

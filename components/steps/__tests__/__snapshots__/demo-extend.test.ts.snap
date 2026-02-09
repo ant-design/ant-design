@@ -1575,7 +1575,7 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
