@@ -2,7 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetIcon } from '../../style';
-import { genNoMotionStyle } from '../../style/motion/util';
+import { genNoMotionStyle } from '../../style/motion';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genGroupStyle from './group';
