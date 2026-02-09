@@ -1,4 +1,4 @@
-import type { FullToken } from '../../theme/internal';
+import type { FullToken, GetDefaultToken } from '../../theme/internal';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -36,7 +36,7 @@ export interface ComponentToken {
 
 export interface AddonToken extends FullToken<'Addon'> {}
 
-export const initComponentToken = (token: FullToken<'Addon'>): ComponentToken => ({
+export const prepareComponentToken: GetDefaultToken<'Addon'> = (token) => ({
   paddingInline: token.paddingSM,
   paddingInlineSM: token.paddingXS,
   borderRadius: token.borderRadius,

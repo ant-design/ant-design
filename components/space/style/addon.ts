@@ -3,7 +3,7 @@ import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ComponentToken } from './token';
-import { initComponentToken } from './token';
+import { prepareComponentToken } from './token';
 
 export type { ComponentToken };
 
@@ -147,5 +147,5 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
 export default genStyleHooks(
   'Addon',
   (token) => [genSpaceAddonStyle(token), genCompactItemStyle(token, { focus: false })],
-  initComponentToken,
+  prepareComponentToken,
 );
