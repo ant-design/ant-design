@@ -54,7 +54,7 @@ tag: vVERSION
 - 💄 Change Avatar default value of `size` from `default` to `medium` for consistency. [#56440](https://github.com/ant-design/ant-design/pull/56440) [@guoyunhe](https://github.com/guoyunhe)
 - 💄 Remove Checkbox `-inner` DOM node of `icon` sub-element for better semantic structure adaptation. [#56783](https://github.com/ant-design/ant-design/pull/56783) [@zombieJ](https://github.com/zombieJ)
 - MISC
-  - 🐞 Fix React Compiler compatibility in UMD version, now disabled by default. [#56830](https://github.com/ant-design/ant-design/pull/56830) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 MISC: Fix React Compiler compatibility in UMD version, now disabled by default. [#56830](https://github.com/ant-design/ant-design/pull/56830) [@zombieJ](https://github.com/zombieJ)
   - 🛠 Streamline `styles` and `classNames` type definitions for better standardization. [#56758](https://github.com/ant-design/ant-design/pull/56758) [@crazyair](https://github.com/crazyair)
 
 ## 6.2.3

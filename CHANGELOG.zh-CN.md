@@ -54,9 +54,8 @@ tag: vVERSION
 - 💄 Avatar 将 `size` 默认值从 `default` 改为 `medium` 以保持一致性。[#56440](https://github.com/ant-design/ant-design/pull/56440) [@guoyunhe](https://github.com/guoyunhe)
 - 💄 Checkbox 移除 `icon` 子元素 `-inner` DOM 节点以更好适配语义化结构。[#56783](https://github.com/ant-design/ant-design/pull/56783) [@zombieJ](https://github.com/zombieJ)
 - MISC
-  - 🐞 修复 UMD 版本中 React Compiler 兼容性问题，现已默认关闭。[#56830](https://github.com/ant-design/ant-design/pull/56830) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 MISC: 修复 UMD 版本中 React Compiler 兼容性问题，现已默认关闭。[#56830](https://github.com/ant-design/ant-design/pull/56830) [@zombieJ](https://github.com/zombieJ)
   - 🛠 精简 `styles` 和 `classNames` 类型定义，使其更规范。[#56758](https://github.com/ant-design/ant-design/pull/56758) [@crazyair](https://github.com/crazyair)
-  - 🆕 新增原始 markdown 输出支持（用于 LLM 优化）。[#56561](https://github.com/ant-design/ant-design/pull/56561) [@高艳兵](https://github.com/高艳兵)
 
 ## 6.2.3
 
