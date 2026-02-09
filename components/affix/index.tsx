@@ -17,9 +17,9 @@ const TRIGGER_EVENTS: (keyof WindowEventMap)[] = [
   'load',
 ];
 
-function getDefaultTarget() {
+const getDefaultTarget = () => {
   return typeof window !== 'undefined' ? window : null;
-}
+};
 
 // Affix
 export interface AffixProps {
