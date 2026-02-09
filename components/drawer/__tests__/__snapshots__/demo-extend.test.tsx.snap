@@ -4397,7 +4397,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     </span>
   </button>
   <div
-    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id acss-1fo211e ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -4497,7 +4497,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id acss-1fo211e ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div

@@ -7,19 +7,12 @@ import type {
   ArgsProps,
   GlobalConfigProps,
   NotificationInstance,
-  NotificationSemanticClassNames,
-  NotificationSemanticName,
-  NotificationSemanticStyles,
+  NotificationSemanticAllType,
 } from './interface';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
 
-export type {
-  ArgsProps,
-  NotificationSemanticClassNames,
-  NotificationSemanticName,
-  NotificationSemanticStyles,
-};
+export type { ArgsProps, NotificationSemanticAllType };
 
 let notification: GlobalNotification | null = null;
 

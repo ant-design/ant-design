@@ -4,7 +4,6 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -14,13 +13,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
-import type {
-  RadioChangeEvent,
-  RadioProps,
-  RadioRef,
-  RadioSemanticClassNames,
-  RadioSemanticStyles,
-} from './interface';
+import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
 import useStyle from './style';
 
 const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
@@ -93,13 +86,13 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
     checked: mergedChecked,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SemanticClassNamesType<RadioProps, RadioSemanticClassNames>,
-    SemanticStylesType<RadioProps, RadioSemanticStyles>,
-    RadioProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const wrapperClassString = clsx(
     `${prefixCls}-wrapper`,

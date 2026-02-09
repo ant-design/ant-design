@@ -3053,7 +3053,7 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
           />
         </span>
         <sup
-          class="ant-scroll-number acss-1aprf71 ant-badge-count ant-badge-count-sm"
+          class="ant-scroll-number acss-14ziq9w ant-badge-count ant-badge-count-sm"
           data-show="true"
           title="5"
         >
@@ -3083,7 +3083,7 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
           />
         </span>
         <sup
-          class="ant-scroll-number acss-1aprf71 ant-badge-count"
+          class="ant-scroll-number acss-14ziq9w ant-badge-count"
           data-show="true"
           style="font-size:14px;background-color:#696FC7"
           title="5"

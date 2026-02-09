@@ -6,26 +6,11 @@ import Search from './Search';
 import TextArea from './TextArea';
 
 export type { GroupProps } from './Group';
-export type {
-  InputProps,
-  InputRef,
-  InputSemanticClassNames,
-  InputSemanticName,
-  InputSemanticStyles,
-} from './Input';
+export type { InputProps, InputRef, InputSemanticAllType } from './Input';
+export type { OTPSemanticAllType } from './OTP';
 export type { PasswordProps } from './Password';
-export type {
-  InputSearchSemanticClassNames,
-  InputSearchSemanticName,
-  InputSearchSemanticStyles,
-  SearchProps,
-} from './Search';
-export type {
-  TextAreaProps,
-  TextAreaSemanticClassNames,
-  TextAreaSemanticName,
-  TextAreaSemanticStyles,
-} from './TextArea';
+export type { InputSearchSemanticAllType, SearchProps } from './Search';
+export type { TextAreaProps, TextAreaSemanticAllType } from './TextArea';
 
 type CompoundedComponent = typeof InternalInput & {
   /** @deprecated Please use `Space.Compact` */

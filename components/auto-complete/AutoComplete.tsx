@@ -3,8 +3,8 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -14,29 +14,28 @@ import type {
   DefaultOptionType,
   InternalSelectProps,
   RefSelectProps,
-  SelectPopupSemanticClassNames,
-  SelectPopupSemanticStyles,
   SelectProps,
+  SelectSemanticAllType,
 } from '../select';
 import Select from '../select';
 
-export type AutoCompleteSemanticName = keyof AutoCompleteSemanticClassNames &
-  keyof AutoCompleteSemanticStyles;
-
-export type AutoCompleteSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  input?: string;
-  placeholder?: string;
-  content?: string;
-};
-
-export type AutoCompleteSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  placeholder?: React.CSSProperties;
-  content?: React.CSSProperties;
+export type AutoCompleteSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    input?: string;
+    placeholder?: string;
+    content?: string;
+    popup?: NonNullable<SelectSemanticAllType['classNames']>['popup'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    placeholder?: React.CSSProperties;
+    content?: React.CSSProperties;
+    popup?: NonNullable<SelectSemanticAllType['styles']>['popup'];
+  };
 };
 
 const { Option } = Select;
@@ -48,16 +47,9 @@ export interface DataSourceItemObject {
 
 export type DataSourceItemType = DataSourceItemObject | React.ReactNode;
 
-export type AutoCompleteClassNamesType = SemanticClassNamesType<
-  AutoCompleteProps,
-  AutoCompleteSemanticClassNames,
-  { popup?: SelectPopupSemanticClassNames }
->;
-
-export type AutoCompleteStylesType = SemanticStylesType<
-  AutoCompleteProps,
-  AutoCompleteSemanticStyles,
-  { popup?: SelectPopupSemanticStyles }
+export type AutoCompleteSemanticAllType = GenerateSemantic<
+  AutoCompleteSemanticType,
+  AutoCompleteProps
 >;
 
 export interface AutoCompleteProps<
@@ -65,7 +57,7 @@ export interface AutoCompleteProps<
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
 > extends Omit<
     InternalSelectProps<ValueType, OptionType>,
-    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue'
+    'loading' | 'mode' | 'optionLabelProp' | 'labelInValue' | 'styles' | 'classNames'
   > {
   /** @deprecated Please use `options` instead */
   dataSource?: DataSourceItemType[];
@@ -77,8 +69,8 @@ export interface AutoCompleteProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  styles?: AutoCompleteStylesType;
-  classNames?: AutoCompleteClassNamesType;
+  classNames?: AutoCompleteSemanticAllType['classNamesAndFn'];
+  styles?: AutoCompleteSemanticAllType['stylesAndFn'];
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
@@ -205,11 +197,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    AutoCompleteClassNamesType,
-    AutoCompleteStylesType,
-    AutoCompleteProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [classNames],
     [styles],
     {
@@ -218,6 +206,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     {
       popup: {
         _default: 'root',
+        _remove: ['listItem', 'list'],
       },
     },
   );

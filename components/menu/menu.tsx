@@ -7,6 +7,7 @@ import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
@@ -34,72 +35,42 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export type MenuSemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
-
-export type MenuSemanticClassNames = {
-  root?: string;
-  itemTitle?: string;
-  list?: string;
-  item?: string;
-  itemIcon?: string;
-  itemContent?: string;
+export type MenuSemanticType = {
+  classNames?: {
+    root?: string;
+    itemTitle?: string;
+    list?: string;
+    item?: string;
+    itemIcon?: string;
+    itemContent?: string;
+    popup?: string | { root?: string };
+    subMenu?: {
+      item?: string;
+      itemTitle?: string;
+      list?: string;
+      itemContent?: string;
+      itemIcon?: string;
+    };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+    list?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    popup?: { root?: React.CSSProperties };
+    subMenu?: {
+      item?: React.CSSProperties;
+      itemTitle?: React.CSSProperties;
+      list?: React.CSSProperties;
+      itemContent?: React.CSSProperties;
+      itemIcon?: React.CSSProperties;
+    };
+  };
 };
 
-export type MenuSemanticStyles = {
-  root?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-  list?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-};
-
-export type SubMenuSemanticName = keyof SubMenuSemanticClassNames & keyof SubMenuSemanticStyles;
-
-export type SubMenuSemanticClassNames = {
-  item?: string;
-  itemTitle?: string;
-  list?: string;
-  itemContent?: string;
-  itemIcon?: string;
-};
-
-export type SubMenuSemanticStyles = {
-  item?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-  list?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-};
-
-export type MenuPopupSemanticName = keyof MenuPopupSemanticClassNames &
-  keyof MenuPopupSemanticStyles;
-
-export type MenuPopupSemanticClassNames = {
-  root?: string;
-};
-
-export type MenuPopupSemanticStyles = {
-  root?: React.CSSProperties;
-};
-
-type MenuClassNamesSchemaType = MenuSemanticClassNames & {
-  popup?: MenuPopupSemanticClassNames | string;
-  subMenu?: SubMenuSemanticClassNames;
-};
-
-type MenuStylesSchemaType = MenuSemanticStyles & {
-  popup?: MenuPopupSemanticStyles | React.CSSProperties;
-  subMenu?: SubMenuSemanticStyles;
-};
-
-export type MenuClassNamesType =
-  | MenuClassNamesSchemaType
-  | ((info: { props: MenuProps }) => MenuClassNamesSchemaType);
-
-export type MenuStylesType =
-  | MenuStylesSchemaType
-  | ((info: { props: MenuProps }) => MenuStylesSchemaType);
+export type MenuSemanticAllType = GenerateSemantic<MenuSemanticType, MenuProps>;
 
 export interface MenuProps
   extends Omit<
@@ -117,8 +88,8 @@ export interface MenuProps
   _internalDisableMenuItemTitleTooltip?: boolean;
 
   items?: ItemType[];
-  classNames?: MenuClassNamesType;
-  styles?: MenuStylesType;
+  classNames?: MenuSemanticAllType['classNamesFn'] | MenuSemanticAllType['classNames'];
+  styles?: MenuSemanticAllType['stylesFn'] | MenuSemanticAllType['styles'];
 }
 
 type InternalMenuProps = MenuProps &
@@ -204,11 +175,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     theme,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    MenuClassNamesType,
-    MenuStylesType,
-    MenuProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -220,6 +187,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       },
       subMenu: {
         _default: 'item',
+        _remove: ['itemTitle', 'list', 'itemContent', 'itemIcon'],
       },
     },
   );

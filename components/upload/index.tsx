@@ -9,9 +9,7 @@ export type {
   UploadFile,
   UploadListProps,
   UploadProps,
-  UploadSemanticClassNames,
-  UploadSemanticName,
-  UploadSemanticStyles,
+  UploadSemanticAllType,
 } from './interface';
 
 type InternalUploadType = typeof InternalUpload;

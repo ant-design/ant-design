@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { classNameFillObjectBySchema, styleFillObjectBySchema } from '../fillObjectBySchema';
 import type { AnyObject, EmptyObject, ValidChar } from '../type';
+import type { RemoveClassNamesString } from './semanticType';
 
-export type SemanticSchema = { _default?: string } & {
+export type SemanticSchema = { _default?: string; _remove?: string[] } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
@@ -86,38 +88,21 @@ const useSemanticStyles = <StylesType extends AnyObject>(
 };
 
 // =========================== Export ===========================
-const fillObjectBySchema = <T extends AnyObject>(obj: T, schema: SemanticSchema): T => {
-  const newObj: any = { ...obj };
-  Object.keys(schema).forEach((key) => {
-    if (key !== '_default') {
-      const nestSchema = (schema as any)[key] as SemanticSchema;
-      const nextValue = newObj[key] || {};
-      newObj[key] = nestSchema ? fillObjectBySchema(nextValue, nestSchema) : nextValue;
-    }
-  });
-  return newObj;
-};
 
-export const resolveStyleOrClass = <T extends AnyObject>(
+export const resolveStyleOrClass = <T = any>(
   value: T | ((config: any) => T),
-  info: { props: AnyObject },
+  info: { props: any },
 ) => {
-  return typeof value === 'function' ? value(info) : value;
+  return typeof value === 'function' ? (value as any)(info) : value;
 };
 
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
-
-type ObjectOnly<T> = T extends (...args: any) => any ? never : T;
 
 /**
  * @desc Merge classNames and styles from multiple sources. When `schema` is provided, it **must** provide the nest object structure.
  * @descZH 合并来自多个来源的 classNames 和 styles，当提供了 `schema` 时，必须提供嵌套的对象结构。
  */
-export const useMergeSemantic = <
-  ClassNamesType extends AnyObject,
-  StylesType extends AnyObject,
-  Props extends AnyObject,
->(
+export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props = any>(
   classNamesList: MaybeFn<ClassNamesType, Props>[],
   stylesList: MaybeFn<StylesType, Props>[],
   info: { props: Props },
@@ -131,20 +116,20 @@ export const useMergeSemantic = <
     styles ? resolveStyleOrClass(styles, info) : undefined,
   );
 
-  const mergedClassNames = useSemanticClassNames(
-    schema,
-    ...resolvedClassNamesList,
-  ) as ObjectOnly<ClassNamesType>;
+  const mergedClassNames = useSemanticClassNames(schema, ...resolvedClassNamesList);
 
-  const mergedStyles = useSemanticStyles(...resolvedStylesList) as ObjectOnly<StylesType>;
+  const mergedStyles = useSemanticStyles(...resolvedStylesList);
 
   return React.useMemo(() => {
     if (!schema) {
       return [mergedClassNames, mergedStyles] as const;
     }
     return [
-      fillObjectBySchema<ObjectOnly<ClassNamesType>>(mergedClassNames, schema),
-      fillObjectBySchema<ObjectOnly<StylesType>>(mergedStyles, schema),
+      classNameFillObjectBySchema(mergedClassNames, schema),
+      styleFillObjectBySchema(mergedStyles, schema),
     ] as const;
-  }, [mergedClassNames, mergedStyles, schema]);
+  }, [mergedClassNames, mergedStyles, schema]) as [
+    RemoveClassNamesString<NonNullable<ClassNamesType>>,
+    NonNullable<StylesType>,
+  ];
 };

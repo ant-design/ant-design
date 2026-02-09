@@ -14,16 +14,15 @@ import type {
   UploadListProgressProps,
   UploadListType,
   UploadLocale,
-  UploadSemanticClassNames,
-  UploadSemanticStyles,
+  UploadSemanticAllType,
 } from '../interface';
 
 export interface ListItemProps {
   prefixCls: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: UploadSemanticClassNames;
-  styles?: UploadSemanticStyles;
+  classNames?: UploadSemanticAllType['classNames'];
+  styles?: UploadSemanticAllType['styles'];
   locale: UploadLocale;
   file: UploadFile;
   items: UploadFile[];

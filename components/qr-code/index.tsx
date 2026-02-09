@@ -9,29 +9,11 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type {
-  QRCodeClassNamesType,
-  QRCodeProps,
-  QRCodeSemanticClassNames,
-  QRCodeSemanticName,
-  QRCodeSemanticStyles,
-  QRCodeStylesType,
-  QRProps,
-  QRPropsCanvas,
-  QRPropsSvg,
-} from './interface';
+import type { QRCodeProps, QRProps, QRPropsCanvas, QRPropsSvg } from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
-export type {
-  QRCodeProps,
-  QRCodeSemanticClassNames,
-  QRCodeSemanticName,
-  QRCodeSemanticStyles,
-  QRProps,
-  QRPropsCanvas,
-  QRPropsSvg,
-};
+export type { QRCodeProps, QRProps, QRPropsCanvas, QRPropsSvg };
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -78,13 +60,13 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     errorLevel,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    QRCodeClassNamesType,
-    QRCodeStylesType,
-    QRCodeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
