@@ -1,9 +1,9 @@
 import React from 'react';
 
-const zIndexContext = React.createContext<number | undefined>(undefined);
+const ZIndexContext = React.createContext<number | undefined>(undefined);
 
 if (process.env.NODE_ENV !== 'production') {
-  zIndexContext.displayName = 'zIndexContext';
+  ZIndexContext.displayName = 'ZIndexContext';
 }
 
-export default zIndexContext;
+export default ZIndexContext;
