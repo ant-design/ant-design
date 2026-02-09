@@ -454,4 +454,7 @@ export default genStyleHooks(
     return [genBaseStyle(listToken), genBorderedStyle(listToken), genResponsiveStyle(listToken)];
   },
   prepareComponentToken,
+  {
+    extraCssVarPrefixCls: ({ prefixCls }) => [`${prefixCls}-container`],
+  },
 );

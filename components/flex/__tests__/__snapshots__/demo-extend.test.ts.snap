@@ -234,9 +234,6 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
           type="radio"
           value="horizontal"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -255,9 +252,6 @@ exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="vertical"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -395,9 +389,6 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           type="radio"
           value="small"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -416,9 +407,6 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="middle"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -439,9 +427,6 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -460,9 +445,6 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           name="test-id"
           type="radio"
           value="customize"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

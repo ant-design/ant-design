@@ -59,14 +59,22 @@ export interface DrawerProps
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+  /** @deprecated Please use `mask.closable` instead */
+  maskClosable?: boolean;
   mask?: MaskType;
-
   focusable?: FocusableConfig;
 }
 
-const defaultPushState: PushState = { distance: 180 };
+const DEFAULT_PUSH_STATE: PushState = { distance: 180 };
 
 const DEFAULT_SIZE = 378;
+
+const MOTION_CONFIG: CSSMotionProps = {
+  motionAppear: true,
+  motionEnter: true,
+  motionLeave: true,
+  motionDeadline: 500,
+} as const;
 
 const Drawer: React.FC<DrawerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -78,7 +86,7 @@ const Drawer: React.FC<DrawerProps> & {
     height,
     width,
     mask: drawerMask,
-    push = defaultPushState,
+    push = DEFAULT_PUSH_STATE,
     open,
     afterOpenChange,
     onClose,
@@ -94,6 +102,7 @@ const Drawer: React.FC<DrawerProps> & {
     focusable,
 
     // Deprecated
+    maskClosable,
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
@@ -157,18 +166,12 @@ const Drawer: React.FC<DrawerProps> & {
   // =========================== Motion ===========================
   const maskMotion: CSSMotionProps = {
     motionName: getTransitionName(prefixCls, 'mask-motion'),
-    motionAppear: true,
-    motionEnter: true,
-    motionLeave: true,
-    motionDeadline: 500,
+    ...MOTION_CONFIG,
   };
 
   const panelMotion: RcDrawerProps['motion'] = (motionPlacement) => ({
     motionName: getTransitionName(prefixCls, `panel-motion-${motionPlacement}`),
-    motionAppear: true,
-    motionEnter: true,
-    motionLeave: true,
-    motionDeadline: 500,
+    ...MOTION_CONFIG,
   });
 
   // ============================ Refs ============================
@@ -180,7 +183,12 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // ============================ Mask ============================
-  const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
+  const [mergedMask, maskBlurClassName, mergedMaskClosable] = useMergedMask(
+    drawerMask,
+    contextMask,
+    prefixCls,
+    maskClosable,
+  );
 
   // ========================== Focusable =========================
   const mergedFocusable = useFocusable(focusable, getContainer !== false && mergedMask);
@@ -192,6 +200,7 @@ const Drawer: React.FC<DrawerProps> & {
     zIndex,
     panelRef,
     mask: mergedMask,
+    maskClosable: mergedMaskClosable,
     defaultSize,
     push,
     focusable: mergedFocusable,
@@ -204,6 +213,17 @@ const Drawer: React.FC<DrawerProps> & {
   >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
+
+  const drawerClassName = clsx(
+    {
+      'no-mask': !mergedMask,
+      [`${prefixCls}-rtl`]: direction === 'rtl',
+    },
+    rootClassName,
+    hashId,
+    cssVarCls,
+    mergedClassNames.root,
+  );
 
   // ========================== Warning ===========================
   if (process.env.NODE_ENV !== 'production') {
@@ -237,17 +257,6 @@ const Drawer: React.FC<DrawerProps> & {
     );
   }
 
-  const drawerClassName = clsx(
-    {
-      'no-mask': !mergedMask,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    rootClassName,
-    hashId,
-    cssVarCls,
-    mergedClassNames.root,
-  );
-
   return (
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
@@ -271,6 +280,7 @@ const Drawer: React.FC<DrawerProps> & {
           }}
           open={open}
           mask={mergedMask}
+          maskClosable={mergedMaskClosable}
           push={push}
           size={drawerSize}
           defaultSize={defaultSize}

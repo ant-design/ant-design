@@ -256,14 +256,10 @@ exports[`Pagination ConfigProvider should be rendered correctly when componentSi
       class="ant-select ant-select-lg ant-select-outlined ant-pagination-options-size-changer css-var-root ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="10 / page"
       >
-        <div
-          class="ant-select-content-value"
-          title="10 / page"
-        >
-          10 / page
-        </div>
+        10 / page
         <input
           aria-autocomplete="list"
           aria-expanded="false"
