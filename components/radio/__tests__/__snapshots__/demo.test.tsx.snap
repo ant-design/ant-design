@@ -20,9 +20,6 @@ exports[`renders components/radio/demo/badge.tsx correctly 1`] = `
           type="radio"
           value="1"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -64,9 +61,6 @@ exports[`renders components/radio/demo/badge.tsx correctly 1`] = `
           type="radio"
           value="2"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -107,9 +101,6 @@ exports[`renders components/radio/demo/basic.tsx correctly 1`] = `
       class="ant-radio-input"
       type="radio"
     />
-    <span
-      class="ant-radio-inner"
-    />
   </span>
   <span
     class="ant-radio-label"
@@ -137,9 +128,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
           class="ant-radio-input"
           type="radio"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -162,9 +150,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
           class="ant-radio-input"
           disabled=""
           type="radio"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -194,9 +179,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             type="radio"
             value="a"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -215,9 +197,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -238,9 +217,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             type="radio"
             value="c"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -259,9 +235,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -293,9 +266,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             type="radio"
             value="a"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -315,9 +285,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -339,9 +306,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             type="radio"
             value="c"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -361,9 +325,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -394,9 +355,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             type="radio"
             value="a"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -415,9 +373,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="b"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -438,9 +393,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             type="radio"
             value="c"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -459,9 +411,6 @@ exports[`renders components/radio/demo/component-token.tsx correctly 1`] = `
             name="test-id"
             type="radio"
             value="d"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -507,9 +456,6 @@ exports[`renders components/radio/demo/debug-upload.tsx correctly 1`] = `
                 class="ant-radio-input"
                 type="radio"
               />
-              <span
-                class="ant-radio-inner"
-              />
             </span>
             <span
               class="ant-radio-label"
@@ -552,9 +498,6 @@ exports[`renders components/radio/demo/debug-upload.tsx correctly 1`] = `
                 class="ant-checkbox-input"
                 type="checkbox"
               />
-              <span
-                class="ant-checkbox-inner"
-              />
             </span>
             <span
               class="ant-checkbox-label"
@@ -585,9 +528,6 @@ Array [
         disabled=""
         type="radio"
       />
-      <span
-        class="ant-radio-inner"
-      />
     </span>
     <span
       class="ant-radio-label"
@@ -606,9 +546,6 @@ Array [
         class="ant-radio-input"
         disabled=""
         type="radio"
-      />
-      <span
-        class="ant-radio-inner"
       />
     </span>
     <span
@@ -651,9 +588,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -672,9 +606,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -695,9 +626,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           type="radio"
           value="c"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -716,9 +644,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="d"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -745,9 +670,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -768,9 +690,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           type="radio"
           value="b"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -790,9 +709,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           type="radio"
           value="c"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -811,9 +727,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="d"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -841,9 +754,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -863,9 +773,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -887,9 +794,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           type="radio"
           value="c"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -909,9 +813,6 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="d"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -945,9 +846,6 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -966,9 +864,6 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -989,9 +884,6 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
           type="radio"
           value="c"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1010,9 +902,6 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="d"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1038,9 +927,6 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1060,9 +946,6 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1084,9 +967,6 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
           type="radio"
           value="c"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1105,9 +985,6 @@ exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="d"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1137,9 +1014,6 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
         name="test-id"
         type="radio"
         value="1"
-      />
-      <span
-        class="ant-radio-inner"
       />
     </span>
     <span
@@ -1184,9 +1058,6 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
         type="radio"
         value="2"
       />
-      <span
-        class="ant-radio-inner"
-      />
     </span>
     <span
       class="ant-radio-label"
@@ -1230,9 +1101,6 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
         type="radio"
         value="3"
       />
-      <span
-        class="ant-radio-inner"
-      />
     </span>
     <span
       class="ant-radio-label"
@@ -1275,9 +1143,6 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
         name="test-id"
         type="radio"
         value="4"
-      />
-      <span
-        class="ant-radio-inner"
       />
     </span>
     <span
@@ -1334,9 +1199,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           type="radio"
           value="Apple"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1356,9 +1218,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           type="radio"
           value="Pear"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1377,9 +1236,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="Orange"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -1406,9 +1262,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           type="radio"
           value="Apple"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1428,9 +1281,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           type="radio"
           value="Pear"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1449,9 +1299,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="Orange"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1477,9 +1324,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           type="radio"
           value="Apple"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1500,9 +1344,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           type="radio"
           value="Pear"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1521,9 +1362,6 @@ exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="Orange"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1555,9 +1393,6 @@ exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
         type="radio"
         value="1"
       />
-      <span
-        class="ant-radio-inner"
-      />
     </span>
     <span
       class="ant-radio-label"
@@ -1577,9 +1412,6 @@ exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
         name="test-id"
         type="radio"
         value="2"
-      />
-      <span
-        class="ant-radio-inner"
       />
     </span>
     <span
@@ -1601,9 +1433,6 @@ exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
         type="radio"
         value="3"
       />
-      <span
-        class="ant-radio-inner"
-      />
     </span>
     <span
       class="ant-radio-label"
@@ -1623,9 +1452,6 @@ exports[`renders components/radio/demo/radiogroup-more.tsx correctly 1`] = `
         name="test-id"
         type="radio"
         value="4"
-      />
-      <span
-        class="ant-radio-inner"
       />
     </span>
     <span
@@ -1656,9 +1482,6 @@ Array [
           type="radio"
           value="Apple"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1678,9 +1501,6 @@ Array [
           type="radio"
           value="Pear"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1699,9 +1519,6 @@ Array [
           name="test-id"
           type="radio"
           value="Orange"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -1729,9 +1546,6 @@ Array [
           type="radio"
           value="Apple"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1750,9 +1564,6 @@ Array [
           name="test-id"
           type="radio"
           value="Pear"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -1773,9 +1584,6 @@ Array [
           name="test-id"
           type="radio"
           value="Orange"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -1804,9 +1612,6 @@ Array [
           type="radio"
           value="Apple"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1825,9 +1630,6 @@ Array [
           name="test-id"
           type="radio"
           value="Pear"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1848,9 +1650,6 @@ Array [
           name="test-id"
           type="radio"
           value="Orange"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1879,9 +1678,6 @@ Array [
           type="radio"
           value="Apple"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1900,9 +1696,6 @@ Array [
           name="test-id"
           type="radio"
           value="Pear"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1923,9 +1716,6 @@ Array [
           name="test-id"
           type="radio"
           value="Orange"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1956,9 +1746,6 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx correctly 1`] = 
         type="radio"
         value="1"
       />
-      <span
-        class="ant-radio-inner"
-      />
     </span>
     <span
       class="ant-radio-label"
@@ -1977,9 +1764,6 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx correctly 1`] = 
         name="radiogroup"
         type="radio"
         value="2"
-      />
-      <span
-        class="ant-radio-inner"
       />
     </span>
     <span
@@ -2000,9 +1784,6 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx correctly 1`] = 
         type="radio"
         value="3"
       />
-      <span
-        class="ant-radio-inner"
-      />
     </span>
     <span
       class="ant-radio-label"
@@ -2021,9 +1802,6 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx correctly 1`] = 
         name="radiogroup"
         type="radio"
         value="4"
-      />
-      <span
-        class="ant-radio-inner"
       />
     </span>
     <span
@@ -2056,9 +1834,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2077,9 +1852,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -2100,9 +1872,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           type="radio"
           value="c"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2121,9 +1890,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="d"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -2150,9 +1916,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2171,9 +1934,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -2194,9 +1954,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           type="radio"
           value="c"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2215,9 +1972,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="d"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -2244,9 +1998,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2265,9 +2016,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -2288,9 +2036,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           type="radio"
           value="c"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2310,9 +2055,6 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
           type="radio"
           value="d"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2329,47 +2071,42 @@ exports[`renders components/radio/demo/style-class.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <label
-    class="ant-radio-wrapper acss-1308e5j css-var-test-id ant-radio-css-var"
-    style="padding:8px;border-radius:4px;border-color:#ccc"
-  >
-    <span
-      class="ant-radio ant-wave-target"
-    >
-      <input
-        class="ant-radio-input"
-        type="radio"
-      />
-      <span
-        class="ant-radio-inner"
-      />
-    </span>
-    <span
-      class="ant-radio-label"
-    >
-      Object
-    </span>
-  </label>
-  <label
-    class="ant-radio-wrapper ant-radio-wrapper-checked acss-1308e5j css-var-test-id ant-radio-css-var"
-    style="padding:8px;border-radius:4px;border-color:#1890ff"
+    class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-checked"
+      style="border-radius:6px"
     >
       <input
         checked=""
         class="ant-radio-input"
+        name="style-class"
         type="radio"
-      />
-      <span
-        class="ant-radio-inner"
       />
     </span>
     <span
       class="ant-radio-label"
-      style="font-weight:bold;color:#333"
+      style="color:blue"
     >
-      Function
+      Object styles
+    </span>
+  </label>
+  <label
+    class="ant-radio-wrapper acss-1q9j8js css-var-test-id ant-radio-css-var"
+  >
+    <span
+      class="ant-radio acss-1sy50lm ant-wave-target"
+    >
+      <input
+        class="ant-radio-input"
+        name="style-class"
+        type="radio"
+      />
+    </span>
+    <span
+      class="ant-radio-label acss-eesh8g"
+    >
+      Function classNames
     </span>
   </label>
 </div>
@@ -2394,9 +2131,6 @@ Array [
           type="radio"
           value="1"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2415,9 +2149,6 @@ Array [
           name="test-id"
           type="radio"
           value="2"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2438,9 +2169,6 @@ Array [
           type="radio"
           value="3"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2459,9 +2187,6 @@ Array [
           name="test-id"
           type="radio"
           value="4"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2490,9 +2215,6 @@ Array [
           type="radio"
           value="1"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2512,9 +2234,6 @@ Array [
           name="test-id"
           type="radio"
           value="2"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2536,9 +2255,6 @@ Array [
           type="radio"
           value="3"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2558,9 +2274,6 @@ Array [
           name="test-id"
           type="radio"
           value="4"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

@@ -20,7 +20,7 @@ exports[`renders components/qr-code/demo/_semantic.tsx correctly 1`] = `
           <div
             aria-busy="true"
             aria-live="polite"
-            class="ant-spin ant-spin-spinning css-var-test-id"
+            class="ant-spin ant-spin-spinning ant-spin-section css-var-test-id"
           >
             <span
               class="ant-spin-dot-holder"
