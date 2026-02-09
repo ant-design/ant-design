@@ -1184,6 +1184,32 @@ describe('Splitter', () => {
       });
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
+
+    it('should clear collapse timer when duration becomes false', async () => {
+      const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
+      const { container, rerender } = render(
+        <SplitterDemo
+          collapseDuration={true}
+          items={[{ collapsible: true }, { collapsible: true }]}
+        />,
+      );
+      await resizeSplitter();
+
+      // Trigger collapse to set timer
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
+
+      // Change duration to false to trigger useLayoutEffect clearing logic
+      rerender(
+        <SplitterDemo
+          collapseDuration={false}
+          items={[{ collapsible: true }, { collapsible: true }]}
+        />,
+      );
+
+      expect(clearTimeoutSpy).toHaveBeenCalled();
+      clearTimeoutSpy.mockRestore();
+    });
   });
 
   it('auto resize', async () => {

@@ -101,15 +101,23 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         ? Number.parseFloat(token.motionDurationMid) * 1000
         : collapseDuration;
 
-  useEffect(() => {
+  // Use useLayoutEffect to clear timer when collapseDurationMs becomes null
+  // This runs synchronously and allows us to test the timer clearing logic
+  React.useLayoutEffect(() => {
     if (collapseDurationMs === null) {
       if (collapseTimerRef.current) {
         clearTimeout(collapseTimerRef.current);
         collapseTimerRef.current = null;
       }
+    }
+  }, [collapseDurationMs]);
+
+  useEffect(() => {
+    if (collapseDurationMs === null) {
       setIsCollapsing(false);
     }
     return () => {
+      // Cleanup: clear timer when collapseDurationMs changes or component unmounts
       if (collapseTimerRef.current) {
         clearTimeout(collapseTimerRef.current);
         collapseTimerRef.current = null;
