@@ -34,7 +34,7 @@ export const styleFillObjectBySchema = (obj: Record<string, any>, schema: Record
             delete holderData[k];
           }
         });
-        newObj[key] = { ...holderData };
+        newObj[key] = holderData;
         newObj[key][fillKey] = fillData;
       } else {
         newObj[key] = styleFillObjectBySchema(thisData, schema[key]);
