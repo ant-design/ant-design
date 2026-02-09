@@ -17,6 +17,7 @@ export const classNameFillObjectBySchema = (
   });
   return newObj;
 };
+
 export const styleFillObjectBySchema = (obj: Record<string, any>, schema: Record<string, any>) => {
   const newObj: Record<string, any> = { ...obj };
   Object.keys(schema).forEach((key) => {
@@ -25,13 +26,13 @@ export const styleFillObjectBySchema = (obj: Record<string, any>, schema: Record
       const fillKey = schema[key]._default;
       const removeKeys = schema[key]._remove || [];
       if (fillKey && !thisData[fillKey]) {
-        const holderData = { ...thisData };
-        const fillData = { ...thisData };
-        Object.keys(fillData).forEach((k) => {
+        const fillData: Record<string, any> = {};
+        const holderData: Record<string, any> = {};
+        Object.keys(thisData).forEach((k) => {
           if (removeKeys.includes(k)) {
-            delete fillData[k];
+            holderData[k] = thisData[k];
           } else {
-            delete holderData[k];
+            fillData[k] = thisData[k];
           }
         });
         newObj[key] = holderData;
