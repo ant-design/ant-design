@@ -2,22 +2,22 @@ import { genCompactItemStyle } from '../../style/compact-item';
 import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
+import type { ComponentToken } from './token';
+import { initComponentToken } from './token';
 
-/** Component only token. Which will handle additional calculation of alias token */
-// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
-export interface ComponentToken {}
+export type { ComponentToken };
 
-interface SpaceToken extends FullToken<'Space'> {
+interface AddonToken extends FullToken<'Addon'> {
   // Custom token here
 }
 
-const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
+const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
   const {
     componentCls,
     borderRadius,
-    paddingSM,
+    paddingInline,
     colorBorder,
-    paddingXS,
+    paddingInlineSM,
     fontSizeLG,
     fontSizeSM,
     borderRadiusLG,
@@ -38,7 +38,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
-        paddingInline: paddingSM,
+        paddingInline,
         margin: 0,
         borderWidth: lineWidth,
         borderStyle: 'solid',
@@ -57,7 +57,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
           borderRadius: borderRadiusLG,
         },
         '&-small': {
-          paddingInline: paddingXS,
+          paddingInline: paddingInlineSM,
           borderRadius: borderRadiusSM,
           fontSize: fontSizeSM,
         },
@@ -144,7 +144,8 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(['Space', 'Addon'], (token) => [
-  genSpaceAddonStyle(token),
-  genCompactItemStyle(token, { focus: false }),
-]);
+export default genStyleHooks(
+  'Addon',
+  (token) => [genSpaceAddonStyle(token), genCompactItemStyle(token, { focus: false })],
+  initComponentToken,
+);
