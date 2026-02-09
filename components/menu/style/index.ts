@@ -505,7 +505,9 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
         width: menuArrowSize,
         color: 'currentcolor',
         transform: 'translateY(-50%)',
-        transition: `transform ${motionDurationSlow} ${motionEaseInOut}, opacity ${motionDurationSlow}`,
+        transition: ['transform', 'opacity']
+          .map((prop) => `${prop} ${motionDurationSlow}`)
+          .join(','),
       },
 
       '&-arrow': {
@@ -516,12 +518,9 @@ const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
           height: token.calc(menuArrowSize).mul(0.15).equal(),
           backgroundColor: 'currentcolor',
           borderRadius,
-          transition: [
-            `background-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `transform ${motionDurationSlow} ${motionEaseInOut}`,
-            `top ${motionDurationSlow} ${motionEaseInOut}`,
-            `color ${motionDurationSlow} ${motionEaseInOut}`,
-          ].join(','),
+          transition: [`background-color`, `transform`, `top`, `color`]
+            .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+            .join(','),
           content: '""',
         },
 
@@ -619,26 +618,26 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
         },
 
         [`&-horizontal ${componentCls}-submenu`]: {
-          transition: [
-            `border-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `background-color ${motionDurationSlow} ${motionEaseInOut}`,
-          ].join(','),
+          transition: [`border-color`, `background-color`]
+            .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+            .join(','),
         },
 
         [`${componentCls}-submenu, ${componentCls}-submenu-inline`]: {
           transition: [
-            `border-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `background-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `padding ${motionDurationMid} ${motionEaseInOut}`,
-          ].join(','),
+            `border-color ${motionDurationSlow}`,
+            `background-color ${motionDurationSlow}`,
+            `padding ${motionDurationMid}`,
+          ]
+            .map((prop) => `${prop} ${motionEaseInOut}`)
+            .join(','),
         },
 
         [`${componentCls}-submenu ${componentCls}-sub`]: {
           cursor: 'initial',
-          transition: [
-            `background-color ${motionDurationSlow} ${motionEaseInOut}`,
-            `padding ${motionDurationSlow} ${motionEaseInOut}`,
-          ].join(','),
+          transition: [`background-color`, `padding`]
+            .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+            .join(','),
         },
 
         [`${componentCls}-title-content`]: {

@@ -1399,6 +1399,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+    style="height: 32px; line-height: 32px;"
   >
     <span
       class="ant-radio ant-wave-target ant-radio-checked"
@@ -1419,6 +1420,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
   </label>
   <label
     class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    style="height: 32px; line-height: 32px;"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1438,6 +1440,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
   </label>
   <label
     class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    style="height: 32px; line-height: 32px;"
   >
     <span
       class="ant-radio ant-wave-target"
@@ -1457,6 +1460,7 @@ exports[`renders components/radio/demo/radiogroup-more.tsx extend context correc
   </label>
   <label
     class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    style="height: 32px; line-height: 32px;"
   >
     <span
       class="ant-radio ant-wave-target"

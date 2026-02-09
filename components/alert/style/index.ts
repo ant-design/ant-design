@@ -98,9 +98,9 @@ export const genBaseStyle: GenerateStyle<AlertToken> = (token: AlertToken): CSSO
       [`&${componentCls}-motion-leave`]: {
         overflow: 'hidden',
         opacity: 1,
-        transition: `max-height ${duration} ${motionEaseInOutCirc}, opacity ${duration} ${motionEaseInOutCirc},
-        padding-top ${duration} ${motionEaseInOutCirc}, padding-bottom ${duration} ${motionEaseInOutCirc},
-        margin-bottom ${duration} ${motionEaseInOutCirc}`,
+        transition: [`max-height`, `opacity`, `padding-top`, `padding-bottom`, `margin-bottom`]
+          .map((prop) => `${prop} ${duration} ${motionEaseInOutCirc}`)
+          .join(', '),
       },
 
       [`&${componentCls}-motion-leave-active`]: {

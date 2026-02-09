@@ -107,8 +107,8 @@
   },
   "dependencies": {
     "@ant-design/colors": "^8.0.1",
-    "@ant-design/cssinjs": "^2.0.3",
-    "@ant-design/cssinjs-utils": "^2.0.2",
+    "@ant-design/cssinjs": "^2.1.0",
+    "@ant-design/cssinjs-utils": "^2.1.1",
     "@ant-design/fast-color": "^3.0.1",
     "@ant-design/icons": "^6.1.0",
     "@ant-design/react-slick": "~2.0.0",
@@ -117,8 +117,8 @@
     "@rc-component/checkbox": "~2.0.0",
     "@rc-component/collapse": "~1.2.0",
     "@rc-component/color-picker": "~3.1.0",
-    "@rc-component/dialog": "~1.8.2",
-    "@rc-component/drawer": "~1.4.1",
+    "@rc-component/dialog": "~1.8.4",
+    "@rc-component/drawer": "~1.4.2",
     "@rc-component/dropdown": "~1.0.2",
     "@rc-component/form": "~1.6.2",
     "@rc-component/image": "~1.6.0",
@@ -149,7 +149,7 @@
     "@rc-component/tree-select": "~1.8.0",
     "@rc-component/trigger": "^3.9.0",
     "@rc-component/upload": "~1.1.0",
-    "@rc-component/util": "^1.8.1",
+    "@rc-component/util": "^1.9.0",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",
     "scroll-into-view-if-needed": "^3.1.0",
@@ -161,7 +161,7 @@
     "@ant-design/tools": "^19.1.0",
     "@ant-design/x": "^2.2.0",
     "@ant-design/x-sdk": "^2.2.0",
-    "@antfu/eslint-config": "^7.0.0",
+    "@antfu/eslint-config": "^7.3.0",
     "@biomejs/biome": "^2.3.10",
     "@blazediff/core": "^1.7.0",
     "@codecov/webpack-plugin": "^1.9.1",
@@ -173,7 +173,7 @@
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
-    "@eslint-react/eslint-plugin": "2.8.4",
+    "@eslint-react/eslint-plugin": "2.12.2",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@inquirer/prompts": "^8.0.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
@@ -205,7 +205,7 @@
     "@types/jsdom": "^27.0.0",
     "@types/lodash": "^4.17.21",
     "@types/minimist": "^1.2.5",
-    "@types/node": "^25.0.3",
+    "@types/node": "^25.2.2",
     "@types/nprogress": "^0.2.3",
     "@types/pngjs": "^6.0.5",
     "@types/prismjs": "^1.26.5",
@@ -221,7 +221,7 @@
     "adm-zip": "^0.5.16",
     "ajv": "^8.17.1",
     "ali-oss": "^6.23.0",
-    "antd-img-crop": "^4.27.0",
+    "antd-img-crop": "~4.28.0",
     "antd-style": "^4.1.0",
     "antd-token-previewer": "^3.0.0",
     "axios": "^1.13.2",
@@ -238,8 +238,8 @@
     "dumi": "~2.4.23",
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^4.0.0",
-    "eslint": "^9.39.2",
-    "eslint-plugin-compat": "^6.0.2",
+    "eslint": "^10.0.0",
+    "eslint-plugin-compat": "^6.1.0",
     "eslint-plugin-jest": "^29.12.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^7.0.1",
@@ -344,16 +344,5 @@
   "title": "Ant Design",
   "tnpm": {
     "mode": "npm"
-  },
-  "pnpm": {
-    "overrides": {
-      "@eslint-react/var": "2.9.1"
-    }
-  },
-  "overrides": {
-    "@eslint-react/var": "2.9.1"
-  },
-  "resolutions": {
-    "@eslint-react/var": "2.9.1"
   }
 }
