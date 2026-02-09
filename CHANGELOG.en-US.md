@@ -191,7 +191,7 @@ tag: vVERSION
 
 #### Read it before migration
 
-🌟 If you want to migrate to Ant Design 6.0, please check [V5 to V6](/docs/react/migration-v6).
+🌟 If you want to migrate to Ant Design 6.0, please check [V5 to V6](https://ant.design/docs/react/migration-v6).
 
 #### Major Changes
 
