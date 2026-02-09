@@ -114,23 +114,18 @@ describe('ConfigProvider.Theme', () => {
   });
 
   it('should support Addon component token', () => {
-    render(
-      <ConfigProvider theme={{ components: { Addon: { paddingInline: 30 } } }}>
+    const { container } = render(
+      <ConfigProvider theme={{ cssVar: true, components: { Addon: { paddingInline: 30 } } }}>
         <Space.Compact>
           <Space.Addon className="test-addon">Addon Content</Space.Addon>
         </Space.Compact>
       </ConfigProvider>,
     );
 
-    // Check that the custom token value is in the generated styles
-    const dynamicStyles = Array.from(
-      document.querySelectorAll<HTMLStyleElement>('style[data-css-hash]'),
-    ).map((item) => item?.innerHTML ?? '');
-    expect(
-      dynamicStyles.some(
-        (style) => style.includes('ant-space-addon') && style.includes('padding-inline:30px'),
-      ),
-    ).toBeTruthy();
+    const addon = container.querySelector('.test-addon');
+    expect(addon).toHaveStyle({
+      '--ant-addon-padding-inline': '30px',
+    });
   });
 
   it('hashed should be true if not changed', () => {
