@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Modal } from 'antd';
 
 import ConfigProvider from '..';
-import { Button, InputNumber, Select } from '../..';
+import { Button, InputNumber, Select, Space } from '../..';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import theme from '../../theme';
 import type { GlobalToken } from '../../theme/internal';
@@ -109,6 +109,26 @@ describe('ConfigProvider.Theme', () => {
     expect(
       dynamicStyles.some(
         (style) => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
+      ),
+    ).toBeTruthy();
+  });
+
+  it('should support Addon component token', () => {
+    render(
+      <ConfigProvider theme={{ components: { Addon: { paddingInline: 30 } } }}>
+        <Space.Compact>
+          <Space.Addon className="test-addon">Addon Content</Space.Addon>
+        </Space.Compact>
+      </ConfigProvider>,
+    );
+
+    // Check that the custom token value is in the generated styles
+    const dynamicStyles = Array.from(
+      document.querySelectorAll<HTMLStyleElement>('style[data-css-hash]'),
+    ).map((item) => item?.innerHTML ?? '');
+    expect(
+      dynamicStyles.some(
+        (style) => style.includes('ant-space-addon') && style.includes('padding-inline:30px'),
       ),
     ).toBeTruthy();
   });
