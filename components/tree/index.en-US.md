@@ -79,6 +79,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |
 | virtual | Disable virtual scroll when set to false | boolean | true | 4.1.0 |
 | onCheck | Callback function for when the onCheck event occurs | function(checkedKeys, e:{checked: boolean, checkedNodes, node, event, halfCheckedKeys}) | - |  |
+| onDoubleClick | Callback function for when the user double clicks a treeNode | function(event, node) | - |  |
 | onDragEnd | Callback function for when the onDragEnd event occurs | function({event, node}) | - |  |
 | onDragEnter | Callback function for when the onDragEnter event occurs | function({event, node, expandedKeys}) | - |  |
 | onDragLeave | Callback function for when the onDragLeave event occurs | function({event, node}) | - |  |
