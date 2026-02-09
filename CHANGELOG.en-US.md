@@ -56,7 +56,6 @@ tag: vVERSION
 - MISC
   - 🐞 Fix React Compiler compatibility in UMD version, now disabled by default. [#56830](https://github.com/ant-design/ant-design/pull/56830) [@zombieJ](https://github.com/zombieJ)
   - 🛠 Streamline `styles` and `classNames` type definitions for better standardization. [#56758](https://github.com/ant-design/ant-design/pull/56758) [@crazyair](https://github.com/crazyair)
-  - 🆕 Add raw markdown output support (for LLM optimization). [#56561](https://github.com/ant-design/ant-design/pull/56561) [@高艳兵](https://github.com/高艳兵)
 
 ## 6.2.3
 
