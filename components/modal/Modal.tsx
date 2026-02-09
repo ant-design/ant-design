@@ -16,7 +16,7 @@ import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
-import zIndexContext from '../_util/zindexContext';
+import ZIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -249,7 +249,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   // =========================== Render ===========================
   return (
     <ContextIsolator form space>
-      <zIndexContext.Provider value={contextZIndex}>
+      <ZIndexContext.Provider value={contextZIndex}>
         <Dialog
           width={numWidth}
           {...restProps}
@@ -293,7 +293,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             children
           )}
         </Dialog>
-      </zIndexContext.Provider>
+      </ZIndexContext.Provider>
     </ContextIsolator>
   );
 };

@@ -302,7 +302,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       return;
     }
 
-    /* eslint-disable-next-line compat/compat */
     const observer = new IntersectionObserver(() => {
       setIsNativeVisible(!!textEle.offsetParent);
     });

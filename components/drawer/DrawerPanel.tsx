@@ -22,7 +22,10 @@ export type DrawerSemanticType = {
     wrapper?: string;
     dragger?: string;
     close?: string;
-    container?: string;
+    /**
+     * @deprecated please use `classNames.section` instead.
+     */
+    content?: string;
   };
   styles?: {
     root?: React.CSSProperties;
@@ -36,7 +39,10 @@ export type DrawerSemanticType = {
     wrapper?: React.CSSProperties;
     dragger?: React.CSSProperties;
     close?: React.CSSProperties;
-    container?: React.CSSProperties;
+    /**
+     * @deprecated please use `styles.section` instead.
+     */
+    content?: React.CSSProperties;
   };
 };
 

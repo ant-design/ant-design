@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
 import getPlacements from '../_util/placements';
-import zIndexContext from '../_util/zindexContext';
+import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import { useToken } from '../theme/internal';
 import type { TourProps, TourSemanticAllType, TourStepProps } from './interface';
@@ -118,7 +118,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
   const [zIndex, contextZIndex] = useZIndex('Tour', restProps.zIndex);
 
   return (
-    <zIndexContext.Provider value={contextZIndex}>
+    <ZIndexContext.Provider value={contextZIndex}>
       <RCTour
         {...restProps}
         styles={semanticStyles}
@@ -133,7 +133,7 @@ const Tour: React.FC<TourProps> & { _InternalPanelDoNotUseOrYouWillBeFired: type
         builtinPlacements={builtinPlacements}
         steps={mergedSteps}
       />
-    </zIndexContext.Provider>
+    </ZIndexContext.Provider>
   );
 };
 
