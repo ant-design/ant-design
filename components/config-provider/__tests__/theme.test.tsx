@@ -115,16 +115,16 @@ describe('ConfigProvider.Theme', () => {
 
   it('should support Addon component token', () => {
     const { container } = render(
-      <ConfigProvider theme={{ cssVar: true, components: { Addon: { paddingInline: 30 } } }}>
+      <ConfigProvider theme={{ components: { Space: { colorText: 'blue', algorithm: true } } }}>
         <Space.Compact>
           <Space.Addon className="test-addon">Addon Content</Space.Addon>
         </Space.Compact>
       </ConfigProvider>,
     );
 
-    const addon = container.querySelector('.test-addon');
+    const addon = container.querySelector('.test-addon')!;
     expect(addon).toHaveStyle({
-      '--ant-addon-padding-inline': '30px',
+      '--ant-color-text': 'rgba(0,0,255,0.88)',
     });
   });
 

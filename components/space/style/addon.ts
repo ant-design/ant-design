@@ -1,3 +1,4 @@
+import { resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
@@ -27,7 +28,7 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
     antCls,
   } = token;
 
-  const [varName, varRef] = genCssVar(antCls, 'space');
+  const [varName, varRef] = genCssVar(antCls, 'space-addon');
 
   return {
     [componentCls]: [
@@ -35,6 +36,7 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
       // ==                         Base                         ==
       // ==========================================================
       {
+        ...resetComponent(token),
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
@@ -144,7 +146,7 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(['Space', 'Addon'], (token) => [
+export default genStyleHooks('Addon', (token) => [
   genSpaceAddonStyle(token),
   genCompactItemStyle(token, { focus: false }),
 ]);

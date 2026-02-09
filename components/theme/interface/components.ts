@@ -49,7 +49,7 @@ import type { ComponentToken as SelectComponentToken } from '../../select/style'
 import type { ComponentToken as SkeletonComponentToken } from '../../skeleton/style';
 import type { ComponentToken as SliderComponentToken } from '../../slider/style';
 import type { ComponentToken as SpaceComponentToken } from '../../space/style';
-import type { ComponentToken as AddonComponentToken } from '../../space/style/token';
+import type { ComponentToken as AddonComponentToken } from '../../space/style/addon';
 import type { ComponentToken as SpinComponentToken } from '../../spin/style';
 import type { ComponentToken as SplitterComponentToken } from '../../splitter/style';
 import type { ComponentToken as StatisticComponentToken } from '../../statistic/style';
