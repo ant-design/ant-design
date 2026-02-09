@@ -22,12 +22,14 @@ const sharedContent = (
   </>
 );
 
-const classNames = createStaticStyles(({ css }) => ({
-  container: css`
-    border-radius: 10px;
-    padding: 10px;
-  `,
-}));
+const classNames = createStaticStyles(
+  ({ css }): NonNullable<DrawerSemanticAllType['classNames']> => ({
+    root: css`
+      border-radius: 10px;
+      padding: 10px;
+    `,
+  }),
+);
 
 const styles: DrawerProps['styles'] = {
   mask: {
