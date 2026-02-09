@@ -3,7 +3,11 @@ import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
-interface AddonToken extends FullToken<'Addon'> {
+/** Component only token. Which will handle additional calculation of alias token */
+// biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
+export interface ComponentToken {}
+
+interface AddonToken extends FullToken<'Space'> {
   // Custom token here
 }
 
@@ -11,9 +15,9 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
   const {
     componentCls,
     borderRadius,
-    paddingInline,
+    paddingSM,
     colorBorder,
-    paddingInlineSM,
+    paddingXS,
     fontSizeLG,
     fontSizeSM,
     borderRadiusLG,
@@ -34,7 +38,7 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
-        paddingInline,
+        paddingInline: paddingSM,
         margin: 0,
         borderWidth: lineWidth,
         borderStyle: 'solid',
@@ -53,7 +57,7 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
           borderRadius: borderRadiusLG,
         },
         '&-small': {
-          paddingInline: paddingInlineSM,
+          paddingInline: paddingXS,
           borderRadius: borderRadiusSM,
           fontSize: fontSizeSM,
         },
@@ -140,7 +144,7 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks('Addon', (token) => [
+export default genStyleHooks(['Space', 'Addon'], (token) => [
   genSpaceAddonStyle(token),
   genCompactItemStyle(token, { focus: false }),
 ]);
