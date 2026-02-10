@@ -471,9 +471,9 @@ import clsx from 'clsx';
 
 // 3. Ant Design 内部导入
 import { useToken } from '../theme/internal';
-// 5. 相对路径导入
+// 4. 相对路径导入
 import { helperFunction } from './helpers';
-// 4. 类型导入
+// 5. 类型导入
 import type { RefType } from './types';
 // 6. 样式导入（如果有）
 import './custom.css';
