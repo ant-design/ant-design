@@ -115,7 +115,7 @@ describe('ConfigProvider.Theme', () => {
 
   it('should support Addon component token', () => {
     const { container } = render(
-      <ConfigProvider theme={{ components: { Space: { colorText: 'blue', algorithm: true } } }}>
+      <ConfigProvider theme={{ components: { Addon: { colorText: '#0000FF', algorithm: true } } }}>
         <Space.Compact>
           <Space.Addon className="test-addon">Addon Content</Space.Addon>
         </Space.Compact>
@@ -124,7 +124,7 @@ describe('ConfigProvider.Theme', () => {
 
     const addon = container.querySelector('.test-addon')!;
     expect(addon).toHaveStyle({
-      '--ant-color-text': 'rgba(0,0,255,0.88)',
+      '--ant-color-text': '#0000FF',
     });
   });
 
