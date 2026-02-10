@@ -158,7 +158,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       // `classNames.dragger: { default: 'a' }`
       dragger: {
         _default: 'default',
-        _remove: ['active'],
       },
     },
   );

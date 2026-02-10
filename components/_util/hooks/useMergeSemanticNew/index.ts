@@ -3,9 +3,9 @@ import { clsx } from 'clsx';
 
 import type { AnyObject, ValidChar } from '../../type';
 import type { RemoveClassNamesString } from './semanticType';
-import { classNameFillObjectBySchema, styleFillObjectBySchema } from './utils';
+import { classNameFillObjectBySchema } from './utils';
 
-export type SemanticSchema = { _default?: string; _remove?: string[] } & {
+export type SemanticSchema = { _default?: string } & {
   [key: `${ValidChar}${string}`]: SemanticSchema;
 };
 
@@ -108,10 +108,7 @@ export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props =
     if (!schema) {
       return [mergedClassNames, mergedStyles] as const;
     }
-    return [
-      classNameFillObjectBySchema(mergedClassNames, schema),
-      styleFillObjectBySchema(mergedStyles, schema),
-    ] as const;
+    return [classNameFillObjectBySchema(mergedClassNames, schema), mergedStyles] as const;
   }, [mergedClassNames, mergedStyles, schema]) as [
     RemoveClassNamesString<NonNullable<ClassNamesType>>,
     NonNullable<StylesType>,
