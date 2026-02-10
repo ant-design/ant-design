@@ -106,9 +106,9 @@ export const useMergeSemantic = <ClassNamesType = any, StylesType = any, Props =
 
   return React.useMemo(() => {
     if (!schema) {
-      return [mergedClassNames, mergedStyles] as const;
+      return [mergedClassNames, mergedStyles];
     }
-    return [classNameFillObjectBySchema(mergedClassNames, schema), mergedStyles] as const;
+    return [classNameFillObjectBySchema(mergedClassNames, schema), mergedStyles];
   }, [mergedClassNames, mergedStyles, schema]) as [
     RemoveClassNamesString<NonNullable<ClassNamesType>>,
     NonNullable<StylesType>,
