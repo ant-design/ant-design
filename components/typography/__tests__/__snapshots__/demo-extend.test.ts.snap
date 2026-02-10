@@ -447,304 +447,328 @@ Array [
     class="ant-typography css-var-test-id"
   >
     This is a copyable text.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     Replace copy text.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     Custom Copy icon and replace tooltips text.
-    <button
-      aria-describedby="test-id"
-      aria-label="click here"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="smile"
-        class="anticon anticon-smile"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="smile"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="click here"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="smile"
+          class="anticon anticon-smile"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="smile"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M288 421a48 48 0 1096 0 48 48 0 10-96 0zm352 0a48 48 0 1096 0 48 48 0 10-96 0zM512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm263 711c-34.2 34.2-74 61-118.3 79.8C611 874.2 562.3 884 512 884c-50.3 0-99-9.8-144.8-29.2A370.4 370.4 0 01248.9 775c-34.2-34.2-61-74-79.8-118.3C149.8 611 140 562.3 140 512s9.8-99 29.2-144.8A370.4 370.4 0 01249 248.9c34.2-34.2 74-61 118.3-79.8C413 149.8 461.7 140 512 140c50.3 0 99 9.8 144.8 29.2A370.4 370.4 0 01775.1 249c34.2 34.2 61 74 79.8 118.3C874.2 413 884 461.7 884 512s-9.8 99-29.2 144.8A368.89 368.89 0 01775 775zM664 533h-48.1c-4.2 0-7.8 3.2-8.1 7.4C604 589.9 562.5 629 512 629s-92.1-39.1-95.8-88.6c-.3-4.2-3.9-7.4-8.1-7.4H360a8 8 0 00-8 8.4c4.4 84.3 74.5 151.6 160 151.6s155.6-67.3 160-151.6a8 8 0 00-8-8.4z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        click here
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          click here
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     Hide Copy tooltips.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
         />
       </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      />
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     Request copy text.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <span
     class="ant-typography css-var-test-id"
   >
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy ant-typography-copy-icon-only"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy ant-typography-copy-icon-only"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </span>,
 ]
 `;
@@ -757,155 +781,167 @@ Array [
     class="ant-typography css-var-test-id"
   >
     This is an editable text.
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Edit
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Edit
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     aria-label="This is a loooooooooooooooooooooooooooooooong editable text with suffix."
     class="ant-typography ant-typography-ellipsis css-var-test-id"
   >
     This is a loooooooooooooooooooooooooooooooong editable text with suffix.
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Edit
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Edit
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     Custom Edit icon and replace tooltip text.
-    <button
-      aria-describedby="test-id"
-      aria-label="click to edit text"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="highlight"
-        class="anticon anticon-highlight"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="highlight"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M957.6 507.4L603.2 158.2a7.9 7.9 0 00-11.2 0L353.3 393.4a8.03 8.03 0 00-.1 11.3l.1.1 40 39.4-117.2 115.3a8.03 8.03 0 00-.1 11.3l.1.1 39.5 38.9-189.1 187H72.1c-4.4 0-8.1 3.6-8.1 8V860c0 4.4 3.6 8 8 8h344.9c2.1 0 4.1-.8 5.6-2.3l76.1-75.6 40.4 39.8a7.9 7.9 0 0011.2 0l117.1-115.6 40.1 39.5a7.9 7.9 0 0011.2 0l238.7-235.2c3.4-3 3.4-8 .3-11.2zM389.8 796.2H229.6l134.4-133 80.1 78.9-54.3 54.1zm154.8-62.1L373.2 565.2l68.6-67.6 171.4 168.9-68.6 67.6zM713.1 658L450.3 399.1 597.6 254l262.8 259-147.3 145z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="click to edit text"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="highlight"
+          class="anticon anticon-highlight"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="highlight"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M957.6 507.4L603.2 158.2a7.9 7.9 0 00-11.2 0L353.3 393.4a8.03 8.03 0 00-.1 11.3l.1.1 40 39.4-117.2 115.3a8.03 8.03 0 00-.1 11.3l.1.1 39.5 38.9-189.1 187H72.1c-4.4 0-8.1 3.6-8.1 8V860c0 4.4 3.6 8 8 8h344.9c2.1 0 4.1-.8 5.6-2.3l76.1-75.6 40.4 39.8a7.9 7.9 0 0011.2 0l117.1-115.6 40.1 39.5a7.9 7.9 0 0011.2 0l238.7-235.2c3.4-3 3.4-8 .3-11.2zM389.8 796.2H229.6l134.4-133 80.1 78.9-54.3 54.1zm154.8-62.1L373.2 565.2l68.6-67.6 171.4 168.9-68.6 67.6zM713.1 658L450.3 399.1 597.6 254l262.8 259-147.3 145z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        click to edit text
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          click to edit text
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   Trigger edit with: ,
   <div
@@ -975,514 +1011,554 @@ Array [
     class="ant-typography css-var-test-id"
   >
     Text or icon as trigger - click to start editing.
-    <button
-      aria-describedby="test-id"
-      aria-label="click to edit text"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="click to edit text"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        click to edit text
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          click to edit text
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     Editable text with a custom enter icon in edit field.
-    <button
-      aria-describedby="test-id"
-      aria-label="click to edit text"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="highlight"
-        class="anticon anticon-highlight"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="highlight"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M957.6 507.4L603.2 158.2a7.9 7.9 0 00-11.2 0L353.3 393.4a8.03 8.03 0 00-.1 11.3l.1.1 40 39.4-117.2 115.3a8.03 8.03 0 00-.1 11.3l.1.1 39.5 38.9-189.1 187H72.1c-4.4 0-8.1 3.6-8.1 8V860c0 4.4 3.6 8 8 8h344.9c2.1 0 4.1-.8 5.6-2.3l76.1-75.6 40.4 39.8a7.9 7.9 0 0011.2 0l117.1-115.6 40.1 39.5a7.9 7.9 0 0011.2 0l238.7-235.2c3.4-3 3.4-8 .3-11.2zM389.8 796.2H229.6l134.4-133 80.1 78.9-54.3 54.1zm154.8-62.1L373.2 565.2l68.6-67.6 171.4 168.9-68.6 67.6zM713.1 658L450.3 399.1 597.6 254l262.8 259-147.3 145z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="click to edit text"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="highlight"
+          class="anticon anticon-highlight"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="highlight"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M957.6 507.4L603.2 158.2a7.9 7.9 0 00-11.2 0L353.3 393.4a8.03 8.03 0 00-.1 11.3l.1.1 40 39.4-117.2 115.3a8.03 8.03 0 00-.1 11.3l.1.1 39.5 38.9-189.1 187H72.1c-4.4 0-8.1 3.6-8.1 8V860c0 4.4 3.6 8 8 8h344.9c2.1 0 4.1-.8 5.6-2.3l76.1-75.6 40.4 39.8a7.9 7.9 0 0011.2 0l117.1-115.6 40.1 39.5a7.9 7.9 0 0011.2 0l238.7-235.2c3.4-3 3.4-8 .3-11.2zM389.8 796.2H229.6l134.4-133 80.1 78.9-54.3 54.1zm154.8-62.1L373.2 565.2l68.6-67.6 171.4 168.9-68.6 67.6zM713.1 658L450.3 399.1 597.6 254l262.8 259-147.3 145z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        click to edit text
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          click to edit text
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     Editable text with no enter icon in edit field.
-    <button
-      aria-describedby="test-id"
-      aria-label="click to edit text"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="highlight"
-        class="anticon anticon-highlight"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="highlight"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M957.6 507.4L603.2 158.2a7.9 7.9 0 00-11.2 0L353.3 393.4a8.03 8.03 0 00-.1 11.3l.1.1 40 39.4-117.2 115.3a8.03 8.03 0 00-.1 11.3l.1.1 39.5 38.9-189.1 187H72.1c-4.4 0-8.1 3.6-8.1 8V860c0 4.4 3.6 8 8 8h344.9c2.1 0 4.1-.8 5.6-2.3l76.1-75.6 40.4 39.8a7.9 7.9 0 0011.2 0l117.1-115.6 40.1 39.5a7.9 7.9 0 0011.2 0l238.7-235.2c3.4-3 3.4-8 .3-11.2zM389.8 796.2H229.6l134.4-133 80.1 78.9-54.3 54.1zm154.8-62.1L373.2 565.2l68.6-67.6 171.4 168.9-68.6 67.6zM713.1 658L450.3 399.1 597.6 254l262.8 259-147.3 145z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="click to edit text"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="highlight"
+          class="anticon anticon-highlight"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="highlight"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M957.6 507.4L603.2 158.2a7.9 7.9 0 00-11.2 0L353.3 393.4a8.03 8.03 0 00-.1 11.3l.1.1 40 39.4-117.2 115.3a8.03 8.03 0 00-.1 11.3l.1.1 39.5 38.9-189.1 187H72.1c-4.4 0-8.1 3.6-8.1 8V860c0 4.4 3.6 8 8 8h344.9c2.1 0 4.1-.8 5.6-2.3l76.1-75.6 40.4 39.8a7.9 7.9 0 0011.2 0l117.1-115.6 40.1 39.5a7.9 7.9 0 0011.2 0l238.7-235.2c3.4-3 3.4-8 .3-11.2zM389.8 796.2H229.6l134.4-133 80.1 78.9-54.3 54.1zm154.8-62.1L373.2 565.2l68.6-67.6 171.4 168.9-68.6 67.6zM713.1 658L450.3 399.1 597.6 254l262.8 259-147.3 145z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        click to edit text
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          click to edit text
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     Hide Edit tooltip.
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
         />
       </div>
-      <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
-      />
-    </div>
+    </span>
   </div>,
   <div
     class="ant-typography css-var-test-id"
   >
     This is an editable text with limited length.
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Edit
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Edit
+        </div>
       </div>
-    </div>
+    </span>
   </div>,
   <h1
     class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h1. Ant Design
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Edit
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Edit
+        </div>
       </div>
-    </div>
+    </span>
   </h1>,
   <h2
     class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h2. Ant Design
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Edit
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Edit
+        </div>
       </div>
-    </div>
+    </span>
   </h2>,
   <h3
     class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h3. Ant Design
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Edit
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Edit
+        </div>
       </div>
-    </div>
+    </span>
   </h3>,
   <h4
     class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h4. Ant Design
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Edit
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Edit
+        </div>
       </div>
-    </div>
+    </span>
   </h4>,
   <h5
     class="ant-typography css-var-test-id"
     style="margin: 0px;"
   >
     h5. Ant Design
-    <button
-      aria-describedby="test-id"
-      aria-label="Edit"
-      class="ant-typography-edit"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="edit"
-        class="anticon anticon-edit"
-        role="button"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="edit"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Edit"
+        class="ant-typography-edit"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="edit"
+          class="anticon anticon-edit"
+          role="button"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="edit"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M257.7 752c2 0 4-.2 6-.5L431.9 722c2-.4 3.9-1.3 5.3-2.8l423.9-423.9a9.96 9.96 0 000-14.1L694.9 114.9c-1.9-1.9-4.4-2.9-7.1-2.9s-5.2 1-7.1 2.9L256.8 538.8c-1.5 1.5-2.4 3.3-2.8 5.3l-29.5 168.2a33.5 33.5 0 009.4 29.8c6.6 6.4 14.9 9.9 23.8 9.9zm67.4-174.4L687.8 215l73.3 73.3-362.7 362.6-88.9 15.7 15.6-89zM880 836H144c-17.7 0-32 14.3-32 32v36c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-36c0-17.7-14.3-32-32-32z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Edit
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Edit
+        </div>
       </div>
-    </div>
+    </span>
   </h5>,
 ]
 `;
@@ -1668,52 +1744,56 @@ exports[`renders components/typography/demo/ellipsis-controlled.tsx extend conte
     style=""
   >
     Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.Ant Design, a design language for background applications, is refined by Ant UED Team.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </div>
 </div>
 `;
@@ -1873,52 +1953,56 @@ Array [
     style="max-width: 400px; font-size: 24px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </span>,
   <br />,
   <span
@@ -1927,52 +2011,56 @@ Array [
     style="max-width: 400px; font-size: 12px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </span>,
   <br />,
   <span
@@ -1981,52 +2069,56 @@ Array [
     style="width: 400px; font-size: 24px;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </span>,
   <br />,
   <span
@@ -2035,52 +2127,56 @@ Array [
     style="width: 100px;"
   >
     Ant Design is a design language for background applications, is refined by Ant UED Team.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </span>,
   <p>
     [Before]
@@ -2160,32 +2256,131 @@ Array [
     style="width: 100px; white-space: nowrap;"
   >
     In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display: inline;"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
         >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
           />
-        </svg>
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
+      </div>
+    </span>
+  </span>,
+  <div
+    style="margin-top: 24px;"
+  >
+    <div
+      style="margin-bottom: 8px; font-size: 12px; color: rgb(102, 102, 102);"
+    >
+      <strong>
+        Debug: copyable + ellipsis tooltips
+      </strong>
+      <br />
+      1. Hover the text → ellipsis tooltip (full content) should show.
+      <br />
+      2. Hover the copy button → only "Copy" / "Copied" tooltip should show.
+      <br />
+      3. Move from copy button back to the text (without leaving the block) → ellipsis tooltip should show again.
+    </div>
+    <span
+      aria-describedby="test-id"
+      aria-label="In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development."
+      class="ant-typography ant-typography-ellipsis css-var-test-id"
+      style="width: 280px; display: block;"
+    >
+      In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
+      <span
+        style="display: inline;"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-label="Copy"
+          class="ant-typography-copy"
+          type="button"
+        >
+          <span
+            aria-label="copy"
+            class="anticon anticon-copy"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="copy"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+          style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; z-index: 1200;"
+        >
+          <div
+            class="ant-tooltip-arrow"
+            style="position: absolute; bottom: 0px; left: 0px;"
+          >
+            <span
+              class="ant-tooltip-arrow-content"
+            />
+          </div>
+          <div
+            class="ant-tooltip-container"
+            id="test-id"
+            role="tooltip"
+          >
+            Copy
+          </div>
+        </div>
       </span>
-    </button>
+    </span>
     <div
       class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
       style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
@@ -2203,10 +2398,10 @@ Array [
         id="test-id"
         role="tooltip"
       >
-        Copy
+        In the process of internal desktop applications development, many different design specs and implementations would be involved, which might cause designers and developers difficulties and duplication and reduce the efficiency of development.
       </div>
     </div>
-  </span>,
+  </div>,
 ]
 `;
 
