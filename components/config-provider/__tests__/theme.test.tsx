@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Modal } from 'antd';
 
 import ConfigProvider from '..';
-import { Button, InputNumber, Select } from '../..';
+import { Button, InputNumber, Select, Space } from '../..';
 import { render, waitFakeTimer } from '../../../tests/utils';
 import theme from '../../theme';
 import type { GlobalToken } from '../../theme/internal';
@@ -111,6 +111,21 @@ describe('ConfigProvider.Theme', () => {
         (style) => style.includes('.ant-input-number') && style.includes('width:50.1234px'),
       ),
     ).toBeTruthy();
+  });
+
+  it('should support Addon component token', () => {
+    const { container } = render(
+      <ConfigProvider theme={{ components: { Addon: { colorText: '#0000FF', algorithm: true } } }}>
+        <Space.Compact>
+          <Space.Addon className="test-addon">Addon Content</Space.Addon>
+        </Space.Compact>
+      </ConfigProvider>,
+    );
+
+    const addon = container.querySelector('.test-addon')!;
+    expect(addon).toHaveStyle({
+      '--ant-color-text': '#0000FF',
+    });
   });
 
   it('hashed should be true if not changed', () => {
