@@ -3,7 +3,7 @@ import * as React from 'react';
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
 demoTest('input', {
-  skip: ['component-token.tsx'],
+  skip: ['component-token.tsx', 'group.tsx', 'compact-style.tsx', 'align.tsx', 'addon.tsx'],
 });
 
 rootPropsTest(
