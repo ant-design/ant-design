@@ -47,10 +47,14 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
-              class="ant-select-content ant-select-content-has-value"
-              title="http://"
+              class="ant-select-content"
             >
-              http://
+              <div
+                class="ant-select-content-value"
+                title="http://"
+              >
+                http://
+              </div>
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -101,10 +105,14 @@ exports[`renders components/input/demo/addon.tsx correctly 1`] = `
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
-              class="ant-select-content ant-select-content-has-value"
-              title=".com"
+              class="ant-select-content"
             >
-              .com
+              <div
+                class="ant-select-content-value"
+                title=".com"
+              >
+                .com
+              </div>
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -408,31 +416,35 @@ Array [
     class="ant-typography css-var-test-id"
   >
     Ant Design
-    <button
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      style="display:inline"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
+      <button
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
         >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
+    </span>
   </span>,
   <span
     class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
@@ -634,10 +646,14 @@ Array [
     style="width:100px"
   >
     <div
-      class="ant-select-content ant-select-content-has-value"
-      title="Jack"
+      class="ant-select-content"
     >
-      Jack
+      <div
+        class="ant-select-content-value"
+        title="Jack"
+      >
+        Jack
+      </div>
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -680,9 +696,12 @@ Array [
     style="width:100px"
   >
     <div
-      class="ant-select-content ant-select-content-has-value"
-      title=""
+      class="ant-select-content"
     >
+      <div
+        class="ant-select-content-value"
+        title=""
+      />
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -820,10 +839,14 @@ Array [
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
-      class="ant-select-content ant-select-content-has-value"
-      title="Zhejiang / Hangzhou / West Lake"
+      class="ant-select-content"
     >
-      Zhejiang / Hangzhou / West Lake
+      <div
+        class="ant-select-content-value"
+        title="Zhejiang / Hangzhou / West Lake"
+      >
+        Zhejiang / Hangzhou / West Lake
+      </div>
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -1023,6 +1046,9 @@ Array [
           type="radio"
           value="a"
         />
+        <span
+          class="ant-radio-button-inner"
+        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1041,6 +1067,9 @@ Array [
           name="test-id"
           type="radio"
           value="b"
+        />
+        <span
+          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -1635,10 +1664,14 @@ exports[`renders components/input/demo/compact-style.tsx correctly 1`] = `
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content ant-select-content-has-value"
-          title="Zhejiang"
+          class="ant-select-content"
         >
-          Zhejiang
+          <div
+            class="ant-select-content-value"
+            title="Zhejiang"
+          >
+            Zhejiang
+          </div>
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2456,10 +2489,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Zhejiang"
+        class="ant-select-content"
       >
-        Zhejiang
+        <div
+          class="ant-select-content-value"
+          title="Zhejiang"
+        >
+          Zhejiang
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -2661,10 +2698,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Option1"
+        class="ant-select-content"
       >
-        Option1
+        <div
+          class="ant-select-content-value"
+          title="Option1"
+        >
+          Option1
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -2936,10 +2977,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Option1-1"
+        class="ant-select-content"
       >
-        Option1-1
+        <div
+          class="ant-select-content-value"
+          title="Option1-1"
+        >
+          Option1-1
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -2981,10 +3026,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Option2-2"
+        class="ant-select-content"
       >
-        Option2-2
+        <div
+          class="ant-select-content-value"
+          title="Option2-2"
+        >
+          Option2-2
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -3031,10 +3080,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Between"
+        class="ant-select-content"
       >
-        Between
+        <div
+          class="ant-select-content-value"
+          title="Between"
+        >
+          Between
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -3104,10 +3157,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       style="width:30%"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Sign Up"
+        class="ant-select-content"
       >
-        Sign Up
+        <div
+          class="ant-select-content-value"
+          title="Sign Up"
+        >
+          Sign Up
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -3181,10 +3238,14 @@ exports[`renders components/input/demo/group.tsx correctly 1`] = `
       style="width:30%"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Home"
+        class="ant-select-content"
       >
-        Home
+        <div
+          class="ant-select-content-value"
+          title="Home"
+        >
+          Home
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
