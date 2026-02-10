@@ -29,7 +29,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     classNames,
-    collapseDuration = false,
+    collapse,
     style,
     styles,
     layout,
@@ -59,6 +59,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const [, token] = useToken();
+  const componentToken = token.Splitter;
 
   // ======================== Direct ========================
   const [mergedOrientation, isVertical] = useOrientation(orientation, vertical, layout);
@@ -93,13 +94,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const [isCollapsing, setIsCollapsing] = useState(false);
   const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  // Calculate animation duration
+  // Collapse animation: use Component Token when collapse.motion is true
   const collapseDurationMs =
-    collapseDuration === false
-      ? null
-      : collapseDuration === true
-        ? Number.parseFloat(token.motionDurationMid) * 1000
-        : collapseDuration;
+    collapse?.motion === true
+      ? Number.parseFloat(componentToken?.panelMotionDuration ?? token.motionDurationSlow) * 1000
+      : null;
 
   // Use useLayoutEffect to clear timer when collapseDurationMs becomes null
   // This runs synchronously and allows us to test the timer clearing logic
@@ -270,7 +269,11 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
               {...panelProps}
               prefixCls={prefixCls}
               size={panelSizes[idx]}
-              collapsible={isCollapsing ? { duration: collapseDurationMs } : false}
+              collapsible={
+                isCollapsing && collapseDurationMs !== null
+                  ? { duration: collapseDurationMs }
+                  : false
+              }
             />
           );
 

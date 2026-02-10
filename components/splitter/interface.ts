@@ -46,7 +46,10 @@ export interface SplitterProps {
   prefixCls?: string;
   className?: string;
   classNames?: SplitterClassNamesType;
-  collapseDuration?: number | boolean;
+  /**
+   * Collapse configuration. Set `motion: true` to enable collapse animation (duration follows Component Token).
+   */
+  collapse?: { motion?: boolean };
   style?: React.CSSProperties;
   styles?: SplitterStylesType;
   rootClassName?: string;

@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| collapseDuration | Collapse animation duration. `false` to disable, `true` to use default theme duration, or a number (in milliseconds) for custom duration | `number \| boolean` | `false` | 6.4.0 |
+| collapse | Collapse config. Set `motion: true` to enable collapse animation; duration is controlled by Component Token `panelMotionDuration` (inherits from `motionDurationSlow`) | `{ motion?: boolean }` | - | 6.4.0 |
 | collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 6.0.0 |
 | draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |

@@ -27,6 +27,11 @@ export interface ComponentToken {
    * @descEN Drag and drop trigger area size
    */
   splitTriggerSize: number;
+  /**
+   * @desc 面板折叠动画时长
+   * @descEN Panel collapse motion duration
+   */
+  panelMotionDuration: string;
 }
 
 interface SplitterToken extends FullToken<'Splitter'> {}
@@ -376,7 +381,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
         },
 
         '&-transition': {
-          transition: `flex-basis ${token.motionDurationMid} ${token.motionEaseInOut}`,
+          transition: `flex-basis ${token.panelMotionDuration} ${token.motionEaseInOut}`,
         },
       },
 
@@ -399,11 +404,14 @@ export const prepareComponentToken: GetDefaultToken<'Splitter'> = (token) => {
   const resizeSpinnerSize = token.resizeSpinnerSize || 20;
   const splitBarDraggableSize = token.splitBarDraggableSize ?? resizeSpinnerSize;
 
+  const panelMotionDuration = token.panelMotionDuration ?? token.motionDurationSlow;
+
   return {
     splitBarSize,
     splitTriggerSize,
     splitBarDraggableSize,
     resizeSpinnerSize,
+    panelMotionDuration,
   };
 };
 

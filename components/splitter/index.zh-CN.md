@@ -45,7 +45,7 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| collapseDuration | 折叠动画时长。`false` 禁用动画，`true` 使用主题默认时长，或传入数字（毫秒）自定义时长 | `number \| boolean` | `false` | 6.4.0 |
+| collapse | 折叠配置。`motion: true` 时启用折叠动画，时长由组件 Token `panelMotionDuration` 控制（继承自 `motionDurationSlow`） | `{ motion?: boolean }` | - | 6.4.0 |
 | collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
