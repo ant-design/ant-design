@@ -1357,5 +1357,47 @@ describe('Splitter', () => {
       expect(panel).toBeTruthy();
       expect(panel?.textContent).toBe('Test Content');
     });
+
+    it('should handle collapsible prop: false (no transition)', () => {
+      const { container } = render(
+        <InternalPanel prefixCls="ant-splitter" collapsible={false}>
+          Content
+        </InternalPanel>,
+      );
+      const panel = container.querySelector('.ant-splitter-panel');
+      expect(panel).not.toHaveClass('ant-splitter-panel-transition');
+    });
+
+    it('should handle collapsible prop: true (transition class, no duration)', () => {
+      const { container } = render(
+        <InternalPanel prefixCls="ant-splitter" collapsible={true}>
+          Content
+        </InternalPanel>,
+      );
+      const panel = container.querySelector('.ant-splitter-panel');
+      expect(panel).toHaveClass('ant-splitter-panel-transition');
+    });
+
+    it('should handle collapsible prop: { duration: 500 } (transition with duration)', () => {
+      const { container } = render(
+        <InternalPanel prefixCls="ant-splitter" collapsible={{ duration: 500 }}>
+          Content
+        </InternalPanel>,
+      );
+      const panel = container.querySelector('.ant-splitter-panel') as HTMLElement;
+      expect(panel).toHaveClass('ant-splitter-panel-transition');
+      expect(panel.style.transitionDuration).toBe('500ms');
+    });
+
+    it('should handle collapsible prop: { duration: null } (transition class, no duration)', () => {
+      const { container } = render(
+        <InternalPanel prefixCls="ant-splitter" collapsible={{ duration: null }}>
+          Content
+        </InternalPanel>,
+      );
+      const panel = container.querySelector('.ant-splitter-panel') as HTMLElement;
+      expect(panel).toHaveClass('ant-splitter-panel-transition');
+      expect(panel.style.transitionDuration).toBe('');
+    });
   });
 });

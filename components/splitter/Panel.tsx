@@ -7,15 +7,14 @@ export const InternalPanel = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
-  const {
-    prefixCls,
-    className,
-    children,
-    size,
-    style = {},
-    isCollapsing,
-    collapseDuration,
-  } = props;
+  const { prefixCls, className, children, size, style = {}, collapsible: collapsibleProp } = props;
+
+  const isCollapsing =
+    collapsibleProp === true || (typeof collapsibleProp === 'object' && collapsibleProp !== null);
+  const collapseDuration =
+    typeof collapsibleProp === 'object' && collapsibleProp?.duration != null
+      ? collapsibleProp.duration
+      : null;
 
   const panelClassName = clsx(
     `${prefixCls}-panel`,

@@ -270,8 +270,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
               {...panelProps}
               prefixCls={prefixCls}
               size={panelSizes[idx]}
-              isCollapsing={isCollapsing}
-              collapseDuration={collapseDurationMs}
+              collapsible={isCollapsing ? { duration: collapseDurationMs } : false}
             />
           );
 

@@ -88,8 +88,11 @@ export interface PanelProps {
 export interface InternalPanelProps extends PanelProps {
   className?: string;
   prefixCls?: string;
-  isCollapsing?: boolean;
-  collapseDuration?: number | null;
+  collapsible?:
+    | boolean
+    | {
+        duration?: number | null;
+      };
 }
 
 export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {
