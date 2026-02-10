@@ -36,6 +36,7 @@ List 组件已经进入废弃阶段，将于下个 major 版本移除。
 <code src="./demo/grid-drag-sorting-handler.tsx">栅格拖拽排序（拖拽手柄）</code>
 <code src="./demo/virtual-list.tsx">滚动加载无限长列表</code>
 <code src="./demo/component-token.tsx" debug>自定义组件 token</code>
+<code src="./demo/spin-debug.tsx" debug>Spin 加载状态调试</code>
 
 ## API
 

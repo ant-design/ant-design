@@ -106,7 +106,7 @@ exports[`List.pagination renders pagination correctly 1`] = `
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-root"
       >
         <li
           class="ant-list-item ant-list-item-no-flex"

@@ -35,6 +35,7 @@ List component has been deprecated. Will be removed in the next major version.
 <code src="./demo/grid-drag-sorting-handler.tsx">Grid Drag sorting with handler</code>
 <code src="./demo/virtual-list.tsx">virtual list</code>
 <code src="./demo/component-token.tsx" debug>custom component token</code>
+<code src="./demo/spin-debug.tsx" debug>Spin loading debug</code>
 
 ## API
 

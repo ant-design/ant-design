@@ -13,7 +13,7 @@ exports[`List Item Layout horizontal itemLayout List should accept extra node 1`
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-root"
       >
         <li
           class="ant-list-item"
@@ -72,7 +72,7 @@ exports[`List Item Layout rowKey could be function 1`] = `
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-root"
       >
         <li
           class="ant-list-item"
@@ -108,7 +108,7 @@ exports[`List Item Layout rowKey could be string 1`] = `
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-root"
       >
         <li
           class="ant-list-item"
@@ -144,7 +144,7 @@ exports[`List Item Layout should render in RTL direction 1`] = `
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-root"
       >
         <li
           class="ant-list-item"
