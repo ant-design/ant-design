@@ -685,4 +685,22 @@ describe('Typography.Ellipsis', () => {
     expect(expandButtonCN).toHaveTextContent('展开');
     expect(expandButtonCN).toBeInTheDocument();
   });
+
+  it('covers Typography and operations wrapper mouse enter/leave', () => {
+    const ref = React.createRef<HTMLElement>();
+    const { container } = render(
+      <Base ref={ref} component="p" copyable>
+        {fullStr}
+      </Base>,
+    );
+    const typographyEl = ref.current!;
+    fireEvent.mouseEnter(typographyEl);
+    fireEvent.mouseLeave(typographyEl);
+    const copyBtn = container.querySelector('.ant-typography-copy');
+    const operationsWrapper = copyBtn?.parentElement;
+    if (operationsWrapper) {
+      fireEvent.mouseEnter(operationsWrapper);
+      fireEvent.mouseLeave(operationsWrapper);
+    }
+  });
 });
