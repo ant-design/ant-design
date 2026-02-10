@@ -182,7 +182,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           color: colorTextQuaternary,
           lineHeight: 1,
           pointerEvents: 'none',
-          transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
+          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
             verticalAlign: 'top',
@@ -202,7 +202,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           transform: 'translateY(-50%)',
           cursor: 'pointer',
           opacity: 0,
-          transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
+          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
             verticalAlign: 'top',

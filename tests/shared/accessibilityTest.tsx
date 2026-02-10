@@ -144,8 +144,10 @@ export default function accessibilityDemoTest(component: string, options: Option
       const testMethod = shouldSkip ? describe.skip : describe;
 
       testMethod(`Test ${file} accessibility`, () => {
-        const Demo: React.ComponentType<any> = require(`../../${file}`).default;
-        accessibilityTest(Demo, options.disabledRules);
+        if (!shouldSkip) {
+          const Demo: React.ComponentType<any> = require(`../../${file}`).default;
+          accessibilityTest(Demo, options.disabledRules);
+        }
       });
     });
   });
