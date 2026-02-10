@@ -409,18 +409,28 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (canEllipsis: boolean) => (
-    <span
-      key="operations"
-      onMouseEnter={() => setIsHoveringOperations(true)}
-      onMouseLeave={() => setIsHoveringOperations(false)}
-      style={{ display: 'inline' }}
-    >
-      {canEllipsis && renderExpand()}
-      {renderEdit()}
-      {renderCopy()}
-    </span>
-  );
+  const renderOperations = (canEllipsis: boolean) => {
+    const expandNode = canEllipsis && renderExpand();
+    const editNode = renderEdit();
+    const copyNode = renderCopy();
+
+    if (!expandNode && !editNode && !copyNode) {
+      return null;
+    }
+
+    return (
+      <span
+        key="operations"
+        onMouseEnter={() => setIsHoveringOperations(true)}
+        onMouseLeave={() => setIsHoveringOperations(false)}
+        style={{ display: 'inline' }}
+      >
+        {expandNode}
+        {editNode}
+        {copyNode}
+      </span>
+    );
+  };
 
   const renderEllipsis = (canEllipsis: boolean) => [
     canEllipsis && !expanded && (
