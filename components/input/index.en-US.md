@@ -137,6 +137,7 @@ Added in `5.16.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoComplete | The autocomplete attribute for input elements, e.g. `one-time-code` for OTP autofill | string | - | 6.3.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-otp), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp), string> | - |  |
 | defaultValue | Default value | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |

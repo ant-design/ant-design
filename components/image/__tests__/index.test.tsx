@@ -209,18 +209,18 @@ describe('Image', () => {
       openMask?: boolean,
     ][] = [
       // Format: [imageMask, configMask,  expectedBlurClass, openMask]
-      [undefined, true, true, true],
-      [true, undefined, true, true],
-      [undefined, undefined, true, true],
+      [undefined, true, false, true],
+      [true, undefined, false, true],
+      [undefined, undefined, false, true],
       [false, true, false, false],
-      [true, false, true, true],
+      [true, false, false, true],
       [{ enabled: false }, { blur: true }, true, false],
       [{ enabled: true }, { blur: false }, false, true],
       [{ blur: true }, { enabled: false }, true, false],
       [{ blur: false }, { enabled: true, blur: true }, false, true],
       [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
-      [<div key="1">123</div>, true, true, true],
-      [<div key="2">123</div>, false, true, false],
+      [<div key="1">123</div>, true, false, true],
+      [<div key="2">123</div>, false, false, false],
       [<div key="3">123</div>, { blur: false }, false, true],
     ];
     const demos = [
