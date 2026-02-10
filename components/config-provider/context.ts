@@ -321,7 +321,7 @@ export type PaginationConfig = ComponentStyleConfig &
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 
 export type SelectConfig = ComponentStyleConfig &
-  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles'>;
+  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 

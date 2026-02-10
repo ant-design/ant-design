@@ -225,6 +225,7 @@ const InternalSelect = <
     styles: contextStyles,
     className: contextClassName,
     classNames: contextClassNames,
+    suffixIcon: contextSuffixIcon,
   } = useComponentConfig('select');
 
   const [, token] = useToken();
@@ -289,6 +290,7 @@ const InternalSelect = <
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
     ...rest,
+    suffixIcon: rest.suffixIcon === undefined ? contextSuffixIcon : rest.suffixIcon,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,

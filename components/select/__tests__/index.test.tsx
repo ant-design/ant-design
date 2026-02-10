@@ -9,6 +9,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 
 describe('Select', () => {
@@ -324,5 +325,30 @@ describe('Select', () => {
     const input = popupElement!.querySelector('input');
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  describe('suffixIcon', () => {
+    it('should support suffixIcon prop', () => {
+      const { container } = render(<Select suffixIcon="foobar" />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffixIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffixIcon: 'foobar' }}>
+          <Select />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer suffixIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffixIcon: 'foobar' }}>
+          <Select suffixIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
+    });
   });
 });
