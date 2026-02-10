@@ -1358,27 +1358,29 @@ describe('Splitter', () => {
       expect(panel?.textContent).toBe('Test Content');
     });
 
-    it('should handle collapsible prop: false (no transition)', () => {
+    it('should not add transition class when collapsible is false', () => {
       const { container } = render(
         <InternalPanel prefixCls="ant-splitter" collapsible={false}>
           Content
         </InternalPanel>,
       );
-      const panel = container.querySelector('.ant-splitter-panel');
-      expect(panel).not.toHaveClass('ant-splitter-panel-transition');
+      expect(container.querySelector('.ant-splitter-panel')).not.toHaveClass(
+        'ant-splitter-panel-transition',
+      );
     });
 
-    it('should handle collapsible prop: true (transition class, no duration)', () => {
+    it('should add transition class when collapsible is true', () => {
       const { container } = render(
-        <InternalPanel prefixCls="ant-splitter" collapsible={true}>
+        <InternalPanel prefixCls="ant-splitter" collapsible>
           Content
         </InternalPanel>,
       );
-      const panel = container.querySelector('.ant-splitter-panel');
-      expect(panel).toHaveClass('ant-splitter-panel-transition');
+      expect(container.querySelector('.ant-splitter-panel')).toHaveClass(
+        'ant-splitter-panel-transition',
+      );
     });
 
-    it('should handle collapsible prop: { duration: 500 } (transition with duration)', () => {
+    it('should add transition class and custom duration when collapsible has duration', () => {
       const { container } = render(
         <InternalPanel prefixCls="ant-splitter" collapsible={{ duration: 500 }}>
           Content
@@ -1389,7 +1391,7 @@ describe('Splitter', () => {
       expect(panel.style.transitionDuration).toBe('500ms');
     });
 
-    it('should handle collapsible prop: { duration: null } (transition class, no duration)', () => {
+    it('should add transition class but no custom duration when collapsible has null duration', () => {
       const { container } = render(
         <InternalPanel prefixCls="ant-splitter" collapsible={{ duration: null }}>
           Content

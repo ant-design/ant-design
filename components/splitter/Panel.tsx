@@ -9,8 +9,9 @@ export const InternalPanel = forwardRef<
 >((props, ref) => {
   const { prefixCls, className, children, size, style = {}, collapsible: collapsibleProp } = props;
 
+  // Derive animation state from the consolidated collapsible prop
   const isCollapsing =
-    collapsibleProp === true || (typeof collapsibleProp === 'object' && collapsibleProp !== null);
+    collapsibleProp === true || (typeof collapsibleProp === 'object' && !!collapsibleProp);
   const collapseDuration =
     typeof collapsibleProp === 'object' && collapsibleProp?.duration != null
       ? collapsibleProp.duration

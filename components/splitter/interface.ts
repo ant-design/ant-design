@@ -85,7 +85,7 @@ export interface PanelProps {
 
 // ================ inside ================
 
-export interface InternalPanelProps extends PanelProps {
+export interface InternalPanelProps extends Omit<PanelProps, 'collapsible'> {
   className?: string;
   prefixCls?: string;
   collapsible?:
