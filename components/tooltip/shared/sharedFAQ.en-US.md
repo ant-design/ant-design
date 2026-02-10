@@ -11,7 +11,7 @@ This is due to the implementation of `@rc-component/trigger`. `@rc-component/tri
 
 Similar issues: [#15909](https://github.com/ant-design/ant-design/issues/15909), [#12812](https://github.com/ant-design/ant-design/issues/12812).
 
-Please ensure that the child node to accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, and `onClick` events, If you create your own component and do not explicitly add these mouse and pointer events as props, the tooltip will never appear. [See Example](http://ant.design/components/tooltip#tooltip-demo-wrap-custom-component).
+Please ensure that the child node to accept `onMouseEnter`, `onMouseLeave`, `onPointerEnter`, `onPointerLeave`, `onFocus`, and `onClick` events, If you create your own component and do not explicitly add these mouse and pointer events as props, the tooltip will never appear. [See Example](https://ant.design/components/tooltip#tooltip-demo-wrap-custom-component).
 
 ### What's the placement logic?
 

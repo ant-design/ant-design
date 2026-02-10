@@ -55,7 +55,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 If the Ant Design grid layout component does not meet your needs, you can use the excellent layout components of the community:
 
-- [react-flexbox-grid](http://roylee0704.github.io/react-flexbox-grid/)
+- [react-flexbox-grid](https://roylee0704.github.io/react-flexbox-grid/)
 - [react-blocks](https://github.com/whoisandy/react-blocks/)
 
 ### Row

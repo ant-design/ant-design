@@ -2,7 +2,7 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are currently being supported with security updates.
+Versions of ant-design that are currently supported with security updates:
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -12,6 +12,14 @@ Use this section to tell people about which versions of your project are current
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+Security vulnerabilities in ant-design are handled by the ant-design team.
 
-Tell them where to go, how often they can expect to get an update on a reported vulnerability, what to expect if the vulnerability is accepted or declined, etc.
+### How to Report
+
+If you find a security vulnerability, please **do not** open a public issue. Instead, please send an email to **security@ant.design**. Include details about:
+
+- The affected version(s)
+- Steps to reproduce the vulnerability
+- Potential impact of the vulnerability
+
+Our team will review your report and respond as soon as possible. We appreciate your help in reporting security issues responsibly.
