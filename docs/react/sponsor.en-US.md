@@ -27,16 +27,21 @@ We'd like to thank the following companies and individuals for their generous sp
 
 ## How to sponsor
 
-We accept sponsorship via OpenCollective. Here are the sponsorship options and their home pages:
+We accept sponsorship via the following platforms:
 
-- OpenCollective (collective home): https://opencollective.com/ant-design
-- Sponsors (plan home): https://opencollective.com/ant-design/contribute/sponsors-218
-  - Checkout: https://opencollective.com/ant-design/contribute/sponsors-218/checkout
-- Backers (plan home): https://opencollective.com/ant-design/contribute/backers-217
-  - Checkout: https://opencollective.com/ant-design/contribute/backers-217/checkout
-- Donation (one-time or recurring): https://opencollective.com/ant-design/donate
-- All ways to contribute: https://opencollective.com/ant-design/contribute
+| Platform | Homepage | Sponsor Page |
+| --- | --- | --- |
+| **OpenCollective** | [Homepage](https://opencollective.com/ant-design) | [All ways to contribute](https://opencollective.com/ant-design/contribute) |
+| **GitHub Sponsors** | [Homepage](https://github.com/sponsors/ant-design) | [Sponsor now](https://github.com/sponsors/ant-design) |
 
-> If you need invoices or reimbursement details, please follow the OpenCollective flow and billing instructions.
+### OpenCollective options
+
+| Option | Homepage | Checkout |
+| --- | --- | --- |
+| **Sponsors** | [Plan home](https://opencollective.com/ant-design/contribute/sponsors-218) | [Sponsor now](https://opencollective.com/ant-design/contribute/sponsors-218/checkout) |
+| **Backers** | [Plan home](https://opencollective.com/ant-design/contribute/backers-217) | [Sponsor now](https://opencollective.com/ant-design/contribute/backers-217/checkout) |
+| **Donation** | - | [One-time or recurring](https://opencollective.com/ant-design/donate) |
+
+> If you need invoices or reimbursement details, please follow the respective platform's flow and billing instructions.
 
 If you want to sponsor specific features or fixes, you can also check our [IssueHunt board](https://issuehunt.io/repos/34526884).

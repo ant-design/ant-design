@@ -27,16 +27,21 @@ Ant Design 使用 MIT 协议开源并永久免费使用。维护与演进一个�
 
 ## 如何赞助 {#how-to-sponsor}
 
-我们通过 OpenCollective 接受赞助。下面列出各个赞助产品的**主页链接**与对应入口：
+我们通过以下平台接受赞助：
 
-- OpenCollective（主页）：https://opencollective.com/ant-design
-- Sponsors（赞助产品主页）：https://opencollective.com/ant-design/contribute/sponsors-218
-  - 付款入口：https://opencollective.com/ant-design/contribute/sponsors-218/checkout
-- Backers（赞助产品主页）：https://opencollective.com/ant-design/contribute/backers-217
-  - 付款入口：https://opencollective.com/ant-design/contribute/backers-217/checkout
-- Donation（单次 / 持续捐赠）：https://opencollective.com/ant-design/donate
-- 所有赞助方式：https://opencollective.com/ant-design/contribute
+| 平台 | 主页 | 赞助入口 |
+| --- | --- | --- |
+| **OpenCollective** | [主页](https://opencollective.com/ant-design) | [所有赞助方式](https://opencollective.com/ant-design/contribute) |
+| **GitHub Sponsors** | [主页](https://github.com/sponsors/ant-design) | [立即赞助](https://github.com/sponsors/ant-design) |
 
-> 如需发票或报销相关信息，请按 OpenCollective 的流程与账单指引操作。
+### OpenCollective 赞助方式
+
+| 方式 | 主页 | 付款入口 |
+| --- | --- | --- |
+| **Sponsors** | [赞助产品主页](https://opencollective.com/ant-design/contribute/sponsors-218) | [立即赞助](https://opencollective.com/ant-design/contribute/sponsors-218/checkout) |
+| **Backers** | [赞助产品主页](https://opencollective.com/ant-design/contribute/backers-217) | [立即赞助](https://opencollective.com/ant-design/contribute/backers-217/checkout) |
+| **Donation** | - | [单次/持续捐赠](https://opencollective.com/ant-design/donate) |
+
+> 如需发票或报销相关信息，请按相应平台的流程与账单指引操作。
 
 如果你希望推动某个具体功能或修复，也可以通过 [IssueHunt](https://issuehunt.io/repos/34526884) 赞助特定 Issue。
