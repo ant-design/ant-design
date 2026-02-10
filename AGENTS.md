@@ -815,7 +815,8 @@ export default genStyleHooks(
 
 3. **开发者视角**：用面向开发者的角度和叙述方式撰写 CHANGELOG，描述"用户的原始问题"和"对开发者的影响"，而非"具体的解决代码"。
    - ❌ 修复 Typography 的 DOM 结构问题。
-   - ✅ Typography: 💄 重构并简化了 Typography 的 DOM 结构，修复了内容空格丢失的问题。
+   - ✅ 💄 Typography 重构并简化 DOM 结构，修复内容空格丢失的问题。（中文：Emoji + 组件名 + 描述，无冒号）
+   - ✅ 💄 Refactor Typography DOM structure and fix content space loss.（英文：Emoji + 动词 + 组件名 + 描述）
 
 4. **版本与命名**：
    - 新增属性必须符合 antd API 命名规则
@@ -827,15 +828,26 @@ export default genStyleHooks(
 
 #### 🎨 格式与结构规范
 
-1. **单条条目结构**：`组件名称: 图标 描述内容 [#PR号](链接) [@贡献者]`
-   - 组件名**无需加粗**，后接英文冒号和空格
+1. **条目顺序与符号**：
+   - **Emoji 置顶**：每条条目以 Emoji 开头（如 🐞 💄 🆕），后接内容
+   - **不加冒号**：组件名后不使用英文冒号，直接接描述
 
-2. **分组逻辑**：
-   - **多项改动**：同一组件有 2 条及以上改动时，使用 `- 组件名` 作为分类标题（不加粗），具体条目缩进排列
-   - **单项改动**：直接编写单行条目，不设分类标题
+2. **组件名要求**：
+   - **每条必含组件名**：每条 changelog 正文中都必须出现对应组件名（分组标题下的子条同样要在句中出现组件名）
+   - **组件名不用反引号**：组件名（如 Modal、Drawer、Button、Upload.Dragger）不使用 `` ` `` 包裹；属性名、API、token 等仍用反引号
 
-3. **文本细节**：
-   - **代码包裹**：所有属性名、方法名、API、`role`/`aria` 属性必须使用反引号 `` ` `` 包裹
+3. **中英文条目句式**：
+   - **中文**：`Emoji 组件名 动词/描述 … [#PR](链接) [@贡献者]`  
+     例：`🐞 Button 修复暗色主题下 \`color\` 的 \`hover\` 与 \`active\` 状态颜色相反的问题。`
+   - **英文**：`Emoji 动词 组件名 描述 … [#PR](链接) [@贡献者]`（动词在前，如 Fix / Add / Support / Remove / Disable / Refactor / Improve / Change）  
+     例：`🐞 Fix Button reversed \`hover\` and \`active\` colors for \`color\` in dark theme.`
+
+4. **分组逻辑**：
+   - **多项改动**：同一组件有 2 条及以上改动时，使用 `- 组件名` 作为分类标题（不加粗），具体条目缩进排列，子条中仍须包含组件名
+   - **单项改动**：直接写单行条目，不设分类标题
+
+5. **文本细节**：
+   - **代码包裹**：所有属性名、方法名、API、`role`/`aria` 属性必须使用反引号 `` ` `` 包裹（组件名除外）
    - **中英空格**：中文与英文、数字、链接、`@` 用户名之间必须保留 **一个空格**
 
 #### 🏷️ Emoji 规范（严格执行）
@@ -859,14 +871,26 @@ export default genStyleHooks(
 
 需要同时提供中英文两个版本，格式如下：
 
+**中文版**（Emoji 在前、无冒号、每条含组件名、属性用反引号）：
+
 ```markdown
-# 中文版
+- ConfigProvider
+  - 🆕 ConfigProvider 支持 Modal 和 Drawer 的 `maskClosable` 全局配置。[#56739](链接) [@luozz1994](链接)
+- Button
+  - 🐞 Button 修复暗色主题下 `color` 的 `hover` 与 `active` 状态颜色相反的问题。[#56872](链接) [@zombieJ](链接)
+- 💄 Modal & Drawer 默认关闭蒙层 blur 效果。[#56781](链接) [@aojunhao123](链接)
+- 🐞 Tooltip & Popover 修复弹出层动画起始位置偏左的问题。[#56887](链接) [@zombieJ](链接)
+```
 
-- 🐞 Drawer: 修复 Drawer.PurePanel 无法响应鼠标交互的问题。[#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+**英文版**（Emoji 在前、动词在前、无冒号、每条含组件名）：
 
-# English Version
-
-- 🐞 Drawer: Fix Drawer.PurePanel failing to respond to mouse interactions. [#56387](https://github.com/ant-design/ant-design/pull/56387) [@wanpan11](https://github.com/wanpan11)
+```markdown
+- ConfigProvider
+  - 🆕 Support ConfigProvider global configuration of `maskClosable` for Modal and Drawer. [#56739](link) [@luozz1994](link)
+- Button
+  - 🐞 Fix Button reversed `hover` and `active` colors for `color` in dark theme. [#56872](link) [@zombieJ](link)
+- 💄 Disable Modal & Drawer mask blur effect by default. [#56781](link) [@aojunhao123](link)
+- 🐞 Fix Tooltip & Popover popup animation starting position being shifted to the left. [#56887](link) [@zombieJ](link)
 ```
 
 ---
