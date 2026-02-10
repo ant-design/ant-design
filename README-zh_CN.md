@@ -186,7 +186,7 @@ $ npm start
 </tr>
 </table>
 
-<a href="https://openomy.app/github/ant-design/ant-design" target="_blank" style="display: block; width: 100%;" align="center">
+<a href="https://openomy.app/github/ant-design/ant-design" target="_blank" style="display: block; width: 100%;" align="center" target="_blank">
   <img src="https://openomy.app/svg?repo=ant-design/ant-design&chart=bubble&latestMonth=3" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
 </a>
 
