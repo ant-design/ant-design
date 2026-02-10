@@ -16073,20 +16073,16 @@ exports[`renders components/space/demo/component-token.tsx extend context correc
   <div
     class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined"
   >
-    https://
+    Addon
   </div>
-  <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item"
-    placeholder="example.com"
-    style="width: 200px;"
-    type="text"
-    value=""
-  />
-  <div
-    class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-last-item css-var-test-id ant-space-addon-variant-outlined"
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+    type="button"
   >
-    .com
-  </div>
+    <span>
+      Button
+    </span>
+  </button>
 </div>
 `;
 
