@@ -7,11 +7,13 @@ import {
   Checkbox,
   ColorPicker,
   ConfigProvider,
+  DatePicker,
   Dropdown,
   Flex,
   Modal,
   Progress,
   Radio,
+  Segmented,
   Select,
   Slider,
   Space,
@@ -25,6 +27,7 @@ import clsx from 'clsx';
 import useLocale from '../../../../hooks/useLocale';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalPanel } = Modal;
+const { Group: RadioButtonGroup, Button: RadioButton } = Radio;
 
 const locales = {
   cn: {
@@ -119,9 +122,28 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 </Space.Compact>
               </div>
 
-              <ColorPicker style={{ flex: 'none' }} />
+              <ColorPicker showText defaultValue="#1677ff" style={{ flex: 'none' }} />
 
               <Select
+                style={{ flex: 'auto' }}
+                mode="multiple"
+                maxTagCount="responsive"
+                defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
+                options={[
+                  { value: 'apple', label: locale.apple },
+                  { value: 'banana', label: locale.banana },
+                  { value: 'orange', label: locale.orange },
+                  { value: 'watermelon', label: locale.watermelon },
+                ]}
+              />
+            </Flex>
+
+            {/* Filled variants */}
+            <Flex gap="middle">
+              <DatePicker variant="filled" />
+
+              <Select
+                variant="filled"
                 style={{ flex: 'auto' }}
                 mode="multiple"
                 maxTagCount="responsive"
@@ -146,20 +168,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
               ]}
             />
             {/* Line */}
-            <Slider
-              style={{ marginInline: 20 }}
-              range
-              marks={{
-                0: '0°C',
-                26: '26°C',
-                37: '37°C',
-                100: {
-                  style: { color: '#f50' },
-                  label: <strong>100°C</strong>,
-                },
-              }}
-              defaultValue={[26, 37]}
-            />
+            <Slider defaultValue={50} />
             {/* Line */}
             <Flex gap="middle">
               <Button type="primary" className={styles.flexAuto}>
@@ -186,6 +195,14 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 defaultValue={[locale.apple]}
               />
               <Radio.Group defaultValue={locale.apple} options={[locale.apple, locale.banana]} />
+            </Flex>
+            <Flex gap="middle" align="center">
+              <RadioButtonGroup defaultValue="a">
+                <RadioButton value="a">A</RadioButton>
+                <RadioButton value="b">B</RadioButton>
+                <RadioButton value="c">C</RadioButton>
+              </RadioButtonGroup>
+              <Segmented defaultValue="Daily" options={['Daily', 'Weekly', 'Monthly']} />
             </Flex>
           </Flex>
         </App>

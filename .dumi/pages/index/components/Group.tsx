@@ -46,6 +46,8 @@ export interface GroupProps {
   decoration?: React.ReactNode;
   /** 预加载的背景图片列表 */
   backgroundPrefetchList?: string[];
+  /** 标题右侧的操作按钮 */
+  extra?: React.ReactNode;
 }
 
 const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
@@ -59,6 +61,7 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
     background,
     collapse,
     backgroundPrefetchList,
+    extra,
   } = props;
 
   // 预加载背景图片
@@ -97,7 +100,12 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
               fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
             }}
           >
-            {title}
+            <div
+              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16 }}
+            >
+              <span>{title}</span>
+              {extra}
+            </div>
           </Typography.Title>
           <Typography.Paragraph
             style={{

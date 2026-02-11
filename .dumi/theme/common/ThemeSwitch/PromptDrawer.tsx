@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
-import { Bubble, Sender } from '@ant-design/x';
+import { Bubble, Prompts, Sender, Welcome } from '@ant-design/x';
 import type { SenderRef } from '@ant-design/x/es/sender';
 import type { BubbleProps } from '@ant-design/x';
-import { Button, Drawer, Flex, Space, Splitter, Typography } from 'antd';
+import { Button, Divider, Drawer, Flex, Skeleton, Splitter, Typography } from 'antd';
 
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';
+import SiteContext from '../../../theme/slots/SiteContext';
 import useLocale from '../../../hooks/useLocale';
 import ComponentsBlock from '../../../pages/index/components/ThemePreview/ComponentsBlock';
 import usePromptTheme from './usePromptTheme';
@@ -13,20 +14,32 @@ import usePromptRecommend from './usePromptRecommend';
 
 const antdLogoSrc = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
+const THEME_EMOJIS = ['🌅', '🌊', '🌿', '🍂', '🌸', '🌌', '🎨', '⚡', '🔮', '🪐'];
+
+const getEmojiForTheme = (index: number) => THEME_EMOJIS[index % THEME_EMOJIS.length];
+
 const locales = {
   cn: {
-    title: 'AI 生成主题',
-    finishTips: '生成完成，对话以重新生成。',
+    title: '🎨 AI 生成主题',
+    finishTips: '生成主题完成，已应用',
     placeholder: '描述你想要的主题风格，如：温暖阳光、清新自然、科技感...',
-    recommendTitle: 'AI 推荐主题',
+    welcomeTitle: 'AI 主题生成器',
+    welcomeDescription: '描述你想要的风格，我会为你生成专属主题',
+    recommendTitle: '推荐主题',
     loading: '加载中...',
+    refresh: '换一换',
+    resetToDefault: '恢复默认主题',
   },
   en: {
-    title: 'AI Theme Generator',
-    finishTips: 'Completed. Regenerate by start a new conversation.',
+    title: '🎨 AI Theme Generator',
+    finishTips: 'Theme generated and applied',
     placeholder: 'Describe your desired theme style, e.g., warm sunny, fresh natural, tech feel...',
-    recommendTitle: 'AI Recommended',
+    welcomeTitle: 'AI Theme Generator',
+    welcomeDescription: 'Describe your desired style and I will generate a custom theme for you',
+    recommendTitle: 'Recommended Themes',
     loading: 'Loading...',
+    refresh: 'Refresh',
+    resetToDefault: 'Reset to default theme',
   },
 };
 
@@ -37,20 +50,30 @@ export interface PromptDrawerProps {
 }
 
 const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChange }) => {
-  // @ts-ignore - useLocale returns type with proper locale key
-  const locale = useLocale(locales) as typeof locales.cn;
-  const localeKey = locale.title === 'AI 生成主题' ? 'cn' : 'en';
+  const { updateSiteConfig, isDark } = React.use(SiteContext) as SiteContextProps;
+  const [locale, localeKey] = useLocale(locales);
   const [inputValue, setInputValue] = useState('');
 
   const senderRef = useRef<SenderRef>(null);
 
   const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
-  const { recommendations, loading: recommendLoading, fetch: fetchRecommendations } =
-    usePromptRecommend(localeKey);
+  const {
+    recommendations,
+    loading: recommendLoading,
+    fetch: fetchRecommendations,
+  } = usePromptRecommend(localeKey);
 
   const handleSubmit = (value: string) => {
     submitPrompt(value);
     setInputValue('');
+  };
+
+  const handleRefreshRecommendations = () => {
+    fetchRecommendations(`prompt-drawer-refresh-${Date.now()}`);
+  };
+
+  const handleResetToDefaultTheme = () => {
+    updateSiteConfig({ dynamicTheme: undefined });
   };
 
   const handleAfterOpenChange = (isOpen: boolean) => {
@@ -86,36 +109,210 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
         loading: !resText,
         contentRender: (content: string) => (
           <Typography>
-            <pre style={{ margin: 0 }}>{content}</pre>
+            <pre
+              style={{
+                margin: 0,
+                padding: '16px',
+                borderRadius: 8,
+                background: isDark
+                  ? 'linear-gradient(135deg, rgba(90,196,255,0.08) 0%, rgba(174,136,255,0.08) 100%)'
+                  : 'linear-gradient(135deg, #f2f9fe 0%, #f7f3ff 100%)',
+                fontSize: 13,
+                lineHeight: 1.6,
+                border: 'none',
+                color: isDark ? 'rgba(255,255,255,0.85)' : 'rgba(0,0,0,0.85)',
+              }}
+            >
+              {content}
+            </pre>
           </Typography>
         ),
+        styles: {
+          content: {
+            background: 'transparent',
+            padding: 0,
+            border: 'none',
+          },
+        },
       },
     ];
 
     if (!loading) {
       nextItems.push({
         key: 3,
-        role: 'divider',
+        role: 'system',
         placement: 'start',
+        shape: 'round',
         content: locale.finishTips,
+      });
+
+      // Add recommended themes prompts
+      const recommendedPrompts = recommendations.slice(0, 4).map((text, index) => ({
+        key: `rec-${text}`,
+        description: `${getEmojiForTheme(index)} ${text}`,
+        originalDescription: text,
+      }));
+
+      // Add refresh button
+      recommendedPrompts.push({
+        key: 'refresh',
+        description: `🔄 ${locale.refresh}`,
+        isRefresh: true,
+      });
+
+      nextItems.push({
+        key: 4,
+        role: 'user',
+        placement: 'start',
         avatar: <img src={antdLogoSrc} alt="Ant Design" style={{ width: 28, height: 28 }} />,
-        shape: 'corner',
+        contentRender: () =>
+          recommendLoading ? (
+            <Flex gap={8} wrap style={{ justifyContent: 'center' }}>
+              {Array.from({ length: 4 }).map((_, index) => (
+                <Skeleton.Input
+                  key={index}
+                  active
+                  size="small"
+                  style={{ width: 140, borderRadius: 8 }}
+                />
+              ))}
+            </Flex>
+          ) : (
+            <Prompts
+              wrap
+              items={recommendedPrompts}
+              onItemClick={({ data }) => {
+                if ((data as any).isRefresh) {
+                  handleRefreshRecommendations();
+                } else {
+                  handleSubmit(
+                    (data.originalDescription as string) || (data.description as string),
+                  );
+                }
+              }}
+              styles={{ root: { marginTop: 8 } }}
+            />
+          ),
+        styles: { content: { padding: 0, background: 'transparent' } },
       });
     }
 
     return nextItems;
-  }, [prompt, resText, loading, locale.finishTips]);
+  }, [
+    prompt,
+    resText,
+    loading,
+    recommendLoading,
+    locale.finishTips,
+    isDark,
+    recommendations,
+    handleSubmit,
+    handleRefreshRecommendations,
+    locale.refresh,
+  ]);
 
-  const prompts = React.useMemo<string[]>(() => recommendations, [recommendations]);
+  // Limit to 3 recommendations for Prompts component + refresh button
+  const prompts = React.useMemo(() => {
+    const themePrompts = recommendations.slice(0, 3).map((text, index) => ({
+      key: text,
+      description: `${getEmojiForTheme(index)} ${text}`,
+      originalDescription: text,
+    }));
+
+    // Add refresh button as last item only when we have recommendations
+    if (themePrompts.length > 0) {
+      themePrompts.push({
+        key: 'refresh',
+        description: `🔄 ${locale.refresh}`,
+        isRefresh: true,
+      });
+    }
+
+    return themePrompts;
+  }, [recommendations, locale.refresh]);
+
+  const renderedWelcome = React.useMemo(
+    () => (
+      <div style={{ padding: '0 0 16px' }}>
+        <Welcome
+          icon={<img src={antdLogoSrc} alt="Ant Design" style={{ width: 48, height: 48 }} />}
+          title={locale.welcomeTitle}
+          description={locale.welcomeDescription}
+          styles={{
+            root: {
+              background: isDark
+                ? 'linear-gradient(97deg, rgba(90,196,255,0.12) 0%, rgba(174,136,255,0.12) 100%)'
+                : 'linear-gradient(97deg, #f2f9fe 0%, #f7f3ff 100%)',
+            },
+          }}
+        />
+      </div>
+    ),
+    [locale.welcomeTitle, locale.welcomeDescription, isDark],
+  );
+
+  const renderedPrompts = React.useMemo(
+    () => (
+      <div style={{ padding: '0 0 32px' }}>
+        <Flex vertical gap={12} align="center">
+          <Divider titlePlacement="center" style={{ margin: 0, fontSize: 12 }}>
+            {locale.recommendTitle}
+          </Divider>
+          {recommendLoading ? (
+            <Flex gap={8} wrap style={{ justifyContent: 'center' }}>
+              {Array.from({ length: 3 }).map((_, index) => (
+                <Skeleton.Input
+                  key={index}
+                  active
+                  size="small"
+                  style={{ width: 140, borderRadius: 8 }}
+                />
+              ))}
+            </Flex>
+          ) : (
+            prompts.length > 0 && (
+              <Prompts
+                wrap
+                items={prompts}
+                onItemClick={({ data }) => {
+                  if ((data as any).isRefresh) {
+                    handleRefreshRecommendations();
+                  } else {
+                    handleSubmit(
+                      (data.originalDescription as string) || (data.description as string),
+                    );
+                  }
+                }}
+                styles={{
+                  root: {
+                    marginTop: 4,
+                  },
+                  item: {
+                    borderRadius: 8,
+                  },
+                }}
+              />
+            )
+          )}
+        </Flex>
+      </div>
+    ),
+    [locale.recommendTitle, recommendLoading, prompts, handleSubmit, handleRefreshRecommendations],
+  );
 
   return (
     <Drawer
       title={locale.title}
       open={open}
       onClose={onClose}
-      width="75vw"
+      size="80vw"
       placement="right"
       afterOpenChange={handleAfterOpenChange}
+      extra={
+        <Button type="text" size="small" onClick={handleResetToDefaultTheme}>
+          {locale.resetToDefault}
+        </Button>
+      }
     >
       <Splitter style={{ height: '100%' }}>
         {/* 左侧预览区域 */}
@@ -124,7 +321,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
             <div
               style={{
                 flex: 1,
-                padding: '24px 8px 8px',
+                padding: '16px 8px',
                 overflow: 'auto',
               }}
             >
@@ -135,32 +332,23 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
         {/* 右侧对话区域 */}
         <Splitter.Panel defaultSize="50%" min="30%" max="70%">
-          <Flex vertical gap={12} style={{ height: '100%', padding: '0 8px' }}>
-            {!prompt && (
-              <Flex vertical gap={8}>
-                <Typography.Text type="secondary" style={{ fontSize: 12 }}>
-                  {locale.recommendTitle}
-                </Typography.Text>
-                <Space wrap size="small">
-                  {recommendLoading && (
-                    <Button size="small" disabled>
-                      {locale.loading}
-                    </Button>
-                  )}
-                  {prompts.map((theme) => (
-                    <Button
-                      key={theme}
-                      size="small"
-                      onClick={() => handleSubmit(theme)}
-                      style={{ borderRadius: 6 }}
-                    >
-                      {theme}
-                    </Button>
-                  ))}
-                </Space>
-              </Flex>
-            )}
-            <Bubble.List style={{ flex: 1, overflow: 'auto' }} items={items} />
+          <Flex vertical gap={0} style={{ height: '100%', padding: '0 8px' }}>
+            <div
+              style={{
+                flex: 1,
+                padding: 0,
+                overflow: 'auto',
+              }}
+            >
+              {!prompt ? (
+                <>
+                  {renderedWelcome}
+                  {renderedPrompts}
+                </>
+              ) : (
+                <Bubble.List items={items} />
+              )}
+            </div>
             <Sender
               ref={senderRef}
               value={inputValue}
