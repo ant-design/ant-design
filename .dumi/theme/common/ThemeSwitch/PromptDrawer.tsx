@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { Bubble, Prompts, Sender, Welcome } from '@ant-design/x';
+import type { BubbleItemType } from '@ant-design/x/es/bubble/interface';
+import type { PromptsItemType } from '@ant-design/x';
 import type { SenderRef } from '@ant-design/x/es/sender';
-import type { BubbleProps } from '@ant-design/x';
 import { Button, Divider, Drawer, Flex, Skeleton, Splitter, Typography } from 'antd';
 
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';
@@ -49,6 +50,12 @@ export interface PromptDrawerProps {
   onThemeChange?: (themeConfig: SiteContextProps['dynamicTheme']) => void;
 }
 
+// Extended type for Prompts items with additional properties
+interface ExtendedPromptsItemType extends PromptsItemType {
+  originalDescription?: string;
+  isRefresh?: boolean;
+}
+
 const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChange }) => {
   const { updateSiteConfig, isDark } = React.use(SiteContext) as SiteContextProps;
   const [locale, localeKey] = useLocale(locales);
@@ -87,12 +94,12 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     }
   };
 
-  const items = React.useMemo<BubbleProps['ListProps']['items']>(() => {
+  const items = React.useMemo<BubbleItemType[]>(() => {
     if (!prompt) {
       return [];
     }
 
-    const nextItems: GetProp<typeof Bubble.List, 'items'> = [
+    const nextItems: BubbleItemType[] = [
       {
         key: 1,
         role: 'user',
@@ -103,6 +110,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       },
       {
         key: 2,
+        role: 'ai',
         placement: 'start',
         content: resText,
         avatar: <img src={antdLogoSrc} alt="Ant Design" style={{ width: 28, height: 28 }} />,
@@ -147,11 +155,13 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       });
 
       // Add recommended themes prompts
-      const recommendedPrompts = recommendations.slice(0, 4).map((text, index) => ({
-        key: `rec-${text}`,
-        description: `${getEmojiForTheme(index)} ${text}`,
-        originalDescription: text,
-      }));
+      const recommendedPrompts: ExtendedPromptsItemType[] = recommendations
+        .slice(0, 4)
+        .map((text, index) => ({
+          key: `rec-${text}`,
+          description: `${getEmojiForTheme(index)} ${text}`,
+          originalDescription: text,
+        }));
 
       // Add refresh button
       recommendedPrompts.push({
@@ -162,8 +172,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
       nextItems.push({
         key: 4,
-        role: 'user',
+        role: 'ai',
         placement: 'start',
+        content: '',
         avatar: <img src={antdLogoSrc} alt="Ant Design" style={{ width: 28, height: 28 }} />,
         contentRender: () =>
           recommendLoading ? (
@@ -182,11 +193,13 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
               wrap
               items={recommendedPrompts}
               onItemClick={({ data }) => {
-                if ((data as any).isRefresh) {
+                const extendedData = data as ExtendedPromptsItemType;
+                if (extendedData.isRefresh) {
                   handleRefreshRecommendations();
                 } else {
                   handleSubmit(
-                    (data.originalDescription as string) || (data.description as string),
+                    (extendedData.originalDescription as string) ||
+                      (extendedData.description as string),
                   );
                 }
               }}
@@ -212,12 +225,14 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   ]);
 
   // Limit to 3 recommendations for Prompts component + refresh button
-  const prompts = React.useMemo(() => {
-    const themePrompts = recommendations.slice(0, 3).map((text, index) => ({
-      key: text,
-      description: `${getEmojiForTheme(index)} ${text}`,
-      originalDescription: text,
-    }));
+  const prompts: ExtendedPromptsItemType[] = React.useMemo(() => {
+    const themePrompts: ExtendedPromptsItemType[] = recommendations
+      .slice(0, 3)
+      .map((text, index) => ({
+        key: text,
+        description: `${getEmojiForTheme(index)} ${text}`,
+        originalDescription: text,
+      }));
 
     // Add refresh button as last item only when we have recommendations
     if (themePrompts.length > 0) {
@@ -275,11 +290,13 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
                 wrap
                 items={prompts}
                 onItemClick={({ data }) => {
-                  if ((data as any).isRefresh) {
+                  const extendedData = data as ExtendedPromptsItemType;
+                  if (extendedData.isRefresh) {
                     handleRefreshRecommendations();
                   } else {
                     handleSubmit(
-                      (data.originalDescription as string) || (data.description as string),
+                      (extendedData.originalDescription as string) ||
+                        (extendedData.description as string),
                     );
                   }
                 }}
