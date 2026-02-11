@@ -47,10 +47,14 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
-              class="ant-select-content ant-select-content-has-value"
-              title="http://"
+              class="ant-select-content"
             >
-              http://
+              <div
+                class="ant-select-content-value"
+                title="http://"
+              >
+                http://
+              </div>
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -179,10 +183,14 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
-              class="ant-select-content ant-select-content-has-value"
-              title=".com"
+              class="ant-select-content"
             >
-              .com
+              <div
+                class="ant-select-content-value"
+                title=".com"
+              >
+                .com
+              <div>
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -3022,10 +3030,14 @@ Array [
     style="width: 100px;"
   >
     <div
-      class="ant-select-content ant-select-content-has-value"
-      title="Jack"
+      class="ant-select-content"
     >
-      Jack
+      <div
+        class="ant-select-content-value"
+        title="Jack"
+      >
+        Jack
+      </div>
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -3146,9 +3158,12 @@ Array [
     style="width: 100px;"
   >
     <div
-      class="ant-select-content ant-select-content-has-value"
-      title=""
+      class="ant-select-content"
     >
+      <div
+        class="ant-select-content-value"
+        title=""
+      />
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -3502,10 +3517,14 @@ Array [
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
-      class="ant-select-content ant-select-content-has-value"
-      title="Zhejiang / Hangzhou / West Lake"
+      class="ant-select-content"
     >
-      Zhejiang / Hangzhou / West Lake
+      <div
+        class="ant-select-content-value"
+        title="Zhejiang / Hangzhou / West Lake"
+      >
+        Zhejiang / Hangzhou / West Lake
+      </div>
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -5806,11 +5825,13 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
       <div
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
-        <div
-          class="ant-select-content ant-select-content-has-value"
-          title="Zhejiang"
-        >
-          Zhejiang
+        <div class="ant-select-content ant-select-content-has-value">
+          <div
+            class="ant-select-content-value"
+            title="Zhejiang"
+          >
+            Zhejiang
+          </div>
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6744,10 +6765,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Zhejiang"
+        class="ant-select-content"
       >
-        Zhejiang
+        <div
+          class="ant-select-content-value"
+          title="Zhejiang"
+        >
+          Zhejiang
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -7042,11 +7067,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
     <div
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
-      <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Option1"
-      >
-        Option1
+      <div class="ant-select-content ant-select-content-has-value">
+        <div class="ant-select-content-value" title="Option1">
+          Option1
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9084,10 +9108,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Option1-1"
+        class="ant-select-content"
       >
-        Option1-1
+        <div
+          class="ant-select-content-value"
+          title="Option1-1"
+        >
+          Option1-1
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9207,10 +9235,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Option2-2"
+        class="ant-select-content"
       >
-        Option2-2
+        <div
+          class="ant-select-content-value"
+          title="Option2-2"
+        >
+          Option2-2
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9335,10 +9367,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Between"
+        class="ant-select-content"
       >
-        Between
+        <div
+          class="ant-select-content-value"
+          title="Between"
+        >
+          Between
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9486,10 +9522,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       style="width: 30%;"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Sign Up"
+        class="ant-select-content"
       >
-        Sign Up
+        <div
+          class="ant-select-content-value"
+          title="Sign Up"
+        >
+          Sign Up
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9710,10 +9750,14 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       style="width: 30%;"
     >
       <div
-        class="ant-select-content ant-select-content-has-value"
-        title="Home"
+        class="ant-select-content"
       >
-        Home
+        <div
+          class="ant-select-content-value"
+          title="Home"
+        >
+          Home
+        </div>
         <input
           aria-autocomplete="list"
           aria-expanded="false"
