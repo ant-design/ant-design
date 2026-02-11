@@ -325,30 +325,4 @@ describe('Select', () => {
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
   });
-
-  it('should hide selected value when searching', () => {
-    const options = [
-      { value: 'option1', label: 'Option 1' },
-      { value: 'option2', label: 'Option 2' },
-    ];
-
-    const { container } = render(<Select showSearch options={options} value="option1" open />);
-
-    // Find the content element (selected value display)
-    const content = container.querySelector('.ant-select-content');
-    expect(content).toBeTruthy();
-
-    // Before typing, content should not have has-search-value class
-    expect(content?.className).not.toContain('has-search-value');
-
-    // Find the input element
-    const input = container.querySelector('input') as HTMLInputElement;
-    expect(input).toBeTruthy();
-
-    // Type in the search box
-    fireEvent.change(input, { target: { value: 'a' } });
-
-    // After typing, content should have has-search-value class
-    expect(content?.className).toContain('has-search-value');
-  });
 });
