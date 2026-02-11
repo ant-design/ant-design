@@ -126,7 +126,7 @@
     "@rc-component/input-number": "~1.6.2",
     "@rc-component/mentions": "~1.6.0",
     "@rc-component/menu": "~1.2.0",
-    "@rc-component/motion": "~1.1.6",
+    "@rc-component/motion": "^1.3.0",
     "@rc-component/mutate-observer": "^2.0.1",
     "@rc-component/notification": "~1.2.0",
     "@rc-component/pagination": "~1.2.0",
