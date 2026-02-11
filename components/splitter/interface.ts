@@ -49,7 +49,7 @@ export interface SplitterProps {
   /**
    * Collapse configuration. Set `motion: true` to enable collapse animation (duration follows Component Token).
    */
-  collapse?: { motion?: boolean };
+  collapsible?: { motion?: boolean };
   style?: React.CSSProperties;
   styles?: SplitterStylesType;
   rootClassName?: string;
@@ -88,14 +88,10 @@ export interface PanelProps {
 
 // ================ inside ================
 
-export interface InternalPanelProps extends Omit<PanelProps, 'collapsible'> {
+export interface InternalPanelProps extends PanelProps {
   className?: string;
   prefixCls?: string;
-  collapsible?:
-    | boolean
-    | {
-        duration?: number | null;
-      };
+  isCollapsing?: boolean;
 }
 
 export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {

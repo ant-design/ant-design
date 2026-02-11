@@ -14,8 +14,8 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
-import SplitBar from '../SplitBar';
 import { InternalPanel } from '../Panel';
+import SplitBar from '../SplitBar';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
@@ -1012,7 +1012,7 @@ describe('Splitter', () => {
     it('should apply transition class during collapse animation', async () => {
       const { container } = render(
         <SplitterDemo
-          collapse={{ motion: true }}
+          collapsible={{ motion: true }}
           items={[{ collapsible: true }, { collapsible: true }]}
         />,
       );
@@ -1032,7 +1032,7 @@ describe('Splitter', () => {
     it('should apply transition class during expand animation', async () => {
       const { container } = render(
         <SplitterDemo
-          collapse={{ motion: true }}
+          collapsible={{ motion: true }}
           items={[{ collapsible: true }, { collapsible: true }]}
         />,
       );
@@ -1055,7 +1055,7 @@ describe('Splitter', () => {
     it('should apply transition class in vertical layout', async () => {
       const { container } = render(
         <SplitterDemo
-          collapse={{ motion: true }}
+          collapsible={{ motion: true }}
           layout="vertical"
           items={[{ collapsible: true }, { collapsible: true }]}
         />,
@@ -1074,7 +1074,7 @@ describe('Splitter', () => {
     it('should apply transition class to all panels with multiple panels', async () => {
       const { container } = render(
         <SplitterDemo
-          collapse={{ motion: true }}
+          collapsible={{ motion: true }}
           items={[{ collapsible: true }, {}, { collapsible: true }]}
         />,
       );
@@ -1092,7 +1092,7 @@ describe('Splitter', () => {
     it('should handle rapid collapse clicks correctly', async () => {
       const { container } = render(
         <SplitterDemo
-          collapse={{ motion: true }}
+          collapsible={{ motion: true }}
           items={[{ collapsible: true }, { collapsible: true }]}
         />,
       );
@@ -1120,7 +1120,7 @@ describe('Splitter', () => {
     it('should not apply transition class during drag resize', async () => {
       const { container } = render(
         <SplitterDemo
-          collapse={{ motion: true }}
+          collapsible={{ motion: true }}
           items={[{ collapsible: true }, { collapsible: true }]}
         />,
       );
@@ -1150,7 +1150,7 @@ describe('Splitter', () => {
     it('should apply transition class with min constraint', async () => {
       const { container } = render(
         <SplitterDemo
-          collapse={{ motion: true }}
+          collapsible={{ motion: true }}
           items={[{ collapsible: true, min: 50 }, { collapsible: true }]}
         />,
       );
@@ -1165,39 +1165,11 @@ describe('Splitter', () => {
       expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
     });
 
-    it('should support custom duration via Component Token', async () => {
-      const { container } = render(
-        <ConfigProvider
-          theme={{
-            components: {
-              Splitter: { panelMotionDuration: '0.5s' },
-            },
-          }}
-        >
-          <SplitterDemo
-            collapse={{ motion: true }}
-            items={[{ collapsible: true }, { collapsible: true }]}
-          />
-        </ConfigProvider>,
-      );
-      await resizeSplitter();
-
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      const panel = container.querySelector('.ant-splitter-panel-transition') as HTMLElement;
-      expect(panel).toBeTruthy();
-      expect(panel.style.transitionDuration).toBe('500ms');
-
-      act(() => {
-        jest.advanceTimersByTime(500);
-      });
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
     it('should clear collapse timer when duration becomes false', async () => {
       const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
       const { container, rerender } = render(
         <SplitterDemo
-          collapse={{ motion: true }}
+          collapsible={{ motion: true }}
           items={[{ collapsible: true }, { collapsible: true }]}
         />,
       );
@@ -1210,7 +1182,7 @@ describe('Splitter', () => {
       // Change motion to false to trigger useLayoutEffect clearing logic
       rerender(
         <SplitterDemo
-          collapse={{ motion: false }}
+          collapsible={{ motion: false }}
           items={[{ collapsible: true }, { collapsible: true }]}
         />,
       );
@@ -1379,35 +1351,13 @@ describe('Splitter', () => {
 
     it('should add transition class when collapsible is true', () => {
       const { container } = render(
-        <InternalPanel prefixCls="ant-splitter" collapsible>
+        <InternalPanel prefixCls="ant-splitter" isCollapsing>
           Content
         </InternalPanel>,
       );
       expect(container.querySelector('.ant-splitter-panel')).toHaveClass(
         'ant-splitter-panel-transition',
       );
-    });
-
-    it('should add transition class and custom duration when collapsible has duration', () => {
-      const { container } = render(
-        <InternalPanel prefixCls="ant-splitter" collapsible={{ duration: 500 }}>
-          Content
-        </InternalPanel>,
-      );
-      const panel = container.querySelector('.ant-splitter-panel') as HTMLElement;
-      expect(panel).toHaveClass('ant-splitter-panel-transition');
-      expect(panel.style.transitionDuration).toBe('500ms');
-    });
-
-    it('should add transition class but no custom duration when collapsible has null duration', () => {
-      const { container } = render(
-        <InternalPanel prefixCls="ant-splitter" collapsible={{ duration: null }}>
-          Content
-        </InternalPanel>,
-      );
-      const panel = container.querySelector('.ant-splitter-panel') as HTMLElement;
-      expect(panel).toHaveClass('ant-splitter-panel-transition');
-      expect(panel.style.transitionDuration).toBe('');
     });
   });
 });

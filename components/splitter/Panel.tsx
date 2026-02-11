@@ -7,15 +7,7 @@ export const InternalPanel = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
-  const { prefixCls, className, children, size, style = {}, collapsible: collapsibleProp } = props;
-
-  // Derive animation state from the consolidated collapsible prop
-  const isCollapsing =
-    collapsibleProp === true || (typeof collapsibleProp === 'object' && !!collapsibleProp);
-  const collapseDuration =
-    typeof collapsibleProp === 'object' && collapsibleProp?.duration != null
-      ? collapsibleProp.duration
-      : null;
+  const { prefixCls, className, children, size, style = {}, isCollapsing } = props;
 
   const panelClassName = clsx(
     `${prefixCls}-panel`,
@@ -37,9 +29,6 @@ export const InternalPanel = forwardRef<
         // Use auto when start from ssr
         flexBasis: hasSize ? size : 'auto',
         flexGrow: hasSize ? 0 : 1,
-        ...(isCollapsing && collapseDuration !== null && typeof collapseDuration === 'number'
-          ? { transitionDuration: `${collapseDuration}ms` }
-          : {}),
       }}
     >
       {children}

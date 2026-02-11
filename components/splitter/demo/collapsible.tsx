@@ -23,8 +23,8 @@ const CustomSplitter: React.FC<Readonly<SplitterProps>> = ({ style, ...restProps
 
 const App: React.FC = () => (
   <Flex gap="middle" vertical>
-    <CustomSplitter style={{ height: 200 }} />
-    <CustomSplitter style={{ height: 300 }} orientation="vertical" />
+    <CustomSplitter style={{ height: 200 }} collapsible={{ motion: true }} />
+    <CustomSplitter style={{ height: 300 }} orientation="vertical" collapsible={{ motion: true }} />
   </Flex>
 );
 

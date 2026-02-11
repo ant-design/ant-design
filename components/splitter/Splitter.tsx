@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
 import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
@@ -29,7 +29,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     classNames,
-    collapse,
+    collapsible,
     style,
     styles,
     layout,
@@ -96,7 +96,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
 
   // Collapse animation: use Component Token when collapse.motion is true
   const collapseDurationMs =
-    collapse?.motion === true
+    collapsible?.motion === true
       ? Number.parseFloat(componentToken?.panelMotionDuration ?? token.motionDurationSlow) * 1000
       : null;
 
@@ -111,7 +111,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     }
   }, [collapseDurationMs]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (collapseDurationMs === null) {
       setIsCollapsing(false);
     }
@@ -176,11 +176,12 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
-    if (collapseTimerRef.current) {
-      clearTimeout(collapseTimerRef.current);
-      collapseTimerRef.current = null;
-    }
     if (collapseDurationMs !== null) {
+      if (collapseTimerRef.current) {
+        clearTimeout(collapseTimerRef.current);
+        collapseTimerRef.current = null;
+      }
+
       setIsCollapsing(true);
       collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), collapseDurationMs);
     }
@@ -269,11 +270,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
               {...panelProps}
               prefixCls={prefixCls}
               size={panelSizes[idx]}
-              collapsible={
-                isCollapsing && collapseDurationMs !== null
-                  ? { duration: collapseDurationMs }
-                  : false
-              }
+              isCollapsing={isCollapsing && collapseDurationMs !== null}
             />
           );
 
