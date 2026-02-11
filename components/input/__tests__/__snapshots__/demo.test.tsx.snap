@@ -409,7 +409,7 @@ Array [
   >
     Ant Design
     <span
-      style="display:inline"
+      class="ant-typography-actions"
     >
       <button
         aria-label="Copy"
