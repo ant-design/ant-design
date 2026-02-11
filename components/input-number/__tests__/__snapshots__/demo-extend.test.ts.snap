@@ -106,10 +106,14 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           style="width: 60px;"
         >
           <div
-            class="ant-select-content ant-select-content-has-value"
-            title="+"
+            class="ant-select-content"
           >
-            +
+            <div
+              class="ant-select-content-value"
+              title="+"
+            >
+              +
+            </div>
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -304,10 +308,14 @@ exports[`renders components/input-number/demo/addon.tsx extend context correctly
           style="width: 60px;"
         >
           <div
-            class="ant-select-content ant-select-content-has-value"
-            title="$"
+            class="ant-select-content"
           >
-            $
+            <div
+              class="ant-select-content-value"
+              title="$"
+            >
+              $
+            </div>
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -2714,6 +2722,9 @@ exports[`renders components/input-number/demo/keyboard.tsx extend context correc
           checked=""
           class="ant-checkbox-input"
           type="checkbox"
+        />
+        <span
+          class="ant-checkbox-inner"
         />
       </span>
       <span
