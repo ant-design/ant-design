@@ -47,14 +47,10 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="http://"
             >
-              <div
-                class="ant-select-content-value"
-                title="http://"
-              >
-                http://
-              </div>
+              http://
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -183,14 +179,10 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title=".com"
             >
-              <div
-                class="ant-select-content-value"
-                title=".com"
-              >
-                .com
-              </div>
+              .com
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -1236,7 +1228,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                        class="ant-picker-cell ant-picker-cell-in-view"
                         title="2016-11-21"
                       >
                         <div
@@ -1246,7 +1238,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view"
+                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2016-11-22"
                       >
                         <div
@@ -3030,14 +3022,10 @@ Array [
     style="width: 100px;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="Jack"
     >
-      <div
-        class="ant-select-content-value"
-        title="Jack"
-      >
-        Jack
-      </div>
+      Jack
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -3158,12 +3146,9 @@ Array [
     style="width: 100px;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title=""
     >
-      <div
-        class="ant-select-content-value"
-        title=""
-      />
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -3517,14 +3502,10 @@ Array [
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="Zhejiang / Hangzhou / West Lake"
     >
-      <div
-        class="ant-select-content-value"
-        title="Zhejiang / Hangzhou / West Lake"
-      >
-        Zhejiang / Hangzhou / West Lake
-      </div>
+      Zhejiang / Hangzhou / West Lake
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -3600,7 +3581,7 @@ Array [
         >
           <li
             aria-checked="false"
-            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
             data-path-key="zhejiang"
             role="menuitemcheckbox"
             title="Zhejiang"
@@ -3668,6 +3649,65 @@ Array [
                   />
                 </svg>
               </span>
+            </div>
+          </li>
+        </ul>
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+            data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+            role="menuitemcheckbox"
+            title="Hangzhou"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Hangzhou
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="true"
+            class="ant-cascader-menu-item ant-cascader-menu-item-active"
+            data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+            role="menuitemcheckbox"
+            title="West Lake"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              West Lake
             </div>
           </li>
         </ul>
@@ -4113,7 +4153,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2016-11-21"
                           >
                             <div
@@ -4123,7 +4163,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2016-11-22"
                           >
                             <div
@@ -5125,9 +5165,6 @@ Array [
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -5146,9 +5183,6 @@ Array [
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -5773,14 +5807,10 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Zhejiang"
         >
-          <div
-            class="ant-select-content-value"
-            title="Zhejiang"
-          >
-            Zhejiang
-          </div>
+          Zhejiang
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -6714,14 +6744,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Zhejiang"
       >
-        <div
-          class="ant-select-content-value"
-          title="Zhejiang"
-        >
-          Zhejiang
-        </div>
+        Zhejiang
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -7017,14 +7043,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Option1"
       >
-        <div
-          class="ant-select-content-value"
-          title="Option1"
-        >
-          Option1
-        </div>
+        Option1
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -7614,7 +7636,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -7624,7 +7646,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -8296,7 +8318,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -8306,7 +8328,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -9062,14 +9084,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Option1-1"
       >
-        <div
-          class="ant-select-content-value"
-          title="Option1-1"
-        >
-          Option1-1
-        </div>
+        Option1-1
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9189,14 +9207,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Option2-2"
       >
-        <div
-          class="ant-select-content-value"
-          title="Option2-2"
-        >
-          Option2-2
-        </div>
+        Option2-2
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9321,14 +9335,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Between"
       >
-        <div
-          class="ant-select-content-value"
-          title="Between"
-        >
-          Between
-        </div>
+        Between
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9476,14 +9486,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       style="width: 30%;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Sign Up"
       >
-        <div
-          class="ant-select-content-value"
-          title="Sign Up"
-        >
-          Sign Up
-        </div>
+        Sign Up
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9704,14 +9710,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       style="width: 30%;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Home"
       >
-        <div
-          class="ant-select-content-value"
-          title="Home"
-        >
-          Home
-        </div>
+        Home
         <input
           aria-autocomplete="list"
           aria-expanded="false"
