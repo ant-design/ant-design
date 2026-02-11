@@ -21,7 +21,7 @@ export interface AppProps<P = AnyObject> extends AppConfig {
   component?: CustomComponent<P> | false;
 }
 
-const App: React.FC<AppProps> = (props) => {
+const App = React.forwardRef<any, AppProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     children,
@@ -79,12 +79,19 @@ const App: React.FC<AppProps> = (props) => {
     'When using cssVar, ensure `component` is assigned a valid React component string.',
   );
 
+  devUseWarning('App')(
+    !(ref && component === false),
+    'usage',
+    '`ref` is not supported when `component` is false (React.Fragment). Please remove `ref`, or provide a valid `component`.',
+  );
+
   // ============================ Render ============================
   const Component = component === false ? React.Fragment : component;
 
   const rootProps: AppProps = {
     className: clsx(contextClassName, customClassName),
     style: { ...contextStyle, ...style },
+    ...(component === false ? undefined : { ref }), //ref 透传：仅在 component !== false 时才传
   };
 
   return (
@@ -99,7 +106,7 @@ const App: React.FC<AppProps> = (props) => {
       </AppConfigContext.Provider>
     </AppContext.Provider>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   App.displayName = 'App';
