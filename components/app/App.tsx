@@ -91,14 +91,15 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   const rootProps: AppProps = {
     className: clsx(contextClassName, customClassName),
     style: { ...contextStyle, ...style },
-    // 仅在 component !== false 时才传递 ref，避免 React.Fragment 不支持
-    ...(component === false ? undefined : { ref }),
   };
 
   return (
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <Component {...(component === false ? undefined : rootProps)}>
+        <Component
+          {...(component === false ? undefined : { ref })}
+          {...(component === false ? undefined : rootProps)}
+        >
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}
