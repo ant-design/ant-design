@@ -452,7 +452,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tooltipProps={tooltipProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
-          showEllipsisTooltip={isMergedEllipsis && isHoveringTypography && !isHoveringOperations}
+          open={isHoveringTypography && !isHoveringOperations}
         >
           <Typography
             onMouseEnter={(e) => {
