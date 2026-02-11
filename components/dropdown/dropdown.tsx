@@ -368,7 +368,7 @@ const Dropdown: CompoundedComponent = (props) => {
       transitionName={memoTransitionName}
       trigger={triggerActions}
       overlay={renderOverlay}
-      placement={memoPlacement as any}
+      placement={memoPlacement as unknown as React.ComponentProps<typeof RcDropdown>['placement']}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...mergedRootStyles, zIndex }}
       autoDestroy={destroyOnHidden ?? destroyPopupOnHide}
