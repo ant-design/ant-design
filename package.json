@@ -173,7 +173,7 @@
     "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
-    "@eslint-react/eslint-plugin": "2.12.2",
+    "@eslint-react/eslint-plugin": "2.12.4",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@inquirer/prompts": "^8.0.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
