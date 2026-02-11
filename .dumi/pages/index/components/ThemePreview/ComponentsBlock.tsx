@@ -4,7 +4,6 @@ import {
   Alert,
   App,
   Button,
-  Card,
   Checkbox,
   ColorPicker,
   ConfigProvider,
@@ -95,7 +94,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   return (
     <ConfigProvider {...config}>
-      <Card className={clsx(containerClassName, styles.container)}>
+      <div className={clsx(containerClassName, styles.container)}>
         <App>
           <Flex vertical gap="middle" style={style} className={className}>
             <ModalPanel title="Ant Design" width="100%">
@@ -190,7 +189,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
             </Flex>
           </Flex>
         </App>
-      </Card>
+      </div>
     </ConfigProvider>
   );
 };
