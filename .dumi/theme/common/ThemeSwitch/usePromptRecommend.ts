@@ -7,9 +7,7 @@ const locales = {
       '请生成 4 个 Tailwindcss 主题描述词，需要多样化的 UI 设计风格，用于 Ant Design 主题生成器推荐。参考官方内建风格：暗黑风格、类 MUI 风格、类 shadcn 风格、卡通风格、插画风格、类 Bootstrap 拟物化风格、玻璃风格、极客风格。回复格式：用逗号分隔。',
   },
   en: {
-    recommendPrompt:
-      'Generate 4 Tailwindcss theme descriptions for Ant Design theme generator. Reference built-in styles: Dark mode, MUI-like, shadcn-like, Cartoon, Illustration, Bootstrap-like mascot, Glass style, Geek style. Make descriptions with distinctive style characteristics, avoid excessive modifiers. Reply format: directly separated by English commas.',
-  },
+    recommendPrompt: 'Generate 4 Tailwind CSS theme names featuring diverse UI design styles for an Ant Design theme generator recommendation. Reference the official built-in styles: Dark, MUI-like, shadcn-like, Cartoon, Illustration, Bootstrap-like Skeuomorphic, Glassmorphism, and Geek. Output format: comma-separated.' },
 };
 
 const fetchRecommendations = async (
