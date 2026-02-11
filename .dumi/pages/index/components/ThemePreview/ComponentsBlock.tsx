@@ -50,6 +50,9 @@ const locales = {
     icon: '图标按钮',
     hello: '你好，Ant Design!',
     release: 'Ant Design 6.0 正式发布！',
+    segmentedDaily: '每日',
+    segmentedWeekly: '每周',
+    segmentedMonthly: '每月',
   },
   en: {
     range: 'Set Range',
@@ -71,6 +74,9 @@ const locales = {
     icon: 'Icon',
     hello: 'Hello, Ant Design!',
     release: 'Ant Design 6.0 is released!',
+    segmentedDaily: 'Daily',
+    segmentedWeekly: 'Weekly',
+    segmentedMonthly: 'Monthly',
   },
 };
 
@@ -128,7 +134,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 style={{ flex: 'auto' }}
                 mode="multiple"
                 maxTagCount="responsive"
-                defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
+                defaultValue={['apple', 'banana']}
                 options={[
                   { value: 'apple', label: locale.apple },
                   { value: 'banana', label: locale.banana },
@@ -147,7 +153,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 style={{ flex: 'auto' }}
                 mode="multiple"
                 maxTagCount="responsive"
-                defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
+                defaultValue={['apple', 'banana']}
                 options={[
                   { value: 'apple', label: locale.apple },
                   { value: 'banana', label: locale.banana },
@@ -202,7 +208,10 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 <RadioButton value="b">B</RadioButton>
                 <RadioButton value="c">C</RadioButton>
               </RadioButtonGroup>
-              <Segmented defaultValue="Daily" options={['Daily', 'Weekly', 'Monthly']} />
+              <Segmented
+                defaultValue={locale.segmentedDaily}
+                options={[locale.segmentedDaily, locale.segmentedWeekly, locale.segmentedMonthly]}
+              />
             </Flex>
           </Flex>
         </App>

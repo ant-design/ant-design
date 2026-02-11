@@ -90,23 +90,29 @@ const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
       <div className={styles.container}>{decoration}</div>
       <GroupMaskLayer style={{ paddingBlock: token.marginFarSM }}>
         <div className={styles.typographyWrapper}>
-          <Typography.Title
-            id={id}
-            level={1}
+          <div
             style={{
-              fontWeight: 900,
-              color: titleColor,
-              // Special for the title
-              fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: token.paddingXS,
             }}
           >
-            <div
-              style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16 }}
+            <Typography.Title
+              id={id}
+              level={1}
+              style={{
+                fontWeight: 900,
+                color: titleColor,
+                margin: 0,
+                // Special for the title
+                fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
+              }}
             >
-              <span>{title}</span>
-              {extra}
-            </div>
-          </Typography.Title>
+              {title}
+            </Typography.Title>
+            {extra}
+          </div>
           <Typography.Paragraph
             style={{
               color: titleColor,

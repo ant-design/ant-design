@@ -10,6 +10,7 @@ import PreviewBanner from './components/PreviewBanner';
 import ThemePreview from './components/ThemePreview';
 import PromptDrawer from '../../theme/common/ThemeSwitch/PromptDrawer';
 import SiteContext from '../../theme/slots/SiteContext';
+import type { SiteContextProps } from '../../theme/slots/SiteContext';
 
 const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
 const DesignFramework = React.lazy(() => import('./components/DesignFramework'));
@@ -49,7 +50,7 @@ const Homepage: React.FC = () => {
 
   const handlePromptDrawerOpen = () => setPromptDrawerOpen(true);
   const handlePromptDrawerClose = () => setPromptDrawerOpen(false);
-  const handleThemeChange = (themeConfig: any) => {
+  const handleThemeChange = (themeConfig: SiteContextProps['dynamicTheme']) => {
     if (siteContext?.updateSiteConfig) {
       siteContext.updateSiteConfig({ dynamicTheme: themeConfig });
     }
@@ -61,12 +62,6 @@ const Homepage: React.FC = () => {
         <BannerRecommends />
       </PreviewBanner>
 
-      {/* 定制主题 */}
-      {/* <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-        <Suspense fallback={null}>
-          <Theme />
-        </Suspense>
-      </ConfigProvider> */}
       <ThemePreview onOpenPromptDrawer={handlePromptDrawerOpen} />
 
       {/* AI 生成主题抽屉 */}
@@ -109,55 +104,6 @@ const Homepage: React.FC = () => {
       </Group>
     </section>
   );
-
-  // return (
-  //   <section>
-  //     <PreviewBanner>
-  //       <BannerRecommends />
-  //     </PreviewBanner>
-
-  //     <div>
-  //       {/* 定制主题 */}
-  //       <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-  //         <Suspense fallback={null}>
-  //           <Theme />
-  //         </Suspense>
-  //       </ConfigProvider>
-
-  //       {/* 组件列表 */}
-  //       <Group
-  //         background={token.colorBgElevated}
-  //         collapse
-  //         title={locale.assetsTitle}
-  //         description={locale.assetsDesc}
-  //         id="design"
-  //       >
-  //         <Suspense fallback={null}>
-  //           <ComponentsList />
-  //         </Suspense>
-  //       </Group>
-
-  //       {/* 设计语言 */}
-  //       <Group
-  //         title={locale.designTitle}
-  //         description={locale.designDesc}
-  //         background={isDark ? '#393F4A' : '#F5F8FF'}
-  //         decoration={
-  //           <img
-  //             draggable={false}
-  //             className={classNames.image}
-  //             src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
-  //             alt="bg"
-  //           />
-  //         }
-  //       >
-  //         <Suspense fallback={null}>
-  //           <DesignFramework />
-  //         </Suspense>
-  //       </Group>
-  //     </div>
-  //   </section>
-  // );
 };
 
 export default Homepage;

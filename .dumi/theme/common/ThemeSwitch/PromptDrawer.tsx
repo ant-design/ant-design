@@ -70,14 +70,17 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     fetch: fetchRecommendations,
   } = usePromptRecommend(localeKey);
 
-  const handleSubmit = (value: string) => {
-    submitPrompt(value);
-    setInputValue('');
-  };
+  const handleSubmit = React.useCallback(
+    (value: string) => {
+      submitPrompt(value);
+      setInputValue('');
+    },
+    [submitPrompt],
+  );
 
-  const handleRefreshRecommendations = () => {
+  const handleRefreshRecommendations = React.useCallback(() => {
     fetchRecommendations(`prompt-drawer-refresh-${Date.now()}`);
-  };
+  }, [fetchRecommendations]);
 
   const handleResetToDefaultTheme = () => {
     updateSiteConfig({ dynamicTheme: undefined });
@@ -90,7 +93,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     }
     // Fetch AI recommendations when drawer opens
     if (isOpen) {
-      fetchRecommendations(`prompt-drawer-${Date.now()}`);
+      fetchRecommendations('prompt-drawer-init');
     }
   };
 
@@ -193,13 +196,13 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
               wrap
               items={recommendedPrompts}
               onItemClick={({ data }) => {
-                const extendedData = data as ExtendedPromptsItemType;
-                if (extendedData.isRefresh) {
+                if ('isRefresh' in data && data.isRefresh) {
                   handleRefreshRecommendations();
                 } else {
                   handleSubmit(
-                    (extendedData.originalDescription as string) ||
-                      (extendedData.description as string),
+                    String(
+                      (data as ExtendedPromptsItemType).originalDescription ?? data.description,
+                    ),
                   );
                 }
               }}
@@ -290,13 +293,13 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
                 wrap
                 items={prompts}
                 onItemClick={({ data }) => {
-                  const extendedData = data as ExtendedPromptsItemType;
-                  if (extendedData.isRefresh) {
+                  if ('isRefresh' in data && data.isRefresh) {
                     handleRefreshRecommendations();
                   } else {
                     handleSubmit(
-                      (extendedData.originalDescription as string) ||
-                        (extendedData.description as string),
+                      String(
+                        (data as ExtendedPromptsItemType).originalDescription ?? data.description,
+                      ),
                     );
                   }
                 }}
@@ -322,7 +325,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       title={locale.title}
       open={open}
       onClose={onClose}
-      size="80vw"
+      width="80vw"
       placement="right"
       afterOpenChange={handleAfterOpenChange}
       extra={

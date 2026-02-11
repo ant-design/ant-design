@@ -92,8 +92,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     opacity: 0.7,
     cursor: 'pointer',
     color: cssVar.colorTextSecondary,
-    paddingLeft: 16,
-    paddingRight: 16,
+    paddingInline: cssVar.padding,
 
     '&:hover': {
       borderColor: cssVar.colorPrimary,
@@ -214,7 +213,7 @@ export default function ThemePreview(props: ThemePreviewProps = {}) {
               ))}
               {/* AI 生成主题 - 最后一个选项 */}
               <div
-                className={clsx(styles.listItem)}
+                className={clsx(styles.listItem, styles.aiGenerateItem, 'ai-generate-item')}
                 role="tab"
                 tabIndex={0}
                 onClick={onOpenPromptDrawer}
@@ -225,7 +224,11 @@ export default function ThemePreview(props: ThemePreviewProps = {}) {
                   }
                 }}
               >
-                🎨 {locale.aiGenerate}
+                <div className={styles.aiGenerateContent}>
+                  <span className={styles.aiGenerateIcon}>🎨</span>
+                  <span>{locale.aiGenerate}</span>
+                </div>
+                <div className={styles.aiGenerateDesc}>{locale.aiGenerateDesc}</div>
               </div>
             </div>
           </div>
