@@ -421,9 +421,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return (
       <span
         key="operations"
+        className={`${prefixCls}-actions`}
         onMouseEnter={() => setIsHoveringOperations(true)}
         onMouseLeave={() => setIsHoveringOperations(false)}
-        style={{ display: 'inline' }}
       >
         {expandNode}
         {editNode}
