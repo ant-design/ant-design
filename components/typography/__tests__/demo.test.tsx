@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import demoTest, { rootPropsTest } from '../../../tests/shared/demoTest';
 
-demoTest('typography', { skip: ['editable.tsx'] });
+demoTest('typography');
 
 rootPropsTest('typography', (Typography, props) => <Typography.Title {...props} />, {
   name: 'Typography.Title',
