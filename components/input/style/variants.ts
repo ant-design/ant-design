@@ -12,7 +12,7 @@ export const genHoverStyle = (token: InputToken): CSSObject => ({
 export const genDisabledStyle = (token: InputToken): CSSObject => ({
   color: token.colorTextDisabled,
   backgroundColor: token.colorBgContainerDisabled,
-  borderColor: token.colorBorder,
+  borderColor: token.colorBorderDisabled,
   boxShadow: 'none',
   cursor: 'not-allowed',
   opacity: 1,
@@ -24,7 +24,7 @@ export const genDisabledStyle = (token: InputToken): CSSObject => ({
   '&:hover:not([disabled])': {
     ...genHoverStyle(
       mergeToken<InputToken>(token, {
-        hoverBorderColor: token.colorBorder,
+        hoverBorderColor: token.colorBorderDisabled,
         hoverBg: token.colorBgContainerDisabled,
       }),
     ),
@@ -338,15 +338,15 @@ export const genFilledGroupStyle = (token: InputToken): CSSObject => ({
         },
 
         '&-addon:first-child': {
-          borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderInlineStart: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
+          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
         },
 
         '&-addon:last-child': {
-          borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
-          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorder}`,
+          borderInlineEnd: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
+          borderTop: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
+          borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorBorderDisabled}`,
         },
       },
     },
@@ -419,7 +419,7 @@ export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): 
       boxShadow: 'none',
       cursor: 'not-allowed',
       '&:hover': {
-        borderColor: `transparent transparent ${token.colorBorder} transparent`,
+        borderColor: `transparent transparent ${token.colorBorderDisabled} transparent`,
       },
     },
 
