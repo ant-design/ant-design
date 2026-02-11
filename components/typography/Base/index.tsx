@@ -65,8 +65,9 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
-  extends TypographyProps<C> {
+export interface BlockProps<
+  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
+> extends TypographyProps<C> {
   title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
@@ -133,6 +134,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     copyable,
     component,
     title,
+    onMouseEnter,
+    onMouseLeave,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -442,12 +445,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     renderOperations(canEllipsis),
   ];
 
-  const {
-    onMouseEnter: onMouseEnterText,
-    onMouseLeave: onMouseLeaveText,
-    ...restTextProps
-  } = textProps;
-
   return (
     <ResizeObserver onResize={onResize} disabled={!mergedEnableEllipsis}>
       {(resizeRef: React.RefObject<HTMLElement>) => (
@@ -460,11 +457,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           <Typography
             onMouseEnter={(e) => {
               setIsHoveringTypography(true);
-              onMouseEnterText?.(e);
+              onMouseEnter?.(e);
             }}
             onMouseLeave={(e) => {
               setIsHoveringTypography(false);
-              onMouseLeaveText?.(e);
+              onMouseLeave?.(e);
             }}
             className={clsx(
               {
@@ -488,7 +485,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             onClick={triggerType.includes('text') ? onEditClick : undefined}
             aria-label={topAriaLabel?.toString()}
             title={title}
-            {...restTextProps}
+            {...textProps}
           >
             <Ellipsis
               enableMeasure={mergedEnableEllipsis && !cssEllipsis}
