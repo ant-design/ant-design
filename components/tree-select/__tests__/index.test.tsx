@@ -394,4 +394,39 @@ describe('TreeSelect', () => {
     const customIcon = screen.getByTestId(/custom-(expanded|collapsed)/);
     expect(customIcon).toBeInTheDocument();
   });
+
+  it('should hide selected value when searching', () => {
+    const treeData = [
+      {
+        value: 'parent 1-0',
+        title: 'parent 1-0',
+      },
+    ];
+
+    const { container } = render(
+      <TreeSelect
+        showSearch
+        treeData={treeData}
+        value="parent 1-0"
+        open
+      />,
+    );
+
+    // Find the content element (selected value display)
+    const content = container.querySelector('.ant-select-content');
+    expect(content).toBeTruthy();
+
+    // Before typing, content should not have has-search-value class
+    expect(content?.className).not.toContain('has-search-value');
+
+    // Find the input element
+    const input = container.querySelector('input') as HTMLInputElement;
+    expect(input).toBeTruthy();
+
+    // Type in the search box
+    fireEvent.change(input, { target: { value: 'a' } });
+
+    // After typing, content should have has-search-value class
+    expect(content?.className).toContain('has-search-value');
+  });
 });
