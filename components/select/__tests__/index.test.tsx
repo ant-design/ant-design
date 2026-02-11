@@ -332,14 +332,7 @@ describe('Select', () => {
       { value: 'option2', label: 'Option 2' },
     ];
 
-    const { container } = render(
-      <Select
-        showSearch
-        options={options}
-        value="option1"
-        open
-      />,
-    );
+    const { container } = render(<Select showSearch options={options} value="option1" open />);
 
     // Find the content element (selected value display)
     const content = container.querySelector('.ant-select-content');

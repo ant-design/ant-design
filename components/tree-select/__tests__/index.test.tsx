@@ -404,12 +404,7 @@ describe('TreeSelect', () => {
     ];
 
     const { container } = render(
-      <TreeSelect
-        showSearch
-        treeData={treeData}
-        value="parent 1-0"
-        open
-      />,
+      <TreeSelect showSearch treeData={treeData} value="parent 1-0" open />,
     );
 
     // Find the content element (selected value display)
