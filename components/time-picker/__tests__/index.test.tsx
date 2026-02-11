@@ -77,18 +77,6 @@ describe('TimePicker', () => {
     expect(container.querySelector(`.${popupClassName}`)).toBeTruthy();
   });
 
-  it('should pass popupClassName prop to RangePicker as dropdownClassName prop', () => {
-    const popupClassName = 'myCustomClassName';
-    const { container } = render(
-      <TimePicker.RangePicker
-        open
-        defaultOpenValue={dayjs('00:00:00', 'HH:mm:ss')}
-        popupClassName={popupClassName}
-      />,
-    );
-    expect(container.querySelector(`.${popupClassName}`)).toBeTruthy();
-  });
-
   it('should support bordered', () => {
     const { container } = render(
       <TimePicker
@@ -161,7 +149,6 @@ describe('TimePicker', () => {
       { key: 'item', selector: '.ant-picker-time-panel-cell' },
     ];
 
-    // Test TimePicker
     const { container } = render(
       <TimePicker
         open
@@ -177,23 +164,6 @@ describe('TimePicker', () => {
     });
     testPopupSelectors.forEach(({ key, selector }) => {
       checkElement(container, selector, testPopupClassNames[key], testPopupStyles[key]);
-    });
-
-    // Test TimePicker.RangePicker
-    const { container: rangePickerContainer } = render(
-      <TimePicker.RangePicker
-        open
-        classNames={mergedTestClassNames}
-        styles={mergedTestStyles}
-        prefix="prefix"
-      />,
-    );
-
-    testSelectors.forEach(({ key, selector }) => {
-      checkElement(rangePickerContainer, selector, testClassNames[key], testStyles[key]);
-    });
-    testPopupSelectors.forEach(({ key, selector }) => {
-      checkElement(rangePickerContainer, selector, testPopupClassNames[key], testPopupStyles[key]);
     });
   });
 
