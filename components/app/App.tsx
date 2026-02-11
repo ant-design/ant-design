@@ -21,7 +21,7 @@ export interface AppProps<P = AnyObject> extends AppConfig {
   component?: CustomComponent<P> | false;
 }
 
-const App = React.forwardRef<any, AppProps>((props, ref) => {
+const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     children,
@@ -91,7 +91,8 @@ const App = React.forwardRef<any, AppProps>((props, ref) => {
   const rootProps: AppProps = {
     className: clsx(contextClassName, customClassName),
     style: { ...contextStyle, ...style },
-    ...(component === false ? undefined : { ref }), //ref 透传：仅在 component !== false 时才传
+    // 仅在 component !== false 时才传递 ref，避免 React.Fragment 不支持
+    ...(component === false ? undefined : { ref }),
   };
 
   return (
