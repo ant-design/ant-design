@@ -28,6 +28,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     classNames,
+    collapsible,
     style,
     styles,
     layout,
@@ -217,9 +218,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             style: { ...mergedStyles.panel, ...item.style },
           };
 
-          // Panel
           const panel = (
-            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
+            <InternalPanel
+              {...panelProps}
+              prefixCls={prefixCls}
+              size={panelSizes[idx]}
+              supportMotion={collapsible?.motion && movingIndex === undefined}
+            />
           );
 
           // Split Bar
