@@ -19,32 +19,19 @@ type DemoSemanticType = {
 
 describe('useMergeSemanticNew,', () => {
   it('utils fillObjectBySchema', () => {
-    const schema1 = { dragger: { _default: 'default' }, level1: { level2: {} } };
+    const schema = { dragger: { _default: 'default' }, level1: { level2: {} } };
 
     const result: DemoSemanticType['styles'] = { dragger: {}, level1: { level2: {} } };
-    expect(fillObjectBySchema({}, schema1)).toEqual(result);
-
-    expect(
-      fillObjectBySchema(
-        {
-          root: { width: 1 },
-          dragger: { default: { width: 2 } },
-          level1: { level2: { level3: { width: 3 } } },
-        },
-        schema1,
-      ),
-    ).toEqual({
+    expect(fillObjectBySchema({}, schema)).toEqual(result);
+    const obj2: DemoSemanticType['styles'] = {
       root: { width: 1 },
       dragger: { default: { width: 2 } },
       level1: { level2: { level3: { width: 3 } } },
-    });
+    };
+    expect(fillObjectBySchema(obj2, schema)).toEqual(obj2);
 
-    expect(
-      fillObjectBySchema({ level1: { level2: { level3: { color: 'red' } } } }, schema1),
-    ).toEqual({
-      level1: { level2: { level3: { color: 'red' } } },
-      dragger: {},
-    });
+    const obj3: DemoSemanticType['styles'] = { level1: { level2: { level3: { color: 'red' } } } };
+    expect(fillObjectBySchema(obj3, schema)).toEqual({ ...obj3, dragger: {} });
   });
 
   it('merge with mixed _default', () => {
