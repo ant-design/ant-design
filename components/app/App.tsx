@@ -80,9 +80,9 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   );
 
   devUseWarning('App')(
-    !(ref && component === false),
+    !ref || component !== false,
     'usage',
-    '`ref` is not supported when `component` is false (React.Fragment). Please remove `ref`, or provide a valid `component`.',
+    '`ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
   );
 
   // ============================ Render ============================
