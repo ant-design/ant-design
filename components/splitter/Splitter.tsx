@@ -58,8 +58,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   const rootPrefixCls = getPrefixCls();
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const [, token] = useToken();
-  const componentToken = token.Splitter;
 
   // ======================== Direct ========================
   const [mergedOrientation, isVertical] = useOrientation(orientation, vertical, layout);
@@ -93,36 +91,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   // Collapse animation state
   const [isCollapsing, setIsCollapsing] = useState(false);
   const collapseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Collapse animation: use Component Token when collapse.motion is true
-  const collapseDurationMs =
-    collapsible?.motion === true
-      ? Number.parseFloat(componentToken?.panelMotionDuration ?? token.motionDurationSlow) * 1000
-      : null;
-
-  // Use useLayoutEffect to clear timer when collapseDurationMs becomes null
-  // This runs synchronously and allows us to test the timer clearing logic
-  React.useLayoutEffect(() => {
-    if (collapseDurationMs === null) {
-      if (collapseTimerRef.current) {
-        clearTimeout(collapseTimerRef.current);
-        collapseTimerRef.current = null;
-      }
-    }
-  }, [collapseDurationMs]);
-
-  React.useEffect(() => {
-    if (collapseDurationMs === null) {
-      setIsCollapsing(false);
-    }
-    return () => {
-      // Cleanup: clear timer when collapseDurationMs changes or component unmounts
-      if (collapseTimerRef.current) {
-        clearTimeout(collapseTimerRef.current);
-        collapseTimerRef.current = null;
-      }
-    };
-  }, [collapseDurationMs]);
 
   const onContainerResize: GetProp<typeof ResizeObserver, 'onResize'> = (size) => {
     const { offsetWidth, offsetHeight } = size;
@@ -176,16 +144,6 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   });
 
   const onInternalCollapse = useEvent((index: number, type: 'start' | 'end') => {
-    if (collapseDurationMs !== null) {
-      if (collapseTimerRef.current) {
-        clearTimeout(collapseTimerRef.current);
-        collapseTimerRef.current = null;
-      }
-
-      setIsCollapsing(true);
-      collapseTimerRef.current = setTimeout(() => setIsCollapsing(false), collapseDurationMs);
-    }
-
     const nextSizes = onCollapse(index, type);
     onResize?.(nextSizes);
     onResizeEnd?.(nextSizes);
