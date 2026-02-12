@@ -175,9 +175,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
           // >>> Value
           '&-value': {
-            ...textEllipsis,
-            transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
-            zIndex: 1,
             visibility: 'inherit',
           },
 
@@ -188,10 +185,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             cursor: 'inherit',
             caretColor: 'transparent',
           },
-        },
-
-        [`&-open ${componentCls}-content-value`]: {
-          color: token.colorTextPlaceholder,
         },
 
         // ========================= Suffix =========================
@@ -261,7 +254,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             border: 0,
             margin: 0,
             padding: 0,
-            color: 'inherit',
+            color: varRef('color'),
 
             '&::-webkit-search-cancel-button': {
               display: 'none',
@@ -285,7 +278,34 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
           // Content center align
           [`${componentCls}-content`]: {
+            ...textEllipsis,
             alignSelf: 'center',
+
+            '&-has-value': {
+              display: 'block',
+
+              '&:before': {
+                display: 'none',
+              },
+            },
+
+            '&-has-search-value': {
+              color: 'transparent',
+            },
+
+            // >>> Value
+            '&-value': {
+              transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
+              zIndex: 1,
+            },
+          },
+
+          [`&${componentCls}-open ${componentCls}-content`]: {
+            color: token.colorTextPlaceholder,
+
+            '&-has-search-value': {
+              color: 'transparent',
+            },
           },
         },
       },

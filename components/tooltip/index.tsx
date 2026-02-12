@@ -20,7 +20,7 @@ import getPlacements from '../_util/placements';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import zIndexContext from '../_util/zindexContext';
+import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
@@ -270,7 +270,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   }, [overlay, title]);
 
   const memoOverlayWrapper = (
-    <ContextIsolator space>
+    <ContextIsolator space form>
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
@@ -399,7 +399,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     </RcTooltip>
   );
 
-  return <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>;
+  return <ZIndexContext.Provider value={contextZIndex}>{content}</ZIndexContext.Provider>;
 });
 
 type CompoundedComponent = typeof InternalTooltip & {

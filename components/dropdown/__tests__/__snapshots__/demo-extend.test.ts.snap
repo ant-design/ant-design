@@ -7118,7 +7118,7 @@ exports[`renders components/dropdown/demo/render-panel.tsx extend context correc
 exports[`renders components/dropdown/demo/selectable.tsx extend context correctly 1`] = `
 Array [
   <a
-    class="ant-typography ant-dropdown-trigger css-var-test-id"
+    class="ant-typography ant-typography-link ant-dropdown-trigger css-var-test-id"
   >
     <div
       class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

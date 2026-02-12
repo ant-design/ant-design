@@ -21,7 +21,7 @@ exports[`Image Default Group preview props 1`] = `
       class="ant-image-preview css-var-root ant-image-css-var ant-image-preview-fade-appear ant-image-preview-fade-appear-start ant-image-preview-fade"
     >
       <div
-        class="ant-image-preview-mask ant-image-preview-mask-blur"
+        class="ant-image-preview-mask"
       />
       <div
         class="ant-image-preview-body"

@@ -67,6 +67,7 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
     motionDurationSlow,
     antCls,
     primaryPrevBtnBg,
+    motionDurationMid,
   } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'tooltip');
@@ -117,7 +118,11 @@ const genBaseStyle: GenerateStyle<TourToken> = (token) => {
             width: closeBtnSize,
             height: closeBtnSize,
             borderRadius: token.borderRadiusSM,
-            transition: `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
+
+            transition: ['color', 'background-color']
+              .map((prop) => `${prop} ${motionDurationMid}`)
+              .join(', '),
+
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

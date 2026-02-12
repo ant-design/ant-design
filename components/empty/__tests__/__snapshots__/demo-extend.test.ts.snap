@@ -447,9 +447,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -673,9 +670,6 @@ Array [
                   disabled=""
                   type="checkbox"
                 />
-                <span
-                  class="ant-checkbox-inner"
-                />
               </span>
             </label>
             <span
@@ -837,7 +831,9 @@ Array [
         style="margin-top: 8px;"
       >
         <div
-          class="ant-spin-nested-loading css-var-test-id"
+          aria-busy="false"
+          aria-live="polite"
+          class="ant-spin css-var-test-id"
         >
           <div
             class="ant-spin-container"
@@ -934,7 +930,9 @@ Array [
         class="ant-list ant-list-split css-var-test-id"
       >
         <div
-          class="ant-spin-nested-loading css-var-test-id"
+          aria-busy="false"
+          aria-live="polite"
+          class="ant-spin css-var-test-id"
         >
           <div
             class="ant-spin-container"

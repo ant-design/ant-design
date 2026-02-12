@@ -1,6 +1,7 @@
 import { createContext } from 'react';
 
 import type { DirectionType } from '../config-provider';
+import type { TooltipProps } from '../tooltip';
 import type {
   MenuPopupSemanticClassNames,
   MenuPopupSemanticStyles,
@@ -20,6 +21,7 @@ export interface MenuContextProps {
   firstLevel: boolean;
   /** @internal Safe to remove */
   disableMenuItemTitleTooltip?: boolean;
+  tooltip?: false | TooltipProps;
   classNames?: MenuSemanticClassNames & {
     popup?: MenuPopupSemanticClassNames;
     subMenu?: SubMenuSemanticClassNames;

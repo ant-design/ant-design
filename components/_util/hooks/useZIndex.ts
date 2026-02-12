@@ -2,7 +2,7 @@ import React from 'react';
 
 import useToken from '../../theme/useToken';
 import { devUseWarning } from '../warning';
-import zIndexContext from '../zindexContext';
+import ZIndexContext from '../zindexContext';
 
 export type ZIndexContainer =
   | 'Modal'
@@ -61,7 +61,7 @@ export const useZIndex = (
   customZIndex?: number,
 ): ReturnResult => {
   const [, token] = useToken();
-  const parentZIndex = React.useContext(zIndexContext);
+  const parentZIndex = React.useContext(ZIndexContext);
   const isContainer = isContainerType(componentType);
 
   let result: ReturnResult;

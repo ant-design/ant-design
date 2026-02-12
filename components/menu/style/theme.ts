@@ -239,10 +239,9 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
             borderInlineEnd: `${unit(activeBarWidth)} solid ${itemSelectedColor}`,
             transform: 'scaleY(0.0001)',
             opacity: 0,
-            transition: [
-              `transform ${motionDurationMid} ${motionEaseOut}`,
-              `opacity ${motionDurationMid} ${motionEaseOut}`,
-            ].join(','),
+            transition: [`transform`, `opacity`]
+              .map((prop) => `${prop} ${motionDurationMid} ${motionEaseOut}`)
+              .join(','),
             content: '""',
           },
 
@@ -258,10 +257,9 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           '&::after': {
             transform: 'scaleY(1)',
             opacity: 1,
-            transition: [
-              `transform ${motionDurationMid} ${motionEaseInOut}`,
-              `opacity ${motionDurationMid} ${motionEaseInOut}`,
-            ].join(','),
+            transition: [`transform`, `opacity`]
+              .map((prop) => `${prop} ${motionDurationMid} ${motionEaseInOut}`)
+              .join(','),
           },
         },
       },

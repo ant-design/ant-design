@@ -17,9 +17,6 @@ exports[`Transfer.List should render correctly 1`] = `
           class="ant-checkbox-input"
           type="checkbox"
         />
-        <span
-          class="ant-checkbox-inner"
-        />
       </span>
     </label>
     <span
@@ -70,9 +67,6 @@ exports[`Transfer.List should render correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span
@@ -91,9 +85,6 @@ exports[`Transfer.List should render correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -114,9 +105,6 @@ exports[`Transfer.List should render correctly 1`] = `
               class="ant-checkbox-input"
               disabled=""
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>

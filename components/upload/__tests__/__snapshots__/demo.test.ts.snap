@@ -4007,6 +4007,7 @@ exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select"
+      style="background-color:rgba(84, 89, 172, 0.1);padding:8px;border-radius:4px"
     >
       <span
         class="ant-upload"
@@ -4286,6 +4287,7 @@ exports[`renders components/upload/demo/style-class.tsx correctly 1`] = `
   >
     <div
       class="ant-upload ant-upload-select"
+      style="background-color:rgba(84, 89, 172, 0.2);padding:8px;border-radius:4px"
     >
       <span
         class="ant-upload"

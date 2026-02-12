@@ -15,6 +15,7 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
+import type { TooltipProps } from '../tooltip';
 import type { ItemType } from './interface';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
@@ -108,11 +109,13 @@ export interface MenuProps
   > {
   theme?: MenuTheme;
   inlineIndent?: number;
+  tooltip?: false | TooltipProps;
 
   // >>>>> Private
   /**
    * @private Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
    *   for removing.
+   * @deprecated Will be removed in next version. Use `tooltip={false}` instead.
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
 
@@ -137,6 +140,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     theme = 'light',
     expandIcon,
     _internalDisableMenuItemTitleTooltip,
+    tooltip,
     inlineCollapsed,
     siderCollapsed,
     rootClassName,
@@ -267,6 +271,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       theme,
       mode: mergedMode,
       disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
+      tooltip,
       classNames: mergedClassNames as MenuContextProps['classNames'],
       styles: mergedStyles as MenuContextProps['styles'],
     }),
@@ -279,6 +284,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       mergedMode,
       mergedClassNames,
       mergedStyles,
+      tooltip,
     ],
   );
 

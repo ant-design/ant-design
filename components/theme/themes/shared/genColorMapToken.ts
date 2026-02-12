@@ -1,6 +1,7 @@
 import { FastColor } from '@ant-design/fast-color';
 
 import type { ColorMapToken, SeedToken } from '../../interface';
+import { PresetColors } from '../../interface/presetColors';
 import type { GenerateColorMap, GenerateNeutralColorMap } from '../ColorMap';
 
 interface PaletteGenerators {
@@ -36,6 +37,16 @@ export default function genColorMapToken(
   const colorErrorBgFilledHover = new FastColor(errorColors[1])
     .mix(new FastColor(errorColors[3]), 50)
     .toHexString();
+
+  const presetColorTokens: Record<string, string> = {};
+  PresetColors.forEach((colorKey) => {
+    const colorBase = seed[colorKey];
+    if (colorBase) {
+      const colorPalette = generateColorPalettes(colorBase);
+      presetColorTokens[`${colorKey}Hover`] = colorPalette[5];
+      presetColorTokens[`${colorKey}Active`] = colorPalette[7];
+    }
+  });
 
   return {
     ...neutralColors,
@@ -100,6 +111,8 @@ export default function genColorMapToken(
     colorLinkHover: linkColors[4],
     colorLink: linkColors[6],
     colorLinkActive: linkColors[7],
+
+    ...presetColorTokens,
 
     colorBgMask: new FastColor('#000').setA(0.45).toRgbString(),
     colorWhite: '#fff',

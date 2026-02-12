@@ -136,6 +136,7 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     colorErrorBg,
     colorInfoBg,
     colorWarningBg,
+    motionDurationMid,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
@@ -223,7 +224,10 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
       width: token.notificationCloseButtonSize,
       height: token.notificationCloseButtonSize,
       borderRadius: token.borderRadiusSM,
-      transition: `background-color ${token.motionDurationMid}, color ${token.motionDurationMid}`,
+
+      transition: ['color', 'background-color']
+        .map((prop) => `${prop} ${motionDurationMid}`)
+        .join(', '),
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

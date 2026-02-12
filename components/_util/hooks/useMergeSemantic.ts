@@ -21,6 +21,8 @@ export type SemanticStylesType<
   NestedStructure extends EmptyObject = EmptyObject,
 > = Resolvable<Readonly<SemanticStyles>, Props> & NestedStructure;
 
+export type SemanticType<P = any, T = any> = T | ((info: { props: P }) => T);
+
 // ========================= ClassNames =========================
 export const mergeClassNames = <
   Name extends string,

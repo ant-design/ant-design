@@ -73,13 +73,13 @@ describe('Table', () => {
   it('loading with Spin', async () => {
     jest.useFakeTimers();
     const { container, rerender } = render(<Table loading={{ spinning: false, delay: 500 }} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
+    expect(container.querySelector('.ant-spin-section')).toBeFalsy();
     expect(container.querySelector('.ant-table-placeholder')?.textContent).not.toEqual('');
     rerender(<Table loading={{ spinning: true, delay: 500 }} />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(0);
+    expect(container.querySelector('.ant-spin-section')).toBeFalsy();
     await waitFakeTimer();
     rerender(<Table loading />);
-    expect(container.querySelectorAll('.ant-spin')).toHaveLength(1);
+    expect(container.querySelector('.ant-spin-section')).toBeTruthy();
     jest.clearAllTimers();
     jest.useRealTimers();
   });

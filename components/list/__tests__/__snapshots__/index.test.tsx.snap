@@ -5,7 +5,9 @@ exports[`List rtl render component should be rendered correctly in RTL direction
   class="ant-list ant-list-split ant-list-rtl css-var-root"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin ant-spin-rtl css-var-root"
   >
     <div
       class="ant-spin-container"

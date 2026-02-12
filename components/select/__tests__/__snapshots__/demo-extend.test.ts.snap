@@ -384,15 +384,10 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       style="width: 120px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -549,15 +544,10 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       style="width: 120px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -659,15 +649,10 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       style="width: 120px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -768,15 +753,10 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
       style="width: 120px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -911,15 +891,10 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
       style="width: 120px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Zhejiang"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Zhejiang"
-        >
-          Zhejiang
-        </div>
+        Zhejiang
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1044,15 +1019,10 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
       style="width: 120px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Hangzhou"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Hangzhou"
-        >
-          Hangzhou
-        </div>
+        Hangzhou
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1390,16 +1360,11 @@ Array [
     style="width: 100%;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-      >
-        <span>
-          No option match
-        </span>
-      </div>
+      <span>
+        No option match
+      </span>
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -4136,15 +4101,10 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       style="flex: 1 1 50%; min-width: 0;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -4454,15 +4414,10 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       style="flex: 1 1 50%; min-width: 0;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -4797,15 +4752,10 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
       style="flex: 1 1 50%; min-width: 0;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -5275,15 +5225,10 @@ Array [
     style="width: 120px;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="Lucy (101)"
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-        title="Lucy (101)"
-      >
-        Lucy (101)
-      </div>
+      Lucy (101)
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -6645,15 +6590,10 @@ Array [
     style="width: 200px;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="lucy"
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-        title="lucy"
-      >
-        lucy
-      </div>
+      lucy
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -6843,15 +6783,10 @@ Array [
         style="width: 120px;"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="long, long, long piece of text"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="long, long, long piece of text"
-          >
-            long, long, long piece of text
-          </div>
+          long, long, long piece of text
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -7174,15 +7109,10 @@ Array [
         style="width: 120px;"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-          >
-            <div>
-              normal
-            </div>
+          <div>
+            normal
           </div>
           <input
             aria-autocomplete="list"
@@ -7894,14 +7824,6 @@ Array [
             <div
               class="ant-select-tree"
             >
-              <div>
-                <input
-                  aria-label="for screen reader"
-                  disabled=""
-                  style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
-                  value=""
-                />
-              </div>
               <div
                 aria-hidden="true"
                 class="ant-select-tree-treenode"
@@ -7930,9 +7852,12 @@ Array [
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         aria-expanded="true"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-open ant-select-tree-treenode-leaf-last"
                         draggable="false"
+                        id="test-id-parent-1"
                         role="treeitem"
                       >
                         <span
@@ -7974,9 +7899,11 @@ Array [
                         </span>
                       </div>
                       <div
-                        aria-expanded="false"
+                        aria-disabled="false"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                         draggable="false"
+                        id="test-id-long"
                         role="treeitem"
                       >
                         <span
@@ -8006,9 +7933,11 @@ Array [
                         </span>
                       </div>
                       <div
-                        aria-expanded="false"
+                        aria-disabled="false"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf"
                         draggable="false"
+                        id="test-id-short"
                         role="treeitem"
                       >
                         <span
@@ -8038,9 +7967,11 @@ Array [
                         </span>
                       </div>
                       <div
-                        aria-expanded="false"
+                        aria-disabled="false"
+                        aria-selected="false"
                         class="ant-select-tree-treenode ant-select-tree-treenode-switcher-close ant-select-tree-treenode-leaf-last ant-select-tree-treenode-leaf"
                         draggable="false"
+                        id="test-id-normal"
                         role="treeitem"
                       >
                         <span
@@ -8630,15 +8561,10 @@ Array [
           Hi
         </div>
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Bamboo"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Bamboo"
-          >
-            Bamboo
-          </div>
+          Bamboo
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -8812,15 +8738,10 @@ Array [
           Hi
         </div>
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Bamboo"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Bamboo"
-          >
-            Bamboo
-          </div>
+          Bamboo
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -9019,15 +8940,10 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="Bamboo"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: visible;"
-                        title="Bamboo"
-                      >
-                        Bamboo
-                      </div>
+                      Bamboo
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -9224,15 +9140,10 @@ Array [
                     class="ant-select ant-select-outlined ant-select-in-form-item ant-select-auto-complete css-var-test-id ant-select-css-var ant-select-single ant-select-allow-clear ant-select-show-search"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+                      title="Bamboo"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: hidden;"
-                        title="Bamboo"
-                      >
-                        Bamboo
-                      </div>
+                      Bamboo
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -9580,15 +9491,10 @@ Array [
         Hi
       </div>
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Bamboo"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Bamboo"
-        >
-          Bamboo
-        </div>
+        Bamboo
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -10767,9 +10673,6 @@ Array [
           type="radio"
           value="topLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -10788,9 +10691,6 @@ Array [
           name="test-id"
           type="radio"
           value="topRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -10811,9 +10711,6 @@ Array [
           type="radio"
           value="bottomLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -10833,9 +10730,6 @@ Array [
           type="radio"
           value="bottomRight"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -10851,15 +10745,10 @@ Array [
     style="width: 120px;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="HangZhou #310000"
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-        title="HangZhou #310000"
-      >
-        HangZhou #310000
-      </div>
+      HangZhou #310000
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -11013,9 +10902,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               type="radio"
               value="topLeft"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -11034,9 +10920,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               name="test-id"
               type="radio"
               value="topRight"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -11057,9 +10940,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               type="radio"
               value="bottomLeft"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -11078,9 +10958,6 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               name="test-id"
               type="radio"
               value="bottomRight"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -13494,9 +13371,6 @@ Array [
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -13517,9 +13391,6 @@ Array [
           type="radio"
           value="middle"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -13538,9 +13409,6 @@ Array [
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -13564,15 +13432,10 @@ Array [
         style="width: 200px;"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="a1"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="a1"
-          >
-            a1
-          </div>
+          a1
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -15636,15 +15499,10 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
         User
       </div>
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -15824,15 +15682,10 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       style="width: 120px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -15989,15 +15842,10 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
       style="width: 120px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"

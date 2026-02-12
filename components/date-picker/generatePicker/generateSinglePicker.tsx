@@ -13,6 +13,7 @@ import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import { useComponentConfig } from '../../config-provider/context';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
@@ -78,6 +79,10 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         suffixIcon,
         ...restProps
       } = props;
+
+      const { suffixIcon: contextSuffixIcon } = useComponentConfig(
+        displayName === TIMEPICKER ? 'timePicker' : 'datePicker',
+      );
 
       // ====================== Warning =======================
       if (process.env.NODE_ENV !== 'production') {
@@ -182,7 +187,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         picker: mergedPicker,
         hasFeedback,
         feedbackIcon,
-        suffixIcon,
+        suffixIcon: suffixIcon === undefined ? contextSuffixIcon : suffixIcon,
       });
       const [contextLocale] = useLocale('DatePicker', enUS);
 

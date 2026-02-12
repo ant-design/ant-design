@@ -1262,7 +1262,7 @@ exports[`renders components/dropdown/demo/render-panel.tsx correctly 1`] = `
 
 exports[`renders components/dropdown/demo/selectable.tsx correctly 1`] = `
 <a
-  class="ant-typography ant-dropdown-trigger css-var-test-id"
+  class="ant-typography ant-typography-link ant-dropdown-trigger css-var-test-id"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

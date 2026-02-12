@@ -17,9 +17,9 @@ const TRIGGER_EVENTS: (keyof WindowEventMap)[] = [
   'load',
 ];
 
-function getDefaultTarget() {
+const getDefaultTarget = () => {
   return typeof window !== 'undefined' ? window : null;
-}
+};
 
 // Affix
 export interface AffixProps {
@@ -37,6 +37,7 @@ export interface AffixProps {
   rootClassName?: string;
   children: React.ReactNode;
 }
+
 const AFFIX_STATUS_NONE = 0;
 const AFFIX_STATUS_PREPARE = 1;
 

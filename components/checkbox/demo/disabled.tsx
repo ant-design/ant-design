@@ -1,14 +1,12 @@
 import React from 'react';
-import { Checkbox } from 'antd';
+import { Checkbox, Flex } from 'antd';
 
 const App: React.FC = () => (
-  <>
+  <Flex vertical gap="middle">
     <Checkbox defaultChecked={false} disabled />
-    <br />
     <Checkbox indeterminate disabled />
-    <br />
     <Checkbox defaultChecked disabled />
-  </>
+  </Flex>
 );
 
 export default App;

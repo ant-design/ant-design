@@ -257,6 +257,56 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
   });
 
+  it('should not close when mask.closable is false from context', () => {
+    const onCancel = jest.fn();
+    render(
+      <ConfigProvider modal={{ mask: { closable: false } }}>
+        <Modal open onCancel={onCancel} />
+      </ConfigProvider>,
+    );
+    const maskElement = document.querySelector('.ant-modal-mask');
+    fireEvent.click(maskElement!);
+    expect(onCancel).not.toHaveBeenCalled();
+  });
+
+  it('should support maskClosable prop over mask.closable global config', async () => {
+    jest.useFakeTimers();
+
+    const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {}, ...restProps }) => {
+      const [open, setOpen] = React.useState<boolean>(false);
+      useEffect(() => {
+        setOpen(true);
+      }, []);
+      const handleCancel = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setOpen(false);
+        onCancel(event);
+      };
+
+      return <Modal open={open} onCancel={handleCancel} onOk={onOk} {...restProps} />;
+    };
+
+    const onCancel = jest.fn();
+    const onOk = jest.fn();
+
+    render(
+      <ConfigProvider modal={{ mask: { closable: false } }}>
+        <Demo onCancel={onCancel} onOk={onOk} maskClosable />
+      </ConfigProvider>,
+    );
+    await act(async () => {
+      await waitFakeTimer(500);
+    });
+    const modalWrap = document.body.querySelectorAll('.ant-modal-wrap')[0];
+    fireEvent.mouseDown(modalWrap!);
+    fireEvent.click(modalWrap!);
+    await act(async () => {
+      await waitFakeTimer(500);
+    });
+    expect(onCancel).toHaveBeenCalled();
+
+    jest.useRealTimers();
+  });
+
   it('should not close modal when confirmLoading is loading', async () => {
     jest.useFakeTimers();
 
@@ -366,11 +416,11 @@ describe('Modal', () => {
       openMask?: boolean,
     ][] = [
       // Format: [modalMask, configMask,  expectedBlurClass, openMask]
-      [undefined, true, true, true],
-      [true, undefined, true, true],
-      [undefined, undefined, true, true],
+      [undefined, true, false, true],
+      [true, undefined, false, true],
+      [undefined, undefined, false, true],
       [false, true, false, false],
-      [true, false, true, true],
+      [true, false, false, true],
       [{ enabled: false }, { blur: true }, true, false],
       [{ enabled: true }, { blur: false }, false, true],
       [{ blur: true }, { enabled: false }, true, false],

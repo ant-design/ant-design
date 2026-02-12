@@ -1104,7 +1104,7 @@ describe('Table.rowSelection', () => {
   it('select by checkbox to trigger stopPropagation', () => {
     const { container } = render(createTable());
     expect(() => {
-      fireEvent.click(container.querySelectorAll('span')[10]);
+      fireEvent.click(container.querySelectorAll('.ant-checkbox')[4]);
     }).not.toThrow();
   });
 

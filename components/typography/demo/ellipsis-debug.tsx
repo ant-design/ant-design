@@ -108,6 +108,22 @@ const App: React.FC = () => {
       <Text style={{ width: 100, whiteSpace: 'nowrap' }} ellipsis copyable>
         {templateStr}
       </Text>
+
+      <div style={{ marginTop: 24 }}>
+        <div style={{ marginBottom: 8, fontSize: 12, color: '#666' }}>
+          <strong>Debug: copyable + ellipsis tooltips</strong>
+          <br />
+          1. Hover the text → ellipsis tooltip (full content) should show.
+          <br />
+          2. Hover the copy button → only &quot;Copy&quot; / &quot;Copied&quot; tooltip should show.
+          <br />
+          3. Move from copy button back to the text (without leaving the block) → ellipsis tooltip
+          should show again.
+        </div>
+        <Text style={{ width: 280, display: 'block' }} ellipsis={{ tooltip: true }} copyable>
+          {templateStr}
+        </Text>
+      </div>
     </>
   );
 };

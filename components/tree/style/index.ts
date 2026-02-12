@@ -116,6 +116,7 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
     treeNodePadding,
     titleHeight,
     indentSize,
+    motionDurationMid,
     nodeSelectedBg,
     nodeHoverBg,
     colorTextQuaternary,
@@ -138,9 +139,17 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         transform: 'rotate(90deg)',
       },
 
-      [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: genFocusOutline(token),
-
       // =================== Virtual List ===================
+      [`${treeCls}-list`]: {
+        '&:focus-visible': {
+          outline: 'none',
+
+          [`${treeNodeCls}-active ${treeCls}-node-content-wrapper`]: {
+            ...genFocusOutline(token),
+          },
+        },
+      },
+
       [`${treeCls}-list-holder-inner`]: {
         alignItems: 'flex-start',
       },
@@ -271,6 +280,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           .equal(),
       },
 
+      // >>> Checkbox
+      // https://github.com/ant-design/ant-design/issues/56957
+      [`${treeCls}-checkbox`]: {
+        flexShrink: 0,
+      },
+
       // >>> Switcher
       [`${treeCls}-switcher`]: {
         ...getSwitchStyle(prefixCls, token),
@@ -352,7 +367,13 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         background: 'transparent',
         borderRadius: token.borderRadius,
         cursor: 'pointer',
-        transition: `all ${token.motionDurationMid}, border 0s, line-height 0s, box-shadow 0s`,
+        transition: [
+          `all ${motionDurationMid}`,
+          'border 0s',
+          'line-height 0s',
+          'box-shadow 0s',
+        ].join(', '),
+
         ...getDropIndicatorStyle(prefixCls, token),
 
         '&:hover': {

@@ -4,8 +4,7 @@ import { clsx } from 'clsx';
 
 import type { AnyObject, CustomComponent } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useComponentConfig } from '../config-provider/context';
 import useMessage from '../message/useMessage';
 import useModal from '../modal/useModal';
 import useNotification from '../notification/useNotification';
@@ -33,7 +32,14 @@ const App: React.FC<AppProps> = (props) => {
     style,
     component = 'div',
   } = props;
-  const { direction, getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+
+  const {
+    direction,
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+  } = useComponentConfig('app');
+
   const prefixCls = getPrefixCls('app', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -77,8 +83,8 @@ const App: React.FC<AppProps> = (props) => {
   const Component = component === false ? React.Fragment : component;
 
   const rootProps: AppProps = {
-    className: customClassName,
-    style,
+    className: clsx(contextClassName, customClassName),
+    style: { ...contextStyle, ...style },
   };
 
   return (

@@ -18,6 +18,11 @@ const App: React.FC = () => (
       <Button type="primary">Button 2</Button>
       <Button type="primary">Button 3</Button>
     </Space.Compact>
+    <Space.Compact orientation="vertical">
+      <Button variant="outlined">Button 1</Button>
+      <Button variant="outlined">Button 2</Button>
+      <Button variant="outlined">Button 3</Button>
+    </Space.Compact>
   </Space>
 );
 

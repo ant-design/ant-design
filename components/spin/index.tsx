@@ -20,50 +20,55 @@ export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemantic
 
 export type SpinSemanticClassNames = {
   root?: string;
-  wrapper?: string;
-  mask?: string;
+  section?: string;
   indicator?: string;
+  description?: string;
+
+  container?: string;
+
+  /** @deprecated Please use `description` instead */
   tip?: string;
+  /** @deprecated Please use `root` instead */
+  mask?: string;
 };
 
 export type SpinSemanticStyles = {
   root?: React.CSSProperties;
-  wrapper?: React.CSSProperties;
-  mask?: React.CSSProperties;
+  section?: React.CSSProperties;
   indicator?: React.CSSProperties;
+  description?: React.CSSProperties;
+
+  container?: React.CSSProperties;
+
+  /** @deprecated Please use `description` instead */
   tip?: React.CSSProperties;
+  /** @deprecated Please use `root` instead */
+  mask?: React.CSSProperties;
 };
 
 export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticClassNames>;
 
-export type SpinStylesType = SemanticStylesType<
-  SpinProps,
-  SpinSemanticStyles,
-  { wrapper?: React.CSSProperties }
->;
+export type SpinStylesType = SemanticStylesType<SpinProps, SpinSemanticStyles>;
 
 export interface SpinProps {
-  /** Customize prefix class name */
   prefixCls?: string;
-  /** Additional class name of Spin */
   className?: string;
-  /** Additional root class name of Spin */
   rootClassName?: string;
   /** Whether Spin is spinning */
   spinning?: boolean;
-  /** Style of Spin */
   style?: React.CSSProperties;
-  /** Size of Spin, options: `small`, `default` and `large` */
   size?: SpinSize;
   /** Customize description content when Spin has children */
+  /** @deprecated Please use `description` instead */
   tip?: React.ReactNode;
+  description?: React.ReactNode;
   /** Specifies a delay in milliseconds for loading state (prevent flush) */
   delay?: number;
   /** The className of wrapper when Spin has children */
+  /** @deprecated Please use `classNames.root` instead */
   wrapperClassName?: string;
   /** React node of the spinning indicator */
   indicator?: SpinIndicator;
-  /** Children of Spin */
   children?: React.ReactNode;
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
@@ -92,6 +97,7 @@ const Spin: SpinType = (props) => {
     rootClassName,
     size = 'default',
     tip,
+    description,
     wrapperClassName,
     style,
     children,
@@ -137,17 +143,16 @@ const Spin: SpinType = (props) => {
     setSpinning(false);
   }, [delay, customSpinning]);
 
-  const isNestedPattern = React.useMemo<boolean>(
-    () => typeof children !== 'undefined' && !fullscreen,
-    [children, fullscreen],
-  );
+  // ======================= Description ======================
+  const mergedDescription = description ?? tip;
 
-  // =========== Merged Props for Semantic ===========
+  // =============== Merged Props for Semantic ================
   const mergedProps: SpinProps = {
     ...props,
     size,
     spinning,
-    tip,
+    tip: mergedDescription,
+    description: mergedDescription,
     fullscreen,
     children,
     percent: mergedPercent,
@@ -162,106 +167,114 @@ const Spin: SpinType = (props) => {
     props: mergedProps,
   });
 
+  // ======================== Warning =========================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
 
-    warning(
-      !tip || isNestedPattern || fullscreen,
-      'usage',
-      '`tip` only work in nest or fullscreen pattern.',
+    warning.deprecated(!tip, 'tip', 'description');
+    warning.deprecated(!wrapperClassName, 'wrapperClassName', 'classNames.root');
+
+    warning.deprecated(
+      !(mergedClassNames?.tip || mergedStyles?.tip),
+      'classNames.tip and styles.tip',
+      'classNames.description and styles.description',
+    );
+    warning.deprecated(
+      !(mergedClassNames?.mask || mergedStyles?.mask),
+      'classNames.mask and styles.mask',
+      'classNames.root and styles.root',
     );
   }
 
-  const spinClassName = clsx(
-    prefixCls,
-    contextClassName,
-    {
-      [`${prefixCls}-sm`]: size === 'small',
-      [`${prefixCls}-lg`]: size === 'large',
-      [`${prefixCls}-spinning`]: spinning,
-      [`${prefixCls}-show-text`]: !!tip,
-      [`${prefixCls}-rtl`]: direction === 'rtl',
-    },
-    className,
-    !fullscreen && rootClassName,
-    !fullscreen && mergedClassNames.root,
-    hashId,
-    cssVarCls,
-  );
-
-  const containerClassName = clsx(`${prefixCls}-container`, {
-    [`${prefixCls}-blur`]: spinning,
-  });
-
+  // ======================= Indicator ========================
   const mergedIndicator = indicator ?? contextIndicator ?? defaultIndicator;
 
-  const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
+  // ========================= Render =========================
+  const hasChildren = typeof children !== 'undefined';
+  const isNested = hasChildren || fullscreen;
 
-  const spinElement: React.ReactNode = (
-    <div
-      {...restProps}
-      style={fullscreen ? mergedStyle : { ...mergedStyles.root, ...mergedStyle }}
-      className={spinClassName}
-      aria-live="polite"
-      aria-busy={spinning}
-    >
+  const indicatorNode = (
+    <>
       <Indicator
-        className={mergedClassNames.indicator}
+        className={clsx(mergedClassNames.indicator)}
         style={mergedStyles.indicator}
         prefixCls={prefixCls}
         indicator={mergedIndicator}
         percent={mergedPercent}
       />
-      {tip && (isNestedPattern || fullscreen) ? (
-        <div className={clsx(`${prefixCls}-text`, mergedClassNames.tip)} style={mergedStyles.tip}>
-          {tip}
+      {mergedDescription && (
+        <div
+          className={clsx(
+            `${prefixCls}-description`,
+            mergedClassNames.tip,
+            mergedClassNames.description,
+          )}
+          style={{
+            ...mergedStyles.tip,
+            ...mergedStyles.description,
+          }}
+        >
+          {mergedDescription}
         </div>
-      ) : null}
-    </div>
+      )}
+    </>
   );
 
-  if (isNestedPattern) {
-    return (
-      <div
-        {...restProps}
-        className={clsx(
-          `${prefixCls}-nested-loading`,
-          wrapperClassName,
-          mergedClassNames.wrapper,
-          hashId,
-          cssVarCls,
-        )}
-        style={mergedStyles.wrapper}
-      >
-        {spinning && <div key="loading">{spinElement}</div>}
-        <div className={containerClassName} key="container">
+  return (
+    <div
+      className={clsx(
+        prefixCls,
+        {
+          [`${prefixCls}-sm`]: size === 'small',
+          [`${prefixCls}-lg`]: size === 'large',
+          [`${prefixCls}-spinning`]: spinning,
+          [`${prefixCls}-rtl`]: direction === 'rtl',
+          [`${prefixCls}-fullscreen`]: fullscreen,
+        },
+        rootClassName,
+        mergedClassNames.root,
+        fullscreen && mergedClassNames.mask,
+        isNested ? wrapperClassName : [`${prefixCls}-section`, mergedClassNames.section],
+        contextClassName,
+        className,
+        hashId,
+        cssVarCls,
+      )}
+      style={{
+        ...mergedStyles.root,
+        ...(!isNested ? mergedStyles.section : {}),
+        ...(fullscreen ? mergedStyles.mask : {}),
+        ...contextStyle,
+        ...style,
+      }}
+      aria-live="polite"
+      aria-busy={spinning}
+      {...restProps}
+    >
+      {/* Indicator */}
+      {spinning &&
+        (isNested ? (
+          <div
+            className={clsx(`${prefixCls}-section`, mergedClassNames.section)}
+            style={mergedStyles.section}
+          >
+            {indicatorNode}
+          </div>
+        ) : (
+          indicatorNode
+        ))}
+
+      {/* Children */}
+      {hasChildren && (
+        <div
+          className={clsx(`${prefixCls}-container`, mergedClassNames.container)}
+          style={mergedStyles.container}
+        >
           {children}
         </div>
-      </div>
-    );
-  }
-
-  if (fullscreen) {
-    return (
-      <div
-        className={clsx(
-          `${prefixCls}-fullscreen`,
-          {
-            [`${prefixCls}-fullscreen-show`]: spinning,
-          },
-          rootClassName,
-          hashId,
-          cssVarCls,
-          mergedClassNames.mask,
-        )}
-        style={mergedStyles.mask}
-      >
-        {spinElement}
-      </div>
-    );
-  }
-
-  return spinElement;
+      )}
+    </div>
+  );
 };
 
 Spin.setDefaultIndicator = (indicator: React.ReactNode) => {

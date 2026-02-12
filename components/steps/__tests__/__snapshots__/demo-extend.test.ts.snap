@@ -1567,13 +1567,15 @@ exports[`renders components/steps/demo/inline.tsx extend context correctly 1`] =
   class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
@@ -6005,9 +6007,6 @@ Array [
           type="radio"
           value="small"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -6027,9 +6026,6 @@ Array [
           name="test-id"
           type="radio"
           value="default"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span

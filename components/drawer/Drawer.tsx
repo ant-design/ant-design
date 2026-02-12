@@ -59,14 +59,22 @@ export interface DrawerProps
    * @since 5.25.0
    */
   destroyOnHidden?: boolean;
+  /** @deprecated Please use `mask.closable` instead */
+  maskClosable?: boolean;
   mask?: MaskType;
-
   focusable?: FocusableConfig;
 }
 
-const defaultPushState: PushState = { distance: 180 };
+const DEFAULT_PUSH_STATE: PushState = { distance: 180 };
 
 const DEFAULT_SIZE = 378;
+
+const MOTION_CONFIG: CSSMotionProps = {
+  motionAppear: true,
+  motionEnter: true,
+  motionLeave: true,
+  motionDeadline: 500,
+} as const;
 
 const Drawer: React.FC<DrawerProps> & {
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
@@ -78,7 +86,7 @@ const Drawer: React.FC<DrawerProps> & {
     height,
     width,
     mask: drawerMask,
-    push = defaultPushState,
+    push = DEFAULT_PUSH_STATE,
     open,
     afterOpenChange,
     onClose,
@@ -94,6 +102,7 @@ const Drawer: React.FC<DrawerProps> & {
     focusable,
 
     // Deprecated
+    maskClosable,
     maskStyle,
     drawerStyle,
     contentWrapperStyle,
@@ -127,32 +136,6 @@ const Drawer: React.FC<DrawerProps> & {
       ? () => getPopupContainer(document.body)
       : customizeGetContainer;
 
-  // ========================== Warning ===========================
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Drawer');
-    [
-      ['headerStyle', 'styles.header'],
-      ['bodyStyle', 'styles.body'],
-      ['footerStyle', 'styles.footer'],
-      ['contentWrapperStyle', 'styles.wrapper'],
-      ['maskStyle', 'styles.mask'],
-      ['drawerStyle', 'styles.section'],
-      ['destroyInactivePanel', 'destroyOnHidden'],
-      ['width', 'size'],
-      ['height', 'size'],
-    ].forEach(([deprecatedName, newName]) => {
-      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
-    });
-
-    if (getContainer !== undefined && props.style?.position === 'absolute') {
-      warning(
-        false,
-        'breaking',
-        '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
-      );
-    }
-  }
-
   // ============================ Size ============================
   const drawerSize = React.useMemo<string | number | undefined>(() => {
     if (typeof size === 'number') {
@@ -183,18 +166,12 @@ const Drawer: React.FC<DrawerProps> & {
   // =========================== Motion ===========================
   const maskMotion: CSSMotionProps = {
     motionName: getTransitionName(prefixCls, 'mask-motion'),
-    motionAppear: true,
-    motionEnter: true,
-    motionLeave: true,
-    motionDeadline: 500,
+    ...MOTION_CONFIG,
   };
 
   const panelMotion: RcDrawerProps['motion'] = (motionPlacement) => ({
     motionName: getTransitionName(prefixCls, `panel-motion-${motionPlacement}`),
-    motionAppear: true,
-    motionEnter: true,
-    motionLeave: true,
-    motionDeadline: 500,
+    ...MOTION_CONFIG,
   });
 
   // ============================ Refs ============================
@@ -206,7 +183,12 @@ const Drawer: React.FC<DrawerProps> & {
   const [zIndex, contextZIndex] = useZIndex('Drawer', rest.zIndex);
 
   // ============================ Mask ============================
-  const [mergedMask, maskBlurClassName] = useMergedMask(drawerMask, contextMask, prefixCls);
+  const [mergedMask, maskBlurClassName, mergedMaskClosable] = useMergedMask(
+    drawerMask,
+    contextMask,
+    prefixCls,
+    maskClosable,
+  );
 
   // ========================== Focusable =========================
   const mergedFocusable = useFocusable(focusable, getContainer !== false && mergedMask);
@@ -218,6 +200,7 @@ const Drawer: React.FC<DrawerProps> & {
     zIndex,
     panelRef,
     mask: mergedMask,
+    maskClosable: mergedMaskClosable,
     defaultSize,
     push,
     focusable: mergedFocusable,
@@ -242,6 +225,38 @@ const Drawer: React.FC<DrawerProps> & {
     mergedClassNames.root,
   );
 
+  // ========================== Warning ===========================
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Drawer');
+    [
+      ['headerStyle', 'styles.header'],
+      ['bodyStyle', 'styles.body'],
+      ['footerStyle', 'styles.footer'],
+      ['contentWrapperStyle', 'styles.wrapper'],
+      ['maskStyle', 'styles.mask'],
+      ['drawerStyle', 'styles.section'],
+      ['destroyInactivePanel', 'destroyOnHidden'],
+      ['width', 'size'],
+      ['height', 'size'],
+    ].forEach(([deprecatedName, newName]) => {
+      warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
+    });
+
+    if (getContainer !== undefined && props.style?.position === 'absolute') {
+      warning(
+        false,
+        'breaking',
+        '`style` is replaced by `rootStyle` in v5. Please check that `position: absolute` is necessary.',
+      );
+    }
+
+    warning.deprecated(
+      !(mergedClassNames?.content || mergedStyles?.content),
+      'classNames.content and styles.content',
+      'classNames.section and styles.section',
+    );
+  }
+
   return (
     <ContextIsolator form space>
       <zIndexContext.Provider value={contextZIndex}>
@@ -265,6 +280,7 @@ const Drawer: React.FC<DrawerProps> & {
           }}
           open={open}
           mask={mergedMask}
+          maskClosable={mergedMaskClosable}
           push={push}
           size={drawerSize}
           defaultSize={defaultSize}

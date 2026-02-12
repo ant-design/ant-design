@@ -251,13 +251,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   });
 
   const newProps = {
-    ...props,
-    checkable,
-    selectable,
-    showIcon,
-    motion,
-    blockNode,
-    disabled: mergedDisabled,
+    ...mergedProps,
     showLine: Boolean(showLine),
     dropIndicatorRender,
   };

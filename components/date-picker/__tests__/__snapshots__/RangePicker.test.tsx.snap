@@ -19,7 +19,12 @@ exports[`RangePicker customize separator 1`] = `
   <div
     class="ant-picker-range-separator"
   >
-    test
+    <span
+      aria-label="to"
+      class="ant-picker-separator"
+    >
+      test
+    </span>
   </div>
   <div
     class="ant-picker-input ant-picker-input-end"

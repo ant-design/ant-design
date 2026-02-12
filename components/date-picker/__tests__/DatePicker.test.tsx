@@ -12,6 +12,7 @@ import MockDate from 'mockdate';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
@@ -521,5 +522,30 @@ describe('DatePicker', () => {
     );
 
     MockDate.reset();
+  });
+
+  describe('suffixIcon', () => {
+    it('should support suffixIcon prop', () => {
+      const { container } = render(<DatePicker suffixIcon="foobar" />);
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffixIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <DatePicker />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer suffixIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <DatePicker suffixIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+    });
   });
 });

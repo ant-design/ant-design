@@ -20,10 +20,8 @@ const _RowJustify = [
   'space-evenly',
 ] as const;
 
-type Responsive = 'xxl' | 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-
 type ResponsiveLike<T> = {
-  [key in Responsive]?: T;
+  [key in Breakpoint]?: T;
 };
 
 export type Gutter = number | string | undefined | Partial<Record<Breakpoint, number>>;

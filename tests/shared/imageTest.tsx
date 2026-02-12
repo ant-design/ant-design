@@ -303,22 +303,22 @@ export function imageDemoTest(component: string, options: Options = {}) {
   });
 
   files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.includes(path.basename(file))) {
-      describeMethod = describe.skip;
-    } else {
-      describeMethod = describe;
-    }
+    const shouldSkip = Array.isArray(options.skip) && options.skip.includes(path.basename(file));
+    describeMethod = shouldSkip ? describe.skip : describe;
 
     describeMethod(`Test ${file} image`, () => {
-      let Demo = require(`../../${file}`).default;
-      if (typeof Demo === 'function') {
-        Demo = <Demo />;
-      }
-      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
+      // Only require the demo file if it's not skipped to avoid dependency issues
+      if (!shouldSkip) {
+        let Demo = require(`../../${file}`).default;
+        if (typeof Demo === 'function') {
+          Demo = <Demo />;
+        }
+        imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
 
-      // Check if need mobile test
-      if ((options.mobile || []).includes(path.basename(file))) {
-        mobileDemos.push([file, Demo]);
+        // Check if need mobile test
+        if ((options.mobile || []).includes(path.basename(file))) {
+          mobileDemos.push([file, Demo]);
+        }
       }
     });
   });

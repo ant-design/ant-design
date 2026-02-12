@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Avatar, Button, Space } from 'antd';
 
-type SizeType = 'large' | 'small' | 'default' | number;
+type SizeType = 'large' | 'small' | 'medium' | number;
 
 const App: React.FC = () => {
   const [hide, setHide] = useState(true);
@@ -13,7 +13,7 @@ const App: React.FC = () => {
   };
 
   const toggleSize = () => {
-    const sizes = ['small', 'default', 'large'] as SizeType[];
+    const sizes = ['small', 'medium', 'large'] as SizeType[];
     let current = sizes.indexOf(size) + 1;
     if (current > 2) {
       current = 0;
