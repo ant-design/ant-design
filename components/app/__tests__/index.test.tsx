@@ -247,5 +247,11 @@ describe('App', () => {
         'Warning: [antd: App] When using cssVar, ensure `component` is assigned a valid React component string.',
       );
     });
+
+    it('App should support Ref', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      render(<App component="span" ref={ref} />);
+      expect(ref.current).toBeInstanceOf(HTMLSpanElement);
+    });
   });
 });
