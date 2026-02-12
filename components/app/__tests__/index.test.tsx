@@ -249,9 +249,9 @@ describe('App', () => {
     });
 
     it('App should support Ref', () => {
-      const ref = React.createRef<HTMLDivElement>();
-      render(<App component="span" ref={ref} />);
-      expect(ref.current).toBeInstanceOf(HTMLSpanElement);
+      const domRef = React.createRef<HTMLSpanElement>();
+      render(<App ref={domRef} component="span" />);
+      expect(domRef.current).toBeInstanceOf(HTMLSpanElement);
     });
   });
 });
