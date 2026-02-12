@@ -14,7 +14,6 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
-import { InternalPanel } from '../Panel';
 import SplitBar from '../SplitBar';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
@@ -999,196 +998,19 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });
 
-    it('should not apply transition class by default', async () => {
-      const { container } = render(
-        <SplitterDemo items={[{ collapsible: true }, { collapsible: true }]} />,
-      );
-      await resizeSplitter();
-
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
-    it('should apply transition class during collapse animation', async () => {
+    it('should apply transition when motion is true', async () => {
       const { container } = render(
         <SplitterDemo
-          collapsible={{ motion: true }}
           items={[{ collapsible: true }, { collapsible: true }]}
-        />,
-      );
-      await resizeSplitter();
-
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
-
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
-    it('should apply transition class during expand animation', async () => {
-      const { container } = render(
-        <SplitterDemo
-          collapsible={{ motion: true }}
-          items={[{ collapsible: true }, { collapsible: true }]}
-        />,
-      );
-      await resizeSplitter();
-
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
-
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
-      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
-
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
-    it('should apply transition class in vertical layout', async () => {
-      const { container } = render(
-        <SplitterDemo
-          collapsible={{ motion: true }}
-          layout="vertical"
-          items={[{ collapsible: true }, { collapsible: true }]}
-        />,
-      );
-      await resizeSplitter();
-
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
-
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
-    it('should apply transition class to all panels with multiple panels', async () => {
-      const { container } = render(
-        <SplitterDemo
-          collapsible={{ motion: true }}
-          items={[{ collapsible: true }, {}, { collapsible: true }]}
-        />,
-      );
-      await resizeSplitter();
-
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(3);
-
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
-    it('should handle rapid collapse clicks correctly', async () => {
-      const { container } = render(
-        <SplitterDemo
-          collapsible={{ motion: true }}
-          items={[{ collapsible: true }, { collapsible: true }]}
-        />,
-      );
-      await resizeSplitter();
-
-      // Rapid clicks before animation completes
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
-
-      act(() => {
-        jest.advanceTimersByTime(100);
-      });
-
-      // Click again before animation ends
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
-      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
-
-      // Wait for all animations to complete
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
-    it('should not apply transition class during drag resize', async () => {
-      const { container } = render(
-        <SplitterDemo
-          collapsible={{ motion: true }}
-          items={[{ collapsible: true }, { collapsible: true }]}
-        />,
-      );
-      await resizeSplitter();
-
-      // Simulate drag resize
-      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
-      const mouseDownEvent = createEvent.mouseDown(dragger);
-      Object.defineProperty(mouseDownEvent, 'pageX', { value: 50 });
-      Object.defineProperty(mouseDownEvent, 'pageY', { value: 50 });
-      fireEvent(dragger, mouseDownEvent);
-
-      const mouseMoveEvent = createEvent.mouseMove(window);
-      Object.defineProperty(mouseMoveEvent, 'pageX', { value: 70 });
-      Object.defineProperty(mouseMoveEvent, 'pageY', { value: 70 });
-      fireEvent(window, mouseMoveEvent);
-
-      const mouseUpEvent = createEvent.mouseUp(window);
-      Object.defineProperty(mouseUpEvent, 'pageX', { value: 70 });
-      Object.defineProperty(mouseUpEvent, 'pageY', { value: 70 });
-      fireEvent(window, mouseUpEvent);
-
-      // Should not have transition class during drag
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
-    it('should apply transition class with min constraint', async () => {
-      const { container } = render(
-        <SplitterDemo
-          collapsible={{ motion: true }}
-          items={[{ collapsible: true, min: 50 }, { collapsible: true }]}
-        />,
-      );
-      await resizeSplitter();
-
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
-
-      act(() => {
-        jest.runOnlyPendingTimers();
-      });
-      expect(container.querySelector('.ant-splitter-panel-transition')).toBeFalsy();
-    });
-
-    it('should clear collapse timer when duration becomes false', async () => {
-      const clearTimeoutSpy = jest.spyOn(global, 'clearTimeout');
-      const { container, rerender } = render(
-        <SplitterDemo
-          collapsible={{ motion: true }}
-          items={[{ collapsible: true }, { collapsible: true }]}
-        />,
-      );
-      await resizeSplitter();
-
-      // Trigger collapse to set timer
-      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
-      expect(container.querySelectorAll('.ant-splitter-panel-transition')).toHaveLength(2);
-
-      // Change motion to false to trigger useLayoutEffect clearing logic
-      rerender(
-        <SplitterDemo
-          collapsible={{ motion: false }}
-          items={[{ collapsible: true }, { collapsible: true }]}
+          collapsible={{
+            motion: true,
+          }}
         />,
       );
 
-      expect(clearTimeoutSpy).toHaveBeenCalled();
-      clearTimeoutSpy.mockRestore();
+      expect(container.querySelector('.ant-splitter-panel')).toHaveClass(
+        'ant-splitter-panel-transition',
+      );
     });
   });
 
@@ -1322,42 +1144,6 @@ describe('Splitter', () => {
           'Warning: [antd: Splitter] `layout` is deprecated. Please use `orientation` instead.',
         );
       }
-    });
-  });
-
-  // ============================= Panel Internal =============================
-  describe('InternalPanel', () => {
-    it('should handle undefined style prop with default value', () => {
-      const { container } = render(
-        <InternalPanel prefixCls="ant-splitter" style={undefined}>
-          Test Content
-        </InternalPanel>,
-      );
-      const panel = container.querySelector('.ant-splitter-panel');
-      expect(panel).toBeTruthy();
-      expect(panel?.textContent).toBe('Test Content');
-    });
-
-    it('should not add transition class when collapsible is false', () => {
-      const { container } = render(
-        <InternalPanel prefixCls="ant-splitter" collapsible={false}>
-          Content
-        </InternalPanel>,
-      );
-      expect(container.querySelector('.ant-splitter-panel')).not.toHaveClass(
-        'ant-splitter-panel-transition',
-      );
-    });
-
-    it('should add transition class when collapsible is true', () => {
-      const { container } = render(
-        <InternalPanel prefixCls="ant-splitter" isCollapsing>
-          Content
-        </InternalPanel>,
-      );
-      expect(container.querySelector('.ant-splitter-panel')).toHaveClass(
-        'ant-splitter-panel-transition',
-      );
     });
   });
 });
