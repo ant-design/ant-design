@@ -2,6 +2,7 @@ import * as React from 'react';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
 import RcDropdown from '@rc-component/dropdown';
+import type { DropdownProps as RcDropdownProps } from '@rc-component/dropdown';
 import type { MenuProps as RcMenuProps } from '@rc-component/menu';
 import type { AlignType } from '@rc-component/trigger';
 import { omit, useControlledState, useEvent } from '@rc-component/util';
@@ -368,7 +369,7 @@ const Dropdown: CompoundedComponent = (props) => {
       transitionName={memoTransitionName}
       trigger={triggerActions}
       overlay={renderOverlay}
-      placement={memoPlacement as any}
+      placement={memoPlacement as unknown as RcDropdownProps['placement']}
       onVisibleChange={onInnerOpenChange}
       overlayStyle={{ ...mergedRootStyles, zIndex }}
       autoDestroy={destroyOnHidden ?? destroyPopupOnHide}
