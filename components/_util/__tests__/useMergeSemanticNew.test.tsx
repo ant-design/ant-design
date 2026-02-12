@@ -4,14 +4,25 @@ import { render } from '../../../tests/utils';
 import { useMergeSemantic } from '../hooks/useMergeSemanticNew';
 import { fillObjectBySchema } from '../hooks/useMergeSemanticNew/utils';
 
+type DemoSemanticType = {
+  classNames?: {
+    root?: string;
+    dragger?: string | { default?: string };
+    level1?: { level2?: { level3?: string } };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    dragger?: { default?: React.CSSProperties; active?: React.CSSProperties };
+    level1?: { level2?: { level3?: React.CSSProperties } };
+  };
+};
+
 describe('useMergeSemanticNew,', () => {
   it('utils fillObjectBySchema', () => {
-    const schema1 = { dragger: { _default: 'default' }, level1: { level2: { level3: {} } } };
+    const schema1 = { dragger: { _default: 'default' }, level1: { level2: {} } };
 
-    expect(fillObjectBySchema({}, schema1)).toEqual({
-      dragger: {},
-      level1: { level2: { level3: {} } },
-    });
+    const result: DemoSemanticType['styles'] = { dragger: {}, level1: { level2: {} } };
+    expect(fillObjectBySchema({}, schema1)).toEqual(result);
 
     expect(
       fillObjectBySchema(
