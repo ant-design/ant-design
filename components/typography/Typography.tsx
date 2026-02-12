@@ -6,6 +6,22 @@ import type { DirectionType } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 
+// TODO: 实现语义化功能，参考 Alert 组件的实现方式
+export type TypographySemanticName = keyof TypographySemanticClassNames &
+  keyof TypographySemanticStyles;
+
+export type TypographySemanticClassNames = {
+  root?: string;
+  actions?: string;
+  action?: string;
+};
+
+export type TypographySemanticStyles = {
+  root?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  action?: React.CSSProperties;
+};
+
 export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   extends React.HTMLAttributes<HTMLElement> {
   id?: string;
