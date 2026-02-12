@@ -229,6 +229,70 @@ describe('ConfigProvider.Form', () => {
     });
   });
 
+  describe('form labelAlign', () => {
+    it('set labelAlign left', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeTruthy();
+    });
+
+    it('set labelAlign right', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'right' }}>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeFalsy();
+    });
+
+    it('form labelAlign should override ConfigProvider labelAlign', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form labelAlign="right">
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeFalsy();
+    });
+
+    it('nested ConfigProvider should inherit labelAlign', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form>
+            <Form.Item label="外层">
+              <input />
+            </Form.Item>
+            <ConfigProvider form={{ labelAlign: 'right' }}>
+              <Form>
+                <Form.Item label="内层">
+                  <input />
+                </Form.Item>
+              </Form>
+            </ConfigProvider>
+          </Form>
+        </ConfigProvider>,
+      );
+      // Query all label elements with left alignment class
+      const leftAlignedLabels = container.querySelectorAll('.ant-form-item-label-left');
+      // The first label (from outer Form) should be left-aligned
+      expect(leftAlignedLabels.length).toBe(1);
+    });
+  });
+
   describe('form disabled', () => {
     it('set Input enabled', () => {
       const { container } = render(
