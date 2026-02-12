@@ -2,20 +2,7 @@ import React from 'react';
 
 import { render } from '../../../tests/utils';
 import { useMergeSemantic } from '../hooks/useMergeSemanticNew';
-import { fillObjectBySchema, stringCovertObjectBySchema } from '../hooks/useMergeSemanticNew/utils';
-
-type DemoSemanticType = {
-  classNames?: {
-    root?: string;
-    dragger?: string | { default?: string };
-    level1?: { level2?: { level3?: string } };
-  };
-  styles?: {
-    root?: React.CSSProperties;
-    dragger?: { default?: React.CSSProperties; active?: React.CSSProperties };
-    level1?: { level2?: { level3?: React.CSSProperties } };
-  };
-};
+import { fillObjectBySchema } from '../hooks/useMergeSemanticNew/utils';
 
 describe('useMergeSemanticNew,', () => {
   it('utils fillObjectBySchema', () => {
@@ -47,19 +34,6 @@ describe('useMergeSemanticNew,', () => {
       level1: { level2: { level3: { color: 'red' } } },
       dragger: {},
     });
-  });
-  it('utils stringCovertObjectBySchema', () => {
-    const schema1 = { dragger: { _default: 'default' } };
-
-    const result1 = { root: 'root-class', dragger: { default: 'dragger-class' } };
-    const list: NonNullable<DemoSemanticType['classNames']>[] = [
-      // need fill
-      { root: 'root-class', dragger: 'dragger-class' },
-      // no need fill
-      { root: 'root-class', dragger: { default: 'dragger-class' } },
-    ];
-    expect(stringCovertObjectBySchema(list[0], schema1)).toEqual(result1);
-    expect(stringCovertObjectBySchema(list[1], schema1)).toEqual(result1);
   });
 
   it('merge with mixed _default', () => {
