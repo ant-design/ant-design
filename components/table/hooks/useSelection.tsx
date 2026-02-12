@@ -239,6 +239,45 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     }
   }, [!!rowSelection]);
 
+  // Sync selected keys when dataSource changes
+  // This ensures onChange is called when selected rows are removed from dataSource
+  const prevDataRef = React.useRef(data);
+  React.useEffect(() => {
+    if (!rowSelection || preserveSelectedRowKeys) {
+      prevDataRef.current = data;
+      return;
+    }
+
+    // Only sync if data actually changed
+    if (prevDataRef.current === data) {
+      return;
+    }
+
+    const currentKeys = mergedSelectedKeys;
+    if (currentKeys.length === 0) {
+      prevDataRef.current = data;
+      return;
+    }
+
+    // Filter out keys that no longer exist in the dataSource
+    const availableKeys: Key[] = [];
+    currentKeys.forEach((key) => {
+      const record = getRecordByKey(key);
+      if (record !== undefined) {
+        availableKeys.push(key);
+      }
+    });
+
+    // If any keys were removed, update the selection and trigger onChange
+    if (availableKeys.length !== currentKeys.length) {
+      const records = availableKeys.map((key) => getRecordByKey(key));
+      setMergedSelectedKeys(availableKeys);
+      onSelectionChange?.(availableKeys, records, { type: 'single' });
+    }
+
+    prevDataRef.current = data;
+  }, [data, getRecordByKey, mergedSelectedKeys, onSelectionChange, preserveSelectedRowKeys, rowSelection, setMergedSelectedKeys]);
+
   const setSelectedKeys = useCallback(
     (keys: Key[], method: RowSelectMethod) => {
       let availableKeys: Key[];
