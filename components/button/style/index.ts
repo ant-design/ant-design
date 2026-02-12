@@ -84,6 +84,13 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
           .join(','),
       },
 
+      // Reset vertical-align for icons in flexbox context to ensure proper centering
+      [`${componentCls}-icon`]: {
+        '> svg': {
+          verticalAlign: 'middle',
+        },
+      },
+
       // iconPlacement
       [`&:not(${componentCls}-icon-end)`]: {
         [`${componentCls}-loading-icon-motion`]: {
