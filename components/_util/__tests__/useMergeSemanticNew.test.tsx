@@ -1,3 +1,7 @@
+import React from 'react';
+
+import { render } from '../../../tests/utils';
+import { useMergeSemantic } from '../hooks/useMergeSemanticNew';
 import { fillObjectBySchema, stringCovertObjectBySchema } from '../hooks/useMergeSemanticNew/utils';
 
 type DemoSemanticType = {
@@ -56,5 +60,34 @@ describe('useMergeSemanticNew,', () => {
     ];
     expect(stringCovertObjectBySchema(list[0], schema1)).toEqual(result1);
     expect(stringCovertObjectBySchema(list[1], schema1)).toEqual(result1);
+  });
+
+  it('merge with mixed _default', () => {
+    type ClassNames = {
+      popup?: string | { root?: string };
+    };
+    const schema = { popup: { _default: 'root' } };
+
+    const Test = ({ classNames }: { classNames?: ClassNames }) => {
+      const myClassNames = {
+        popup: {
+          root: 'internal-popup-root',
+        },
+      };
+
+      const [mergedClassNames] = useMergeSemantic(
+        [classNames, myClassNames],
+        [],
+        { props: {} },
+        schema,
+      );
+
+      return <div className="bamboo">{mergedClassNames.popup.root}</div>;
+    };
+
+    const { container } = render(<Test classNames={{ popup: 'external-popup-root' }} />);
+    expect(container.querySelector('.bamboo')).toHaveTextContent(
+      'external-popup-root internal-popup-root',
+    );
   });
 });

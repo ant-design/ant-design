@@ -1,17 +1,21 @@
+/**
+ * Fill object structure by schema, initialize empty objects for keys with `_default` property.
+ */
 export const fillObjectBySchema = (obj: Record<string, any>, schema: Record<string, any>) => {
   const newObj: Record<string, any> = { ...obj };
   Object.keys(schema).forEach((key) => {
-    const thisSchema = schema[key];
-    const thisData = obj[key] || {};
-    if (thisSchema._default) {
-      newObj[key] = thisData;
+    if (schema[key]._default) {
+      newObj[key] ||= {};
     } else {
-      newObj[key] = fillObjectBySchema(thisData, thisSchema);
+      newObj[key] = fillObjectBySchema(newObj[key], schema[key]);
     }
   });
   return newObj;
 };
 
+/**
+ * Convert string values to objects according to schema, using `_default` as the key.
+ */
 export const stringCovertObjectBySchema = (
   obj: Record<string, any>,
   schema: Record<string, any>,
