@@ -107,6 +107,10 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       ...getLinkStyles(token),
 
       // Operation
+      [`${componentCls}-actions`]: {
+        display: 'inline',
+      },
+
       [`
         ${componentCls}-expand,
         ${componentCls}-collapse,
