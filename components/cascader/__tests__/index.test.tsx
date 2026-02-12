@@ -231,11 +231,9 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
     );
-    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
-      'Zhejiang / Hangzhou',
-    );
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('Zhejiang / Hangzhou');
     fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
-    expect(container.querySelector('.ant-select-content-value')).toBeFalsy();
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('');
   });
 
   it('should clear search input when clear selection', () => {
@@ -320,7 +318,7 @@ describe('Cascader', () => {
     clickOption(container, 0, 0);
     clickOption(container, 1, 0);
     clickOption(container, 2, 0);
-    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent(
       'Zhejiang / Hangzhou / West Lake',
     );
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
@@ -506,9 +504,7 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['options1', 'options2']} />,
     );
-    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
-      'options1 / options2',
-    );
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('options1 / options2');
   });
 
   it('can be selected when showSearch', () => {

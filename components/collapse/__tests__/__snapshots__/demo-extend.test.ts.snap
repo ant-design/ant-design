@@ -1098,14 +1098,10 @@ Array [
     style="margin: 0px 8px;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="start"
     >
-      <div
-        class="ant-select-content-value"
-        title="start"
-      >
-        start
-      </div>
+      start
       <input
         aria-autocomplete="list"
         aria-expanded="false"

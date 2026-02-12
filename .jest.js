@@ -11,6 +11,7 @@ const compileModules = [
   'parse5',
   '@exodus',
   'jsdom',
+  '@csstools',
 ];
 
 // cnpm use `_` as prefix
@@ -34,6 +35,10 @@ function getTestRegex(libDir) {
   return '.*\\.test\\.(j|t)sx?$';
 }
 
+const shouldIgnoreSemantic =
+  ['dist', 'lib', 'es', 'dist-min'].includes(process.env.LIB_DIR) ||
+  ['1', 'true'].includes(process.env.SKIP_SEMANTIC);
+
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
@@ -54,11 +59,11 @@ module.exports = {
     'node',
     'image.test.js',
     'image.test.ts',
-    'demo-semantic.test',
+    ...(shouldIgnoreSemantic ? ['demo-semantic.test'] : []),
   ],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+    '\\.(m?)js(m)?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },
