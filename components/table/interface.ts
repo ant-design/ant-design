@@ -213,7 +213,7 @@ export type SelectionSelectFn<T = AnyObject> = (
   nativeEvent: Event,
 ) => void;
 
-export type RowSelectMethod = 'all' | 'none' | 'invert' | 'single' | 'multiple' | 'cleanup';
+export type RowSelectMethod = 'all' | 'none' | 'invert' | 'single' | 'multiple'  | 'cleanup';
 
 export interface TableRowSelection<T = AnyObject> {
   /** Keep the selection keys in list even the key not exist in `dataSource` anymore */
