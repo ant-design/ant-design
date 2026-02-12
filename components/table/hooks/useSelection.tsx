@@ -122,6 +122,12 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     selectedRowKeys,
   );
 
+  // Ref to track current selected keys for useEffect dependency optimization
+  const selectedKeysRef = React.useRef(mergedSelectedKeys);
+  React.useEffect(() => {
+    selectedKeysRef.current = mergedSelectedKeys;
+  }, [mergedSelectedKeys]);
+
   // ======================== Caches ========================
   const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
 
@@ -243,7 +249,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   // This ensures onChange is called when selected rows are removed from dataSource
   const prevDataRef = React.useRef(data);
   React.useEffect(() => {
-    if (!rowSelection || preserveSelectedRowKeys) {
+    if (!rowSelection || preserveSelectedRowKeys || selectedRowKeys !== undefined) {
       prevDataRef.current = data;
       return;
     }
@@ -253,7 +259,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       return;
     }
 
-    const currentKeys = mergedSelectedKeys;
+    const currentKeys = selectedKeysRef.current;
     if (currentKeys.length === 0) {
       prevDataRef.current = data;
       return;
@@ -272,11 +278,11 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     if (availableKeys.length !== currentKeys.length) {
       const records = availableKeys.map((key) => getRecordByKey(key));
       setMergedSelectedKeys(availableKeys);
-      onSelectionChange?.(availableKeys, records, { type: 'single' });
+      onSelectionChange?.(availableKeys, records, { type: 'cleanup' });
     }
 
     prevDataRef.current = data;
-  }, [data, getRecordByKey, mergedSelectedKeys, onSelectionChange, preserveSelectedRowKeys, rowSelection, setMergedSelectedKeys]);
+  }, [data, getRecordByKey, onSelectionChange, preserveSelectedRowKeys, rowSelection, setMergedSelectedKeys]);
 
   const setSelectedKeys = useCallback(
     (keys: Key[], method: RowSelectMethod) => {
