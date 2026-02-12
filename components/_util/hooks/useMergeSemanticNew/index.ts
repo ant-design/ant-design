@@ -14,34 +14,35 @@ export const mergeClassNames = <
   Name extends string,
   SemanticClassNames extends Partial<Record<Name, any>>,
 >(
-  schema?: SemanticSchema,
+  schema: SemanticSchema = {},
   ...classNames: (SemanticClassNames | undefined)[]
 ) => {
-  const mergedSchema = schema || {};
-  return classNames.filter(Boolean).reduce<SemanticClassNames>((acc: any, cur) => {
-    // Loop keys of the current classNames
-    Object.keys(cur || {}).forEach((key) => {
-      const keySchema = mergedSchema[key as keyof SemanticSchema] as SemanticSchema;
-      const curVal = (cur as SemanticClassNames)[key as keyof SemanticClassNames];
-      if (keySchema && typeof keySchema === 'object') {
-        if (curVal && typeof curVal === 'object') {
-          // Loop fill
-          acc[key] = mergeClassNames(keySchema, acc[key], curVal);
-        } else {
-          // Covert string to object structure
-          const { _default: defaultField } = keySchema;
-          if (defaultField) {
-            acc[key] = acc[key] || {};
-            acc[key][defaultField] = clsx(acc[key][defaultField], curVal);
+  return classNames
+    .filter((item): item is SemanticClassNames => Boolean(item))
+    .reduce<SemanticClassNames>((acc: any, cur) => {
+      // Loop keys of the current classNames
+      Object.keys(cur).forEach((key) => {
+        const keySchema = schema[key as keyof SemanticSchema] as SemanticSchema;
+        const curVal = cur[key as keyof SemanticClassNames];
+        if (keySchema) {
+          if (curVal && typeof curVal === 'object') {
+            // Loop fill
+            acc[key] = mergeClassNames(keySchema, acc[key], curVal);
+          } else {
+            // Covert string to object structure
+            const { _default: defaultField } = keySchema;
+            if (defaultField) {
+              acc[key] = acc[key] || {};
+              acc[key][defaultField] = clsx(acc[key][defaultField], curVal);
+            }
           }
+        } else {
+          // Flatten fill
+          acc[key] = clsx(acc[key], curVal);
         }
-      } else {
-        // Flatten fill
-        acc[key] = clsx(acc[key], curVal);
-      }
-    });
-    return acc;
-  }, {} as SemanticClassNames);
+      });
+      return acc;
+    }, {} as SemanticClassNames);
 };
 
 const useSemanticClassNames = <ClassNamesType extends AnyObject>(
@@ -56,7 +57,7 @@ export const mergeStyles = <StylesType extends AnyObject>(
   ...styles: (Partial<StylesType> | undefined)[]
 ) => {
   return styles
-    .filter(Boolean)
+    .filter((item): item is Partial<StylesType> => Boolean(item))
     .reduce<Record<PropertyKey, React.CSSProperties>>((acc, cur = {}) => {
       Object.keys(cur).forEach((key) => {
         acc[key] = { ...acc[key], ...cur[key] };
