@@ -255,7 +255,7 @@ function antdCodeAppend(docFileAbs: string, src: string): string {
  *
  * @param md - 原始 markdown 内容
  * @param docFileAbs - 文档文件的绝对路径，用于解析相对路径和检测语言
- * @param enablePickLocaleBlock - 是否启用多语言块提取，可以是布尔值或函数，默认为 true
+ * @param codeAppend - 代码追加函数：在替换 <code src> 标签时，用于追加额外的内容（如 demo 描述信息）
  * @returns 替换后的 markdown 内容
  */
 function replaceCodeSrcToMarkdown(
@@ -556,7 +556,6 @@ function emitRawMd(api: IApi) {
  * 2. 在 HTML 文件导出阶段输出处理后的 raw markdown 文件
  *
  * @param api - Dumi API 实例
- * @param options - 插件配置选项
  */
 export default function rawMdPlugin(api: IApi) {
   // 注册配置键，允许用户在配置中使用 rawMd 键
