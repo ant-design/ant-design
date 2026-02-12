@@ -96,10 +96,7 @@ const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   return (
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <Component
-          {...(component === false ? undefined : { ref })}
-          {...(component === false ? undefined : rootProps)}
-        >
+        <Component {...(component === false ? undefined : { ...rootProps, ref })}>
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}
