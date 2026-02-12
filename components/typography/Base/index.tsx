@@ -8,9 +8,13 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
+import { useMergeSemantic } from '../../_util/hooks';
+import type { SemanticType } from '../../_util/hooks';
 import isNonNullable from '../../_util/isNonNullable';
 import { isStyleSupport } from '../../_util/styleChecker';
+import type { DirectionType } from '../../config-provider';
 import { ConfigContext } from '../../config-provider';
+import { useComponentConfig } from '../../config-provider/context';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
@@ -27,6 +31,41 @@ import EllipsisTooltip from './EllipsisTooltip';
 import { isEleEllipsis, isValidText } from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
+
+// Base typography props without generic parameter for semantic types
+export interface BaseTypographyProps extends React.HTMLAttributes<HTMLElement> {
+  id?: string;
+  prefixCls?: string;
+  className?: string;
+  rootClassName?: string;
+  style?: React.CSSProperties;
+  classNames?: TypographyClassNamesType;
+  styles?: TypographyStylesType;
+  children?: React.ReactNode;
+  'aria-label'?: string;
+  direction?: DirectionType;
+  /** @private */
+  component?: keyof JSX.IntrinsicElements;
+}
+
+export type TypographySemanticClassNames = {
+  root?: string;
+  actions?: string;
+  action?: string;
+};
+
+export type TypographySemanticStyles = {
+  root?: React.CSSProperties;
+  actions?: React.CSSProperties;
+  action?: React.CSSProperties;
+};
+
+export type TypographyClassNamesType = SemanticType<
+  BaseTypographyProps,
+  TypographySemanticClassNames
+>;
+
+export type TypographyStylesType = SemanticType<BaseTypographyProps, TypographySemanticStyles>;
 
 export interface CopyConfig {
   text?: string | (() => string | Promise<string>);
@@ -65,9 +104,8 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<
-  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
-> extends TypographyProps<C> {
+export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
+  extends TypographyProps<C> {
   title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
@@ -126,6 +164,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     prefixCls: customizePrefixCls,
     className,
     style,
+    classNames,
+    styles,
     type,
     disabled,
     children,
@@ -141,6 +181,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const [textLocale] = useLocale('Text');
 
+  const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig('typography');
+
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLButtonElement>(null);
 
@@ -148,6 +190,18 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const prefixCls = getPrefixCls('typography', customizePrefixCls);
 
   const textProps = omit(restProps, DECORATION_PROPS);
+
+  // ============================ Semantic ============================
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TypographyClassNamesType,
+    TypographyStylesType,
+    Partial<BlockProps>
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: {
+      ...props,
+      prefixCls,
+    },
+  });
 
   // ========================== Editable ==========================
   const [enableEdit, editConfig] = useMergedConfig<EditConfig>(editable);
@@ -424,7 +478,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return (
       <span
         key="operations"
-        className={`${prefixCls}-actions`}
+        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
+        style={mergedStyles.actions}
         onMouseEnter={() => setIsHoveringOperations(true)}
         onMouseLeave={() => setIsHoveringOperations(false)}
       >
@@ -474,6 +529,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               },
               className,
             )}
+            classNames={classNames}
+            styles={styles}
             prefixCls={customizePrefixCls}
             style={{
               ...style,

@@ -1,0 +1,60 @@
+import type { DirectionType } from '../../config-provider';
+import { useComponentConfig } from '../../config-provider/context';
+import { useMergeSemantic } from '../../_util/hooks';
+import type { BaseTypographyProps, TypographyClassNamesType, TypographyStylesType } from '../Base';
+
+interface UseTypographySemanticResult {
+  mergedClassNames: ReturnType<
+    typeof useMergeSemantic<TypographyClassNamesType, TypographyStylesType, BaseTypographyProps>
+  >[0];
+  mergedStyles: ReturnType<
+    typeof useMergeSemantic<TypographyClassNamesType, TypographyStylesType, BaseTypographyProps>
+  >[1];
+  prefixCls: string;
+  direction: DirectionType | undefined;
+  contextClassName: string | undefined;
+  contextStyle: React.CSSProperties | undefined;
+}
+
+export const useTypographySemantic = (
+  customizePrefixCls?: string,
+  classNames?: TypographyClassNamesType | undefined,
+  styles?: TypographyStylesType | undefined,
+  typographyDirection?: DirectionType,
+  props?: any,
+): UseTypographySemanticResult => {
+  const {
+    getPrefixCls,
+    direction: contextDirection,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+  } = useComponentConfig('typography');
+
+  const direction = typographyDirection ?? contextDirection;
+  const prefixCls = getPrefixCls('typography', customizePrefixCls);
+
+  const mergedProps: BaseTypographyProps = {
+    ...props,
+    prefixCls,
+    direction,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    TypographyClassNamesType,
+    TypographyStylesType,
+    BaseTypographyProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
+
+  return {
+    mergedClassNames,
+    mergedStyles,
+    prefixCls,
+    direction,
+    contextClassName,
+    contextStyle,
+  };
+};
