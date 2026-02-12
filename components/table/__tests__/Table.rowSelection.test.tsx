@@ -2140,13 +2140,15 @@ describe('Table.rowSelection', () => {
     onChange.mockClear();
 
     // Remove all selected rows from dataSource
-    rerender(
-      <Table
-        columns={columns}
-        dataSource={[]}
-        rowSelection={{ onChange }}
-      />,
-    );
+    act(() => {
+      rerender(
+        <Table
+          columns={columns}
+          dataSource={[]}
+          rowSelection={{ onChange }}
+        />,
+      );
+    });
 
     // onChange should be called with empty array when all selected rows are removed
     expect(onChange).toHaveBeenCalledTimes(1);
@@ -2179,16 +2181,18 @@ describe('Table.rowSelection', () => {
     onChange.mockClear();
 
     // Remove only key 0 from dataSource, keeping keys 1 and 2
-    rerender(
-      <Table
-        columns={columns}
-        dataSource={[
-          { key: 1, name: 'Lucy' },
-          { key: 2, name: 'Tom' },
-        ]}
-        rowSelection={{ onChange }}
-      />,
-    );
+    act(() => {
+      rerender(
+        <Table
+          columns={columns}
+          dataSource={[
+            { key: 1, name: 'Lucy' },
+            { key: 2, name: 'Tom' },
+          ]}
+          rowSelection={{ onChange }}
+        />,
+      );
+    });
 
     // onChange should be called with remaining selected keys [1, 2] since key 0 was removed
     expect(onChange).toHaveBeenCalledTimes(1);

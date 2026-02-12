@@ -279,7 +279,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     // If any keys were removed, update the selection and trigger onChange
     if (availableKeys.length !== currentKeys.length) {
       setMergedSelectedKeys(availableKeys);
-      onSelectionChange?.(availableKeys, records, { type: 'single' });
+      onSelectionChange?.(availableKeys, records, { type: 'cleanup' });
     }
 
     prevDataRef.current = data;
