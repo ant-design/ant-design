@@ -2778,7 +2778,9 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                   class="css-var-test-id ant-table-css-var ant-table-wrapper"
                 >
                   <div
-                    class="ant-spin-nested-loading css-var-test-id"
+                    aria-busy="false"
+                    aria-live="polite"
+                    class="ant-spin css-var-test-id"
                   >
                     <div
                       class="ant-spin-container"

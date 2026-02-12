@@ -16606,13 +16606,15 @@ exports[`ConfigProvider components List configProvider 1`] = `
   class="config-list config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16658,13 +16660,15 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
   class="config-list config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16710,13 +16714,15 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
   class="config-list config-list-lg config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16762,13 +16768,15 @@ exports[`ConfigProvider components List configProvider componentSize middle 1`] 
   class="config-list config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16814,13 +16822,15 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
   class="config-list config-list-sm config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16866,13 +16876,15 @@ exports[`ConfigProvider components List normal 1`] = `
   class="ant-list ant-list-split css-var-root"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-root"
       >
         <li
           class="ant-list-item"
@@ -16918,13 +16930,15 @@ exports[`ConfigProvider components List prefixCls 1`] = `
   class="prefix-List prefix-List-split css-var-root"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="prefix-List-items"
+        class="prefix-List-items prefix-List-container css-var-root"
       >
         <li
           class="prefix-List-item"
@@ -24317,7 +24331,7 @@ exports[`ConfigProvider components Spin configProvider 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24346,7 +24360,7 @@ exports[`ConfigProvider components Spin configProvider componentDisabled 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24375,7 +24389,7 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24404,7 +24418,7 @@ exports[`ConfigProvider components Spin configProvider componentSize middle 1`] 
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24433,7 +24447,7 @@ exports[`ConfigProvider components Spin configProvider componentSize small 1`] =
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24462,7 +24476,7 @@ exports[`ConfigProvider components Spin normal 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="ant-spin ant-spin-spinning css-var-root"
+  class="ant-spin ant-spin-spinning ant-spin-section css-var-root"
 >
   <span
     class="ant-spin-dot-holder"
@@ -24491,7 +24505,7 @@ exports[`ConfigProvider components Spin prefixCls 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="prefix-Spin prefix-Spin-spinning css-var-root"
+  class="prefix-Spin prefix-Spin-spinning prefix-Spin-section css-var-root"
 >
   <span
     class="prefix-Spin-dot-holder"
@@ -25124,7 +25138,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
@@ -25428,7 +25444,9 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
@@ -25734,7 +25752,9 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
@@ -26038,7 +26058,9 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
@@ -26342,7 +26364,9 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
@@ -26646,7 +26670,9 @@ exports[`ConfigProvider components Table normal 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -26950,7 +26976,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
   class="css-var-root prefix-Table-css-var prefix-Table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"

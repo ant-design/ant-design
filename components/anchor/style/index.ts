@@ -170,7 +170,9 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token) => {
         [`${componentCls}-ink`]: {
           position: 'absolute',
           bottom: 0,
-          transition: `left ${motionDurationSlow} ease-in-out, width ${motionDurationSlow} ease-in-out`,
+          transition: [`left`, `width`]
+            .map((prop) => `${prop} ${motionDurationSlow} ease-in-out`)
+            .join(', '),
           height: lineWidthBold,
           backgroundColor: colorPrimary,
         },

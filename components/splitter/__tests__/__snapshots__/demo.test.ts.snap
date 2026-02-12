@@ -5,11 +5,39 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
+    class="ant-flex css-var-test-id ant-flex-gap-middle"
+  >
+    <button
+      aria-checked="true"
+      class="ant-switch css-var-test-id ant-switch-checked"
+      role="switch"
+      type="button"
+    >
+      <div
+        class="ant-switch-handle"
+      />
+      <span
+        class="ant-switch-inner"
+      >
+        <span
+          class="ant-switch-inner-checked"
+        >
+          motion
+        </span>
+        <span
+          class="ant-switch-inner-unchecked"
+        >
+          motion
+        </span>
+      </span>
+    </button>
+  </div>
+  <div
     class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
     style="box-shadow:0 0 10px rgba(0, 0, 0, 0.1);height:200px"
   >
     <div
-      class="ant-splitter-panel"
+      class="ant-splitter-panel ant-splitter-panel-transition"
       style="flex-basis:auto;flex-grow:1"
     >
       <div
@@ -36,7 +64,7 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
       />
     </div>
     <div
-      class="ant-splitter-panel"
+      class="ant-splitter-panel ant-splitter-panel-transition"
       style="flex-basis:auto;flex-grow:1"
     >
       <div
@@ -57,7 +85,7 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
     style="box-shadow:0 0 10px rgba(0, 0, 0, 0.1);height:300px"
   >
     <div
-      class="ant-splitter-panel"
+      class="ant-splitter-panel ant-splitter-panel-transition"
       style="flex-basis:auto;flex-grow:1"
     >
       <div
@@ -84,7 +112,7 @@ exports[`renders components/splitter/demo/collapsible.tsx correctly 1`] = `
       />
     </div>
     <div
-      class="ant-splitter-panel"
+      class="ant-splitter-panel ant-splitter-panel-transition"
       style="flex-basis:auto;flex-grow:1"
     >
       <div
