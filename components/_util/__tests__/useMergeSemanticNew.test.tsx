@@ -20,16 +20,18 @@ type DemoSemanticType = {
 describe('useMergeSemanticNew,', () => {
   it('utils fillObjectBySchema', () => {
     const schema = { dragger: { _default: 'default' }, level1: { level2: {} } };
-
+    // test 1
+    const obj1: DemoSemanticType['styles'] = {};
     const result: DemoSemanticType['styles'] = { dragger: {}, level1: { level2: {} } };
-    expect(fillObjectBySchema({}, schema)).toEqual(result);
+    expect(fillObjectBySchema(obj1, schema)).toEqual(result);
+    // test 2
     const obj2: DemoSemanticType['styles'] = {
       root: { width: 1 },
       dragger: { default: { width: 2 } },
       level1: { level2: { level3: { width: 3 } } },
     };
     expect(fillObjectBySchema(obj2, schema)).toEqual(obj2);
-
+    // test 3
     const obj3: DemoSemanticType['styles'] = { level1: { level2: { level3: { color: 'red' } } } };
     expect(fillObjectBySchema(obj3, schema)).toEqual({ ...obj3, dragger: {} });
   });
