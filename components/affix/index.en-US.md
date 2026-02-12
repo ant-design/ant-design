@@ -19,7 +19,7 @@ Please note that Affix should not cover other content on the page, especially wh
 
 > Notes for developers
 >
-> After version `5.10.0`, we rewrite Affix use FC, Some methods of obtaining `ref` and calling internal instance methods will invalid.
+> After version `5.10.0`, we rewrite Affix use FC, Some methods of obtaining `ref` and calling internal instance methods will be invalid.
 
 ## Examples
 

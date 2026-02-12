@@ -20,9 +20,6 @@ exports[`renders components/radio/demo/_semantic.tsx correctly 1`] = `
             class="ant-radio-input"
             type="radio"
           />
-          <span
-            class="ant-radio-inner"
-          />
         </span>
         <span
           class="ant-radio-label semantic-mark-label"

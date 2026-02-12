@@ -437,9 +437,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="default"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -459,9 +456,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="large"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -480,9 +474,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           name="test-id"
                           type="radio"
                           value="small"
-                        />
-                        <span
-                          class="ant-radio-button-inner"
                         />
                       </span>
                       <span
@@ -543,9 +534,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="default"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -564,9 +552,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           name="test-id"
                           type="radio"
                           value="square"
-                        />
-                        <span
-                          class="ant-radio-button-inner"
                         />
                       </span>
                       <span
@@ -587,9 +572,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="round"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -608,9 +590,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           name="test-id"
                           type="radio"
                           value="circle"
-                        />
-                        <span
-                          class="ant-radio-button-inner"
                         />
                       </span>
                       <span
@@ -670,9 +649,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           type="radio"
                           value="square"
                         />
-                        <span
-                          class="ant-radio-button-inner"
-                        />
                       </span>
                       <span
                         class="ant-radio-button-label"
@@ -692,9 +668,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           name="test-id"
                           type="radio"
                           value="circle"
-                        />
-                        <span
-                          class="ant-radio-button-inner"
                         />
                       </span>
                       <span
@@ -744,13 +717,15 @@ Array [
     class="ant-list ant-list-vertical ant-list-lg ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"

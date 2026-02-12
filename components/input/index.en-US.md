@@ -137,6 +137,7 @@ Added in `5.16.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoComplete | The autocomplete attribute for input elements, e.g. `one-time-code` for OTP autofill | string | - | 6.3.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-otp), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp), string> | - |  |
 | defaultValue | Default value | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
@@ -194,7 +195,7 @@ Added in `5.16.0`.
 
 ## FAQ
 
-### Why Input lose focus when change `prefix/suffix/showCount` {#faq-lose-focus}
+### Why Input loses focus when change `prefix/suffix/showCount` {#faq-lose-focus}
 
 When Input dynamic add or remove `prefix/suffix/showCount` will make React recreate the dom structure and new input will be not focused. You can set an empty `<span />` element to keep the dom structure:
 

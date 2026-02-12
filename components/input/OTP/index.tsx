@@ -68,6 +68,8 @@ export interface OTPProps
 
   type?: React.HTMLInputTypeAttribute;
 
+  autoComplete?: string;
+
   onInput?: (value: string[]) => void;
 
   classNames?: OTPClassNamesType;
@@ -115,6 +117,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     autoFocus,
     mask,
     type,
+    autoComplete,
     onInput,
     onFocus,
     inputMode,
@@ -307,6 +310,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     mask,
     type,
     inputMode,
+    autoComplete,
   };
 
   return (

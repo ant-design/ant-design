@@ -4,7 +4,7 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ButtonToken } from './token';
 
 const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
-  const { componentCls, antCls } = token;
+  const { componentCls, antCls, lineWidth } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'btn');
 
@@ -15,7 +15,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       // ==============================================================
       {
         // Border
-        [varName('border-width')]: '1px',
+        [varName('border-width')]: lineWidth,
 
         [varName('border-color')]: '#000',
         [varName('border-color-hover')]: varRef('border-color'),
@@ -268,10 +268,10 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       PresetColors.map((colorKey) => {
         const darkColor = token[`${colorKey}6`];
         const lightColor = token[`${colorKey}1`];
-        const hoverColor = token[`${colorKey}5`];
+        const hoverColor = token[`${colorKey}Hover`];
         const lightHoverColor = token[`${colorKey}2`];
         const lightActiveColor = token[`${colorKey}3`];
-        const activeColor = token[`${colorKey}7`];
+        const activeColor = token[`${colorKey}Active`];
 
         const shadowColor = token[`${colorKey}ShadowColor`];
 

@@ -2,11 +2,23 @@ import path from 'path';
 import React from 'react';
 import { createCache, extractStyle as extStyle, StyleProvider } from '@ant-design/cssinjs';
 import fs from 'fs-extra';
+import minimist from 'minimist';
 import { renderToString } from 'react-dom/server';
 
 import * as antd from '../components';
 
-const output = path.join(__dirname, '../components/style/antd.css');
+// Site build only, not use in npm package build
+const argv = minimist(process.argv.slice(2));
+const enableLayer = argv.layer !== undefined;
+const layerContent = typeof argv.layer === 'string' ? argv.layer : '';
+
+const output = path.join(
+  __dirname,
+  '..',
+  'components',
+  'style',
+  enableLayer ? '~antd.layer.css' : 'antd.css',
+);
 
 const blackList: string[] = ['ConfigProvider', 'Grid'];
 
@@ -119,7 +131,7 @@ function extractStyle(customTheme?: any): string {
   const cache = createCache();
   renderToString(
     <antd.ConfigProvider theme={{ hashed: false }}>
-      <StyleProvider cache={cache}>
+      <StyleProvider cache={cache} layer={enableLayer}>
         {customTheme ? customTheme(defaultNode()) : defaultNode()}
       </StyleProvider>
     </antd.ConfigProvider>,
@@ -138,7 +150,11 @@ async function buildStyle() {
   }
   // fs.rmSync(output);
   const styleStr = extractStyle();
-  fs.writeFileSync(output, styleStr);
+
+  // If layer content is provided, prepend it to the CSS
+  const finalStyleStr = layerContent ? `${layerContent}\n\n${styleStr}` : styleStr;
+
+  fs.writeFileSync(output, finalStyleStr);
 }
 
 buildStyle();
