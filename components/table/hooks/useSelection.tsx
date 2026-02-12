@@ -45,7 +45,7 @@ interface UseSelectionConfig<RecordType = AnyObject> {
   pageData: RecordType[];
   data: RecordType[];
   getRowKey: GetRowKey<RecordType>;
-  getRecordByKey: (key: Key) => RecordType;
+  getRecordByKey: (key: Key) => RecordType | undefined;
   expandType: ExpandType;
   childrenColumnName: string;
   locale: TableLocale;
@@ -321,8 +321,11 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   const triggerSingleSelection = useCallback(
     (key: Key, selected: boolean, keys: Key[], event: Event) => {
       if (onSelect) {
-        const rows = keys.map((k) => getRecordByKey(k));
-        onSelect(getRecordByKey(key), selected, rows, event);
+        const rows = keys.map((k) => getRecordByKey(k)).filter((r): r is RecordType => r !== undefined);
+        const record = getRecordByKey(key);
+        if (record !== undefined) {
+          onSelect(record, selected, rows, event);
+        }
       }
 
       setSelectedKeys(keys, 'single');
@@ -472,8 +475,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
         onSelectAll?.(
           !checkedCurrentAll,
-          keys.map((k) => getRecordByKey(k)),
-          changeKeys.map((k) => getRecordByKey(k)),
+          keys.map((k) => getRecordByKey(k)).filter((r): r is RecordType => r !== undefined),
+          changeKeys.map((k) => getRecordByKey(k)).filter((r): r is RecordType => r !== undefined),
         );
 
         setSelectedKeys(keys, 'all');
@@ -630,8 +633,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
                     onSelectMultiple?.(
                       !checked,
-                      keys.map((recordKey) => getRecordByKey(recordKey)),
-                      changedKeys.map((recordKey) => getRecordByKey(recordKey)),
+                      keys.map((recordKey) => getRecordByKey(recordKey)).filter((r): r is RecordType => r !== undefined),
+                      changedKeys.map((recordKey) => getRecordByKey(recordKey)).filter((r): r is RecordType => r !== undefined),
                     );
 
                     setSelectedKeys(keys, 'multiple');
