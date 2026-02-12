@@ -267,18 +267,19 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
     // Filter out keys that no longer exist in the dataSource
     const availableKeys: Key[] = [];
+    const records: RecordType[] = [];
     currentKeys.forEach((key) => {
       const record = getRecordByKey(key);
       if (record !== undefined) {
         availableKeys.push(key);
+        records.push(record);
       }
     });
 
     // If any keys were removed, update the selection and trigger onChange
     if (availableKeys.length !== currentKeys.length) {
-      const records = availableKeys.map((key) => getRecordByKey(key));
       setMergedSelectedKeys(availableKeys);
-      onSelectionChange?.(availableKeys, records, { type: 'cleanup' });
+      onSelectionChange?.(availableKeys, records, { type: 'single' });
     }
 
     prevDataRef.current = data;
