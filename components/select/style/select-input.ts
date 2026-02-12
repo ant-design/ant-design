@@ -278,6 +278,8 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
             '&-has-value': {
               display: 'block',
+              // Fix https://github.com/ant-design/ant-design/issues/56960
+              minHeight: varRef('font-height'),
 
               '&:before': {
                 display: 'none',
