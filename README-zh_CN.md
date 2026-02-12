@@ -14,7 +14,7 @@
 
 ## ❤️ 赞助者 [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
 
-[![](https://opencollective.com/ant-design/tiers/sponsors.svg?avatarHeight=72)](https://opencollective.com/ant-design/contribute/sponsors-218/checkout)
+[![TRACTIAN](https://images.opencollective.com/tractian/0235da9/logo/256.png?height=80)](https://tractian.com) [![LobeHub](https://images.opencollective.com/lobehub/ac07c4c/logo/256.png?height=80)](https://lobehub.com/)
 
 [npm-image]: https://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/antd
@@ -115,6 +115,7 @@ export default App;
 
 - [首页](https://ant.design/)
 - [所有组件](https://ant.design/components/overview-cn)
+- [赞助](https://ant.design/docs/react/sponsor)
 - [更新日志](CHANGELOG.zh-CN.md)
 - [React 底层基础组件](https://react-component.github.io/)
 - [🆕 Ant Design X](https://x.ant.design/index-cn)
@@ -186,7 +187,7 @@ $ npm start
 </table>
 
 <a href="https://openomy.app/github/ant-design/ant-design" target="_blank" style="display: block; width: 100%;" align="center">
-  <img src="https://openomy.app/svg?repo=ant-design/ant-design&chart=bubble&latestMonth=3" target="_blank" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
+  <img src="https://openomy.app/svg?repo=ant-design/ant-design&chart=bubble&latestMonth=3" alt="Contribution Leaderboard" style="display: block; width: 100%;" />
 </a>
 
 请参考[贡献指南](https://ant.design/docs/react/contributing-cn).

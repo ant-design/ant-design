@@ -25,12 +25,14 @@ import type {
   CascaderConfig,
   CheckboxConfig,
   CollapseConfig,
+  ColorPickerConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DatePickerConfig,
   DirectionType,
   DrawerConfig,
+  DropdownConfig,
   EmptyConfig,
   FlexConfig,
   FloatButtonConfig,
@@ -52,6 +54,7 @@ import type {
   PopconfirmConfig,
   PopoverConfig,
   PopupOverflow,
+  ProgressConfig,
   QRcodeConfig,
   RadioConfig,
   RangePickerConfig,
@@ -60,6 +63,7 @@ import type {
   SkeletonConfig,
   SpaceConfig,
   SpinConfig,
+  SwitchStyleConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
@@ -212,6 +216,7 @@ export interface ConfigProviderProps {
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
+  app?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
@@ -231,7 +236,7 @@ export interface ConfigProviderProps {
   list?: ListConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
-  progress?: ComponentStyleConfig;
+  progress?: ProgressConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   masonry?: MasonryConfig;
@@ -246,7 +251,7 @@ export interface ConfigProviderProps {
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
-  switch?: ComponentStyleConfig;
+  switch?: SwitchStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: MessageConfig;
@@ -260,10 +265,10 @@ export interface ConfigProviderProps {
   upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
-  colorPicker?: ComponentStyleConfig;
+  colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
-  dropdown?: ComponentStyleConfig;
+  dropdown?: DropdownConfig;
   flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
@@ -350,6 +355,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     alert,
     affix,
     anchor,
+    app,
     form,
     locale,
     componentSize,
@@ -464,6 +470,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     alert,
     affix,
     anchor,
+    app,
     locale: locale || legacyLocale,
     direction,
     space,

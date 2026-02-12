@@ -9,7 +9,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { ClosableType, SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
@@ -20,31 +20,28 @@ export interface AlertRef {
   nativeElement: HTMLDivElement;
 }
 
-export type AlertSemanticName = keyof AlertSemanticClassNames & keyof AlertSemanticStyles;
-
-export type AlertSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  section?: string;
-  title?: string;
-  description?: string;
-  actions?: string;
-  close?: string;
+export type AlertSemanticType = {
+  classNames: {
+    root?: string;
+    icon?: string;
+    section?: string;
+    title?: string;
+    description?: string;
+    actions?: string;
+    close?: string;
+  };
+  styles: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    section?: React.CSSProperties;
+    title?: React.CSSProperties;
+    description?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    close?: React.CSSProperties;
+  };
 };
-
-export type AlertSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  section?: React.CSSProperties;
-  title?: React.CSSProperties;
-  description?: React.CSSProperties;
-  actions?: React.CSSProperties;
-  close?: React.CSSProperties;
-};
-
-export type AlertClassNamesType = SemanticClassNamesType<AlertProps, AlertSemanticClassNames>;
-
-export type AlertStylesType = SemanticStylesType<AlertProps, AlertSemanticStyles>;
+export type AlertClassNamesType = SemanticType<AlertProps, AlertSemanticType['classNames']>;
+export type AlertStylesType = SemanticType<AlertProps, AlertSemanticType['styles']>;
 
 export interface AlertProps {
   /** Type of Alert styles, options:`success`, `info`, `warning`, `error` */

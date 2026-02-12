@@ -5,7 +5,9 @@ exports[`Table renders JSX correctly 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -114,7 +116,9 @@ exports[`Table rtl render component should be rendered correctly in RTL directio
   class="css-var-root ant-table-css-var ant-table-wrapper ant-table-wrapper-rtl"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin ant-spin-rtl css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -215,7 +219,9 @@ exports[`Table should render title 1`] = `
     class="css-var-root ant-table-css-var ant-table-wrapper"
   >
     <div
-      class="ant-spin-nested-loading css-var-root"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-root"
     >
       <div
         class="ant-spin-container"
@@ -650,7 +656,9 @@ exports[`Table support wireframe 1`] = `
   class="css-var-test-id ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"

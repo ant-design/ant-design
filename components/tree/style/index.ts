@@ -139,9 +139,17 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
         transform: 'rotate(90deg)',
       },
 
-      [`&-focused:not(:hover):not(${treeCls}-active-focused)`]: genFocusOutline(token),
-
       // =================== Virtual List ===================
+      [`${treeCls}-list`]: {
+        '&:focus-visible': {
+          outline: 'none',
+
+          [`${treeNodeCls}-active ${treeCls}-node-content-wrapper`]: {
+            ...genFocusOutline(token),
+          },
+        },
+      },
+
       [`${treeCls}-list-holder-inner`]: {
         alignItems: 'flex-start',
       },
@@ -270,6 +278,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
           .div(2)
           .equal(),
+      },
+
+      // >>> Checkbox
+      // https://github.com/ant-design/ant-design/issues/56957
+      [`${treeCls}-checkbox`]: {
+        flexShrink: 0,
       },
 
       // >>> Switcher
