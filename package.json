@@ -210,7 +210,7 @@
     "@types/pngjs": "^6.0.5",
     "@types/prismjs": "^1.26.5",
     "@types/progress": "^2.0.7",
-    "@types/react": "19.2.9",
+    "@types/react": "19.2.14",
     "@types/react-dom": "^19.2.3",
     "@types/react-highlight-words": "^0.20.0",
     "@types/semver": "^7.7.1",
