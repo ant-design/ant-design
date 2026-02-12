@@ -91,7 +91,7 @@ export interface PanelProps {
 export interface InternalPanelProps extends PanelProps {
   className?: string;
   prefixCls?: string;
-  isDragging?: boolean;
+  supportMotion?: boolean;
 }
 
 export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {

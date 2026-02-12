@@ -7,13 +7,13 @@ export const InternalPanel = forwardRef<
   HTMLDivElement,
   React.PropsWithChildren<InternalPanelProps>
 >((props, ref) => {
-  const { prefixCls, className, children, size, style = {}, isCollapsing } = props;
+  const { prefixCls, className, children, size, style = {}, supportMotion } = props;
 
   const panelClassName = clsx(
     `${prefixCls}-panel`,
     {
       [`${prefixCls}-panel-hidden`]: size === 0,
-      [`${prefixCls}-panel-transition`]: isCollapsing,
+      [`${prefixCls}-panel-transition`]: supportMotion,
     },
     className,
   );
