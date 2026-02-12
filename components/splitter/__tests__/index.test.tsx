@@ -28,9 +28,13 @@ const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>>
   ...props
 }) => (
   <Splitter {...props}>
-    {items?.map((item, idx) => {
+    {items?.map(({ children, ...item }, idx) => {
       const key = `panel-${idx}`;
-      return <Splitter.Panel key={key} {...item} />;
+      return (
+        <Splitter.Panel key={key} {...item}>
+          {children}
+        </Splitter.Panel>
+      );
     })}
   </Splitter>
 );
@@ -1129,6 +1133,184 @@ describe('Splitter', () => {
           'Warning: [antd: Splitter] `layout` is deprecated. Please use `orientation` instead.',
         );
       }
+    });
+  });
+
+  // ============================= destroyOnHidden =============================
+  describe('destroyOnHidden', () => {
+    it('should keep content by default when panel is collapsed', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ size: 0, children: <div data-testid="panel-content">Content</div> }, {}]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeTruthy();
+    });
+
+    it('should destroy content when destroyOnHidden is true and panel is collapsed', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              size: 0,
+              destroyOnHidden: true,
+              children: <div data-testid="panel-content">Content</div>,
+            },
+            {},
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeFalsy();
+    });
+
+    it('should keep content when destroyOnHidden is false and panel is collapsed', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              size: 0,
+              destroyOnHidden: false,
+              children: <div data-testid="panel-content">Content</div>,
+            },
+            {},
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeTruthy();
+    });
+
+    it('should keep content when destroyOnHidden is true but panel is not collapsed', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              size: 50,
+              destroyOnHidden: true,
+              children: <div data-testid="panel-content">Content</div>,
+            },
+            {},
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeTruthy();
+    });
+
+    it('should inherit destroyOnHidden from Splitter', async () => {
+      const { container } = render(
+        <SplitterDemo
+          destroyOnHidden
+          items={[{ size: 0, children: <div data-testid="panel-content">Content</div> }, {}]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeFalsy();
+    });
+
+    it('panel destroyOnHidden should override Splitter destroyOnHidden', async () => {
+      const { container } = render(
+        <SplitterDemo
+          destroyOnHidden
+          items={[
+            {
+              size: 0,
+              destroyOnHidden: false,
+              children: <div data-testid="panel-content">Content</div>,
+            },
+            {},
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      // Panel override should keep content even though Splitter has destroyOnHidden
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeTruthy();
+    });
+
+    it('should destroy content when collapsing via collapse button', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              collapsible: true,
+              destroyOnHidden: true,
+              children: <div data-testid="panel-content">Content</div>,
+            },
+            {},
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      // Content should exist before collapse
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeTruthy();
+
+      // Collapse the panel
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+
+      // Content should be destroyed after collapse
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeFalsy();
+    });
+
+    it('should restore content when expanding collapsed panel', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[
+            {
+              defaultSize: 0,
+              collapsible: true,
+              destroyOnHidden: true,
+              children: <div data-testid="panel-content">Content</div>,
+            },
+            { collapsible: true },
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      // Content should not exist when collapsed
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeFalsy();
+
+      // Expand the panel
+      fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+
+      // Content should be restored after expand
+      expect(container.querySelector('[data-testid="panel-content"]')).toBeTruthy();
+    });
+
+    it('should work with multiple panels', async () => {
+      const { container } = render(
+        <SplitterDemo
+          destroyOnHidden
+          items={[
+            { size: 0, children: <div data-testid="panel-1">Panel 1</div> },
+            { size: 50, children: <div data-testid="panel-2">Panel 2</div> },
+            { size: 0, children: <div data-testid="panel-3">Panel 3</div> },
+          ]}
+        />,
+      );
+
+      await resizeSplitter();
+
+      expect(container.querySelector('[data-testid="panel-1"]')).toBeFalsy();
+      expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
+      expect(container.querySelector('[data-testid="panel-3"]')).toBeFalsy();
     });
   });
 });

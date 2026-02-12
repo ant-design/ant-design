@@ -3743,6 +3743,15 @@ Array [
               <div
                 class="ant-tree ant-tree-icon-hide ant-tree-disabled css-var-test-id"
               >
+                <div>
+                  <input
+                    aria-label="for screen reader"
+                    disabled=""
+                    style="width:0;height:0;display:flex;overflow:hidden;opacity:0;border:0;padding:0;margin:0"
+                    tabindex="0"
+                    value=""
+                  />
+                </div>
                 <div
                   aria-hidden="true"
                   class="ant-tree-treenode"
@@ -3770,11 +3779,9 @@ Array [
                         style="display:flex;flex-direction:column"
                       >
                         <div
-                          aria-disabled="true"
                           aria-expanded="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-indeterminate"
                           draggable="false"
-                          id="test-id-0-0"
                           role="treeitem"
                         >
                           <span
@@ -3807,7 +3814,7 @@ Array [
                           <span
                             aria-checked="mixed"
                             aria-disabled="true"
-                            aria-labelledby="test-id-0-0"
+                            aria-label="Select Parent 1"
                             class="ant-tree-checkbox ant-tree-checkbox-indeterminate ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -3827,11 +3834,9 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-disabled="true"
                           aria-expanded="false"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-selected"
                           draggable="false"
-                          id="test-id-0-0-0"
                           role="treeitem"
                         >
                           <span
@@ -3868,7 +3873,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-labelledby="test-id-0-0-0"
+                            aria-label="Select Child 1-1"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -3888,10 +3893,9 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-disabled="true"
+                          aria-expanded="false"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                           draggable="false"
-                          id="test-id-0-0-1"
                           role="treeitem"
                         >
                           <span
@@ -3908,7 +3912,7 @@ Array [
                           <span
                             aria-checked="false"
                             aria-disabled="true"
-                            aria-labelledby="test-id-0-0-1"
+                            aria-label="Select Child 1-2"
                             class="ant-tree-checkbox ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -3928,11 +3932,9 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-disabled="true"
                           aria-expanded="true"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-open ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last"
                           draggable="false"
-                          id="test-id-0-1"
                           role="treeitem"
                         >
                           <span
@@ -3965,7 +3967,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-labelledby="test-id-0-1"
+                            aria-label="Select Parent 2"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >
@@ -3985,10 +3987,9 @@ Array [
                           </span>
                         </div>
                         <div
-                          aria-disabled="true"
+                          aria-expanded="false"
                           class="ant-tree-treenode ant-tree-treenode-disabled ant-tree-treenode-switcher-close ant-tree-treenode-checkbox-checked ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                           draggable="false"
-                          id="test-id-0-1-0"
                           role="treeitem"
                         >
                           <span
@@ -4005,7 +4006,7 @@ Array [
                           <span
                             aria-checked="true"
                             aria-disabled="true"
-                            aria-labelledby="test-id-0-1-0"
+                            aria-label="Select Child 2-1"
                             class="ant-tree-checkbox ant-tree-checkbox-checked ant-tree-checkbox-disabled"
                             role="checkbox"
                           >

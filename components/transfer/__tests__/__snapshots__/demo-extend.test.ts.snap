@@ -13684,6 +13684,14 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
           <div
             class="ant-tree ant-tree-icon-hide ant-tree-block-node css-var-test-id"
           >
+            <div>
+              <input
+                aria-label="for screen reader"
+                style="width: 0px; height: 0px; display: flex; overflow: hidden; opacity: 0; border: 0px; padding: 0px; margin: 0px;"
+                tabindex="0"
+                value=""
+              />
+            </div>
             <div
               aria-hidden="true"
               class="ant-tree-treenode"
@@ -13701,7 +13709,6 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
               class="ant-tree-list"
               role="tree"
               style="position: relative;"
-              tabindex="0"
             >
               <div
                 class="ant-tree-list-holder"
@@ -13712,12 +13719,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                     style="display: flex; flex-direction: column;"
                   >
                     <div
-                      aria-checked="false"
-                      aria-disabled="false"
-                      aria-selected="false"
+                      aria-expanded="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
-                      id="test-id-0-0"
                       role="treeitem"
                     >
                       <span
@@ -13729,7 +13733,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
-                        aria-labelledby="test-id-0-0"
+                        aria-label="Select 0-0"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -13749,13 +13753,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-checked="false"
-                      aria-disabled="false"
                       aria-expanded="true"
-                      aria-selected="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-open"
                       draggable="false"
-                      id="test-id-0-1"
                       role="treeitem"
                     >
                       <span
@@ -13787,7 +13787,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                       <span
                         aria-checked="false"
-                        aria-labelledby="test-id-0-1"
+                        aria-label="Select 0-1"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -13807,12 +13807,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-checked="false"
-                      aria-disabled="false"
-                      aria-selected="false"
+                      aria-expanded="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
-                      id="test-id-0-1-0"
                       role="treeitem"
                     >
                       <span
@@ -13828,7 +13825,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
-                        aria-labelledby="test-id-0-1-0"
+                        aria-label="Select 0-1-0"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -13848,12 +13845,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-checked="false"
-                      aria-disabled="false"
-                      aria-selected="false"
+                      aria-expanded="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
-                      id="test-id-0-1-1"
                       role="treeitem"
                     >
                       <span
@@ -13869,7 +13863,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
-                        aria-labelledby="test-id-0-1-1"
+                        aria-label="Select 0-1-1"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -13889,12 +13883,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-checked="false"
-                      aria-disabled="false"
-                      aria-selected="false"
+                      aria-expanded="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
-                      id="test-id-0-2"
                       role="treeitem"
                     >
                       <span
@@ -13906,7 +13897,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
-                        aria-labelledby="test-id-0-2"
+                        aria-label="Select 0-2"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -13926,12 +13917,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-checked="false"
-                      aria-disabled="false"
-                      aria-selected="false"
+                      aria-expanded="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf"
                       draggable="false"
-                      id="test-id-0-3"
                       role="treeitem"
                     >
                       <span
@@ -13943,7 +13931,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
-                        aria-labelledby="test-id-0-3"
+                        aria-label="Select 0-3"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
@@ -13963,12 +13951,9 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       </span>
                     </div>
                     <div
-                      aria-checked="false"
-                      aria-disabled="false"
-                      aria-selected="false"
+                      aria-expanded="false"
                       class="ant-tree-treenode ant-tree-treenode-switcher-close ant-tree-treenode-leaf-last ant-tree-treenode-leaf"
                       draggable="false"
-                      id="test-id-0-4"
                       role="treeitem"
                     >
                       <span
@@ -13980,7 +13965,7 @@ exports[`renders components/transfer/demo/tree-transfer.tsx extend context corre
                       />
                       <span
                         aria-checked="false"
-                        aria-labelledby="test-id-0-4"
+                        aria-label="Select 0-4"
                         class="ant-tree-checkbox"
                         role="checkbox"
                       >
