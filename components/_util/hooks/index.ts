@@ -5,6 +5,7 @@ export * from './useMergeSemantic';
 export * from './useMultipleSelect';
 export * from './useOrientation';
 export * from './usePatchElement';
+export * from './usePopupScope';
 export * from './useProxyImperativeHandle';
 export * from './useSyncState';
 export * from './useZIndex';
