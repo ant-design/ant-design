@@ -15,7 +15,7 @@ export type ShowCollapsibleIconMode = boolean | 'auto';
 export interface SplitBarProps {
   index: number;
   active: boolean;
-  draggerStyle?: NonNullable<NonNullable<SplitterSemanticAllType['styles']>['dragger']>['default'];
+  draggerStyle?: NonNullable<SplitterSemanticAllType['styles']>['dragger'];
   draggerClassName?: NonNullable<SplitterSemanticAllType['classNamesNoString']>['dragger'];
   prefixCls: string;
   rootPrefixCls: string;
@@ -256,7 +256,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       )}
 
       <div
-        style={draggerStyle}
+        style={draggerStyle?.default}
         className={clsx(
           `${splitBarPrefixCls}-dragger`,
           {

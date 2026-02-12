@@ -401,7 +401,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   );
 
   // =================== Dropdown ====================
-  const mergedPopupStyle = { ...mergedStyles.popup?.root, ...dropdownStyle };
+  const mergedPopupStyle = { ...mergedStyles.popup.root, ...dropdownStyle };
 
   // ============================ zIndex ============================
   const [zIndex] = useZIndex('SelectLike', mergedPopupStyle?.zIndex as number);
@@ -414,7 +414,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     },
     rootClassName,
     rootCls,
-    mergedClassNames.popup?.root,
+    mergedClassNames.popup.root,
     cascaderRootCls,
     hashId,
     cssVarCls,

@@ -234,7 +234,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 rootPrefixCls={rootPrefixCls}
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
-                draggerStyle={mergedStyles.dragger?.default}
+                draggerStyle={mergedStyles.dragger}
                 draggerClassName={mergedClassNames.dragger}
                 draggerIcon={draggerIcon}
                 collapsibleIcon={collapsibleIcon}

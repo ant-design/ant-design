@@ -313,7 +313,7 @@ const InternalSelect = <
   );
 
   const mergedPopupClassName = clsx(
-    mergedClassNames.popup?.root,
+    mergedClassNames.popup.root,
     popupClassName,
     dropdownClassName,
     {
@@ -391,7 +391,7 @@ const InternalSelect = <
   // ====================== zIndex =========================
   const [zIndex] = useZIndex(
     'SelectLike',
-    (mergedStyles.popup?.root?.zIndex as number) ?? (mergedPopupStyle?.zIndex as number),
+    (mergedStyles.popup.root?.zIndex as number) ?? (mergedPopupStyle.zIndex as number),
   );
 
   // ====================== Render =======================
@@ -423,7 +423,7 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      popupStyle={{ ...mergedStyles.popup?.root, ...mergedPopupStyle, zIndex }}
+      popupStyle={{ ...mergedStyles.popup.root, ...mergedPopupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}
