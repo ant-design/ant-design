@@ -2220,7 +2220,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
         style="width: 120px;"
       >
         <div
-          class="ant-select-content ant-select-content-has-value"
+          class="ant-select-content"
           title=" "
         >
           <input
