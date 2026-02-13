@@ -59,14 +59,12 @@ describe('Typography.Semantic', () => {
     render(
       <ConfigProvider>
         <ConfigProvider
-          typography={
-            {
-              className: undefined,
-              style: undefined,
-              classNames: contextClassNames,
-              styles: contextStyles,
-            } as any
-          }
+          typography={{
+            className: undefined,
+            style: undefined,
+            classNames: contextClassNames,
+            styles: contextStyles,
+          }}
         >
           <Typography.Paragraph classNames={componentClassNames} styles={componentStyles} copyable>
             Test Typography
