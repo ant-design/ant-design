@@ -6,23 +6,44 @@ import { genPresetColor, genSubStyleComponent } from '../../theme/internal';
 // ============================== Preset ==============================
 const genPresetStyle = (token: TagToken) =>
   genPresetColor(token, (colorKey, { textColor, lightBorderColor, lightColor, darkColor }) => ({
-    [`${token.componentCls}${token.componentCls}-${colorKey}:not(${token.componentCls}-disabled)`]:
-      {
-        [`&${token.componentCls}-outlined`]: {
-          backgroundColor: lightColor,
-          borderColor: lightBorderColor,
+    [`${token.componentCls}${token.componentCls}-${colorKey}:not(${token.componentCls}-disabled)`]: {
+      [`&${token.componentCls}-outlined`]: {
+        backgroundColor: lightColor,
+        borderColor: lightBorderColor,
+        color: textColor,
+      },
+      [`&${token.componentCls}-solid`]: {
+        backgroundColor: darkColor,
+        borderColor: darkColor,
+        color: token.colorTextLightSolid,
+      },
+      [`&${token.componentCls}-filled`]: {
+        backgroundColor: lightColor,
+        color: textColor,
+      },
+
+      // CheckableTag preset color support
+      [`&${token.componentCls}-checkable`]: {
+        color: textColor,
+
+        [`&:not(${token.componentCls}-checkable-checked):hover`]: {
           color: textColor,
+          backgroundColor: lightColor,
         },
-        [`&${token.componentCls}-solid`]: {
-          backgroundColor: darkColor,
-          borderColor: darkColor,
+
+        [`&${token.componentCls}-checkable-checked`]: {
           color: token.colorTextLightSolid,
+          backgroundColor: darkColor,
+          '&:hover': {
+            backgroundColor: darkColor,
+          },
         },
-        [`&${token.componentCls}-filled`]: {
-          backgroundColor: lightColor,
-          color: textColor,
+
+        '&:active': {
+          backgroundColor: darkColor,
         },
       },
+    },
   }));
 
 // ============================== Export ==============================
