@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 import { useMergeSemantic } from '../../_util/hooks';
 import type { DirectionType } from '../../config-provider';
 import { useComponentConfig } from '../../config-provider/context';
@@ -14,8 +16,6 @@ type UseTypographySemanticResult = [
   mergedStyles: TypographySemanticStyles,
   prefixCls: string,
   direction: DirectionType | undefined,
-  contextClassName: string | undefined,
-  contextStyle: React.CSSProperties | undefined,
 ];
 
 export const useTypographySemantic = (
@@ -43,13 +43,20 @@ export const useTypographySemantic = (
     direction,
   };
 
+  const contextClassNamesObject = useMemo(() => ({ root: contextClassName }), [contextClassName]);
+  const contextStylesObject = useMemo(() => ({ root: contextStyle }), [contextStyle]);
+
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     TypographyClassNamesType,
     TypographyStylesType,
     BaseTypographyProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  >(
+    [contextClassNamesObject, contextClassNames, classNames],
+    [contextStylesObject, contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
-  return [mergedClassNames, mergedStyles, prefixCls, direction, contextClassName, contextStyle];
+  return [mergedClassNames, mergedStyles, prefixCls, direction];
 };
