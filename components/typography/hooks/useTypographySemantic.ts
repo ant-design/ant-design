@@ -3,18 +3,18 @@ import type { DirectionType } from '../../config-provider';
 import { useComponentConfig } from '../../config-provider/context';
 import type { BaseTypographyProps, TypographyClassNamesType, TypographyStylesType } from '../Base';
 
-interface UseTypographySemanticResult {
+type UseTypographySemanticResult = [
   mergedClassNames: ReturnType<
     typeof useMergeSemantic<TypographyClassNamesType, TypographyStylesType, BaseTypographyProps>
-  >[0];
+  >[0],
   mergedStyles: ReturnType<
     typeof useMergeSemantic<TypographyClassNamesType, TypographyStylesType, BaseTypographyProps>
-  >[1];
-  prefixCls: string;
-  direction: DirectionType | undefined;
-  contextClassName: string | undefined;
-  contextStyle: React.CSSProperties | undefined;
-}
+  >[1],
+  prefixCls: string,
+  direction: DirectionType | undefined,
+  contextClassName: string | undefined,
+  contextStyle: React.CSSProperties | undefined,
+];
 
 export const useTypographySemantic = (
   customizePrefixCls?: string,
@@ -49,12 +49,5 @@ export const useTypographySemantic = (
     props: mergedProps,
   });
 
-  return {
-    mergedClassNames,
-    mergedStyles,
-    prefixCls,
-    direction,
-    contextClassName,
-    contextStyle,
-  };
+  return [mergedClassNames, mergedStyles, prefixCls, direction, contextClassName, contextStyle];
 };

@@ -84,7 +84,7 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps<keyof JSX.Intri
       ...restProps
     } = props;
 
-    const { mergedClassNames, mergedStyles, prefixCls, direction, contextClassName, contextStyle } =
+    const [mergedClassNames, mergedStyles, prefixCls, direction, contextClassName, contextStyle] =
       useTypographySemantic(customizePrefixCls, classNames, styles, typographyDirection, props);
 
     const [hashId, cssVarCls] = useStyle(prefixCls);

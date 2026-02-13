@@ -182,7 +182,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLButtonElement>(null);
 
-  const { mergedClassNames, mergedStyles, prefixCls, direction } = useTypographySemantic(
+  const [mergedClassNames, mergedStyles, prefixCls, direction] = useTypographySemantic(
     customizePrefixCls,
     classNames,
     styles,
