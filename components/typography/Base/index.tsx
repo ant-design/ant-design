@@ -410,7 +410,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       <button
         type="button"
         key="expand"
-        className={`${prefixCls}-${expanded ? 'collapse' : 'expand'}`}
+        className={clsx(
+          `${prefixCls}-${expanded ? 'collapse' : 'expand'}`,
+          mergedClassNames.action,
+        )}
+        style={mergedStyles.action}
         onClick={(e) => onExpandClick(e!, { expanded: !expanded })}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
@@ -435,7 +439,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         <button
           type="button"
           ref={editIconRef}
-          className={`${prefixCls}-edit`}
+          className={clsx(`${prefixCls}-edit`, mergedClassNames.action)}
+          style={mergedStyles.action}
           onClick={onEditClick}
           aria-label={ariaLabel}
           tabIndex={tabIndex}
@@ -462,6 +467,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onCopy={onCopyClick}
         loading={copyLoading}
         iconOnly={!isNonNullable(children)}
+        className={mergedClassNames.action}
+        style={mergedStyles.action}
       />
     );
   };

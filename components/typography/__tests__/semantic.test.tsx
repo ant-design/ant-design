@@ -7,19 +7,23 @@ import ConfigProvider from '../../config-provider';
 import type { TypographyClassNamesType, TypographyStylesType } from '../Base';
 
 describe('Typography.Semantic', () => {
-  it('should support classNames and styles as functions', () => {
-    const classNamesFn: TypographyClassNamesType = jest.fn(() => {
-      return { root: 'custom-typography' };
-    });
+  it('should support classNames and styles for root, actions, and action', () => {
+    const classNamesFn: TypographyClassNamesType = jest.fn(() => ({
+      root: 'custom-typography',
+      actions: 'custom-actions',
+      action: 'custom-action',
+    }));
 
-    const stylesFn: TypographyStylesType = jest.fn(() => {
-      return { root: { color: '#1890ff' } };
-    });
+    const stylesFn: TypographyStylesType = jest.fn(() => ({
+      root: { color: '#1890ff' },
+      actions: { backgroundColor: '#f0f0f0' },
+      action: { padding: '5px' },
+    }));
 
     const { rerender } = render(
-      <Typography classNames={classNamesFn} styles={stylesFn}>
+      <Typography.Paragraph classNames={classNamesFn} styles={stylesFn} copyable>
         Test Typography
-      </Typography>,
+      </Typography.Paragraph>,
     );
 
     expect(classNamesFn).toHaveBeenCalled();
@@ -29,15 +33,45 @@ describe('Typography.Semantic', () => {
     expect(rootElement).toHaveClass('custom-typography');
     expect(rootElement).toHaveStyle({ color: 'rgb(24, 144, 255)' });
 
+    const actionsElement = document.querySelector<HTMLElement>('.ant-typography-actions');
+    expect(actionsElement).toHaveClass('custom-actions');
+    expect(actionsElement).toHaveStyle({ backgroundColor: 'rgb(240, 240, 240)' });
+
+    const actionButton = document.querySelector<HTMLElement>('.ant-typography-actions button');
+    expect(actionButton).toHaveClass('custom-action');
+    expect(actionButton).toHaveStyle({ padding: '5px' });
+
     rerender(
-      <Typography classNames={classNamesFn} styles={stylesFn}>
+      <Typography.Paragraph
+        classNames={{
+          root: 'obj-root',
+          actions: 'obj-actions',
+          action: 'obj-action',
+        }}
+        styles={{
+          root: { fontSize: '16px', color: '#52c41a' },
+          actions: { margin: '10px' },
+          action: { borderRadius: '4px' },
+        }}
+        copyable
+      >
         Updated Typography
-      </Typography>,
+      </Typography.Paragraph>,
     );
 
     const updatedRootElement = document.querySelector<HTMLElement>('.ant-typography');
-    expect(updatedRootElement).toHaveClass('custom-typography');
-    expect(updatedRootElement).toHaveStyle({ color: 'rgb(24, 144, 255)' });
+    expect(updatedRootElement).toHaveClass('obj-root');
+    expect(updatedRootElement).toHaveStyle({ fontSize: '16px', color: 'rgb(82, 196, 26)' });
+
+    const updatedActionsElement = document.querySelector<HTMLElement>('.ant-typography-actions');
+    expect(updatedActionsElement).toHaveClass('obj-actions');
+    expect(updatedActionsElement).toHaveStyle({ margin: '10px' });
+
+    const updatedActionButton = document.querySelector<HTMLElement>(
+      '.ant-typography-actions button',
+    );
+    expect(updatedActionButton).toHaveClass('obj-action');
+    expect(updatedActionButton).toHaveStyle({ borderRadius: '4px' });
   });
 
   it('should merge context and component classNames and styles', () => {
@@ -84,24 +118,5 @@ describe('Typography.Semantic', () => {
       fontSize: componentStyles.root?.fontSize,
     });
     expect(actionsElement).toHaveStyle({ margin: contextStyles.actions?.margin });
-  });
-
-  it('should support semantic className and style on actions', () => {
-    render(
-      <Typography.Paragraph
-        classNames={{ actions: 'custom-actions' }}
-        styles={{ actions: { backgroundColor: '#f0f0f0' } }}
-        copyable
-      >
-        Test Typography with Action
-      </Typography.Paragraph>,
-    );
-
-    const rootElement = document.querySelector<HTMLElement>('.ant-typography');
-    expect(rootElement).toBeInTheDocument();
-
-    const actionsElement = document.querySelector<HTMLElement>('.ant-typography-actions');
-    expect(actionsElement).toHaveClass('custom-actions');
-    expect(actionsElement).toHaveStyle({ backgroundColor: 'rgb(240, 240, 240)' });
   });
 });
