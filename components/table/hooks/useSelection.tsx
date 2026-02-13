@@ -270,7 +270,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       return;
     }
 
-    const currentKeys = selectedKeysRef.current;
+    const currentKeys = mergedSelectedKeys;
     if (currentKeys.length === 0) {
       prevDataRef.current = data;
       return;
@@ -294,7 +294,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     }
 
     prevDataRef.current = data;
-  }, [data, getRecordByKey, onSelectionChange, preserveSelectedRowKeys, rowSelection, setMergedSelectedKeys]);
+  }, [data, getRecordByKey, mergedSelectedKeys, onSelectionChange, preserveSelectedRowKeys, rowSelection, selectedRowKeys, setMergedSelectedKeys]);
 
   const setSelectedKeys = useCallback(
     (keys: Key[], method: RowSelectMethod) => {

@@ -2114,7 +2114,7 @@ describe('Table.rowSelection', () => {
     expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
   });
 
-  it('should trigger onChange with empty array when selected rows are removed from dataSource', () => {
+  it('should trigger onChange with empty array when selected rows are removed from dataSource', async () => {
     const onChange = jest.fn();
     const initialData = [
       { key: 0, name: 'Jack' },
@@ -2150,12 +2150,15 @@ describe('Table.rowSelection', () => {
       );
     });
 
+    // Wait for useEffect to complete
+    await waitFakeTimer();
+
     // onChange should be called with empty array when all selected rows are removed
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(onChange).toHaveBeenLastCalledWith([], [], { type: 'cleanup' });
   });
 
-  it('should trigger onChange when some selected rows are removed from dataSource', () => {
+  it('should trigger onChange when some selected rows are removed from dataSource', async () => {
     const onChange = jest.fn();
     const initialData = [
       { key: 0, name: 'Jack' },
@@ -2193,6 +2196,9 @@ describe('Table.rowSelection', () => {
         />,
       );
     });
+
+    // Wait for useEffect to complete
+    await waitFakeTimer();
 
     // onChange should be called with remaining selected keys [1, 2] since key 0 was removed
     expect(onChange).toHaveBeenCalledTimes(1);
