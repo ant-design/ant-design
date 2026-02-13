@@ -21,7 +21,7 @@ export interface AppProps<P = AnyObject> extends AppConfig {
   component?: CustomComponent<P> | false;
 }
 
-const App: React.FC<AppProps> = (props) => {
+const App = React.forwardRef<HTMLElement, AppProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     children,
@@ -79,6 +79,12 @@ const App: React.FC<AppProps> = (props) => {
     'When using cssVar, ensure `component` is assigned a valid React component string.',
   );
 
+  devUseWarning('App')(
+    !ref || component !== false,
+    'usage',
+    '`ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
+  );
+
   // ============================ Render ============================
   const Component = component === false ? React.Fragment : component;
 
@@ -90,7 +96,7 @@ const App: React.FC<AppProps> = (props) => {
   return (
     <AppContext.Provider value={memoizedContextValue}>
       <AppConfigContext.Provider value={mergedAppConfig}>
-        <Component {...(component === false ? undefined : rootProps)}>
+        <Component {...(component === false ? undefined : { ...rootProps, ref })}>
           {ModalContextHolder}
           {messageContextHolder}
           {notificationContextHolder}
@@ -99,7 +105,7 @@ const App: React.FC<AppProps> = (props) => {
       </AppConfigContext.Provider>
     </AppContext.Provider>
   );
-};
+});
 
 if (process.env.NODE_ENV !== 'production') {
   App.displayName = 'App';
