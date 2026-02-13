@@ -77,18 +77,14 @@ export default function useIcons({
       );
     };
 
-    const mergedLoadingIcon = fallbackProp(
-      loadingIcon,
-      contextLoadingIcon,
-      <LoadingOutlined spin />,
-    );
-
     // Arrow item icon
     let mergedSuffixIcon = null;
     if (suffixIcon !== undefined) {
       mergedSuffixIcon = getSuffixIconNode(suffixIcon);
     } else if (loading) {
-      mergedSuffixIcon = getSuffixIconNode(mergedLoadingIcon);
+      mergedSuffixIcon = getSuffixIconNode(
+        fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin />),
+      );
     } else {
       mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
         if (open && showSearch) {
@@ -106,7 +102,6 @@ export default function useIcons({
 
     return {
       clearIcon: mergedClearIcon,
-      loadingIcon: mergedLoadingIcon,
       suffixIcon: mergedSuffixIcon,
       itemIcon: mergedItemIcon,
       removeIcon: mergedRemoveIcon,

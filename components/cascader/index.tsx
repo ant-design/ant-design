@@ -362,9 +362,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Icon ======================
-  const { expandIcon: mergedExpandIcon } = useIcons({
+  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
     contextExpandIcon,
+    contextLoadingIcon,
     expandIcon,
+    loadingIcon,
     isRtl,
   });
 
@@ -377,7 +379,6 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     suffixIcon: mergedSuffixIcon,
     removeIcon: mergedRemoveIcon,
     clearIcon: mergedClearIcon,
-    loadingIcon: mergedLoadingIcon,
   } = useSelectIcons({
     ...props,
     clearIcon,
