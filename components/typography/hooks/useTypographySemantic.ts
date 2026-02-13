@@ -1,15 +1,17 @@
 import { useMergeSemantic } from '../../_util/hooks';
 import type { DirectionType } from '../../config-provider';
 import { useComponentConfig } from '../../config-provider/context';
-import type { BaseTypographyProps, TypographyClassNamesType, TypographyStylesType } from '../Base';
+import type {
+  BaseTypographyProps,
+  TypographyClassNamesType,
+  TypographySemanticClassNames,
+  TypographySemanticStyles,
+  TypographyStylesType,
+} from '../Base';
 
 type UseTypographySemanticResult = [
-  mergedClassNames: ReturnType<
-    typeof useMergeSemantic<TypographyClassNamesType, TypographyStylesType, BaseTypographyProps>
-  >[0],
-  mergedStyles: ReturnType<
-    typeof useMergeSemantic<TypographyClassNamesType, TypographyStylesType, BaseTypographyProps>
-  >[1],
+  mergedClassNames: TypographySemanticClassNames,
+  mergedStyles: TypographySemanticStyles,
   prefixCls: string,
   direction: DirectionType | undefined,
   contextClassName: string | undefined,
