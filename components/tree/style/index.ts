@@ -280,6 +280,12 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
           .equal(),
       },
 
+      // >>> Checkbox
+      // https://github.com/ant-design/ant-design/issues/56957
+      [`${treeCls}-checkbox`]: {
+        flexShrink: 0,
+      },
+
       // >>> Switcher
       [`${treeCls}-switcher`]: {
         ...getSwitchStyle(prefixCls, token),

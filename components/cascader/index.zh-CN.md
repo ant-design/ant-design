@@ -114,6 +114,7 @@ demo:
 | sort | 用于排序 filter 后的选项 | function(a, b, inputValue) | - |  |
 | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
+| searchIcon | 自定义的搜索图标 | ReactNode | - | 6.3.0 |
 
 ### Option
 

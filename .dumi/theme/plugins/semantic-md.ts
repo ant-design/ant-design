@@ -19,8 +19,8 @@ function extractSemantics(objContent: string): Record<string, string> {
 }
 
 /**
- * 从 _semantic*.tsx 文件中提取语义信息
- * @param semanticFile - _semantic*.tsx 文件的绝对路径
+ * 从 _semantic*.tsx 文件内容中提取语义信息
+ * @param content - _semantic*.tsx 文件的文件内容字符串
  * @returns 包含中文和英文语义描述的对象，失败返回 null
  */
 function extractLocaleInfoFromContent(content: string): {

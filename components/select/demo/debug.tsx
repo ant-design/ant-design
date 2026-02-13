@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Input, Select, Space } from 'antd';
+import { Button, Flex, Input, Select, Space } from 'antd';
 
 const style: React.CSSProperties = {
   width: 500,
@@ -14,7 +14,7 @@ const handleChange = (value: string | string[]) => {
 };
 
 const App: React.FC = () => (
-  <>
+  <Flex vertical gap="middle">
     <Space style={style} wrap>
       <Input style={{ width: 100 }} value="222" />
       <Select
@@ -48,7 +48,7 @@ const App: React.FC = () => (
       <span className="debug-align">AntDesign</span>
       <Button>222</Button>
     </Space>
-    <div style={{ width: 200, marginTop: 24 }}>
+    <div style={{ width: 200 }}>
       {/* https://github.com/ant-design/ant-design/issues/54179 */}
       <Select
         mode="multiple"
@@ -62,7 +62,9 @@ const App: React.FC = () => (
         ]}
       />
     </div>
-  </>
+
+    <Select defaultValue="" />
+  </Flex>
 );
 
 export default App;
