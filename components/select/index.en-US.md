@@ -35,6 +35,7 @@ demo:
 <code src="./demo/select-users.tsx">Search and Select Users</code>
 <code src="./demo/suffix.tsx" version="5.22.0">Prefix and Suffix</code>
 <code src="./demo/custom-dropdown-menu.tsx">Custom dropdown</code>
+<code src="./demo/popup-render-nested.tsx">Popup render nested</code>
 <code src="./demo/hide-selected.tsx">Hide Already Selected</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>
