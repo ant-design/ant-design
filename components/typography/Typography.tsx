@@ -3,7 +3,11 @@ import type { JSX } from 'react';
 import { clsx } from 'clsx';
 
 import type { DirectionType } from '../config-provider';
-import type { BaseTypographyProps } from './Base';
+import type {
+  BaseTypographyProps,
+  TypographySemanticClassNames,
+  TypographySemanticStyles,
+} from './Base';
 import { useTypographySemantic } from './hooks/useTypographySemantic';
 import useStyle from './style';
 
@@ -19,8 +23,8 @@ interface InternalProps {
   children?: React.ReactNode;
   component?: keyof JSX.IntrinsicElements;
   direction?: DirectionType;
-  mergedClassNames?: any;
-  mergedStyles?: any;
+  mergedClassNames?: TypographySemanticClassNames;
+  mergedStyles?: TypographySemanticStyles;
   prefixCls?: string;
   contextClassName?: string;
   contextStyle?: React.CSSProperties;

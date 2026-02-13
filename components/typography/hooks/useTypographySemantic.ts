@@ -1,6 +1,6 @@
+import { useMergeSemantic } from '../../_util/hooks';
 import type { DirectionType } from '../../config-provider';
 import { useComponentConfig } from '../../config-provider/context';
-import { useMergeSemantic } from '../../_util/hooks';
 import type { BaseTypographyProps, TypographyClassNamesType, TypographyStylesType } from '../Base';
 
 interface UseTypographySemanticResult {
@@ -21,7 +21,7 @@ export const useTypographySemantic = (
   classNames?: TypographyClassNamesType | undefined,
   styles?: TypographyStylesType | undefined,
   typographyDirection?: DirectionType,
-  props?: any,
+  props?: BaseTypographyProps,
 ): UseTypographySemanticResult => {
   const {
     getPrefixCls,
