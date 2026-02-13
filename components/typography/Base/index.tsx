@@ -8,13 +8,10 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../../_util/hooks';
 import type { SemanticType } from '../../_util/hooks';
 import isNonNullable from '../../_util/isNonNullable';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
-import { ConfigContext } from '../../config-provider';
-import { useComponentConfig } from '../../config-provider/context';
 import useLocale from '../../locale/useLocale';
 import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
@@ -23,6 +20,7 @@ import useCopyClick from '../hooks/useCopyClick';
 import useMergedConfig from '../hooks/useMergedConfig';
 import usePrevious from '../hooks/usePrevious';
 import useTooltipProps from '../hooks/useTooltipProps';
+import { useTypographySemantic } from '../hooks/useTypographySemantic';
 import type { TypographyProps } from '../Typography';
 import Typography from '../Typography';
 import CopyBtn from './CopyBtn';
@@ -166,6 +164,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     style,
     classNames,
     styles,
+    direction: typographyDirection,
     type,
     disabled,
     children,
@@ -178,30 +177,20 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     onMouseLeave,
     ...restProps
   } = props;
-  const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const [textLocale] = useLocale('Text');
-
-  const { classNames: contextClassNames, styles: contextStyles } = useComponentConfig('typography');
 
   const typographyRef = React.useRef<HTMLElement>(null);
   const editIconRef = React.useRef<HTMLButtonElement>(null);
 
-  // ============================ MISC ============================
-  const prefixCls = getPrefixCls('typography', customizePrefixCls);
+  const { mergedClassNames, mergedStyles, prefixCls, direction } = useTypographySemantic(
+    customizePrefixCls,
+    classNames,
+    styles,
+    typographyDirection,
+    props,
+  );
 
   const textProps = omit(restProps, DECORATION_PROPS);
-
-  // ============================ Semantic ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TypographyClassNamesType,
-    TypographyStylesType,
-    Partial<BlockProps>
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: {
-      ...props,
-      prefixCls,
-    },
-  });
 
   // ========================== Editable ==========================
   const [enableEdit, editConfig] = useMergedConfig<EditConfig>(editable);
