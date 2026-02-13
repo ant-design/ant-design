@@ -3,7 +3,11 @@ import * as React from 'react';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from '@rc-component/select';
 import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import type { OptionProps } from '@rc-component/select/lib/Option';
-import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
+import type {
+  BaseOptionType,
+  DefaultOptionType,
+  SearchConfig,
+} from '@rc-component/select/lib/Select';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -69,6 +73,8 @@ export interface InternalSelectProps<
   variant?: Variant;
   classNames?: SelectSemanticClassNames & { popup?: SelectPopupSemanticClassNames };
   styles?: SelectSemanticStyles & { popup?: SelectPopupSemanticStyles };
+  loadingIcon?: React.ReactNode;
+  showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
 }
 
 export type SelectSemanticName = keyof SelectSemanticClassNames & keyof SelectSemanticStyles;
@@ -220,11 +226,16 @@ const InternalSelect = <
   } = React.useContext(ConfigContext);
 
   const {
-    showSearch,
+    showSearch: contextShowSearch,
     style: contextStyle,
     styles: contextStyles,
     className: contextClassName,
     classNames: contextClassNames,
+    allowClear: contextAllowClear,
+    clearIcon: contextClearIcon,
+    loadingIcon: contextLoadingIcon,
+    menuItemSelectedIcon: contextMenuItemSelectedIcon,
+    removeIcon: contextRemoveIcon,
     suffixIcon: contextSuffixIcon,
   } = useComponentConfig('select');
 
@@ -290,16 +301,26 @@ const InternalSelect = <
   // ===================== Icons =====================
   const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
     ...rest,
-    suffixIcon: rest.suffixIcon === undefined ? contextSuffixIcon : rest.suffixIcon,
     multiple: isMultiple,
     hasFeedback,
     feedbackIcon,
     showSuffixIcon,
     prefixCls,
     componentName: 'Select',
+    clearIcon: typeof allowClear === 'object' ? allowClear.clearIcon : rest.clearIcon,
+    searchIcon: typeof rest.showSearch === 'object' ? rest.showSearch.searchIcon : undefined,
+    contextClearIcon:
+      typeof contextAllowClear === 'object' ? contextAllowClear.clearIcon : contextClearIcon,
+    contextLoadingIcon,
+    contextMenuItemSelectedIcon,
+    contextRemoveIcon,
+    contextSearchIcon:
+      typeof contextShowSearch === 'object' ? contextShowSearch.searchIcon : undefined,
+    contextSuffixIcon,
   });
 
-  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
+  const resolvedAllowClear = allowClear ?? contextAllowClear;
+  const mergedAllowClear = resolvedAllowClear === true ? { clearIcon } : resolvedAllowClear;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
@@ -424,7 +445,7 @@ const InternalSelect = <
       virtual={virtual}
       classNames={mergedClassNames}
       styles={mergedStyles}
-      showSearch={showSearch}
+      showSearch={contextShowSearch}
       {...selectProps}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}

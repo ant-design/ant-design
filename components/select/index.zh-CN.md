@@ -81,11 +81,12 @@ demo:
 | labelInValue | 是否把每个选项的 label 包装到 value 中，会把 Select 的 value 类型从 `string` 变为 { value: string, label: ReactNode } 的格式 | boolean | false |  |
 | listHeight | 设置弹窗滚动高度 | number | 256 |  |
 | loading | 加载中状态 | boolean | false |  |
+| loadingIcon | 自定义的加载图标 | ReactNode | `<LoadingOutlined spin />` | 6.4.0 |
 | maxCount | 指定可选中的最多 items 数量，仅在 `mode` 为 `multiple` 或 `tags` 时生效 | number | - | 5.13.0 |
 | maxTagCount | 最多显示多少个 tag，响应式模式会对性能产生损耗 | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | 隐藏 tag 时显示的内容 | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | 最大显示的 tag 文本长度 | number | - |  |
-| menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | - |  |
+| menuItemSelectedIcon | 自定义多选时当前选中的条目图标 | ReactNode | `<CheckOutlined />` |  |
 | mode | 设置 Select 的模式为多选或标签 | `multiple` \| `tags` | - |  |
 | notFoundContent | 当下拉列表为空时显示的内容 | ReactNode | `Not Found` |  |
 | open | 是否展开下拉菜单 | boolean | - |  |
@@ -96,7 +97,7 @@ demo:
 | placeholder | 选择框默认文本 | string | - |  |
 | placement | 选择框弹出的位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
-| removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
+| removeIcon | 自定义的多选框清除图标 | ReactNode | `<CloseOutlined />` |  |
 | ~~searchValue~~ | 控制搜索文本 | string | - |  |
 | showSearch | 配置是否可搜索 | boolean \| [Object](#showsearch) | 单选为 false，多选为 true |  |
 | size | 选择框大小 | `large` \| `middle` \| `small` | `middle` |  |
@@ -134,6 +135,7 @@ demo:
 | optionFilterProp | 搜索时过滤对应的 `option` 属性，如设置为 `children` 表示对内嵌内容进行搜索。<br/> 若通过 `options` 属性配置选项内容，建议设置 `optionFilterProp="label"` 来对内容进行搜索。<br/> 当传入 `string[]` 时多个字段进行 OR 匹配搜索 | string \| string[] | `value` | `string[]`: 6.1.0 |
 | searchValue | 控制搜索文本 | string | - |  |
 | onSearch | 文本框值变化时回调 | function(value: string) | - |  |
+| searchIcon | 自定义的搜索图标 | ReactNode | `<SearchOutlined />` | 6.4.0 |
 
 ### Select Methods
 

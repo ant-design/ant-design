@@ -38,9 +38,9 @@ import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
+import useIcons from './hooks/useIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
-import useIcons from './hooks/useIcons';
 
 // Align the design since we use `@rc-component/select` in root. This help:
 // - List search content will show all content
@@ -362,11 +362,9 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
   const mergedDisabled = customDisabled ?? disabled;
 
   // ===================== Icon ======================
-  const { expandIcon: mergedExpandIcon, loadingIcon: mergedLoadingIcon } = useIcons({
+  const { expandIcon: mergedExpandIcon } = useIcons({
     contextExpandIcon,
-    contextLoadingIcon,
     expandIcon,
-    loadingIcon,
     isRtl,
   });
 
@@ -379,13 +377,15 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     suffixIcon: mergedSuffixIcon,
     removeIcon: mergedRemoveIcon,
     clearIcon: mergedClearIcon,
+    loadingIcon: mergedLoadingIcon,
   } = useSelectIcons({
     ...props,
     clearIcon,
     contextClearIcon,
     removeIcon,
     contextRemoveIcon,
-    loadingIcon: mergedLoadingIcon,
+    loadingIcon,
+    contextLoadingIcon,
     suffixIcon,
     contextSuffixIcon,
     searchIcon: typeof showSearch === 'object' && showSearch ? showSearch.searchIcon : undefined,
