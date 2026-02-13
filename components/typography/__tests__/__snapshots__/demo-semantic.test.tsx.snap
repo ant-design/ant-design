@@ -12,7 +12,7 @@ exports[`renders components/typography/demo/_semantic.tsx correctly 1`] = `
     >
       <div
         aria-label="Ant Design is a design language for background applications, refined by Ant UED Team. It aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development."
-        class="ant-typography ant-typography-ellipsis css-var-test-id semantic-mark-root"
+        class="ant-typography css-var-test-id ant-typography-ellipsis semantic-mark-root"
         style=""
       >
         Ant Design is a design language for background applications, refined by Ant UED Team. It aims to uniform the user interface specs for internal background projects, lower the unnecessary cost of design differences and implementation and liberate the resources of design and front-end development.

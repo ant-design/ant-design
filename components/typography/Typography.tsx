@@ -26,7 +26,7 @@ interface InternalProps {
   direction?: DirectionType;
   classNames?: TypographySemanticClassNames;
   styles?: TypographySemanticStyles;
-  prefixCls?: string;
+  prefixCls: string;
 }
 
 const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, ref) => {
@@ -43,8 +43,12 @@ const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, 
     ...restProps
   } = props;
 
+  const [hashId, cssVarCls] = useStyle(prefixCls);
+
   const componentClassName = clsx(
     prefixCls,
+    hashId,
+    cssVarCls,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
@@ -92,13 +96,11 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps<keyof JSX.Intri
       props,
     );
 
-    const [hashId, cssVarCls] = useStyle(prefixCls);
-
     return (
       <InternalTypography
         ref={ref}
         component="article"
-        className={clsx(className, rootClassName, hashId, cssVarCls)}
+        className={clsx(className, rootClassName)}
         direction={direction}
         style={style}
         classNames={mergedClassNames}
