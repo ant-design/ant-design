@@ -2387,7 +2387,7 @@ exports[`renders components/select/demo/debug.tsx extend context correctly 1`] =
         </div>
       </div>
     </div>
-  </div>,
+  </div>
   <div
     style="width: 200px;"
   >
