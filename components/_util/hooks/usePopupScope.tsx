@@ -132,9 +132,9 @@ export const usePopupScope = <T extends [React.ReactElement, ...unknown[]]>(
     // No custom popup: pass through and skip scope logic
     return {
       popupRender: undefined,
-      getPopupContainer: getPopupContainer ?? undefined,
-      open: propsOpen ?? undefined,
-      onPopupVisibleChange: onOpenChange ?? undefined,
+      getPopupContainer,
+      open: propsOpen,
+      onPopupVisibleChange: onOpenChange
     };
   }
 
