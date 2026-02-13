@@ -23,11 +23,9 @@ interface InternalProps {
   children?: React.ReactNode;
   component?: keyof JSX.IntrinsicElements;
   direction?: DirectionType;
-  mergedClassNames?: TypographySemanticClassNames;
-  mergedStyles?: TypographySemanticStyles;
+  classNames?: TypographySemanticClassNames;
+  styles?: TypographySemanticStyles;
   prefixCls?: string;
-  contextClassName?: string;
-  contextStyle?: React.CSSProperties;
   hashId?: string;
   cssVarCls?: string;
 }
@@ -40,11 +38,9 @@ const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, 
     children,
     direction,
     style,
-    mergedClassNames,
-    mergedStyles,
+    classNames,
+    styles,
     prefixCls,
-    contextClassName,
-    contextStyle,
     hashId,
     cssVarCls,
     ...restProps
@@ -52,20 +48,18 @@ const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, 
 
   const componentClassName = clsx(
     prefixCls,
-    contextClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
     rootClassName,
-    mergedClassNames?.root,
+    classNames?.root,
     hashId,
     cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = {
-    ...contextStyle,
-    ...mergedStyles?.root,
+    ...styles?.root,
     ...style,
   };
 
@@ -104,15 +98,13 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps<keyof JSX.Intri
       <InternalTypography
         ref={ref}
         component="article"
-        className={className}
+        className={clsx(className, contextClassName)}
         rootClassName={rootClassName}
         direction={direction}
-        style={style}
-        mergedClassNames={mergedClassNames}
-        mergedStyles={mergedStyles}
+        style={{ ...style, ...contextStyle }}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
         prefixCls={prefixCls}
-        contextClassName={contextClassName}
-        contextStyle={contextStyle}
         hashId={hashId}
         cssVarCls={cssVarCls}
         {...restProps}
