@@ -47,6 +47,19 @@ const App: React.FC = () => (
       />
       <span className="debug-align">AntDesign</span>
       <Button>222</Button>
+      {/* https://github.com/ant-design/ant-design/issues/56960 */}
+      <Select
+        style={{ width: 120 }}
+        defaultValue=" "
+        placeholder="Please select"
+        options={[
+          { value: 'jack', label: 'Jack' },
+          { value: 'lucy', label: 'Lucy' },
+          { value: 'disabled', disabled: true, label: 'Disabled' },
+          { value: 'Yiminghe', label: 'yiminghe' },
+          { value: 'long', label: 'I am super super long!' },
+        ]}
+      />
     </Space>
     <div style={{ width: 200, marginTop: 24 }}>
       {/* https://github.com/ant-design/ant-design/issues/54179 */}
