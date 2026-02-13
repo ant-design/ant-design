@@ -13,6 +13,7 @@ import useStyle from './style';
 
 export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   extends BaseTypographyProps {
+  /** @internal */
   component?: C;
 }
 
@@ -26,8 +27,6 @@ interface InternalProps {
   classNames?: TypographySemanticClassNames;
   styles?: TypographySemanticStyles;
   prefixCls?: string;
-  hashId?: string;
-  cssVarCls?: string;
 }
 
 const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, ref) => {
@@ -41,8 +40,6 @@ const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, 
     classNames,
     styles,
     prefixCls,
-    hashId,
-    cssVarCls,
     ...restProps
   } = props;
 
@@ -54,8 +51,6 @@ const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, 
     className,
     rootClassName,
     classNames?.root,
-    hashId,
-    cssVarCls,
   );
 
   const mergedStyle: React.CSSProperties = {
@@ -98,15 +93,12 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps<keyof JSX.Intri
       <InternalTypography
         ref={ref}
         component="article"
-        className={clsx(className, contextClassName)}
-        rootClassName={rootClassName}
+        className={clsx(className, rootClassName, contextClassName, hashId, cssVarCls)}
         direction={direction}
         style={{ ...style, ...contextStyle }}
         classNames={mergedClassNames}
         styles={mergedStyles}
         prefixCls={prefixCls}
-        hashId={hashId}
-        cssVarCls={cssVarCls}
         {...restProps}
       >
         {children}
