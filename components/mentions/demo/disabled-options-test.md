@@ -1,6 +1,7 @@
 ---
 order: 999
 debug: true
+# order: 999 places this demo at the end since it's for testing/debugging
 title:
   zh-CN: 禁用选项测试
   en-US: Disabled Options Test

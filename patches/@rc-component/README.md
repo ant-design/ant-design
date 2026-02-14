@@ -17,15 +17,19 @@ This directory contains patches for third-party dependencies that are needed to 
 **Status:** 
 - ⚠️ Patch is currently applied manually to `node_modules/@rc-component/mentions`
 - These changes will be lost when running `npm install` or `npm ci`
-- **TODO:** Set up automated patch application (e.g., using `patch-package` or postinstall script)
-- **TODO:** Submit these changes upstream to the `@rc-component/mentions` repository
+- **Cannot use `patch-package`** because the project doesn't have a package-lock.json file
+- **TODO:** Developers must manually reapply patches after installing dependencies
+- **TODO:** Submit these changes upstream to the `@rc-component/mentions` repository (see UPSTREAM_ISSUE.md)
+- **Alternative:** Wait for upstream fix and update @rc-component/mentions version
 
 **Files Modified:**
-- `node_modules/@rc-component/mentions/es/Mentions.js` (ES Module)
-- `node_modules/@rc-component/mentions/lib/Mentions.js` (CommonJS)
+- `node_modules/@rc-component/mentions/es/Mentions.js` (ES Module) - not in git
+- `node_modules/@rc-component/mentions/lib/Mentions.js` (CommonJS) - not in git
 
 **How to Apply:**
-After running `npm install`, manually apply the changes documented in `mentions-disabled-options.patch`, or wait for an automated solution to be implemented.
+After running `npm install`, manually apply the changes documented in `mentions-disabled-options.patch`. The changes are detailed with line numbers and code snippets.
+
+**Note:** Since node_modules is in .gitignore (as it should be), these patches are NOT tracked in git. They exist only for documentation purposes and to guide manual application or upstream contribution.
 
 ## Future Improvements
 
