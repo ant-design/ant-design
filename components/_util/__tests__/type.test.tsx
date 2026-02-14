@@ -99,5 +99,12 @@ describe('type', () => {
       const bamboo: BambooType = 123;
       expect(bamboo).toBeTruthy();
     });
+    it('default and return', () => {
+      interface Props {
+        classNames?: { root?: string } | ((props: any) => { root?: string });
+      }
+      const result: GetProp<Props, 'classNames', 'Return'> = { root: '123' };
+      expect(result).toBeTruthy();
+    });
   });
 });
