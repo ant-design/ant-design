@@ -35,7 +35,6 @@ demo:
 <code src="./demo/width.tsx">自定义模态的宽度</code>
 <code src="./demo/static-info.tsx">静态方法</code>
 <code src="./demo/confirm.tsx">静态确认对话框</code>
-<code src="./demo/classNames.tsx">自定义内部模块 className</code>
 <code src="./demo/confirm-router.tsx">销毁确认对话框</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/nested.tsx" debug>嵌套弹框</code>
@@ -66,7 +65,7 @@ demo:
 | focusable | 对话框内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | 指定 Modal 挂载的节点，但依旧为全屏展示，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
+| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 |
 | maskClosable | 点击蒙层是否允许关闭 | boolean | true |  |
 | modalRender | 自定义渲染对话框 | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
@@ -118,8 +117,8 @@ demo:
 | getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 遮罩效果 | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
-| maskClosable | 点击蒙层是否允许关闭 | boolean | false |  |
+| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean, closable?: true}` | true |  |
+| ~~maskClosable~~ | 点击蒙层是否允许关闭 | boolean | false |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |
 | okType | 确认按钮类型 | string | `primary` |  |

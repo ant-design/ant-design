@@ -15,6 +15,72 @@ tag: vVERSION
 
 ---
 
+## 6.3.0
+
+`2026-02-10`
+
+- ConfigProvider
+  - 🆕 ConfigProvider 支持 Modal 和 Drawer 的 `maskClosable` 全局配置。[#56739](https://github.com/ant-design/ant-design/pull/56739) [@luozz1994](https://github.com/luozz1994)
+  - 🆕 ConfigProvider 支持 DatePicker 和 TimePicker 的 `suffixIcon` 全局配置。[#56709](https://github.com/ant-design/ant-design/pull/56709) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 Cascader 的 `expandIcon` 和 `loadingIcon` 全局配置。[#56482](https://github.com/ant-design/ant-design/pull/56482) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 Table 的 `scroll` 全局配置。[#56628](https://github.com/ant-design/ant-design/pull/56628) [@Clayton](https://github.com/Clayton)
+  - 🆕 ConfigProvider 支持配置 App 的 `className` 与 `style`，以及 ColorPicker 的 `arrow` 属性。[#56573](https://github.com/ant-design/ant-design/pull/56573) [@zombieJ](https://github.com/zombieJ)
+  - 🆕 ConfigProvider 支持 Button 的 `loadingIcon` 全局配置。[#56439](https://github.com/ant-design/ant-design/pull/56439) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 `rangePicker.separator` 全局配置。[#56499](https://github.com/ant-design/ant-design/pull/56499) [@guoyunhe](https://github.com/guoyunhe)
+  - 🆕 ConfigProvider 支持 Form 的 `tooltipIcon` 和 `tooltipProps` 全局配置。[#56372](https://github.com/ant-design/ant-design/pull/56372) [@guoyunhe](https://github.com/guoyunhe)
+- Upload
+  - 🆕 Upload 新增 `classNames.trigger` 和 `styles.trigger` 属性。[#56578](https://github.com/ant-design/ant-design/pull/56578) [@QdabuliuQ](https://github.com/QdabuliuQ)
+  - 🆕 Upload.Dragger 支持 `onDoubleClick` 事件。[#56579](https://github.com/ant-design/ant-design/pull/56579) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 Upload 修复 `picture-card` / `picture-circle` 父节点缺少默认高度的问题。[#56864](https://github.com/ant-design/ant-design/pull/56864) [@wanpan11](https://github.com/wanpan11)
+- 🆕 Grid 新增 `xxxl`（1920px）断点以适应 FHD 屏幕。[#56825](https://github.com/ant-design/ant-design/pull/56825) [@guoyunhe](https://github.com/guoyunhe)
+- 🆕 Switch 语义化结构支持 `indicator` 定制。[#56710](https://github.com/ant-design/ant-design/pull/56710) [@zombieJ](https://github.com/zombieJ)
+- Button
+  - 🐞 Button 修复暗色主题下 `color` 的 `hover` 与 `active` 状态颜色相反的问题。[#56872](https://github.com/ant-design/ant-design/pull/56872) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 Button 修复边框尺寸未跟随 Design Token `lineWidth` 的问题。[#56683](https://github.com/ant-design/ant-design/pull/56683) [@zombieJ](https://github.com/zombieJ)
+- Select
+  - 💄 Select 移除单选模式下额外的 `-content-value` div DOM，优化语义化结构并支持通过 `classNames` 与 `styles` 覆盖。[#56811](https://github.com/ant-design/ant-design/pull/56811) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 Select 修复 `notFoundContent` 不生效的问题。[#56756](https://github.com/ant-design/ant-design/pull/56756) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- Radio
+  - 🐞 Radio.Group 修复垂直排列时单选项出现多余右边距的问题。[#56909](https://github.com/ant-design/ant-design/pull/56909) [@jany55555](https://github.com/jany55555)
+  - 💄 Radio 移除 `icon` 子元素 `-inner` DOM 节点以更好适配语义化结构。[#56783](https://github.com/ant-design/ant-design/pull/56783) [@zombieJ](https://github.com/zombieJ)
+- 💄 Modal & Drawer 默认关闭蒙层 blur 效果。[#56781](https://github.com/ant-design/ant-design/pull/56781) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Tooltip & Popover 修复弹出层动画起始位置偏左的问题。[#56887](https://github.com/ant-design/ant-design/pull/56887) [@zombieJ](https://github.com/zombieJ)
+- 🐞 List 修复废弃组件配置的颜色相关 token 不生效的问题。[#56913](https://github.com/ant-design/ant-design/pull/56913) [@zombieJ](https://github.com/zombieJ)
+- 🛠 Spin 重构 DOM 结构以对齐不同场景，并支持全量语义化结构（Semantic Structure）。[#56852](https://github.com/ant-design/ant-design/pull/56852) [@zombieJ](https://github.com/zombieJ)
+- ⌨️ ♿ Icon 为搜索图标 SVG 添加无障碍名称，改善屏幕阅读器支持。[#56521](https://github.com/ant-design/ant-design/pull/56521) [@huangkevin-apr](https://github.com/huangkevin-apr)
+- 🐞 Cascader 修复搜索模式下选择选项并关闭时，过滤列表立即还原影响体验的问题。[#56764](https://github.com/ant-design/ant-design/pull/56764) [@zombieJ](https://github.com/zombieJ)
+- ⌨️ ♿ Tree 优化无障碍支持。[#56716](https://github.com/ant-design/ant-design/pull/56716) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 ColorPicker 选择块支持语义化结构，并修复 `root` 语义化错误应用到弹出元素的问题。[#56607](https://github.com/ant-design/ant-design/pull/56607) [@zombieJ](https://github.com/zombieJ)
+- 💄 Avatar 将 `size` 默认值从 `default` 改为 `medium` 以保持一致性。[#56440](https://github.com/ant-design/ant-design/pull/56440) [@guoyunhe](https://github.com/guoyunhe)
+- 💄 Checkbox 移除 `icon` 子元素 `-inner` DOM 节点以更好适配语义化结构。[#56783](https://github.com/ant-design/ant-design/pull/56783) [@zombieJ](https://github.com/zombieJ)
+- MISC
+  - 🐞 MISC: 修复 UMD 版本中 React Compiler 兼容性问题，现已默认关闭。[#56830](https://github.com/ant-design/ant-design/pull/56830) [@zombieJ](https://github.com/zombieJ)
+  - 🛠 精简 `styles` 和 `classNames` 类型定义，使其更规范。[#56758](https://github.com/ant-design/ant-design/pull/56758) [@crazyair](https://github.com/crazyair)
+
+## 6.2.3
+
+`2026-02-02`
+
+- Button
+  - 🐞 修复 Button `defaultBg`、`defaultColor`、`defaultHoverColor` 和 `defaultActiveColor` token 不生效的问题。[#56238](https://github.com/ant-design/ant-design/pull/56238) [@ug-hero](https://github.com/ug-hero)
+  - 🐞 修复 Button 默认 token 不生效的问题。[#56719](https://github.com/ant-design/ant-design/pull/56719) [@unknowntocka](https://github.com/unknowntocka)
+  - 🐞 修复 Button `variant="solid"` 在 Space.Compact 中边框显示异常的问题。[#56486](https://github.com/ant-design/ant-design/pull/56486) [@Pareder](https://github.com/Pareder)
+- 🐞 修复 Input.TextArea ref 缺少 `nativeElement` 属性的问题。[#56803](https://github.com/ant-design/ant-design/pull/56803) [@smith3816](https://github.com/smith3816)
+- 🐞 修复 Flex 使用 `orientation` 时默认 `align` 不生效的问题。[#55950](https://github.com/ant-design/ant-design/pull/55950) [@YingtaoMo](https://github.com/YingtaoMo)
+- 🐞 修复 Typography 链接选择器特异性过低导致样式被覆盖的问题。[#56759](https://github.com/ant-design/ant-design/pull/56759) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 ColorPicker HEX 输入框可以输入无效字符的问题。[#56752](https://github.com/ant-design/ant-design/pull/56752) [@treephesians](https://github.com/treephesians)
+
+## 6.2.2
+
+`2026-01-26`
+
+- 🐞 修复被 Typography 包裹的带 href 的 Button 显示错误颜色和 hover 时 outline 闪烁的问题。[#56619](https://github.com/ant-design/ant-design/pull/56619) [@QdabuliuQ](https://github.com/QdabuliuQ)
+- 🐞 修复 Button `type="text"` 时组件 Token 不生效的问题。[#56291](https://github.com/ant-design/ant-design/pull/56291) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Popover 内组件被 Form.Item 状态关联影响的问题。[#56728](https://github.com/ant-design/ant-design/pull/56728)
+- 🐞 修复 Select 多选时占位符显示异常的问题。[#56675](https://github.com/ant-design/ant-design/pull/56675)
+- 💄 修复 Pagination 全局 `fontSize` 变大时各元素上下错位的问题。[#56715](https://github.com/ant-design/ant-design/pull/56715) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Drawer 在 rtl 模式下 dragger 位置错误的样式问题。[#56693](https://github.com/ant-design/ant-design/pull/56693) [@QdabuliuQ](https://github.com/QdabuliuQ)
+
 ## 6.2.1
 
 `2026-01-20`

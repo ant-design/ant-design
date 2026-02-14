@@ -997,6 +997,21 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledTimes(2);
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });
+
+    it('should apply transition when motion is true', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ collapsible: true }, { collapsible: true }]}
+          collapsible={{
+            motion: true,
+          }}
+        />,
+      );
+
+      expect(container.querySelector('.ant-splitter-panel')).toHaveClass(
+        'ant-splitter-panel-transition',
+      );
+    });
   });
 
   it('auto resize', async () => {

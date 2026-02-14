@@ -140,15 +140,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -514,15 +509,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -893,15 +883,10 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -1264,15 +1249,10 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -1644,15 +1624,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -1996,15 +1971,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -2310,15 +2280,10 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -2696,15 +2661,10 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HSB"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HSB"
-                        >
-                          HSB
-                        </div>
+                        HSB
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -3288,15 +3248,10 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="RGB"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="RGB"
-                        >
-                          RGB
-                        </div>
+                        RGB
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -3822,7 +3777,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-segmented-item"
                     >
                       <input
-                        checked=""
                         class="ant-segmented-item-input"
                         name="test-id"
                         type="radio"
@@ -3838,6 +3792,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-segmented-item ant-segmented-item-selected"
                     >
                       <input
+                        checked=""
                         class="ant-segmented-item-input"
                         name="test-id"
                         type="radio"
@@ -3980,15 +3935,10 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -4405,15 +4355,10 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -4806,15 +4751,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
-                          class="ant-select-content"
+                          class="ant-select-content ant-select-content-has-value"
+                          title="HEX"
                         >
-                          <div
-                            class="ant-select-content-value"
-                            style="visibility: visible;"
-                            title="HEX"
-                          >
-                            HEX
-                          </div>
+                          HEX
                           <input
                             aria-autocomplete="list"
                             aria-expanded="false"
@@ -5763,15 +5703,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
-                          class="ant-select-content"
+                          class="ant-select-content ant-select-content-has-value"
+                          title="HEX"
                         >
-                          <div
-                            class="ant-select-content-value"
-                            style="visibility: visible;"
-                            title="HEX"
-                          >
-                            HEX
-                          </div>
+                          HEX
                           <input
                             aria-autocomplete="list"
                             aria-expanded="false"
@@ -6141,15 +6076,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -6944,15 +6874,10 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -7330,15 +7255,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -7701,15 +7621,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -8072,15 +7987,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -8456,15 +8366,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -8832,15 +8737,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -9208,15 +9108,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -9586,15 +9481,10 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="HEX"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: visible;"
-                        title="HEX"
-                      >
-                        HEX
-                      </div>
+                      HEX
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -9953,15 +9843,10 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="HEX"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: visible;"
-                        title="HEX"
-                      >
-                        HEX
-                      </div>
+                      HEX
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -10346,15 +10231,10 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -10724,15 +10604,10 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -11119,15 +10994,10 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -11491,15 +11361,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -11865,15 +11730,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"

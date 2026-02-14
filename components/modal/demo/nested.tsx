@@ -39,7 +39,7 @@ const Demo: React.FC = () => {
         footer={null}
         destroyOnHidden
         onCancel={() => setIsModalOpen(false)}
-        maskClosable={false}
+        mask={{ closable: false }}
         closable={false}
         styles={{
           container: {

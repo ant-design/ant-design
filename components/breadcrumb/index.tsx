@@ -11,7 +11,9 @@ export type {
 export type { BreadcrumbItemProps, SeparatorType } from './BreadcrumbItem';
 
 type CompoundedComponent = typeof InternalBreadcrumb & {
+  /** @deprecated Please use `items` instead. */
   Item: typeof BreadcrumbItem;
+  /** @deprecated Please use `separator` instead. */
   Separator: typeof BreadcrumbSeparator;
 };
 

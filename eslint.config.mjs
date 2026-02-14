@@ -63,9 +63,17 @@ export default antfu(
       'react-hooks/preserve-manual-memoization': 'off',
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
+      'react/no-implicit-key': 'off',
+      'react-naming-convention/ref-name': 'off',
     },
   },
-  compat.configs['flat/recommended'],
+  {
+    ...compat.configs['flat/recommended'],
+    rules: {
+      ...compat.configs['flat/recommended'].rules,
+      'compat/compat': 'off', // Disabled due to incompatibility with ESLint 10.0.0
+    },
+  },
   jest.configs['flat/recommended'],
   {
     ...jsxA11y.flatConfigs.recommended,
@@ -85,6 +93,7 @@ export default antfu(
       'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
+      'react/no-nested-component-definitions': 'off',
       'react/no-nested-components': 'off',
       'react/no-useless-fragment': 'off',
       'no-console': 'off',

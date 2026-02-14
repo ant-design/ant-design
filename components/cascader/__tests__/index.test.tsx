@@ -207,15 +207,33 @@ describe('Cascader', () => {
     expect(getDropdown(container)).toMatchSnapshot();
   });
 
+  it('should render custom notFoundContent when search returns no results', () => {
+    const { container } = render(
+      <Cascader
+        options={options}
+        placeholder="Please select"
+        showSearch={{ filter }}
+        notFoundContent="no data"
+        optionRender={(option) => option?.label}
+      />,
+    );
+    fireEvent.change(container.querySelector('input')!, {
+      target: { value: '__notfoundkeyword__' },
+    });
+    const dropdown = getDropdown(container);
+    expect(dropdown).toBeTruthy();
+    const notFoundElement = dropdown?.querySelector('.ant-cascader-menu-item-content');
+    expect(notFoundElement?.textContent).toBe('no data');
+    expect(dropdown).toMatchSnapshot();
+  });
+
   it('should support to clear selection', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} />,
     );
-    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
-      'Zhejiang / Hangzhou',
-    );
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('Zhejiang / Hangzhou');
     fireEvent.mouseDown(container.querySelector('.ant-select-clear')!);
-    expect(container.querySelector('.ant-select-content-value')).toBeFalsy();
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('');
   });
 
   it('should clear search input when clear selection', () => {
@@ -300,7 +318,7 @@ describe('Cascader', () => {
     clickOption(container, 0, 0);
     clickOption(container, 1, 0);
     clickOption(container, 2, 0);
-    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent(
       'Zhejiang / Hangzhou / West Lake',
     );
     expect(onChange).toHaveBeenCalledWith(['zhejiang', 'hangzhou', 'xihu'], expect.anything());
@@ -486,9 +504,7 @@ describe('Cascader', () => {
     const { container } = render(
       <Cascader options={options} defaultValue={['options1', 'options2']} />,
     );
-    expect(container.querySelector('.ant-select-content-value')?.textContent).toEqual(
-      'options1 / options2',
-    );
+    expect(container.querySelector('.ant-select-content')).toHaveTextContent('options1 / options2');
   });
 
   it('can be selected when showSearch', () => {
@@ -886,6 +902,117 @@ describe('Cascader', () => {
       render(
         <ConfigProvider cascader={{ loadingIcon: <div>foobar</div> }}>
           <Cascader loading options={options} loadingIcon={<div>bamboo</div>} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
+
+  describe('clearIcon', () => {
+    it('should support custom clearIcon', () => {
+      render(
+        <Cascader
+          open
+          allowClear={{ clearIcon: <div>bamboo</div> }}
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+        />,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider clearIcon', () => {
+      render(
+        <ConfigProvider cascader={{ clearIcon: <div>foobar</div> }}>
+          <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop clearIcon over ConfigProvider clearIcon', () => {
+      render(
+        <ConfigProvider cascader={{ clearIcon: <div>foobar</div> }}>
+          <Cascader
+            allowClear={{ clearIcon: <div>bamboo</div> }}
+            options={options}
+            defaultValue={['zhejiang', 'hangzhou']}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
+
+  describe('removeIcon', () => {
+    it('should support custom removeIcon', () => {
+      render(
+        <Cascader
+          multiple
+          removeIcon={<div>bamboo</div>}
+          options={options}
+          defaultValue={[
+            ['zhejiang', 'hangzhou'],
+            ['jiangsu', 'nanjing'],
+          ]}
+        />,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+
+    it('should support ConfigProvider removeIcon', () => {
+      render(
+        <ConfigProvider cascader={{ removeIcon: <div>foobar</div> }}>
+          <Cascader
+            multiple
+            options={options}
+            defaultValue={[
+              ['zhejiang', 'hangzhou'],
+              ['jiangsu', 'nanjing'],
+            ]}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(2);
+    });
+
+    it('should prefer prop removeIcon over ConfigProvider removeIcon', () => {
+      render(
+        <ConfigProvider cascader={{ removeIcon: <div>foobar</div> }}>
+          <Cascader
+            multiple
+            options={options}
+            defaultValue={[
+              ['zhejiang', 'hangzhou'],
+              ['jiangsu', 'nanjing'],
+            ]}
+            removeIcon={<div>bamboo</div>}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+  });
+
+  describe('searchIcon', () => {
+    it('should support custom searchIcon', () => {
+      render(<Cascader open showSearch={{ searchIcon: <div>bamboo</div> }} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider searchIcon', () => {
+      render(
+        <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
+          <Cascader open options={options} showSearch />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop searchIcon over ConfigProvider searchIcon', () => {
+      render(
+        <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
+          <Cascader open showSearch={{ searchIcon: <div>bamboo</div> }} options={options} />
         </ConfigProvider>,
       );
       expect(screen.getAllByText('bamboo').length).toBe(1);

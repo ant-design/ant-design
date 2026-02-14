@@ -1,7 +1,32 @@
 import util from 'util';
 import React from 'react';
 import type { DOMWindow } from 'jsdom';
+import { MessagePort } from 'node:worker_threads';
+import { ReadableStream } from 'node:stream/web';
 
+if (typeof globalThis.ReadableStream === 'undefined') {
+  Object.defineProperty(
+    globalThis as typeof globalThis & { ReadableStream: typeof ReadableStream },
+    'ReadableStream',
+    {
+      value: ReadableStream,
+      writable: true,
+      configurable: true,
+    },
+  );
+}
+
+if (typeof globalThis.MessagePort === 'undefined') {
+  Object.defineProperty(
+    globalThis as typeof globalThis & { MessagePort: typeof MessagePort },
+    'MessagePort',
+    {
+      value: MessagePort,
+      writable: true,
+      configurable: true,
+    },
+  );
+}
 console.log('Current React Version:', React.version);
 
 const originConsoleErr = console.error;

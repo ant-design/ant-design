@@ -212,32 +212,27 @@ exports[`renders components/cascader/demo/custom-render.tsx correctly 1`] = `
   style="width:100%"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
   >
-    <div
-      class="ant-select-content-value"
-      style="visibility:visible"
-    >
-      <span>
-        Zhejiang
-        <!-- -->
-         / 
-      </span>
-      <span>
-        Hangzhou
-        <!-- -->
-         / 
-      </span>
-      <span>
-        West Lake
-        <!-- -->
-         (
-        <a>
-          752100
-        </a>
-        )
-      </span>
-    </div>
+    <span>
+      Zhejiang
+      <!-- -->
+       / 
+    </span>
+    <span>
+      Hangzhou
+      <!-- -->
+       / 
+    </span>
+    <span>
+      West Lake
+      <!-- -->
+       (
+      <a>
+        752100
+      </a>
+      )
+    </span>
     <input
       aria-autocomplete="list"
       aria-expanded="false"
@@ -316,15 +311,10 @@ exports[`renders components/cascader/demo/default-value.tsx correctly 1`] = `
   class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
 >
   <div
-    class="ant-select-content"
+    class="ant-select-content ant-select-content-has-value"
+    title="Zhejiang / Hangzhou / West Lake"
   >
-    <div
-      class="ant-select-content-value"
-      style="visibility:visible"
-      title="Zhejiang / Hangzhou / West Lake"
-    >
-      Zhejiang / Hangzhou / West Lake
-    </div>
+    Zhejiang / Hangzhou / West Lake
     <input
       aria-autocomplete="list"
       aria-expanded="false"
@@ -938,9 +928,6 @@ Array [
           type="radio"
           value="topLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -959,9 +946,6 @@ Array [
           name="test-id"
           type="radio"
           value="topRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -982,9 +966,6 @@ Array [
           type="radio"
           value="bottomLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -1003,9 +984,6 @@ Array [
           name="test-id"
           type="radio"
           value="bottomRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span

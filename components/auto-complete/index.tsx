@@ -20,6 +20,7 @@ const PurePanel = genPurePanel(RefAutoComplete, 'popupAlign', (props: any) =>
 );
 
 type CompoundedComponent = typeof RefAutoComplete & {
+  /** @deprecated Please use `options` instead. */
   Option: typeof Option;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
