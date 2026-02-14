@@ -55,7 +55,12 @@ export type GetProps<T extends React.ComponentType<any> | object> =
 export type GetProp<
   T extends React.ComponentType<any> | object,
   PropName extends keyof GetProps<T>,
-> = NonNullable<GetProps<T>[PropName]>;
+  Return extends 'Default' | 'Return' = 'Default',
+> = Return extends 'Default'
+  ? NonNullable<GetProps<T>[PropName]>
+  : Return extends 'Return'
+    ? ReturnType<Extract<NonNullable<GetProps<T>[PropName]>, (...args: any[]) => any>>
+    : never;
 
 type ReactRefComponent<Props extends { ref?: React.Ref<any> | string }> = (
   props: Props,
