@@ -387,10 +387,15 @@ describe('Typography.Ellipsis', () => {
               'ant-typography-css-ellipsis-content-measure',
             )
           ) {
+            // Check if line-height is set to 0 (from the fix)
+            const elem = this as unknown as HTMLElement;
+            const lineHeight = elem.style.lineHeight;
+            const height = lineHeight === '0' ? 0 : 22;
+            
             return {
               ...measureRect,
               right: measureRect.left,
-              bottom: measureRect.top + 22,
+              bottom: measureRect.top + height,
             };
           }
 
@@ -500,6 +505,29 @@ describe('Typography.Ellipsis', () => {
 
         await waitFakeTimer();
 
+        expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
+      });
+
+      // Fix for font metric issue where em element height differs from container
+      it('should not show tooltip when em height differs due to font metrics', async () => {
+        // Simulate scenario where:
+        // - Container and measure have same horizontal bounds (no horizontal overflow)
+        // - Without fix: em element height would be 20px, container is 18px
+        // - With fix: em element height is 0px (line-height: 0)
+        containerRect.right = 100;
+        containerRect.bottom = 18;
+        measureRect.left = 0;
+        measureRect.top = 0;
+
+        const { container, baseElement } = await getWrapper({
+          title: true,
+        });
+        fireEvent.mouseEnter(container.firstChild!);
+
+        await waitFakeTimer();
+
+        // With the fix, tooltip should not show because text is not actually ellipsed
+        // The em element now has line-height: 0, so its height won't exceed container height
         expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
       });
     });
