@@ -99,7 +99,7 @@ describe('type', () => {
       const bamboo: BambooType = 123;
       expect(bamboo).toBeTruthy();
     });
-    it('default and return', () => {
+    it('Type is return', () => {
       interface Props {
         classNames?: { root?: string } | ((props: any) => { root?: string });
       }
