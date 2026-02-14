@@ -34,7 +34,6 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/width.tsx">To customize the width of modal</code>
 <code src="./demo/static-info.tsx">Static Method</code>
 <code src="./demo/confirm.tsx">Static confirmation</code>
-<code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/nested.tsx" debug>Nested Modal</code>

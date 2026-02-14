@@ -31,7 +31,7 @@ export const useIssueCount = (options: UseIssueCountOptions) => {
 
   // Note: current query only filters by title keywords. Filtering by component name can be added later if needed.
   const searchUrl = useMemo(() => {
-    const tokens = (titleKeywords || []).filter(Boolean).map((k) => encodeURIComponent(String(k)));
+    const tokens = (titleKeywords || []).filter(Boolean).map<string>(encodeURIComponent);
     const orExpr = tokens.length > 0 ? tokens.join('%20OR%20') : '';
     const titlePart = orExpr ? `in:title+(${orExpr})` : 'in:title';
     const q = `repo:${repo}+is:issue+is:open+${titlePart}`;
@@ -45,7 +45,7 @@ export const useIssueCount = (options: UseIssueCountOptions) => {
   const issueNewUrl = `https://github.com/${repo}/issues/new/choose`;
 
   const issueSearchUrl = useMemo(() => {
-    const keywords = (titleKeywords || []).filter(Boolean).map((k) => String(k));
+    const keywords = (titleKeywords || []).filter(Boolean).map<string>(String);
     const groupExpr =
       keywords.length > 0 ? `(${keywords.map((k) => `is:issue in:title ${k}`).join(' OR ')})` : '';
     const qRaw = `is:open ${groupExpr}`.trim();

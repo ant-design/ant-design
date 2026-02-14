@@ -53,7 +53,7 @@ describe('site test', () => {
             if (list.length === 0) {
               return '';
             }
-            return list.map((n) => getTextContent(n)).join('');
+            return list.map<string>(getTextContent).join('');
           },
           first: () => wrap(list.slice(0, 1)),
         };
