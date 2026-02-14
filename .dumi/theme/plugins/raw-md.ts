@@ -101,7 +101,9 @@ let TOKEN_CACHE: { meta: TokenMeta; data: TokenData } | null | undefined;
  */
 function readJsonIfExists<T>(abs: string): T | null {
   try {
-    if (!fs.existsSync(abs)) return null;
+    if (!fs.existsSync(abs)) {
+      return null;
+    }
     return JSON.parse(fs.readFileSync(abs, 'utf-8')) as T;
   } catch {
     return null;
@@ -144,7 +146,9 @@ function replaceSemanticDomSection(md: string, context: ContentFilterContext) {
   // 从文档路径推断组件路径（用于生成链接）
   // 例如：components/card/index.en-US.md -> components/card/semantic.md
   const componentPathMatch = context.file.match(/components\/([^/]+)\//);
-  if (!componentPathMatch) return md;
+  if (!componentPathMatch) {
+    return md;
+  }
 
   const componentName = componentPathMatch[1];
   const isZhCN = /-cn\.md$/i.test(context.file) || /\.zh-CN\.md$/i.test(context.file);
@@ -154,10 +158,14 @@ function replaceSemanticDomSection(md: string, context: ContentFilterContext) {
   return md.replace(/<code[^>]*_semantic[^>]*>.*?<\/code>/g, (match) => {
     // 从匹配的标签中提取文件名
     const demoIndex = match.indexOf('./demo/');
-    if (demoIndex === -1) return match;
+    if (demoIndex === -1) {
+      return match;
+    }
     const start = demoIndex + './demo/'.length;
     const end = match.indexOf('"', start);
-    if (end === -1) return match;
+    if (end === -1) {
+      return match;
+    }
     const semanticFile = match.substring(start, end);
     // 生成对应的 semantic.md 文件名：_semantic.tsx -> semantic.md, _semantic_meta.tsx -> semantic_meta.md
     const semanticMdFileName = semanticFile
@@ -180,7 +188,9 @@ function getMaxBacktickRun(text: string) {
   let m: RegExpExecArray | null = re.exec(text);
 
   while (m) {
-    if (m[0].length > max) max = m[0].length;
+    if (m[0].length > max) {
+      max = m[0].length;
+    }
     m = re.exec(text);
   }
   return max;
@@ -244,7 +254,9 @@ function antdCodeAppend(docFileAbs: string, src: string): string {
     'i',
   );
   const match = demoMd.match(re);
-  if (!match) return demoMd.trim();
+  if (!match) {
+    return demoMd.trim();
+  }
   return (match[2] ?? '').trim();
 }
 
@@ -305,8 +317,9 @@ function replaceCodeSrcToMarkdown(
  * @returns token 元数据和数据对象，如果文件不存在则返回 null
  */
 function loadTokenFromRepo(api: IApi) {
-  if (TOKEN_CACHE !== undefined) return TOKEN_CACHE;
-
+  if (TOKEN_CACHE !== undefined) {
+    return TOKEN_CACHE;
+  }
   const cwd = api.paths.cwd;
   const metaPath = path.join(cwd, 'components', 'version', 'token-meta.json');
   const dataPath = path.join(cwd, 'components', 'version', 'token.json');
@@ -345,9 +358,15 @@ function escapeMdCell(v: unknown) {
  * @returns 规范化后的字符串，null/undefined 返回空字符串
  */
 function normalizeValue(v: unknown) {
-  if (v === undefined || v === null) return '';
-  if (typeof v === 'string') return v.trim();
-  if (typeof v === 'number' || typeof v === 'boolean') return String(v);
+  if (v === undefined || v === null) {
+    return '';
+  }
+  if (typeof v === 'string') {
+    return v.trim();
+  }
+  if (typeof v === 'number' || typeof v === 'boolean') {
+    return String(v);
+  }
   try {
     return JSON.stringify(v);
   } catch {
@@ -369,7 +388,9 @@ function normalizeValue(v: unknown) {
  */
 function replaceComponentTokenTable(md: string, context: ContentFilterContext) {
   const tokens = loadTokenFromRepo(context.api);
-  if (!tokens) return md;
+  if (!tokens) {
+    return md;
+  }
 
   const { meta: tokenMeta, data: tokenData } = tokens;
   const locale = detectDocLocale(context.file);
@@ -398,7 +419,9 @@ function replaceComponentTokenTable(md: string, context: ContentFilterContext) {
 
   return md.replace(re, (full, componentProp) => {
     const comp = String(componentProp || '').trim();
-    if (!comp) return full;
+    if (!comp) {
+      return full;
+    }
 
     const comps = comp
       .split(',')
@@ -474,7 +497,9 @@ function replaceComponentTokenTable(md: string, context: ContentFilterContext) {
     }
 
     // 如果没有生成任何内容，则保留原标签
-    if (!out.length) return full;
+    if (!out.length) {
+      return full;
+    }
     // 返回生成的 markdown 表格，前后添加换行确保格式正确
     return `\n\n${out.join('\n').trim()}\n\n`;
   });
@@ -489,8 +514,12 @@ function replaceComponentTokenTable(md: string, context: ContentFilterContext) {
  * @param api - Dumi API 实例，用于获取输出路径等配置
  */
 function emitRawMd(api: IApi) {
-  if (process.env.NODE_ENV !== 'production') return;
-  if (RAW_MD_EMITTED) return;
+  if (process.env.NODE_ENV !== 'production') {
+    return;
+  }
+  if (RAW_MD_EMITTED) {
+    return;
+  }
   RAW_MD_EMITTED = true;
 
   const outRoot = api.paths.absOutputPath;
@@ -499,7 +528,9 @@ function emitRawMd(api: IApi) {
     try {
       const { absPath, file } = route;
       const relPath = absPath.replace(/^\//, '');
-      if (!relPath || !fs.existsSync(file)) return;
+      if (!relPath || !fs.existsSync(file)) {
+        return;
+      }
 
       // 应用路由过滤器
       if (PLUGIN_OPTIONS.routeFilter && !PLUGIN_OPTIONS.routeFilter(route)) {
