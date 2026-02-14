@@ -92,7 +92,18 @@ export const usePopupScope = <T extends [React.ReactElement, ...unknown[]]>(
     [getPopupContainer, portalId, clearPortal],
   );
 
-  const getPortalContainer = React.useCallback(() => portalRef.current ?? document.body, []);
+  // Ensure the portal div exists before returning it to child components.
+  // Lazy-init prevents child popups from falling back to document.body when they render
+  // before the parent Select's dropdown (e.g. async children); keeps all popups in scope.
+  const getPortalContainer = React.useCallback(() => {
+    if (!portalRef.current) {
+      const div = document.createElement('div');
+      div.setAttribute(DATA_PORTAL_OWNER, portalId);
+      document.body.appendChild(div);
+      portalRef.current = div;
+    }
+    return portalRef.current;
+  }, [portalId]);
 
   // Child popups (DatePicker etc.) use ConfigProvider.getPopupContainer → same portal div. Form/Space isolated.
   const wrappedPopupRender = React.useMemo(() => {
