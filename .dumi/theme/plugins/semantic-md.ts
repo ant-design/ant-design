@@ -186,9 +186,8 @@ function extractTemplateProps(content: string, componentName: string): string {
     if (ch === '}') {
       if (braceDepth > 0) {
         braceDepth -= 1;
-      } else {
-        continue;
       }
+      continue;
     }
 
     if (ch === '>' && braceDepth === 0) {
