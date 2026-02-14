@@ -116,7 +116,10 @@ export const usePopupScope = <T extends [React.ReactElement, ...unknown[]]>(
           checkAndCloseTimerRef.current = null;
           const inPortal = document.activeElement?.closest?.(selector);
           if (inPortal) {
-            if (!mergedOpenRef.current) handleOpenChange(true); // Focus still in scope → keep open
+            // [Workaround] Re-open if focus is within scope.
+            // Flicker is mostly imperceptible in modern browsers, but a fundamental fix
+            // requires "prevent close" support in rc-trigger.
+            if (!mergedOpenRef.current) handleOpenChange(true);
             return;
           }
           handleOpenChange(false);
