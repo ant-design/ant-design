@@ -388,8 +388,9 @@ describe('Typography.Ellipsis', () => {
             )
           ) {
             // Check if line-height is set to 0 (from the fix)
-            const elem = this as unknown as HTMLElement;
-            const lineHeight = elem.style.lineHeight;
+            const element = this as unknown as HTMLElement;
+            const lineHeight = element.style.lineHeight;
+            // 22 is the default LINE_HEIGHT used in the test setup
             const height = lineHeight === '0' ? 0 : 22;
             
             return {
