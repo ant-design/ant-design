@@ -36,7 +36,6 @@ demo:
 <code src="./demo/select-users.tsx">搜索用户</code>
 <code src="./demo/suffix.tsx" version="5.22.0">前后缀</code>
 <code src="./demo/custom-dropdown-menu.tsx">扩展菜单</code>
-<code src="./demo/popup-render-nested.tsx">嵌套弹窗渲染</code>
 <code src="./demo/hide-selected.tsx">隐藏已选择选项</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/filled-debug.tsx" debug>Filled debug</code>

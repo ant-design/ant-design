@@ -1,4 +1,5 @@
 import React from 'react';
+import useId from '@rc-component/util/lib/hooks/useId';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 
 import ConfigProvider from '../../config-provider';
@@ -7,6 +8,8 @@ import ContextIsolator from '../ContextIsolator';
 const DATA_PORTAL_OWNER = 'data-portal-owner';
 /** Delay before removing portal div so close animation can finish. */
 const PORTAL_REMOVE_DELAY = 300;
+/** Delay before checking focus so blur/focus has settled (avoids race with child popups). */
+const FOCUS_CHECK_DELAY = 20;
 
 type RenderFunction<T extends unknown[]> = (...args: T) => React.ReactNode;
 
@@ -33,7 +36,7 @@ export const usePopupScope = <T extends [React.ReactElement, ...unknown[]]>(
 ): UsePopupScopeResult<T> => {
   const { popupRender: renderFn, getPopupContainer, open: propsOpen, onOpenChange } = options;
 
-  const portalId = React.useId();
+  const portalId = useId();
   const portalRef = React.useRef<HTMLDivElement | null>(null);
   const removePortalTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const checkAndCloseTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -103,7 +106,7 @@ export const usePopupScope = <T extends [React.ReactElement, ...unknown[]]>(
     );
   }, [renderFn, getPortalContainer]);
 
-  // On close: defer one tick (blur fires before new focus), then close only if focus left portal scope
+  // On close: defer so blur/focus can settle (e.g. child DatePicker), then close only if focus left portal scope
   const handlePopupVisibleChange = React.useCallback(
     (open: boolean) => {
       if (open === false) {
@@ -119,7 +122,7 @@ export const usePopupScope = <T extends [React.ReactElement, ...unknown[]]>(
           handleOpenChange(false);
           removePortalTimerRef.current = setTimeout(clearPortal, PORTAL_REMOVE_DELAY);
         };
-        checkAndCloseTimerRef.current = setTimeout(checkAndClose, 0);
+        checkAndCloseTimerRef.current = setTimeout(checkAndClose, FOCUS_CHECK_DELAY);
         return;
       }
       cancelAllTimers();
@@ -134,7 +137,7 @@ export const usePopupScope = <T extends [React.ReactElement, ...unknown[]]>(
       popupRender: undefined,
       getPopupContainer,
       open: propsOpen,
-      onPopupVisibleChange: onOpenChange
+      onPopupVisibleChange: onOpenChange,
     };
   }
 
