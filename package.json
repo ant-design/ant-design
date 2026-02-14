@@ -282,6 +282,7 @@
     "ora": "^9.0.0",
     "p-all": "^5.0.1",
     "package-manager-detector": "^1.6.0",
+    "patch-package": "^8.0.1",
     "pngjs": "^7.0.0",
     "portfinder": "^1.0.38",
     "prettier": "^3.7.4",
