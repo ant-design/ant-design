@@ -25,6 +25,8 @@ tag: 6.0.0
 <code src="./demo/responsive.tsx">响应式</code>
 <code src="./demo/image.tsx">图片</code>
 <code src="./demo/dynamic.tsx">动态更新</code>
+<code src="./demo/virtual.tsx">虚拟滚动</code>
+<code src="./demo/virtual-dynamic.tsx">虚拟滚动与动态加载</code>
 <code src="./demo/style-class.tsx">自定义语义结构的样式和类</code>
 <code src="./demo/fresh.tsx" debug>持续更新</code>
 
@@ -43,7 +45,9 @@ tag: 6.0.0
 | items | 瀑布流项 | [MasonryItem](#masonryitem)[] | - |  |
 | itemRender | 自定义项渲染 | `(item: MasonryItem) => React.ReactNode` | - |  |
 | styles | 语义化结构 style，支持对象和函数形式 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| ((info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>) | - |  |
+| virtual | 启用虚拟滚动以支持大数据量渲染 | [VirtualConfig](#virtualconfig) | - |  |
 | onLayoutChange | 列排序回调 | `({ key: React.Key; column: number }[]) => void` | - |  |
+| onScrollEnd | 滚动到底部时的回调（用于无限加载，需配合 virtual 使用） | `() => void` | - |  |
 
 ### MasonryItem
 
@@ -62,6 +66,16 @@ Gap 是项之间的间距，可以是固定值，也可以是响应式配置。
 ```ts
 type Gap = undefined | number | Partial<Record<'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl', number>>;
 ```
+
+### VirtualConfig
+
+虚拟滚动配置。启用后，只渲染可视区域内的元素，大幅提升大数据量场景下的性能。
+
+| 参数       | 说明                                 | 类型     | 默认值            |
+| ---------- | ------------------------------------ | -------- | ----------------- |
+| height     | 容器高度，单位为像素（必填）         | `number` | -                 |
+| itemHeight | 预估的项目高度，用于位置计算（必填） | `number` | -                 |
+| buffer     | 可视区域外额外渲染的项目数量         | `number` | `columnCount * 2` |
 
 ## Semantic DOM
 

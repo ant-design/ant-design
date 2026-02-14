@@ -1146,3 +1146,25 @@ exports[`renders components/masonry/demo/style-class.tsx extend context correctl
 `;
 
 exports[`renders components/masonry/demo/style-class.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/masonry/demo/virtual.tsx extend context correctly 1`] = `
+<div
+  class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+  style="width: 100%;"
+>
+  <div
+    class="ant-space-item"
+  >
+    <div
+      class="ant-masonry ant-masonry-virtual css-var-test-id"
+      style="height: 600px; overflow-y: auto;"
+    >
+      <div
+        style="height: 0px; position: relative;"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/masonry/demo/virtual.tsx extend context correctly 2`] = `[]`;
