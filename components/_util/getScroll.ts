@@ -1,7 +1,7 @@
 import isNonNullable from './isNonNullable';
 
-export function isWindow(obj: any): obj is Window {
-  return isNonNullable(obj) && obj === obj.window;
+export function isWindow(obj: unknown): obj is Window {
+  return isNonNullable(obj) && obj === (obj as Window).window;
 }
 
 const getScroll = (target: HTMLElement | Window | Document | null): number => {

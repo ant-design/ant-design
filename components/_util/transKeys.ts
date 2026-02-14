@@ -8,10 +8,14 @@ export const groupKeysMap = (keys: TransferKey[]) => {
   return map;
 };
 
-export const groupDisabledKeysMap = <RecordType extends any[]>(dataSource: RecordType) => {
+export const groupDisabledKeysMap = <
+  RecordType extends { disabled?: boolean; key?: TransferKey }[],
+>(
+  dataSource: RecordType,
+) => {
   const map = new Map<TransferKey, number>();
   dataSource.forEach(({ disabled, key }, index) => {
-    if (disabled) {
+    if (disabled && key !== undefined) {
       map.set(key, index);
     }
   });
