@@ -13,6 +13,7 @@ import {
   ExclamationCircle,
   InfoCircle,
   Plus,
+  Search,
   ThreeDots,
   XCircle,
   XLg,
@@ -48,6 +49,10 @@ const Demo: React.FC = () => {
       cascader={{
         expandIcon: <ChevronRight />,
         loadingIcon: <ArrowRepeat className="icon-spin" />,
+        clearIcon: <XCircle />,
+        removeIcon: <XLg />,
+        suffixIcon: <ChevronDown />,
+        searchIcon: <Search />,
       }}
       collapse={{
         expandIcon: (props) => <ChevronDown {...props} />,

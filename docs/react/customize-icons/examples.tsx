@@ -59,7 +59,8 @@ const Examples: React.FC = () => {
             { label: 'Option 2', value: '2' },
           ]}
         />
-        <Cascader loading />
+        <Cascader loading placeholder="Loading..." />
+        <Cascader showSearch placeholder="Search..." />
       </Flex>
       <Collapse
         items={[

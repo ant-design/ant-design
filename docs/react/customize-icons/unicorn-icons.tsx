@@ -35,6 +35,10 @@ const Demo: React.FC = () => {
       cascader={{
         expandIcon: unicorn,
         loadingIcon: unicornSpin,
+        clearIcon: unicorn,
+        removeIcon: unicorn,
+        suffixIcon: unicorn,
+        searchIcon: unicorn,
       }}
       collapse={{
         expandIcon: () => unicorn,
