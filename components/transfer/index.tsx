@@ -410,14 +410,14 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     multiple?: boolean,
   ) => {
     const isLeftDirection = direction === 'left';
-    const directionSelectedKeys = isLeftDirection ? sourceSelectedKeys : targetSelectedKeys;
-    const holderSet = new Set(directionSelectedKeys);
+    const holder = isLeftDirection ? sourceSelectedKeys : targetSelectedKeys;
+    const holderSet = new Set(holder);
     const data: KeyWise<RecordType>[] = (isLeftDirection ? leftDataSource : rightDataSource).filter(
       (item): item is KeyWise<RecordType> => !item.disabled,
     );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key
-    if (multiple && directionSelectedKeys.length > 0) {
+    if (multiple && holder.length > 0) {
       handleMultipleSelect(direction, data, holderSet, currentSelectedIndex);
     } else {
       handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
