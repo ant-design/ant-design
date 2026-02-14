@@ -13,6 +13,7 @@ import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import { useComponentConfig } from '../../config-provider/context';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
@@ -26,8 +27,8 @@ import useStyle from '../style';
 import { getRangePlaceholder, useIcons } from '../util';
 import { TIME } from './constant';
 import type { PickerLocale, RangePickerProps } from './interface';
-import useSuffixIcon from './useSuffixIcon';
 import useComponents from './useComponents';
+import useSuffixIcon from './useSuffixIcon';
 
 const generateRangePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -61,6 +62,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     } = props;
 
     const pickerType = picker === TIME ? 'timePicker' : 'datePicker';
+
+    const { suffixIcon: contextSuffixIcon } = useComponentConfig(pickerType);
 
     // ====================== Warning =======================
     if (process.env.NODE_ENV !== 'production') {
@@ -116,7 +119,12 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
     // ===================== FormItemInput =====================
     const formItemContext = useContext(FormItemInputContext);
     const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
-    const mergedSuffixIcon = useSuffixIcon({ picker, hasFeedback, feedbackIcon, suffixIcon });
+    const mergedSuffixIcon = useSuffixIcon({
+      picker,
+      hasFeedback,
+      feedbackIcon,
+      suffixIcon: suffixIcon === undefined ? contextSuffixIcon : suffixIcon,
+    });
     useImperativeHandle(ref, () => innerRef.current!);
 
     const [contextLocale] = useLocale('Calendar', enUS);

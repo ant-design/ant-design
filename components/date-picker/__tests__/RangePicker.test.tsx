@@ -7,6 +7,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import enUS from '../locale/en_US';
 import { closePicker, getClearButton, openPicker, selectCell } from './utils';
 
@@ -241,5 +242,39 @@ describe('RangePicker', () => {
     );
 
     resetMockDate();
+  });
+
+  describe('suffixIcon', () => {
+    it('should support suffixIcon prop', () => {
+      const { container } = render(<RangePicker suffixIcon="foobar" />);
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffixIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <RangePicker />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should omit TimePicker suffixIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'date' }} timePicker={{ suffixIcon: 'time' }}>
+          <RangePicker />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('date');
+    });
+
+    it('should prefer suffixIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <RangePicker suffixIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+    });
   });
 });
