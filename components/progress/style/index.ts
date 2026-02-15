@@ -147,6 +147,7 @@ const genLineStyle: GenerateStyle<ProgressToken> = (token) => {
         borderRadius: token.lineBorderRadius,
         position: 'relative',
         width: '100%',
+        overflow: 'hidden',
       },
 
       [`&${componentCls}-status-active`]: {

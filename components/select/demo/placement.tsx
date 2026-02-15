@@ -5,10 +5,10 @@ import { Radio, Select } from 'antd';
 type SelectCommonPlacement = SelectProps['placement'];
 
 const App: React.FC = () => {
-  const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
+  const [placement, setPlacement] = useState<SelectCommonPlacement>('topLeft');
 
   const placementChange = (e: RadioChangeEvent) => {
-    SetPlacement(e.target.value);
+    setPlacement(e.target.value);
   };
 
   return (

@@ -2,6 +2,7 @@ import type { CSSInterpolation, CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle, resetIcon } from '../../style';
+import { genNoMotionStyle } from '../../style/motion';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import genGroupStyle from './group';
@@ -40,7 +41,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
       transition: `all ${token.motionDurationMid} ${token.motionEaseInOut}`,
       userSelect: 'none',
       touchAction: 'manipulation',
-
+      ...genNoMotionStyle(),
       '&:disabled > *': {
         pointerEvents: 'none',
       },
@@ -80,7 +81,7 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSS
 
       [`${componentCls}-loading-icon`]: {
         transition: ['width', 'opacity', 'margin']
-          .map((transition) => `${transition} ${motionDurationSlow} ${motionEaseInOut}`)
+          .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
           .join(','),
       },
 
