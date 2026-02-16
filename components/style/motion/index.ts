@@ -22,6 +22,7 @@ import {
   slideUpIn,
   slideUpOut,
 } from './slide';
+import { genNoMotionStyle } from './util';
 import {
   initZoomMotion,
   zoomBigIn,
@@ -42,6 +43,7 @@ export {
   fadeIn,
   fadeOut,
   genCollapseMotion,
+  genNoMotionStyle,
   initFadeMotion,
   initMoveMotion,
   initSlideMotion,

@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
+import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -377,14 +378,7 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
         '&-transition': {
           transition: `flex-basis ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-        },
-      },
-
-      '@media (prefers-reduced-motion: reduce)': {
-        [splitPanelCls]: {
-          '&-transition': {
-            transition: 'none',
-          },
+          ...genNoMotionStyle(),
         },
       },
     },
