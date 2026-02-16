@@ -38,9 +38,9 @@ import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
-import useIcons from './hooks/useIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
+import useIcons from './hooks/useIcons';
 
 // Align the design since we use `@rc-component/select` in root. This help:
 // - List search content will show all content
@@ -385,8 +385,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     contextClearIcon,
     removeIcon,
     contextRemoveIcon,
-    loadingIcon,
-    contextLoadingIcon,
+    loadingIcon: mergedLoadingIcon,
     suffixIcon,
     contextSuffixIcon,
     searchIcon: typeof showSearch === 'object' && showSearch ? showSearch.searchIcon : undefined,
