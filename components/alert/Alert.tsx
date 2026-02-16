@@ -200,8 +200,6 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     nativeElement: internalRef.current!,
   }));
 
-  //
-
   const {
     getPrefixCls,
     direction,
