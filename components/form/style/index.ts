@@ -85,7 +85,7 @@ export interface FormToken extends FullToken<'Form'> {
   rootPrefixCls: string;
 }
 
-const resetForm = (token: AliasToken): CSSObject => ({
+const resetForm: GenerateStyle<AliasToken, CSSObject> = (token) => ({
   legend: {
     display: 'block',
     width: '100%',
@@ -156,11 +156,10 @@ const genFormSize = (token: FormToken, height: number): CSSObject => {
   };
 };
 
-const genFormStyle: GenerateStyle<FormToken> = (token) => {
+const genFormStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls } = token;
-
   return {
-    [token.componentCls]: {
+    [componentCls]: {
       ...resetComponent(token),
       ...resetForm(token),
 
@@ -183,7 +182,7 @@ const genFormStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
+const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const {
     formItemCls,
     iconCls,
@@ -424,7 +423,7 @@ const genFormItemStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
+const makeVerticalLayoutLabel: GenerateStyle<FormToken, CSSObject> = (token) => ({
   padding: token.verticalLabelPadding,
   margin: token.verticalLabelMargin,
   whiteSpace: 'initial',
@@ -440,7 +439,7 @@ const makeVerticalLayoutLabel = (token: FormToken): CSSObject => ({
   },
 });
 
-const genHorizontalStyle = (token: FormToken): CSSObject => {
+const genHorizontalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { antCls, formItemCls } = token;
 
   return {
@@ -471,7 +470,7 @@ const genHorizontalStyle = (token: FormToken): CSSObject => {
   };
 };
 
-const genInlineStyle: GenerateStyle<FormToken> = (token) => {
+const genInlineStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, formItemCls, inlineItemMarginBottom } = token;
 
   return {
@@ -510,7 +509,7 @@ const genInlineStyle: GenerateStyle<FormToken> = (token) => {
   };
 };
 
-const makeVerticalLayout = (token: FormToken): CSSObject => {
+const makeVerticalLayout: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, formItemCls, rootPrefixCls } = token;
 
   return {
@@ -606,10 +605,7 @@ export const prepareComponentToken: GetDefaultToken<'Form'> = (token) => ({
   inlineItemMarginBottom: 0,
 });
 
-export const prepareToken: (
-  token: Parameters<GenStyleFn<'Form'>>[0],
-  rootPrefixCls: string,
-) => FormToken = (token, rootPrefixCls) => {
+export const prepareToken = (token: Parameters<GenStyleFn<'Form'>>[0], rootPrefixCls: string) => {
   const formToken = mergeToken<FormToken>(token, {
     formItemCls: `${token.componentCls}-item`,
     rootPrefixCls,
