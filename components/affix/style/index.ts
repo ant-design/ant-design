@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
@@ -14,7 +16,7 @@ interface AffixToken extends FullToken<'Affix'> {
 }
 
 // ============================== Shared ==============================
-const genSharedAffixStyle: GenerateStyle<AffixToken> = (token) => {
+const genSharedAffixStyle: GenerateStyle<AffixToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
