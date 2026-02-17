@@ -20,11 +20,6 @@ export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends 
   expandAction?: ExpandAction;
 }
 
-type DirectoryTreeCompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
-  props: React.PropsWithChildren<DirectoryTreeProps<T>> & React.RefAttributes<RcTree>,
-) => React.ReactElement) &
-  Pick<React.FC, 'displayName'>;
-
 export interface DirectoryTreeState {
   expandedKeys?: Key[];
   selectedKeys?: Key[];
@@ -42,10 +37,9 @@ function getTreeData({ treeData, children }: DirectoryTreeProps) {
   return treeData || convertTreeToData(children);
 }
 
-const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> = (
-  { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props },
-  ref,
-) => {
+const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, ref) => {
+  const { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props } = oriProps;
+
   // Shift click usage
   const lastSelectedKey = React.useRef<Key>(null);
 
@@ -73,6 +67,7 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
   const [selectedKeys, setSelectedKeys] = React.useState(
     props.selectedKeys || props.defaultSelectedKeys || [],
   );
+
   const [expandedKeys, setExpandedKeys] = React.useState(() => getInitExpandedKeys());
 
   React.useEffect(() => {
@@ -200,14 +195,10 @@ const DirectoryTree: React.ForwardRefRenderFunction<RcTree, DirectoryTreeProps> 
       onExpand={onExpand}
     />
   );
-};
-
-const ForwardDirectoryTree = React.forwardRef(
-  DirectoryTree,
-) as unknown as DirectoryTreeCompoundedComponent;
+});
 
 if (process.env.NODE_ENV !== 'production') {
-  ForwardDirectoryTree.displayName = 'DirectoryTree';
+  DirectoryTree.displayName = 'DirectoryTree';
 }
 
-export default ForwardDirectoryTree;
+export default DirectoryTree;
