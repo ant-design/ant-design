@@ -178,6 +178,17 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
     '&-borderless': {
       background: 'transparent',
       border: 'none',
+      // Compensate for the removed border to maintain consistent height with other components
+      // (e.g. Select borderless) that keep a transparent border.
+      paddingBlock: token.calc(token.paddingBlock).add(token.lineWidth).equal(),
+
+      [`&${componentCls}-sm, &${componentCls}-affix-wrapper-sm`]: {
+        paddingBlock: token.calc(token.paddingBlockSM).add(token.lineWidth).equal(),
+      },
+
+      [`&${componentCls}-lg, &${componentCls}-affix-wrapper-lg`]: {
+        paddingBlock: token.calc(token.paddingBlockLG).add(token.lineWidth).equal(),
+      },
 
       '&:focus, &:focus-within': {
         outline: 'none',
