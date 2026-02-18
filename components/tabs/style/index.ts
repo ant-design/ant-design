@@ -149,7 +149,7 @@ export interface TabsToken extends FullToken<'Tabs'> {
   tabsHorizontalItemMarginRTL: string;
 }
 
-const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genCardStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     tabsCardPadding,
@@ -272,7 +272,7 @@ const genCardStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
   };
 };
 
-const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genDropdownStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const { componentCls, itemHoverColor, dropdownEdgeChildVerticalPadding } = token;
   return {
     [`${componentCls}-dropdown`]: {
@@ -361,7 +361,7 @@ const genDropdownStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
   };
 };
 
-const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genPositionStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     margin,
@@ -600,7 +600,7 @@ const genPositionStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject
   };
 };
 
-const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genSizeStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     cardPaddingSM,
@@ -690,7 +690,7 @@ const genSizeStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => 
   };
 };
 
-const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
+const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     itemActiveColor,
@@ -800,7 +800,7 @@ const genTabStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
   };
 };
 
-const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
+const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const { componentCls, tabsHorizontalItemMarginRTL, iconCls, cardGutter, calc } = token;
   const rtlCls = `${componentCls}-rtl`;
   return {
@@ -898,7 +898,7 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token: TabsToken) => {
   };
 };
 
-const genTabsStyle: GenerateStyle<TabsToken> = (token: TabsToken): CSSObject => {
+const genTabsStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
   const {
     componentCls,
     tabsCardPadding,

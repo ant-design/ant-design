@@ -43,7 +43,7 @@ interface DividerToken extends FullToken<'Divider'> {
 }
 
 // ============================== Size ================================
-const genSizeDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
+const genSizeDividerStyle: GenerateStyle<DividerToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -63,7 +63,7 @@ const genSizeDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
 };
 
 // ============================== Shared ==============================
-const genSharedDividerStyle: GenerateStyle<DividerToken> = (token): CSSObject => {
+const genSharedDividerStyle: GenerateStyle<DividerToken, CSSObject> = (token) => {
   const {
     componentCls,
     sizePaddingEdgeHorizontal,
