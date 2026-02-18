@@ -89,13 +89,11 @@ expect.addSnapshotSerializer({
   test: (node) => node && typeof node === 'object' && node.type === 'demo' && node.html,
   // @ts-ignore
   print: ({ html }) => {
-    // Use require to avoid ESM module issues at Jest initialization time
-    const jsdom = require('jsdom');
-    const { JSDOM } = jsdom;
-    const { document } = new JSDOM().window;
-    document.body.innerHTML = html;
+    // Create a temporary container to parse HTML
+    const container = document.createElement('div');
+    container.innerHTML = html;
 
-    const children = Array.from(document.body.childNodes).filter(
+    const children = Array.from(container.childNodes).filter(
       (node: any) =>
         // Ignore `link` node since React 18 or blew not support this
         node.nodeName !== 'LINK',
