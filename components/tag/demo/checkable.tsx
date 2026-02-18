@@ -5,11 +5,8 @@ const tagsData = ['Movies', 'Books', 'Music', 'Sports'];
 
 const App: React.FC = () => {
   const [checked, setChecked] = useState(true);
-  const [singleSelected, setSingleSelected] = useState<string | number | null>('Books');
-  const [multipleSelected, setMultipleSelected] = useState<(string | number)[]>([
-    'Movies',
-    'Music',
-  ]);
+  const [singleSelected, setSingleSelected] = useState<string | null>('Books');
+  const [multipleSelected, setMultipleSelected] = useState<string[]>(['Movies', 'Music']);
 
   return (
     <Form labelCol={{ span: 6 }}>

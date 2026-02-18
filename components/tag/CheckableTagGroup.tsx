@@ -127,17 +127,19 @@ const CheckableTagGroup = React.forwardRef<
   });
 
   // =============================== Option ===============================
-  const parsedOptions = useMemo(() => {
-    if (!Array.isArray(options)) {
-      return [];
-    }
-    return options.map((option) => {
-      if (option && typeof option === 'object') {
-        return option;
-      }
-      return { value: option, label: option };
-    });
-  }, [options]);
+  const parsedOptions = useMemo(
+    () =>
+      (options || []).map((option) => {
+        if (option && typeof option === 'object') {
+          return option;
+        }
+        return {
+          value: option,
+          label: option,
+        };
+      }),
+    [options],
+  );
 
   // =============================== Values ===============================
   const [mergedValue, setMergedValue] = useControlledState(defaultValue, value);
@@ -214,7 +216,9 @@ const CheckableTagGroup = React.forwardRef<
       ))}
     </div>
   );
-});
+}) as (<CheckableTagValue extends string | number>(
+  props: CheckableTagGroupProps<CheckableTagValue> & { ref?: React.Ref<CheckableTagGroupRef> },
+) => React.ReactElement<any>) & { displayName?: string };
 
 if (process.env.NODE_ENV !== 'production') {
   CheckableTagGroup.displayName = 'CheckableTagGroup';
