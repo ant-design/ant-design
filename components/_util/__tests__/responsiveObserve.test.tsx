@@ -13,17 +13,15 @@ describe('Test ResponsiveObserve', () => {
     };
     render(<Demo />);
     const subscribeFunc = jest.fn();
-    const token = responsiveRef.current?.subscribe(subscribeFunc);
-    expect(
-      responsiveRef.current?.matchHandlers[responsiveRef.current.responsiveMap.xs].mql.matches,
-    ).toBeTruthy();
+    const instance = responsiveRef.current;
+    const token = instance?.subscribe(subscribeFunc);
+    expect(instance?.matchHandlers[instance?.responsiveMap.xs].mql.matches).toBeTruthy();
     expect(subscribeFunc).toHaveBeenCalledTimes(1);
     if (token !== undefined) {
-      responsiveRef.current?.unsubscribe(token);
+      instance?.unsubscribe(token);
     }
     expect(
-      responsiveRef.current?.matchHandlers[responsiveRef.current.responsiveMap.xs].mql
-        ?.removeEventListener,
+      instance?.matchHandlers[instance?.responsiveMap.xs].mql?.removeEventListener,
     ).toHaveBeenCalled();
   });
 });
