@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
@@ -48,7 +49,7 @@ interface CarouselToken extends FullToken<'Carousel'> {}
 
 export const DotDuration = '--dot-duration';
 
-const genCarouselStyle: GenerateStyle<CarouselToken> = (token) => {
+const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
   return {

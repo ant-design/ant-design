@@ -30,7 +30,7 @@ const genPlacementStackStyle = (
   };
 };
 
-const genStackChildrenStyle = (token: NotificationToken): CSSObject => {
+const genStackChildrenStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const childrenStyle: CSSObject = {};
   for (let i = 1; i < token.notificationStackLayer; i++) {
     childrenStyle[`&:nth-last-child(${i + 1})`] = {

@@ -96,7 +96,6 @@ export const prepareComponentToken = (token: GlobalToken) => {
   const itemPaddingVertical = Math.round(
     (token.controlHeight - token.fontSize * token.lineHeight) / 2,
   );
-
   return {
     controlWidth: 184,
     controlItemWidth: 111,
