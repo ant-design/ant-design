@@ -53,6 +53,28 @@ const App: React.FC = () => (
         <Button>topRight</Button>
       </Dropdown>
     </Space>
+    <Space wrap>
+      <Dropdown menu={{ items }} placement="leftTop" arrow={{ pointAtCenter: true }}>
+        <Button>leftTop</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="left" arrow={{ pointAtCenter: true }}>
+        <Button>left</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="leftBottom" arrow={{ pointAtCenter: true }}>
+        <Button>leftBottom</Button>
+      </Dropdown>
+    </Space>
+    <Space wrap>
+      <Dropdown menu={{ items }} placement="rightTop" arrow={{ pointAtCenter: true }}>
+        <Button>rightTop</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="right" arrow={{ pointAtCenter: true }}>
+        <Button>right</Button>
+      </Dropdown>
+      <Dropdown menu={{ items }} placement="rightBottom" arrow={{ pointAtCenter: true }}>
+        <Button>rightBottom</Button>
+      </Dropdown>
+    </Space>
   </Space>
 );
 
