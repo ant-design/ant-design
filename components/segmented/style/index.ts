@@ -63,12 +63,12 @@ function getItemDisabledStyle(cls: string, token: SegmentedToken): CSSObject {
   };
 }
 
-function getItemSelectedStyle(token: SegmentedToken): CSSObject {
+const getItemSelectedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
   return {
     background: token.itemSelectedBg,
     boxShadow: token.boxShadowTertiary,
   };
-}
+};
 
 const segmentedTextEllipsisCss: CSSObject = {
   overflow: 'hidden',
@@ -77,7 +77,7 @@ const segmentedTextEllipsisCss: CSSObject = {
 };
 
 // ============================== Styles ==============================
-const genSegmentedStyle: GenerateStyle<SegmentedToken> = (token: SegmentedToken) => {
+const genSegmentedStyle: GenerateStyle<SegmentedToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow, motionEaseInOut, motionDurationMid } = token;
 
   const labelHeight = token

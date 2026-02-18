@@ -8,7 +8,7 @@ export interface ComponentToken {}
 
 export interface MasonryToken extends FullToken<'Masonry'> {}
 
-export const genMasonryStyle: GenerateStyle<MasonryToken> = (token: MasonryToken): CSSObject => {
+export const genMasonryStyle: GenerateStyle<MasonryToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   const itemCls = `${componentCls}-item`;

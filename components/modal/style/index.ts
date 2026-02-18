@@ -1,4 +1,5 @@
 import type React from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { getMediaSize } from '../../grid/style';
@@ -396,7 +397,7 @@ const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
   };
 };
 
-const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
+const genResponsiveWidthStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   const oriGridMediaSizesMap: Record<string, number> = getMediaSize(token);
@@ -434,7 +435,7 @@ const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalToken = (token) => {
+export const prepareToken = (token: Parameters<GenStyleFn<'Modal'>>[0]) => {
   const headerPaddingVertical = token.padding;
   const headerFontSize = token.fontSizeHeading5;
   const headerLineHeight = token.lineHeightHeading5;
