@@ -173,6 +173,11 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             overflow: 'hidden',
           },
 
+          // >>> Value
+          '&-value': {
+            visibility: 'inherit',
+          },
+
           // >>> Input: should only take effect for not customize mode
 
           // input element with readOnly use cursor pointer
