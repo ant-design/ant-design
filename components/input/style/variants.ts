@@ -178,7 +178,9 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
   return {
     '&-borderless': {
       background: 'transparent',
-      border: 'none',
+      borderWidth: token.lineWidth,
+      borderStyle: token.lineType,
+      borderColor: 'transparent',
 
       '&:focus, &:focus-within': {
         outline: 'none',
