@@ -2113,4 +2113,95 @@ describe('Table.rowSelection', () => {
     expect(checkbox).toBeDisabled();
     expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
   });
+
+  it('should trigger onChange with empty array when selected rows are removed from dataSource', async () => {
+    const onChange = jest.fn();
+    const initialData = [
+      { key: 0, name: 'Jack' },
+      { key: 1, name: 'Lucy' },
+      { key: 2, name: 'Tom' },
+    ];
+
+    const { container, rerender } = render(
+      <Table
+        columns={columns}
+        dataSource={initialData}
+        rowSelection={{ onChange }}
+      />,
+    );
+
+    // Select all rows
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+    fireEvent.click(checkboxes[1]); // Select first row
+    fireEvent.click(checkboxes[2]); // Select second row
+    fireEvent.click(checkboxes[3]); // Select third row
+
+    expect(onChange).toHaveBeenCalledTimes(3);
+    onChange.mockClear();
+
+    // Remove all selected rows from dataSource
+    act(() => {
+      rerender(
+        <Table
+          columns={columns}
+          dataSource={[]}
+          rowSelection={{ onChange }}
+        />,
+      );
+    });
+
+    // Wait for useEffect to complete
+    await waitFakeTimer();
+
+    // onChange should be called with empty array when all selected rows are removed
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenLastCalledWith([], [], { type: 'cleanup' });
+  });
+
+  it('should trigger onChange when some selected rows are removed from dataSource', async () => {
+    const onChange = jest.fn();
+    const initialData = [
+      { key: 0, name: 'Jack' },
+      { key: 1, name: 'Lucy' },
+      { key: 2, name: 'Tom' },
+    ];
+
+    const { container, rerender } = render(
+      <Table
+        columns={columns}
+        dataSource={initialData}
+        rowSelection={{ onChange }}
+      />,
+    );
+
+    // Select all three rows
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+    fireEvent.click(checkboxes[1]); // Select first row (key: 0)
+    fireEvent.click(checkboxes[2]); // Select second row (key: 1)
+    fireEvent.click(checkboxes[3]); // Select third row (key: 2)
+
+    expect(onChange).toHaveBeenCalledTimes(3);
+    onChange.mockClear();
+
+    // Remove only key 0 from dataSource, keeping keys 1 and 2
+    act(() => {
+      rerender(
+        <Table
+          columns={columns}
+          dataSource={[
+            { key: 1, name: 'Lucy' },
+            { key: 2, name: 'Tom' },
+          ]}
+          rowSelection={{ onChange }}
+        />,
+      );
+    });
+
+    // Wait for useEffect to complete
+    await waitFakeTimer();
+
+    // onChange should be called with remaining selected keys [1, 2] since key 0 was removed
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChange).toHaveBeenLastCalledWith([1, 2], [{ key: 1, name: 'Lucy' }, { key: 2, name: 'Tom' }], { type: 'cleanup' });
+  });
 });

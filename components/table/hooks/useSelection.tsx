@@ -45,7 +45,7 @@ interface UseSelectionConfig<RecordType = AnyObject> {
   pageData: RecordType[];
   data: RecordType[];
   getRowKey: GetRowKey<RecordType>;
-  getRecordByKey: (key: Key) => RecordType;
+  getRecordByKey: (key: Key) => RecordType | undefined;
   expandType: ExpandType;
   childrenColumnName: string;
   locale: TableLocale;
@@ -122,8 +122,22 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     selectedRowKeys,
   );
 
+  // Ref to track current selected keys for useEffect dependency optimization
+  const selectedKeysRef = React.useRef(mergedSelectedKeys);
+  React.useEffect(() => {
+    selectedKeysRef.current = mergedSelectedKeys;
+  }, [mergedSelectedKeys]);
+
   // ======================== Caches ========================
   const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
+
+  // Helper function to filter out undefined records
+  const filterDefinedRecords = useCallback(
+    (keys: Key[]): RecordType[] => {
+      return keys.map((k) => getRecordByKey(k)).filter((r): r is RecordType => r !== undefined);
+    },
+    [getRecordByKey],
+  );
 
   const updatePreserveRecordsCache = useCallback(
     (keys: Key[]) => {
@@ -137,7 +151,10 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
             record = preserveRecordsRef.current.get(key)!;
           }
 
-          newCache.set(key, record);
+          // Only set record if it's defined to maintain type safety
+          if (record !== undefined) {
+            newCache.set(key, record);
+          }
         });
         // Refresh to new cache
         preserveRecordsRef.current = newCache;
@@ -239,6 +256,46 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     }
   }, [!!rowSelection]);
 
+  // Sync selected keys when dataSource changes
+  // This ensures onChange is called when selected rows are removed from dataSource
+  const prevDataRef = React.useRef(data);
+  React.useEffect(() => {
+    if (!rowSelection || preserveSelectedRowKeys || selectedRowKeys !== undefined) {
+      prevDataRef.current = data;
+      return;
+    }
+
+    // Only sync if data actually changed
+    if (prevDataRef.current === data) {
+      return;
+    }
+
+    const currentKeys = mergedSelectedKeys;
+    if (currentKeys.length === 0) {
+      prevDataRef.current = data;
+      return;
+    }
+
+    // Filter out keys that no longer exist in the dataSource
+    const availableKeys: Key[] = [];
+    const records: RecordType[] = [];
+    currentKeys.forEach((key) => {
+      const record = getRecordByKey(key);
+      if (record !== undefined) {
+        availableKeys.push(key);
+        records.push(record);
+      }
+    });
+
+    // If any keys were removed, update the selection and trigger onChange
+    if (availableKeys.length !== currentKeys.length) {
+      setMergedSelectedKeys(availableKeys);
+      onSelectionChange?.(availableKeys, records, { type: 'cleanup' });
+    }
+
+    prevDataRef.current = data;
+  }, [data, getRecordByKey, mergedSelectedKeys, onSelectionChange, preserveSelectedRowKeys, rowSelection, selectedRowKeys, setMergedSelectedKeys]);
+
   const setSelectedKeys = useCallback(
     (keys: Key[], method: RowSelectMethod) => {
       let availableKeys: Key[];
@@ -275,13 +332,16 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   const triggerSingleSelection = useCallback(
     (key: Key, selected: boolean, keys: Key[], event: Event) => {
       if (onSelect) {
-        const rows = keys.map<RecordType>(getRecordByKey);
-        onSelect(getRecordByKey(key), selected, rows, event);
+        const rows = filterDefinedRecords(keys);
+        const record = getRecordByKey(key);
+        if (record !== undefined) {
+          onSelect(record, selected, rows, event);
+        }
       }
 
       setSelectedKeys(keys, 'single');
     },
-    [onSelect, getRecordByKey, setSelectedKeys],
+    [onSelect, getRecordByKey, setSelectedKeys, filterDefinedRecords],
   );
 
   const mergedSelections = useMemo<SelectionItem[] | null>(() => {
@@ -426,8 +486,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
         onSelectAll?.(
           !checkedCurrentAll,
-          keys.map<RecordType>(getRecordByKey),
-          changeKeys.map<RecordType>(getRecordByKey),
+          filterDefinedRecords(keys),
+          filterDefinedRecords(changeKeys),
         );
 
         setSelectedKeys(keys, 'all');
@@ -584,8 +644,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
                     onSelectMultiple?.(
                       !checked,
-                      keys.map<RecordType>(getRecordByKey),
-                      changedKeys.map<RecordType>(getRecordByKey),
+                      filterDefinedRecords(keys),
+                      filterDefinedRecords(changedKeys),
                     );
 
                     setSelectedKeys(keys, 'multiple');
