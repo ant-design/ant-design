@@ -6,6 +6,7 @@ import type {
 
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { SizeType } from '../config-provider/SizeContext';
+import type { InputNumberProps } from '../input-number';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
 import type { AggregationColor } from './color';
@@ -100,6 +101,7 @@ export type ColorPickerProps = Omit<
   value?: ColorValueType;
   defaultValue?: ColorValueType;
   children?: React.ReactNode;
+  controls?: InputNumberProps['controls'];
   open?: boolean;
   disabled?: boolean;
   placement?: TriggerPlacement;
