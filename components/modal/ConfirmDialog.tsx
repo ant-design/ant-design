@@ -6,6 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import { clsx } from 'clsx';
 
 import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
@@ -140,7 +141,7 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
     </>
   );
 
-  const hasTitle = props.title !== undefined && props.title !== null;
+  const hasTitle = isNonNullable(props.title) && props.title !== '';
 
   const bodyCls = `${confirmPrefixCls}-body`;
 

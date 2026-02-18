@@ -20,6 +20,11 @@ export interface DirectoryTreeProps<T extends BasicDataNode = DataNode> extends 
   expandAction?: ExpandAction;
 }
 
+type DirectoryTreeCompoundedComponent = (<T extends BasicDataNode | DataNode = DataNode>(
+  props: React.PropsWithChildren<DirectoryTreeProps<T>> & React.RefAttributes<RcTree>,
+) => React.ReactElement) &
+  Pick<React.FC, 'displayName'>;
+
 export interface DirectoryTreeState {
   expandedKeys?: Key[];
   selectedKeys?: Key[];
@@ -195,7 +200,7 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
       onExpand={onExpand}
     />
   );
-});
+}) as DirectoryTreeCompoundedComponent;
 
 if (process.env.NODE_ENV !== 'production') {
   DirectoryTree.displayName = 'DirectoryTree';
