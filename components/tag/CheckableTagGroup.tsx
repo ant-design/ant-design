@@ -127,19 +127,17 @@ const CheckableTagGroup = React.forwardRef<
   });
 
   // =============================== Option ===============================
-  const parsedOptions = useMemo(
-    () =>
-      (options || []).map((option) => {
-        if (option && typeof option === 'object') {
-          return option;
-        }
-        return {
-          value: option,
-          label: option,
-        };
-      }),
-    [options],
-  );
+  const parsedOptions = useMemo(() => {
+    if (!Array.isArray(options)) {
+      return [];
+    }
+    return options.map((option) => {
+      if (option && typeof option === 'object') {
+        return option;
+      }
+      return { value: option, label: option };
+    });
+  }, [options]);
 
   // =============================== Values ===============================
   const [mergedValue, setMergedValue] = useControlledState(defaultValue, value);
