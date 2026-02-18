@@ -54,7 +54,7 @@ const genStackChildrenStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
   };
 };
 
-const genStackedNoticeStyle = (token: NotificationToken): CSSObject => {
+const genStackedNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const childrenStyle: CSSObject = {};
   for (let i = 1; i < token.notificationStackLayer; i++) {
     childrenStyle[`&:nth-last-child(${i + 1})`] = {
@@ -63,13 +63,10 @@ const genStackedNoticeStyle = (token: NotificationToken): CSSObject => {
       '-webkit-backdrop-filter': 'blur(10px)',
     };
   }
-
-  return {
-    ...childrenStyle,
-  };
+  return childrenStyle;
 };
 
-const genStackStyle: GenerateStyle<NotificationToken> = (token) => {
+const genStackStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [`${componentCls}-stack`]: {

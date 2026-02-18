@@ -210,9 +210,7 @@ export default genStyleHooks(
   'Message',
   (token) => {
     // Gen-style functions here
-    const combinedToken = mergeToken<MessageToken>(token, {
-      height: 150,
-    });
+    const combinedToken = mergeToken<MessageToken>(token, { height: 150 });
     return genMessageStyle(combinedToken);
   },
   prepareComponentToken,

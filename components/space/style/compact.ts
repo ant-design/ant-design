@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 
@@ -9,7 +11,7 @@ interface SpaceToken extends FullToken<'Space'> {
   // Custom token here
 }
 
-const genSpaceCompactStyle: GenerateStyle<SpaceToken> = (token) => {
+const genSpaceCompactStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
