@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/internal';
 import type { ButtonToken } from './token';
 
@@ -22,7 +24,7 @@ const genButtonBorderStyle = (buttonTypeCls: string, borderColor: string) => ({
   },
 });
 
-const genGroupStyle: GenerateStyle<ButtonToken> = (token) => {
+const genGroupStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
   const { componentCls, fontSize, lineWidth, groupBorderColor, colorErrorHover } = token;
 
   return {
