@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 
 import { toHaveNoViolations } from 'jest-axe';
-import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
 
 import { defaultConfig } from '../components/theme/internal';
@@ -90,12 +89,14 @@ expect.addSnapshotSerializer({
   test: (node) => node && typeof node === 'object' && node.type === 'demo' && node.html,
   // @ts-ignore
   print: ({ html }) => {
+    // Use require to avoid ESM module issues at Jest initialization time
+    const jsdom = require('jsdom');
     const { JSDOM } = jsdom;
     const { document } = new JSDOM().window;
     document.body.innerHTML = html;
 
     const children = Array.from(document.body.childNodes).filter(
-      (node) =>
+      (node: any) =>
         // Ignore `link` node since React 18 or blew not support this
         node.nodeName !== 'LINK',
     );

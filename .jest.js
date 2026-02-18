@@ -10,7 +10,6 @@ const compileModules = [
   // jsdom 27+ depends on ESM parse5, need transform
   'parse5',
   '@exodus',
-  'jsdom',
   '@csstools',
 ];
 
