@@ -347,7 +347,7 @@ export const genInputGroupStyle = (token: InputToken): CSSObject => {
   };
 };
 
-export const genInputStyle: GenerateStyle<InputToken> = (token: InputToken) => {
+export const genInputStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, controlHeightSM, lineWidth, calc } = token;
 
   const FIXED_CHROME_COLOR_HEIGHT = 16;
@@ -426,7 +426,7 @@ const genAllowClearStyle = (token: InputToken): CSSObject => {
   };
 };
 
-export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
+export const genAffixStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const {
     componentCls,
     inputAffixPadding,
@@ -539,7 +539,7 @@ export const genAffixStyle: GenerateStyle<InputToken> = (token: InputToken) => {
   };
 };
 
-const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
+const genGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, borderRadiusLG, borderRadiusSM } = token;
 
   return {
@@ -630,7 +630,7 @@ const genGroupStyle: GenerateStyle<InputToken> = (token: InputToken) => {
 };
 
 // ============================== Range ===============================
-const genRangeStyle: GenerateStyle<InputToken> = (token) => {
+const genRangeStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {

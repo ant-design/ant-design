@@ -38,7 +38,7 @@ interface ResultToken extends FullToken<'Result'> {
 }
 
 // ============================== Styles ==============================
-const genBaseStyle: GenerateStyle<ResultToken> = (token): CSSObject => {
+const genBaseStyle: GenerateStyle<ResultToken, CSSObject> = (token) => {
   const {
     componentCls,
     lineHeightHeading3,

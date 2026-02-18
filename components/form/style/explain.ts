@@ -1,7 +1,9 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FormToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genFormValidateMotionStyle: GenerateStyle<FormToken> = (token) => {
+const genFormValidateMotionStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, motionDurationFast, motionEaseInOut } = token;
 
   const helpCls = `${componentCls}-show-help`;
