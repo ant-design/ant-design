@@ -206,6 +206,9 @@ const InternalSelect = <
     onOpenChange,
     styles,
     classNames,
+    open: propOpen,
+    onSelect: propOnSelect,
+    showSearch: propShowSearch,
     ...rest
   } = props;
 
@@ -220,12 +223,14 @@ const InternalSelect = <
   } = React.useContext(ConfigContext);
 
   const {
-    showSearch,
+    showSearch: contextShowSearch,
     style: contextStyle,
     styles: contextStyles,
     className: contextClassName,
     classNames: contextClassNames,
   } = useComponentConfig('select');
+
+  const showSearch = propShowSearch ?? contextShowSearch;
 
   const [, token] = useToken();
 
@@ -267,6 +272,33 @@ const InternalSelect = <
 
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
+  const isControlledOpen = propOpen !== undefined;
+  const [internalOpen, setInternalOpen] = React.useState<boolean | undefined>(
+    isControlledOpen ? undefined : propOpen,
+  );
+
+  const handleOpenChange = React.useCallback(
+    (open: boolean) => {
+      if (!isControlledOpen) {
+        setInternalOpen(open);
+      }
+      mergedOnOpenChange?.(open);
+    },
+    [isControlledOpen, mergedOnOpenChange],
+  );
+
+  const handleSelect = React.useCallback(
+    (value: any, option: any) => {
+      if (!isMultiple && !!showSearch) {
+        handleOpenChange(false);
+      }
+      propOnSelect?.(value, option);
+    },
+    [isMultiple, showSearch, handleOpenChange, propOnSelect],
+  );
+
+  const mergedOpen = isControlledOpen ? propOpen : internalOpen;
+
   // ===================== Form Status =====================
   const {
     status: contextStatus,
@@ -299,7 +331,7 @@ const InternalSelect = <
 
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
-  const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
+  const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any, 'onSelect' as any]);
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -448,7 +480,9 @@ const InternalSelect = <
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}
-      onPopupVisibleChange={mergedOnOpenChange}
+      open={mergedOpen}
+      onPopupVisibleChange={handleOpenChange}
+      onSelect={handleSelect}
     />
   );
 };
