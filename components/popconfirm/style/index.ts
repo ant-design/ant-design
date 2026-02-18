@@ -90,6 +90,6 @@ export const prepareComponentToken: GetDefaultToken<'Popconfirm'> = (token) => {
   };
 };
 
-export default genStyleHooks('Popconfirm', (token) => genBaseStyle(token), prepareComponentToken, {
+export default genStyleHooks('Popconfirm', genBaseStyle, prepareComponentToken, {
   resetStyle: false,
 });

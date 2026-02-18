@@ -137,8 +137,6 @@ const genResultStyle: GenerateStyle<ResultToken> = (token) => [
   genStatusIconStyle(token),
 ];
 
-const getStyle: GenerateStyle<ResultToken> = (token) => genResultStyle(token);
-
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => ({
   titleFontSize: token.fontSizeHeading3,
@@ -163,8 +161,7 @@ export default genStyleHooks(
       imageWidth: 250,
       imageHeight: 295,
     });
-
-    return [getStyle(resultToken)];
+    return genResultStyle(resultToken);
   },
   prepareComponentToken,
 );
