@@ -34,6 +34,7 @@ const genFilterStyle: GenerateStyle<TableToken> = (token) => {
     filterDropdownMenuBg,
     calc,
   } = token;
+
   const dropdownPrefixCls = `${antCls}-dropdown`;
   const tableFilterDropdownPrefixCls = `${componentCls}-filter-dropdown`;
   const treePrefixCls = `${antCls}-tree`;

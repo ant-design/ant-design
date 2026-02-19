@@ -30,7 +30,7 @@ const genPickerPadding = (paddingBlock: number, paddingInline: number): CSSObjec
   };
 };
 
-const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
+const genPickerStatusStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const { componentCls, colorError, colorWarning } = token;
 
   return {
