@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle } from '../../style';
@@ -31,7 +32,7 @@ export interface ComponentToken {
 export interface DrawerToken extends FullToken<'Drawer'> {}
 
 // =============================== Base ===============================
-const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
+const genDrawerStyle: GenerateStyle<DrawerToken, CSSObject> = (token) => {
   const {
     borderRadiusSM,
     componentCls,

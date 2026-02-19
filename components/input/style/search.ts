@@ -32,6 +32,4 @@ const genSearchStyle: GenerateStyle<FullToken<'Input'>, CSSObject> = (token) => 
   };
 };
 
-export default genStyleHooks(['Input', 'Search'], (token) => {
-  return [genSearchStyle(token)];
-});
+export default genStyleHooks(['Input', 'Search'], genSearchStyle);

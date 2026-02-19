@@ -533,7 +533,7 @@ const makeVerticalLayout: GenerateStyle<FormToken, CSSObject> = (token) => {
   };
 };
 
-const genVerticalStyle: GenerateStyle<FormToken> = (token) => {
+const genVerticalStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
   const { componentCls, formItemCls, antCls } = token;
 
   return {

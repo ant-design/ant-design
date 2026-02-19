@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import {
@@ -51,7 +52,7 @@ type MentionsToken = FullToken<'Mentions'> &
   };
 
 // ============================= Mentions =============================
-const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
+const genDropdownStyle: GenerateStyle<MentionsToken, CSSObject> = (token) => {
   const {
     componentCls,
     fontSize,
@@ -144,7 +145,7 @@ const genDropdownStyle: GenerateStyle<MentionsToken> = (token) => {
   };
 };
 
-const genMentionsStyle: GenerateStyle<MentionsToken> = (token) => {
+const genMentionsStyle: GenerateStyle<MentionsToken, CSSObject> = (token) => {
   const { componentCls, colorText, antCls, colorTextDisabled, calc } = token;
   const [varName, varRef] = genCssVar(antCls, 'cmp-mentions');
   return {
