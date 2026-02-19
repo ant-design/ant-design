@@ -24,6 +24,8 @@ interface EditableProps {
   autoSize?: TextAreaProps['autoSize'];
   enterIcon?: React.ReactNode;
   component?: string;
+  textareaClassName?: string;
+  textareaStyle?: React.CSSProperties;
 }
 
 const Editable: React.FC<EditableProps> = (props) => {
@@ -41,6 +43,8 @@ const Editable: React.FC<EditableProps> = (props) => {
     onEnd,
     component,
     enterIcon = <EnterOutlined />,
+    textareaClassName,
+    textareaStyle,
   } = props;
   const ref = React.useRef<TextAreaRef>(null);
 
@@ -143,6 +147,8 @@ const Editable: React.FC<EditableProps> = (props) => {
         onCompositionEnd={onCompositionEnd}
         onBlur={onBlur}
         aria-label={ariaLabel}
+        classNames={{ textarea: textareaClassName }}
+        styles={{ textarea: textareaStyle }}
         rows={1}
         autoSize={autoSize}
       />
