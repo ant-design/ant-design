@@ -1,5 +1,5 @@
 import Dragger from './Dragger';
-import type { UploadProps } from './Upload';
+import type { UploadProps, UploadRef } from './Upload';
 import InternalUpload, { LIST_IGNORE } from './Upload';
 
 export type { DraggerProps } from './Dragger';
@@ -18,7 +18,7 @@ type InternalUploadType = typeof InternalUpload;
 
 type CompoundedComponent<T = any> = InternalUploadType & {
   <U extends T>(
-    props: React.PropsWithChildren<UploadProps<U>> & React.RefAttributes<any>,
+    props: React.PropsWithChildren<UploadProps<U>> & React.RefAttributes<UploadRef<U>>,
   ): React.ReactElement;
   Dragger: typeof Dragger;
   LIST_IGNORE: string;
