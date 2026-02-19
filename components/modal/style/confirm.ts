@@ -70,6 +70,10 @@ const genModalConfirmStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
         maxWidth: `calc(100% - ${unit(token.marginSM)})`,
       },
 
+      [`${confirmComponentCls}-body-no-icon ${confirmComponentCls}-paragraph`]: {
+        maxWidth: '100%',
+      },
+
       // https://github.com/ant-design/ant-design/issues/48159
       [`${token.iconCls} + ${confirmComponentCls}-paragraph`]: {
         maxWidth: `calc(100% - ${unit(
