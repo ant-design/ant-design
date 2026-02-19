@@ -29,7 +29,7 @@ function cleanup(node: HTMLElement) {
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
   childList.forEach((child) => {
-    if (!(child instanceof Text)) {
+    if (!(child instanceof Text) || child.nodeType !== Node.TEXT_NODE) {
       node.appendChild(cleanup(child as any));
     } else if (child.textContent) {
       node.appendChild(child);
