@@ -9,6 +9,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 
 describe('Select', () => {
@@ -324,5 +325,228 @@ describe('Select', () => {
     const input = popupElement!.querySelector('input');
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
+  });
+
+  describe('clearIcon', () => {
+    const props = {
+      allowClear: true,
+      options: [
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+      ],
+      defaultValue: 'jack',
+    };
+
+    it('should support clearIcon prop', () => {
+      const { container } = render(<Select {...props} clearIcon="clear" />);
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should support clearIcon prop in allowClear', () => {
+      const { container } = render(<Select {...props} allowClear={{ clearIcon: 'clear' }} />);
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should prefer clearIcon from allowClear over clearIcon prop', () => {
+      const { container } = render(
+        <Select {...props} allowClear={{ clearIcon: 'allow' }} clearIcon="clear" />,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('allow');
+    });
+
+    it('should support clearIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ clearIcon: 'clear' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should support clearIcon prop in allowClear in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: { clearIcon: 'clear' } }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
+    });
+
+    it('should prefer clearIcon from allowClear over clearIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: { clearIcon: 'allow' }, clearIcon: 'clear' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('allow');
+    });
+
+    it('should prefer clearIcon from allowClear in config provider over config provider', () => {
+      const { container } = render(
+        <ConfigProvider
+          select={{ allowClear: { clearIcon: 'contextAllow' }, clearIcon: 'contextClear' }}
+        >
+          <Select {...props} allowClear={{ clearIcon: 'allow' }} clearIcon="clear" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')!.textContent).toBe('allow');
+    });
+  });
+
+  describe('loadingIcon', () => {
+    const props = { loading: true };
+
+    it('should support loadingIcon prop', () => {
+      const { container } = render(<Select {...props} loadingIcon="foobar" />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support loadingIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ loadingIcon: 'foobar' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer loadingIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ loadingIcon: 'foobar' }}>
+          <Select {...props} loadingIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
+    });
+  });
+
+  describe('menuItemSelectedIcon', () => {
+    const props = {
+      open: true,
+      mode: 'multiple' as const,
+      options: [
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+      ],
+      defaultValue: ['jack'],
+    };
+
+    it('should support menuItemSelectedIcon prop', () => {
+      const { container } = render(<Select {...props} menuItemSelectedIcon="foobar" />);
+      expect(container.querySelector('.ant-select-item-option-state')!.textContent).toBe('foobar');
+    });
+
+    it('should support menuItemSelectedIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ menuItemSelectedIcon: 'foobar' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-item-option-state')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer menuItemSelectedIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ menuItemSelectedIcon: 'foobar' }}>
+          <Select {...props} menuItemSelectedIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-item-option-state')!.textContent).toBe('bamboo');
+    });
+  });
+
+  describe('removeIcon', () => {
+    const props = {
+      mode: 'multiple' as const,
+      options: [
+        { value: 'jack', label: 'Jack' },
+        { value: 'lucy', label: 'Lucy' },
+      ],
+      defaultValue: ['jack'],
+    };
+
+    it('should support removeIcon prop', () => {
+      const { container } = render(<Select {...props} removeIcon="foobar" />);
+      expect(container.querySelector('.ant-select-selection-item-remove')!.textContent).toBe(
+        'foobar',
+      );
+    });
+
+    it('should support removeIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ removeIcon: 'foobar' }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-selection-item-remove')!.textContent).toBe(
+        'foobar',
+      );
+    });
+
+    it('should prefer removeIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ removeIcon: 'foobar' }}>
+          <Select {...props} removeIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-selection-item-remove')!.textContent).toBe(
+        'bamboo',
+      );
+    });
+  });
+
+  describe('searchIcon', () => {
+    const props = {
+      open: true,
+      showSearch: true,
+    };
+
+    it('should support searchIcon prop in showSearch', () => {
+      const { container } = render(<Select {...props} showSearch={{ searchIcon: 'foobar' }} />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support searchIcon prop in showSearch in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ showSearch: { searchIcon: 'foobar' } }}>
+          <Select {...props} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer searchIcon from showSearch in config provider over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ showSearch: { searchIcon: 'foobar' } }}>
+          <Select {...props} showSearch={{ searchIcon: 'bamboo' }} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
+    });
+  });
+
+  describe('suffixIcon', () => {
+    it('should support suffixIcon prop', () => {
+      const { container } = render(<Select suffixIcon="foobar" />);
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffixIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffixIcon: 'foobar' }}>
+          <Select />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer suffixIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider select={{ suffixIcon: 'foobar' }}>
+          <Select suffixIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-suffix')!.textContent).toBe('bamboo');
+    });
   });
 });

@@ -525,7 +525,11 @@ Array [
 ]
 `;
 
-exports[`renders components/auto-complete/demo/allowClear.tsx extend context correctly 2`] = `[]`;
+exports[`renders components/auto-complete/demo/allowClear.tsx extend context correctly 2`] = `
+[
+  "Warning: [antd: Select] \`clearIcon\` is deprecated. Please use \`allowClear={{ clearIcon: React.ReactNode }}\` instead.",
+]
+`;
 
 exports[`renders components/auto-complete/demo/basic.tsx extend context correctly 1`] = `
 Array [
