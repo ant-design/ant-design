@@ -142,7 +142,7 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
   );
 
   const hasTitle = isNonNullable(props.title) && props.title !== '';
-  const hasIcon = isNonNullable(mergedIcon);
+  const hasIcon = isNonNullable(mergedIcon) && mergedIcon !== '';
 
   const bodyCls = `${confirmPrefixCls}-body`;
 
