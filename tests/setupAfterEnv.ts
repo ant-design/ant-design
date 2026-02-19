@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 
 import { toHaveNoViolations } from 'jest-axe';
+import { JSDOM } from 'jsdom';
 import format, { plugins } from 'pretty-format';
 
 import { defaultConfig } from '../components/theme/internal';
@@ -28,7 +29,7 @@ function cleanup(node: HTMLElement) {
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
   childList.forEach((child) => {
-    if (!(child instanceof Text)) {
+    if (!(child instanceof Text) || child.nodeType !== Node.TEXT_NODE) {
       node.appendChild(cleanup(child as any));
     } else if (child.textContent) {
       node.appendChild(child);
@@ -90,10 +91,9 @@ expect.addSnapshotSerializer({
   // @ts-ignore
   print: ({ html }) => {
     // Create a temporary container to parse HTML
-    const container = document.createElement('div');
-    container.innerHTML = html;
+    const { window } = new JSDOM(html);
 
-    const children = Array.from(container.childNodes).filter(
+    const children = Array.from(window.document.body.childNodes).filter(
       // Ignore `link` node since React 18 or below not support this
       (node) => node.nodeName !== 'LINK',
     );
