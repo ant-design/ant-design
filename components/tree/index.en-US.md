@@ -33,6 +33,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/multiple-line.tsx" debug>Multiple lines</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/line-debug.tsx">Line debug</code>
 
 ## API
 
