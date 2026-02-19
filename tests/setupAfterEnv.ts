@@ -1,6 +1,7 @@
 import '@testing-library/jest-dom';
 
 import { toHaveNoViolations } from 'jest-axe';
+import { JSDOM } from 'jsdom';
 import format, { plugins } from 'pretty-format';
 
 import { defaultConfig } from '../components/theme/internal';
@@ -90,10 +91,10 @@ expect.addSnapshotSerializer({
   // @ts-ignore
   print: ({ html }) => {
     // Create a temporary container to parse HTML
-    const container = document.createElement('div');
-    container.innerHTML = html;
+    const { window } = new JSDOM();
+    window.document.body.innerHTML = html;
 
-    const children = Array.from(container.childNodes).filter(
+    const children = Array.from(window.document.body.childNodes).filter(
       // Ignore `link` node since React 18 or below not support this
       (node) => node.nodeName !== 'LINK',
     );
