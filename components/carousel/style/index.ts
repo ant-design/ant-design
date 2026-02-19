@@ -153,7 +153,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
   };
 };
 
-const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
+const genArrowsStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow, arrowSize, arrowOffset } = token;
   const arrowLength = token.calc(arrowSize).div(Math.SQRT2).equal();
 
@@ -221,7 +221,7 @@ const genArrowsStyle: GenerateStyle<CarouselToken> = (token) => {
   };
 };
 
-const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
+const genDotsStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
   const {
     componentCls,
     dotOffset,
@@ -344,7 +344,7 @@ const genDotsStyle: GenerateStyle<CarouselToken> = (token) => {
   };
 };
 
-const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
+const genCarouselVerticalStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
   const { componentCls, dotOffset, arrowOffset, marginXXS } = token;
 
   const animation = new Keyframes(`${token.prefixCls}-dot-vertical-animation`, {
@@ -356,7 +356,7 @@ const genCarouselVerticalStyle: GenerateStyle<CarouselToken> = (token) => {
     },
   });
 
-  const reverseSizeOfDot = {
+  const reverseSizeOfDot: CSSObject = {
     width: token.dotHeight,
     height: token.dotWidth,
   };

@@ -59,4 +59,4 @@ export const genMasonryStyle: GenerateStyle<MasonryToken, CSSObject> = (token) =
   };
 };
 
-export default genStyleHooks('Masonry', (token) => [genMasonryStyle(token)]);
+export default genStyleHooks('Masonry', genMasonryStyle);

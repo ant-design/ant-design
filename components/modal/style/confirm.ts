@@ -1,4 +1,5 @@
 // Style as confirm component
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { prepareComponentToken, prepareToken } from '.';
@@ -8,8 +9,7 @@ import { genSubStyleComponent } from '../../theme/internal';
 import type { GenerateStyle } from '../../theme/internal';
 
 // ============================= Confirm ==============================
-
-const genModalConfirmStyle: GenerateStyle<ModalToken> = (token) => {
+const genModalConfirmStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
   const {
     componentCls,
     titleFontSize,

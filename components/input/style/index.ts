@@ -33,16 +33,15 @@ export const genPlaceholderStyle = (color: string): CSSObject => ({
   },
 });
 
-export const genActiveStyle = (token: InputToken) => ({
+export const genActiveStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   borderColor: token.activeBorderColor,
   boxShadow: token.activeShadow,
   outline: 0,
   backgroundColor: token.activeBg,
 });
 
-export const genInputLargeStyle = (token: InputToken): CSSObject => {
+export const genInputLargeStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { paddingBlockLG, lineHeightLG, borderRadiusLG, paddingInlineLG } = token;
-
   return {
     padding: `${unit(paddingBlockLG)} ${unit(paddingInlineLG)}`,
     fontSize: token.inputFontSizeLG,
@@ -51,7 +50,7 @@ export const genInputLargeStyle = (token: InputToken): CSSObject => {
   };
 };
 
-export const genInputSmallStyle = (token: InputToken): CSSObject => ({
+export const genInputSmallStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   padding: `${unit(token.paddingBlockSM)} ${unit(token.paddingInlineSM)}`,
   fontSize: token.inputFontSizeSM,
   borderRadius: token.borderRadiusSM,
@@ -92,7 +91,7 @@ export const genBasicInputStyle = (
   },
 });
 
-export const genInputGroupStyle = (token: InputToken): CSSObject => {
+export const genInputGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
   return {
@@ -389,7 +388,7 @@ export const genInputStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   };
 };
 
-const genAllowClearStyle = (token: InputToken): CSSObject => {
+const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     // ========================= Input =========================
