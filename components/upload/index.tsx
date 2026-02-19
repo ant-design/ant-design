@@ -13,6 +13,7 @@ export type {
   UploadSemanticName,
   UploadSemanticStyles,
 } from './interface';
+export type { UploadRef } from './Upload';
 
 type InternalUploadType = typeof InternalUpload;
 
