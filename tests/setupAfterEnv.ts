@@ -91,7 +91,7 @@ expect.addSnapshotSerializer({
   // @ts-ignore
   print: ({ html }) => {
     // Create a temporary container to parse HTML
-    const { window } = new JSDOM(html);
+    const { window } = new JSDOM(html, { contentType: 'text/html' });
 
     const children = Array.from(window.document.body.childNodes).filter(
       // Ignore `link` node since React 18 or below not support this
