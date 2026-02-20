@@ -90,7 +90,7 @@ const genSelectInputVariantStyle = (
 };
 
 const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
-  const { componentCls, fontHeight, controlHeight, iconCls, antCls, calc } = token;
+  const { componentCls, controlHeight, iconCls, antCls, calc } = token;
   const [varName, varRef] = genCssVar(antCls, 'select');
   return {
     [componentCls]: [
