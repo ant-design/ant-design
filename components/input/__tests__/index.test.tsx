@@ -120,6 +120,23 @@ describe('Input', () => {
     expect(container.querySelector('input')?.selectionEnd).toEqual(5);
   });
 
+  it('should pass real input as event target on change for custom input integrations', () => {
+    let eventTarget: EventTarget | null = null;
+    const { container } = render(
+      <Input
+        defaultValue="1"
+        onChange={(e) => {
+          eventTarget = e.target;
+        }}
+      />,
+    );
+
+    const input = container.querySelector('input')!;
+    fireEvent.change(input, { target: { value: '12' } });
+
+    expect(eventTarget).toBe(input);
+  });
+
   it('warning for Input.Group', () => {
     resetWarned();
     render(<Input.Group />);
