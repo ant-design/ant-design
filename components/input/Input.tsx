@@ -228,38 +228,40 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     removePasswordTimeout();
 
     const input = inputRef.current?.input;
-    const patchedEvent =
-      input && originalEvent.target !== input
-        ? (Object.create(originalEvent, {
+    if (!input || originalEvent.target === input) {
+      onChange?.(originalEvent);
+      return;
+    }
+
+    onChange?.(
+      Object.create(originalEvent, {
+        target: {
+          value: input,
+          writable: true,
+          configurable: true,
+          enumerable: true,
+        },
+        currentTarget: {
+          value: input,
+          writable: true,
+          configurable: true,
+          enumerable: true,
+        },
+        nativeEvent: {
+          value: Object.create(originalEvent.nativeEvent, {
             target: {
               value: input,
               writable: true,
               configurable: true,
               enumerable: true,
             },
-            currentTarget: {
-              value: input,
-              writable: true,
-              configurable: true,
-              enumerable: true,
-            },
-            nativeEvent: {
-              value: Object.create(originalEvent.nativeEvent, {
-                target: {
-                  value: input,
-                  writable: true,
-                  configurable: true,
-                  enumerable: true,
-                },
-              }),
-              writable: true,
-              configurable: true,
-              enumerable: true,
-            },
-          }) as React.ChangeEvent<HTMLInputElement>)
-        : originalEvent;
-
-    onChange?.(patchedEvent);
+          }),
+          writable: true,
+          configurable: true,
+          enumerable: true,
+        },
+      }) as React.ChangeEvent<HTMLInputElement>,
+    );
   };
 
   const suffixNode = (hasFeedback || suffix) && (
