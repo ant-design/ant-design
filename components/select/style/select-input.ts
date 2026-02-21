@@ -232,7 +232,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
           [varName('height')]: token.controlHeightLG,
           [varName('font-size')]: token.fontSizeLG,
           [varName('line-height')]: token.lineHeightLG,
-          [varName('font-height')]: `calc(${varRef('line-height')} * ${varRef('font-size')})`,
           [varName('border-radius')]: token.borderRadiusLG,
         },
       },
