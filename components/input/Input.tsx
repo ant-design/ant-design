@@ -251,12 +251,6 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
                   configurable: true,
                   enumerable: true,
                 },
-                relatedTarget: {
-                  value: input,
-                  writable: true,
-                  configurable: true,
-                  enumerable: true,
-                },
               }),
               writable: true,
               configurable: true,
