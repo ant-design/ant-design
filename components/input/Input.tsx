@@ -227,6 +227,9 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
   const handleChange = (originalEvent: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
 
+    // rc-input may normalize to a cloned target object, but downstream integrations
+    // (e.g. react-number-format customInput) expect the live DOM input node.
+    // Keep event.target/currentTarget/nativeEvent.target aligned with inputRef.
     const input = inputRef.current?.input;
     if (!input || originalEvent.target === input) {
       onChange?.(originalEvent);
