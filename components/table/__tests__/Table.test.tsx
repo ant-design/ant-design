@@ -544,4 +544,16 @@ describe('Table', () => {
       textAlign: 'right',
     });
   });
+
+  it('showHeader=false should add no-header class for bordered table', () => {
+    const columns = [{ title: 'Name', dataIndex: 'name' }];
+    const dataSource = [{ key: '1', name: 'Jack' }];
+
+    const { container } = render(
+      <Table showHeader={false} bordered columns={columns} dataSource={dataSource} />,
+    );
+
+    expect(container.querySelector('.ant-table')).toHaveClass('ant-table-no-header');
+    expect(container.querySelector('.ant-table-thead')).toBeFalsy();
+  });
 });
