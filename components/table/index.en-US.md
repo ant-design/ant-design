@@ -111,6 +111,7 @@ const columns = [
 <code src="./demo/selections-debug.tsx" debug>selections with icon</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/measure-row-render.tsx" debug>measureRowRender</code>
+<code src="./demo/show-header-false-bordered-radius-debug.tsx" debug>Show Header False Bordered Radius</code>
 
 ## API
 
