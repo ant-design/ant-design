@@ -49,6 +49,8 @@ export type GetProps<T extends React.ComponentType<any> | object> =
  * const onChange: GetProp<typeof Select, 'onChange'> = (value, option) => {
  *  // Do something
  * };
+ * // Get return type of function property
+ * type OnChangeReturn = GetProp<typeof Select, 'onChange', 'Return'>;
  * ```
  * @since 5.13.0
  */
@@ -59,7 +61,7 @@ export type GetProp<
 > = Type extends 'Default'
   ? NonNullable<GetProps<T>[PropName]>
   : Type extends 'Return'
-    ? ReturnType<Extract<NonNullable<GetProps<T>[PropName]>, (...args: any[]) => unknown>>
+    ? ReturnType<Extract<GetProp<T, PropName, 'Default'>, (...args: any[]) => unknown>>
     : never;
 
 type ReactRefComponent<Props extends { ref?: React.Ref<any> | string }> = (

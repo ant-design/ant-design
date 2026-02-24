@@ -64,3 +64,17 @@ type SelectOptionType1 = GetProp<SelectProps, 'options'>[number];
 type SelectOptionType2 = GetProp<typeof Select, 'options'>[number];
 type ContextOptionType = GetProp<typeof Context, 'name'>;
 ```
+
+同时，支持通过第三个参数 `'Return'` 获取函数属性的返回值类型：
+
+```tsx
+import type { GetProp } from 'antd';
+
+interface Props {
+  func?: (value: number) => string;
+  configOrFunc?: { configA?: string } | (() => { anotherB?: string });
+}
+
+type OnChangeReturn = GetProp<Props, 'func', 'Return'>; // string
+type ClassNamesReturn = GetProp<Props, 'configOrFunc', 'Return'>; // { anotherB?: string }
+```

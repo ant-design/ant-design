@@ -101,9 +101,11 @@ describe('type', () => {
     });
     it('Type is return', () => {
       interface Props {
-        classNames?: { root?: string } | ((props: any) => { root?: string });
+        classNames?: { root?: string } | ((props: any) => { another?: string });
       }
-      const result: GetProp<Props, 'classNames', 'Return'> = { root: '123' };
+
+      type FuncReturn = GetProp<Props, 'classNames', 'Return'>;
+      const result: FuncReturn = { another: '123' };
       expect(result).toBeTruthy();
     });
   });
