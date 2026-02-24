@@ -277,7 +277,7 @@ describe('Modal', () => {
       useEffect(() => {
         setOpen(true);
       }, []);
-      const handleCancel = (event: React.MouseEvent<HTMLButtonElement>) => {
+      const handleCancel: ModalProps['onCancel'] = (event) => {
         setOpen(false);
         onCancel(event);
       };
