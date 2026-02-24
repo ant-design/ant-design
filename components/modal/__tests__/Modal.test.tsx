@@ -64,6 +64,13 @@ describe('Modal', () => {
     expect(onCancel).toHaveBeenCalled();
   });
 
+  it('onCancel should be called when pressing ESC', () => {
+    const onCancel = jest.fn();
+    render(<Modal open onCancel={onCancel} />);
+    fireEvent.keyDown(document.querySelector('.ant-modal-wrap')!, { key: 'Escape', keyCode: 27 });
+    expect(onCancel).toHaveBeenCalled();
+  });
+
   it('onOk should be called', () => {
     const onOk = jest.fn();
     render(<Modal open onOk={onOk} />);
