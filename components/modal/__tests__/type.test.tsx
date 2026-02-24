@@ -28,4 +28,17 @@ describe('Modal.typescript', () => {
 
     expect(modal).toBeTruthy();
   });
+
+  it('Modal.onCancel should support keyboard event', () => {
+    const onCancel: React.ComponentProps<typeof Modal>['onCancel'] = (e) => {
+      if (e instanceof KeyboardEvent) {
+        const key = e.key;
+        expect(key).toBeTruthy();
+      }
+    };
+
+    const modal = <Modal onCancel={onCancel} />;
+
+    expect(modal).toBeTruthy();
+  });
 });

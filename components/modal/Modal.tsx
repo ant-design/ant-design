@@ -123,7 +123,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose);
 
   // ============================ Open ============================
-  const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCancel: ModalProps['onCancel'] = (e) => {
     if (confirmLoading) {
       return;
     }
