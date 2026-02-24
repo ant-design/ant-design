@@ -78,7 +78,7 @@ type AvatarToken = FullToken<'Avatar'> & {
   avatarColor: string;
 };
 
-const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
+const genBaseStyle: GenerateStyle<AvatarToken, CSSObject> = (token) => {
   const {
     antCls,
     componentCls,
@@ -168,7 +168,7 @@ const genBaseStyle: GenerateStyle<AvatarToken> = (token) => {
   };
 };
 
-const genGroupStyle: GenerateStyle<AvatarToken> = (token) => {
+const genGroupStyle: GenerateStyle<AvatarToken, CSSObject> = (token) => {
   const { componentCls, groupBorderColor, groupOverlapping, groupSpace } = token;
 
   return {

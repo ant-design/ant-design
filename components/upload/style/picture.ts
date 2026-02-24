@@ -1,11 +1,12 @@
 import { blue } from '@ant-design/colors';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
+const genPictureStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
   const { componentCls, iconCls, uploadThumbnailSize, uploadProgressOffset, calc } = token;
   const listCls = `${componentCls}-list`;
   const itemCls = `${listCls}-item`;
@@ -97,7 +98,7 @@ const genPictureStyle: GenerateStyle<UploadToken> = (token) => {
   };
 };
 
-const genPictureCardStyle: GenerateStyle<UploadToken> = (token) => {
+const genPictureCardStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
   const { componentCls, iconCls, fontSizeLG, colorTextLightSolid, calc } = token;
 
   const listCls = `${componentCls}-list`;

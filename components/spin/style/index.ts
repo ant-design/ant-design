@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
@@ -41,7 +42,7 @@ const antRotate = new Keyframes('antRotate', {
 });
 
 // =============================== Spin ===============================
-const genSpinStyle: GenerateStyle<SpinToken> = (token) => {
+const genSpinStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   const sectionCls = `${componentCls}-section`;
@@ -153,7 +154,7 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token) => {
 };
 
 // ============================ Indicator =============================
-const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
+const genIndicatorStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
   const { componentCls, antCls, motionDurationSlow } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'spin');
@@ -266,7 +267,7 @@ const genIndicatorStyle: GenerateStyle<SpinToken> = (token) => {
 };
 
 // =============================== Size ===============================
-const genSizeStyle: GenerateStyle<SpinToken> = (token) => {
+const genSizeStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   const [varName] = genCssVar(token.antCls, 'spin');
