@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useState } from 'react';
 import { theme } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
@@ -8,6 +8,9 @@ import BannerRecommends from './components/BannerRecommends';
 import Group from './components/Group';
 import PreviewBanner from './components/PreviewBanner';
 import ThemePreview from './components/ThemePreview';
+import PromptDrawer from '../../theme/common/ThemeSwitch/PromptDrawer';
+import SiteContext from '../../theme/slots/SiteContext';
+import type { SiteContextProps } from '../../theme/slots/SiteContext';
 
 const ComponentsList = React.lazy(() => import('./components/ComponentsList'));
 const DesignFramework = React.lazy(() => import('./components/DesignFramework'));
@@ -42,6 +45,16 @@ const Homepage: React.FC = () => {
   const { token } = theme.useToken();
 
   const isDark = React.use(DarkContext);
+  const [promptDrawerOpen, setPromptDrawerOpen] = useState(false);
+  const siteContext = React.use(SiteContext);
+
+  const handlePromptDrawerOpen = () => setPromptDrawerOpen(true);
+  const handlePromptDrawerClose = () => setPromptDrawerOpen(false);
+  const handleThemeChange = (themeConfig: SiteContextProps['dynamicTheme']) => {
+    if (siteContext?.updateSiteConfig) {
+      siteContext.updateSiteConfig({ dynamicTheme: themeConfig });
+    }
+  };
 
   return (
     <section>
@@ -49,13 +62,14 @@ const Homepage: React.FC = () => {
         <BannerRecommends />
       </PreviewBanner>
 
-      {/* 定制主题 */}
-      {/* <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-        <Suspense fallback={null}>
-          <Theme />
-        </Suspense>
-      </ConfigProvider> */}
-      <ThemePreview />
+      <ThemePreview onOpenPromptDrawer={handlePromptDrawerOpen} />
+
+      {/* AI 生成主题抽屉 */}
+      <PromptDrawer
+        open={promptDrawerOpen}
+        onClose={handlePromptDrawerClose}
+        onThemeChange={handleThemeChange}
+      />
 
       {/* 组件列表 */}
       <Group
@@ -90,55 +104,6 @@ const Homepage: React.FC = () => {
       </Group>
     </section>
   );
-
-  // return (
-  //   <section>
-  //     <PreviewBanner>
-  //       <BannerRecommends />
-  //     </PreviewBanner>
-
-  //     <div>
-  //       {/* 定制主题 */}
-  //       <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-  //         <Suspense fallback={null}>
-  //           <Theme />
-  //         </Suspense>
-  //       </ConfigProvider>
-
-  //       {/* 组件列表 */}
-  //       <Group
-  //         background={token.colorBgElevated}
-  //         collapse
-  //         title={locale.assetsTitle}
-  //         description={locale.assetsDesc}
-  //         id="design"
-  //       >
-  //         <Suspense fallback={null}>
-  //           <ComponentsList />
-  //         </Suspense>
-  //       </Group>
-
-  //       {/* 设计语言 */}
-  //       <Group
-  //         title={locale.designTitle}
-  //         description={locale.designDesc}
-  //         background={isDark ? '#393F4A' : '#F5F8FF'}
-  //         decoration={
-  //           <img
-  //             draggable={false}
-  //             className={classNames.image}
-  //             src="https://gw.alipayobjects.com/zos/bmw-prod/ba37a413-28e6-4be4-b1c5-01be1a0ebb1c.svg"
-  //             alt="bg"
-  //           />
-  //         }
-  //       >
-  //         <Suspense fallback={null}>
-  //           <DesignFramework />
-  //         </Suspense>
-  //       </Group>
-  //     </div>
-  //   </section>
-  // );
 };
 
 export default Homepage;
