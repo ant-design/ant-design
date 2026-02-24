@@ -2114,7 +2114,7 @@ describe('Table.rowSelection', () => {
     expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
   });
 
-  it('should trigger onChange with empty array when selected rows are removed from dataSource', async () => {
+  it('should sync selection state when selected rows are removed from dataSource (no onChange)', async () => {
     const onChange = jest.fn();
     const initialData = [
       { key: 0, name: 'Jack' },
@@ -2150,15 +2150,16 @@ describe('Table.rowSelection', () => {
       );
     });
 
-    // Wait for useEffect to complete
+    // Wait for useEffect to complete (internal sync only, no user onChange)
     await waitFakeTimer();
 
-    // onChange should be called with empty array when all selected rows are removed
-    expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenLastCalledWith([], [], { type: 'cleanup' });
+    // onChange is not called by dataSource sync to avoid infinite loop
+    expect(onChange).not.toHaveBeenCalled();
+    // Internal selection state is synced: no rows to show, no selection
+    expect(getSelections(container)).toEqual([]);
   });
 
-  it('should trigger onChange when some selected rows are removed from dataSource', async () => {
+  it('should sync selection state when some selected rows are removed from dataSource (no onChange)', async () => {
     const onChange = jest.fn();
     const initialData = [
       { key: 0, name: 'Jack' },
@@ -2197,11 +2198,12 @@ describe('Table.rowSelection', () => {
       );
     });
 
-    // Wait for useEffect to complete
+    // Wait for useEffect to complete (internal sync only)
     await waitFakeTimer();
 
-    // onChange should be called with remaining selected keys [1, 2] since key 0 was removed
-    expect(onChange).toHaveBeenCalledTimes(1);
-    expect(onChange).toHaveBeenLastCalledWith([1, 2], [{ key: 1, name: 'Lucy' }, { key: 2, name: 'Tom' }], { type: 'cleanup' });
+    // onChange is not called by dataSource sync to avoid infinite loop
+    expect(onChange).not.toHaveBeenCalled();
+    // Internal selection state is synced: only keys 1 and 2 remain selected
+    expect(getSelections(container)).toEqual([1, 2]);
   });
 });

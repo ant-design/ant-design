@@ -256,8 +256,9 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     }
   }, [!!rowSelection]);
 
-  // Sync selected keys when dataSource changes
-  // This ensures onChange is called when selected rows are removed from dataSource
+  // Sync selected keys when dataSource changes (internal state only).
+  // Do not call onSelectionChange here — it should only respond to user-driven
+  // selection actions to avoid rerender infinite loops.
   const prevDataRef = React.useRef(data);
   React.useEffect(() => {
     if (!rowSelection || preserveSelectedRowKeys || selectedRowKeys !== undefined) {
@@ -278,23 +279,20 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
     // Filter out keys that no longer exist in the dataSource
     const availableKeys: Key[] = [];
-    const records: RecordType[] = [];
     currentKeys.forEach((key) => {
       const record = getRecordByKey(key);
       if (record !== undefined) {
         availableKeys.push(key);
-        records.push(record);
       }
     });
 
-    // If any keys were removed, update the selection and trigger onChange
+    // If any keys were removed, update internal selection state only
     if (availableKeys.length !== currentKeys.length) {
       setMergedSelectedKeys(availableKeys);
-      onSelectionChange?.(availableKeys, records, { type: 'cleanup' });
     }
 
     prevDataRef.current = data;
-  }, [data, getRecordByKey, mergedSelectedKeys, onSelectionChange, preserveSelectedRowKeys, rowSelection, selectedRowKeys, setMergedSelectedKeys]);
+  }, [data, getRecordByKey, mergedSelectedKeys, preserveSelectedRowKeys, rowSelection, selectedRowKeys, setMergedSelectedKeys]);
 
   const setSelectedKeys = useCallback(
     (keys: Key[], method: RowSelectMethod) => {
