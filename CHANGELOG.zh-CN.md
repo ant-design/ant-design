@@ -31,6 +31,7 @@ tag: vVERSION
 - ⌨️ ♿ 为 Button、Checkbox、Radio、Switch、Segmented 等组件添加 `prefers-reduced-motion` 媒体查询支持，禁用过渡动画以改善无障碍体验。[#56902](https://github.com/ant-design/ant-design/pull/56902) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Input 修复 `variant="borderless"` 时高度与 Select 不一致的问题。[#57014](https://github.com/ant-design/ant-design/pull/57014) [@njlazzar-su](https://github.com/njlazzar-su)
 - 🐞 Modal 修复 `confirm` 方法在 `icon` 为空时布局出现多余空白的问题。[#57024](https://github.com/ant-design/ant-design/pull/57024) [@Arktomson](https://github.com/Arktomson)
+- 🐞 Select 组件中的禁用选项添加 `aria-disabled` 属性。[#57049](https://github.com/ant-design/ant-design/pull/57049) [@meet-student](https://github.com/meet-student)
 
 ## 6.3.0
 
