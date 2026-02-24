@@ -104,6 +104,8 @@ export interface InputProps
   variant?: Variant;
   classNames?: InputClassNamesType;
   styles?: InputStylesType;
+  /** Custom input element for customInput integrations */
+  inputElement?: React.ReactNode;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -127,6 +129,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onChange,
     classNames,
     variant: customVariant,
+    inputElement,
     ...rest
   } = props;
 
