@@ -8900,6 +8900,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         aria-selected="true"
                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                         id="test-id_list_0"
@@ -8919,6 +8920,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option"
                         id="test-id_list_1"
@@ -8938,6 +8940,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option"
                         id="test-id_list_2"
@@ -8957,6 +8960,7 @@ exports[`renders components/table/demo/edit-row.tsx extend context correctly 1`]
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option"
                         id="test-id_list_3"
@@ -13530,6 +13534,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option ant-select-item-option-active"
                         id="test-id_list_0"
@@ -13549,6 +13554,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option"
                         id="test-id_list_1"
@@ -13568,6 +13574,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="true"
                         class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                         id="test-id_list_2"
@@ -13587,6 +13594,7 @@ exports[`renders components/table/demo/fixed-header.tsx extend context correctly
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option"
                         id="test-id_list_3"
@@ -14946,6 +14954,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         aria-selected="true"
                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                         id="test-id_list_0"
@@ -14965,6 +14974,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option"
                         id="test-id_list_1"
@@ -14984,6 +14994,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option"
                         id="test-id_list_2"
@@ -15003,6 +15014,7 @@ exports[`renders components/table/demo/grouping-columns.tsx extend context corre
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         aria-selected="false"
                         class="ant-select-item ant-select-item-option"
                         id="test-id_list_3"
@@ -18709,6 +18721,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           aria-selected="true"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           id="test-id_list_0"
@@ -18728,6 +18741,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           id="test-id_list_1"
@@ -18747,6 +18761,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           id="test-id_list_2"
@@ -18766,6 +18781,7 @@ exports[`renders components/table/demo/narrow.tsx extend context correctly 1`] =
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           aria-selected="false"
                           class="ant-select-item ant-select-item-option"
                           id="test-id_list_3"

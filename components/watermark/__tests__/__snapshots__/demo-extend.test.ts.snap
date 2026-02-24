@@ -335,6 +335,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                         title="HEX"
                                       >
@@ -351,6 +352,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="HSB"
                                       >
@@ -367,6 +369,7 @@ exports[`renders components/watermark/demo/custom.tsx extend context correctly 1
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="RGB"
                                       >
