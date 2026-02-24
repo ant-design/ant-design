@@ -178,10 +178,20 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
   return {
     '&-borderless': {
       background: 'transparent',
-      border: 'none',
+      borderWidth: token.lineWidth,
+      borderStyle: token.lineType,
+      borderColor: 'transparent',
+      boxShadow: 'none',
+
+      '&:hover': {
+        background: 'transparent',
+        borderColor: 'transparent',
+      },
 
       '&:focus, &:focus-within': {
         outline: 'none',
+        background: 'transparent',
+        borderColor: 'transparent',
       },
 
       // >>>>> Disabled
