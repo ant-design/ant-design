@@ -325,4 +325,49 @@ describe('Select', () => {
     expect(button!.className.includes('compact')).toBeFalsy();
     expect(input!.className.includes('compact')).toBeFalsy();
   });
+
+  it('should set aria-disabled on disabled options for accessibility', () => {
+    const { container } = render(
+      <Select
+        open
+        virtual={false}
+        options={[
+          { value: 'enabled', label: 'Enabled' },
+          { value: 'disabled', label: 'Disabled', disabled: true },
+        ]}
+      />,
+    );
+    act(() => {
+      jest.runAllTimers();
+    });
+    const options = container.querySelectorAll('.ant-select-item-option');
+    expect(options.length).toBe(2);
+    expect(options[0]).not.toHaveAttribute('aria-disabled');
+    expect(options[1]).toHaveAttribute('aria-disabled', 'true');
+  });
+
+  it('should set aria-disabled on disabled options in option groups', () => {
+    const { container } = render(
+      <Select
+        open
+        virtual={false}
+        options={[
+          {
+            label: 'Group',
+            options: [
+              { value: 'enabled', label: 'Enabled' },
+              { value: 'disabled', label: 'Disabled', disabled: true },
+            ],
+          },
+        ]}
+      />,
+    );
+    act(() => {
+      jest.runAllTimers();
+    });
+    const options = container.querySelectorAll('.ant-select-item-option');
+    expect(options.length).toBe(2);
+    expect(options[0]).not.toHaveAttribute('aria-disabled');
+    expect(options[1]).toHaveAttribute('aria-disabled', 'true');
+  });
 });

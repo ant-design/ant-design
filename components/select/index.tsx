@@ -162,6 +162,18 @@ export interface SelectProps<
 
 const SECRET_COMBOBOX_MODE_DO_NOT_USE = 'SECRET_COMBOBOX_MODE_DO_NOT_USE';
 
+function processOptionsForA11y<T extends BaseOptionType>(options: T[]): T[] {
+  return options.map((option) => {
+    if (option.options) {
+      const processedSubOptions = processOptionsForA11y(option.options);
+      return processedSubOptions === option.options
+        ? option
+        : { ...option, options: processedSubOptions };
+    }
+    return option.disabled ? { ...option, 'aria-disabled': true } : option;
+  });
+}
+
 const InternalSelect = <
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
@@ -206,6 +218,7 @@ const InternalSelect = <
     onOpenChange,
     styles,
     classNames,
+    options,
     ...rest
   } = props;
 
@@ -300,6 +313,12 @@ const InternalSelect = <
   const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
+
+  // =================== Options a11y ===================
+  const processedOptions = React.useMemo(
+    () => (options ? processOptionsForA11y(options) : options),
+    [options],
+  );
 
   const mergedSize = useSize((ctx) => customizeSize ?? compactSize ?? ctx);
 
@@ -424,6 +443,7 @@ const InternalSelect = <
       styles={mergedStyles}
       showSearch={showSearch}
       {...selectProps}
+      options={processedOptions}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       transitionName={getTransitionName(rootPrefixCls, 'slide-up', transitionName)}
