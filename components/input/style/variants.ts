@@ -22,7 +22,7 @@ export const genDisabledStyle: GenerateStyle<InputToken, CSSObject> = (token) =>
     cursor: 'not-allowed',
   },
 
-  '&:hover:not([disabled])': {
+  '&:hover': {
     ...genHoverStyle(
       mergeToken<InputToken>(token, {
         hoverBorderColor: token.colorBorderDisabled,
