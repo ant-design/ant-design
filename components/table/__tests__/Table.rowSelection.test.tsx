@@ -3,7 +3,7 @@ import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TableRowSelection } from '../interface';
 
@@ -2151,12 +2151,16 @@ describe('Table.rowSelection', () => {
     });
 
     // Wait for useEffect to complete (internal sync only, no user onChange)
-    await waitFakeTimer();
+    await act(async () => {
+      await Promise.resolve();
+    });
 
     // onChange is not called by dataSource sync to avoid infinite loop
     expect(onChange).not.toHaveBeenCalled();
     // Internal selection state is synced: no rows to show, no selection
-    expect(getSelections(container)).toEqual([]);
+    await waitFor(() => {
+      expect(getSelections(container)).toEqual([]);
+    });
   });
 
   it('should sync selection state when some selected rows are removed from dataSource (no onChange)', async () => {
@@ -2199,11 +2203,15 @@ describe('Table.rowSelection', () => {
     });
 
     // Wait for useEffect to complete (internal sync only)
-    await waitFakeTimer();
+    await act(async () => {
+      await Promise.resolve();
+    });
 
     // onChange is not called by dataSource sync to avoid infinite loop
     expect(onChange).not.toHaveBeenCalled();
     // Internal selection state is synced: only keys 1 and 2 remain selected
-    expect(getSelections(container)).toEqual([1, 2]);
+    await waitFor(() => {
+      expect(getSelections(container)).toEqual([1, 2]);
+    });
   });
 });
