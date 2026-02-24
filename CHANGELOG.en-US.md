@@ -31,6 +31,7 @@ tag: vVERSION
 - ⌨️ ♿ Add `prefers-reduced-motion` media query support for Button, Checkbox, Radio, Switch, Segmented to disable transitions for improved accessibility. [#56902](https://github.com/ant-design/ant-design/pull/56902) [@li-jia-nan](https://github.com/li-jia-nan)
 - 🐞 Fix Input height inconsistency with Select when using `variant="borderless"`. [#57014](https://github.com/ant-design/ant-design/pull/57014) [@njlazzar-su](https://github.com/njlazzar-su)
 - 🐞 Fix Modal `confirm` method layout whitespace when `icon` is empty. [#57024](https://github.com/ant-design/ant-design/pull/57024) [@Arktomson](https://github.com/Arktomson)
+- 🐞 Add `aria-disabled` attribute for disabled options in Select component.[#57049](https://github.com/ant-design/ant-design/pull/57049) [@meet-student](https://github.com/meet-student)
 
 ## 6.3.0
 
