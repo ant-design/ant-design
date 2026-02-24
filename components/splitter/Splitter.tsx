@@ -82,6 +82,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       );
     }
     warning.deprecated(!layout, 'layout', 'orientation');
+    warning.deprecated(!collapsibleIcon, 'collapsibleIcon', 'collapsible.icon');
   }
 
   // ====================== Container =======================
@@ -250,7 +251,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 draggerStyle={mergedStyles.dragger}
                 draggerClassName={mergedClassNames.dragger as SplitterSemanticDraggerClassNames}
                 draggerIcon={draggerIcon}
-                collapsibleIcon={collapsibleIcon}
+                collapsibleIcon={collapsible?.icon || collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}

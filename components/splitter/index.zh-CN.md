@@ -45,8 +45,8 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| collapsible | 折叠配置。`motion: true` 时启用折叠动画，时长由组件 Token `panelMotionDuration` 控制（继承自 `motionDurationSlow`） | `{ motion?: boolean }` | - | 6.4.0 |
-| collapsibleIcon | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
+| collapsible | `motion` 是否开启折叠动画，`icon` 自定义折叠图标 | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 |
+| ~collapsibleIcon~ | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |

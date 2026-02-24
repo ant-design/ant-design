@@ -23,7 +23,7 @@ export interface SplitBarProps {
   startCollapsible: boolean;
   endCollapsible: boolean;
   draggerIcon?: SplitterProps['draggerIcon'];
-  collapsibleIcon?: SplitterProps['collapsibleIcon'];
+  collapsibleIcon?: NonNullable<SplitterProps['collapsible']>['icon'];
   showStartCollapsibleIcon: ShowCollapsibleIconMode;
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onDraggerDoubleClick?: (index: number) => void;
