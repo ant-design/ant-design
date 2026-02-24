@@ -142,12 +142,18 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
   );
 
   const hasTitle = isNonNullable(props.title) && props.title !== '';
+  const hasIcon = isNonNullable(mergedIcon);
 
   const bodyCls = `${confirmPrefixCls}-body`;
 
   return (
     <div className={`${confirmPrefixCls}-body-wrapper`}>
-      <div className={clsx(bodyCls, { [`${bodyCls}-has-title`]: hasTitle })}>
+      <div
+        className={clsx(bodyCls, {
+          [`${bodyCls}-has-title`]: hasTitle,
+          [`${bodyCls}-no-icon`]: !hasIcon,
+        })}
+      >
         {mergedIcon}
         <div className={`${confirmPrefixCls}-paragraph`}>
           {hasTitle && <span className={`${confirmPrefixCls}-title`}>{props.title}</span>}
