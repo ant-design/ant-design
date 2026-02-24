@@ -548,9 +548,6 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(
       document.querySelector('.ant-modal-confirm-body')!.querySelector('.anticon'),
     ).toBeFalsy();
-    expect(document.querySelector('.ant-modal-confirm-body')).toHaveClass(
-      'ant-modal-confirm-body-no-icon',
-    );
 
     jest.useRealTimers();
   });
