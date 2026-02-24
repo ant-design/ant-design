@@ -110,10 +110,12 @@ const ColorTrigger = forwardRef<HTMLDivElement, ColorTriggerProps>((props, ref) 
           prefixCls={prefixCls}
           color={color.toCssString()}
           className={classNames.body}
+          innerClassName={classNames.content}
           style={styles.body}
+          innerStyle={styles.content}
         />
       ),
-    [color, prefixCls, classNames.body, styles.body],
+    [color, prefixCls, classNames.body, classNames.content, styles.body, styles.content],
   );
 
   return (
