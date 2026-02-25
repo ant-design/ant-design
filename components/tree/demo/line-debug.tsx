@@ -48,7 +48,7 @@ const App: React.FC = () => {
         components: {
           Tree: {
             titleHeight: 32,
-            switchSize: 24,
+            switcherSize: 24,
           },
         },
       }}
