@@ -8,7 +8,6 @@ import type { UseTheme } from '.';
 
 const useStyles = createStyles(({ css, cssVar }) => {
   const glassBorder = {
-    border: `${cssVar.lineWidth} solid rgba(255,255,255,0.3)`,
     boxShadow: [
       `${cssVar.boxShadowSecondary}`,
       `inset 0 0 5px 2px rgba(255, 255, 255, 0.3)`,

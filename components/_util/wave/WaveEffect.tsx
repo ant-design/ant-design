@@ -34,7 +34,7 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const [varName] = genCssVar(rootPrefixCls, 'wave');
 
   // ===================== Effect =====================
-  const [color, setWaveColor] = React.useState<string | null>(null);
+  const [waveColor, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
   const [left, setLeft] = React.useState(0);
   const [top, setTop] = React.useState(0);
@@ -50,8 +50,8 @@ const WaveEffect: React.FC<WaveEffectProps> = (props) => {
     borderRadius: borderRadius.map((radius) => `${radius}px`).join(' '),
   };
 
-  if (color) {
-    waveStyle[varName('color')] = color;
+  if (waveColor) {
+    waveStyle[varName('color')] = waveColor;
   }
 
   function syncPos() {

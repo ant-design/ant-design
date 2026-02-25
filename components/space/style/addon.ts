@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import { genStyleHooks } from '../../theme/internal';
@@ -12,7 +14,7 @@ interface AddonToken extends FullToken<'Space'> {
   // Custom token here
 }
 
-const genSpaceAddonStyle: GenerateStyle<AddonToken> = (token) => {
+const genSpaceAddonStyle: GenerateStyle<AddonToken, CSSObject> = (token) => {
   const {
     componentCls,
     borderRadius,

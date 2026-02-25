@@ -6,6 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import { clsx } from 'clsx';
 
 import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
@@ -140,13 +141,19 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
     </>
   );
 
-  const hasTitle = props.title !== undefined && props.title !== null;
+  const hasTitle = isNonNullable(props.title) && props.title !== '';
+  const hasIcon = isNonNullable(mergedIcon);
 
   const bodyCls = `${confirmPrefixCls}-body`;
 
   return (
     <div className={`${confirmPrefixCls}-body-wrapper`}>
-      <div className={clsx(bodyCls, { [`${bodyCls}-has-title`]: hasTitle })}>
+      <div
+        className={clsx(bodyCls, {
+          [`${bodyCls}-has-title`]: hasTitle,
+          [`${bodyCls}-no-icon`]: !hasIcon,
+        })}
+      >
         {mergedIcon}
         <div className={`${confirmPrefixCls}-paragraph`}>
           {hasTitle && <span className={`${confirmPrefixCls}-title`}>{props.title}</span>}

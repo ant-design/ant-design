@@ -158,6 +158,9 @@ export interface CascaderProps<
   bordered?: boolean;
   placement?: SelectCommonPlacement;
   suffixIcon?: React.ReactNode;
+  showSearch?:
+    | boolean
+    | (SearchConfig<OptionType, keyof OptionType> & { searchIcon?: React.ReactNode });
   options?: OptionType[];
   status?: InputStatus;
 
@@ -236,10 +239,11 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     styles,
     classNames,
     loadingIcon,
-    ...rest
+    clearIcon,
+    removeIcon,
+    suffixIcon,
+    ...restProps
   } = props;
-
-  const restProps = omit(rest, ['suffixIcon']);
 
   const {
     getPrefixCls,
@@ -250,6 +254,10 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     styles: contextStyles,
     expandIcon: contextExpandIcon,
     loadingIcon: contextLoadingIcon,
+    clearIcon: contextClearIcon,
+    removeIcon: contextRemoveIcon,
+    suffixIcon: contextSuffixIcon,
+    searchIcon: contextSearchIcon,
   } = useComponentConfig('cascader');
 
   const { popupOverflow } = React.useContext(ConfigContext);
@@ -359,9 +367,21 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
 
   // ===================== Icons =====================
   const showSuffixIcon = useShowArrow(props.suffixIcon, showArrow);
-  const { suffixIcon, removeIcon, clearIcon } = useSelectIcons({
+  const {
+    suffixIcon: mergedSuffixIcon,
+    removeIcon: mergedRemoveIcon,
+    clearIcon: mergedClearIcon,
+  } = useSelectIcons({
     ...props,
+    clearIcon,
+    contextClearIcon,
+    removeIcon,
+    contextRemoveIcon,
     loadingIcon: mergedLoadingIcon,
+    suffixIcon,
+    contextSuffixIcon,
+    searchIcon: typeof showSearch === 'object' && showSearch ? showSearch.searchIcon : undefined,
+    contextSearchIcon,
     hasFeedback,
     feedbackIcon,
     showSuffixIcon,
@@ -378,7 +398,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     return isRtl ? 'bottomRight' : 'bottomLeft';
   }, [placement, isRtl]);
 
-  const mergedAllowClear = allowClear === true ? { clearIcon } : allowClear;
+  const mergedAllowClear = allowClear === true ? { clearIcon: mergedClearIcon } : allowClear;
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: CascaderProps<any> = {
@@ -456,8 +476,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       allowClear={mergedAllowClear}
       showSearch={mergedShowSearch}
       expandIcon={mergedExpandIcon}
-      suffixIcon={suffixIcon}
-      removeIcon={removeIcon}
+      suffixIcon={mergedSuffixIcon}
+      removeIcon={mergedRemoveIcon}
       loadingIcon={mergedLoadingIcon}
       checkable={checkable}
       popupClassName={mergedPopupClassName}

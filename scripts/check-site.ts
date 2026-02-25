@@ -27,9 +27,15 @@ describe('site test', () => {
       const html: string = await res.text();
       const root = new DOMParser().parseFromString(html, 'text/html');
       function getTextContent(node: any): string {
-        if (!node) return '';
-        if (typeof node.textContent === 'string') return node.textContent.trim();
-        if (typeof node.innerText === 'string') return node.innerText.trim();
+        if (!node) {
+          return '';
+        }
+        if (typeof node.textContent === 'string') {
+          return node.textContent.trim();
+        }
+        if (typeof node.innerText === 'string') {
+          return node.innerText.trim();
+        }
         // Fallback: recursively get text from children
         if (node.children && node.children.length > 0) {
           return Array.from(node.children)
@@ -44,8 +50,10 @@ describe('site test', () => {
         return {
           length: list.length,
           text: () => {
-            if (list.length === 0) return '';
-            return list.map((n) => getTextContent(n)).join('');
+            if (list.length === 0) {
+              return '';
+            }
+            return list.map<string>(getTextContent).join('');
           },
           first: () => wrap(list.slice(0, 1)),
         };

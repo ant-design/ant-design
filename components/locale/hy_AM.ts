@@ -1,6 +1,8 @@
 import type { Locale } from '.';
 import type { PickerLocale } from '../date-picker/generatePicker';
 
+const typeTemplate = '${label}-ը վավեր ${type} չէ';
+
 const datePickerLocale: PickerLocale = {
   lang: {
     locale: 'hy-am',
@@ -111,6 +113,56 @@ const localeValues: Locale = {
     copy: 'Պատճենել',
     copied: 'Պատճենվել է',
     expand: 'Տեսնել ավելին',
+  },
+  Form: {
+    optional: '(ոչ պարտադիր)',
+    defaultValidateMessages: {
+      default: 'Դաշտի վավերականության սխալ՝ ${label}',
+      required: 'Խնդրում ենք մուտքագրել ${label}',
+      enum: '${label}-ը պետք է լինի [${enum}]-ից մեկը',
+      whitespace: '${label}-ը չի կարող լինել դատարկ նիշ',
+      date: {
+        format: '${label} ամսաթվի ձևաչափը անվավեր է',
+        parse: '${label}-ը հնարավոր չէ փոխարկել ամսաթվի',
+        invalid: '${label}-ը անվավեր ամսաթիվ է',
+      },
+      types: {
+        string: typeTemplate,
+        method: typeTemplate,
+        array: typeTemplate,
+        object: typeTemplate,
+        number: typeTemplate,
+        date: typeTemplate,
+        boolean: typeTemplate,
+        integer: typeTemplate,
+        float: typeTemplate,
+        regexp: typeTemplate,
+        email: typeTemplate,
+        url: typeTemplate,
+        hex: typeTemplate,
+      },
+      string: {
+        len: '${label}-ը պետք է լինի ${len} նիշ',
+        min: '${label}-ը պետք է լինի առնվազն ${min} նիշ',
+        max: '${label}-ը կարող է լինել առավելագույնը ${max} նիշ',
+        range: '${label}-ը պետք է լինի ${min}-${max} նիշերի միջև',
+      },
+      number: {
+        len: '${label}-ը պետք է հավասար լինի ${len}-ին',
+        min: '${label}-ը պետք է լինի առնվազն ${min}',
+        max: '${label}-ը կարող է լինել առավելագույնը ${max}',
+        range: '${label}-ը պետք է լինի ${min}-${max} միջակայքում',
+      },
+      array: {
+        len: 'Պետք է լինի ${len} ${label}',
+        min: 'Առնվազն ${min} ${label}',
+        max: 'Առավելագույնը ${max} ${label}',
+        range: '${label}-ի քանակը պետք է լինի ${min}-${max} միջակայքում',
+      },
+      pattern: {
+        mismatch: '${label}-ը չի համապատասխանում ${pattern} ձևանմուշին',
+      },
+    },
   },
 };
 
