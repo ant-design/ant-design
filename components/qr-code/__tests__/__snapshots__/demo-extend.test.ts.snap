@@ -401,6 +401,8 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
       >
         <label
           class="ant-segmented-item ant-segmented-item-selected"
+          data-disabled="false"
+          data-selected="true"
         >
           <input
             checked=""
@@ -417,6 +419,8 @@ exports[`renders components/qr-code/demo/download.tsx extend context correctly 1
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -492,6 +496,8 @@ Array [
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -508,6 +514,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -523,6 +531,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -538,6 +548,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"

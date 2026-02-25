@@ -1467,6 +1467,8 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
       >
         <label
           class="ant-segmented-item ant-segmented-item-selected"
+          data-disabled="false"
+          data-selected="true"
         >
           <input
             checked=""
@@ -1483,6 +1485,8 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1513,6 +1517,8 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
       >
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1528,6 +1534,8 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1543,6 +1551,8 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1558,6 +1568,8 @@ exports[`renders components/progress/demo/dashboard.tsx extend context correctly
         </label>
         <label
           class="ant-segmented-item ant-segmented-item-selected"
+          data-disabled="false"
+          data-selected="true"
         >
           <input
             checked=""
