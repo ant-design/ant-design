@@ -82,6 +82,7 @@ exports[`renders components/auto-complete/demo/_semantic.tsx correctly 1`] = `
                     style="display: flex; flex-direction: column;"
                   >
                     <div
+                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option semantic-mark-popup-listItem"
                       title="aojunhao123"
                     >
@@ -98,6 +99,7 @@ exports[`renders components/auto-complete/demo/_semantic.tsx correctly 1`] = `
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option semantic-mark-popup-listItem"
                       title="thinkasany"
                     >
@@ -114,6 +116,7 @@ exports[`renders components/auto-complete/demo/_semantic.tsx correctly 1`] = `
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option semantic-mark-popup-listItem"
                       title="meet-student"
                     >

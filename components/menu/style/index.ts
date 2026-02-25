@@ -406,7 +406,7 @@ export interface MenuToken extends FullToken<'Menu'> {
   darkPopupBg: string;
 }
 
-const genMenuItemStyle = (token: MenuToken): CSSObject => {
+const genMenuItemStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
     motionDurationSlow,
@@ -486,7 +486,7 @@ const genMenuItemStyle = (token: MenuToken): CSSObject => {
   };
 };
 
-const genSubMenuArrowStyle = (token: MenuToken): CSSObject => {
+const genSubMenuArrowStyle: GenerateStyle<MenuToken, CSSObject> = (token) => {
   const {
     componentCls,
     motionDurationSlow,

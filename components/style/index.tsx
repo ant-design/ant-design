@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import type { AliasToken } from '../theme/internal';
+import type { AliasToken, GenerateStyle } from '../theme/internal';
 
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',
@@ -60,7 +60,7 @@ export const clearFix = (): CSSObject => ({
   },
 });
 
-export const genLinkStyle = (token: AliasToken): CSSObject => ({
+export const genLinkStyle: GenerateStyle<AliasToken, CSSObject> = (token) => ({
   a: {
     color: token.colorLink,
     textDecoration: token.linkDecoration,
@@ -151,7 +151,7 @@ export const genIconStyle = (iconPrefixCls: string): CSSObject => ({
   },
 });
 
-export const operationUnit = (token: AliasToken): CSSObject => ({
+export const operationUnit: GenerateStyle<AliasToken, CSSObject> = (token) => ({
   // FIXME: This use link but is a operation unit. Seems should be a colorPrimary.
   // And Typography use this to generate link style which should not do this.
   color: token.colorLink,
