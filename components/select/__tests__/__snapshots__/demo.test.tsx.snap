@@ -934,7 +934,7 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
         style="width:120px"
       >
         <div
-          class="ant-select-content ant-select-content-has-value"
+          class="ant-select-content"
           title=" "
         >
           <input
@@ -1074,7 +1074,7 @@ exports[`renders components/select/demo/debug.tsx correctly 1`] = `
     class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
   >
     <div
-      class="ant-select-content ant-select-content-has-value"
+      class="ant-select-content"
       title=""
     >
       <input
