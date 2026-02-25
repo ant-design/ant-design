@@ -536,7 +536,7 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
     <label
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
       data-disabled="true"
-      data-selected="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -552,7 +552,7 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
     <label
       class="ant-segmented-item ant-segmented-item-disabled"
       data-disabled="true"
-      data-selected="true"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
