@@ -271,8 +271,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         [`&-single:not(${componentCls}-customize)`]: {
           [`${componentCls}-input`]: {
             position: 'absolute',
-            insetInline: 0,
-            insetBlock: `calc(${varRef('padding-vertical')} * -1)`,
+            inset: 0,
             lineHeight: `calc(${varRef('font-height')} + ${varRef('padding-vertical')} * 2)`,
           },
 
