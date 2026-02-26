@@ -172,7 +172,6 @@ Array [
                               style="display: flex; flex-direction: column;"
                             >
                               <div
-                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                               >
@@ -189,7 +188,6 @@ Array [
                                 />
                               </div>
                               <div
-                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="222"
                               >
@@ -422,7 +420,6 @@ Array [
                               style="display: flex; flex-direction: column;"
                             >
                               <div
-                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                               >
@@ -439,7 +436,6 @@ Array [
                                 />
                               </div>
                               <div
-                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="222"
                               >
@@ -1049,7 +1045,6 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="Bamboo"
                           >
@@ -1086,7 +1081,6 @@ Array [
                             </span>
                           </div>
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Little"
                           >
@@ -1097,7 +1091,6 @@ Array [
                             </div>
                           </div>
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Light"
                           >
@@ -1460,7 +1453,6 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="Bamboo"
                           >
@@ -1497,7 +1489,6 @@ Array [
                             </span>
                           </div>
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Little"
                           >
@@ -1508,7 +1499,6 @@ Array [
                             </div>
                           </div>
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Light"
                           >
@@ -1733,7 +1723,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="male"
                         >
@@ -1750,7 +1739,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="female"
                         >
@@ -1767,7 +1755,6 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="other"
                         >
@@ -2236,7 +2223,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                           style="display: flex; flex-direction: column;"
                         >
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="RMB"
                           >
@@ -2253,7 +2239,6 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                             />
                           </div>
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Dollar"
                           >
@@ -2605,7 +2590,6 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
-                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active"
                             title="Demo"
                           >
@@ -5364,7 +5348,6 @@ Array [
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
-                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                         title="HEX"
                                       >
@@ -5381,7 +5364,6 @@ Array [
                                         />
                                       </div>
                                       <div
-                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="HSB"
                                       >
@@ -5398,7 +5380,6 @@ Array [
                                         />
                                       </div>
                                       <div
-                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="RGB"
                                       >
@@ -11495,144 +11476,144 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           <div
             class="ant-form-item-control-input-content"
           >
-            <div
-              aria-required="true"
-              class="ant-space-compact ant-space-compact-block"
+            <span
               id="register_phone"
             >
               <div
-                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-                style="width: 70px;"
+                class="ant-space-compact ant-space-compact-block"
               >
                 <div
-                  class="ant-select-content ant-select-content-has-value"
-                  title="+86"
+                  class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  style="width: 70px;"
                 >
-                  +86
-                  <input
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    autocomplete="off"
-                    class="ant-select-input"
-                    id="register_prefix"
-                    readonly=""
-                    role="combobox"
-                    type="search"
-                    value=""
-                  />
-                </div>
-                <div
-                  class="ant-select-suffix"
-                >
-                  <span
-                    aria-label="down"
-                    class="anticon anticon-down"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="down"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div>
                   <div
-                    id="register_prefix_list"
-                    role="listbox"
-                    style="height: 0px; width: 0px; overflow: hidden;"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="+86"
                   >
-                    <div
-                      aria-label="+86"
-                      aria-selected="true"
-                      id="register_prefix_list_0"
-                      role="option"
-                    >
-                      86
-                    </div>
-                    <div
-                      aria-label="+87"
-                      aria-selected="false"
-                      id="register_prefix_list_1"
-                      role="option"
-                    >
-                      87
-                    </div>
+                    +86
+                    <input
+                      aria-autocomplete="list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      autocomplete="off"
+                      class="ant-select-input"
+                      id="test-id"
+                      readonly=""
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
                   </div>
                   <div
-                    class="rc-virtual-list"
-                    style="position: relative;"
+                    class="ant-select-suffix"
                   >
-                    <div
-                      class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                    <span
+                      aria-label="down"
+                      class="anticon anticon-down"
+                      role="img"
                     >
-                      <div>
-                        <div
-                          class="rc-virtual-list-holder-inner"
-                          style="display: flex; flex-direction: column;"
-                        >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="down"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                        />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                >
+                  <div>
+                    <div
+                      id="test-id_list"
+                      role="listbox"
+                      style="height: 0px; width: 0px; overflow: hidden;"
+                    >
+                      <div
+                        aria-label="+86"
+                        aria-selected="true"
+                        id="test-id_list_0"
+                        role="option"
+                      >
+                        86
+                      </div>
+                      <div
+                        aria-label="+87"
+                        aria-selected="false"
+                        id="test-id_list_1"
+                        role="option"
+                      >
+                        87
+                      </div>
+                    </div>
+                    <div
+                      class="rc-virtual-list"
+                      style="position: relative;"
+                    >
+                      <div
+                        class="rc-virtual-list-holder"
+                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      >
+                        <div>
                           <div
-                            aria-disabled="false"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                            title="+86"
+                            class="rc-virtual-list-holder-inner"
+                            style="display: flex; flex-direction: column;"
                           >
                             <div
-                              class="ant-select-item-option-content"
+                              class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                              title="+86"
                             >
-                              +86
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                +86
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-disabled="false"
-                            class="ant-select-item ant-select-item-option"
-                            title="+87"
-                          >
                             <div
-                              class="ant-select-item-option-content"
+                              class="ant-select-item ant-select-item-option"
+                              title="+87"
                             >
-                              +87
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                +87
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <input
+                  class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
+                  style="width: 100%;"
+                  type="text"
+                  value=""
+                />
               </div>
-              <input
-                class="ant-input ant-input-outlined css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
-                style="width: 100%;"
-                type="text"
-                value=""
-              />
-            </div>
+            </span>
           </div>
         </div>
       </div>
@@ -11664,58 +11645,106 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
           <div
             class="ant-form-item-control-input-content"
           >
-            <div
-              aria-required="true"
-              class="ant-space-compact ant-space-compact-block"
+            <span
               id="register_donation"
             >
               <div
-                class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-outlined ant-input-number-in-form-item"
-                style="width: 100%;"
+                class="ant-space-compact ant-space-compact-block"
               >
-                <input
-                  autocomplete="off"
-                  class="ant-input-number-input"
-                  role="spinbutton"
-                  step="1"
-                  value=""
-                />
                 <div
-                  class="ant-input-number-actions"
+                  class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-compact-item ant-input-number-compact-first-item ant-input-number-outlined ant-input-number-in-form-item"
+                  style="width: 100%;"
                 >
-                  <span
-                    aria-disabled="false"
-                    aria-label="Increase Value"
-                    class="ant-input-number-action ant-input-number-action-up"
-                    role="button"
-                    unselectable="on"
+                  <input
+                    autocomplete="off"
+                    class="ant-input-number-input"
+                    role="spinbutton"
+                    step="1"
+                    value=""
+                  />
+                  <div
+                    class="ant-input-number-actions"
                   >
                     <span
-                      aria-label="up"
-                      class="anticon anticon-up"
-                      role="img"
+                      aria-disabled="false"
+                      aria-label="Increase Value"
+                      class="ant-input-number-action ant-input-number-action-up"
+                      role="button"
+                      unselectable="on"
                     >
-                      <svg
-                        aria-hidden="true"
-                        data-icon="up"
-                        fill="currentColor"
-                        focusable="false"
-                        height="1em"
-                        viewBox="64 64 896 896"
-                        width="1em"
+                      <span
+                        aria-label="up"
+                        class="anticon anticon-up"
+                        role="img"
                       >
-                        <path
-                          d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
-                        />
-                      </svg>
+                        <svg
+                          aria-hidden="true"
+                          data-icon="up"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+                          />
+                        </svg>
+                      </span>
                     </span>
-                  </span>
-                  <span
-                    aria-disabled="false"
-                    aria-label="Decrease Value"
-                    class="ant-input-number-action ant-input-number-action-down"
-                    role="button"
-                    unselectable="on"
+                    <span
+                      aria-disabled="false"
+                      aria-label="Decrease Value"
+                      class="ant-input-number-action ant-input-number-action-down"
+                      role="button"
+                      unselectable="on"
+                    >
+                      <span
+                        aria-label="down"
+                        class="anticon anticon-down"
+                        role="img"
+                      >
+                        <svg
+                          aria-hidden="true"
+                          data-icon="down"
+                          fill="currentColor"
+                          focusable="false"
+                          height="1em"
+                          viewBox="64 64 896 896"
+                          width="1em"
+                        >
+                          <path
+                            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+                          />
+                        </svg>
+                      </span>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+                  style="width: 70px;"
+                >
+                  <div
+                    class="ant-select-content ant-select-content-has-value"
+                    title="$"
+                  >
+                    $
+                    <input
+                      aria-autocomplete="list"
+                      aria-expanded="false"
+                      aria-haspopup="listbox"
+                      autocomplete="off"
+                      class="ant-select-input"
+                      id="test-id"
+                      readonly=""
+                      role="combobox"
+                      type="search"
+                      value=""
+                    />
+                  </div>
+                  <div
+                    class="ant-select-suffix"
                   >
                     <span
                       aria-label="down"
@@ -11736,128 +11765,80 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         />
                       </svg>
                     </span>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-select ant-select-outlined ant-select-in-form-item ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
-                style="width: 70px;"
-              >
-                <div
-                  class="ant-select-content ant-select-content-has-value"
-                  title="$"
-                >
-                  $
-                  <input
-                    aria-autocomplete="list"
-                    aria-expanded="false"
-                    aria-haspopup="listbox"
-                    autocomplete="off"
-                    class="ant-select-input"
-                    id="register_suffix"
-                    readonly=""
-                    role="combobox"
-                    type="search"
-                    value=""
-                  />
-                </div>
-                <div
-                  class="ant-select-suffix"
-                >
-                  <span
-                    aria-label="down"
-                    class="anticon anticon-down"
-                    role="img"
-                  >
-                    <svg
-                      aria-hidden="true"
-                      data-icon="down"
-                      fill="currentColor"
-                      focusable="false"
-                      height="1em"
-                      viewBox="64 64 896 896"
-                      width="1em"
-                    >
-                      <path
-                        d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
-                      />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-              <div
-                class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
-                style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-              >
-                <div>
-                  <div
-                    id="register_suffix_list"
-                    role="listbox"
-                    style="height: 0px; width: 0px; overflow: hidden;"
-                  >
-                    <div
-                      aria-label="$"
-                      aria-selected="true"
-                      id="register_suffix_list_0"
-                      role="option"
-                    >
-                      USD
-                    </div>
-                    <div
-                      aria-label="¥"
-                      aria-selected="false"
-                      id="register_suffix_list_1"
-                      role="option"
-                    >
-                      CNY
-                    </div>
                   </div>
-                  <div
-                    class="rc-virtual-list"
-                    style="position: relative;"
-                  >
+                </div>
+                <div
+                  class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+                  style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+                >
+                  <div>
                     <div
-                      class="rc-virtual-list-holder"
-                      style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      id="test-id_list"
+                      role="listbox"
+                      style="height: 0px; width: 0px; overflow: hidden;"
                     >
-                      <div>
-                        <div
-                          class="rc-virtual-list-holder-inner"
-                          style="display: flex; flex-direction: column;"
-                        >
+                      <div
+                        aria-label="$"
+                        aria-selected="true"
+                        id="test-id_list_0"
+                        role="option"
+                      >
+                        USD
+                      </div>
+                      <div
+                        aria-label="¥"
+                        aria-selected="false"
+                        id="test-id_list_1"
+                        role="option"
+                      >
+                        CNY
+                      </div>
+                    </div>
+                    <div
+                      class="rc-virtual-list"
+                      style="position: relative;"
+                    >
+                      <div
+                        class="rc-virtual-list-holder"
+                        style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+                      >
+                        <div>
                           <div
-                            aria-disabled="false"
-                            class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
-                            title="$"
+                            class="rc-virtual-list-holder-inner"
+                            style="display: flex; flex-direction: column;"
                           >
                             <div
-                              class="ant-select-item-option-content"
+                              class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
+                              title="$"
                             >
-                              $
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                $
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
-                          </div>
-                          <div
-                            aria-disabled="false"
-                            class="ant-select-item ant-select-item-option"
-                            title="¥"
-                          >
                             <div
-                              class="ant-select-item-option-content"
+                              class="ant-select-item ant-select-item-option"
+                              title="¥"
                             >
-                              ¥
+                              <div
+                                class="ant-select-item-option-content"
+                              >
+                                ¥
+                              </div>
+                              <span
+                                aria-hidden="true"
+                                class="ant-select-item-option-state"
+                                style="user-select: none;"
+                                unselectable="on"
+                              />
                             </div>
-                            <span
-                              aria-hidden="true"
-                              class="ant-select-item-option-state"
-                              style="user-select: none;"
-                              unselectable="on"
-                            />
                           </div>
                         </div>
                       </div>
@@ -11865,7 +11846,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                   </div>
                 </div>
               </div>
-            </div>
+            </span>
           </div>
         </div>
       </div>
@@ -11903,6 +11884,12 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               <div
                 class="ant-select-content"
               >
+                <div
+                  class="ant-select-placeholder"
+                  style="visibility: visible;"
+                >
+                  website
+                </div>
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -12099,7 +12086,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="Male"
                         >
@@ -12116,7 +12102,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Female"
                         >
@@ -12133,7 +12118,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Other"
                         >
@@ -12880,7 +12864,6 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="Demo"
                         >
@@ -22861,7 +22844,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="China"
                         >
@@ -22878,7 +22860,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="U.S.A"
                         >
@@ -23032,7 +23013,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="Red"
                         >
@@ -23043,7 +23023,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           </div>
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Green"
                         >
@@ -23054,7 +23033,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           </div>
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Blue"
                         >
@@ -24499,7 +24477,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                     style="display: flex; flex-direction: column;"
                                   >
                                     <div
-                                      aria-disabled="false"
                                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                       title="HEX"
                                     >
@@ -24516,7 +24493,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                       />
                                     </div>
                                     <div
-                                      aria-disabled="false"
                                       class="ant-select-item ant-select-item-option"
                                       title="HSB"
                                     >
@@ -24533,7 +24509,6 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                       />
                                     </div>
                                     <div
-                                      aria-disabled="false"
                                       class="ant-select-item ant-select-item-option"
                                       title="RGB"
                                     >
@@ -24894,7 +24869,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="Designer"
                         >
@@ -24911,7 +24885,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Developer"
                         >
@@ -24928,7 +24901,6 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Product Manager"
                         >
@@ -29182,7 +29154,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                         style="display: flex; flex-direction: column;"
                       >
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="Option 1"
                         >
@@ -29199,7 +29170,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Option 2"
                         >
@@ -29216,7 +29186,6 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                           />
                         </div>
                         <div
-                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Option 3"
                         >
