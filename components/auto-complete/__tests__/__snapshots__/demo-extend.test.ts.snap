@@ -626,10 +626,6 @@ Array [
       class="ant-select-content"
     >
       <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      />
-      <div
         class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large ant-select-input"
       >
         <input
@@ -721,6 +717,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -762,6 +759,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -819,6 +817,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -860,6 +859,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -917,6 +917,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -977,10 +978,6 @@ Array [
     <div
       class="ant-select-content"
     >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      />
       <textarea
         aria-autocomplete="list"
         aria-expanded="false"
@@ -1427,10 +1424,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
               <div
                 class="ant-select-content"
               >
-                <div
-                  class="ant-select-placeholder"
-                  style="visibility: visible;"
-                />
                 <span
                   class="ant-input-affix-wrapper ant-input-outlined ant-select-input css-var-test-id ant-input-css-var"
                 >
@@ -1630,10 +1623,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 <div
                   class="ant-select-content"
                 >
-                  <div
-                    class="ant-select-placeholder"
-                    style="visibility: visible;"
-                  />
                   <span
                     class="ant-input-affix-wrapper ant-input-outlined ant-select-input css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
                   >
@@ -1834,10 +1823,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                 <div
                   class="ant-select-content"
                 >
-                  <div
-                    class="ant-select-placeholder"
-                    style="visibility: visible;"
-                  />
                   <div
                     class="ant-space-compact ant-input-search css-var-test-id ant-select-input"
                   >
@@ -2044,10 +2029,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx extend context cor
                   class="ant-select-content"
                 >
                   <div
-                    class="ant-select-placeholder"
-                    style="visibility: visible;"
-                  />
-                  <div
                     class="ant-space-compact ant-input-search css-var-test-id ant-select-input"
                   >
                     <input
@@ -2210,6 +2191,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Burns Bay Road"
               >
@@ -2226,6 +2208,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Downing Street"
               >
@@ -2242,6 +2225,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Wall Street"
               >
@@ -2395,6 +2379,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Jack"
                 >
@@ -2411,6 +2396,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Lucy"
                 >
@@ -2427,6 +2413,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Disabled"
                 >
@@ -2443,6 +2430,7 @@ exports[`renders components/auto-complete/demo/render-panel.tsx extend context c
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Bamboo"
                 >
@@ -2622,6 +2610,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="Burnaby"
@@ -2639,6 +2628,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="Seattle"
@@ -2656,6 +2646,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="Los Angeles"
@@ -2673,6 +2664,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="San Francisco"
@@ -2690,6 +2682,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="Meet student"
@@ -2770,6 +2763,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="Burnaby"
@@ -2787,6 +2781,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="Seattle"
@@ -2804,6 +2799,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="Los Angeles"
@@ -2821,6 +2817,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="San Francisco"
@@ -2838,6 +2835,7 @@ exports[`renders components/auto-complete/demo/style-class.tsx extend context co
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 style="color: rgb(39, 39, 39);"
                 title="Meet student"
@@ -2874,10 +2872,6 @@ Array [
     <div
       class="ant-select-content"
     >
-      <div
-        class="ant-select-placeholder"
-        style="visibility: visible;"
-      />
       <div
         class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large ant-input-search-with-button ant-select-input"
       >

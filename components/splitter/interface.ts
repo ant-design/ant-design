@@ -49,7 +49,13 @@ export interface SplitterProps {
   /**
    * Collapse configuration. Set `motion: true` to enable collapse animation (duration follows Component Token).
    */
-  collapsible?: { motion?: boolean };
+  collapsible?: {
+    motion?: boolean;
+    icon?: {
+      start?: React.ReactNode;
+      end?: React.ReactNode;
+    };
+  };
   style?: React.CSSProperties;
   styles?: SplitterStylesType;
   rootClassName?: string;
@@ -61,6 +67,9 @@ export interface SplitterProps {
   orientation?: Orientation;
   vertical?: boolean;
   draggerIcon?: React.ReactNode;
+  /**
+   * @deprecated please use `collapsible.icon`
+   */
   collapsibleIcon?: {
     start?: React.ReactNode;
     end?: React.ReactNode;

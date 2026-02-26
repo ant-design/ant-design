@@ -396,13 +396,19 @@ export type TreeSelectConfig = ComponentStyleConfig &
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
-  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
+  Pick<
+    DatePickerProps,
+    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+  >;
 
 export type RangePickerConfig = ComponentStyleConfig &
   Pick<RangePickerProps, 'variant' | 'separator'>;
 
 export type TimePickerConfig = ComponentStyleConfig &
-  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
+  Pick<
+    TimePickerProps,
+    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+  >;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
