@@ -6,6 +6,8 @@ import { ConfigProvider, Splitter } from 'antd';
 
 import type { Orientation } from '../../_util/hooks';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import {
   act,
   createEvent,
@@ -37,6 +39,9 @@ const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>>
 );
 
 describe('Splitter', () => {
+  mountTest(Splitter);
+  rtlTest(Splitter);
+
   const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   let containerSize = 100;

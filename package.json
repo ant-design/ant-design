@@ -239,7 +239,7 @@
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^4.0.0",
     "eslint": "^10.0.0",
-    "eslint-plugin-compat": "^6.1.0",
+    "eslint-plugin-compat": "^7.0.0",
     "eslint-plugin-jest": "^29.15.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react-hooks": "^7.0.1",

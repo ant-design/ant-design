@@ -144,6 +144,36 @@ exports[`Collapse could override default openMotion 1`] = `
 </div>
 `;
 
+exports[`Collapse rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-collapse ant-collapse-icon-placement-start ant-collapse-rtl css-var-root"
+/>
+`;
+
+exports[`Collapse rtl render component should be rendered correctly in RTL direction 2`] = `
+<div
+  class="ant-collapse-item"
+>
+  <div
+    aria-disabled="false"
+    class="ant-collapse-header"
+    role="button"
+    tabindex="0"
+  >
+    <div
+      class="ant-collapse-expand-icon"
+    >
+      <i
+        class="arrow"
+      />
+    </div>
+    <span
+      class="ant-collapse-title"
+    />
+  </div>
+</div>
+`;
+
 exports[`Collapse should render extra node of panel 1`] = `
 <div
   class="ant-collapse ant-collapse-icon-placement-start css-var-root"
