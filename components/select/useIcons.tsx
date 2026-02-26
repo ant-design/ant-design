@@ -18,10 +18,12 @@ export default function useIcons({
   clearIcon,
   contextClearIcon,
   menuItemSelectedIcon,
+  contextMenuItemSelectedIcon,
   removeIcon,
   contextRemoveIcon,
   loading,
   loadingIcon,
+  contextLoadingIcon,
   searchIcon,
   contextSearchIcon,
   multiple,
@@ -36,10 +38,12 @@ export default function useIcons({
   clearIcon?: React.ReactNode;
   contextClearIcon?: React.ReactNode;
   menuItemSelectedIcon?: RenderNode;
+  contextMenuItemSelectedIcon?: RenderNode;
   removeIcon?: RenderNode;
   contextRemoveIcon?: RenderNode;
   loading?: boolean;
   loadingIcon?: React.ReactNode;
+  contextLoadingIcon?: React.ReactNode;
   searchIcon?: React.ReactNode;
   contextSearchIcon?: React.ReactNode;
   multiple?: boolean;
@@ -78,7 +82,9 @@ export default function useIcons({
     if (suffixIcon !== undefined) {
       mergedSuffixIcon = getSuffixIconNode(suffixIcon);
     } else if (loading) {
-      mergedSuffixIcon = getSuffixIconNode(fallbackProp(loadingIcon, <LoadingOutlined spin />));
+      mergedSuffixIcon = getSuffixIconNode(
+        fallbackProp(loadingIcon, contextLoadingIcon, <LoadingOutlined spin />),
+      );
     } else {
       mergedSuffixIcon = ({ open, showSearch }: { open: boolean; showSearch: boolean }) => {
         if (open && showSearch) {
@@ -89,15 +95,9 @@ export default function useIcons({
     }
 
     // Checked item icon
-    let mergedItemIcon = null;
-    if (menuItemSelectedIcon !== undefined) {
-      mergedItemIcon = menuItemSelectedIcon;
-    } else if (multiple) {
-      mergedItemIcon = <CheckOutlined />;
-    } else {
-      mergedItemIcon = null;
-    }
-
+    const mergedItemIcon = multiple
+      ? fallbackProp(menuItemSelectedIcon, contextMenuItemSelectedIcon, <CheckOutlined />)
+      : null;
     const mergedRemoveIcon = fallbackProp(removeIcon, contextRemoveIcon, <CloseOutlined />);
 
     return {
@@ -112,10 +112,12 @@ export default function useIcons({
     clearIcon,
     contextClearIcon,
     menuItemSelectedIcon,
+    contextMenuItemSelectedIcon,
     removeIcon,
     contextRemoveIcon,
     loading,
     loadingIcon,
+    contextLoadingIcon,
     searchIcon,
     contextSearchIcon,
     multiple,
