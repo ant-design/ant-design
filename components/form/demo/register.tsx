@@ -92,23 +92,33 @@ interface PhoneInputProps {
 }
 
 const PhoneInput: React.FC<PhoneInputProps> = ({ id, value = {}, onChange }) => {
+  const [prefix, setPrefix] = useState('86');
+  const [phone, setPhone] = useState('');
+
   const triggerChange = (changedValue: PhoneValue) => {
-    onChange?.({ ...value, ...changedValue });
+    onChange?.({ prefix, phone, ...value, ...changedValue });
   };
 
   const onPrefixChange = (newPrefix: string) => {
+    if (!('prefix' in value)) {
+      setPrefix(newPrefix);
+    }
     triggerChange({ prefix: newPrefix });
   };
 
   const onPhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    triggerChange({ phone: e.target.value });
+    const newPhone = e.target.value;
+    if (!('phone' in value)) {
+      setPhone(newPhone);
+    }
+    triggerChange({ phone: newPhone });
   };
 
   return (
     <span id={id}>
       <Space.Compact block>
         <Select
-          value={value.prefix}
+          value={value.prefix || prefix}
           onChange={onPrefixChange}
           style={{ width: 70 }}
           options={[
@@ -116,7 +126,11 @@ const PhoneInput: React.FC<PhoneInputProps> = ({ id, value = {}, onChange }) => 
             { label: '+87', value: '87' },
           ]}
         />
-        <Input value={value.phone} onChange={onPhoneChange} style={{ width: '100%' }} />
+        <Input
+          value={value.phone || phone}
+          onChange={onPhoneChange}
+          style={{ width: '100%' }}
+        />
       </Space.Compact>
     </span>
   );
@@ -134,15 +148,24 @@ interface DonationInputProps {
 }
 
 const DonationInput: React.FC<DonationInputProps> = ({ id, value = {}, onChange }) => {
+  const [amount, setAmount] = useState<number>();
+  const [currency, setCurrency] = useState('USD');
+
   const triggerChange = (changedValue: DonationValue) => {
-    onChange?.({ ...value, ...changedValue });
+    onChange?.({ amount, currency, ...value, ...changedValue });
   };
 
   const onAmountChange = (newAmount: number | null) => {
+    if (!('amount' in value)) {
+      setAmount(newAmount ?? undefined);
+    }
     triggerChange({ amount: newAmount ?? undefined });
   };
 
   const onCurrencyChange = (newCurrency: string) => {
+    if (!('currency' in value)) {
+      setCurrency(newCurrency);
+    }
     triggerChange({ currency: newCurrency });
   };
 
@@ -150,12 +173,12 @@ const DonationInput: React.FC<DonationInputProps> = ({ id, value = {}, onChange 
     <span id={id}>
       <Space.Compact block>
         <InputNumber
-          value={value.amount}
+          value={value.amount || amount}
           onChange={onAmountChange}
           style={{ width: '100%' }}
         />
         <Select
-          value={value.currency}
+          value={value.currency || currency}
           onChange={onCurrencyChange}
           style={{ width: 70 }}
           options={[
