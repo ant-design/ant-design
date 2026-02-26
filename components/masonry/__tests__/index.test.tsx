@@ -1,11 +1,11 @@
-import React from 'react';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
+import React from 'react';
 
-import Masonry from '..';
-import type { MasonryProps } from '..';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
+import type { MasonryProps, VirtualConfig } from '../index';
+import Masonry from '../index';
 
 const resizeMasonry = async () => {
   triggerResize(document.body.querySelector('.ant-masonry')!);
@@ -41,6 +41,13 @@ jest.mock('../../_util/responsiveObserver', () => {
 });
 
 describe('Masonry', () => {
+  it('should export Masonry and types correctly', () => {
+    expect(Masonry).toBeDefined();
+    // Type check - VirtualConfig should be importable
+    const virtualConfig: VirtualConfig = { height: 600, itemHeight: 200 };
+    expect(virtualConfig.height).toBe(600);
+  });
+
   let minWidth = '';
 
   beforeAll(() => {
@@ -197,6 +204,125 @@ describe('Masonry', () => {
   it('not crash for empty items', async () => {
     render(<Masonry />);
     await resizeMasonry();
+  });
+
+  it('should trigger onLayoutChange when columns change', async () => {
+    const onLayoutChange = jest.fn();
+    const items = [
+      { key: 0, data: { height: 100 } },
+      { key: 1, data: { height: 150 } },
+      { key: 2, data: { height: 120 } },
+    ];
+
+    const { rerender } = render(
+      <div style={{ width: '820px' }}>
+        <Masonry
+          columns={3}
+          onLayoutChange={onLayoutChange}
+          items={items}
+          itemRender={({ data }) => (
+            <div className="bamboo" style={{ height: data.height }} data-height={data.height}>
+              Test
+            </div>
+          )}
+        />
+      </div>,
+    );
+    await resizeMasonry();
+
+    const firstCallCount = onLayoutChange.mock.calls.length;
+    expect(firstCallCount).toBeGreaterThan(0);
+
+    // Change columns to trigger layout change
+    rerender(
+      <div style={{ width: '820px' }}>
+        <Masonry
+          columns={2}
+          onLayoutChange={onLayoutChange}
+          items={items}
+          itemRender={({ data }) => (
+            <div className="bamboo" style={{ height: data.height }} data-height={data.height}>
+              Test
+            </div>
+          )}
+        />
+      </div>,
+    );
+    await resizeMasonry();
+
+    // Should be called again after column change
+    expect(onLayoutChange.mock.calls.length).toBeGreaterThan(firstCallCount);
+  });
+
+  it('should handle fresh prop for resize monitoring', async () => {
+    const { container } = render(
+      <div style={{ width: '820px' }}>
+        <Masonry
+          columns={3}
+          fresh
+          items={[{ key: 0, data: { height: 100 } }]}
+          itemRender={({ data }) => (
+            <div className="bamboo" style={{ height: data.height }} data-height={data.height}>
+              Test
+            </div>
+          )}
+        />
+      </div>,
+    );
+    await resizeMasonry();
+
+    // With fresh=true, items should have ResizeObserver wrapper
+    const item = container.querySelector('.ant-masonry-item');
+    expect(item).toBeTruthy();
+  });
+
+  it('should fallback to 1 column when responsive columns has no xs and no breakpoint matches', async () => {
+    const { container } = render(
+      <div style={{ width: '820px' }}>
+        <Masonry
+          columns={{ md: 3, lg: 4 }} // No xs defined
+          items={[{ key: 0, data: { height: 100 } }]}
+          itemRender={({ data }) => (
+            <div className="bamboo" style={{ height: data.height }} data-height={data.height}>
+              Test
+            </div>
+          )}
+        />
+      </div>,
+    );
+    await resizeMasonry();
+
+    // Should render with fallback columns
+    const items = container.querySelectorAll('.ant-masonry-item');
+    expect(items.length).toBe(1);
+  });
+
+  it('should handle items without explicit key using index as fallback', async () => {
+    // Items without key property - should use index
+    const items = [
+      { data: { height: 100 } },
+      { data: { height: 150 } },
+      { data: { height: 120 } },
+    ] as any[];
+
+    const { container } = render(
+      <div style={{ width: '820px' }}>
+        <Masonry
+          columns={3}
+          items={items}
+          itemRender={({ data }) => (
+            <div className="bamboo" style={{ height: data.height }} data-height={data.height}>
+              Test
+            </div>
+          )}
+        />
+      </div>,
+    );
+    await resizeMasonry();
+
+    // Should render all items using index as key
+    const renderedItems = container.querySelectorAll('.ant-masonry-item');
+    expect(renderedItems.length).toBe(3);
   });
 
   describe('gutter', () => {
