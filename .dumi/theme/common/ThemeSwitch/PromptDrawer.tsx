@@ -63,6 +63,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
   const senderRef = useRef<SenderRef>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const shouldAutoScroll = useRef(true);
 
   const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
   const {
@@ -71,8 +72,24 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     fetch: fetchRecommendations,
   } = usePromptRecommend(localeKey);
 
+  const handleScroll = React.useCallback(() => {
+    if (!scrollContainerRef.current) return;
+
+    const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+    const distanceToBottom = scrollHeight - scrollTop - clientHeight;
+    shouldAutoScroll.current = distanceToBottom <= 10;
+  }, []);
+
   const handleSubmit = React.useCallback(
     (value: string) => {
+      shouldAutoScroll.current = true;
+
+      setTimeout(() => {
+        if (scrollContainerRef.current) {
+          scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+        }
+      }, 0);
+
       submitPrompt(value);
       setInputValue('');
     },
@@ -229,12 +246,8 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   ]);
 
   useEffect(() => {
-    if (scrollContainerRef.current) {
-      const { scrollHeight, clientHeight } = scrollContainerRef.current;
-      scrollContainerRef.current.scrollTo({
-        top: scrollHeight - clientHeight,
-        behavior: 'smooth',
-      });
+    if (scrollContainerRef.current && shouldAutoScroll.current) {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
     }
   }, [resText, items, prompt]);
 
@@ -356,7 +369,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
                 overflow: 'auto',
               }}
             >
-              <ComponentsBlock className="prompt-drawer-preview" />
+              <ComponentsBlock style={{ padding: 16 }} className="prompt-drawer-preview" />
             </div>
           </Flex>
         </Splitter.Panel>
@@ -366,6 +379,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
           <Flex vertical gap={0} style={{ height: '100%', padding: '0 8px' }}>
             <div
               ref={scrollContainerRef}
+              onScroll={handleScroll}
               style={{
                 flex: 1,
                 padding: 0,
