@@ -3,6 +3,8 @@ import { warning } from '@rc-component/util';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import Anchor from '..';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
 import type { AnchorDirection } from '../Anchor';
@@ -22,6 +24,8 @@ const getHashUrl = () => `Anchor-API-${idCounter++}`;
 
 jest.mock('scroll-into-view-if-needed', () => jest.fn());
 describe('Anchor Render', () => {
+  mountTest(Anchor);
+  rtlTest(Anchor);
   const getBoundingClientRectMock = jest.spyOn(
     HTMLHeadingElement.prototype,
     'getBoundingClientRect',
