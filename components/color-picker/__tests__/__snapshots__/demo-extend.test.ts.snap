@@ -222,6 +222,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -238,6 +239,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -254,6 +256,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -591,6 +594,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -607,6 +611,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -623,6 +628,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -965,6 +971,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -981,6 +988,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -997,6 +1005,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -1331,6 +1340,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -1347,6 +1357,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -1363,6 +1374,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -1706,6 +1718,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -1722,6 +1735,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -1738,6 +1752,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -2053,6 +2068,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -2069,6 +2085,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -2085,6 +2102,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -2362,6 +2380,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -2378,6 +2397,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -2394,6 +2414,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -2743,6 +2764,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                   title="HEX"
                                 >
@@ -2759,6 +2781,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                                   title="HSB"
                                 >
@@ -2775,6 +2798,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -3330,6 +3354,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                   title="HEX"
                                 >
@@ -3346,6 +3371,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -3362,6 +3388,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                                   title="RGB"
                                 >
@@ -3777,7 +3804,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-segmented-item"
                     >
                       <input
-                        checked=""
                         class="ant-segmented-item-input"
                         name="test-id"
                         type="radio"
@@ -3793,6 +3819,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-segmented-item ant-segmented-item-selected"
                     >
                       <input
+                        checked=""
                         class="ant-segmented-item-input"
                         name="test-id"
                         type="radio"
@@ -4017,6 +4044,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -4033,6 +4061,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -4049,6 +4078,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -4437,6 +4467,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -4453,6 +4484,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -4469,6 +4501,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -4833,6 +4866,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                   style="display: flex; flex-direction: column;"
                                 >
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                     title="HEX"
                                   >
@@ -4849,6 +4883,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                     />
                                   </div>
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option"
                                     title="HSB"
                                   >
@@ -4865,6 +4900,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                     />
                                   </div>
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option"
                                     title="RGB"
                                   >
@@ -5785,6 +5821,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                   style="display: flex; flex-direction: column;"
                                 >
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                     title="HEX"
                                   >
@@ -5801,6 +5838,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                     />
                                   </div>
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option"
                                     title="HSB"
                                   >
@@ -5817,6 +5855,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                     />
                                   </div>
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option"
                                     title="RGB"
                                   >
@@ -6158,6 +6197,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -6174,6 +6214,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -6190,6 +6231,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -6956,6 +6998,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -6972,6 +7015,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -6988,6 +7032,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -7337,6 +7382,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -7353,6 +7399,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -7369,6 +7416,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -7703,6 +7751,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -7719,6 +7768,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -7735,6 +7785,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -8069,6 +8120,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -8085,6 +8137,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -8101,6 +8154,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -8448,6 +8502,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -8464,6 +8519,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -8480,6 +8536,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -8819,6 +8876,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -8835,6 +8893,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -8851,6 +8910,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -9190,6 +9250,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -9206,6 +9267,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -9222,6 +9284,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -9563,6 +9626,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="HEX"
                               >
@@ -9579,6 +9643,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="HSB"
                               >
@@ -9595,6 +9660,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="RGB"
                               >
@@ -9925,6 +9991,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="HEX"
                               >
@@ -9941,6 +10008,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="HSB"
                               >
@@ -9957,6 +10025,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="RGB"
                               >
@@ -10313,6 +10382,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -10329,6 +10399,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -10345,6 +10416,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -10686,6 +10758,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -10702,6 +10775,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -10718,6 +10792,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -11076,6 +11151,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -11092,6 +11168,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -11108,6 +11185,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -11443,6 +11521,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -11459,6 +11538,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -11475,6 +11555,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -11812,6 +11893,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -11828,6 +11910,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -11844,6 +11927,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >

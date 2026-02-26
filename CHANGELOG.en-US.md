@@ -15,6 +15,24 @@ tag: vVERSION
 
 ---
 
+## 6.3.1
+
+`2026-02-24`
+
+- Select
+  - 🐞 Fix Select incorrect dropdown height when `value` is an empty string. [#56976](https://github.com/ant-design/ant-design/pull/56976) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 Fix Select value echo issue when `value` is an empty string. [#56966](https://github.com/ant-design/ant-design/pull/56966) [@luozz1994](https://github.com/luozz1994)
+  - 🐞 Fix Select & TreeSelect selected value text still visible when searching. [#56946](https://github.com/ant-design/ant-design/pull/56946)
+- 🐞 Fix TreeSelect Checkbox being compressed when multi-line text is present. [#56961](https://github.com/ant-design/ant-design/pull/56961) [@luozz1994](https://github.com/luozz1994)
+- 🐞 Fix Typography hovering copy button triggering ellipsis tooltip when both `copyable` and `ellipsis` are enabled; fix ellipsis tooltip not appearing after moving back from copy button. [#56855](https://github.com/ant-design/ant-design/pull/56855) [@claytonlin1110](https://github.com/claytonlin1110)
+- 🐞 Fix Progress animation overflow when `status="active"`. [#56972](https://github.com/ant-design/ant-design/pull/56972) [@aibayanyu20](https://github.com/aibayanyu20)
+- 🐞 Fix Upload picture-wall mode list overflow and overlap when file count exceeds one row. [#56945](https://github.com/ant-design/ant-design/pull/56945) [@xbsheng](https://github.com/xbsheng)
+- 🐞 Fix Image flickering in some browsers when opening preview. [#56937](https://github.com/ant-design/ant-design/pull/56937) [@zombieJ](https://github.com/zombieJ)
+- ⌨️ ♿ Add `prefers-reduced-motion` media query support for Button, Checkbox, Radio, Switch, Segmented to disable transitions for improved accessibility. [#56902](https://github.com/ant-design/ant-design/pull/56902) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Fix Input height inconsistency with Select when using `variant="borderless"`. [#57014](https://github.com/ant-design/ant-design/pull/57014) [@njlazzar-su](https://github.com/njlazzar-su)
+- 🐞 Fix Modal `confirm` method layout whitespace when `icon` is empty. [#57024](https://github.com/ant-design/ant-design/pull/57024) [@Arktomson](https://github.com/Arktomson)
+- 🐞 Add `aria-disabled` attribute for disabled options in Select component.[#57049](https://github.com/ant-design/ant-design/pull/57049) [@meet-student](https://github.com/meet-student)
+
 ## 6.3.0
 
 `2026-02-10`

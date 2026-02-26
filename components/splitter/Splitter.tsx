@@ -28,6 +28,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     classNames,
+    collapsible,
     style,
     styles,
     layout,
@@ -81,6 +82,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       );
     }
     warning.deprecated(!layout, 'layout', 'orientation');
+    warning.deprecated(!collapsibleIcon, 'collapsibleIcon', 'collapsible.icon');
   }
 
   // ====================== Container =======================
@@ -217,9 +219,13 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             style: { ...mergedStyles.panel, ...item.style },
           };
 
-          // Panel
           const panel = (
-            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} />
+            <InternalPanel
+              {...panelProps}
+              prefixCls={prefixCls}
+              size={panelSizes[idx]}
+              supportMotion={collapsible?.motion && movingIndex === undefined}
+            />
           );
 
           // Split Bar
@@ -245,7 +251,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 draggerStyle={mergedStyles.dragger}
                 draggerClassName={mergedClassNames.dragger as SplitterSemanticDraggerClassNames}
                 draggerIcon={draggerIcon}
-                collapsibleIcon={collapsibleIcon}
+                collapsibleIcon={collapsible?.icon || collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}

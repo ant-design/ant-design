@@ -101,6 +101,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="a10"
               >
@@ -111,6 +112,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="b11"
               >
@@ -121,6 +123,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="c12"
               >
@@ -131,6 +134,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="d13"
               >
@@ -141,6 +145,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="e14"
               >
@@ -151,6 +156,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="f15"
               >
@@ -161,6 +167,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="g16"
               >
@@ -171,6 +178,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="h17"
               >
@@ -181,6 +189,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="i18"
               >
@@ -191,6 +200,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="j19"
               >
@@ -201,6 +211,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="k20"
               >
@@ -211,6 +222,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="l21"
               >
@@ -221,6 +233,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="m22"
               >
@@ -231,6 +244,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="n23"
               >
@@ -241,6 +255,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="o24"
               >
@@ -251,6 +266,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="p25"
               >
@@ -261,6 +277,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="q26"
               >
@@ -271,6 +288,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="r27"
               >
@@ -281,6 +299,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="s28"
               >
@@ -291,6 +310,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="t29"
               >
@@ -301,6 +321,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="u30"
               >
@@ -311,6 +332,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="v31"
               >
@@ -321,6 +343,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="w32"
               >
@@ -331,6 +354,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="x33"
               >
@@ -341,6 +365,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="y34"
               >
@@ -351,6 +376,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="z35"
               >
@@ -466,6 +492,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -482,6 +509,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -498,6 +526,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -514,6 +543,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
                   />
                 </div>
                 <div
+                  aria-disabled="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-disabled"
                   title="Disabled"
                 >
@@ -619,6 +649,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -723,6 +754,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -851,6 +883,7 @@ exports[`renders components/select/demo/basic.tsx extend context correctly 1`] =
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -973,6 +1006,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Zhejiang"
                 >
@@ -989,6 +1023,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Jiangsu"
                 >
@@ -1101,6 +1136,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Hangzhou"
                 >
@@ -1117,6 +1153,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Ningbo"
                 >
@@ -1133,6 +1170,7 @@ exports[`renders components/select/demo/coordinate.tsx extend context correctly 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Wenzhou"
                 >
@@ -1253,6 +1291,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="jack"
               >
@@ -1269,6 +1308,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="lucy"
               >
@@ -1443,6 +1483,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="gold"
               >
@@ -1459,6 +1500,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="lime"
               >
@@ -1475,6 +1517,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="green"
               >
@@ -1491,6 +1534,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="cyan"
               >
@@ -1675,6 +1719,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                 title="gold"
               >
@@ -1711,6 +1756,7 @@ Array [
                 </span>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="lime"
               >
@@ -1721,6 +1767,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="green"
               >
@@ -1731,6 +1778,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                 title="cyan"
               >
@@ -1778,7 +1826,9 @@ Array [
 exports[`renders components/select/demo/custom-tag-render.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/select/demo/debug.tsx extend context correctly 1`] = `
-Array [
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+>
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
     style="flex-wrap: wrap; width: 500px; position: relative; z-index: 1; border: 1px solid red; background-color: rgb(255, 255, 255);"
@@ -1886,6 +1936,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jack"
                   >
@@ -1902,6 +1953,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Lucy"
                   >
@@ -1918,6 +1970,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-disabled"
                     title="Disabled"
                   >
@@ -1934,6 +1987,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="yiminghe"
                   >
@@ -1950,6 +2004,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="I am super super long!"
                   >
@@ -2107,6 +2162,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jack"
                   >
@@ -2117,6 +2173,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Lucy"
                   >
@@ -2153,6 +2210,7 @@ Array [
                     </span>
                   </div>
                   <div
+                    aria-disabled="true"
                     class="ant-select-item ant-select-item-option ant-select-item-option-disabled"
                     title="Disabled"
                   >
@@ -2163,6 +2221,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="yiminghe"
                   >
@@ -2173,6 +2232,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="I am super super long!"
                   >
@@ -2210,9 +2270,189 @@ Array [
         </span>
       </button>
     </div>
-  </div>,
+    <div
+      class="ant-space-item"
+    >
+      <div
+        class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+        style="width: 120px;"
+      >
+        <div
+          class="ant-select-content"
+          title=" "
+        >
+          <input
+            aria-autocomplete="list"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            autocomplete="off"
+            class="ant-select-input"
+            id="test-id"
+            readonly=""
+            role="combobox"
+            type="search"
+            value=""
+          />
+        </div>
+        <div
+          class="ant-select-suffix"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+      <div
+        class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-placement-bottomLeft"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+      >
+        <div>
+          <div
+            id="test-id_list"
+            role="listbox"
+            style="height: 0px; width: 0px; overflow: hidden;"
+          >
+            <div
+              aria-label="Jack"
+              aria-selected="false"
+              id="test-id_list_0"
+              role="option"
+            >
+              jack
+            </div>
+            <div
+              aria-label="Lucy"
+              aria-selected="false"
+              id="test-id_list_1"
+              role="option"
+            >
+              lucy
+            </div>
+          </div>
+          <div
+            class="rc-virtual-list"
+            style="position: relative;"
+          >
+            <div
+              class="rc-virtual-list-holder"
+              style="max-height: 256px; overflow-y: auto; overflow-anchor: none;"
+            >
+              <div>
+                <div
+                  class="rc-virtual-list-holder-inner"
+                  style="display: flex; flex-direction: column;"
+                >
+                  <div
+                    aria-disabled="false"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-active"
+                    title="Jack"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Jack
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="Lucy"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Lucy
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-disabled="true"
+                    class="ant-select-item ant-select-item-option ant-select-item-option-disabled"
+                    title="Disabled"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      Disabled
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="yiminghe"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      yiminghe
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                  <div
+                    aria-disabled="false"
+                    class="ant-select-item ant-select-item-option"
+                    title="I am super super long!"
+                  >
+                    <div
+                      class="ant-select-item-option-content"
+                    >
+                      I am super super long!
+                    </div>
+                    <span
+                      aria-hidden="true"
+                      class="ant-select-item-option-state"
+                      style="user-select: none;"
+                      unselectable="on"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div
-    style="width: 200px; margin-top: 24px;"
+    style="width: 200px;"
   >
     <div
       class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-multiple ant-select-show-arrow ant-select-show-search"
@@ -2338,6 +2578,7 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈"
                 >
@@ -2379,8 +2620,113 @@ Array [
         </div>
       </div>
     </div>
-  </div>,
-]
+  </div>
+  <div
+    class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+  >
+    <div
+      class="ant-select-content"
+      title=""
+    >
+      <input
+        aria-autocomplete="list"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        autocomplete="off"
+        class="ant-select-input"
+        id="test-id"
+        readonly=""
+        role="combobox"
+        type="search"
+        value=""
+      />
+    </div>
+    <div
+      class="ant-select-suffix"
+    >
+      <span
+        aria-label="down"
+        class="anticon anticon-down"
+        role="img"
+      >
+        <svg
+          aria-hidden="true"
+          data-icon="down"
+          fill="currentColor"
+          focusable="false"
+          height="1em"
+          viewBox="64 64 896 896"
+          width="1em"
+        >
+          <path
+            d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+          />
+        </svg>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-select-dropdown ant-slide-up-appear ant-slide-up-appear-prepare ant-slide-up css-var-test-id ant-select-css-var ant-select-dropdown-empty ant-select-dropdown-placement-bottomLeft"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div>
+      <div
+        class="ant-select-item-empty"
+        id="test-id_list"
+        role="listbox"
+      >
+        <div
+          class="css-var-test-id ant-empty ant-empty-normal ant-empty-small"
+        >
+          <div
+            class="ant-empty-image"
+          >
+            <svg
+              height="41"
+              viewBox="0 0 64 41"
+              width="64"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <title>
+                No data
+              </title>
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                transform="translate(0 1)"
+              >
+                <ellipse
+                  cx="32"
+                  cy="33"
+                  fill="#f5f5f5"
+                  rx="32"
+                  ry="7"
+                />
+                <g
+                  fill-rule="nonzero"
+                  stroke="#d9d9d9"
+                >
+                  <path
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
+                  />
+                  <path
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
+                    fill="#fafafa"
+                  />
+                </g>
+              </g>
+            </svg>
+          </div>
+          <div
+            class="ant-empty-description"
+          >
+            No data
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 `;
 
 exports[`renders components/select/demo/debug.tsx extend context correctly 2`] = `[]`;
@@ -2477,6 +2823,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="0"
               >
@@ -2493,6 +2840,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="1"
               >
@@ -2509,6 +2857,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="2"
               >
@@ -2525,6 +2874,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="3"
               >
@@ -2541,6 +2891,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="4"
               >
@@ -2557,6 +2908,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="5"
               >
@@ -2573,6 +2925,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="6"
               >
@@ -2589,6 +2942,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="7"
               >
@@ -2605,6 +2959,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="8"
               >
@@ -2621,6 +2976,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="9"
               >
@@ -2637,6 +2993,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="10"
               >
@@ -2653,6 +3010,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="11"
               >
@@ -2669,6 +3027,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="12"
               >
@@ -2685,6 +3044,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="13"
               >
@@ -2701,6 +3061,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="14"
               >
@@ -2717,6 +3078,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="15"
               >
@@ -2733,6 +3095,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="16"
               >
@@ -2749,6 +3112,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="17"
               >
@@ -2765,6 +3129,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="18"
               >
@@ -2781,6 +3146,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="19"
               >
@@ -2797,6 +3163,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="20"
               >
@@ -2813,6 +3180,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="21"
               >
@@ -2829,6 +3197,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="22"
               >
@@ -2845,6 +3214,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="23"
               >
@@ -2861,6 +3231,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="24"
               >
@@ -2877,6 +3248,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="25"
               >
@@ -2893,6 +3265,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="26"
               >
@@ -2909,6 +3282,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="27"
               >
@@ -2925,6 +3299,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="28"
               >
@@ -2941,6 +3316,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="29"
               >
@@ -2957,6 +3333,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="30"
               >
@@ -2973,6 +3350,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="31"
               >
@@ -2989,6 +3367,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="32"
               >
@@ -3005,6 +3384,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="33"
               >
@@ -3021,6 +3401,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="34"
               >
@@ -3037,6 +3418,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="35"
               >
@@ -3053,6 +3435,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="36"
               >
@@ -3069,6 +3452,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="37"
               >
@@ -3085,6 +3469,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="38"
               >
@@ -3101,6 +3486,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="39"
               >
@@ -3117,6 +3503,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="40"
               >
@@ -3133,6 +3520,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="41"
               >
@@ -3149,6 +3537,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="42"
               >
@@ -3165,6 +3554,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="43"
               >
@@ -3181,6 +3571,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="44"
               >
@@ -3197,6 +3588,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="45"
               >
@@ -3213,6 +3605,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="46"
               >
@@ -3229,6 +3622,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="47"
               >
@@ -3245,6 +3639,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="48"
               >
@@ -3261,6 +3656,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="49"
               >
@@ -3277,6 +3673,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="50"
               >
@@ -3293,6 +3690,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="51"
               >
@@ -3309,6 +3707,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="52"
               >
@@ -3325,6 +3724,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="53"
               >
@@ -3341,6 +3741,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="54"
               >
@@ -3357,6 +3758,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="55"
               >
@@ -3373,6 +3775,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="56"
               >
@@ -3389,6 +3792,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="57"
               >
@@ -3405,6 +3809,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="58"
               >
@@ -3421,6 +3826,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="59"
               >
@@ -3437,6 +3843,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="60"
               >
@@ -3453,6 +3860,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="61"
               >
@@ -3469,6 +3877,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="62"
               >
@@ -3485,6 +3894,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="63"
               >
@@ -3501,6 +3911,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="64"
               >
@@ -3517,6 +3928,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="65"
               >
@@ -3533,6 +3945,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="66"
               >
@@ -3549,6 +3962,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="67"
               >
@@ -3565,6 +3979,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="68"
               >
@@ -3581,6 +3996,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="69"
               >
@@ -3597,6 +4013,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="70"
               >
@@ -3613,6 +4030,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="71"
               >
@@ -3629,6 +4047,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="72"
               >
@@ -3645,6 +4064,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="73"
               >
@@ -3661,6 +4081,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="74"
               >
@@ -3677,6 +4098,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="75"
               >
@@ -3693,6 +4115,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="76"
               >
@@ -3709,6 +4132,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="77"
               >
@@ -3725,6 +4149,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="78"
               >
@@ -3741,6 +4166,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="79"
               >
@@ -3757,6 +4183,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="80"
               >
@@ -3773,6 +4200,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="81"
               >
@@ -3789,6 +4217,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="82"
               >
@@ -3805,6 +4234,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="83"
               >
@@ -3821,6 +4251,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="84"
               >
@@ -3837,6 +4268,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="85"
               >
@@ -3853,6 +4285,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="86"
               >
@@ -3869,6 +4302,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="87"
               >
@@ -3885,6 +4319,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="88"
               >
@@ -3901,6 +4336,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="89"
               >
@@ -3917,6 +4353,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="90"
               >
@@ -3933,6 +4370,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="91"
               >
@@ -3949,6 +4387,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="92"
               >
@@ -3965,6 +4404,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="93"
               >
@@ -3981,6 +4421,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="94"
               >
@@ -3997,6 +4438,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="95"
               >
@@ -4013,6 +4455,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="96"
               >
@@ -4029,6 +4472,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="97"
               >
@@ -4045,6 +4489,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="98"
               >
@@ -4061,6 +4506,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="99"
               >
@@ -4184,6 +4630,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -4200,6 +4647,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -4216,6 +4664,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -4343,6 +4792,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -4353,6 +4803,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -4389,6 +4840,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -4496,6 +4948,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -4512,6 +4965,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -4528,6 +4982,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -4681,6 +5136,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -4691,6 +5147,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -4727,6 +5184,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -4835,6 +5293,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -4851,6 +5310,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -4867,6 +5327,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -4994,6 +5455,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -5004,6 +5466,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -5040,6 +5503,7 @@ exports[`renders components/select/demo/filled-debug.tsx extend context correctl
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -5168,6 +5632,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Apples"
               >
@@ -5178,6 +5643,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Nails"
               >
@@ -5188,6 +5654,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Bananas"
               >
@@ -5198,6 +5665,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Helicopters"
               >
@@ -5307,6 +5775,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Jack (100)"
               >
@@ -5323,6 +5792,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                 title="Lucy (101)"
               >
@@ -5486,6 +5956,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                 title="Ava Swift"
               >
@@ -5522,6 +5993,7 @@ Array [
                 </span>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Cole Reed"
               >
@@ -5532,6 +6004,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Mia Blake"
               >
@@ -5542,6 +6015,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Jake Stone"
               >
@@ -5552,6 +6026,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lily Lane"
               >
@@ -5562,6 +6037,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Ryan Chase"
               >
@@ -5572,6 +6048,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Zoe Fox"
               >
@@ -5582,6 +6059,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Alex Grey"
               >
@@ -5592,6 +6070,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Elle Blair"
               >
@@ -5818,6 +6297,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="a10"
                 >
@@ -5854,6 +6334,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="b11"
                 >
@@ -5864,6 +6345,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="c12"
                 >
@@ -5900,6 +6382,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="d13"
                 >
@@ -5910,6 +6393,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="e14"
                 >
@@ -5920,6 +6404,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="f15"
                 >
@@ -5930,6 +6415,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="g16"
                 >
@@ -5940,6 +6426,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="h17"
                 >
@@ -5950,6 +6437,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="i18"
                 >
@@ -5960,6 +6448,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="j19"
                 >
@@ -5970,6 +6459,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="k20"
                 >
@@ -5980,6 +6470,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="l21"
                 >
@@ -5990,6 +6481,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="m22"
                 >
@@ -6000,6 +6492,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="n23"
                 >
@@ -6010,6 +6503,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="o24"
                 >
@@ -6020,6 +6514,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="p25"
                 >
@@ -6030,6 +6525,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="q26"
                 >
@@ -6040,6 +6536,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="r27"
                 >
@@ -6050,6 +6547,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="s28"
                 >
@@ -6060,6 +6558,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="t29"
                 >
@@ -6070,6 +6569,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="u30"
                 >
@@ -6080,6 +6580,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="v31"
                 >
@@ -6090,6 +6591,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="w32"
                 >
@@ -6100,6 +6602,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="x33"
                 >
@@ -6110,6 +6613,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="y34"
                 >
@@ -6120,6 +6624,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="z35"
                 >
@@ -6260,6 +6765,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="a10"
                 >
@@ -6296,6 +6802,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="b11"
                 >
@@ -6306,6 +6813,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="c12"
                 >
@@ -6342,6 +6850,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="d13"
                 >
@@ -6352,6 +6861,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="e14"
                 >
@@ -6362,6 +6872,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="f15"
                 >
@@ -6372,6 +6883,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="g16"
                 >
@@ -6382,6 +6894,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="h17"
                 >
@@ -6392,6 +6905,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="i18"
                 >
@@ -6402,6 +6916,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="j19"
                 >
@@ -6412,6 +6927,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="k20"
                 >
@@ -6422,6 +6938,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="l21"
                 >
@@ -6432,6 +6949,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="m22"
                 >
@@ -6442,6 +6960,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="n23"
                 >
@@ -6452,6 +6971,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="o24"
                 >
@@ -6462,6 +6982,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="p25"
                 >
@@ -6472,6 +6993,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="q26"
                 >
@@ -6482,6 +7004,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="r27"
                 >
@@ -6492,6 +7015,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="s28"
                 >
@@ -6502,6 +7026,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="t29"
                 >
@@ -6512,6 +7037,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="u30"
                 >
@@ -6522,6 +7048,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="v31"
                 >
@@ -6532,6 +7059,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="w32"
                 >
@@ -6542,6 +7070,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="x33"
                 >
@@ -6552,6 +7081,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="y34"
                 >
@@ -6562,6 +7092,7 @@ exports[`renders components/select/demo/multiple.tsx extend context correctly 1`
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="z35"
                 >
@@ -6683,6 +7214,7 @@ Array [
                 </span>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped ant-select-item-option-active"
               >
                 <div
@@ -6700,6 +7232,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -6725,6 +7258,7 @@ Array [
                 </span>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -6742,6 +7276,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-grouped"
               >
                 <div
@@ -6887,6 +7422,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -6906,6 +7442,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -6925,6 +7462,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -7040,6 +7578,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -7059,6 +7598,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -7078,6 +7618,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -7214,6 +7755,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -7233,6 +7775,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -7252,6 +7795,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   >
                     <div
@@ -7433,6 +7977,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -7446,6 +7991,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -7459,6 +8005,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   >
                     <div
@@ -7604,6 +8151,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -7617,6 +8165,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -7630,6 +8179,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8172,6 +8722,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   >
                     <div
@@ -8211,6 +8762,7 @@ Array [
                     </span>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8224,6 +8776,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8348,6 +8901,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -8361,6 +8915,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8374,6 +8929,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8487,6 +9043,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -8506,6 +9063,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8525,6 +9083,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8664,6 +9223,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -8683,6 +9243,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8702,6 +9263,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8841,6 +9403,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   >
                     <div
@@ -8860,6 +9423,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -8879,6 +9443,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                   >
                     <div
@@ -9044,6 +9609,7 @@ Array [
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                               >
                                 <div
@@ -9063,6 +9629,7 @@ Array [
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                               >
                                 <div
@@ -9082,6 +9649,7 @@ Array [
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                               >
                                 <div
@@ -9213,6 +9781,7 @@ Array [
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                               >
                                 <div
@@ -9232,6 +9801,7 @@ Array [
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                               >
                                 <div
@@ -9251,6 +9821,7 @@ Array [
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                               >
                                 <div
@@ -9422,6 +9993,7 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
@@ -9441,6 +10013,7 @@ Array [
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -9460,6 +10033,7 @@ Array [
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -9594,6 +10168,7 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
@@ -9613,6 +10188,7 @@ Array [
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -9632,6 +10208,7 @@ Array [
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -9752,6 +10329,7 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
@@ -9765,6 +10343,7 @@ Array [
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -9778,6 +10357,7 @@ Array [
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -9897,6 +10477,7 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
@@ -9910,6 +10491,7 @@ Array [
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -9923,6 +10505,7 @@ Array [
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -10097,6 +10680,7 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
@@ -10110,6 +10694,7 @@ Array [
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -10123,6 +10708,7 @@ Array [
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -10292,6 +10878,7 @@ Array [
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 >
                   <div
@@ -10305,6 +10892,7 @@ Array [
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -10318,6 +10906,7 @@ Array [
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                 >
                   <div
@@ -10478,6 +11067,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                 title="Happy"
               >
@@ -10532,6 +11122,7 @@ Array [
                 </span>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Sad"
               >
@@ -10560,6 +11151,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Angry"
               >
@@ -10588,6 +11180,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Cool"
               >
@@ -10616,6 +11209,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Sleepy"
               >
@@ -10807,6 +11401,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 aria-selected="true"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                 id="test-id_list_0"
@@ -10826,6 +11421,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
                 id="test-id_list_1"
@@ -10845,6 +11441,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 aria-selected="false"
                 class="ant-select-item ant-select-item-option"
                 id="test-id_list_2"
@@ -11094,6 +11691,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Option 0"
               >
@@ -11110,6 +11708,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Option 1"
               >
@@ -11126,6 +11725,7 @@ exports[`renders components/select/demo/placement-debug.tsx extend context corre
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Option 2"
               >
@@ -11266,6 +11866,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Long Label: a10"
                 >
@@ -11302,6 +11903,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: b11"
                 >
@@ -11312,6 +11914,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Long Label: c12"
                 >
@@ -11348,6 +11951,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: d13"
                 >
@@ -11358,6 +11962,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: e14"
                 >
@@ -11368,6 +11973,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: f15"
                 >
@@ -11378,6 +11984,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: g16"
                 >
@@ -11388,6 +11995,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Long Label: h17"
                 >
@@ -11424,6 +12032,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: i18"
                 >
@@ -11434,6 +12043,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Long Label: j19"
                 >
@@ -11470,6 +12080,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Long Label: k20"
                 >
@@ -11506,6 +12117,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: l21"
                 >
@@ -11516,6 +12128,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: m22"
                 >
@@ -11526,6 +12139,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: n23"
                 >
@@ -11536,6 +12150,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: o24"
                 >
@@ -11546,6 +12161,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: p25"
                 >
@@ -11556,6 +12172,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: q26"
                 >
@@ -11566,6 +12183,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: r27"
                 >
@@ -11576,6 +12194,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: s28"
                 >
@@ -11586,6 +12205,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: t29"
                 >
@@ -11596,6 +12216,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: u30"
                 >
@@ -11606,6 +12227,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: v31"
                 >
@@ -11616,6 +12238,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: w32"
                 >
@@ -11626,6 +12249,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: x33"
                 >
@@ -11636,6 +12260,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: y34"
                 >
@@ -11646,6 +12271,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: z35"
                 >
@@ -11767,6 +12393,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Long Label: a10"
                 >
@@ -11777,6 +12404,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: b11"
                 >
@@ -11787,6 +12415,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: c12"
                 >
@@ -11797,6 +12426,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: d13"
                 >
@@ -11807,6 +12437,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: e14"
                 >
@@ -11817,6 +12448,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: f15"
                 >
@@ -11827,6 +12459,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: g16"
                 >
@@ -11837,6 +12470,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: h17"
                 >
@@ -11847,6 +12481,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: i18"
                 >
@@ -11857,6 +12492,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: j19"
                 >
@@ -11867,6 +12503,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: k20"
                 >
@@ -11877,6 +12514,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: l21"
                 >
@@ -11887,6 +12525,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: m22"
                 >
@@ -11897,6 +12536,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: n23"
                 >
@@ -11907,6 +12547,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: o24"
                 >
@@ -11917,6 +12558,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: p25"
                 >
@@ -11927,6 +12569,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: q26"
                 >
@@ -11937,6 +12580,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: r27"
                 >
@@ -11947,6 +12591,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: s28"
                 >
@@ -11957,6 +12602,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: t29"
                 >
@@ -11967,6 +12613,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: u30"
                 >
@@ -11977,6 +12624,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: v31"
                 >
@@ -11987,6 +12635,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: w32"
                 >
@@ -11997,6 +12646,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: x33"
                 >
@@ -12007,6 +12657,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: y34"
                 >
@@ -12017,6 +12668,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: z35"
                 >
@@ -12165,6 +12817,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Long Label: a10"
                 >
@@ -12201,6 +12854,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: b11"
                 >
@@ -12211,6 +12865,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Long Label: c12"
                 >
@@ -12247,6 +12902,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: d13"
                 >
@@ -12257,6 +12913,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: e14"
                 >
@@ -12267,6 +12924,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: f15"
                 >
@@ -12277,6 +12935,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: g16"
                 >
@@ -12287,6 +12946,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Long Label: h17"
                 >
@@ -12323,6 +12983,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: i18"
                 >
@@ -12333,6 +12994,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Long Label: j19"
                 >
@@ -12369,6 +13031,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Long Label: k20"
                 >
@@ -12405,6 +13068,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: l21"
                 >
@@ -12415,6 +13079,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: m22"
                 >
@@ -12425,6 +13090,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: n23"
                 >
@@ -12435,6 +13101,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: o24"
                 >
@@ -12445,6 +13112,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: p25"
                 >
@@ -12455,6 +13123,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: q26"
                 >
@@ -12465,6 +13134,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: r27"
                 >
@@ -12475,6 +13145,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: s28"
                 >
@@ -12485,6 +13156,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: t29"
                 >
@@ -12495,6 +13167,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: u30"
                 >
@@ -12505,6 +13178,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: v31"
                 >
@@ -12515,6 +13189,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: w32"
                 >
@@ -12525,6 +13200,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: x33"
                 >
@@ -12535,6 +13211,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: y34"
                 >
@@ -12545,6 +13222,7 @@ exports[`renders components/select/demo/responsive.tsx extend context correctly 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Long Label: z35"
                 >
@@ -12657,6 +13335,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Jack"
               >
@@ -12673,6 +13352,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lucy"
               >
@@ -12689,6 +13369,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Tom"
               >
@@ -12851,6 +13532,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Jack"
               >
@@ -12867,6 +13549,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lucy"
               >
@@ -12883,6 +13566,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Tom"
               >
@@ -13000,6 +13684,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="a11"
               >
@@ -13016,6 +13701,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="b22"
               >
@@ -13032,6 +13718,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="c33"
               >
@@ -13048,6 +13735,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="d44"
               >
@@ -13166,6 +13854,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Cancelled"
               >
@@ -13182,6 +13871,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Closed"
               >
@@ -13198,6 +13888,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Communicated"
               >
@@ -13214,6 +13905,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Identified"
               >
@@ -13230,6 +13922,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Not Identified"
               >
@@ -13246,6 +13939,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Resolved"
               >
@@ -13514,6 +14208,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="a10"
                   >
@@ -13530,6 +14225,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="b11"
                   >
@@ -13546,6 +14242,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="c12"
                   >
@@ -13562,6 +14259,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="d13"
                   >
@@ -13578,6 +14276,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="e14"
                   >
@@ -13594,6 +14293,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="f15"
                   >
@@ -13610,6 +14310,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="g16"
                   >
@@ -13626,6 +14327,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="h17"
                   >
@@ -13642,6 +14344,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="i18"
                   >
@@ -13658,6 +14361,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="j19"
                   >
@@ -13674,6 +14378,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="k20"
                   >
@@ -13690,6 +14395,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="l21"
                   >
@@ -13706,6 +14412,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="m22"
                   >
@@ -13722,6 +14429,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="n23"
                   >
@@ -13738,6 +14446,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="o24"
                   >
@@ -13754,6 +14463,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="p25"
                   >
@@ -13770,6 +14480,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="q26"
                   >
@@ -13786,6 +14497,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="r27"
                   >
@@ -13802,6 +14514,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="s28"
                   >
@@ -13818,6 +14531,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="t29"
                   >
@@ -13834,6 +14548,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="u30"
                   >
@@ -13850,6 +14565,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="v31"
                   >
@@ -13866,6 +14582,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="w32"
                   >
@@ -13882,6 +14599,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="x33"
                   >
@@ -13898,6 +14616,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="y34"
                   >
@@ -13914,6 +14633,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="z35"
                   >
@@ -14113,6 +14833,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="a10"
                   >
@@ -14149,6 +14870,7 @@ Array [
                     </span>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="b11"
                   >
@@ -14159,6 +14881,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="c12"
                   >
@@ -14195,6 +14918,7 @@ Array [
                     </span>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="d13"
                   >
@@ -14205,6 +14929,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="e14"
                   >
@@ -14215,6 +14940,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="f15"
                   >
@@ -14225,6 +14951,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="g16"
                   >
@@ -14235,6 +14962,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="h17"
                   >
@@ -14245,6 +14973,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="i18"
                   >
@@ -14255,6 +14984,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="j19"
                   >
@@ -14265,6 +14995,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="k20"
                   >
@@ -14275,6 +15006,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="l21"
                   >
@@ -14285,6 +15017,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="m22"
                   >
@@ -14295,6 +15028,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="n23"
                   >
@@ -14305,6 +15039,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="o24"
                   >
@@ -14315,6 +15050,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="p25"
                   >
@@ -14325,6 +15061,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="q26"
                   >
@@ -14335,6 +15072,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="r27"
                   >
@@ -14345,6 +15083,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="s28"
                   >
@@ -14355,6 +15094,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="t29"
                   >
@@ -14365,6 +15105,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="u30"
                   >
@@ -14375,6 +15116,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="v31"
                   >
@@ -14385,6 +15127,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="w32"
                   >
@@ -14395,6 +15138,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="x33"
                   >
@@ -14405,6 +15149,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="y34"
                   >
@@ -14415,6 +15160,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="z35"
                   >
@@ -14608,6 +15354,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="a10"
                   >
@@ -14644,6 +15391,7 @@ Array [
                     </span>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="b11"
                   >
@@ -14654,6 +15402,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="c12"
                   >
@@ -14690,6 +15439,7 @@ Array [
                     </span>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="d13"
                   >
@@ -14700,6 +15450,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="e14"
                   >
@@ -14710,6 +15461,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="f15"
                   >
@@ -14720,6 +15472,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="g16"
                   >
@@ -14730,6 +15483,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="h17"
                   >
@@ -14740,6 +15494,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="i18"
                   >
@@ -14750,6 +15505,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="j19"
                   >
@@ -14760,6 +15516,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="k20"
                   >
@@ -14770,6 +15527,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="l21"
                   >
@@ -14780,6 +15538,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="m22"
                   >
@@ -14790,6 +15549,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="n23"
                   >
@@ -14800,6 +15560,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="o24"
                   >
@@ -14810,6 +15571,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="p25"
                   >
@@ -14820,6 +15582,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="q26"
                   >
@@ -14830,6 +15593,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="r27"
                   >
@@ -14840,6 +15604,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="s28"
                   >
@@ -14850,6 +15615,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="t29"
                   >
@@ -14860,6 +15626,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="u30"
                   >
@@ -14870,6 +15637,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="v31"
                   >
@@ -14880,6 +15648,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="w32"
                   >
@@ -14890,6 +15659,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="x33"
                   >
@@ -14900,6 +15670,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="y34"
                   >
@@ -14910,6 +15681,7 @@ Array [
                     </div>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="z35"
                   >
@@ -15287,6 +16059,7 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="GuangZhou"
               >
@@ -15303,6 +16076,7 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="ShenZhen"
               >
@@ -15439,6 +16213,7 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="GuangZhou"
               >
@@ -15455,6 +16230,7 @@ exports[`renders components/select/demo/style-class.tsx extend context correctly
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="ShenZhen"
               >
@@ -15604,6 +16380,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -15620,6 +16397,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -15636,6 +16414,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -15652,6 +16431,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   />
                 </div>
                 <div
+                  aria-disabled="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-disabled"
                   title="Disabled"
                 >
@@ -15764,6 +16544,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -15780,6 +16561,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -15796,6 +16578,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -15812,6 +16595,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   />
                 </div>
                 <div
+                  aria-disabled="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-disabled"
                   title="Disabled"
                 >
@@ -15917,6 +16701,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -16084,6 +16869,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -16094,6 +16880,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -16130,6 +16917,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -16140,6 +16928,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   </div>
                 </div>
                 <div
+                  aria-disabled="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-disabled"
                   title="Disabled"
                 >
@@ -16291,6 +17080,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -16301,6 +17091,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -16337,6 +17128,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -16347,6 +17139,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                   </div>
                 </div>
                 <div
+                  aria-disabled="true"
                   class="ant-select-item ant-select-item-option ant-select-item-option-disabled"
                   title="Disabled"
                 >
@@ -16464,6 +17257,7 @@ exports[`renders components/select/demo/suffix.tsx extend context correctly 1`] 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -16614,6 +17408,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="a10"
               >
@@ -16624,6 +17419,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="b11"
               >
@@ -16634,6 +17430,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="c12"
               >
@@ -16644,6 +17441,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="d13"
               >
@@ -16654,6 +17452,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="e14"
               >
@@ -16664,6 +17463,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="f15"
               >
@@ -16674,6 +17474,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="g16"
               >
@@ -16684,6 +17485,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="h17"
               >
@@ -16694,6 +17496,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="i18"
               >
@@ -16704,6 +17507,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="j19"
               >
@@ -16714,6 +17518,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="k20"
               >
@@ -16724,6 +17529,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="l21"
               >
@@ -16734,6 +17540,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="m22"
               >
@@ -16744,6 +17551,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="n23"
               >
@@ -16754,6 +17562,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="o24"
               >
@@ -16764,6 +17573,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="p25"
               >
@@ -16774,6 +17584,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="q26"
               >
@@ -16784,6 +17595,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="r27"
               >
@@ -16794,6 +17606,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="s28"
               >
@@ -16804,6 +17617,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="t29"
               >
@@ -16814,6 +17628,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="u30"
               >
@@ -16824,6 +17639,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="v31"
               >
@@ -16834,6 +17650,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="w32"
               >
@@ -16844,6 +17661,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="x33"
               >
@@ -16854,6 +17672,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="y34"
               >
@@ -16864,6 +17683,7 @@ Array [
                 </div>
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="z35"
               >
@@ -16984,6 +17804,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -17000,6 +17821,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Lucy"
                 >
@@ -17016,6 +17838,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -17169,6 +17992,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -17179,6 +18003,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -17215,6 +18040,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -17326,6 +18152,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -17342,6 +18169,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Lucy"
                 >
@@ -17358,6 +18186,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -17511,6 +18340,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -17521,6 +18351,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -17557,6 +18388,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -17668,6 +18500,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -17684,6 +18517,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Lucy"
                 >
@@ -17700,6 +18534,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -17853,6 +18688,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -17863,6 +18699,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -17899,6 +18736,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -18010,6 +18848,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -18026,6 +18865,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Lucy"
                 >
@@ -18042,6 +18882,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >
@@ -18195,6 +19036,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jack"
                 >
@@ -18205,6 +19047,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   </div>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -18241,6 +19084,7 @@ exports[`renders components/select/demo/variant.tsx extend context correctly 1`]
                   </span>
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="yiminghe"
                 >

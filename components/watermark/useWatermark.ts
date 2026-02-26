@@ -21,13 +21,13 @@ export type AppendWatermark = (
   container: HTMLElement,
 ) => void;
 
-export default function useWatermark(
+function useWatermark(
   markStyle: React.CSSProperties,
   onRemove?: () => void,
 ): [
   appendWatermark: AppendWatermark,
   removeWatermark: (container: HTMLElement) => void,
-  isWatermarkEle: (ele: Node) => boolean,
+  isWatermarkEle: (ele: Node, index?: number) => boolean,
 ] {
   const watermarkMap = React.useRef(new Map<HTMLElement, HTMLDivElement>());
   const onRemoveEvent = useEvent(onRemove);
@@ -79,5 +79,7 @@ export default function useWatermark(
 
   const isWatermarkEle = (ele: any) => Array.from(watermarkMap.current.values()).includes(ele);
 
-  return [appendWatermark, removeWatermark, isWatermarkEle];
+  return [appendWatermark, removeWatermark, isWatermarkEle] as const;
 }
+
+export default useWatermark;

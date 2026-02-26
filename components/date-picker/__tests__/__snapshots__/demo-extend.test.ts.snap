@@ -88152,6 +88152,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Time"
                 >
@@ -88168,6 +88169,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Date"
                 >
@@ -88184,6 +88186,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Week"
                 >
@@ -88200,6 +88203,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Month"
                 >
@@ -88216,6 +88220,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Quarter"
                 >
@@ -88232,6 +88237,7 @@ exports[`renders components/date-picker/demo/switchable.tsx extend context corre
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Year"
                 >

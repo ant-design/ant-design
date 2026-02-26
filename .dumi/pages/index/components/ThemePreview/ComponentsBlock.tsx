@@ -4,15 +4,16 @@ import {
   Alert,
   App,
   Button,
-  Card,
   Checkbox,
   ColorPicker,
   ConfigProvider,
+  DatePicker,
   Dropdown,
   Flex,
   Modal,
   Progress,
   Radio,
+  Segmented,
   Select,
   Slider,
   Space,
@@ -26,6 +27,7 @@ import clsx from 'clsx';
 import useLocale from '../../../../hooks/useLocale';
 
 const { _InternalPanelDoNotUseOrYouWillBeFired: ModalPanel } = Modal;
+const { Group: RadioButtonGroup, Button: RadioButton } = Radio;
 
 const locales = {
   cn: {
@@ -48,6 +50,9 @@ const locales = {
     icon: '图标按钮',
     hello: '你好，Ant Design!',
     release: 'Ant Design 6.0 正式发布！',
+    segmentedDaily: '每日',
+    segmentedWeekly: '每周',
+    segmentedMonthly: '每月',
   },
   en: {
     range: 'Set Range',
@@ -69,6 +74,9 @@ const locales = {
     icon: 'Icon',
     hello: 'Hello, Ant Design!',
     release: 'Ant Design 6.0 is released!',
+    segmentedDaily: 'Daily',
+    segmentedWeekly: 'Weekly',
+    segmentedMonthly: 'Monthly',
   },
 };
 
@@ -95,7 +103,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   return (
     <ConfigProvider {...config}>
-      <Card className={clsx(containerClassName, styles.container)}>
+      <div className={clsx(containerClassName, styles.container)}>
         <App>
           <Flex vertical gap="middle" style={style} className={className}>
             <ModalPanel title="Ant Design" width="100%">
@@ -120,13 +128,32 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
                 </Space.Compact>
               </div>
 
-              <ColorPicker style={{ flex: 'none' }} />
+              <ColorPicker showText defaultValue="#1677ff" style={{ flex: 'none' }} />
 
               <Select
                 style={{ flex: 'auto' }}
                 mode="multiple"
                 maxTagCount="responsive"
-                defaultValue={[{ value: 'apple' }, { value: 'banana' }]}
+                defaultValue={['apple', 'banana']}
+                options={[
+                  { value: 'apple', label: locale.apple },
+                  { value: 'banana', label: locale.banana },
+                  { value: 'orange', label: locale.orange },
+                  { value: 'watermelon', label: locale.watermelon },
+                ]}
+              />
+            </Flex>
+
+            {/* Filled variants */}
+            <Flex gap="middle">
+              <DatePicker variant="filled" />
+
+              <Select
+                variant="filled"
+                style={{ flex: 'auto' }}
+                mode="multiple"
+                maxTagCount="responsive"
+                defaultValue={['apple', 'banana']}
                 options={[
                   { value: 'apple', label: locale.apple },
                   { value: 'banana', label: locale.banana },
@@ -147,20 +174,7 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
               ]}
             />
             {/* Line */}
-            <Slider
-              style={{ marginInline: 20 }}
-              range
-              marks={{
-                0: '0°C',
-                26: '26°C',
-                37: '37°C',
-                100: {
-                  style: { color: '#f50' },
-                  label: <strong>100°C</strong>,
-                },
-              }}
-              defaultValue={[26, 37]}
-            />
+            <Slider defaultValue={50} />
             {/* Line */}
             <Flex gap="middle">
               <Button type="primary" className={styles.flexAuto}>
@@ -188,9 +202,20 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
               />
               <Radio.Group defaultValue={locale.apple} options={[locale.apple, locale.banana]} />
             </Flex>
+            <Flex gap="middle" align="center">
+              <RadioButtonGroup defaultValue="a">
+                <RadioButton value="a">A</RadioButton>
+                <RadioButton value="b">B</RadioButton>
+                <RadioButton value="c">C</RadioButton>
+              </RadioButtonGroup>
+              <Segmented
+                defaultValue={locale.segmentedDaily}
+                options={[locale.segmentedDaily, locale.segmentedWeekly, locale.segmentedMonthly]}
+              />
+            </Flex>
           </Flex>
         </App>
-      </Card>
+      </div>
     </ConfigProvider>
   );
 };

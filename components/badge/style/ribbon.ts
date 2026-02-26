@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { prepareComponentToken, prepareToken } from '.';
@@ -7,7 +8,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genPresetColor, genStyleHooks } from '../../theme/internal';
 
 // ============================== Ribbon ==============================
-const genRibbonStyle: GenerateStyle<BadgeToken> = (token) => {
+const genRibbonStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
   const { antCls, badgeFontHeight, marginXS, badgeRibbonOffset, calc } = token;
   const ribbonPrefixCls = `${antCls}-ribbon`;
   const ribbonWrapperPrefixCls = `${antCls}-ribbon-wrapper`;

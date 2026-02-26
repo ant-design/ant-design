@@ -302,6 +302,7 @@ export type FormConfig = ComponentStyleConfig &
     | 'classNames'
     | 'styles'
     | 'tooltip'
+    | 'labelAlign'
   >;
 
 export type FloatButtonConfig = ComponentStyleConfig &
@@ -372,7 +373,10 @@ export type InputNumberConfig = ComponentStyleConfig &
   Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
 
 export type CascaderConfig = ComponentStyleConfig &
-  Pick<CascaderProps, 'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon'>;
+  Pick<
+    CascaderProps,
+    'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon' | 'removeIcon' | 'suffixIcon'
+  > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
   Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
@@ -380,13 +384,19 @@ export type TreeSelectConfig = ComponentStyleConfig &
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
-  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
+  Pick<
+    DatePickerProps,
+    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+  >;
 
 export type RangePickerConfig = ComponentStyleConfig &
   Pick<RangePickerProps, 'variant' | 'separator'>;
 
 export type TimePickerConfig = ComponentStyleConfig &
-  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
+  Pick<
+    TimePickerProps,
+    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+  >;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 

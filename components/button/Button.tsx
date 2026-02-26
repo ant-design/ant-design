@@ -225,7 +225,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
+  const [innerLoading, setInnerLoading] = useState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -255,10 +255,10 @@ const InternalCompoundedButton = React.forwardRef<
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
-        setLoading(true);
+        setInnerLoading(true);
       }, loadingOrDelay.delay);
     } else {
-      setLoading(loadingOrDelay.loading);
+      setInnerLoading(loadingOrDelay.loading);
     }
 
     function cleanupTimer() {
