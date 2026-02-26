@@ -96,7 +96,7 @@ const PhoneInput: React.FC<PhoneInputProps> = ({ id, value = {}, onChange }) => 
   const [phone, setPhone] = useState('');
 
   const triggerChange = (changedValue: PhoneValue) => {
-    onChange?.({ prefix, phone, ...value, ...changedValue });
+    onChange?.({ ...value, ...changedValue });
   };
 
   const onPrefixChange = (newPrefix: string) => {
@@ -152,7 +152,7 @@ const DonationInput: React.FC<DonationInputProps> = ({ id, value = {}, onChange 
   const [currency, setCurrency] = useState('USD');
 
   const triggerChange = (changedValue: DonationValue) => {
-    onChange?.({ amount, currency, ...value, ...changedValue });
+    onChange?.({ ...value, ...changedValue });
   };
 
   const onAmountChange = (newAmount: number | null) => {
@@ -173,7 +173,7 @@ const DonationInput: React.FC<DonationInputProps> = ({ id, value = {}, onChange 
     <span id={id}>
       <Space.Compact block>
         <InputNumber
-          value={value.amount || amount}
+          value={value.amount ?? amount}
           onChange={onAmountChange}
           style={{ width: '100%' }}
         />
