@@ -1,14 +1,9 @@
 import React from 'react';
 import type { PaginationProps } from '..';
 import Pagination from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
 describe('Pagination.Semantic', () => {
-  mountTest(Pagination);
-  rtlTest(Pagination);
-
   it('support classNames and styles', () => {
     const customStyles = {
       root: { color: 'rgb(255, 0, 0)' },

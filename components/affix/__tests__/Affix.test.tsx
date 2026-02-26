@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import Affix from '..';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
+import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
@@ -38,6 +39,7 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
 };
 
 describe('Affix Render', () => {
+  mountTest(() => <Affix>test</Affix>);
   rtlTest(() => <Affix>test</Affix>);
   accessibilityTest(() => <Affix>test</Affix>);
 
