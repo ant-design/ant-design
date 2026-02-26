@@ -99,11 +99,20 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   const extraRef = React.useRef<HTMLDivElement>(null);
   const [extraHeight, setExtraHeight] = React.useState<number>(0);
   useLayoutEffect(() => {
-    if (extra && extraRef.current) {
-      setExtraHeight(extraRef.current.clientHeight);
-    } else {
+    if (!extra) {
       setExtraHeight(0);
+      return;
     }
+
+    const intervalId = setInterval(() => {
+      if (extraRef.current) {
+        setExtraHeight(extraRef.current.clientHeight);
+      }
+    }, 100);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, [extra]);
 
   const inputDom: React.ReactNode = (
