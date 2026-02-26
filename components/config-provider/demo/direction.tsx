@@ -136,13 +136,11 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
     setModalOpen(true);
   };
 
-  const handleOk = (e: React.MouseEvent<HTMLElement>) => {
-    console.log(e);
+  const handleOk = () => {
     setModalOpen(false);
   };
 
-  const handleCancel = (e: React.MouseEvent<HTMLElement>) => {
-    console.log(e);
+  const handleCancel = () => {
     setModalOpen(false);
   };
 
