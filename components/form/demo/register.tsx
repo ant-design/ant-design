@@ -185,10 +185,7 @@ const App: React.FC = () => {
         <Cascader options={residences} />
       </Form.Item>
 
-      <Form.Item
-        label="Phone Number"
-        rules={[{ required: true, message: 'Please input your phone number!' }]}
-      >
+      <Form.Item label="Phone Number">
         <Space.Compact block>
           <Form.Item
             name={['phone', 'prefix']}
@@ -213,10 +210,7 @@ const App: React.FC = () => {
         </Space.Compact>
       </Form.Item>
 
-      <Form.Item
-        label="Donation"
-        rules={[{ required: true, message: 'Please input donation amount!' }]}
-      >
+      <Form.Item label="Donation">
         <Space.Compact block>
           <Form.Item
             name={['donation', 'amount']}
