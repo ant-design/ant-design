@@ -1,37 +1,38 @@
 import React from 'react';
 import { CarryOutOutlined } from '@ant-design/icons';
 import { ConfigProvider, Tree } from 'antd';
+import type { TreeDataNode } from 'antd';
 
-const treeData = [
+const treeData: TreeDataNode[] = [
   {
-    value: 'parent 1',
+    key: 'parent 1',
     title: 'parent 1',
     icon: <CarryOutOutlined />,
     children: [
       {
-        value: 'parent 1-0',
+        key: 'parent 1-0',
         title: 'parent 1-0',
         icon: <CarryOutOutlined />,
         children: [
           {
-            value: 'leaf1',
+            key: 'leaf1',
             title: 'leaf1',
             icon: <CarryOutOutlined />,
           },
           {
-            value: 'leaf2',
+            key: 'leaf2',
             title: 'leaf2',
             icon: <CarryOutOutlined />,
           },
         ],
       },
       {
-        value: 'parent 1-1',
+        key: 'parent 1-1',
         title: 'parent 1-1',
         icon: <CarryOutOutlined />,
         children: [
           {
-            value: 'sss',
+            key: 'sss',
             title: 'sss',
             icon: <CarryOutOutlined />,
           },
