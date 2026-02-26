@@ -151,7 +151,7 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
 
     [`&${token.componentCls}-solid`]: {
       borderColor: 'transparent',
-      color: token.colorTextLightSolid,
+      color: token.solidTextColor,
       backgroundColor: token.colorBgSolid,
 
       [`&${componentCls}-default`]: {
