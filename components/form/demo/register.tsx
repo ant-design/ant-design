@@ -15,6 +15,84 @@ import {
 } from 'antd';
 import type { DefaultOptionType } from 'antd/es/select';
 
+interface PhoneValue {
+  prefix?: string;
+  number?: string;
+}
+
+interface PhoneInputProps {
+  value?: PhoneValue;
+  onChange?: (value: PhoneValue) => void;
+}
+
+const PhoneInput: React.FC<PhoneInputProps> = ({ value = {}, onChange }) => {
+  const triggerChange = (changedValue: PhoneValue) => {
+    onChange?.({ ...value, ...changedValue });
+  };
+
+  const onPrefixChange = (newPrefix: string) => {
+    triggerChange({ prefix: newPrefix });
+  };
+
+  const onNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    triggerChange({ number: e.target.value });
+  };
+
+  return (
+    <Space.Compact block>
+      <Select
+        style={{ width: 70 }}
+        value={value.prefix}
+        onChange={onPrefixChange}
+        options={[
+          { label: '+86', value: '86' },
+          { label: '+87', value: '87' },
+        ]}
+      />
+      <Input style={{ width: '100%' }} value={value.number} onChange={onNumberChange} />
+    </Space.Compact>
+  );
+};
+
+interface DonationValue {
+  amount?: number;
+  currency?: string;
+}
+
+interface DonationInputProps {
+  value?: DonationValue;
+  onChange?: (value: DonationValue) => void;
+}
+
+const DonationInput: React.FC<DonationInputProps> = ({ value = {}, onChange }) => {
+  const triggerChange = (changedValue: DonationValue) => {
+    onChange?.({ ...value, ...changedValue });
+  };
+
+  const onAmountChange = (newAmount: number | null) => {
+    triggerChange({ amount: newAmount ?? undefined });
+  };
+
+  const onCurrencyChange = (newCurrency: string) => {
+    triggerChange({ currency: newCurrency });
+  };
+
+  return (
+    <Space.Compact block>
+      <InputNumber style={{ width: '100%' }} value={value.amount} onChange={onAmountChange} />
+      <Select
+        style={{ width: 70 }}
+        value={value.currency}
+        onChange={onCurrencyChange}
+        options={[
+          { label: '$', value: 'USD' },
+          { label: '¥', value: 'CNY' },
+        ]}
+      />
+    </Space.Compact>
+  );
+};
+
 interface FormCascaderOption {
   value: string;
   label: string;
@@ -87,32 +165,6 @@ const App: React.FC = () => {
     console.log('Received values of form: ', values);
   };
 
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select
-        style={{ width: 70 }}
-        defaultValue={'86'}
-        options={[
-          { label: '+86', value: '86' },
-          { label: '+87', value: '87' },
-        ]}
-      />
-    </Form.Item>
-  );
-
-  const suffixSelector = (
-    <Form.Item name="suffix" noStyle>
-      <Select
-        style={{ width: 70 }}
-        defaultValue={'USD'}
-        options={[
-          { label: '$', value: 'USD' },
-          { label: '¥', value: 'CNY' },
-        ]}
-      />
-    </Form.Item>
-  );
-
   const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
 
   const onWebsiteChange = (value: string) => {
@@ -132,7 +184,11 @@ const App: React.FC = () => {
       form={form}
       name="register"
       onFinish={onFinish}
-      initialValues={{ residence: ['zhejiang', 'hangzhou', 'xihu'], prefix: '86' }}
+      initialValues={{
+        residence: ['zhejiang', 'hangzhou', 'xihu'],
+        phone: { prefix: '86' },
+        donation: { currency: 'USD' },
+      }}
       style={{ maxWidth: 600 }}
       scrollToFirstError
     >
@@ -217,11 +273,7 @@ const App: React.FC = () => {
           { type: 'tel', message: 'The input is not valid phone number!' },
         ]}
       >
-        {/* Demo only, real usage should wrap as custom component */}
-        <Space.Compact block>
-          {prefixSelector}
-          <Input style={{ width: '100%' }} />
-        </Space.Compact>
+        <PhoneInput />
       </Form.Item>
 
       <Form.Item
@@ -229,11 +281,7 @@ const App: React.FC = () => {
         label="Donation"
         rules={[{ required: true, message: 'Please input donation amount!' }]}
       >
-        {/* Demo only, real usage should wrap as custom component */}
-        <Space.Compact block>
-          <InputNumber style={{ width: '100%' }} />
-          {suffixSelector}
-        </Space.Compact>
+        <DonationInput />
       </Form.Item>
 
       <Form.Item
