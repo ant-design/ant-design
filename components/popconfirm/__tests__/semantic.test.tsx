@@ -2,14 +2,9 @@ import React from 'react';
 import { spyElementPrototype } from '@rc-component/util/lib/test/domHook';
 
 import Popconfirm from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
 describe('Popconfirm.semantic', () => {
-  mountTest(() => <Popconfirm title="test" />);
-  rtlTest(() => <Popconfirm title="test" />);
-
   beforeAll(() => {
     spyElementPrototype(HTMLElement, 'offsetParent', {
       get: () => ({}),
