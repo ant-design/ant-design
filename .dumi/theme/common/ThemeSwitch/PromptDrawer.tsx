@@ -233,7 +233,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       const { scrollHeight, clientHeight } = scrollContainerRef.current;
       scrollContainerRef.current.scrollTo({
         top: scrollHeight - clientHeight,
-        behavior: 'smooth', // 如果觉得打字机效果时 smooth 会卡顿，可以改成 'auto'
+        behavior: 'smooth',
       });
     }
   }, [resText, items, prompt]);
