@@ -15,9 +15,7 @@ const { document } = new JSDOM('').window;
 global.document = document;
 global.window = window as any;
 
-const jQuery = require('jquery');
-
-const $ = jQuery(window) as unknown as JQueryStatic;
+const $ = require('jquery');
 
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';

@@ -1,6 +1,8 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { AliasToken, GenerateStyle, TokenWithCommonCls } from '../../theme/internal';
 
-const genCollapseMotion: GenerateStyle<TokenWithCommonCls<AliasToken>> = (token) => {
+const genCollapseMotion: GenerateStyle<TokenWithCommonCls<AliasToken>, CSSObject> = (token) => {
   const { componentCls, antCls, motionDurationMid, motionEaseInOut } = token;
   return {
     [componentCls]: {

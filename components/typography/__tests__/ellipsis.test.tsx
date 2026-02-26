@@ -673,12 +673,12 @@ describe('Typography.Ellipsis', () => {
   it('Switch locale', async () => {
     const ref = React.createRef<HTMLElement>();
     const App = () => {
-      const [locale, setLocal] = React.useState<Locale>();
+      const [locale, setLocale] = React.useState<Locale>();
 
       return (
         <ConfigProvider locale={locale}>
           <div>
-            <button type="button" onClick={() => setLocal(zhCN)}>
+            <button type="button" onClick={() => setLocale(zhCN)}>
               zhcn
             </button>
             <Base

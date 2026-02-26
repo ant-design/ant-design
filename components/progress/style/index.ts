@@ -83,7 +83,7 @@ const genAntProgressActive = (isRtl?: boolean) => {
 // ====================================================================
 // ==                              Base                              ==
 // ====================================================================
-const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
+const genBaseStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
@@ -125,7 +125,7 @@ const genBaseStyle: GenerateStyle<ProgressToken> = (token) => {
 // ====================================================================
 // ==                              Line                              ==
 // ====================================================================
-const genLineStyle: GenerateStyle<ProgressToken> = (token) => {
+const genLineStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -234,7 +234,7 @@ const genLineStyle: GenerateStyle<ProgressToken> = (token) => {
 // ====================================================================
 // ==                             Circle                             ==
 // ====================================================================
-const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
+const genCircleStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
@@ -302,7 +302,7 @@ const genCircleStyle: GenerateStyle<ProgressToken> = (token) => {
 // ====================================================================
 // ==                              Step                              ==
 // ====================================================================
-const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
+const genStepStyle: GenerateStyle<ProgressToken, CSSObject> = (token) => {
   const { componentCls: progressCls } = token;
 
   return {
@@ -337,7 +337,7 @@ const genStepStyle: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSOb
 // ====================================================================
 // ==                           Small Line                           ==
 // ====================================================================
-const genSmallLine: GenerateStyle<ProgressToken> = (token: ProgressToken): CSSObject => {
+const genSmallLine: GenerateStyle<ProgressToken, CSSObject> = (token) => {
   const { componentCls: progressCls, iconCls: iconPrefixCls } = token;
 
   return {
