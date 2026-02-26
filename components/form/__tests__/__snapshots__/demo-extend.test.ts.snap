@@ -3339,7 +3339,7 @@ Array [
                                     </div>
                                   </td>
                                   <td
-                                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                    class="ant-picker-cell ant-picker-cell-in-view"
                                     title="2016-11-21"
                                   >
                                     <div
@@ -3349,7 +3349,7 @@ Array [
                                     </div>
                                   </td>
                                   <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
+                                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                     title="2016-11-22"
                                   >
                                     <div
@@ -4041,7 +4041,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                        class="ant-picker-cell ant-picker-cell-in-view"
                                         title="2016-11-21"
                                       >
                                         <div
@@ -4051,7 +4051,7 @@ Array [
                                         </div>
                                       </td>
                                       <td
-                                        class="ant-picker-cell ant-picker-cell-in-view"
+                                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                         title="2016-11-22"
                                       >
                                         <div
@@ -13611,7 +13611,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                  class="ant-picker-cell ant-picker-cell-in-view"
                                   title="2016-11-21"
                                 >
                                   <div
@@ -13621,7 +13621,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                   title="2016-11-22"
                                 >
                                   <div
@@ -14735,7 +14735,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                  class="ant-picker-cell ant-picker-cell-in-view"
                                   title="2016-11-21"
                                 >
                                   <div
@@ -14745,7 +14745,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                   title="2016-11-22"
                                 >
                                   <div
@@ -15384,7 +15384,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                     </div>
                                   </td>
                                   <td
-                                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                    class="ant-picker-cell ant-picker-cell-in-view"
                                     title="2016-11-21"
                                   >
                                     <div
@@ -15394,7 +15394,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                     </div>
                                   </td>
                                   <td
-                                    class="ant-picker-cell ant-picker-cell-in-view"
+                                    class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                     title="2016-11-22"
                                   >
                                     <div
@@ -17844,7 +17844,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                      class="ant-picker-cell ant-picker-cell-in-view"
                                       title="2016-11-21"
                                     >
                                       <div
@@ -17854,7 +17854,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view"
+                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                       title="2016-11-22"
                                     >
                                       <div
@@ -19072,7 +19072,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                      class="ant-picker-cell ant-picker-cell-in-view"
                                       title="2016-11-21"
                                     >
                                       <div
@@ -19082,7 +19082,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view"
+                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                       title="2016-11-22"
                                     >
                                       <div
@@ -25925,7 +25925,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                  class="ant-picker-cell ant-picker-cell-in-view"
                                   title="2016-11-21"
                                 >
                                   <div
@@ -25935,7 +25935,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                   title="2016-11-22"
                                 >
                                   <div
@@ -28261,7 +28261,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                      class="ant-picker-cell ant-picker-cell-in-view"
                                       title="2016-11-21"
                                     >
                                       <div
@@ -28271,7 +28271,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view"
+                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                       title="2016-11-22"
                                     >
                                       <div
@@ -29999,7 +29999,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                             </div>
                                           </td>
                                           <td
-                                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                            class="ant-picker-cell ant-picker-cell-in-view"
                                             title="2016-11-21"
                                           >
                                             <div
@@ -30009,7 +30009,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                             </div>
                                           </td>
                                           <td
-                                            class="ant-picker-cell ant-picker-cell-in-view"
+                                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                             title="2016-11-22"
                                           >
                                             <div
@@ -30652,7 +30652,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                             </div>
                                           </td>
                                           <td
-                                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                            class="ant-picker-cell ant-picker-cell-in-view"
                                             title="2016-11-21"
                                           >
                                             <div
@@ -30662,7 +30662,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                                             </div>
                                           </td>
                                           <td
-                                            class="ant-picker-cell ant-picker-cell-in-view"
+                                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                             title="2016-11-22"
                                           >
                                             <div
@@ -33160,7 +33160,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                  class="ant-picker-cell ant-picker-cell-in-view"
                                   title="2016-11-21"
                                 >
                                   <div
@@ -33170,7 +33170,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                   </div>
                                 </td>
                                 <td
-                                  class="ant-picker-cell ant-picker-cell-in-view"
+                                  class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                   title="2016-11-22"
                                 >
                                   <div
@@ -33864,7 +33864,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                      class="ant-picker-cell ant-picker-cell-in-view"
                                       title="2016-11-21"
                                     >
                                       <div
@@ -33874,7 +33874,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view"
+                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                       title="2016-11-22"
                                     >
                                       <div

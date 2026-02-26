@@ -441,7 +441,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2016-11-21"
                           >
                             <div
@@ -451,7 +451,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2016-11-22"
                           >
                             <div
@@ -1592,7 +1592,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -1602,7 +1602,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -2260,7 +2260,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -2270,7 +2270,7 @@ exports[`renders components/date-picker/demo/basic.tsx extend context correctly 
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -9111,7 +9111,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -9121,7 +9121,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -9787,7 +9787,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -9797,7 +9797,7 @@ exports[`renders components/date-picker/demo/cell-render.tsx extend context corr
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -15674,7 +15674,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
+                            class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                             title="2016-11-21"
                           >
                             <div
@@ -15684,7 +15684,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
                             title="2016-11-22"
                           >
                             <div
@@ -18075,7 +18075,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -18085,7 +18085,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -19273,7 +19273,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -19283,7 +19283,7 @@ exports[`renders components/date-picker/demo/disabled-date.tsx extend context co
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-disabled ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -20483,7 +20483,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         class="ant-space-item"
       >
         <span>
-          2016-11-21
+          2016-11-22
         </span>
       </div>
       <div
@@ -20985,7 +20985,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                      class="ant-picker-cell ant-picker-cell-in-view"
                                       title="2016-11-21"
                                     >
                                       <div
@@ -20995,7 +20995,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                                       </div>
                                     </td>
                                     <td
-                                      class="ant-picker-cell ant-picker-cell-in-view"
+                                      class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                       title="2016-11-22"
                                     >
                                       <div
@@ -21258,7 +21258,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
         class="ant-space-item"
       >
         <span>
-          2016-11-21 ~ 2016-11-22
+          2016-11-22 ~ 2016-11-23
         </span>
       </div>
       <div
@@ -21817,7 +21817,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                                           </div>
                                         </td>
                                         <td
-                                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                                          class="ant-picker-cell ant-picker-cell-in-view"
                                           title="2016-11-21"
                                         >
                                           <div
@@ -21827,7 +21827,7 @@ exports[`renders components/date-picker/demo/external-panel.tsx extend context c
                                           </div>
                                         </td>
                                         <td
-                                          class="ant-picker-cell ant-picker-cell-in-view"
+                                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                                           title="2016-11-22"
                                         >
                                           <div
@@ -22998,7 +22998,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -23008,7 +23008,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -23623,7 +23623,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2016-11-21"
                           >
                             <div
@@ -23633,7 +23633,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2016-11-22"
                           >
                             <div
@@ -25787,7 +25787,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -25797,7 +25797,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -26994,7 +26994,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -27004,7 +27004,7 @@ exports[`renders components/date-picker/demo/extra-footer.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -33286,7 +33286,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -33296,7 +33296,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -33961,7 +33961,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -33971,7 +33971,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -35162,7 +35162,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -35172,7 +35172,7 @@ exports[`renders components/date-picker/demo/filled-debug.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -37943,7 +37943,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-hover ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-hover ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -37953,7 +37953,7 @@ exports[`renders components/date-picker/demo/format.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-hover ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-hover ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -40441,7 +40441,7 @@ exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -40451,7 +40451,7 @@ exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -41058,7 +41058,7 @@ exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -41068,7 +41068,7 @@ exports[`renders components/date-picker/demo/mask.tsx extend context correctly 1
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -45481,7 +45481,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                        class="ant-picker-cell ant-picker-cell-in-view"
                         title="2016-11-21"
                       >
                         <div
@@ -45491,7 +45491,7 @@ exports[`renders components/date-picker/demo/multiple-debug.tsx extend context c
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view"
+                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2016-11-22"
                       >
                         <div
@@ -49119,7 +49119,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                        class="ant-picker-cell ant-picker-cell-in-view"
                         title="2016-11-21"
                       >
                         <div
@@ -49129,7 +49129,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view"
+                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2016-11-22"
                       >
                         <div
@@ -49836,7 +49836,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                        class="ant-picker-cell ant-picker-cell-in-view"
                         title="2016-11-21"
                       >
                         <div
@@ -49846,7 +49846,7 @@ Array [
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view"
+                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2016-11-22"
                       >
                         <div
@@ -50508,7 +50508,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2016-11-21"
                           >
                             <div
@@ -50518,7 +50518,7 @@ Array [
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2016-11-22"
                           >
                             <div
@@ -51675,7 +51675,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -51685,7 +51685,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -52367,7 +52367,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -52377,7 +52377,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -53590,7 +53590,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -53600,7 +53600,7 @@ exports[`renders components/date-picker/demo/preset-ranges.tsx extend context co
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -55750,7 +55750,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -55760,7 +55760,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -56948,7 +56948,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -56958,7 +56958,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -59149,7 +59149,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -59159,7 +59159,7 @@ exports[`renders components/date-picker/demo/range-picker.tsx extend context cor
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -61676,7 +61676,7 @@ exports[`renders components/date-picker/demo/render-panel.tsx extend context cor
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                        class="ant-picker-cell ant-picker-cell-in-view"
                         title="2016-11-21"
                       >
                         <div
@@ -61686,7 +61686,7 @@ exports[`renders components/date-picker/demo/render-panel.tsx extend context cor
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view"
+                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2016-11-22"
                       >
                         <div
@@ -62367,7 +62367,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -62377,7 +62377,7 @@ exports[`renders components/date-picker/demo/select-in-range.tsx extend context 
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -64080,7 +64080,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -64090,7 +64090,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -64996,7 +64996,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -65006,7 +65006,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -66190,7 +66190,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -66200,7 +66200,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -66823,7 +66823,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2016-11-21"
                           >
                             <div
@@ -66833,7 +66833,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2016-11-22"
                           >
                             <div
@@ -68928,7 +68928,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2016-11-21"
                           >
                             <div
@@ -68938,7 +68938,7 @@ exports[`renders components/date-picker/demo/start-end.tsx extend context correc
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2016-11-22"
                           >
                             <div
@@ -71041,7 +71041,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -71051,7 +71051,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -71659,7 +71659,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -71669,7 +71669,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -72334,7 +72334,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -72344,7 +72344,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -73535,7 +73535,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -73545,7 +73545,7 @@ exports[`renders components/date-picker/demo/status.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -74686,7 +74686,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                        class="ant-picker-cell ant-picker-cell-in-view"
                         title="2016-11-21"
                       >
                         <div
@@ -74696,7 +74696,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view"
+                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2016-11-22"
                       >
                         <div
@@ -75300,7 +75300,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                        class="ant-picker-cell ant-picker-cell-in-view"
                         title="2016-11-21"
                       >
                         <div
@@ -75310,7 +75310,7 @@ exports[`renders components/date-picker/demo/style-class.tsx extend context corr
                         </div>
                       </td>
                       <td
-                        class="ant-picker-cell ant-picker-cell-in-view"
+                        class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                         title="2016-11-22"
                       >
                         <div
@@ -75926,7 +75926,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -75936,7 +75936,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -76842,7 +76842,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -76852,7 +76852,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -78036,7 +78036,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -78046,7 +78046,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -78639,7 +78639,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -78649,7 +78649,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -79519,7 +79519,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -79529,7 +79529,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -80695,7 +80695,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -80705,7 +80705,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -81390,7 +81390,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -81400,7 +81400,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -82067,7 +82067,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -82077,7 +82077,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -82819,7 +82819,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -82829,7 +82829,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -84170,7 +84170,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -84180,7 +84180,7 @@ exports[`renders components/date-picker/demo/suffix.tsx extend context correctly
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -85417,7 +85417,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -85427,7 +85427,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -86011,7 +86011,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -86021,7 +86021,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -86628,7 +86628,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -86638,7 +86638,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -87222,7 +87222,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -87232,7 +87232,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -87821,7 +87821,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -87831,7 +87831,7 @@ exports[`renders components/date-picker/demo/suffixIcon-debug.tsx extend context
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -90219,7 +90219,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                            class="ant-picker-cell ant-picker-cell-in-view"
                             title="2016-11-21"
                           >
                             <div
@@ -90229,7 +90229,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
                             </div>
                           </td>
                           <td
-                            class="ant-picker-cell ant-picker-cell-in-view"
+                            class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                             title="2016-11-22"
                           >
                             <div
@@ -92376,7 +92376,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -92386,7 +92386,7 @@ exports[`renders components/date-picker/demo/time.tsx extend context correctly 1
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -93875,7 +93875,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -93885,7 +93885,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -94545,7 +94545,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -94555,7 +94555,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -95689,7 +95689,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -95699,7 +95699,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -96359,7 +96359,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -96369,7 +96369,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -97503,7 +97503,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -97513,7 +97513,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -98173,7 +98173,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -98183,7 +98183,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
@@ -99317,7 +99317,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                          class="ant-picker-cell ant-picker-cell-in-view"
                           title="2016-11-21"
                         >
                           <div
@@ -99327,7 +99327,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                           </div>
                         </td>
                         <td
-                          class="ant-picker-cell ant-picker-cell-in-view"
+                          class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                           title="2016-11-22"
                         >
                           <div
@@ -99987,7 +99987,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
+                              class="ant-picker-cell ant-picker-cell-in-view"
                               title="2016-11-21"
                             >
                               <div
@@ -99997,7 +99997,7 @@ exports[`renders components/date-picker/demo/variant.tsx extend context correctl
                               </div>
                             </td>
                             <td
-                              class="ant-picker-cell ant-picker-cell-in-view"
+                              class="ant-picker-cell ant-picker-cell-in-view ant-picker-cell-today"
                               title="2016-11-22"
                             >
                               <div
