@@ -172,6 +172,7 @@ Array [
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                               >
@@ -188,6 +189,7 @@ Array [
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="222"
                               >
@@ -420,6 +422,7 @@ Array [
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="longlonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglonglong"
                               >
@@ -436,6 +439,7 @@ Array [
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="222"
                               >
@@ -1045,6 +1049,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="Bamboo"
                           >
@@ -1081,6 +1086,7 @@ Array [
                             </span>
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Little"
                           >
@@ -1091,6 +1097,7 @@ Array [
                             </div>
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Light"
                           >
@@ -1453,6 +1460,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="Bamboo"
                           >
@@ -1489,6 +1497,7 @@ Array [
                             </span>
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Little"
                           >
@@ -1499,6 +1508,7 @@ Array [
                             </div>
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Light"
                           >
@@ -1723,6 +1733,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="male"
                         >
@@ -1739,6 +1750,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="female"
                         >
@@ -1755,6 +1767,7 @@ exports[`renders components/form/demo/control-hooks.tsx extend context correctly
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="other"
                         >
@@ -2223,6 +2236,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="RMB"
                           >
@@ -2239,6 +2253,7 @@ exports[`renders components/form/demo/customized-form-controls.tsx extend contex
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="Dollar"
                           >
@@ -2590,6 +2605,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active"
                             title="Demo"
                           >
@@ -5348,6 +5364,7 @@ Array [
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                         title="HEX"
                                       >
@@ -5364,6 +5381,7 @@ Array [
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="HSB"
                                       >
@@ -5380,6 +5398,7 @@ Array [
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="RGB"
                                       >
@@ -11569,6 +11588,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="+86"
                             >
@@ -11585,6 +11605,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="+87"
                             >
@@ -11808,6 +11829,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="$"
                             >
@@ -11824,6 +11846,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="¥"
                             >
@@ -11884,12 +11907,6 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               <div
                 class="ant-select-content"
               >
-                <div
-                  class="ant-select-placeholder"
-                  style="visibility: visible;"
-                >
-                  website
-                </div>
                 <input
                   aria-autocomplete="list"
                   aria-expanded="false"
@@ -12086,6 +12103,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="Male"
                         >
@@ -12102,6 +12120,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Female"
                         >
@@ -12118,6 +12137,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Other"
                         >
@@ -12864,6 +12884,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="Demo"
                         >
@@ -22844,6 +22865,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="China"
                         >
@@ -22860,6 +22882,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="U.S.A"
                         >
@@ -23013,6 +23036,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="Red"
                         >
@@ -23023,6 +23047,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           </div>
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Green"
                         >
@@ -23033,6 +23058,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                           </div>
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Blue"
                         >
@@ -24477,6 +24503,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                     style="display: flex; flex-direction: column;"
                                   >
                                     <div
+                                      aria-disabled="false"
                                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                       title="HEX"
                                     >
@@ -24493,6 +24520,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                       />
                                     </div>
                                     <div
+                                      aria-disabled="false"
                                       class="ant-select-item ant-select-item-option"
                                       title="HSB"
                                     >
@@ -24509,6 +24537,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                                       />
                                     </div>
                                     <div
+                                      aria-disabled="false"
                                       class="ant-select-item ant-select-item-option"
                                       title="RGB"
                                     >
@@ -24869,6 +24898,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active"
                           title="Designer"
                         >
@@ -24885,6 +24915,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Developer"
                         >
@@ -24901,6 +24932,7 @@ exports[`renders components/form/demo/validate-scroll-to-field.tsx extend contex
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Product Manager"
                         >
@@ -29154,6 +29186,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="Option 1"
                         >
@@ -29170,6 +29203,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Option 2"
                         >
@@ -29186,6 +29220,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="Option 3"
                         >
