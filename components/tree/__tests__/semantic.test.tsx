@@ -18,6 +18,36 @@ describe('Tree.Semantic', () => {
     },
   ];
 
+  it('should support static classNames and styles', () => {
+    const testClassNames: TreeProps['classNames'] = {
+      root: 'custom-tree-root',
+      item: 'custom-tree-item',
+      itemIcon: 'custom-tree-item-icon',
+      itemTitle: 'custom-tree-item-title',
+    };
+
+    const testStyles: TreeProps['styles'] = {
+      root: { color: 'rgb(255, 0, 0)' },
+      item: { color: 'blue' },
+      itemIcon: { fontSize: '16px' },
+      itemTitle: { fontWeight: 'bold' },
+    };
+
+    const { container } = render(
+      <Tree
+        treeData={treeData}
+        defaultExpandAll
+        showIcon
+        classNames={testClassNames}
+        styles={testStyles}
+      />,
+    );
+
+    const root = container.querySelector('.ant-tree');
+    expect(root).toHaveClass(testClassNames.root!);
+    expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+  });
+
   it('should support function-based classNames and styles', () => {
     const testClassNames: TreeProps['classNames'] = ({ props }) => ({
       root: `dynamic-tree-root ${props.showIcon ? 'with-icon' : 'without-icon'}`,
