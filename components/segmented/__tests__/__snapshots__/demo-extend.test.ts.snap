@@ -1852,6 +1852,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Lucy"
                 >

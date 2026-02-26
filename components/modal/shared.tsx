@@ -20,7 +20,7 @@ export function renderCloseIcon(prefixCls: string, closeIcon?: React.ReactNode) 
 
 interface FooterProps {
   onOk?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
+  onCancel?: ModalProps['onCancel'];
 }
 
 export const Footer: React.FC<
