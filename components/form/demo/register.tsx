@@ -80,38 +80,100 @@ const tailFormItemLayout: FormItemProps = {
   },
 };
 
+interface PhoneValue {
+  prefix?: string;
+  phone?: string;
+}
+
+interface PhoneInputProps {
+  id?: string;
+  value?: PhoneValue;
+  onChange?: (value: PhoneValue) => void;
+}
+
+const PhoneInput: React.FC<PhoneInputProps> = ({ id, value = {}, onChange }) => {
+  const triggerChange = (changedValue: PhoneValue) => {
+    onChange?.({ ...value, ...changedValue });
+  };
+
+  const onPrefixChange = (newPrefix: string) => {
+    triggerChange({ prefix: newPrefix });
+  };
+
+  const onPhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    triggerChange({ phone: e.target.value });
+  };
+
+  return (
+    <span id={id}>
+      <Space.Compact block>
+        <Select
+          value={value.prefix}
+          onChange={onPrefixChange}
+          style={{ width: 70 }}
+          options={[
+            { label: '+86', value: '86' },
+            { label: '+87', value: '87' },
+          ]}
+        />
+        <Input value={value.phone} onChange={onPhoneChange} style={{ width: '100%' }} />
+      </Space.Compact>
+    </span>
+  );
+};
+
+interface DonationValue {
+  amount?: number;
+  currency?: string;
+}
+
+interface DonationInputProps {
+  id?: string;
+  value?: DonationValue;
+  onChange?: (value: DonationValue) => void;
+}
+
+const DonationInput: React.FC<DonationInputProps> = ({ id, value = {}, onChange }) => {
+  const triggerChange = (changedValue: DonationValue) => {
+    onChange?.({ ...value, ...changedValue });
+  };
+
+  const onAmountChange = (newAmount: number | null) => {
+    triggerChange({ amount: newAmount ?? undefined });
+  };
+
+  const onCurrencyChange = (newCurrency: string) => {
+    triggerChange({ currency: newCurrency });
+  };
+
+  return (
+    <span id={id}>
+      <Space.Compact block>
+        <InputNumber
+          value={value.amount}
+          onChange={onAmountChange}
+          style={{ width: '100%' }}
+        />
+        <Select
+          value={value.currency}
+          onChange={onCurrencyChange}
+          style={{ width: 70 }}
+          options={[
+            { label: '$', value: 'USD' },
+            { label: '¥', value: 'CNY' },
+          ]}
+        />
+      </Space.Compact>
+    </span>
+  );
+};
+
 const App: React.FC = () => {
   const [form] = Form.useForm();
 
   const onFinish = (values: any) => {
     console.log('Received values of form: ', values);
   };
-
-  const prefixSelector = (
-    <Form.Item name="prefix" noStyle>
-      <Select
-        style={{ width: 70 }}
-        defaultValue={'86'}
-        options={[
-          { label: '+86', value: '86' },
-          { label: '+87', value: '87' },
-        ]}
-      />
-    </Form.Item>
-  );
-
-  const suffixSelector = (
-    <Form.Item name="suffix" noStyle>
-      <Select
-        style={{ width: 70 }}
-        defaultValue={'USD'}
-        options={[
-          { label: '$', value: 'USD' },
-          { label: '¥', value: 'CNY' },
-        ]}
-      />
-    </Form.Item>
-  );
 
   const [autoCompleteResult, setAutoCompleteResult] = useState<string[]>([]);
 
@@ -132,7 +194,11 @@ const App: React.FC = () => {
       form={form}
       name="register"
       onFinish={onFinish}
-      initialValues={{ residence: ['zhejiang', 'hangzhou', 'xihu'], prefix: '86' }}
+      initialValues={{
+        residence: ['zhejiang', 'hangzhou', 'xihu'],
+        phone: { prefix: '86' },
+        donation: { currency: 'USD' },
+      }}
       style={{ maxWidth: 600 }}
       scrollToFirstError
     >
@@ -212,16 +278,9 @@ const App: React.FC = () => {
       <Form.Item
         name="phone"
         label="Phone Number"
-        rules={[
-          { required: true, message: 'Please input your phone number!' },
-          { type: 'tel', message: 'The input is not valid phone number!' },
-        ]}
+        rules={[{ required: true, message: 'Please input your phone number!' }]}
       >
-        {/* Demo only, real usage should wrap as custom component */}
-        <Space.Compact block>
-          {prefixSelector}
-          <Input style={{ width: '100%' }} />
-        </Space.Compact>
+        <PhoneInput />
       </Form.Item>
 
       <Form.Item
@@ -229,11 +288,7 @@ const App: React.FC = () => {
         label="Donation"
         rules={[{ required: true, message: 'Please input donation amount!' }]}
       >
-        {/* Demo only, real usage should wrap as custom component */}
-        <Space.Compact block>
-          <InputNumber style={{ width: '100%' }} />
-          {suffixSelector}
-        </Space.Compact>
+        <DonationInput />
       </Form.Item>
 
       <Form.Item
