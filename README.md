@@ -14,7 +14,7 @@ An enterprise-class UI design language and React UI library.
 
 ## ❤️ Sponsors [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
 
-[![TRACTIAN](https://images.opencollective.com/tractian/0235da9/logo/256.png?height=80)](https://tractian.com) [![LobeHub](https://images.opencollective.com/lobehub/ac07c4c/logo/256.png?height=80)](https://lobehub.com/)
+[![TRACTIAN](https://images.opencollective.com/tractian/0235da9/logo/256.png?height=80)](https://tractian.com) [![LobeHub](https://images.opencollective.com/lobehub/ac07c4c/logo/256.png?height=80)](https://lobehub.com/) [![YouMind](https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/youmind.svg)](https://youmind.com)
 
 [npm-image]: https://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/antd
