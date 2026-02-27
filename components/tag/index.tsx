@@ -165,7 +165,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     );
 
     // ===================== Closable =====================
-    const handleCloseClick = (e: React.MouseEvent<HTMLElement>) => {
+    const handleCloseClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {
       if (mergedDisabled) {
         return;
       }
@@ -203,9 +203,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
 
     const iconNode: React.ReactNode = cloneElement(icon, {
       className: clsx(
-        React.isValidElement(icon)
-          ? (icon as React.ReactElement<{ className?: string }>).props?.className
-          : '',
+        React.isValidElement<{ className?: string }>(icon) ? icon.props?.className : undefined,
         mergedClassNames.icon,
       ),
       style: mergedStyles.icon,

@@ -1,13 +1,10 @@
 import * as React from 'react';
 
 import Divider from '..';
-import type { DividerProps, DividerSemanticAllType } from '..';
-import mountTest from '../../../tests/shared/mountTest';
+import type { DividerProps } from '..';
 import { render } from '../../../tests/utils';
 
 describe('Divider.Semantic', () => {
-  mountTest(Divider);
-
   it('not show children when vertical', () => {
     const testClassNames = {
       root: 'test-root',
@@ -36,13 +33,13 @@ describe('Divider.Semantic', () => {
   });
 
   it('should support function classNames/styles with merged props', () => {
-    const classNames: DividerProps['classNames'] = (info): DividerSemanticAllType['classNames'] => {
+    const classNames: DividerProps['classNames'] = (info) => {
       if (info.props.titlePlacement === 'start') {
         return { root: 'divider-start' };
       }
       return { root: 'divider-center' };
     };
-    const styles: DividerProps['styles'] = (info): DividerSemanticAllType['styles'] => {
+    const styles: DividerProps['styles'] = (info) => {
       if (info.props.size === 'small') {
         return { root: { opacity: 0.5 } };
       }

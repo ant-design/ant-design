@@ -35,7 +35,6 @@ demo:
 <code src="./demo/multi-level-drawer.tsx">多层抽屉</code>
 <code src="./demo/size.tsx">预设宽度</code>
 <code src="./demo/mask.tsx">遮罩</code>
-<code src="./demo/classNames.tsx">自定义内部样式</code>
 <code src="./demo/closable-placement.tsx" version="5.28.0">关闭按钮位置</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/config-provider.tsx" debug>ConfigProvider</code>
@@ -47,11 +46,6 @@ demo:
 ## API
 
 通用属性参考：[通用属性](/docs/react/common-props)
-
-<!-- prettier-ignore -->
-:::warning{title=注意}
-v5 使用 `rootClassName` 与 `rootStyle` 来配置最外层元素样式。原 v4 `className` 与 `style` 改至配置 Drawer 窗体样式以和 Modal 对齐。
-:::
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |

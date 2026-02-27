@@ -276,7 +276,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
   const triggerSingleSelection = useCallback(
     (key: Key, selected: boolean, keys: Key[], event: Event) => {
       if (onSelect) {
-        const rows = keys.map((k) => getRecordByKey(k));
+        const rows = keys.map<RecordType>(getRecordByKey);
         onSelect(getRecordByKey(key), selected, rows, event);
       }
 
@@ -427,8 +427,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
         onSelectAll?.(
           !checkedCurrentAll,
-          keys.map((k) => getRecordByKey(k)),
-          changeKeys.map((k) => getRecordByKey(k)),
+          keys.map<RecordType>(getRecordByKey),
+          changeKeys.map<RecordType>(getRecordByKey),
         );
 
         setSelectedKeys(keys, 'all');
@@ -585,8 +585,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
                     onSelectMultiple?.(
                       !checked,
-                      keys.map((recordKey) => getRecordByKey(recordKey)),
-                      changedKeys.map((recordKey) => getRecordByKey(recordKey)),
+                      keys.map<RecordType>(getRecordByKey),
+                      changedKeys.map<RecordType>(getRecordByKey),
                     );
 
                     setSelectedKeys(keys, 'multiple');

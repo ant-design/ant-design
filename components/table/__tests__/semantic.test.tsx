@@ -2,11 +2,9 @@ import React from 'react';
 
 import type { TableProps, TableSemanticAllType } from '..';
 import Table from '..';
-import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 
 describe('Table', () => {
-  mountTest(Table);
   it('test classNames and styles', () => {
     const columns = [
       {

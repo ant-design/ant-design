@@ -1,5 +1,5 @@
 import type { Orientation } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
 export type SplitterSemanticType = {
@@ -21,6 +21,16 @@ export interface SplitterProps {
   prefixCls?: string;
   className?: string;
   classNames?: SplitterSemanticAllType['classNamesAndFn'];
+  /**
+   * Collapse configuration. Set `motion: true` to enable collapse animation (duration follows Component Token).
+   */
+  collapsible?: {
+    motion?: boolean;
+    icon?: {
+      start?: React.ReactNode;
+      end?: React.ReactNode;
+    };
+  };
   style?: React.CSSProperties;
   styles?: SplitterSemanticAllType['stylesAndFn'];
   rootClassName?: string;
@@ -32,6 +42,9 @@ export interface SplitterProps {
   orientation?: Orientation;
   vertical?: boolean;
   draggerIcon?: React.ReactNode;
+  /**
+   * @deprecated please use `collapsible.icon`
+   */
   collapsibleIcon?: {
     start?: React.ReactNode;
     end?: React.ReactNode;
@@ -62,6 +75,7 @@ export interface PanelProps {
 export interface InternalPanelProps extends PanelProps {
   className?: string;
   prefixCls?: string;
+  supportMotion?: boolean;
 }
 
 export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {

@@ -18,7 +18,7 @@
     },
     {
       "matchManagers": ["github-actions"],
-      "matchPackageNames": ["actions/upload-artifact"],
+      "matchPackageNames": ["actions/upload-artifact", "dawidd6/action-download-artifact"],
       "enabled": false
     }
   ]

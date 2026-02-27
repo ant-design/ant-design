@@ -225,11 +225,11 @@ const Page: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const [locale, setLocal] = useState<Locale>(enUS);
+  const [locale, setLocale] = useState<Locale>(enUS);
 
   const changeLocale = (e: RadioChangeEvent) => {
     const localeValue = e.target.value;
-    setLocal(localeValue);
+    setLocale(localeValue);
     if (!localeValue) {
       dayjs.locale('en');
     } else {

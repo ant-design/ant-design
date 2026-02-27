@@ -8,8 +8,8 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useZIndex } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -308,13 +308,12 @@ const InternalSelect = <
     {
       popup: {
         _default: 'root',
-        _remove: ['listItem', 'list'],
       },
     },
   );
 
   const mergedPopupClassName = clsx(
-    mergedClassNames.popup?.root,
+    mergedClassNames.popup.root,
     popupClassName,
     dropdownClassName,
     {
@@ -392,7 +391,7 @@ const InternalSelect = <
   // ====================== zIndex =========================
   const [zIndex] = useZIndex(
     'SelectLike',
-    (mergedStyles.popup?.root?.zIndex as number) ?? (mergedPopupStyle?.zIndex as number),
+    (mergedStyles.popup.root?.zIndex as number) ?? (mergedPopupStyle.zIndex as number),
   );
 
   // ====================== Render =======================
@@ -424,7 +423,7 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      popupStyle={{ ...mergedStyles.popup?.root, ...mergedPopupStyle, zIndex }}
+      popupStyle={{ ...mergedStyles.popup.root, ...mergedPopupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}

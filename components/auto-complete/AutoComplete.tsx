@@ -3,8 +3,8 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -206,7 +206,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     {
       popup: {
         _default: 'root',
-        _remove: ['listItem', 'list'],
       },
     },
   );
@@ -221,9 +220,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       placeholder: mergedClassNames.placeholder,
       content: mergedClassNames.content,
       popup: {
-        root: clsx(popupClassName, dropdownClassName, mergedClassNames.popup?.root),
-        list: mergedClassNames.popup?.list,
-        listItem: mergedClassNames.popup?.listItem,
+        root: clsx(popupClassName, dropdownClassName, mergedClassNames.popup.root),
+        list: mergedClassNames.popup.list,
+        listItem: mergedClassNames.popup.listItem,
       },
     }),
     [prefixCls, className, rootClassName, mergedClassNames, popupClassName, dropdownClassName],
@@ -237,9 +236,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       placeholder: mergedStyles.placeholder,
       content: mergedStyles.content,
       popup: {
-        root: { ...dropdownStyle, ...mergedStyles.popup?.root },
-        list: mergedStyles.popup?.list,
-        listItem: mergedStyles.popup?.listItem,
+        root: { ...dropdownStyle, ...mergedStyles.popup.root },
+        list: mergedStyles.popup.list,
+        listItem: mergedStyles.popup.listItem,
       },
     }),
     [mergedStyles, style, dropdownStyle],

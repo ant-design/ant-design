@@ -1,6 +1,7 @@
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import Dialog from '@rc-component/dialog';
+import type { DialogProps } from '@rc-component/dialog';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
@@ -123,7 +124,9 @@ const Modal: React.FC<ModalProps> = (props) => {
   const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose);
 
   // ============================ Open ============================
-  const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCancel = (
+    e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLElement>,
+  ) => {
     if (confirmLoading) {
       return;
     }
@@ -261,7 +264,7 @@ const Modal: React.FC<ModalProps> = (props) => {
           footer={dialogFooter}
           visible={open}
           mousePosition={customizeMousePosition ?? mousePosition}
-          onClose={handleCancel as any}
+          onClose={handleCancel as DialogProps['onClose']}
           closable={mergedClosable}
           closeIcon={mergedCloseIcon}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}

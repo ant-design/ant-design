@@ -60,8 +60,8 @@ const stylesFn: ModalProps['styles'] = (info): ModalSemanticAllType['styles'] =>
 };
 
 const App: React.FC = () => {
-  const [modalOpen, setOpen] = useState(false);
-  const [modalFnOpen, setFnOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalFnOpen, setModalFnOpen] = useState(false);
 
   const sharedProps: ModalProps = {
     centered: true,
@@ -71,7 +71,7 @@ const App: React.FC = () => {
   const footer: React.ReactNode = (
     <>
       <Button
-        onClick={() => setFnOpen(false)}
+        onClick={() => setModalFnOpen(false)}
         styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
       >
         Cancel
@@ -79,7 +79,7 @@ const App: React.FC = () => {
       <Button
         type="primary"
         styles={{ root: { backgroundColor: '#171717' } }}
-        onClick={() => setOpen(true)}
+        onClick={() => setModalOpen(true)}
       >
         Submit
       </Button>
@@ -88,8 +88,8 @@ const App: React.FC = () => {
 
   return (
     <Flex gap="middle">
-      <Button onClick={() => setOpen(true)}>Open Style Modal</Button>
-      <Button type="primary" onClick={() => setFnOpen(true)}>
+      <Button onClick={() => setModalOpen(true)}>Open Style Modal</Button>
+      <Button type="primary" onClick={() => setModalFnOpen(true)}>
         Open Function Modal
       </Button>
       <Modal
@@ -98,8 +98,8 @@ const App: React.FC = () => {
         title="Custom Style Modal"
         styles={styles}
         open={modalOpen}
-        onOk={() => setOpen(false)}
-        onCancel={() => setOpen(false)}
+        onOk={() => setModalOpen(false)}
+        onCancel={() => setModalOpen(false)}
       >
         {sharedContent}
       </Modal>
@@ -110,8 +110,8 @@ const App: React.FC = () => {
         styles={stylesFn}
         mask={{ enabled: true, blur: true }}
         open={modalFnOpen}
-        onOk={() => setFnOpen(false)}
-        onCancel={() => setFnOpen(false)}
+        onOk={() => setModalFnOpen(false)}
+        onCancel={() => setModalFnOpen(false)}
       >
         {sharedContent}
       </Modal>

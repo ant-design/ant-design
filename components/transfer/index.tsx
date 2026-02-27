@@ -224,6 +224,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const mergedActions = actions || operations || [];
+  const isRtl = dir === 'rtl';
 
   // Fill record with `key`
   const [mergedDataSource, leftDataSource, rightDataSource] = useData(
@@ -329,7 +330,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const onItemSelectAll = (
     direction: TransferDirection,
-    keys: string[],
+    keys: TransferKey[],
     checkAll: boolean | 'replace',
   ) => {
     setStateKeys(direction, (prevKeys) => {
@@ -350,13 +351,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     setPrevSelectedIndex(direction, null);
   };
 
-  const onLeftItemSelectAll = (keys: string[], checkAll: boolean) => {
-    onItemSelectAll('left', keys, checkAll);
-  };
+  const onLeftItemSelectAll: TransferListProps<KeyWise<RecordType>>['onItemSelectAll'] = (
+    keys,
+    checkAll,
+  ) => onItemSelectAll('left', keys, checkAll);
 
-  const onRightItemSelectAll = (keys: string[], checkAll: boolean) => {
-    onItemSelectAll('right', keys, checkAll);
-  };
+  const onRightItemSelectAll: TransferListProps<KeyWise<RecordType>>['onItemSelectAll'] = (
+    keys,
+    checkAll,
+  ) => onItemSelectAll('right', keys, checkAll);
 
   const leftFilter = (e: ChangeEvent<HTMLInputElement>) => onSearch?.('left', e.target.value);
 
@@ -402,15 +405,15 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     multiple?: boolean,
   ) => {
     const isLeftDirection = direction === 'left';
-    const holder = [...(isLeftDirection ? sourceSelectedKeys : targetSelectedKeys)];
+    const holder = isLeftDirection ? sourceSelectedKeys : targetSelectedKeys;
     const holderSet = new Set(holder);
-    const data = [...(isLeftDirection ? leftDataSource : rightDataSource)].filter(
-      (item) => !item?.disabled,
+    const data: KeyWise<RecordType>[] = (isLeftDirection ? leftDataSource : rightDataSource).filter(
+      (item): item is KeyWise<RecordType> => !item.disabled,
     );
     const currentSelectedIndex = data.findIndex((item) => item.key === selectedKey);
     // multiple select by hold down the shift key
     if (multiple && holder.length > 0) {
-      handleMultipleSelect(direction, data as any, holderSet, currentSelectedIndex);
+      handleMultipleSelect(direction, data, holderSet, currentSelectedIndex);
     } else {
       handleSingleSelect(direction, holderSet, selectedKey, checked, currentSelectedIndex);
     }
@@ -429,13 +432,11 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     onItemSelect('left', selectedKey, checked, e?.shiftKey);
   };
 
-  const onRightItemSelect = (
-    selectedKey: TransferKey,
-    checked: boolean,
-    e?: React.MouseEvent<Element, MouseEvent>,
-  ) => {
-    onItemSelect('right', selectedKey, checked, e?.shiftKey);
-  };
+  const onRightItemSelect: TransferListProps<KeyWise<RecordType>>['onItemSelect'] = (
+    selectedKey,
+    checked,
+    e,
+  ) => onItemSelect('right', selectedKey, checked, e?.shiftKey);
 
   const onRightItemRemove = (keys: TransferKey[]) => {
     setStateKeys('right', []);
@@ -488,7 +489,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     {
       [`${prefixCls}-disabled`]: mergedDisabled,
       [`${prefixCls}-customize-list`]: !!children,
-      [`${prefixCls}-rtl`]: dir === 'rtl',
+      [`${prefixCls}-rtl`]: isRtl,
     },
     getStatusClassNames(prefixCls, mergedStatus, hasFeedback),
     contextClassName,
@@ -538,14 +539,14 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         handleFilter={leftFilter}
         handleClear={handleLeftClear}
         onItemSelect={onLeftItemSelect}
-        onItemSelectAll={onLeftItemSelectAll as any}
+        onItemSelectAll={onLeftItemSelectAll}
         render={render}
         showSearch={showSearch}
         renderList={children as any}
         footer={footer as any}
         onScroll={handleLeftScroll}
         disabled={mergedDisabled}
-        direction={dir === 'rtl' ? 'right' : 'left'}
+        direction={isRtl ? 'right' : 'left'}
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[0]}
         pagination={mergedPagination}
@@ -579,7 +580,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         handleFilter={rightFilter}
         handleClear={handleRightClear}
         onItemSelect={onRightItemSelect}
-        onItemSelectAll={onRightItemSelectAll as any}
+        onItemSelectAll={onRightItemSelectAll}
         onItemRemove={onRightItemRemove}
         render={render}
         showSearch={showSearch}
@@ -587,7 +588,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
         footer={footer as any}
         onScroll={handleRightScroll}
         disabled={mergedDisabled}
-        direction={dir === 'rtl' ? 'left' : 'right'}
+        direction={isRtl ? 'left' : 'right'}
         showSelectAll={showSelectAll}
         selectAllLabel={selectAllLabels[1]}
         showRemove={oneWay}

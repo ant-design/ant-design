@@ -7,7 +7,6 @@ import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
@@ -16,6 +15,7 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
+import type { TooltipProps } from '../tooltip';
 import type { ItemType } from './interface';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
@@ -35,42 +35,72 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export type MenuSemanticType = {
-  classNames?: {
-    root?: string;
-    itemTitle?: string;
-    list?: string;
-    item?: string;
-    itemIcon?: string;
-    itemContent?: string;
-    popup?: string | { root?: string };
-    subMenu?: {
-      item?: string;
-      itemTitle?: string;
-      list?: string;
-      itemContent?: string;
-      itemIcon?: string;
-    };
-  };
-  styles?: {
-    root?: React.CSSProperties;
-    itemTitle?: React.CSSProperties;
-    list?: React.CSSProperties;
-    item?: React.CSSProperties;
-    itemIcon?: React.CSSProperties;
-    itemContent?: React.CSSProperties;
-    popup?: { root?: React.CSSProperties };
-    subMenu?: {
-      item?: React.CSSProperties;
-      itemTitle?: React.CSSProperties;
-      list?: React.CSSProperties;
-      itemContent?: React.CSSProperties;
-      itemIcon?: React.CSSProperties;
-    };
-  };
+export type MenuSemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
+
+export type MenuSemanticClassNames = {
+  root?: string;
+  itemTitle?: string;
+  list?: string;
+  item?: string;
+  itemIcon?: string;
+  itemContent?: string;
 };
 
-export type MenuSemanticAllType = GenerateSemantic<MenuSemanticType, MenuProps>;
+export type MenuSemanticStyles = {
+  root?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+  list?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+};
+
+export type SubMenuSemanticName = keyof SubMenuSemanticClassNames & keyof SubMenuSemanticStyles;
+
+export type SubMenuSemanticClassNames = {
+  item?: string;
+  itemTitle?: string;
+  list?: string;
+  itemContent?: string;
+  itemIcon?: string;
+};
+
+export type SubMenuSemanticStyles = {
+  item?: React.CSSProperties;
+  itemTitle?: React.CSSProperties;
+  list?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+};
+
+export type MenuPopupSemanticName = keyof MenuPopupSemanticClassNames &
+  keyof MenuPopupSemanticStyles;
+
+export type MenuPopupSemanticClassNames = {
+  root?: string;
+};
+
+export type MenuPopupSemanticStyles = {
+  root?: React.CSSProperties;
+};
+
+type MenuClassNamesSchemaType = MenuSemanticClassNames & {
+  popup?: MenuPopupSemanticClassNames | string;
+  subMenu?: SubMenuSemanticClassNames;
+};
+
+type MenuStylesSchemaType = MenuSemanticStyles & {
+  popup?: MenuPopupSemanticStyles | React.CSSProperties;
+  subMenu?: SubMenuSemanticStyles;
+};
+
+export type MenuClassNamesType =
+  | MenuClassNamesSchemaType
+  | ((info: { props: MenuProps }) => MenuClassNamesSchemaType);
+
+export type MenuStylesType =
+  | MenuStylesSchemaType
+  | ((info: { props: MenuProps }) => MenuStylesSchemaType);
 
 export interface MenuProps
   extends Omit<
@@ -79,17 +109,19 @@ export interface MenuProps
   > {
   theme?: MenuTheme;
   inlineIndent?: number;
+  tooltip?: false | TooltipProps;
 
   // >>>>> Private
   /**
    * @private Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
    *   for removing.
+   * @deprecated Will be removed in next version. Use `tooltip={false}` instead.
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
 
   items?: ItemType[];
-  classNames?: MenuSemanticAllType['classNamesFn'] | MenuSemanticAllType['classNames'];
-  styles?: MenuSemanticAllType['stylesFn'] | MenuSemanticAllType['styles'];
+  classNames?: MenuClassNamesType;
+  styles?: MenuStylesType;
 }
 
 type InternalMenuProps = MenuProps &
@@ -108,6 +140,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     theme = 'light',
     expandIcon,
     _internalDisableMenuItemTitleTooltip,
+    tooltip,
     inlineCollapsed,
     siderCollapsed,
     rootClassName,
@@ -175,7 +208,11 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     theme,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    MenuClassNamesType,
+    MenuStylesType,
+    MenuProps
+  >(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -187,7 +224,6 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       },
       subMenu: {
         _default: 'item',
-        _remove: ['itemTitle', 'list', 'itemContent', 'itemIcon'],
       },
     },
   );
@@ -235,6 +271,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       theme,
       mode: mergedMode,
       disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
+      tooltip,
       classNames: mergedClassNames as MenuContextProps['classNames'],
       styles: mergedStyles as MenuContextProps['styles'],
     }),
@@ -247,6 +284,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       mergedMode,
       mergedClassNames,
       mergedStyles,
+      tooltip,
     ],
   );
 

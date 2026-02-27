@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -11,7 +13,7 @@ interface SpaceToken extends FullToken<'Space'> {
   spaceGapLargeSize: number;
 }
 
-const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
+const genSpaceStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
   return {
@@ -49,7 +51,7 @@ const genSpaceStyle: GenerateStyle<SpaceToken> = (token) => {
   };
 };
 
-const genSpaceGapStyle: GenerateStyle<SpaceToken> = (token) => {
+const genSpaceGapStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {

@@ -2,8 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -19,20 +18,23 @@ export type TitlePlacement =
 
 const titlePlacementList = ['left', 'right', 'center', 'start', 'end'];
 
-export type DividerSemanticType = {
-  classNames?: {
-    root?: string;
-    rail?: string;
-    content?: string;
-  };
-  styles?: {
-    root?: React.CSSProperties;
-    rail?: React.CSSProperties;
-    content?: React.CSSProperties;
-  };
+export type DividerSemanticName = keyof DividerSemanticClassNames & keyof DividerSemanticStyles;
+
+export type DividerSemanticClassNames = {
+  root?: string;
+  rail?: string;
+  content?: string;
 };
 
-export type DividerSemanticAllType = GenerateSemantic<DividerSemanticType, DividerProps>;
+export type DividerSemanticStyles = {
+  root?: React.CSSProperties;
+  rail?: React.CSSProperties;
+  content?: React.CSSProperties;
+};
+
+export type DividerClassNamesType = SemanticClassNamesType<DividerProps, DividerSemanticClassNames>;
+
+export type DividerStylesType = SemanticStylesType<DividerProps, DividerSemanticStyles>;
 
 export interface DividerProps {
   prefixCls?: string;
@@ -55,8 +57,8 @@ export interface DividerProps {
   style?: React.CSSProperties;
   size?: SizeType;
   plain?: boolean;
-  classNames?: DividerSemanticAllType['classNamesAndFn'];
-  styles?: DividerSemanticAllType['stylesAndFn'];
+  classNames?: DividerClassNamesType;
+  styles?: DividerStylesType;
 }
 
 const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
@@ -129,13 +131,13 @@ const Divider: React.FC<DividerProps> = (props) => {
     size: sizeFullName,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
-  );
+  const [mergedClassNames, mergedStyles] = useMergeSemantic<
+    DividerClassNamesType,
+    DividerStylesType,
+    DividerProps
+  >([contextClassNames, classNames], [contextStyles, styles], {
+    props: mergedProps,
+  });
 
   const classString = clsx(
     prefixCls,

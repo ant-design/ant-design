@@ -8,7 +8,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import getColumnsStyle from './columns';
 
 // ============================== Panel ===============================
-const genPanelStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CSSObject => {
+const genPanelStyle: GenerateStyle<CascaderToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {

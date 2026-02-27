@@ -829,13 +829,13 @@ describe('Form', () => {
   // https://github.com/ant-design/ant-design/issues/20813
   it('should update help directly when provided', async () => {
     const App: React.FC = () => {
-      const [message, updateMessage] = React.useState('');
+      const [message, setMessage] = React.useState('');
       return (
         <Form>
           <Form.Item label="hello" help={message}>
             <Input />
           </Form.Item>
-          <Button onClick={() => updateMessage('bamboo')} />
+          <Button onClick={() => setMessage('bamboo')} />
         </Form>
       );
     };

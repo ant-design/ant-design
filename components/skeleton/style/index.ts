@@ -74,7 +74,7 @@ const genSkeletonElementSize = (size: number | string): CSSObject => ({
   ...genSkeletonElementCommonSize(size),
 });
 
-const genSkeletonColor = (token: SkeletonToken): CSSObject => ({
+const genSkeletonColor: GenerateStyle<SkeletonToken, CSSObject> = (token) => ({
   background: token.skeletonLoadingBackground,
   backgroundSize: '400% 100%',
   animationName: skeletonClsLoading,
@@ -82,13 +82,14 @@ const genSkeletonColor = (token: SkeletonToken): CSSObject => ({
   animationTimingFunction: 'ease',
   animationIterationCount: 'infinite',
 });
+
 const genSkeletonElementInputSize = (size: number, calc: CSSUtil['calc']): CSSObject => ({
   width: calc(size).mul(5).equal(),
   minWidth: calc(size).mul(5).equal(),
   ...genSkeletonElementCommonSize(size),
 });
 
-const genSkeletonElementAvatar = (token: SkeletonToken): CSSObject => {
+const genSkeletonElementAvatar: GenerateStyle<SkeletonToken, CSSObject> = (token) => {
   const { skeletonAvatarCls, gradientFromColor, controlHeight, controlHeightLG, controlHeightSM } =
     token;
   return {
@@ -110,7 +111,7 @@ const genSkeletonElementAvatar = (token: SkeletonToken): CSSObject => {
   };
 };
 
-const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
+const genSkeletonElementInput: GenerateStyle<SkeletonToken, CSSObject> = (token) => {
   const {
     controlHeight,
     borderRadiusSM,
@@ -139,7 +140,7 @@ const genSkeletonElementInput = (token: SkeletonToken): CSSObject => {
   };
 };
 
-const genSkeletonElementShape = (token: SkeletonToken): CSSObject => {
+const genSkeletonElementShape: GenerateStyle<SkeletonToken, CSSObject> = (token) => {
   const { gradientFromColor, borderRadiusSM, imageSizeBase, calc } = token;
   return {
     display: 'inline-flex',
@@ -152,7 +153,7 @@ const genSkeletonElementShape = (token: SkeletonToken): CSSObject => {
   };
 };
 
-const genSkeletonElementNode = (token: SkeletonToken): CSSObject => {
+const genSkeletonElementNode: GenerateStyle<SkeletonToken, CSSObject> = (token) => {
   return {
     [token.skeletonNodeCls]: {
       ...genSkeletonElementShape(token),
@@ -160,7 +161,7 @@ const genSkeletonElementNode = (token: SkeletonToken): CSSObject => {
   };
 };
 
-const genSkeletonElementImage = (token: SkeletonToken): CSSObject => {
+const genSkeletonElementImage: GenerateStyle<SkeletonToken, CSSObject> = (token) => {
   const { skeletonImageCls, imageSizeBase, calc } = token;
 
   return {
@@ -209,7 +210,7 @@ const genSkeletonElementButtonSize = (size: number, calc: CSSUtil['calc']): CSSO
   ...genSkeletonElementCommonSize(size),
 });
 
-const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
+const genSkeletonElementButton: GenerateStyle<SkeletonToken, CSSObject> = (token) => {
   const {
     borderRadiusSM,
     skeletonButtonCls,
@@ -244,7 +245,7 @@ const genSkeletonElementButton = (token: SkeletonToken): CSSObject => {
 };
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SkeletonToken> = (token: SkeletonToken) => {
+const genBaseStyle: GenerateStyle<SkeletonToken, CSSObject> = (token) => {
   const {
     componentCls,
     skeletonAvatarCls,

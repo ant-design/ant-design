@@ -518,6 +518,93 @@ describe('Menu', () => {
     expect(container.querySelectorAll('.ant-tooltip-container')[2].textContent).toBe('item');
   });
 
+  it('inlineCollapsed Menu.Item Tooltip can be disabled by prop', () => {
+    const { container } = render(
+      <Menu
+        defaultOpenKeys={['not-existed']}
+        mode="inline"
+        inlineCollapsed
+        tooltip={false}
+        getPopupContainer={(node) => node.parentNode as HTMLElement}
+      >
+        <Menu.Item key="menu1">item</Menu.Item>
+      </Menu>,
+    );
+
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[0]);
+    triggerAllTimer();
+
+    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+  });
+
+  it('inlineCollapsed Menu.Item Tooltip should support custom props', () => {
+    const { container } = render(
+      <Menu
+        defaultOpenKeys={['not-existed']}
+        mode="inline"
+        inlineCollapsed
+        tooltip={{ title: 'Custom Title', placement: 'left', classNames: { root: 'custom-root' } }}
+        getPopupContainer={(node) => node.parentNode as HTMLElement}
+      >
+        <Menu.Item key="menu1" title="title">
+          item
+        </Menu.Item>
+      </Menu>,
+    );
+
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[0]);
+    triggerAllTimer();
+
+    const tooltipNode = container.querySelector('.ant-tooltip');
+    expect(container.querySelector('.ant-tooltip-container')?.textContent).toBe('Custom Title');
+    expect(tooltipNode).toHaveClass('ant-tooltip-placement-left');
+    expect(tooltipNode).toHaveClass('custom-root');
+    expect(tooltipNode).toHaveClass('ant-menu-inline-collapsed-tooltip');
+  });
+
+  it('inlineCollapsed Menu.Item Tooltip should support classNames function', () => {
+    const classNamesFn = jest.fn(() => ({ root: 'fn-root' }));
+    const { container } = render(
+      <Menu
+        defaultOpenKeys={['not-existed']}
+        mode="inline"
+        inlineCollapsed
+        tooltip={{ classNames: classNamesFn }}
+        getPopupContainer={(node) => node.parentNode as HTMLElement}
+      >
+        <Menu.Item key="menu1">item</Menu.Item>
+      </Menu>,
+    );
+
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[0]);
+    triggerAllTimer();
+
+    expect(classNamesFn).toHaveBeenCalled();
+    const tooltipNode = container.querySelector('.ant-tooltip');
+    expect(tooltipNode).toHaveClass('fn-root');
+    expect(tooltipNode).toHaveClass('ant-menu-inline-collapsed-tooltip');
+  });
+
+  it('Menu.Item should not render Tooltip when inlineCollapsed is false even with tooltip prop', () => {
+    const { container } = render(
+      <Menu
+        defaultSelectedKeys={['1']}
+        mode="inline"
+        inlineCollapsed={false}
+        tooltip={{ title: 'Custom Title' }}
+      >
+        <Menu.Item key="1">item</Menu.Item>
+      </Menu>,
+    );
+
+    fireEvent.mouseEnter(container.querySelectorAll('li.ant-menu-item')[0]);
+    act(() => {
+      jest.runAllTimers();
+    });
+
+    expect(container.querySelector('.ant-tooltip-container')).toBeFalsy();
+  });
+
   describe('open submenu when click submenu title', () => {
     const toggleMenu = (
       instance: ReturnType<typeof render>,
@@ -1205,10 +1292,10 @@ describe('Menu', () => {
         ],
       },
     ];
-    const testClassNames: MenuProps['classNames'] = {
+    const testClassNames = {
       popup: 'test-popup',
     };
-    const testStyles: MenuProps['styles'] = {
+    const testStyles = {
       popup: {
         root: {
           color: 'rgba(130, 113, 65, 0.7)',
@@ -1228,6 +1315,6 @@ describe('Menu', () => {
       </TriggerMockContext.Provider>,
     );
     const popup = document.querySelector<HTMLElement>(`.${testClassNames.popup}`);
-    expect(popup).toHaveStyle(testStyles.popup?.root as Record<string, any>);
+    expect(popup).toHaveStyle(testStyles.popup.root);
   });
 });

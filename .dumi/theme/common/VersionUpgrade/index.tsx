@@ -29,13 +29,13 @@ const VersionUpgradeModal = () => {
   const [locale, lang] = useLocale(locales);
   const { pathname } = useLocation();
 
-  const [open, updateOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
 
   const isCN = lang === 'cn' || utils.isZhCN(pathname);
 
   function handleClose() {
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
-    updateOpen(false);
+    setOpen(false);
   }
 
   React.useEffect(() => {
@@ -48,7 +48,7 @@ const VersionUpgradeModal = () => {
 
     if (!lastTime) {
       const timer = setTimeout(() => {
-        updateOpen(true);
+        setOpen(true);
       }, 1000);
 
       return () => {

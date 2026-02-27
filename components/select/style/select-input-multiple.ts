@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetIcon, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/interface';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -5,7 +7,7 @@ import type { SelectToken } from './token';
 
 const FIXED_INPUT_MIN_WIDTH = 4;
 
-const genSelectInputMultipleStyle: GenerateStyle<SelectToken> = (token) => {
+const genSelectInputMultipleStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const {
     componentCls,
     calc,

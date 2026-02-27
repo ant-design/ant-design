@@ -189,9 +189,14 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
         open={isMarketDrawerOpen}
         onClose={() => setIsMarketDrawerOpen(false)}
         onThemeChange={(nextTheme) => {
-          updateSiteConfig({
-            dynamicTheme: nextTheme,
-          });
+          const updates: Parameters<typeof updateSiteConfig>[0] = { dynamicTheme: nextTheme };
+          // Sync the site theme (and URL param) with the AI-generated algorithm
+          if (nextTheme?.algorithm) {
+            const filteredTheme = theme.filter((t) => !['light', 'dark', 'auto'].includes(t));
+            updates.theme = [...filteredTheme, nextTheme.algorithm];
+            setTheme(nextTheme.algorithm);
+          }
+          updateSiteConfig(updates);
         }}
       />
     </>

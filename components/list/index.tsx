@@ -207,6 +207,8 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
     cssVarCls,
   );
 
+  const containerCls = `${prefixCls}-container`;
+
   const paginationProps = extendsObject(
     defaultPaginationProps,
     {
@@ -274,7 +276,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
   if (splitDataSource.length > 0) {
     const items = splitDataSource.map(renderInternalItem);
     childrenContent = grid ? (
-      <Row gutter={grid.gutter}>
+      <Row className={clsx(containerCls, cssVarCls)} gutter={grid.gutter}>
         {React.Children.map(items, (child) => (
           <div key={child?.key} style={colStyle}>
             {child}
@@ -282,7 +284,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
         ))}
       </Row>
     ) : (
-      <ul className={`${prefixCls}-items`}>{items}</ul>
+      <ul className={clsx(`${prefixCls}-items`, containerCls, cssVarCls)}>{items}</ul>
     );
   } else if (!children && !isLoading) {
     childrenContent = (

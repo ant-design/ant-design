@@ -133,6 +133,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     copyable,
     component,
     title,
+    onMouseEnter,
+    onMouseLeave,
     ...restProps
   } = props;
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
@@ -262,6 +264,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const [ellipsisWidth, setEllipsisWidth] = React.useState(0);
+  const [isHoveringOperations, setIsHoveringOperations] = React.useState(false);
+  const [isHoveringTypography, setIsHoveringTypography] = React.useState(false);
   const onResize = ({ offsetWidth }: { offsetWidth: number }) => {
     setEllipsisWidth(offsetWidth);
   };
@@ -407,11 +411,28 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (canEllipsis: boolean) => [
-    canEllipsis && renderExpand(),
-    renderEdit(),
-    renderCopy(),
-  ];
+  const renderOperations = (canEllipsis: boolean) => {
+    const expandNode = canEllipsis && renderExpand();
+    const editNode = renderEdit();
+    const copyNode = renderCopy();
+
+    if (!expandNode && !editNode && !copyNode) {
+      return null;
+    }
+
+    return (
+      <span
+        key="operations"
+        className={`${prefixCls}-actions`}
+        onMouseEnter={() => setIsHoveringOperations(true)}
+        onMouseLeave={() => setIsHoveringOperations(false)}
+      >
+        {expandNode}
+        {editNode}
+        {copyNode}
+      </span>
+    );
+  };
 
   const renderEllipsis = (canEllipsis: boolean) => [
     canEllipsis && !expanded && (
@@ -430,8 +451,17 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           tooltipProps={tooltipProps}
           enableEllipsis={mergedEnableEllipsis}
           isEllipsis={isMergedEllipsis}
+          open={isHoveringTypography && !isHoveringOperations}
         >
           <Typography
+            onMouseEnter={(e) => {
+              setIsHoveringTypography(true);
+              onMouseEnter?.(e);
+            }}
+            onMouseLeave={(e) => {
+              setIsHoveringTypography(false);
+              onMouseLeave?.(e);
+            }}
             className={clsx(
               {
                 [`${prefixCls}-${type}`]: type,

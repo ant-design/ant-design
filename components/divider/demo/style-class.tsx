@@ -1,6 +1,6 @@
 import React from 'react';
 import { Divider } from 'antd';
-import type { DividerProps, DividerSemanticAllType } from 'antd';
+import type { DividerProps } from 'antd';
 
 const classNamesObject: DividerProps['classNames'] = {
   root: 'demo-divider-root',
@@ -8,15 +8,15 @@ const classNamesObject: DividerProps['classNames'] = {
   rail: 'demo-divider-rail',
 };
 
-const classNamesFn: DividerProps['classNames'] = (info): DividerSemanticAllType['classNames'] => {
+const classNamesFn: DividerProps['classNames'] = (info) => {
   if (info.props.titlePlacement === 'start') {
     return {
       root: 'demo-divider-root--start',
-    };
+    } satisfies DividerProps['classNames'];
   }
   return {
     root: 'demo-divider-root--default',
-  };
+  } satisfies DividerProps['classNames'];
 };
 
 const stylesObject: DividerProps['styles'] = {
@@ -25,15 +25,15 @@ const stylesObject: DividerProps['styles'] = {
   rail: { opacity: 0.85 },
 };
 
-const stylesFn: DividerProps['styles'] = (info): DividerSemanticAllType['styles'] => {
+const stylesFn: DividerProps['styles'] = (info) => {
   if (info.props.size === 'small') {
     return {
       root: { opacity: 0.6, cursor: 'default' },
-    };
+    } satisfies DividerProps['styles'];
   }
   return {
     root: { backgroundColor: '#fafafa', borderColor: '#d9d9d9' },
-  };
+  } satisfies DividerProps['styles'];
 };
 
 const App: React.FC = () => (

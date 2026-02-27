@@ -6,6 +6,8 @@ import { ConfigProvider, Splitter } from 'antd';
 
 import type { Orientation } from '../../_util/hooks';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import {
   act,
   createEvent,
@@ -37,6 +39,9 @@ const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>>
 );
 
 describe('Splitter', () => {
+  mountTest(Splitter);
+  rtlTest(Splitter);
+
   const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   let containerSize = 100;
@@ -998,6 +1003,21 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledTimes(2);
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });
+
+    it('should apply transition when motion is true', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ collapsible: true }, { collapsible: true }]}
+          collapsible={{
+            motion: true,
+          }}
+        />,
+      );
+
+      expect(container.querySelector('.ant-splitter-panel')).toHaveClass(
+        'ant-splitter-panel-transition',
+      );
+    });
   });
 
   it('auto resize', async () => {
@@ -1039,13 +1059,31 @@ describe('Splitter', () => {
       expect(draggerEle.querySelector('.customize-dragger-icon')).toBeTruthy();
     });
 
-    it('customize collapsibleIcon', async () => {
-      const { container } = render(
+    it('customize collapsibleIcon (deprecated)', async () => {
+      render(
         <SplitterDemo
           items={[{ size: 20, collapsible: true }, { collapsible: true }]}
           collapsibleIcon={{
             start: <CaretLeftOutlined className="customize-icon-start" />,
             end: <CaretRightOutlined className="customize-icon-end" />,
+          }}
+        />,
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Splitter] `collapsibleIcon` is deprecated. Please use `collapsible.icon` instead.',
+      );
+    });
+
+    it('customize collapsible.icon', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ size: 20, collapsible: true }, { collapsible: true }]}
+          collapsible={{
+            icon: {
+              start: <CaretLeftOutlined className="customize-icon-start" />,
+              end: <CaretRightOutlined className="customize-icon-end" />,
+            },
           }}
         />,
       );

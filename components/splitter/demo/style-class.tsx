@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Splitter, Typography } from 'antd';
-import type { SplitterProps, SplitterSemanticAllType } from 'antd';
+import type { GetProp, SplitterProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const Desc: React.FC<Readonly<{ text?: string | number; style?: React.CSSProperties }>> = (
@@ -27,7 +27,9 @@ const stylesObject: SplitterProps['styles'] = {
   dragger: { default: { backgroundColor: 'rgba(194,223,252,0.4)' } },
 };
 
-const stylesFn: SplitterProps['styles'] = ({ props }): SplitterSemanticAllType['styles'] => {
+const stylesFn: SplitterProps['styles'] = ({
+  props,
+}): GetProp<SplitterProps, 'styles', 'Return'> => {
   if (props.orientation === 'horizontal') {
     return {
       root: {

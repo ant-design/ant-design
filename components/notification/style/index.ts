@@ -109,7 +109,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationProgressHeight: number;
 }
 
-export const genNoticeStyle = (token: NotificationToken): CSSObject => {
+export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const {
     iconCls,
     componentCls, // .ant-notification

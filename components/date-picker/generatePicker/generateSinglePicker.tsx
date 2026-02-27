@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks';
+import useAllowClear from '../../_util/hooks/useAllowClear';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
@@ -54,7 +55,10 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
   type TimePickerProps = GenericTimePickerProps<DateType>;
 
-  const getPicker = <P extends DatePickerProps>(picker?: PickerMode, displayName?: string) => {
+  const getPicker = <P extends DatePickerProps>(
+    picker?: PickerMode,
+    displayName = 'DatePicker',
+  ) => {
     const pickerType = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
     const Picker = forwardRef<PickerRef, P>((props, ref) => {
       const {
@@ -78,16 +82,20 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         popupStyle,
         rootClassName,
         suffixIcon,
+        allowClear,
+        clearIcon,
         ...restProps
       } = props;
 
-      const { suffixIcon: contextSuffixIcon } = useComponentConfig(
-        displayName === TIMEPICKER ? 'timePicker' : 'datePicker',
-      );
+      const {
+        suffixIcon: contextSuffixIcon,
+        clearIcon: contextClearIcon,
+        allowClear: contextAllowClear,
+      } = useComponentConfig(displayName === TIMEPICKER ? 'timePicker' : 'datePicker');
 
       // ====================== Warning =======================
       if (process.env.NODE_ENV !== 'production') {
-        const warning = devUseWarning(displayName! || 'DatePicker');
+        const warning = devUseWarning(displayName);
         warning(
           picker !== 'quarter',
           'deprecated',
@@ -175,7 +183,15 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       };
 
       // ===================== Icon =====================
-      const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);
+      const [, removeIcon] = useIcons(props, prefixCls);
+      const mergedAllowClear = useAllowClear({
+        componentName: displayName,
+        allowClear,
+        clearIcon,
+        contextAllowClear,
+        contextClearIcon,
+        defaultAllowClear: true,
+      });
 
       // ================== components ==================
       const mergedComponents = useComponents(components);

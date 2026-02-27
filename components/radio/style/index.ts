@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusOutline, resetComponent } from '../../style';
@@ -105,7 +106,7 @@ interface RadioToken extends FullToken<'Radio'> {
 
 // ============================== Styles ==============================
 // styles from RadioGroup only
-const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
+const getGroupRadioStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const groupPrefixCls = `${componentCls}-group`;
 
@@ -136,13 +137,17 @@ const getGroupRadioStyle: GenerateStyle<RadioToken> = (token) => {
         display: 'flex',
         flexDirection: 'column',
         rowGap: token.marginXS,
+
+        [`${componentCls}-wrapper`]: {
+          marginInlineEnd: 0,
+        },
       },
     },
   };
 };
 
 // Styles from radio-wrapper
-const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
+const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
   const {
     componentCls,
     wrapperMarginInlineEnd,
@@ -302,7 +307,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken> = (token) => {
 };
 
 // Styles from radio-button
-const getRadioButtonStyle: GenerateStyle<RadioToken> = (token) => {
+const getRadioButtonStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
   const {
     buttonColor,
     controlHeight,

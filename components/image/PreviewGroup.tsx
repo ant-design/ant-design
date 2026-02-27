@@ -138,7 +138,6 @@ const InternalPreviewGroup: React.FC<PreviewGroupProps> = ({
     {
       popup: {
         _default: 'root',
-        _remove: ['mask', 'body', 'footer', 'actions'],
       },
     },
   );
