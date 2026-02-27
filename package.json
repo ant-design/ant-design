@@ -215,7 +215,6 @@
     "@types/semver": "^7.7.1",
     "@types/spinnies": "^0.5.3",
     "@types/throttle-debounce": "^5.0.2",
-    "@types/warning": "^3.0.3",
     "adm-zip": "^0.5.16",
     "ajv": "^8.17.1",
     "ali-oss": "^6.23.0",
