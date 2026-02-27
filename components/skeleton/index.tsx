@@ -1,5 +1,5 @@
 import Skeleton from './Skeleton';
 
-export type { SkeletonProps, SkeletonSemanticAllType } from './Skeleton';
+export type { SkeletonProps } from './Skeleton';
 
 export default Skeleton;

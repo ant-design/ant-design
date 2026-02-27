@@ -7,7 +7,7 @@ import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';

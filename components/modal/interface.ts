@@ -2,7 +2,7 @@ import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
 import type { ClosableType, MaskType } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';

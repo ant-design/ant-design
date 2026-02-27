@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Tree } from 'antd';
-import type { TreeProps, TreeSemanticAllType } from 'antd';
+import type { GetProp, TreeProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -54,7 +54,7 @@ const styles: TreeProps['styles'] = {
   item: { margin: '2px 0' },
 };
 
-const stylesFn: TreeProps['styles'] = (info): TreeSemanticAllType['styles'] => {
+const stylesFn: TreeProps['styles'] = (info): GetProp<TreeProps, 'styles', 'Return'> => {
   if (!info.props.checkable) {
     return {
       root: {

@@ -4,7 +4,7 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';

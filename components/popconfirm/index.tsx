@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { CloudOutlined, RocketOutlined, ThunderboltOutlined } from '@ant-design/icons';
 import { Flex, Segmented } from 'antd';
-import type { SegmentedProps, SegmentedSemanticAllType } from 'antd';
+import type { GetProp, SegmentedProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -10,7 +10,7 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: SegmentedProps['styles'] = (info): SegmentedSemanticAllType['styles'] => {
+const styleFn: SegmentedProps['styles'] = (info): GetProp<SegmentedProps, 'styles', 'Return'> => {
   if (info.props.vertical) {
     return {
       root: {

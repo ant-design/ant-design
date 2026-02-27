@@ -2,7 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';

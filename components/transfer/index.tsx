@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';

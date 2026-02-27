@@ -4,7 +4,7 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';

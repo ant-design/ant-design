@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calendar, Flex } from 'antd';
-import type { CalendarProps, CalendarSemanticAllType } from 'antd';
+import type { CalendarProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 import type { Dayjs } from 'dayjs';
 
@@ -20,7 +20,7 @@ const stylesObject: CalendarProps<Dayjs>['styles'] = {
 
 const stylesFunction: CalendarProps<Dayjs>['styles'] = (
   info,
-): CalendarSemanticAllType['styles'] => {
+): GetProp<CalendarProps<Dayjs>, 'styles', 'Return'> => {
   if (info.props.fullscreen) {
     return {
       root: {

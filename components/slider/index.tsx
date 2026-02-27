@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';

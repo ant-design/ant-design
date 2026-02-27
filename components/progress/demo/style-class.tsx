@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Progress } from 'antd';
-import type { ProgressProps, ProgressSemanticAllType } from 'antd';
+import type { GetProp, ProgressProps } from 'antd';
 
 const classNames: ProgressProps['classNames'] = {
   root: 'demo-progress-root',
@@ -8,7 +8,7 @@ const classNames: ProgressProps['classNames'] = {
   track: 'demo-progress-track',
 };
 
-const stylesFn: ProgressProps['styles'] = (info): ProgressSemanticAllType['styles'] => {
+const stylesFn: ProgressProps['styles'] = (info): GetProp<ProgressProps, 'styles', 'Return'> => {
   const percent = info?.props?.percent ?? 0;
   const hue = 200 - (200 * percent) / 100;
   return {

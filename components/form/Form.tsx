@@ -9,7 +9,7 @@ import type {
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { Variant } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext, { DisabledContextProvider } from '../config-provider/DisabledContext';

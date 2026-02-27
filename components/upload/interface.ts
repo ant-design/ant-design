@@ -6,7 +6,7 @@ import type {
   UploadProps as RcUploadProps,
 } from '@rc-component/upload/lib/interface';
 
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { ProgressAriaProps, ProgressProps } from '../progress';
 
 export interface RcFile extends OriRcFile {
@@ -129,8 +129,8 @@ export interface UploadProps<T = any>
   onDrop?: (event: React.DragEvent<HTMLDivElement>) => void;
   listType?: UploadListType;
   className?: string;
-  classNames?: UploadSemanticAllType<T>['classNames'] | UploadSemanticAllType<T>['classNamesFn'];
-  styles?: UploadSemanticAllType<T>['styles'] | UploadSemanticAllType<T>['stylesFn'];
+  classNames?: UploadSemanticAllType<T>['classNamesAndFn'];
+  styles?: UploadSemanticAllType<T>['stylesAndFn'];
   rootClassName?: string;
   onPreview?: (file: UploadFile<T>) => void;
   onDownload?: (file: UploadFile<T>) => void;

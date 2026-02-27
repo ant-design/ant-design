@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Slider } from 'antd';
-import type { SliderSemanticAllType, SliderSingleProps } from 'antd';
+import type { GetProp, SliderSingleProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -31,7 +31,9 @@ const stylesObject: SliderSingleProps['styles'] = {
   handle: { borderColor: '#1677ff', boxShadow: '0 2px 8px #1677ff' },
 };
 
-const stylesFn: SliderSingleProps['styles'] = (info): SliderSemanticAllType['styles'] => {
+const stylesFn: SliderSingleProps['styles'] = (
+  info,
+): GetProp<SliderSingleProps, 'styles', 'Return'> => {
   if (info.props.orientation === 'vertical') {
     return {
       root: { height: 300 },

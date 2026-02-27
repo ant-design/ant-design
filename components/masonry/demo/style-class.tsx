@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Divider, Flex, Masonry, Typography } from 'antd';
-import type { MasonryProps, MasonrySemanticAllType } from 'antd';
+import type { GetProp, MasonryProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import type { MasonryItemType } from 'antd/es/masonry/MasonryItem';
 
@@ -44,7 +44,7 @@ const styles: MasonryProps['styles'] = {
   },
 };
 
-const stylesFn: MasonryProps['styles'] = (info): MasonrySemanticAllType['styles'] => {
+const stylesFn: MasonryProps['styles'] = (info): GetProp<MasonryProps, 'styles', 'Return'> => {
   const { props } = info;
   return {
     root: {

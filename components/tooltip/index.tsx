@@ -13,7 +13,7 @@ import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';

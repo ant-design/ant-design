@@ -6,7 +6,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -129,12 +129,8 @@ export interface TableProps<RecordType = AnyObject>
     | 'classNames'
     | 'styles'
   > {
-  classNames?:
-    | TableSemanticAllType<RecordType>['classNames']
-    | TableSemanticAllType<RecordType>['classNamesFn'];
-  styles?:
-    | TableSemanticAllType<RecordType>['styles']
-    | TableSemanticAllType<RecordType>['stylesFn'];
+  classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
+  styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
@@ -255,15 +251,12 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     {
       pagination: {
         _default: 'root',
-        _remove: ['item'],
       },
       header: {
         _default: 'wrapper',
-        _remove: ['cell', 'row'],
       },
       body: {
         _default: 'wrapper',
-        _remove: ['cell', 'row'],
       },
     },
   );

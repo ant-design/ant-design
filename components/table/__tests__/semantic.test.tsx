@@ -1,6 +1,7 @@
 import React from 'react';
+import type { GetProp } from 'antd';
 
-import type { TableProps, TableSemanticAllType } from '..';
+import type { TableProps } from '..';
 import Table from '..';
 import { render } from '../../../tests/utils';
 
@@ -218,7 +219,7 @@ describe('Table', () => {
 
     const functionClassNames: TableProps<any>['classNames'] = (
       info,
-    ): TableSemanticAllType['classNames'] => ({
+    ): GetProp<TableProps<any>, 'classNames', 'Return'> => ({
       root: info.props.bordered ? 'test-bordered-root' : 'test-borderless-root',
       header: {
         wrapper: info.props.size === 'small' ? 'test-header-small' : 'test-header-default',
@@ -231,7 +232,9 @@ describe('Table', () => {
       },
     });
 
-    const functionStyles: TableProps<any>['styles'] = (info): TableSemanticAllType['styles'] => ({
+    const functionStyles: TableProps<any>['styles'] = (
+      info,
+    ): GetProp<TableProps<any>, 'styles', 'Return'> => ({
       root: {
         border: info.props.bordered ? '2px solid blue' : '1px solid gray',
       },

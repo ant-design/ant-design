@@ -8,7 +8,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { useComponentConfig } from '../config-provider/context';

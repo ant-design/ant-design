@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Spin } from 'antd';
-import type { SpinProps, SpinSemanticAllType } from 'antd';
+import type { GetProp, SpinProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -15,7 +15,7 @@ const stylesObject: SpinProps['styles'] = {
   },
 };
 
-const stylesFn: SpinProps['styles'] = ({ props }): SpinSemanticAllType['styles'] => {
+const stylesFn: SpinProps['styles'] = ({ props }): GetProp<SpinProps, 'styles', 'Return'> => {
   if (props.size === 'small') {
     return {
       indicator: {

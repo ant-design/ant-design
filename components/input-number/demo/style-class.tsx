@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, InputNumber } from 'antd';
-import type { InputNumberProps, InputNumberSemanticAllType } from 'antd';
+import type { GetProp, InputNumberProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ token }) => ({
@@ -17,7 +17,9 @@ const stylesObject: InputNumberProps['styles'] = {
   },
 };
 
-const stylesFn: InputNumberProps['styles'] = ({ props }): InputNumberSemanticAllType['styles'] => {
+const stylesFn: InputNumberProps['styles'] = ({
+  props,
+}): GetProp<InputNumberProps, 'styles', 'Return'> => {
   if (props.size === 'large') {
     return {
       root: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Switch } from 'antd';
-import type { SwitchProps, SwitchSemanticAllType } from 'antd';
+import type { GetProp, SwitchProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ token }) => ({
@@ -16,7 +16,7 @@ const stylesObject: SwitchProps['styles'] = {
   },
 };
 
-const stylesFn: SwitchProps['styles'] = (info): SwitchSemanticAllType['styles'] => {
+const stylesFn: SwitchProps['styles'] = (info): GetProp<SwitchProps, 'styles', 'Return'> => {
   if (info.props.size === 'default') {
     return {
       root: {

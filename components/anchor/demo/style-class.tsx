@@ -1,6 +1,6 @@
 import React from 'react';
 import { Anchor, Col, Row } from 'antd';
-import type { AnchorProps, AnchorSemanticAllType } from 'antd';
+import type { AnchorProps, GetProp } from 'antd';
 
 const classNamesObject: AnchorProps['classNames'] = {
   root: 'demo-anchor-root',
@@ -9,7 +9,7 @@ const classNamesObject: AnchorProps['classNames'] = {
   indicator: 'demo-anchor-indicator',
 };
 
-const stylesFn: AnchorProps['styles'] = (info): AnchorSemanticAllType['styles'] => {
+const stylesFn: AnchorProps['styles'] = (info): GetProp<AnchorProps, 'styles', 'Return'> => {
   if (info.props.direction === 'vertical') {
     return {
       root: {

@@ -1,8 +1,9 @@
 import React from 'react';
+import type { GetProp } from 'antd';
 import { Button, Empty, Flex } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
-import type { EmptyProps, EmptySemanticAllType } from '..';
+import type { EmptyProps } from '..';
 
 const emptySharedProps: EmptyProps = {
   image: Empty.PRESENTED_IMAGE_SIMPLE,
@@ -23,7 +24,7 @@ const stylesObject: EmptyProps['styles'] = {
   footer: { marginTop: '16px' },
 };
 
-const stylesFn: EmptyProps['styles'] = ({ props }): EmptySemanticAllType['styles'] => {
+const stylesFn: EmptyProps['styles'] = ({ props }): GetProp<EmptyProps, 'styles', 'Return'> => {
   if (props.description) {
     return {
       root: { backgroundColor: '#e6f7ff', border: '1px solid #91d5ff' },

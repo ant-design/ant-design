@@ -1,12 +1,6 @@
 import React from 'react';
 import { Flex, Input } from 'antd';
-import type {
-  GetProps,
-  InputSearchSemanticAllType,
-  InputSemanticAllType,
-  OTPSemanticAllType,
-  TextAreaSemanticAllType,
-} from 'antd';
+import type { GetProp, GetProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const styles = createStaticStyles(({ css, cssVar }) => ({
@@ -32,7 +26,7 @@ type SearchProps = GetProps<typeof Input.Search>;
 
 const { Search, TextArea, OTP, Password } = Input;
 
-const stylesFn: InputProps['styles'] = (info): InputSemanticAllType['styles'] => {
+const stylesFn: InputProps['styles'] = (info): GetProp<InputProps, 'styles', 'Return'> => {
   if (info.props.size === 'middle') {
     return {
       root: {
@@ -43,7 +37,9 @@ const stylesFn: InputProps['styles'] = (info): InputSemanticAllType['styles'] =>
   return {};
 };
 
-const stylesFnTextArea: TextAreaProps['styles'] = (info): TextAreaSemanticAllType['styles'] => {
+const stylesFnTextArea: TextAreaProps['styles'] = (
+  info,
+): GetProp<TextAreaProps, 'styles', 'Return'> => {
   if (info.props.showCount) {
     return {
       root: { borderColor: '#BDE3C3' },
@@ -54,7 +50,9 @@ const stylesFnTextArea: TextAreaProps['styles'] = (info): TextAreaSemanticAllTyp
   return {};
 };
 
-const stylesFnPassword: PasswordProps['styles'] = (info): InputSemanticAllType['styles'] => {
+const stylesFnPassword: PasswordProps['styles'] = (
+  info,
+): GetProp<PasswordProps, 'styles', 'Return'> => {
   if (info.props.size === 'middle') {
     return {
       root: {
@@ -65,7 +63,7 @@ const stylesFnPassword: PasswordProps['styles'] = (info): InputSemanticAllType['
   return {};
 };
 
-const stylesFnOTP: OTPProps['styles'] = (info): OTPSemanticAllType['styles'] => {
+const stylesFnOTP: OTPProps['styles'] = (info): GetProp<OTPProps, 'styles', 'Return'> => {
   if (info.props.size === 'middle') {
     return {
       input: {
@@ -77,7 +75,7 @@ const stylesFnOTP: OTPProps['styles'] = (info): OTPSemanticAllType['styles'] => 
   return {};
 };
 
-const stylesFnSearch: SearchProps['styles'] = (info): InputSearchSemanticAllType['styles'] => {
+const stylesFnSearch: SearchProps['styles'] = (info): GetProp<SearchProps, 'styles', 'Return'> => {
   if (info.props.size === 'large') {
     return {
       root: { color: '#4DA8DA' },

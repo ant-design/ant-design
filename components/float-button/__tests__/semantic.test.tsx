@@ -1,12 +1,10 @@
 import React from 'react';
 
 import FloatButton from '..';
-import type {
-  FloatButtonGroupSemanticAllType,
-  FloatButtonProps,
-  FloatButtonSemanticAllType,
-} from '..';
+import type { FloatButtonProps } from '..';
 import { render } from '../../../tests/utils';
+import type { FloatButtonSemanticAllType } from '../FloatButton';
+import type { FloatButtonGroupSemanticAllType } from '../FloatButtonGroup';
 
 describe('FloatButton.Semantic', () => {
   it('should update classNames when props change (FloatButton)', () => {

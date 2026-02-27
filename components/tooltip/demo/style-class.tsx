@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Flex, Tooltip } from 'antd';
-import type { TooltipProps, TooltipSemanticAllType } from 'antd';
+import type { GetProp, TooltipProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -16,7 +16,7 @@ const styles: TooltipProps['styles'] = {
   },
 };
 
-const stylesFn: TooltipProps['styles'] = (info): TooltipSemanticAllType['styles'] => {
+const stylesFn: TooltipProps['styles'] = (info): GetProp<TooltipProps, 'styles', 'Return'> => {
   if (!info.props.arrow) {
     return {
       container: {

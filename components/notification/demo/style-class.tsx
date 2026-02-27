@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, notification, Space } from 'antd';
-import type { NotificationArgsProps, NotificationSemanticAllType } from 'antd';
+import type { GetProp, NotificationArgsProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -11,7 +11,7 @@ const classNames = createStaticStyles(({ css }) => ({
 
 const styleFn: NotificationArgsProps['styles'] = ({
   props,
-}): NotificationSemanticAllType['styles'] => {
+}): GetProp<NotificationArgsProps, 'styles', 'Return'> => {
   if (props.type === 'error') {
     return {
       root: {

@@ -3,7 +3,7 @@ import { UnstableContext } from '@rc-component/steps';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';

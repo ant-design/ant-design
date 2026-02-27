@@ -5,7 +5,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 
 import getScroll from '../_util/getScroll';
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';

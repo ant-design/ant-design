@@ -10,7 +10,7 @@ import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';

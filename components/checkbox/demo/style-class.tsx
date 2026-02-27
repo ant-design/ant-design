@@ -1,6 +1,6 @@
 import React from 'react';
 import { Checkbox, Flex } from 'antd';
-import type { CheckboxProps, CheckboxSemanticAllType } from 'antd';
+import type { CheckboxProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
@@ -41,7 +41,7 @@ const App: React.FC = () => {
   // Function classNames - dynamically adjust based on checked state
   const classNamesFn: CheckboxProps['classNames'] = (
     info,
-  ): CheckboxSemanticAllType['classNames'] => {
+  ): GetProp<CheckboxProps, 'classNames', 'Return'> => {
     if (info.props.checked) {
       return {
         root: clsx(classNamesStyles.root),

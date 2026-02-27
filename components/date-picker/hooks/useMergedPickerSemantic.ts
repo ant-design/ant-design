@@ -22,7 +22,6 @@ const useMergedPickerSemantic = <P extends AnyObject = AnyObject>(
     {
       popup: {
         _default: 'root',
-        _remove: ['header', 'body', 'content', 'item', 'footer', 'container'],
       },
     },
   );

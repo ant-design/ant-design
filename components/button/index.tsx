@@ -1,7 +1,7 @@
 import Button from './Button';
 
 export type { SizeType as ButtonSize } from '../config-provider/SizeContext';
-export type { ButtonProps, ButtonSemanticAllType } from './Button';
+export type { ButtonProps } from './Button';
 export type { ButtonGroupProps } from './ButtonGroup';
 
 export * from './buttonHelpers';

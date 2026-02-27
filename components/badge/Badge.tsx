@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';

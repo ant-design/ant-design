@@ -5,7 +5,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -85,10 +85,8 @@ export interface BreadcrumbProps<T extends AnyObject = AnyObject> {
   routes?: ItemType[];
 
   items?: ItemType[];
-  classNames?:
-    | BreadcrumbSemanticAllType<T>['classNames']
-    | BreadcrumbSemanticAllType<T>['classNamesFn'];
-  styles?: BreadcrumbSemanticAllType<T>['styles'] | BreadcrumbSemanticAllType<T>['stylesFn'];
+  classNames?: BreadcrumbSemanticAllType<T>['classNamesAndFn'];
+  styles?: BreadcrumbSemanticAllType<T>['stylesAndFn'];
 
   itemRender?: (route: ItemType, params: T, routes: ItemType[], paths: string[]) => React.ReactNode;
 }

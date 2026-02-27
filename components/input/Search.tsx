@@ -6,7 +6,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
 import type { ButtonSemanticType } from '../button/Button';
@@ -99,7 +99,6 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     {
       button: {
         _default: 'root',
-        _remove: ['icon', 'content'],
       },
     },
   );

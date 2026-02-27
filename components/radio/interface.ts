@@ -1,7 +1,7 @@
 import type * as React from 'react';
 
 import type { Orientation } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { AbstractCheckboxProps } from '../checkbox/Checkbox';
 import type { AbstractCheckboxGroupProps } from '../checkbox/Group';
 import type { SizeType } from '../config-provider/SizeContext';

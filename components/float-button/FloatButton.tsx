@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { BadgeProps } from '../badge';

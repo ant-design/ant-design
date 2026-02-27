@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import { isPresetSize, isValidGapNumber } from '../_util/gapSize';
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';

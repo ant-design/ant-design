@@ -10,7 +10,7 @@ import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 import { clsx } from 'clsx';
 
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';

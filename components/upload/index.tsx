@@ -9,7 +9,6 @@ export type {
   UploadFile,
   UploadListProps,
   UploadProps,
-  UploadSemanticAllType,
 } from './interface';
 export type { UploadRef } from './Upload';
 

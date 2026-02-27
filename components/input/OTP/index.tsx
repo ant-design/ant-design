@@ -4,7 +4,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../../_util/hooks';
-import type { GenerateSemantic } from '../../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../../_util/hooks/useMergeSemanticNew/semanticType';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';

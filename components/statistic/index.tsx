@@ -1,11 +1,11 @@
 import type { CountdownProps } from './Countdown';
 import Countdown from './Countdown';
-import type { StatisticProps, StatisticSemanticAllType } from './Statistic';
+import type { StatisticProps } from './Statistic';
 import Statistic from './Statistic';
 import type { StatisticTimerProps } from './Timer';
 import Timer from './Timer';
 
-export type { CountdownProps, StatisticProps, StatisticSemanticAllType, StatisticTimerProps };
+export type { CountdownProps, StatisticProps, StatisticTimerProps };
 
 type CompoundedComponent = {
   /**

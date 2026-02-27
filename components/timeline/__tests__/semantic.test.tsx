@@ -1,8 +1,8 @@
 import React from 'react';
 
-import type { TimelineSemanticAllType } from '..';
 import TimeLine from '..';
 import { render } from '../../../tests/utils';
+import type { TimelineSemanticAllType } from '../Timeline';
 
 describe('Timeline.Semantic', () => {
   it('semantic structure', () => {

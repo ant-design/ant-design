@@ -86,7 +86,9 @@ To avoid token proliferation and the addition of numerous API props — which wo
 - It’s possible to define styles or class names for specific semantic regions, making it easier to customize local styles or themes.
 
 ```tsx
-const classNamesFn: ButtonProps['classNames'] = (info): ButtonSemanticAllType['classNames'] => {
+const classNamesFn: ButtonProps['classNames'] = (
+  info,
+): GetProp<ButtonProps, 'classNames', 'Return'> => {
   if (info.props.type === 'primary') {
     return { root: 'demo-btn-root--primary' };
   }

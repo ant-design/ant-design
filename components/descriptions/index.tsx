@@ -3,7 +3,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';

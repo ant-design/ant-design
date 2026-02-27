@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Flex, Popconfirm } from 'antd';
-import type { PopconfirmProps, PopconfirmSemanticAllType } from 'antd';
+import type { GetProp, PopconfirmProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -22,7 +22,9 @@ const styles: PopconfirmProps['styles'] = {
   },
 };
 
-const stylesFn: PopconfirmProps['styles'] = (info): PopconfirmSemanticAllType['styles'] => {
+const stylesFn: PopconfirmProps['styles'] = (
+  info,
+): GetProp<PopconfirmProps, 'styles', 'Return'> => {
   if (!info.props.arrow) {
     return {
       container: {

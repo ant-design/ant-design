@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
 import type { ClosableType } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -21,7 +21,7 @@ import PresetCmp from './style/presetCmp';
 import StatusCmp from './style/statusCmp';
 
 export type { CheckableTagProps } from './CheckableTag';
-export type { CheckableTagGroupProps, CheckableTagGroupSemanticAllType } from './CheckableTagGroup';
+export type { CheckableTagGroupProps } from './CheckableTagGroup';
 
 export type TagSemanticType = {
   classNames?: {

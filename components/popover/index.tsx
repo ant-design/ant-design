@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';

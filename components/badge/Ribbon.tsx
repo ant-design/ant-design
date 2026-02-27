@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import type { PresetColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { LiteralUnion } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style/ribbon';

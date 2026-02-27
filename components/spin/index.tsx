@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
 import { useMergeSemantic } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Indicator from './Indicator';

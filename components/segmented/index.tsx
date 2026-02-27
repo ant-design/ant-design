@@ -11,7 +11,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';

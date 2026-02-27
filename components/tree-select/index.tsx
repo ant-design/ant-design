@@ -13,7 +13,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { GenerateSemantic } from '../_util/hooks/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -298,7 +298,6 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
     {
       popup: {
         _default: 'root',
-        _remove: ['item', 'itemTitle'],
       },
     },
   );

@@ -1,12 +1,7 @@
 import React from 'react';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Flex, Space, Tag } from 'antd';
-import type {
-  CheckableTagGroupSemanticAllType,
-  GetProps,
-  TagProps,
-  TagSemanticAllType,
-} from 'antd';
+import type { GetProp, GetProps, TagProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 type CheckableTagGroupProps = GetProps<typeof Tag.CheckableTagGroup>;
@@ -30,7 +25,7 @@ const styles: TagProps['styles'] = {
   },
 };
 
-const stylesFn: TagProps['styles'] = (info): TagSemanticAllType['styles'] => {
+const stylesFn: TagProps['styles'] = (info): GetProp<TagProps, 'styles', 'Return'> => {
   if (info.props.variant === 'filled') {
     return {
       root: {
@@ -62,7 +57,7 @@ const groupStyles: CheckableTagGroupProps['styles'] = {
 
 const groupStylesFn: CheckableTagGroupProps['styles'] = (
   info,
-): CheckableTagGroupSemanticAllType['styles'] => {
+): GetProp<CheckableTagGroupProps, 'styles', 'Return'> => {
   const { multiple } = info.props;
   if (multiple) {
     return {
