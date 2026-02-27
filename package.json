@@ -170,7 +170,6 @@
     "@dnd-kit/modifiers": "^9.0.0",
     "@dnd-kit/sortable": "^10.0.0",
     "@dnd-kit/utilities": "^3.2.2",
-    "@emotion/css": "^11.13.5",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
     "@eslint-react/eslint-plugin": "2.13.0",
