@@ -14,7 +14,9 @@
 
 ## ❤️ 赞助者 [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
 
-<a href="https://tractian.com"><img src="https://images.opencollective.com/tractian/0235da9/logo/256.png" width="128" height="128" alt="TRACTIAN"></a> <a href="https://lobehub.com"><img src="https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg" width="128" height="128" alt="LobeHub"></a> <a href="https://youmind.com"><img src="https://marketing-assets.youmind.com/logo-512.png" width="128" height="128" alt="YouMind"></a>
+<a href="https://tractian.com"><img src="https://images.opencollective.com/tractian/0235da9/logo/256.png" width="128" height="128" alt="TRACTIAN"></a>
+<a href="https://lobehub.com"><img src="https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg" width="128" height="128" alt="LobeHub"></a>
+<a href="https://youmind.com"><img src="https://marketing-assets.youmind.com/logo-512.png" width="128" height="128" alt="YouMind"></a>
 
 [npm-image]: https://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/antd
