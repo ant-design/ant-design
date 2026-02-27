@@ -44,6 +44,7 @@ const Demo: React.FC = () => {
         expandIcon: () => unicorn,
       }}
       datePicker={{
+        clearIcon: unicorn,
         suffixIcon: unicorn,
       }}
       drawer={{
@@ -83,6 +84,7 @@ const Demo: React.FC = () => {
         closeIcon: unicorn,
       }}
       timePicker={{
+        clearIcon: unicorn,
         suffixIcon: unicorn,
       }}
       tour={{

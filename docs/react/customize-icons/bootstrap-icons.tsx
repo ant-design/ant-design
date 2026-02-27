@@ -58,6 +58,7 @@ const Demo: React.FC = () => {
         expandIcon: (props) => <ChevronDown {...props} />,
       }}
       datePicker={{
+        clearIcon: <XCircle />,
         suffixIcon: <Calendar />,
       }}
       drawer={{
@@ -97,6 +98,7 @@ const Demo: React.FC = () => {
         closeIcon: <XLg style={{ display: 'inline-block' }} />,
       }}
       timePicker={{
+        clearIcon: <XCircle />,
         suffixIcon: <Clock />,
       }}
       tour={{
