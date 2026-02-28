@@ -5,6 +5,12 @@ description: Help maintainers reply to Ant Design GitHub issues following offici
 
 # Ant Design Issue 回复规范
 
+## 目标
+
+**一、保持社区活跃** - 让用户反馈被及时响应，提升用户参与感和满意度。
+
+**二、提高处理效率** - 减少 open issues 和重复 issues，保持 issues 区整洁有序。
+
 ## 核心原则
 
 > 开源项目的用户和维护者之间并不是甲方和乙方的关系，issue 也不是客服。处理 issue 时抱着『一起合作来解决问题』的心态。
