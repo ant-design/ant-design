@@ -161,6 +161,7 @@ Duplicate of #xxxx
 
 ## FAQ 资源
 
+- [FAQ Issues 列表](https://github.com/ant-design/ant-design/issues?q=is%3Aissue%20label%3A%E2%9D%93FAQ)
 - [常见问题汇总](https://ant.design/docs/react/faq-cn/)
 - [Form FAQ](https://ant.design/components/form-cn#faq)
 - [Table 虚拟滚动](https://ant.design/components/table-cn#virtual-list)
