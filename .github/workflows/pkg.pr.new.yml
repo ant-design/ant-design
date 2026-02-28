@@ -1,6 +1,9 @@
 name: Publish Any Commit
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: blacksmith-4vcpu-ubuntu-2404

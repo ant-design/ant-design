@@ -66,6 +66,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   const shouldAutoScroll = useRef(true);
 
   const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
+
   const {
     recommendations,
     loading: recommendLoading,
@@ -73,8 +74,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   } = usePromptRecommend(localeKey);
 
   const handleScroll = React.useCallback(() => {
-    if (!scrollContainerRef.current) return;
-
+    if (!scrollContainerRef.current) {
+      return;
+    }
     const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
     const distanceToBottom = scrollHeight - scrollTop - clientHeight;
     shouldAutoScroll.current = distanceToBottom <= 10;
@@ -83,13 +85,12 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   const handleSubmit = React.useCallback(
     (value: string) => {
       shouldAutoScroll.current = true;
-
-      setTimeout(() => {
-        if (scrollContainerRef.current) {
-          scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
-        }
-      }, 0);
-
+      requestAnimationFrame(() => {
+        scrollContainerRef.current?.scrollTo({
+          behavior: 'smooth',
+          top: Number.MAX_SAFE_INTEGER,
+        });
+      });
       submitPrompt(value);
       setInputValue('');
     },
@@ -134,7 +135,14 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
         role: 'ai',
         placement: 'start',
         content: resText,
-        avatar: <img src={antdLogoSrc} alt="Ant Design" style={{ width: 28, height: 28 }} />,
+        avatar: (
+          <img
+            draggable={false}
+            src={antdLogoSrc}
+            alt="Ant Design"
+            style={{ width: 28, height: 28 }}
+          />
+        ),
         loading: !resText,
         contentRender: (content: string) => (
           <Typography>
@@ -176,9 +184,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       });
 
       // Add recommended themes prompts
-      const recommendedPrompts: ExtendedPromptsItemType[] = recommendations
+      const recommendedPrompts = recommendations
         .slice(0, 4)
-        .map((text, index) => ({
+        .map<ExtendedPromptsItemType>((text, index) => ({
           key: `rec-${text}`,
           description: `${getEmojiForTheme(index)} ${text}`,
           originalDescription: text,
@@ -196,7 +204,14 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
         role: 'ai',
         placement: 'start',
         content: '',
-        avatar: <img src={antdLogoSrc} alt="Ant Design" style={{ width: 28, height: 28 }} />,
+        avatar: (
+          <img
+            draggable={false}
+            src={antdLogoSrc}
+            alt="Ant Design"
+            style={{ width: 28, height: 28 }}
+          />
+        ),
         contentRender: () =>
           recommendLoading ? (
             <Flex gap={8} wrap style={{ justifyContent: 'center' }}>
@@ -246,16 +261,19 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   ]);
 
   useEffect(() => {
-    if (scrollContainerRef.current && shouldAutoScroll.current) {
-      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    if (shouldAutoScroll.current) {
+      scrollContainerRef.current?.scrollTo({
+        behavior: 'smooth',
+        top: Number.MAX_SAFE_INTEGER,
+      });
     }
   }, [resText, items, prompt]);
 
   // Limit to 3 recommendations for Prompts component + refresh button
-  const prompts: ExtendedPromptsItemType[] = React.useMemo(() => {
-    const themePrompts: ExtendedPromptsItemType[] = recommendations
+  const prompts = React.useMemo(() => {
+    const themePrompts = recommendations
       .slice(0, 3)
-      .map((text, index) => ({
+      .map<ExtendedPromptsItemType>((text, index) => ({
         key: text,
         description: `${getEmojiForTheme(index)} ${text}`,
         originalDescription: text,
@@ -277,7 +295,14 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     () => (
       <div style={{ padding: '0 0 16px' }}>
         <Welcome
-          icon={<img src={antdLogoSrc} alt="Ant Design" style={{ width: 48, height: 48 }} />}
+          icon={
+            <img
+              draggable={false}
+              src={antdLogoSrc}
+              alt="Ant Design"
+              style={{ width: 48, height: 48 }}
+            />
+          }
           title={locale.welcomeTitle}
           description={locale.welcomeDescription}
           styles={{
@@ -380,11 +405,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
             <div
               ref={scrollContainerRef}
               onScroll={handleScroll}
-              style={{
-                flex: 1,
-                padding: 0,
-                overflow: 'auto',
-              }}
+              style={{ flex: 1, padding: 0, overflow: 'auto' }}
             >
               {!prompt ? (
                 <>
