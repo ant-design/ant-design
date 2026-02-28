@@ -11,6 +11,9 @@ concurrency:
   group: unique
   cancel-in-progress: true
 
+permissions:
+  contents: read
+
 jobs:
   pr-check-ci:
     if: github.repository == 'ant-design/ant-design'
