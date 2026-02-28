@@ -1,17 +1,17 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { UserOutlined } from '@ant-design/icons';
 import { Bubble, Prompts, Sender, Welcome } from '@ant-design/x';
-import type { BubbleItemType } from '@ant-design/x/es/bubble/interface';
 import type { PromptsItemType } from '@ant-design/x';
+import type { BubbleItemType } from '@ant-design/x/es/bubble/interface';
 import type { SenderRef } from '@ant-design/x/es/sender';
 import { Button, Divider, Drawer, Flex, Skeleton, Splitter, Typography } from 'antd';
 
-import type { SiteContextProps } from '../../../theme/slots/SiteContext';
-import SiteContext from '../../../theme/slots/SiteContext';
 import useLocale from '../../../hooks/useLocale';
 import ComponentsBlock from '../../../pages/index/components/ThemePreview/ComponentsBlock';
-import usePromptTheme from './usePromptTheme';
+import type { SiteContextProps } from '../../../theme/slots/SiteContext';
+import SiteContext from '../../../theme/slots/SiteContext';
 import usePromptRecommend from './usePromptRecommend';
+import usePromptTheme from './usePromptTheme';
 
 const antdLogoSrc = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
@@ -62,16 +62,35 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   const [inputValue, setInputValue] = useState('');
 
   const senderRef = useRef<SenderRef>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const shouldAutoScroll = useRef(true);
 
   const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
+
   const {
     recommendations,
     loading: recommendLoading,
     fetch: fetchRecommendations,
   } = usePromptRecommend(localeKey);
 
+  const handleScroll = React.useCallback(() => {
+    if (!scrollContainerRef.current) {
+      return;
+    }
+    const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
+    const distanceToBottom = scrollHeight - scrollTop - clientHeight;
+    shouldAutoScroll.current = distanceToBottom <= 10;
+  }, []);
+
   const handleSubmit = React.useCallback(
     (value: string) => {
+      shouldAutoScroll.current = true;
+      requestAnimationFrame(() => {
+        scrollContainerRef.current?.scrollTo({
+          behavior: 'smooth',
+          top: Number.MAX_SAFE_INTEGER,
+        });
+      });
       submitPrompt(value);
       setInputValue('');
     },
@@ -116,7 +135,14 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
         role: 'ai',
         placement: 'start',
         content: resText,
-        avatar: <img src={antdLogoSrc} alt="Ant Design" style={{ width: 28, height: 28 }} />,
+        avatar: (
+          <img
+            draggable={false}
+            src={antdLogoSrc}
+            alt="Ant Design"
+            style={{ width: 28, height: 28 }}
+          />
+        ),
         loading: !resText,
         contentRender: (content: string) => (
           <Typography>
@@ -158,9 +184,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
       });
 
       // Add recommended themes prompts
-      const recommendedPrompts: ExtendedPromptsItemType[] = recommendations
+      const recommendedPrompts = recommendations
         .slice(0, 4)
-        .map((text, index) => ({
+        .map<ExtendedPromptsItemType>((text, index) => ({
           key: `rec-${text}`,
           description: `${getEmojiForTheme(index)} ${text}`,
           originalDescription: text,
@@ -178,7 +204,14 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
         role: 'ai',
         placement: 'start',
         content: '',
-        avatar: <img src={antdLogoSrc} alt="Ant Design" style={{ width: 28, height: 28 }} />,
+        avatar: (
+          <img
+            draggable={false}
+            src={antdLogoSrc}
+            alt="Ant Design"
+            style={{ width: 28, height: 28 }}
+          />
+        ),
         contentRender: () =>
           recommendLoading ? (
             <Flex gap={8} wrap style={{ justifyContent: 'center' }}>
@@ -227,11 +260,20 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     locale.refresh,
   ]);
 
+  useEffect(() => {
+    if (shouldAutoScroll.current) {
+      scrollContainerRef.current?.scrollTo({
+        behavior: 'smooth',
+        top: Number.MAX_SAFE_INTEGER,
+      });
+    }
+  }, [resText, items, prompt]);
+
   // Limit to 3 recommendations for Prompts component + refresh button
-  const prompts: ExtendedPromptsItemType[] = React.useMemo(() => {
-    const themePrompts: ExtendedPromptsItemType[] = recommendations
+  const prompts = React.useMemo(() => {
+    const themePrompts = recommendations
       .slice(0, 3)
-      .map((text, index) => ({
+      .map<ExtendedPromptsItemType>((text, index) => ({
         key: text,
         description: `${getEmojiForTheme(index)} ${text}`,
         originalDescription: text,
@@ -253,7 +295,14 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     () => (
       <div style={{ padding: '0 0 16px' }}>
         <Welcome
-          icon={<img src={antdLogoSrc} alt="Ant Design" style={{ width: 48, height: 48 }} />}
+          icon={
+            <img
+              draggable={false}
+              src={antdLogoSrc}
+              alt="Ant Design"
+              style={{ width: 48, height: 48 }}
+            />
+          }
           title={locale.welcomeTitle}
           description={locale.welcomeDescription}
           styles={{
@@ -345,7 +394,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
                 overflow: 'auto',
               }}
             >
-              <ComponentsBlock className="prompt-drawer-preview" />
+              <ComponentsBlock style={{ padding: 16 }} className="prompt-drawer-preview" />
             </div>
           </Flex>
         </Splitter.Panel>
@@ -354,11 +403,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
         <Splitter.Panel defaultSize="50%" min="30%" max="70%">
           <Flex vertical gap={0} style={{ height: '100%', padding: '0 8px' }}>
             <div
-              style={{
-                flex: 1,
-                padding: 0,
-                overflow: 'auto',
-              }}
+              ref={scrollContainerRef}
+              onScroll={handleScroll}
+              style={{ flex: 1, padding: 0, overflow: 'auto' }}
             >
               {!prompt ? (
                 <>
