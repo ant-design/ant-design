@@ -10,7 +10,8 @@
 
 只对满足以下**所有条件**的 issues 进行回复：
 1. 没有人类维护者（MEMBER/OWNER/CONTRIBUTOR）回复过
-2. Issue 没有被标记为 "Inactive"
+
+**注意：** 即使 issue 带有 "Inactive" 标签，也可以回复。Inactive 只是表示近期没有活动，不代表问题已解决或不需要关注。
 
 ## 语言政策
 
@@ -288,7 +289,6 @@ Duplicate of #xxxx
 ## 何时不回复
 
 以下情况不要回复：
-- Issue 有 "Inactive" 标签
 - 维护者已经回复过
 - dosubot 已经提供了完整正确的答案
 - 无法确定正确的回复内容
