@@ -336,8 +336,6 @@ const InternalCompoundedButton = React.forwardRef<
 
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
-  const sizeCls = sizeFullName === 'large' ? 'lg' : sizeFullName === 'small' ? 'sm' : '';
-
   const iconType = innerLoading ? 'loading' : icon;
 
   const mergedIconPlacement = iconPlacement ?? iconPosition ?? 'start';
@@ -383,7 +381,8 @@ const InternalCompoundedButton = React.forwardRef<
 
       [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
       [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
-      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-lg`]: sizeFullName === 'large',
+      [`${prefixCls}-sm`]: sizeFullName === 'small',
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
       [`${prefixCls}-loading`]: innerLoading,
