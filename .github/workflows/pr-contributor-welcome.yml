@@ -27,8 +27,9 @@ jobs:
     steps:
       - name: get commit count
         id: get_commit_count
+        env:
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
-          PR_AUTHOR="${{ github.event.pull_request.user.login }}"
           # Validate username format (GitHub usernames: alphanumeric and hyphens, max 39 chars)
           if ! [[ "$PR_AUTHOR" =~ ^[a-zA-Z0-9-]{1,39}$ ]]; then
             echo "Invalid username format, skipping"
