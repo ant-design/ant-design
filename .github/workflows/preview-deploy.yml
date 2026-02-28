@@ -12,10 +12,29 @@ permissions:
   contents: read
 
 jobs:
+  check-trust:
+    name: Check if workflow run is trusted
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    outputs:
+      trusted: ${{ steps.check.outputs.trusted }}
+    steps:
+      - name: Check trust
+        id: check
+        env:
+          REPO: ${{ github.event.workflow_run.repository.full_name }}
+          EVENT: ${{ github.event.workflow_run.event }}
+        run: |
+          if [[ "$REPO" == "ant-design/ant-design" && "$EVENT" == "pull_request" ]]; then
+            echo "trusted=true" >> $GITHUB_OUTPUT
+          else
+            echo "trusted=false" >> $GITHUB_OUTPUT
+          fi
+
   upstream-workflow-summary:
     name: upstream workflow summary
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    if: github.event.workflow_run.event == 'pull_request'
+    needs: [check-trust]
+    if: fromJSON(needs.check-trust.outputs.trusted)
     outputs:
       jobs: ${{ steps.prep-summary.outputs.result }}
       build-success: ${{ steps.prep-summary.outputs.build-success }}
@@ -58,8 +77,8 @@ jobs:
       issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    needs: upstream-workflow-summary
-    if: github.event.workflow_run.event == 'pull_request'
+    needs: [check-trust, upstream-workflow-summary]
+    if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
       # We need get PR id first
       - name: download pr artifact

@@ -9,6 +9,8 @@ permissions:
 
 jobs:
   send-to-dingtalk:
+    # Only run for PRs from the same repo (not from forks) to prevent potential injection
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: send to dingtalk
