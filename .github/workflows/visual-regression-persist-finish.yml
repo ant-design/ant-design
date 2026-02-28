@@ -11,10 +11,15 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.id }}
+  cancel-in-progress: true
+
 jobs:
   check-trust:
     name: Check if workflow run is trusted
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 5
     outputs:
       trusted: ${{ steps.check.outputs.trusted }}
     steps:
@@ -38,6 +43,7 @@ jobs:
   upstream-workflow-summary:
     name: upstream workflow summary
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 5
     outputs:
       jobs: ${{ steps.persist_start_job_status.outputs.result }}
       build-success: ${{ steps.persist_start_job_status.outputs.build-success }}
@@ -80,6 +86,7 @@ jobs:
     permissions:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 20
     needs: [check-trust, upstream-workflow-summary]
     if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
