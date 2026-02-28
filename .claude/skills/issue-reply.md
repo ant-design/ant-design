@@ -9,7 +9,8 @@
 ## 基本规则
 
 只对满足以下**所有条件**的 issues 进行回复：
-1. 没有人类维护者（MEMBER/OWNER/CONTRIBUTOR）回复过
+1. Issue 状态为 **open**
+2. 没有人类维护者（MEMBER/OWNER/CONTRIBUTOR）回复过
 
 **注意：** 即使 issue 带有 "Inactive" 标签，也可以回复。Inactive 只是表示近期没有活动，不代表问题已解决或不需要关注。
 
