@@ -19,7 +19,7 @@ jobs:
   check-trust:
     name: Check if workflow run is trusted
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    timeout-minutes: 5
+    timeout-minutes: 10
     outputs:
       trusted: ${{ steps.check.outputs.trusted }}
     steps:
@@ -38,7 +38,7 @@ jobs:
   upstream-workflow-summary:
     name: upstream workflow summary
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    timeout-minutes: 5
+    timeout-minutes: 10
     needs: [check-trust]
     if: fromJSON(needs.check-trust.outputs.trusted)
     outputs:
@@ -83,7 +83,7 @@ jobs:
       issues: write # for actions-cool/maintain-one-comment to modify or create issue comments
       pull-requests: write # for actions-cool/maintain-one-comment to modify or create PR comments
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    timeout-minutes: 15
+    timeout-minutes: 30
     needs: [check-trust, upstream-workflow-summary]
     if: fromJSON(needs.check-trust.outputs.trusted)
     steps:

@@ -23,7 +23,7 @@ jobs:
     # Only run for merged PRs from the same repo (not from forks)
     if: github.event.pull_request.merged == true && github.repository == 'ant-design/ant-design' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - name: get commit count
         id: get_commit_count
