@@ -59,22 +59,27 @@
 
 ### FAQ 问题
 
-对于常见的 FAQ 问题，关联已有的 FAQ 文档或 issue：
+**查找 FAQ 资源：**
+1. 首先搜索带有 `❓FAQ` 标签的 issues，这些是官方归类的常见问题
+2. 查看组件文档中的 FAQ 部分
+3. 搜索历史 issues 中的相关讨论
 
 ```
 这是一个常见问题，请参考以下资源：
 
+- 相关 issue：#xxxx（带 FAQ 标签）
 - 文档：https://ant.design/components/xxx#faq
-- 相关 issue：#xxxx
 
 如果以上资源没有解决您的问题，欢迎提供更多细节。
 ```
 
-常见 FAQ 主题及参考链接：
+**常见 FAQ 主题：**
 - Form 表单验证：https://ant.design/components/form-cn#faq
 - Table 虚拟滚动：https://ant.design/components/table-cn#virtual-list
 - 国际化：https://ant.design/docs/react/i18n-cn
 - 主题定制：https://ant.design/docs/react/customize-theme-cn
+
+**注意：** 带有 `❓FAQ` 标签的 issues 是重要的 FAQ 来源，回复时优先参考这些 issues。
 
 ## 标签指南
 
