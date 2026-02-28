@@ -65,17 +65,28 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 
 ### 使用问题
 
-友善引导用户到正确的渠道：
-```
-感谢反馈！根据您的问题描述，这是关于***的使用问题。
+**你可以尝试解决和回复使用问题：**
+- 查阅文档，提供解决方案和代码示例
+- 如果能解决，直接回复帮助用户
 
-建议您参考以下资源：
+**也可以引入 AI 帮助解答：**
+- `@docu` - GitHub Copilot 文档助手
+- `@Copilot` - GitHub Copilot
+
+回复示例：
+```
+感谢反馈！这是一个使用问题，让我尝试帮你解答：
+
+[提供解决方案和代码示例]
+
+参考文档：https://ant.design/components/xxx
+
+如果以上方案不能解决问题，可以尝试 @docu 或 @Copilot 获取更多帮助。
+```
+
+**若无法解决，引导用户到其他渠道：**
 - [常见问题](https://ant.design/docs/react/faq-cn/)
-- [组件文档](https://ant.design/components/overview-cn)
-- 在 [StackOverflow](https://stackoverflow.com/questions/tagged/antd) 或 [SegmentFault](https://segmentfault.com/t/antd) 提问
-
-如果这是 Bug 或需要新功能，欢迎补充更多信息重新提交。
-```
+- [StackOverflow](https://stackoverflow.com/questions/tagged/antd) 或 [SegmentFault](https://segmentfault.com/t/antd)
 
 ### FAQ 问题
 
