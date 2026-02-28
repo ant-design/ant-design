@@ -334,11 +334,9 @@ const InternalCompoundedButton = React.forwardRef<
   // ========================== Size ==========================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined, medium: undefined };
-
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
 
-  const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
+  const sizeCls = sizeFullName === 'large' ? 'lg' : sizeFullName === 'small' ? 'sm' : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 

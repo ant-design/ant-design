@@ -6,7 +6,7 @@ const App: React.FC = () => {
   const { xxl } = useResponsive();
 
   return (
-    <ConfigProvider componentSize={xxl ? 'middle' : 'small'}>
+    <ConfigProvider componentSize={xxl ? 'medium' : 'small'}>
       <Flex vertical gap="small">
         <Flex gap="small" wrap>
           <Button color="default" variant="solid">
