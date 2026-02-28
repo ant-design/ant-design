@@ -1,6 +1,6 @@
-# Ant Design 官方回复 Skill
+# Ant Design Issue 回复规范
 
-这个 skill 帮助按照社区规范对 Ant Design GitHub issues 进行官方回复。
+这个 skill 定义了 Ant Design GitHub issues 的官方回复规范。
 
 ## 基本规则
 
@@ -13,7 +13,7 @@
 - 使用与 issue 作者**相同的语言**回复
 - 如果 issue 是英文，用英文回复
 - 如果 issue 是中文，用中文回复
-- 保持与原 issue 相同的语气和正式程度
+- **保持友善和耐心**，即使用户语气不太好也不要情绪化回复
 
 ## 处理 dosubot 回复
 
@@ -29,57 +29,52 @@
 
 **注意：** 使用 `@dosu`（而不是 `@dosubot`）来 mention 机器人。
 
-## 处理重复 Issues
+## Issue 分类处理
 
-对于明显的重复问题：
-1. 找到原始 issue
-2. 回复："Duplicate of #xxxx"
-3. 关闭 issue
+### Bug 报告
 
-示例：
+**检查重现链接：**
+- 如果没有提供重现链接，或链接内容与问题无关：
+  - 添加 `🤔 Need Reproduce` 标签
+  - 回复模板：
+    ```
+    感谢反馈！请提供一个最小化的重现链接（CodeSandbox 或 StackBlitz），以便我们复现和调查问题。没有重现链接我们无法定位问题。
+
+    您可以使用以下模板创建：
+    - CodeSandbox: https://codesandbox.io/s/antd-reproduction-template
+    - StackBlitz: https://stackblitz.com/edit/antd-reproduction
+    ```
+
+- 如果有完整的重现链接且确认是 bug：
+  - 添加 `🐛 Bug` 标签，移除 `unconfirmed` 标签（如有）
+  - 回复模板：
+    ```
+    感谢详细的报告！我已确认这是一个 bug，我们会进行调查。
+    ```
+
+### 功能请求
+
+- 添加 `💡 Feature Request` 标签
+- 询问使用场景和期望的 API 设计
+
+### FAQ 问题
+
+对于常见的 FAQ 问题，关联已有的 FAQ 文档或 issue：
+
 ```
-Duplicate of #56947
+这是一个常见问题，请参考以下资源：
+
+- 文档：https://ant.design/components/xxx#faq
+- 相关 issue：#xxxx
+
+如果以上资源没有解决您的问题，欢迎提供更多细节。
 ```
 
-## 关闭 Issues（需谨慎！）
-
-**只有在以下情况才关闭：**
-1. Issue 是已有 issue 的**重复**
-2. 经过彻底调查后**确定不是 bug**
-3. 问题已**解决**并确认可用
-
-**关闭时保持礼貌：**
-```
-感谢反馈！经过分析，这是一个使用问题而非 bug。
-
-[解释解决方案]
-
-我将关闭此 issue。如果您仍有问题，欢迎继续讨论或重新打开。
-```
-
-```
-Thanks for reporting! After investigation, this appears to be a usage issue rather than a bug.
-
-[Explain the solution]
-
-I'll close this issue, but feel free to continue the discussion or reopen if needed.
-```
-
-**以下情况不要关闭：**
-- 不确定是否是 bug
-- 用户未确认解决方案有效
-- 可能需要进一步讨论
-- 是一个有效的功能请求（保持打开以便考虑）
-
-## 禁止承诺
-
-- **永远不要承诺具体的发布日期**
-- **永远不要承诺会实现某个新功能**
-- **永远不要说"我们会添加这个功能"**
-- 应该说：
-  - "这是一个合理的需求，我们会考虑在后续版本中支持。"
-  - "This is a reasonable feature request. We'll consider it for future releases."
-  - "欢迎社区为此功能贡献代码。"
+常见 FAQ 主题及参考链接：
+- Form 表单验证：https://ant.design/components/form-cn#faq
+- Table 虚拟滚动：https://ant.design/components/table-cn#virtual-list
+- 国际化：https://ant.design/docs/react/i18n-cn
+- 主题定制：https://ant.design/docs/react/customize-theme-cn
 
 ## 标签指南
 
@@ -106,77 +101,91 @@ I'll close this issue, but feel free to continue the discussion or reopen if nee
 
 **不确定时归类为 Bug** - 调查潜在的 bug 比忽视用户反馈更好。
 
+### 常用标签
+
+| 标签 | 用途 |
+|------|------|
+| `🐛 Bug` | 已确认的 bug |
+| `🤔 Need Reproduce` | 缺少重现链接或无法复现 |
+| `💡 Feature Request` | 功能请求 |
+| `❓FAQ` | 常见问题 |
+| `help wanted` | 欢迎社区贡献 |
+| `good first issue` | 适合首次贡献者 |
+| `unconfirmed` | 需要更多信息或验证 |
+| `improvement` | 改进建议 |
+
 ### 简单/易修复 Issues
 
-添加标签鼓励社区贡献：
-- `help wanted` - 开放贡献的 issues
-- `good first issue` - 适合首次贡献者
+添加 `help wanted` 和 `good first issue` 标签鼓励社区贡献：
 
-适用条件：
-- 有清晰复现步骤且修复简单的 bug
-- 轻微的样式问题
-- 文档改进
-- 简单的功能添加
-
-回复示例：
 ```
-这个问题适合社区贡献。我已添加 `help wanted` 和 `good first issue` 标签。
+这个问题适合社区贡献。我已添加相关标签。
 
 如果您愿意解决这个问题，欢迎提交 PR！
 ```
 
-### 其他标签
+## 处理重复 Issues
 
-- `🐛 Bug` - 已确认的 bug
-- `💡 Feature Request` - 功能请求
-- `unconfirmed` - 需要更多信息或验证
-- `improvement` - 改进建议
+对于明显的重复问题：
+1. 找到原始 issue
+2. 回复："Duplicate of #xxxx"
+3. 关闭 issue
 
-## 回复模板
+## 关闭 Issues（需谨慎！）
 
-### 1. Bug 报告
+**只有在以下情况才关闭：**
+1. Issue 是已有 issue 的**重复**
+2. 经过彻底调查后**确定不是 bug**
+3. 问题已**解决**并确认可用
 
-**信息不完整：**
-```
-感谢反馈！请提供一个最小化的 reproduction 链接（CodeSandbox 或 StackBlitz），以便我们复现和调查问题。
-```
-
-**完整且已确认：**
-```
-感谢详细的报告！我已确认这是一个 bug，我们会进行调查。
-```
-
-**不是 bug（使用问题）- 解释并礼貌关闭：**
+**关闭时保持礼貌：**
 ```
 感谢反馈！经过分析，这是一个使用问题而非 bug。
 
-[用代码示例解释正确用法]
+[解释解决方案]
 
 我将关闭此 issue。如果您仍有问题，欢迎继续讨论或重新打开。
 ```
 
-### 2. 功能请求
+**以下情况不要关闭：**
+- 不确定是否是 bug
+- 用户未确认解决方案有效
+- 可能需要进一步讨论
+- 是一个有效的功能请求（保持打开以便考虑）
 
-**现有方案可用：**
-```
-感谢您的建议！目前可以通过现有 API 实现这个功能：
+## 禁止承诺
 
-```jsx
-// 代码示例
+- **永远不要承诺具体的发布日期**
+- **永远不要承诺会实现某个新功能**
+- **永远不要说"我们会添加这个功能"**
+- 应该说：
+  - "这是一个合理的需求，我们会考虑在后续版本中支持。"
+  - "This is a reasonable feature request. We'll consider it for future releases."
+  - "欢迎社区为此功能贡献代码。"
+
+## 回复模板
+
+### Bug 报告 - 缺少重现链接
+
+```
+感谢反馈！请提供一个最小化的重现链接（CodeSandbox 或 StackBlitz），以便我们复现和调查问题。没有重现链接我们无法定位问题。
+
+您可以使用以下模板创建：
+- CodeSandbox: https://codesandbox.io/s/antd-reproduction-template
+- StackBlitz: https://stackblitz.com/edit/antd-reproduction
 ```
 
-这能满足您的需求吗？
+### Bug 报告 - 已确认
+
+```
+感谢详细的报告！我已确认这是一个 bug，我们会进行调查。
 ```
 
-**没有现有方案：**
-```
-感谢您的功能请求！请详细描述您的使用场景，这样我们可以更好地理解需求。
-```
+### 使用问题 - 有解决方案
 
-### 3. 使用问题
-
-**有现有 API：**
 ```
+感谢反馈！经过分析，这是一个使用问题而非 bug。
+
 您可以通过以下方式实现：
 
 ```jsx
@@ -184,18 +193,34 @@ I'll close this issue, but feel free to continue the discussion or reopen if nee
 ```
 
 参考文档：https://ant.design/components/xxx
+
+如有其他问题欢迎继续讨论。
 ```
 
-**需要 workaround：**
-```
-目前组件不支持直接实现这个功能，但可以通过以下方式变通实现：
+### 功能请求
 
-```jsx
-// 变通代码
 ```
+感谢您的功能请求！
+
+请详细描述您的使用场景，这样我们可以更好地理解需求：
+
+1. 您想解决什么问题？
+2. 当前 API 为什么无法满足需求？
+3. 您期望的 API 是什么样的？
 ```
 
-### 4. 重复 Issues
+### FAQ 问题
+
+```
+这是一个常见问题，请参考以下资源：
+
+- 文档：https://ant.design/components/xxx#faq
+- 相关 issue：#xxxx
+
+如果以上资源没有解决您的问题，请提供更多细节以便我们进一步帮助您。
+```
+
+### 重复 Issue
 
 ```
 Duplicate of #xxxx
@@ -211,9 +236,18 @@ Duplicate of #xxxx
 
 ## 语气和风格
 
-- 保持有帮助和专业
+- **保持友善、耐心和专业**，即使用户语气不太好
 - 尽可能提供代码示例
 - 相关时引用文档链接
 - 认可用户的反馈努力
 - 回复简洁但完整
-- 保持礼貌和友好，特别是关闭 issues 时
+- 对新人特别友好，鼓励社区参与
+
+## Issue 规范参考
+
+根据 Ant Design 的 issue 规范：
+- 所有 issue 应通过 http://new-issue.ant.design 创建
+- Bug 报告必须包含重现链接
+- 功能请求需要描述使用场景和期望的 API
+
+如果用户没有通过规范渠道创建 issue，但内容完整有效，无需强制关闭，可以正常处理。
