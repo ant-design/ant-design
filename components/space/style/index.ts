@@ -61,6 +61,9 @@ const genSpaceGapStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
       '&-gap-row-middle': {
         rowGap: token.spaceGapMiddleSize,
       },
+      '&-gap-row-medium': {
+        rowGap: token.spaceGapMiddleSize,
+      },
       '&-gap-row-large': {
         rowGap: token.spaceGapLargeSize,
       },
@@ -68,6 +71,9 @@ const genSpaceGapStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
         columnGap: token.spaceGapSmallSize,
       },
       '&-gap-col-middle': {
+        columnGap: token.spaceGapMiddleSize,
+      },
+      '&-gap-col-medium': {
         columnGap: token.spaceGapMiddleSize,
       },
       '&-gap-col-large': {

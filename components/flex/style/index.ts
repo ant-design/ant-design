@@ -62,6 +62,9 @@ const genFlexGapStyle: GenerateStyle<FlexToken, CSSObject> = (token) => {
       '&-gap-middle': {
         gap: token.flexGap,
       },
+      '&-gap-medium': {
+        gap: token.flexGap,
+      },
       '&-gap-large': {
         gap: token.flexGapLG,
       },
