@@ -95,4 +95,48 @@ describe('Transfer.Semantic', () => {
       expect(eleList).toHaveLength(structureInfo[1]);
     });
   });
+
+  it('semantic source and target sections', () => {
+    const mockData = Array.from({ length: 20 }).map((_, i) => ({
+      key: i,
+      title: `content ${i + 1}`,
+    }));
+
+    const classNames = {
+      sourceSection: 'custom-source-section',
+      targetSection: 'custom-target-section',
+    };
+    const semanticsStructure: Record<string, [selector: string, count: number]> = {
+      sourceSection: ['.ant-transfer-section', 1],
+      targetSection: ['.ant-transfer-section', 1],
+    };
+
+    const styles = {
+      sourceSection: {
+        backgroundColor: 'rgb(255, 0, 255)',
+      },
+      targetSection: {
+        backgroundColor: 'rgb(0, 255, 255)',
+      },
+    };
+
+    const { container } = render(
+      <Transfer
+        dataSource={mockData}
+        selectedKeys={[]}
+        targetKeys={[3, 9]}
+        render={(item) => item.title}
+        classNames={classNames}
+        styles={styles}
+      />,
+    );
+
+    Object.keys(classNames).forEach((key) => {
+      const eleList = container.querySelectorAll(`.${classNames[key as keyof typeof classNames]}`);
+      expect(eleList[0]).toHaveStyle(styles[key as keyof typeof styles]);
+
+      const structureInfo = semanticsStructure[key as keyof typeof semanticsStructure];
+      expect(eleList).toHaveLength(structureInfo[1]);
+    });
+  });
 });
