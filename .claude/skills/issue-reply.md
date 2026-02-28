@@ -20,7 +20,10 @@ description: Help maintainers reply to Ant Design GitHub issues following offici
 ## 语言政策
 
 - 使用与 issue 作者**相同的语言**回复
+- 检查 issue body 的语言，如果是英文则用英文，中文则用中文
 - **保持友善和耐心**，即使用户语气不太好
+
+**重要：** 即使 issue 通过 issue-helper 创建（有中文模板），如果用户的描述部分是英文，也应该用英文回复。
 
 ---
 
