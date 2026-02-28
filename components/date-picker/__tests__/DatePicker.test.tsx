@@ -13,6 +13,7 @@ import MockDate from 'mockdate';
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
 
@@ -491,13 +492,140 @@ describe('DatePicker', () => {
     expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeTruthy();
 
     rerender(<DatePicker suffixIcon={false} />);
-    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
+    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
 
     rerender(<DatePicker suffixIcon={null} />);
-    expect(container.querySelector('.ant-picker-suffix')!.children.length).toBeFalsy();
+    expect(container.querySelector('.ant-picker-suffix')).toBeFalsy();
 
     rerender(<DatePicker suffixIcon={'123'} />);
     expect(container.querySelector('.ant-picker-suffix')?.textContent).toBe('123');
     expect(container.children).toMatchSnapshot();
+  });
+
+  it('should support deep merge locale with partial fields', () => {
+    MockDate.set(dayjs('2018-10-19').valueOf());
+
+    const { container } = render(
+      <DatePicker
+        open
+        locale={{ lang: { shortWeekDays: ['一', '二', '三', '四', '五', '六', '日'] } } as any}
+      />,
+    );
+
+    expect(container.querySelector('.ant-picker-content thead')).toHaveTextContent(
+      '一二三四五六日',
+    );
+
+    expect(container.querySelector<HTMLInputElement>('input')).toHaveAttribute(
+      'placeholder',
+      'Select date',
+    );
+
+    MockDate.reset();
+  });
+
+  describe('suffixIcon', () => {
+    it('should support suffixIcon prop', () => {
+      const { container } = render(<DatePicker suffixIcon="foobar" />);
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should support suffixIcon prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <DatePicker />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('foobar');
+    });
+
+    it('should prefer suffixIcon prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider datePicker={{ suffixIcon: 'foobar' }}>
+          <DatePicker suffixIcon="bamboo" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+    });
+  });
+
+  describe('allowClear', () => {
+    it('should support allowClear prop', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(<DatePicker value={somePoint} allowClear={false} />);
+      expect(getClearButton()).toBeFalsy();
+
+      render(<DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />, {
+        container,
+      });
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should support allowClear prop in config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(
+        <ConfigProvider datePicker={{ allowClear: false }}>
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeFalsy();
+
+      render(
+        <ConfigProvider datePicker={{ allowClear: { clearIcon: <CloseCircleFilled /> } }}>
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+        { container },
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should prefer allowClear prop over config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <ConfigProvider datePicker={{ allowClear: false }}>
+          <DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+  });
+
+  describe('clearIcon', () => {
+    it('should support clearIcon prop', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <DatePicker
+          value={somePoint}
+          allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+        />,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+    it('should support clearIcon prop in config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <ConfigProvider
+          datePicker={{ allowClear: { clearIcon: <div data-testid="custom-clear" /> } }}
+        >
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+    it('should prefer clearIcon prop over config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(
+        <ConfigProvider
+          datePicker={{ allowClear: { clearIcon: <div data-testid="config-clear" /> } }}
+        >
+          <DatePicker
+            value={somePoint}
+            allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+          />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('[data-testid="custom-clear"]')).toBeTruthy();
+      expect(container.querySelector('[data-testid="config-clear"]')).toBeFalsy();
+    });
   });
 });

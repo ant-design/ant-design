@@ -518,9 +518,6 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           type="radio"
           value="default"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -540,9 +537,6 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           type="radio"
           value="middle"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -561,9 +555,6 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -1619,9 +1610,6 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           type="radio"
           value="default"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1641,9 +1629,6 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           type="radio"
           value="middle"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -1662,9 +1647,6 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2085,9 +2067,6 @@ Array [
           type="radio"
           value="horizontal"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2106,9 +2085,6 @@ Array [
           name="test-id"
           type="radio"
           value="vertical"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2318,7 +2294,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <div
-    class="ant-descriptions acss-nk32ej ant-descriptions-small ant-descriptions-bordered css-var-test-id"
+    class="ant-descriptions acss-ven0qr ant-descriptions-small ant-descriptions-bordered css-var-test-id"
   >
     <div
       class="ant-descriptions-header"
@@ -2408,7 +2384,7 @@ exports[`renders components/descriptions/demo/style-class.tsx extend context cor
     </div>
   </div>
   <div
-    class="ant-descriptions acss-nk32ej ant-descriptions-bordered css-var-test-id"
+    class="ant-descriptions acss-ven0qr ant-descriptions-bordered css-var-test-id"
     style="border-radius: 8px; border: 1px solid rgb(205, 193, 255);"
   >
     <div
@@ -2802,7 +2778,9 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                   class="css-var-test-id ant-table-css-var ant-table-wrapper"
                 >
                   <div
-                    class="ant-spin-nested-loading css-var-test-id"
+                    aria-busy="false"
+                    aria-live="polite"
+                    class="ant-spin css-var-test-id"
                   >
                     <div
                       class="ant-spin-container"

@@ -229,6 +229,34 @@ describe('ConfigProvider.Form', () => {
     });
   });
 
+  describe('form labelAlign', () => {
+    it('set labelAlign left', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form>
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeTruthy();
+    });
+
+    it('form labelAlign should override ConfigProvider labelAlign', () => {
+      const { container } = render(
+        <ConfigProvider form={{ labelAlign: 'left' }}>
+          <Form labelAlign="right">
+            <Form.Item label="姓名">
+              <input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-form-item-label-left')).toBeFalsy();
+    });
+  });
+
   describe('form disabled', () => {
     it('set Input enabled', () => {
       const { container } = render(

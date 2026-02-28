@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { removeCSS, updateCSS } from '@rc-component/util/lib/Dom/dynamicCSS';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 import useLocale from '../../../hooks/useLocale';
 
@@ -20,7 +20,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   container: css`
     position: fixed;
     inset-inline-start: 0;
@@ -79,8 +79,6 @@ const InfoNewVersion: React.FC = () => {
     document.body.removeChild(p);
     removeCSS(whereCls);
   }, []);
-
-  const { styles } = useStyle();
 
   if (supportWhere) {
     return null;

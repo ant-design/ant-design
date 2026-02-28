@@ -44,6 +44,8 @@ export interface RadioGroupContextProps {
   block?: boolean;
 }
 
+export type RadioSemanticName = keyof RadioSemanticClassNames & keyof RadioSemanticStyles;
+
 export type RadioSemanticClassNames = {
   root?: string;
   icon?: string;

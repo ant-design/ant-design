@@ -15,6 +15,7 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { SiderContextProps } from '../layout/Sider';
+import type { TooltipProps } from '../tooltip';
 import type { ItemType } from './interface';
 import type { MenuContextProps, MenuTheme } from './MenuContext';
 import MenuContext from './MenuContext';
@@ -34,7 +35,7 @@ const MENU_COMPONENTS: GetProp<RcMenuProps, '_internalComponents'> = {
   divider: Divider,
 };
 
-export type SemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
+export type MenuSemanticName = keyof MenuSemanticClassNames & keyof MenuSemanticStyles;
 
 export type MenuSemanticClassNames = {
   root?: string;
@@ -72,21 +73,24 @@ export type SubMenuSemanticStyles = {
   itemIcon?: React.CSSProperties;
 };
 
-export type PopupSemanticClassNames = {
+export type MenuPopupSemanticName = keyof MenuPopupSemanticClassNames &
+  keyof MenuPopupSemanticStyles;
+
+export type MenuPopupSemanticClassNames = {
   root?: string;
 };
 
-export type PopupSemanticStyles = {
+export type MenuPopupSemanticStyles = {
   root?: React.CSSProperties;
 };
 
 type MenuClassNamesSchemaType = MenuSemanticClassNames & {
-  popup?: PopupSemanticClassNames | string;
+  popup?: MenuPopupSemanticClassNames | string;
   subMenu?: SubMenuSemanticClassNames;
 };
 
 type MenuStylesSchemaType = MenuSemanticStyles & {
-  popup?: PopupSemanticStyles | React.CSSProperties;
+  popup?: MenuPopupSemanticStyles | React.CSSProperties;
   subMenu?: SubMenuSemanticStyles;
 };
 
@@ -105,11 +109,13 @@ export interface MenuProps
   > {
   theme?: MenuTheme;
   inlineIndent?: number;
+  tooltip?: false | TooltipProps;
 
   // >>>>> Private
   /**
    * @private Internal Usage. Not promise crash if used in production. Connect with chenshuai2144
    *   for removing.
+   * @deprecated Will be removed in next version. Use `tooltip={false}` instead.
    */
   _internalDisableMenuItemTitleTooltip?: boolean;
 
@@ -134,6 +140,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     theme = 'light',
     expandIcon,
     _internalDisableMenuItemTitleTooltip,
+    tooltip,
     inlineCollapsed,
     siderCollapsed,
     rootClassName,
@@ -264,6 +271,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       theme,
       mode: mergedMode,
       disableMenuItemTitleTooltip: _internalDisableMenuItemTitleTooltip,
+      tooltip,
       classNames: mergedClassNames as MenuContextProps['classNames'],
       styles: mergedStyles as MenuContextProps['styles'],
     }),
@@ -276,6 +284,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
       mergedMode,
       mergedClassNames,
       mergedStyles,
+      tooltip,
     ],
   );
 

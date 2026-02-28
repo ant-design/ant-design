@@ -6,6 +6,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import type { WaveProps } from '.';
+import { ConfigContext } from '../../config-provider';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import { TARGET_CLS } from './interface';
 import type { ShowWaveEffect } from './interface';
 import { getTargetWaveColor } from './util';
@@ -21,12 +23,18 @@ export interface WaveEffectProps {
   colorSource?: WaveProps['colorSource'];
 }
 
-const WaveEffect = (props: WaveEffectProps) => {
+const WaveEffect: React.FC<WaveEffectProps> = (props) => {
   const { className, target, component, colorSource } = props;
   const divRef = React.useRef<HTMLDivElement>(null);
 
+  const { getPrefixCls } = React.useContext(ConfigContext);
+
+  const rootPrefixCls = getPrefixCls();
+
+  const [varName] = genCssVar(rootPrefixCls, 'wave');
+
   // ===================== Effect =====================
-  const [color, setWaveColor] = React.useState<string | null>(null);
+  const [waveColor, setWaveColor] = React.useState<string | null>(null);
   const [borderRadius, setBorderRadius] = React.useState<number[]>([]);
   const [left, setLeft] = React.useState(0);
   const [top, setTop] = React.useState(0);
@@ -42,8 +50,8 @@ const WaveEffect = (props: WaveEffectProps) => {
     borderRadius: borderRadius.map((radius) => `${radius}px`).join(' '),
   };
 
-  if (color) {
-    waveStyle['--wave-color'] = color;
+  if (waveColor) {
+    waveStyle[varName('color')] = waveColor;
   }
 
   function syncPos() {

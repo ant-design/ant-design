@@ -4,9 +4,8 @@ export interface PanelArrowProps {
   prefixCls: string;
 }
 
-export default function PanelArrow(props: PanelArrowProps) {
+const PanelArrow: React.FC<PanelArrowProps> = (props) => {
   const { prefixCls } = props;
-
   return (
     <svg
       className={`${prefixCls}-panel-arrow`}
@@ -18,4 +17,6 @@ export default function PanelArrow(props: PanelArrowProps) {
       <path d="M 0 0 L 100 50 L 0 100" />
     </svg>
   );
-}
+};
+
+export default PanelArrow;

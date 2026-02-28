@@ -54,12 +54,21 @@ export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
+export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames &
+  keyof ColorPickerSemanticStyles;
+
 export type ColorPickerSemanticClassNames = {
   root?: string;
+  body?: string;
+  content?: string;
+  description?: string;
 };
 
 export type ColorPickerSemanticStyles = {
   root?: React.CSSProperties;
+  body?: React.CSSProperties;
+  content?: React.CSSProperties;
+  description?: React.CSSProperties;
 };
 
 export type ColorPickerClassNamesType = SemanticClassNamesType<
@@ -99,7 +108,7 @@ export type ColorPickerProps = Omit<
   defaultFormat?: ColorFormatType;
   allowClear?: boolean;
   presets?: PresetsItem[];
-  arrow?: boolean | { pointAtCenter: boolean };
+  arrow?: boolean | { pointAtCenter?: boolean };
   panelRender?: (
     panel: React.ReactNode,
     extra: { components: { Picker: React.FC; Presets: React.FC } },

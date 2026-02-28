@@ -1,15 +1,15 @@
 import React from 'react';
 import { Collapse, Flex } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 import type { CollapseProps } from '..';
 
-const useStyles = createStyles(() => ({
-  root: {
-    backgroundColor: '#fafafa',
-    border: '1px solid #e0e0e0',
-    borderRadius: 8,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+  `,
 }));
 
 const element = (
@@ -68,8 +68,6 @@ const stylesFn: CollapseProps['styles'] = ({ props }) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   const sharedProps: CollapseProps = { classNames, items };
 
   return (

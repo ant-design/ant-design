@@ -169,7 +169,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## FAQ
 
-### Why sometime search will show 2 same option when in `tags` mode? {#faq-tags-mode-duplicate}
+### Why sometimes search will show 2 same option when in `tags` mode? {#faq-tags-mode-duplicate}
 
 It's caused by option with different `label` and `value`. You can use `optionFilterProp="label"` to change filter logic instead.
 
@@ -196,7 +196,7 @@ Select will close when it lose focus. You can prevent event to handle this:
 />
 ```
 
-### Why sometime customize Option cause scroll break? {#faq-custom-option-scroll}
+### Why sometimes customize Option cause scroll break? {#faq-custom-option-scroll}
 
 Virtual scroll internal set item height as `24px`. You need to adjust `listItemHeight` when your option height is less and `listHeight` config list container height:
 

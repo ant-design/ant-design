@@ -113,7 +113,7 @@ interface SliderToken extends FullToken<'Slider'> {
 }
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
+const genBaseStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
   const {
     componentCls,
     antCls,
@@ -228,14 +228,16 @@ const genBaseStyle: GenerateStyle<SliderToken> = (token) => {
           outline: `0px solid transparent`,
           borderRadius: '50%',
           cursor: 'pointer',
-          transition: `
-            inset-inline-start ${motionDurationMid},
-            inset-block-start ${motionDurationMid},
-            width ${motionDurationMid},
-            height ${motionDurationMid},
-            box-shadow ${motionDurationMid},
-            outline ${motionDurationMid}
-          `,
+          transition: [
+            'inset-inline-start',
+            'inset-block-start',
+            'width',
+            'height',
+            'box-shadow',
+            'outline',
+          ]
+            .map((prop) => `${prop} ${motionDurationMid}`)
+            .join(', '),
         },
 
         '&:hover, &:active, &:focus': {
@@ -431,13 +433,11 @@ const genDirectionStyle = (token: SliderToken, horizontal: boolean): CSSObject =
   };
 };
 // ============================ Horizontal ============================
-const genHorizontalStyle: GenerateStyle<SliderToken> = (token) => {
+const genHorizontalStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
   const { componentCls, marginPartWithMark } = token;
-
   return {
     [`${componentCls}-horizontal`]: {
       ...genDirectionStyle(token, true),
-
       [`&${componentCls}-with-marks`]: {
         marginBottom: marginPartWithMark,
       },
@@ -446,9 +446,8 @@ const genHorizontalStyle: GenerateStyle<SliderToken> = (token) => {
 };
 
 // ============================= Vertical =============================
-const genVerticalStyle: GenerateStyle<SliderToken> = (token) => {
+const genVerticalStyle: GenerateStyle<SliderToken, CSSObject> = (token) => {
   const { componentCls } = token;
-
   return {
     [`${componentCls}-vertical`]: {
       ...genDirectionStyle(token, false),

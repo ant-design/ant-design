@@ -43,6 +43,8 @@ export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
 
+export type DropdownSemanticName = keyof DropdownSemanticClassNames & keyof DropdownSemanticStyles;
+
 export type DropdownSemanticClassNames = {
   root?: string;
   item?: string;

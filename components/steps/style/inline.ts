@@ -2,47 +2,47 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { StepsToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
-  const { componentCls, inlineDotSize } = token;
-  const containerPaddingTop = token.calc(token.paddingXS).add(token.lineWidth).equal();
+  const { componentCls, inlineDotSize, paddingXS, lineWidth, antCls, calc } = token;
+  const containerPaddingTop = calc(paddingXS).add(lineWidth).equal();
 
   const itemCls = `${componentCls}-item`;
 
+  const [varName, varRef] = genCssVar(antCls, 'cmp-steps');
+
   return {
     [`${componentCls}-inline`]: {
-      '--steps-items-offset': '0',
-      '--steps-item-wrapper-padding-top': containerPaddingTop,
+      [varName('items-offset')]: '0',
+      [varName('item-wrapper-padding-top')]: containerPaddingTop,
 
       display: 'inline-flex',
 
       '&:before': {
         content: '""',
-        flex: 'var(--steps-items-offset)',
+        flex: varRef('items-offset'),
       },
 
       [itemCls]: {
         // ========================= Variable =========================
         // Item
-        '--steps-title-vertical-row-gap': token.paddingXS,
+        [varName('title-vertical-row-gap')]: paddingXS,
 
         // Icon
-        '--steps-icon-size': inlineDotSize,
-        '--steps-icon-size-active': inlineDotSize,
-
+        [varName('icon-size')]: inlineDotSize,
+        [varName('icon-size-active')]: inlineDotSize,
         // Title
-        '--steps-title-font-size': token.fontSizeSM,
-        '--steps-title-line-height': token.lineHeightSM,
-        '--steps-item-title-color': token.colorTextSecondary,
-
-        '--steps-subtitle-font-size': token.fontSizeSM,
-        '--steps-subtitle-line-height': token.lineHeightSM,
-        '--steps-item-subtitle-color': token.colorTextQuaternary,
+        [varName('title-font-size')]: token.fontSizeSM,
+        [varName('title-line-height')]: token.lineHeightSM,
+        [varName('item-title-color')]: token.colorTextSecondary,
+        [varName('subtitle-font-size')]: token.fontSizeSM,
+        [varName('subtitle-line-height')]: token.lineHeightSM,
+        [varName('item-subtitle-color')]: token.colorTextQuaternary,
 
         // Rail
-        '--steps-rail-size': token.lineWidth,
-        '--steps-title-horizontal-rail-gap': '0px',
-
+        [varName('rail-size')]: token.lineWidth,
+        [varName('title-horizontal-rail-gap')]: '0px',
         // ========================== Styles ==========================
         flex: 1,
 
@@ -51,7 +51,7 @@ const genInlineStyle: GenerateStyle<StepsToken, CSSObject> = (token) => {
           marginInline: token.calc(token.marginXXS).div(2).equal(),
           borderRadius: token.borderRadiusSM,
           cursor: 'pointer',
-          transition: `background ${token.motionDurationMid}`,
+          transition: `background-color ${token.motionDurationMid}`,
           '&:hover': {
             background: token.controlItemBgHover,
           },

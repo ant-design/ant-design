@@ -597,26 +597,21 @@ Array [
     style="width: 100%;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-      >
-        <span>
-          Zhejiang / 
-        </span>
-        <span>
-          Hangzhou / 
-        </span>
-        <span>
-          West Lake (
-          <a>
-            752100
-          </a>
-          )
-        </span>
-      </div>
+      <span>
+        Zhejiang / 
+      </span>
+      <span>
+        Hangzhou / 
+      </span>
+      <span>
+        West Lake (
+        <a>
+          752100
+        </a>
+        )
+      </span>
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -692,7 +687,7 @@ Array [
         >
           <li
             aria-checked="false"
-            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
             data-path-key="zhejiang"
             role="menuitemcheckbox"
             title="Zhejiang"
@@ -760,6 +755,65 @@ Array [
                   />
                 </svg>
               </span>
+            </div>
+          </li>
+        </ul>
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+            data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+            role="menuitemcheckbox"
+            title="Hangzhou"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Hangzhou (hangzhou)
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="true"
+            class="ant-cascader-menu-item ant-cascader-menu-item-active"
+            data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+            role="menuitemcheckbox"
+            title="West Lake"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              West Lake (xihu)
             </div>
           </li>
         </ul>
@@ -876,15 +930,10 @@ Array [
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="Zhejiang / Hangzhou / West Lake"
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-        title="Zhejiang / Hangzhou / West Lake"
-      >
-        Zhejiang / Hangzhou / West Lake
-      </div>
+      Zhejiang / Hangzhou / West Lake
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -960,7 +1009,7 @@ Array [
         >
           <li
             aria-checked="false"
-            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
             data-path-key="zhejiang"
             role="menuitemcheckbox"
             title="Zhejiang"
@@ -1028,6 +1077,65 @@ Array [
                   />
                 </svg>
               </span>
+            </div>
+          </li>
+        </ul>
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+            data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+            role="menuitemcheckbox"
+            title="Hangzhou"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Hangzhou
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="true"
+            class="ant-cascader-menu-item ant-cascader-menu-item-active"
+            data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+            role="menuitemcheckbox"
+            title="West Lake"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              West Lake
             </div>
           </li>
         </ul>
@@ -2025,10 +2133,10 @@ exports[`renders components/cascader/demo/panel.tsx extend context correctly 1`]
               stroke="#d9d9d9"
             >
               <path
-                d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
               />
               <path
-                d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                 fill="#fafafa"
               />
             </g>
@@ -2066,9 +2174,6 @@ Array [
           type="radio"
           value="topLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2087,9 +2192,6 @@ Array [
           name="test-id"
           type="radio"
           value="topRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -2110,9 +2212,6 @@ Array [
           type="radio"
           value="bottomLeft"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -2131,9 +2230,6 @@ Array [
           name="test-id"
           type="radio"
           value="bottomRight"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -3499,10 +3595,10 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
                           stroke="#d9d9d9"
                         >
                           <path
-                            d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                            d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                           />
                           <path
-                            d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                            d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                             fill="#fafafa"
                           />
                         </g>
@@ -3638,10 +3734,10 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 1`
                           stroke="#d9d9d9"
                         >
                           <path
-                            d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                            d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                           />
                           <path
-                            d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                            d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                             fill="#fafafa"
                           />
                         </g>
@@ -4740,10 +4836,10 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
                         stroke="#d9d9d9"
                       >
                         <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                          d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                         />
                         <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                           fill="#fafafa"
                         />
                       </g>
@@ -4864,10 +4960,10 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
                         stroke="#d9d9d9"
                       >
                         <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                          d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                         />
                         <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                           fill="#fafafa"
                         />
                       </g>
@@ -4988,10 +5084,10 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
                         stroke="#d9d9d9"
                       >
                         <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                          d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                         />
                         <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                           fill="#fafafa"
                         />
                       </g>
@@ -5112,10 +5208,10 @@ exports[`renders components/cascader/demo/variant.tsx extend context correctly 1
                         stroke="#d9d9d9"
                       >
                         <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                          d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                         />
                         <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                           fill="#fafafa"
                         />
                       </g>

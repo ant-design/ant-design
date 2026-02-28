@@ -14,16 +14,21 @@ import useSize from '../config-provider/hooks/useSize';
 import useStyle from './style';
 
 export type SwitchSize = 'small' | 'default';
+
 export type { SwitchChangeEventHandler, SwitchClickEventHandler };
+
+export type SwitchSemanticName = keyof SwitchSemanticClassNames & keyof SwitchSemanticStyles;
 
 export type SwitchSemanticClassNames = {
   root?: string;
   content?: string;
+  indicator?: string;
 };
 
 export type SwitchSemanticStyles = {
   root?: React.CSSProperties;
   content?: React.CSSProperties;
+  indicator?: React.CSSProperties;
 };
 
 export type SwitchClassNamesType = SemanticClassNamesType<SwitchProps, SwitchSemanticClassNames>;
@@ -101,12 +106,6 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
 
   const prefixCls = getPrefixCls('switch', customizePrefixCls);
 
-  const loadingIcon = (
-    <div className={`${prefixCls}-handle`}>
-      {loading && <LoadingOutlined className={`${prefixCls}-loading-icon`} />}
-    </div>
-  );
-
   // Style
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
@@ -125,6 +124,15 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
   >([contextClassNames, classNames], [contextStyles, styles], {
     props: mergedProps,
   });
+
+  const loadingIcon = (
+    <div
+      className={clsx(`${prefixCls}-handle`, mergedClassNames.indicator)}
+      style={mergedStyles.indicator}
+    >
+      {loading && <LoadingOutlined className={`${prefixCls}-loading-icon`} />}
+    </div>
+  );
 
   const classes = clsx(
     contextClassName,

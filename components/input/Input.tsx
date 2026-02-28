@@ -30,6 +30,8 @@ export type { InputFocusOptions };
 export type { InputRef };
 export { triggerFocus };
 
+export type InputSemanticName = keyof InputSemanticClassNames & keyof InputSemanticStyles;
+
 export type InputSemanticClassNames = {
   root?: string;
   prefix?: string;

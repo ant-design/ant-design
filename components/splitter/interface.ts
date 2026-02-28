@@ -1,53 +1,38 @@
-import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { ShowCollapsibleIconMode } from './SplitBar';
 
-export type SplitterSemanticName = keyof SplitterSemanticClassNames & keyof SplitterSemanticStyles;
-
-export type SplitterSemanticClassNames = {
-  root?: string;
-  panel?: string;
+export type SplitterSemanticType = {
+  classNames?: {
+    root?: string;
+    panel?: string;
+    dragger?: string | { default?: string; active?: string };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    panel?: React.CSSProperties;
+    dragger?: { default?: React.CSSProperties; active?: React.CSSProperties };
+  };
 };
 
-export type SplitterSemanticStyles = {
-  root?: React.CSSProperties;
-  panel?: React.CSSProperties;
-};
-
-export type DraggerSemantic = 'default' | 'active';
-
-export type DraggerSemanticClassNames = {
-  default?: string;
-  active?: string;
-};
-
-export type DraggerSemanticStyles = {
-  default?: React.CSSProperties;
-  active?: React.CSSProperties;
-};
-
-export interface SplitterSemanticDraggerClassNames {
-  default?: string;
-  active?: string;
-}
-
-export type SplitterClassNamesType = SemanticClassNamesType<
-  SplitterProps,
-  SplitterSemanticClassNames,
-  { dragger?: string | DraggerSemanticClassNames }
->;
-
-export type SplitterStylesType = SemanticStylesType<
-  SplitterProps,
-  SplitterSemanticStyles,
-  { dragger?: React.CSSProperties | DraggerSemanticStyles }
->;
+export type SplitterSemanticAllType = GenerateSemantic<SplitterSemanticType, SplitterProps>;
 
 export interface SplitterProps {
   prefixCls?: string;
   className?: string;
-  classNames?: SplitterClassNamesType;
+  classNames?: SplitterSemanticAllType['classNamesAndFn'];
+  /**
+   * Collapse configuration. Set `motion: true` to enable collapse animation (duration follows Component Token).
+   */
+  collapsible?: {
+    motion?: boolean;
+    icon?: {
+      start?: React.ReactNode;
+      end?: React.ReactNode;
+    };
+  };
   style?: React.CSSProperties;
-  styles?: SplitterStylesType;
+  styles?: SplitterSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   /**
    * @deprecated please use `orientation`
@@ -57,10 +42,14 @@ export interface SplitterProps {
   orientation?: Orientation;
   vertical?: boolean;
   draggerIcon?: React.ReactNode;
+  /**
+   * @deprecated please use `collapsible.icon`
+   */
   collapsibleIcon?: {
     start?: React.ReactNode;
     end?: React.ReactNode;
   };
+  onDraggerDoubleClick?: (index: number) => void;
   onResizeStart?: (sizes: number[]) => void;
   onResize?: (sizes: number[]) => void;
   onResizeEnd?: (sizes: number[]) => void;
@@ -86,6 +75,7 @@ export interface PanelProps {
 export interface InternalPanelProps extends PanelProps {
   className?: string;
   prefixCls?: string;
+  supportMotion?: boolean;
 }
 
 export interface UseResizeProps extends Pick<SplitterProps, 'onResize'> {

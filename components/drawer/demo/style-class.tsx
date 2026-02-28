@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Flex } from 'antd';
 import type { DrawerProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
 const lineStyle: React.CSSProperties = {
   lineHeight: '28px',
@@ -22,11 +22,11 @@ const sharedContent = (
   </>
 );
 
-const useStyles = createStyles(() => ({
-  container: {
-    borderRadius: 10,
-    padding: 10,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  container: css`
+    border-radius: 10px;
+    padding: 10px;
+  `,
 }));
 
 const styles: DrawerProps['styles'] = {
@@ -54,9 +54,8 @@ const stylesFn: DrawerProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const [drawerOpen, setOpen] = useState(false);
-  const [drawerFnOpen, setFnOpen] = useState(false);
-  const { styles: classNames } = useStyles();
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [drawerFnOpen, setDrawerFnOpen] = useState(false);
 
   const sharedProps: DrawerProps = {
     classNames,
@@ -66,7 +65,7 @@ const App: React.FC = () => {
   const footer: React.ReactNode = (
     <Flex gap="middle" justify="flex-end">
       <Button
-        onClick={() => setFnOpen(false)}
+        onClick={() => setDrawerFnOpen(false)}
         styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
       >
         Cancel
@@ -74,7 +73,7 @@ const App: React.FC = () => {
       <Button
         type="primary"
         styles={{ root: { backgroundColor: '#171717' } }}
-        onClick={() => setOpen(true)}
+        onClick={() => setDrawerOpen(true)}
       >
         Submit
       </Button>
@@ -83,8 +82,8 @@ const App: React.FC = () => {
 
   return (
     <Flex gap="middle">
-      <Button onClick={() => setOpen(true)}>Open Style Drawer</Button>
-      <Button type="primary" onClick={() => setFnOpen(true)}>
+      <Button onClick={() => setDrawerOpen(true)}>Open Style Drawer</Button>
+      <Button type="primary" onClick={() => setDrawerFnOpen(true)}>
         Open Function Drawer
       </Button>
       <Drawer
@@ -93,7 +92,7 @@ const App: React.FC = () => {
         title="Custom Style Drawer"
         styles={styles}
         open={drawerOpen}
-        onClose={() => setOpen(false)}
+        onClose={() => setDrawerOpen(false)}
       >
         {sharedContent}
       </Drawer>
@@ -104,7 +103,7 @@ const App: React.FC = () => {
         styles={stylesFn}
         mask={{ enabled: true, blur: true }}
         open={drawerFnOpen}
-        onClose={() => setFnOpen(false)}
+        onClose={() => setDrawerFnOpen(false)}
       >
         {sharedContent}
       </Drawer>

@@ -5,7 +5,7 @@ import { FastColor } from '@ant-design/fast-color';
 import type { GenerateStyle } from '../../theme/internal';
 import type { PickerToken, SharedPickerToken } from './token';
 
-const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
+const genPickerCellInnerStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
     pickerCellCls,
     pickerCellInnerCls,
@@ -45,7 +45,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
       height: cellHeight,
       lineHeight: unit(cellHeight),
       borderRadius: borderRadiusSM,
-      transition: `background ${motionDurationMid}`,
+      transition: `background-color ${motionDurationMid}`,
     },
 
     // >>> Hover
@@ -141,7 +141,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
   };
 };
 
-export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
+export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     pickerCellCls,
@@ -446,7 +446,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
       '&-week-panel-row': {
         td: {
           '&:before': {
-            transition: `background ${motionDurationMid}`,
+            transition: `background-color ${motionDurationMid}`,
           },
 
           '&:first-child:before': {
@@ -542,7 +542,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           overflowY: 'hidden',
           textAlign: 'start',
           listStyle: 'none',
-          transition: `background ${motionDurationMid}`,
+          transition: `background-color ${motionDurationMid}`,
           overflowX: 'hidden',
 
           '&::-webkit-scrollbar': {
@@ -597,7 +597,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
                 lineHeight: unit(timeCellHeight),
                 borderRadius: borderRadiusSM,
                 cursor: 'pointer',
-                transition: `background ${motionDurationMid}`,
+                transition: `background-color ${motionDurationMid}`,
 
                 '&:hover': {
                   background: cellHoverBg,
@@ -625,7 +625,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
   };
 };
 
-const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
+const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     textHeight,

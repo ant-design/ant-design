@@ -1,11 +1,12 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import type { UploadToken } from '.';
 import { clearFix, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
-const genListStyle: GenerateStyle<UploadToken> = (token) => {
-  const { componentCls, iconCls, fontSize, lineHeight, calc } = token;
+const genListStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
+  const { componentCls, iconCls, fontSize, lineHeight, motionDurationSlow, calc } = token;
   const itemCls = `${componentCls}-list-item`;
   const actionsCls = `${itemCls}-actions`;
   const actionCls = `${itemCls}-action`;
@@ -23,7 +24,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
           fontSize,
           display: 'flex',
           alignItems: 'center',
-          transition: `background-color ${token.motionDurationSlow}`,
+          transition: `background-color ${motionDurationSlow}`,
           borderRadius: token.borderRadiusSM,
 
           '&:hover': {
@@ -35,7 +36,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
             padding: `0 ${unit(token.paddingXS)}`,
             lineHeight,
             flex: 'auto',
-            transition: `all ${token.motionDurationSlow}`,
+            transition: `all ${motionDurationSlow}`,
           },
 
           [actionsCls]: {
@@ -47,7 +48,7 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
 
             [iconCls]: {
               color: token.actionsColor,
-              transition: `all ${token.motionDurationSlow}`,
+              transition: `all ${motionDurationSlow}`,
             },
 
             [`
@@ -100,7 +101,9 @@ const genListStyle: GenerateStyle<UploadToken> = (token) => {
         },
 
         [`${componentCls}-list-item-container`]: {
-          transition: `opacity ${token.motionDurationSlow}, height ${token.motionDurationSlow}`,
+          transition: ['opacity', 'height']
+            .map((prop) => `${prop} ${motionDurationSlow}`)
+            .join(', '),
 
           // For smooth removing animation
           '&::before': {

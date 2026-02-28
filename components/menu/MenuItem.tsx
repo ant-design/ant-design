@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
-import type { TooltipProps } from '../tooltip';
+import type { TooltipProps, TooltipSemanticClassNames } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
@@ -41,6 +41,7 @@ const MenuItem: GenericComponent = (props) => {
     firstLevel,
     direction,
     disableMenuItemTitleTooltip,
+    tooltip,
     inlineCollapsed: isInlineCollapsed,
     styles,
     classNames,
@@ -81,7 +82,14 @@ const MenuItem: GenericComponent = (props) => {
     tooltipTitle = '';
   }
 
-  const tooltipProps: TooltipProps = { title: tooltipTitle };
+  const tooltipConfig = tooltip === false ? undefined : tooltip;
+  const mergedTooltipTitle =
+    tooltipConfig && tooltipConfig.title !== undefined ? tooltipConfig.title : tooltipTitle;
+
+  const tooltipProps: TooltipProps = {
+    ...(tooltipConfig ?? null),
+    title: mergedTooltipTitle,
+  };
 
   if (!siderCollapsed && !isInlineCollapsed) {
     tooltipProps.title = null;
@@ -124,12 +132,38 @@ const MenuItem: GenericComponent = (props) => {
     </Item>
   );
 
-  if (!disableMenuItemTitleTooltip) {
+  if (!disableMenuItemTitleTooltip && tooltip !== false) {
+    const mergedTooltipPlacement =
+      tooltipConfig && tooltipConfig.placement
+        ? tooltipConfig.placement
+        : direction === 'rtl'
+          ? 'left'
+          : 'right';
+
+    const baseTooltipClassName = `${prefixCls}-inline-collapsed-tooltip`;
+
+    const mergeTooltipRootClassName = (classNames?: TooltipSemanticClassNames) => ({
+      ...classNames,
+      root: clsx(baseTooltipClassName, classNames?.root),
+    });
+
+    const mergedTooltipClassNames =
+      tooltipConfig && typeof tooltipConfig.classNames === 'function'
+        ? (info: { props: TooltipProps }) => {
+            const resolvedClassNames = (
+              tooltipConfig.classNames as (info: {
+                props: TooltipProps;
+              }) => TooltipSemanticClassNames
+            )(info);
+            return mergeTooltipRootClassName(resolvedClassNames);
+          }
+        : mergeTooltipRootClassName(tooltipConfig?.classNames as TooltipSemanticClassNames);
+
     returnNode = (
       <Tooltip
         {...tooltipProps}
-        placement={direction === 'rtl' ? 'left' : 'right'}
-        classNames={{ root: `${prefixCls}-inline-collapsed-tooltip` }}
+        placement={mergedTooltipPlacement}
+        classNames={mergedTooltipClassNames}
       >
         {returnNode}
       </Tooltip>

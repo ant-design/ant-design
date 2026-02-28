@@ -17,6 +17,9 @@ import type { InputProps, InputRef } from './Input';
 import Input from './Input';
 import useStyle from './style/search';
 
+export type InputSearchSemanticName = keyof InputSearchSemanticClassNames &
+  keyof InputSearchSemanticStyles;
+
 export type InputSearchSemanticClassNames = {
   root?: string;
   input?: string;

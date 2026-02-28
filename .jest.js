@@ -11,6 +11,7 @@ const compileModules = [
   'parse5',
   '@exodus',
   'jsdom',
+  '@csstools',
 ];
 
 // cnpm use `_` as prefix
@@ -34,6 +35,10 @@ function getTestRegex(libDir) {
   return '.*\\.test\\.(j|t)sx?$';
 }
 
+const shouldIgnoreSemantic =
+  ['dist', 'lib', 'es', 'dist-min'].includes(process.env.LIB_DIR) ||
+  ['1', 'true'].includes(process.env.SKIP_SEMANTIC);
+
 module.exports = {
   verbose: true,
   testEnvironment: 'jsdom',
@@ -48,10 +53,17 @@ module.exports = {
     '^antd/lib/(.*)$': '<rootDir>/components/$1',
     '^antd/locale/(.*)$': '<rootDir>/components/locale/$1',
   },
-  testPathIgnorePatterns: ['/node_modules/', 'dekko', 'node', 'image.test.js', 'image.test.ts'],
+  testPathIgnorePatterns: [
+    '/node_modules/',
+    'dekko',
+    'node',
+    'image.test.js',
+    'image.test.ts',
+    ...(shouldIgnoreSemantic ? ['demo-semantic.test'] : []),
+  ],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+    '\\.(m?)js(m)?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },
@@ -64,6 +76,7 @@ module.exports = {
     '!components/*/__tests__/type.test.tsx',
     '!components/**/*/interface.{ts,tsx}',
     '!components/*/__tests__/image.test.{ts,tsx}',
+    '!components/*/__tests__/demo-semantic.test.tsx',
     '!components/__tests__/node.test.tsx',
     '!components/*/demo/*.tsx',
     '!components/*/design/**',

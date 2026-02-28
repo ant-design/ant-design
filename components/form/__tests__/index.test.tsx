@@ -1,6 +1,7 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
+import { responsiveArrayReversed } from 'antd/es/_util/responsiveObserver';
 import type { ColProps } from 'antd/es/grid';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
@@ -23,7 +24,9 @@ import type { InputProps } from '../../input';
 import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Popover from '../../popover';
 import Radio from '../../radio';
+import Segmented from '../../segmented';
 import Select from '../../select';
 import Slider from '../../slider';
 import Switch from '../../switch';
@@ -826,13 +829,13 @@ describe('Form', () => {
   // https://github.com/ant-design/ant-design/issues/20813
   it('should update help directly when provided', async () => {
     const App: React.FC = () => {
-      const [message, updateMessage] = React.useState('');
+      const [message, setMessage] = React.useState('');
       return (
         <Form>
           <Form.Item label="hello" help={message}>
             <Input />
           </Form.Item>
-          <Button onClick={() => updateMessage('bamboo')} />
+          <Button onClick={() => setMessage('bamboo')} />
         </Form>
       );
     };
@@ -1377,6 +1380,18 @@ describe('Form', () => {
     expect(container.firstChild).toMatchSnapshot();
   });
 
+  // https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096
+  it('Segmented should not be disabled even Form is disabled', () => {
+    const { container } = render(
+      <Form disabled>
+        <Form.Item name="segmented">
+          <Segmented options={['Daily', 'Weekly', 'Monthly']} />
+        </Form.Item>
+      </Form>,
+    );
+    expect(container.querySelector('.ant-segmented')).not.toHaveClass('ant-segmented-disabled');
+  });
+
   it('form.item should support layout', () => {
     const App: React.FC = () => (
       <Form layout="horizontal">
@@ -1428,7 +1443,7 @@ describe('Form', () => {
     expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
 
     // more size
-    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    const list = responsiveArrayReversed;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
@@ -1477,7 +1492,7 @@ describe('Form', () => {
     expect(twoItem?.className.includes('offset')).toBeFalsy();
 
     // more size
-    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    const list = responsiveArrayReversed;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
@@ -1601,7 +1616,7 @@ describe('Form', () => {
       expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
     });
 
-    it('config tooltip should show when hover on icon', async () => {
+    it('TooltipProps', async () => {
       const { container } = render(
         <Form>
           <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
@@ -1612,6 +1627,24 @@ describe('Form', () => {
 
       fireEvent.mouseEnter(container.querySelector('.anticon-question-circle')!);
       fireEvent.click(container.querySelector('.anticon-question-circle')!);
+      await waitFakeTimer();
+
+      expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
+    });
+
+    it('ConfigProvider', async () => {
+      const { container } = render(
+        <ConfigProvider form={{ tooltip: { icon: <span className="foobar">Foobar</span> } }}>
+          <Form>
+            <Form.Item label="light" tooltip={{ title: 'Bamboo' }}>
+              <Input />
+            </Form.Item>
+          </Form>
+        </ConfigProvider>,
+      );
+
+      fireEvent.mouseEnter(container.querySelector('.foobar')!);
+      fireEvent.click(container.querySelector('.foobar')!);
       await waitFakeTimer();
 
       expect(container.querySelector('.ant-tooltip-container')).toHaveTextContent('Bamboo');
@@ -1850,6 +1883,11 @@ describe('Form', () => {
             <Select className="drawer-select" />
           </Drawer>
         </Form.Item>
+        <Form.Item validateStatus="error">
+          <Popover open content={<Input className="custom-popup-input" />}>
+            <span>issue#56615</span>
+          </Popover>
+        </Form.Item>
       </Form>
     );
     const { container } = render(<Demo />, { container: document.body });
@@ -1857,6 +1895,11 @@ describe('Form', () => {
     expect(container.querySelector('.modal-select')).not.toHaveClass('status-error');
     expect(container.querySelector('.drawer-select')).not.toHaveClass('in-form-item');
     expect(container.querySelector('.drawer-select')).not.toHaveClass('status-error');
+
+    // https://github.com/ant-design/ant-design/issues/56615
+    expect(container.querySelector('.custom-popup-input')).not.toHaveClass(
+      'ant-input-status-error',
+    );
   });
 
   // eslint-disable-next-line jest/no-disabled-tests

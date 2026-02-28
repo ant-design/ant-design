@@ -21,6 +21,7 @@ import type { ColProps } from '../grid/col';
 import type { FormContextProps } from './context';
 import { FormContext, FormProvider, NoFormStyle, VariantContext } from './context';
 import type { FeedbackIcons } from './FormItem';
+import type { FormTooltipProps } from './FormItemLabel';
 import useForm from './hooks/useForm';
 import type { FormInstance } from './hooks/useForm';
 import useFormWarning from './hooks/useFormWarning';
@@ -74,6 +75,7 @@ export interface FormProps<Values = any> extends Omit<RcFormProps<Values>, 'form
   requiredMark?: RequiredMark;
   rootClassName?: string;
   variant?: Variant;
+  tooltip?: FormTooltipProps;
 }
 
 const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props, ref) => {
@@ -88,6 +90,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     style: contextStyle,
     styles: contextStyles,
     classNames: contextClassNames,
+    tooltip: contextTooltip,
+    labelAlign: contextLabelAlign,
   } = useComponentConfig('form');
 
   const {
@@ -112,6 +116,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     variant,
     classNames,
     styles,
+    tooltip,
     ...restFormProps
   } = props;
 
@@ -139,6 +144,10 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   }, [requiredMark, contextRequiredMark]);
 
   const mergedColon = colon ?? contextColon;
+
+  const mergedLabelAlign = labelAlign ?? contextLabelAlign;
+
+  const mergedTooltip = { ...contextTooltip, ...tooltip };
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
 
@@ -188,7 +197,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const formContextValue = React.useMemo<FormContextProps>(
     () => ({
       name,
-      labelAlign,
+      labelAlign: mergedLabelAlign,
       labelCol,
       labelWrap,
       wrapperCol,
@@ -198,12 +207,13 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       itemRef: __INTERNAL__.itemRef,
       form: wrapForm,
       feedbackIcons,
+      tooltip: mergedTooltip,
       classNames: mergedClassNames,
       styles: mergedStyles,
     }),
     [
       name,
-      labelAlign,
+      mergedLabelAlign,
       labelCol,
       wrapperCol,
       layout,
@@ -213,6 +223,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
       feedbackIcons,
       mergedClassNames,
       mergedStyles,
+      mergedTooltip,
     ],
   );
 

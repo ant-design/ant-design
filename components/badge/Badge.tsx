@@ -15,6 +15,8 @@ import type { PresetColorKey } from '../theme/internal';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
 
+export type BadgeSemanticName = keyof BadgeSemanticClassNames & keyof BadgeSemanticStyles;
+
 export type BadgeSemanticClassNames = {
   root?: string;
   indicator?: string;
@@ -220,6 +222,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
     const statusTextColor = mergedStyle.color;
     return (
       <span
+        ref={ref}
         {...restProps}
         className={badgeClassName}
         style={{ ...mergedStyles.root, ...mergedStyle }}

@@ -1777,15 +1777,10 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       style="width: 150px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1857,6 +1852,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Lucy"
                 >
@@ -1891,7 +1887,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
   <div
     aria-label="segmented control"
     aria-orientation="horizontal"
-    class="ant-segmented acss-1o3848f css-var-test-id"
+    class="ant-segmented acss-1oxwpj8 css-var-test-id"
     role="radiogroup"
     style="padding: 4px; width: 260px;"
     tabindex="0"
@@ -2022,7 +2018,7 @@ exports[`renders components/segmented/demo/style-class.tsx extend context correc
   <div
     aria-label="segmented control"
     aria-orientation="vertical"
-    class="ant-segmented ant-segmented-vertical acss-1o3848f ant-segmented-vertical css-var-test-id"
+    class="ant-segmented ant-segmented-vertical acss-1oxwpj8 ant-segmented-vertical css-var-test-id"
     role="radiogroup"
     style="border: 1px solid rgb(119, 190, 240); padding: 4px; width: 100px;"
     tabindex="0"

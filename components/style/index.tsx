@@ -1,7 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
-import type { AliasToken } from '../theme/internal';
+import type { AliasToken, GenerateStyle } from '../theme/internal';
 
 export const textEllipsis: CSSObject = {
   overflow: 'hidden',
@@ -60,7 +60,7 @@ export const clearFix = (): CSSObject => ({
   },
 });
 
-export const genLinkStyle = (token: AliasToken): CSSObject => ({
+export const genLinkStyle: GenerateStyle<AliasToken, CSSObject> = (token) => ({
   a: {
     color: token.colorLink,
     textDecoration: token.linkDecoration,
@@ -135,7 +135,7 @@ export const genCommonStyle = (
 export const genFocusOutline = (token: AliasToken, offset?: number): CSSObject => ({
   outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
   outlineOffset: offset ?? 1,
-  transition: 'outline-offset 0s, outline 0s',
+  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
 });
 
 export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => ({
@@ -151,7 +151,7 @@ export const genIconStyle = (iconPrefixCls: string): CSSObject => ({
   },
 });
 
-export const operationUnit = (token: AliasToken): CSSObject => ({
+export const operationUnit: GenerateStyle<AliasToken, CSSObject> = (token) => ({
   // FIXME: This use link but is a operation unit. Seems should be a colorPrimary.
   // And Typography use this to generate link style which should not do this.
   color: token.colorLink,

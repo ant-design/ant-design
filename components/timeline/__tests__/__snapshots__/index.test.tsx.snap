@@ -3,7 +3,7 @@
 exports[`TimeLine rtl render component should be rendered correctly in RTL direction 1`] = `
 <ol
   class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-steps-rtl ant-timeline css-var-root ant-timeline-rtl css-var-root"
-  style="--steps-items-offset: 0;"
+  style="--ant-cmp-steps-items-offset: 0;"
 />
 `;
 

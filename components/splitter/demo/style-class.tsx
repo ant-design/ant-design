@@ -1,7 +1,7 @@
 import React from 'react';
 import { Flex, Splitter, Typography } from 'antd';
-import type { SplitterProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, SplitterProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
 const Desc: React.FC<Readonly<{ text?: string | number; style?: React.CSSProperties }>> = (
   props,
@@ -15,7 +15,7 @@ const Desc: React.FC<Readonly<{ text?: string | number; style?: React.CSSPropert
   );
 };
 
-const useStyle = createStyles(({ css, cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   boxShadow: css`
     box-shadow: ${cssVar.boxShadowSecondary};
   `,
@@ -23,10 +23,13 @@ const useStyle = createStyles(({ css, cssVar }) => ({
 
 const stylesObject: SplitterProps['styles'] = {
   root: { backgroundColor: '#fffbe6' },
-  dragger: { backgroundColor: 'rgba(194,223,252,0.4)' },
+  // dragger: { backgroundColor: 'rgba(194,223,252,0.4)' },
+  dragger: { default: { backgroundColor: 'rgba(194,223,252,0.4)' } },
 };
 
-const stylesFn: SplitterProps['styles'] = ({ props }) => {
+const stylesFn: SplitterProps['styles'] = ({
+  props,
+}): GetProp<SplitterProps, 'styles', 'Return'> => {
   if (props.orientation === 'horizontal') {
     return {
       root: {
@@ -34,14 +37,12 @@ const stylesFn: SplitterProps['styles'] = ({ props }) => {
         borderStyle: 'dashed',
         marginBottom: 10,
       },
-    } satisfies SplitterProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-
   const splitSharedProps: SplitterProps = {
     style: { height: 200 },
     classNames: { root: styles.boxShadow },

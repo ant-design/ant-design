@@ -12,7 +12,8 @@ import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
-export type SemanticName = keyof StatisticSemanticClassNames & keyof StatisticSemanticStyles;
+export type StatisticSemanticName = keyof StatisticSemanticClassNames &
+  keyof StatisticSemanticStyles;
 
 export type StatisticSemanticClassNames = {
   root?: string;

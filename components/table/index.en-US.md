@@ -393,7 +393,7 @@ Table can not tell what state used in `columns.render`, so it always need fully 
 
 ### How to handle fixed column display over the mask layout? {#faq-fixed-column-zindex}
 
-Fixed column use `z-index` to make it over other columns. You will find sometime fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.
+Fixed column use `z-index` to make it over other columns. You will find sometimes fixed columns also over your mask layout. You can set `z-index` on your mask layout to resolve.
 
 ### How to custom render Table Checkbox（For example, adding Tooltip）? {#faq-custom-checkbox-render}
 

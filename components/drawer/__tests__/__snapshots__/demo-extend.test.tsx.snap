@@ -15,7 +15,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -88,205 +88,6 @@ Array [
 
 exports[`renders components/drawer/demo/basic-right.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/drawer/demo/classNames.tsx extend context correctly 1`] = `
-Array [
-  <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
-  >
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        type="button"
-      >
-        <span>
-          Open
-        </span>
-      </button>
-    </div>
-    <div
-      class="ant-space-item"
-    >
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        type="button"
-      >
-        <span>
-          ConfigProvider
-        </span>
-      </button>
-    </div>
-  </div>,
-  <div
-    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
-    tabindex="-1"
-  >
-    <div
-      class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
-    />
-    <div
-      class="ant-drawer-content-wrapper"
-      style="width: 378px;"
-    >
-      <div
-        aria-labelledby="test-id"
-        aria-modal="true"
-        class="ant-drawer-section acss-10412ne"
-        role="dialog"
-        style="box-shadow: -10px 0 10px #666;"
-      >
-        <div
-          class="ant-drawer-header acss-1l0wu1y"
-          style="border-bottom: 1px solid rgb(22, 119, 255);"
-        >
-          <div
-            class="ant-drawer-header-title"
-          >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              type="button"
-            >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-            <div
-              class="ant-drawer-title"
-              id="test-id"
-            >
-              Basic Drawer
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-drawer-body acss-pgpe64"
-          style="font-size: 16px;"
-        >
-          <p>
-            Some contents...
-          </p>
-          <p>
-            Some contents...
-          </p>
-          <p>
-            Some contents...
-          </p>
-        </div>
-        <div
-          class="ant-drawer-footer acss-r4s437"
-          style="border-top: 1px solid rgb(217, 217, 217);"
-        >
-          Footer
-        </div>
-      </div>
-    </div>
-  </div>,
-  <div
-    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
-    tabindex="-1"
-  >
-    <div
-      class="ant-drawer-mask acss-c0hvaj ant-drawer-mask-blur"
-    />
-    <div
-      class="ant-drawer-content-wrapper"
-      style="width: 378px;"
-    >
-      <div
-        aria-labelledby="test-id"
-        aria-modal="true"
-        class="ant-drawer-section acss-10412ne"
-        role="dialog"
-        style="box-shadow: -10px 0 10px #666;"
-      >
-        <div
-          class="ant-drawer-header acss-1l0wu1y"
-          style="border-bottom: 1px solid rgb(22, 119, 255);"
-        >
-          <div
-            class="ant-drawer-header-title"
-          >
-            <button
-              aria-label="Close"
-              class="ant-drawer-close"
-              type="button"
-            >
-              <span
-                aria-label="close"
-                class="anticon anticon-close"
-                role="img"
-              >
-                <svg
-                  aria-hidden="true"
-                  data-icon="close"
-                  fill="currentColor"
-                  fill-rule="evenodd"
-                  focusable="false"
-                  height="1em"
-                  viewBox="64 64 896 896"
-                  width="1em"
-                >
-                  <path
-                    d="M799.86 166.31c.02 0 .04.02.08.06l57.69 57.7c.04.03.05.05.06.08a.12.12 0 010 .06c0 .03-.02.05-.06.09L569.93 512l287.7 287.7c.04.04.05.06.06.09a.12.12 0 010 .07c0 .02-.02.04-.06.08l-57.7 57.69c-.03.04-.05.05-.07.06a.12.12 0 01-.07 0c-.03 0-.05-.02-.09-.06L512 569.93l-287.7 287.7c-.04.04-.06.05-.09.06a.12.12 0 01-.07 0c-.02 0-.04-.02-.08-.06l-57.69-57.7c-.04-.03-.05-.05-.06-.07a.12.12 0 010-.07c0-.03.02-.05.06-.09L454.07 512l-287.7-287.7c-.04-.04-.05-.06-.06-.09a.12.12 0 010-.07c0-.02.02-.04.06-.08l57.7-57.69c.03-.04.05-.05.07-.06a.12.12 0 01.07 0c.03 0 .05.02.09.06L512 454.07l287.7-287.7c.04-.04.06-.05.09-.06a.12.12 0 01.07 0z"
-                  />
-                </svg>
-              </span>
-            </button>
-            <div
-              class="ant-drawer-title"
-              id="test-id"
-            >
-              Basic Drawer
-            </div>
-          </div>
-        </div>
-        <div
-          class="ant-drawer-body acss-pgpe64"
-          style="font-size: 16px;"
-        >
-          <p>
-            Some contents...
-          </p>
-          <p>
-            Some contents...
-          </p>
-          <p>
-            Some contents...
-          </p>
-        </div>
-        <div
-          class="ant-drawer-footer acss-r4s437"
-          style="border-top: 1px solid rgb(217, 217, 217);"
-        >
-          Footer
-        </div>
-      </div>
-    </div>
-  </div>,
-]
-`;
-
-exports[`renders components/drawer/demo/classNames.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/drawer/demo/closable-placement.tsx extend context correctly 1`] = `
 Array [
   <button
@@ -302,7 +103,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -456,7 +257,7 @@ exports[`renders components/drawer/demo/config-provider.tsx extend context corre
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -553,9 +354,6 @@ Array [
               type="radio"
               value="top"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -576,9 +374,6 @@ Array [
               type="radio"
               value="right"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -598,9 +393,6 @@ Array [
               type="radio"
               value="bottom"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -619,9 +411,6 @@ Array [
               name="test-id"
               type="radio"
               value="left"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -650,7 +439,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -796,7 +585,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -1120,6 +909,7 @@ Array [
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                         title="Xiaoxiao Fu"
                                       >
@@ -1136,6 +926,7 @@ Array [
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="Maomao Zhou"
                                       >
@@ -1284,6 +1075,7 @@ Array [
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                         title="private"
                                       >
@@ -1300,6 +1092,7 @@ Array [
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="public"
                                       >
@@ -1453,6 +1246,7 @@ Array [
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                         title="Jack Ma"
                                       >
@@ -1469,6 +1263,7 @@ Array [
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="Tom Liu"
                                       >
@@ -2806,7 +2601,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -2904,7 +2699,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
       type="button"
     >
       <span>
-        Default blur
+        blur
       </span>
     </button>
   </div>
@@ -2964,7 +2759,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
                 class="ant-drawer-title"
                 id="test-id"
               >
-                Drawer blur
+                blur
               </div>
             </div>
           </div>
@@ -3053,7 +2848,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
                 class="ant-drawer-title"
                 id="test-id"
               >
-                Drawer blur
+                Dimmed mask
               </div>
             </div>
           </div>
@@ -3139,7 +2934,7 @@ exports[`renders components/drawer/demo/mask.tsx extend context correctly 1`] = 
                 class="ant-drawer-title"
                 id="test-id"
               >
-                Drawer blur
+                No mask
               </div>
             </div>
           </div>
@@ -3180,7 +2975,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3223,7 +3018,7 @@ Array [
             tabindex="-1"
           >
             <div
-              class="ant-drawer-mask ant-drawer-mask-blur"
+              class="ant-drawer-mask"
             />
             <div
               class="ant-drawer-content-wrapper"
@@ -3375,9 +3170,6 @@ Array [
               type="radio"
               value="top"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3396,9 +3188,6 @@ Array [
               name="test-id"
               type="radio"
               value="right"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -3419,9 +3208,6 @@ Array [
               type="radio"
               value="bottom"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3441,9 +3227,6 @@ Array [
               name="test-id"
               type="radio"
               value="left"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -3472,7 +3255,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3541,7 +3324,7 @@ exports[`renders components/drawer/demo/render-in-current.tsx extend context cor
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3670,9 +3453,6 @@ Array [
               type="radio"
               value="top"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3693,9 +3473,6 @@ Array [
               type="radio"
               value="right"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3715,9 +3492,6 @@ Array [
               type="radio"
               value="bottom"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -3736,9 +3510,6 @@ Array [
               name="test-id"
               type="radio"
               value="left"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -3770,7 +3541,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -3968,7 +3739,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4030,7 +3801,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
             tabindex="-1"
           >
             <div
-              class="ant-drawer-mask ant-drawer-mask-blur"
+              class="ant-drawer-mask"
             />
             <div
               class="ant-drawer-content-wrapper"
@@ -4099,7 +3870,7 @@ exports[`renders components/drawer/demo/scroll-debug.tsx extend context correctl
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4189,9 +3960,6 @@ Array [
               type="radio"
               value="large"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -4210,9 +3978,6 @@ Array [
               name="test-id"
               type="radio"
               value="default"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -4233,9 +3998,6 @@ Array [
               type="radio"
               value="256"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -4254,9 +4016,6 @@ Array [
               name="test-id"
               type="radio"
               value="500px"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -4277,9 +4036,6 @@ Array [
               type="radio"
               value="50%"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
           <span
             class="ant-radio-label"
@@ -4298,9 +4054,6 @@ Array [
               name="test-id"
               type="radio"
               value="20vw"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
           <span
@@ -4325,7 +4078,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"
@@ -4455,7 +4208,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
       style="background-image: linear-gradient(to top, #18181b 0, rgba(21, 21, 22, 0.2) 100%);"
     />
     <div
@@ -4689,13 +4442,15 @@ Array [
     class="ant-list ant-list-split ant-list-bordered css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -4798,7 +4553,7 @@ Array [
     tabindex="-1"
   >
     <div
-      class="ant-drawer-mask ant-drawer-mask-blur"
+      class="ant-drawer-mask"
     />
     <div
       class="ant-drawer-content-wrapper"

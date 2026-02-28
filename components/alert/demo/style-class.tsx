@@ -1,9 +1,9 @@
 import React from 'react';
 import { Alert, Button, Flex } from 'antd';
-import type { AlertProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { AlertProps, GetProp } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     border: 2px dashed #ccc;
     border-radius: 8px;
@@ -11,7 +11,9 @@ const useStyle = createStyles(({ css }) => ({
   `,
 }));
 
-const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
+const styleFn: AlertProps['styles'] = ({
+  props: { type },
+}): GetProp<AlertProps, 'styles', 'Return'> => {
   if (type === 'success') {
     return {
       root: {
@@ -21,7 +23,7 @@ const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
       icon: {
         color: '#52c41a',
       },
-    } satisfies AlertProps['styles'];
+    };
   }
 
   if (type === 'warning') {
@@ -33,19 +35,17 @@ const styleFn: AlertProps['styles'] = ({ props: { type } }) => {
       icon: {
         color: '#faad14',
       },
-    } satisfies AlertProps['styles'];
+    };
   }
 
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles } = useStyle();
-
   const alertSharedProps: AlertProps = {
     showIcon: true,
     classNames: {
-      root: styles.root,
+      root: classNames.root,
     },
   };
 

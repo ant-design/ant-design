@@ -1,0 +1,1135 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders components/tabs/demo/_semantic.tsx correctly 1`] = `
+<div
+  class="acss-1ucck97"
+>
+  <div
+    class="ant-row css-var-test-id"
+  >
+    <div
+      class="ant-col ant-col-16 acss-my3sst css-var-test-id"
+    >
+      <div
+        class="ant-tabs ant-tabs-top semantic-mark-root css-var-test-id ant-tabs-css-var"
+        style="height: 220px; width: 100%;"
+      >
+        <div
+          aria-orientation="horizontal"
+          class="ant-tabs-nav semantic-mark-header"
+          role="tablist"
+        >
+          <div
+            class="ant-tabs-nav-wrap"
+          >
+            <div
+              class="ant-tabs-nav-list"
+              style="transform: translate(0px, 0px);"
+            >
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="0"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-0"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-0"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-0
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item ant-tabs-tab-active"
+                data-node-key="1"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-1"
+                  aria-disabled="false"
+                  aria-selected="true"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-1"
+                  role="tab"
+                  tabindex="0"
+                >
+                  Tab-1
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="2"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-2"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-2"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-2
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="3"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-3"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-3"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-3
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="4"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-4"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-4"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-4
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="5"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-5"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-5"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-5
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="6"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-6"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-6"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-6
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="7"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-7"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-7"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-7
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="8"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-8"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-8"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-8
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="9"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-9"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-9"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-9
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="10"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-10"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-10"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-10
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="11"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-11"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-11"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-11
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="12"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-12"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-12"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-12
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="13"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-13"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-13"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-13
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="14"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-14"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-14"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-14
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="15"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-15"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-15"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-15
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="16"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-16"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-16"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-16
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="17"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-17"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-17"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-17
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="18"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-18"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-18"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-18
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="19"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-19"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-19"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-19
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="20"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-20"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-20"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-20
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="21"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-21"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-21"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-21
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="22"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-22"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-22"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-22
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="23"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-23"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-23"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-23
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="24"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-24"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-24"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-24
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="25"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-25"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-25"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-25
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="26"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-26"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-26"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-26
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="27"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-27"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-27"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-27
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item ant-tabs-tab-disabled"
+                data-node-key="28"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-28"
+                  aria-disabled="true"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-28"
+                  role="tab"
+                >
+                  Tab-28
+                </div>
+              </div>
+              <div
+                class="ant-tabs-tab semantic-mark-item"
+                data-node-key="29"
+              >
+                <div
+                  aria-controls="rc-tabs-test-panel-29"
+                  aria-disabled="false"
+                  aria-selected="false"
+                  class="ant-tabs-tab-btn"
+                  id="rc-tabs-test-tab-29"
+                  role="tab"
+                  tabindex="-1"
+                >
+                  Tab-29
+                </div>
+              </div>
+              <div
+                class="ant-tabs-ink-bar semantic-mark-indicator ant-tabs-ink-bar-animated"
+              />
+            </div>
+          </div>
+          <div
+            class="ant-tabs-nav-operations ant-tabs-nav-operations-hidden"
+          >
+            <button
+              aria-controls="rc-tabs-test-more-popup"
+              aria-expanded="false"
+              aria-haspopup="listbox"
+              class="ant-tabs-nav-more"
+              id="rc-tabs-test-more"
+              style="visibility: hidden; order: 1;"
+              type="button"
+            >
+              <span
+                aria-label="ellipsis"
+                class="anticon anticon-ellipsis"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="ellipsis"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M176 511a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0zm280 0a56 56 0 10112 0 56 56 0 10-112 0z"
+                  />
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="ant-tabs-content-holder"
+        >
+          <div
+            class="ant-tabs-content ant-tabs-content-top"
+          >
+            <div
+              aria-hidden="false"
+              aria-labelledby="rc-tabs-test-tab-1"
+              class="ant-tabs-tabpane ant-tabs-tabpane-active semantic-mark-content"
+              id="rc-tabs-test-panel-1"
+              role="tabpanel"
+              tabindex="0"
+            >
+              Content of tab 1
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="ant-col ant-col-8 css-var-test-id"
+    >
+      <ul
+        class="acss-1ry21g5"
+      >
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  root
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              根元素，包含标签页容器的基础样式、布局和方向控制
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  header
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              根元素，包含标签页容器的基础样式、布局和方向控制
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  item
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              Item 元素，包含相对定位、内边距、颜色、文本省略、圆角、过渡动画等标签项的样式和交互效果
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  indicator
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              指示器元素，包含指示条的颜色、位置、尺寸、过渡动画等活跃状态指示样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  content
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              内容元素，包含标签页内容面板的布局、内边距等内容展示样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  popup.root
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              弹出菜单元素，包含下拉菜单的绝对定位、层级、显示控制、最大高度、滚动等样式
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;

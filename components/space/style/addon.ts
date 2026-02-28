@@ -1,16 +1,20 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
+import { resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 /** Component only token. Which will handle additional calculation of alias token */
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
-interface SpaceToken extends FullToken<'Space'> {
+interface AddonToken extends FullToken<'Space'> {
   // Custom token here
 }
 
-const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
+const genSpaceAddonStyle: GenerateStyle<AddonToken, CSSObject> = (token) => {
   const {
     componentCls,
     borderRadius,
@@ -23,7 +27,10 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
     borderRadiusSM,
     colorBgContainerDisabled,
     lineWidth,
+    antCls,
   } = token;
+
+  const [varName, varRef] = genCssVar(antCls, 'space-addon');
 
   return {
     [componentCls]: [
@@ -31,6 +38,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
       // ==                         Base                         ==
       // ==========================================================
       {
+        ...resetComponent(token),
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
@@ -80,30 +88,30 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
       // ==                       Variants                       ==
       // ==========================================================
       {
-        '--space-addon-border-color': colorBorder,
-        '--space-addon-background': colorBgContainerDisabled,
+        [varName('addon-border-color')]: colorBorder,
+        [varName('addon-background')]: colorBgContainerDisabled,
 
         // Filled
-        '--space-addon-border-color-outlined': colorBorder,
-        '--space-addon-background-filled': colorBgContainerDisabled,
+        [varName('addon-border-color-outlined')]: colorBorder,
+        [varName('addon-background-filled')]: colorBgContainerDisabled,
 
-        borderColor: 'var(--space-addon-border-color)',
-        background: 'var(--space-addon-background)',
+        borderColor: varRef('addon-border-color'),
+        background: varRef('addon-background'),
 
         // ======================= Outlined =======================
         '&-variant-outlined': {
-          '--space-addon-border-color': 'var(--space-addon-border-color-outlined)',
+          [varName('addon-border-color')]: varRef('addon-border-color-outlined'),
         },
 
         // ======================== Filled ========================
         '&-variant-filled': {
-          '--space-addon-border-color': 'transparent',
-          '--space-addon-background': 'var(--space-addon-background-filled)',
+          [varName('addon-border-color')]: 'transparent',
+          [varName('addon-background')]: varRef('addon-background-filled'),
 
           // Disabled
           [`&${componentCls}-disabled`]: {
-            '--space-addon-border-color': colorBorder,
-            '--space-addon-background': colorBgContainerDisabled,
+            [varName('addon-border-color')]: colorBorder,
+            [varName('addon-background')]: colorBgContainerDisabled,
           },
         },
 
@@ -125,16 +133,13 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
       // ==========================================================
       {
         '&-status-error': {
-          '--space-addon-border-color-outlined': token.colorError,
-          '--space-addon-background-filled': token.colorErrorBg,
-
+          [varName('addon-border-color-outlined')]: token.colorError,
+          [varName('addon-background-filled')]: token.colorErrorBg,
           color: token.colorError,
         },
-
         '&-status-warning': {
-          '--space-addon-border-color-outlined': token.colorWarning,
-          '--space-addon-background-filled': token.colorWarningBg,
-
+          [varName('addon-border-color-outlined')]: token.colorWarning,
+          [varName('addon-background-filled')]: token.colorWarningBg,
           color: token.colorWarning,
         },
       },
@@ -143,7 +148,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(['Space', 'Addon'], (token) => [
+export default genStyleHooks('Addon', (token) => [
   genSpaceAddonStyle(token),
   genCompactItemStyle(token, { focus: false }),
 ]);

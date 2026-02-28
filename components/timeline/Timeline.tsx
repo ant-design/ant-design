@@ -4,12 +4,19 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Steps from '../steps';
-import type { StepsProps, StepsSemanticClassNames, StepsSemanticStyles } from '../steps';
+import type {
+  StepsProps,
+  StepsSemanticClassNames,
+  StepsSemanticName,
+  StepsSemanticStyles,
+} from '../steps';
 import { InternalContext } from '../steps/context';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import useStyle from './style';
 import useItems from './useItems';
 
@@ -55,9 +62,18 @@ export interface TimelineItemType {
   dot?: React.ReactNode;
 }
 
-export type TimelineClassNamesType = SemanticClassNamesType<TimelineProps, StepsSemanticClassNames>;
+export type TimelineSemanticName = StepsSemanticName;
 
-export type TimelineStylesType = SemanticStylesType<TimelineProps, StepsSemanticStyles>;
+export type TimelineSemanticClassNames = StepsSemanticClassNames;
+
+export type TimelineSemanticStyles = StepsSemanticStyles;
+
+export type TimelineClassNamesType = SemanticClassNamesType<
+  TimelineProps,
+  TimelineSemanticClassNames
+>;
+
+export type TimelineStylesType = SemanticStylesType<TimelineProps, TimelineSemanticStyles>;
 
 export interface TimelineProps {
   // Style
@@ -127,12 +143,15 @@ const Timeline: CompoundedComponent = (props) => {
   } = props;
 
   // ===================== MISC =======================
+  const rootPrefixCls = getPrefixCls();
   const prefixCls = getPrefixCls('timeline', customizePrefixCls);
 
   // ==================== Styles ======================
   // This will be duplicated with Steps's hashId & cssVarCls when they have same token
   // But this is safe to keep here since web will do nothing
   const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  const [varName] = genCssVar(rootPrefixCls, 'timeline');
 
   const stepsClassNames = React.useMemo<StepsProps['classNames']>(
     () => ({
@@ -165,7 +184,8 @@ const Timeline: CompoundedComponent = (props) => {
   }, [mode]);
 
   // ===================== Data =======================
-  const rawItems: TimelineItemType[] = useItems(
+  const rawItems = useItems(
+    rootPrefixCls,
     prefixCls,
     mergedMode,
     items,
@@ -244,16 +264,13 @@ const Timeline: CompoundedComponent = (props) => {
   }
 
   // ==================== Render ======================
-  const stepStyle: React.CSSProperties = {
-    ...contextStyle,
-    ...style,
-  };
+  const stepStyle: React.CSSProperties = { ...contextStyle, ...style };
 
-  if (titleSpan && mergedMode !== 'alternate') {
-    if (typeof titleSpan === 'number') {
-      stepStyle['--timeline-head-span'] = titleSpan;
+  if (isNonNullable(titleSpan) && mergedMode !== 'alternate') {
+    if (typeof titleSpan === 'number' && !Number.isNaN(titleSpan)) {
+      stepStyle[varName('head-span')] = titleSpan;
     } else {
-      stepStyle['--timeline-head-span-ptg'] = titleSpan;
+      stepStyle[varName('head-span-ptg')] = titleSpan;
     }
   }
 

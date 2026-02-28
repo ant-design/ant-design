@@ -1692,15 +1692,10 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       style="width:150px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:visible"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1750,7 +1745,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
   <div
     aria-label="segmented control"
     aria-orientation="horizontal"
-    class="ant-segmented acss-1o3848f css-var-test-id"
+    class="ant-segmented acss-1oxwpj8 css-var-test-id"
     role="radiogroup"
     style="padding:4px;width:260px"
     tabindex="0"
@@ -1881,7 +1876,7 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
   <div
     aria-label="segmented control"
     aria-orientation="vertical"
-    class="ant-segmented ant-segmented-vertical acss-1o3848f ant-segmented-vertical css-var-test-id"
+    class="ant-segmented ant-segmented-vertical acss-1oxwpj8 ant-segmented-vertical css-var-test-id"
     role="radiogroup"
     style="border:1px solid #77BEF0;padding:4px;width:100px"
     tabindex="0"

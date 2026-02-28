@@ -20,7 +20,7 @@ import getPlacements from '../_util/placements';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import zIndexContext from '../_util/zindexContext';
+import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
@@ -86,7 +86,7 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export type SemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
+export type TooltipSemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
 
 export type TooltipSemanticClassNames = {
   root?: string;
@@ -270,7 +270,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   }, [overlay, title]);
 
   const memoOverlayWrapper = (
-    <ContextIsolator space>
+    <ContextIsolator space form>
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
@@ -325,7 +325,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls, !injectFromPopover);
 
   // Color
-  const colorInfo = parseColor(prefixCls, color);
+  const colorInfo = parseColor(rootPrefixCls, prefixCls, color);
   const arrowContentStyle = colorInfo.arrowStyle;
 
   const themeCls = clsx(rootCls, hashId, cssVarCls);
@@ -399,7 +399,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     </RcTooltip>
   );
 
-  return <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>;
+  return <ZIndexContext.Provider value={contextZIndex}>{content}</ZIndexContext.Provider>;
 });
 
 type CompoundedComponent = typeof InternalTooltip & {

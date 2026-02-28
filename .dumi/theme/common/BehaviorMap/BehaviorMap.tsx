@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { useRouteMeta } from 'dumi';
 
 import useLocale from '../../../hooks/useLocale';
@@ -17,7 +17,7 @@ export interface BehaviorMapProps {
   data: BehaviorMapItem;
 }
 
-const useStyle = createStyles(({ cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   container: css`
     width: 100%;
     min-height: 600px;
@@ -100,7 +100,6 @@ const locales = {
 
 const BehaviorMap: React.FC<BehaviorMapProps> = ({ data }) => {
   const chartRef = useRef<HTMLDivElement>(null);
-  const { styles } = useStyle();
   const [locale] = useLocale(locales);
   const meta = useRouteMeta();
 

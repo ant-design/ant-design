@@ -11,15 +11,10 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2016"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="2016"
-        >
-          2016
-        </div>
+        2016
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -98,6 +93,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="2006"
                 >
@@ -114,6 +110,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2007"
                 >
@@ -130,6 +127,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2008"
                 >
@@ -146,6 +144,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2009"
                 >
@@ -162,6 +161,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2010"
                 >
@@ -178,6 +178,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2011"
                 >
@@ -194,6 +195,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2012"
                 >
@@ -210,6 +212,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2013"
                 >
@@ -226,6 +229,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2014"
                 >
@@ -242,6 +246,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2015"
                 >
@@ -258,6 +263,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="2016"
                 >
@@ -274,6 +280,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2017"
                 >
@@ -290,6 +297,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2018"
                 >
@@ -306,6 +314,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2019"
                 >
@@ -322,6 +331,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2020"
                 >
@@ -338,6 +348,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2021"
                 >
@@ -354,6 +365,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2022"
                 >
@@ -370,6 +382,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2023"
                 >
@@ -386,6 +399,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2024"
                 >
@@ -402,6 +416,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2025"
                 >
@@ -427,15 +442,10 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Nov"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Nov"
-        >
-          Nov
-        </div>
+        Nov
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -514,6 +524,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jan"
                 >
@@ -530,6 +541,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Feb"
                 >
@@ -546,6 +558,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Mar"
                 >
@@ -562,6 +575,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Apr"
                 >
@@ -578,6 +592,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="May"
                 >
@@ -594,6 +609,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Jun"
                 >
@@ -610,6 +626,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Jul"
                 >
@@ -626,6 +643,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Aug"
                 >
@@ -642,6 +660,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Sep"
                 >
@@ -658,6 +677,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Oct"
                 >
@@ -674,6 +694,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Nov"
                 >
@@ -690,6 +711,7 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Dec"
                 >
@@ -728,9 +750,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
             type="radio"
             value="month"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -749,9 +768,6 @@ exports[`renders components/calendar/demo/basic.tsx extend context correctly 1`]
             name="test-id"
             type="radio"
             value="year"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -1551,15 +1567,10 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -1638,6 +1649,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="2006"
                   >
@@ -1654,6 +1666,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2007"
                   >
@@ -1670,6 +1683,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2008"
                   >
@@ -1686,6 +1700,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2009"
                   >
@@ -1702,6 +1717,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2010"
                   >
@@ -1718,6 +1734,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2011"
                   >
@@ -1734,6 +1751,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2012"
                   >
@@ -1750,6 +1768,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2013"
                   >
@@ -1766,6 +1785,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2014"
                   >
@@ -1782,6 +1802,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2015"
                   >
@@ -1798,6 +1819,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="2016"
                   >
@@ -1814,6 +1836,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2017"
                   >
@@ -1830,6 +1853,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2018"
                   >
@@ -1846,6 +1870,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2019"
                   >
@@ -1862,6 +1887,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2020"
                   >
@@ -1878,6 +1904,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2021"
                   >
@@ -1894,6 +1921,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2022"
                   >
@@ -1910,6 +1938,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2023"
                   >
@@ -1926,6 +1955,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2024"
                   >
@@ -1942,6 +1972,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2025"
                   >
@@ -1967,15 +1998,10 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -2054,6 +2080,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jan"
                   >
@@ -2070,6 +2097,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Feb"
                   >
@@ -2086,6 +2114,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Mar"
                   >
@@ -2102,6 +2131,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Apr"
                   >
@@ -2118,6 +2148,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="May"
                   >
@@ -2134,6 +2165,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jun"
                   >
@@ -2150,6 +2182,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jul"
                   >
@@ -2166,6 +2199,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Aug"
                   >
@@ -2182,6 +2216,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sep"
                   >
@@ -2198,6 +2233,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Oct"
                   >
@@ -2214,6 +2250,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Nov"
                   >
@@ -2230,6 +2267,7 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Dec"
                   >
@@ -2268,9 +2306,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -2289,9 +2324,6 @@ exports[`renders components/calendar/demo/card.tsx extend context correctly 1`] 
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -3090,15 +3122,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3177,6 +3204,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="2006"
                   >
@@ -3193,6 +3221,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2007"
                   >
@@ -3209,6 +3238,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2008"
                   >
@@ -3225,6 +3255,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2009"
                   >
@@ -3241,6 +3272,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2010"
                   >
@@ -3257,6 +3289,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2011"
                   >
@@ -3273,6 +3306,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2012"
                   >
@@ -3289,6 +3323,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2013"
                   >
@@ -3305,6 +3340,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2014"
                   >
@@ -3321,6 +3357,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2015"
                   >
@@ -3337,6 +3374,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="2016"
                   >
@@ -3353,6 +3391,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2017"
                   >
@@ -3369,6 +3408,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2018"
                   >
@@ -3385,6 +3425,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2019"
                   >
@@ -3401,6 +3442,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2020"
                   >
@@ -3417,6 +3459,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2021"
                   >
@@ -3433,6 +3476,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2022"
                   >
@@ -3449,6 +3493,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2023"
                   >
@@ -3465,6 +3510,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2024"
                   >
@@ -3481,6 +3527,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2025"
                   >
@@ -3506,15 +3553,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -3593,6 +3635,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jan"
                   >
@@ -3609,6 +3652,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Feb"
                   >
@@ -3625,6 +3669,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Mar"
                   >
@@ -3641,6 +3686,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Apr"
                   >
@@ -3657,6 +3703,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="May"
                   >
@@ -3673,6 +3720,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jun"
                   >
@@ -3689,6 +3737,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jul"
                   >
@@ -3705,6 +3754,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Aug"
                   >
@@ -3721,6 +3771,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sep"
                   >
@@ -3737,6 +3788,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Oct"
                   >
@@ -3753,6 +3805,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Nov"
                   >
@@ -3769,6 +3822,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Dec"
                   >
@@ -3807,9 +3861,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -3828,9 +3879,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -4623,15 +4671,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -4710,6 +4753,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="2006"
                   >
@@ -4726,6 +4770,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2007"
                   >
@@ -4742,6 +4787,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2008"
                   >
@@ -4758,6 +4804,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2009"
                   >
@@ -4774,6 +4821,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2010"
                   >
@@ -4790,6 +4838,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2011"
                   >
@@ -4806,6 +4855,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2012"
                   >
@@ -4822,6 +4872,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2013"
                   >
@@ -4838,6 +4889,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2014"
                   >
@@ -4854,6 +4906,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2015"
                   >
@@ -4870,6 +4923,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="2016"
                   >
@@ -4886,6 +4940,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2017"
                   >
@@ -4902,6 +4957,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2018"
                   >
@@ -4918,6 +4974,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2019"
                   >
@@ -4934,6 +4991,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2020"
                   >
@@ -4950,6 +5008,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2021"
                   >
@@ -4966,6 +5025,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2022"
                   >
@@ -4982,6 +5042,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2023"
                   >
@@ -4998,6 +5059,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2024"
                   >
@@ -5014,6 +5076,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2025"
                   >
@@ -5039,15 +5102,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5126,6 +5184,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jan"
                   >
@@ -5142,6 +5201,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Feb"
                   >
@@ -5158,6 +5218,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Mar"
                   >
@@ -5174,6 +5235,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Apr"
                   >
@@ -5190,6 +5252,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="May"
                   >
@@ -5206,6 +5269,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jun"
                   >
@@ -5222,6 +5286,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jul"
                   >
@@ -5238,6 +5303,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Aug"
                   >
@@ -5254,6 +5320,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sep"
                   >
@@ -5270,6 +5337,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Oct"
                   >
@@ -5286,6 +5354,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Nov"
                   >
@@ -5302,6 +5371,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Dec"
                   >
@@ -5340,9 +5410,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -5361,9 +5428,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -6186,9 +6250,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 type="radio"
                 value="month"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -6208,9 +6269,6 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                 type="radio"
                 value="year"
               />
-              <span
-                class="ant-radio-button-inner"
-              />
             </span>
             <span
               class="ant-radio-button-label"
@@ -6223,15 +6281,10 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="2016"
           >
-            <div
-              class="ant-select-content-value"
-              style="visibility: visible;"
-              title="2016"
-            >
-              2016
-            </div>
+            2016
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -6290,6 +6343,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                     style="display: flex; flex-direction: column;"
                   >
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active"
                       id="test-id_list_0"
@@ -6309,6 +6363,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_1"
@@ -6328,6 +6383,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_2"
@@ -6347,6 +6403,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_3"
@@ -6366,6 +6423,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_4"
@@ -6385,6 +6443,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_5"
@@ -6404,6 +6463,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_6"
@@ -6423,6 +6483,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_7"
@@ -6442,6 +6503,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_8"
@@ -6461,6 +6523,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_9"
@@ -6480,6 +6543,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                       id="test-id_list_10"
@@ -6499,6 +6563,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_11"
@@ -6518,6 +6583,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_12"
@@ -6537,6 +6603,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_13"
@@ -6556,6 +6623,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_14"
@@ -6575,6 +6643,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_15"
@@ -6594,6 +6663,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_16"
@@ -6613,6 +6683,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_17"
@@ -6632,6 +6703,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_18"
@@ -6651,6 +6723,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_19"
@@ -6679,15 +6752,10 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
           class="ant-select ant-select-sm ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
         >
           <div
-            class="ant-select-content"
+            class="ant-select-content ant-select-content-has-value"
+            title="Nov"
           >
-            <div
-              class="ant-select-content-value"
-              style="visibility: visible;"
-              title="Nov"
-            >
-              Nov
-            </div>
+            Nov
             <input
               aria-autocomplete="list"
               aria-expanded="false"
@@ -6746,6 +6814,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                     style="display: flex; flex-direction: column;"
                   >
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active"
                       id="test-id_list_0"
@@ -6765,6 +6834,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_1"
@@ -6784,6 +6854,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_2"
@@ -6803,6 +6874,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_3"
@@ -6822,6 +6894,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_4"
@@ -6841,6 +6914,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_5"
@@ -6860,6 +6934,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_6"
@@ -6879,6 +6954,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_7"
@@ -6898,6 +6974,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_8"
@@ -6917,6 +6994,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_9"
@@ -6936,6 +7014,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="true"
                       class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                       id="test-id_list_10"
@@ -6955,6 +7034,7 @@ exports[`renders components/calendar/demo/customize-header.tsx extend context co
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       aria-selected="false"
                       class="ant-select-item ant-select-item-option"
                       id="test-id_list_11"
@@ -7768,15 +7848,10 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="2016"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="2016"
-        >
-          2016
-        </div>
+        2016
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -7855,6 +7930,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="2006"
                 >
@@ -7871,6 +7947,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2007"
                 >
@@ -7887,6 +7964,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2008"
                 >
@@ -7903,6 +7981,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2009"
                 >
@@ -7919,6 +7998,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2010"
                 >
@@ -7935,6 +8015,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2011"
                 >
@@ -7951,6 +8032,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2012"
                 >
@@ -7967,6 +8049,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2013"
                 >
@@ -7983,6 +8066,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2014"
                 >
@@ -7999,6 +8083,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2015"
                 >
@@ -8015,6 +8100,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="2016"
                 >
@@ -8031,6 +8117,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2017"
                 >
@@ -8047,6 +8134,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2018"
                 >
@@ -8063,6 +8151,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2019"
                 >
@@ -8079,6 +8168,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2020"
                 >
@@ -8095,6 +8185,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2021"
                 >
@@ -8111,6 +8202,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2022"
                 >
@@ -8127,6 +8219,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2023"
                 >
@@ -8143,6 +8236,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2024"
                 >
@@ -8159,6 +8253,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="2025"
                 >
@@ -8184,15 +8279,10 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
       class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Nov"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Nov"
-        >
-          Nov
-        </div>
+        Nov
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -8271,6 +8361,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Jan"
                 >
@@ -8287,6 +8378,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Feb"
                 >
@@ -8303,6 +8395,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Mar"
                 >
@@ -8319,6 +8412,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Apr"
                 >
@@ -8335,6 +8429,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="May"
                 >
@@ -8351,6 +8446,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Jun"
                 >
@@ -8367,6 +8463,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Jul"
                 >
@@ -8383,6 +8480,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Aug"
                 >
@@ -8399,6 +8497,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Sep"
                 >
@@ -8415,6 +8514,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Oct"
                 >
@@ -8431,6 +8531,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Nov"
                 >
@@ -8447,6 +8548,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Dec"
                 >
@@ -8485,9 +8587,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
             type="radio"
             value="month"
           />
-          <span
-            class="ant-radio-button-inner"
-          />
         </span>
         <span
           class="ant-radio-button-label"
@@ -8506,9 +8605,6 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
             name="test-id"
             type="radio"
             value="year"
-          />
-          <span
-            class="ant-radio-button-inner"
           />
         </span>
         <span
@@ -9718,15 +9814,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2017"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="2017"
-          >
-            2017
-          </div>
+          2017
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -9805,6 +9896,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="2007"
                   >
@@ -9821,6 +9913,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2008"
                   >
@@ -9837,6 +9930,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2009"
                   >
@@ -9853,6 +9947,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2010"
                   >
@@ -9869,6 +9964,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2011"
                   >
@@ -9885,6 +9981,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2012"
                   >
@@ -9901,6 +9998,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2013"
                   >
@@ -9917,6 +10015,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2014"
                   >
@@ -9933,6 +10032,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2015"
                   >
@@ -9949,6 +10049,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2016"
                   >
@@ -9965,6 +10066,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="2017"
                   >
@@ -9981,6 +10083,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2018"
                   >
@@ -9997,6 +10100,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2019"
                   >
@@ -10013,6 +10117,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2020"
                   >
@@ -10029,6 +10134,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2021"
                   >
@@ -10045,6 +10151,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2022"
                   >
@@ -10061,6 +10168,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2023"
                   >
@@ -10077,6 +10185,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2024"
                   >
@@ -10093,6 +10202,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2025"
                   >
@@ -10109,6 +10219,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2026"
                   >
@@ -10134,15 +10245,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Jan"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Jan"
-          >
-            Jan
-          </div>
+          Jan
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -10221,6 +10327,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Jan"
                   >
@@ -10237,6 +10344,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Feb"
                   >
@@ -10253,6 +10361,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Mar"
                   >
@@ -10269,6 +10378,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Apr"
                   >
@@ -10285,6 +10395,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="May"
                   >
@@ -10301,6 +10412,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jun"
                   >
@@ -10317,6 +10429,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jul"
                   >
@@ -10333,6 +10446,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Aug"
                   >
@@ -10349,6 +10463,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sep"
                   >
@@ -10365,6 +10480,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Oct"
                   >
@@ -10381,6 +10497,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Nov"
                   >
@@ -10397,6 +10514,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Dec"
                   >
@@ -10435,9 +10553,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -10456,9 +10571,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -11260,15 +11372,10 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -11347,6 +11454,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="2006"
                   >
@@ -11363,6 +11471,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2007"
                   >
@@ -11379,6 +11488,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2008"
                   >
@@ -11395,6 +11505,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2009"
                   >
@@ -11411,6 +11522,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2010"
                   >
@@ -11427,6 +11539,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2011"
                   >
@@ -11443,6 +11556,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2012"
                   >
@@ -11459,6 +11573,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2013"
                   >
@@ -11475,6 +11590,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2014"
                   >
@@ -11491,6 +11607,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2015"
                   >
@@ -11507,6 +11624,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="2016"
                   >
@@ -11523,6 +11641,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2017"
                   >
@@ -11539,6 +11658,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2018"
                   >
@@ -11555,6 +11675,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2019"
                   >
@@ -11571,6 +11692,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2020"
                   >
@@ -11587,6 +11709,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2021"
                   >
@@ -11603,6 +11726,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2022"
                   >
@@ -11619,6 +11743,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2023"
                   >
@@ -11635,6 +11760,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2024"
                   >
@@ -11651,6 +11777,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2025"
                   >
@@ -11676,15 +11803,10 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -11763,6 +11885,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jan"
                   >
@@ -11779,6 +11902,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Feb"
                   >
@@ -11795,6 +11919,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Mar"
                   >
@@ -11811,6 +11936,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Apr"
                   >
@@ -11827,6 +11953,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="May"
                   >
@@ -11843,6 +11970,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jun"
                   >
@@ -11859,6 +11987,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jul"
                   >
@@ -11875,6 +12004,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Aug"
                   >
@@ -11891,6 +12021,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sep"
                   >
@@ -11907,6 +12038,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Oct"
                   >
@@ -11923,6 +12055,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Nov"
                   >
@@ -11939,6 +12072,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Dec"
                   >
@@ -11977,9 +12111,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -11998,9 +12129,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -12793,15 +12921,10 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -12880,6 +13003,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="2006"
                   >
@@ -12896,6 +13020,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2007"
                   >
@@ -12912,6 +13037,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2008"
                   >
@@ -12928,6 +13054,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2009"
                   >
@@ -12944,6 +13071,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2010"
                   >
@@ -12960,6 +13088,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2011"
                   >
@@ -12976,6 +13105,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2012"
                   >
@@ -12992,6 +13122,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2013"
                   >
@@ -13008,6 +13139,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2014"
                   >
@@ -13024,6 +13156,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2015"
                   >
@@ -13040,6 +13173,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="2016"
                   >
@@ -13056,6 +13190,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2017"
                   >
@@ -13072,6 +13207,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2018"
                   >
@@ -13088,6 +13224,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2019"
                   >
@@ -13104,6 +13241,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2020"
                   >
@@ -13120,6 +13258,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2021"
                   >
@@ -13136,6 +13275,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2022"
                   >
@@ -13152,6 +13292,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2023"
                   >
@@ -13168,6 +13309,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2024"
                   >
@@ -13184,6 +13326,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2025"
                   >
@@ -13209,15 +13352,10 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -13296,6 +13434,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jan"
                   >
@@ -13312,6 +13451,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Feb"
                   >
@@ -13328,6 +13468,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Mar"
                   >
@@ -13344,6 +13485,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Apr"
                   >
@@ -13360,6 +13502,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="May"
                   >
@@ -13376,6 +13519,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jun"
                   >
@@ -13392,6 +13536,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jul"
                   >
@@ -13408,6 +13553,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Aug"
                   >
@@ -13424,6 +13570,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sep"
                   >
@@ -13440,6 +13587,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Oct"
                   >
@@ -13456,6 +13604,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Nov"
                   >
@@ -13472,6 +13621,7 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Dec"
                   >
@@ -13510,9 +13660,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -13531,9 +13678,6 @@ exports[`renders components/calendar/demo/style-class.tsx extend context correct
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -14332,15 +14476,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -14419,6 +14558,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="2006"
                   >
@@ -14435,6 +14575,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2007"
                   >
@@ -14451,6 +14592,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2008"
                   >
@@ -14467,6 +14609,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2009"
                   >
@@ -14483,6 +14626,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2010"
                   >
@@ -14499,6 +14643,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2011"
                   >
@@ -14515,6 +14660,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2012"
                   >
@@ -14531,6 +14677,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2013"
                   >
@@ -14547,6 +14694,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2014"
                   >
@@ -14563,6 +14711,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2015"
                   >
@@ -14579,6 +14728,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="2016"
                   >
@@ -14595,6 +14745,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2017"
                   >
@@ -14611,6 +14762,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2018"
                   >
@@ -14627,6 +14779,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2019"
                   >
@@ -14643,6 +14796,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2020"
                   >
@@ -14659,6 +14813,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2021"
                   >
@@ -14675,6 +14830,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2022"
                   >
@@ -14691,6 +14847,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2023"
                   >
@@ -14707,6 +14864,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2024"
                   >
@@ -14723,6 +14881,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2025"
                   >
@@ -14748,15 +14907,10 @@ Array [
         class="ant-select ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -14835,6 +14989,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jan"
                   >
@@ -14851,6 +15006,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Feb"
                   >
@@ -14867,6 +15023,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Mar"
                   >
@@ -14883,6 +15040,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Apr"
                   >
@@ -14899,6 +15057,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="May"
                   >
@@ -14915,6 +15074,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jun"
                   >
@@ -14931,6 +15091,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jul"
                   >
@@ -14947,6 +15108,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Aug"
                   >
@@ -14963,6 +15125,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sep"
                   >
@@ -14979,6 +15142,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Oct"
                   >
@@ -14995,6 +15159,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Nov"
                   >
@@ -15011,6 +15176,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Dec"
                   >
@@ -15049,9 +15215,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -15070,9 +15233,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -15926,15 +16086,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-year-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="2016"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="2016"
-          >
-            2016
-          </div>
+          2016
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -16013,6 +16168,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="2006"
                   >
@@ -16029,6 +16185,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2007"
                   >
@@ -16045,6 +16202,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2008"
                   >
@@ -16061,6 +16219,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2009"
                   >
@@ -16077,6 +16236,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2010"
                   >
@@ -16093,6 +16253,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2011"
                   >
@@ -16109,6 +16270,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2012"
                   >
@@ -16125,6 +16287,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2013"
                   >
@@ -16141,6 +16304,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2014"
                   >
@@ -16157,6 +16321,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2015"
                   >
@@ -16173,6 +16338,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="2016"
                   >
@@ -16189,6 +16355,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2017"
                   >
@@ -16205,6 +16372,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2018"
                   >
@@ -16221,6 +16389,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2019"
                   >
@@ -16237,6 +16406,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2020"
                   >
@@ -16253,6 +16423,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2021"
                   >
@@ -16269,6 +16440,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2022"
                   >
@@ -16285,6 +16457,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2023"
                   >
@@ -16301,6 +16474,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2024"
                   >
@@ -16317,6 +16491,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="2025"
                   >
@@ -16342,15 +16517,10 @@ Array [
         class="ant-select ant-select-sm ant-select-outlined ant-picker-calendar-month-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Nov"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Nov"
-          >
-            Nov
-          </div>
+          Nov
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -16429,6 +16599,7 @@ Array [
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Jan"
                   >
@@ -16445,6 +16616,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Feb"
                   >
@@ -16461,6 +16633,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Mar"
                   >
@@ -16477,6 +16650,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Apr"
                   >
@@ -16493,6 +16667,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="May"
                   >
@@ -16509,6 +16684,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jun"
                   >
@@ -16525,6 +16701,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jul"
                   >
@@ -16541,6 +16718,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Aug"
                   >
@@ -16557,6 +16735,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sep"
                   >
@@ -16573,6 +16752,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Oct"
                   >
@@ -16589,6 +16769,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Nov"
                   >
@@ -16605,6 +16786,7 @@ Array [
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Dec"
                   >
@@ -16643,9 +16825,6 @@ Array [
               type="radio"
               value="month"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -16664,9 +16843,6 @@ Array [
               name="test-id"
               type="radio"
               value="year"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span

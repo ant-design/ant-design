@@ -2,7 +2,7 @@ import React from 'react';
 import { InfoCircleOutlined, PushpinOutlined } from '@ant-design/icons';
 import { get, set } from '@rc-component/util';
 import { Button, Col, ConfigProvider, Flex, Popover, Row, Tag, theme, Typography } from 'antd';
-import { createStyles, css } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import Prism from 'prismjs';
 
@@ -12,7 +12,7 @@ export interface SemanticPreviewInjectionProps {
   classNames?: Record<string, string>;
 }
 
-const useStyle = createStyles(({ cssVar }) => ({
+const styles = createStaticStyles(({ css, cssVar }) => ({
   container: css`
     position: relative;
     z-index: 0;
@@ -122,6 +122,7 @@ export interface SemanticPreviewProps {
   height?: number;
   padding?: false;
   style?: React.CSSProperties;
+  motion?: boolean;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
@@ -133,6 +134,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     style,
     componentName = 'Component',
     itemsAPI,
+    motion = false,
   } = props;
   const { token } = theme.useToken();
 
@@ -154,8 +156,6 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
   const [hoverSemantic, setHoverSemantic] = React.useState<string | null>(null);
 
   const mergedSemantic = pinSemantic || hoverSemantic;
-
-  const { styles } = useStyle();
 
   const hoveredSemanticClassNames = React.useMemo(() => {
     if (!mergedSemantic) {
@@ -185,7 +185,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           className={clsx(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
           style={style}
         >
-          <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
+          <ConfigProvider theme={{ token: { motion } }}>{cloneNode}</ConfigProvider>
         </Col>
         <Col span={8}>
           <ul className={clsx(styles.listWrap)}>

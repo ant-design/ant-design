@@ -140,15 +140,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -227,6 +222,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -243,6 +239,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -259,6 +256,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -514,15 +512,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -601,6 +594,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -617,6 +611,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -633,6 +628,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -893,15 +889,10 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -980,6 +971,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -996,6 +988,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -1012,6 +1005,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -1264,15 +1258,10 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -1351,6 +1340,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -1367,6 +1357,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -1383,6 +1374,7 @@ exports[`renders components/color-picker/demo/controlled.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -1644,15 +1636,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -1731,6 +1718,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -1747,6 +1735,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -1763,6 +1752,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -1996,15 +1986,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -2083,6 +2068,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -2099,6 +2085,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -2115,6 +2102,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -2310,15 +2298,10 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -2397,6 +2380,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -2413,6 +2397,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -2429,6 +2414,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -2696,15 +2682,10 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HSB"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HSB"
-                        >
-                          HSB
-                        </div>
+                        HSB
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -2783,6 +2764,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                   title="HEX"
                                 >
@@ -2799,6 +2781,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                                   title="HSB"
                                 >
@@ -2815,6 +2798,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -3288,15 +3272,10 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="RGB"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="RGB"
-                        >
-                          RGB
-                        </div>
+                        RGB
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -3375,6 +3354,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                   title="HEX"
                                 >
@@ -3391,6 +3371,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -3407,6 +3388,7 @@ exports[`renders components/color-picker/demo/format.tsx extend context correctl
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                                   title="RGB"
                                 >
@@ -3822,7 +3804,6 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-segmented-item"
                     >
                       <input
-                        checked=""
                         class="ant-segmented-item-input"
                         name="test-id"
                         type="radio"
@@ -3838,6 +3819,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                       class="ant-segmented-item ant-segmented-item-selected"
                     >
                       <input
+                        checked=""
                         class="ant-segmented-item-input"
                         name="test-id"
                         type="radio"
@@ -3980,15 +3962,10 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -4067,6 +4044,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -4083,6 +4061,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -4099,6 +4078,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -4405,15 +4385,10 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -4492,6 +4467,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -4508,6 +4484,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -4524,6 +4501,7 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -4806,15 +4784,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
-                          class="ant-select-content"
+                          class="ant-select-content ant-select-content-has-value"
+                          title="HEX"
                         >
-                          <div
-                            class="ant-select-content-value"
-                            style="visibility: visible;"
-                            title="HEX"
-                          >
-                            HEX
-                          </div>
+                          HEX
                           <input
                             aria-autocomplete="list"
                             aria-expanded="false"
@@ -4893,6 +4866,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                   style="display: flex; flex-direction: column;"
                                 >
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                     title="HEX"
                                   >
@@ -4909,6 +4883,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                     />
                                   </div>
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option"
                                     title="HSB"
                                   >
@@ -4925,6 +4900,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                     />
                                   </div>
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option"
                                     title="RGB"
                                   >
@@ -5763,15 +5739,10 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                         class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                       >
                         <div
-                          class="ant-select-content"
+                          class="ant-select-content ant-select-content-has-value"
+                          title="HEX"
                         >
-                          <div
-                            class="ant-select-content-value"
-                            style="visibility: visible;"
-                            title="HEX"
-                          >
-                            HEX
-                          </div>
+                          HEX
                           <input
                             aria-autocomplete="list"
                             aria-expanded="false"
@@ -5850,6 +5821,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                   style="display: flex; flex-direction: column;"
                                 >
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                     title="HEX"
                                   >
@@ -5866,6 +5838,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                     />
                                   </div>
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option"
                                     title="HSB"
                                   >
@@ -5882,6 +5855,7 @@ exports[`renders components/color-picker/demo/panel-render.tsx extend context co
                                     />
                                   </div>
                                   <div
+                                    aria-disabled="false"
                                     class="ant-select-item ant-select-item-option"
                                     title="RGB"
                                   >
@@ -6141,15 +6115,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -6228,6 +6197,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -6244,6 +6214,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -6260,6 +6231,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -6944,15 +6916,10 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -7031,6 +6998,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -7047,6 +7015,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -7063,6 +7032,7 @@ exports[`renders components/color-picker/demo/pure-panel.tsx extend context corr
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -7330,15 +7300,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -7417,6 +7382,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -7433,6 +7399,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -7449,6 +7416,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -7701,15 +7669,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -7788,6 +7751,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -7804,6 +7768,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -7820,6 +7785,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -8072,15 +8038,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -8159,6 +8120,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -8175,6 +8137,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -8191,6 +8154,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -8456,15 +8420,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -8543,6 +8502,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -8559,6 +8519,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -8575,6 +8536,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -8832,15 +8794,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -8919,6 +8876,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -8935,6 +8893,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -8951,6 +8910,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -9208,15 +9168,10 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                       class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                     >
                       <div
-                        class="ant-select-content"
+                        class="ant-select-content ant-select-content-has-value"
+                        title="HEX"
                       >
-                        <div
-                          class="ant-select-content-value"
-                          style="visibility: visible;"
-                          title="HEX"
-                        >
-                          HEX
-                        </div>
+                        HEX
                         <input
                           aria-autocomplete="list"
                           aria-expanded="false"
@@ -9295,6 +9250,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                 style="display: flex; flex-direction: column;"
                               >
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                   title="HEX"
                                 >
@@ -9311,6 +9267,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="HSB"
                                 >
@@ -9327,6 +9284,7 @@ exports[`renders components/color-picker/demo/size.tsx extend context correctly 
                                   />
                                 </div>
                                 <div
+                                  aria-disabled="false"
                                   class="ant-select-item ant-select-item-option"
                                   title="RGB"
                                 >
@@ -9465,7 +9423,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
     >
       <div
         aria-describedby="test-id"
-        class="ant-color-picker-trigger acss-pbemrr css-var-test-id ant-color-picker-css-var"
+        class="ant-color-picker-trigger css-var-test-id ant-color-picker-css-var acss-pbemrr"
       >
         <div
           class="ant-color-picker-color-block"
@@ -9477,7 +9435,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
         </div>
       </div>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker acss-pbemrr css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 1px solid rgb(255, 255, 255);"
       >
         <div
@@ -9586,15 +9544,10 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="HEX"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: visible;"
-                        title="HEX"
-                      >
-                        HEX
-                      </div>
+                      HEX
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -9673,6 +9626,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="HEX"
                               >
@@ -9689,6 +9643,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="HSB"
                               >
@@ -9705,6 +9660,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="RGB"
                               >
@@ -9832,7 +9788,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
     >
       <div
         aria-describedby="test-id"
-        class="ant-color-picker-trigger ant-color-picker-lg acss-pbemrr css-var-test-id ant-color-picker-css-var"
+        class="ant-color-picker-trigger ant-color-picker-lg css-var-test-id ant-color-picker-css-var acss-pbemrr"
       >
         <div
           class="ant-color-picker-color-block"
@@ -9844,7 +9800,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
         </div>
       </div>
       <div
-        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker acss-pbemrr css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
+        class="ant-popover ant-zoom-big-appear ant-zoom-big-appear-prepare ant-zoom-big ant-popover-css-var css-var-test-id css-var-test-id ant-color-picker css-var-test-id ant-color-picker-css-var ant-popover-placement-bottomLeft"
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box; border: 1px solid rgb(114, 46, 209);"
       >
         <div
@@ -9953,15 +9909,10 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                     class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                   >
                     <div
-                      class="ant-select-content"
+                      class="ant-select-content ant-select-content-has-value"
+                      title="HEX"
                     >
-                      <div
-                        class="ant-select-content-value"
-                        style="visibility: visible;"
-                        title="HEX"
-                      >
-                        HEX
-                      </div>
+                      HEX
                       <input
                         aria-autocomplete="list"
                         aria-expanded="false"
@@ -10040,6 +9991,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="HEX"
                               >
@@ -10056,6 +10008,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="HSB"
                               >
@@ -10072,6 +10025,7 @@ exports[`renders components/color-picker/demo/style-class.tsx extend context cor
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="RGB"
                               >
@@ -10346,15 +10300,10 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -10433,6 +10382,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -10449,6 +10399,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -10465,6 +10416,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -10724,15 +10676,10 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -10811,6 +10758,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -10827,6 +10775,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -10843,6 +10792,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -11119,15 +11069,10 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                   class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
                 >
                   <div
-                    class="ant-select-content"
+                    class="ant-select-content ant-select-content-has-value"
+                    title="HEX"
                   >
-                    <div
-                      class="ant-select-content-value"
-                      style="visibility: visible;"
-                      title="HEX"
-                    >
-                      HEX
-                    </div>
+                    HEX
                     <input
                       aria-autocomplete="list"
                       aria-expanded="false"
@@ -11206,6 +11151,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                             style="display: flex; flex-direction: column;"
                           >
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                               title="HEX"
                             >
@@ -11222,6 +11168,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="HSB"
                             >
@@ -11238,6 +11185,7 @@ exports[`renders components/color-picker/demo/text-render.tsx extend context cor
                               />
                             </div>
                             <div
+                              aria-disabled="false"
                               class="ant-select-item ant-select-item-option"
                               title="RGB"
                             >
@@ -11491,15 +11439,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -11578,6 +11521,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -11594,6 +11538,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -11610,6 +11555,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >
@@ -11865,15 +11811,10 @@ Array [
                 class="ant-select ant-select-sm ant-select-borderless ant-color-picker-format-select css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
               >
                 <div
-                  class="ant-select-content"
+                  class="ant-select-content ant-select-content-has-value"
+                  title="HEX"
                 >
-                  <div
-                    class="ant-select-content-value"
-                    style="visibility: visible;"
-                    title="HEX"
-                  >
-                    HEX
-                  </div>
+                  HEX
                   <input
                     aria-autocomplete="list"
                     aria-expanded="false"
@@ -11952,6 +11893,7 @@ Array [
                           style="display: flex; flex-direction: column;"
                         >
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                             title="HEX"
                           >
@@ -11968,6 +11910,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="HSB"
                           >
@@ -11984,6 +11927,7 @@ Array [
                             />
                           </div>
                           <div
+                            aria-disabled="false"
                             class="ant-select-item ant-select-item-option"
                             title="RGB"
                           >

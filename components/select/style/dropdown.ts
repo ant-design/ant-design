@@ -96,7 +96,7 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
         [selectItemCls]: {
           ...genItemStyle(token),
           cursor: 'pointer',
-          transition: `background ${token.motionDurationSlow} ease`,
+          transition: `background-color ${token.motionDurationSlow} ease`,
           borderRadius: token.borderRadiusSM,
 
           // =========== Group ============
@@ -121,10 +121,6 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               alignItems: 'center',
             },
 
-            [`&-active:not(${selectItemCls}-option-disabled)`]: {
-              backgroundColor: token.optionActiveBg,
-            },
-
             [`&-selected:not(${selectItemCls}-option-disabled)`]: {
               color: token.optionSelectedColor,
               fontWeight: token.optionSelectedFontWeight,
@@ -133,6 +129,10 @@ const genSingleStyle: GenerateStyle<SelectToken> = (token) => {
               [`${selectItemCls}-option-state`]: {
                 color: token.colorPrimary,
               },
+            },
+
+            [`&-active:not(${selectItemCls}-option-disabled)`]: {
+              backgroundColor: token.optionActiveBg,
             },
 
             '&-disabled': {

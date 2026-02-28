@@ -18,6 +18,9 @@ import FloatButton, { floatButtonPrefixCls } from './FloatButton';
 import type { FloatButtonGroupTrigger, FloatButtonProps } from './FloatButton';
 import useStyle from './style';
 
+export type FloatButtonGroupSemanticName = keyof FloatButtonGroupSemanticClassNames &
+  keyof FloatButtonGroupSemanticStyles;
+
 export type FloatButtonGroupSemanticClassNames = {
   root?: string;
   list?: string;

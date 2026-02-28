@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { BugOutlined } from '@ant-design/icons';
 import { Button, Flex, Popover, theme } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles, cx } from 'antd-style';
 import dayjs from 'dayjs';
 import type { Dayjs } from 'dayjs';
 
@@ -33,7 +33,7 @@ const locales = {
   },
 };
 
-const useStyle = createStyles(({ cssVar, css }) => ({
+const styles = createStaticStyles(({ cssVar, css }) => ({
   container: css`
     margin-block: ${cssVar.margin};
     padding: ${cssVar.padding};
@@ -48,8 +48,6 @@ const useStyle = createStyles(({ cssVar, css }) => ({
 
 const RefinedChangelog: React.FC<React.PropsWithChildren<RefinedChangelogProps>> = (props) => {
   const { version, date, children } = props;
-
-  const { styles, cx } = useStyle();
 
   const memoizedValue = React.useMemo<ContextProps>(() => {
     const realVersion = version || '0.0.0';

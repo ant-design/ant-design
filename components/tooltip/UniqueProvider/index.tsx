@@ -24,9 +24,9 @@ function uniqueBuiltinPlacements(ori: BuildInPlacements): BuildInPlacements {
 
 const UniqueProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const renderPopup: GetProp<typeof RcUniqueProvider, 'postTriggerProps'> = (options) => {
-    const popupEle = typeof options.popup === 'function' ? options.popup() : options.popup;
+    const { id, builtinPlacements, popup } = options;
 
-    const { id, builtinPlacements } = options;
+    const popupEle = typeof popup === 'function' ? popup() : popup;
 
     const parsedPlacements = uniqueBuiltinPlacements(builtinPlacements!);
 

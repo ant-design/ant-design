@@ -34,6 +34,9 @@ export interface DescriptionsItemType extends Omit<DescriptionsItemProps, 'prefi
   key?: React.Key;
 }
 
+export type DescriptionsSemanticName = keyof DescriptionsSemanticClassNames &
+  keyof DescriptionsSemanticStyles;
+
 export type DescriptionsSemanticClassNames = {
   root?: string;
   header?: string;

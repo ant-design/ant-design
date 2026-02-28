@@ -47,15 +47,10 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title="http://"
             >
-              <div
-                class="ant-select-content-value"
-                style="visibility: visible;"
-                title="http://"
-              >
-                http://
-              </div>
+              http://
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -134,6 +129,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                         title="http://"
                       >
@@ -150,6 +146,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option"
                         title="https://"
                       >
@@ -184,15 +181,10 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
             class="ant-select ant-select-outlined css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
           >
             <div
-              class="ant-select-content"
+              class="ant-select-content ant-select-content-has-value"
+              title=".com"
             >
-              <div
-                class="ant-select-content-value"
-                style="visibility: visible;"
-                title=".com"
-              >
-                .com
-              </div>
+              .com
               <input
                 aria-autocomplete="list"
                 aria-expanded="false"
@@ -271,6 +263,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                         title=".com"
                       >
@@ -287,6 +280,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option"
                         title=".jp"
                       >
@@ -303,6 +297,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option"
                         title=".cn"
                       >
@@ -319,6 +314,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option"
                         title=".org"
                       >
@@ -530,10 +526,10 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                                 stroke="#d9d9d9"
                               >
                                 <path
-                                  d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                                  d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                                 />
                                 <path
-                                  d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                                  d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                                   fill="#fafafa"
                                 />
                               </g>
@@ -690,52 +686,56 @@ Array [
     class="ant-typography css-var-test-id"
   >
     Ant Design
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      class="ant-typography-actions"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </span>,
   <span
     class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
@@ -3028,15 +3028,10 @@ Array [
     style="width: 100px;"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="Jack"
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-        title="Jack"
-      >
-        Jack
-      </div>
+      Jack
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -3115,6 +3110,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                 title="Jack"
               >
@@ -3131,6 +3127,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lucy"
               >
@@ -3158,12 +3155,8 @@ Array [
   >
     <div
       class="ant-select-content"
+      title=""
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-        title=""
-      />
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -3242,6 +3235,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Jack"
               >
@@ -3258,6 +3252,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lucy"
               >
@@ -3368,6 +3363,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Jack"
               >
@@ -3384,6 +3380,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lucy"
               >
@@ -3494,10 +3491,10 @@ Array [
                   stroke="#d9d9d9"
                 >
                   <path
-                    d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                    d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                   />
                   <path
-                    d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                    d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                     fill="#fafafa"
                   />
                 </g>
@@ -3517,15 +3514,10 @@ Array [
     class="ant-select ant-cascader ant-select-outlined ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-allow-clear ant-select-show-arrow"
   >
     <div
-      class="ant-select-content"
+      class="ant-select-content ant-select-content-has-value"
+      title="Zhejiang / Hangzhou / West Lake"
     >
-      <div
-        class="ant-select-content-value"
-        style="visibility: visible;"
-        title="Zhejiang / Hangzhou / West Lake"
-      >
-        Zhejiang / Hangzhou / West Lake
-      </div>
+      Zhejiang / Hangzhou / West Lake
       <input
         aria-autocomplete="list"
         aria-expanded="false"
@@ -3601,7 +3593,7 @@ Array [
         >
           <li
             aria-checked="false"
-            class="ant-cascader-menu-item ant-cascader-menu-item-expand"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
             data-path-key="zhejiang"
             role="menuitemcheckbox"
             title="Zhejiang"
@@ -3669,6 +3661,65 @@ Array [
                   />
                 </svg>
               </span>
+            </div>
+          </li>
+        </ul>
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="false"
+            class="ant-cascader-menu-item ant-cascader-menu-item-expand ant-cascader-menu-item-active"
+            data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou"
+            role="menuitemcheckbox"
+            title="Hangzhou"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              Hangzhou
+            </div>
+            <div
+              class="ant-cascader-menu-item-expand-icon"
+            >
+              <span
+                aria-label="right"
+                class="anticon anticon-right"
+                role="img"
+              >
+                <svg
+                  aria-hidden="true"
+                  data-icon="right"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M765.7 486.8L314.9 134.7A7.97 7.97 0 00302 141v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1a31.96 31.96 0 000-50.4z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </li>
+        </ul>
+        <ul
+          class="ant-cascader-menu"
+          role="menu"
+        >
+          <li
+            aria-checked="true"
+            class="ant-cascader-menu-item ant-cascader-menu-item-active"
+            data-path-key="zhejiang__RC_CASCADER_SPLIT__hangzhou__RC_CASCADER_SPLIT__xihu"
+            role="menuitemcheckbox"
+            title="West Lake"
+          >
+            <div
+              class="ant-cascader-menu-item-content"
+            >
+              West Lake
             </div>
           </li>
         </ul>
@@ -5126,9 +5177,6 @@ Array [
           type="radio"
           value="a"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -5147,9 +5195,6 @@ Array [
           name="test-id"
           type="radio"
           value="b"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -5774,15 +5819,10 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
         class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
       >
         <div
-          class="ant-select-content"
+          class="ant-select-content ant-select-content-has-value"
+          title="Zhejiang"
         >
-          <div
-            class="ant-select-content-value"
-            style="visibility: visible;"
-            title="Zhejiang"
-          >
-            Zhejiang
-          </div>
+          Zhejiang
           <input
             aria-autocomplete="list"
             aria-expanded="false"
@@ -5861,6 +5901,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Zhejiang"
                   >
@@ -5877,6 +5918,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jiangsu"
                   >
@@ -6716,15 +6758,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Zhejiang"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Zhejiang"
-        >
-          Zhejiang
-        </div>
+        Zhejiang
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -6803,6 +6840,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Zhejiang"
                 >
@@ -6819,6 +6857,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Jiangsu"
                 >
@@ -6835,6 +6874,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Other"
                 >
@@ -7020,15 +7060,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Option1"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Option1"
-        >
-          Option1
-        </div>
+        Option1
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -7107,6 +7142,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Option1"
                 >
@@ -7123,6 +7159,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Option2"
                 >
@@ -9066,15 +9103,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Option1-1"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Option1-1"
-        >
-          Option1-1
-        </div>
+        Option1-1
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9153,6 +9185,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Option1-1"
                 >
@@ -9169,6 +9202,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Option1-2"
                 >
@@ -9194,15 +9228,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-last-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Option2-2"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Option2-2"
-        >
-          Option2-2
-        </div>
+        Option2-2
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9281,6 +9310,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Option2-1"
                 >
@@ -9297,6 +9327,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Option2-2"
                 >
@@ -9327,15 +9358,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       class="ant-select ant-select-outlined ant-select-compact-item ant-select-compact-first-item css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Between"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Between"
-        >
-          Between
-        </div>
+        Between
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9414,6 +9440,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Between"
                 >
@@ -9430,6 +9457,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Except"
                 >
@@ -9483,15 +9511,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       style="width: 30%;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Sign Up"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Sign Up"
-        >
-          Sign Up
-        </div>
+        Sign Up
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9570,6 +9593,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Sign Up"
                 >
@@ -9586,6 +9610,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Sign In"
                 >
@@ -9665,6 +9690,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="text 1"
                 >
@@ -9681,6 +9707,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="text 2"
                 >
@@ -9712,15 +9739,10 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
       style="width: 30%;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Home"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility: visible;"
-          title="Home"
-        >
-          Home
-        </div>
+        Home
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -9799,6 +9821,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Home"
                 >
@@ -9815,6 +9838,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Company"
                 >
@@ -12173,6 +12197,33 @@ Array [
       </span>
     </span>
   </span>,
+  <br />,
+  <textarea
+    aria-describedby="test-id"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+    placeholder="TextArea wrapped in Tooltip for debugging"
+    style="margin-top: 16px;"
+  />,
+  <div
+    class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+    style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
+  >
+    <div
+      class="ant-tooltip-arrow"
+      style="position: absolute; bottom: 0px; left: 0px;"
+    >
+      <span
+        class="ant-tooltip-arrow-content"
+      />
+    </div>
+    <div
+      class="ant-tooltip-container"
+      id="test-id"
+      role="tooltip"
+    >
+      Debug TextArea with Tooltip
+    </div>
+  </div>,
 ]
 `;
 

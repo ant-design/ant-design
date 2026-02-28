@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import DownOutlined from '@ant-design/icons/DownOutlined';
 import LeftOutlined from '@ant-design/icons/LeftOutlined';
 import RightOutlined from '@ant-design/icons/RightOutlined';
@@ -7,23 +7,26 @@ import { useEvent } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
-import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
+import { genCssVar } from '../theme/util/genStyleUtils';
+import type { SplitterProps, SplitterSemanticAllType } from './interface';
 
 export type ShowCollapsibleIconMode = boolean | 'auto';
 
 export interface SplitBarProps {
   index: number;
   active: boolean;
-  draggerStyle?: React.CSSProperties;
-  draggerClassName?: SplitterSemanticDraggerClassNames;
+  draggerStyle?: NonNullable<SplitterSemanticAllType['styles']>['dragger'];
+  draggerClassName?: NonNullable<SplitterSemanticAllType['classNamesNoString']>['dragger'];
   prefixCls: string;
+  rootPrefixCls: string;
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
   draggerIcon?: SplitterProps['draggerIcon'];
-  collapsibleIcon?: SplitterProps['collapsibleIcon'];
+  collapsibleIcon?: NonNullable<SplitterProps['collapsible']>['icon'];
   showStartCollapsibleIcon: ShowCollapsibleIconMode;
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
+  onDraggerDoubleClick?: (index: number) => void;
   onOffsetStart: (index: number) => void;
   onOffsetUpdate: (index: number, offsetX: number, offsetY: number, lazyEnd?: boolean) => void;
   onOffsetEnd: (lazyEnd?: boolean) => void;
@@ -42,9 +45,12 @@ function getValidNumber(num?: number): number {
     : 0;
 }
 
+const DOUBLE_CLICK_TIME_GAP = 300;
+
 const SplitBar: React.FC<SplitBarProps> = (props) => {
   const {
     prefixCls,
+    rootPrefixCls,
     vertical,
     index,
     active,
@@ -58,6 +64,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
     collapsibleIcon,
     startCollapsible,
     endCollapsible,
+    onDraggerDoubleClick,
     onOffsetStart,
     onOffsetUpdate,
     onOffsetEnd,
@@ -70,6 +77,9 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
 
   const splitBarPrefixCls = `${prefixCls}-bar`;
 
+  const lastClickTimeRef = useRef<number>(0);
+  const [varName] = genCssVar(rootPrefixCls, 'splitter');
+
   // ======================== Resize ========================
   const [startPos, setStartPos] = useState<[x: number, y: number] | null>(null);
   const [constrainedOffset, setConstrainedOffset] = useState<number>(0);
@@ -78,6 +88,18 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   const constrainedOffsetY = vertical ? constrainedOffset : 0;
 
   const onMouseDown: React.MouseEventHandler<HTMLDivElement> = (e) => {
+    e.stopPropagation();
+
+    const currentTime = Date.now();
+    const timeGap = currentTime - lastClickTimeRef.current;
+
+    if (timeGap > 0 && timeGap < DOUBLE_CLICK_TIME_GAP) {
+      // Prevent drag start if it's a double-click action
+      return;
+    }
+
+    lastClickTimeRef.current = currentTime;
+
     if (resizable && e.currentTarget) {
       setStartPos([e.pageX, e.pageY]);
       onOffsetStart(index);
@@ -195,7 +217,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
   }, [startPos, index, lazy]);
 
   const transformStyle: React.CSSProperties = {
-    [`--${splitBarPrefixCls}-preview-offset`]: `${constrainedOffset}px`,
+    [varName('bar-preview-offset')]: `${constrainedOffset}px`,
   };
 
   // ======================== Render ========================
@@ -234,7 +256,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       )}
 
       <div
-        style={draggerStyle}
+        style={draggerStyle?.default}
         className={clsx(
           `${splitBarPrefixCls}-dragger`,
           {
@@ -247,6 +269,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
         )}
         onMouseDown={onMouseDown}
         onTouchStart={onTouchStart}
+        onDoubleClick={() => onDraggerDoubleClick?.(index)}
       >
         {draggerIcon !== undefined ? (
           <div className={clsx(`${splitBarPrefixCls}-dragger-icon`)}>{draggerIcon}</div>

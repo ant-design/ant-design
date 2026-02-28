@@ -15,8 +15,8 @@ const App: React.FC = () => {
   const [targetKeys, setTargetKeys] = useState<React.Key[]>([]);
 
   useEffect(() => {
-    const newTargetKeys = [];
-    const newMockData = [];
+    const newTargetKeys: React.Key[] = [];
+    const newMockData: RecordType[] = [];
     for (let i = 0; i < 2000; i++) {
       const data = {
         key: i.toString(),

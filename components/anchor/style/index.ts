@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { resetComponent, textEllipsis } from '../../style';
@@ -45,7 +46,7 @@ interface AnchorToken extends FullToken<'Anchor'> {
 }
 
 // ============================== Shared ==============================
-const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token) => {
+const genSharedAnchorStyle: GenerateStyle<AnchorToken, CSSObject> = (token) => {
   const {
     componentCls,
     holderOffsetBlock,
@@ -131,7 +132,7 @@ const genSharedAnchorStyle: GenerateStyle<AnchorToken> = (token) => {
   };
 };
 
-const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token) => {
+const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow, lineWidthBold, colorPrimary } = token;
 
   return {
@@ -170,7 +171,9 @@ const genSharedAnchorHorizontalStyle: GenerateStyle<AnchorToken> = (token) => {
         [`${componentCls}-ink`]: {
           position: 'absolute',
           bottom: 0,
-          transition: `left ${motionDurationSlow} ease-in-out, width ${motionDurationSlow} ease-in-out`,
+          transition: [`left`, `width`]
+            .map((prop) => `${prop} ${motionDurationSlow} ease-in-out`)
+            .join(', '),
           height: lineWidthBold,
           backgroundColor: colorPrimary,
         },

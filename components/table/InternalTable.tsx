@@ -60,10 +60,10 @@ import type {
   TablePaginationPosition,
   TableRowSelection,
 } from './interface';
-import TableMeasureRowContext from './TableMeasureRowContext';
 import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
+import TableMeasureRowContext from './TableMeasureRowContext';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -87,7 +87,8 @@ export type TableSemanticStyles = {
   content?: React.CSSProperties;
 };
 
-export type ComponentsSemantic = 'wrapper' | 'cell' | 'row';
+export type ComponentsSemantic = keyof ComponentsSemanticClassNames &
+  keyof ComponentsSemanticStyles;
 
 export type ComponentsSemanticClassNames = {
   wrapper?: string;
@@ -345,6 +346,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // ============================ RowKey ============================
   const rowKey = customizeRowKey || table?.rowKey || 'key';
+
+  // ============================ Scroll ============================
+  const mergedScroll = scroll ?? table?.scroll;
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
@@ -720,6 +724,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         <TableComponent
           {...virtualProps}
           {...tableProps}
+          scroll={mergedScroll}
           classNames={mergedClassNames as RcTableProps<RecordType>['classNames']}
           styles={mergedStyles as RcTableProps<RecordType>['styles']}
           ref={tblRef}

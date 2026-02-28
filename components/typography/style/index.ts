@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { operationUnit } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
@@ -26,7 +28,7 @@ export interface ComponentToken {
 
 export type TypographyToken = FullToken<'Typography'>;
 
-const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
+const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const { componentCls, titleMarginTop } = token;
 
   return {
@@ -34,24 +36,24 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       color: token.colorText,
       wordBreak: 'break-word',
       lineHeight: token.lineHeight,
-      [`&${componentCls}-secondary`]: {
+      [`&${componentCls}-secondary, &${componentCls}-link${componentCls}-secondary`]: {
         color: token.colorTextDescription,
       },
 
-      [`&${componentCls}-success`]: {
+      [`&${componentCls}-success, &${componentCls}-link${componentCls}-success`]: {
         color: token.colorSuccessText,
       },
 
-      [`&${componentCls}-warning`]: {
+      [`&${componentCls}-warning, &${componentCls}-link${componentCls}-warning`]: {
         color: token.colorWarningText,
       },
 
-      [`&${componentCls}-danger`]: {
+      [`&${componentCls}-danger, &${componentCls}-link${componentCls}-danger`]: {
         color: token.colorErrorText,
-        'a&:active, a&:focus': {
+        [`&${componentCls}-link:active, &${componentCls}-link:focus`]: {
           color: token.colorErrorTextActive,
         },
-        'a&:hover': {
+        [`&${componentCls}-link:hover`]: {
           color: token.colorErrorTextHover,
         },
       },
@@ -107,6 +109,10 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       ...getLinkStyles(token),
 
       // Operation
+      [`${componentCls}-actions`]: {
+        display: 'inline',
+      },
+
       [`
         ${componentCls}-expand,
         ${componentCls}-collapse,

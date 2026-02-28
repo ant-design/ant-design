@@ -13,15 +13,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -63,15 +58,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -94,15 +84,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -144,15 +129,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -175,15 +155,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -225,15 +200,10 @@ exports[`renders components/auto-complete/demo/AutoComplete-and-Select.tsx corre
       style="width:200px"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+        title="centered"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="centered"
-        >
-          centered
-        </div>
+        centered
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -378,10 +348,6 @@ exports[`renders components/auto-complete/demo/certain-category.tsx correctly 1`
     class="ant-select-content"
   >
     <div
-      class="ant-select-placeholder"
-      style="visibility:visible"
-    />
-    <div
       class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large ant-select-input"
     >
       <input
@@ -437,10 +403,6 @@ exports[`renders components/auto-complete/demo/custom.tsx correctly 1`] = `
   <div
     class="ant-select-content"
   >
-    <div
-      class="ant-select-placeholder"
-      style="visibility:visible"
-    />
     <textarea
       aria-autocomplete="list"
       aria-expanded="false"
@@ -728,10 +690,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
               <div
                 class="ant-select-content"
               >
-                <div
-                  class="ant-select-placeholder"
-                  style="visibility:visible"
-                />
                 <span
                   class="ant-input-affix-wrapper ant-input-outlined ant-select-input css-var-test-id ant-input-css-var"
                 >
@@ -859,10 +817,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 <div
                   class="ant-select-content"
                 >
-                  <div
-                    class="ant-select-placeholder"
-                    style="visibility:visible"
-                  />
                   <span
                     class="ant-input-affix-wrapper ant-input-outlined ant-select-input css-var-test-id ant-input-css-var ant-input-compact-item ant-input-compact-last-item"
                   >
@@ -991,10 +945,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 <div
                   class="ant-select-content"
                 >
-                  <div
-                    class="ant-select-placeholder"
-                    style="visibility:visible"
-                  />
                   <div
                     class="ant-space-compact ant-input-search css-var-test-id ant-select-input"
                   >
@@ -1128,10 +1078,6 @@ exports[`renders components/auto-complete/demo/form-debug.tsx correctly 1`] = `
                 <div
                   class="ant-select-content"
                 >
-                  <div
-                    class="ant-select-placeholder"
-                    style="visibility:visible"
-                  />
                   <div
                     class="ant-space-compact ant-input-search css-var-test-id ant-select-input"
                   >
@@ -1307,15 +1253,10 @@ exports[`renders components/auto-complete/demo/render-panel.tsx correctly 1`] = 
       style="width:120px;margin:0"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value ant-select-content-has-search-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          style="visibility:hidden"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -1464,10 +1405,6 @@ exports[`renders components/auto-complete/demo/uncertain-category.tsx correctly 
   <div
     class="ant-select-content"
   >
-    <div
-      class="ant-select-placeholder"
-      style="visibility:visible"
-    />
     <div
       class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large ant-input-search-with-button ant-select-input"
     >

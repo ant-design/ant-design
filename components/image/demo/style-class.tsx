@@ -1,14 +1,14 @@
 import React from 'react';
 import { Flex, Image } from 'antd';
-import type { ImageProps } from 'antd';
-import { createStyles } from 'antd-style';
+import type { GetProp, ImageProps } from 'antd';
+import { createStaticStyles } from 'antd-style';
 
-const useStyles = createStyles(() => ({
-  root: {
-    padding: 4,
-    borderRadius: 8,
-    overflow: 'hidden',
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    padding: 4px;
+    border-radius: 8px;
+    overflow: hidden;
+  `,
 }));
 
 const styles: ImageProps['styles'] = {
@@ -17,7 +17,7 @@ const styles: ImageProps['styles'] = {
   },
 };
 
-const stylesFn: ImageProps['styles'] = (info) => {
+const stylesFn: ImageProps['styles'] = (info): GetProp<ImageProps, 'styles', 'Return'> => {
   if (info.props.preview) {
     return {
       root: {
@@ -30,14 +30,12 @@ const stylesFn: ImageProps['styles'] = (info) => {
         borderRadius: 4,
         filter: 'grayscale(50%)',
       },
-    } satisfies ImageProps['styles'];
+    };
   }
   return {};
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyles();
-
   const sharedProps: ImageProps = {
     src: 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png',
     width: 160,

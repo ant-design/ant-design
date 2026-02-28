@@ -25,12 +25,14 @@ import type {
   CascaderConfig,
   CheckboxConfig,
   CollapseConfig,
+  ColorPickerConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
   CSPConfig,
   DatePickerConfig,
   DirectionType,
   DrawerConfig,
+  DropdownConfig,
   EmptyConfig,
   FlexConfig,
   FloatButtonConfig,
@@ -52,6 +54,7 @@ import type {
   PopconfirmConfig,
   PopoverConfig,
   PopupOverflow,
+  ProgressConfig,
   QRcodeConfig,
   RadioConfig,
   RangePickerConfig,
@@ -60,6 +63,7 @@ import type {
   SkeletonConfig,
   SpaceConfig,
   SpinConfig,
+  SwitchStyleConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
@@ -90,6 +94,18 @@ import PropWarning from './PropWarning';
 import type { SizeType } from './SizeContext';
 import SizeContext, { SizeContextProvider } from './SizeContext';
 import useStyle from './style';
+
+/**
+ * This component registers icon styles inside the DesignTokenContext.Provider
+ * so that CSS variables use the correct cssVar key from the theme config.
+ */
+const IconStyle: React.FC<{ iconPrefixCls: string; csp?: CSPConfig }> = ({
+  iconPrefixCls,
+  csp,
+}) => {
+  useStyle(iconPrefixCls, csp);
+  return null;
+};
 
 export type { Variant };
 
@@ -200,6 +216,7 @@ export interface ConfigProviderProps {
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
   anchor?: ComponentStyleConfig;
+  app?: ComponentStyleConfig;
   button?: ButtonConfig;
   calendar?: ComponentStyleConfig;
   carousel?: ComponentStyleConfig;
@@ -219,7 +236,7 @@ export interface ConfigProviderProps {
   list?: ListConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
-  progress?: ComponentStyleConfig;
+  progress?: ProgressConfig;
   result?: ComponentStyleConfig;
   slider?: ComponentStyleConfig;
   masonry?: MasonryConfig;
@@ -234,7 +251,7 @@ export interface ConfigProviderProps {
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   ribbon?: RibbonConfig;
-  switch?: ComponentStyleConfig;
+  switch?: SwitchStyleConfig;
   transfer?: TransferConfig;
   avatar?: ComponentStyleConfig;
   message?: MessageConfig;
@@ -248,10 +265,10 @@ export interface ConfigProviderProps {
   upload?: UploadConfig;
   notification?: NotificationConfig;
   tree?: ComponentStyleConfig;
-  colorPicker?: ComponentStyleConfig;
+  colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;
-  dropdown?: ComponentStyleConfig;
+  dropdown?: DropdownConfig;
   flex?: FlexConfig;
   /**
    * Wave is special component which only patch on the effect of component interaction.
@@ -338,6 +355,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     alert,
     affix,
     anchor,
+    app,
     form,
     locale,
     componentSize,
@@ -440,8 +458,6 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const iconPrefixCls = customIconPrefixCls || parentContext.iconPrefixCls || defaultIconPrefixCls;
   const csp = customCsp || parentContext.csp;
 
-  useStyle(iconPrefixCls, csp);
-
   const mergedTheme = useTheme(theme, parentContext.theme, { prefixCls: getPrefixCls('') });
 
   if (process.env.NODE_ENV !== 'production') {
@@ -454,6 +470,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     alert,
     affix,
     anchor,
+    app,
     locale: locale || legacyLocale,
     direction,
     space,
@@ -591,6 +608,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
 
   let childNode = (
     <>
+      <IconStyle iconPrefixCls={iconPrefixCls} csp={csp} />
       <PropWarning dropdownMatchSelectWidth={dropdownMatchSelectWidth} />
       {children}
     </>

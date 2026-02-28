@@ -5,8 +5,8 @@ import { warning } from '@rc-component/util';
 import type { ModalFuncProps } from '..';
 import Modal from '..';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
-import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import App from '../../app';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
 import type { GlobalConfigProps } from '../../config-provider';
 import type { ModalFunc } from '../confirm';
 import destroyFns from '../destroyFns';
@@ -678,6 +678,8 @@ describe('Modal.confirm triggers callbacks correctly', () => {
   describe('the callback close should be a method when onCancel has a close parameter', () => {
     (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
       it(`click the close icon to trigger ${type} onCancel`, async () => {
+        jest.useFakeTimers();
+
         const mock = jest.fn();
 
         Modal[type]?.({
@@ -688,17 +690,21 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         await waitFakeTimer();
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-        $$('.ant-modal-close')[0].click();
+        fireEvent.click($$('.ant-modal-close')[0]);
 
         await waitFakeTimer();
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
         expect(mock).toHaveBeenCalledWith(expect.any(Function));
+
+        jest.useRealTimers();
       });
     });
 
     (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
       it(`press ESC to trigger ${type} onCancel`, async () => {
+        jest.useFakeTimers();
+
         const mock = jest.fn();
 
         Modal[type]?.({
@@ -709,17 +715,21 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         await waitFakeTimer();
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
-        fireEvent.keyDown(window, { key: 'Escape' });
+        fireEvent.keyDown($$(`.ant-modal-confirm-${type}`)[0], { key: 'Escape' });
 
         await waitFakeTimer(0);
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
         expect(mock).toHaveBeenCalledWith(expect.any(Function));
+
+        jest.useRealTimers();
       });
     });
 
     (['confirm', 'info', 'success', 'warning', 'error'] as const).forEach((type) => {
       it(`click the mask to trigger ${type} onCancel`, async () => {
+        jest.useFakeTimers();
+
         const mock = jest.fn();
 
         Modal[type]?.({
@@ -732,17 +742,22 @@ describe('Modal.confirm triggers callbacks correctly', () => {
         expect($$('.ant-modal-mask')).toHaveLength(1);
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(1);
 
-        $$('.ant-modal-wrap')[0].click();
+        fireEvent.mouseDown($$('.ant-modal-wrap')[0]);
+        fireEvent.click($$('.ant-modal-wrap')[0]);
 
         await waitFakeTimer();
 
         expect($$(`.ant-modal-confirm-${type}`)).toHaveLength(0);
         expect(mock).toHaveBeenCalledWith(expect.any(Function));
+
+        jest.useRealTimers();
       });
     });
   });
 
   it('confirm modal click Cancel button close callback is a function', async () => {
+    jest.useFakeTimers();
+
     const mock = jest.fn();
 
     Modal.confirm({
@@ -751,13 +766,17 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     await waitFakeTimer();
 
-    $$('.ant-modal-confirm-btns > .ant-btn')[0].click();
+    fireEvent.click($$('.ant-modal-confirm-btns > .ant-btn')[0]);
     await waitFakeTimer();
 
     expect(mock).toHaveBeenCalledWith(expect.any(Function));
+
+    jest.useRealTimers();
   });
 
   it('close can close modal when onCancel has a close parameter', async () => {
+    jest.useFakeTimers();
+
     Modal.confirm({
       onCancel: (close) => close(),
     });
@@ -766,10 +785,12 @@ describe('Modal.confirm triggers callbacks correctly', () => {
 
     expect($$('.ant-modal-confirm-confirm')).toHaveLength(1);
 
-    $$('.ant-modal-confirm-btns > .ant-btn')[0].click();
+    fireEvent.click($$('.ant-modal-confirm-btns > .ant-btn')[0]);
     await waitFakeTimer();
 
     expect($$('.ant-modal-confirm-confirm')).toHaveLength(0);
+
+    jest.useRealTimers();
   });
 
   // https://github.com/ant-design/ant-design/issues/37461
@@ -976,6 +997,20 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     $$('.ant-btn')[0].click();
     await waitFakeTimer();
     expect(document.querySelector('.ant-modal-root')).toBeFalsy();
+  });
+
+  it('focusable.autoFocusButton should working', async () => {
+    Modal.confirm({
+      title: 'Test',
+      content: 'Test content',
+      focusable: { autoFocusButton: 'cancel' },
+    });
+
+    await waitFakeTimer();
+
+    expect(document.activeElement).toBe(
+      document.querySelector('.ant-modal-confirm-btns .ant-btn-default'),
+    );
   });
 
   it('should support cancelButtonProps global config', () => {

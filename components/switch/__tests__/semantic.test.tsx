@@ -2,30 +2,33 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { Flex, Space, Switch } from 'antd';
 import type { SwitchProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(({ css }) => ({
+const classNames = createStaticStyles(({ css }) => ({
   root: css`
     border-color: red;
   `,
   content: css`
     color: black;
   `,
+  indicator: css`
+    background: blue;
+  `,
 }));
 
 const stylesObject: SwitchProps['styles'] = {
   root: { background: 'red' },
+  indicator: { width: '20px' },
 };
 
 // 创建一个自定义 Hook 来获取 classNames 函数
 const useClassNames = () => {
-  const { styles } = useStyle();
-
   const classNamesFn: SwitchProps['classNames'] = (info) => {
     if (info.props.size === 'small') {
       return {
-        root: styles.root,
-        content: styles.content,
+        root: classNames.root,
+        content: classNames.content,
+        indicator: classNames.indicator,
       };
     }
 
@@ -100,6 +103,9 @@ describe('Switch style-class demo', () => {
 
     const switchElement = container.querySelector('.ant-switch');
     expect(switchElement).toHaveStyle({ background: 'red' });
+
+    const handleElement = container.querySelector('.ant-switch-handle');
+    expect(handleElement).toHaveStyle({ width: '20px' });
   });
 
   it('should render the complete demo structure', () => {

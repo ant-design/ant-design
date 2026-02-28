@@ -36,7 +36,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | gap | Letter type unit distance between left and right sides | number | 4 | 4.3.0 |
 | icon | Custom icon type for an icon avatar | ReactNode | - |  |
 | shape | The shape of avatar | `circle` \| `square` | `circle` |  |
-| size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.7.0 |
+| size | The size of the avatar | number \| `large` \| `medium` \| `small` \| { xs: number, sm: number, ...} | `medium` | 4.7.0 |
 | src | The address of the image for an image avatar or image element | string \| ReactNode | - | ReactNode: 4.8.0 |
 | srcSet | A list of sources to use for different screen resolutions | string | - |  |
 | draggable | Whether the picture is allowed to be dragged | boolean \| `'true'` \| `'false'` | true |  |
@@ -50,7 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | max | Set maximum display related configurations, Before `5.18.0` you can use [parameters](https://github.com/ant-design/ant-design/blob/9d134859becbdae5b9ce276f6d9af4264691d81f/components/avatar/group.tsx#L35-L38) | `{ count?: number; style?: CSSProperties; popover?: PopoverProps }` | - | 5.18.0 |
-| size | The size of the avatar | number \| `large` \| `small` \| `default` \| { xs: number, sm: number, ...} | `default` | 4.8.0 |
+| size | The size of the avatar | number \| `large` \| `medium` \| `small` \| { xs: number, sm: number, ...} | `medium` | 4.8.0 |
 | shape | The shape of the avatar | `circle` \| `square` | `circle` | 5.8.0 |
 
 ## Design Token

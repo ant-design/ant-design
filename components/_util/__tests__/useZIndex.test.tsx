@@ -26,7 +26,7 @@ import {
 import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
 import { resetWarned } from '../warning';
-import zIndexContext from '../zindexContext';
+import ZIndexContext from '../zindexContext';
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -45,7 +45,7 @@ const WrapWithProvider: React.FC<PropsWithChildren<{ container: ZIndexContainer 
   container,
 }) => {
   const [, contextZIndex] = useZIndex(container);
-  return <zIndexContext.Provider value={contextZIndex}>{children}</zIndexContext.Provider>;
+  return <ZIndexContext.Provider value={contextZIndex}>{children}</ZIndexContext.Provider>;
 };
 
 const containerComponent: Partial<
@@ -130,10 +130,10 @@ const items: MenuProps['items'] = [
 ];
 
 const consumerComponent: Partial<
-  Record<ZIndexConsumer, React.FC<Readonly<{ rootClassName: string }>>>
+  Record<ZIndexConsumer, React.FC<Readonly<{ rootClassName: string; ref?: React.Ref<any> }>>>
 > = {
-  SelectLike: ({ rootClassName, ...props }) => (
-    <>
+  SelectLike: ({ rootClassName, ref, ...props }) => (
+    <div ref={ref}>
       <Select
         {...props}
         rootClassName={`${rootClassName} comp-item comp-Select`}
@@ -159,7 +159,7 @@ const consumerComponent: Partial<
         open
       />
       <ColorPicker {...props} open rootClassName={`${rootClassName} comp-item comp-ColorPicker`} />
-    </>
+    </div>
   ),
   Dropdown: (props) => (
     <Dropdown
@@ -175,15 +175,15 @@ const consumerComponent: Partial<
       <button type="button">test</button>
     </Dropdown>
   ),
-  DatePicker: ({ rootClassName, ...props }) => (
-    <>
+  DatePicker: ({ rootClassName, ref, ...props }) => (
+    <div ref={ref}>
       <DatePicker {...props} rootClassName={`${rootClassName} comp-item comp-DatePicker`} open />
       <DatePicker.TimePicker
         {...props}
         rootClassName={`${rootClassName} comp-item comp-TimePicker`}
         open
       />
-    </>
+    </div>
   ),
   Menu: (props) => <Menu {...props} items={items} defaultOpenKeys={['SubMenu']} />,
   ImagePreview: ({ rootClassName }: ImageProps) => (

@@ -64,6 +64,13 @@ describe('Modal', () => {
     expect(onCancel).toHaveBeenCalled();
   });
 
+  it('onCancel should be called when pressing ESC', () => {
+    const onCancel = jest.fn();
+    render(<Modal open onCancel={onCancel} />);
+    fireEvent.keyDown(document.querySelector('.ant-modal-wrap')!, { key: 'Escape', keyCode: 27 });
+    expect(onCancel).toHaveBeenCalled();
+  });
+
   it('onOk should be called', () => {
     const onOk = jest.fn();
     render(<Modal open onOk={onOk} />);
@@ -257,6 +264,56 @@ describe('Modal', () => {
     expect(document.querySelector('.ant-modal-footer .ant-btn-primary.ant-btn-sm')).toBeTruthy();
   });
 
+  it('should not close when mask.closable is false from context', () => {
+    const onCancel = jest.fn();
+    render(
+      <ConfigProvider modal={{ mask: { closable: false } }}>
+        <Modal open onCancel={onCancel} />
+      </ConfigProvider>,
+    );
+    const maskElement = document.querySelector('.ant-modal-mask');
+    fireEvent.click(maskElement!);
+    expect(onCancel).not.toHaveBeenCalled();
+  });
+
+  it('should support maskClosable prop over mask.closable global config', async () => {
+    jest.useFakeTimers();
+
+    const Demo: React.FC<ModalProps> = ({ onCancel = () => {}, onOk = () => {}, ...restProps }) => {
+      const [open, setOpen] = React.useState<boolean>(false);
+      useEffect(() => {
+        setOpen(true);
+      }, []);
+      const handleCancel: ModalProps['onCancel'] = (event) => {
+        setOpen(false);
+        onCancel(event);
+      };
+
+      return <Modal open={open} onCancel={handleCancel} onOk={onOk} {...restProps} />;
+    };
+
+    const onCancel = jest.fn();
+    const onOk = jest.fn();
+
+    render(
+      <ConfigProvider modal={{ mask: { closable: false } }}>
+        <Demo onCancel={onCancel} onOk={onOk} maskClosable />
+      </ConfigProvider>,
+    );
+    await act(async () => {
+      await waitFakeTimer(500);
+    });
+    const modalWrap = document.body.querySelectorAll('.ant-modal-wrap')[0];
+    fireEvent.mouseDown(modalWrap!);
+    fireEvent.click(modalWrap!);
+    await act(async () => {
+      await waitFakeTimer(500);
+    });
+    expect(onCancel).toHaveBeenCalled();
+
+    jest.useRealTimers();
+  });
+
   it('should not close modal when confirmLoading is loading', async () => {
     jest.useFakeTimers();
 
@@ -366,11 +423,11 @@ describe('Modal', () => {
       openMask?: boolean,
     ][] = [
       // Format: [modalMask, configMask,  expectedBlurClass, openMask]
-      [undefined, true, true, true],
-      [true, undefined, true, true],
-      [undefined, undefined, true, true],
+      [undefined, true, false, true],
+      [true, undefined, false, true],
+      [undefined, undefined, false, true],
       [false, true, false, false],
-      [true, false, true, true],
+      [true, false, false, true],
       [{ enabled: false }, { blur: true }, true, false],
       [{ enabled: true }, { blur: false }, false, true],
       [{ blur: true }, { enabled: false }, true, false],
@@ -400,5 +457,67 @@ describe('Modal', () => {
         expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
       }
     });
+  });
+
+  it('focusable default config should pass to classNames', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <Modal open getContainer={false} classNames={classNames}>
+        Here is content of Modal
+      </Modal>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: true,
+            focusTriggerAfterClose: true,
+          },
+        }),
+      }),
+    );
+  });
+
+  it('should warning when using deprecated autoFocusButton', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    const Test = () => {
+      const [modal, holder] = Modal.useModal();
+
+      React.useEffect(() => {
+        modal.confirm({
+          autoFocusButton: 'ok',
+          content: 'Here is content of Modal',
+        });
+      }, []);
+
+      return holder;
+    };
+
+    render(<Test />);
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] `autoFocusButton` is deprecated. Please use `focusable.autoFocusButton` instead.',
+    );
+
+    errorSpy.mockRestore();
+  });
+
+  it('should warning when using deprecated focusTriggerAfterClose', () => {
+    const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+    render(
+      <Modal open focusTriggerAfterClose={false} getContainer={false}>
+        Here is content of Modal
+      </Modal>,
+    );
+
+    expect(errorSpy).toHaveBeenCalledWith(
+      'Warning: [antd: Modal] `focusTriggerAfterClose` is deprecated. Please use `focusable.focusTriggerAfterClose` instead.',
+    );
+
+    errorSpy.mockRestore();
   });
 });

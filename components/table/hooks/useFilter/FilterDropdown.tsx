@@ -295,7 +295,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     setSearchValue('');
 
     if (filterResetToDefaultFilteredValue) {
-      setFilteredKeysSync((defaultFilteredValue || []).map((key) => String(key)));
+      setFilteredKeysSync((defaultFilteredValue || []).map<string>(String));
     } else {
       setFilteredKeysSync([]);
     }
@@ -330,7 +330,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   const onCheckAll = (e: CheckboxChangeEvent) => {
     if (e.target.checked) {
-      const allFilterKeys = flattenKeys(column?.filters).map((key) => String(key));
+      const allFilterKeys = flattenKeys(column?.filters).map<string>(String);
       setFilteredKeysSync(allFilterKeys);
     } else {
       setFilteredKeysSync([]);
@@ -349,11 +349,12 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       }
       return item;
     });
+
   const getFilterData = (node: FilterTreeDataNode): TreeColumnFilterItem => ({
     ...node,
     text: node.title,
     value: node.key,
-    children: node.children?.map((item) => getFilterData(item)) || [],
+    children: node.children?.map<TreeColumnFilterItem>(getFilterData) || [],
   });
 
   let dropdownContent: React.ReactNode;
@@ -491,13 +492,8 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
     const getResetDisabled = () => {
       if (filterResetToDefaultFilteredValue) {
-        return isEqual(
-          (defaultFilteredValue || []).map((key) => String(key)),
-          selectedKeys,
-          true,
-        );
+        return isEqual((defaultFilteredValue || []).map<string>(String), selectedKeys, true);
       }
-
       return selectedKeys.length === 0;
     };
 

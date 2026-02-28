@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
+import { genCssVar } from '../theme/util/genStyleUtils';
 import RowContext from './RowContext';
 import { useColStyle } from './style';
 
@@ -33,12 +35,16 @@ export interface ColProps
   prefixCls?: string;
 }
 
+const isNumber = (value: any): value is number => {
+  return typeof value === 'number' && !Number.isNaN(value);
+};
+
 function parseFlex(flex: FlexType): string {
   if (flex === 'auto') {
     return '1 1 auto';
   }
 
-  if (typeof flex === 'number') {
+  if (isNumber(flex)) {
     return `${flex} ${flex} auto`;
   }
 
@@ -48,7 +54,7 @@ function parseFlex(flex: FlexType): string {
 
   return flex;
 }
-const sizes = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
   const { gutter, wrap } = React.useContext(RowContext);
@@ -68,14 +74,17 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   } = props;
 
   const prefixCls = getPrefixCls('col', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
 
   const [hashId, cssVarCls] = useColStyle(prefixCls);
+
+  const [varName] = genCssVar(rootPrefixCls, 'col');
 
   // ===================== Size ======================
   const sizeStyle: Record<string, string> = {};
 
   let sizeClassObj: Record<string, boolean | ColSpanType> = {};
-  sizes.forEach((size) => {
+  responsiveArrayReversed.forEach((size) => {
     let sizeProps: ColSize = {};
     const propSize = props[size];
     if (typeof propSize === 'number') {
@@ -100,7 +109,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     // Responsive flex layout
     if (sizeProps.flex) {
       sizeClassObj[`${prefixCls}-${size}-flex`] = true;
-      sizeStyle[`--${prefixCls}-${size}-flex`] = parseFlex(sizeProps.flex);
+      sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
     }
   });
 

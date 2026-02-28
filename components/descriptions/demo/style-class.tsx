@@ -1,12 +1,12 @@
 import React from 'react';
 import { Descriptions, Flex } from 'antd';
 import type { DescriptionsProps } from 'antd';
-import { createStyles } from 'antd-style';
+import { createStaticStyles } from 'antd-style';
 
-const useStyle = createStyles(() => ({
-  root: {
-    padding: 10,
-  },
+const classNames = createStaticStyles(({ css }) => ({
+  root: css`
+    padding: 10px;
+  `,
 }));
 
 const items: DescriptionsProps['items'] = [
@@ -47,8 +47,6 @@ const stylesFn: DescriptionsProps['styles'] = (info) => {
 };
 
 const App: React.FC = () => {
-  const { styles: classNames } = useStyle();
-
   const descriptionsProps: DescriptionsProps = {
     title: 'User Info',
     items,

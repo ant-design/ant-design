@@ -45,6 +45,8 @@ export interface OptionProps {
   [key: string]: any;
 }
 
+export type MentionSemanticName = keyof MentionSemanticClassNames & keyof MentionSemanticStyles;
+
 export type MentionSemanticClassNames = {
   root?: string;
   textarea?: string;

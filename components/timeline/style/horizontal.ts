@@ -3,15 +3,20 @@ import { unit } from '@ant-design/cssinjs';
 
 import type { TimelineToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
-  const { componentCls, fontHeight } = token;
+  const { componentCls, fontHeight, antCls, paddingXS } = token;
+
+  const [stepsVarName, stepsVarRef] = genCssVar(antCls, 'cmp-steps');
+  const [timelineVarName, timelineVarRef] = genCssVar(antCls, 'timeline');
+
   const itemCls = `${componentCls}-item`;
 
   return {
     [`${componentCls}-horizontal`]: {
-      '--steps-title-vertical-row-gap': token.paddingXS,
-      '--timeline-content-height': `${unit(fontHeight)}`,
+      [stepsVarName('title-vertical-row-gap')]: paddingXS,
+      [timelineVarName('content-height')]: unit(fontHeight),
 
       // =============================================================
       // ==                          Share                          ==
@@ -24,8 +29,9 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
       [`&${componentCls}-layout-alternate`]: {
         [itemCls]: {
           [`${itemCls}-wrapper`]: {
-            '--timeline-alternate-content-offset': `calc(var(--timeline-content-height) + var(--steps-title-vertical-row-gap) * 2 + var(--steps-icon-size-max))`,
-            height: `calc(var(--timeline-content-height) * 2 + var(--steps-title-vertical-row-gap) * 2 + var(--steps-icon-size-max))`,
+            [timelineVarName('alternate-content-offset')]:
+              `calc(${timelineVarRef('content-height')} + ${stepsVarRef('title-vertical-row-gap')} * 2 + ${stepsVarRef('icon-size-max')})`,
+            height: `calc(${timelineVarRef('content-height')} * 2 + ${stepsVarRef('title-vertical-row-gap')} * 2 + ${stepsVarRef('icon-size-max')})`,
           },
 
           // Icon
@@ -60,7 +66,6 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
           // Content
           [`${itemCls}-content`]: {
             position: 'absolute',
-
             left: {
               _skip_check_: true,
               value: '50%',
@@ -70,15 +75,19 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
           // Placement
           '&-placement-start': {
-            [`${itemCls}-title`]: { bottom: 'var(--timeline-alternate-content-offset)' },
+            [`${itemCls}-title`]: {
+              bottom: timelineVarRef('alternate-content-offset'),
+            },
             [`${itemCls}-content`]: {
-              top: 'var(--timeline-alternate-content-offset)',
+              top: timelineVarRef('alternate-content-offset'),
             },
           },
           '&-placement-end': {
-            [`${itemCls}-title`]: { top: 'var(--timeline-alternate-content-offset)' },
+            [`${itemCls}-title`]: {
+              top: timelineVarRef('alternate-content-offset'),
+            },
             [`${itemCls}-content`]: {
-              bottom: 'var(--timeline-alternate-content-offset)',
+              bottom: timelineVarRef('alternate-content-offset'),
             },
           },
         },
@@ -99,7 +108,7 @@ const genHorizontalStyle: GenerateStyle<TimelineToken, CSSObject> = (token) => {
 
           [`${itemCls}-rail`]: {
             top: 'auto',
-            bottom: 'var(--steps-horizontal-rail-margin)',
+            bottom: stepsVarRef('horizontal-rail-margin'),
             transform: 'translateY(50%)',
           },
         },

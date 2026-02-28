@@ -27,6 +27,8 @@ import { triggerFocus } from './Input';
 import { useSharedStyle } from './style';
 import useStyle from './style/textarea';
 
+export type TextAreaSemanticName = keyof TextAreaSemanticClassNames & keyof TextAreaSemanticStyles;
+
 export type TextAreaSemanticClassNames = {
   root?: string;
   textarea?: string;
@@ -65,6 +67,7 @@ export interface TextAreaRef {
   focus: (options?: InputFocusOptions) => void;
   blur: () => void;
   resizableTextArea?: RcTextAreaRef['resizableTextArea'];
+  nativeElement: HTMLElement | null;
 }
 
 const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
@@ -132,6 +135,7 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
       triggerFocus(innerRef.current?.resizableTextArea?.textArea, option);
     },
     blur: () => innerRef.current?.blur(),
+    nativeElement: innerRef.current?.nativeElement || null,
   }));
 
   const prefixCls = getPrefixCls('input', customizePrefixCls);

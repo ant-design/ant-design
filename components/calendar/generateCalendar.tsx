@@ -3,7 +3,7 @@ import type { BasePickerPanelProps as RcBasePickerPanelProps } from '@rc-compone
 import { PickerPanel as RCPickerPanel } from '@rc-component/picker';
 import type { GenerateConfig } from '@rc-component/picker/generate';
 import type { CellRenderInfo } from '@rc-component/picker/interface';
-import { useControlledState } from '@rc-component/util';
+import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
@@ -17,6 +17,7 @@ import enUS from './locale/en_US';
 import useStyle from './style';
 
 export type CalendarMode = 'year' | 'month';
+
 export type HeaderRender<DateType> = (config: {
   value: DateType;
   type: CalendarMode;
@@ -27,6 +28,8 @@ export type HeaderRender<DateType> = (config: {
 export interface SelectInfo {
   source: 'year' | 'month' | 'date' | 'customize';
 }
+
+export type CalendarSemanticName = keyof CalendarSemanticClassNames & keyof CalendarSemanticStyles;
 
 export type CalendarSemanticClassNames = {
   root?: string;
@@ -325,7 +328,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
 
     const [contextLocale] = useLocale('Calendar', enUS);
 
-    const locale = { ...contextLocale, ...props.locale! };
+    const locale = merge(contextLocale, props.locale || {});
 
     const mergedCellRender: RcBasePickerPanelProps['cellRender'] = (current, info) => {
       if (info.type === 'date') {

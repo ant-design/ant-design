@@ -5,13 +5,15 @@ exports[`renders components/list/demo/basic.tsx correctly 1`] = `
   class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
@@ -196,13 +198,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -307,13 +311,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -378,13 +384,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -442,13 +450,15 @@ Array [
     class="ant-list ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -622,13 +632,15 @@ Array [
     class="ant-list ant-list-vertical ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -802,7 +814,9 @@ Array [
     class="ant-list ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
@@ -842,10 +856,10 @@ Array [
                     stroke="#d9d9d9"
                   >
                     <path
-                      d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                      d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                     />
                     <path
-                      d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                      d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                       fill="#fafafa"
                     />
                   </g>
@@ -870,13 +884,15 @@ exports[`renders components/list/demo/drag-sorting.tsx correctly 1`] = `
   class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
@@ -974,13 +990,15 @@ exports[`renders components/list/demo/drag-sorting-handler.tsx correctly 1`] = `
   class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item ant-list-item-no-flex"
@@ -1208,13 +1226,15 @@ exports[`renders components/list/demo/grid.tsx correctly 1`] = `
   class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row css-var-test-id"
+        class="ant-row ant-list-container css-var-test-id css-var-test-id"
         style="margin-inline:-8px"
       >
         <div
@@ -1368,13 +1388,15 @@ exports[`renders components/list/demo/grid-drag-sorting.tsx correctly 1`] = `
   class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row css-var-test-id"
+        class="ant-row ant-list-container css-var-test-id css-var-test-id"
         style="margin-inline:-8px"
       >
         <div
@@ -1634,13 +1656,15 @@ exports[`renders components/list/demo/grid-drag-sorting-handler.tsx correctly 1`
   class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row css-var-test-id"
+        class="ant-row ant-list-container css-var-test-id css-var-test-id"
         style="margin-inline:-8px"
       >
         <div
@@ -2069,13 +2093,15 @@ Array [
     class="ant-list ant-list-split ant-list-grid css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-row css-var-test-id"
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
           style="margin-inline:-8px"
         >
           <div
@@ -2296,13 +2322,15 @@ Array [
     class="ant-list ant-list-split ant-list-grid css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-row css-var-test-id"
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
           style="margin-inline:-8px"
         >
           <div
@@ -2523,13 +2551,15 @@ Array [
     class="ant-list ant-list-split ant-list-grid css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <div
-          class="ant-row css-var-test-id"
+          class="ant-row ant-list-container css-var-test-id css-var-test-id"
           style="margin-inline:-8px"
         >
           <div
@@ -2771,7 +2801,9 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
         class="ant-list ant-list-split css-var-test-id"
       >
         <div
-          class="ant-spin-nested-loading css-var-test-id"
+          aria-busy="false"
+          aria-live="polite"
+          class="ant-spin css-var-test-id"
         >
           <div
             class="ant-spin-container"
@@ -2811,10 +2843,10 @@ exports[`renders components/list/demo/infinite-load.tsx correctly 1`] = `
                         stroke="#d9d9d9"
                       >
                         <path
-                          d="M55 12.76L44.854 1.258C44.367.474 43.656 0 42.907 0H21.093c-.749 0-1.46.474-1.947 1.257L9 12.761V22h46v-9.24z"
+                          d="M55 12.8 44.9 1.3Q44 0 42.9 0H21.1q-1.2 0-2 1.3L9 12.8V22h46z"
                         />
                         <path
-                          d="M41.613 15.931c0-1.605.994-2.93 2.227-2.931H55v18.137C55 33.26 53.68 35 52.05 35h-40.1C10.32 35 9 33.259 9 31.137V13h11.16c1.233 0 2.227 1.323 2.227 2.928v.022c0 1.605 1.005 2.901 2.237 2.901h14.752c1.232 0 2.237-1.308 2.237-2.913v-.007z"
+                          d="M41.6 16c0-1.7 1-3 2.2-3H55v18.1c0 2.2-1.3 3.9-3 3.9H12c-1.7 0-3-1.7-3-3.9V13h11.2c1.2 0 2.2 1.3 2.2 3s1 2.9 2.2 2.9h14.8c1.2 0 2.2-1.4 2.2-3"
                           fill="#fafafa"
                         />
                       </g>
@@ -2865,38 +2897,36 @@ exports[`renders components/list/demo/loadmore.tsx correctly 1`] = `
   class="ant-list ant-list-split ant-list-loading demo-loadmore-list css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="true"
+    aria-live="polite"
+    class="ant-spin ant-spin-spinning css-var-test-id"
   >
-    <div>
-      <div
-        aria-busy="true"
-        aria-live="polite"
-        class="ant-spin ant-spin-spinning css-var-test-id"
+    <div
+      class="ant-spin-section"
+    >
+      <span
+        class="ant-spin-dot-holder"
       >
         <span
-          class="ant-spin-dot-holder"
+          class="ant-spin-dot ant-spin-dot-spin"
         >
-          <span
-            class="ant-spin-dot ant-spin-dot-spin"
-          >
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-            <i
-              class="ant-spin-dot-item"
-            />
-          </span>
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
+          <i
+            class="ant-spin-dot-item"
+          />
         </span>
-      </div>
+      </span>
     </div>
     <div
-      class="ant-spin-container ant-spin-blur"
+      class="ant-spin-container"
     >
       <div
         style="min-height:53px"
@@ -2944,9 +2974,6 @@ Array [
                   type="radio"
                   value="top"
                 />
-                <span
-                  class="ant-radio-button-inner"
-                />
               </span>
               <span
                 class="ant-radio-button-label"
@@ -2967,9 +2994,6 @@ Array [
                   type="radio"
                   value="bottom"
                 />
-                <span
-                  class="ant-radio-button-inner"
-                />
               </span>
               <span
                 class="ant-radio-button-label"
@@ -2988,9 +3012,6 @@ Array [
                   name="test-id"
                   type="radio"
                   value="both"
-                />
-                <span
-                  class="ant-radio-button-inner"
                 />
               </span>
               <span
@@ -3035,9 +3056,6 @@ Array [
                   type="radio"
                   value="start"
                 />
-                <span
-                  class="ant-radio-button-inner"
-                />
               </span>
               <span
                 class="ant-radio-button-label"
@@ -3058,9 +3076,6 @@ Array [
                   type="radio"
                   value="center"
                 />
-                <span
-                  class="ant-radio-button-inner"
-                />
               </span>
               <span
                 class="ant-radio-button-label"
@@ -3080,9 +3095,6 @@ Array [
                   type="radio"
                   value="end"
                 />
-                <span
-                  class="ant-radio-button-inner"
-                />
               </span>
               <span
                 class="ant-radio-button-label"
@@ -3099,13 +3111,15 @@ Array [
     class="ant-list ant-list-split ant-list-something-after-last-item css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -3350,13 +3364,15 @@ exports[`renders components/list/demo/responsive.tsx correctly 1`] = `
   class="ant-list ant-list-split ant-list-grid css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <div
-        class="ant-row css-var-test-id"
+        class="ant-row ant-list-container css-var-test-id css-var-test-id"
         style="margin-inline:-8px"
       >
         <div>
@@ -3592,13 +3608,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -3703,13 +3721,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -3774,13 +3794,15 @@ Array [
       </div>
     </div>
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item"
@@ -3821,18 +3843,78 @@ Array [
 ]
 `;
 
-exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
+exports[`renders components/list/demo/spin-debug.tsx correctly 1`] = `
 <div
-  class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item css-var-test-id"
+  class="ant-list ant-list-split css-var-test-id"
 >
   <div
-    class="ant-spin-nested-loading css-var-test-id"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-test-id"
+      >
+        <li
+          class="ant-list-item"
+        >
+          <div
+            class="ant-list-item-meta"
+          >
+            <div
+              class="ant-list-item-meta-avatar"
+            >
+              <span
+                class="ant-avatar ant-avatar-circle ant-avatar-image css-var-test-id ant-avatar-css-var"
+              >
+                <img
+                  src="https://api.dicebear.com/7.x/miniavs/svg?seed=0"
+                />
+              </span>
+            </div>
+            <div
+              class="ant-list-item-meta-content"
+            >
+              <h4
+                class="ant-list-item-meta-title"
+              >
+                <a
+                  href="https://ant.design"
+                >
+                  Ant Design Title 1
+                </a>
+              </h4>
+              <div
+                class="ant-list-item-meta-description"
+              >
+                Ant Design, a design language for background applications, is refined by Ant UED Team
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/list/demo/vertical.tsx correctly 1`] = `
+<div
+  class="ant-list ant-list-vertical ant-list-lg ant-list-split ant-list-something-after-last-item css-var-test-id"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <ul
+        class="ant-list-items ant-list-container css-var-test-id"
       >
         <li
           class="ant-list-item"
