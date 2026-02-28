@@ -1588,7 +1588,7 @@ Array [
     <span
       class="ant-divider-inner-text"
     >
-      Default Size
+      Medium Size
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -1633,7 +1633,7 @@ Array [
         <span
           class="ant-collapse-title"
         >
-          This is default size panel header
+          This is medium size panel header
         </span>
       </div>
     </div>
