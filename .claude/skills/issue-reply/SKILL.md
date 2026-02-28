@@ -39,13 +39,34 @@ description: Help maintainers reply to Ant Design GitHub issues following offici
 
 **注意：** Inactive 标签只表示近期无活动，不代表已解决，仍可回复。
 
-## 语言政策
+## ⚠️ 语言政策（必须严格执行）
 
-- 使用与 issue 作者**相同的语言**回复
-- 检查 issue body 的语言，如果是英文则用英文，中文则用中文
-- **保持友善和耐心**，即使用户语气不太好
+**判断规则：只看 issue body 原始内容，忽略后续评论中使用的语言**
 
-**重要：** 即使 issue 通过 issue-helper 创建（有中文模板），如果用户的描述部分是英文，也应该用英文回复。
+```
+判断流程：
+1. 查看 issue 的原始 body（第一个帖子内容）
+2. 检查 "What is expected?" 和 "What is actually happening?" 部分的语言
+3. 如果是英文 → 用英文回复
+4. 如果是中文 → 用中文回复
+```
+
+**常见误区：**
+- ❌ 不要因为 issue-helper 模板是中文就用中文回复
+- ❌ 不要因为后续评论使用了某种语言就跟随
+- ❌ 不要因为 dosubot 使用了某种语言就跟随
+- ✅ 只看 issue 作者在 body 中描述问题时使用的语言
+
+**示例：**
+```
+Issue body:
+  "What is expected?" → "22.01.2026"  (英文)
+  "What is actually happening?" → "dont work datepicker..." (英文)
+
+正确做法 → 用英文回复
+```
+
+**保持友善和耐心**，即使用户语气不太好。
 
 ---
 
@@ -147,6 +168,9 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 
 ## 关闭 Issues（需谨慎！）
 
+**关闭前必须检查：**
+1. ⚠️ **确认使用正确的语言**（参考语言政策）
+
 **可关闭：**
 - 重复问题
 - 确定不是 bug（使用问题）
@@ -155,14 +179,14 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 
 **关闭时保持礼貌：**
 
-问题已解决：
+问题已解决（英文示例）：
 ```
-感谢反馈！这个问题已在 [版本号/PR#xxx] 中修复。
+Thanks for the feedback! This issue has been fixed in [version/PR#xxx].
 
-我将关闭此 issue。如有其他问题，欢迎继续讨论。
+I'm closing this issue. Feel free to continue the discussion if you have further questions.
 ```
 
-使用问题：
+使用问题（中文示例）：
 ```
 感谢反馈！经过分析，这是一个使用问题而非 bug。
 
@@ -171,7 +195,7 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 我将关闭此 issue。如果您仍有问题，欢迎继续讨论或重新打开。
 ```
 
-用户长时间未回复：
+用户长时间未回复（中文示例）：
 ```
 由于长时间未收到回复，我将关闭此 issue。
 
@@ -205,15 +229,17 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 对于已有维护者回复的 issues，按以下流程检查：
 
 ```
-1. 查看维护者的最后一条评论
+1. 确认回复语言正确（⚠️ 只看 issue body 原始语言）
+
+2. 查看维护者的最后一条评论
    ├─ 是提问/请求更多信息？
    │   └─ 用户是否超过 7 天未回复？
-   │       ├─ 是 → 关闭 issue 并留言
+   │       ├─ 是 → 检查语言 → 关闭 issue 并留言
    │       └─ 否 → 跳过
    ├─ 是说明解决方案？
    │   └─ 用户是否确认解决？
-   │       ├─ 是 → 关闭 issue
-   │       └─ 否，且超过 7 天 → 关闭 issue 并留言
+   │       ├─ 是 → 检查语言 → 关闭 issue
+   │       └─ 否，且超过 7 天 → 检查语言 → 关闭 issue 并留言
    └─ 其他情况 → 跳过
 ```
 
