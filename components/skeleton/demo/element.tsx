@@ -3,14 +3,14 @@ import { DotChartOutlined } from '@ant-design/icons';
 import type { RadioChangeEvent } from 'antd';
 import { Divider, Flex, Form, Radio, Skeleton, Space, Switch } from 'antd';
 
-type SizeType = 'default' | 'small' | 'large';
+type SizeType = 'small' | 'medium' | 'large';
 type ButtonShapeType = 'circle' | 'square' | 'round' | 'default';
 type AvatarShapeType = 'circle' | 'square';
 
 const App: React.FC = () => {
   const [active, setActive] = useState(false);
   const [block, setBlock] = useState(false);
-  const [size, setSize] = useState<SizeType>('default');
+  const [size, setSize] = useState<SizeType>('medium');
   const [buttonShape, setButtonShape] = useState<ButtonShapeType>('default');
   const [avatarShape, setAvatarShape] = useState<AvatarShapeType>('circle');
 
@@ -35,7 +35,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="middle" vertical>
+    <Flex gap="medium" vertical>
       <Space>
         <Skeleton.Button active={active} size={size} shape={buttonShape} block={block} />
         <Skeleton.Avatar active={active} size={size} shape={avatarShape} />
@@ -61,7 +61,7 @@ const App: React.FC = () => {
           </Form.Item>
           <Form.Item label="Size">
             <Radio.Group value={size} onChange={handleSizeChange}>
-              <Radio.Button value="default">Default</Radio.Button>
+              <Radio.Button value="medium">Medium</Radio.Button>
               <Radio.Button value="large">Large</Radio.Button>
               <Radio.Button value="small">Small</Radio.Button>
             </Radio.Group>

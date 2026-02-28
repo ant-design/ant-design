@@ -146,7 +146,8 @@ exports[`renders components/skeleton/demo/componentToken.tsx extend context corr
 
 exports[`renders components/skeleton/demo/element.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap: medium;"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -435,13 +436,13 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                           class="ant-radio-button-input"
                           name="test-id"
                           type="radio"
-                          value="default"
+                          value="medium"
                         />
                       </span>
                       <span
                         class="ant-radio-button-label"
                       >
-                        Default
+                        Medium
                       </span>
                     </label>
                     <label

@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import type { SizeType } from '../config-provider/SizeContext';
+
 export type ElementSemanticName = keyof ElementSemanticClassNames & keyof ElementSemanticStyles;
 
 export type ElementSemanticClassNames = {
@@ -18,7 +20,7 @@ export interface SkeletonElementProps {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  size?: 'large' | 'small' | 'default' | number;
+  size?: SizeType | number;
   shape?: 'circle' | 'square' | 'round' | 'default';
   active?: boolean;
   classNames?: ElementSemanticClassNames;
