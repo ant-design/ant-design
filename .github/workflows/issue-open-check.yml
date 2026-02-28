@@ -7,6 +7,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   issue-open-check:
     permissions:
@@ -14,6 +18,7 @@ jobs:
       issues: write  # for actions-cool/issues-helper to update issues
       pull-requests: write  # for actions-cool/issues-helper to update PRs
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
     steps:
       - uses: actions-cool/check-user-permission@v2
         id: checkUser
@@ -94,7 +99,7 @@ jobs:
             Hello @${{ github.event.issue.user.login }}, v4 only support IE11 and above.
 
       - name: send to dingtalk
-        uses: visiky/dingtalk-release-notify@main
+        uses: visiky/dingtalk-release-notify@64fcb0373782b6c2f6d9b9ea3c68af80ca189585 # pin@main
         with:
           DING_TALK_TOKEN: |
             ${{ secrets.DINGDING_BOT_TOKEN }}
