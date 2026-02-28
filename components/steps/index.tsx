@@ -5,7 +5,7 @@ import RcSteps from '@rc-component/steps';
 import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';

@@ -3,7 +3,7 @@ import { Popup } from '@rc-component/tooltip';
 import { clsx } from 'clsx';
 
 import type { TooltipProps } from '.';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';

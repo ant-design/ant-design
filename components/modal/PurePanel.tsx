@@ -3,7 +3,7 @@ import { Panel } from '@rc-component/dialog';
 import type { PanelProps } from '@rc-component/dialog/lib/Dialog/Content/Panel';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -14,7 +14,8 @@ import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
 export interface PurePanelProps
-  extends Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
+  extends
+    Omit<PanelProps, 'prefixCls' | 'footer' | 'classNames' | 'styles'>,
     Pick<ModalFuncProps, 'type' | 'footer'> {
   prefixCls?: string;
   style?: React.CSSProperties;

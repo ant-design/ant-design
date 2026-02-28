@@ -5,8 +5,9 @@ import type { SliderRef } from '@rc-component/slider/lib/Slider';
 import raf from '@rc-component/util/lib/raf';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useOrientation } from '../_util/hooks';
+import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';

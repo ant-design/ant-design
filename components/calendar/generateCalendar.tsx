@@ -6,7 +6,7 @@ import type { CellRenderInfo } from '@rc-component/picker/interface';
 import { merge, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';

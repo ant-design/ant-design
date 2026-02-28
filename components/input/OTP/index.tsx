@@ -3,7 +3,7 @@ import { useEvent } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../../_util/hooks';
+import { useMergeSemantic } from '../../_util/hooks/useMergeSemanticNew';
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemanticNew/semanticType';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
@@ -40,8 +40,10 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
+export interface OTPProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'onInput'
+> {
   prefixCls?: string;
   length?: number;
 

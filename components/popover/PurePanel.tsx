@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import type { PopoverProps, PopoverSemanticAllType } from '.';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 

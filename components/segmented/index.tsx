@@ -9,8 +9,9 @@ import RcSegmented from '@rc-component/segmented';
 import useId from '@rc-component/util/lib/hooks/useId';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useOrientation } from '../_util/hooks';
+import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -38,14 +39,17 @@ export type SegmentedSemanticType = {
 
 export type SegmentedSemanticAllType = GenerateSemantic<SegmentedSemanticType, SegmentedProps>;
 
-interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
-  extends RcSegmentedLabeledOption<ValueType> {
+interface SegmentedLabeledOptionWithoutIcon<
+  ValueType = RcSegmentedValue,
+> extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
   tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
-interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
-  extends Omit<RcSegmentedLabeledOption<ValueType>, 'label'> {
+interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue> extends Omit<
+  RcSegmentedLabeledOption<ValueType>,
+  'label'
+> {
   label?: RcSegmentedLabeledOption['label'];
   /** Set icon for Segmented item */
   icon: React.ReactNode;
@@ -64,11 +68,10 @@ export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
 
 export type SegmentedOptions<T = SegmentedRawOption> = (T | SegmentedLabeledOption<T>)[];
 
-export interface SegmentedProps<ValueType = RcSegmentedValue>
-  extends Omit<
-    RCSegmentedProps<ValueType>,
-    'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
-  > {
+export interface SegmentedProps<ValueType = RcSegmentedValue> extends Omit<
+  RCSegmentedProps<ValueType>,
+  'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
+> {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */

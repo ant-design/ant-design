@@ -7,7 +7,7 @@ import RcTree from '@rc-component/tree';
 import type { DataNode, Key } from '@rc-component/tree/lib/interface';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import initCollapseMotion from '../_util/motion';
 import { ConfigContext } from '../config-provider';
@@ -129,18 +129,17 @@ export type TreeSemanticType = {
 
 export type TreeSemanticAllType = GenerateSemantic<TreeSemanticType, TreeProps>;
 
-export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<
-    RcTreeProps<T>,
-    | 'prefixCls'
-    | 'showLine'
-    | 'direction'
-    | 'draggable'
-    | 'icon'
-    | 'switcherIcon'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TreeProps<T extends BasicDataNode = DataNode> extends Omit<
+  RcTreeProps<T>,
+  | 'prefixCls'
+  | 'showLine'
+  | 'direction'
+  | 'draggable'
+  | 'icon'
+  | 'switcherIcon'
+  | 'classNames'
+  | 'styles'
+> {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
   classNames?: TreeSemanticAllType['classNamesAndFn'];

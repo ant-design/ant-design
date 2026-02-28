@@ -10,14 +10,13 @@ import type {
 } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
+import { computeClosable, pickClosable } from '../_util/hooks';
 import {
-  computeClosable,
   mergeClassNames,
   mergeStyles,
-  pickClosable,
   resolveStyleOrClass,
   useMergeSemantic,
-} from '../_util/hooks';
+} from '../_util/hooks/useMergeSemanticNew';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';

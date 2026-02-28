@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import getAllowClear from '../_util/getAllowClear';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -49,17 +49,16 @@ export type InputSemanticType = {
 
 export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
-export interface InputProps
-  extends Omit<
-    RcInputProps,
-    | 'wrapperClassName'
-    | 'groupClassName'
-    | 'inputClassName'
-    | 'affixWrapperClassName'
-    | 'classes'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface InputProps extends Omit<
+  RcInputProps,
+  | 'wrapperClassName'
+  | 'groupClassName'
+  | 'inputClassName'
+  | 'affixWrapperClassName'
+  | 'classes'
+  | 'classNames'
+  | 'styles'
+> {
   rootClassName?: string;
   size?: SizeType;
   disabled?: boolean;

@@ -14,7 +14,7 @@ import {
   mergeStyles,
   resolveStyleOrClass,
   useMergeSemantic,
-} from '../_util/hooks';
+} from '../_util/hooks/useMergeSemanticNew';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
