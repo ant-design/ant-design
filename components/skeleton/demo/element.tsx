@@ -3,7 +3,7 @@ import { DotChartOutlined } from '@ant-design/icons';
 import type { RadioChangeEvent } from 'antd';
 import { Divider, Flex, Form, Radio, Skeleton, Space, Switch } from 'antd';
 
-type SizeType = 'small' | 'medium' | 'large';
+type SizeType = 'large' | 'medium' | 'small';
 type ButtonShapeType = 'circle' | 'square' | 'round' | 'default';
 type AvatarShapeType = 'circle' | 'square';
 
@@ -61,8 +61,8 @@ const App: React.FC = () => {
           </Form.Item>
           <Form.Item label="Size">
             <Radio.Group value={size} onChange={handleSizeChange}>
-              <Radio.Button value="medium">Medium</Radio.Button>
               <Radio.Button value="large">Large</Radio.Button>
+              <Radio.Button value="medium">Medium</Radio.Button>
               <Radio.Button value="small">Small</Radio.Button>
             </Radio.Group>
           </Form.Item>
