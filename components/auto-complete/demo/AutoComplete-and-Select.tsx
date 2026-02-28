@@ -4,7 +4,7 @@ import { AutoComplete, Flex, Select } from 'antd';
 const AutoCompleteAndSelect = () => {
   return (
     <Flex vertical gap={16}>
-      {(['small', 'middle', 'large'] as const).map((size) => (
+      {(['small', 'medium', 'large'] as const).map((size) => (
         <Flex key={size}>
           <Select
             value="centered"
