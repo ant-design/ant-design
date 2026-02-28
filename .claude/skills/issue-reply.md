@@ -1,3 +1,8 @@
+---
+name: antd-issue-reply
+description: Help maintainers reply to Ant Design GitHub issues following official guidelines. Use this skill when the user asks to handle issues, reply to issues, process issues, check issues, or manage issues for ant-design/ant-design repository. Also use when the user mentions "issue" in the context of antd, Ant Design, or GitHub issue management. This skill provides guidelines for classifying issues (Bug vs Feature Request), handling dosubot replies, using proper labels, writing polite responses, and knowing when to close issues.
+---
+
 # Ant Design Issue 回复规范
 
 这个 skill 定义了 Ant Design GitHub issues 的官方回复规范。
