@@ -24,6 +24,8 @@ interface EditableProps {
   autoSize?: TextAreaProps['autoSize'];
   enterIcon?: React.ReactNode;
   component?: string;
+  textAreaClassName?: string;
+  textAreaStyle?: React.CSSProperties;
 }
 
 const Editable: React.FC<EditableProps> = (props) => {
@@ -40,6 +42,8 @@ const Editable: React.FC<EditableProps> = (props) => {
     onCancel,
     onEnd,
     component,
+    textAreaClassName: externalTextAreaClassName,
+    textAreaStyle,
     enterIcon = <EnterOutlined />,
   } = props;
   const ref = React.useRef<TextAreaRef>(null);
@@ -145,6 +149,8 @@ const Editable: React.FC<EditableProps> = (props) => {
         aria-label={ariaLabel}
         rows={1}
         autoSize={autoSize}
+        className={externalTextAreaClassName}
+        style={textAreaStyle}
       />
       {enterIcon !== null
         ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })

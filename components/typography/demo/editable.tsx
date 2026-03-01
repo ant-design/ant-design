@@ -28,6 +28,7 @@ const App: React.FC = () => {
   const [lengthLimitedStr, setLengthLimitedStr] = useState(
     'This is an editable text with limited length.',
   );
+  const [styleEditAreaStr, setStyleEditAreaStr] = useState('Customized edit area.');
 
   const radioToState = (input: string): ('icon' | 'text')[] => {
     switch (input) {
@@ -121,6 +122,14 @@ const App: React.FC = () => {
         }}
       >
         {lengthLimitedStr}
+      </Paragraph>
+      <Paragraph
+        editable={{
+          onChange: setStyleEditAreaStr,
+          editAreaStyle: { backgroundColor: 'green' },
+        }}
+      >
+        {styleEditAreaStr}
       </Paragraph>
       <Typography.Title editable level={1} style={{ margin: 0 }}>
         h1. Ant Design
