@@ -2,7 +2,7 @@
 
 exports[`renders components/rate/demo/basic.tsx extend context correctly 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-test-id"
+  class="ant-rate css-var-test-id"
   tabindex="0"
 >
   <li
@@ -305,7 +305,7 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 1`]
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate ant-rate-middle css-var-test-id"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -600,7 +600,7 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 1`]
     </li>
   </ul>
   <ul
-    class="ant-rate ant-rate-middle css-var-test-id"
+    class="ant-rate css-var-test-id"
     style="font-size: 36px;"
     tabindex="0"
   >
@@ -716,7 +716,7 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 1`]
     </li>
   </ul>
   <ul
-    class="ant-rate ant-rate-middle css-var-test-id"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -840,7 +840,7 @@ exports[`renders components/rate/demo/character-function.tsx extend context corr
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate ant-rate-middle css-var-test-id"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -955,7 +955,7 @@ exports[`renders components/rate/demo/character-function.tsx extend context corr
     </li>
   </ul>
   <ul
-    class="ant-rate ant-rate-middle css-var-test-id"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -1262,7 +1262,7 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
     class="ant-flex css-var-test-id ant-flex-gap-middle"
   >
     <ul
-      class="ant-rate ant-rate-middle css-var-test-id"
+      class="ant-rate css-var-test-id"
       tabindex="0"
     >
       <li
@@ -1564,7 +1564,7 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
     class="ant-flex css-var-test-id ant-flex-gap-middle"
   >
     <ul
-      class="ant-rate ant-rate-middle css-var-test-id"
+      class="ant-rate css-var-test-id"
       tabindex="0"
     >
       <li
@@ -1869,7 +1869,7 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 2`] = `
 
 exports[`renders components/rate/demo/component-token.tsx extend context correctly 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-test-id"
+  class="ant-rate css-var-test-id"
   tabindex="0"
 >
   <li
@@ -2169,7 +2169,7 @@ exports[`renders components/rate/demo/component-token.tsx extend context correct
 
 exports[`renders components/rate/demo/disabled.tsx extend context correctly 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-test-id ant-rate-disabled"
+  class="ant-rate css-var-test-id ant-rate-disabled"
   tabindex="-1"
 >
   <li
@@ -2469,7 +2469,7 @@ exports[`renders components/rate/demo/disabled.tsx extend context correctly 2`] 
 
 exports[`renders components/rate/demo/half.tsx extend context correctly 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-test-id"
+  class="ant-rate css-var-test-id"
   tabindex="0"
 >
   <li
@@ -3068,7 +3068,7 @@ exports[`renders components/rate/demo/size.tsx extend context correctly 1`] = `
     </li>
   </ul>
   <ul
-    class="ant-rate ant-rate-middle css-var-test-id"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
@@ -3667,7 +3667,7 @@ exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
 >
   <ul
-    class="ant-rate ant-rate-middle css-var-test-id"
+    class="ant-rate css-var-test-id"
     tabindex="0"
   >
     <li
