@@ -1,6 +1,5 @@
-import React from 'react';
-import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import type { BaseInputProps } from '@rc-component/input/lib/interface';
+import { defaultClearIcon } from '../config-provider/defaultIcons';
 
 export type AllowClear = BaseInputProps['allowClear'];
 
@@ -10,7 +9,7 @@ const getAllowClear = (allowClear: AllowClear): AllowClear => {
     mergedAllowClear = allowClear;
   } else if (allowClear) {
     mergedAllowClear = {
-      clearIcon: <CloseCircleFilled />,
+      clearIcon: defaultClearIcon,
     };
   }
 
