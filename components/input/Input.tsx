@@ -104,6 +104,8 @@ export interface InputProps
   variant?: Variant;
   classNames?: InputClassNamesType;
   styles?: InputStylesType;
+  /** Custom input element for customInput integrations */
+  inputElement?: React.ReactNode;
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -127,6 +129,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onChange,
     classNames,
     variant: customVariant,
+    inputElement,
     ...rest
   } = props;
 
@@ -224,9 +227,47 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     onFocus?.(e);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (originalEvent: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
-    onChange?.(e);
+
+    // rc-input may normalize to a cloned target object, but downstream integrations
+    // (e.g. react-number-format customInput) expect the live DOM input node.
+    // Keep event.target/currentTarget/nativeEvent.target aligned with inputRef.
+    const input = inputRef.current?.input;
+    if (!input || originalEvent.target === input) {
+      onChange?.(originalEvent);
+      return;
+    }
+
+    onChange?.(
+      Object.create(originalEvent, {
+        target: {
+          value: input,
+          writable: true,
+          configurable: true,
+          enumerable: true,
+        },
+        currentTarget: {
+          value: input,
+          writable: true,
+          configurable: true,
+          enumerable: true,
+        },
+        nativeEvent: {
+          value: Object.create(originalEvent.nativeEvent, {
+            target: {
+              value: input,
+              writable: true,
+              configurable: true,
+              enumerable: true,
+            },
+          }),
+          writable: true,
+          configurable: true,
+          enumerable: true,
+        },
+      }) as React.ChangeEvent<HTMLInputElement>,
+    );
   };
 
   const suffixNode = (hasFeedback || suffix) && (
