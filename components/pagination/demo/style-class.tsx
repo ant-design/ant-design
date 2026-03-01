@@ -29,7 +29,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Pagination {...paginationSharedProps} styles={{ item: { borderRadius: 999 } }} />
       <Pagination {...paginationSharedProps} size="small" styles={styleFn} />
     </Flex>
