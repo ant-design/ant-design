@@ -71,7 +71,7 @@ const columns: ColumnsType<DataType> = [
     title: 'Action',
     key: 'action',
     render: (_, record) => (
-      <Space size="middle">
+      <Space size="medium">
         <a>Invite {record.name}</a>
         <a>Delete</a>
       </Space>
