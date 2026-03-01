@@ -8,6 +8,8 @@ const locales = {
   cn: {
     root: '根元素，设置flex布局、穿梭框容器的基础样式和布局控制',
     section: '区域元素，设置flex布局、宽度、高度、最小高度、边框、圆角等单侧穿梭框的容器样式',
+    sourceSection: '源区域元素，仅作用于左侧穿梭框容器样式',
+    targetSection: '目标区域元素，仅作用于右侧穿梭框容器样式',
     header:
       '头部元素，设置flex布局、对齐方式、高度、内边距、颜色、背景色、下边框、圆角等头部区域的样式',
     title: '标题元素，设置文本省略、flex占比、文本对齐、自动左边距等标题文字的布局和样式',
@@ -23,6 +25,9 @@ const locales = {
     root: 'Root element with flex layout, transfer container base styles and layout control',
     section:
       'Section element with flex layout, width, height, min height, border, border radius and other single-side transfer container styles',
+    sourceSection: 'Source section element, only applies to left transfer section container styles',
+    targetSection:
+      'Target section element, only applies to right transfer section container styles',
     header:
       'Header element with flex layout, alignment, height, padding, color, background color, bottom border, border radius and other header area styles',
     title:
@@ -51,6 +56,8 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'section', desc: locale.section },
+        { name: 'sourceSection', desc: locale.sourceSection },
+        { name: 'targetSection', desc: locale.targetSection },
         { name: 'header', desc: locale.header },
         { name: 'title', desc: locale.title },
         { name: 'body', desc: locale.body },
