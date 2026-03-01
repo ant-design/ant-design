@@ -220,7 +220,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
         className="code-box-demo notranslate"
         translate="no"
         style={codeBoxDemoStyle}
-        ref={demoContainer}
+        ref={demoContainerRef}
       >
         {liveDemoNode || <React.StrictMode>{previewContent}</React.StrictMode>}
       </section>
