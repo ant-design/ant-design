@@ -78,15 +78,17 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       characterRender={characterRender}
       disabled={mergedDisabled}
       {...rest}
-      className={clsx({
-        [`${ratePrefixCls}-large`]: mergedSize === 'large',
-        [`${ratePrefixCls}-small`]: mergedSize === 'small',
+      className={clsx(
+        {
+          [`${ratePrefixCls}-large`]: mergedSize === 'large',
+          [`${ratePrefixCls}-small`]: mergedSize === 'small',
+        },
         className,
         rootClassName,
         hashId,
         cssVarCls,
         contextClassName,
-      })}
+      )}
       style={mergedStyle}
       prefixCls={ratePrefixCls}
       direction={direction}
