@@ -46,9 +46,9 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
   const { defaultExpandAll, defaultExpandParent, defaultExpandedKeys, ...props } = oriProps;
 
   // Shift click usage
-  const lastSelectedKey = React.useRef<Key>(null);
+  const lastSelectedKeyRef = React.useRef<Key>(null);
 
-  const cachedSelectedKeys = React.useRef<Key[]>(null);
+  const cachedSelectedKeysRef = React.useRef<Key[]>(null);
 
   const getInitExpandedKeys = () => {
     const { keyEntities } = convertDataToEntities(getTreeData(props), {
@@ -133,19 +133,19 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     if (multiple && ctrlPick) {
       // Control click
       newSelectedKeys = keys;
-      lastSelectedKey.current = key;
-      cachedSelectedKeys.current = newSelectedKeys;
+      lastSelectedKeyRef.current = key;
+      cachedSelectedKeysRef.current = newSelectedKeys;
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames);
     } else if (multiple && shiftPick) {
       // Shift click
       newSelectedKeys = Array.from(
         new Set([
-          ...(cachedSelectedKeys.current || []),
+          ...(cachedSelectedKeysRef.current || []),
           ...calcRangeKeys({
             treeData,
             expandedKeys,
             startKey: key,
-            endKey: lastSelectedKey.current!,
+            endKey: lastSelectedKeyRef.current!,
             fieldNames,
           }),
         ]),
@@ -154,8 +154,8 @@ const DirectoryTree = React.forwardRef<RcTree, DirectoryTreeProps>((oriProps, re
     } else {
       // Single click
       newSelectedKeys = [key];
-      lastSelectedKey.current = key;
-      cachedSelectedKeys.current = newSelectedKeys;
+      lastSelectedKeyRef.current = key;
+      cachedSelectedKeysRef.current = newSelectedKeys;
       newEvent.selectedNodes = convertDirectoryKeysToNodes(treeData, newSelectedKeys, fieldNames);
     }
 

@@ -190,15 +190,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   // ========================= Refs =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const refs = React.useRef<Record<number, InputRef | null>>({});
+  const inputsRef = React.useRef<Record<number, InputRef | null>>({});
 
   React.useImperativeHandle(ref, () => ({
     focus: () => {
-      refs.current[0]?.focus();
+      inputsRef.current[0]?.focus();
     },
     blur: () => {
       for (let i = 0; i < length; i += 1) {
-        refs.current[i]?.blur();
+        inputsRef.current[i]?.blur();
       }
     },
     nativeElement: containerRef.current!,
@@ -279,22 +279,22 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
     const nextIndex = Math.min(index + txt.length, length - 1);
     if (nextIndex !== index && nextCells[index] !== undefined) {
-      refs.current[nextIndex]?.focus();
+      inputsRef.current[nextIndex]?.focus();
     }
 
     triggerValueCellsChange(nextCells);
   };
 
   const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
-    refs.current[nextIndex]?.focus();
+    inputsRef.current[nextIndex]?.focus();
   };
 
   // ======================== Focus ========================
   const onInputFocus = (event: React.FocusEvent<HTMLInputElement>, index: number) => {
     // keep focus on the first empty cell
     for (let i = 0; i < index; i += 1) {
-      if (!refs.current[i]?.input?.value) {
-        refs.current[i]?.focus();
+      if (!inputsRef.current[i]?.input?.value) {
+        inputsRef.current[i]?.focus();
         break;
       }
     }
@@ -341,7 +341,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
             <React.Fragment key={key}>
               <OTPInput
                 ref={(inputEle) => {
-                  refs.current[index] = inputEle;
+                  inputsRef.current[index] = inputEle;
                 }}
                 index={index}
                 size={mergedSize}

@@ -63,7 +63,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
 
   const senderRef = useRef<SenderRef>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const shouldAutoScroll = useRef(true);
+  const shouldAutoScrollRef = useRef(true);
 
   const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
 
@@ -79,12 +79,12 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     }
     const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current;
     const distanceToBottom = scrollHeight - scrollTop - clientHeight;
-    shouldAutoScroll.current = distanceToBottom <= 10;
+    shouldAutoScrollRef.current = distanceToBottom <= 10;
   }, []);
 
   const handleSubmit = React.useCallback(
     (value: string) => {
-      shouldAutoScroll.current = true;
+      shouldAutoScrollRef.current = true;
       requestAnimationFrame(() => {
         scrollContainerRef.current?.scrollTo({
           behavior: 'smooth',
@@ -261,7 +261,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   ]);
 
   useEffect(() => {
-    if (shouldAutoScroll.current) {
+    if (shouldAutoScrollRef.current) {
       scrollContainerRef.current?.scrollTo({
         behavior: 'smooth',
         top: Number.MAX_SAFE_INTEGER,

@@ -29,19 +29,19 @@ function useWatermark(
   removeWatermark: (container: HTMLElement) => void,
   isWatermarkEle: (ele: Node, index?: number) => boolean,
 ] {
-  const watermarkMap = React.useRef(new Map<HTMLElement, HTMLDivElement>());
+  const watermarkMapRef = React.useRef(new Map<HTMLElement, HTMLDivElement>());
   const onRemoveEvent = useEvent(onRemove);
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (container) {
-      const exist = watermarkMap.current.get(container);
+      const exist = watermarkMapRef.current.get(container);
 
       if (!exist) {
         const newWatermarkEle = document.createElement('div');
-        watermarkMap.current.set(container, newWatermarkEle);
+        watermarkMapRef.current.set(container, newWatermarkEle);
       }
 
-      const watermarkEle = watermarkMap.current.get(container)!;
+      const watermarkEle = watermarkMapRef.current.get(container)!;
 
       watermarkEle.setAttribute(
         'style',
@@ -64,20 +64,20 @@ function useWatermark(
       }
     }
 
-    return watermarkMap.current.get(container);
+    return watermarkMapRef.current.get(container);
   };
 
   const removeWatermark = (container: HTMLElement) => {
-    const watermarkEle = watermarkMap.current.get(container);
+    const watermarkEle = watermarkMapRef.current.get(container);
 
     if (watermarkEle && container) {
       container.removeChild(watermarkEle);
     }
 
-    watermarkMap.current.delete(container);
+    watermarkMapRef.current.delete(container);
   };
 
-  const isWatermarkEle = (ele: any) => Array.from(watermarkMap.current.values()).includes(ele);
+  const isWatermarkEle = (ele: any) => Array.from(watermarkMapRef.current.values()).includes(ele);
 
   return [appendWatermark, removeWatermark, isWatermarkEle] as const;
 }

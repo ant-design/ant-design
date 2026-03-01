@@ -328,7 +328,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     return null;
   }, [childrenColumnName, rawData]);
 
-  const internalRefs: NonNullable<RcTableProps['internalRefs']> = {
+  const internalRef: NonNullable<RcTableProps['internalRefs']> = {
     body: React.useRef<HTMLDivElement>(null),
   } as NonNullable<RcTableProps['internalRefs']>;
 
@@ -395,9 +395,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       }
     }
 
-    if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRefs.body.current) {
+    if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRef.body.current) {
       scrollTo(0, {
-        getContainer: () => internalRefs.body.current!,
+        getContainer: () => internalRef.body.current!,
       });
     }
 
@@ -749,7 +749,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           emptyText={mergedEmptyNode}
           // Internal
           internalHooks={INTERNAL_HOOKS}
-          internalRefs={internalRefs}
+          internalRefs={internalRef}
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
           measureRowRender={(measureRow) => (
