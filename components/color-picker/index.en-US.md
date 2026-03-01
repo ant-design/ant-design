@@ -61,7 +61,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Placement of popup | The design of the [placement](/components/tooltip/#api) parameter is the same as the `Tooltips` component. | `bottomLeft` | |
 | panelRender | Custom Render Panel | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | showText | Show color text | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
-| size | Setting the trigger size | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
+| size | Setting the trigger size | `large` \| `medium` \| `small` | `medium` | 5.7.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | |
 | trigger | ColorPicker trigger mode | `hover` \| `click` | `click` | |
 | value | Value of color | [ColorType](#colortype) | - | |

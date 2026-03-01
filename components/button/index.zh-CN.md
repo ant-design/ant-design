@@ -82,7 +82,7 @@ group:
 | iconPlacement | 设置按钮图标组件的位置 | `start` \| `end` | `start` | - |
 | loading | 设置按钮载入状态 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |
 | shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  |
-| size | 设置按钮大小 | `large` \| `middle` \| `small` | `middle` |  |
+| size | 设置按钮大小 | `large` \| `medium` \| `small` | `medium` |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |
 | type | 语法糖，设置按钮类型。当设置 `variant` 与 `color` 时以后者为准 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |

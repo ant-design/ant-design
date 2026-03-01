@@ -53,7 +53,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
-| componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
+| componentSize | Config antd component size | `small` \| `medium` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | direction | Set direction of layout. See [demo](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | `(trigger?: HTMLElement) => HTMLElement \| ShadowRoot` | () => document.body |  |
@@ -102,7 +102,7 @@ const {
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | componentDisabled | antd component disabled state | boolean | - | 5.3.0 |
-| componentSize | antd component size state | `small` \| `middle` \| `large` | - | 5.3.0 |
+| componentSize | antd component size state | `small` \| `medium` \| `large` | - | 5.3.0 |
 
 ### Component Config
 
