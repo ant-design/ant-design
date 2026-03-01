@@ -1,5 +1,5 @@
 import React from 'react';
-import { PoweroffOutlined } from '@ant-design/icons';
+import { PoweroffOutlined, SyncOutlined } from '@ant-design/icons';
 import { Button, Flex } from 'antd';
 
 const Text1 = () => <>部署</>;
@@ -13,20 +13,22 @@ const App: React.FC = () => (
         <span>部署</span>
       </span>
     </Button>
-    <Button loading>部署</Button>
+    <Button loading size="small">
+      部署
+    </Button>
     <Button loading>
       <Text1 />
     </Button>
-    <Button loading>
+    <Button loading size="middle">
       <Text2 />
     </Button>
-    <Button loading>
+    <Button loading size="large">
       <Text3 />
     </Button>
     <Button loading icon={<PoweroffOutlined />}>
       <Text1 />
     </Button>
-    <Button loading>按钮</Button>
+    <Button loading={{ icon: <SyncOutlined spin /> }}>按钮</Button>
   </Flex>
 );
 
