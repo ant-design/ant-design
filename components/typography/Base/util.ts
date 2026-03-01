@@ -21,6 +21,12 @@ export function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, need
 export function isEleEllipsis(ele: HTMLElement): boolean {
   // Create a new div to get the size
   const childDiv = document.createElement('em');
+  
+  // Set styles to prevent the child element from affecting layout measurements
+  // line-height: 0 prevents font metrics from causing false positives
+  childDiv.style.lineHeight = '0';
+  childDiv.style.verticalAlign = 'top';
+  
   ele.appendChild(childDiv);
 
   // For test case
