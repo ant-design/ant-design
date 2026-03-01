@@ -2,6 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import { ConfigContext } from '../config-provider';
+import useSize from '../config-provider/hooks/useSize';
 import type { SkeletonElementProps } from './Element';
 import Element from './Element';
 import useStyle from './style';
@@ -20,12 +21,13 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
     style,
     styles,
     shape = 'circle',
-    size = 'default',
+    size: customSize,
     ...rest
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
   const prefixCls = getPrefixCls('skeleton', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
+  const mergedSize = useSize((ctx) => customSize ?? ctx);
 
   const cls = clsx(
     prefixCls,
@@ -47,7 +49,7 @@ const SkeletonAvatar: React.FC<AvatarProps> = (props) => {
         className={classNames?.content}
         style={{ ...styles?.content, ...style }}
         shape={shape}
-        size={size}
+        size={mergedSize}
         {...rest}
       />
     </div>
