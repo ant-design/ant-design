@@ -22,7 +22,7 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken, CSSObject> = (tok
         margin: 0,
         padding: 0,
 
-        '&:before': {
+        '&::before': {
           display: 'none',
         },
 
