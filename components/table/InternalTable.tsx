@@ -601,7 +601,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
     } else {
-      paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
+      paginationSize =
+        mergedSize === 'small' || mergedSize === 'middle' || mergedSize === 'medium'
+          ? 'small'
+          : undefined;
     }
 
     const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
@@ -703,6 +706,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
     switch (mergedSize) {
       case 'middle':
+      case 'medium':
         return paddingSM * 2 + fontHeight + lineWidth;
 
       case 'small':
@@ -734,7 +738,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           prefixCls={prefixCls}
           className={clsx(
             {
-              [`${prefixCls}-middle`]: mergedSize === 'middle',
+              [`${prefixCls}-medium`]: mergedSize === 'medium' || mergedSize === 'middle',
               [`${prefixCls}-small`]: mergedSize === 'small',
               [`${prefixCls}-bordered`]: bordered,
               [`${prefixCls}-empty`]: rawData.length === 0,
