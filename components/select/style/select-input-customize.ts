@@ -12,6 +12,7 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken, CSSObject> = (tok
       padding: 0,
       fontSize: 'inherit',
       lineHeight: 'inherit',
+      height: 'auto',
 
       [`${componentCls}-placeholder`]: {
         display: 'none',
@@ -20,6 +21,10 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken, CSSObject> = (tok
       [`${componentCls}-content`]: {
         margin: 0,
         padding: 0,
+
+        '&:before': {
+          display: 'none',
+        },
 
         '&-value': {
           display: 'none',
