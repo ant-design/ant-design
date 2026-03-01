@@ -8,10 +8,11 @@ permissions: {}
 jobs:
   tweet:
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
     if: ${{ github.event.ref_type == 'tag' && !contains(github.event.ref, 'alpha') }}
     steps:
       - name: Tweet
-        uses: nearform-actions/github-action-notify-twitter@master
+        uses: nearform-actions/github-action-notify-twitter@96cdb173a71b27f1c2545b76ffc75bcd439769a4 # pin@master
         with:
           message: |
             🤖 Ant Design just released antd@${{ github.event.ref }} ✨🎊✨ Check out the full release note: https://github.com/ant-design/ant-design/releases/tag/${{ github.event.ref }}

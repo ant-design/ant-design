@@ -7,9 +7,16 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   send-to-dingtalk:
+    # Only run for PRs from the same repo (not from forks) to prevent potential injection
+    if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
     steps:
       - name: send to dingtalk
         uses: visiky/dingtalk-release-notify@64fcb0373782b6c2f6d9b9ea3c68af80ca189585
