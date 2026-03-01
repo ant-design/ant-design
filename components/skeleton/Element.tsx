@@ -2,6 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import type { SizeType } from '../config-provider/SizeContext';
+import { devUseWarning } from '../_util/warning';
 
 export type ElementSemanticName = keyof ElementSemanticClassNames & keyof ElementSemanticStyles;
 
@@ -20,7 +21,10 @@ export interface SkeletonElementProps {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  size?: SizeType | number;
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | number | 'default';
   shape?: 'circle' | 'square' | 'round' | 'default';
   active?: boolean;
   classNames?: ElementSemanticClassNames;
@@ -29,6 +33,11 @@ export interface SkeletonElementProps {
 
 const Element: React.FC<SkeletonElementProps> = (props) => {
   const { prefixCls, className, style, size, shape } = props;
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Skeleton');
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+  }
 
   const sizeCls = clsx({
     [`${prefixCls}-lg`]: size === 'large',

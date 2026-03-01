@@ -9,7 +9,10 @@ import Element from './Element';
 import useStyle from './style';
 
 export interface SkeletonInputProps extends Omit<SkeletonElementProps, 'size' | 'shape'> {
-  size?: SizeType;
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | 'default';
   block?: boolean;
 }
 
