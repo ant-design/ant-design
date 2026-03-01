@@ -65,6 +65,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
+import type { BlockProps } from '../typography/Base';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
@@ -241,6 +242,8 @@ export type AlertConfig = ComponentStyleConfig &
   };
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
+
+export type TypographyConfig = ComponentStyleConfig & Pick<BlockProps, 'classNames' | 'styles'>;
 
 export type BreadcrumbConfig = ComponentStyleConfig &
   Pick<BreadcrumbProps, 'classNames' | 'styles' | 'separator' | 'dropdownIcon'>;
@@ -457,7 +460,7 @@ export interface ConfigComponentProps {
   collapse?: CollapseConfig;
   floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
-  typography?: ComponentStyleConfig;
+  typography?: TypographyConfig;
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;
