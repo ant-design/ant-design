@@ -4,17 +4,14 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import convertToTooltipProps from '../_util/convertToTooltipProps';
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import Badge from '../badge';
 import type { BadgeProps } from '../badge';
+import type { ButtonSemanticType } from '../button/Button';
 import Button from '../button/Button';
-import type {
-  ButtonSemanticClassNames,
-  ButtonSemanticName,
-  ButtonSemanticStyles,
-} from '../button/Button';
 import type { ButtonHTMLType } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -40,14 +37,12 @@ export type FloatButtonGroupTrigger = 'click' | 'hover';
 
 export type FloatButtonBadgeProps = Omit<BadgeProps, 'status' | 'text' | 'title' | 'children'>;
 
-export type FloatButtonSemanticName = ButtonSemanticName;
+export type FloatButtonSemanticType = ButtonSemanticType;
 
-export type FloatButtonClassNamesType = SemanticClassNamesType<
-  FloatButtonProps,
-  ButtonSemanticClassNames
+export type FloatButtonSemanticAllType = GenerateSemantic<
+  FloatButtonSemanticType,
+  FloatButtonProps
 >;
-
-export type FloatButtonStylesType = SemanticStylesType<FloatButtonProps, ButtonSemanticStyles>;
 
 export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement> {
   // Style
@@ -55,8 +50,8 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: FloatButtonClassNamesType;
-  styles?: FloatButtonStylesType;
+  classNames?: FloatButtonSemanticAllType['classNamesAndFn'];
+  styles?: FloatButtonSemanticAllType['stylesAndFn'];
 
   // Others
   icon?: React.ReactNode;
@@ -128,13 +123,13 @@ const InternalFloatButton = React.forwardRef<FloatButtonElement, FloatButtonProp
     [prefixCls],
   );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    FloatButtonClassNamesType,
-    FloatButtonStylesType,
-    FloatButtonProps
-  >([floatButtonClassNames, contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [floatButtonClassNames, contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Icon =============================
   const mergedIcon = !mergedContent && !icon ? <FileTextOutlined /> : icon;

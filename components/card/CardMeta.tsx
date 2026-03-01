@@ -1,34 +1,28 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 
-export type CardMetaSemanticName = keyof CardMetaSemanticClassNames & keyof CardMetaSemanticStyles;
-
-export type CardMetaSemanticClassNames = {
-  root?: string;
-  section?: string;
-  avatar?: string;
-  title?: string;
-  description?: string;
+export type CardMetaSemanticType = {
+  classNames?: {
+    root?: string;
+    section?: string;
+    avatar?: string;
+    title?: string;
+    description?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    section?: React.CSSProperties;
+    avatar?: React.CSSProperties;
+    title?: React.CSSProperties;
+    description?: React.CSSProperties;
+  };
 };
 
-export type CardMetaSemanticStyles = {
-  root?: React.CSSProperties;
-  section?: React.CSSProperties;
-  avatar?: React.CSSProperties;
-  title?: React.CSSProperties;
-  description?: React.CSSProperties;
-};
-
-export type CardMetaClassNamesType = SemanticClassNamesType<
-  CardMetaProps,
-  CardMetaSemanticClassNames
->;
-
-export type CardMetaStylesType = SemanticStylesType<CardMetaProps, CardMetaSemanticStyles>;
+export type CardMetaSemanticAllType = GenerateSemantic<CardMetaSemanticType, CardMetaProps>;
 
 export interface CardMetaProps {
   prefixCls?: string;
@@ -37,8 +31,8 @@ export interface CardMetaProps {
   avatar?: React.ReactNode;
   title?: React.ReactNode;
   description?: React.ReactNode;
-  classNames?: CardMetaClassNamesType;
-  styles?: CardMetaStylesType;
+  classNames?: CardMetaSemanticAllType['classNamesAndFn'];
+  styles?: CardMetaSemanticAllType['stylesAndFn'];
 }
 
 const CardMeta: React.FC<CardMetaProps> = (props) => {
@@ -65,13 +59,13 @@ const CardMeta: React.FC<CardMetaProps> = (props) => {
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const metaPrefixCls = `${prefixCls}-meta`;
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CardMetaClassNamesType,
-    CardMetaStylesType,
-    CardMetaProps
-  >([contextClassNames, cardMetaClassNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, cardMetaClassNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   const rootClassNames = clsx(metaPrefixCls, className, contextClassName, mergedClassNames.root);
 

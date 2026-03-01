@@ -4,45 +4,37 @@ import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
-import type {
-  AbstractTooltipProps,
-  TooltipRef,
-  TooltipSemanticClassNames,
-  TooltipSemanticStyles,
-} from '../tooltip';
+import type { AbstractTooltipProps, TooltipRef, TooltipSemanticAllType } from '../tooltip';
 import Tooltip from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 // CSSINJS
 import useStyle from './style';
 
-export type PopoverSemanticName = keyof PopoverSemanticClassNames & keyof PopoverSemanticStyles;
-
-export type PopoverSemanticClassNames = TooltipSemanticClassNames & {
-  title?: string;
-  content?: string;
+export type PopoverSemanticType = {
+  classNames?: {
+    title?: string;
+    content?: string;
+  } & TooltipSemanticAllType['classNames'];
+  styles?: {
+    title?: React.CSSProperties;
+    content?: React.CSSProperties;
+  } & TooltipSemanticAllType['styles'];
 };
 
-export type PopoverSemanticStyles = TooltipSemanticStyles & {
-  title?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type PopoverClassNamesType = SemanticClassNamesType<PopoverProps, PopoverSemanticClassNames>;
-
-export type PopoverStylesType = SemanticStylesType<PopoverProps, PopoverSemanticStyles>;
+export type PopoverSemanticAllType = GenerateSemantic<PopoverSemanticType, PopoverProps>;
 
 export interface PopoverProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   content?: React.ReactNode | RenderFunction;
   onOpenChange?: (open: boolean) => void;
-  classNames?: PopoverClassNamesType;
-  styles?: PopoverStylesType;
+  classNames?: PopoverSemanticAllType['classNamesAndFn'];
+  styles?: PopoverSemanticAllType['stylesAndFn'];
 }
 
 const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) => {
@@ -103,13 +95,13 @@ const InternalPopover = React.forwardRef<TooltipRef, PopoverProps>((props, ref) 
     classNames,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    PopoverClassNamesType,
-    PopoverStylesType,
-    PopoverProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const rootClassNames = clsx(
     overlayClassName,

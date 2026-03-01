@@ -4,7 +4,7 @@ import type {
   ColorPickerProps as RcColorPickerProps,
 } from '@rc-component/color-picker';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { SizeType } from '../config-provider/SizeContext';
 import type { PopoverProps } from '../popover';
 import type { TooltipPlacement } from '../tooltip';
@@ -54,36 +54,27 @@ export type ColorValueType = SingleValueType | null | LineGradientType;
 
 export type ModeType = 'single' | 'gradient';
 
-export type ColorPickerSemanticName = keyof ColorPickerSemanticClassNames &
-  keyof ColorPickerSemanticStyles;
-
-export type ColorPickerSemanticClassNames = {
-  root?: string;
-  body?: string;
-  content?: string;
-  description?: string;
-};
-
-export type ColorPickerSemanticStyles = {
-  root?: React.CSSProperties;
-  body?: React.CSSProperties;
-  content?: React.CSSProperties;
-  description?: React.CSSProperties;
-};
-
-export type ColorPickerClassNamesType = SemanticClassNamesType<
-  ColorPickerProps,
-  ColorPickerSemanticClassNames,
-  { popup?: { root?: string } }
->;
-
-export type ColorPickerStylesType = SemanticStylesType<
-  ColorPickerProps,
-  ColorPickerSemanticStyles,
-  {
-    popup?: { root?: React.CSSProperties };
+export type ColorPickerSemanticType = {
+  classNames?: {
+    root?: string;
+    body?: string;
+    content?: string;
+    description?: string;
+    popup?: { root?: string };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    body?: React.CSSProperties;
+    content?: React.CSSProperties;
+    description?: React.CSSProperties;
     popupOverlayInner?: React.CSSProperties;
-  }
+    popup?: { root?: React.CSSProperties };
+  };
+};
+
+export type ColorPickerSemanticAllType = GenerateSemantic<
+  ColorPickerSemanticType,
+  ColorPickerProps
 >;
 
 export type ColorPickerProps = Omit<
@@ -115,8 +106,8 @@ export type ColorPickerProps = Omit<
   ) => React.ReactNode;
   showText?: boolean | ((color: AggregationColor) => React.ReactNode);
   size?: SizeType;
-  classNames?: ColorPickerClassNamesType;
-  styles?: ColorPickerStylesType;
+  classNames?: ColorPickerSemanticAllType['classNamesAndFn'];
+  styles?: ColorPickerSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   disabledAlpha?: boolean;
   [key: `data-${string}`]: string;

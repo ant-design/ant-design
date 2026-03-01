@@ -3,8 +3,10 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
-import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
-import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { pickClosable, useClosable } from '../_util/hooks';
+import type { ClosableType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -22,23 +24,20 @@ import StatusCmp from './style/statusCmp';
 export type { CheckableTagProps } from './CheckableTag';
 export type { CheckableTagGroupProps } from './CheckableTagGroup';
 
-export type TagSemanticName = keyof TagSemanticClassNames & keyof TagSemanticStyles;
-
-export type TagSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  content?: string;
+export type TagSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type TagSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type TagClassNamesType = SemanticClassNamesType<TagProps, TagSemanticClassNames>;
-
-export type TagStylesType = SemanticStylesType<TagProps, TagSemanticStyles>;
+export type TagSemanticAllType = GenerateSemantic<TagSemanticType, TagProps>;
 
 export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
@@ -57,8 +56,8 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   href?: string;
   target?: string;
   disabled?: boolean;
-  classNames?: TagClassNamesType;
-  styles?: TagStylesType;
+  classNames?: TagSemanticAllType['classNamesAndFn'];
+  styles?: TagSemanticAllType['stylesAndFn'];
 }
 
 const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagProps>(
@@ -128,13 +127,13 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     };
 
     // ====================== Styles ======================
-    const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      TagClassNamesType,
-      TagStylesType,
-      TagProps
-    >([contextClassNames, classNames], [contextStyles, styles], {
-      props: mergedProps,
-    });
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, classNames],
+      [contextStyles, styles],
+      {
+        props: mergedProps,
+      },
+    );
 
     const tagStyle = React.useMemo(() => {
       let nextTagStyle: React.CSSProperties = { ...mergedStyles.root, ...contextStyle, ...style };

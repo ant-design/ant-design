@@ -2,8 +2,8 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Indicator from './Indicator';
@@ -16,39 +16,36 @@ export type SpinSize = (typeof _SpinSizes)[number];
 
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
-export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemanticStyles;
+export type SpinSemanticType = {
+  classNames?: {
+    root?: string;
+    section?: string;
+    indicator?: string;
+    description?: string;
 
-export type SpinSemanticClassNames = {
-  root?: string;
-  section?: string;
-  indicator?: string;
-  description?: string;
+    container?: string;
 
-  container?: string;
+    /** @deprecated Please use `description` instead */
+    tip?: string;
+    /** @deprecated Please use `root` instead */
+    mask?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    section?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+    description?: React.CSSProperties;
 
-  /** @deprecated Please use `description` instead */
-  tip?: string;
-  /** @deprecated Please use `root` instead */
-  mask?: string;
+    container?: React.CSSProperties;
+
+    /** @deprecated Please use `description` instead */
+    tip?: React.CSSProperties;
+    /** @deprecated Please use `root` instead */
+    mask?: React.CSSProperties;
+  };
 };
 
-export type SpinSemanticStyles = {
-  root?: React.CSSProperties;
-  section?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-  description?: React.CSSProperties;
-
-  container?: React.CSSProperties;
-
-  /** @deprecated Please use `description` instead */
-  tip?: React.CSSProperties;
-  /** @deprecated Please use `root` instead */
-  mask?: React.CSSProperties;
-};
-
-export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticClassNames>;
-
-export type SpinStylesType = SemanticStylesType<SpinProps, SpinSemanticStyles>;
+export type SpinSemanticAllType = GenerateSemantic<SpinSemanticType, SpinProps>;
 
 export interface SpinProps {
   prefixCls?: string;
@@ -73,8 +70,8 @@ export interface SpinProps {
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
   percent?: number | 'auto';
-  classNames?: SpinClassNamesType;
-  styles?: SpinStylesType;
+  classNames?: SpinSemanticAllType['classNamesAndFn'];
+  styles?: SpinSemanticAllType['stylesAndFn'];
 }
 
 export type SpinType = React.FC<SpinProps> & {
@@ -159,13 +156,13 @@ const Spin: SpinType = (props) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SpinClassNamesType,
-    SpinStylesType,
-    SpinProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ======================== Warning =========================
   if (process.env.NODE_ENV !== 'production') {

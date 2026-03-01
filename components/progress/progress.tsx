@@ -7,8 +7,8 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Circle from './Circle';
@@ -17,30 +17,24 @@ import Steps from './Steps';
 import useStyle from './style';
 import { getSize, getSuccessPercent, validProgress } from './utils';
 
-export type ProgressSemanticName = keyof ProgressSemanticClassNames & keyof ProgressSemanticStyles;
-
-export type ProgressSemanticClassNames = {
-  root?: string;
-  body?: string;
-  rail?: string;
-  track?: string;
-  indicator?: string;
+export type ProgressSemanticType = {
+  classNames?: {
+    root?: string;
+    body?: string;
+    rail?: string;
+    track?: string;
+    indicator?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    body?: React.CSSProperties;
+    rail?: React.CSSProperties;
+    track?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+  };
 };
 
-export type ProgressSemanticStyles = {
-  root?: React.CSSProperties;
-  body?: React.CSSProperties;
-  rail?: React.CSSProperties;
-  track?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-};
-
-export type ProgressClassNamesType = SemanticClassNamesType<
-  ProgressProps,
-  ProgressSemanticClassNames
->;
-
-export type ProgressStylesType = SemanticStylesType<ProgressProps, ProgressSemanticStyles>;
+export type ProgressSemanticAllType = GenerateSemantic<ProgressSemanticType, ProgressProps>;
 
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
@@ -69,8 +63,8 @@ export interface ProgressProps extends ProgressAriaProps {
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
-  classNames?: ProgressClassNamesType;
-  styles?: ProgressStylesType;
+  classNames?: ProgressSemanticAllType['classNamesAndFn'];
+  styles?: ProgressSemanticAllType['stylesAndFn'];
 
   type?: ProgressType;
   percent?: number;
@@ -172,13 +166,13 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   };
 
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ProgressClassNamesType,
-    ProgressStylesType,
-    ProgressProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ========================= Info =========================
   const isLineType = type === 'line';
@@ -267,8 +261,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
   // ======================== Render ========================
   const sharedProps = {
     ...props,
-    classNames: mergedClassNames as ProgressSemanticClassNames,
-    styles: mergedStyles as ProgressSemanticStyles,
+    classNames: mergedClassNames,
+    styles: mergedStyles,
   };
 
   let progress: React.ReactNode;

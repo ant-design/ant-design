@@ -3,7 +3,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import genPurePanel from '../_util/PurePanel';
 import { getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -100,11 +100,7 @@ const ColorPicker: CompoundedComponent = (props) => {
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    NonNullable<ColorPickerProps['classNames']>,
-    NonNullable<ColorPickerProps['styles']>,
-    ColorPickerProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -272,7 +268,7 @@ const ColorPicker: CompoundedComponent = (props) => {
   return (
     <Popover
       classNames={{ root: mergedPopupCls }}
-      styles={{ root: mergedStyles.popup?.root, container: styles?.popupOverlayInner }}
+      styles={{ root: mergedStyles.popup?.root, container: mergedStyles?.popupOverlayInner }}
       onOpenChange={triggerOpenChange}
       content={
         <ContextIsolator form>

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
@@ -17,28 +17,22 @@ export interface TransferLocale {
   description: string;
 }
 
-export type EmptySemanticName = keyof EmptySemanticClassNames & keyof EmptySemanticStyles;
-
-export type EmptySemanticClassNames = {
-  root?: string;
-  image?: string;
-  description?: string;
-  footer?: string;
+export type EmptySemanticType = {
+  classNames?: {
+    root?: string;
+    image?: string;
+    description?: string;
+    footer?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    image?: React.CSSProperties;
+    description?: React.CSSProperties;
+    footer?: React.CSSProperties;
+  };
 };
 
-export type EmptySemanticStyles = {
-  root?: React.CSSProperties;
-  image?: React.CSSProperties;
-  description?: React.CSSProperties;
-  footer?: React.CSSProperties;
-};
-
-export type EmptyClassNamesType = SemanticClassNamesType<EmptyProps, EmptySemanticClassNames>;
-
-export type EmptyStylesType = SemanticStylesType<EmptyProps, EmptySemanticStyles>;
-
-// For backward compatibility
-export type SemanticName = EmptySemanticName;
+export type EmptySemanticAllType = GenerateSemantic<EmptySemanticType, EmptyProps>;
 
 export interface EmptyProps {
   prefixCls?: string;
@@ -50,8 +44,8 @@ export interface EmptyProps {
   image?: React.ReactNode;
   description?: React.ReactNode;
   children?: React.ReactNode;
-  classNames?: EmptyClassNamesType;
-  styles?: EmptyStylesType;
+  classNames?: EmptySemanticAllType['classNamesAndFn'];
+  styles?: EmptySemanticAllType['stylesAndFn'];
 }
 
 type CompoundedComponent = React.FC<EmptyProps> & {
@@ -86,13 +80,13 @@ const Empty: CompoundedComponent = (props) => {
   const prefixCls = getPrefixCls('empty', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    EmptyClassNamesType,
-    EmptyStylesType,
-    EmptyProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   const [locale] = useLocale('Empty');
 

@@ -11,8 +11,8 @@ import RcPagination from '@rc-component/pagination';
 import enUS from '@rc-component/pagination/lib/locale/en_US';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -26,29 +26,23 @@ import useStyle from './style';
 import BorderedStyle from './style/bordered';
 import useShowSizeChanger from './useShowSizeChanger';
 
-export type SemanticName = keyof PaginationSemanticClassNames & keyof PaginationSemanticStyles;
-
-export type PaginationSemanticName = SemanticName;
-
-export type PaginationSemanticClassNames = {
-  root?: string;
-  item?: string;
+export type PaginationSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+  };
 };
 
-export type PaginationSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-};
+export type PaginationSemanticAllType = GenerateSemantic<PaginationSemanticType, PaginationProps>;
 
-export type PaginationClassNamesType = SemanticClassNamesType<
-  PaginationProps,
-  PaginationSemanticClassNames
->;
-
-export type PaginationStylesType = SemanticStylesType<PaginationProps, PaginationSemanticStyles>;
-
-export interface PaginationProps
-  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
+export interface PaginationProps extends Omit<
+  RcPaginationProps,
+  'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'
+> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: SizeType;
   responsive?: boolean;
@@ -60,8 +54,8 @@ export interface PaginationProps
   selectComponentClass?: any;
   /** `string` type will be removed in next major version. */
   pageSizeOptions?: (string | number)[];
-  classNames?: PaginationClassNamesType;
-  styles?: PaginationStylesType;
+  classNames?: PaginationSemanticAllType['classNamesAndFn'];
+  styles?: PaginationSemanticAllType['stylesAndFn'];
 }
 
 export type PaginationPosition = 'top' | 'bottom' | 'both';
@@ -120,13 +114,13 @@ const Pagination: React.FC<PaginationProps> = (props) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    PaginationClassNamesType,
-    PaginationStylesType,
-    PaginationProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Locale =============================
   const [contextLocale] = useLocale('Pagination', enUS);

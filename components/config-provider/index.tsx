@@ -23,6 +23,7 @@ import type {
   CardConfig,
   CardMetaConfig,
   CascaderConfig,
+  CheckableTagGroupConfig,
   CheckboxConfig,
   CollapseConfig,
   ColorPickerConfig,
@@ -49,6 +50,7 @@ import type {
   MessageConfig,
   ModalConfig,
   NotificationConfig,
+  NotificationPurePanelConfig,
   OTPConfig,
   PaginationConfig,
   PopconfirmConfig,
@@ -256,6 +258,7 @@ export interface ConfigProviderProps {
   avatar?: ComponentStyleConfig;
   message?: MessageConfig;
   tag?: TagConfig;
+  checkableTagGroup?: CheckableTagGroupConfig;
   table?: TableConfig;
   card?: CardConfig;
   cardMeta?: CardMetaConfig;
@@ -264,6 +267,7 @@ export interface ConfigProviderProps {
   timePicker?: TimePickerConfig;
   upload?: UploadConfig;
   notification?: NotificationConfig;
+  notificationPurePanel?: NotificationPurePanelConfig;
   tree?: ComponentStyleConfig;
   colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
@@ -410,6 +414,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     avatar,
     message,
     tag,
+    checkableTagGroup,
     table,
     card,
     cardMeta,
@@ -418,6 +423,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     timePicker,
     upload,
     notification,
+    notificationPurePanel,
     tree,
     colorPicker,
     datePicker,
@@ -520,6 +526,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     avatar,
     message,
     tag,
+    checkableTagGroup,
     table,
     card,
     cardMeta,
@@ -528,6 +535,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     timePicker,
     upload,
     notification,
+    notificationPurePanel,
     tree,
     colorPicker,
     datePicker,

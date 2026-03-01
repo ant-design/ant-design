@@ -1,7 +1,7 @@
 import * as React from 'react';
+import DownOutlined from '@ant-design/icons/DownOutlined';
 import MinusOutlined from '@ant-design/icons/MinusOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import RcInputNumber from '@rc-component/input-number';
 import type {
@@ -12,8 +12,8 @@ import type {
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -30,41 +30,36 @@ import SpaceAddon from '../space/Addon';
 import Compact, { useCompactItemContext } from '../space/Compact';
 import useStyle from './style';
 
-export type InputNumberSemanticName = keyof InputNumberSemanticClassNames &
-  keyof InputNumberSemanticStyles;
-
-export type InputNumberSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  suffix?: string;
-  input?: string;
-  actions?: string;
+export type InputNumberSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    suffix?: string;
+    input?: string;
+    actions?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    actions?: React.CSSProperties;
+  };
 };
 
-export type InputNumberSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  actions?: React.CSSProperties;
-};
-
-export type InputNumberClassNamesType<T extends ValueType = ValueType> = SemanticClassNamesType<
-  InputNumberProps<T>,
-  InputNumberSemanticClassNames
+export type InputNumberSemanticAllType = GenerateSemantic<
+  InputNumberSemanticType,
+  InputNumberProps
 >;
 
-export type InputNumberStylesType<T extends ValueType = ValueType> = SemanticStylesType<
-  InputNumberProps<T>,
-  InputNumberSemanticStyles
->;
-
-export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
+export interface InputNumberProps<T extends ValueType = ValueType> extends Omit<
+  RcInputNumberProps<T>,
+  'prefix' | 'size' | 'controls' | 'classNames' | 'styles'
+> {
   prefixCls?: string;
   rootClassName?: string;
-  classNames?: InputNumberClassNamesType;
-  styles?: InputNumberStylesType;
+  classNames?: InputNumberSemanticAllType['classNamesAndFn'];
+  styles?: InputNumberSemanticAllType['stylesAndFn'];
   /**
    * @deprecated Use `Space.Compact` instead.
    *
@@ -191,13 +186,13 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
       controls: mergedControls,
     };
 
-    const [mergedClassNames, mergedStyles] = useMergeSemantic<
-      InputNumberClassNamesType,
-      InputNumberStylesType,
-      InputNumberProps
-    >([contextClassNames, classNames], [contextStyles, styles], {
-      props: mergedProps,
-    });
+    const [mergedClassNames, mergedStyles] = useMergeSemantic(
+      [contextClassNames, classNames],
+      [contextStyles, styles],
+      {
+        props: mergedProps,
+      },
+    );
 
     return (
       <RcInputNumber

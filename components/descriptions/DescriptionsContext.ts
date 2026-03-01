@@ -1,13 +1,14 @@
 import React from 'react';
 
-export type CellSemanticClassNames = {
-  label?: string;
-  content?: string;
-};
-
-export type CellSemanticStyles = {
-  label?: React.CSSProperties;
-  content?: React.CSSProperties;
+export type CellSemanticType = {
+  classNames?: {
+    label?: string;
+    content?: string;
+  };
+  styles?: {
+    label?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
 export interface DescriptionsContextProps {
@@ -15,8 +16,8 @@ export interface DescriptionsContextProps {
   labelStyle?: React.CSSProperties;
   /** @deprecated Please use `styles.content` instead */
   contentStyle?: React.CSSProperties;
-  classNames?: CellSemanticClassNames;
-  styles?: CellSemanticStyles;
+  classNames?: CellSemanticType['classNames'];
+  styles?: CellSemanticType['styles'];
 }
 
 const DescriptionsContext = React.createContext<DescriptionsContextProps>(null!);

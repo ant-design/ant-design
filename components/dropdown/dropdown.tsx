@@ -7,8 +7,9 @@ import type { AlignType } from '@rc-component/trigger';
 import { omit, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import isPrimitive from '../_util/isPrimitive';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -42,35 +43,28 @@ type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
-
-export type DropdownSemanticName = keyof DropdownSemanticClassNames & keyof DropdownSemanticStyles;
-
-export type DropdownSemanticClassNames = {
-  root?: string;
-  item?: string;
-  itemTitle?: string;
-  itemIcon?: string;
-  itemContent?: string;
+export type DropdownSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemTitle?: string;
+    itemIcon?: string;
+    itemContent?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+  };
 };
 
-export type DropdownSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-};
-
-export type DropdownClassNamesType = SemanticClassNamesType<
-  DropdownProps,
-  DropdownSemanticClassNames
->;
-
-export type DropdownStylesType = SemanticStylesType<DropdownProps, DropdownSemanticStyles>;
+export type DropdownSemanticAllType = GenerateSemantic<DropdownSemanticType, DropdownProps>;
 
 export interface DropdownProps {
-  classNames?: DropdownClassNamesType;
-  styles?: DropdownStylesType;
+  classNames?: DropdownSemanticAllType['classNamesAndFn'];
+  styles?: DropdownSemanticAllType['stylesAndFn'];
   menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
@@ -153,13 +147,13 @@ const Dropdown: CompoundedComponent = (props) => {
     mouseLeaveDelay,
     autoAdjustOverflow,
   };
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DropdownClassNamesType,
-    DropdownStylesType,
-    DropdownProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const mergedRootStyles: React.CSSProperties = {
     ...contextStyle,

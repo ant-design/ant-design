@@ -4,35 +4,21 @@ import { omit, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
-import type {
-  PopoverProps,
-  PopoverSemanticClassNames,
-  PopoverSemanticName,
-  PopoverSemanticStyles,
-} from '../popover';
+import type { PopoverProps, PopoverSemanticAllType } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
 
-export type PopconfirmSemanticName = PopoverSemanticName;
+export type PopconfirmSemanticType = PopoverSemanticAllType;
 
-export type PopconfirmSemanticClassNames = PopoverSemanticClassNames;
-
-export type PopconfirmSemanticStyles = PopoverSemanticStyles;
-
-export type PopconfirmClassNamesType = SemanticClassNamesType<
-  PopconfirmProps,
-  PopconfirmSemanticClassNames
->;
-
-export type PopconfirmStylesType = SemanticStylesType<PopconfirmProps, PopconfirmSemanticStyles>;
+export type PopconfirmSemanticAllType = GenerateSemantic<PopconfirmSemanticType, PopconfirmProps>;
 
 export interface PopconfirmProps extends AbstractTooltipProps {
   title: React.ReactNode | RenderFunction;
@@ -49,8 +35,8 @@ export interface PopconfirmProps extends AbstractTooltipProps {
   icon?: React.ReactNode;
   onOpenChange?: (open: boolean) => void;
   onPopupClick?: (e: React.MouseEvent<HTMLElement>) => void;
-  classNames?: PopconfirmClassNamesType;
-  styles?: PopconfirmStylesType;
+  classNames?: PopconfirmSemanticAllType['classNamesAndFn'];
+  styles?: PopconfirmSemanticAllType['stylesAndFn'];
 }
 
 export interface PopconfirmState {
@@ -133,13 +119,13 @@ const InternalPopconfirm = React.forwardRef<TooltipRef, PopconfirmProps>((props,
     classNames,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    PopconfirmClassNamesType,
-    PopconfirmStylesType,
-    PopconfirmProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const rootClassNames = clsx(prefixCls, contextClassName, overlayClassName, mergedClassNames.root);
 

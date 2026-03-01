@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, TreeSelect } from 'antd';
-import type { TreeSelectProps } from 'antd';
+import type { GetProp, TreeSelectProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -24,7 +24,9 @@ const styleObject: TreeSelectProps['styles'] = {
   },
 };
 
-const styleFunction: TreeSelectProps['styles'] = (info) => {
+const styleFunction: TreeSelectProps['styles'] = (
+  info,
+): GetProp<TreeSelectProps, 'styles', 'Return'> => {
   if (info.props.size === 'middle') {
     return {
       suffix: {
@@ -35,7 +37,7 @@ const styleFunction: TreeSelectProps['styles'] = (info) => {
           color: '#722ed1',
         },
       },
-    } satisfies TreeSelectProps['styles'];
+    };
   }
   return {};
 };

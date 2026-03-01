@@ -2,8 +2,8 @@ import * as React from 'react';
 import { Popup } from '@rc-component/tooltip';
 import { clsx } from 'clsx';
 
-import type { TooltipClassNamesType, TooltipProps, TooltipStylesType } from '.';
-import { useMergeSemantic } from '../_util/hooks';
+import type { TooltipProps } from '.';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStyle from './style';
@@ -51,11 +51,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     placement,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TooltipClassNamesType,
-    TooltipStylesType,
-    TooltipProps
-  >([classNames], [innerStyles, styles], {
+  const [mergedClassNames, mergedStyles] = useMergeSemantic([classNames], [innerStyles, styles], {
     props: mergedProps,
   });
 

@@ -10,7 +10,7 @@ import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import theme from '../../theme';
 import { PresetColors } from '../../theme/interface';
-import type { BaseButtonProps } from '../Button';
+import type { BaseButtonProps, ButtonProps } from '../Button';
 
 const { resetWarned } = warning;
 
@@ -538,37 +538,37 @@ describe('Button', () => {
   });
 
   it('should support classnames and styles', () => {
-    const cusomStyles = {
+    const customStyles: ButtonProps['styles'] = {
       root: { color: 'rgb(255, 0, 0)' },
       icon: { background: 'blue' },
       content: { fontSize: '20px' },
     };
-    const customClassNames = {
+    const customClassNames: ButtonProps['classNames'] = {
       root: 'custom-root',
       icon: 'custom-icon',
       content: 'custom-content',
     };
     const { container, rerender, getByText } = render(
-      <Button classNames={customClassNames} styles={cusomStyles} icon={<SearchOutlined />}>
+      <Button classNames={customClassNames} styles={customStyles} icon={<SearchOutlined />}>
         antd
       </Button>,
     );
     const root = container.querySelector('.ant-btn');
     const icon = container.querySelector('.ant-btn-icon');
     const content = getByText('antd');
-    expect(root).toHaveClass(customClassNames.root);
-    expect(icon).toHaveClass(customClassNames.icon);
-    expect(root).toHaveStyle(cusomStyles.root);
-    expect(icon).toHaveStyle(cusomStyles.icon);
-    expect(content).toHaveStyle(cusomStyles.content);
+    expect(root).toHaveClass(customClassNames.root as string);
+    expect(icon).toHaveClass(customClassNames.icon as string);
+    expect(root).toHaveStyle(customStyles.root as Record<string, string>);
+    expect(icon).toHaveStyle(customStyles.icon as Record<string, string>);
+    expect(content).toHaveStyle(customStyles.content as Record<string, string>);
     rerender(
-      <Button classNames={customClassNames} styles={cusomStyles} loading>
+      <Button classNames={customClassNames} styles={customStyles} loading>
         antd
       </Button>,
     );
     const loadingIcon = container.querySelector('.ant-btn-icon');
-    expect(loadingIcon).toHaveClass(customClassNames.icon);
-    expect(loadingIcon).toHaveStyle(cusomStyles.icon);
+    expect(loadingIcon).toHaveClass(customClassNames.icon as string);
+    expect(loadingIcon).toHaveStyle(customStyles.icon as Record<string, string>);
   });
 
   it('should support customizing the background color of default type button in disabled state', () => {
@@ -666,9 +666,7 @@ describe('Button', () => {
   it('support ConfigProvider loadingIcon', () => {
     const { container } = render(
       <ConfigProvider button={{ loadingIcon: 'foobar' }}>
-        <Button loading>
-          Button
-        </Button>
+        <Button loading>Button</Button>
       </ConfigProvider>,
     );
 
@@ -678,9 +676,7 @@ describe('Button', () => {
   it('prefer loading.icon prop over ConfigProvider loadingIcon', () => {
     const { container } = render(
       <ConfigProvider button={{ loadingIcon: 'foobar' }}>
-        <Button loading={{ icon: 'bamboo' }}>
-          Button
-        </Button>
+        <Button loading={{ icon: 'bamboo' }}>Button</Button>
       </ConfigProvider>,
     );
 

@@ -1,16 +1,15 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-export type ElementSemanticName = keyof ElementSemanticClassNames & keyof ElementSemanticStyles;
-
-export type ElementSemanticClassNames = {
-  root?: string;
-  content?: string;
-};
-
-export type ElementSemanticStyles = {
-  root?: React.CSSProperties;
-  content?: React.CSSProperties;
+export type ElementSemanticType = {
+  classNames?: {
+    root?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
 export interface SkeletonElementProps {
@@ -21,8 +20,8 @@ export interface SkeletonElementProps {
   size?: 'large' | 'small' | 'default' | number;
   shape?: 'circle' | 'square' | 'round' | 'default';
   active?: boolean;
-  classNames?: ElementSemanticClassNames;
-  styles?: ElementSemanticStyles;
+  classNames?: ElementSemanticType['classNames'];
+  styles?: ElementSemanticType['styles'];
 }
 
 const Element: React.FC<SkeletonElementProps> = (props) => {

@@ -1,12 +1,7 @@
 import InternalAnchor from './Anchor';
 import AnchorLink from './AnchorLink';
 
-export type {
-  AnchorProps,
-  AnchorSemanticClassNames,
-  AnchorSemanticName,
-  AnchorSemanticStyles,
-} from './Anchor';
+export type { AnchorProps } from './Anchor';
 export type { AnchorLinkProps } from './AnchorLink';
 
 type InternalAnchorType = typeof InternalAnchor;

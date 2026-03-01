@@ -1,44 +1,37 @@
 import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
-import type {
-  ClosableType,
-  MaskType,
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { ClosableType, MaskType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
 import type { FocusableConfig, OmitFocusType } from '../drawer/useFocusable';
 
-export type ModalSemanticName = keyof ModalSemanticClassNames & keyof ModalSemanticStyles;
-
-export type ModalSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  footer?: string;
-  container?: string;
-  title?: string;
-  wrapper?: string;
-  mask?: string;
+export type ModalSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    footer?: string;
+    container?: string;
+    title?: string;
+    wrapper?: string;
+    mask?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    footer?: React.CSSProperties;
+    container?: React.CSSProperties;
+    title?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
+    mask?: React.CSSProperties;
+  };
 };
 
-export type ModalSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  container?: React.CSSProperties;
-  title?: React.CSSProperties;
-  wrapper?: React.CSSProperties;
-  mask?: React.CSSProperties;
-};
-
-export type ModalClassNamesType = SemanticClassNamesType<ModalProps, ModalSemanticClassNames>;
-
-export type ModalStylesType = SemanticStylesType<ModalProps, ModalSemanticStyles>;
+export type ModalSemanticAllType = GenerateSemantic<ModalSemanticType, ModalProps>;
 
 interface ModalCommonProps
   extends Omit<
@@ -64,8 +57,8 @@ interface ModalCommonProps
   closable?:
     | boolean
     | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
-  classNames?: ModalClassNamesType;
-  styles?: ModalStylesType;
+  classNames?: ModalSemanticAllType['classNamesAndFn'];
+  styles?: ModalSemanticAllType['stylesAndFn'];
 }
 
 export interface ModalProps extends ModalCommonProps {

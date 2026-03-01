@@ -8,15 +8,16 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergedMask, useMergeSemantic, useZIndex } from '../_util/hooks';
+import { useMergedMask, useZIndex } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import { usePanelRef } from '../watermark/context';
-import type { DrawerClassNamesType, DrawerPanelProps, DrawerStylesType } from './DrawerPanel';
+import type { DrawerPanelProps } from './DrawerPanel';
 import DrawerPanel from './DrawerPanel';
 import useStyle from './style';
 import type { FocusableConfig, OmitFocusType } from './useFocusable';
@@ -38,7 +39,8 @@ export interface DrawerResizableConfig {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends Omit<
+  extends
+    Omit<
       RcDrawerProps,
       | 'maskStyle'
       | 'destroyOnClose'
@@ -206,13 +208,13 @@ const Drawer: React.FC<DrawerProps> & {
     focusable: mergedFocusable,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DrawerClassNamesType,
-    DrawerStylesType,
-    DrawerProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const drawerClassName = clsx(
     {

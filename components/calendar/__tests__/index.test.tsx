@@ -6,6 +6,7 @@ import { warning } from '@rc-component/util';
 import Dayjs from 'dayjs';
 import MockDate from 'mockdate';
 
+import type { CalendarProps } from '..';
 import Calendar from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -565,14 +566,14 @@ describe('Calendar', () => {
     jest.useRealTimers();
   });
   it('support classNames and styles', () => {
-    const customClassNames = {
+    const customClassNames: CalendarProps<any>['classNames'] = {
       root: 'custom-root',
       header: 'custom-header',
       body: 'custom-body',
       content: 'custom-content',
       item: 'custom-item',
     };
-    const customStyles = {
+    const customStyles: CalendarProps<any>['styles'] = {
       root: { backgroundColor: 'rgba(0, 123, 255, 0.8)' },
       header: { backgroundColor: 'rgba(83, 99, 116, 0.8)' },
       body: { backgroundColor: 'rgba(21, 83, 41, 0.8)' },
@@ -585,16 +586,16 @@ describe('Calendar', () => {
     const item = container.querySelector('.ant-picker-cell');
     const body = container.querySelector('.ant-picker-body');
     const content = container.querySelector('.ant-picker-content');
-    expect(root).toHaveStyle(customStyles.root);
-    expect(header).toHaveStyle(customStyles.header);
-    expect(body).toHaveStyle(customStyles.body);
-    expect(content).toHaveStyle(customStyles.content);
-    expect(item).toHaveStyle(customStyles.item);
-    expect(root).toHaveClass(customClassNames.root);
-    expect(header).toHaveClass(customClassNames.header);
-    expect(body).toHaveClass(customClassNames.body);
-    expect(content).toHaveClass(customClassNames.content);
-    expect(item).toHaveClass(customClassNames.item);
+    expect(root).toHaveStyle(customStyles.root as Record<string, string>);
+    expect(header).toHaveStyle(customStyles.header as Record<string, string>);
+    expect(body).toHaveStyle(customStyles.body as Record<string, string>);
+    expect(content).toHaveStyle(customStyles.content as Record<string, string>);
+    expect(item).toHaveStyle(customStyles.item as Record<string, string>);
+    expect(root).toHaveClass(customClassNames.root as string);
+    expect(header).toHaveClass(customClassNames.header as string);
+    expect(body).toHaveClass(customClassNames.body as string);
+    expect(content).toHaveClass(customClassNames.content as string);
+    expect(item).toHaveClass(customClassNames.item as string);
   });
 
   it('should support deep merge locale with partial fields', () => {

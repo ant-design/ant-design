@@ -3,8 +3,8 @@ import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -26,31 +26,28 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
-export type CardSemanticName = keyof CardSemanticClassNames & keyof CardSemanticStyles;
-
-export type CardSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  extra?: string;
-  title?: string;
-  actions?: string;
-  cover?: string;
+export type CardSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    extra?: string;
+    title?: string;
+    actions?: string;
+    cover?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    title?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    cover?: React.CSSProperties;
+  };
 };
 
-export type CardSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  extra?: React.CSSProperties;
-  title?: React.CSSProperties;
-  actions?: React.CSSProperties;
-  cover?: React.CSSProperties;
-};
-
-export type CardClassNamesType = SemanticClassNamesType<CardProps, CardSemanticClassNames>;
-
-export type CardStylesType = SemanticStylesType<CardProps, CardSemanticStyles>;
+export type CardSemanticAllType = GenerateSemantic<CardSemanticType, CardProps>;
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
@@ -79,8 +76,8 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   activeTabKey?: string;
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
-  classNames?: CardClassNamesType;
-  styles?: CardStylesType;
+  classNames?: CardSemanticAllType['classNamesAndFn'];
+  styles?: CardSemanticAllType['stylesAndFn'];
   variant?: 'borderless' | 'outlined';
 }
 
@@ -155,13 +152,11 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     loading,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CardClassNamesType,
-    CardStylesType,
-    CardProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    { props: mergedProps },
+  );
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {

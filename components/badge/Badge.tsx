@@ -5,8 +5,8 @@ import { clsx } from 'clsx';
 
 import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
@@ -15,21 +15,18 @@ import type { PresetColorKey } from '../theme/internal';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
 
-export type BadgeSemanticName = keyof BadgeSemanticClassNames & keyof BadgeSemanticStyles;
-
-export type BadgeSemanticClassNames = {
-  root?: string;
-  indicator?: string;
+export type BadgeSemanticType = {
+  classNames?: {
+    root?: string;
+    indicator?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+  };
 };
 
-export type BadgeSemanticStyles = {
-  root?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-};
-
-export type BadgeClassNamesType = SemanticClassNamesType<BadgeProps, BadgeSemanticClassNames>;
-
-export type BadgeStylesType = SemanticStylesType<BadgeProps, BadgeSemanticStyles>;
+export type BadgeSemanticAllType = GenerateSemantic<BadgeSemanticType, BadgeProps>;
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   /** Number to show in badge */
@@ -51,8 +48,8 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   offset?: [number | string, number | string];
   title?: string;
   children?: React.ReactNode;
-  classNames?: BadgeClassNamesType;
-  styles?: BadgeStylesType;
+  classNames?: BadgeSemanticAllType['classNamesAndFn'];
+  styles?: BadgeSemanticAllType['stylesAndFn'];
 }
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
@@ -98,13 +95,13 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
     showZero,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    BadgeClassNamesType,
-    BadgeStylesType,
-    BadgeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ================================ Misc ================================
   const numberedDisplayCount = (

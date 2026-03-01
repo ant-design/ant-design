@@ -1,26 +1,23 @@
 import type * as React from 'react';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
-export type MessageSemanticName = keyof MessageSemanticClassNames & keyof MessageSemanticStyles;
-
-export type MessageSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  content?: string;
+export type MessageSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type MessageSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type ArgsClassNamesType = SemanticClassNamesType<ArgsProps, MessageSemanticClassNames>;
-
-export type ArgsStylesType = SemanticStylesType<ArgsProps, MessageSemanticStyles>;
+export type MessageSemanticAllType = GenerateSemantic<MessageSemanticType, ArgsProps>;
 
 export interface ConfigOptions {
   top?: string | number;
@@ -35,8 +32,8 @@ export interface ConfigOptions {
    * @descEN keep the timer running or not on hover
    */
   pauseOnHover?: boolean;
-  classNames?: ArgsClassNamesType;
-  styles?: ArgsStylesType;
+  classNames?: MessageSemanticAllType['classNamesAndFn'];
+  styles?: MessageSemanticAllType['stylesAndFn'];
 }
 
 export interface ArgsProps {
@@ -64,8 +61,8 @@ export interface ArgsProps {
   key?: string | number;
   style?: React.CSSProperties;
   className?: string;
-  classNames?: ArgsClassNamesType;
-  styles?: ArgsStylesType;
+  classNames?: MessageSemanticAllType['classNamesAndFn'];
+  styles?: MessageSemanticAllType['stylesAndFn'];
   /**
    * @descCN 消息通知点击时的回调函数
    * @descEN Callback function when message notification is clicked

@@ -3,8 +3,8 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
@@ -12,33 +12,26 @@ import StatisticNumber from './Number';
 import useStyle from './style';
 import type { FormatConfig, valueType } from './utils';
 
-export type StatisticSemanticName = keyof StatisticSemanticClassNames &
-  keyof StatisticSemanticStyles;
-
-export type StatisticSemanticClassNames = {
-  root?: string;
-  content?: string;
-  title?: string;
-  header?: string;
-  prefix?: string;
-  suffix?: string;
+export type StatisticSemanticType = {
+  classNames?: {
+    root?: string;
+    content?: string;
+    title?: string;
+    header?: string;
+    prefix?: string;
+    suffix?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    content?: React.CSSProperties;
+    title?: React.CSSProperties;
+    header?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+  };
 };
 
-export type StatisticSemanticStyles = {
-  root?: React.CSSProperties;
-  content?: React.CSSProperties;
-  title?: React.CSSProperties;
-  header?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-};
-
-export type StatisticClassNamesType = SemanticClassNamesType<
-  StatisticProps,
-  StatisticSemanticClassNames
->;
-
-export type StatisticStylesType = SemanticStylesType<StatisticProps, StatisticSemanticStyles>;
+export type StatisticSemanticAllType = GenerateSemantic<StatisticSemanticType, StatisticProps>;
 
 export interface StatisticRef {
   nativeElement: HTMLDivElement;
@@ -47,8 +40,8 @@ export interface StatisticRef {
 interface StatisticReactProps extends FormatConfig {
   prefixCls?: string;
   className?: string;
-  classNames?: StatisticClassNamesType;
-  styles?: StatisticStylesType;
+  classNames?: StatisticSemanticAllType['classNamesAndFn'];
+  styles?: StatisticSemanticAllType['stylesAndFn'];
   rootClassName?: string;
   style?: React.CSSProperties;
   value?: valueType;
@@ -111,13 +104,13 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     loading,
     value,
   };
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    StatisticClassNamesType,
-    StatisticStylesType,
-    StatisticProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Warning ==============================
   if (process.env.NODE_ENV !== 'production') {

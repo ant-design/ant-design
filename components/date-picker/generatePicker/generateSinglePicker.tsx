@@ -39,6 +39,7 @@ import {
   YEARPICKER,
 } from './constant';
 import type {
+  DatePickerSemanticType,
   GenericTimePickerProps,
   PickerLocale,
   PickerProps,
@@ -141,7 +142,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       // ========================= Style ==========================
       // Use original useMergedPickerSemantic for proper popup handling
-      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<P>(
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
         pickerType,
         classNames,
         styles,
@@ -252,17 +253,19 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             )}
             style={{ ...contextPickerConfig?.style, ...style }}
             // Semantic Style
-            classNames={mergedClassNames}
-            styles={{
-              ...mergedStyles,
-              popup: {
-                ...mergedStyles.popup,
-                root: {
-                  ...mergedStyles.popup.root,
-                  zIndex,
+            classNames={mergedClassNames as any}
+            styles={
+              {
+                ...mergedStyles,
+                popup: {
+                  ...mergedStyles.popup,
+                  root: {
+                    ...mergedStyles.popup.root,
+                    zIndex,
+                  },
                 },
-              },
-            }}
+              } as unknown as DatePickerSemanticType['styles']
+            }
             allowClear={mergedAllowClear}
             removeIcon={removeIcon}
           />

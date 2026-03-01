@@ -8,17 +8,11 @@ import { Notice } from '@rc-component/notification';
 import type { NoticeProps } from '@rc-component/notification/lib/Notice';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type {
-  ArgsClassNamesType,
-  ArgsStylesType,
-  MessageSemanticClassNames,
-  MessageSemanticStyles,
-  NoticeType,
-} from './interface';
+import type { ArgsProps, MessageSemanticAllType, NoticeType } from './interface';
 import useStyle from './style';
 
 export const TypeIcon = {
@@ -33,8 +27,8 @@ export interface PureContentProps {
   prefixCls: string;
   type?: NoticeType;
   icon?: React.ReactNode;
-  classNames?: MessageSemanticClassNames;
-  styles?: MessageSemanticStyles;
+  classNames?: MessageSemanticAllType['classNames'];
+  styles?: MessageSemanticAllType['styles'];
 }
 
 export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
@@ -58,11 +52,12 @@ export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = 
 };
 
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends
+    Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
-  classNames?: ArgsClassNamesType;
-  styles?: ArgsStylesType;
+  classNames?: MessageSemanticAllType['classNamesAndFn'];
+  styles?: MessageSemanticAllType['stylesAndFn'];
 }
 
 /** @private Internal Component. Do not use in your production. */
@@ -91,13 +86,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ArgsClassNamesType,
-    ArgsStylesType,
-    PurePanelProps
-  >([contextClassNames, messageClassNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, messageClassNames],
+    [contextStyles, styles],
+    {
+      props: props as unknown as ArgsProps,
+    },
+  );
 
   return (
     <Notice
