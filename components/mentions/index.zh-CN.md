@@ -51,6 +51,7 @@ demo:
 | placement | 弹出层展示位置 | `top` \| `bottom` | `bottom` |  |
 | prefix | 设置触发关键字 | string \| string\[] | `@` |  |
 | split | 设置选中项前后分隔符 | string | ` ` |  |
+| size | 控件大小 | `large` \| `medium` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | validateSearch | 自定义触发验证逻辑 | (text: string, props: MentionsProps) => void | - |  |
 | value | 设置值 | string | - |  |
