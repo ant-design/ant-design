@@ -19,10 +19,10 @@ interface AffixProps {
 }
 
 const AffixMounter: React.FC<AffixProps> = (props) => {
-  const container = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (container.current) {
-      container.current.addEventListener = jest
+    if (containerRef.current) {
+      containerRef.current.addEventListener = jest
         .fn()
         .mockImplementation((event: keyof HTMLElementEventMap, cb: (ev: Event) => void) => {
           (events as any)[event] = cb;
@@ -30,8 +30,8 @@ const AffixMounter: React.FC<AffixProps> = (props) => {
     }
   }, []);
   return (
-    <div ref={container} className="container">
-      <Affix className="placeholder" target={() => container.current} {...props}>
+    <div ref={containerRef} className="container">
+      <Affix className="placeholder" target={() => containerRef.current} {...props}>
         <Button type="primary">Fixed at the top of container</Button>
       </Affix>
     </div>

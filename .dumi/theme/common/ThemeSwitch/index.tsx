@@ -33,7 +33,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
   const { pathname, search } = useLocation();
   const { theme, updateSiteConfig, dynamicTheme } = use<SiteContextProps>(SiteContext);
   const toggleAnimationTheme = useThemeAnimation();
-  const lastThemeKey = useRef<string>(theme.includes('dark') ? 'dark' : 'light');
+  const lastThemeKeyRef = useRef<string>(theme.includes('dark') ? 'dark' : 'light');
   const [isMarketDrawerOpen, setIsMarketDrawerOpen] = useState(false);
 
   const [, setTheme] = useLocalStorage<ThemeName>(ANT_DESIGN_SITE_THEME, {
@@ -156,7 +156,7 @@ const ThemeSwitch: React.FC<ThemeSwitchProps> = () => {
 
       // 亮色/暗色模式切换时应用动画效果
       if (['light', 'dark'].includes(key)) {
-        lastThemeKey.current = key;
+        lastThemeKeyRef.current = key;
         toggleAnimationTheme(domEvent, theme.includes('dark'));
       }
 
