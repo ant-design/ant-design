@@ -13,12 +13,14 @@ demo:
 
 - Provide reset styles based on `.ant-app` element.
 - You could use static methods of `message/notification/Modal` from `useApp` without writing `contextHolder` manually.
+- Easy way to prepend `Breadcrumb` items in layouts that take effects on multiple pages.
 
 ## Examples
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
 <code src="./demo/config.tsx">Hooks config</code>
+<code src="./demo/breadcrumb.tsx">Breadcrumb</code>
 
 ## How to use
 
@@ -133,6 +135,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | component | Config render element, if `false` will not create DOM node | ComponentType \| false | div | 5.11.0 |
 | message | Global config for Message | [MessageConfig](/components/message/#messageconfig) | - | 5.3.0 |
 | notification | Global config for Notification | [NotificationConfig](/components/notification/#notificationconfig) | - | 5.3.0 |
+| breadcrumb | Configure prepend items for all Breadcrumb components. Items specified here will be added before items in child Breadcrumb components. Use `root: true` to reset the inheritance chain and ignore parent App breadcrumb configuration | { items?: BreadcrumbItemType[], root?: boolean } | - | 6.2.0 |
 
 ## Design Token
 
