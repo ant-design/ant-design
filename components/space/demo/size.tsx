@@ -10,7 +10,7 @@ const App: React.FC = () => {
   return (
     <>
       <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
-        {['small', 'middle', 'large', 'customize'].map((item) => (
+        {['small', 'medium', 'large', 'customize'].map((item) => (
           <Radio key={item} value={item}>
             {item}
           </Radio>
