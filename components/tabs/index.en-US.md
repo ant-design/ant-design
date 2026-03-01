@@ -60,7 +60,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | removeIcon | The custom icon of remove, only works with `type="editable-card"` | ReactNode | `<CloseOutlined />` | 5.15.0 |
 | ~~popupClassName~~ | `className` for more dropdown, please use `classNames.popup` instead | string | - | 4.21.0 |
 | renderTabBar | Replace the TabBar | (props: DefaultTabBarProps, DefaultTabBar: React.ComponentClass) => React.ReactElement | - |  |
-| size | Preset tab bar size | `large` \| `middle` \| `small` | `middle` |  |
+| size | Preset tab bar size | `large` \| `medium` \| `small` | `medium` |  |
 | styles |  Customize inline style for each semantic structure inside the component. Supports object or function.  | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode \| {left?: ReactNode, right?: ReactNode} | - | object: 4.6.0 |
 | tabBarGutter | The gap between tabs | number | - |  |
