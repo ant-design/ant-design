@@ -51,7 +51,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | The callback function that is triggered when the state changes | function(value: string \| number) |  |  |
 | options | Set children optional | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
-| size | The size of the Segmented. | `large` \| `middle` \| `small` | `middle` |  |
+| size | The size of the Segmented. | `large` \| `medium` \| `small` | `medium` |  |
 | styles | Customize inline style for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | 5.21.0 |
 | value | Currently selected value | string \| number |  |  |

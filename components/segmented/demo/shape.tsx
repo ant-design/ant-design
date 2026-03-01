@@ -5,10 +5,10 @@ import { Flex, Segmented } from 'antd';
 import type { SizeType } from '../../config-provider/SizeContext';
 
 const Demo: React.FC = () => {
-  const [size, setSize] = useState<SizeType>('middle');
+  const [size, setSize] = useState<SizeType>('medium');
   return (
-    <Flex gap="small" align="flex-start" vertical>
-      <Segmented<SizeType> options={['small', 'middle', 'large']} value={size} onChange={setSize} />
+    <Flex gap="medium" align="flex-start" vertical>
+      <Segmented<SizeType> options={['small', 'medium', 'large']} value={size} onChange={setSize} />
       <Segmented
         size={size}
         shape="round"
