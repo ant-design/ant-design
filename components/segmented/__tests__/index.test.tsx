@@ -388,4 +388,87 @@ describe('Segmented', () => {
       });
     });
   });
+
+  describe('data attributes', () => {
+    function getItems(container: HTMLElement) {
+      return Array.from(container.querySelectorAll<HTMLElement>(`label.${prefixCls}-item`));
+    }
+
+    it('should set data-selected on item labels', () => {
+      const { container } = render(<Segmented options={['Daily', 'Weekly', 'Monthly']} />);
+      const items = getItems(container);
+
+      expect(items[0]).toHaveAttribute('data-selected', 'true');
+      expect(items[1]).toHaveAttribute('data-selected', 'false');
+      expect(items[2]).toHaveAttribute('data-selected', 'false');
+    });
+
+    it('should update data-selected after clicking a different item', () => {
+      const { container } = render(<Segmented options={['Daily', 'Weekly', 'Monthly']} />);
+
+      fireEvent.click(container.querySelectorAll(`.${prefixCls}-item-input`)[1]);
+
+      const items = getItems(container);
+      expect(items[0]).toHaveAttribute('data-selected', 'false');
+      expect(items[1]).toHaveAttribute('data-selected', 'true');
+      expect(items[2]).toHaveAttribute('data-selected', 'false');
+    });
+
+    it('should reflect defaultValue in data-selected', () => {
+      const { container } = render(
+        <Segmented options={['Daily', 'Weekly', 'Monthly']} defaultValue="Monthly" />,
+      );
+      const items = getItems(container);
+
+      expect(items[0]).toHaveAttribute('data-selected', 'false');
+      expect(items[1]).toHaveAttribute('data-selected', 'false');
+      expect(items[2]).toHaveAttribute('data-selected', 'true');
+    });
+
+    it('should reflect controlled value in data-selected', () => {
+      const { container, rerender } = render(
+        <Segmented options={['Daily', 'Weekly', 'Monthly']} value="Daily" onChange={jest.fn()} />,
+      );
+
+      let items = getItems(container);
+      expect(items[0]).toHaveAttribute('data-selected', 'true');
+      expect(items[1]).toHaveAttribute('data-selected', 'false');
+
+      rerender(
+        <Segmented
+          options={['Daily', 'Weekly', 'Monthly']}
+          value="Weekly"
+          onChange={jest.fn()}
+        />,
+      );
+
+      items = getItems(container);
+      expect(items[0]).toHaveAttribute('data-selected', 'false');
+      expect(items[1]).toHaveAttribute('data-selected', 'true');
+    });
+
+    it('should set data-disabled on individually disabled items', () => {
+      const { container } = render(
+        <Segmented
+          options={['Daily', { label: 'Weekly', value: 'Weekly', disabled: true }, 'Monthly']}
+        />,
+      );
+      const items = getItems(container);
+
+      expect(items[0]).toHaveAttribute('data-disabled', 'false');
+      expect(items[1]).toHaveAttribute('data-disabled', 'true');
+      expect(items[2]).toHaveAttribute('data-disabled', 'false');
+    });
+
+    it('should set data-disabled=true on all items when component is disabled', () => {
+      const { container } = render(
+        <Segmented disabled options={['Daily', 'Weekly', 'Monthly']} />,
+      );
+      const items = getItems(container);
+
+      items.forEach((item) => {
+        expect(item).toHaveAttribute('data-disabled', 'true');
+      });
+    });
+  });
 });

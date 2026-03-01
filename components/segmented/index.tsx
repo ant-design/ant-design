@@ -104,8 +104,46 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     name = defaultName,
     styles,
     classNames,
+    value,
+    defaultValue,
+    disabled,
+    onChange,
     ...restProps
   } = props;
+
+  // Track current value to derive data-selected for each item.
+  // In controlled mode (value prop provided) we use it directly;
+  // in uncontrolled mode we track changes via onChange.
+  // Mirror rc-segmented's default: first option's value when neither value nor defaultValue is set.
+  // null is allowed at runtime via `as any` even though SegmentedOptions types don't include it,
+  // so the state type accepts null to mirror rc-segmented's behaviour for invalid inputs.
+  const [trackedValue, setTrackedValue] = React.useState<RcSegmentedValue | null | undefined>(
+    () => {
+      if (value !== undefined) return value;
+      if (defaultValue !== undefined) return defaultValue;
+      const firstOption = options[0];
+      // firstOption may be null/undefined at runtime even though the type says otherwise.
+      // Return it as-is so that data-selected stays in sync with rc-segmented which also
+      // defaults to the first option's value (including null).
+      // eslint-disable-next-line eqeqeq
+      if (firstOption == null) return firstOption as null | undefined;
+      if (typeof firstOption === 'object') {
+        return (firstOption as SegmentedLabeledOption).value as RcSegmentedValue;
+      }
+      return firstOption as RcSegmentedValue;
+    },
+  );
+  const currentValue = value !== undefined ? value : trackedValue;
+
+  const handleChange = React.useCallback(
+    (val: RcSegmentedValue) => {
+      if (value === undefined) {
+        setTrackedValue(val);
+      }
+      onChange?.(val);
+    },
+    [value, onChange],
+  );
 
   const {
     getPrefixCls,
@@ -189,18 +227,32 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
   };
 
   const itemRender = (node: React.ReactNode, { item }: { item: SegmentedLabeledOption }) => {
+    const isSelected = item.value === currentValue;
+    const isDisabled = !!(item.disabled || disabled);
+
+    const nodeWithAttrs = React.isValidElement(node)
+      ? React.cloneElement(node as React.ReactElement<Record<string, unknown>>, {
+          'data-selected': String(isSelected),
+          'data-disabled': String(isDisabled),
+        })
+      : node;
+
     if (!item.tooltip) {
-      return node;
+      return nodeWithAttrs;
     }
 
     const tooltipProps: TooltipProps =
       typeof item.tooltip === 'object' ? item.tooltip : { title: item.tooltip };
-    return <Tooltip {...tooltipProps}>{node}</Tooltip>;
+    return <Tooltip {...tooltipProps}>{nodeWithAttrs}</Tooltip>;
   };
 
   return (
     <RcSegmented
       {...restProps}
+      value={value}
+      defaultValue={defaultValue}
+      disabled={disabled}
+      onChange={handleChange}
       name={name}
       className={cls}
       style={mergedStyle}

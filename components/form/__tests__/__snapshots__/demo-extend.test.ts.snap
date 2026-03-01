@@ -32037,6 +32037,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
               >
                 <label
                   class="ant-segmented-item"
+                  data-disabled="false"
+                  data-selected="false"
                 >
                   <input
                     class="ant-segmented-item-input"
@@ -32052,6 +32054,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 </label>
                 <label
                   class="ant-segmented-item ant-segmented-item-selected"
+                  data-disabled="false"
+                  data-selected="true"
                 >
                   <input
                     checked=""
@@ -32068,6 +32072,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 </label>
                 <label
                   class="ant-segmented-item"
+                  data-disabled="false"
+                  data-selected="false"
                 >
                   <input
                     class="ant-segmented-item-input"
@@ -32083,6 +32089,8 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 </label>
                 <label
                   class="ant-segmented-item"
+                  data-disabled="false"
+                  data-selected="false"
                 >
                   <input
                     class="ant-segmented-item-input"
