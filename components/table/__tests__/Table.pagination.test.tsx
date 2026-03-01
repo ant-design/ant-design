@@ -725,4 +725,201 @@ describe('Table.pagination', () => {
       consoleSpy.mockRestore();
     });
   });
+
+  describe('Table pagination fixed', () => {
+    it('should support fixed pagination with boolean value', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            fixed: true,
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).toBeInTheDocument();
+      expect(fixedPagination).toHaveClass('ant-table-pagination-fixed-bottom');
+    });
+
+    it('should support fixed pagination with object configuration', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            fixed: { offset: 100 },
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).toBeInTheDocument();
+      expect(fixedPagination).toHaveClass('ant-table-pagination-fixed-bottom');
+      expect(fixedPagination).toHaveStyle('bottom: 100px');
+    });
+
+    it('should support fixed pagination at top position', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            placement: ['topStart'],
+            fixed: true,
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).toBeInTheDocument();
+      expect(fixedPagination).toHaveClass('ant-table-pagination-fixed-top');
+    });
+
+    it('should support fixed pagination at bottom position', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            placement: ['bottomEnd'],
+            fixed: true,
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).toBeInTheDocument();
+      expect(fixedPagination).toHaveClass('ant-table-pagination-fixed-bottom');
+    });
+
+    it('should support multiple fixed paginations', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            placement: ['topStart', 'bottomEnd'],
+            fixed: true,
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPaginations = container.querySelectorAll('.ant-table-pagination-fixed');
+      expect(fixedPaginations).toHaveLength(2);
+      expect(fixedPaginations[0]).toHaveClass('ant-table-pagination-fixed-top');
+      expect(fixedPaginations[1]).toHaveClass('ant-table-pagination-fixed-bottom');
+    });
+
+    it('should support fixed pagination with custom offset for top position', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            placement: ['topStart'],
+            fixed: { offset: 50 },
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).toBeInTheDocument();
+      expect(fixedPagination).toHaveClass('ant-table-pagination-fixed-top');
+      expect(fixedPagination).toHaveStyle('top: 50px');
+    });
+
+    it('should support fixed pagination with custom offset for bottom position', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            placement: ['bottomEnd'],
+            fixed: { offset: 75 },
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).toBeInTheDocument();
+      expect(fixedPagination).toHaveClass('ant-table-pagination-fixed-bottom');
+      expect(fixedPagination).toHaveStyle('bottom: 75px');
+    });
+
+    it('should not apply fixed styles when fixed is false', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            fixed: false,
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).not.toBeInTheDocument();
+    });
+
+    it('should not apply fixed styles when fixed is undefined', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).not.toBeInTheDocument();
+    });
+
+    it('should support fixed pagination with zero offset', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            fixed: { offset: 0 },
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPagination = container.querySelector('.ant-table-pagination-fixed');
+      expect(fixedPagination).toBeInTheDocument();
+      expect(fixedPagination).toHaveStyle('bottom: 0px');
+    });
+
+    it('should work with placement center and fixed', () => {
+      const { container } = render(
+        <Table
+          dataSource={data}
+          columns={columns}
+          pagination={{
+            placement: ['topCenter', 'bottomCenter'],
+            fixed: true,
+            pageSize: 1,
+          }}
+        />,
+      );
+
+      const fixedPaginations = container.querySelectorAll('.ant-table-pagination-fixed');
+      expect(fixedPaginations).toHaveLength(2);
+      expect(fixedPaginations[0]).toHaveClass('ant-table-pagination-fixed-top');
+      expect(fixedPaginations[1]).toHaveClass('ant-table-pagination-fixed-bottom');
+    });
+  });
 });
