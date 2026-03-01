@@ -70,7 +70,7 @@ const styles: TableProps<DataType>['styles'] = {
 };
 
 const stylesFn: TableProps<DataType>['styles'] = (info) => {
-  if (info?.props?.size === 'middle') {
+  if (info?.props?.size === 'medium') {
     return {
       root: {
         color: '#e0e0e0',
@@ -118,7 +118,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Table<DataType>
         {...sharedProps}
         styles={styles}
@@ -131,7 +131,7 @@ const App: React.FC = () => {
         styles={stylesFn}
         title={() => 'Table Function Styles'}
         footer={() => 'Table Function Styles'}
-        size="middle"
+        size="medium"
       />
     </Flex>
   );
