@@ -5491,7 +5491,7 @@ Array [
               class="ant-form-item-control-input-content"
             >
               <ul
-                class="ant-rate ant-rate-middle css-var-test-id ant-rate-disabled"
+                class="ant-rate css-var-test-id ant-rate-disabled"
                 tabindex="-1"
               >
                 <li
@@ -12646,7 +12646,7 @@ exports[`renders components/form/demo/required-mark.tsx extend context correctly
 
 exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
 <form
-  class="ant-form ant-form-horizontal ant-form-default css-var-test-id ant-form-css-var"
+  class="ant-form ant-form-horizontal css-var-test-id ant-form-css-var"
   style="max-width: 600px;"
 >
   <div
@@ -12676,7 +12676,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-radio-group ant-radio-group-outline ant-radio-group-default css-var-test-id ant-radio-css-var"
+              class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
               id="size"
               role="radiogroup"
             >
@@ -13234,7 +13234,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
             class="ant-form-item-control-input-content"
           >
             <div
-              class="ant-picker ant-picker-default ant-picker-outlined css-var-test-id ant-picker-css-var"
+              class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var"
             >
               <div
                 class="ant-picker-input"
@@ -23781,7 +23781,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
             class="ant-form-item-control-input-content"
           >
             <ul
-              class="ant-rate ant-rate-middle css-var-test-id"
+              class="ant-rate css-var-test-id"
               id="validate_other_rate"
               tabindex="0"
             >

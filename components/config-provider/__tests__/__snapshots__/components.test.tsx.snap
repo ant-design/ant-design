@@ -5427,7 +5427,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         </div>
       </div>
       <div
-        class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
         role="radiogroup"
       >
         <label
@@ -6294,7 +6294,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         </div>
       </div>
       <div
-        class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
         role="radiogroup"
       >
         <label
@@ -12270,7 +12270,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
 exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input"
@@ -12572,7 +12572,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
 exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input"
@@ -13010,7 +13010,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
 exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-picker config-picker-range config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-range config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input config-picker-input-start"
@@ -13492,7 +13492,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
 exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input"
@@ -15071,7 +15071,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Form configProvider componentSize middle 1`] = `
 <form
-  class="config-form config-form-horizontal config-form-middle css-var-root config-form-css-var"
+  class="config-form config-form-horizontal css-var-root config-form-css-var"
 >
   <div
     class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
@@ -21139,7 +21139,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
 exports[`ConfigProvider components Radio configProvider componentSize middle 1`] = `
 <div>
   <div
-    class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
     role="radiogroup"
   >
     <label
@@ -21163,7 +21163,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
     </label>
   </div>
   <div
-    class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
     role="radiogroup"
   >
     <label
@@ -21350,7 +21350,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 
 exports[`ConfigProvider components Rate configProvider 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root"
+  class="config-rate css-var-root"
   tabindex="0"
 >
   <li
@@ -21648,7 +21648,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
 
 exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root config-rate-disabled"
+  class="config-rate css-var-root config-rate-disabled"
   tabindex="-1"
 >
   <li
@@ -21946,7 +21946,7 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 
 exports[`ConfigProvider components Rate configProvider componentSize large 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root"
+  class="config-rate config-rate-large css-var-root"
   tabindex="0"
 >
   <li
@@ -22244,7 +22244,7 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Rate configProvider componentSize middle 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root"
+  class="config-rate css-var-root"
   tabindex="0"
 >
   <li
@@ -22542,7 +22542,7 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components Rate configProvider componentSize small 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root"
+  class="config-rate config-rate-small css-var-root"
   tabindex="0"
 >
   <li
@@ -22840,7 +22840,7 @@ exports[`ConfigProvider components Rate configProvider componentSize small 1`] =
 
 exports[`ConfigProvider components Rate normal 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-root"
+  class="ant-rate css-var-root"
   tabindex="0"
 >
   <li
@@ -23138,7 +23138,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
 
 exports[`ConfigProvider components Rate prefixCls 1`] = `
 <ul
-  class="prefix-Rate prefix-Rate-middle css-var-root"
+  class="prefix-Rate css-var-root"
   tabindex="0"
 >
   <li
@@ -26066,7 +26066,7 @@ exports[`ConfigProvider components Table configProvider componentSize middle 1`]
       class="config-spin-container"
     >
       <div
-        class="config-table config-table-middle config-table-empty css-var-root config-table-css-var"
+        class="config-table config-table-medium config-table-empty css-var-root config-table-css-var"
       >
         <div
           class="config-table-container"
@@ -27546,7 +27546,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
 
 exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] = `
 <div
-  class="config-tabs config-tabs-top config-tabs-middle css-var-root config-tabs-css-var"
+  class="config-tabs config-tabs-top css-var-root config-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -31191,7 +31191,7 @@ Array [
 exports[`ConfigProvider components TimePicker configProvider componentSize middle 1`] = `
 Array [
   <div
-    class="config-picker config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input"

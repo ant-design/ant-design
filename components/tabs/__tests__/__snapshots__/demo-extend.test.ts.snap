@@ -2161,7 +2161,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs ant-tabs-top ant-tabs-middle ant-tabs-card css-var-test-id ant-tabs-css-var"
+      class="ant-tabs ant-tabs-top ant-tabs-card css-var-test-id ant-tabs-css-var"
     >
       <div
         aria-orientation="horizontal"
