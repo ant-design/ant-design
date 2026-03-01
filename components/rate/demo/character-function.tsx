@@ -11,7 +11,7 @@ const customIcons: Record<number, React.ReactNode> = {
 };
 
 const App: React.FC = () => (
-  <Flex gap="middle" vertical>
+  <Flex gap="medium" vertical>
     <Rate defaultValue={2} character={({ index = 0 }) => index + 1} />
     <Rate defaultValue={3} character={({ index = 0 }) => customIcons[index + 1]} />
   </Flex>
