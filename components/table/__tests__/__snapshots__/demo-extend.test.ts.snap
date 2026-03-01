@@ -22673,7 +22673,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -22730,7 +22730,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -22792,7 +22792,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
