@@ -17,7 +17,7 @@ const useLazyKVMap = <RecordType extends AnyObject = AnyObject>(
 ) => {
   const mapCacheRef = React.useRef<MapCache<RecordType>>({});
 
-  function getRecordByKey(key: Key): RecordType {
+  function getRecordByKey(key: Key): RecordType | undefined {
     if (
       !mapCacheRef.current ||
       mapCacheRef.current.data !== data ||
@@ -47,7 +47,7 @@ const useLazyKVMap = <RecordType extends AnyObject = AnyObject>(
       };
     }
 
-    return mapCacheRef.current.kvMap?.get(key)!;
+    return mapCacheRef.current.kvMap?.get(key);
   }
 
   return [getRecordByKey] as const;
