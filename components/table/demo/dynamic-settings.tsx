@@ -48,7 +48,7 @@ const columns: ColumnsType<DataType> = [
     key: 'action',
     sorter: true,
     render: () => (
-      <Space size="middle">
+      <Space size="medium">
         <a>Delete</a>
         <a>
           <Space>
