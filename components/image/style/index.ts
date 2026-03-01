@@ -140,12 +140,13 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token
       position: 'fixed',
       userSelect: 'none',
       zIndex: zIndexPopup,
-
+      pointerEvents: 'none',
       // ================= Mask =================
       [`${previewCls}-mask`]: {
         inset: 0,
         position: 'absolute',
         background: colorBgMask,
+        pointerEvents: 'auto',
         [`&${componentCls}-preview-mask-blur`]: {
           backdropFilter: 'blur(4px)',
         },
@@ -187,6 +188,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token
         ...singleBtn,
         top: marginSM,
         insetInlineEnd: marginSM,
+        pointerEvents: 'auto',
       },
 
       // ================ Switch ================
@@ -225,6 +227,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token
         color: token.previewOperationColor,
         transform: 'translateX(-50%)',
         gap: margin,
+        pointerEvents: 'auto',
       },
 
       // =============== Actions ================
