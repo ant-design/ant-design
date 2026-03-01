@@ -1103,9 +1103,9 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
         />
         <div
           class="ant-segmented-item-label"
-          title="middle"
+          title="medium"
         >
-          middle
+          medium
         </div>
       </label>
       <label
@@ -1740,7 +1740,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
 
 exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     aria-label="segmented control"

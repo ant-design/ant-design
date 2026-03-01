@@ -2532,7 +2532,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx correctly 1`] = `
 
 exports[`renders components/input-number/demo/presuffix.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined"
@@ -3122,7 +3122,7 @@ exports[`renders components/input-number/demo/size.tsx correctly 1`] = `
 
 exports[`renders components/input-number/demo/spinner.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-input-number ant-input-number-mode-spinner css-var-test-id ant-input-number-css-var ant-input-number-outlined"
@@ -3631,7 +3631,7 @@ exports[`renders components/input-number/demo/status.tsx correctly 1`] = `
 
 exports[`renders components/input-number/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var acss-1tkizl6 ant-input-number-outlined acss-1tkizl6"

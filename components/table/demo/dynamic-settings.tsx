@@ -48,7 +48,7 @@ const columns: ColumnsType<DataType> = [
     key: 'action',
     sorter: true,
     render: () => (
-      <Space size="middle">
+      <Space size="medium">
         <a>Delete</a>
         <a>
           <Space>
@@ -208,7 +208,7 @@ const App: React.FC = () => {
         <Form.Item label="Size">
           <Radio.Group value={size} onChange={handleSizeChange}>
             <Radio.Button value="large">Large</Radio.Button>
-            <Radio.Button value="middle">Middle</Radio.Button>
+            <Radio.Button value="medium">Medium</Radio.Button>
             <Radio.Button value="small">Small</Radio.Button>
           </Radio.Group>
         </Form.Item>

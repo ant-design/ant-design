@@ -3257,7 +3257,7 @@ exports[`renders components/pagination/demo/jump.tsx extend context correctly 2`
 
 exports[`renders components/pagination/demo/mini.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
@@ -5611,7 +5611,7 @@ exports[`renders components/pagination/demo/simple.tsx extend context correctly 
 
 exports[`renders components/pagination/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-pagination acss-8de2dl css-var-test-id"

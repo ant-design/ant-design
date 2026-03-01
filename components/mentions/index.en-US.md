@@ -50,6 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |  |
 | prefix | Set trigger prefix keyword | string \| string\[] | `@` |  |
 | split | Set split string before and after selected mention | string | ` ` |  |
+| size | The size of the input box | `large` \| `medium` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |  |
 | value | Set value of mentions | string | - |  |

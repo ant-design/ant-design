@@ -302,7 +302,7 @@ exports[`renders components/rate/demo/basic.tsx extend context correctly 2`] = `
 
 exports[`renders components/rate/demo/character.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-rate ant-rate-middle css-var-test-id"
@@ -837,7 +837,7 @@ exports[`renders components/rate/demo/character.tsx extend context correctly 2`]
 
 exports[`renders components/rate/demo/character-function.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-rate ant-rate-middle css-var-test-id"
@@ -1256,10 +1256,10 @@ exports[`renders components/rate/demo/character-function.tsx extend context corr
 
 exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-flex css-var-test-id ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-medium"
   >
     <ul
       class="ant-rate ant-rate-middle css-var-test-id"
@@ -1561,7 +1561,7 @@ exports[`renders components/rate/demo/clear.tsx extend context correctly 1`] = `
     </span>
   </div>
   <div
-    class="ant-flex css-var-test-id ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-medium"
   >
     <ul
       class="ant-rate ant-rate-middle css-var-test-id"
@@ -2769,8 +2769,7 @@ exports[`renders components/rate/demo/half.tsx extend context correctly 2`] = `[
 
 exports[`renders components/rate/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-  style="gap: 12px;"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-rate ant-rate-large css-var-test-id"
@@ -3664,7 +3663,7 @@ exports[`renders components/rate/demo/size.tsx extend context correctly 2`] = `[
 
 exports[`renders components/rate/demo/text.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-rate ant-rate-middle css-var-test-id"

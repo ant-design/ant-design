@@ -61,7 +61,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Segmented {...segmentedSharedProps} styles={styles} />
       <Segmented {...segmentedSharedProps} styles={styleFn} vertical />
     </Flex>

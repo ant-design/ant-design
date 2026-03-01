@@ -76,7 +76,7 @@ dayjs.extend(customParseFormat)
 | renderExtraFooter | Called from time picker panel to render some addon to its bottom | () => ReactNode | - |  |
 | secondStep | Interval between seconds in picker | number | 1 |  |
 | showNow | Whether to show `Now` button on panel | boolean | - | 4.4.0 |
-| size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `middle` \| `small` | - |  |
+| size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `medium` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |

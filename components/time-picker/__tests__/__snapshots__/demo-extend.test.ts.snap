@@ -28935,7 +28935,7 @@ exports[`renders components/time-picker/demo/status.tsx extend context correctly
 
 exports[`renders components/time-picker/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-picker ant-picker-outlined css-var-test-id ant-picker-css-var acss-syjkhv"

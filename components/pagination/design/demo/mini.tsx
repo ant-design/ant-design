@@ -15,7 +15,7 @@ const locales = {
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Pagination defaultCurrent={1} total={50} showSizeChanger={false} size="small" />
       <Pagination defaultCurrent={1} total={100} showSizeChanger={false} size="small" />
       <Pagination defaultCurrent={1} total={100} size="small" />

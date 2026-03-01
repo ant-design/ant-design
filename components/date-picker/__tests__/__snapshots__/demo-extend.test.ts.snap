@@ -63665,13 +63665,13 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
-            value="middle"
+            value="medium"
           />
         </span>
         <span
           class="ant-radio-button-label"
         >
-          middle
+          Medium
         </span>
       </label>
       <label
@@ -63699,7 +63699,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
+      class="ant-picker ant-picker-medium ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -64316,7 +64316,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
+      class="ant-picker ant-picker-medium ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"
@@ -64558,7 +64558,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-range ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
+      class="ant-picker ant-picker-range ant-picker-medium ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input ant-picker-input-start"
@@ -65758,7 +65758,7 @@ exports[`renders components/date-picker/demo/size.tsx extend context correctly 1
     class="ant-space-item"
   >
     <div
-      class="ant-picker ant-picker-middle ant-picker-outlined css-var-test-id ant-picker-css-var"
+      class="ant-picker ant-picker-medium ant-picker-outlined css-var-test-id ant-picker-css-var"
     >
       <div
         class="ant-picker-input"

@@ -90,7 +90,7 @@ return (
 | options | 以配置形式设置子元素 | string\[] \| number\[] \| Array&lt;[CheckboxOptionType](#checkboxoptiontype)> | - |  |
 | optionType | 用于设置 Radio `options` 类型 | `default` \| `button` | `default` | 4.4.0 |
 | orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` |  |
-| size | 大小，只对按钮样式生效 | `large` \| `middle` \| `small` | - |  |
+| size | 大小，只对按钮样式生效 | `large` \| `medium` \| `small` | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 |
 | value | 用于设置当前选中的值 | any | - |  |
 | vertical | 值为 true，Radio Group 为垂直方向。与 `orientation` 同时存在，以 `orientation` 优先 | boolean | false |  |

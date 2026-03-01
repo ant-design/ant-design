@@ -106,7 +106,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -165,7 +165,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -229,7 +229,7 @@ exports[`renders components/table/demo/basic.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -1444,13 +1444,13 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="middle"
+                      value="medium"
                     />
                   </span>
                   <span
                     class="ant-radio-button-label"
                   >
-                    Middle
+                    Medium
                   </span>
                 </label>
                 <label
@@ -2157,7 +2157,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2256,7 +2256,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2355,7 +2355,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2454,7 +2454,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2553,7 +2553,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2652,7 +2652,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2751,7 +2751,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2850,7 +2850,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -2949,7 +2949,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -3048,7 +3048,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -5300,13 +5300,13 @@ Array [
                       class="ant-radio-button-input"
                       name="test-id"
                       type="radio"
-                      value="middle"
+                      value="medium"
                     />
                   </span>
                   <span
                     class="ant-radio-button-label"
                   >
-                    Middle
+                    Medium
                   </span>
                 </label>
                 <label
@@ -6013,7 +6013,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6112,7 +6112,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6211,7 +6211,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6310,7 +6310,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6409,7 +6409,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6508,7 +6508,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6607,7 +6607,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6706,7 +6706,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6805,7 +6805,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -6904,7 +6904,7 @@ Array [
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -14587,7 +14587,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-table ant-table-middle ant-table-bordered css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
+        class="ant-table ant-table-bordered css-var-test-id ant-table-css-var ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end"
       >
         <div
           class="ant-table-container"
@@ -15488,7 +15488,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
         </div>
       </div>
       <ul
-        class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+        class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
       >
         <li
           aria-disabled="true"
@@ -15662,7 +15662,7 @@ exports[`renders components/table/demo/grouping-columns.tsx correctly 1`] = `
           class="ant-pagination-options"
         >
           <div
-            class="ant-select ant-select-sm ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
+            class="ant-select ant-select-outlined ant-pagination-options-size-changer css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow ant-select-show-search"
           >
             <div
               class="ant-select-content ant-select-content-has-value"
@@ -16661,7 +16661,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -16723,7 +16723,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -16790,7 +16790,7 @@ exports[`renders components/table/demo/jsx.tsx correctly 1`] = `
                     class="ant-table-cell"
                   >
                     <div
-                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                     >
                       <div
                         class="ant-space-item"
@@ -18544,7 +18544,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -18630,7 +18630,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -18716,7 +18716,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -18976,7 +18976,7 @@ Array [
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-middle css-var-test-id ant-table-css-var"
+          class="ant-table css-var-test-id ant-table-css-var"
         >
           <div
             class="ant-table-container"
@@ -19206,7 +19206,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -19292,7 +19292,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -19378,7 +19378,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -19545,7 +19545,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -19868,7 +19868,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -19954,7 +19954,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -20040,7 +20040,7 @@ Array [
                                           class="ant-table-cell"
                                         >
                                           <div
-                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                                            class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                                           >
                                             <div
                                               class="ant-space-item"
@@ -21004,7 +21004,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -21063,7 +21063,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -21127,7 +21127,7 @@ exports[`renders components/table/demo/pagination.tsx correctly 1`] = `
                       class="ant-table-cell"
                     >
                       <div
-                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+                        class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
                       >
                         <div
                           class="ant-space-item"
@@ -26279,7 +26279,7 @@ Array [
     <span
       class="ant-divider-inner-text"
     >
-      Middle size table
+      Medium size table
     </span>
     <div
       class="ant-divider-rail ant-divider-rail-end"
@@ -26297,7 +26297,7 @@ Array [
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-middle css-var-test-id ant-table-css-var"
+          class="ant-table css-var-test-id ant-table-css-var"
         >
           <div
             class="ant-table-container"
@@ -26401,7 +26401,7 @@ Array [
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id"
         >
           <li
             aria-disabled="true"
@@ -27955,7 +27955,7 @@ exports[`renders components/table/demo/sticky.tsx correctly 1`] = `
 
 exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="css-var-test-id ant-table-css-var ant-table-wrapper acss-1s9zu93"
@@ -28205,7 +28205,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
         class="ant-spin-container"
       >
         <div
-          class="ant-table ant-table-middle css-var-test-id ant-table-css-var"
+          class="ant-table css-var-test-id ant-table-css-var"
         >
           <div
             class="ant-table-title"
@@ -28346,7 +28346,7 @@ exports[`renders components/table/demo/style-class.tsx correctly 1`] = `
           </div>
         </div>
         <ul
-          class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
+          class="ant-pagination ant-table-pagination ant-table-pagination-end css-var-test-id ant-pagination-simple"
           style="padding:10px"
         >
           <li

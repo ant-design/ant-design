@@ -2,7 +2,7 @@
 
 exports[`renders components/flex/demo/align.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-medium ant-flex-vertical"
 >
   <p>
     Select justify :
@@ -215,7 +215,7 @@ exports[`renders components/flex/demo/align.tsx extend context correctly 2`] = `
 
 exports[`renders components/flex/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
@@ -370,7 +370,7 @@ exports[`renders components/flex/demo/debug.tsx extend context correctly 2`] = `
 
 exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
@@ -406,13 +406,13 @@ exports[`renders components/flex/demo/gap.tsx extend context correctly 1`] = `
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="middle"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-label"
       >
-        middle
+        medium
       </span>
     </label>
     <label
