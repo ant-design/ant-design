@@ -651,6 +651,19 @@ const MyInput = ({
 
 在触发过程中，调用 `isFieldValidating` 会经历 `false` > `true` > `false` 的变化过程。
 
+### 为什么 `onFieldsChange` 里的字段名是嵌套数组？可以拿到扁平 key 吗？ {#faq-onfieldschange-namepath}
+
+`onFieldsChange` 返回的是 [`FieldData`](#fielddata) 数组，其中 `name` 类型为 `NamePath`（`string | number | (string | number)[]`）。
+这样可以无歧义地表达嵌套结构（例如 `['user', 'profile', 'email']`）。
+
+如果你在日志或 diff 场景需要扁平 key，可以自行序列化，例如：
+
+```ts
+const key = Array.isArray(field.name) ? field.name.join('.') : String(field.name);
+```
+
+如果需要获取当前完整值树，建议使用 `form.getFieldsValue(true)`。
+
 ### 为什么 Form.List 不支持 `label` 还需要使用 ErrorList 展示错误？ {#faq-form-list-no-label}
 
 Form.List 本身是 renderProps，内部样式非常自由。因而默认配置 `label` 和 `error` 节点很难与之配合。如果你需要 antd 样式的 `label`，可以通过外部包裹 Form.Item 来实现。
