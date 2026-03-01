@@ -23,7 +23,7 @@ exports[`renders components/table/demo/_semantic.tsx correctly 1`] = `
             class="ant-spin-container"
           >
             <div
-              class="ant-table ant-table-middle ant-table-bordered css-var-test-id ant-table-css-var"
+              class="ant-table ant-table-bordered css-var-test-id ant-table-css-var"
             >
               <div
                 class="ant-table-title semantic-mark-title"
@@ -151,7 +151,7 @@ exports[`renders components/table/demo/_semantic.tsx correctly 1`] = `
               </div>
             </div>
             <ul
-              class="ant-pagination ant-pagination-small ant-pagination-mini ant-table-pagination ant-table-pagination-end semantic-mark-pagination-root css-var-test-id"
+              class="ant-pagination ant-table-pagination ant-table-pagination-end semantic-mark-pagination-root css-var-test-id"
             >
               <li
                 aria-disabled="true"

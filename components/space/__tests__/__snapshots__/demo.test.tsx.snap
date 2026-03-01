@@ -4309,13 +4309,13 @@ Array [
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="middle"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-label"
       >
-        middle
+        medium
       </span>
     </label>
     <label
@@ -4518,7 +4518,7 @@ exports[`renders components/space/demo/style-class.tsx correctly 1`] = `
 
 exports[`renders components/space/demo/vertical.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
   style="display:flex"
 >
   <div

@@ -2161,7 +2161,7 @@ Array [
       </div>
     </div>
     <div
-      class="ant-tabs ant-tabs-top ant-tabs-middle ant-tabs-card css-var-test-id ant-tabs-css-var"
+      class="ant-tabs ant-tabs-top ant-tabs-medium ant-tabs-card css-var-test-id ant-tabs-css-var"
     >
       <div
         aria-orientation="horizontal"
@@ -5691,13 +5691,13 @@ exports[`renders components/tabs/demo/size.tsx extend context correctly 1`] = `
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="middle"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-button-label"
       >
-        Middle
+        Medium
       </span>
     </label>
     <label
@@ -6893,7 +6893,7 @@ exports[`renders components/tabs/demo/slide.tsx extend context correctly 2`] = `
 
 exports[`renders components/tabs/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-tabs ant-tabs-top acss-1umkjc1 css-var-test-id ant-tabs-css-var"

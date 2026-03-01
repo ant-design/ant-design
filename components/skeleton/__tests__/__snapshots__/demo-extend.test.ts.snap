@@ -829,7 +829,7 @@ exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] 
 
 exports[`renders components/skeleton/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <div
     class="ant-skeleton ant-skeleton-with-avatar acss-1nr40md css-var-test-id"

@@ -569,7 +569,7 @@ Array [
 
 exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
@@ -827,7 +827,7 @@ exports[`renders components/radio/demo/radiobutton.tsx correctly 1`] = `
 
 exports[`renders components/radio/demo/radiobutton-solid.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
@@ -1180,7 +1180,7 @@ exports[`renders components/radio/demo/radiogroup.tsx correctly 1`] = `
 
 exports[`renders components/radio/demo/radiogroup-block.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-block css-var-test-id ant-radio-css-var"
@@ -1815,7 +1815,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx correctly 1`] = 
 
 exports[`renders components/radio/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-large css-var-test-id ant-radio-css-var"
@@ -2068,7 +2068,7 @@ exports[`renders components/radio/demo/size.tsx correctly 1`] = `
 
 exports[`renders components/radio/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"

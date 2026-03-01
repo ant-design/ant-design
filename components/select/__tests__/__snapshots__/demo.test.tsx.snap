@@ -742,7 +742,7 @@ exports[`renders components/select/demo/custom-tag-render.tsx correctly 1`] = `
 
 exports[`renders components/select/demo/debug.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -4636,13 +4636,13 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="middle"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-button-label"
       >
-        Default
+        Medium
       </span>
     </label>
     <label
@@ -5111,7 +5111,7 @@ exports[`renders components/select/demo/status.tsx correctly 1`] = `
 
 exports[`renders components/select/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-select ant-select-outlined acss-xqfhlq css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
