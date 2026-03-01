@@ -7,7 +7,7 @@ import type { SizeType } from '../../config-provider/SizeContext';
 const Demo: React.FC = () => {
   const [size, setSize] = useState<SizeType>('medium');
   return (
-    <Flex gap="medium" align="flex-start" vertical>
+    <Flex gap="small" align="flex-start" vertical>
       <Segmented<SizeType> options={['small', 'medium', 'large']} value={size} onChange={setSize} />
       <Segmented
         size={size}
