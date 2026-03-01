@@ -902,6 +902,115 @@ exports[`Progress rtl render component should be rendered correctly in RTL direc
 </div>
 `;
 
+exports[`Progress should maintain backward compatibility with single number percent 1`] = `
+<div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="50"
+  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-root"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-body"
+    style="width: 100%;"
+  >
+    <div
+      class="ant-progress-rail"
+      style="height: 8px;"
+    >
+      <div
+        class="ant-progress-track"
+        style="width: 50%; height: 8px;"
+      />
+    </div>
+    <span
+      class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+      title="50%"
+    >
+      50%
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress should render multi-value progress 1`] = `
+<div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="90"
+  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-root"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-body"
+    style="width: 100%;"
+  >
+    <div
+      class="ant-progress-rail"
+      style="height: 8px; position: relative;"
+    >
+      <div
+        class="ant-progress-track"
+        style="position: absolute; inset-inline-start: 0; width: 90%; height: 8px;"
+      />
+      <div
+        class="ant-progress-track"
+        style="position: absolute; inset-inline-start: 0; width: 70%; height: 8px;"
+      />
+      <div
+        class="ant-progress-track ant-progress-track-success"
+        style="position: absolute; inset-inline-start: 0; width: 40%; height: 8px;"
+      />
+    </div>
+    <span
+      class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+      title="90%"
+    >
+      90%
+    </span>
+  </div>
+</div>
+`;
+
+exports[`Progress should render multi-value progress with custom strokeColor 1`] = `
+<div
+  aria-valuemax="100"
+  aria-valuemin="0"
+  aria-valuenow="75"
+  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-root"
+  role="progressbar"
+>
+  <div
+    class="ant-progress-body"
+    style="width: 100%;"
+  >
+    <div
+      class="ant-progress-rail"
+      style="height: 8px; position: relative;"
+    >
+      <div
+        class="ant-progress-track"
+        style="position: absolute; inset-inline-start: 0; width: 75%; height: 8px; --progress-line-stroke-color: #ff4d4f; background: rgb(255, 77, 79);"
+      />
+      <div
+        class="ant-progress-track"
+        style="position: absolute; inset-inline-start: 0; width: 60%; height: 8px; --progress-line-stroke-color: #1890ff; background: rgb(24, 144, 255);"
+      />
+      <div
+        class="ant-progress-track ant-progress-track-success"
+        style="position: absolute; inset-inline-start: 0; width: 25%; height: 8px; --progress-line-stroke-color: #52c41a; background: rgb(82, 196, 26);"
+      />
+    </div>
+    <span
+      class="ant-progress-indicator ant-progress-indicator-end ant-progress-indicator-outer"
+      title="75%"
+    >
+      75%
+    </span>
+  </div>
+</div>
+`;
+
 exports[`Progress should support steps 1`] = `
 <div
   aria-valuemax="100"
