@@ -113,6 +113,7 @@ const columns = [
 <code src="./demo/selections-debug.tsx" debug>带下拉箭头的表头</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/measure-row-render.tsx" debug>measureRowRender</code>
+<code src="./demo/show-header-false-bordered-radius-debug.tsx" debug>隐藏表头时带边框圆角</code>
 
 ## API
 
