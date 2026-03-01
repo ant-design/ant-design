@@ -1632,7 +1632,7 @@ Array [
         </span>
       </span>
       <span
-        class="ant-tag ant-tag-filled ant-tag-default css-var-test-id"
+        class="ant-tag ant-tag-filled css-var-test-id"
       >
         <span
           aria-label="clock-circle"
@@ -1964,7 +1964,7 @@ Array [
         </span>
       </span>
       <span
-        class="ant-tag ant-tag-outlined ant-tag-default css-var-test-id"
+        class="ant-tag ant-tag-outlined css-var-test-id"
       >
         <span
           aria-label="clock-circle"

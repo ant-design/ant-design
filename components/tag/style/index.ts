@@ -154,6 +154,8 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
       color: token.colorTextLightSolid,
       backgroundColor: token.colorBgSolid,
 
+      // When variant="solid" without a color prop, colorBgSolid is used as background.
+      // In dark mode colorBgSolid is almost white, so solidTextColor (dark) is needed.
       [`&${componentCls}-default`]: {
         color: token.solidTextColor,
       },

@@ -156,6 +156,10 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       `${prefixCls}-${mergedVariant}`,
       {
         [`${prefixCls}-${mergedColor}`]: isInternalColor,
+        // Solid tag with no color or explicit "default" color uses colorBgSolid as background.
+        // Add ant-tag-default class so CSS can apply the correct text color (solidTextColor).
+        [`${prefixCls}-default`]:
+          mergedVariant === 'solid' && (!mergedColor || mergedColor === 'default'),
         [`${prefixCls}-hidden`]: !visible,
         [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-disabled`]: mergedDisabled,
