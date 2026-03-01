@@ -14,7 +14,7 @@ const handleChange = (value: string | string[]) => {
 };
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <Space style={style} wrap>
       <Input style={{ width: 100 }} value="222" />
       <Select

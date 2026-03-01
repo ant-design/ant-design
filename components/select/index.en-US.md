@@ -98,7 +98,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | ~~searchValue~~ | The current input "search" text | string | - |  |
 | showSearch | Whether select is searchable | boolean \| [Object](#showsearch) | single: false, multiple: true |  |
-| size | Size of Select input | `large` \| `middle` \| `small` | `middle` |  |
+| size | Size of Select input | `large` \| `medium` \| `small` | `medium` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | The custom suffix icon. Customize icon will not response click open to avoid icon designed to do other interactive. You can use `pointer-events: none` style to bypass | ReactNode | `<DownOutlined />` |  |
