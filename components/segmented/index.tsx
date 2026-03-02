@@ -96,7 +96,7 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     rootClassName,
     block,
     options = [],
-    size: customSize = 'medium',
+    size: customSize,
     style,
     vertical,
     orientation,
