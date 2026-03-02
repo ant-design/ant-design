@@ -38,7 +38,7 @@ const Category: React.FC<CategoryProps> = (props) => {
   const { icons, title, newIcons, theme } = props;
   const intl = useIntl();
   const [justCopied, setJustCopied] = React.useState<string | null>(null);
-  const copyId = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const copyIdRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const onCopied = React.useCallback(
     (type: string, text: string) => {
       message.success(
@@ -47,7 +47,7 @@ const Category: React.FC<CategoryProps> = (props) => {
         </span>,
       );
       setJustCopied(type);
-      copyId.current = setTimeout(() => {
+      copyIdRef.current = setTimeout(() => {
         setJustCopied(null);
       }, 2000);
     },
@@ -55,8 +55,8 @@ const Category: React.FC<CategoryProps> = (props) => {
   );
   React.useEffect(
     () => () => {
-      if (copyId.current) {
-        clearTimeout(copyId.current);
+      if (copyIdRef.current) {
+        clearTimeout(copyIdRef.current);
       }
     },
     [],
