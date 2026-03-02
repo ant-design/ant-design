@@ -10,6 +10,8 @@ const genSelectInputCustomizeStyle: GenerateStyle<SelectToken, CSSObject> = (tok
     [`&${componentCls}-customize`]: {
       border: 0,
       padding: 0,
+      paddingBlock: 0,
+      paddingInline: 0,
       fontSize: 'inherit',
       lineHeight: 'inherit',
       height: 'auto',
