@@ -102,8 +102,16 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const { styles } = useStyle();
   const { config, style, className, containerClassName } = props;
 
+  const { theme, ...restConfig } = config || {};
+
   return (
-    <ConfigProvider {...config}>
+    <ConfigProvider
+      {...restConfig}
+      theme={{
+        ...theme,
+        inherit: false,
+      }}
+    >
       <Card className={clsx(containerClassName, styles.container)}>
         <App>
           <Flex vertical gap="middle" style={style} className={className}>
