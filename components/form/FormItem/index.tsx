@@ -134,7 +134,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
     layout,
   } = props;
   const { getPrefixCls } = React.useContext(ConfigContext);
-  const { name: formName } = React.useContext(FormContext);
+  const { name: formName, form } = React.useContext(FormContext);
 
   const mergedChildren = useChildren(children);
 
@@ -237,6 +237,34 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
     return [errorList, warningList];
   }, [subFieldErrors, meta.errors, meta.warnings]);
+
+  // ======================= Required =======================
+  // Compute required from static (non-function) rules for change detection.
+  // When required changes from true to false, re-validate to clear stale errors.
+  const isRequiredByRules = React.useMemo(() => {
+    if (required !== undefined) return required;
+    return (
+      rules?.some((rule) => {
+        return rule && typeof rule === 'object' && !!rule.required && !rule.warningOnly;
+      }) ?? false
+    );
+  }, [required, rules]);
+
+  const metaRef = React.useRef(meta);
+  metaRef.current = meta;
+  const prevIsRequiredRef = React.useRef<boolean | null>(null);
+  React.useEffect(() => {
+    const isTransitionFromRequiredToOptional =
+      prevIsRequiredRef.current !== null && prevIsRequiredRef.current && !isRequiredByRules;
+    if (isTransitionFromRequiredToOptional) {
+      if (metaRef.current.errors.length > 0 && form && name !== undefined) {
+        // Re-validate to clear stale required errors. Rejection is ignored because any
+        // remaining rule failures will still be shown via onMetaChange.
+        form.validateFields([name]).catch(() => {});
+      }
+    }
+    prevIsRequiredRef.current = isRequiredByRules;
+  }, [isRequiredByRules, form, name]);
 
   // ===================== Children Ref =====================
   const getItemRef = useItemRef();

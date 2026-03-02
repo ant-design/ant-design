@@ -758,6 +758,37 @@ describe('Form', () => {
     );
   });
 
+  // https://github.com/ant-design/ant-design/issues/49210
+  it('should clear required errors when required rule changes from true to false', async () => {
+    const App = () => {
+      const [isRequired, setIsRequired] = React.useState(true);
+      return (
+        <Form>
+          <Form.Item name="test" rules={[{ required: isRequired, message: 'Required!' }]}>
+            <input />
+          </Form.Item>
+          <button type="button" onClick={() => setIsRequired(false)}>
+            Toggle
+          </button>
+        </Form>
+      );
+    };
+
+    const { container } = render(<App />);
+
+    // Trigger required error by typing then clearing
+    await changeValue(0, 'some value');
+    await changeValue(0, '');
+    expect(container.querySelector('.ant-form-item-explain-error')).toHaveTextContent('Required!');
+
+    // Change required to false
+    fireEvent.click(container.querySelector('button')!);
+    await waitFakeTimer();
+
+    // Error should be cleared since field is no longer required
+    expect(container.querySelector('.ant-form-item-explain-error')).toBeFalsy();
+  });
+
   describe('should show related className when customize help', () => {
     it('normal', async () => {
       const { container } = render(
