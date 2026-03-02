@@ -56,11 +56,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     borderRadius: cssVar.borderRadius,
     borderColor: 'transparent',
     transition: `all ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
+    cursor: 'pointer',
 
-    '&:hover:not(.active):not(.ai-generate-item)': {
+    '&:hover:not(.active):not(.dark)': {
       borderColor: cssVar.colorPrimaryBorder,
       backgroundColor: cssVar.colorPrimaryBg,
-      cursor: 'pointer',
     },
 
     '&:focus-visible': {
@@ -91,14 +91,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     borderStyle: 'dashed',
     opacity: 0.7,
     cursor: 'pointer',
-    color: cssVar.colorTextSecondary,
     paddingInline: cssVar.padding,
-
-    '&:hover': {
-      borderColor: cssVar.colorPrimary,
-      color: cssVar.colorPrimary,
-      opacity: 1,
-    },
   }),
 
   aiGenerateContent: css({
@@ -213,7 +206,11 @@ export default function ThemePreview(props: ThemePreviewProps = {}) {
               ))}
               {/* AI 生成主题 - 最后一个选项 */}
               <div
-                className={clsx(styles.listItem, styles.aiGenerateItem, 'ai-generate-item')}
+                className={clsx(
+                  styles.listItem,
+                  styles.aiGenerateItem,
+                  activeTheme?.bgImgDark && 'dark',
+                )}
                 role="tab"
                 tabIndex={0}
                 onClick={onOpenPromptDrawer}

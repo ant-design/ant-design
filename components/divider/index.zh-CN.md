@@ -45,7 +45,7 @@ group:
 | plain | 文字是否显示为普通正文样式 | boolean | false | 4.2.0 |
 | style | 分割线样式对象 | CSSProperties | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| size | 间距大小，仅对水平布局有效 | `small` \| `middle` \| `large` | - | 5.25.0 |
+| size | 间距大小，仅对水平布局有效 | `small` \| `medium` \| `large` | - | 5.25.0 |
 | titlePlacement | 分割线标题的位置 | `start` \| `end` \| `center` | `center` | - |
 | ~~type~~ | 水平还是垂直类型 | `horizontal` \| `vertical` | `horizontal` | - |
 | variant | 分割线是虚线、点线还是实线 | `dashed` \| `dotted` \| `solid` | solid | 5.20.0 |

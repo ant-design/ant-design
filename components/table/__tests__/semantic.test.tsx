@@ -107,7 +107,7 @@ describe('Table', () => {
         classNames={testClassNames}
         columns={columns}
         dataSource={data}
-        size="middle"
+        size="medium"
         pagination={{ pageSize: 3 }}
         title={() => <>table title</>}
         footer={() => <>table footer</>}

@@ -64,7 +64,6 @@ export default antfu(
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
       'react/no-implicit-key': 'off',
-      'react-naming-convention/ref-name': 'off',
     },
   },
   {
@@ -116,6 +115,7 @@ export default antfu(
     // demos
     files: ['components/*/demo/*.tsx'],
     rules: {
+      'react-naming-convention/ref-name': 'off',
       'react/no-create-ref': 'off',
       'no-console': 'off',
       'unicorn/consistent-function-scoping': 'off',

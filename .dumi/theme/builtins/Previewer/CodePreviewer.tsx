@@ -72,14 +72,14 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
   const entryName = 'index.tsx';
   const entryCode = asset.dependencies[entryName].value;
 
-  const demoContainer = useRef<HTMLElement>(null);
+  const demoContainerRef = useRef<HTMLElement>(null);
   const {
     node: liveDemoNode,
     error: liveDemoError,
     setSource: setLiveDemoSource,
   } = useLiveDemo(asset.id, {
     iframe: Boolean(iframe),
-    containerRef: demoContainer as React.RefObject<HTMLElement>,
+    containerRef: demoContainerRef as React.RefObject<HTMLElement>,
   });
   const anchorRef = useRef<HTMLAnchorElement>(null);
   const [codeExpand, setCodeExpand] = useState<boolean>(false);
@@ -220,7 +220,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
         className="code-box-demo notranslate"
         translate="no"
         style={codeBoxDemoStyle}
-        ref={demoContainer}
+        ref={demoContainerRef}
       >
         {liveDemoNode || <React.StrictMode>{previewContent}</React.StrictMode>}
       </section>

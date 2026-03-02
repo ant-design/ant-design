@@ -35,7 +35,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Statistic
         {...statisticSharedProps}
         title="Monthly Active Users"

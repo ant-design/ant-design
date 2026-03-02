@@ -2155,7 +2155,7 @@ exports[`renders components/color-picker/demo/disabled-alpha.tsx extend context 
 
 exports[`renders components/color-picker/demo/format.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
   style="display: flex;"
 >
   <div
