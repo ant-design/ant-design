@@ -107,6 +107,7 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 **首先检查版本：**
 
 - 老版本 + changelog 中已修复 → 引导用户升级验证
+- PR 已合并但新版本未发布 → 告知用户等待新版本发布
 
 **检查重现链接：**
 
@@ -196,12 +197,28 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 
 **关闭时保持礼貌：**
 
-问题已解决（英文示例）：
+问题已解决且有具体版本（英文示例）：
 
 ```
 Thanks for the feedback! This issue has been fixed in [version/PR#xxx].
 
 I'm closing this issue. Feel free to continue the discussion if you have further questions.
+```
+
+问题已解决但新版本未发布（英文示例）：
+
+```
+Thanks for the feedback! This issue has been fixed by #xxx.
+
+The fix will be included in the next release. I'm closing this issue.
+```
+
+问题已解决但新版本未发布（中文示例）：
+
+```
+感谢反馈！此问题已通过 #xxx 修复，将在新版本发布后生效。
+
+我将关闭此 issue。
 ```
 
 使用问题（中文示例）：
