@@ -3,6 +3,8 @@ name: 🆇 Release to X
 on:
   create
 
+permissions: {}
+
 jobs:
   tweet:
     runs-on: blacksmith-4vcpu-ubuntu-2404

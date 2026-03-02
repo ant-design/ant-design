@@ -65,7 +65,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placeholder | The placeholder of input | string | - |  |
 | showSearch | search for configuration | true \| [Object](#showsearch) | true |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
-| size | The size of the input box | `large` \| `middle` \| `small` | - |  |
+| size | The size of the input box | `large` \| `medium` \| `small` | - |  |
 | value | Selected option | string | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | variant | Variants of input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |

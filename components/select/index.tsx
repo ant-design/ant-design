@@ -11,8 +11,9 @@ import type {
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -47,12 +48,51 @@ export interface LabeledValue {
   label: React.ReactNode;
 }
 
+export type SelectSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    suffix?: string;
+    input?: string;
+    placeholder?: string;
+    content?: string;
+    item?: string;
+    itemContent?: string;
+    itemRemove?: string;
+    clear?: string;
+    popup?: {
+      root?: string;
+      listItem?: string;
+      list?: string;
+    };
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    input?: React.CSSProperties;
+    placeholder?: React.CSSProperties;
+    content?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    itemRemove?: React.CSSProperties;
+    clear?: React.CSSProperties;
+    popup?: {
+      root?: React.CSSProperties;
+      listItem?: React.CSSProperties;
+      list?: React.CSSProperties;
+    };
+  };
+};
+
+export type SelectSemanticAllType = GenerateSemantic<SelectSemanticType, SelectProps>;
+
 export type SelectValue = RawValue | RawValue[] | LabeledValue | LabeledValue[] | undefined;
 
 export interface InternalSelectProps<
   ValueType = any,
   OptionType extends BaseOptionType | DefaultOptionType = DefaultOptionType,
-> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode'> {
+> extends Omit<RcSelectProps<ValueType, OptionType>, 'mode' | 'styles' | 'classNames'> {
   rootClassName?: string;
   prefix?: React.ReactNode;
   suffixIcon?: React.ReactNode;
@@ -71,66 +111,11 @@ export interface InternalSelectProps<
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: SelectSemanticClassNames & { popup?: SelectPopupSemanticClassNames };
-  styles?: SelectSemanticStyles & { popup?: SelectPopupSemanticStyles };
+  classNames?: SelectSemanticAllType['classNamesAndFn'];
+  styles?: SelectSemanticAllType['stylesAndFn'];
   loadingIcon?: React.ReactNode;
   showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
 }
-
-export type SelectSemanticName = keyof SelectSemanticClassNames & keyof SelectSemanticStyles;
-
-export type SelectSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  suffix?: string;
-  input?: string;
-  placeholder?: string;
-  content?: string;
-  item?: string;
-  itemContent?: string;
-  itemRemove?: string;
-  clear?: string;
-};
-
-export type SelectSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  placeholder?: React.CSSProperties;
-  content?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-  itemRemove?: React.CSSProperties;
-  clear?: React.CSSProperties;
-};
-
-export type SelectPopupSemanticName = keyof SelectPopupSemanticClassNames &
-  keyof SelectPopupSemanticStyles;
-
-export type SelectPopupSemanticClassNames = {
-  root?: string;
-  listItem?: string;
-  list?: string;
-};
-
-export type SelectPopupSemanticStyles = {
-  root?: React.CSSProperties;
-  listItem?: React.CSSProperties;
-  list?: React.CSSProperties;
-};
-
-export type SelectClassNamesType = SemanticClassNamesType<
-  SelectProps,
-  SelectSemanticClassNames,
-  { popup?: SelectPopupSemanticClassNames }
->;
-
-export type SelectStylesType = SemanticStylesType<
-  SelectProps,
-  SelectSemanticStyles,
-  { popup?: SelectPopupSemanticStyles }
->;
 
 export interface SelectProps<
   ValueType = any,
@@ -161,8 +146,6 @@ export interface SelectProps<
   /** @deprecated Please use `popupMatchSelectWidth` instead */
   dropdownMatchSelectWidth?: boolean | number;
   popupMatchSelectWidth?: boolean | number;
-  styles?: SelectStylesType;
-  classNames?: SelectClassNamesType;
   onOpenChange?: (visible: boolean) => void;
 }
 
@@ -227,11 +210,11 @@ const InternalSelect = <
 
   const {
     showSearch: contextShowSearch,
+    allowClear: contextAllowClear,
     style: contextStyle,
     styles: contextStyles,
     className: contextClassName,
     classNames: contextClassNames,
-    allowClear: contextAllowClear,
     clearIcon: contextClearIcon,
     loadingIcon: contextLoadingIcon,
     menuItemSelectedIcon: contextMenuItemSelectedIcon,
@@ -319,8 +302,8 @@ const InternalSelect = <
     contextSuffixIcon,
   });
 
-  const resolvedAllowClear = allowClear ?? contextAllowClear;
-  const mergedAllowClear = resolvedAllowClear === true ? { clearIcon } : resolvedAllowClear;
+  const finalAllowClear = allowClear ?? contextAllowClear;
+  const mergedAllowClear = finalAllowClear === true ? { clearIcon } : finalAllowClear;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
@@ -339,15 +322,11 @@ const InternalSelect = <
     size: mergedSize,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SelectClassNamesType,
-    SelectStylesType,
-    SelectProps<any, OptionType>
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
-      props: mergedProps,
+      props: mergedProps as unknown as SelectProps,
     },
     {
       popup: {
@@ -357,7 +336,7 @@ const InternalSelect = <
   );
 
   const mergedPopupClassName = clsx(
-    mergedClassNames.popup?.root,
+    mergedClassNames.popup.root,
     popupClassName,
     dropdownClassName,
     {
@@ -435,7 +414,7 @@ const InternalSelect = <
   // ====================== zIndex =========================
   const [zIndex] = useZIndex(
     'SelectLike',
-    (mergedStyles.popup?.root?.zIndex as number) ?? (mergedPopupStyle?.zIndex as number),
+    (mergedStyles.popup.root?.zIndex as number) ?? (mergedPopupStyle.zIndex as number),
   );
 
   // ====================== Render =======================
@@ -467,7 +446,7 @@ const InternalSelect = <
       getPopupContainer={getPopupContainer || getContextPopupContainer}
       popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
-      popupStyle={{ ...mergedStyles.popup?.root, ...mergedPopupStyle, zIndex }}
+      popupStyle={{ ...mergedStyles.popup.root, ...mergedPopupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}

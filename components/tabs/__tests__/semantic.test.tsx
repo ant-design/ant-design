@@ -2,24 +2,9 @@ import React from 'react';
 
 import Tabs from '..';
 import type { TabsProps } from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
-const { TabPane } = Tabs;
-
 describe('Tabs.Semantic', () => {
-  mountTest(() => (
-    <Tabs>
-      <TabPane tab="xx" key="xx" />
-    </Tabs>
-  ));
-  rtlTest(() => (
-    <Tabs>
-      <TabPane tab="xx" key="xx" />
-    </Tabs>
-  ));
-
   it('support classnames and styles', () => {
     const customClassnames = {
       root: 'test-class',

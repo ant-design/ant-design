@@ -12,6 +12,29 @@ permissions:
   contents: read
 
 jobs:
+  check-trust:
+    name: Check if workflow run is trusted
+    runs-on: blacksmith-4vcpu-ubuntu-2404
+    outputs:
+      trusted: ${{ steps.check.outputs.trusted }}
+    steps:
+      - name: Check trust
+        id: check
+        env:
+          REPO: ${{ github.repository }}
+          EVENT: ${{ github.event.workflow_run.event }}
+          BRANCH: ${{ github.event.workflow_run.head_branch }}
+        run: |
+          if [[ "$REPO" == "ant-design/ant-design" && \
+                "$EVENT" == "push" && \
+                ( "$BRANCH" == "master" || \
+                  "$BRANCH" == "feature" || \
+                  "$BRANCH" == "next" ) ]]; then
+            echo "trusted=true" >> $GITHUB_OUTPUT
+          else
+            echo "trusted=false" >> $GITHUB_OUTPUT
+          fi
+
   upstream-workflow-summary:
     name: upstream workflow summary
     runs-on: blacksmith-4vcpu-ubuntu-2404
@@ -57,7 +80,8 @@ jobs:
     permissions:
       actions: read # for dawidd6/action-download-artifact to query and download artifacts
     runs-on: blacksmith-4vcpu-ubuntu-2404
-    needs: [upstream-workflow-summary]
+    needs: [check-trust, upstream-workflow-summary]
+    if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
       - name: checkout
         uses: actions/checkout@v6
@@ -89,7 +113,6 @@ jobs:
           path: ./tmp
 
       - name: Persist Image Snapshot to OSS
-        if: github.repository == 'ant-design/ant-design' && github.event.workflow_run.event == 'push' && (github.event.workflow_run.head_branch == 'master' || github.event.workflow_run.head_branch == 'feature' || github.event.workflow_run.head_branch == 'next')
         env:
           ALI_OSS_AK_ID: ${{ secrets.ALI_OSS_AK_ID }}
           ALI_OSS_AK_SECRET: ${{ secrets.ALI_OSS_AK_SECRET }}

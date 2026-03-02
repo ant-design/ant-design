@@ -1,8 +1,6 @@
 import React from 'react';
 
 import Image from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 import type { ImageProps } from '../index';
 
@@ -10,8 +8,6 @@ const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWP
 const alt = 'test image';
 
 describe('Image.Semantic', () => {
-  mountTest(Image);
-  rtlTest(Image);
   it('support classnames and styles', () => {
     const customClassNames = {
       root: 'props-root',
