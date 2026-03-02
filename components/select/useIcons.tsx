@@ -95,9 +95,11 @@ export default function useIcons({
     }
 
     // Checked item icon
-    const mergedItemIcon = multiple
-      ? fallbackProp(menuItemSelectedIcon, contextMenuItemSelectedIcon, <CheckOutlined />)
-      : null;
+    const mergedItemIcon = fallbackProp(
+      menuItemSelectedIcon,
+      contextMenuItemSelectedIcon,
+      multiple ? <CheckOutlined /> : null,
+    );
     const mergedRemoveIcon = fallbackProp(removeIcon, contextRemoveIcon, <CloseOutlined />);
 
     return {
