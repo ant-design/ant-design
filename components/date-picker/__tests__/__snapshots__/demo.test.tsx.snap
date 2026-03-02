@@ -6112,13 +6112,13 @@ exports[`renders components/date-picker/demo/size.tsx correctly 1`] = `
             class="ant-radio-button-input"
             name="test-id"
             type="radio"
-            value="middle"
+            value="medium"
           />
         </span>
         <span
           class="ant-radio-button-label"
         >
-          middle
+          Medium
         </span>
       </label>
       <label

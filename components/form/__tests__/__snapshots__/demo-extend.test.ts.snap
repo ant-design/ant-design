@@ -12710,13 +12710,13 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                     class="ant-radio-button-input"
                     name="size"
                     type="radio"
-                    value="default"
+                    value="medium"
                   />
                 </span>
                 <span
                   class="ant-radio-button-label"
                 >
-                  Default
+                  Medium
                 </span>
               </label>
               <label
