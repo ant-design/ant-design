@@ -103,19 +103,19 @@ describe('Transfer.Semantic', () => {
     }));
 
     const classNames = {
-      sourceSection: 'custom-source-section',
-      targetSection: 'custom-target-section',
+      source: 'custom-source',
+      target: 'custom-target',
     };
     const semanticsStructure: Record<string, [selector: string, count: number]> = {
-      sourceSection: ['.ant-transfer-section', 1],
-      targetSection: ['.ant-transfer-section', 1],
+      source: ['.ant-transfer-section', 1],
+      target: ['.ant-transfer-section', 1],
     };
 
     const styles = {
-      sourceSection: {
+      source: {
         backgroundColor: 'rgb(255, 0, 255)',
       },
-      targetSection: {
+      target: {
         backgroundColor: 'rgb(0, 255, 255)',
       },
     };

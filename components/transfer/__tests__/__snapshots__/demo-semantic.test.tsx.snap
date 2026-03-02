@@ -14,7 +14,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
         class="ant-transfer css-var-test-id semantic-mark-root"
       >
         <div
-          class="ant-transfer-section semantic-mark-section semantic-mark-sourceSection ant-transfer-section-with-footer"
+          class="ant-transfer-section semantic-mark-section semantic-mark-source ant-transfer-section-with-footer"
           style="height: 250px; width: 200px;"
         >
           <div
@@ -606,7 +606,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
           </button>
         </div>
         <div
-          class="ant-transfer-section semantic-mark-section semantic-mark-targetSection ant-transfer-section-with-footer"
+          class="ant-transfer-section semantic-mark-section semantic-mark-target ant-transfer-section-with-footer"
           style="height: 250px; width: 200px;"
         >
           <div
@@ -993,7 +993,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   class="ant-typography css-var-test-id"
                   style="margin: 0px;"
                 >
-                  sourceSection
+                  source
                 </h5>
               </div>
               <div
@@ -1086,7 +1086,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   class="ant-typography css-var-test-id"
                   style="margin: 0px;"
                 >
-                  targetSection
+                  target
                 </h5>
               </div>
               <div

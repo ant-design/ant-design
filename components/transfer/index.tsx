@@ -33,8 +33,8 @@ export type TransferSemanticName = keyof TransferSemanticClassNames & keyof Tran
 export type TransferSemanticClassNames = {
   root?: string;
   section?: string;
-  sourceSection?: string;
-  targetSection?: string;
+  source?: string;
+  target?: string;
   header?: string;
   title?: string;
   body?: string;
@@ -49,8 +49,8 @@ export type TransferSemanticClassNames = {
 export type TransferSemanticStyles = {
   root?: React.CSSProperties;
   section?: React.CSSProperties;
-  sourceSection?: React.CSSProperties;
-  targetSection?: React.CSSProperties;
+  source?: React.CSSProperties;
+  target?: React.CSSProperties;
   header?: React.CSSProperties;
   title?: React.CSSProperties;
   body?: React.CSSProperties;
@@ -517,21 +517,23 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   const [leftTitle, rightTitle] = getTitles(listLocale);
 
   const mergedSelectionsIcon = selectionsIcon ?? contextSelectionsIcon;
+
   const sourceSectionClassNames = {
     ...mergedClassNames,
-    section: clsx(mergedClassNames.section, mergedClassNames.sourceSection),
+    section: clsx(mergedClassNames.section, mergedClassNames.source),
   };
   const targetSectionClassNames = {
     ...mergedClassNames,
-    section: clsx(mergedClassNames.section, mergedClassNames.targetSection),
+    section: clsx(mergedClassNames.section, mergedClassNames.target),
   };
+
   const sourceSectionStyles = {
     ...mergedStyles,
-    section: { ...mergedStyles.section, ...mergedStyles.sourceSection },
+    section: { ...mergedStyles.section, ...mergedStyles.source },
   };
   const targetSectionStyles = {
     ...mergedStyles,
-    section: { ...mergedStyles.section, ...mergedStyles.targetSection },
+    section: { ...mergedStyles.section, ...mergedStyles.target },
   };
 
   // ===================== Warning ======================
