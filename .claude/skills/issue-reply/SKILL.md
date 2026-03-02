@@ -139,7 +139,7 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 
 参考文档：https://ant.design/components/xxx
 
-如果以上方案不能解决问题，可以尝试 @docu 或 @Copilot 获取更多帮助。
+如果以上方案不能解决问题，可以尝试 @dosu 或 @Copilot 获取更多帮助。
 ```
 
 **若无法解决，引导用户到其他渠道：**
