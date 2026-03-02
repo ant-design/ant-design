@@ -629,7 +629,7 @@ exports[`renders components/badge/demo/colorful.tsx extend context correctly 2`]
 exports[`renders components/badge/demo/colorful-with-count-debug.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-large css-var-test-id"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-large css-var-test-id"
     style="flex-wrap: wrap;"
   >
     <div
@@ -1167,7 +1167,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-large css-var-test-id"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-large css-var-test-id"
     style="flex-wrap: wrap;"
   >
     <div
