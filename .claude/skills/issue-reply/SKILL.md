@@ -195,49 +195,7 @@ Issue 列表主要用于跟踪 **Bug 报告** 和 **功能请求**。
 - 已解决
 - 用户长时间未回复（7天以上）
 
-**关闭时保持礼貌：**
-
-问题已解决且有具体版本（英文示例）：
-
-```
-Thanks for the feedback! This issue has been fixed in [version/PR#xxx].
-
-I'm closing this issue. Feel free to continue the discussion if you have further questions.
-```
-
-问题已解决但新版本未发布（英文示例）：
-
-```
-Thanks for the feedback! This issue has been fixed by #xxx.
-
-The fix will be included in the next release. I'm closing this issue.
-```
-
-问题已解决但新版本未发布（中文示例）：
-
-```
-感谢反馈！此问题已通过 #xxx 修复，将在新版本发布后生效。
-
-我将关闭此 issue。
-```
-
-使用问题（中文示例）：
-
-```
-感谢反馈！经过分析，这是一个使用问题而非 bug。
-
-[解释解决方案]
-
-我将关闭此 issue。如果您仍有问题，欢迎继续讨论或重新打开。
-```
-
-用户长时间未回复（中文示例）：
-
-```
-由于长时间未收到回复，我将关闭此 issue。
-
-如果问题仍然存在，请提供更多信息后重新打开，或创建新的 issue。
-```
+**关闭时保持礼貌，简要说明关闭原因即可。**
 
 **不要关闭：**
 
