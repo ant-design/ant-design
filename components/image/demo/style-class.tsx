@@ -44,7 +44,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Image {...sharedProps} styles={styles} />
       <Image {...sharedProps} styles={stylesFn} preview={{ open: false }} />
     </Flex>

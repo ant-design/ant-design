@@ -11359,7 +11359,7 @@ exports[`renders components/calendar/demo/select.tsx extend context correctly 2`
 
 exports[`renders components/calendar/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-picker-calendar ant-picker-calendar-mini acss-1f1p24i css-var-test-id"

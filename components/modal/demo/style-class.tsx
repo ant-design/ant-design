@@ -87,7 +87,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Button onClick={() => setModalOpen(true)}>Open Style Modal</Button>
       <Button type="primary" onClick={() => setModalFnOpen(true)}>
         Open Function Modal

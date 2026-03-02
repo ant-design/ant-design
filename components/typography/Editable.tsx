@@ -44,8 +44,8 @@ const Editable: React.FC<EditableProps> = (props) => {
   } = props;
   const ref = React.useRef<TextAreaRef>(null);
 
-  const inComposition = React.useRef(false);
-  const lastKeyCode = React.useRef<number>(null);
+  const inCompositionRef = React.useRef(false);
+  const lastKeyCodeRef = React.useRef<number>(null);
 
   const [current, setCurrent] = React.useState(value);
 
@@ -67,19 +67,19 @@ const Editable: React.FC<EditableProps> = (props) => {
   };
 
   const onCompositionStart = () => {
-    inComposition.current = true;
+    inCompositionRef.current = true;
   };
 
   const onCompositionEnd = () => {
-    inComposition.current = false;
+    inCompositionRef.current = false;
   };
 
   const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
     // We don't record keyCode when IME is using
-    if (inComposition.current) {
+    if (inCompositionRef.current) {
       return;
     }
-    lastKeyCode.current = keyCode;
+    lastKeyCodeRef.current = keyCode;
   };
 
   const confirmChange = () => {
@@ -95,8 +95,8 @@ const Editable: React.FC<EditableProps> = (props) => {
   }) => {
     // Check if it's a real key
     if (
-      lastKeyCode.current !== keyCode ||
-      inComposition.current ||
+      lastKeyCodeRef.current !== keyCode ||
+      inCompositionRef.current ||
       ctrlKey ||
       altKey ||
       metaKey ||

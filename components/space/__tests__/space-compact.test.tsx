@@ -152,7 +152,7 @@ describe('Space.Compact', () => {
 
   it('component size has a higher priority than Compact', () => {
     const { container } = render(
-      <Space.Compact size="middle">
+      <Space.Compact size="medium">
         <Input size="small" />
         <Select size="small" />
         <Button size="small">Submit</Button>

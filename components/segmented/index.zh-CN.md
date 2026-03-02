@@ -54,7 +54,7 @@ demo:
 | onChange | 选项变化时的回调函数 | function(value: string \| number) |  |  |
 | options | 数据化配置选项内容 | string\[] \| number\[] \| SegmentedItemType\[] | [] |  |
 | orientation | 排列方向 | `horizontal` \| `vertical` | `horizontal` |  |
-| size | 控件尺寸 | `large` \| `middle` \| `small` | `middle` |  |
+| size | 控件尺寸 | `large` \| `medium` \| `small` | `medium` |  |
 | styles | 用于自定义 Segmented 组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom) , CSSProperties> | - |  |
 | vertical | 排列方向，与 `orientation` 同时存在，以 `orientation` 优先 | boolean | `false` | 5.21.0 |
 | value | 当前选中的值 | string \| number |  |  |

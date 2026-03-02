@@ -5667,7 +5667,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
 
 exports[`renders components/input/demo/compact-style.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -10010,7 +10010,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 2`] = 
 
 exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
 >
   <h5
     class="ant-typography css-var-test-id"
@@ -11651,7 +11651,7 @@ exports[`renders components/input/demo/show-count.tsx extend context correctly 2
 
 exports[`renders components/input/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined css-var-test-id ant-input-css-var"
@@ -11910,7 +11910,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-test-id ant-input-css-var"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-medium css-var-test-id ant-input-css-var"
     style="border-color: rgb(245, 211, 196);"
   >
     <input

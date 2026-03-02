@@ -215,7 +215,7 @@ exports[`renders components/qr-code/demo/customSize.tsx extend context correctly
 
 exports[`renders components/qr-code/demo/customStatusRender.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-medium"
 >
   <div
     class="ant-qrcode css-var-test-id"
@@ -581,7 +581,7 @@ exports[`renders components/qr-code/demo/icon.tsx extend context correctly 2`] =
 
 exports[`renders components/qr-code/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-medium"
 >
   <div
     class="ant-qrcode css-var-test-id"
@@ -699,7 +699,7 @@ exports[`renders components/qr-code/demo/status.tsx extend context correctly 2`]
 
 exports[`renders components/qr-code/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <div
     class="ant-qrcode css-var-test-id acss-14zer27"

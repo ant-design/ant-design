@@ -9,7 +9,7 @@ const options: CheckboxGroupProps<string>['options'] = [
 ];
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <Radio.Group block options={options} defaultValue="Apple" />
     <Radio.Group
       block

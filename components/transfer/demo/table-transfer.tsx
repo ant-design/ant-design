@@ -108,7 +108,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex align="start" gap="middle" vertical>
+    <Flex align="start" gap="medium" vertical>
       <TableTransfer
         dataSource={mockData}
         targetKeys={targetKeys}
