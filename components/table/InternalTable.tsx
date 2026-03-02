@@ -328,7 +328,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     return null;
   }, [childrenColumnName, rawData]);
 
-  const internalRefs: NonNullable<RcTableProps['internalRefs']> = {
+  const internalRef: NonNullable<RcTableProps['internalRefs']> = {
     body: React.useRef<HTMLDivElement>(null),
   } as NonNullable<RcTableProps['internalRefs']>;
 
@@ -395,9 +395,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       }
     }
 
-    if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRefs.body.current) {
+    if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRef.body.current) {
       scrollTo(0, {
-        getContainer: () => internalRefs.body.current!,
+        getContainer: () => internalRef.body.current!,
       });
     }
 
@@ -601,7 +601,10 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
     } else {
-      paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
+      paginationSize =
+        mergedSize === 'small' || mergedSize === 'middle' || mergedSize === 'medium'
+          ? 'small'
+          : undefined;
     }
 
     const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
@@ -703,6 +706,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
     switch (mergedSize) {
       case 'middle':
+      case 'medium':
         return paddingSM * 2 + fontHeight + lineWidth;
 
       case 'small':
@@ -734,7 +738,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           prefixCls={prefixCls}
           className={clsx(
             {
-              [`${prefixCls}-middle`]: mergedSize === 'middle',
+              [`${prefixCls}-medium`]: mergedSize === 'medium' || mergedSize === 'middle',
               [`${prefixCls}-small`]: mergedSize === 'small',
               [`${prefixCls}-bordered`]: bordered,
               [`${prefixCls}-empty`]: rawData.length === 0,
@@ -749,7 +753,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           emptyText={mergedEmptyNode}
           // Internal
           internalHooks={INTERNAL_HOOKS}
-          internalRefs={internalRefs}
+          internalRefs={internalRef}
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
           measureRowRender={(measureRow) => (

@@ -43,8 +43,8 @@ import type {
   PickerProps,
   PickerPropsWithMultiple,
 } from './interface';
-import useSuffixIcon from './useSuffixIcon';
 import useComponents from './useComponents';
+import useSuffixIcon from './useSuffixIcon';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -222,7 +222,8 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             rootClassName={mergedRootClassName}
             className={clsx(
               {
-                [`${prefixCls}-${mergedSize}`]: mergedSize,
+                [`${prefixCls}-large`]: mergedSize === 'large',
+                [`${prefixCls}-small`]: mergedSize === 'small',
                 [`${prefixCls}-${variant}`]: enableVariantCls,
               },
               getStatusClassNames(

@@ -156,7 +156,8 @@ const generateRangePicker = <DateType extends AnyObject = AnyObject>(
           rootClassName={mergedRootClassName}
           className={clsx(
             {
-              [`${prefixCls}-${mergedSize}`]: mergedSize,
+              [`${prefixCls}-large`]: mergedSize === 'large',
+              [`${prefixCls}-small`]: mergedSize === 'small',
               [`${prefixCls}-${variant}`]: enableVariantCls,
             },
             getStatusClassNames(

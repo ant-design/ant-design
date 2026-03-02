@@ -1569,7 +1569,7 @@ Array [
         class="ant-card-head-wrapper"
       />
       <div
-        class="ant-tabs ant-tabs-top ant-tabs-middle ant-card-head-tabs css-var-test-id ant-tabs-css-var"
+        class="ant-tabs ant-tabs-top ant-card-head-tabs css-var-test-id ant-tabs-css-var"
       >
         <div
           aria-orientation="horizontal"

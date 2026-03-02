@@ -54,7 +54,7 @@ export default Demo;
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | componentDisabled | 设置 antd 组件禁用状态 | boolean | - | 4.21.0 |
-| componentSize | 设置 antd 组件大小 | `small` \| `middle` \| `large` | - |  |
+| componentSize | 设置 antd 组件大小 | `small` \| `medium` \| `large` | - |  |
 | csp | 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
 | direction | 设置文本展示方向。 [示例](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | `(trigger?: HTMLElement) => HTMLElement \| ShadowRoot` | () => document.body |  |
@@ -104,7 +104,7 @@ const {
 | 返回值 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | componentDisabled | antd 组件禁用状态 | boolean | - | 5.3.0 |
-| componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - | 5.3.0 |
+| componentSize | antd 组件大小状态 | `small` \| `medium` \| `large` | - | 5.3.0 |
 
 ### 组件配置 {#component-config}
 
