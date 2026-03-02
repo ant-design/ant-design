@@ -267,7 +267,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     styles: contextStyles,
   } = useComponentConfig('table');
 
-  const mergedSize = useSize(customizeSize);
+  const mergedSize = useSize((ctx) =>
+    customizeSize === 'middle' ? 'medium' : (customizeSize ?? ctx),
+  );
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: TableProps<RecordType> = {
@@ -601,10 +603,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
     } else {
-      paginationSize =
-        mergedSize === 'small' || mergedSize === 'middle' || mergedSize === 'medium'
-          ? 'small'
-          : undefined;
+      paginationSize = mergedSize === 'small' || mergedSize === 'medium' ? 'small' : undefined;
     }
 
     const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
@@ -705,7 +704,6 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     const fontHeight = Math.floor(fontSize * lineHeight);
 
     switch (mergedSize) {
-      case 'middle':
       case 'medium':
         return paddingSM * 2 + fontHeight + lineWidth;
 
@@ -738,7 +736,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           prefixCls={prefixCls}
           className={clsx(
             {
-              [`${prefixCls}-medium`]: mergedSize === 'medium' || mergedSize === 'middle',
+              [`${prefixCls}-medium`]: mergedSize === 'medium',
               [`${prefixCls}-small`]: mergedSize === 'small',
               [`${prefixCls}-bordered`]: bordered,
               [`${prefixCls}-empty`]: rawData.length === 0,
