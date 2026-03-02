@@ -104,14 +104,16 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
   const { theme, ...restConfig } = config || {};
 
+  const mergedTheme = React.useMemo(
+    () => ({
+      ...theme,
+      inherit: false,
+    }),
+    [theme],
+  );
+
   return (
-    <ConfigProvider
-      {...restConfig}
-      theme={{
-        ...theme,
-        inherit: false,
-      }}
-    >
+    <ConfigProvider {...restConfig} theme={mergedTheme}>
       <Card className={clsx(containerClassName, styles.container)}>
         <App>
           <Flex vertical gap="middle" style={style} className={className}>
