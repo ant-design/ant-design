@@ -95,21 +95,22 @@ interface ComponentsBlockProps {
   style?: React.CSSProperties;
   className?: string;
   containerClassName?: string;
+  inherit?: boolean;
 }
 
 const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
   const [locale] = useLocale(locales);
   const { styles } = useStyle();
-  const { config, style, className, containerClassName } = props;
+  const { config, style, className, containerClassName, inherit = false } = props;
 
   const { theme, ...restConfig } = config || {};
 
   const mergedTheme = React.useMemo(
     () => ({
       ...theme,
-      inherit: false,
+      inherit,
     }),
-    [theme],
+    [theme, inherit],
   );
 
   return (

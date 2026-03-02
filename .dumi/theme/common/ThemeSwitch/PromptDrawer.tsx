@@ -394,7 +394,7 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
                 overflow: 'auto',
               }}
             >
-              <ComponentsBlock style={{ padding: 16 }} className="prompt-drawer-preview" />
+              <ComponentsBlock style={{ padding: 16 }} className="prompt-drawer-preview" inherit />
             </div>
           </Flex>
         </Splitter.Panel>
