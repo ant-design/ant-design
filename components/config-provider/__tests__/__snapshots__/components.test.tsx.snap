@@ -16716,7 +16716,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
   <div
     aria-busy="false"
     aria-live="polite"
-    class="config-spin css-var-root"
+    class="config-spin config-spin-lg css-var-root"
   >
     <div
       class="config-spin-container"
@@ -16824,7 +16824,7 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
   <div
     aria-busy="false"
     aria-live="polite"
-    class="config-spin css-var-root"
+    class="config-spin config-spin-sm css-var-root"
   >
     <div
       class="config-spin-container"
@@ -24389,7 +24389,7 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning config-spin-section css-var-root"
+  class="config-spin config-spin-lg config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24447,7 +24447,7 @@ exports[`ConfigProvider components Spin configProvider componentSize small 1`] =
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning config-spin-section css-var-root"
+  class="config-spin config-spin-sm config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -25754,7 +25754,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
   <div
     aria-busy="false"
     aria-live="polite"
-    class="config-spin css-var-root"
+    class="config-spin config-spin-lg css-var-root"
   >
     <div
       class="config-spin-container"
@@ -26366,7 +26366,7 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
   <div
     aria-busy="false"
     aria-live="polite"
-    class="config-spin css-var-root"
+    class="config-spin config-spin-sm css-var-root"
   >
     <div
       class="config-spin-container"
