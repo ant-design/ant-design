@@ -24,7 +24,7 @@ const App: React.FC = () => {
   const mergedPercent = auto ? 'auto' : percent;
 
   return (
-    <Flex align="center" gap="middle">
+    <Flex align="center" gap="medium">
       <Switch
         checkedChildren="Auto"
         unCheckedChildren="Auto"

@@ -54,7 +54,7 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Alert configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Alert configProvider componentSize medium 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon css-var-root"
   data-show="true"
@@ -228,7 +228,7 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Anchor configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Anchor configProvider componentSize medium 1`] = `
 <div
   class=""
 >
@@ -443,7 +443,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
 </div>
 `;
 
-exports[`ConfigProvider components AutoComplete configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components AutoComplete configProvider componentSize medium 1`] = `
 <div
   class="config-select config-select-outlined config-select-auto-complete css-var-root config-select-css-var config-select-single config-select-show-search"
 >
@@ -580,7 +580,7 @@ exports[`ConfigProvider components Avatar configProvider componentSize large 1`]
 </span>
 `;
 
-exports[`ConfigProvider components Avatar configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Avatar configProvider componentSize medium 1`] = `
 <span
   class="config-avatar config-avatar-circle css-var-root config-avatar-css-var"
 >
@@ -726,7 +726,7 @@ exports[`ConfigProvider components BackTop configProvider componentSize large 1`
 </div>
 `;
 
-exports[`ConfigProvider components BackTop configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components BackTop configProvider componentSize medium 1`] = `
 <div
   class="css-var-root config-back-top"
 >
@@ -973,7 +973,7 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Badge configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Badge configProvider componentSize medium 1`] = `
 <div>
   <span
     class="config-badge css-var-root"
@@ -1220,7 +1220,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
 </nav>
 `;
 
-exports[`ConfigProvider components Breadcrumb configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Breadcrumb configProvider componentSize medium 1`] = `
 <nav
   class="config-breadcrumb css-var-root"
 >
@@ -1454,7 +1454,7 @@ exports[`ConfigProvider components Button configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Button configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Button configProvider componentSize medium 1`] = `
 <div>
   <button
     class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
@@ -5328,7 +5328,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Calendar configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Calendar configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-picker-calendar config-picker-calendar-full css-var-root"
@@ -10362,9 +10362,9 @@ exports[`ConfigProvider components Card configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Card configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Card configProvider componentSize medium 1`] = `
 <div
-  class="config-card config-card-bordered config-card-contain-grid config-card-middle css-var-root"
+  class="config-card config-card-bordered config-card-contain-grid config-card-medium css-var-root"
 >
   <div
     class="config-card-body"
@@ -10770,7 +10770,7 @@ exports[`ConfigProvider components Carousel configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Carousel configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Carousel configProvider componentSize medium 1`] = `
 <div
   class="config-carousel css-var-root"
 >
@@ -11366,7 +11366,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Cascader configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Cascader configProvider componentSize medium 1`] = `
 <div
   class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-show-arrow config-select-show-search"
 >
@@ -11638,7 +11638,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Checkbox configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Checkbox configProvider componentSize medium 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
   role="group"
@@ -11879,7 +11879,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Collapse configProvider componentSize medium 1`] = `
 <div
   class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
@@ -12097,7 +12097,7 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider components ColorPicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components ColorPicker configProvider componentSize medium 1`] = `
 <div
   class="config-color-picker-trigger css-var-root config-color-picker-css-var"
 >
@@ -12267,7 +12267,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-picker config-picker-outlined css-var-root config-picker-css-var"
@@ -12569,7 +12569,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-picker config-picker-outlined css-var-root config-picker-css-var"
@@ -13007,7 +13007,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-picker config-picker-range config-picker-outlined css-var-root config-picker-css-var"
@@ -13489,7 +13489,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-picker config-picker-outlined css-var-root config-picker-css-var"
@@ -13682,7 +13682,7 @@ exports[`ConfigProvider components Divider configProvider componentSize large 1`
 />
 `;
 
-exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Divider configProvider componentSize medium 1`] = `
 <div
   class="config-divider css-var-root config-divider-horizontal config-divider-md config-divider-rail"
   role="separator"
@@ -13887,7 +13887,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Drawer configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Drawer configProvider componentSize medium 1`] = `
 <div
   class="config-drawer config-drawer-right css-var-root config-drawer-open config-drawer-inline"
   tabindex="-1"
@@ -14254,7 +14254,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Dropdown configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Dropdown configProvider componentSize medium 1`] = `
 <div
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
@@ -14642,7 +14642,7 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Empty configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Empty configProvider componentSize medium 1`] = `
 <div
   class="css-var-root config-empty"
 >
@@ -15069,7 +15069,7 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
 </form>
 `;
 
-exports[`ConfigProvider components Form configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Form configProvider componentSize medium 1`] = `
 <form
   class="config-form config-form-horizontal css-var-root config-form-css-var"
 >
@@ -15283,7 +15283,7 @@ exports[`ConfigProvider components Grid configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Grid configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Grid configProvider componentSize medium 1`] = `
 <div
   class="config-row css-var-root"
 >
@@ -15598,7 +15598,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Input configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Input configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-space-compact config-input-group css-var-root"
@@ -15609,7 +15609,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       value=""
     />
     <div
-      class="config-space-compact config-input-search css-var-root config-input-search-middle"
+      class="config-space-compact config-input-search css-var-root config-input-search-medium"
     >
       <input
         class="config-input config-input-outlined css-var-root config-input-css-var config-input-compact-item"
@@ -16117,7 +16117,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components InputNumber configProvider componentSize medium 1`] = `
 <div
   class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined"
 >
@@ -16489,7 +16489,7 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Layout configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Layout configProvider componentSize medium 1`] = `
 <div
   class="config-layout config-layout-has-sider css-var-root"
 >
@@ -16763,7 +16763,7 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components List configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components List configProvider componentSize medium 1`] = `
 <div
   class="config-list config-list-split css-var-root"
 >
@@ -17210,7 +17210,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Menu configProvider componentSize medium 1`] = `
 Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light css-var-root config-menu-css-var"
@@ -17772,7 +17772,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Modal configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Modal configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-modal-root css-var-root config-modal-css-var"
@@ -18893,10 +18893,10 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider components Pagination configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Pagination configProvider componentSize medium 1`] = `
 <div>
   <ul
-    class="config-pagination config-pagination-middle css-var-root"
+    class="config-pagination config-pagination-medium css-var-root"
   >
     <li
       aria-disabled="true"
@@ -20203,7 +20203,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider components Popconfirm configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Popconfirm configProvider componentSize medium 1`] = `
 <div>
   <span
     aria-describedby="test-id"
@@ -20642,7 +20642,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
 </div>
 `;
 
-exports[`ConfigProvider components Popover configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Popover configProvider componentSize medium 1`] = `
 <div>
   <span
     aria-describedby="test-id"
@@ -20851,7 +20851,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Progress configProvider componentSize medium 1`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
@@ -21136,7 +21136,7 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Radio configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Radio configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
@@ -22242,7 +22242,7 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
 </ul>
 `;
 
-exports[`ConfigProvider components Rate configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Rate configProvider componentSize medium 1`] = `
 <ul
   class="config-rate css-var-root"
   tabindex="0"
@@ -23585,7 +23585,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Select configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Select configProvider componentSize medium 1`] = `
 <div
   class="config-select config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
@@ -23873,7 +23873,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Skeleton configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Skeleton configProvider componentSize medium 1`] = `
 <div
   class="config-skeleton config-skeleton-with-avatar css-var-root"
 >
@@ -24131,7 +24131,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Slider configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Slider configProvider componentSize medium 1`] = `
 <div
   class="config-slider css-var-root config-slider-horizontal"
 >
@@ -24414,7 +24414,7 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Spin configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Spin configProvider componentSize medium 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
@@ -24590,7 +24590,7 @@ exports[`ConfigProvider components Statistic configProvider componentSize large 
 </div>
 `;
 
-exports[`ConfigProvider components Statistic configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Statistic configProvider componentSize medium 1`] = `
 <div
   class="config-statistic css-var-root"
 >
@@ -24799,9 +24799,9 @@ exports[`ConfigProvider components Steps configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Steps configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Steps configProvider componentSize medium 1`] = `
 <div
-  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-middle css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-medium css-var-root"
   style="--config-cmp-steps-items-offset: 0;"
 >
   <div
@@ -25041,7 +25041,7 @@ exports[`ConfigProvider components Switch configProvider componentSize large 1`]
 </button>
 `;
 
-exports[`ConfigProvider components Switch configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Switch configProvider componentSize medium 1`] = `
 <button
   aria-checked="false"
   class="config-switch css-var-root"
@@ -26053,7 +26053,7 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Table configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Table configProvider componentSize medium 1`] = `
 <div
   class="css-var-root config-table-css-var config-table-wrapper"
 >
@@ -27544,7 +27544,7 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tabs configProvider componentSize medium 1`] = `
 <div
   class="config-tabs config-tabs-top css-var-root config-tabs-css-var"
 >
@@ -27951,7 +27951,7 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Tags configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tags configProvider componentSize medium 1`] = `
 <div>
   <span
     class="config-tag config-tag-filled css-var-root"
@@ -31188,7 +31188,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider components TimePicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components TimePicker configProvider componentSize medium 1`] = `
 Array [
   <div
     class="config-picker config-picker-outlined css-var-root config-picker-css-var"
@@ -37525,9 +37525,9 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
 </ol>
 `;
 
-exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Timeline configProvider componentSize medium 1`] = `
 <ol
-  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-middle config-timeline css-var-root css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-medium config-timeline css-var-root css-var-root"
   style="--config-cmp-steps-items-offset: 0;"
 >
   <li
@@ -37743,7 +37743,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider components Tooltip configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tooltip configProvider componentSize medium 1`] = `
 Array [
   <span
     aria-describedby="test-id"
@@ -38706,7 +38706,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Transfer configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Transfer configProvider componentSize medium 1`] = `
 <div
   class="config-transfer css-var-root"
 >
@@ -40268,7 +40268,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Tree configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tree configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide css-var-root"
@@ -41023,7 +41023,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider components TreeSelect configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components TreeSelect configProvider componentSize medium 1`] = `
 <div
   class="config-select config-tree-select config-select-outlined css-var-root config-select-css-var config-tree-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
@@ -41492,7 +41492,7 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
 </span>
 `;
 
-exports[`ConfigProvider components Upload configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Upload configProvider componentSize medium 1`] = `
 <span
   class="config-upload-wrapper css-var-root"
 >

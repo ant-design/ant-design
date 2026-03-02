@@ -704,7 +704,7 @@ exports[`renders components/card/demo/inner.tsx extend context correctly 2`] = `
 
 exports[`renders components/card/demo/loading.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-medium ant-flex-vertical"
 >
   <button
     aria-checked="false"
@@ -1099,7 +1099,7 @@ exports[`renders components/card/demo/simple.tsx extend context correctly 2`] = 
 
 exports[`renders components/card/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <div
     class="ant-card css-var-test-id acss-1ri7sgv"

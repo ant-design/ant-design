@@ -1765,7 +1765,7 @@ exports[`renders components/collapse/demo/size.tsx extend context correctly 2`] 
 
 exports[`renders components/collapse/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-collapse ant-collapse-icon-placement-start css-var-test-id acss-1xdwrp5"

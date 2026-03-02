@@ -3666,7 +3666,7 @@ exports[`renders components/steps/demo/nav.tsx extend context correctly 2`] = `[
 
 exports[`renders components/steps/demo/panel.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-steps ant-steps-horizontal ant-steps-title-horizontal ant-steps-filled ant-steps-panel css-var-test-id"
@@ -4903,7 +4903,7 @@ exports[`renders components/steps/demo/progress-debug.tsx extend context correct
 
 exports[`renders components/steps/demo/progress-dot.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot css-var-test-id"
@@ -5106,7 +5106,7 @@ exports[`renders components/steps/demo/progress-dot.tsx extend context correctly
     role="separator"
   />
   <div
-    class="ant-flex css-var-test-id ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-medium"
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled ant-steps-dot css-var-test-id"
@@ -6281,7 +6281,7 @@ exports[`renders components/steps/demo/steps-in-steps.tsx extend context correct
 
 exports[`renders components/steps/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-test-id acss-1tcbvg1"
@@ -6999,7 +6999,7 @@ exports[`renders components/steps/demo/title-placement.tsx extend context correc
 
 exports[`renders components/steps/demo/variant-debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-filled css-var-test-id"
@@ -7613,7 +7613,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-flex css-var-test-id ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-medium"
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-with-progress css-var-test-id"
@@ -7933,7 +7933,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-flex css-var-test-id ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-medium"
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined css-var-test-id"
@@ -8343,7 +8343,7 @@ exports[`renders components/steps/demo/variant-debug.tsx extend context correctl
     </div>
   </div>
   <div
-    class="ant-flex css-var-test-id ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-medium"
   >
     <div
       class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-steps-small css-var-test-id"

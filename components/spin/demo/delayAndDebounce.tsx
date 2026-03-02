@@ -4,7 +4,7 @@ import { Alert, Flex, Spin, Switch } from 'antd';
 const App: React.FC = () => {
   const [loading, setLoading] = React.useState<boolean>(false);
   return (
-    <Flex gap="middle" vertical>
+    <Flex gap="medium" vertical>
       <Spin spinning={loading} delay={500}>
         <Alert
           type="info"
