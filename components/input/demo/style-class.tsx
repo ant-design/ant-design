@@ -93,7 +93,7 @@ const stylesFnSearch: SearchProps['styles'] = (info): GetProp<SearchProps, 'styl
 };
 
 const App: React.FC = () => {
-  const classNames = styles as any;
+  const classNames = styles;
   return (
     <Flex vertical gap="large">
       <Input
@@ -102,29 +102,35 @@ const App: React.FC = () => {
         name="input-object"
       />
       <Input
-        classNames={classNames}
+        classNames={{ root: classNames.focusEffect }}
         styles={stylesFn}
         placeholder="Function"
         size="medium"
         name="input-fn"
       />
       <TextArea
-        classNames={classNames}
+        classNames={{ root: classNames.focusEffect }}
         styles={stylesFnTextArea}
         value="TextArea"
         showCount
         name="textarea-fn"
       />
       <Password
-        classNames={classNames}
+        classNames={{ root: classNames.focusEffect }}
         styles={stylesFnPassword}
         value="Password"
         size="medium"
         name="password-fn"
       />
-      <OTP classNames={classNames} styles={stylesFnOTP} size="medium" length={6} separator="*" />
+      <OTP
+        classNames={{ root: classNames.focusEffect }}
+        styles={stylesFnOTP}
+        size="medium"
+        length={6}
+        separator="*"
+      />
       <Search
-        classNames={classNames}
+        classNames={{ root: classNames.focusEffect }}
         styles={stylesFnSearch}
         size="large"
         placeholder="Search"
