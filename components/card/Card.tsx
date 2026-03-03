@@ -150,7 +150,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   const [variant] = useVariant('card', customVariant, bordered);
 
   if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Badge');
+    const warning = devUseWarning('Card');
     warning.deprecated(customizeSize !== 'default', 'size="default"', 'size="medium"');
   }
 
