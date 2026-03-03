@@ -184,10 +184,30 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
+    let renderedEl: React.ReactNode;
+    let renderedText: string;
+
+    if (isRenderResultPlain) {
+      renderedEl = renderResult.label;
+      renderedText = renderResult.value;
+    } else {
+      renderedEl = renderResult;
+
+      if (typeof renderResult === 'string' || typeof renderResult === 'number') {
+        renderedText = String(renderResult);
+      } else if (typeof item.title === 'string' || typeof item.title === 'number') {
+        renderedText = String(item.title);
+      } else if (typeof item.key === 'string' || typeof item.key === 'number') {
+        renderedText = String(item.key);
+      } else {
+        renderedText = '';
+      }
+    }
+
     return {
       item,
-      renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
-      renderedText: isRenderResultPlain ? renderResult.value : (renderResult as string),
+      renderedEl,
+      renderedText,
     };
   };
 
