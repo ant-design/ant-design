@@ -1,6 +1,7 @@
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusOutline, resetComponent } from '../../style';
+import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -99,6 +100,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         borderRadius: token.borderRadiusSM,
         borderCollapse: 'separate',
         transition: `all ${token.motionDurationSlow}`,
+        ...genNoMotionStyle(),
 
         // Checkmark
         '&:after': {
@@ -116,6 +118,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           opacity: 0,
           content: '""',
           transition: `all ${token.motionDurationFast} ${token.motionEaseInBack}, opacity ${token.motionDurationFast}`,
+          ...genNoMotionStyle(),
         },
 
         // Wrapper > Checkbox > input
@@ -173,6 +176,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           opacity: 1,
           transform: 'rotate(45deg) scale(1) translate(-50%,-50%)',
           transition: `all ${token.motionDurationMid} ${token.motionEaseOutBack} ${token.motionDurationFast}`,
+          ...genNoMotionStyle(),
         },
 
         // Hover on checked checkbox directly

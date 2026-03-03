@@ -1,11 +1,19 @@
 import React from 'react';
 
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
   const Collapse = require('..').default;
+  const Panel = Collapse.Panel;
+
+  mountTest(Collapse);
+  mountTest(Panel);
+  rtlTest(Collapse);
+  rtlTest(Panel);
 
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 

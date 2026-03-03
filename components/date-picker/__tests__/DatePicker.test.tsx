@@ -12,8 +12,8 @@ import MockDate from 'mockdate';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
 
@@ -546,6 +546,86 @@ describe('DatePicker', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+    });
+  });
+
+  describe('allowClear', () => {
+    it('should support allowClear prop', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(<DatePicker value={somePoint} allowClear={false} />);
+      expect(getClearButton()).toBeFalsy();
+
+      render(<DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />, {
+        container,
+      });
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should support allowClear prop in config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(
+        <ConfigProvider datePicker={{ allowClear: false }}>
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeFalsy();
+
+      render(
+        <ConfigProvider datePicker={{ allowClear: { clearIcon: <CloseCircleFilled /> } }}>
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+        { container },
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should prefer allowClear prop over config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <ConfigProvider datePicker={{ allowClear: false }}>
+          <DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+  });
+
+  describe('clearIcon', () => {
+    it('should support clearIcon prop', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <DatePicker
+          value={somePoint}
+          allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+        />,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+    it('should support clearIcon prop in config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <ConfigProvider
+          datePicker={{ allowClear: { clearIcon: <div data-testid="custom-clear" /> } }}
+        >
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+    it('should prefer clearIcon prop over config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(
+        <ConfigProvider
+          datePicker={{ allowClear: { clearIcon: <div data-testid="config-clear" /> } }}
+        >
+          <DatePicker
+            value={somePoint}
+            allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+          />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('[data-testid="custom-clear"]')).toBeTruthy();
+      expect(container.querySelector('[data-testid="config-clear"]')).toBeFalsy();
     });
   });
 });

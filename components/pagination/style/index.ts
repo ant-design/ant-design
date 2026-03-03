@@ -665,7 +665,7 @@ const genPaginationStyle: GenerateStyle<PaginationToken, CSSObject> = (token) =>
   };
 };
 
-const genPaginationFocusStyle: GenerateStyle<PaginationToken> = (token) => {
+const genPaginationFocusStyle: GenerateStyle<PaginationToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {

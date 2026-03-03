@@ -34,7 +34,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex align="center" gap="middle">
+    <Flex align="center" gap="medium">
       <Spin {...sharedProps} styles={stylesObject} />
       <Spin {...sharedProps} styles={stylesFn} size="small" />
     </Flex>

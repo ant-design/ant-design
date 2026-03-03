@@ -77,13 +77,14 @@ export interface CheckableTagGroupRef {
   nativeElement: HTMLDivElement;
 }
 
-function CheckableTagGroup<CheckableTagValue extends string | number>(
-  props: CheckableTagGroupProps<CheckableTagValue>,
-  ref: React.Ref<CheckableTagGroupRef>,
-) {
+type CheckableTagValue = string | number;
+
+const CheckableTagGroup = React.forwardRef<
+  CheckableTagGroupRef,
+  CheckableTagGroupProps<CheckableTagValue>
+>((props, ref) => {
   const {
     id,
-
     prefixCls: customizePrefixCls,
     rootClassName,
     className,
@@ -126,19 +127,17 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   });
 
   // =============================== Option ===============================
-  const parsedOptions = useMemo(
-    () =>
-      (options || []).map((option) => {
-        if (option && typeof option === 'object') {
-          return option;
-        }
-        return {
-          value: option,
-          label: option,
-        };
-      }),
-    [options],
-  );
+  const parsedOptions = useMemo(() => {
+    if (!Array.isArray(options)) {
+      return [];
+    }
+    return options.map((option) => {
+      if (option && typeof option === 'object') {
+        return option;
+      }
+      return { value: option, label: option };
+    });
+  }, [options]);
 
   // =============================== Values ===============================
   const [mergedValue, setMergedValue] = useControlledState(defaultValue, value);
@@ -215,18 +214,12 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
       ))}
     </div>
   );
-}
-
-const ForwardCheckableTagGroup = React.forwardRef(CheckableTagGroup) as (<
-  CheckableTagValue extends string | number,
->(
+}) as (<CheckableTagValue extends string | number>(
   props: CheckableTagGroupProps<CheckableTagValue> & { ref?: React.Ref<CheckableTagGroupRef> },
-) => React.ReactElement) & {
-  displayName?: string;
-};
+) => React.ReactElement<any>) & { displayName?: string };
 
 if (process.env.NODE_ENV !== 'production') {
-  ForwardCheckableTagGroup.displayName = 'CheckableTagGroup';
+  CheckableTagGroup.displayName = 'CheckableTagGroup';
 }
 
-export default ForwardCheckableTagGroup;
+export default CheckableTagGroup;

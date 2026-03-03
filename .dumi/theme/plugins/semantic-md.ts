@@ -19,8 +19,8 @@ function extractSemantics(objContent: string): Record<string, string> {
 }
 
 /**
- * 从 _semantic*.tsx 文件中提取语义信息
- * @param semanticFile - _semantic*.tsx 文件的绝对路径
+ * 从 _semantic*.tsx 文件内容中提取语义信息
+ * @param content - _semantic*.tsx 文件的文件内容字符串
  * @returns 包含中文和英文语义描述的对象，失败返回 null
  */
 function extractLocaleInfoFromContent(content: string): {
@@ -29,14 +29,20 @@ function extractLocaleInfoFromContent(content: string): {
 } | null {
   // 匹配 locales 对象定义
   const localesMatch = content.match(/const locales = \{([\s\S]*?)\};/);
-  if (!localesMatch) return null;
+  if (!localesMatch) {
+    return null;
+  }
 
   // 提取中文和英文的语义描述
   const cnMatch = content.match(/cn:\s*\{([\s\S]*?)\},?\s*en:/);
-  if (!cnMatch) return null;
+  if (!cnMatch) {
+    return null;
+  }
 
   const enMatch = content.match(/en:\s*\{([\s\S]*?)\}\s*[,;]/);
-  if (!enMatch) return null;
+  if (!enMatch) {
+    return null;
+  }
 
   const cnContent = cnMatch[1];
   const enContent = enMatch[1];
@@ -44,7 +50,9 @@ function extractLocaleInfoFromContent(content: string): {
   const cnSemantics = extractSemantics(cnContent);
   const enSemantics = extractSemantics(enContent);
 
-  if (Object.keys(cnSemantics).length === 0) return null;
+  if (Object.keys(cnSemantics).length === 0) {
+    return null;
+  }
 
   return { cn: cnSemantics, en: enSemantics };
 }
@@ -60,7 +68,9 @@ function resolveTemplateFilePath(semanticFile: string, importPath: string): stri
     path.join(basePath, 'index.ts'),
   ];
   for (const candidate of candidates) {
-    if (fs.existsSync(candidate)) return candidate;
+    if (fs.existsSync(candidate)) {
+      return candidate;
+    }
   }
   return null;
 }
@@ -72,7 +82,9 @@ function parseTemplateUsage(content: string): Array<{ componentName: string; imp
   for (const match of content.matchAll(importRegex)) {
     const importClause = match[1].trim();
     const importPath = match[2].trim();
-    if (!importPath.startsWith('.')) continue;
+    if (!importPath.startsWith('.')) {
+      continue;
+    }
 
     const componentNames: string[] = [];
     if (importClause.startsWith('{')) {
@@ -119,7 +131,9 @@ function parseTemplateUsage(content: string): Array<{ componentName: string; imp
 // 解析 ignoreSemantics 属性值
 function parseIgnoreSemantics(propsString: string): string[] {
   const ignoreMatch = propsString.match(/ignoreSemantics\s*=\s*\{([\s\S]*?)\}/);
-  if (!ignoreMatch) return [];
+  if (!ignoreMatch) {
+    return [];
+  }
   const ignoreContent = ignoreMatch[1];
   return Array.from(ignoreContent.matchAll(/['"]([^'"]+)['"]/g)).map((match) => match[1]);
 }
@@ -127,8 +141,12 @@ function parseIgnoreSemantics(propsString: string): string[] {
 // 解析 singleOnly 属性值
 function parseSingleOnly(propsString: string): boolean {
   const singleOnlyMatch = propsString.match(/singleOnly(\s*=\s*\{?([^}\s]+)\}?)?/);
-  if (!singleOnlyMatch) return false;
-  if (!singleOnlyMatch[1]) return true;
+  if (!singleOnlyMatch) {
+    return false;
+  }
+  if (!singleOnlyMatch[1]) {
+    return true;
+  }
   const value = singleOnlyMatch[2];
   return value !== 'false';
 }
@@ -136,7 +154,9 @@ function parseSingleOnly(propsString: string): boolean {
 // 抽取模板组件 JSX 的属性字符串
 function extractTemplateProps(content: string, componentName: string): string {
   const start = content.indexOf(`<${componentName}`);
-  if (start === -1) return '';
+  if (start === -1) {
+    return '';
+  }
   let index = start + componentName.length + 1;
   const propsStart = index;
   let braceDepth = 0;
@@ -164,7 +184,9 @@ function extractTemplateProps(content: string, componentName: string): string {
     }
 
     if (ch === '}') {
-      if (braceDepth > 0) braceDepth -= 1;
+      if (braceDepth > 0) {
+        braceDepth -= 1;
+      }
       continue;
     }
 
@@ -198,15 +220,21 @@ function extractSemanticInfoFromTemplate(
   content: string,
 ): { cn: Record<string, string>; en: Record<string, string> } | null {
   const templates = parseTemplateUsage(content);
-  if (templates.length === 0) return null;
+  if (templates.length === 0) {
+    return null;
+  }
 
   for (const template of templates) {
     const templatePath = resolveTemplateFilePath(semanticFile, template.importPath);
-    if (!templatePath) continue;
+    if (!templatePath) {
+      continue;
+    }
 
     const templateContent = fs.readFileSync(templatePath, 'utf-8');
     const templateLocales = extractLocaleInfoFromContent(templateContent);
-    if (!templateLocales) continue;
+    if (!templateLocales) {
+      continue;
+    }
 
     const propsString = extractTemplateProps(content, template.componentName);
     const ignoreSemantics = parseIgnoreSemantics(propsString);
@@ -235,11 +263,15 @@ function extractSemanticInfo(semanticFile: string): {
   en: Record<string, string>;
 } | null {
   try {
-    if (!fs.existsSync(semanticFile)) return null;
+    if (!fs.existsSync(semanticFile)) {
+      return null;
+    }
 
     const content = fs.readFileSync(semanticFile, 'utf-8');
     const localeInfo = extractLocaleInfoFromContent(content);
-    if (localeInfo) return localeInfo;
+    if (localeInfo) {
+      return localeInfo;
+    }
 
     return extractSemanticInfoFromTemplate(semanticFile, content);
   } catch (error) {
@@ -324,9 +356,12 @@ function getComponentHTMLSnapshot(semanticFile: string, cwd: string): string | n
   try {
     const relativePath = path.relative(cwd, semanticFile);
     const pathMatch = relativePath.match(/^components\/([^/]+)\/demo\/([^/]+)\.tsx$/);
-    if (!pathMatch) return null;
+    if (!pathMatch) {
+      return null;
+    }
 
     const [, componentName, fileName] = pathMatch;
+
     const snapshotPath = path.join(
       cwd,
       'components',
@@ -336,7 +371,9 @@ function getComponentHTMLSnapshot(semanticFile: string, cwd: string): string | n
       'demo-semantic.test.tsx.snap',
     );
 
-    if (!fs.existsSync(snapshotPath)) return null;
+    if (!fs.existsSync(snapshotPath)) {
+      return null;
+    }
 
     const snapshotContent = fs.readFileSync(snapshotPath, 'utf-8');
     // 匹配快照 key：exports[`renders components/button/demo/_semantic.tsx correctly 1`] = `...`;
@@ -345,7 +382,9 @@ function getComponentHTMLSnapshot(semanticFile: string, cwd: string): string | n
       `exports\\[\\\`[^\\\`]*${snapshotKeyPattern.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}[^\\\`]*\\\`\\]\\s*=\\s*\\\`([\\s\\S]*?)\\\`;`,
     );
     const snapshotMatch = snapshotContent.match(regex);
-    if (!snapshotMatch) return null;
+    if (!snapshotMatch) {
+      return null;
+    }
 
     let html = snapshotMatch[1].trim();
 
@@ -415,8 +454,12 @@ function getComponentHTMLSnapshot(semanticFile: string, cwd: string): string | n
  * @param api - Dumi API 实例
  */
 function emitSemanticMd(api: IApi) {
-  if (process.env.NODE_ENV !== 'production') return;
-  if (SEMANTIC_MD_EMITTED) return;
+  if (process.env.NODE_ENV !== 'production') {
+    return;
+  }
+  if (SEMANTIC_MD_EMITTED) {
+    return;
+  }
   SEMANTIC_MD_EMITTED = true;
 
   const outRoot = api.paths.absOutputPath;

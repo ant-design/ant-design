@@ -7,6 +7,8 @@ import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import Tooltip from '../tooltip';
 import type { TooltipProps } from '../tooltip';
 import useStyle from './style';
@@ -18,7 +20,7 @@ const isTooltipProps = (item: TooltipProps | string): item is TooltipProps => {
 export interface RateProps extends RcRateProps {
   rootClassName?: string;
   tooltips?: (TooltipProps | string)[];
-  size?: 'small' | 'middle' | 'large';
+  size?: SizeType;
 }
 
 const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
@@ -30,7 +32,7 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
     tooltips,
     character = <StarFilled />,
     disabled: customDisabled,
-    size = 'middle',
+    size,
     ...rest
   } = props;
 
@@ -66,6 +68,9 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
+  // ===================== Size =====================
+  const mergedSize = useSize((ctx) => size ?? ctx);
+
   return (
     <RcRate
       ref={ref}
@@ -74,7 +79,10 @@ const Rate = React.forwardRef<RateRef, RateProps>((props, ref) => {
       disabled={mergedDisabled}
       {...rest}
       className={clsx(
-        `${ratePrefixCls}-${size}`,
+        {
+          [`${ratePrefixCls}-large`]: mergedSize === 'large',
+          [`${ratePrefixCls}-small`]: mergedSize === 'small',
+        },
         className,
         rootClassName,
         hashId,

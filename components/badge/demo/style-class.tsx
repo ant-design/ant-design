@@ -59,7 +59,7 @@ const ribbonStylesFn: RibbonProps['styles'] = (info) => {
 const App: React.FC = () => {
   return (
     <Space size="large" vertical>
-      <Flex gap="middle">
+      <Flex gap="medium">
         <Badge size="small" count={5} classNames={badgeClassNames} styles={badgeStyles}>
           <Avatar shape="square" size="large" />
         </Badge>
@@ -67,7 +67,7 @@ const App: React.FC = () => {
           <Avatar shape="square" size="large" />
         </Badge>
       </Flex>
-      <Flex vertical gap="middle">
+      <Flex vertical gap="medium">
         <Badge.Ribbon text="Custom Ribbon" classNames={ribbonClassNames} styles={ribbonStyles}>
           <Card title="Card with custom ribbon" size="small">
             This card has a customized ribbon with semantic classNames and styles.

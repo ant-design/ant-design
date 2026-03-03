@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { genComponentStyleHook } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -7,7 +9,7 @@ export interface ComponentToken {}
 
 export interface WaveToken extends FullToken<'Wave'> {}
 
-const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
+const genWaveStyle: GenerateStyle<WaveToken, CSSObject> = (token) => {
   const {
     componentCls,
     colorPrimary,

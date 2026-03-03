@@ -62,7 +62,7 @@ export interface ComponentToken {
 
 interface DescriptionsToken extends FullToken<'Descriptions'> {}
 
-const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
+const genBorderedStyle: GenerateStyle<DescriptionsToken, CSSObject> = (token) => {
   const { componentCls, labelBg } = token;
   return {
     [`&${componentCls}-bordered`]: {
@@ -118,7 +118,7 @@ const genBorderedStyle = (token: DescriptionsToken): CSSObject => {
   };
 };
 
-const genDescriptionStyles: GenerateStyle<DescriptionsToken> = (token) => {
+const genDescriptionStyles: GenerateStyle<DescriptionsToken, CSSObject> = (token) => {
   const {
     componentCls,
     extraColor,

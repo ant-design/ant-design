@@ -225,7 +225,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
+  const [innerLoading, setInnerLoading] = useState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -255,10 +255,10 @@ const InternalCompoundedButton = React.forwardRef<
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
-        setLoading(true);
+        setInnerLoading(true);
       }, loadingOrDelay.delay);
     } else {
-      setLoading(loadingOrDelay.loading);
+      setInnerLoading(loadingOrDelay.loading);
     }
 
     function cleanupTimer() {
@@ -334,11 +334,7 @@ const InternalCompoundedButton = React.forwardRef<
   // ========================== Size ==========================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined, medium: undefined };
-
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
-
-  const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
@@ -385,7 +381,8 @@ const InternalCompoundedButton = React.forwardRef<
 
       [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
       [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
-      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-lg`]: sizeFullName === 'large',
+      [`${prefixCls}-sm`]: sizeFullName === 'small',
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
       [`${prefixCls}-loading`]: innerLoading,

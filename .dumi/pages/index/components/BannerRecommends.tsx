@@ -113,8 +113,10 @@ const RecommendItem: React.FC<RecommendItemProps> = (props) => {
   const [mousePosition, setMousePosition] = React.useState<[number, number]>([0, 0]);
   const [transMousePosition, setTransMousePosition] = React.useState<[number, number]>([0, 0]);
 
-  const onMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!cardRef.current) return;
+  const onMouseMove: React.MouseEventHandler<HTMLAnchorElement> = (e) => {
+    if (!cardRef.current) {
+      return;
+    }
 
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;

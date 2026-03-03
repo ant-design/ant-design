@@ -35,7 +35,6 @@ demo:
 <code src="./demo/multi-level-drawer.tsx">多层抽屉</code>
 <code src="./demo/size.tsx">预设宽度</code>
 <code src="./demo/mask.tsx">遮罩</code>
-<code src="./demo/classNames.tsx">自定义内部样式</code>
 <code src="./demo/closable-placement.tsx" version="5.28.0">关闭按钮位置</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/config-provider.tsx" debug>ConfigProvider</code>

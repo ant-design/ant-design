@@ -7269,7 +7269,7 @@ exports[`renders components/dropdown/demo/selectable.tsx extend context correctl
 
 exports[`renders components/dropdown/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-medium"
 >
   <div
     class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"

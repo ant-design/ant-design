@@ -2010,7 +2010,7 @@ describe('Table.filter', () => {
     ];
 
     const App: React.FC = () => {
-      const [ddd, setData] = React.useState<Array<DataType>>([
+      const [data, setData] = React.useState<Array<DataType>>([
         {
           key: '1',
           name: 'John Brown',
@@ -2089,7 +2089,7 @@ describe('Table.filter', () => {
           <span className="rest-btn" onClick={handleClick}>
             refresh
           </span>
-          <Table columns={cs} dataSource={ddd} />
+          <Table columns={cs} dataSource={data} />
         </div>
       );
     };

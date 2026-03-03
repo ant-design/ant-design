@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 
 import Alert from '..';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
+import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
@@ -17,6 +18,7 @@ const { resetWarned } = warning;
 const { ErrorBoundary } = Alert;
 
 describe('Alert', () => {
+  mountTest(Alert);
   rtlTest(Alert);
   accessibilityTest(Alert);
 

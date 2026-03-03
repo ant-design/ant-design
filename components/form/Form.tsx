@@ -91,6 +91,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     styles: contextStyles,
     classNames: contextClassNames,
     tooltip: contextTooltip,
+    labelAlign: contextLabelAlign,
   } = useComponentConfig('form');
 
   const {
@@ -144,6 +145,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
 
   const mergedColon = colon ?? contextColon;
 
+  const mergedLabelAlign = labelAlign ?? contextLabelAlign;
+
   const mergedTooltip = { ...contextTooltip, ...tooltip };
 
   const prefixCls = getPrefixCls('form', customizePrefixCls);
@@ -176,7 +179,8 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     {
       [`${prefixCls}-hide-required-mark`]: mergedRequiredMark === false, // todo: remove in next major version
       [`${prefixCls}-rtl`]: direction === 'rtl',
-      [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-large`]: mergedSize === 'large',
+      [`${prefixCls}-small`]: mergedSize === 'small',
     },
     cssVarCls,
     rootCls,
@@ -194,7 +198,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
   const formContextValue = React.useMemo<FormContextProps>(
     () => ({
       name,
-      labelAlign,
+      labelAlign: mergedLabelAlign,
       labelCol,
       labelWrap,
       wrapperCol,
@@ -210,7 +214,7 @@ const InternalForm: React.ForwardRefRenderFunction<FormRef, FormProps> = (props,
     }),
     [
       name,
-      labelAlign,
+      mergedLabelAlign,
       labelCol,
       wrapperCol,
       layout,

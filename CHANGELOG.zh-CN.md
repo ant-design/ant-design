@@ -15,6 +15,24 @@ tag: vVERSION
 
 ---
 
+## 6.3.1
+
+`2026-02-24`
+
+- Select
+  - 🐞 Select 修复 `value` 为空字符串时下拉框高度不正确的问题。[#56976](https://github.com/ant-design/ant-design/pull/56976) [@zombieJ](https://github.com/zombieJ)
+  - 🐞 Select 修复 `value` 为空字符串时值回显异常的问题。[#56966](https://github.com/ant-design/ant-design/pull/56966) [@luozz1994](https://github.com/luozz1994)
+  - 🐞 Select & TreeSelect 修复搜索时已选中值文本仍然显示的问题。[#56946](https://github.com/ant-design/ant-design/pull/56946)
+- 🐞 TreeSelect 修复多行文本时 Checkbox 被压缩变形的问题。[#56961](https://github.com/ant-design/ant-design/pull/56961) [@luozz1994](https://github.com/luozz1994)
+- 🐞 Typography 修复同时开启 `copyable` 和 `ellipsis` 时，悬停复制按钮会触发省略号 tooltip 的问题；修复从复制按钮移回文字后省略号 tooltip 不再出现的问题。[#56855](https://github.com/ant-design/ant-design/pull/56855) [@claytonlin1110](https://github.com/claytonlin1110)
+- 🐞 Progress 修复 `status="active"` 时动画溢出的问题。[#56972](https://github.com/ant-design/ant-design/pull/56972) [@aibayanyu20](https://github.com/aibayanyu20)
+- 🐞 Upload 修复照片墙模式下文件数量超过一行时列表溢出重叠的问题。[#56945](https://github.com/ant-design/ant-design/pull/56945) [@xbsheng](https://github.com/xbsheng)
+- 🐞 Image 修复打开预览时，部分浏览器会出现闪烁的问题。[#56937](https://github.com/ant-design/ant-design/pull/56937) [@zombieJ](https://github.com/zombieJ)
+- ⌨️ ♿ 为 Button、Checkbox、Radio、Switch、Segmented 等组件添加 `prefers-reduced-motion` 媒体查询支持，禁用过渡动画以改善无障碍体验。[#56902](https://github.com/ant-design/ant-design/pull/56902) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 Input 修复 `variant="borderless"` 时高度与 Select 不一致的问题。[#57014](https://github.com/ant-design/ant-design/pull/57014) [@njlazzar-su](https://github.com/njlazzar-su)
+- 🐞 Modal 修复 `confirm` 方法在 `icon` 为空时布局出现多余空白的问题。[#57024](https://github.com/ant-design/ant-design/pull/57024) [@Arktomson](https://github.com/Arktomson)
+- 🐞 Select 组件中的禁用选项添加 `aria-disabled` 属性。[#57049](https://github.com/ant-design/ant-design/pull/57049) [@meet-student](https://github.com/meet-student)
+
 ## 6.3.0
 
 `2026-02-10`

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flex, Splitter, Typography } from 'antd';
+import React, { useState } from 'react';
+import { Flex, Splitter, Switch, Typography } from 'antd';
 import type { SplitterProps } from 'antd';
 
 const Desc: React.FC<Readonly<{ text?: string | number }>> = (props) => (
@@ -21,11 +21,23 @@ const CustomSplitter: React.FC<Readonly<SplitterProps>> = ({ style, ...restProps
   </Splitter>
 );
 
-const App: React.FC = () => (
-  <Flex gap="middle" vertical>
-    <CustomSplitter style={{ height: 200 }} />
-    <CustomSplitter style={{ height: 300 }} orientation="vertical" />
-  </Flex>
-);
+const App: React.FC = () => {
+  const [motion, setMotion] = useState(true);
+
+  return (
+    <Flex vertical gap="middle">
+      <Flex gap="middle">
+        <Switch
+          checked={motion}
+          onChange={setMotion}
+          checkedChildren="motion"
+          unCheckedChildren="motion"
+        />
+      </Flex>
+      <CustomSplitter style={{ height: 200 }} collapsible={{ motion }} />
+      <CustomSplitter style={{ height: 300 }} orientation="vertical" collapsible={{ motion }} />
+    </Flex>
+  );
+};
 
 export default App;

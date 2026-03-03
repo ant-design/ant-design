@@ -19,7 +19,7 @@ export interface ComponentToken {
 
 interface StatisticToken extends FullToken<'Statistic'> {}
 
-const genStatisticStyle: GenerateStyle<StatisticToken> = (token: StatisticToken): CSSObject => {
+const genStatisticStyle: GenerateStyle<StatisticToken, CSSObject> = (token) => {
   const {
     componentCls,
     marginXXS,

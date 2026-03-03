@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genBasicInputStyle, genPlaceholderStyle, initInputToken } from '../../input/style';
@@ -324,7 +325,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
   ];
 };
 
-const genCompatibleStyles: GenerateStyle<InputNumberToken> = (token: InputNumberToken) => {
+const genCompatibleStyles: GenerateStyle<InputNumberToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
 
   return {

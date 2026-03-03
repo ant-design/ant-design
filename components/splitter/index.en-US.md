@@ -44,7 +44,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 6.0.0 |
+| collapsible | `motion` to enable collapse animation, `icon` to customize collapse icons | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 |
+| ~collapsibleIcon~ | custom collapsible icon | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 |

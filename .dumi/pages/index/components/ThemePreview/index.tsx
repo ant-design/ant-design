@@ -13,11 +13,15 @@ const locales = {
   cn: {
     themeTitle: '定制主题，随心所欲',
     themeDesc: '开放样式算法与语义化结构，让你与 AI 一起轻松定制主题',
+    aiGenerate: 'AI 生成主题',
+    aiGenerateDesc: '用一句话描述你想要的风格',
   },
   en: {
     themeTitle: 'Flexible theme customization',
     themeDesc:
       'Open style algorithms and semantic structures make it easy for you and AI to customize themes',
+    aiGenerate: 'AI Generate Theme',
+    aiGenerateDesc: 'Describe your desired style',
   },
 };
 
@@ -40,7 +44,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     listStyleType: 'none',
     display: 'flex',
     flexDirection: 'column',
-    gap: cssVar.paddingMD,
+    gap: cssVar.paddingSM,
   }),
   listItem: css({
     margin: 0,
@@ -52,11 +56,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     borderRadius: cssVar.borderRadius,
     borderColor: 'transparent',
     transition: `all ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
+    cursor: 'pointer',
 
-    '&:hover:not(.active)': {
+    '&:hover:not(.active):not(.dark)': {
       borderColor: cssVar.colorPrimaryBorder,
       backgroundColor: cssVar.colorPrimaryBg,
-      cursor: 'pointer',
     },
 
     '&:focus-visible': {
@@ -82,6 +86,32 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     },
   }),
 
+  // AI Generate Item
+  aiGenerateItem: css({
+    borderStyle: 'dashed',
+    opacity: 0.7,
+    cursor: 'pointer',
+    paddingInline: cssVar.padding,
+  }),
+
+  aiGenerateContent: css({
+    position: 'relative',
+    zIndex: 1,
+  }),
+
+  aiGenerateIcon: css({
+    fontSize: 14,
+    marginRight: 6,
+    opacity: 0.6,
+  }),
+
+  aiGenerateDesc: css({
+    fontSize: cssVar.fontSizeSM,
+    opacity: 0.5,
+    marginTop: 2,
+    fontWeight: 400,
+  }),
+
   // Components
   componentsBlockContainer: css({
     flex: 'auto',
@@ -98,7 +128,12 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   }),
 }));
 
-export default function ThemePreview() {
+export interface ThemePreviewProps {
+  onOpenPromptDrawer?: () => void;
+}
+
+export default function ThemePreview(props: ThemePreviewProps = {}) {
+  const { onOpenPromptDrawer } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyles();
   const isDark = React.use(DarkContext);
@@ -111,10 +146,7 @@ export default function ThemePreview() {
     const defaultThemeName = isDark ? 'dark' : 'light';
 
     const targetTheme =
-      process.env.NODE_ENV !== 'production'
-        ? previewThemes[previewThemes.length - 1].name
-        : previewThemes.find((theme) => theme.key === defaultThemeName)?.name ||
-          previewThemes[0].name;
+      previewThemes.find((theme) => theme.key === defaultThemeName)?.name || previewThemes[0].name;
 
     setActiveName(targetTheme);
   }, [isDark]);
@@ -148,24 +180,54 @@ export default function ThemePreview() {
         backgroundPrefetchList={backgroundPrefetchList}
       >
         <Flex className={styles.container} gap="large">
-          <div className={styles.list} role="tablist" aria-label="Theme selection">
-            {previewThemes.map((theme) => (
+          <div
+            style={{
+              display: 'flex',
+            }}
+          >
+            <div className={styles.list} role="tablist" aria-label="Theme selection">
+              {previewThemes.map((theme) => (
+                <div
+                  className={clsx(
+                    styles.listItem,
+                    activeName === theme.name && 'active',
+                    activeTheme?.bgImgDark && 'dark',
+                  )}
+                  key={theme.name}
+                  role="tab"
+                  tabIndex={activeName === theme.name ? 0 : -1}
+                  aria-selected={activeName === theme.name}
+                  onClick={() => handleThemeClick(theme.name)}
+                  onKeyDown={(event) => handleKeyDown(event, theme.name)}
+                  style={{ marginBottom: 8 }}
+                >
+                  {theme.name}
+                </div>
+              ))}
+              {/* AI 生成主题 - 最后一个选项 */}
               <div
                 className={clsx(
                   styles.listItem,
-                  activeName === theme.name && 'active',
+                  styles.aiGenerateItem,
                   activeTheme?.bgImgDark && 'dark',
                 )}
-                key={theme.name}
                 role="tab"
-                tabIndex={activeName === theme.name ? 0 : -1}
-                aria-selected={activeName === theme.name}
-                onClick={() => handleThemeClick(theme.name)}
-                onKeyDown={(event) => handleKeyDown(event, theme.name)}
+                tabIndex={0}
+                onClick={onOpenPromptDrawer}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    onOpenPromptDrawer?.();
+                  }
+                }}
               >
-                {theme.name}
+                <div className={styles.aiGenerateContent}>
+                  <span className={styles.aiGenerateIcon}>🎨</span>
+                  <span>{locale.aiGenerate}</span>
+                </div>
+                <div className={styles.aiGenerateDesc}>{locale.aiGenerateDesc}</div>
               </div>
-            ))}
+            </div>
           </div>
           <ComponentsBlock
             key={activeName}

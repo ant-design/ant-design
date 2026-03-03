@@ -34,7 +34,6 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <code src="./demo/user-profile.tsx">Preview drawer</code>
 <code src="./demo/multi-level-drawer.tsx">Multi-level drawer</code>
 <code src="./demo/size.tsx">Preset size</code>
-<code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/mask.tsx">mask</code>
 <code src="./demo/closable-placement.tsx" version="5.28.0">Closable placement</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>

@@ -61,8 +61,6 @@ export interface DividerProps {
   styles?: DividerStylesType;
 }
 
-const sizeClassNameMap: Record<string, string> = { small: 'sm', middle: 'md' };
-
 const Divider: React.FC<DividerProps> = (props) => {
   const {
     getPrefixCls,
@@ -99,7 +97,6 @@ const Divider: React.FC<DividerProps> = (props) => {
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
   const sizeFullName = useSize(customSize);
-  const sizeCls = sizeClassNameMap[sizeFullName];
 
   const hasChildren = !!children;
 
@@ -154,7 +151,8 @@ const Divider: React.FC<DividerProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
       [`${prefixCls}-no-default-orientation-margin-start`]: hasMarginStart,
       [`${prefixCls}-no-default-orientation-margin-end`]: hasMarginEnd,
-      [`${prefixCls}-${sizeCls}`]: !!sizeCls,
+      [`${prefixCls}-md`]: sizeFullName === 'medium' || sizeFullName === 'middle',
+      [`${prefixCls}-sm`]: sizeFullName === 'small',
       [railCls]: !children,
       [mergedClassNames.rail as string]: mergedClassNames.rail && !children,
     },

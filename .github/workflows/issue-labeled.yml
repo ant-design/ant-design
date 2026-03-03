@@ -9,12 +9,17 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
 jobs:
   issue-labeled:
     permissions:
       issues: write  # for actions-cool/issues-helper to update issues
       pull-requests: write  # for actions-cool/issues-helper to update PRs
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
     steps:
       - name: help wanted
         if: github.event.label.name == 'help wanted'

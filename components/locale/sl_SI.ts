@@ -5,6 +5,8 @@ import Calendar from '../calendar/locale/sl_SI';
 import DatePicker from '../date-picker/locale/sl_SI';
 import TimePicker from '../time-picker/locale/sl_SI';
 
+const typeTemplate = '${label} ni veljaven ${type}';
+
 const localeValues: Locale = {
   locale: 'sl',
   Pagination,
@@ -50,6 +52,62 @@ const localeValues: Locale = {
   },
   Empty: {
     description: 'Ni podatkov',
+  },
+  Text: {
+    edit: 'Uredi',
+    copy: 'Kopiraj',
+    copied: 'Kopirano',
+    expand: 'Razširi',
+  },
+  Form: {
+    optional: '(neobvezno)',
+    defaultValidateMessages: {
+      default: 'Napaka pri preverjanju veljavnosti polja: ${label}',
+      required: 'Prosimo, vnesite ${label}',
+      enum: '${label} mora biti eden od [${enum}]',
+      whitespace: '${label} ne sme biti prazen znak',
+      date: {
+        format: '${label} format datuma je neveljaven',
+        parse: '${label} ni mogoče pretvoriti v datum',
+        invalid: '${label} je neveljaven datum',
+      },
+      types: {
+        string: typeTemplate,
+        method: typeTemplate,
+        array: typeTemplate,
+        object: typeTemplate,
+        number: typeTemplate,
+        date: typeTemplate,
+        boolean: typeTemplate,
+        integer: typeTemplate,
+        float: typeTemplate,
+        regexp: typeTemplate,
+        email: typeTemplate,
+        url: typeTemplate,
+        hex: typeTemplate,
+      },
+      string: {
+        len: '${label} mora biti ${len} znakov',
+        min: '${label} mora biti vsaj ${min} znakov',
+        max: '${label} je lahko do ${max} znakov',
+        range: '${label} mora biti med ${min}-${max} znaki',
+      },
+      number: {
+        len: '${label} mora biti enako ${len}',
+        min: '${label} mora biti najmanj ${min}',
+        max: '${label} je lahko največ ${max}',
+        range: '${label} mora biti med ${min}-${max}',
+      },
+      array: {
+        len: 'Biti mora ${len} ${label}',
+        min: 'Vsaj ${min} ${label}',
+        max: 'Največ ${max} ${label}',
+        range: 'Količina ${label} mora biti med ${min}-${max}',
+      },
+      pattern: {
+        mismatch: '${label} se ne ujema z vzorcem ${pattern}',
+      },
+    },
   },
 };
 

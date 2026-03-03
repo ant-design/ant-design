@@ -82,7 +82,7 @@ demo:
 | placement | 浮层预设位置 | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | prefix | 自定义前缀 | ReactNode | - | 5.22.0 |
 | showSearch | 在选择框中显示搜索框 | boolean \| [Object](#showsearch) | false |  |
-| size | 输入框大小 | `large` \| `middle` \| `small` | - |  |
+| size | 输入框大小 | `large` \| `medium` \| `small` | `medium` |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | - |  |
@@ -114,6 +114,7 @@ demo:
 | sort | 用于排序 filter 后的选项 | function(a, b, inputValue) | - |  |
 | searchValue | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | onSearch | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
+| searchIcon | 自定义的搜索图标 | ReactNode | - | 6.3.0 |
 
 ### Option
 
