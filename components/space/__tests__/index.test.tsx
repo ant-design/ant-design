@@ -24,7 +24,7 @@ describe('Space', () => {
           <span>1</span>
           <span>2</span>
         </Space>
-        <Space size="middle">
+        <Space size="medium">
           <span>1</span>
           <span>2</span>
         </Space>
@@ -59,7 +59,7 @@ describe('Space', () => {
           <span>1</span>
           <span>2</span>
         </Space>
-        <Space size="middle">
+        <Space size="medium">
           <span>1</span>
           <span>2</span>
         </Space>

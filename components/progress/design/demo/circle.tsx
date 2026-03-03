@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Progress } from 'antd';
 
 const Demo = () => (
-  <Flex gap="middle" align="center">
+  <Flex gap="medium" align="center">
     <Progress type="circle" percent={68} />
     <Progress type="circle" percent={100} status="success" />
     <Progress type="circle" percent={68} status="exception" />

@@ -991,13 +991,13 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="default"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-button-label"
       >
-        Default
+        Medium
       </span>
     </label>
     <label
@@ -3592,13 +3592,13 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="default"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-button-label"
       >
-        Default
+        Medium
       </span>
     </label>
     <label

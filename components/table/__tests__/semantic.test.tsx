@@ -2,11 +2,9 @@ import React from 'react';
 
 import type { TableProps } from '..';
 import Table from '..';
-import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
 
 describe('Table', () => {
-  mountTest(Table);
   it('test classNames and styles', () => {
     const columns = [
       {
@@ -109,7 +107,7 @@ describe('Table', () => {
         classNames={testClassNames}
         columns={columns}
         dataSource={data}
-        size="middle"
+        size="medium"
         pagination={{ pageSize: 3 }}
         title={() => <>table title</>}
         footer={() => <>table footer</>}

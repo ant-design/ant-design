@@ -79,7 +79,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="middle" wrap="wrap">
+    <Flex gap="medium" wrap="wrap">
       <Space vertical size="large">
         <Dropdown {...sharedProps} styles={objectStyles}>
           <Button>

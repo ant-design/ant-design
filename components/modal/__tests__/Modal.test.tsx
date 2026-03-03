@@ -12,14 +12,14 @@ jest.mock('@rc-component/util/lib/Portal');
 
 const ModalTester: React.FC<ModalProps> = (props) => {
   const [open, setOpen] = React.useState(false);
-  const container = React.useRef<HTMLDivElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
   useEffect(() => {
     setOpen(true);
   }, []);
   return (
     <div>
-      <div ref={container} />
-      <Modal {...props} open={open} getContainer={container.current!}>
+      <div ref={containerRef} />
+      <Modal {...props} open={open} getContainer={containerRef.current!}>
         Here is content of Modal
       </Modal>
     </div>
@@ -61,6 +61,13 @@ describe('Modal', () => {
     const onCancel = jest.fn();
     render(<Modal open onCancel={onCancel} />);
     fireEvent.click(document.body.querySelectorAll('.ant-btn')[0]);
+    expect(onCancel).toHaveBeenCalled();
+  });
+
+  it('onCancel should be called when pressing ESC', () => {
+    const onCancel = jest.fn();
+    render(<Modal open onCancel={onCancel} />);
+    fireEvent.keyDown(document.querySelector('.ant-modal-wrap')!, { key: 'Escape', keyCode: 27 });
     expect(onCancel).toHaveBeenCalled();
   });
 
@@ -277,7 +284,7 @@ describe('Modal', () => {
       useEffect(() => {
         setOpen(true);
       }, []);
-      const handleCancel = (event: React.MouseEvent<HTMLButtonElement>) => {
+      const handleCancel: ModalProps['onCancel'] = (event) => {
         setOpen(false);
         onCancel(event);
       };

@@ -71,7 +71,7 @@ const App: React.FC = () => {
   const sharedProps: CollapseProps = { classNames, items };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Collapse {...sharedProps} defaultActiveKey={['1']} styles={styles} />
       <Collapse {...sharedProps} defaultActiveKey={['2']} styles={stylesFn} size="large" />
     </Flex>

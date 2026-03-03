@@ -1,14 +1,9 @@
 import React from 'react';
 
 import AutoComplete from '..';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
 
 describe('AutoComplete.Semantic', () => {
-  mountTest(AutoComplete);
-  rtlTest(AutoComplete);
-
   it('should support classNames and styles', () => {
     const classNames = {
       root: 'custom-root',

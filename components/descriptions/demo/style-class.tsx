@@ -55,7 +55,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Descriptions {...descriptionsProps} styles={styles} size="small" />
       <Descriptions {...descriptionsProps} styles={stylesFn} size="default" />
     </Flex>

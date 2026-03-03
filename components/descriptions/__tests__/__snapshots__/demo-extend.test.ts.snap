@@ -2291,7 +2291,7 @@ exports[`renders components/descriptions/demo/style.tsx extend context correctly
 
 exports[`renders components/descriptions/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-descriptions acss-ven0qr ant-descriptions-small ant-descriptions-bordered css-var-test-id"
