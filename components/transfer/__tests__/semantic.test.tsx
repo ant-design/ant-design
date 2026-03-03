@@ -103,20 +103,32 @@ describe('Transfer.Semantic', () => {
     }));
 
     const classNames = {
-      source: 'custom-source',
-      target: 'custom-target',
-    };
-    const semanticsStructure: Record<string, [selector: string, count: number]> = {
-      source: ['.ant-transfer-section', 1],
-      target: ['.ant-transfer-section', 1],
+      source: {
+        section: 'custom-source-section',
+        header: 'custom-source-header',
+      },
+      target: {
+        section: 'custom-target-section',
+        header: 'custom-target-header',
+      },
     };
 
     const styles = {
       source: {
-        backgroundColor: 'rgb(255, 0, 255)',
+        section: {
+          backgroundColor: 'rgb(255, 0, 255)',
+        },
+        header: {
+          backgroundColor: 'rgb(255, 128, 255)',
+        },
       },
       target: {
-        backgroundColor: 'rgb(0, 255, 255)',
+        section: {
+          backgroundColor: 'rgb(0, 255, 255)',
+        },
+        header: {
+          backgroundColor: 'rgb(128, 255, 255)',
+        },
       },
     };
 
@@ -131,12 +143,19 @@ describe('Transfer.Semantic', () => {
       />,
     );
 
-    Object.keys(classNames).forEach((key) => {
-      const eleList = container.querySelectorAll(`.${classNames[key as keyof typeof classNames]}`);
-      expect(eleList[0]).toHaveStyle(styles[key as keyof typeof styles]);
+    const sourceSectionEle = container.querySelectorAll('.custom-source-section');
+    const targetSectionEle = container.querySelectorAll('.custom-target-section');
+    const sourceHeaderEle = container.querySelectorAll('.custom-source-header');
+    const targetHeaderEle = container.querySelectorAll('.custom-target-header');
 
-      const structureInfo = semanticsStructure[key as keyof typeof semanticsStructure];
-      expect(eleList).toHaveLength(structureInfo[1]);
-    });
+    expect(sourceSectionEle).toHaveLength(1);
+    expect(targetSectionEle).toHaveLength(1);
+    expect(sourceHeaderEle).toHaveLength(1);
+    expect(targetHeaderEle).toHaveLength(1);
+
+    expect(sourceSectionEle[0]).toHaveStyle(styles.source.section);
+    expect(targetSectionEle[0]).toHaveStyle(styles.target.section);
+    expect(sourceHeaderEle[0]).toHaveStyle(styles.source.header);
+    expect(targetHeaderEle[0]).toHaveStyle(styles.target.header);
   });
 });
