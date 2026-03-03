@@ -4,7 +4,7 @@ import type { GetProp, GetProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const styles = createStaticStyles(({ css, cssVar }) => ({
-  focusEffect: css`
+  root: css`
     border-width: ${cssVar.lineWidth};
     border-radius: ${cssVar.borderRadius};
     transition: box-shadow ${cssVar.motionDurationMid};
@@ -96,41 +96,31 @@ const App: React.FC = () => {
   const classNames = styles;
   return (
     <Flex vertical gap="large">
+      <Input classNames={classNames} placeholder="Object" name="input-object" />
       <Input
-        classNames={{ root: classNames.focusEffect }}
-        placeholder="Object"
-        name="input-object"
-      />
-      <Input
-        classNames={{ root: classNames.focusEffect }}
+        classNames={classNames}
         styles={stylesFn}
         placeholder="Function"
         size="medium"
         name="input-fn"
       />
       <TextArea
-        classNames={{ root: classNames.focusEffect }}
+        classNames={classNames}
         styles={stylesFnTextArea}
         value="TextArea"
         showCount
         name="textarea-fn"
       />
       <Password
-        classNames={{ root: classNames.focusEffect }}
+        classNames={classNames}
         styles={stylesFnPassword}
         value="Password"
         size="medium"
         name="password-fn"
       />
-      <OTP
-        classNames={{ root: classNames.focusEffect }}
-        styles={stylesFnOTP}
-        size="medium"
-        length={6}
-        separator="*"
-      />
+      <OTP classNames={classNames} styles={stylesFnOTP} size="medium" length={6} separator="*" />
       <Search
-        classNames={{ root: classNames.focusEffect }}
+        classNames={classNames}
         styles={stylesFnSearch}
         size="large"
         placeholder="Search"
