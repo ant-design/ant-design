@@ -14,11 +14,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
         class="ant-transfer css-var-test-id semantic-mark-root"
       >
         <div
-          class="ant-transfer-section semantic-mark-section ant-transfer-section-with-footer"
-          style="height: 250px; width: 200px;"
+          class="ant-transfer-section semantic-mark-section semantic-mark-source-section ant-transfer-section-with-footer"
+          style="height: 250px; width: 200px; background-color: rgb(255, 247, 230);"
         >
           <div
-            class="ant-transfer-list-header semantic-mark-header"
+            class="ant-transfer-list-header semantic-mark-header semantic-mark-source-header"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -57,13 +57,13 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
               18 items
             </span>
             <span
-              class="ant-transfer-list-header-title semantic-mark-title"
+              class="ant-transfer-list-header-title semantic-mark-title semantic-mark-source-title"
             >
               Source
             </span>
           </div>
           <div
-            class="ant-transfer-list-body ant-transfer-list-body-with-search semantic-mark-body"
+            class="ant-transfer-list-body ant-transfer-list-body-with-search semantic-mark-body semantic-mark-source-body"
           >
             <div
               class="ant-transfer-list-body-search-wrapper"
@@ -133,14 +133,14 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
               </span>
             </div>
             <ul
-              class="ant-transfer-list-content semantic-mark-list"
+              class="ant-transfer-list-content semantic-mark-list semantic-mark-source-list"
             >
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 1"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -152,17 +152,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 1
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 2"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -174,17 +174,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 2
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 3"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -196,17 +196,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 3
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 5"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -218,17 +218,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 5
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 6"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -240,17 +240,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 6
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 7"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -262,17 +262,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 7
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 8"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -284,17 +284,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 8
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 9"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -306,17 +306,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 9
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 11"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -328,17 +328,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 11
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 12"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -350,17 +350,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 12
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 13"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -372,17 +372,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 13
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 14"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -394,17 +394,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 14
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 15"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -416,17 +416,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 15
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 16"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -438,17 +438,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 16
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 17"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -460,17 +460,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 17
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 18"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -482,17 +482,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 18
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 19"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -504,17 +504,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 19
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-source-item"
                 title="content 20"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-source-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -526,7 +526,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-source-itemContent"
                 >
                   content 20
                 </span>
@@ -534,7 +534,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ant-transfer-list-footer semantic-mark-footer"
+            class="ant-transfer-list-footer semantic-mark-footer semantic-mark-source-footer"
           >
             <div
               style="padding: 8px;"
@@ -606,11 +606,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
           </button>
         </div>
         <div
-          class="ant-transfer-section semantic-mark-section ant-transfer-section-with-footer"
-          style="height: 250px; width: 200px;"
+          class="ant-transfer-section semantic-mark-section semantic-mark-target-section ant-transfer-section-with-footer"
+          style="height: 250px; width: 200px; background-color: rgb(230, 247, 255);"
         >
           <div
-            class="ant-transfer-list-header semantic-mark-header"
+            class="ant-transfer-list-header semantic-mark-header semantic-mark-target-header"
           >
             <label
               class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-test-id ant-checkbox-css-var"
@@ -649,13 +649,13 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
               2 items
             </span>
             <span
-              class="ant-transfer-list-header-title semantic-mark-title"
+              class="ant-transfer-list-header-title semantic-mark-title semantic-mark-target-title"
             >
               Target
             </span>
           </div>
           <div
-            class="ant-transfer-list-body ant-transfer-list-body-with-search semantic-mark-body"
+            class="ant-transfer-list-body ant-transfer-list-body-with-search semantic-mark-body semantic-mark-target-body"
           >
             <div
               class="ant-transfer-list-body-search-wrapper"
@@ -725,14 +725,14 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
               </span>
             </div>
             <ul
-              class="ant-transfer-list-content semantic-mark-list"
+              class="ant-transfer-list-content semantic-mark-list semantic-mark-target-list"
             >
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-target-item"
                 title="content 4"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-target-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -744,17 +744,17 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-target-itemContent"
                 >
                   content 4
                 </span>
               </li>
               <li
-                class="ant-transfer-list-content-item semantic-mark-item"
+                class="ant-transfer-list-content-item semantic-mark-item semantic-mark-target-item"
                 title="content 10"
               >
                 <label
-                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon css-var-test-id ant-checkbox-css-var"
+                  class="ant-checkbox-wrapper ant-transfer-list-checkbox semantic-mark-itemIcon semantic-mark-target-itemIcon css-var-test-id ant-checkbox-css-var"
                 >
                   <span
                     class="ant-checkbox ant-wave-target"
@@ -766,7 +766,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   </span>
                 </label>
                 <span
-                  class="ant-transfer-list-content-item-text semantic-mark-itemContent"
+                  class="ant-transfer-list-content-item-text semantic-mark-itemContent semantic-mark-target-itemContent"
                 >
                   content 10
                 </span>
@@ -774,7 +774,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
             </ul>
           </div>
           <div
-            class="ant-transfer-list-footer semantic-mark-footer"
+            class="ant-transfer-list-footer semantic-mark-footer semantic-mark-target-footer"
           >
             <div
               style="padding: 8px;"
@@ -993,7 +993,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   class="ant-typography css-var-test-id"
                   style="margin: 0px;"
                 >
-                  source
+                  source.section
                 </h5>
               </div>
               <div
@@ -1086,7 +1086,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                   class="ant-typography css-var-test-id"
                   style="margin: 0px;"
                 >
-                  target
+                  target.section
                 </h5>
               </div>
               <div
@@ -1160,6 +1160,1494 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               目标区域元素，仅作用于右侧穿梭框容器样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  source.header
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              源头部元素，仅作用于左侧头部区域样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  target.header
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              目标头部元素，仅作用于右侧头部区域样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  source.title
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              源标题元素，仅作用于左侧标题文本样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  target.title
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              目标标题元素，仅作用于右侧标题文本样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  source.body
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              源内容元素，仅作用于左侧列表主体区域样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  target.body
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              目标内容元素，仅作用于右侧列表主体区域样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  source.list
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              源列表元素，仅作用于左侧列表内容区域样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  target.list
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              目标列表元素，仅作用于右侧列表内容区域样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  source.item
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              源列表项元素，仅作用于左侧列表项样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  target.item
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              目标列表项元素，仅作用于右侧列表项样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  source.itemIcon
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              源列表项图标元素，仅作用于左侧图标样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  target.itemIcon
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              目标列表项图标元素，仅作用于右侧图标样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  source.itemContent
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              源列表项内容元素，仅作用于左侧文本内容样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  target.itemContent
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              目标列表项内容元素，仅作用于右侧文本内容样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  source.footer
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              源页脚元素，仅作用于左侧页脚区域样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  target.footer
+                </h5>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              目标页脚元素，仅作用于右侧页脚区域样式
             </div>
           </div>
         </li>
