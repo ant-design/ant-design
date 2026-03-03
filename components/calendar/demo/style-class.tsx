@@ -30,7 +30,6 @@ const stylesFunction: CalendarProps<Dayjs>['styles'] = (
       },
     };
   }
-  return {};
 };
 
 const App: React.FC = () => {
