@@ -247,5 +247,20 @@ describe('App', () => {
         'Warning: [antd: App] When using cssVar, ensure `component` is assigned a valid React component string.',
       );
     });
+
+    it('should warn if component is false and ref is not empty', () => {
+      const domRef = React.createRef<HTMLSpanElement>();
+      render(<App ref={domRef} component={false} />);
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: App] `ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
+      );
+    });
+
+    it('App should support Ref', () => {
+      const domRef = React.createRef<HTMLSpanElement>();
+      const { container } = render(<App ref={domRef} className="bamboo" component="span" />);
+      expect(domRef.current).toBe(container.querySelector('.bamboo'));
+    });
   });
 });
