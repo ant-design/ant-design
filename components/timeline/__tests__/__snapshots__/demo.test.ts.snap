@@ -1440,7 +1440,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx correctly 1`] = `
 
 exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
@@ -1584,7 +1584,7 @@ exports[`renders components/timeline/demo/pending.tsx correctly 1`] = `
 
 exports[`renders components/timeline/demo/pending-legacy.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
@@ -1867,7 +1867,7 @@ exports[`renders components/timeline/demo/semantic.tsx correctly 1`] = `
 
 exports[`renders components/timeline/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ol
     class="ant-steps ant-steps-horizontal ant-steps-title-vertical ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id acss-14g82y5"
@@ -2258,7 +2258,7 @@ Array [
 
 exports[`renders components/timeline/demo/title-span.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <h5
     class="ant-typography css-var-test-id"

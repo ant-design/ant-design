@@ -48,7 +48,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Mentions {...sharedProps} styles={stylesObject} placeholder="Object" rows={2} />
       <Mentions {...sharedProps} styles={stylesFunction} variant="filled" placeholder="Function" />
     </Flex>

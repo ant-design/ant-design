@@ -32,7 +32,7 @@ const stylesFn: TooltipProps['styles'] = (info) => {
 
 const App: React.FC = () => {
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Tooltip classNames={classNames} styles={styles} arrow={false} title="Object text">
         <Button>Object Style</Button>
       </Tooltip>

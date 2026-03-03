@@ -1454,7 +1454,7 @@ exports[`renders components/timeline/demo/horizontal-debug.tsx extend context co
 
 exports[`renders components/timeline/demo/pending.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
@@ -1600,7 +1600,7 @@ exports[`renders components/timeline/demo/pending.tsx extend context correctly 2
 
 exports[`renders components/timeline/demo/pending-legacy.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id css-var-test-id"
@@ -1892,7 +1892,7 @@ exports[`renders components/timeline/demo/semantic.tsx extend context correctly 
 
 exports[`renders components/timeline/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ol
     class="ant-steps ant-steps-vertical ant-steps-title-horizontal ant-steps-outlined ant-steps-dot ant-timeline css-var-test-id ant-timeline-horizontal css-var-test-id acss-14g82y5"
@@ -2287,7 +2287,7 @@ exports[`renders components/timeline/demo/title.tsx extend context correctly 2`]
 
 exports[`renders components/timeline/demo/title-span.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <h5
     class="ant-typography css-var-test-id"

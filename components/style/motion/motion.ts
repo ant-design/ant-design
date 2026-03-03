@@ -5,12 +5,6 @@ const initMotionCommon = (duration: string): CSSObject => ({
   animationFillMode: 'both',
 });
 
-// FIXME: origin less code seems same as initMotionCommon. Maybe we can safe remove
-const initMotionCommonLeave = (duration: string): CSSObject => ({
-  animationDuration: duration,
-  animationFillMode: 'both',
-});
-
 export const initMotion = (
   motionCls: string,
   inKeyframes: Keyframes,
@@ -30,7 +24,7 @@ export const initMotion = (
     },
 
     [`${sameLevelPrefix}${motionCls}-leave`]: {
-      ...initMotionCommonLeave(duration),
+      ...initMotionCommon(duration),
       animationPlayState: 'paused',
     },
 

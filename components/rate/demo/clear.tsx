@@ -2,12 +2,12 @@ import React from 'react';
 import { Flex, Rate } from 'antd';
 
 const App: React.FC = () => (
-  <Flex gap="middle" vertical>
-    <Flex gap="middle">
+  <Flex gap="medium" vertical>
+    <Flex gap="medium">
       <Rate defaultValue={3} />
       <span>allowClear: true</span>
     </Flex>
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Rate defaultValue={3} allowClear={false} />
       <span>allowClear: false</span>
     </Flex>

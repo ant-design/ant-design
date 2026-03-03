@@ -530,7 +530,7 @@ Array [
     />
   </div>,
   <div
-    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-medium"
     style="margin-top:16px"
   >
     <div
@@ -1775,7 +1775,7 @@ exports[`renders components/progress/demo/format.tsx correctly 1`] = `
 
 exports[`renders components/progress/demo/gradient-line.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     aria-valuemax="100"
@@ -3251,7 +3251,7 @@ exports[`renders components/progress/demo/segment.tsx correctly 1`] = `
 
 exports[`renders components/progress/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
