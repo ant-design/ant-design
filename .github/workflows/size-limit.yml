@@ -8,18 +8,23 @@ permissions:
   issues: write
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   size:
     permissions:
       contents: read
       pull-requests: write
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 30
 
     steps:
       - uses: actions/checkout@v6
       - uses: utooland/setup-utoo@v1
       - name: size-limit
-        uses: ant-design/size-limit-action@master
+        uses: ant-design/size-limit-action@1cd308b2fb976363849b02434e706bbca8727aa1 # pin@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           package_manager: ut

@@ -56,7 +56,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Menu {...shareProps} styles={styles} />
       <Menu mode="inline" {...shareProps} styles={stylesFn} />
     </Flex>

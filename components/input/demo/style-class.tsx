@@ -26,8 +26,8 @@ type SearchProps = GetProps<typeof Input.Search>;
 
 const { Search, TextArea, OTP, Password } = Input;
 
-const stylesFn: InputProps['styles'] = (info): GetProp<InputProps, 'styles', 'Return'> => {
-  if (info.props.size === 'middle') {
+const stylesFn: InputProps['styles'] = (info) => {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderColor: '#696FC7',
@@ -53,7 +53,7 @@ const stylesFnTextArea: TextAreaProps['styles'] = (
 const stylesFnPassword: PasswordProps['styles'] = (
   info,
 ): GetProp<PasswordProps, 'styles', 'Return'> => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderColor: '#F5D3C4',
@@ -64,7 +64,7 @@ const stylesFnPassword: PasswordProps['styles'] = (
 };
 
 const stylesFnOTP: OTPProps['styles'] = (info): GetProp<OTPProps, 'styles', 'Return'> => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       input: {
         borderColor: '#6E8CFB',
@@ -93,7 +93,7 @@ const stylesFnSearch: SearchProps['styles'] = (info): GetProp<SearchProps, 'styl
 };
 
 const App: React.FC = () => {
-  const classNames = styles;
+  const classNames = styles as any;
   return (
     <Flex vertical gap="large">
       <Input
@@ -102,35 +102,29 @@ const App: React.FC = () => {
         name="input-object"
       />
       <Input
-        classNames={{ root: classNames.focusEffect }}
+        classNames={classNames}
         styles={stylesFn}
         placeholder="Function"
-        size="middle"
+        size="medium"
         name="input-fn"
       />
       <TextArea
-        classNames={{ root: classNames.focusEffect }}
+        classNames={classNames}
         styles={stylesFnTextArea}
         value="TextArea"
         showCount
         name="textarea-fn"
       />
       <Password
-        classNames={{ root: classNames.focusEffect }}
+        classNames={classNames}
         styles={stylesFnPassword}
         value="Password"
-        size="middle"
+        size="medium"
         name="password-fn"
       />
-      <OTP
-        classNames={{ root: classNames.focusEffect }}
-        styles={stylesFnOTP}
-        size="middle"
-        length={6}
-        separator="*"
-      />
+      <OTP classNames={classNames} styles={stylesFnOTP} size="medium" length={6} separator="*" />
       <Search
-        classNames={{ root: classNames.focusEffect }}
+        classNames={classNames}
         styles={stylesFnSearch}
         size="large"
         placeholder="Search"

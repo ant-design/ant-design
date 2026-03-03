@@ -27,7 +27,7 @@ const styleObject: TreeSelectProps['styles'] = {
 const styleFunction: TreeSelectProps['styles'] = (
   info,
 ): GetProp<TreeSelectProps, 'styles', 'Return'> => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       suffix: {
         color: '#722ed1',
@@ -86,7 +86,7 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="large">
       <TreeSelect {...sharedProps} styles={styleObject} placeholder="Object" />
-      <TreeSelect {...sharedProps} styles={styleFunction} placeholder="Function" size="middle" />
+      <TreeSelect {...sharedProps} styles={styleFunction} placeholder="Function" size="medium" />
     </Flex>
   );
 };

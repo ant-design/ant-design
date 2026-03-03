@@ -456,7 +456,7 @@ exports[`renders components/mentions/demo/render-panel.tsx extend context correc
 
 exports[`renders components/mentions/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var ant-mentions-lg"
@@ -529,7 +529,7 @@ exports[`renders components/mentions/demo/status.tsx extend context correctly 2`
 
 exports[`renders components/mentions/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-mentions ant-mentions-outlined ant-mentions css-var-test-id ant-mentions-css-var acss-3jrxlv"

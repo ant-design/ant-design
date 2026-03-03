@@ -21,7 +21,7 @@ describe('Button', () => {
   mountTest(Button.Group);
   mountTest(() => <Button.Group size="large" />);
   mountTest(() => <Button.Group size="small" />);
-  mountTest(() => <Button.Group size="middle" />);
+  mountTest(() => <Button.Group size="medium" />);
 
   rtlTest(Button);
   rtlTest(() => <Button size="large" />);
@@ -29,7 +29,7 @@ describe('Button', () => {
   rtlTest(Button.Group);
   rtlTest(() => <Button.Group size="large" />);
   rtlTest(() => <Button.Group size="small" />);
-  rtlTest(() => <Button.Group size="middle" />);
+  rtlTest(() => <Button.Group size="medium" />);
 
   it('renders correctly', () => {
     const { container } = render(<Button>Follow</Button>);

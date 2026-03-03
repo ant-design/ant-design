@@ -36,7 +36,7 @@ const stylesFn: PopoverProps['styles'] = (info): GetProp<PopoverProps, 'styles',
 
 const App: React.FC = () => {
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Popover content="Object text" classNames={classNames} styles={styles} arrow={false}>
         <Button>Object Style</Button>
       </Popover>

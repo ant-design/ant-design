@@ -7,7 +7,7 @@ import type { TableToken } from './index';
 const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const { componentCls, tableExpandColumnWidth, calc } = token;
   const getSizeStyle = (
-    size: 'small' | 'middle',
+    size: 'small' | 'medium',
     paddingVertical: number,
     paddingHorizontal: number,
     fontSize: number,
@@ -56,7 +56,7 @@ const genSizeStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   return {
     [`${componentCls}-wrapper`]: {
       ...getSizeStyle(
-        'middle',
+        'medium',
         token.tablePaddingVerticalMiddle,
         token.tablePaddingHorizontalMiddle,
         token.tableFontSizeMiddle,

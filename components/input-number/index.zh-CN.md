@@ -64,7 +64,7 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | prefix | 带有前缀图标的 input | ReactNode | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - | 5.20.0 |
-| size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
+| size | 输入框大小 | `large` \| `medium` \| `small` | - | - |
 | step | 每次改变步数，可以为小数 | number \| string | 1 | - |
 | stringMode | 字符值模式，开启后支持高精度小数。同时 `onChange` 将返回 string 类型 | boolean | false | 4.13.0 |
 | mode | 展示输入框或拨轮 | `'input' \| 'spinner'` | `'input'` |  |

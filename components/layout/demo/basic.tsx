@@ -41,7 +41,7 @@ const layoutStyle = {
 };
 
 const App: React.FC = () => (
-  <Flex gap="middle" wrap>
+  <Flex gap="medium" wrap>
     <Layout style={layoutStyle}>
       <Header style={headerStyle}>Header</Header>
       <Content style={contentStyle}>Content</Content>

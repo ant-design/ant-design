@@ -41,7 +41,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <QRCode {...sharedProps} styles={stylesObject} />
       <QRCode
         {...sharedProps}

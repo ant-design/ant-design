@@ -4,6 +4,8 @@ on:
     schedule:
       - cron: '30 1 * * *'
 
+permissions: {}
+
 jobs:
   send-message:
     runs-on: blacksmith-4vcpu-ubuntu-2404

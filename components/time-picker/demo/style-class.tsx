@@ -38,7 +38,7 @@ const stylesFn: TimePickerProps['styles'] = (
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <TimePicker classNames={classNames} styles={stylesObject} placeholder="Object" />
       <TimePicker classNames={classNames} styles={stylesFn} placeholder="Function" size="large" />
     </Flex>

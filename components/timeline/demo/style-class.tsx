@@ -50,7 +50,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Timeline {...sharedProps} orientation="horizontal" styles={styles} />
       <Timeline {...sharedProps} orientation="vertical" styles={stylesFn} />
     </Flex>

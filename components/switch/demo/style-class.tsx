@@ -30,7 +30,7 @@ const stylesFn: SwitchProps['styles'] = (info): GetProp<SwitchProps, 'styles', '
 const App: React.FC = () => {
   const { styles: classNames } = useStyle();
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Switch
         size="small"
         checkedChildren="on"

@@ -49,7 +49,7 @@ const App: React.FC = () => {
     defaultValue: 30,
   };
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Slider {...sharedProps} classNames={classNames} styles={stylesObject} />
       <Slider
         {...sharedProps}

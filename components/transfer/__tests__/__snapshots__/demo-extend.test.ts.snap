@@ -9810,7 +9810,7 @@ exports[`renders components/transfer/demo/search.tsx extend context correctly 2`
 
 exports[`renders components/transfer/demo/status.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-transfer ant-transfer-status-error css-var-test-id"
@@ -12373,7 +12373,7 @@ exports[`renders components/transfer/demo/style-class.tsx extend context correct
 
 exports[`renders components/transfer/demo/table-transfer.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-transfer ant-transfer-customize-list css-var-test-id"

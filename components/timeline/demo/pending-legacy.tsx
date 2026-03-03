@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Timeline } from 'antd';
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle" align="flex-start">
+  <Flex vertical gap="medium" align="flex-start">
     <Timeline
       pending="Recording..."
       items={[

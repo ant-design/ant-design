@@ -2,7 +2,7 @@
 
 exports[`renders components/badge/demo/basic.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -1610,14 +1610,14 @@ exports[`renders components/badge/demo/link.tsx correctly 1`] = `
 
 exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
   style="flex-wrap:wrap"
 >
   <div
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
       style="flex-wrap:wrap"
     >
       <div
@@ -1864,7 +1864,7 @@ exports[`renders components/badge/demo/mix.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+      class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
       style="flex-wrap:wrap"
     >
       <div
@@ -2305,7 +2305,7 @@ exports[`renders components/badge/demo/overflow.tsx correctly 1`] = `
 
 exports[`renders components/badge/demo/ribbon.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
   style="width:100%"
 >
   <div
@@ -2808,7 +2808,7 @@ exports[`renders components/badge/demo/ribbon-debug.tsx correctly 1`] = `
 
 exports[`renders components/badge/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -3038,7 +3038,7 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-gap-middle"
+      class="ant-flex css-var-test-id ant-flex-gap-medium"
     >
       <span
         class="ant-badge css-var-test-id"
@@ -3108,7 +3108,7 @@ exports[`renders components/badge/demo/style-class.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
     >
       <div
         class="ant-ribbon-wrapper css-var-test-id acss-15qh5u5"

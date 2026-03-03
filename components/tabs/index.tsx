@@ -80,8 +80,7 @@ export interface BaseTabsProps {
 }
 
 export interface TabsProps
-  extends
-    BaseTabsProps,
+  extends BaseTabsProps,
     CompatibilityProps,
     Omit<RcTabsProps, 'editable' | 'items' | 'classNames' | 'styles' | 'popupClassName'> {
   addIcon?: React.ReactNode;
@@ -241,7 +240,8 @@ const InternalTabs = React.forwardRef<TabsRef, TabsProps>((props, ref) => {
       items={mergedItems}
       className={clsx(
         {
-          [`${prefixCls}-${size}`]: size,
+          [`${prefixCls}-large`]: size === 'large',
+          [`${prefixCls}-small`]: size === 'small',
           [`${prefixCls}-card`]: ['card', 'editable-card'].includes(type!),
           [`${prefixCls}-editable-card`]: type === 'editable-card',
           [`${prefixCls}-centered`]: centered,

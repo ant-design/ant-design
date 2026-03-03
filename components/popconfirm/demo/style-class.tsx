@@ -44,7 +44,7 @@ const stylesFn: PopconfirmProps['styles'] = (
 
 const App: React.FC = () => {
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Popconfirm
         title="Object text"
         description="Object description"

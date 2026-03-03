@@ -7,7 +7,7 @@ const onChange = (e: RadioChangeEvent) => {
 };
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <Radio.Group onChange={onChange} defaultValue="a">
       <Radio.Button value="a">Hangzhou</Radio.Button>
       <Radio.Button value="b">Shanghai</Radio.Button>
