@@ -17,7 +17,7 @@ export interface TypographyProps<C extends keyof JSX.IntrinsicElements>
   component?: C;
 }
 
-interface InternalProps {
+interface InternalProps extends React.HTMLAttributes<HTMLElement> {
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
@@ -28,7 +28,6 @@ interface InternalProps {
   styles?: TypographySemanticStyles;
   prefixCls: string;
 }
-
 const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, ref) => {
   const {
     component: Component = 'article',

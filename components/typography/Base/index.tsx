@@ -22,7 +22,7 @@ import usePrevious from '../hooks/usePrevious';
 import useTooltipProps from '../hooks/useTooltipProps';
 import { useTypographySemantic } from '../hooks/useTypographySemantic';
 import type { TypographyProps } from '../Typography';
-import Typography from '../Typography';
+import { InternalTypography } from '../Typography';
 import CopyBtn from './CopyBtn';
 import Ellipsis from './Ellipsis';
 import EllipsisTooltip from './EllipsisTooltip';
@@ -505,7 +505,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
           isEllipsis={isMergedEllipsis}
           open={isHoveringTypography && !isHoveringOperations}
         >
-          <Typography
+          <InternalTypography
             onMouseEnter={(e) => {
               setIsHoveringTypography(true);
               onMouseEnter?.(e);
@@ -525,9 +525,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               },
               className,
             )}
-            classNames={classNames}
-            styles={styles}
-            prefixCls={customizePrefixCls}
+            classNames={mergedClassNames}
+            styles={mergedStyles}
+            prefixCls={prefixCls}
             style={{
               ...style,
               WebkitLineClamp: cssLineClamp ? rows : undefined,
@@ -573,7 +573,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 )
               }
             </Ellipsis>
-          </Typography>
+          </InternalTypography>
         </EllipsisTooltip>
       )}
     </ResizeObserver>
