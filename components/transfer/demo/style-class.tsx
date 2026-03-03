@@ -8,7 +8,7 @@ const useStyles = createStyles(({ token, css }) => ({
   header: { color: token.colorPrimary },
   actions: css`
     & button {
-      background-color: rgba(255,242,232,0.6);
+      background-color: rgba(255, 242, 232, 0.6);
     }
   `,
 }));
