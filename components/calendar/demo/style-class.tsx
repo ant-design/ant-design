@@ -33,7 +33,7 @@ const stylesFunction: CalendarProps<Dayjs>['styles'] = (info) => {
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Calendar fullscreen={false} classNames={classNames} styles={stylesObject} />
       <Calendar classNames={classNames} styles={stylesFunction} />
     </Flex>

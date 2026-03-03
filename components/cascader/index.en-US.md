@@ -81,7 +81,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
-| size | The input size | `large` \| `middle` \| `small` | - |  |
+| size | The input size | `large` \| `medium` \| `small` | `medium` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |

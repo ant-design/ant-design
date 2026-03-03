@@ -3013,7 +3013,7 @@ exports[`renders components/list/demo/loadmore.tsx extend context correctly 2`] 
 exports[`renders components/list/demo/pagination.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+    class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
     style="margin-bottom: 20px;"
   >
     <div

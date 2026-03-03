@@ -48,7 +48,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Alert
         {...alertSharedProps}
         title="Object styles"

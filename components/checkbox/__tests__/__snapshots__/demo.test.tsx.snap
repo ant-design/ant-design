@@ -456,7 +456,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx correctly 1`] = `
 
 exports[`renders components/checkbox/demo/disabled.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-test-id ant-checkbox-css-var"
@@ -818,7 +818,7 @@ exports[`renders components/checkbox/demo/layout.tsx correctly 1`] = `
 
 exports[`renders components/checkbox/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <label
     class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"

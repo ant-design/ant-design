@@ -930,7 +930,7 @@ exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
 
 exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-small"
@@ -2005,7 +2005,7 @@ exports[`renders components/tag/demo/style-class.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-gap-middle"
+      class="ant-flex css-var-test-id ant-flex-gap-medium"
     >
       <span
         class="ant-tag acss-1cdgefp ant-tag-filled css-var-test-id"
@@ -2077,7 +2077,7 @@ exports[`renders components/tag/demo/style-class.tsx correctly 1`] = `
     class="ant-space-item"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
     >
       <div
         class="ant-tag-checkable-group css-var-test-id acss-1cdgefp"
