@@ -69,6 +69,7 @@ export interface FloatButtonProps extends React.DOMAttributes<FloatButtonElement
   href?: string;
   target?: React.HTMLAttributeAnchorTarget;
   badge?: FloatButtonBadgeProps;
+  disabled?: boolean;
   /**
    * @since 5.21.0
    * @default button
