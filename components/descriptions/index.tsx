@@ -9,6 +9,7 @@ import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import DEFAULT_COLUMN_MAP from './constant';
 import DescriptionsContext from './DescriptionsContext';
@@ -71,7 +72,10 @@ export interface DescriptionsProps {
   rootClassName?: string;
   style?: React.CSSProperties;
   bordered?: boolean;
-  size?: 'middle' | 'small' | 'default';
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | 'default';
   /**
    * @deprecated use `items` instead
    */
@@ -124,6 +128,9 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   // ============================== Warn ==============================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Descriptions');
+
+    warning.deprecated(customizeSize !== 'default', 'size="default"', 'size="large"');
+
     [
       ['labelStyle', 'styles.label'],
       ['contentStyle', 'styles.content'],
@@ -201,7 +208,8 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
           contextClassName,
           mergedClassNames.root,
           {
-            [`${prefixCls}-${mergedSize}`]: mergedSize && mergedSize !== 'default',
+            [`${prefixCls}-medium`]: mergedSize === 'medium' || mergedSize === 'middle',
+            [`${prefixCls}-small`]: mergedSize === 'small',
             [`${prefixCls}-bordered`]: !!bordered,
             [`${prefixCls}-rtl`]: direction === 'rtl',
           },
