@@ -242,4 +242,36 @@ describe('RangePicker', () => {
 
     resetMockDate();
   });
+
+  describe('suffixIcon', () => {
+    it('should render custom suffixIcon', () => {
+      const { container } = render(
+        <RangePicker open suffixIcon={<div className="custom-suffix-icon">Custom Icon</div>} />,
+      );
+      expect(container.querySelector('.custom-suffix-icon')).toBeTruthy();
+    });
+
+    it('should render global suffixIcon', () => {
+      const { container } = render(
+        <DatePicker
+          suffixIcon={<div className="global-custom-suffix-icon">Global Custom Icon</div>}
+        >
+          <RangePicker open />
+        </DatePicker>,
+      );
+      expect(container.querySelector('.global-custom-suffix-icon')).toBeTruthy();
+    });
+
+    it('should prefer custom suffixIcon over global suffixIcon', () => {
+      const { container } = render(
+        <DatePicker
+          suffixIcon={<div className="global-custom-suffix-icon">Global Custom Icon</div>}
+        >
+          <RangePicker open suffixIcon={<div className="custom-suffix-icon">Custom Icon</div>} />
+        </DatePicker>,
+      );
+      expect(container.querySelector('.custom-suffix-icon')).toBeTruthy();
+      expect(container.querySelector('.global-custom-suffix-icon')).toBeFalsy();
+    });
+  });
 });
