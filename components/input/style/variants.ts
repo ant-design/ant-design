@@ -430,6 +430,7 @@ export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): 
       color: token.colorTextDisabled,
       boxShadow: 'none',
       cursor: 'not-allowed',
+      borderColor: `transparent transparent ${token.colorBorderDisabled} transparent`,
       '&:hover': {
         borderColor: `transparent transparent ${token.colorBorderDisabled} transparent`,
       },
