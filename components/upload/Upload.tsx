@@ -88,7 +88,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const mergedFileList = internalFileList || [];
   const [dragState, setDragState] = React.useState<string>('drop');
 
-  const upload = React.useRef<RcUpload>(null);
+  const uploadRef = React.useRef<RcUpload>(null);
   const wrapRef = React.useRef<HTMLSpanElement>(null);
 
   if (process.env.NODE_ENV !== 'production') {
@@ -315,7 +315,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
             item.status = 'removed';
           }
         });
-        upload.current?.abort(currentFile as RcFile);
+        uploadRef.current?.abort(currentFile as RcFile);
 
         onInternalChange(currentFile, removedFileList);
       }
@@ -337,7 +337,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     onProgress,
     onError,
     fileList: mergedFileList,
-    upload: upload.current,
+    upload: uploadRef.current,
     nativeElement: wrapRef.current,
   }));
 
@@ -498,7 +498,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
           onDragOver={onFileDrop}
           onDragLeave={onFileDrop}
         >
-          <RcUpload {...rcUploadProps} ref={upload} className={`${prefixCls}-btn`}>
+          <RcUpload {...rcUploadProps} ref={uploadRef} className={`${prefixCls}-btn`}>
             <div className={`${prefixCls}-drag-container`}>{children}</div>
           </RcUpload>
         </div>
@@ -519,7 +519,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const uploadButton = (
     <div className={uploadBtnCls} style={{ ...mergedStyle, ...mergedStyles.trigger }}>
-      <RcUpload {...rcUploadProps} ref={upload} />
+      <RcUpload {...rcUploadProps} ref={uploadRef} />
     </div>
   );
 

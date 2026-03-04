@@ -53,7 +53,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
-| componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
+| componentSize | Config antd component size | `small` \| `medium` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | direction | Set direction of layout. See [demo](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | `(trigger?: HTMLElement) => HTMLElement \| ShadowRoot` | () => document.body |  |
@@ -102,7 +102,7 @@ const {
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | componentDisabled | antd component disabled state | boolean | - | 5.3.0 |
-| componentSize | antd component size state | `small` \| `middle` \| `large` | - | 5.3.0 |
+| componentSize | antd component size state | `small` \| `medium` \| `large` | - | 5.3.0 |
 
 ### Component Config
 
@@ -156,7 +156,7 @@ const {
 | ribbon | Set Ribbon common props | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge#semantic-dom), styles?: [RibbonProps\["styles"\]](/components/badge#semantic-dom) } | - | 6.0.0 |
 | skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties, classNames?: [SkeletonProps\["classNames"\]](/components/skeleton#semantic-dom), styles?: [SkeletonProps\["styles"\]](/components/skeleton#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties, classNames?: [SegmentedProps\["classNames"\]](/components/segmented#semantic-dom), styles?: [SegmentedProps\["styles"\]](/components/segmented#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
-| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectConfig\["classNames"\]](/components/select#semantic-dom), styles?: [SelectConfig\["styles"\]](/components/select#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
+| select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectConfig\["classNames"\]](/components/select#semantic-dom), styles?: [SelectConfig\["styles"\]](/components/select#semantic-dom), allowClear?: boolean \| { clearIcon?: ReactNode }} | - | 5.7.0, `classNames` and `styles`: 6.0.0, `allowClear`: 6.4.0 |
 | slider | Set Slider common props | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider#semantic-dom), styles?: [SliderProps\["styles"\]](/components/slider#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.23.0 |
 | switch | Set Switch common props | { className?: string, style?: React.CSSProperties, classNames?: [SwitchStyleConfig\["classNames"\]](/components/switch#semantic-dom), styles?: [SwitchStyleConfig\["styles"\]](/components/switch#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | space | Set Space common props, ref [Space](/components/space) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space#semantic-dom), styles?: [SpaceProps\["styles"\]](/components/space#semantic-dom) } | - | 5.6.0 |

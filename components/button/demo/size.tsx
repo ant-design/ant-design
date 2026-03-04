@@ -6,12 +6,12 @@ import type { ConfigProviderProps } from 'antd';
 type SizeType = ConfigProviderProps['componentSize'];
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<SizeType>('large'); // default is 'middle'
+  const [size, setSize] = useState<SizeType>('large'); // default is 'medium'
   return (
     <>
       <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
         <Radio.Button value="large">Large</Radio.Button>
-        <Radio.Button value="default">Default</Radio.Button>
+        <Radio.Button value="medium">Medium</Radio.Button>
         <Radio.Button value="small">Small</Radio.Button>
       </Radio.Group>
       <Divider titlePlacement="start" plain>

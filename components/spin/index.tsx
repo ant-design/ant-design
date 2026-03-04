@@ -6,13 +6,11 @@ import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import Indicator from './Indicator';
 import useStyle from './style/index';
 import usePercent from './usePercent';
-
-const _SpinSizes = ['small', 'default', 'large'] as const;
-
-export type SpinSize = (typeof _SpinSizes)[number];
 
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
@@ -57,7 +55,10 @@ export interface SpinProps {
   /** Whether Spin is spinning */
   spinning?: boolean;
   style?: React.CSSProperties;
-  size?: SpinSize;
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | 'default';
   /** Customize description content when Spin has children */
   /** @deprecated Please use `description` instead */
   tip?: React.ReactNode;
@@ -95,7 +96,7 @@ const Spin: SpinType = (props) => {
     delay = 0,
     className,
     rootClassName,
-    size = 'default',
+    size,
     tip,
     description,
     wrapperClassName,
@@ -143,13 +144,21 @@ const Spin: SpinType = (props) => {
     setSpinning(false);
   }, [delay, customSpinning]);
 
+  // ======================= Size ======================
+  const mergedSize = useSize((ctx) => size ?? ctx);
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Spin');
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+  }
+
   // ======================= Description ======================
   const mergedDescription = description ?? tip;
 
   // =============== Merged Props for Semantic ================
   const mergedProps: SpinProps = {
     ...props,
-    size,
+    size: mergedSize,
     spinning,
     tip: mergedDescription,
     description: mergedDescription,
@@ -225,8 +234,8 @@ const Spin: SpinType = (props) => {
       className={clsx(
         prefixCls,
         {
-          [`${prefixCls}-sm`]: size === 'small',
-          [`${prefixCls}-lg`]: size === 'large',
+          [`${prefixCls}-sm`]: mergedSize === 'small',
+          [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-spinning`]: spinning,
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-fullscreen`]: fullscreen,

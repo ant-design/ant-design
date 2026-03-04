@@ -41,7 +41,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Steps {...sharedProps} styles={stylesObject} />
       <Steps {...sharedProps} styles={stylesFn} type="navigation" />
     </Flex>

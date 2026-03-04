@@ -119,7 +119,7 @@ const Block: React.FC<TableProps<DataType>> = (props) => {
       style={{ width: '100%' }}
       columns={columns}
       dataSource={data}
-      size="middle"
+      size="medium"
       pagination={{ pageSize: 3 }}
       title={() => <>table title</>}
       footer={() => <>table footer</>}

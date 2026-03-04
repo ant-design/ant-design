@@ -48,7 +48,7 @@ const stylesFn: SkeletonProps['styles'] = (info) => {
 
 const App: React.FC = () => {
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Skeleton classNames={classnames} styles={styles} avatar paragraph={false} />
       <Skeleton
         classNames={{ ...classnames, paragraph: paragraphStyles.paragraph }}

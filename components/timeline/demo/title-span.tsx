@@ -11,7 +11,7 @@ const items: TimelineProps['items'] = [
 
 const App: React.FC = () => {
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Typography.Title level={5} style={{ margin: 0 }}>
         titleSpan = 100px
       </Typography.Title>

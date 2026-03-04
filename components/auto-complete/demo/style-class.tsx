@@ -50,7 +50,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <AutoComplete {...sharedProps} placeholder="object styles" styles={stylesObject} />
       <AutoComplete
         {...sharedProps}

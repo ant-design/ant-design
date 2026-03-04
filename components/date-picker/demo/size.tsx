@@ -7,7 +7,7 @@ type SizeType = ConfigProviderProps['componentSize'];
 const { RangePicker } = DatePicker;
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<SizeType>('middle');
+  const [size, setSize] = useState<SizeType>('medium');
 
   const handleSizeChange = (e: RadioChangeEvent) => {
     setSize(e.target.value);
@@ -17,7 +17,7 @@ const App: React.FC = () => {
     <Space vertical size={12}>
       <Radio.Group value={size} onChange={handleSizeChange}>
         <Radio.Button value="large">Large</Radio.Button>
-        <Radio.Button value="middle">middle</Radio.Button>
+        <Radio.Button value="medium">Medium</Radio.Button>
         <Radio.Button value="small">Small</Radio.Button>
       </Radio.Group>
       <DatePicker size={size} />

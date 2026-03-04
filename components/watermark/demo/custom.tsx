@@ -39,7 +39,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Watermark {...watermarkProps}>
         <Typography>
           <Paragraph>

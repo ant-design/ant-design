@@ -5934,7 +5934,7 @@ exports[`renders components/tree/demo/search.tsx extend context correctly 2`] = 
 
 exports[`renders components/tree/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-tree ant-tree-icon-hide css-var-test-id acss-14g82y5"

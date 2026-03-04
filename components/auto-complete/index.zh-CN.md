@@ -66,7 +66,7 @@ demo:
 | placeholder | 输入框提示 | string | - |  |
 | showSearch | 搜索配置 | true \| [Object](#showsearch) | true |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
-| size | 控件大小 | `large` \| `middle` \| `small` | - |  |
+| size | 控件大小 | `large` \| `medium` \| `small` | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | value | 指定当前选中的条目 | string | - |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 |

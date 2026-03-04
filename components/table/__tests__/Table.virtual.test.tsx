@@ -99,7 +99,7 @@ describe('Table.Virtual', () => {
         columns={[{ dataIndex: 'key' }]}
         expandable={{ expandedRowRender, defaultExpandedRowKeys: ['0'] }}
         dataSource={[{ key: '0' }]}
-        size="middle"
+        size="medium"
         virtual
         scroll={{ y: 200 }}
       />,

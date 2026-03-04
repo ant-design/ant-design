@@ -54,7 +54,7 @@ export default Demo;
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | componentDisabled | 设置 antd 组件禁用状态 | boolean | - | 4.21.0 |
-| componentSize | 设置 antd 组件大小 | `small` \| `middle` \| `large` | - |  |
+| componentSize | 设置 antd 组件大小 | `small` \| `medium` \| `large` | - |  |
 | csp | 设置 [Content Security Policy](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CSP) 配置 | { nonce: string } | - |  |
 | direction | 设置文本展示方向。 [示例](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | 弹出框（Select, Tooltip, Menu 等等）渲染父节点，默认渲染到 body 上。 | `(trigger?: HTMLElement) => HTMLElement \| ShadowRoot` | () => document.body |  |
@@ -104,7 +104,7 @@ const {
 | 返回值 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | componentDisabled | antd 组件禁用状态 | boolean | - | 5.3.0 |
-| componentSize | antd 组件大小状态 | `small` \| `middle` \| `large` | - | 5.3.0 |
+| componentSize | antd 组件大小状态 | `small` \| `medium` \| `large` | - | 5.3.0 |
 
 ### 组件配置 {#component-config}
 
@@ -158,7 +158,7 @@ const {
 | ribbon | 设置 Ribbon 组件的通用属性 | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge-cn#semantic-dom), styles?: [RibbonProps\["styles"\]](/components/badge-cn#semantic-dom) } | - | 6.0.0 |
 | skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SkeletonProps\["classNames"\]](/components/skeleton-cn#semantic-dom), styles?: [SkeletonProps\["styles"\]](/components/skeleton-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SegmentedProps\["classNames"\]](/components/segmented-cn#semantic-dom), styles?: [SegmentedProps\["styles"\]](/components/segmented-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
-| select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectConfig\["classNames"\]](/components/select-cn#semantic-dom), styles?: [SelectConfig\["styles"\]](/components/select-cn#semantic-dom) } | - | 5.7.0,`classNames` 和 `styles`: 6.0.0 |
+| select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectConfig\["classNames"\]](/components/select-cn#semantic-dom), styles?: [SelectConfig\["styles"\]](/components/select-cn#semantic-dom), allowClear?: boolean \| { clearIcon?: ReactNode }} | - | 5.7.0, `classNames` 和 `styles`: 6.0.0, `allowClear`: 6.4.0 |
 | slider | 设置 Slider 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SliderProps\["classNames"\]](/components/slider-cn#semantic-dom), styles?: [SliderProps\["styles"\]](/components/slider-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.23.0 |
 | switch | 设置 Switch 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SwitchStyleConfig\["classNames"\]](/components/switch-cn#semantic-dom), styles?: [SwitchStyleConfig\["styles"\]](/components/switch-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | space | 设置 Space 的通用属性，参考 [Space](/components/space-cn) | { size: `small` \| `middle` \| `large` \| `number`, className?: string, style?: React.CSSProperties, classNames?: [SpaceProps\["classNames"\]](/components/space-cn#semantic-dom), styles?: [SpaceProps\["styles"\]](/components/space-cn#semantic-dom) } | - | 5.6.0 |

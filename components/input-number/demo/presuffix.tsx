@@ -3,7 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 import { Flex, InputNumber, Space } from 'antd';
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <InputNumber prefix="￥" style={{ width: '100%' }} />
 
     <Space.Compact block>

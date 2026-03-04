@@ -56,7 +56,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Tabs {...shareProps} styles={stylesObject} />
       <Tabs tabPlacement="start" type="card" {...shareProps} styles={stylesFn} />
     </Flex>

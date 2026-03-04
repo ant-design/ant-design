@@ -3,7 +3,7 @@ import { CopyOutlined, SearchOutlined } from '@ant-design/icons';
 import { Button, Cascader, Flex, Input, InputNumber, Select, Space, TimePicker } from 'antd';
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <Space.Compact block>
       <Space.Compact>
         <Space.Compact>

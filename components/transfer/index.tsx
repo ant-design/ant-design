@@ -28,9 +28,10 @@ export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
 export type { TransferListProps } from './Section';
 
-export type TransferSemanticName = keyof TransferSemanticClassNames & keyof TransferSemanticStyles;
+export type TransferSemanticName = keyof TransferBaseSemanticClassNames &
+  keyof TransferBaseSemanticStyles;
 
-export type TransferSemanticClassNames = {
+export type TransferBaseSemanticClassNames = {
   root?: string;
   section?: string;
   header?: string;
@@ -44,7 +45,14 @@ export type TransferSemanticClassNames = {
   actions?: string;
 };
 
-export type TransferSemanticStyles = {
+type TransferSectionSemanticClassNames = Omit<TransferBaseSemanticClassNames, 'root' | 'actions'>;
+
+export type TransferSemanticClassNames = TransferBaseSemanticClassNames & {
+  source?: TransferSectionSemanticClassNames;
+  target?: TransferSectionSemanticClassNames;
+};
+
+export type TransferBaseSemanticStyles = {
   root?: React.CSSProperties;
   section?: React.CSSProperties;
   header?: React.CSSProperties;
@@ -58,12 +66,30 @@ export type TransferSemanticStyles = {
   actions?: React.CSSProperties;
 };
 
+type TransferSectionSemanticStyles = Omit<TransferBaseSemanticStyles, 'root' | 'actions'>;
+
+export type TransferSemanticStyles = TransferBaseSemanticStyles & {
+  source?: TransferSectionSemanticStyles;
+  target?: TransferSectionSemanticStyles;
+};
+
 export type TransferClassNamesType = SemanticClassNamesType<
   TransferProps,
-  TransferSemanticClassNames
+  TransferBaseSemanticClassNames,
+  {
+    source?: TransferSectionSemanticClassNames;
+    target?: TransferSectionSemanticClassNames;
+  }
 >;
 
-export type TransferStylesType = SemanticStylesType<TransferProps, TransferSemanticStyles>;
+export type TransferStylesType = SemanticStylesType<
+  TransferProps,
+  TransferBaseSemanticStyles,
+  {
+    source?: TransferSectionSemanticStyles;
+    target?: TransferSectionSemanticStyles;
+  }
+>;
 
 export type TransferDirection = 'left' | 'right';
 
@@ -485,9 +511,17 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     TransferClassNamesType,
     TransferStylesType,
     TransferProps<RecordType>
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  >(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+    {
+      source: {},
+      target: {},
+    },
+  );
 
   const cls = clsx(
     prefixCls,
@@ -514,6 +548,47 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const mergedSelectionsIcon = selectionsIcon ?? contextSelectionsIcon;
 
+  const sectionSemanticKeys = [
+    'section',
+    'header',
+    'title',
+    'body',
+    'list',
+    'item',
+    'itemIcon',
+    'itemContent',
+    'footer',
+  ] as const;
+
+  const getMergedSectionClassNames = (
+    direction: 'source' | 'target',
+  ): TransferSemanticClassNames => {
+    const mergedSectionClassNames: TransferSemanticClassNames = { ...mergedClassNames };
+    const directionClassNames = mergedClassNames[direction];
+
+    sectionSemanticKeys.forEach((key) => {
+      mergedSectionClassNames[key] = clsx(mergedClassNames[key], directionClassNames?.[key]);
+    });
+
+    return mergedSectionClassNames;
+  };
+
+  const getMergedSectionStyles = (direction: 'source' | 'target'): TransferSemanticStyles => {
+    const mergedSectionStyles: TransferSemanticStyles = { ...mergedStyles };
+    const directionStyles = mergedStyles[direction];
+
+    sectionSemanticKeys.forEach((key) => {
+      mergedSectionStyles[key] = { ...mergedStyles[key], ...directionStyles?.[key] };
+    });
+
+    return mergedSectionStyles;
+  };
+
+  const sourceSectionClassNames = getMergedSectionClassNames('source');
+  const targetSectionClassNames = getMergedSectionClassNames('target');
+  const sourceSectionStyles = getMergedSectionStyles('source');
+  const targetSectionStyles = getMergedSectionStyles('target');
+
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
@@ -535,8 +610,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
+        classNames={sourceSectionClassNames}
+        styles={sourceSectionStyles}
         titleText={leftTitle}
         dataSource={leftDataSource as any}
         filterOption={filterOption}
@@ -576,8 +651,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('right')}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
+        classNames={targetSectionClassNames}
+        styles={targetSectionStyles}
         titleText={rightTitle}
         dataSource={rightDataSource as any}
         filterOption={filterOption}
