@@ -49,7 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | offset | Set offset of the badge dot | \[number, number] | - |  |
 | overflowCount | Max count to show | number | 99 |  |
 | showZero | Whether to show badge when `count` is zero | boolean | false |  |
-| size | If `count` is set, `size` sets the size of badge | `default` \| `small` | - | - |
+| size | If `count` is set, `size` sets the size of badge | `medium` \| `small` | - | - |
 | status | Set Badge as a status dot | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | text | If `status` is set, `text` sets the display text of the status `dot` | ReactNode | - |  |

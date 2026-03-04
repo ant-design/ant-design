@@ -57,7 +57,7 @@ demo:
 | success | 成功进度条相关配置 | { percent: number, strokeColor: string } | - | - |
 | ~~trailColor~~ | 未完成的分段的颜色。已废弃，请使用 `railColor` | string | - | - |
 | type | 类型，可选 `line` `circle` `dashboard` | string | `line` | - |
-| size | 进度条的尺寸 | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "default" | "default" | 5.3.0, Object: 5.18.0 |
+| size | 进度条的尺寸 | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "medium" | "medium" | 5.3.0, Object: 5.18.0 |
 
 ### `type="line"`
 
