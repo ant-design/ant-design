@@ -284,7 +284,7 @@ describe('RangePicker', () => {
     it('should render custom clearIcon', () => {
       const { container } = render(
         <RangePicker
-          open
+          value={[dayjs(), dayjs()]}
           allowClear={{ clearIcon: <div className="custom-clear-icon">Custom Clear Icon</div> }}
         />,
       );
@@ -300,7 +300,7 @@ describe('RangePicker', () => {
             },
           }}
         >
-          <RangePicker open />
+          <RangePicker value={[dayjs(), dayjs()]} />
         </ConfigProvider>,
       );
       expect(container.querySelector('.global-custom-clear-icon')).toBeTruthy();
@@ -316,7 +316,7 @@ describe('RangePicker', () => {
           }}
         >
           <RangePicker
-            open
+            value={[dayjs(), dayjs()]}
             allowClear={{ clearIcon: <div className="custom-clear-icon">Custom Clear Icon</div> }}
           />
         </ConfigProvider>,
