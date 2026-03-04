@@ -13,7 +13,7 @@ export const genHoverStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
 export const genDisabledStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   color: token.colorTextDisabled,
   backgroundColor: token.colorBgContainerDisabled,
-  borderColor: token.colorBorder,
+  borderColor: token.colorBorderDisabled,
   boxShadow: 'none',
   cursor: 'not-allowed',
   opacity: 1,
@@ -25,7 +25,7 @@ export const genDisabledStyle: GenerateStyle<InputToken, CSSObject> = (token) =>
   '&:hover:not([disabled])': {
     ...genHoverStyle(
       mergeToken<InputToken>(token, {
-        hoverBorderColor: token.colorBorder,
+        hoverBorderColor: token.colorBorderDisabled,
         hoverBg: token.colorBgContainerDisabled,
       }),
     ),
@@ -431,7 +431,7 @@ export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): 
       boxShadow: 'none',
       cursor: 'not-allowed',
       '&:hover': {
-        borderColor: `transparent transparent ${token.colorBorder} transparent`,
+        borderColor: `transparent transparent ${token.colorBorderDisabled} transparent`,
       },
     },
 
