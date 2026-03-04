@@ -43,6 +43,8 @@ export type TransferSemanticType = {
     itemContent?: string;
     footer?: string;
     actions?: string;
+    source?: TransferSectionSemanticClassNames;
+    target?: TransferSectionSemanticClassNames;
   };
   styles?: {
     root?: React.CSSProperties;
@@ -56,7 +58,33 @@ export type TransferSemanticType = {
     itemContent?: React.CSSProperties;
     footer?: React.CSSProperties;
     actions?: React.CSSProperties;
+    source?: TransferSectionSemanticStyles;
+    target?: TransferSectionSemanticStyles;
   };
+};
+
+type TransferSectionSemanticClassNames = {
+  section?: string;
+  header?: string;
+  title?: string;
+  body?: string;
+  list?: string;
+  item?: string;
+  itemIcon?: string;
+  itemContent?: string;
+  footer?: string;
+};
+
+type TransferSectionSemanticStyles = {
+  section?: React.CSSProperties;
+  header?: React.CSSProperties;
+  title?: React.CSSProperties;
+  body?: React.CSSProperties;
+  list?: React.CSSProperties;
+  item?: React.CSSProperties;
+  itemIcon?: React.CSSProperties;
+  itemContent?: React.CSSProperties;
+  footer?: React.CSSProperties;
 };
 
 export type TransferSemanticAllType = GenerateSemantic<TransferSemanticType, TransferProps>;
@@ -79,7 +107,6 @@ export interface TransferItem {
 }
 
 export type KeyWise<T> = T & { key: TransferKey };
-
 export type KeyWiseTransferItem = KeyWise<TransferItem>;
 
 type TransferRender<RecordType> = (item: RecordType) => RenderResult;
@@ -437,7 +464,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     selectedKey,
     checked,
     e,
-  ) => onItemSelect('right', selectedKey, checked, e?.shiftKey);
+  ) => {
+    onItemSelect('right', selectedKey, checked, e?.shiftKey);
+  };
 
   const onRightItemRemove = (keys: TransferKey[]) => {
     setStateKeys('right', []);
@@ -483,6 +512,10 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     {
       props: mergedProps,
     },
+    {
+      source: {},
+      target: {},
+    },
   );
 
   const cls = clsx(
@@ -510,6 +543,45 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
 
   const mergedSelectionsIcon = selectionsIcon ?? contextSelectionsIcon;
 
+  const sectionSemanticKeys = [
+    'section',
+    'header',
+    'title',
+    'body',
+    'list',
+    'item',
+    'itemIcon',
+    'itemContent',
+    'footer',
+  ] as const;
+
+  const getMergedSectionClassNames = (direction: 'source' | 'target') => {
+    const mergedSectionClassNames = { ...mergedClassNames };
+    const directionClassNames = mergedClassNames[direction];
+
+    sectionSemanticKeys.forEach((key) => {
+      mergedSectionClassNames[key] = clsx(mergedClassNames[key], directionClassNames?.[key]);
+    });
+
+    return mergedSectionClassNames;
+  };
+
+  const getMergedSectionStyles = (direction: 'source' | 'target') => {
+    const mergedSectionStyles = { ...mergedStyles };
+    const directionStyles = mergedStyles[direction];
+
+    sectionSemanticKeys.forEach((key) => {
+      mergedSectionStyles[key] = { ...mergedStyles[key], ...directionStyles?.[key] };
+    });
+
+    return mergedSectionStyles;
+  };
+
+  const sourceSectionClassNames = getMergedSectionClassNames('source');
+  const targetSectionClassNames = getMergedSectionClassNames('target');
+  const sourceSectionStyles = getMergedSectionStyles('source');
+  const targetSectionStyles = getMergedSectionStyles('target');
+
   // ===================== Warning ======================
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Transfer');
@@ -531,8 +603,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('left')}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
+        classNames={sourceSectionClassNames}
+        styles={sourceSectionStyles}
         titleText={leftTitle}
         dataSource={leftDataSource as any}
         filterOption={filterOption}
@@ -572,8 +644,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       <Section<KeyWise<RecordType>>
         prefixCls={prefixCls}
         style={handleListStyle('right')}
-        classNames={mergedClassNames}
-        styles={mergedStyles}
+        classNames={targetSectionClassNames}
+        styles={targetSectionStyles}
         titleText={rightTitle}
         dataSource={rightDataSource as any}
         filterOption={filterOption}

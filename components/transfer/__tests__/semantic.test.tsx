@@ -95,4 +95,67 @@ describe('Transfer.Semantic', () => {
       expect(eleList).toHaveLength(structureInfo[1]);
     });
   });
+
+  it('semantic source and target sections', () => {
+    const mockData = Array.from({ length: 20 }).map((_, i) => ({
+      key: i,
+      title: `content ${i + 1}`,
+    }));
+
+    const classNames = {
+      source: {
+        section: 'custom-source-section',
+        header: 'custom-source-header',
+      },
+      target: {
+        section: 'custom-target-section',
+        header: 'custom-target-header',
+      },
+    };
+
+    const styles = {
+      source: {
+        section: {
+          backgroundColor: 'rgb(255, 0, 255)',
+        },
+        header: {
+          backgroundColor: 'rgb(255, 128, 255)',
+        },
+      },
+      target: {
+        section: {
+          backgroundColor: 'rgb(0, 255, 255)',
+        },
+        header: {
+          backgroundColor: 'rgb(128, 255, 255)',
+        },
+      },
+    };
+
+    const { container } = render(
+      <Transfer
+        dataSource={mockData}
+        selectedKeys={[]}
+        targetKeys={[3, 9]}
+        render={(item) => item.title}
+        classNames={classNames}
+        styles={styles}
+      />,
+    );
+
+    const sourceSectionEle = container.querySelectorAll('.custom-source-section');
+    const targetSectionEle = container.querySelectorAll('.custom-target-section');
+    const sourceHeaderEle = container.querySelectorAll('.custom-source-header');
+    const targetHeaderEle = container.querySelectorAll('.custom-target-header');
+
+    expect(sourceSectionEle).toHaveLength(1);
+    expect(targetSectionEle).toHaveLength(1);
+    expect(sourceHeaderEle).toHaveLength(1);
+    expect(targetHeaderEle).toHaveLength(1);
+
+    expect(sourceSectionEle[0]).toHaveStyle(styles.source.section);
+    expect(targetSectionEle[0]).toHaveStyle(styles.target.section);
+    expect(sourceHeaderEle[0]).toHaveStyle(styles.source.header);
+    expect(targetHeaderEle[0]).toHaveStyle(styles.target.header);
+  });
 });
