@@ -962,6 +962,22 @@ describe('Upload List', () => {
     unmount();
   });
 
+  it('should mark picture-card list as empty when no items', () => {
+    const { container: wrapper, unmount } = render(
+      <UploadList
+        listType="picture-card"
+        items={[] as UploadListProps['items']}
+        locale={{ previewFile: '' }}
+      />,
+    );
+
+    const list = wrapper.querySelector<HTMLElement>('.ant-upload-list-picture-card');
+    expect(list).toBeTruthy();
+    expect(list).toHaveClass('ant-upload-list-picture-card-empty');
+
+    unmount();
+  });
+
   it('extname should work correctly when url exists', (done) => {
     const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
     const { container: wrapper, unmount } = render(

@@ -144,6 +144,10 @@ const genPictureCardStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
         flexWrap: 'wrap',
         minHeight: uploadPictureCardSize,
 
+        '&:empty': {
+          minHeight: 0,
+        },
+
         '@supports not (gap: 1px)': {
           '& > *': {
             marginBlockEnd: token.marginXS,
