@@ -29,11 +29,9 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
     items.map((item) => item.defaultSize),
   );
   const sizes = React.useMemo(() => {
-    // If any panel has a `size` passed as a prop, prioritize that and calculate all other panel sizes that don't have a `size` defined by the prop.
+    // If any panel has a `size` passed as a prop, use `propSizes` and calculate all other panel sizes that don't have a `size` defined by the prop.
     // If no panel has received a value for the `size` prop, use `innerSizes`.
-    return propSizes.every((propSize) => propSize === undefined || propSize === null)
-      ? innerSizes
-      : propSizes;
+    return propSizes.some((propSize) => propSize != null) ? propSizes : innerSizes;
   }, [itemsCount, innerSizes, propSizes]);
 
   const postPercentMinSizes = React.useMemo(
