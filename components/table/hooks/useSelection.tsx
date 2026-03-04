@@ -122,12 +122,6 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     selectedRowKeys,
   );
 
-  // Ref to track current selected keys for useEffect dependency optimization
-  const selectedKeysRef = React.useRef(mergedSelectedKeys);
-  React.useEffect(() => {
-    selectedKeysRef.current = mergedSelectedKeys;
-  }, [mergedSelectedKeys]);
-
   // ======================== Caches ========================
   const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
 
