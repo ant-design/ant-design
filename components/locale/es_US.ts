@@ -1,16 +1,24 @@
 import esES from './es_ES';
 import type { Locale } from '.';
-// US formatting (MM/DD/YYYY + 12h)
-import Calendar from '../calendar/locale/en_US';
-import DatePicker from '../date-picker/locale/en_US';
-import TimePicker from '../time-picker/locale/en_US';
+import Calendar from '../calendar/locale/es_ES';
+import DatePicker from '../date-picker/locale/es_ES';
 
 const localeValues: Locale = {
   ...esES,
-  locale: 'es-us',
-  DatePicker,
-  TimePicker,
-  Calendar,
+  DatePicker: {
+    ...DatePicker,
+    lang: {
+      ...DatePicker.lang,
+      locale: 'en_US',
+    },
+  },
+  Calendar: {
+    ...Calendar,
+    lang: {
+      ...Calendar.lang,
+      locale: 'en_US',
+    },
+  },
 };
 
 export default localeValues;
