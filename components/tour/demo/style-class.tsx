@@ -22,8 +22,12 @@ const btnProps: {
 };
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`border-radius: 4px;`,
-  section: css`border-radius: 8px;`,
+  root: css`
+    border-radius: 4px;
+  `,
+  section: css`
+    border-radius: 8px;
+  `,
 }));
 
 const stylesObject: TourProps['styles'] = {

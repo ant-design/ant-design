@@ -100,6 +100,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         borderRadius: token.borderRadiusSM,
         borderCollapse: 'separate',
         transition: `all ${token.motionDurationSlow}`,
+        flex: 'none',
         ...genNoMotionStyle(),
 
         // Checkmark
