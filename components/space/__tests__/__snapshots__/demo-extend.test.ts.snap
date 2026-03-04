@@ -218,7 +218,7 @@ exports[`renders components/space/demo/base.tsx extend context correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-upload-list ant-upload-list-text"
+        class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
       />
     </span>
   </div>

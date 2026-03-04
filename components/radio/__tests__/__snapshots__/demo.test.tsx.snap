@@ -466,7 +466,7 @@ exports[`renders components/radio/demo/debug-upload.tsx correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-upload-list ant-upload-list-text"
+        class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
       />
     </span>
   </div>
@@ -508,7 +508,7 @@ exports[`renders components/radio/demo/debug-upload.tsx correctly 1`] = `
         </span>
       </div>
       <div
-        class="ant-upload-list ant-upload-list-text"
+        class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
       />
     </span>
   </div>
