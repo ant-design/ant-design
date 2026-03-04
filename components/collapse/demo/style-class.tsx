@@ -66,7 +66,6 @@ const stylesFn: CollapseProps['styles'] = ({
       },
     };
   }
-  return {};
 };
 
 const App: React.FC = () => {
