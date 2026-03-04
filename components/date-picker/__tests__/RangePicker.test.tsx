@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
+import ConfigProvider from 'antd/es/config-provider';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
@@ -253,25 +254,75 @@ describe('RangePicker', () => {
 
     it('should render global suffixIcon', () => {
       const { container } = render(
-        <DatePicker
-          suffixIcon={<div className="global-custom-suffix-icon">Global Custom Icon</div>}
+        <ConfigProvider
+          datePicker={{
+            suffixIcon: <div className="global-custom-suffix-icon">Global Custom Icon</div>,
+          }}
         >
           <RangePicker open />
-        </DatePicker>,
+        </ConfigProvider>,
       );
       expect(container.querySelector('.global-custom-suffix-icon')).toBeTruthy();
     });
 
     it('should prefer custom suffixIcon over global suffixIcon', () => {
       const { container } = render(
-        <DatePicker
-          suffixIcon={<div className="global-custom-suffix-icon">Global Custom Icon</div>}
+        <ConfigProvider
+          datePicker={{
+            suffixIcon: <div className="global-custom-suffix-icon">Global Custom Icon</div>,
+          }}
         >
           <RangePicker open suffixIcon={<div className="custom-suffix-icon">Custom Icon</div>} />
-        </DatePicker>,
+        </ConfigProvider>,
       );
       expect(container.querySelector('.custom-suffix-icon')).toBeTruthy();
       expect(container.querySelector('.global-custom-suffix-icon')).toBeFalsy();
+    });
+  });
+
+  describe('clearIcon', () => {
+    it('should render custom clearIcon', () => {
+      const { container } = render(
+        <RangePicker
+          open
+          allowClear={{ clearIcon: <div className="custom-clear-icon">Custom Clear Icon</div> }}
+        />,
+      );
+      expect(container.querySelector('.custom-clear-icon')).toBeTruthy();
+    });
+
+    it('should render global clearIcon', () => {
+      const { container } = render(
+        <ConfigProvider
+          datePicker={{
+            allowClear: {
+              clearIcon: <div className="global-custom-clear-icon">Global Custom Clear Icon</div>,
+            },
+          }}
+        >
+          <RangePicker open />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.global-custom-clear-icon')).toBeTruthy();
+    });
+
+    it('should prefer custom clearIcon over global clearIcon', () => {
+      const { container } = render(
+        <ConfigProvider
+          datePicker={{
+            allowClear: {
+              clearIcon: <div className="global-custom-clear-icon">Global Custom Clear Icon</div>,
+            },
+          }}
+        >
+          <RangePicker
+            open
+            allowClear={{ clearIcon: <div className="custom-clear-icon">Custom Clear Icon</div> }}
+          />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.custom-clear-icon')).toBeTruthy();
+      expect(container.querySelector('.global-custom-clear-icon')).toBeFalsy();
     });
   });
 });
