@@ -1,12 +1,13 @@
 import React from 'react';
 
 import TimeLine from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import type { TimelineSemanticAllType } from '../Timeline';
 
 describe('Timeline.Semantic', () => {
   it('semantic structure', () => {
-    const classNames: TimelineSemanticAllType['classNames'] = {
+    const classNames: Required<GetProp<TimelineSemanticAllType, 'classNames', 'Return'>> = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -18,7 +19,7 @@ describe('Timeline.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: TimelineSemanticAllType['classNames'] = {
+    const classNamesTargets: Required<GetProp<TimelineSemanticAllType, 'classNames', 'Return'>> = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -30,7 +31,7 @@ describe('Timeline.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: TimelineSemanticAllType['styles'] = {
+    const styles: Required<GetProp<TimelineSemanticAllType, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },

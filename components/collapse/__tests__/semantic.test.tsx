@@ -1,19 +1,20 @@
 import React from 'react';
 
 import Collapse from '..';
+import type { GetProp } from '../../_util/type';
 import type { CollapseProps } from '..';
 import { render } from '../../../tests/utils';
 
 describe('Collapse.Semantic', () => {
   it('should support styles and classNames', () => {
-    const customClassNames: CollapseProps['classNames'] = {
+    const customClassNames: Required<GetProp<CollapseProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       header: 'custom-header',
       title: 'custom-title',
       body: 'custom-body',
       icon: 'custom-icon',
     };
-    const customStyles: CollapseProps['styles'] = {
+    const customStyles: Required<GetProp<CollapseProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       header: { color: 'rgb(0, 0, 255)' },
       title: { color: 'rgb(0, 128, 0)' },
@@ -36,11 +37,11 @@ describe('Collapse.Semantic', () => {
     const iconElement = container.querySelector<HTMLElement>('.ant-collapse-expand-icon');
 
     // check classNames
-    expect(rootElement).toHaveClass(customClassNames.root as string);
-    expect(headerElement).toHaveClass(customClassNames.header as string);
-    expect(titleElement).toHaveClass(customClassNames.title as string);
-    expect(bodyElement).toHaveClass(customClassNames.body as string);
-    expect(iconElement).toHaveClass(customClassNames.icon as string);
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(headerElement).toHaveClass(customClassNames.header);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(bodyElement).toHaveClass(customClassNames.body);
+    expect(iconElement).toHaveClass(customClassNames.icon);
     // check styles
     expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
     expect(headerElement).toHaveStyle({ color: customStyles.header?.color });
@@ -50,7 +51,7 @@ describe('Collapse.Semantic', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const fnClassNames: CollapseProps['classNames'] = ({ props }) => ({
+    const fnClassNames: Required<GetProp<CollapseProps, 'classNames', 'Return'>> = ({ props }) => ({
       root: `size-${props.size}`,
       header: props.ghost ? 'ghost-header' : 'normal-header',
       title: 'dynamic-title',
@@ -58,7 +59,7 @@ describe('Collapse.Semantic', () => {
       icon: props.expandIconPlacement === 'end' ? 'end-icon' : 'start-icon',
     });
 
-    const fnStyles: CollapseProps['styles'] = ({ props }) => ({
+    const fnStyles: Required<GetProp<CollapseProps, 'styles', 'Return'>> = ({ props }) => ({
       root: { borderWidth: props.ghost ? '0px' : '1px' },
       header: { fontSize: props.size === 'large' ? '18px' : '14px' },
       title: { fontWeight: props.size === 'large' ? 'bold' : 'normal' },

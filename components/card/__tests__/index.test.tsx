@@ -8,7 +8,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
-import ConfigProvider from '../../config-provider';
+import type { GetProp } from '../../_util/type';
 import type { CardMetaProps, CardProps } from '../index';
 import Card from '../index';
 
@@ -181,7 +181,7 @@ describe('Card', () => {
   });
 
   it('should support custom styles', () => {
-    const customClassNames: CardProps['classNames'] = {
+    const customClassNames: Required<GetProp<CardProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       header: 'custom-header',
       body: 'custom-body',
@@ -191,7 +191,7 @@ describe('Card', () => {
       cover: 'custom-cover',
     };
 
-    const customStyles: CardProps['styles'] = {
+    const customStyles: Required<GetProp<CardProps, 'styles', 'Return'>> = {
       root: { backgroundColor: 'rgb(255, 0, 0)' },
       header: { backgroundColor: 'rgb(0, 0, 0)' },
       body: { backgroundColor: 'rgb(128, 128, 128)' },
@@ -223,13 +223,13 @@ describe('Card', () => {
     const coverElement = container.querySelector<HTMLElement>('.ant-card-cover');
 
     // check classNames
-    expect(rootElement).toHaveClass(customClassNames.root as string);
-    expect(headerElement).toHaveClass(customClassNames.header as string);
-    expect(bodyElement).toHaveClass(customClassNames.body as string);
-    expect(extraElement).toHaveClass(customClassNames.extra as string);
-    expect(titleElement).toHaveClass(customClassNames.title as string);
-    expect(actionsElement).toHaveClass(customClassNames.actions as string);
-    expect(coverElement).toHaveClass(customClassNames.cover as string);
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(headerElement).toHaveClass(customClassNames.header);
+    expect(bodyElement).toHaveClass(customClassNames.body);
+    expect(extraElement).toHaveClass(customClassNames.extra);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(actionsElement).toHaveClass(customClassNames.actions);
+    expect(coverElement).toHaveClass(customClassNames.cover);
 
     // check styles
     expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root?.backgroundColor });
@@ -243,7 +243,7 @@ describe('Card', () => {
 
   it('should support custom styles for Card.Meta', () => {
     const { Meta } = Card;
-    const customClassNames: CardMetaProps['classNames'] = {
+    const customClassNames: Required<GetProp<CardMetaProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       section: 'custom-section',
       avatar: 'custom-avatar',
@@ -251,7 +251,7 @@ describe('Card', () => {
       description: 'custom-description',
     };
 
-    const customStyles: CardMetaProps['styles'] = {
+    const customStyles: Required<GetProp<CardMetaProps, 'styles', 'Return'>> = {
       root: { backgroundColor: 'rgb(255, 0, 0)' },
       section: { backgroundColor: 'rgb(0, 0, 0)' },
       avatar: { backgroundColor: 'rgb(128, 128, 128)' },
@@ -283,11 +283,11 @@ describe('Card', () => {
     const titleElement = container.querySelector<HTMLElement>('.ant-card-meta-title');
     const descElement = container.querySelector<HTMLElement>('.ant-card-meta-description');
 
-    expect(rootElement).toHaveClass(customClassNames.root as string);
-    expect(sectionElement).toHaveClass(customClassNames.section as string);
-    expect(avatarElement).toHaveClass(customClassNames.avatar as string);
-    expect(titleElement).toHaveClass(customClassNames.title as string);
-    expect(descElement).toHaveClass(customClassNames.description as string);
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(sectionElement).toHaveClass(customClassNames.section);
+    expect(avatarElement).toHaveClass(customClassNames.avatar);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(descElement).toHaveClass(customClassNames.description);
     expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root?.backgroundColor });
     expect(sectionElement).toHaveStyle({ backgroundColor: customStyles.section?.backgroundColor });
     expect(avatarElement).toHaveStyle({ backgroundColor: customStyles.avatar?.backgroundColor });

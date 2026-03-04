@@ -7,13 +7,14 @@ import { render } from '../../../tests/utils';
 
 describe('TimePicker.Semantic', () => {
   it('should support semantic classNames and styles with useMergeSemantic', () => {
-    const semanticClassNames: TimePickerSemanticAllType['classNames'] = {
-      root: 'semantic-root',
-      prefix: 'semantic-prefix',
-      input: 'semantic-input',
-      suffix: 'semantic-suffix',
-      popup: 'semantic-popup-root',
-    };
+    const semanticClassNames: Required<GetProp<TimePickerSemanticAllType, 'classNames', 'Return'>> =
+      {
+        root: 'semantic-root',
+        prefix: 'semantic-prefix',
+        input: 'semantic-input',
+        suffix: 'semantic-suffix',
+        popup: 'semantic-popup-root',
+      };
 
     const semanticStyles = {
       root: { backgroundColor: 'rgb(240, 240, 240)' },

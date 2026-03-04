@@ -3,7 +3,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
 
 import Button, { _ButtonVariantTypes } from '..';
-import type { GetRef } from '../../_util/type';
+
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
@@ -538,12 +538,12 @@ describe('Button', () => {
   });
 
   it('should support classnames and styles', () => {
-    const customStyles: ButtonProps['styles'] = {
+    const customStyles: Required<GetProp<ButtonProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       icon: { background: 'blue' },
       content: { fontSize: '20px' },
     };
-    const customClassNames: ButtonProps['classNames'] = {
+    const customClassNames: Required<GetProp<ButtonProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       icon: 'custom-icon',
       content: 'custom-content',
@@ -556,19 +556,19 @@ describe('Button', () => {
     const root = container.querySelector('.ant-btn');
     const icon = container.querySelector('.ant-btn-icon');
     const content = getByText('antd');
-    expect(root).toHaveClass(customClassNames.root as string);
-    expect(icon).toHaveClass(customClassNames.icon as string);
-    expect(root).toHaveStyle(customStyles.root as Record<string, string>);
-    expect(icon).toHaveStyle(customStyles.icon as Record<string, string>);
-    expect(content).toHaveStyle(customStyles.content as Record<string, string>);
+    expect(root).toHaveClass(customClassNames.root);
+    expect(icon).toHaveClass(customClassNames.icon);
+    expect(root).toHaveStyle(customStyles.root);
+    expect(icon).toHaveStyle(customStyles.icon);
+    expect(content).toHaveStyle(customStyles.content);
     rerender(
       <Button classNames={customClassNames} styles={customStyles} loading>
         antd
       </Button>,
     );
     const loadingIcon = container.querySelector('.ant-btn-icon');
-    expect(loadingIcon).toHaveClass(customClassNames.icon as string);
-    expect(loadingIcon).toHaveStyle(customStyles.icon as Record<string, string>);
+    expect(loadingIcon).toHaveClass(customClassNames.icon);
+    expect(loadingIcon).toHaveStyle(customStyles.icon);
   });
 
   it('should support customizing the background color of default type button in disabled state', () => {

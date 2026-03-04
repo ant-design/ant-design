@@ -16,14 +16,14 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const stylesObject: SwitchProps['styles'] = {
+const stylesObject: Required<GetProp<SwitchProps, 'styles', 'Return'>> = {
   root: { background: 'red' },
   indicator: { width: '20px' },
 };
 
 // 创建一个自定义 Hook 来获取 classNames 函数
 const useClassNames = () => {
-  const classNamesFn: SwitchProps['classNames'] = (
+  const classNamesFn: Required<GetProp<SwitchProps, 'classNames', 'Return'>> = (
     info,
   ): GetProp<SwitchProps, 'classNames', 'Return'> => {
     if (info.props.size === 'small') {

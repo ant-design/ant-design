@@ -1,13 +1,13 @@
 import React from 'react';
 
 import type { CardProps } from '..';
-import Card from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Card.Semantic', () => {
   it('should support useMergeSemantic with mergedProps', () => {
-    const semanticClassNames: CardProps['classNames'] = {
+    const semanticClassNames: Required<GetProp<CardProps, 'classNames', 'Return'>> = {
       root: 'semantic-card-root',
       header: 'semantic-card-header',
       body: 'semantic-card-body',
@@ -15,7 +15,7 @@ describe('Card.Semantic', () => {
       extra: 'semantic-card-extra',
       actions: 'semantic-card-actions',
     };
-    const semanticStyles: CardProps['styles'] = {
+    const semanticStyles: Required<GetProp<CardProps, 'styles', 'Return'>> = {
       root: { backgroundColor: '#fafafa' },
       header: { color: '#111111', fontWeight: 700 },
       body: { padding: '20px' },
@@ -45,12 +45,12 @@ describe('Card.Semantic', () => {
     const extra = container.querySelector('.ant-card-extra');
 
     // Check semantic class names
-    expect(root).toHaveClass(semanticClassNames.root as string);
-    expect(header).toHaveClass(semanticClassNames.header as string);
-    expect(body).toHaveClass(semanticClassNames.body as string);
-    expect(actions).toHaveClass(semanticClassNames.actions as string);
-    expect(title).toHaveClass(semanticClassNames.title as string);
-    expect(extra).toHaveClass(semanticClassNames.extra as string);
+    expect(root).toHaveClass(semanticClassNames.root);
+    expect(header).toHaveClass(semanticClassNames.header);
+    expect(body).toHaveClass(semanticClassNames.body);
+    expect(actions).toHaveClass(semanticClassNames.actions);
+    expect(title).toHaveClass(semanticClassNames.title);
+    expect(extra).toHaveClass(semanticClassNames.extra);
 
     // Check semantic styles
     expect(root).toHaveStyle('background-color: rgb(250, 250, 250)');
@@ -63,7 +63,7 @@ describe('Card.Semantic', () => {
   });
 
   it('should support function-based semantic classNames and styles', () => {
-    const dynamicClassNames: CardProps['classNames'] = () => ({
+    const dynamicClassNames: Required<GetProp<CardProps, 'classNames', 'Return'>> = () => ({
       root: 'dynamic-card-root',
       header: 'dynamic-card-header',
       body: 'dynamic-card-body',
@@ -72,7 +72,7 @@ describe('Card.Semantic', () => {
       actions: 'dynamic-card-actions',
     });
 
-    const dynamicStyles: CardProps['styles'] = () => ({
+    const dynamicStyles: Required<GetProp<CardProps, 'styles', 'Return'>> = () => ({
       root: { borderRadius: '12px' },
       header: { fontSize: '16px' },
       body: { padding: '20px' },

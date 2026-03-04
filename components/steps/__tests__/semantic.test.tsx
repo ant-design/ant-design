@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Steps from '..';
+import type { GetProp } from '../../_util/type';
 import type { StepsProps, StepsSemanticAllType } from '..';
 import { render } from '../../../tests/utils';
 
@@ -17,7 +18,7 @@ describe('Steps.Semantic', () => {
   );
 
   it('semantic structure', () => {
-    const classNames: StepsSemanticAllType['classNames'] = {
+    const classNames: Required<GetProp<StepsSemanticAllType, 'classNames', 'Return'>> = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -30,7 +31,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: StepsSemanticAllType['classNames'] = {
+    const classNamesTargets: Required<GetProp<StepsSemanticAllType, 'classNames', 'Return'>> = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -43,7 +44,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: StepsSemanticAllType['styles'] = {
+    const styles: Required<GetProp<StepsSemanticAllType, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -70,14 +71,14 @@ describe('Steps.Semantic', () => {
   });
 
   it('semantic structure with function classNames and styles', () => {
-    const classNamesFn: StepsProps['classNames'] = (info) => {
+    const classNamesFn: Required<GetProp<StepsProps, 'classNames', 'Return'>> = (info) => {
       if (info.props.type === 'navigation') {
         return { root: 'custom-navigation-root' };
       }
       return { root: 'custom-default-root' };
     };
 
-    const stylesFn: StepsProps['styles'] = (info) => {
+    const stylesFn: Required<GetProp<StepsProps, 'styles', 'Return'>> = (info) => {
       if (info.props.current === 1) {
         return { root: { backgroundColor: 'rgb(255, 0, 0)' } };
       }

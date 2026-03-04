@@ -1,7 +1,6 @@
 import React from 'react';
 import type { GetProp } from 'antd';
 
-import type { TableProps } from '..';
 import Table from '..';
 import { render } from '../../../tests/utils';
 

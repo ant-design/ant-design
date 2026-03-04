@@ -1,9 +1,10 @@
 import React from 'react';
 
 import Skeleton from '..';
+import type { GetProp } from '../../_util/type';
 import type { SkeletonProps } from '..';
 import { render } from '../../../tests/utils';
-import type { SkeletonSemanticAllType } from '../Skeleton';
+import type { SkeletonSemanticClassNames, SkeletonSemanticStyles } from '../Skeleton';
 
 const genSkeleton = (props?: SkeletonProps) => render(<Skeleton {...props} />);
 
@@ -16,7 +17,7 @@ describe('Skeleton.Semantic', () => {
     const titleStyle = { background: 'red' };
     const paragraphStyle = { background: 'orange' };
 
-    const customClassNames: SkeletonSemanticAllType['classNames'] = {
+    const customClassNames: Required<SkeletonSemanticClassNames> = {
       root: 'custom-root',
       header: 'custom-header',
       section: 'custom-section',
@@ -25,7 +26,7 @@ describe('Skeleton.Semantic', () => {
       paragraph: 'custom-paragraph',
     };
 
-    const customStyles: SkeletonSemanticAllType['styles'] = {
+    const customStyles: Required<SkeletonSemanticStyles> = {
       root: rootStyle,
       header: headerStyle,
       section: sectionStyle,
@@ -42,29 +43,31 @@ describe('Skeleton.Semantic', () => {
 
     const rootElement = container.querySelector<HTMLElement>('.ant-skeleton');
     expect(rootElement).toHaveStyle(rootStyle);
-    expect(rootElement).toHaveClass(customClassNames.root as string);
+    expect(rootElement).toHaveClass(customClassNames.root);
 
     const headerElement = container.querySelector<HTMLElement>('.ant-skeleton-header');
     expect(headerElement).toHaveStyle(headerStyle);
-    expect(headerElement).toHaveClass(customClassNames.header as string);
+    expect(headerElement).toHaveClass(customClassNames.header);
+
     const sectionElement = container.querySelector<HTMLElement>('.ant-skeleton-section');
     expect(sectionElement).toHaveStyle(sectionStyle);
-    expect(sectionElement).toHaveClass(customClassNames.section as string);
+    expect(sectionElement).toHaveClass(customClassNames.section);
 
     const avatarElement = container.querySelector<HTMLElement>('.ant-skeleton-avatar');
     expect(avatarElement).toHaveStyle(avatarStyle);
-    expect(avatarElement).toHaveClass(customClassNames.avatar as string);
+    expect(avatarElement).toHaveClass(customClassNames.avatar);
+
     const titleElement = container.querySelector<HTMLElement>('.ant-skeleton-title');
     expect(titleElement).toHaveStyle(titleStyle);
-    expect(titleElement).toHaveClass(customClassNames.title as string);
+    expect(titleElement).toHaveClass(customClassNames.title);
 
     const paragraphElement = container.querySelector<HTMLElement>('.ant-skeleton-paragraph');
     expect(paragraphElement).toHaveStyle(paragraphStyle);
-    expect(paragraphElement).toHaveClass(customClassNames.paragraph as string);
+    expect(paragraphElement).toHaveClass(customClassNames.paragraph);
   });
 
   it('Skeleton should apply custom styles function to semantic elements', () => {
-    const classNamesFn: SkeletonProps['classNames'] = (info) => {
+    const classNamesFn: Required<GetProp<SkeletonProps, 'classNames', 'Return'>> = (info) => {
       return info?.props?.active
         ? {
             root: 'demo-skeleton-root-active',
@@ -84,7 +87,7 @@ describe('Skeleton.Semantic', () => {
           };
     };
 
-    const stylesFn: SkeletonProps['styles'] = (info) => {
+    const stylesFn: Required<GetProp<SkeletonProps, 'styles', 'Return'>> = (info) => {
       return info?.props?.active
         ? {
             root: { padding: 1 },
