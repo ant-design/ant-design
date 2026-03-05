@@ -13,7 +13,6 @@ import 'dayjs/locale/el';
 import 'dayjs/locale/en';
 import 'dayjs/locale/en-gb';
 import 'dayjs/locale/es';
-import 'dayjs/locale/es-us';
 import 'dayjs/locale/et';
 import 'dayjs/locale/fa';
 import 'dayjs/locale/fi';
@@ -100,7 +99,6 @@ import elGR from '../../locale/el_GR';
 import enGB from '../../locale/en_GB';
 import enUS from '../../locale/en_US';
 import esES from '../../locale/es_ES';
-import esUS from '../../locale/es_US';
 import etEE from '../../locale/et_EE';
 import euES from '../../locale/eu_ES';
 import faIR from '../../locale/fa_IR';
@@ -176,7 +174,6 @@ const locales = [
   enGB,
   enUS,
   esES,
-  esUS,
   etEE,
   euES,
   faIR,
