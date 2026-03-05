@@ -60,6 +60,29 @@ export type PlaceholderType =
       progress?: boolean | PlaceholderProgressConfig;
     };
 
+type PlaceholderClassNames = {
+  progress?: string;
+  progressPercent?: string;
+};
+
+type PlaceholderStyles = {
+  progress?: React.CSSProperties;
+  progressPercent?: React.CSSProperties;
+};
+
+// Visually hidden styles for screen readers
+const VISUALLY_HIDDEN_STYLE: React.CSSProperties = {
+  position: 'absolute',
+  width: 1,
+  height: 1,
+  padding: 0,
+  margin: -1,
+  overflow: 'hidden',
+  clip: 'rect(0, 0, 0, 0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+};
+
 export type ImageSemanticType = {
   classNames?: {
     root?: string;
@@ -262,12 +285,8 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const percentValue = hasPercent ? Math.max(0, Math.min(100, Math.round(percent))) : 0;
 
   // 获取 placeholder 样式
-  const placeholderClassNames = mergedClassNames?.placeholder as
-    | { progress?: string; progressPercent?: string }
-    | undefined;
-  const placeholderStyles = mergedStyles?.placeholder as
-    | { progress?: React.CSSProperties; progressPercent?: React.CSSProperties }
-    | undefined;
+  const placeholderClassNames = mergedClassNames?.placeholder as PlaceholderClassNames | undefined;
+  const placeholderStyles = mergedStyles?.placeholder as PlaceholderStyles | undefined;
 
   // 渲染进度条（只包含 bar，不包含 percent）
   const renderProgressBar = () => {
@@ -345,21 +364,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
         >
           {/* Visually hidden live region for non-percent loading state */}
           {!hasPercent && (
-            <span
-              role="status"
-              aria-live="polite"
-              style={{
-                position: 'absolute',
-                width: 1,
-                height: 1,
-                padding: 0,
-                margin: -1,
-                overflow: 'hidden',
-                clip: 'rect(0, 0, 0, 0)',
-                whiteSpace: 'nowrap',
-                border: 0,
-              }}
-            >
+            <span role="status" aria-live="polite" style={VISUALLY_HIDDEN_STYLE}>
               Loading
             </span>
           )}
