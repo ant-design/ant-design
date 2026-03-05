@@ -1,6 +1,6 @@
 import React from 'react';
 import { Radio } from 'antd';
-import type { CheckboxGroupProps } from 'antd/es/checkbox';
+import type { RadioGroupProps } from 'antd/es/radio';
 
 const options: CheckboxGroupProps<string>['options'] = [
   { label: 'Short', value: 'a' },
