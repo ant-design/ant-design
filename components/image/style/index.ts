@@ -321,12 +321,12 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         width: '100%',
         paddingInline: token.paddingLG,
         textAlign: 'center',
+        fontSize: token.fontSize,
+        color: token.colorTextSecondary,
       },
 
       // Percent text
       [`${componentCls}-progress-percent`]: {
-        fontSize: token.fontSize,
-        color: token.colorTextSecondary,
         marginTop: token.marginXS,
       },
 
