@@ -1,7 +1,8 @@
 import React from 'react';
-import type { GetProp } from 'antd';
 
+import type { TableProps } from '..';
 import Table from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 describe('Table', () => {

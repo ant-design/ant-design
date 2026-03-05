@@ -4,11 +4,12 @@ import React from 'react';
 import type { TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import userEvent from '@testing-library/user-event';
 
+import type { GetProp } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
 import Button from '../../button/index';
-import type { GetProp } from '../../_util/type';
+import ConfigProvider from '../../config-provider';
 import type { CardMetaProps, CardProps } from '../index';
 import Card from '../index';
 

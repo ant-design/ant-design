@@ -1,6 +1,7 @@
 import React from 'react';
 
 import type { CardProps } from '..';
+import Card from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
@@ -14,6 +15,7 @@ describe('Card.Semantic', () => {
       title: 'semantic-card-title',
       extra: 'semantic-card-extra',
       actions: 'semantic-card-actions',
+      cover: 'semantic-card-cover',
     };
     const semanticStyles: Required<GetProp<CardProps, 'styles', 'Return'>> = {
       root: { backgroundColor: '#fafafa' },
@@ -22,6 +24,7 @@ describe('Card.Semantic', () => {
       title: { fontSize: '22px' },
       extra: { color: '#000000' },
       actions: { margin: '8px' },
+      cover: { padding: '10px' },
     };
     const { Meta } = Card;
     const { container } = render(
@@ -70,6 +73,7 @@ describe('Card.Semantic', () => {
       title: 'dynamic-card-title',
       extra: 'dynamic-card-extra',
       actions: 'dynamic-card-actions',
+      cover: 'dynamic-card-cover',
     });
 
     const dynamicStyles: Required<GetProp<CardProps, 'styles', 'Return'>> = () => ({
@@ -79,6 +83,7 @@ describe('Card.Semantic', () => {
       title: { fontSize: '22px' },
       extra: { color: '#000000' },
       actions: { margin: '8px' },
+      cover: { padding: '10px' },
     });
 
     const { Meta } = Card;

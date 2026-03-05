@@ -3,6 +3,7 @@ import dayjs from 'dayjs';
 
 import type { TimePickerSemanticAllType } from '..';
 import TimePicker from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 describe('TimePicker.Semantic', () => {

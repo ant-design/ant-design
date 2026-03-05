@@ -3,7 +3,7 @@ import { SearchOutlined } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
 
 import Button, { _ButtonVariantTypes } from '..';
-
+import type { GetProp, GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
