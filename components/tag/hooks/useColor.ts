@@ -3,6 +3,8 @@ import { FastColor } from '@ant-design/fast-color';
 
 import type { TagProps } from '..';
 import { isPresetColor, isPresetStatusColor } from '../../_util/colors';
+import { AggregationColor } from '../../color-picker/color';
+import { isBright } from '../../color-picker/components/ColorPresets';
 
 /**
  * Convert color related props to a unified object,
@@ -49,6 +51,9 @@ export default function useColor(
     if (!nextIsPreset && !nextIsStatus && nextColor) {
       if (nextVariant === 'solid') {
         tagStyle.backgroundColor = color;
+        // Calculate contrasting text color for custom solid tags
+        const textColor = isBright(new AggregationColor(nextColor), '#fff') ? '#000' : '#fff';
+        tagStyle.color = textColor;
       } else {
         const hsl = new FastColor(nextColor).toHsl();
         hsl.l = 0.95;

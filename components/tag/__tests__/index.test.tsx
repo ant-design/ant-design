@@ -316,6 +316,26 @@ describe('Tag', () => {
     expect(tagElement).not.toBeNull();
   });
 
+  it('should have contrasting text color for custom solid variant', () => {
+    // Light background should have dark text
+    const { container: lightContainer } = render(
+      <Tag color="#ffffff" variant="solid">
+        light
+      </Tag>,
+    );
+    const lightTag = lightContainer.querySelector('.ant-tag');
+    expect(lightTag).toHaveStyle({ color: '#000' });
+
+    // Dark background should have light text
+    const { container: darkContainer } = render(
+      <Tag color="#000000" variant="solid">
+        dark
+      </Tag>,
+    );
+    const darkTag = darkContainer.querySelector('.ant-tag');
+    expect(darkTag).toHaveStyle({ color: '#fff' });
+  });
+
   it('legacy color inverse', () => {
     const { container } = render(<Tag color="green-inverse">tag</Tag>);
 
