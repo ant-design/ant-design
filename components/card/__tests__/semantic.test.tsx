@@ -66,8 +66,8 @@ describe('Card.Semantic', () => {
   });
 
   it('should support function-based semantic classNames and styles', () => {
-    const dynamicClassNames: Required<GetProp<CardProps, 'classNames', 'Return'>> = () => ({
-      root: 'dynamic-card-root',
+    const dynamicClassNames: GetProp<CardProps, 'classNames'> = ({ props }) => ({
+      root: `dynamic-card-root-${props.size}`,
       header: 'dynamic-card-header',
       body: 'dynamic-card-body',
       title: 'dynamic-card-title',
@@ -76,8 +76,8 @@ describe('Card.Semantic', () => {
       cover: 'dynamic-card-cover',
     });
 
-    const dynamicStyles: Required<GetProp<CardProps, 'styles', 'Return'>> = () => ({
-      root: { borderRadius: '12px' },
+    const dynamicStyles: GetProp<CardProps, 'styles'> = ({ props }) => ({
+      root: { borderRadius: props.size === 'small' ? '8px' : '12px' },
       header: { fontSize: '16px' },
       body: { padding: '20px' },
       title: { fontSize: '22px' },
@@ -93,6 +93,7 @@ describe('Card.Semantic', () => {
         title="card"
         extra={<Button type="link">More</Button>}
         style={{ width: 300 }}
+        size="small"
         actions={[<span key={1}>test</span>]}
         classNames={dynamicClassNames}
         styles={dynamicStyles}
@@ -108,14 +109,14 @@ describe('Card.Semantic', () => {
     const title = container.querySelector('.ant-card-head-title');
     const extra = container.querySelector('.ant-card-extra');
 
-    expect(root).toHaveClass('dynamic-card-root');
+    expect(root).toHaveClass('dynamic-card-root-small');
     expect(header).toHaveClass('dynamic-card-header');
     expect(body).toHaveClass('dynamic-card-body');
     expect(actions).toHaveClass('dynamic-card-actions');
     expect(title).toHaveClass('dynamic-card-title');
     expect(extra).toHaveClass('dynamic-card-extra');
 
-    expect(root).toHaveStyle('border-radius: 12px');
+    expect(root).toHaveStyle('border-radius: 8px');
     expect(header).toHaveStyle('font-size: 16px');
     expect(body).toHaveStyle('padding: 20px');
     expect(actions).toHaveStyle('margin: 8px');

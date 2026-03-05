@@ -66,8 +66,8 @@ describe('Skeleton.Semantic', () => {
   });
 
   it('Skeleton should apply custom styles function to semantic elements', () => {
-    const classNamesFn: Required<GetProp<SkeletonProps, 'classNames', 'Return'>> = (info) => {
-      return info?.props?.active
+    const classNamesFn: GetProp<SkeletonProps, 'classNames'> = ({ props }) => {
+      return props?.active
         ? {
             root: 'demo-skeleton-root-active',
             header: 'demo-skeleton-header-active',
@@ -86,8 +86,8 @@ describe('Skeleton.Semantic', () => {
           };
     };
 
-    const stylesFn: Required<GetProp<SkeletonProps, 'styles', 'Return'>> = (info) => {
-      return info?.props?.active
+    const stylesFn: GetProp<SkeletonProps, 'styles'> = ({ props }) => {
+      return props?.active
         ? {
             root: { padding: 1 },
             header: { padding: 2 },

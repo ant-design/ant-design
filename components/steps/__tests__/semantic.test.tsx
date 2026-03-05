@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Steps from '..';
-import type { GetProp } from '../../_util/type';
 import type { StepsProps, StepsSemanticAllType } from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 describe('Steps.Semantic', () => {
@@ -18,7 +18,7 @@ describe('Steps.Semantic', () => {
   );
 
   it('semantic structure', () => {
-    const classNames: Required<GetProp<StepsSemanticAllType, 'classNames', 'Return'>> = {
+    const classNames: Required<GetProp<StepsProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -31,7 +31,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: Required<GetProp<StepsSemanticAllType, 'classNames', 'Return'>> = {
+    const classNamesTargets: Required<GetProp<StepsProps, 'classNames', 'Return'>> = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -44,7 +44,7 @@ describe('Steps.Semantic', () => {
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: Required<GetProp<StepsSemanticAllType, 'styles', 'Return'>> = {
+    const styles: Required<GetProp<StepsProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -71,15 +71,15 @@ describe('Steps.Semantic', () => {
   });
 
   it('semantic structure with function classNames and styles', () => {
-    const classNamesFn: Required<GetProp<StepsProps, 'classNames', 'Return'>> = (info) => {
-      if (info.props.type === 'navigation') {
+    const classNamesFn: GetProp<StepsProps, 'classNames'> = ({ props }) => {
+      if (props.type === 'navigation') {
         return { root: 'custom-navigation-root' };
       }
       return { root: 'custom-default-root' };
     };
 
-    const stylesFn: Required<GetProp<StepsProps, 'styles', 'Return'>> = (info) => {
-      if (info.props.current === 1) {
+    const stylesFn: GetProp<StepsProps, 'styles'> = ({ props }) => {
+      if (props.current === 1) {
         return { root: { backgroundColor: 'rgb(255, 0, 0)' } };
       }
       return { root: { backgroundColor: 'rgb(0, 255, 0)' } };

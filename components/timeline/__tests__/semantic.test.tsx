@@ -3,11 +3,11 @@ import React from 'react';
 import TimeLine from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
-import type { TimelineSemanticAllType } from '../Timeline';
+import type { TimelineProps } from '../Timeline';
 
 describe('Timeline.Semantic', () => {
   it('semantic structure', () => {
-    const classNames: Required<GetProp<TimelineSemanticAllType, 'classNames', 'Return'>> = {
+    const classNames: Required<GetProp<TimelineProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       item: 'custom-item',
       itemWrapper: 'custom-item-wrapper',
@@ -15,11 +15,12 @@ describe('Timeline.Semantic', () => {
       itemSection: 'custom-item-section',
       itemHeader: 'custom-item-header',
       itemTitle: 'custom-item-title',
+      itemSubtitle: 'custom-item-subtitle',
       itemContent: 'custom-item-content',
       itemRail: 'custom-item-rail',
     };
 
-    const classNamesTargets: Required<GetProp<TimelineSemanticAllType, 'classNames', 'Return'>> = {
+    const classNamesTargets: Required<GetProp<TimelineProps, 'classNames', 'Return'>> = {
       root: 'ant-steps',
       item: 'ant-steps-item',
       itemWrapper: 'ant-steps-item-wrapper',
@@ -27,11 +28,12 @@ describe('Timeline.Semantic', () => {
       itemSection: 'ant-steps-item-section',
       itemHeader: 'ant-steps-item-header',
       itemTitle: 'ant-steps-item-title',
+      itemSubtitle: 'ant-steps-item-subtitle',
       itemContent: 'ant-steps-item-content',
       itemRail: 'ant-steps-item-rail',
     };
 
-    const styles: Required<GetProp<TimelineSemanticAllType, 'styles', 'Return'>> = {
+    const styles: Required<GetProp<TimelineProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 0, 255)' },
       itemWrapper: { color: 'rgb(0, 255, 0)' },
@@ -39,6 +41,7 @@ describe('Timeline.Semantic', () => {
       itemSection: { color: 'rgb(128, 0, 128)' },
       itemHeader: { color: 'rgb(255, 165, 0)' },
       itemTitle: { color: 'rgb(255, 192, 203)' },
+      itemSubtitle: { color: 'rgb(128, 128, 128)' },
       itemContent: { color: 'rgb(255, 0, 255)' },
       itemRail: { color: 'rgb(0, 255, 0)' },
     };
@@ -58,9 +61,11 @@ describe('Timeline.Semantic', () => {
     );
 
     Object.keys(classNames).forEach((key) => {
-      const className = classNames[key as keyof TimelineSemanticAllType['classNames']];
-      const oriClassName = classNamesTargets[key as keyof TimelineSemanticAllType['classNames']];
-      const style = styles[key as keyof TimelineSemanticAllType['styles']];
+      const className =
+        classNames[key as keyof Required<GetProp<TimelineProps, 'classNames', 'Return'>>];
+      const oriClassName =
+        classNamesTargets[key as keyof Required<GetProp<TimelineProps, 'classNames', 'Return'>>];
+      const style = styles[key as keyof Required<GetProp<TimelineProps, 'styles', 'Return'>>];
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName as any);

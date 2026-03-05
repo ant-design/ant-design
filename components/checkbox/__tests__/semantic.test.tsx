@@ -81,7 +81,7 @@ describe('Checkbox.Semantic', () => {
   });
 
   it('should get correct checked prop when defaultChecked is true', () => {
-    const classNamesFn: Required<GetProp<CheckboxProps, 'classNames', 'Return'>> = ({
+    const classNamesFn: GetProp<CheckboxProps, 'classNames'> = ({
       props,
     }: {
       props: Pick<CheckboxProps, 'checked'>;
