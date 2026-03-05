@@ -296,10 +296,34 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
         zIndex: 1,
       },
 
+      // Loading content container - centered by default
+      [`${componentCls}-loading-content`]: {
+        position: 'absolute',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+      },
+
+      // Loading content with progress bar - adjusted position
+      [`${componentCls}-loading-content-progress`]: {
+        position: undefined,
+        top: undefined,
+        transform: undefined,
+        padding: `0 ${24}px`,
+        marginTop: '8%',
+      },
+
       // Percent text
       [`${componentCls}-loading-percent`]: {
         fontSize: token.fontSize,
         color: 'rgba(50, 70, 110, 0.85)',
+      },
+
+      // Percent text margin when preceded by progress bar
+      [`${componentCls}-loading-progress + ${componentCls}-loading-percent`]: {
         marginTop: 8,
       },
 
