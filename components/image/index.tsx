@@ -234,14 +234,14 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   // ============================= Loading ==============================
   const isLoading = loading !== undefined && loading !== false;
-  const loadingConfig = typeof loading === 'object' ? loading : {};
+  const loadingConfig = typeof loading === 'object' && loading ? loading : {};
   const { percent, percentRender, progress: showProgress = true } = loadingConfig;
 
-// Check if percent is provided
-const hasPercent = percent !== undefined;
+  // 判断是否有 percent（必须是有限数值）
+  const hasPercent = typeof percent === 'number' && Number.isFinite(percent);
 
-// Calculate percent value (for progress bar width and function argument)
-const percentValue = Math.round(percent ?? 0);
+  // 计算 percent 数值（用于进度条宽度和 function 参数），约束在 0-100 之间
+  const percentValue = hasPercent ? Math.max(0, Math.min(100, Math.round(percent))) : 0;
 
   // 渲染 percent 文案
   const renderPercent = () => {
@@ -265,11 +265,13 @@ const percentValue = Math.round(percent ?? 0);
           `${prefixCls}-loading-wrapper`,
           mergedRootClassName,
           mergedClassName,
+          mergedClassNames?.root,
         )}
         style={{
           width,
           height,
           ...mergedStyle,
+          ...mergedStyles?.root,
         }}
       >
         {/* Main loading container with frosted glass */}
@@ -318,7 +320,7 @@ const percentValue = Math.round(percent ?? 0);
     <RcImage
       prefixCls={prefixCls}
       preview={mergedPreviewConfig || false}
-      rootClassName={clsx(mergedRootClassName)}
+      rootClassName={mergedRootClassName}
       className={mergedClassName}
       style={mergedStyle}
       fallback={mergedFallback}
