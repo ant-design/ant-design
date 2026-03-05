@@ -458,228 +458,268 @@ exports[`renders components/image/demo/nested.tsx correctly 1`] = `
 exports[`renders components/image/demo/placeholder.tsx correctly 1`] = `
 Array [
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
-    style="column-gap:12px;row-gap:12px"
+    class="ant-flex css-var-test-id"
+    style="gap:16px"
   >
     <div
-      class="ant-space-item"
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      style="width:200px;height:200px"
     >
       <div
-        class="ant-image css-var-test-id ant-image-css-var"
-        style="width:200px"
+        aria-busy="true"
+        class="ant-image-progress"
       >
-        <img
-          alt="basic image"
-          class="ant-image-img"
-          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?1479772800000"
-          width="200"
+        <span
+          aria-live="polite"
+          role="status"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Loading
+        </span>
+        <div
+          class="ant-image-progress-ink-1"
         />
         <div
-          aria-hidden="true"
-          class="ant-image-placeholder"
-        >
-          <div
-            class="ant-image css-var-test-id ant-image-css-var"
-            style="width:200px"
-          >
-            <img
-              alt="placeholder image"
-              class="ant-image-img"
-              src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-              width="200"
-            />
-          </div>
-        </div>
+          class="ant-image-progress-ink-2"
+        />
         <div
-          class="ant-image-cover ant-image-cover-center"
+          class="ant-image-progress-ink-3"
+        />
+        <div
+          class="ant-image-progress-ink-4"
+        />
+        <div
+          class="ant-image-progress-ink-5"
+        />
+        <div
+          class="ant-image-progress-frosted"
         />
       </div>
     </div>
     <div
-      class="ant-space-item"
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      style="width:200px;height:200px"
     >
       <div
-        class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
-        style="width:200px;height:200px"
+        aria-busy="true"
+        class="ant-image-progress"
       >
-        <div
-          aria-busy="true"
-          class="ant-image-progress"
+        <span
+          aria-live="polite"
+          role="status"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
         >
-          <span
-            aria-live="polite"
-            role="status"
-            style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
-          >
-            Loading
-          </span>
-          <div
-            class="ant-image-progress-ink-1"
-          />
-          <div
-            class="ant-image-progress-ink-2"
-          />
-          <div
-            class="ant-image-progress-ink-3"
-          />
-          <div
-            class="ant-image-progress-ink-4"
-          />
-          <div
-            class="ant-image-progress-ink-5"
-          />
-          <div
-            class="ant-image-progress-frosted"
-          />
+          Loading
+        </span>
+        <div
+          class="ant-image-progress-ink-1"
+        />
+        <div
+          class="ant-image-progress-ink-2"
+        />
+        <div
+          class="ant-image-progress-ink-3"
+        />
+        <div
+          class="ant-image-progress-ink-4"
+        />
+        <div
+          class="ant-image-progress-ink-5"
+        />
+        <div
+          class="ant-image-progress-frosted"
+        />
+        <div
+          class="ant-image-progress-content"
+        >
+          loading...
         </div>
       </div>
     </div>
     <div
-      class="ant-space-item"
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      style="width:200px;height:200px"
     >
       <div
-        class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
-        style="width:200px;height:200px"
+        aria-label="50%"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="50"
+        class="ant-image-progress"
+        role="progressbar"
       >
         <div
-          aria-label="50%"
-          aria-valuemax="100"
-          aria-valuemin="0"
-          aria-valuenow="50"
-          class="ant-image-progress"
-          role="progressbar"
+          class="ant-image-progress-ink-1"
+        />
+        <div
+          class="ant-image-progress-ink-2"
+        />
+        <div
+          class="ant-image-progress-ink-3"
+        />
+        <div
+          class="ant-image-progress-ink-4"
+        />
+        <div
+          class="ant-image-progress-ink-5"
+        />
+        <div
+          class="ant-image-progress-frosted"
+        />
+        <div
+          class="ant-image-progress-content"
         >
           <div
-            class="ant-image-progress-ink-1"
+            class="ant-image-progress-bar"
+            style="--progress-percent:50%"
           />
           <div
-            class="ant-image-progress-ink-2"
-          />
-          <div
-            class="ant-image-progress-ink-3"
-          />
-          <div
-            class="ant-image-progress-ink-4"
-          />
-          <div
-            class="ant-image-progress-ink-5"
-          />
-          <div
-            class="ant-image-progress-frosted"
-          />
-          <div
-            class="ant-image-progress-content ant-image-progress-content-bar"
+            class="ant-image-progress-percent"
           >
-            <div
-              class="ant-image-progress-bar"
-              style="width:100%"
-            >
-              <div
-                class="ant-image-progress-bar-inner"
-                style="width:50%"
-              />
-            </div>
-            <span
-              class="ant-image-progress-percent"
-            >
-              50%
-            </span>
+            50%
           </div>
         </div>
       </div>
     </div>
     <div
-      class="ant-space-item"
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      style="width:200px;height:200px"
     >
       <div
-        class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
-        style="width:200px;height:200px"
+        aria-label="75%"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="75"
+        class="ant-image-progress"
+        role="progressbar"
       >
         <div
-          aria-label="75%"
-          aria-valuemax="100"
-          aria-valuemin="0"
-          aria-valuenow="75"
-          class="ant-image-progress"
-          role="progressbar"
+          class="ant-image-progress-ink-1"
+        />
+        <div
+          class="ant-image-progress-ink-2"
+        />
+        <div
+          class="ant-image-progress-ink-3"
+        />
+        <div
+          class="ant-image-progress-ink-4"
+        />
+        <div
+          class="ant-image-progress-ink-5"
+        />
+        <div
+          class="ant-image-progress-frosted"
+        />
+        <div
+          class="ant-image-progress-content"
         >
           <div
-            class="ant-image-progress-ink-1"
+            class="ant-image-progress-bar"
+            style="--progress-percent:75%"
           />
           <div
-            class="ant-image-progress-ink-2"
-          />
-          <div
-            class="ant-image-progress-ink-3"
-          />
-          <div
-            class="ant-image-progress-ink-4"
-          />
-          <div
-            class="ant-image-progress-ink-5"
-          />
-          <div
-            class="ant-image-progress-frosted"
-          />
-          Generating 75%
+            style="margin-top:8px"
+          >
+            Generating 
+            <!-- -->
+            75
+            <!-- -->
+            %
+          </div>
         </div>
       </div>
     </div>
   </div>,
-  <button
-    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-    style="margin-top:12px"
-    type="button"
-  >
-    <span>
-      Reload Image
-    </span>
-  </button>,
   <div
-    style="margin-top:16px"
+    class="ant-flex css-var-test-id"
+    style="margin-top:16px;gap:16px"
   >
-    <div>
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-        style="margin-bottom:12px"
-        type="button"
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Reload Image
+      </span>
+    </button>
+    <div
+      class="ant-image css-var-test-id ant-image-css-var"
+      style="width:200px;height:200px"
+    >
+      <img
+        alt="basic image"
+        class="ant-image-img"
+        height="200"
+        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?1479772800000"
+        style="height:200px"
+        width="200"
+      />
+      <div
+        aria-hidden="true"
+        class="ant-image-placeholder"
       >
-        <span>
-          Generate
-        </span>
-      </button>
-      <div>
         <div
-          class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
-          style="width:200px;height:200px;opacity:0.6"
+          style="width:100%;height:100%;background:rgba(255, 255, 255, 0.3);backdrop-filter:blur(10px)"
+        />
+      </div>
+      <div
+        class="ant-image-cover ant-image-cover-center"
+      />
+    </div>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+      type="button"
+    >
+      <span>
+        Generate
+      </span>
+    </button>
+    <div
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      style="width:200px;height:200px"
+    >
+      <div
+        aria-label="0%"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="ant-image-progress"
+        role="progressbar"
+      >
+        <div
+          class="ant-image-progress-ink-1"
+        />
+        <div
+          class="ant-image-progress-ink-2"
+        />
+        <div
+          class="ant-image-progress-ink-3"
+        />
+        <div
+          class="ant-image-progress-ink-4"
+        />
+        <div
+          class="ant-image-progress-ink-5"
+        />
+        <div
+          class="ant-image-progress-frosted"
+        />
+        <div
+          class="ant-image-progress-content"
         >
           <div
-            aria-label="0%"
-            aria-valuemax="100"
-            aria-valuemin="0"
-            aria-valuenow="0"
-            class="ant-image-progress"
-            role="progressbar"
+            class="ant-image-progress-bar"
+            style="--progress-percent:0%"
+          />
+          <div
+            style="margin-top:8px"
           >
-            <div
-              class="ant-image-progress-ink-1"
-            />
-            <div
-              class="ant-image-progress-ink-2"
-            />
-            <div
-              class="ant-image-progress-ink-3"
-            />
-            <div
-              class="ant-image-progress-ink-4"
-            />
-            <div
-              class="ant-image-progress-ink-5"
-            />
-            <div
-              class="ant-image-progress-frosted"
-            />
-            Generating 0%
+            Generating 
+            <!-- -->
+            0
+            <!-- -->
+            %
           </div>
         </div>
       </div>
