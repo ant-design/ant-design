@@ -103,7 +103,7 @@ const CheckableTagGroup = React.forwardRef<
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
-  } = useComponentConfig('checkableTagGroup');
+  } = useComponentConfig('tag');
 
   const prefixCls = getPrefixCls('tag', customizePrefixCls);
   const groupPrefixCls = `${prefixCls}-checkable-group`;

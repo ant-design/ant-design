@@ -113,8 +113,7 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
 };
 
 export interface PurePanelProps
-  extends
-    Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
   classNames?: AnchorSemanticAllType['classNamesAndFn'];
@@ -148,7 +147,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
-  } = useComponentConfig('notificationPurePanel');
+  } = useComponentConfig('notification');
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, notificationClassNames],
