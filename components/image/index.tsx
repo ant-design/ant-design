@@ -51,6 +51,8 @@ export type ImageSemanticName = keyof ImageSemanticClassNames & keyof ImageSeman
 
 export type ImageLoadingConfig = {
   percent?: number;
+  percentRender?: (percent: number) => React.ReactNode;
+  progress?: boolean;
 };
 
 export type ImageSemanticClassNames = {
@@ -232,15 +234,30 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   // ============================= Loading ==============================
   const isLoading = loading !== undefined && loading !== false;
-  const loadingPercent = typeof loading === 'object' ? loading.percent : undefined;
-  const showPercent = loadingPercent !== undefined;
+  const loadingConfig = typeof loading === 'object' ? loading : {};
+  const { percent, percentRender, progress: showProgress = true } = loadingConfig;
+
+  // 判断是否有 percent
+  const hasPercent = percent !== undefined;
+
+  // 计算 percent 数值（用于进度条宽度和 function 参数）
+  const percentValue = percent !== undefined ? Math.round(percent) : 0;
+
+  // 渲染 percent 文案
+  const renderPercent = () => {
+    if (!hasPercent) return null;
+
+    if (percentRender) {
+      return percentRender(percentValue);
+    }
+    return `${percentValue}%`;
+  };
 
   // ============================== Render ==============================
   const { width, height, ...restOtherProps } = otherProps;
 
   // When loading is active, render only loading layer with dimensions
   if (isLoading) {
-    const percentValue = showPercent ? Math.round(loadingPercent!) : 0;
     return (
       <div
         className={clsx(
@@ -269,28 +286,26 @@ const Image: CompositionImage<ImageProps> = (props) => {
           {/* Frosted matte overlay */}
           <div className={`${prefixCls}-loading-frosted`} />
           {/* Progress content - vertically centered with visual weight adjusted */}
-          {showPercent && (
+          {hasPercent && (
             <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                width: '100%',
-                padding: `0 ${24}px`,
-                marginTop: '8%',
-              }}
+              className={clsx(
+                `${prefixCls}-loading-content`,
+                showProgress && `${prefixCls}-loading-content-progress`,
+              )}
             >
-              <div className={`${prefixCls}-loading-progress`} style={{ width: '100%' }}>
-                <div
-                  className={`${prefixCls}-loading-progress-inner`}
-                  style={{ width: `${percentValue}%` }}
-                />
-              </div>
+              {showProgress && (
+                <div className={`${prefixCls}-loading-progress`} style={{ width: '100%' }}>
+                  <div
+                    className={`${prefixCls}-loading-progress-inner`}
+                    style={{ width: `${percentValue}%` }}
+                  />
+                </div>
+              )}
               <span
                 className={clsx(`${prefixCls}-loading-percent`, mergedClassNames?.loadingPercent)}
                 style={mergedStyles?.loadingPercent}
               >
-                {percentValue}%
+                {renderPercent()}
               </span>
             </div>
           )}
