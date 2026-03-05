@@ -289,10 +289,10 @@ describe('Card', () => {
     expect(avatarElement).toHaveClass(customClassNames.avatar);
     expect(titleElement).toHaveClass(customClassNames.title);
     expect(descElement).toHaveClass(customClassNames.description);
-    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root?.backgroundColor });
-    expect(sectionElement).toHaveStyle({ backgroundColor: customStyles.section?.backgroundColor });
-    expect(avatarElement).toHaveStyle({ backgroundColor: customStyles.avatar?.backgroundColor });
-    expect(descElement).toHaveStyle({ backgroundColor: customStyles.description?.backgroundColor });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root!.backgroundColor });
+    expect(sectionElement).toHaveStyle({ backgroundColor: customStyles.section!.backgroundColor });
+    expect(avatarElement).toHaveStyle({ backgroundColor: customStyles.avatar!.backgroundColor });
+    expect(descElement).toHaveStyle({ backgroundColor: customStyles.description!.backgroundColor });
   });
 
   it('ConfigProvider support variant for card', () => {

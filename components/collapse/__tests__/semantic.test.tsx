@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Collapse from '..';
-import type { GetProp } from '../../_util/type';
 import type { CollapseProps } from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 describe('Collapse.Semantic', () => {
@@ -51,7 +51,11 @@ describe('Collapse.Semantic', () => {
   });
 
   it('should support function-based classNames and styles', () => {
-    const fnClassNames: Required<GetProp<CollapseProps, 'classNames', 'Return'>> = ({ props }) => ({
+    const fnClassNames: Required<GetProp<CollapseProps, 'classNames', 'Return'>> = ({
+      props,
+    }: {
+      props: Pick<CollapseProps, 'size' | 'ghost' | 'expandIconPlacement'>;
+    }) => ({
       root: `size-${props.size}`,
       header: props.ghost ? 'ghost-header' : 'normal-header',
       title: 'dynamic-title',
@@ -59,7 +63,11 @@ describe('Collapse.Semantic', () => {
       icon: props.expandIconPlacement === 'end' ? 'end-icon' : 'start-icon',
     });
 
-    const fnStyles: Required<GetProp<CollapseProps, 'styles', 'Return'>> = ({ props }) => ({
+    const fnStyles: Required<GetProp<CollapseProps, 'styles', 'Return'>> = ({
+      props,
+    }: {
+      props: Pick<CollapseProps, 'size' | 'ghost' | 'expandIconPlacement'>;
+    }) => ({
       root: { borderWidth: props.ghost ? '0px' : '1px' },
       header: { fontSize: props.size === 'large' ? '18px' : '14px' },
       title: { fontWeight: props.size === 'large' ? 'bold' : 'normal' },

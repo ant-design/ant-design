@@ -1,7 +1,8 @@
 import React from 'react';
-import type { GetProp } from '../../_util/type';
+
 import type { CheckboxProps } from '..';
 import Checkbox from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 describe('Checkbox.Semantic', () => {
@@ -80,7 +81,11 @@ describe('Checkbox.Semantic', () => {
   });
 
   it('should get correct checked prop when defaultChecked is true', () => {
-    const classNamesFn: Required<GetProp<CheckboxProps, 'classNames', 'Return'>> = ({ props }) => {
+    const classNamesFn: Required<GetProp<CheckboxProps, 'classNames', 'Return'>> = ({
+      props,
+    }: {
+      props: Pick<CheckboxProps, 'checked'>;
+    }) => {
       return {
         root: props.checked ? 'checked-checkbox' : 'unchecked-checkbox',
       };
