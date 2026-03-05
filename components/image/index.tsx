@@ -262,6 +262,20 @@ const Image: CompositionImage<ImageProps> = (props) => {
   // 计算 percent 数值（用于进度条宽度和 function 参数），约束在 0-100 之间
   const percentValue = hasPercent ? Math.max(0, Math.min(100, Math.round(percent))) : 0;
 
+  // 渲染进度条（只包含 bar，不包含 percent）
+  const renderProgressBar = () => {
+    if (!hasPercent || !showProgressBar) {
+      return null;
+    }
+
+    return (
+      <div
+        className={`${prefixCls}-progress-bar`}
+        style={{ '--progress-percent': `${percentValue}%` } as React.CSSProperties}
+      />
+    );
+  };
+
   // 渲染默认进度 UI
   const renderDefaultProgressUI = () => {
     if (!hasPercent) {
@@ -276,26 +290,14 @@ const Image: CompositionImage<ImageProps> = (props) => {
       | undefined;
 
     return (
-      <div
-        className={clsx(
-          `${prefixCls}-progress-content`,
-          showProgressBar && `${prefixCls}-progress-content-bar`,
-        )}
-      >
-        {showProgressBar && (
-          <div className={`${prefixCls}-progress-bar`} style={{ width: '100%' }}>
-            <div
-              className={`${prefixCls}-progress-bar-inner`}
-              style={{ width: `${percentValue}%` }}
-            />
-          </div>
-        )}
-        <span
+      <div className={`${prefixCls}-progress-content`}>
+        {renderProgressBar()}
+        <div
           className={clsx(`${prefixCls}-progress-percent`, placeholderClassNames?.progressPercent)}
           style={placeholderStyles?.progressPercent}
         >
           {`${percentValue}%`}
-        </span>
+        </div>
       </div>
     );
   };
@@ -306,10 +308,14 @@ const Image: CompositionImage<ImageProps> = (props) => {
   // When progress is active, render only progress layer with dimensions
   if (showProgressOverlay) {
     // 渲染进度内容
-    const defaultProgressUI = renderDefaultProgressUI();
-    const progressContent = progressRender
-      ? progressRender(defaultProgressUI, percentValue)
-      : defaultProgressUI;
+    const progressBar = renderProgressBar();
+    const progressContent = progressRender ? (
+      <div className={`${prefixCls}-progress-content`}>
+        {progressRender(progressBar, percentValue)}
+      </div>
+    ) : (
+      renderDefaultProgressUI()
+    );
 
     const placeholderClassNames = mergedClassNames?.placeholder as
       | { progress?: string; progressPercent?: string }

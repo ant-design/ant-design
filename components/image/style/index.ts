@@ -189,7 +189,7 @@ export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) 
 };
 
 export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
-  const { componentCls, motionDurationMid, motionDurationSlow, motionEaseInOut } = token;
+  const { componentCls, motionDurationMid, motionEaseInOut } = token;
 
   return {
     // Progress wrapper style
@@ -223,7 +223,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         top: '-25%',
         background: `radial-gradient(ellipse 65% 55% at 25% 30%, rgba(100, 180, 255, 0.85) 0%, transparent 55%)`,
         animationName: inkFlow1,
-        animationDuration: motionDurationSlow,
+        animationDuration: '3s',
         animationTimingFunction: motionEaseInOut,
         animationIterationCount: 'infinite',
         filter: 'blur(40px)',
@@ -309,34 +309,24 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         zIndex: 1,
       },
 
-      // Progress content container - centered by default
+      // Progress content container
       [`${componentCls}-progress-content`]: {
         position: 'absolute',
         top: '50%',
+        left: 0,
         transform: 'translateY(-50%)',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
         width: '100%',
-      },
-
-      // Progress content with progress bar - adjusted position
-      [`${componentCls}-progress-content-bar`]: {
-        position: undefined,
-        top: undefined,
-        transform: undefined,
-        padding: `0 ${token.paddingLG}px`,
-        marginTop: '8%',
+        paddingInline: token.paddingLG,
+        textAlign: 'center',
       },
 
       // Percent text
       [`${componentCls}-progress-percent`]: {
         fontSize: token.fontSize,
-        color: 'rgba(50, 70, 110, 0.85)',
-      },
-
-      // Percent text margin when preceded by progress bar
-      [`${componentCls}-progress-bar + ${componentCls}-progress-percent`]: {
+        color: token.colorTextSecondary,
         marginTop: token.marginXS,
       },
 
@@ -348,19 +338,22 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         borderRadius: token.borderRadiusXS,
         overflow: 'hidden',
         backdropFilter: 'blur(4px)',
-      },
 
-      // Progress bar fill with subtle shimmer animation
-      [`${componentCls}-progress-bar-inner`]: {
-        height: '100%',
-        background: token.progressBarGradient,
-        backgroundSize: '200% 100%',
-        borderRadius: token.borderRadiusXS / 2,
-        transition: `width ${motionDurationMid} ease`,
-        animationName: progressActive,
-        animationDuration: motionDurationMid,
-        animationTimingFunction: 'linear',
-        animationIterationCount: 'infinite',
+        // Progress bar fill with subtle shimmer animation (using ::before)
+        '&::before': {
+          content: '""',
+          display: 'block',
+          height: '100%',
+          width: 'var(--progress-percent, 0%)',
+          background: token.progressBarGradient,
+          backgroundSize: '200% 100%',
+          borderRadius: token.borderRadiusXS / 2,
+          transition: `width ${motionDurationMid} ease`,
+          animationName: progressActive,
+          animationDuration: '3s',
+          animationTimingFunction: 'linear',
+          animationIterationCount: 'infinite',
+        },
       },
     },
   };
