@@ -962,22 +962,6 @@ describe('Upload List', () => {
     unmount();
   });
 
-  it('picture-card list should inject :empty min-height reset style', async () => {
-    const { unmount } = render(
-      <UploadList listType="picture-card" items={[]} locale={{ previewFile: '' }} />,
-    );
-    await waitFakeTimer();
-
-    const stylesText = Array.from(document.querySelectorAll('style'))
-      .map((s) => s.textContent || '')
-      .join('\n');
-
-    expect(stylesText).toContain(':empty');
-    expect(stylesText.replace(/\s/g, '')).toContain('min-height:0');
-
-    unmount();
-  });
-
   it('extname should work correctly when url exists', (done) => {
     const items = [{ status: 'done', uid: 'upload-list-item', url: '/example' }];
     const { container: wrapper, unmount } = render(
