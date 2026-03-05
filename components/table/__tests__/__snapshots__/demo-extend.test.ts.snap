@@ -155,7 +155,7 @@ exports[`renders components/table/demo/basic.tsx extend context correctly 1`] = 
                       <span
                         class="ant-tag ant-tag-filled ant-tag-volcano css-var-test-id"
                       >
-                        LOSER
+                        KAWAII
                       </span>
                     </div>
                   </td>
@@ -16501,7 +16501,7 @@ exports[`renders components/table/demo/jsx.tsx extend context correctly 1`] = `
                       <span
                         class="ant-tag ant-tag-filled ant-tag-volcano css-var-test-id"
                       >
-                        LOSER
+                        KAWAII
                       </span>
                     </div>
                   </td>
@@ -22722,7 +22722,7 @@ exports[`renders components/table/demo/pagination.tsx extend context correctly 1
                         <span
                           class="ant-tag ant-tag-filled ant-tag-volcano css-var-test-id"
                         >
-                          LOSER
+                          KAWAII
                         </span>
                       </div>
                     </td>

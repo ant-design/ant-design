@@ -46,6 +46,12 @@ const genListStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
               opacity: 0,
             },
 
+            '@media (hover: none), (pointer: coarse)': {
+              [actionCls]: {
+                opacity: 1,
+              },
+            },
+
             [iconCls]: {
               color: token.actionsColor,
               transition: `all ${motionDurationSlow}`,
