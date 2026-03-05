@@ -237,11 +237,11 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const loadingConfig = typeof loading === 'object' ? loading : {};
   const { percent, percentRender, progress: showProgress = true } = loadingConfig;
 
-  // 判断是否有 percent
-  const hasPercent = percent !== undefined;
+// Check if percent is provided
+const hasPercent = percent !== undefined;
 
-  // 计算 percent 数值（用于进度条宽度和 function 参数）
-  const percentValue = percent !== undefined ? Math.round(percent) : 0;
+// Calculate percent value (for progress bar width and function argument)
+const percentValue = Math.round(percent ?? 0);
 
   // 渲染 percent 文案
   const renderPercent = () => {
