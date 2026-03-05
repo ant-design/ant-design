@@ -50,7 +50,7 @@ export default function useColor(
 
     if (!nextIsPreset && !nextIsStatus && nextColor) {
       if (nextVariant === 'solid') {
-        tagStyle.backgroundColor = color;
+        tagStyle.backgroundColor = nextColor;
         // Calculate contrasting text color for custom solid tags.
         // For opaque colors, use standard luminance formula.
         // For semi-transparent colors, we assume a light background as fallback
