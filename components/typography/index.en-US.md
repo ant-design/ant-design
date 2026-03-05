@@ -172,6 +172,11 @@ interface EllipsisConfig {
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
 
+## Semantic DOM
+
+<!-- prettier-ignore -->
+<code src="./demo/_semantic.tsx" simplify="true"></code>
+
 ## Design Token
 
 <ComponentTokenTable component="Typography"></ComponentTokenTable>
