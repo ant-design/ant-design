@@ -46,12 +46,12 @@ const InternalTypography = React.forwardRef<HTMLElement, InternalProps>((props, 
 
   const componentClassName = clsx(
     prefixCls,
-    hashId,
-    className,
-    rootClassName,
     {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    className,
+    rootClassName,
+    hashId,
     cssVarCls,
     classNames?.root,
   );
