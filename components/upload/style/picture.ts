@@ -143,10 +143,6 @@ const genPictureCardStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
         display: 'flex',
         flexWrap: 'wrap',
 
-        '&:empty': {
-          minHeight: 0,
-        },
-
         '&:not(:empty)': {
           minHeight: uploadPictureCardSize,
         },
