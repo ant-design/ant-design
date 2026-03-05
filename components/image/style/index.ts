@@ -55,61 +55,39 @@ export interface ComponentToken {
 
 // Progress active animation - subtle shimmer effect (reverse direction)
 const progressActive = new Keyframes('antImageProgressActive', {
-  '0%': {
-    backgroundPosition: '200% 0',
-  },
-  '100%': {
-    backgroundPosition: '-200% 0',
-  },
+  '0%': { backgroundPosition: '200% 0' },
+  '100%': { backgroundPosition: '-200% 0' },
 });
 
-// Ink flow 1 - large drift
-const inkFlow1 = new Keyframes('antImageInkFlow1', {
-  '0%': {
-    transform: 'translate(0%, 0%) scale(1)',
-    opacity: 0.8,
-  },
-  '50%': {
-    transform: 'translate(15%, -20%) scale(1.25)',
-    opacity: 0.5,
-  },
-  '100%': {
-    transform: 'translate(0%, 0%) scale(1)',
-    opacity: 0.8,
-  },
-});
+// Create ink flow keyframes with custom transform and opacity values
+const createInkFlow = (
+  name: string,
+  midTransform: string,
+  midOpacity: number,
+  startTransform = 'translate(0%, 0%) scale(1)',
+  startOpacity = 0.8,
+) =>
+  new Keyframes(name, {
+    '0%': { transform: startTransform, opacity: startOpacity },
+    '50%': { transform: midTransform, opacity: midOpacity },
+    '100%': { transform: startTransform, opacity: startOpacity },
+  });
 
-// Ink flow 2 - opposite direction with rotation
-const inkFlow2 = new Keyframes('antImageInkFlow2', {
-  '0%': {
-    transform: 'translate(0%, 0%) scale(1.1) rotate(0deg)',
-    opacity: 0.7,
-  },
-  '50%': {
-    transform: 'translate(-18%, 15%) scale(0.85) rotate(8deg)',
-    opacity: 0.9,
-  },
-  '100%': {
-    transform: 'translate(0%, 0%) scale(1.1) rotate(0deg)',
-    opacity: 0.7,
-  },
-});
-
-// Ink flow 3 - center pulse (used by ink-3 and ink-4)
-const inkFlow3 = new Keyframes('antImageInkFlow3', {
-  '0%': {
-    transform: 'translate(0%, 0%) scale(0.85)',
-    opacity: 0.65,
-  },
-  '50%': {
-    transform: 'translate(8%, 10%) scale(1.15)',
-    opacity: 0.8,
-  },
-  '100%': {
-    transform: 'translate(0%, 0%) scale(0.85)',
-    opacity: 0.65,
-  },
-});
+const inkFlow1 = createInkFlow('antImageInkFlow1', 'translate(15%, -20%) scale(1.25)', 0.5);
+const inkFlow2 = createInkFlow(
+  'antImageInkFlow2',
+  'translate(-18%, 15%) scale(0.85) rotate(8deg)',
+  0.9,
+  'translate(0%, 0%) scale(1.1) rotate(0deg)',
+  0.7,
+);
+const inkFlow3 = createInkFlow(
+  'antImageInkFlow3',
+  'translate(8%, 10%) scale(1.15)',
+  0.8,
+  'translate(0%, 0%) scale(0.85)',
+  0.65,
+);
 
 /**
  * @desc Image 组件的 Token
@@ -544,13 +522,8 @@ export const prepareComponentToken: GetDefaultToken<'Image'> = (token) => ({
   progressBgColor: 'rgba(255, 255, 255, 0.6)',
   progressBarHeight: 6,
   progressBarBgColor: 'rgba(255, 255, 255, 0.5)',
-  progressBarGradient: `linear-gradient(
-          90deg,
-          rgba(120, 170, 255, 0.85) 0%,
-          rgba(160, 150, 245, 0.85) 40%,
-          rgba(130, 200, 220, 0.85) 60%,
-          rgba(120, 170, 255, 0.85) 100%
-        )`,
+  progressBarGradient:
+    'linear-gradient(90deg, rgba(120, 170, 255, 0.85) 0%, rgba(160, 150, 245, 0.85) 40%, rgba(130, 200, 220, 0.85) 60%, rgba(120, 170, 255, 0.85) 100%)',
 });
 
 export default genStyleHooks(
