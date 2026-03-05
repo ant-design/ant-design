@@ -324,7 +324,7 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
 
       // Percent text margin when preceded by progress bar
       [`${componentCls}-loading-progress + ${componentCls}-loading-percent`]: {
-        marginTop: 8,
+marginTop: token.marginXS,
       },
 
       // Progress bar container
