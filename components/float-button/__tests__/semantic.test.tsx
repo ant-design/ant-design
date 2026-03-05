@@ -1,30 +1,29 @@
 import React from 'react';
-import type { GetProp } from '../../_util/type';
 
 import FloatButton from '..';
 import type { FloatButtonGroupProps, FloatButtonProps } from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
-import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../../button/Button';
-import type { FloatButtonSemanticName } from '../FloatButton';
+import type { ButtonProps } from '../../button/Button';
 
 describe('FloatButton.Semantic', () => {
   it('should update classNames when props change (FloatButton)', () => {
-    const initialClassNames: ButtonSemanticClassNames = {
+    const initialClassNames: Required<GetProp<ButtonProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       icon: 'custom-icon',
       content: 'custom-content',
     };
-    const updatedClassNames: ButtonSemanticClassNames = {
+    const updatedClassNames: Required<GetProp<ButtonProps, 'classNames', 'Return'>> = {
       root: 'custom-root-2',
       icon: 'custom-icon-2',
       content: 'custom-content-2',
     };
-    const styles: ButtonSemanticStyles = {
+    const styles: Required<GetProp<ButtonProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       icon: { color: 'rgb(0, 0, 255)' },
       content: { color: 'rgb(0, 255, 0)' },
     };
-    const classNamesTargets: Required<ButtonSemanticClassNames> = {
+    const classNamesTargets: Required<GetProp<ButtonProps, 'classNames', 'Return'>> = {
       root: 'ant-float-btn',
       icon: 'ant-float-btn-icon',
       content: 'ant-float-btn-content',
@@ -33,8 +32,8 @@ describe('FloatButton.Semantic', () => {
       <FloatButton icon="little" content="bamboo" classNames={initialClassNames} styles={styles} />,
     );
     Object.keys(initialClassNames).forEach((key) => {
-      const className = initialClassNames[key as FloatButtonSemanticName];
-      const oriClassName = classNamesTargets[key as FloatButtonSemanticName];
+      const className = initialClassNames[key as keyof typeof initialClassNames];
+      const oriClassName = classNamesTargets[key as keyof typeof classNamesTargets];
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName);
@@ -43,8 +42,8 @@ describe('FloatButton.Semantic', () => {
       <FloatButton icon="little" content="bamboo" classNames={updatedClassNames} styles={styles} />,
     );
     Object.keys(updatedClassNames).forEach((key) => {
-      const className = updatedClassNames[key as FloatButtonSemanticName];
-      const oriClassName = classNamesTargets[key as FloatButtonSemanticName];
+      const className = updatedClassNames[key as keyof typeof updatedClassNames];
+      const oriClassName = classNamesTargets[key as keyof typeof classNamesTargets];
       const element = container.querySelector<HTMLElement>(`.${className}`);
       expect(element).toBeTruthy();
       expect(element).toHaveClass(oriClassName);
