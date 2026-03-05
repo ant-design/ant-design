@@ -142,7 +142,10 @@ const genPictureCardStyle: GenerateStyle<UploadToken, CSSObject> = (token) => {
       [`${listCls}${listCls}-picture-card, ${listCls}${listCls}-picture-circle`]: {
         display: 'flex',
         flexWrap: 'wrap',
-        minHeight: uploadPictureCardSize,
+
+        '&:not(:empty)': {
+          minHeight: uploadPictureCardSize,
+        },
 
         '@supports not (gap: 1px)': {
           '& > *': {
