@@ -48,20 +48,17 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-export interface ImageProgressConfig {
+export interface PlaceholderProgressConfig {
   percent?: number;
   /** 自定义渲染，接收默认的进度 UI 和百分比 */
   render?: (progress: React.ReactNode, percent: number) => React.ReactNode;
 }
 
-export interface PlaceholderConfig {
-  /** 自定义 placeholder 内容 */
-  node?: React.ReactNode;
-  /** 进度配置 */
-  progress?: boolean | ImageProgressConfig;
-}
-
-export type PlaceholderType = React.ReactNode | PlaceholderConfig;
+export type PlaceholderType =
+  | React.ReactNode
+  | {
+      progress?: boolean | PlaceholderProgressConfig;
+    };
 
 export type ImageSemanticType = {
   classNames?: {
@@ -111,18 +108,18 @@ export interface ImageProps
 }
 
 // ======================= Helper Functions =======================
-function isPlaceholderConfig(placeholder: any): placeholder is PlaceholderConfig {
+function isPlaceholderConfig(
+  placeholder: any,
+): placeholder is { progress?: boolean | PlaceholderProgressConfig } {
   return placeholder && typeof placeholder === 'object' && !React.isValidElement(placeholder);
 }
 
 function normalizePlaceholder(placeholder?: PlaceholderType): {
-  node: React.ReactNode;
-  progressConfig?: ImageProgressConfig;
+  progressConfig?: PlaceholderProgressConfig;
 } {
-  if (!placeholder) return { node: undefined };
+  if (!placeholder) return {};
   if (isPlaceholderConfig(placeholder)) {
     return {
-      node: placeholder.node,
       progressConfig:
         typeof placeholder.progress === 'boolean'
           ? placeholder.progress
@@ -131,7 +128,8 @@ function normalizePlaceholder(placeholder?: PlaceholderType): {
           : placeholder.progress,
     };
   }
-  return { node: placeholder };
+  // placeholder is React.ReactNode, no progress config
+  return {};
 }
 
 const Image: CompositionImage<ImageProps> = (props) => {
@@ -252,7 +250,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;
 
   // ============================= Progress ==============================
-  const { node: placeholderNode, progressConfig } = normalizePlaceholder(placeholder);
+  const { progressConfig } = normalizePlaceholder(placeholder);
   const showProgressOverlay = progressConfig !== undefined;
 
   const { percent, render: progressRender } = progressConfig || {};
@@ -380,6 +378,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
       </div>
     );
   }
+
+  // When placeholder is ReactNode (not progress config), pass to RcImage
+  const placeholderNode = isPlaceholderConfig(placeholder) ? undefined : placeholder;
 
   return (
     <RcImage
