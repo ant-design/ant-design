@@ -5,6 +5,7 @@ import DatePicker from '../date-picker/locale/es_US';
 
 const localeValues: Locale = {
   ...esES,
+  locale: 'es-us',
   DatePicker,
   Calendar,
 };
