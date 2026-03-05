@@ -18,7 +18,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本用法</code>
-<code src="./demo/progress.tsx">加载效果</code>
 <code src="./demo/fallback.tsx">容错处理</code>
 <code src="./demo/placeholder.tsx">渐进加载</code>
 <code src="./demo/preview-group.tsx">多张图片预览</code>
@@ -48,8 +47,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | fallback | 加载失败容错地址 | string | - |  |
 | height | 图像高度 | string \| number | - |  |
-| progress | 进度效果，设置为 `true` 显示渐变动画，设置 `{ percent: number }` 显示进度，`percentRender` 自定义文案，`showProgressBar` 控制是否显示进度条 | boolean \| [ImageProgressConfig](#imageprogressconfig) | - |  |
-| placeholder | 加载占位，为 `true` 时使用默认占位 | ReactNode | - |  |
+| placeholder | 加载占位，支持 ReactNode 或配置对象 | [PlaceholderType](#placeholdertype) | - |  |
 | preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  |
 | src | 图片地址 | string | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
@@ -58,13 +56,19 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 其他属性见 [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
+### PlaceholderType
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| node | 自定义 placeholder 内容 | ReactNode | - |  |
+| progress | 进度配置，设置为 `true` 显示渐变动画，设置 `{ percent: number }` 显示进度，`render` 自定义渲染 | boolean \| [ImageProgressConfig](#imageprogressconfig) | - |  |
+
 ### ImageProgressConfig
 
-| 参数            | 说明               | 类型                                 | 默认值 | 版本 |
-| --------------- | ------------------ | ------------------------------------ | ------ | ---- |
-| percent         | 进度值             | number                               | -      |      |
-| percentRender   | 自定义进度文案渲染 | (percent: number) => React.ReactNode | -      |      |
-| showProgressBar | 是否显示进度条     | boolean                              | true   |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| percent | 进度值 | number | - |  |
+| render | 自定义渲染，接收默认的进度 UI 和百分比 | (progress: React.ReactNode, percent: number) => React.ReactNode | - |  |
 
 ### PreviewType
 
