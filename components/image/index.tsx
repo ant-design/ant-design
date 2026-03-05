@@ -279,7 +279,33 @@ const Image: CompositionImage<ImageProps> = (props) => {
         <div
           className={clsx(`${prefixCls}-progress`, mergedClassNames?.progress)}
           style={mergedStyles?.progress}
+          role={hasPercent ? 'progressbar' : undefined}
+          aria-valuemin={hasPercent ? 0 : undefined}
+          aria-valuemax={hasPercent ? 100 : undefined}
+          aria-valuenow={hasPercent ? percentValue : undefined}
+          aria-label={hasPercent ? renderPercent()?.toString() : undefined}
+          aria-busy={!hasPercent ? true : undefined}
         >
+          {/* Visually hidden live region for non-percent loading state */}
+          {!hasPercent && (
+            <span
+              role="status"
+              aria-live="polite"
+              style={{
+                position: 'absolute',
+                width: 1,
+                height: 1,
+                padding: 0,
+                margin: -1,
+                overflow: 'hidden',
+                clip: 'rect(0, 0, 0, 0)',
+                whiteSpace: 'nowrap',
+                border: 0,
+              }}
+            >
+              Loading
+            </span>
+          )}
           {/* Watercolor ink layers */}
           <div className={`${prefixCls}-progress-ink-1`} />
           <div className={`${prefixCls}-progress-ink-2`} />
