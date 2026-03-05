@@ -256,6 +256,7 @@ describe('Card', () => {
       root: { backgroundColor: 'rgb(255, 0, 0)' },
       section: { backgroundColor: 'rgb(0, 0, 0)' },
       avatar: { backgroundColor: 'rgb(128, 128, 128)' },
+      title: { backgroundColor: 'rgb(255, 0, 255)' },
       description: { backgroundColor: 'rgb(255, 255, 0)' },
     };
 
