@@ -334,6 +334,24 @@ describe('Tag', () => {
     );
     const darkTag = darkContainer.querySelector('.ant-tag');
     expect(darkTag).toHaveStyle({ color: '#fff' });
+
+    // Semi-transparent dark color should have light text (opaque enough to be dark)
+    const { container: semiDarkContainer } = render(
+      <Tag color="rgba(0, 0, 0, 0.8)" variant="solid">
+        semi-dark
+      </Tag>,
+    );
+    const semiDarkTag = semiDarkContainer.querySelector('.ant-tag');
+    expect(semiDarkTag).toHaveStyle({ color: '#fff' });
+
+    // Semi-transparent light color should have dark text (opaque enough to be light)
+    const { container: semiLightContainer } = render(
+      <Tag color="rgba(255, 255, 255, 0.8)" variant="solid">
+        semi-light
+      </Tag>,
+    );
+    const semiLightTag = semiLightContainer.querySelector('.ant-tag');
+    expect(semiLightTag).toHaveStyle({ color: '#000' });
   });
 
   it('legacy color inverse', () => {
