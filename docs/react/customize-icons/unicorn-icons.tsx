@@ -63,6 +63,10 @@ const Demo: React.FC = () => {
       }}
       modal={{
         closeIcon: unicorn,
+        infoIcon: unicorn,
+        successIcon: unicorn,
+        errorIcon: unicorn,
+        warningIcon: unicorn,
       }}
       notification={{
         closeIcon: unicorn,

@@ -24,6 +24,7 @@ import dayjs from 'dayjs';
 
 const Examples: React.FC = () => {
   const [notificationApi, notificationContextHolder] = notification.useNotification();
+  const [modalApi, modalContextHolder] = Modal.useModal();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [tourOpen, setTourOpen] = useState(false);
@@ -31,6 +32,7 @@ const Examples: React.FC = () => {
   return (
     <Flex vertical gap="middle">
       {notificationContextHolder}
+      {modalContextHolder}
       <Alert type="success" showIcon title="Success" closable />
       <Alert type="info" showIcon title="Info" closable />
       <Alert type="warning" showIcon title="Warning" closable />
@@ -95,11 +97,26 @@ const Examples: React.FC = () => {
           />
         </Flex>
       </Image.PreviewGroup>
-      <div>
+      <Flex gap="small">
         <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
         <Modal title="Modal" open={modalOpen} onCancel={() => setModalOpen(false)} />
-      </div>
-      <div>
+        <Button onClick={() => modalApi.info({ title: 'Modal', content: 'This is a modal' })}>
+          Open Info Modal
+        </Button>
+        <Button onClick={() => modalApi.success({ title: 'Modal', content: 'This is a modal' })}>
+          Open Success Modal
+        </Button>
+        <Button onClick={() => modalApi.error({ title: 'Modal', content: 'This is a modal' })}>
+          Open Error Modal
+        </Button>
+        <Button onClick={() => modalApi.warning({ title: 'Modal', content: 'This is a modal' })}>
+          Open Warning Modal
+        </Button>
+        <Button onClick={() => modalApi.confirm({ title: 'Modal', content: 'This is a modal' })}>
+          Open Confirm Modal
+        </Button>
+      </Flex>
+      <Flex gap="small">
         <Button
           onClick={() =>
             notificationApi.info({ title: 'Notification', description: 'This is a notification' })
@@ -107,7 +124,7 @@ const Examples: React.FC = () => {
         >
           Open Notification
         </Button>
-      </div>
+      </Flex>
       <Table
         dataSource={[{ id: 1, name: 'John Doe' }]}
         columns={[{ title: 'Name', dataIndex: 'name', key: 'name' }]}
