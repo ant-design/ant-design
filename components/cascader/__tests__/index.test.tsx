@@ -907,4 +907,115 @@ describe('Cascader', () => {
       expect(screen.getAllByText('bamboo').length).toBe(1);
     });
   });
+
+  describe('clearIcon', () => {
+    it('should support custom clearIcon', () => {
+      render(
+        <Cascader
+          open
+          allowClear={{ clearIcon: <div>bamboo</div> }}
+          options={options}
+          defaultValue={['zhejiang', 'hangzhou']}
+        />,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider clearIcon', () => {
+      render(
+        <ConfigProvider cascader={{ clearIcon: <div>foobar</div> }}>
+          <Cascader options={options} defaultValue={['zhejiang', 'hangzhou']} allowClear />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop clearIcon over ConfigProvider clearIcon', () => {
+      render(
+        <ConfigProvider cascader={{ clearIcon: <div>foobar</div> }}>
+          <Cascader
+            allowClear={{ clearIcon: <div>bamboo</div> }}
+            options={options}
+            defaultValue={['zhejiang', 'hangzhou']}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
+
+  describe('removeIcon', () => {
+    it('should support custom removeIcon', () => {
+      render(
+        <Cascader
+          multiple
+          removeIcon={<div>bamboo</div>}
+          options={options}
+          defaultValue={[
+            ['zhejiang', 'hangzhou'],
+            ['jiangsu', 'nanjing'],
+          ]}
+        />,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+
+    it('should support ConfigProvider removeIcon', () => {
+      render(
+        <ConfigProvider cascader={{ removeIcon: <div>foobar</div> }}>
+          <Cascader
+            multiple
+            options={options}
+            defaultValue={[
+              ['zhejiang', 'hangzhou'],
+              ['jiangsu', 'nanjing'],
+            ]}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(2);
+    });
+
+    it('should prefer prop removeIcon over ConfigProvider removeIcon', () => {
+      render(
+        <ConfigProvider cascader={{ removeIcon: <div>foobar</div> }}>
+          <Cascader
+            multiple
+            options={options}
+            defaultValue={[
+              ['zhejiang', 'hangzhou'],
+              ['jiangsu', 'nanjing'],
+            ]}
+            removeIcon={<div>bamboo</div>}
+          />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(2);
+    });
+  });
+
+  describe('searchIcon', () => {
+    it('should support custom searchIcon', () => {
+      render(<Cascader open showSearch={{ searchIcon: <div>bamboo</div> }} options={options} />);
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+
+    it('should support ConfigProvider searchIcon', () => {
+      render(
+        <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
+          <Cascader open options={options} showSearch />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('foobar').length).toBe(1);
+    });
+
+    it('should prefer prop searchIcon over ConfigProvider searchIcon', () => {
+      render(
+        <ConfigProvider cascader={{ searchIcon: <div>foobar</div> }}>
+          <Cascader open showSearch={{ searchIcon: <div>bamboo</div> }} options={options} />
+        </ConfigProvider>,
+      );
+      expect(screen.getAllByText('bamboo').length).toBe(1);
+    });
+  });
 });

@@ -61,9 +61,11 @@ const App: React.FC = () => {
       <Splitter
         style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
         draggerIcon={<ColumnWidthOutlined className={styles.draggerIcon} />}
-        collapsibleIcon={{
-          start: <CaretLeftOutlined className={styles.collapsibleIcon} />,
-          end: <CaretRightOutlined className={styles.collapsibleIcon} />,
+        collapsible={{
+          icon: {
+            start: <CaretLeftOutlined className={styles.collapsibleIcon} />,
+            end: <CaretRightOutlined className={styles.collapsibleIcon} />,
+          },
         }}
       >
         <Splitter.Panel defaultSize="40%" min="20%" max="70%" collapsible>
@@ -86,9 +88,11 @@ const App: React.FC = () => {
         classNames={{ dragger: { default: styles.dragger, active: styles.draggerActive } }}
         style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
         draggerIcon={null}
-        collapsibleIcon={{
-          start: <CaretUpOutlined className={styles.collapsibleIcon} />,
-          end: <CaretDownOutlined className={styles.collapsibleIcon} />,
+        collapsible={{
+          icon: {
+            start: <CaretUpOutlined className={styles.collapsibleIcon} />,
+            end: <CaretDownOutlined className={styles.collapsibleIcon} />,
+          },
         }}
       >
         <Splitter.Panel defaultSize="40%" min="30%" max="70%" collapsible>

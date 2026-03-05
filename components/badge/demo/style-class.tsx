@@ -6,7 +6,7 @@ import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
 const badgeClassNames = createStaticStyles(({ css }) => ({
   indicator: css`
-   font-size: 10px;
+    font-size: 10px;
   `,
 }));
 

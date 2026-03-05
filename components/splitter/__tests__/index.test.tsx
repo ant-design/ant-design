@@ -16,6 +16,7 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
+import type { SplitterSemanticAllType } from '../interface';
 import SplitBar from '../SplitBar';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
@@ -1002,6 +1003,21 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledTimes(2);
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });
+
+    it('should apply transition when motion is true', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ collapsible: true }, { collapsible: true }]}
+          collapsible={{
+            motion: true,
+          }}
+        />,
+      );
+
+      expect(container.querySelector('.ant-splitter-panel')).toHaveClass(
+        'ant-splitter-panel-transition',
+      );
+    });
   });
 
   it('auto resize', async () => {
@@ -1043,13 +1059,31 @@ describe('Splitter', () => {
       expect(draggerEle.querySelector('.customize-dragger-icon')).toBeTruthy();
     });
 
-    it('customize collapsibleIcon', async () => {
-      const { container } = render(
+    it('customize collapsibleIcon (deprecated)', async () => {
+      render(
         <SplitterDemo
           items={[{ size: 20, collapsible: true }, { collapsible: true }]}
           collapsibleIcon={{
             start: <CaretLeftOutlined className="customize-icon-start" />,
             end: <CaretRightOutlined className="customize-icon-end" />,
+          }}
+        />,
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Splitter] `collapsibleIcon` is deprecated. Please use `collapsible.icon` instead.',
+      );
+    });
+
+    it('customize collapsible.icon', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ size: 20, collapsible: true }, { collapsible: true }]}
+          collapsible={{
+            icon: {
+              start: <CaretLeftOutlined className="customize-icon-start" />,
+              end: <CaretRightOutlined className="customize-icon-end" />,
+            },
           }}
         />,
       );
@@ -1069,12 +1103,13 @@ describe('Splitter', () => {
     });
 
     it('styles', () => {
-      const customStyles = {
+      const customStyles: SplitterProps['styles'] = {
         root: { background: 'red' },
         panel: { background: 'blue' },
-        dragger: { background: 'green' },
+        // dragger: { background: 'green' },
+        dragger: { default: { background: 'green' } },
       };
-      const customClassNames = {
+      const customClassNames: SplitterSemanticAllType['classNamesNoString'] = {
         root: 'custom-root',
         panel: 'custom-panel',
         dragger: { default: 'custom-dragger', active: 'custom-dragger-active' },
@@ -1085,22 +1120,22 @@ describe('Splitter', () => {
       );
 
       const root = container.querySelector('.ant-splitter');
-      expect(root).toHaveStyle(customStyles.root);
-      expect(root).toHaveClass(customClassNames.root);
+      expect(root).toHaveStyle(customStyles.root as Record<string, string>);
+      expect(root).toHaveClass(customClassNames.root as string);
 
       const panel = container.querySelector('.ant-splitter-panel');
-      expect(panel).toHaveStyle(customStyles.panel);
-      expect(panel).toHaveClass(customClassNames.panel);
-
+      expect(panel).toHaveStyle(customStyles.panel as Record<string, string>);
+      expect(panel).toHaveClass(customClassNames.panel as string);
       const dragger = container.querySelector('.ant-splitter-bar-dragger');
-      expect(dragger).toHaveStyle(customStyles.dragger);
-      expect(dragger).toHaveClass(customClassNames.dragger.default);
-      expect(dragger).not.toHaveClass(customClassNames.dragger.active);
+      expect(dragger).toHaveStyle(customStyles.dragger?.default as Record<string, string>);
+
+      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
+      expect(dragger).not.toHaveClass(customClassNames.dragger?.active as string);
 
       // Dragging
       fireEvent.mouseDown(dragger!);
-      expect(dragger).toHaveClass(customClassNames.dragger.default);
-      expect(dragger).toHaveClass(customClassNames.dragger.active);
+      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
+      expect(dragger).toHaveClass(customClassNames.dragger?.active as string);
     });
   });
 
