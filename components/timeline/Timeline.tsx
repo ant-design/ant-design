@@ -57,7 +57,11 @@ export interface TimelineItemType {
   dot?: React.ReactNode;
 }
 
-export type TimelineSemanticType = StepsSemanticType;
+// export type TimelineSemanticType = Omit<StepsSemanticType, 'itemSubtitle'>;
+export type TimelineSemanticType = {
+  classNames?: Omit<StepsSemanticType['classNames'], 'itemSubtitle'>;
+  styles?: Omit<StepsSemanticType['styles'], 'itemSubtitle'>;
+};
 
 export type TimelineSemanticAllType = GenerateSemantic<TimelineSemanticType, TimelineProps>;
 

@@ -15,7 +15,6 @@ describe('Timeline.Semantic', () => {
       itemSection: 'custom-item-section',
       itemHeader: 'custom-item-header',
       itemTitle: 'custom-item-title',
-      itemSubtitle: 'custom-item-subtitle',
       itemContent: 'custom-item-content',
       itemRail: 'custom-item-rail',
     };
@@ -28,7 +27,6 @@ describe('Timeline.Semantic', () => {
       itemSection: 'ant-steps-item-section',
       itemHeader: 'ant-steps-item-header',
       itemTitle: 'ant-steps-item-title',
-      itemSubtitle: 'ant-steps-item-subtitle',
       itemContent: 'ant-steps-item-content',
       itemRail: 'ant-steps-item-rail',
     };
@@ -41,7 +39,6 @@ describe('Timeline.Semantic', () => {
       itemSection: { color: 'rgb(128, 0, 128)' },
       itemHeader: { color: 'rgb(255, 165, 0)' },
       itemTitle: { color: 'rgb(255, 192, 203)' },
-      itemSubtitle: { color: 'rgb(128, 128, 128)' },
       itemContent: { color: 'rgb(255, 0, 255)' },
       itemRail: { color: 'rgb(0, 255, 0)' },
     };
