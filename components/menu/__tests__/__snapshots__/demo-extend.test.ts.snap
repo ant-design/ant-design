@@ -1893,7 +1893,7 @@ Array [
         style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
         <div
-          class="acss-kuniwg ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+          class="acss-kuniwg ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
         >
           <h3
             class="ant-typography acss-1s688k3 css-var-test-id"
@@ -6586,7 +6586,7 @@ exports[`renders components/menu/demo/sider-current.tsx extend context correctly
 
 exports[`renders components/menu/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <ul
     class="ant-menu ant-menu-root ant-menu-vertical ant-menu-light css-var-test-id ant-menu-css-var acss-1upo6w8"

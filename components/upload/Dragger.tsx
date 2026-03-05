@@ -6,6 +6,10 @@ import Upload from './Upload';
 
 export type DraggerProps<T = any> = UploadProps<T> & { height?: number };
 
+type DraggerType = (<T = any>(
+  props: DraggerProps<T> & React.RefAttributes<UploadRef<T>>,
+) => React.ReactElement | null) & { displayName?: string };
+
 const Dragger = React.forwardRef<UploadRef, DraggerProps<any>>((props, ref) => {
   const { style, height, hasControlInside = false, children, ...restProps } = props;
   const mergedStyle: React.CSSProperties = { ...style, height };
@@ -20,7 +24,7 @@ const Dragger = React.forwardRef<UploadRef, DraggerProps<any>>((props, ref) => {
       {children}
     </Upload>
   );
-});
+}) as unknown as DraggerType;
 
 if (process.env.NODE_ENV !== 'production') {
   Dragger.displayName = 'Dragger';

@@ -264,6 +264,75 @@ exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend conte
 
 exports[`renders components/checkbox/demo/debug-disable-popover.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/checkbox/demo/debug-group-width.tsx extend context correctly 1`] = `
+<div
+  style="width: 280px; border: 1px solid rgb(238, 238, 238); padding: 16px;"
+>
+  <div
+    class="ant-checkbox-group css-var-test-id ant-checkbox-css-var"
+    role="group"
+  >
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
+    >
+      <span
+        class="ant-checkbox ant-wave-target ant-checkbox-checked"
+      >
+        <input
+          checked=""
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="a"
+        />
+      </span>
+      <span
+        class="ant-checkbox-label"
+      >
+        Short
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
+    >
+      <span
+        class="ant-checkbox ant-wave-target"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="b"
+        />
+      </span>
+      <span
+        class="ant-checkbox-label"
+      >
+        Long label that may wrap in narrow container
+      </span>
+    </label>
+    <label
+      class="ant-checkbox-wrapper ant-checkbox-group-item css-var-test-id ant-checkbox-css-var"
+    >
+      <span
+        class="ant-checkbox ant-wave-target"
+      >
+        <input
+          class="ant-checkbox-input"
+          type="checkbox"
+          value="c"
+        />
+      </span>
+      <span
+        class="ant-checkbox-label"
+      >
+        Medium
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`renders components/checkbox/demo/debug-group-width.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/checkbox/demo/debug-line.tsx extend context correctly 1`] = `
 <div>
   <div
@@ -497,7 +566,7 @@ exports[`renders components/checkbox/demo/debug-line.tsx extend context correctl
 
 exports[`renders components/checkbox/demo/disabled.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <label
     class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled css-var-test-id ant-checkbox-css-var"
@@ -865,7 +934,7 @@ exports[`renders components/checkbox/demo/layout.tsx extend context correctly 2`
 
 exports[`renders components/checkbox/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <label
     class="ant-checkbox-wrapper css-var-test-id ant-checkbox-css-var"

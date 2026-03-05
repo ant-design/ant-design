@@ -50,8 +50,8 @@ const App: React.FC = () => {
   const hasSelected = selectedRowKeys.length > 0;
 
   return (
-    <Flex gap="middle" vertical>
-      <Flex align="center" gap="middle">
+    <Flex gap="medium" vertical>
+      <Flex align="center" gap="medium">
         <Button type="primary" onClick={start} disabled={!hasSelected} loading={loading}>
           Reload
         </Button>

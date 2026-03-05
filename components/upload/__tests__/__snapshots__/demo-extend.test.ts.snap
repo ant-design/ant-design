@@ -2,7 +2,7 @@
 
 exports[`renders components/upload/demo/avatar.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-medium"
 >
   <span
     class="ant-upload-wrapper avatar-uploader css-var-test-id ant-upload-picture-card-wrapper"

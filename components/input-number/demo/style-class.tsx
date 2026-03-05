@@ -35,7 +35,7 @@ const App: React.FC = () => {
     classNames,
   };
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <InputNumber {...sharedProps} styles={stylesObject} placeholder="Object" />
       <InputNumber {...sharedProps} styles={stylesFn} placeholder="Function" size="large" />
     </Flex>

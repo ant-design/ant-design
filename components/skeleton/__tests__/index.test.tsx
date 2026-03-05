@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Skeleton from '..';
+import ConfigProvider from '../../config-provider';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render } from '../../../tests/utils';
@@ -57,7 +58,7 @@ describe('Skeleton', () => {
     it('size', () => {
       const { asFragment } = genSkeleton({ avatar: { size: 'small' } });
       expect(asFragment().firstChild).toMatchSnapshot();
-      const { asFragment: wrapperDefault } = genSkeleton({ avatar: { size: 'default' } });
+      const { asFragment: wrapperDefault } = genSkeleton({ avatar: { size: 'medium' } });
       expect(wrapperDefault().firstChild).toMatchSnapshot();
       const { asFragment: wrapperLarge } = genSkeleton({ avatar: { size: 'large' } });
       expect(wrapperLarge().firstChild).toMatchSnapshot();
@@ -104,7 +105,7 @@ describe('Skeleton', () => {
       expect(asFragment().firstChild).toMatchSnapshot();
     });
     it('size', () => {
-      const { asFragment: wrapperDefault } = genSkeletonButton({ size: 'default' });
+      const { asFragment: wrapperDefault } = genSkeletonButton({ size: 'medium' });
       expect(wrapperDefault().firstChild).toMatchSnapshot();
       const { asFragment: wrapperLarge } = genSkeletonButton({ size: 'large' });
       expect(wrapperLarge().firstChild).toMatchSnapshot();
@@ -129,7 +130,7 @@ describe('Skeleton', () => {
     it('size', () => {
       const { asFragment } = genSkeletonAvatar({ size: 'small' });
       expect(asFragment().firstChild).toMatchSnapshot();
-      const { asFragment: wrapperDefault } = genSkeletonAvatar({ size: 'default' });
+      const { asFragment: wrapperDefault } = genSkeletonAvatar({ size: 'medium' });
       expect(wrapperDefault().firstChild).toMatchSnapshot();
       const { asFragment: wrapperLarge } = genSkeletonAvatar({ size: 'large' });
       expect(wrapperLarge().firstChild).toMatchSnapshot();
@@ -153,10 +154,55 @@ describe('Skeleton', () => {
     it('size', () => {
       const { asFragment } = genSkeletonInput({ size: 'small' });
       expect(asFragment().firstChild).toMatchSnapshot();
-      const { asFragment: wrapperDefault } = genSkeletonInput({ size: 'default' });
+      const { asFragment: wrapperDefault } = genSkeletonInput({ size: 'medium' });
       expect(wrapperDefault().firstChild).toMatchSnapshot();
       const { asFragment: wrapperLarge } = genSkeletonInput({ size: 'large' });
       expect(wrapperLarge().firstChild).toMatchSnapshot();
+    });
+  });
+
+  describe('componentSize from ConfigProvider', () => {
+    it('should apply componentSize to skeleton elements', () => {
+      const { container, rerender } = render(
+        <ConfigProvider componentSize="small">
+          <Skeleton.Avatar />
+          <Skeleton.Button />
+          <Skeleton.Input />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-skeleton-avatar-sm')).toBeTruthy();
+      expect(container.querySelector('.ant-skeleton-button-sm')).toBeTruthy();
+      expect(container.querySelector('.ant-skeleton-input-sm')).toBeTruthy();
+
+      rerender(
+        <ConfigProvider componentSize="large">
+          <Skeleton.Avatar />
+          <Skeleton.Button />
+          <Skeleton.Input />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-skeleton-avatar-lg')).toBeTruthy();
+      expect(container.querySelector('.ant-skeleton-button-lg')).toBeTruthy();
+      expect(container.querySelector('.ant-skeleton-input-lg')).toBeTruthy();
+    });
+
+    it('explicit size should override componentSize', () => {
+      const { container } = render(
+        <ConfigProvider componentSize="large">
+          <Skeleton.Avatar size="small" />
+          <Skeleton.Button size="small" />
+          <Skeleton.Input size="small" />
+        </ConfigProvider>,
+      );
+
+      expect(container.querySelector('.ant-skeleton-avatar-sm')).toBeTruthy();
+      expect(container.querySelector('.ant-skeleton-button-sm')).toBeTruthy();
+      expect(container.querySelector('.ant-skeleton-input-sm')).toBeTruthy();
+      expect(container.querySelector('.ant-skeleton-avatar-lg')).toBeFalsy();
+      expect(container.querySelector('.ant-skeleton-button-lg')).toBeFalsy();
+      expect(container.querySelector('.ant-skeleton-input-lg')).toBeFalsy();
     });
   });
 

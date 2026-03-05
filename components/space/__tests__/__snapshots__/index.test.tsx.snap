@@ -81,7 +81,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   >
     <div
       class="ant-space-item"
@@ -140,7 +140,7 @@ Array [
     </div>
   </div>,
   <div
-    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-middle ant-space-gap-col-middle css-var-root"
+    class="ant-space ant-space-horizontal ant-space-rtl ant-space-align-center ant-space-gap-row-medium ant-space-gap-col-medium css-var-root"
   >
     <div
       class="ant-space-item"

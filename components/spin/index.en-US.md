@@ -38,7 +38,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | fullscreen | Display a backdrop with the `Spin` component | boolean | false | 5.11.0 |
 | indicator | React node of the spinning indicator | ReactNode | - |  |
 | percent | The progress percentage, when set to `auto`, it will be an indeterminate progress | number \| 'auto' | - | 5.18.0 |
-| size | The size of Spin, options: `small`, `default` and `large` | string | `default` |  |
+| size | The size of Spin, options: `small`, `medium` and `large` | string | `medium` |  |
 | spinning | Whether Spin is visible | boolean | true |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | ~~tip~~ | Customize description content when Spin has children. Deprecated, use `description` instead | ReactNode | - |  |

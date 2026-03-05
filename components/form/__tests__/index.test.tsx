@@ -2115,17 +2115,17 @@ describe('Form', () => {
 
   it('success feedback should display when pass hasFeedback prop and current value is valid value', async () => {
     const App = ({ trigger = false }: { trigger?: boolean }) => {
-      const form = useRef<FormInstance<any>>(null);
+      const formRef = useRef<FormInstance<any>>(null);
 
       useEffect(() => {
         if (!trigger) {
           return;
         }
-        form.current?.validateFields();
+        formRef.current?.validateFields();
       }, [trigger]);
 
       return (
-        <Form ref={form}>
+        <Form ref={formRef}>
           <Form.Item
             label="Success"
             name="name1"
@@ -2225,18 +2225,18 @@ describe('Form', () => {
 
   it('custom feedback icons should display when pass hasFeedback prop', async () => {
     const App = ({ trigger = false }: { trigger?: boolean }) => {
-      const form = useRef<FormInstance<any>>(null);
+      const formRef = useRef<FormInstance<any>>(null);
 
       useEffect(() => {
         if (!trigger) {
           return;
         }
-        form.current?.validateFields();
+        formRef.current?.validateFields();
       }, [trigger]);
 
       return (
         <Form
-          ref={form}
+          ref={formRef}
           feedbackIcons={() => ({
             error: <AlertFilled id="custom-error-icon" />,
           })}

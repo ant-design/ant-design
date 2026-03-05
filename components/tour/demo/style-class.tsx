@@ -22,8 +22,12 @@ const btnProps: {
 };
 
 const classNames = createStaticStyles(({ css }) => ({
-  root: css`border-radius: 4px;`,
-  section: css`border-radius: 8px;`,
+  root: css`
+    border-radius: 4px;
+  `,
+  section: css`
+    border-radius: 8px;
+  `,
 }));
 
 const stylesObject: TourProps['styles'] = {
@@ -97,8 +101,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
-      <Flex gap="middle">
+    <Flex vertical gap="medium">
+      <Flex gap="medium">
         <Button type="primary" onClick={() => setOpen(true)}>
           Begin Tour Object
         </Button>

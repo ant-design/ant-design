@@ -55,7 +55,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Checkbox styles={styles}>Object styles</Checkbox>
       <Checkbox classNames={classNamesFn} defaultChecked>
         Function styles

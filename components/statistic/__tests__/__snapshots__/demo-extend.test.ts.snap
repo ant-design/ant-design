@@ -456,7 +456,7 @@ exports[`renders components/statistic/demo/component-token.tsx extend context co
 
 exports[`renders components/statistic/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-statistic acss-1347agw css-var-test-id"

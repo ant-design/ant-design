@@ -23,7 +23,7 @@ describe('TreeSelect.Semantic', () => {
         treeData={treeData}
         placeholder="Please select"
         disabled={false}
-        size="middle"
+        size="medium"
         classNames={(info) => ({
           root: info.props.disabled ? 'disabled-tree-select-root' : 'enabled-tree-select-root',
           input: `dynamic-input-${info.props.size}`,

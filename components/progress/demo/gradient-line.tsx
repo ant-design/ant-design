@@ -14,7 +14,7 @@ const conicColors: ProgressProps['strokeColor'] = {
 };
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <Progress percent={99.9} strokeColor={twoColors} />
     <Progress percent={50} status="active" strokeColor={{ from: '#108ee9', to: '#87d068' }} />
     <Flex gap="small" wrap>
