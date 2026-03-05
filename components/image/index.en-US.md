@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | fallback | Fallback URL when load fails | string | - |  |
 | height | Image height | string \| number | - |  |
-| placeholder | Loading placeholder; if true, uses default placeholder | ReactNode | - |  |
+| placeholder | Loading placeholder, supports ReactNode or config object | [PlaceholderType](#placeholdertype) | - |  |
 | preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  |
 | src | Image URL | string | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
@@ -54,6 +54,20 @@ Common props ref：[Common props](/docs/react/common-props)
 | onError | Callback when loading error occurs | (event: Event) => void | - |  |
 
 Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
+
+### PlaceholderType
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| node | Custom placeholder content | ReactNode | - |  |
+| progress | Progress config, set to `true` to show gradient animation, set `{ percent: number }` to show progress, `render` for custom rendering | boolean \| [ImageProgressConfig](#imageprogressconfig) | - |  |
+
+### ImageProgressConfig
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| percent | Progress value | number | - |  |
+| render | Custom rendering, receives default progress UI and percentage | (progress: React.ReactNode, percent: number) => React.ReactNode | - |  |
 
 ### PreviewType
 
