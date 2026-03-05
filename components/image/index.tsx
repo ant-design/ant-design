@@ -49,26 +49,26 @@ export interface CompositionImage<P> extends React.FC<P> {
 
 export type ImageSemanticName = keyof ImageSemanticClassNames & keyof ImageSemanticStyles;
 
-export type ImageLoadingConfig = {
+export type ImageProgressConfig = {
   percent?: number;
   percentRender?: (percent: number) => React.ReactNode;
-  progress?: boolean;
+  showProgressBar?: boolean;
 };
 
 export type ImageSemanticClassNames = {
   root?: string;
   image?: string;
   cover?: string;
-  loading?: string;
-  loadingPercent?: string;
+  progress?: string;
+  progressPercent?: string;
 };
 
 export type ImageSemanticStyles = {
   root?: React.CSSProperties;
   image?: React.CSSProperties;
   cover?: React.CSSProperties;
-  loading?: React.CSSProperties;
-  loadingPercent?: React.CSSProperties;
+  progress?: React.CSSProperties;
+  progressPercent?: React.CSSProperties;
 };
 
 export type ImagePopupSemanticName = keyof ImagePopupSemanticClassNames &
@@ -102,14 +102,13 @@ export type ImageStylesType = SemanticStylesType<
   { popup?: ImagePopupSemanticStyles }
 >;
 
-export interface ImageProps
-  extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles' | 'loading'> {
+export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;
   classNames?: ImageClassNamesType;
   styles?: ImageStylesType;
-  loading?: boolean | ImageLoadingConfig;
+  progress?: boolean | ImageProgressConfig;
 }
 
 const Image: CompositionImage<ImageProps> = (props) => {
@@ -123,7 +122,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     classNames,
     wrapperStyle,
     fallback,
-    loading,
+    progress,
     ...otherProps
   } = props;
 
@@ -232,10 +231,10 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
   const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;
 
-  // ============================= Loading ==============================
-  const isLoading = loading !== undefined && loading !== false;
-  const loadingConfig = typeof loading === 'object' && loading ? loading : {};
-  const { percent, percentRender, progress: showProgress = true } = loadingConfig;
+  // ============================= Progress ==============================
+  const showProgressOverlay = progress !== undefined && progress !== false;
+  const progressConfig = typeof progress === 'object' && progress ? progress : {};
+  const { percent, percentRender, showProgressBar = true } = progressConfig;
 
   // 判断是否有 percent（必须是有限数值）
   const hasPercent = typeof percent === 'number' && Number.isFinite(percent);
@@ -258,13 +257,13 @@ const Image: CompositionImage<ImageProps> = (props) => {
   // ============================== Render ==============================
   const { width, height, ...restOtherProps } = otherProps;
 
-  // When loading is active, render only loading layer with dimensions
-  if (isLoading) {
+  // When progress is active, render only progress layer with dimensions
+  if (showProgressOverlay) {
     return (
       <div
         className={clsx(
           prefixCls,
-          `${prefixCls}-loading-wrapper`,
+          `${prefixCls}-progress-wrapper`,
           mergedRootClassName,
           mergedClassName,
           mergedClassNames?.root,
@@ -276,38 +275,38 @@ const Image: CompositionImage<ImageProps> = (props) => {
           ...mergedStyles?.root,
         }}
       >
-        {/* Main loading container with frosted glass */}
+        {/* Main progress container with frosted glass */}
         <div
-          className={clsx(`${prefixCls}-loading`, mergedClassNames?.loading)}
-          style={mergedStyles?.loading}
+          className={clsx(`${prefixCls}-progress`, mergedClassNames?.progress)}
+          style={mergedStyles?.progress}
         >
           {/* Watercolor ink layers */}
-          <div className={`${prefixCls}-loading-ink-1`} />
-          <div className={`${prefixCls}-loading-ink-2`} />
-          <div className={`${prefixCls}-loading-ink-3`} />
-          <div className={`${prefixCls}-loading-ink-4`} />
-          <div className={`${prefixCls}-loading-ink-5`} />
+          <div className={`${prefixCls}-progress-ink-1`} />
+          <div className={`${prefixCls}-progress-ink-2`} />
+          <div className={`${prefixCls}-progress-ink-3`} />
+          <div className={`${prefixCls}-progress-ink-4`} />
+          <div className={`${prefixCls}-progress-ink-5`} />
           {/* Frosted matte overlay */}
-          <div className={`${prefixCls}-loading-frosted`} />
+          <div className={`${prefixCls}-progress-frosted`} />
           {/* Progress content - vertically centered with visual weight adjusted */}
           {hasPercent && (
             <div
               className={clsx(
-                `${prefixCls}-loading-content`,
-                showProgress && `${prefixCls}-loading-content-progress`,
+                `${prefixCls}-progress-content`,
+                showProgressBar && `${prefixCls}-progress-content-bar`,
               )}
             >
-              {showProgress && (
-                <div className={`${prefixCls}-loading-progress`} style={{ width: '100%' }}>
+              {showProgressBar && (
+                <div className={`${prefixCls}-progress-bar`} style={{ width: '100%' }}>
                   <div
-                    className={`${prefixCls}-loading-progress-inner`}
+                    className={`${prefixCls}-progress-bar-inner`}
                     style={{ width: `${percentValue}%` }}
                   />
                 </div>
               )}
               <span
-                className={clsx(`${prefixCls}-loading-percent`, mergedClassNames?.loadingPercent)}
-                style={mergedStyles?.loadingPercent}
+                className={clsx(`${prefixCls}-progress-percent`, mergedClassNames?.progressPercent)}
+                style={mergedStyles?.progressPercent}
               >
                 {renderPercent()}
               </span>

@@ -17,7 +17,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
-<code src="./demo/loading.tsx">Loading Effect</code>
+<code src="./demo/progress.tsx">Progress</code>
 <code src="./demo/fallback.tsx">Fault tolerant</code>
 <code src="./demo/placeholder.tsx">Progressive Loading</code>
 <code src="./demo/preview-group.tsx">Multiple image preview</code>
@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | fallback | Fallback URL when load fails | string | - |  |
 | height | Image height | string \| number | - |  |
-| loading | AI loading effect, set to `true` to show gradient animation, set `{ percent: number }` to show progress, `percentRender` for custom text, `progress` controls whether to show progress bar | boolean \| [ImageLoadingConfig](#imageloadingconfig) | - |  |
+| progress | Progress effect, set to `true` to show gradient animation, set `{ percent: number }` to show progress, `percentRender` for custom text, `showProgressBar` controls whether to show progress bar | boolean \| [ImageProgressConfig](#imageprogressconfig) | - |  |
 | placeholder | Loading placeholder; if true, uses default placeholder | ReactNode | - |  |
 | preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  |
 | src | Image URL | string | - |  |
@@ -57,13 +57,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#Attributes)
 
-### ImageLoadingConfig
+### ImageProgressConfig
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | percent | Progress value | number | - |  |
 | percentRender | Custom progress text render | (percent: number) => React.ReactNode | - |  |
-| progress | Whether to show progress bar | boolean | true |  |
+| showProgressBar | Whether to show progress bar | boolean | true |  |
 
 ### PreviewType
 

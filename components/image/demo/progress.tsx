@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Button, Image, Space } from 'antd';
 
-const LoadingProgress: React.FC = () => {
+const GeneratingProgress: React.FC = () => {
   const [percent, setPercent] = useState(0);
-  const [status, setStatus] = useState<'idle' | 'loading' | 'complete'>('idle');
+  const [status, setStatus] = useState<'idle' | 'generating' | 'complete'>('idle');
 
   useEffect(() => {
-    if (status === 'loading' && percent < 100) {
+    if (status === 'generating' && percent < 100) {
       const timer = setTimeout(() => {
         setPercent((prev) => Math.min(prev + Math.random() * 8 + 2, 100));
       }, 200);
       return () => clearTimeout(timer);
-    } else if (status === 'loading' && percent >= 100) {
+    } else if (status === 'generating' && percent >= 100) {
       const timer = setTimeout(() => {
         setStatus('complete');
       }, 200);
@@ -21,7 +21,7 @@ const LoadingProgress: React.FC = () => {
 
   const handleStart = () => {
     setPercent(0);
-    setStatus('loading');
+    setStatus('generating');
   };
 
   const imageNode =
@@ -35,7 +35,7 @@ const LoadingProgress: React.FC = () => {
       <Image
         width={200}
         height={200}
-        loading={{ percent: Math.round(percent), percentRender: (p) => `Generating ${p}%` }}
+        progress={{ percent: Math.round(percent), percentRender: (p) => `Generating ${p}%` }}
         style={{ opacity: status === 'idle' ? 0.6 : 1 }}
       />
     );
@@ -45,7 +45,7 @@ const LoadingProgress: React.FC = () => {
       <Button
         type="primary"
         onClick={handleStart}
-        disabled={status === 'loading'}
+        disabled={status === 'generating'}
         style={{ marginBottom: 12 }}
       >
         Generate
@@ -58,17 +58,17 @@ const LoadingProgress: React.FC = () => {
 const App: React.FC = () => (
   <>
     <Space size={12}>
-      <Image width={200} height={200} loading />
-      <Image width={200} height={200} loading={{ percent: 50 }} />
-      <Image width={200} height={200} loading={{ percent: 50, progress: false }} />
+      <Image width={200} height={200} progress />
+      <Image width={200} height={200} progress={{ percent: 50 }} />
+      <Image width={200} height={200} progress={{ percent: 50, showProgressBar: false }} />
       <Image
         width={200}
         height={200}
-        loading={{ percent: 75, percentRender: (p) => `Generating ${p}%` }}
+        progress={{ percent: 75, percentRender: (p) => `Generating ${p}%` }}
       />
     </Space>
     <div style={{ marginTop: 16 }}>
-      <LoadingProgress />
+      <GeneratingProgress />
     </div>
   </>
 );

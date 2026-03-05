@@ -168,7 +168,7 @@ export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) 
   };
 };
 
-export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
+export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   // Deep, vibrant watercolor colors
@@ -179,15 +179,15 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
   const cloud5 = 'rgba(160, 190, 255, 0.7)'; // Periwinkle
 
   return {
-    // Loading wrapper style
-    [`${componentCls}-loading-wrapper`]: {
+    // Progress wrapper style
+    [`${componentCls}-progress-wrapper`]: {
       position: 'relative',
       display: 'inline-block',
       overflow: 'hidden',
       borderRadius: 'inherit',
 
-      // Main loading container with frosted glass effect
-      [`${componentCls}-loading`]: {
+      // Main progress container with frosted glass effect
+      [`${componentCls}-progress`]: {
         position: 'absolute',
         inset: 0,
         display: 'flex',
@@ -202,7 +202,7 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
       },
 
       // Ink 1 - Top left blue cloud
-      [`${componentCls}-loading-ink-1`]: {
+      [`${componentCls}-progress-ink-1`]: {
         position: 'absolute',
         width: '150%',
         height: '150%',
@@ -218,7 +218,7 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
       },
 
       // Ink 2 - Center right lavender
-      [`${componentCls}-loading-ink-2`]: {
+      [`${componentCls}-progress-ink-2`]: {
         position: 'absolute',
         width: '150%',
         height: '150%',
@@ -235,7 +235,7 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
       },
 
       // Ink 3 - Bottom center cyan
-      [`${componentCls}-loading-ink-3`]: {
+      [`${componentCls}-progress-ink-3`]: {
         position: 'absolute',
         width: '150%',
         height: '150%',
@@ -252,7 +252,7 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
       },
 
       // Ink 4 - Scattered pink blossom
-      [`${componentCls}-loading-ink-4`]: {
+      [`${componentCls}-progress-ink-4`]: {
         position: 'absolute',
         width: '150%',
         height: '150%',
@@ -269,7 +269,7 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
       },
 
       // Ink 5 - Soft periwinkle accent
-      [`${componentCls}-loading-ink-5`]: {
+      [`${componentCls}-progress-ink-5`]: {
         position: 'absolute',
         width: '150%',
         height: '150%',
@@ -286,7 +286,7 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
       },
 
       // Frosted overlay layer for matte finish
-      [`${componentCls}-loading-frosted`]: {
+      [`${componentCls}-progress-frosted`]: {
         position: 'absolute',
         inset: 0,
         // Noise texture for matte finish (simulated with gradient)
@@ -296,8 +296,8 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
         zIndex: 1,
       },
 
-      // Loading content container - centered by default
-      [`${componentCls}-loading-content`]: {
+      // Progress content container - centered by default
+      [`${componentCls}-progress-content`]: {
         position: 'absolute',
         top: '50%',
         transform: 'translateY(-50%)',
@@ -307,8 +307,8 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
         width: '100%',
       },
 
-      // Loading content with progress bar - adjusted position
-      [`${componentCls}-loading-content-progress`]: {
+      // Progress content with progress bar - adjusted position
+      [`${componentCls}-progress-content-bar`]: {
         position: undefined,
         top: undefined,
         transform: undefined,
@@ -317,18 +317,18 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
       },
 
       // Percent text
-      [`${componentCls}-loading-percent`]: {
+      [`${componentCls}-progress-percent`]: {
         fontSize: token.fontSize,
         color: 'rgba(50, 70, 110, 0.85)',
       },
 
       // Percent text margin when preceded by progress bar
-      [`${componentCls}-loading-progress + ${componentCls}-loading-percent`]: {
-marginTop: token.marginXS,
+      [`${componentCls}-progress-bar + ${componentCls}-progress-percent`]: {
+        marginTop: token.marginXS,
       },
 
       // Progress bar container
-      [`${componentCls}-loading-progress`]: {
+      [`${componentCls}-progress-bar`]: {
         width: '100%',
         height: 6,
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
@@ -338,7 +338,7 @@ marginTop: token.marginXS,
       },
 
       // Progress bar fill with subtle shimmer animation
-      [`${componentCls}-loading-progress-inner`]: {
+      [`${componentCls}-progress-bar-inner`]: {
         height: '100%',
         background: `linear-gradient(
           90deg,
@@ -354,16 +354,6 @@ marginTop: token.marginXS,
         animationDuration: '3s',
         animationTimingFunction: 'linear',
         animationIterationCount: 'infinite',
-      },
-    },
-
-    // When loading is active on the original component
-    [`${componentCls}${componentCls}-loading-active`]: {
-      [`${componentCls}-img`]: {
-        opacity: 0,
-      },
-      [`${componentCls}-placeholder`]: {
-        display: 'none',
       },
     },
   };
@@ -625,7 +615,7 @@ export default genStyleHooks(
     return [
       genImageStyle(imageToken),
       genImageCoverStyle(imageToken),
-      genImageLoadingStyle(imageToken),
+      genImageProgressStyle(imageToken),
       genImagePreviewStyle(imageToken),
       genPreviewMotion(imageToken),
     ];
