@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -32,6 +32,84 @@ export interface ComponentToken {
    */
   previewOperationColorDisabled: string;
 }
+
+// Progress active animation - subtle shimmer effect (reverse direction)
+const progressActive = new Keyframes('antImageProgressActive', {
+  '0%': {
+    backgroundPosition: '200% 0',
+  },
+  '100%': {
+    backgroundPosition: '-200% 0',
+  },
+});
+
+// Ink flow 1 - large drift
+const inkFlow1 = new Keyframes('antImageInkFlow1', {
+  '0%': {
+    transform: 'translate(0%, 0%) scale(1)',
+    opacity: 0.8,
+  },
+  '50%': {
+    transform: 'translate(15%, -20%) scale(1.25)',
+    opacity: 0.5,
+  },
+  '100%': {
+    transform: 'translate(0%, 0%) scale(1)',
+    opacity: 0.8,
+  },
+});
+
+// Ink flow 2 - opposite direction
+const inkFlow2 = new Keyframes('antImageInkFlow2', {
+  '0%': {
+    transform: 'translate(0%, 0%) scale(1.1) rotate(0deg)',
+    opacity: 0.7,
+  },
+  '50%': {
+    transform: 'translate(-18%, 15%) scale(0.85) rotate(8deg)',
+    opacity: 0.9,
+  },
+  '100%': {
+    transform: 'translate(0%, 0%) scale(1.1) rotate(0deg)',
+    opacity: 0.7,
+  },
+});
+
+// Ink flow 3 - center pulse
+const inkFlow3 = new Keyframes('antImageInkFlow3', {
+  '0%': {
+    transform: 'translate(0%, 0%) scale(0.8)',
+    opacity: 0.6,
+  },
+  '50%': {
+    transform: 'translate(10%, 12%) scale(1.2)',
+    opacity: 0.85,
+  },
+  '100%': {
+    transform: 'translate(0%, 0%) scale(0.8)',
+    opacity: 0.6,
+  },
+});
+
+// Ink flow 4 - corner drift
+const inkFlow4 = new Keyframes('antImageInkFlow4', {
+  '0%': {
+    transform: 'translate(0%, 0%) scale(1)',
+    opacity: 0.7,
+  },
+  '33%': {
+    transform: 'translate(-20%, -12%) scale(1.15)',
+    opacity: 0.5,
+  },
+  '66%': {
+    transform: 'translate(12%, 18%) scale(0.9)',
+    opacity: 0.8,
+  },
+  '100%': {
+    transform: 'translate(0%, 0%) scale(1)',
+    opacity: 0.7,
+  },
+});
 
 /**
  * @desc Image 组件的 Token
@@ -85,6 +163,183 @@ export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) 
       [`${componentCls}-cover-bottom`]: {
         inset: 'auto 0 0 0',
         justifyContent: 'center',
+      },
+    },
+  };
+};
+
+export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  // Deep, vibrant watercolor colors
+  const cloud1 = 'rgba(100, 180, 255, 0.85)'; // Sky blue
+  const cloud2 = 'rgba(180, 140, 255, 0.8)'; // Lavender
+  const cloud3 = 'rgba(100, 220, 220, 0.75)'; // Cyan
+  const cloud4 = 'rgba(255, 150, 200, 0.7)'; // Pink
+  const cloud5 = 'rgba(160, 190, 255, 0.7)'; // Periwinkle
+
+  return {
+    // Loading wrapper style
+    [`${componentCls}-loading-wrapper`]: {
+      position: 'relative',
+      display: 'inline-block',
+      overflow: 'hidden',
+      borderRadius: 'inherit',
+
+      // Main loading container with frosted glass effect
+      [`${componentCls}-loading`]: {
+        position: 'absolute',
+        inset: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // Frosted glass base
+        backgroundColor: 'rgba(255, 255, 255, 0.6)',
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderRadius: 'inherit',
+        zIndex: 1,
+      },
+
+      // Ink 1 - Top left blue cloud
+      [`${componentCls}-loading-ink-1`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 65% 55% at 25% 30%, ${cloud1} 0%, transparent 55%)`,
+        animationName: inkFlow1,
+        animationDuration: '4s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite',
+        filter: 'blur(40px)',
+        pointerEvents: 'none',
+      },
+
+      // Ink 2 - Center right lavender
+      [`${componentCls}-loading-ink-2`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 60% 65% at 75% 45%, ${cloud2} 0%, transparent 50%)`,
+        animationName: inkFlow2,
+        animationDuration: '5s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite',
+        animationDelay: '-1s',
+        filter: 'blur(45px)',
+        pointerEvents: 'none',
+      },
+
+      // Ink 3 - Bottom center cyan
+      [`${componentCls}-loading-ink-3`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 55% 50% at 50% 70%, ${cloud3} 0%, transparent 45%)`,
+        animationName: inkFlow3,
+        animationDuration: '3.5s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite',
+        animationDelay: '-2s',
+        filter: 'blur(38px)',
+        pointerEvents: 'none',
+      },
+
+      // Ink 4 - Scattered pink blossom
+      [`${componentCls}-loading-ink-4`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 45% 40% at 60% 20%, ${cloud4} 0%, transparent 45%)`,
+        animationName: inkFlow4,
+        animationDuration: '4.5s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite',
+        animationDelay: '-3s',
+        filter: 'blur(42px)',
+        pointerEvents: 'none',
+      },
+
+      // Ink 5 - Soft periwinkle accent
+      [`${componentCls}-loading-ink-5`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 50% 55% at 20% 75%, ${cloud5} 0%, transparent 50%)`,
+        animationName: inkFlow1,
+        animationDuration: '5.5s',
+        animationTimingFunction: 'ease-in-out',
+        animationIterationCount: 'infinite',
+        animationDelay: '-2.5s',
+        filter: 'blur(35px)',
+        pointerEvents: 'none',
+      },
+
+      // Frosted overlay layer for matte finish
+      [`${componentCls}-loading-frosted`]: {
+        position: 'absolute',
+        inset: 0,
+        // Noise texture for matte finish (simulated with gradient)
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        opacity: 0.03,
+        pointerEvents: 'none',
+        zIndex: 1,
+      },
+
+      // Percent text
+      [`${componentCls}-loading-percent`]: {
+        fontSize: token.fontSize,
+        color: 'rgba(50, 70, 110, 0.85)',
+        marginTop: 8,
+      },
+
+      // Progress bar container
+      [`${componentCls}-loading-progress`]: {
+        width: '100%',
+        height: 6,
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        borderRadius: 3,
+        overflow: 'hidden',
+        backdropFilter: 'blur(4px)',
+      },
+
+      // Progress bar fill with subtle shimmer animation
+      [`${componentCls}-loading-progress-inner`]: {
+        height: '100%',
+        background: `linear-gradient(
+          90deg,
+          rgba(120, 170, 255, 0.85) 0%,
+          rgba(160, 150, 245, 0.85) 40%,
+          rgba(130, 200, 220, 0.85) 60%,
+          rgba(120, 170, 255, 0.85) 100%
+        )`,
+        backgroundSize: '200% 100%',
+        borderRadius: 2,
+        transition: 'width 0.3s ease',
+        animationName: progressActive,
+        animationDuration: '3s',
+        animationTimingFunction: 'linear',
+        animationIterationCount: 'infinite',
+      },
+    },
+
+    // When loading is active on the original component
+    [`${componentCls}${componentCls}-loading-active`]: {
+      [`${componentCls}-img`]: {
+        opacity: 0,
+      },
+      [`${componentCls}-placeholder`]: {
+        display: 'none',
       },
     },
   };
@@ -346,6 +601,7 @@ export default genStyleHooks(
     return [
       genImageStyle(imageToken),
       genImageCoverStyle(imageToken),
+      genImageLoadingStyle(imageToken),
       genImagePreviewStyle(imageToken),
       genPreviewMotion(imageToken),
     ];
