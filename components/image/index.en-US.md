@@ -19,6 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 <code src="./demo/basic.tsx">Basic Usage</code>
 <code src="./demo/fallback.tsx">Fault tolerant</code>
 <code src="./demo/placeholder.tsx">Progressive Loading</code>
+<code src="./demo/loading.tsx">AI Loading Effect</code>
 <code src="./demo/preview-group.tsx">Multiple image preview</code>
 <code src="./demo/preview-group-visible.tsx">Preview from one image</code>
 <code src="./demo/previewSrc.tsx">Custom preview image</code>
@@ -46,6 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | fallback | Fallback URL when load fails | string | - |  |
 | height | Image height | string \| number | - |  |
+| loading | AI loading effect, set to `true` to show gradient animation, set `{ percent: number }` to show progress | boolean \| { percent?: number } | - |  |
 | placeholder | Loading placeholder; if true, uses default placeholder | ReactNode | - |  |
 | preview | Preview configuration; set to false to disable | boolean \| [PreviewType](#previewtype) | true |  |
 | src | Image URL | string | - |  |

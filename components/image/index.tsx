@@ -49,16 +49,24 @@ export interface CompositionImage<P> extends React.FC<P> {
 
 export type ImageSemanticName = keyof ImageSemanticClassNames & keyof ImageSemanticStyles;
 
+export type ImageLoadingConfig = {
+  percent?: number;
+};
+
 export type ImageSemanticClassNames = {
   root?: string;
   image?: string;
   cover?: string;
+  loading?: string;
+  loadingPercent?: string;
 };
 
 export type ImageSemanticStyles = {
   root?: React.CSSProperties;
   image?: React.CSSProperties;
   cover?: React.CSSProperties;
+  loading?: React.CSSProperties;
+  loadingPercent?: React.CSSProperties;
 };
 
 export type ImagePopupSemanticName = keyof ImagePopupSemanticClassNames &
@@ -92,12 +100,14 @@ export type ImageStylesType = SemanticStylesType<
   { popup?: ImagePopupSemanticStyles }
 >;
 
-export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {
+export interface ImageProps
+  extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles' | 'loading'> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;
   classNames?: ImageClassNamesType;
   styles?: ImageStylesType;
+  loading?: boolean | ImageLoadingConfig;
 }
 
 const Image: CompositionImage<ImageProps> = (props) => {
@@ -111,6 +121,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     classNames,
     wrapperStyle,
     fallback,
+    loading,
     ...otherProps
   } = props;
 
@@ -218,16 +229,87 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
   const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;
+
+  // ============================= Loading ==============================
+  const isLoading = loading !== undefined && loading !== false;
+  const loadingPercent = typeof loading === 'object' ? loading.percent : undefined;
+  const showPercent = loadingPercent !== undefined;
+
   // ============================== Render ==============================
+  const { width, height, ...restOtherProps } = otherProps;
+
+  // When loading is active, render only loading layer with dimensions
+  if (isLoading) {
+    const percentValue = showPercent ? Math.round(loadingPercent!) : 0;
+    return (
+      <div
+        className={clsx(
+          prefixCls,
+          `${prefixCls}-loading-wrapper`,
+          mergedRootClassName,
+          mergedClassName,
+        )}
+        style={{
+          width,
+          height,
+          ...mergedStyle,
+        }}
+      >
+        {/* Main loading container with frosted glass */}
+        <div
+          className={clsx(`${prefixCls}-loading`, mergedClassNames?.loading)}
+          style={mergedStyles?.loading}
+        >
+          {/* Watercolor ink layers */}
+          <div className={`${prefixCls}-loading-ink-1`} />
+          <div className={`${prefixCls}-loading-ink-2`} />
+          <div className={`${prefixCls}-loading-ink-3`} />
+          <div className={`${prefixCls}-loading-ink-4`} />
+          <div className={`${prefixCls}-loading-ink-5`} />
+          {/* Frosted matte overlay */}
+          <div className={`${prefixCls}-loading-frosted`} />
+          {/* Progress content - vertically centered with visual weight adjusted */}
+          {showPercent && (
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                width: '100%',
+                padding: `0 ${24}px`,
+                marginTop: '8%',
+              }}
+            >
+              <div className={`${prefixCls}-loading-progress`} style={{ width: '100%' }}>
+                <div
+                  className={`${prefixCls}-loading-progress-inner`}
+                  style={{ width: `${percentValue}%` }}
+                />
+              </div>
+              <span
+                className={clsx(`${prefixCls}-loading-percent`, mergedClassNames?.loadingPercent)}
+                style={mergedStyles?.loadingPercent}
+              >
+                {percentValue}%
+              </span>
+            </div>
+          )}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <RcImage
       prefixCls={prefixCls}
       preview={mergedPreviewConfig || false}
-      rootClassName={mergedRootClassName}
+      rootClassName={clsx(mergedRootClassName)}
       className={mergedClassName}
       style={mergedStyle}
       fallback={mergedFallback}
-      {...otherProps}
+      width={width}
+      height={height}
+      {...restOtherProps}
       classNames={mergedClassNames}
       styles={mergedStyles}
     />
