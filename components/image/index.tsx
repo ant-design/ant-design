@@ -365,7 +365,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
           )}
           {/* Watercolor ink layers */}
           {[1, 2, 3, 4, 5].map((i) => (
-            <div key={i} className={`${prefixCls}-progress-ink-${i}`} />
+            <div key={i} className={`${prefixCls}-progress-ink ${prefixCls}-progress-ink-${i}`} />
           ))}
           {/* Progress content */}
           {progressContent}
