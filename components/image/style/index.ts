@@ -79,7 +79,7 @@ const inkFlow1 = new Keyframes('antImageInkFlow1', {
   },
 });
 
-// Ink flow 2 - opposite direction
+// Ink flow 2 - opposite direction with rotation
 const inkFlow2 = new Keyframes('antImageInkFlow2', {
   '0%': {
     transform: 'translate(0%, 0%) scale(1.1) rotate(0deg)',
@@ -95,39 +95,19 @@ const inkFlow2 = new Keyframes('antImageInkFlow2', {
   },
 });
 
-// Ink flow 3 - center pulse
+// Ink flow 3 - center pulse (used by ink-3 and ink-4)
 const inkFlow3 = new Keyframes('antImageInkFlow3', {
   '0%': {
-    transform: 'translate(0%, 0%) scale(0.8)',
-    opacity: 0.6,
+    transform: 'translate(0%, 0%) scale(0.85)',
+    opacity: 0.65,
   },
   '50%': {
-    transform: 'translate(10%, 12%) scale(1.2)',
-    opacity: 0.85,
-  },
-  '100%': {
-    transform: 'translate(0%, 0%) scale(0.8)',
-    opacity: 0.6,
-  },
-});
-
-// Ink flow 4 - corner drift
-const inkFlow4 = new Keyframes('antImageInkFlow4', {
-  '0%': {
-    transform: 'translate(0%, 0%) scale(1)',
-    opacity: 0.7,
-  },
-  '33%': {
-    transform: 'translate(-20%, -12%) scale(1.15)',
-    opacity: 0.5,
-  },
-  '66%': {
-    transform: 'translate(12%, 18%) scale(0.9)',
+    transform: 'translate(8%, 10%) scale(1.15)',
     opacity: 0.8,
   },
   '100%': {
-    transform: 'translate(0%, 0%) scale(1)',
-    opacity: 0.7,
+    transform: 'translate(0%, 0%) scale(0.85)',
+    opacity: 0.65,
   },
 });
 
@@ -214,99 +194,60 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         zIndex: 1,
       },
 
-      // Ink 1 - Top left blue cloud
-      [`${componentCls}-progress-ink-1`]: {
+      // Common ink layer styles
+      [`${componentCls}-progress-ink`]: {
         position: 'absolute',
         width: '150%',
         height: '150%',
         left: '-25%',
         top: '-25%',
+        animationTimingFunction: motionEaseInOut,
+        animationIterationCount: 'infinite',
+        pointerEvents: 'none',
+      },
+
+      // Ink 1 - Top left blue cloud
+      [`${componentCls}-progress-ink-1`]: {
         background: `radial-gradient(ellipse 65% 55% at 25% 30%, rgba(100, 180, 255, 0.85) 0%, transparent 55%)`,
         animationName: inkFlow1,
         animationDuration: '3s',
-        animationTimingFunction: motionEaseInOut,
-        animationIterationCount: 'infinite',
         filter: 'blur(40px)',
-        pointerEvents: 'none',
       },
 
       // Ink 2 - Center right lavender
       [`${componentCls}-progress-ink-2`]: {
-        position: 'absolute',
-        width: '150%',
-        height: '150%',
-        left: '-25%',
-        top: '-25%',
         background: `radial-gradient(ellipse 60% 65% at 75% 45%, rgba(180, 140, 255, 0.8) 0%, transparent 50%)`,
         animationName: inkFlow2,
         animationDuration: '5s',
-        animationTimingFunction: motionEaseInOut,
-        animationIterationCount: 'infinite',
         animationDelay: '-1s',
         filter: 'blur(45px)',
-        pointerEvents: 'none',
       },
 
       // Ink 3 - Bottom center cyan
       [`${componentCls}-progress-ink-3`]: {
-        position: 'absolute',
-        width: '150%',
-        height: '150%',
-        left: '-25%',
-        top: '-25%',
         background: `radial-gradient(ellipse 55% 50% at 50% 70%, rgba(100, 220, 220, 0.75) 0%, transparent 45%)`,
         animationName: inkFlow3,
         animationDuration: '3.5s',
-        animationTimingFunction: motionEaseInOut,
-        animationIterationCount: 'infinite',
         animationDelay: '-2s',
         filter: 'blur(38px)',
-        pointerEvents: 'none',
       },
 
       // Ink 4 - Scattered pink blossom
       [`${componentCls}-progress-ink-4`]: {
-        position: 'absolute',
-        width: '150%',
-        height: '150%',
-        left: '-25%',
-        top: '-25%',
         background: `radial-gradient(ellipse 45% 40% at 60% 20%, rgba(255, 150, 200, 0.7) 0%, transparent 45%)`,
-        animationName: inkFlow4,
+        animationName: inkFlow3,
         animationDuration: '4.5s',
-        animationTimingFunction: motionEaseInOut,
-        animationIterationCount: 'infinite',
         animationDelay: '-3s',
         filter: 'blur(42px)',
-        pointerEvents: 'none',
       },
 
       // Ink 5 - Soft periwinkle accent
       [`${componentCls}-progress-ink-5`]: {
-        position: 'absolute',
-        width: '150%',
-        height: '150%',
-        left: '-25%',
-        top: '-25%',
         background: `radial-gradient(ellipse 50% 55% at 20% 75%, rgba(160, 190, 255, 0.7) 0%, transparent 50%)`,
         animationName: inkFlow1,
         animationDuration: '5.5s',
-        animationTimingFunction: motionEaseInOut,
-        animationIterationCount: 'infinite',
         animationDelay: '-2.5s',
         filter: 'blur(35px)',
-        pointerEvents: 'none',
-      },
-
-      // Frosted overlay layer for matte finish
-      [`${componentCls}-progress-frosted`]: {
-        position: 'absolute',
-        inset: 0,
-        // Noise texture for matte finish (simulated with gradient)
-        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-        opacity: 0.03,
-        pointerEvents: 'none',
-        zIndex: 1,
       },
 
       // Progress content container

@@ -367,8 +367,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
           {[1, 2, 3, 4, 5].map((i) => (
             <div key={i} className={`${prefixCls}-progress-ink-${i}`} />
           ))}
-          {/* Frosted matte overlay */}
-          <div className={`${prefixCls}-progress-frosted`} />
           {/* Progress content */}
           {progressContent}
         </div>
