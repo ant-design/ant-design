@@ -312,7 +312,7 @@ export const genImageLoadingStyle: GenerateStyle<ImageToken, CSSObject> = (token
         position: undefined,
         top: undefined,
         transform: undefined,
-        padding: `0 ${24}px`,
+        padding: `0 ${token.paddingLG}px`,
         marginTop: '8%',
       },
 
