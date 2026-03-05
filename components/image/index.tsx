@@ -254,7 +254,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const showProgressOverlay = progressConfig !== undefined;
 
   const { percent, render: progressRender } = progressConfig || {};
-  const showProgressBar = true; // Always show progress bar by default when progress is active
 
   // 判断是否有 percent（必须是有限数值）
   const hasPercent = typeof percent === 'number' && Number.isFinite(percent);
@@ -262,9 +261,17 @@ const Image: CompositionImage<ImageProps> = (props) => {
   // 计算 percent 数值（用于进度条宽度和 function 参数），约束在 0-100 之间
   const percentValue = hasPercent ? Math.max(0, Math.min(100, Math.round(percent))) : 0;
 
+  // 获取 placeholder 样式
+  const placeholderClassNames = mergedClassNames?.placeholder as
+    | { progress?: string; progressPercent?: string }
+    | undefined;
+  const placeholderStyles = mergedStyles?.placeholder as
+    | { progress?: React.CSSProperties; progressPercent?: React.CSSProperties }
+    | undefined;
+
   // 渲染进度条（只包含 bar，不包含 percent）
   const renderProgressBar = () => {
-    if (!hasPercent || !showProgressBar) {
+    if (!hasPercent) {
       return null;
     }
 
@@ -281,13 +288,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     if (!hasPercent) {
       return null;
     }
-
-    const placeholderClassNames = mergedClassNames?.placeholder as
-      | { progress?: string; progressPercent?: string }
-      | undefined;
-    const placeholderStyles = mergedStyles?.placeholder as
-      | { progress?: React.CSSProperties; progressPercent?: React.CSSProperties }
-      | undefined;
 
     return (
       <div className={`${prefixCls}-progress-content`}>
@@ -316,13 +316,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     ) : (
       renderDefaultProgressUI()
     );
-
-    const placeholderClassNames = mergedClassNames?.placeholder as
-      | { progress?: string; progressPercent?: string }
-      | undefined;
-    const placeholderStyles = mergedStyles?.placeholder as
-      | { progress?: React.CSSProperties; progressPercent?: React.CSSProperties }
-      | undefined;
 
     return (
       <div
@@ -371,11 +364,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
             </span>
           )}
           {/* Watercolor ink layers */}
-          <div className={`${prefixCls}-progress-ink-1`} />
-          <div className={`${prefixCls}-progress-ink-2`} />
-          <div className={`${prefixCls}-progress-ink-3`} />
-          <div className={`${prefixCls}-progress-ink-4`} />
-          <div className={`${prefixCls}-progress-ink-5`} />
+          {[1, 2, 3, 4, 5].map((i) => (
+            <div key={i} className={`${prefixCls}-progress-ink-${i}`} />
+          ))}
           {/* Frosted matte overlay */}
           <div className={`${prefixCls}-progress-frosted`} />
           {/* Progress content */}
