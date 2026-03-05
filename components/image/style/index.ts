@@ -31,6 +31,26 @@ export interface ComponentToken {
    * @descEN Disabled color of preview operation icon
    */
   previewOperationColorDisabled: string;
+  /**
+   * @desc 进度遮罩背景色
+   * @descEN Background color of progress overlay
+   */
+  progressBgColor: string;
+  /**
+   * @desc 进度条高度
+   * @descEN Height of progress bar
+   */
+  progressBarHeight: number;
+  /**
+   * @desc 进度条背景色
+   * @descEN Background color of progress bar
+   */
+  progressBarBgColor: string;
+  /**
+   * @desc 进度条填充渐变
+   * @descEN Gradient of progress bar fill
+   */
+  progressBarGradient: string;
 }
 
 // Progress active animation - subtle shimmer effect (reverse direction)
@@ -169,14 +189,7 @@ export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) 
 };
 
 export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  // Deep, vibrant watercolor colors
-  const cloud1 = 'rgba(100, 180, 255, 0.85)'; // Sky blue
-  const cloud2 = 'rgba(180, 140, 255, 0.8)'; // Lavender
-  const cloud3 = 'rgba(100, 220, 220, 0.75)'; // Cyan
-  const cloud4 = 'rgba(255, 150, 200, 0.7)'; // Pink
-  const cloud5 = 'rgba(160, 190, 255, 0.7)'; // Periwinkle
+  const { componentCls, motionDurationMid, motionDurationSlow, motionEaseInOut } = token;
 
   return {
     // Progress wrapper style
@@ -194,7 +207,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         alignItems: 'center',
         justifyContent: 'center',
         // Frosted glass base
-        backgroundColor: 'rgba(255, 255, 255, 0.6)',
+        backgroundColor: token.progressBgColor,
         backdropFilter: 'blur(8px)',
         WebkitBackdropFilter: 'blur(8px)',
         borderRadius: 'inherit',
@@ -208,10 +221,10 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         height: '150%',
         left: '-25%',
         top: '-25%',
-        background: `radial-gradient(ellipse 65% 55% at 25% 30%, ${cloud1} 0%, transparent 55%)`,
+        background: `radial-gradient(ellipse 65% 55% at 25% 30%, rgba(100, 180, 255, 0.85) 0%, transparent 55%)`,
         animationName: inkFlow1,
-        animationDuration: '4s',
-        animationTimingFunction: 'ease-in-out',
+        animationDuration: motionDurationSlow,
+        animationTimingFunction: motionEaseInOut,
         animationIterationCount: 'infinite',
         filter: 'blur(40px)',
         pointerEvents: 'none',
@@ -224,10 +237,10 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         height: '150%',
         left: '-25%',
         top: '-25%',
-        background: `radial-gradient(ellipse 60% 65% at 75% 45%, ${cloud2} 0%, transparent 50%)`,
+        background: `radial-gradient(ellipse 60% 65% at 75% 45%, rgba(180, 140, 255, 0.8) 0%, transparent 50%)`,
         animationName: inkFlow2,
         animationDuration: '5s',
-        animationTimingFunction: 'ease-in-out',
+        animationTimingFunction: motionEaseInOut,
         animationIterationCount: 'infinite',
         animationDelay: '-1s',
         filter: 'blur(45px)',
@@ -241,10 +254,10 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         height: '150%',
         left: '-25%',
         top: '-25%',
-        background: `radial-gradient(ellipse 55% 50% at 50% 70%, ${cloud3} 0%, transparent 45%)`,
+        background: `radial-gradient(ellipse 55% 50% at 50% 70%, rgba(100, 220, 220, 0.75) 0%, transparent 45%)`,
         animationName: inkFlow3,
         animationDuration: '3.5s',
-        animationTimingFunction: 'ease-in-out',
+        animationTimingFunction: motionEaseInOut,
         animationIterationCount: 'infinite',
         animationDelay: '-2s',
         filter: 'blur(38px)',
@@ -258,10 +271,10 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         height: '150%',
         left: '-25%',
         top: '-25%',
-        background: `radial-gradient(ellipse 45% 40% at 60% 20%, ${cloud4} 0%, transparent 45%)`,
+        background: `radial-gradient(ellipse 45% 40% at 60% 20%, rgba(255, 150, 200, 0.7) 0%, transparent 45%)`,
         animationName: inkFlow4,
         animationDuration: '4.5s',
-        animationTimingFunction: 'ease-in-out',
+        animationTimingFunction: motionEaseInOut,
         animationIterationCount: 'infinite',
         animationDelay: '-3s',
         filter: 'blur(42px)',
@@ -275,10 +288,10 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         height: '150%',
         left: '-25%',
         top: '-25%',
-        background: `radial-gradient(ellipse 50% 55% at 20% 75%, ${cloud5} 0%, transparent 50%)`,
+        background: `radial-gradient(ellipse 50% 55% at 20% 75%, rgba(160, 190, 255, 0.7) 0%, transparent 50%)`,
         animationName: inkFlow1,
         animationDuration: '5.5s',
-        animationTimingFunction: 'ease-in-out',
+        animationTimingFunction: motionEaseInOut,
         animationIterationCount: 'infinite',
         animationDelay: '-2.5s',
         filter: 'blur(35px)',
@@ -330,9 +343,9 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       // Progress bar container
       [`${componentCls}-progress-bar`]: {
         width: '100%',
-        height: 6,
-        backgroundColor: 'rgba(255, 255, 255, 0.5)',
-        borderRadius: 3,
+        height: token.progressBarHeight,
+        backgroundColor: token.progressBarBgColor,
+        borderRadius: token.borderRadiusXS,
         overflow: 'hidden',
         backdropFilter: 'blur(4px)',
       },
@@ -340,18 +353,12 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       // Progress bar fill with subtle shimmer animation
       [`${componentCls}-progress-bar-inner`]: {
         height: '100%',
-        background: `linear-gradient(
-          90deg,
-          rgba(120, 170, 255, 0.85) 0%,
-          rgba(160, 150, 245, 0.85) 40%,
-          rgba(130, 200, 220, 0.85) 60%,
-          rgba(120, 170, 255, 0.85) 100%
-        )`,
+        background: token.progressBarGradient,
         backgroundSize: '200% 100%',
-        borderRadius: 2,
-        transition: 'width 0.3s ease',
+        borderRadius: token.borderRadiusXXS,
+        transition: `width ${motionDurationMid} ease`,
         animationName: progressActive,
-        animationDuration: '3s',
+        animationDuration: motionDurationMid,
         animationTimingFunction: 'linear',
         animationIterationCount: 'infinite',
       },
@@ -600,6 +607,16 @@ export const prepareComponentToken: GetDefaultToken<'Image'> = (token) => ({
   previewOperationHoverColor: new FastColor(token.colorTextLightSolid).setA(0.85).toRgbString(),
   previewOperationColorDisabled: new FastColor(token.colorTextLightSolid).setA(0.25).toRgbString(),
   previewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
+  progressBgColor: 'rgba(255, 255, 255, 0.6)',
+  progressBarHeight: 6,
+  progressBarBgColor: 'rgba(255, 255, 255, 0.5)',
+  progressBarGradient: `linear-gradient(
+          90deg,
+          rgba(120, 170, 255, 0.85) 0%,
+          rgba(160, 150, 245, 0.85) 40%,
+          rgba(130, 200, 220, 0.85) 60%,
+          rgba(120, 170, 255, 0.85) 100%
+        )`,
 });
 
 export default genStyleHooks(
