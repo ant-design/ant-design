@@ -34,7 +34,7 @@ const styles: DescriptionsProps['styles'] = {
 };
 
 const stylesFn: DescriptionsProps['styles'] = (info) => {
-  if (info.props.size === 'default') {
+  if (info.props.size === 'large') {
     return {
       root: {
         borderRadius: 8,
@@ -57,7 +57,7 @@ const App: React.FC = () => {
   return (
     <Flex vertical gap="medium">
       <Descriptions {...descriptionsProps} styles={styles} size="small" />
-      <Descriptions {...descriptionsProps} styles={stylesFn} size="default" />
+      <Descriptions {...descriptionsProps} styles={stylesFn} size="large" />
     </Flex>
   );
 };

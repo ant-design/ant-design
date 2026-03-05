@@ -11,6 +11,7 @@ import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import type { SizeType } from '../config-provider/SizeContext';
 import Circle from './Circle';
 import Line from './Line';
 import Steps from './Steps';
@@ -45,7 +46,10 @@ export type ProgressStylesType = SemanticStylesType<ProgressProps, ProgressSeman
 export const ProgressTypes = ['line', 'circle', 'dashboard'] as const;
 export type ProgressType = (typeof ProgressTypes)[number];
 const ProgressStatuses = ['normal', 'exception', 'active', 'success'] as const;
-export type ProgressSize = 'default' | 'small';
+/**
+ * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+ */
+export type ProgressSize = Exclude<SizeType, 'large'> | 'default';
 export type StringGradients = Record<string, string>;
 type FromToGradients = { from: string; to: string };
 export type ProgressGradient = { direction?: string } & (StringGradients | FromToGradients);
@@ -108,7 +112,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
     steps,
     strokeColor,
     percent = 0,
-    size = 'default',
+    size = 'medium',
     showInfo = true,
     type = 'line',
     status,
@@ -262,6 +266,8 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         );
       }
     }
+
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
   }
 
   // ======================== Render ========================
@@ -321,7 +327,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
       [`${prefixCls}-line-position-${infoPosition}`]: isPureLineType,
       [`${prefixCls}-steps`]: steps,
       [`${prefixCls}-show-info`]: showInfo,
-      [`${prefixCls}-${size}`]: typeof size === 'string',
+      [`${prefixCls}-small`]: size === 'small',
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     contextClassName,
