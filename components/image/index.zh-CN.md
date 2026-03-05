@@ -48,7 +48,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | fallback | 加载失败容错地址 | string | - |  |
 | height | 图像高度 | string \| number | - |  |
-| loading | AI 加载效果，设置为 `true` 显示渐变动画，设置 `{ percent: number }` 显示进度，`percentRender` 自定义文案，`progress` 控制是否显示进度条 | boolean \| [ImageLoadingConfig](#imageloadingconfig) | - |  |
+| loading | 加载中效果，设置为 `true` 显示渐变动画，设置 `{ percent: number }` 显示进度，`percentRender` 自定义文案，`progress` 控制是否显示进度条 | boolean \| [ImageLoadingConfig](#imageloadingconfig) | - |  |
 | placeholder | 加载占位，为 `true` 时使用默认占位 | ReactNode | - |  |
 | preview | 预览参数，为 `false` 时禁用 | boolean \| [PreviewType](#previewtype) | true |  |
 | src | 图片地址 | string | - |  |

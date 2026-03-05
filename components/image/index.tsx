@@ -245,7 +245,9 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   // 渲染 percent 文案
   const renderPercent = () => {
-    if (!hasPercent) return null;
+    if (!hasPercent) {
+      return null;
+    }
 
     if (percentRender) {
       return percentRender(percentValue);
