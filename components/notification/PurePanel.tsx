@@ -150,11 +150,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   } = useComponentConfig('notification');
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, notificationClassNames],
-    [contextStyles, styles],
-    {
-      props,
-    },
+    [contextClassNames as PurePanelProps['classNames'], notificationClassNames],
+    [contextStyles as PurePanelProps['styles'], styles],
+    { props },
   );
 
   const { notification: notificationContext } = React.useContext(ConfigContext);

@@ -113,8 +113,8 @@ const CheckableTagGroup = React.forwardRef<
 
   // ====================== Styles ======================
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [contextClassNames, classNames],
-    [contextStyles, styles],
+    [contextClassNames as CheckableTagGroupProps['classNames'], classNames],
+    [contextStyles as CheckableTagGroupProps['styles'], styles],
     {
       props,
     },
