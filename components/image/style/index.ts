@@ -355,7 +355,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         height: '100%',
         background: token.progressBarGradient,
         backgroundSize: '200% 100%',
-        borderRadius: token.borderRadiusXXS,
+        borderRadius: token.borderRadiusXS / 2,
         transition: `width ${motionDurationMid} ease`,
         animationName: progressActive,
         animationDuration: motionDurationMid,
