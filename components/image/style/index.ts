@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
+import { Keyframes, unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
@@ -31,7 +31,105 @@ export interface ComponentToken {
    * @descEN Disabled color of preview operation icon
    */
   previewOperationColorDisabled: string;
+  /**
+   * @desc 进度遮罩背景色
+   * @descEN Background color of progress overlay
+   */
+  progressBgColor: string;
+  /**
+   * @desc 进度条高度
+   * @descEN Height of progress bar
+   */
+  progressBarHeight: number;
+  /**
+   * @desc 进度条背景色
+   * @descEN Background color of progress bar
+   */
+  progressBarBgColor: string;
+  /**
+   * @desc 进度条填充渐变
+   * @descEN Gradient of progress bar fill
+   */
+  progressBarGradient: string;
 }
+
+// Progress active animation - subtle shimmer effect (reverse direction)
+const progressActive = new Keyframes('antImageProgressActive', {
+  '0%': {
+    backgroundPosition: '200% 0',
+  },
+  '100%': {
+    backgroundPosition: '-200% 0',
+  },
+});
+
+// Ink flow 1 - large drift
+const inkFlow1 = new Keyframes('antImageInkFlow1', {
+  '0%': {
+    transform: 'translate(0%, 0%) scale(1)',
+    opacity: 0.8,
+  },
+  '50%': {
+    transform: 'translate(15%, -20%) scale(1.25)',
+    opacity: 0.5,
+  },
+  '100%': {
+    transform: 'translate(0%, 0%) scale(1)',
+    opacity: 0.8,
+  },
+});
+
+// Ink flow 2 - opposite direction
+const inkFlow2 = new Keyframes('antImageInkFlow2', {
+  '0%': {
+    transform: 'translate(0%, 0%) scale(1.1) rotate(0deg)',
+    opacity: 0.7,
+  },
+  '50%': {
+    transform: 'translate(-18%, 15%) scale(0.85) rotate(8deg)',
+    opacity: 0.9,
+  },
+  '100%': {
+    transform: 'translate(0%, 0%) scale(1.1) rotate(0deg)',
+    opacity: 0.7,
+  },
+});
+
+// Ink flow 3 - center pulse
+const inkFlow3 = new Keyframes('antImageInkFlow3', {
+  '0%': {
+    transform: 'translate(0%, 0%) scale(0.8)',
+    opacity: 0.6,
+  },
+  '50%': {
+    transform: 'translate(10%, 12%) scale(1.2)',
+    opacity: 0.85,
+  },
+  '100%': {
+    transform: 'translate(0%, 0%) scale(0.8)',
+    opacity: 0.6,
+  },
+});
+
+// Ink flow 4 - corner drift
+const inkFlow4 = new Keyframes('antImageInkFlow4', {
+  '0%': {
+    transform: 'translate(0%, 0%) scale(1)',
+    opacity: 0.7,
+  },
+  '33%': {
+    transform: 'translate(-20%, -12%) scale(1.15)',
+    opacity: 0.5,
+  },
+  '66%': {
+    transform: 'translate(12%, 18%) scale(0.9)',
+    opacity: 0.8,
+  },
+  '100%': {
+    transform: 'translate(0%, 0%) scale(1)',
+    opacity: 0.7,
+  },
+});
 
 /**
  * @desc Image 组件的 Token
@@ -85,6 +183,184 @@ export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) 
       [`${componentCls}-cover-bottom`]: {
         inset: 'auto 0 0 0',
         justifyContent: 'center',
+      },
+    },
+  };
+};
+
+export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
+  const { componentCls, motionDurationMid, motionDurationSlow, motionEaseInOut } = token;
+
+  return {
+    // Progress wrapper style
+    [`${componentCls}-progress-wrapper`]: {
+      position: 'relative',
+      display: 'inline-block',
+      overflow: 'hidden',
+      borderRadius: 'inherit',
+
+      // Main progress container with frosted glass effect
+      [`${componentCls}-progress`]: {
+        position: 'absolute',
+        inset: 0,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // Frosted glass base
+        backgroundColor: token.progressBgColor,
+        backdropFilter: 'blur(8px)',
+        WebkitBackdropFilter: 'blur(8px)',
+        borderRadius: 'inherit',
+        zIndex: 1,
+      },
+
+      // Ink 1 - Top left blue cloud
+      [`${componentCls}-progress-ink-1`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 65% 55% at 25% 30%, rgba(100, 180, 255, 0.85) 0%, transparent 55%)`,
+        animationName: inkFlow1,
+        animationDuration: motionDurationSlow,
+        animationTimingFunction: motionEaseInOut,
+        animationIterationCount: 'infinite',
+        filter: 'blur(40px)',
+        pointerEvents: 'none',
+      },
+
+      // Ink 2 - Center right lavender
+      [`${componentCls}-progress-ink-2`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 60% 65% at 75% 45%, rgba(180, 140, 255, 0.8) 0%, transparent 50%)`,
+        animationName: inkFlow2,
+        animationDuration: '5s',
+        animationTimingFunction: motionEaseInOut,
+        animationIterationCount: 'infinite',
+        animationDelay: '-1s',
+        filter: 'blur(45px)',
+        pointerEvents: 'none',
+      },
+
+      // Ink 3 - Bottom center cyan
+      [`${componentCls}-progress-ink-3`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 55% 50% at 50% 70%, rgba(100, 220, 220, 0.75) 0%, transparent 45%)`,
+        animationName: inkFlow3,
+        animationDuration: '3.5s',
+        animationTimingFunction: motionEaseInOut,
+        animationIterationCount: 'infinite',
+        animationDelay: '-2s',
+        filter: 'blur(38px)',
+        pointerEvents: 'none',
+      },
+
+      // Ink 4 - Scattered pink blossom
+      [`${componentCls}-progress-ink-4`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 45% 40% at 60% 20%, rgba(255, 150, 200, 0.7) 0%, transparent 45%)`,
+        animationName: inkFlow4,
+        animationDuration: '4.5s',
+        animationTimingFunction: motionEaseInOut,
+        animationIterationCount: 'infinite',
+        animationDelay: '-3s',
+        filter: 'blur(42px)',
+        pointerEvents: 'none',
+      },
+
+      // Ink 5 - Soft periwinkle accent
+      [`${componentCls}-progress-ink-5`]: {
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        left: '-25%',
+        top: '-25%',
+        background: `radial-gradient(ellipse 50% 55% at 20% 75%, rgba(160, 190, 255, 0.7) 0%, transparent 50%)`,
+        animationName: inkFlow1,
+        animationDuration: '5.5s',
+        animationTimingFunction: motionEaseInOut,
+        animationIterationCount: 'infinite',
+        animationDelay: '-2.5s',
+        filter: 'blur(35px)',
+        pointerEvents: 'none',
+      },
+
+      // Frosted overlay layer for matte finish
+      [`${componentCls}-progress-frosted`]: {
+        position: 'absolute',
+        inset: 0,
+        // Noise texture for matte finish (simulated with gradient)
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+        opacity: 0.03,
+        pointerEvents: 'none',
+        zIndex: 1,
+      },
+
+      // Progress content container - centered by default
+      [`${componentCls}-progress-content`]: {
+        position: 'absolute',
+        top: '50%',
+        transform: 'translateY(-50%)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+      },
+
+      // Progress content with progress bar - adjusted position
+      [`${componentCls}-progress-content-bar`]: {
+        position: undefined,
+        top: undefined,
+        transform: undefined,
+        padding: `0 ${token.paddingLG}px`,
+        marginTop: '8%',
+      },
+
+      // Percent text
+      [`${componentCls}-progress-percent`]: {
+        fontSize: token.fontSize,
+        color: 'rgba(50, 70, 110, 0.85)',
+      },
+
+      // Percent text margin when preceded by progress bar
+      [`${componentCls}-progress-bar + ${componentCls}-progress-percent`]: {
+        marginTop: token.marginXS,
+      },
+
+      // Progress bar container
+      [`${componentCls}-progress-bar`]: {
+        width: '100%',
+        height: token.progressBarHeight,
+        backgroundColor: token.progressBarBgColor,
+        borderRadius: token.borderRadiusXS,
+        overflow: 'hidden',
+        backdropFilter: 'blur(4px)',
+      },
+
+      // Progress bar fill with subtle shimmer animation
+      [`${componentCls}-progress-bar-inner`]: {
+        height: '100%',
+        background: token.progressBarGradient,
+        backgroundSize: '200% 100%',
+        borderRadius: token.borderRadiusXS / 2,
+        transition: `width ${motionDurationMid} ease`,
+        animationName: progressActive,
+        animationDuration: motionDurationMid,
+        animationTimingFunction: 'linear',
+        animationIterationCount: 'infinite',
       },
     },
   };
@@ -331,6 +607,16 @@ export const prepareComponentToken: GetDefaultToken<'Image'> = (token) => ({
   previewOperationHoverColor: new FastColor(token.colorTextLightSolid).setA(0.85).toRgbString(),
   previewOperationColorDisabled: new FastColor(token.colorTextLightSolid).setA(0.25).toRgbString(),
   previewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
+  progressBgColor: 'rgba(255, 255, 255, 0.6)',
+  progressBarHeight: 6,
+  progressBarBgColor: 'rgba(255, 255, 255, 0.5)',
+  progressBarGradient: `linear-gradient(
+          90deg,
+          rgba(120, 170, 255, 0.85) 0%,
+          rgba(160, 150, 245, 0.85) 40%,
+          rgba(130, 200, 220, 0.85) 60%,
+          rgba(120, 170, 255, 0.85) 100%
+        )`,
 });
 
 export default genStyleHooks(
@@ -346,6 +632,7 @@ export default genStyleHooks(
     return [
       genImageStyle(imageToken),
       genImageCoverStyle(imageToken),
+      genImageProgressStyle(imageToken),
       genImagePreviewStyle(imageToken),
       genPreviewMotion(imageToken),
     ];
