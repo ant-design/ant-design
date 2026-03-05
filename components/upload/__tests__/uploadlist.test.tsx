@@ -973,7 +973,7 @@ describe('Upload List', () => {
 
     const list = wrapper.querySelector<HTMLElement>('.ant-upload-list-picture-card');
     expect(list).toBeTruthy();
-    expect(list).toHaveClass('ant-upload-list-picture-card-empty');
+    expect(list?.children.length).toBe(0);
 
     unmount();
   });

@@ -4960,7 +4960,7 @@ Array [
                 class="ant-upload-wrapper css-var-test-id ant-upload-picture-card-wrapper"
               >
                 <div
-                  class="ant-upload-list ant-upload-list-picture-card ant-upload-list-picture-card-empty"
+                  class="ant-upload-list ant-upload-list-picture-card"
                 >
                   <div
                     class="ant-upload ant-upload-select ant-upload-disabled"
@@ -24158,7 +24158,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 </span>
               </div>
               <div
-                class="ant-upload-list ant-upload-list-picture ant-upload-list-picture-empty"
+                class="ant-upload-list ant-upload-list-picture"
               />
             </span>
           </div>
@@ -24259,7 +24259,7 @@ exports[`renders components/form/demo/validate-other.tsx extend context correctl
                 </span>
               </div>
               <div
-                class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+                class="ant-upload-list ant-upload-list-text"
               />
             </span>
           </div>

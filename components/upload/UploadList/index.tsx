@@ -166,9 +166,6 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   const listClassNames = clsx(
     `${prefixCls}-list`,
     `${prefixCls}-list-${listType}`,
-    {
-      [`${prefixCls}-list-${listType}-empty`]: !items.length,
-    },
     uploadListClassNames?.list,
   );
 

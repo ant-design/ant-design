@@ -159,7 +159,7 @@ exports[`renders components/upload/demo/basic.tsx extend context correctly 1`] =
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -517,7 +517,7 @@ exports[`renders components/upload/demo/customize-progress-bar.tsx extend contex
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -551,7 +551,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         </span>
       </div>
       <div
-        class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+        class="ant-upload-list ant-upload-list-text"
       />
     </span>
   </div>
@@ -608,7 +608,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         </span>
       </div>
       <div
-        class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+        class="ant-upload-list ant-upload-list-text"
       />
     </span>
   </div>
@@ -1226,7 +1226,7 @@ exports[`renders components/upload/demo/debug-disabled.tsx extend context correc
         </span>
       </div>
       <div
-        class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+        class="ant-upload-list ant-upload-list-text"
       />
     </span>
   </div>
@@ -1588,7 +1588,7 @@ exports[`renders components/upload/demo/directory.tsx extend context correctly 1
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -1654,7 +1654,7 @@ exports[`renders components/upload/demo/drag.tsx extend context correctly 1`] = 
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -2972,7 +2972,7 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
         </span>
       </div>
       <div
-        class="ant-upload-list ant-upload-list-picture ant-upload-list-picture-empty"
+        class="ant-upload-list ant-upload-list-picture"
       />
     </span>
   </div>
@@ -3029,7 +3029,7 @@ exports[`renders components/upload/demo/max-count.tsx extend context correctly 1
         </span>
       </div>
       <div
-        class="ant-upload-list ant-upload-list-picture ant-upload-list-picture-empty"
+        class="ant-upload-list ant-upload-list-picture"
       />
     </span>
   </div>
@@ -3088,7 +3088,7 @@ exports[`renders components/upload/demo/paste.tsx extend context correctly 1`] =
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -4271,7 +4271,7 @@ exports[`renders components/upload/demo/preview-file.tsx extend context correctl
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-picture ant-upload-list-picture-empty"
+    class="ant-upload-list ant-upload-list-picture"
   />
 </span>
 `;
@@ -4939,7 +4939,7 @@ exports[`renders components/upload/demo/transform-file.tsx extend context correc
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-picture ant-upload-list-picture-empty"
+    class="ant-upload-list ant-upload-list-picture"
   />
 </span>
 `;
@@ -5343,7 +5343,7 @@ Array [
       </span>
     </div>
     <div
-      class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+      class="ant-upload-list ant-upload-list-text"
     />
   </span>,
   <button
@@ -5411,7 +5411,7 @@ exports[`renders components/upload/demo/upload-png-only.tsx extend context corre
     </span>
   </div>
   <div
-    class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+    class="ant-upload-list ant-upload-list-text"
   />
 </span>
 `;
@@ -5497,7 +5497,7 @@ exports[`renders components/upload/demo/upload-with-aliyun-oss.tsx extend contex
                 </span>
               </div>
               <div
-                class="ant-upload-list ant-upload-list-text ant-upload-list-text-empty"
+                class="ant-upload-list ant-upload-list-text"
               />
             </span>
           </div>
