@@ -492,22 +492,19 @@ Array [
           Loading
         </span>
         <div
-          class="ant-image-progress-ink-1"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-2"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-3"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-4"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-5"
-        />
-        <div
-          class="ant-image-progress-frosted"
+          class="ant-image-progress-ink"
         />
       </div>
     </div>
@@ -527,22 +524,19 @@ Array [
           Loading
         </span>
         <div
-          class="ant-image-progress-ink-1"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-2"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-3"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-4"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-5"
-        />
-        <div
-          class="ant-image-progress-frosted"
+          class="ant-image-progress-ink"
         />
         <div
           class="ant-image-progress-content"
@@ -564,22 +558,19 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-image-progress-ink-1"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-2"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-3"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-4"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-5"
-        />
-        <div
-          class="ant-image-progress-frosted"
+          class="ant-image-progress-ink"
         />
         <div
           class="ant-image-progress-content"
@@ -609,22 +600,19 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-image-progress-ink-1"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-2"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-3"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-4"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-5"
-        />
-        <div
-          class="ant-image-progress-frosted"
+          class="ant-image-progress-ink"
         />
         <div
           class="ant-image-progress-content"
@@ -699,22 +687,19 @@ Array [
         role="progressbar"
       >
         <div
-          class="ant-image-progress-ink-1"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-2"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-3"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-4"
+          class="ant-image-progress-ink"
         />
         <div
-          class="ant-image-progress-ink-5"
-        />
-        <div
-          class="ant-image-progress-frosted"
+          class="ant-image-progress-ink"
         />
         <div
           class="ant-image-progress-content"
