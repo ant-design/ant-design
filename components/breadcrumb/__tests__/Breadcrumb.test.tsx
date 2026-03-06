@@ -1,11 +1,11 @@
 import React from 'react';
 
+import type { GetProp } from '../../_util/type';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { GetProp } from '../../_util/type';
 import type { BreadcrumbProps, ItemType } from '../Breadcrumb';
 import Breadcrumb from '../index';
 
@@ -432,9 +432,9 @@ describe('Breadcrumb', () => {
     expect(item).toHaveClass(customClassNames.item);
     expect(separator).toHaveClass(customClassNames.separator);
 
-    expect(root).toHaveStyle({ color: customStyles.root?.color });
-    expect(item).toHaveStyle({ color: customStyles.item?.color });
-    expect(separator).toHaveStyle({ color: customStyles.separator?.color });
+    expect(root).toHaveStyle({ color: customStyles.root.color });
+    expect(item).toHaveStyle({ color: customStyles.item.color });
+    expect(separator).toHaveStyle({ color: customStyles.separator.color });
   });
 
   it('supports ConfigProvider separator', () => {

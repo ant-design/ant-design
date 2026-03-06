@@ -43,11 +43,11 @@ describe('Collapse.Semantic', () => {
     expect(bodyElement).toHaveClass(customClassNames.body);
     expect(iconElement).toHaveClass(customClassNames.icon);
     // check styles
-    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
-    expect(headerElement).toHaveStyle({ color: customStyles.header?.color });
-    expect(titleElement).toHaveStyle({ color: customStyles.title?.color });
-    expect(bodyElement).toHaveStyle({ color: customStyles.body?.color });
-    expect(iconElement).toHaveStyle({ color: customStyles.icon?.color });
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(headerElement).toHaveStyle({ color: customStyles.header.color });
+    expect(titleElement).toHaveStyle({ color: customStyles.title.color });
+    expect(bodyElement).toHaveStyle({ color: customStyles.body.color });
+    expect(iconElement).toHaveStyle({ color: customStyles.icon.color });
   });
 
   it('should support function-based classNames and styles', () => {

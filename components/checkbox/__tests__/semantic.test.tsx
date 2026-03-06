@@ -33,9 +33,9 @@ describe('Checkbox.Semantic', () => {
     expect(iconElement).toHaveClass(customClassNames.icon);
     expect(labelElement).toHaveClass(customClassNames.label);
 
-    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root?.backgroundColor });
-    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon?.backgroundColor });
-    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label?.backgroundColor });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(labelElement).toHaveStyle({ backgroundColor: customStyles.label.backgroundColor });
   });
 
   it('should support function-based classNames and styles', () => {

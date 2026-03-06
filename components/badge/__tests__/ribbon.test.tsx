@@ -111,9 +111,9 @@ describe('Ribbon', () => {
     expect(contentElement).toHaveClass(customClassNames.content);
 
     // check styles
-    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
-    expect(indicatorElement).toHaveStyle({ color: customStyles.indicator?.color });
-    expect(contentElement).toHaveStyle({ color: customStyles.content?.color });
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(indicatorElement).toHaveStyle({ color: customStyles.indicator.color });
+    expect(contentElement).toHaveStyle({ color: customStyles.content.color });
   });
 
   it('should support function-based classNames and styles', () => {
