@@ -1,8 +1,8 @@
 import React from 'react';
-import type { GetProp } from 'antd';
 
 import Anchor from '..';
 import type { AnchorProps } from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 const classNames: AnchorProps['classNames'] = (

@@ -2,7 +2,6 @@ import React from 'react';
 import { warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
 import type { GetProp } from 'antd';
-import ConfigProvider from 'antd/es/config-provider';
 
 import Alert from '..';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
@@ -10,6 +9,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 import Popconfirm from '../../popconfirm';
 import Tooltip from '../../tooltip';
 import type { AlertProps, AlertRef } from '../Alert';
