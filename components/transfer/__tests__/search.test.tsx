@@ -1,8 +1,8 @@
 import React from 'react';
 import { render as testLibRender } from '@testing-library/react';
 
+import Transfer from '..';
 import { fireEvent, render } from '../../../tests/utils';
-import Transfer from '../index';
 import Search from '../search';
 
 describe('Transfer.Search', () => {

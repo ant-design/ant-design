@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 
+import type { RibbonProps } from '..';
+import Badge from '..';
 import type { GetProp } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import type { RibbonProps } from '../index';
-import Badge from '../index';
 
 describe('Ribbon', () => {
   mountTest(Badge.Ribbon);

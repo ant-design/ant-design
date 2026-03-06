@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Breadcrumb from '..';
 import type { GetProp } from '../../_util/type';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
@@ -7,7 +8,6 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { BreadcrumbProps, ItemType } from '../Breadcrumb';
-import Breadcrumb from '../index';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);
