@@ -4,7 +4,7 @@ import { App, Button, ConfigProvider, Flex, theme, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
-import copy from '../../../../components/_util/copy';
+import copy from '../../../../../components/_util/copy';
 import { DarkContext } from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
 import Group from '../Group';

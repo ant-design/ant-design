@@ -29,7 +29,7 @@ import { generateColor } from 'antd/es/color-picker/util';
 import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
 
-import copy from '../../../../components/_util/copy';
+import copy from '../../../../../components/_util/copy';
 import { generateThemeCode } from '../ThemePreview/themeCodeUtils';
 
 import useLocale from '../../../../hooks/useLocale';
