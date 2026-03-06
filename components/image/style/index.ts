@@ -166,8 +166,8 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         filter: 'blur(35px)',
       },
 
-      // Progress body
-      [`${componentCls}-progress-body`]: {
+      // Progress content
+      [`${componentCls}-progress-content`]: {
         position: 'absolute',
         top: '50%',
         left: 0,

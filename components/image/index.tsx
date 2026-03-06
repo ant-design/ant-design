@@ -62,14 +62,14 @@ export type PlaceholderType =
 
 type ProgressClassNames = {
   root?: string;
-  body?: string;
+  content?: string;
   rail?: string;
   indicator?: string;
 };
 
 type ProgressStyles = {
   root?: React.CSSProperties;
-  body?: React.CSSProperties;
+  content?: React.CSSProperties;
   rail?: React.CSSProperties;
   indicator?: React.CSSProperties;
 };
@@ -376,10 +376,10 @@ const Image: CompositionImage<ImageProps> = (props) => {
         {Array.from({ length: 5 }, (_, i) => (
           <div key={i} className={`${prefixCls}-progress-ink`} />
         ))}
-        {/* Progress body */}
+        {/* Progress content */}
         <div
-          className={clsx(`${prefixCls}-progress-body`, progressClassNames?.body)}
-          style={progressStyles?.body}
+          className={clsx(`${prefixCls}-progress-content`, progressClassNames?.content)}
+          style={progressStyles?.content}
         >
           {progressContent}
         </div>

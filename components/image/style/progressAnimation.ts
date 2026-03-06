@@ -23,7 +23,7 @@ const createInkFlow = (
 export const inkFlow1 = createInkFlow('antImageInkFlow1', 'translate(15%, -20%) scale(1.25)', 0.5);
 export const inkFlow2 = createInkFlow(
   'antImageInkFlow2',
-  'translate(-18%, 15%) scale(0.85) rotate(8deg)',
+  'translate(-18%, 15%) scale(0.85)',
   0.9,
   'translate(0%, 0%) scale(1.1)',
   0.7,
