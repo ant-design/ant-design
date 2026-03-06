@@ -1,13 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { UserOutlined } from '@ant-design/icons';
+import { CheckOutlined, CopyOutlined, UserOutlined } from '@ant-design/icons';
 import { Bubble, Prompts, Sender, Welcome } from '@ant-design/x';
 import type { PromptsItemType } from '@ant-design/x';
 import type { BubbleItemType } from '@ant-design/x/es/bubble/interface';
 import type { SenderRef } from '@ant-design/x/es/sender';
-import { Button, Divider, Drawer, Flex, Skeleton, Splitter, Typography } from 'antd';
+import { Button, Divider, Drawer, Flex, Skeleton, Splitter, theme as antdTheme, Tooltip, Typography } from 'antd';
+import type { ThemeConfig } from 'antd';
 
+import copy from '../../../../components/_util/copy';
 import useLocale from '../../../hooks/useLocale';
 import ComponentsBlock from '../../../pages/index/components/ThemePreview/ComponentsBlock';
+import { generateThemeCode } from '../../../pages/index/components/ThemePreview/themeCodeUtils';
 import type { SiteContextProps } from '../../../theme/slots/SiteContext';
 import SiteContext from '../../../theme/slots/SiteContext';
 import usePromptRecommend from './usePromptRecommend';
@@ -30,6 +33,8 @@ const locales = {
     loading: '加载中...',
     refresh: '换一换',
     resetToDefault: '恢复默认主题',
+    copyTheme: '复制主题代码',
+    copied: '已复制',
   },
   en: {
     title: '🎨 AI Theme Generator',
@@ -41,6 +46,8 @@ const locales = {
     loading: 'Loading...',
     refresh: 'Refresh',
     resetToDefault: 'Reset to default theme',
+    copyTheme: 'Copy theme code',
+    copied: 'Copied',
   },
 };
 
@@ -57,13 +64,15 @@ interface ExtendedPromptsItemType extends PromptsItemType {
 }
 
 const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChange }) => {
-  const { updateSiteConfig, isDark } = React.use(SiteContext) as SiteContextProps;
+  const { updateSiteConfig, isDark, dynamicTheme } = React.use(SiteContext) as SiteContextProps;
   const [locale, localeKey] = useLocale(locales);
   const [inputValue, setInputValue] = useState('');
 
   const senderRef = useRef<SenderRef>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const shouldAutoScrollRef = useRef(true);
+  const copyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [copied, setCopied] = useState(false);
 
   const [submitPrompt, loading, prompt, resText, cancelRequest] = usePromptTheme(onThemeChange);
 
@@ -116,6 +125,28 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     }
   };
 
+  const handleCopyTheme = React.useCallback(async () => {
+    if (!dynamicTheme) return;
+    const themeConfig: ThemeConfig = {
+      token: dynamicTheme.token as ThemeConfig['token'],
+      ...(dynamicTheme.algorithm === 'dark' ? { algorithm: antdTheme.darkAlgorithm } : {}),
+    };
+    const code = generateThemeCode(themeConfig);
+    const success = await copy(code);
+    if (success) {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+      setCopied(true);
+      copyTimerRef.current = setTimeout(() => setCopied(false), 2000);
+    }
+  }, [dynamicTheme]);
+
+  useEffect(
+    () => () => {
+      if (copyTimerRef.current) clearTimeout(copyTimerRef.current);
+    },
+    [],
+  );
+
   const items = React.useMemo<BubbleItemType[]>(() => {
     if (!prompt) {
       return [];
@@ -164,6 +195,18 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
             </pre>
           </Typography>
         ),
+        footer: !loading ? (
+          <Flex justify="flex-end" style={{ marginTop: 4 }}>
+            <Tooltip title={copied ? locale.copied : locale.copyTheme}>
+              <Button
+                type="text"
+                size="small"
+                icon={copied ? <CheckOutlined /> : <CopyOutlined />}
+                onClick={handleCopyTheme}
+              />
+            </Tooltip>
+          </Flex>
+        ) : undefined,
         styles: {
           content: {
             background: 'transparent',
@@ -258,6 +301,10 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
     handleSubmit,
     handleRefreshRecommendations,
     locale.refresh,
+    handleCopyTheme,
+    copied,
+    locale.copyTheme,
+    locale.copied,
   ]);
 
   useEffect(() => {

@@ -94,11 +94,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
   }),
 
   copyButton: css({
-    opacity: 0.4,
+    opacity: 0,
     transition: `opacity ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
     flexShrink: 0,
 
-    '&:hover': {
+    '&.visible': {
       opacity: 1,
     },
   }),
@@ -160,6 +160,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
 
   const [activeName, setActiveName] = React.useState(() => previewThemes[0].name);
   const [copiedName, setCopiedName] = React.useState<string | null>(null);
+  const [hoveredName, setHoveredName] = React.useState<string | null>(null);
   const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   React.useEffect(() => {
@@ -246,13 +247,20 @@ function ThemePreviewContent(props: ThemePreviewProps) {
                 aria-selected={activeName === previewTheme.name}
                 onClick={() => handleThemeClick(previewTheme.name)}
                 onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
+                onMouseEnter={() => setHoveredName(previewTheme.name)}
+                onMouseLeave={() => setHoveredName(null)}
                 style={{ marginBottom: 8 }}
               >
                 <Flex justify="space-between" align="center">
                   <span>{previewTheme.name}</span>
                   <Tooltip title={locale.copyTheme}>
                     <Button
-                      className={styles.copyButton}
+                      className={clsx(
+                        styles.copyButton,
+                        (hoveredName === previewTheme.name ||
+                          copiedName === previewTheme.name) &&
+                          'visible',
+                      )}
                       type="text"
                       size="small"
                       icon={
