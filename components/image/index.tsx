@@ -50,7 +50,7 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
-export interface PlaceholderProgressConfig {
+export interface ImageProgressConfig {
   percent?: number;
   /** Custom render function, receives default progress UI and percent */
   render?: (progress: React.ReactNode, percent: number) => React.ReactNode;
@@ -59,7 +59,7 @@ export interface PlaceholderProgressConfig {
 export type PlaceholderType =
   | React.ReactNode
   | {
-      progress?: boolean | PlaceholderProgressConfig;
+      progress?: boolean | ImageProgressConfig;
     };
 
 export type ImageSemanticType = {
@@ -110,12 +110,12 @@ export interface ImageProps
 // ======================= Helper Functions =======================
 function isPlaceholderConfig(
   placeholder: any,
-): placeholder is { progress?: boolean | PlaceholderProgressConfig } {
+): placeholder is { progress?: boolean | ImageProgressConfig } {
   return placeholder && typeof placeholder === 'object' && !React.isValidElement(placeholder);
 }
 
 function normalizePlaceholder(placeholder?: PlaceholderType): {
-  progressConfig?: PlaceholderProgressConfig;
+  progressConfig?: ImageProgressConfig;
 } {
   if (!placeholder || !isPlaceholderConfig(placeholder)) {
     return {};
