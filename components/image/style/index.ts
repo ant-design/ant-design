@@ -123,7 +123,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       },
 
       // Ink 1 - Top left blue cloud
-      [`${componentCls}-progress-ink:nth-child(1)`]: {
+      [`${componentCls}-progress-ink:nth-of-type(1)`]: {
         background: `radial-gradient(ellipse 65% 55% at 25% 30%, rgba(100, 180, 255, 0.85) 0%, transparent 55%)`,
         animationName: inkFlow1,
         animationDuration: progressAnimationDuration,
@@ -131,7 +131,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       },
 
       // Ink 2 - Center right lavender
-      [`${componentCls}-progress-ink:nth-child(2)`]: {
+      [`${componentCls}-progress-ink:nth-of-type(2)`]: {
         background: `radial-gradient(ellipse 60% 65% at 75% 45%, rgba(180, 140, 255, 0.8) 0%, transparent 50%)`,
         animationName: inkFlow2,
         animationDuration: `calc(${progressAnimationDuration} + 2s)`,
@@ -140,7 +140,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       },
 
       // Ink 3 - Bottom center cyan
-      [`${componentCls}-progress-ink:nth-child(3)`]: {
+      [`${componentCls}-progress-ink:nth-of-type(3)`]: {
         background: `radial-gradient(ellipse 55% 50% at 50% 70%, rgba(100, 220, 220, 0.75) 0%, transparent 45%)`,
         animationName: inkFlow3,
         animationDuration: `calc(${progressAnimationDuration} + 0.5s)`,
@@ -149,7 +149,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       },
 
       // Ink 4 - Scattered pink blossom
-      [`${componentCls}-progress-ink:nth-child(4)`]: {
+      [`${componentCls}-progress-ink:nth-of-type(4)`]: {
         background: `radial-gradient(ellipse 45% 40% at 60% 20%, rgba(255, 150, 200, 0.7) 0%, transparent 45%)`,
         animationName: inkFlow3,
         animationDuration: `calc(${progressAnimationDuration} + 1.5s)`,
@@ -158,7 +158,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       },
 
       // Ink 5 - Soft periwinkle accent
-      [`${componentCls}-progress-ink:nth-child(5)`]: {
+      [`${componentCls}-progress-ink:nth-of-type(5)`]: {
         background: `radial-gradient(ellipse 50% 55% at 20% 75%, rgba(160, 190, 255, 0.7) 0%, transparent 50%)`,
         animationName: inkFlow1,
         animationDuration: `calc(${progressAnimationDuration} + 2.5s)`,
