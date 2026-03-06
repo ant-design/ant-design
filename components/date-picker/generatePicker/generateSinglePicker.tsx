@@ -253,7 +253,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             )}
             style={{ ...contextPickerConfig?.style, ...style }}
             // Semantic Style
-            classNames={mergedClassNames as any}
+            classNames={mergedClassNames}
             styles={{
               ...mergedStyles,
               popup: {
