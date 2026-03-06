@@ -60,7 +60,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| node | 自定义 placeholder 内容 | ReactNode | - |  |
 | progress | 进度配置，设置为 `true` 显示渐变动画，设置 `{ percent: number }` 显示进度，`render` 自定义渲染 | boolean \| [ImageProgressConfig](#imageprogressconfig) | - |  |
 
 ### ImageProgressConfig

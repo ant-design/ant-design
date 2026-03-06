@@ -59,7 +59,6 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| node | Custom placeholder content | ReactNode | - |  |
 | progress | Progress config, set to `true` to show gradient animation, set `{ percent: number }` to show progress, `render` for custom rendering | boolean \| [ImageProgressConfig](#imageprogressconfig) | - |  |
 
 ### ImageProgressConfig

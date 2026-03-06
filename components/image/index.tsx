@@ -50,7 +50,7 @@ export interface CompositionImage<P> extends React.FC<P> {
 
 export interface PlaceholderProgressConfig {
   percent?: number;
-  /** 自定义渲染，接收默认的进度 UI 和百分比 */
+  /** Custom render function, receives default progress UI and percent */
   render?: (progress: React.ReactNode, percent: number) => React.ReactNode;
 }
 
@@ -60,14 +60,18 @@ export type PlaceholderType =
       progress?: boolean | PlaceholderProgressConfig;
     };
 
-type PlaceholderClassNames = {
-  progress?: string;
-  progressPercent?: string;
+type ProgressClassNames = {
+  root?: string;
+  body?: string;
+  rail?: string;
+  indicator?: string;
 };
 
-type PlaceholderStyles = {
-  progress?: React.CSSProperties;
-  progressPercent?: React.CSSProperties;
+type ProgressStyles = {
+  root?: React.CSSProperties;
+  body?: React.CSSProperties;
+  rail?: React.CSSProperties;
+  indicator?: React.CSSProperties;
 };
 
 // Visually hidden styles for screen readers
@@ -89,8 +93,7 @@ export type ImageSemanticType = {
     image?: string;
     cover?: string;
     placeholder?: {
-      progress?: string;
-      progressPercent?: string;
+      progress?: ProgressClassNames;
     };
     popup?: {
       root?: string;
@@ -105,8 +108,7 @@ export type ImageSemanticType = {
     image?: React.CSSProperties;
     cover?: React.CSSProperties;
     placeholder?: {
-      progress?: React.CSSProperties;
-      progressPercent?: React.CSSProperties;
+      progress?: ProgressStyles;
     };
     popup?: {
       root?: React.CSSProperties;
@@ -252,7 +254,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [mergedMask, prefixCls, blurClassName],
   );
 
-  const internalClassNames: any[] = React.useMemo(
+  const internalClassNames = React.useMemo<ImageSemanticType['classNames'][]>(
     () => [contextClassNames, classNames, mergedLegacyClassNames, { popup: mergedPopupClassNames }],
     [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
   );
@@ -278,17 +280,19 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const { percent, render: progressRender } = progressConfig || {};
 
-  // 判断是否有 percent（必须是有限数值）
+  // Check if percent is a valid finite number
   const hasPercent = typeof percent === 'number' && Number.isFinite(percent);
 
-  // 计算 percent 数值（用于进度条宽度和 function 参数），约束在 0-100 之间
+  // Calculate percent value (clamped to 0-100 for progress bar width)
   const percentValue = hasPercent ? Math.max(0, Math.min(100, Math.round(percent))) : 0;
 
-  // 获取 placeholder 样式
-  const placeholderClassNames = mergedClassNames?.placeholder as PlaceholderClassNames | undefined;
-  const placeholderStyles = mergedStyles?.placeholder as PlaceholderStyles | undefined;
+  // Get progress classNames and styles
+  const progressClassNames = mergedClassNames?.placeholder?.progress as
+    | ProgressClassNames
+    | undefined;
+  const progressStyles = mergedStyles?.placeholder?.progress as ProgressStyles | undefined;
 
-  // 渲染进度条（只包含 bar，不包含 percent）
+  // Render progress bar (rail with ::before pseudo for track)
   const renderProgressBar = () => {
     if (!hasPercent) {
       return null;
@@ -296,28 +300,33 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
     return (
       <div
-        className={`${prefixCls}-progress-bar`}
-        style={{ '--progress-percent': `${percentValue}%` } as React.CSSProperties}
+        className={clsx(`${prefixCls}-progress-rail`, progressClassNames?.rail)}
+        style={
+          {
+            ...progressStyles?.rail,
+            '--progress-percent': `${percentValue}%`,
+          } as React.CSSProperties
+        }
       />
     );
   };
 
-  // 渲染默认进度 UI
+  // Render default progress UI (bar + indicator)
   const renderDefaultProgressUI = () => {
     if (!hasPercent) {
       return null;
     }
 
     return (
-      <div className={`${prefixCls}-progress-content`}>
+      <>
         {renderProgressBar()}
         <div
-          className={clsx(`${prefixCls}-progress-percent`, placeholderClassNames?.progressPercent)}
-          style={placeholderStyles?.progressPercent}
+          className={clsx(`${prefixCls}-progress-indicator`, progressClassNames?.indicator)}
+          style={progressStyles?.indicator}
         >
           {`${percentValue}%`}
         </div>
-      </div>
+      </>
     );
   };
 
@@ -326,12 +335,10 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   // When progress is active, render only progress layer with dimensions
   if (showProgressOverlay) {
-    // 渲染进度内容
+    // Render progress content
     const progressBar = renderProgressBar();
     const progressContent = progressRender ? (
-      <div className={`${prefixCls}-progress-content`}>
-        {progressRender(progressBar, percentValue)}
-      </div>
+      <>{progressRender(progressBar, percentValue)}</>
     ) : (
       renderDefaultProgressUI()
     );
@@ -341,6 +348,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
         className={clsx(
           prefixCls,
           `${prefixCls}-progress-wrapper`,
+          progressClassNames?.root,
           mergedRootClassName,
           mergedClassName,
         )}
@@ -349,30 +357,30 @@ const Image: CompositionImage<ImageProps> = (props) => {
           height,
           ...mergedStyle,
           ...mergedStyles?.root,
+          ...progressStyles?.root,
         }}
+        role={hasPercent ? 'progressbar' : undefined}
+        aria-valuemin={hasPercent ? 0 : undefined}
+        aria-valuemax={hasPercent ? 100 : undefined}
+        aria-valuenow={hasPercent ? percentValue : undefined}
+        aria-label={hasPercent ? `${percentValue}%` : undefined}
+        aria-busy={!hasPercent ? true : undefined}
       >
-        {/* Main progress container with frosted glass */}
+        {/* Visually hidden live region for non-percent loading state */}
+        {!hasPercent && (
+          <span role="status" aria-live="polite" style={VISUALLY_HIDDEN_STYLE}>
+            Loading
+          </span>
+        )}
+        {/* Watercolor ink layers */}
+        {Array.from({ length: 5 }, (_, i) => (
+          <div key={i} className={`${prefixCls}-progress-ink`} />
+        ))}
+        {/* Progress body */}
         <div
-          className={clsx(`${prefixCls}-progress`, placeholderClassNames?.progress)}
-          style={placeholderStyles?.progress}
-          role={hasPercent ? 'progressbar' : undefined}
-          aria-valuemin={hasPercent ? 0 : undefined}
-          aria-valuemax={hasPercent ? 100 : undefined}
-          aria-valuenow={hasPercent ? percentValue : undefined}
-          aria-label={hasPercent ? `${percentValue}%` : undefined}
-          aria-busy={!hasPercent ? true : undefined}
+          className={clsx(`${prefixCls}-progress-body`, progressClassNames?.body)}
+          style={progressStyles?.body}
         >
-          {/* Visually hidden live region for non-percent loading state */}
-          {!hasPercent && (
-            <span role="status" aria-live="polite" style={VISUALLY_HIDDEN_STYLE}>
-              Loading
-            </span>
-          )}
-          {/* Watercolor ink layers */}
-          {Array.from({ length: 5 }, (_, i) => (
-            <div key={i} className={`${prefixCls}-progress-ink`} />
-          ))}
-          {/* Progress content */}
           {progressContent}
         </div>
       </div>
