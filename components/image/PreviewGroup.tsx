@@ -12,7 +12,7 @@ import { clsx } from 'clsx';
 
 import type { DeprecatedPreviewConfig, ImageProps, ImageSemanticAllType } from '.';
 import type { MaskType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GetProps } from '../_util/type';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';

@@ -16,6 +16,7 @@ import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
+import type { RadioProps } from '../../radio';
 import Radio from '../../radio';
 import type {
   ColumnsType,
@@ -522,7 +523,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         renderCell = (_, record, index) => {
           const key = getRowKey(record, index);
           const checked = keySet.has(key);
-          const checkboxProps = checkboxPropsMap.get(key);
+          const checkboxProps = checkboxPropsMap.get(key) as unknown as RadioProps;
           return {
             node: (
               <Radio
