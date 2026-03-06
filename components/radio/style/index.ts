@@ -223,6 +223,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
         border: `${unit(lineWidth)} ${lineType} ${colorBorder}`,
         borderRadius: '50%',
         transition: `all ${motionDurationMid}`,
+        flex: 'none',
 
         // Dot
         '&:after': {
