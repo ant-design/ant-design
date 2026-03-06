@@ -233,13 +233,13 @@ describe('Card', () => {
     expect(coverElement).toHaveClass(customClassNames.cover);
 
     // check styles
-    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root?.backgroundColor });
-    expect(headerElement).toHaveStyle({ backgroundColor: customStyles.header?.backgroundColor });
-    expect(bodyElement).toHaveStyle({ backgroundColor: customStyles.body?.backgroundColor });
-    expect(extraElement).toHaveStyle({ backgroundColor: customStyles.extra?.backgroundColor });
-    expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title?.backgroundColor });
-    expect(actionsElement).toHaveStyle({ backgroundColor: customStyles.actions?.backgroundColor });
-    expect(coverElement).toHaveStyle({ backgroundColor: customStyles.cover?.backgroundColor });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(headerElement).toHaveStyle({ backgroundColor: customStyles.header.backgroundColor });
+    expect(bodyElement).toHaveStyle({ backgroundColor: customStyles.body.backgroundColor });
+    expect(extraElement).toHaveStyle({ backgroundColor: customStyles.extra.backgroundColor });
+    expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title.backgroundColor });
+    expect(actionsElement).toHaveStyle({ backgroundColor: customStyles.actions.backgroundColor });
+    expect(coverElement).toHaveStyle({ backgroundColor: customStyles.cover.backgroundColor });
   });
 
   it('should support custom styles for Card.Meta', () => {
@@ -290,10 +290,10 @@ describe('Card', () => {
     expect(avatarElement).toHaveClass(customClassNames.avatar);
     expect(titleElement).toHaveClass(customClassNames.title);
     expect(descElement).toHaveClass(customClassNames.description);
-    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root!.backgroundColor });
-    expect(sectionElement).toHaveStyle({ backgroundColor: customStyles.section!.backgroundColor });
-    expect(avatarElement).toHaveStyle({ backgroundColor: customStyles.avatar!.backgroundColor });
-    expect(descElement).toHaveStyle({ backgroundColor: customStyles.description!.backgroundColor });
+    expect(rootElement).toHaveStyle({ backgroundColor: customStyles.root.backgroundColor });
+    expect(sectionElement).toHaveStyle({ backgroundColor: customStyles.section.backgroundColor });
+    expect(avatarElement).toHaveStyle({ backgroundColor: customStyles.avatar.backgroundColor });
+    expect(descElement).toHaveStyle({ backgroundColor: customStyles.description.backgroundColor });
   });
 
   it('ConfigProvider support variant for card', () => {
