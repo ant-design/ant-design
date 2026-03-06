@@ -1,9 +1,20 @@
 import React from 'react';
 
-import type { TableProps } from '..';
 import Table from '..';
 import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
+import type { InternalTableProps, TableProps } from '../InternalTable';
+
+type DeepRequired<T> = T extends object ? { [P in keyof T]-?: DeepRequired<T[P]> } : T;
+type RequiredClassNames = DeepRequired<GetProp<TableProps, 'classNames', 'Return'>>;
+
+type ReplaceStringWithValue<T, NewValue> = T extends object
+  ? { [P in keyof T]: ReplaceStringWithValue<T[P], NewValue> }
+  : T extends string
+    ? NewValue
+    : T;
+
+type RequiredStyles = ReplaceStringWithValue<RequiredClassNames, React.CSSProperties>;
 
 describe('Table', () => {
   it('test classNames and styles', () => {
@@ -60,7 +71,7 @@ describe('Table', () => {
         address: 'Sydney No. 1 Lake Park',
       },
     ];
-    const testClassNames: TableProps['classNames'] = {
+    const testClassNames: RequiredClassNames = {
       root: 'test-root',
       section: 'test-section',
       title: 'test-title',
@@ -81,7 +92,8 @@ describe('Table', () => {
         item: 'test-pagination-item',
       },
     };
-    const testStyles: TableProps['styles'] = {
+
+    const testStyles: RequiredStyles = {
       root: { background: 'gray' },
       section: { background: 'red' },
       title: { background: 'green' },
@@ -128,33 +140,33 @@ describe('Table', () => {
     const paginationRoot = container.querySelector('.ant-pagination');
     const paginationItem = container.querySelector('.ant-pagination-item');
 
-    expect(root).toHaveClass(testClassNames.root as string);
-    expect(root).toHaveStyle(testStyles.root as any);
-    expect(section).toHaveClass(testClassNames.section as string);
-    expect(section).toHaveStyle(testStyles.section as any);
-    expect(title).toHaveClass(testClassNames.title as string);
-    expect(title).toHaveStyle(testStyles.title as any);
-    expect(footer).toHaveClass(testClassNames.footer as string);
-    expect(footer).toHaveStyle(testStyles.footer as any);
-    expect(content).toHaveClass(testClassNames.content as string);
-    expect(content).toHaveStyle(testStyles.content as any);
+    expect(root).toHaveClass(testClassNames.root);
+    expect(root).toHaveStyle(testStyles.root);
+    expect(section).toHaveClass(testClassNames.section);
+    expect(section).toHaveStyle(testStyles.section);
+    expect(title).toHaveClass(testClassNames.title);
+    expect(title).toHaveStyle(testStyles.title);
+    expect(footer).toHaveClass(testClassNames.footer);
+    expect(footer).toHaveStyle(testStyles.footer);
+    expect(content).toHaveClass(testClassNames.content);
+    expect(content).toHaveStyle(testStyles.content);
 
-    expect(headerWrapper).toHaveClass(testClassNames.header?.wrapper as string);
-    expect(headerWrapper).toHaveStyle(testStyles.header?.wrapper as any);
-    expect(headerCell).toHaveClass(testClassNames.header?.cell as string);
-    expect(headerCell).toHaveStyle({ background: testStyles.header?.cell?.background as any });
-    expect(headerRow).toHaveClass(testClassNames.header?.row as string);
-    expect(headerRow).toHaveStyle(testStyles.header?.row as any);
-    expect(bodyWrapper).toHaveClass(testClassNames.body?.wrapper as string);
-    expect(bodyWrapper).toHaveStyle(testStyles.body?.wrapper as any);
-    expect(bodyCell).toHaveClass(testClassNames.body?.cell as string);
-    expect(bodyCell).toHaveStyle(testStyles.body?.cell as any);
-    expect(bodyRow).toHaveClass(testClassNames.body?.row as string);
-    expect(bodyRow).toHaveStyle(testStyles.body?.row as any);
-    expect(paginationRoot).toHaveClass(testClassNames.pagination?.root as string);
-    expect(paginationRoot).toHaveStyle(testStyles.pagination?.root as any);
-    expect(paginationItem).toHaveClass(testClassNames.pagination?.item as string);
-    expect(paginationItem).toHaveStyle(testStyles.pagination?.item as any);
+    expect(headerWrapper).toHaveClass(testClassNames.header.wrapper);
+    expect(headerWrapper).toHaveStyle(testStyles.header.wrapper);
+    expect(headerCell).toHaveClass(testClassNames.header.cell);
+    expect(headerCell).toHaveStyle({ background: testStyles.header.cell.background });
+    expect(headerRow).toHaveClass(testClassNames.header.row);
+    expect(headerRow).toHaveStyle(testStyles.header.row);
+    expect(bodyWrapper).toHaveClass(testClassNames.body.wrapper);
+    expect(bodyWrapper).toHaveStyle(testStyles.body.wrapper);
+    expect(bodyCell).toHaveClass(testClassNames.body.cell);
+    expect(bodyCell).toHaveStyle(testStyles.body.cell);
+    expect(bodyRow).toHaveClass(testClassNames.body.row);
+    expect(bodyRow).toHaveStyle(testStyles.body.row);
+    expect(paginationRoot).toHaveClass(testClassNames.pagination.root);
+    expect(paginationRoot).toHaveStyle(testStyles.pagination.root);
+    expect(paginationItem).toHaveClass(testClassNames.pagination.item);
+    expect(paginationItem).toHaveStyle(testStyles.pagination.item);
 
     const classNameCounts = {
       root: 1,
@@ -217,9 +229,7 @@ describe('Table', () => {
       },
     ];
 
-    const functionClassNames: TableProps<any>['classNames'] = (
-      info,
-    ): GetProp<TableProps<any>, 'classNames', 'Return'> => ({
+    const functionClassNames: GetProp<InternalTableProps<any>, 'classNames'> = (info) => ({
       root: info.props.bordered ? 'test-bordered-root' : 'test-borderless-root',
       header: {
         wrapper: info.props.size === 'small' ? 'test-header-small' : 'test-header-default',
@@ -232,9 +242,7 @@ describe('Table', () => {
       },
     });
 
-    const functionStyles: TableProps<any>['styles'] = (
-      info,
-    ): GetProp<TableProps<any>, 'styles', 'Return'> => ({
+    const functionStyles: GetProp<InternalTableProps<any>, 'styles'> = (info) => ({
       root: {
         border: info.props.bordered ? '2px solid blue' : '1px solid gray',
       },
