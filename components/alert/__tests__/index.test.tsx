@@ -1,9 +1,9 @@
 import React from 'react';
 import { warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
-import type { GetProp } from 'antd';
 
 import Alert from '..';
+import type { GetProp } from '../../_util/type';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

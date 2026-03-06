@@ -1,8 +1,8 @@
 import React from 'react';
-import type { GetProp } from 'antd';
 
 import type { ResultProps } from '..';
 import Result from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 describe('Result.Semantic', () => {

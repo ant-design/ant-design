@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import type { DefaultRecordType } from '@rc-component/table/lib/interface';
 import { fireEvent, render, waitFor } from '@testing-library/react';
-import type { GetProp } from 'antd';
 
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
+import type { GetProp } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
