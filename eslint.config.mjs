@@ -64,6 +64,9 @@ export default antfu(
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
       'react/no-implicit-key': 'off',
+      /* e18e rules */
+      'e18e/prefer-spread-syntax': 'off',
+      'e18e/prefer-static-regex': 'off',
     },
   },
   {
