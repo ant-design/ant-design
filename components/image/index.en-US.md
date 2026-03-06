@@ -17,8 +17,8 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic Usage</code>
-<code src="./demo/fallback.tsx">Fault tolerant</code>
 <code src="./demo/placeholder.tsx">Progressive Loading</code>
+<code src="./demo/fallback.tsx">Fault tolerant</code>
 <code src="./demo/preview-group.tsx">Multiple image preview</code>
 <code src="./demo/preview-group-visible.tsx">Preview from one image</code>
 <code src="./demo/previewSrc.tsx">Custom preview image</code>

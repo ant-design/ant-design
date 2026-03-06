@@ -187,6 +187,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       [`${componentCls}-progress-rail`]: {
         width: '100%',
         height: 6,
+        marginTop: token.marginSM,
         backgroundColor: 'rgba(255, 255, 255, 0.5)',
         borderRadius: token.borderRadiusXS,
         overflow: 'hidden',
