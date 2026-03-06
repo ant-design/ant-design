@@ -10,7 +10,9 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import isNonNullable from '../_util/isNonNullable';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
+import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import type { SizeType } from '../config-provider/SizeContext';
 import type { PresetColorKey } from '../theme/internal';
 import ScrollNumber from './ScrollNumber';
 import useStyle from './style';
@@ -44,7 +46,10 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   status?: PresetStatusColorType;
   color?: LiteralUnion<PresetColorKey>;
   text?: React.ReactNode;
-  size?: 'default' | 'small';
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: Exclude<SizeType, 'large'> | 'default';
   offset?: [number | string, number | string];
   title?: string;
   children?: React.ReactNode;
@@ -63,7 +68,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
     count = null,
     overflowCount = 99,
     dot = false,
-    size = 'default',
+    size = 'medium',
     title,
     offset,
     style,
@@ -82,9 +87,15 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
     classNames: contextClassNames,
     styles: contextStyles,
   } = useComponentConfig('badge');
+
   const prefixCls = getPrefixCls('badge', customizePrefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Badge');
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+  }
 
   // =========== Merged Props for Semantic ===========
   const mergedProps: BadgeProps = {

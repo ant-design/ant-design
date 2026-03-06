@@ -30,8 +30,8 @@ const ribbonStyles: RibbonProps['styles'] = {
   },
 };
 
-const badgeStylesFn: BadgeProps['styles'] = (info): GetProp<BadgeProps, 'styles', 'Return'> => {
-  if (info.props.size === 'default') {
+const badgeStylesFn: BadgeProps['styles'] = (info): GetProp<RibbonProps, 'styles', 'Return'> => {
+  if (info.props.size === 'medium') {
     return {
       indicator: {
         fontSize: 14,

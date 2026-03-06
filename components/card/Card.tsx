@@ -8,6 +8,7 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useVariant from '../form/hooks/useVariants';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
@@ -17,7 +18,10 @@ import useStyle from './style';
 
 export type CardType = 'inner';
 
-export type CardSize = 'default' | 'small';
+/**
+ * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+ */
+export type CardSize = Exclude<SizeType, 'large'> | 'default';
 
 export interface CardTabListType extends Omit<Tab, 'label'> {
   key: string;
@@ -142,6 +146,11 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   } = useComponentConfig('card');
   const [variant] = useVariant('card', customVariant, bordered);
 
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Card');
+    warning.deprecated(customizeSize !== 'default', 'size="default"', 'size="medium"');
+  }
+
   const mergedSize = useSize(customizeSize);
 
   // =========== Merged Props for Semantic ==========
@@ -198,7 +207,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   let head: React.ReactNode;
-  const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
+  const tabSize = mergedSize !== 'small' ? 'large' : mergedSize;
   const tabs = tabList ? (
     <Tabs
       size={tabSize}
@@ -271,7 +280,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,
       [`${prefixCls}-contain-tabs`]: tabList?.length,
-      [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-small`]: mergedSize === 'small',
       [`${prefixCls}-type-${type}`]: !!type,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },

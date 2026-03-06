@@ -7,13 +7,18 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useStyle from './style';
 
-export type SwitchSize = 'small' | 'default';
+/**
+ * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+ */
+export type SwitchSize = Exclude<SizeType, 'large'> | 'default';
 
 export type { SwitchChangeEventHandler, SwitchClickEventHandler };
 
@@ -105,6 +110,11 @@ const InternalSwitch = React.forwardRef<HTMLButtonElement, SwitchProps>((props, 
 
   // Style
   const [hashId, cssVarCls] = useStyle(prefixCls);
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Switch');
+    warning.deprecated(customizeSize !== 'default', 'size="default"', 'size="medium"');
+  }
 
   const mergedSize = useSize(customizeSize);
 

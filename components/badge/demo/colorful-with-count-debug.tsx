@@ -33,14 +33,14 @@ const AvatarItem = ({ color }: { color: string }) => (
 
 const App: React.FC = () => (
   <>
-    <Space wrap size={['large', 'middle']}>
+    <Space wrap size={['large', 'medium']}>
       {colors.map((color) => (
         <Badge color={color} count={44} key={color}>
           <AvatarItem color={color} />
         </Badge>
       ))}
     </Space>
-    <Space wrap size={['large', 'middle']}>
+    <Space wrap size={['large', 'medium']}>
       {colors.map((color) => (
         <Badge status="processing" color={color} text="loading" key={color} />
       ))}

@@ -13,6 +13,7 @@ import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import Tooltip from '../tooltip';
@@ -93,8 +94,10 @@ export interface BaseStepsProps {
   classNames?: StepsSemanticAllType['classNamesAndFn'];
   styles?: StepsSemanticAllType['stylesAndFn'];
   variant?: 'filled' | 'outlined';
-  size?: 'default' | 'small';
-
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: Exclude<SizeType, 'large'> | 'default';
   // Layout
   type?: 'default' | 'navigation' | 'inline' | 'panel' | 'dot';
   /** @deprecated Please use `orientation` instead. */
@@ -200,6 +203,12 @@ const Steps = (props: StepsProps) => {
   const [varName] = genCssVar(rootPrefixCls, 'cmp-steps');
 
   // ============================= Size =============================
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Steps');
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+  }
+
   const mergedSize = useSize(size);
 
   // ============================= Item =============================
@@ -390,7 +399,7 @@ const Steps = (props: StepsProps) => {
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-ellipsis`]: ellipsis,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
-      [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-small`]: mergedSize === 'small',
     },
     className,
     rootClassName,
