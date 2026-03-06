@@ -109,9 +109,9 @@ export interface ImageProps
 
 // ======================= Helper Functions =======================
 function isPlaceholderConfig(
-  placeholder: any,
+  placeholder: unknown,
 ): placeholder is { progress?: boolean | ImageProgressConfig } {
-  return placeholder && typeof placeholder === 'object' && !React.isValidElement(placeholder);
+  return !!placeholder && typeof placeholder === 'object' && !React.isValidElement(placeholder);
 }
 
 function normalizePlaceholder(placeholder?: PlaceholderType): {
@@ -271,13 +271,18 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const placeholderNode = isPlaceholderConfig(placeholder) ? undefined : placeholder;
   const shouldRenderPlaceholderOverlay = placeholderNode && !src;
 
+  // Memoize the placeholder render function to avoid creating new function on each render
+  const mergedProgressRender = shouldRenderPlaceholderOverlay
+    ? (_progress: React.ReactNode) => placeholderNode
+    : progressRender;
+
   // When progress is active, render only progress layer with dimensions
   if (showProgressOverlay || shouldRenderPlaceholderOverlay) {
     return (
       <Progress
         prefixCls={prefixCls}
         percent={percent}
-        render={shouldRenderPlaceholderOverlay ? () => placeholderNode : progressRender}
+        render={mergedProgressRender}
         classNames={progressClassNames}
         styles={progressStyles}
         rootClassName={clsx(mergedRootClassName, mergedClassName)}
