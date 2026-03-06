@@ -101,6 +101,13 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     '&.visible': {
       opacity: 1,
     },
+
+    '&.dark': {
+      color: cssVar.colorTextLightSolid,
+      '&:hover': {
+        color: cssVar.colorTextLightSolid,
+      },
+    },
   }),
 
   // AI Generate Item
@@ -257,19 +264,13 @@ function ThemePreviewContent(props: ThemePreviewProps) {
                     <Button
                       className={clsx(
                         styles.copyButton,
-                        (hoveredName === previewTheme.name ||
-                          copiedName === previewTheme.name) &&
+                        (hoveredName === previewTheme.name || copiedName === previewTheme.name) &&
                           'visible',
+                        activeTheme?.bgImgDark && 'dark',
                       )}
                       type="text"
                       size="small"
-                      icon={
-                        copiedName === previewTheme.name ? (
-                          <CheckOutlined />
-                        ) : (
-                          <CopyOutlined />
-                        )
-                      }
+                      icon={copiedName === previewTheme.name ? <CheckOutlined /> : <CopyOutlined />}
                       onClick={(e) => handleCopyTheme(e, previewTheme.props, previewTheme.name)}
                       aria-label={locale.copyTheme}
                     />
