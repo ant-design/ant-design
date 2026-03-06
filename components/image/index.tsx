@@ -231,7 +231,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [mergedMask, prefixCls, blurClassName],
   );
 
-  const internalClassNames = React.useMemo<ImageSemanticType['classNames'][]>(
+  const internalClassNames = React.useMemo<ImageSemanticAllType['classNamesAndFn'][]>(
     () => [contextClassNames, classNames, mergedLegacyClassNames, { popup: mergedPopupClassNames }],
     [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
   );

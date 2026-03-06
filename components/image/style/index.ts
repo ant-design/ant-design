@@ -215,7 +215,7 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
         marginTop: token.marginXS,
       },
     },
-  };
+  } as CSSObject;
 };
 
 export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
