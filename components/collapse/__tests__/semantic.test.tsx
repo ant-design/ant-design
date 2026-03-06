@@ -42,6 +42,7 @@ describe('Collapse.Semantic', () => {
     expect(titleElement).toHaveClass(customClassNames.title);
     expect(bodyElement).toHaveClass(customClassNames.body);
     expect(iconElement).toHaveClass(customClassNames.icon);
+
     // check styles
     expect(rootElement).toHaveStyle({ color: customStyles.root.color });
     expect(headerElement).toHaveStyle({ color: customStyles.header.color });
