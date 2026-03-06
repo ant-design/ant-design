@@ -12,6 +12,8 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
 import usePreviewConfig from './hooks/usePreviewConfig';
 import PreviewGroup, { icons } from './PreviewGroup';
+import Progress from './Progress';
+import type { ProgressClassNames, ProgressStyles } from './Progress';
 import useStyle from './style';
 
 type OriginPreviewConfig = NonNullable<Exclude<RcImageProps['preview'], boolean>>;
@@ -59,33 +61,6 @@ export type PlaceholderType =
   | {
       progress?: boolean | PlaceholderProgressConfig;
     };
-
-type ProgressClassNames = {
-  root?: string;
-  content?: string;
-  rail?: string;
-  indicator?: string;
-};
-
-type ProgressStyles = {
-  root?: React.CSSProperties;
-  content?: React.CSSProperties;
-  rail?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-};
-
-// Visually hidden styles for screen readers
-const VISUALLY_HIDDEN_STYLE: React.CSSProperties = {
-  position: 'absolute',
-  width: 1,
-  height: 1,
-  padding: 0,
-  margin: -1,
-  overflow: 'hidden',
-  clip: 'rect(0, 0, 0, 0)',
-  whiteSpace: 'nowrap',
-  border: 0,
-};
 
 export type ImageSemanticType = {
   classNames?: {
@@ -156,6 +131,8 @@ function normalizePlaceholder(placeholder?: PlaceholderType): {
   // placeholder is React.ReactNode, no progress config
   return {};
 }
+
+export type { ProgressClassNames, ProgressStyles };
 
 const Image: CompositionImage<ImageProps> = (props) => {
   const {
@@ -280,110 +257,32 @@ const Image: CompositionImage<ImageProps> = (props) => {
 
   const { percent, render: progressRender } = progressConfig || {};
 
-  // Check if percent is a valid finite number
-  const hasPercent = typeof percent === 'number' && Number.isFinite(percent);
-
-  // Calculate percent value (clamped to 0-100 for progress bar width)
-  const percentValue = hasPercent ? Math.max(0, Math.min(100, Math.round(percent))) : 0;
-
   // Get progress classNames and styles
   const progressClassNames = mergedClassNames?.placeholder?.progress as
     | ProgressClassNames
     | undefined;
   const progressStyles = mergedStyles?.placeholder?.progress as ProgressStyles | undefined;
 
-  // Render progress bar (rail with ::before pseudo for track)
-  const renderProgressBar = () => {
-    if (!hasPercent) {
-      return null;
-    }
-
-    return (
-      <div
-        className={clsx(`${prefixCls}-progress-rail`, progressClassNames?.rail)}
-        style={
-          {
-            ...progressStyles?.rail,
-            '--progress-percent': `${percentValue}%`,
-          } as React.CSSProperties
-        }
-      />
-    );
-  };
-
-  // Render default progress UI (bar + indicator)
-  const renderDefaultProgressUI = () => {
-    if (!hasPercent) {
-      return null;
-    }
-
-    return (
-      <>
-        {renderProgressBar()}
-        <div
-          className={clsx(`${prefixCls}-progress-indicator`, progressClassNames?.indicator)}
-          style={progressStyles?.indicator}
-        >
-          {`${percentValue}%`}
-        </div>
-      </>
-    );
-  };
-
   // ============================== Render ==============================
   const { width, height, ...restOtherProps } = otherProps;
 
   // When progress is active, render only progress layer with dimensions
   if (showProgressOverlay) {
-    // Render progress content
-    const progressBar = renderProgressBar();
-    const progressContent = progressRender ? (
-      <>{progressRender(progressBar, percentValue)}</>
-    ) : (
-      renderDefaultProgressUI()
-    );
-
     return (
-      <div
-        className={clsx(
-          prefixCls,
-          `${prefixCls}-progress-wrapper`,
-          progressClassNames?.root,
-          mergedRootClassName,
-          mergedClassName,
-        )}
-        style={{
-          width,
-          height,
+      <Progress
+        prefixCls={prefixCls}
+        percent={percent}
+        render={progressRender}
+        classNames={progressClassNames}
+        styles={progressStyles}
+        rootClassName={clsx(mergedRootClassName, mergedClassName)}
+        rootStyle={{
           ...mergedStyle,
           ...mergedStyles?.root,
-          ...progressStyles?.root,
         }}
-        role={hasPercent ? 'progressbar' : undefined}
-        aria-valuemin={hasPercent ? 0 : undefined}
-        aria-valuemax={hasPercent ? 100 : undefined}
-        aria-valuenow={hasPercent ? percentValue : undefined}
-        aria-label={hasPercent ? `${percentValue}%` : undefined}
-        aria-busy={!hasPercent ? true : undefined}
-      >
-        {/* Visually hidden live region for non-percent loading state */}
-        {!hasPercent && (
-          <span role="status" aria-live="polite" style={VISUALLY_HIDDEN_STYLE}>
-            Loading
-          </span>
-        )}
-        {/* Watercolor ink layers */}
-        {Array.from({ length: 5 }, (_, i) => (
-          <div key={i} className={`${prefixCls}-progress-ink`} />
-        ))}
-        {/* Progress content */}
-        <div
-          className={clsx(`${prefixCls}-progress-content`, progressClassNames?.content)}
-          style={progressStyles?.content}
-        >
-          {progressContent}
-        </div>
-      </div>
+        width={width}
+        height={height}
+      />
     );
   }
 
