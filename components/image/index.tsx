@@ -117,19 +117,19 @@ function isPlaceholderConfig(
 function normalizePlaceholder(placeholder?: PlaceholderType): {
   progressConfig?: PlaceholderProgressConfig;
 } {
-  if (!placeholder) return {};
-  if (isPlaceholderConfig(placeholder)) {
+  if (!placeholder || !isPlaceholderConfig(placeholder)) {
+    return {};
+  }
+
+  if (typeof placeholder.progress === 'boolean') {
     return {
-      progressConfig:
-        typeof placeholder.progress === 'boolean'
-          ? placeholder.progress
-            ? {}
-            : undefined
-          : placeholder.progress,
+      progressConfig: placeholder.progress ? {} : undefined,
     };
   }
-  // placeholder is React.ReactNode, no progress config
-  return {};
+
+  return {
+    progressConfig: placeholder.progress,
+  };
 }
 
 export type { ProgressClassNames, ProgressStyles };

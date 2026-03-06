@@ -59,6 +59,19 @@ const Progress: React.FC<ProgressProps> = (props) => {
   // Calculate percent value (clamped to 0-100 for progress bar width)
   const percentValue = hasPercent ? Math.max(0, Math.min(100, Math.round(percent))) : 0;
 
+  // ARIA attributes for accessibility
+  const ariaProps = hasPercent
+    ? {
+        role: 'progressbar' as const,
+        'aria-valuemin': 0,
+        'aria-valuemax': 100,
+        'aria-valuenow': percentValue,
+        'aria-label': `${percentValue}%`,
+      }
+    : {
+        'aria-busy': true,
+      };
+
   // Render progress bar (rail with ::before pseudo for track)
   const progressBar = hasPercent ? (
     <div
@@ -103,12 +116,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
         ...rootStyle,
         ...progressStyles?.root,
       }}
-      role={hasPercent ? 'progressbar' : undefined}
-      aria-valuemin={hasPercent ? 0 : undefined}
-      aria-valuemax={hasPercent ? 100 : undefined}
-      aria-valuenow={hasPercent ? percentValue : undefined}
-      aria-label={hasPercent ? `${percentValue}%` : undefined}
-      aria-busy={!hasPercent ? true : undefined}
+      {...ariaProps}
     >
       {/* Visually hidden live region for non-percent loading state */}
       {!hasPercent && (
