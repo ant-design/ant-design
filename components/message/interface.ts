@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 
 export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 

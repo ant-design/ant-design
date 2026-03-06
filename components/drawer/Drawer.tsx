@@ -10,7 +10,7 @@ import { clsx } from 'clsx';
 import ContextIsolator from '../_util/ContextIsolator';
 import { useMergedMask, useZIndex } from '../_util/hooks';
 import type { MaskType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import zIndexContext from '../_util/zindexContext';
@@ -39,8 +39,7 @@ export interface DrawerResizableConfig {
 
 // Drawer diff props: 'open' | 'motion' | 'maskMotion' | 'wrapperClassName'
 export interface DrawerProps
-  extends
-    Omit<
+  extends Omit<
       RcDrawerProps,
       | 'maskStyle'
       | 'destroyOnClose'

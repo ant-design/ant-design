@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../../_util/hooks/useMergeSemanticNew';
+import { useMergeSemantic } from '../../_util/hooks/useMergeSemantic';
 import type { AnyObject } from '../../_util/type';
 import { useComponentConfig } from '../../config-provider/context';
 

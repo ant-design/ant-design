@@ -1,7 +1,7 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import isNonNullable from '../_util/isNonNullable';
 import type { CellSemanticType } from './DescriptionsContext';
 import DescriptionsContext from './DescriptionsContext';

@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
 import { pickClosable, useClosable, useMergedMask, useZIndex } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';

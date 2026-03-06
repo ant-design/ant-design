@@ -5,7 +5,7 @@ import type {
 } from '@rc-component/picker';
 import type { Locale as RcPickerLocale } from '@rc-component/picker/interface';
 
-import type { GenerateSemantic } from '../../_util/hooks/useMergeSemanticNew/semanticType';
+import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import type { Variant } from '../../config-provider';

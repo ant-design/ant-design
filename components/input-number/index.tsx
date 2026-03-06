@@ -12,8 +12,8 @@ import type {
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
-import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -52,10 +52,8 @@ export type InputNumberSemanticAllType = GenerateSemantic<
   InputNumberProps
 >;
 
-export interface InputNumberProps<T extends ValueType = ValueType> extends Omit<
-  RcInputNumberProps<T>,
-  'prefix' | 'size' | 'controls' | 'classNames' | 'styles'
-> {
+export interface InputNumberProps<T extends ValueType = ValueType>
+  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
   prefixCls?: string;
   rootClassName?: string;
   classNames?: InputNumberSemanticAllType['classNamesAndFn'];

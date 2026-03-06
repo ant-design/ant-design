@@ -16,7 +16,7 @@ import {
   mergeStyles,
   resolveStyleOrClass,
   useMergeSemantic,
-} from '../_util/hooks/useMergeSemanticNew';
+} from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';

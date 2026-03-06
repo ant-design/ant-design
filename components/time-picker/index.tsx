@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { PickerRef } from '@rc-component/picker';
 import type { Dayjs } from 'dayjs';
 
-import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import type { AnyObject } from '../_util/type';

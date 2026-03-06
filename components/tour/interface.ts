@@ -4,7 +4,7 @@ import type {
   TourStepProps as RCTourStepProps,
 } from '@rc-component/tour';
 
-import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 
 export type TourSemanticType = {
   classNames?: {
