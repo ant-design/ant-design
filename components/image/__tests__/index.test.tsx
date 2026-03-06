@@ -268,4 +268,51 @@ describe('Image', () => {
       });
     });
   });
+
+  describe('placeholder', () => {
+    it('should show ReactNode placeholder when src is not provided', () => {
+      const placeholderContent = 'Loading...';
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          placeholder={<div className="custom-placeholder">{placeholderContent}</div>}
+        />,
+      );
+
+      // Should render the placeholder content
+      expect(container.querySelector('.custom-placeholder')).toBeInTheDocument();
+      expect(container.querySelector('.custom-placeholder')?.textContent).toBe(placeholderContent);
+    });
+
+    it('should show ReactNode placeholder when src is empty string', () => {
+      const placeholderContent = 'No Image';
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          src=""
+          placeholder={<div className="custom-placeholder">{placeholderContent}</div>}
+        />,
+      );
+
+      // Should render the placeholder content
+      expect(container.querySelector('.custom-placeholder')).toBeInTheDocument();
+      expect(container.querySelector('.custom-placeholder')?.textContent).toBe(placeholderContent);
+    });
+
+    it('should still render with src and placeholder', () => {
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          src={src}
+          placeholder={<div className="custom-placeholder">Loading...</div>}
+        />,
+      );
+
+      // Should render the image element
+      expect(container.querySelector('.ant-image-img')).toBeInTheDocument();
+    });
+  });
 });

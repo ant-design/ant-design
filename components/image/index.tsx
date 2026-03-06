@@ -264,15 +264,20 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const progressStyles = mergedStyles?.placeholder?.progress as ProgressStyles | undefined;
 
   // ============================== Render ==============================
-  const { width, height, ...restOtherProps } = otherProps;
+  const { width, height, src, ...restOtherProps } = otherProps;
+
+  // When placeholder is ReactNode (not progress config) and src is not provided,
+  // render it as an overlay since rc-image would set status to 'error' when src is empty
+  const placeholderNode = isPlaceholderConfig(placeholder) ? undefined : placeholder;
+  const shouldRenderPlaceholderOverlay = placeholderNode && !src;
 
   // When progress is active, render only progress layer with dimensions
-  if (showProgressOverlay) {
+  if (showProgressOverlay || shouldRenderPlaceholderOverlay) {
     return (
       <Progress
         prefixCls={prefixCls}
         percent={percent}
-        render={progressRender}
+        render={shouldRenderPlaceholderOverlay ? () => placeholderNode : progressRender}
         classNames={progressClassNames}
         styles={progressStyles}
         rootClassName={clsx(mergedRootClassName, mergedClassName)}
@@ -286,9 +291,6 @@ const Image: CompositionImage<ImageProps> = (props) => {
     );
   }
 
-  // When placeholder is ReactNode (not progress config), pass to RcImage
-  const placeholderNode = isPlaceholderConfig(placeholder) ? undefined : placeholder;
-
   return (
     <RcImage
       prefixCls={prefixCls}
@@ -300,6 +302,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
       placeholder={placeholderNode}
       width={width}
       height={height}
+      src={src}
       {...restOtherProps}
       classNames={mergedClassNames}
       styles={mergedStyles}
