@@ -36,7 +36,7 @@ export interface ComponentToken {
    * @desc 加载动画基础时长
    * @descEN Base duration of loading animation
    */
-  progressAnimationDuration: number | string;
+  progressAnimationDuration: string;
 }
 
 /**
