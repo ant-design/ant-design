@@ -65,7 +65,7 @@ describe('Table', () => {
       section: 'test-section',
       title: 'test-title',
       footer: 'test-footer',
-      // content: 'test-content',
+      content: 'test-content',
       body: {
         wrapper: 'test-body-wrapper',
         cell: 'test-body-cell',
@@ -86,7 +86,7 @@ describe('Table', () => {
       section: { background: 'red' },
       title: { background: 'green' },
       footer: { background: 'pink' },
-      // content: { background: 'purple' },
+      content: { background: 'purple' },
       body: {
         wrapper: { background: 'cyan' },
         cell: { background: 'lime' },
@@ -118,7 +118,7 @@ describe('Table', () => {
     const section = container.querySelector('.ant-table-container');
     const title = container.querySelector('.ant-table-title');
     const footer = container.querySelector('.ant-table-footer');
-    // const content = container.querySelector('.ant-table-content');
+    const content = container.querySelector('.ant-table-content');
     const headerWrapper = container.querySelector('.ant-table-thead');
     const headerCell = container.querySelector('.ant-table-cell');
     const headerRow = container.querySelector('tr');
@@ -136,8 +136,8 @@ describe('Table', () => {
     expect(title).toHaveStyle(testStyles.title as any);
     expect(footer).toHaveClass(testClassNames.footer as string);
     expect(footer).toHaveStyle(testStyles.footer as any);
-    // expect(content).toHaveClass(testClassNames.content as string);
-    // expect(content).toHaveStyle(testStyles.content as any);
+    expect(content).toHaveClass(testClassNames.content as string);
+    expect(content).toHaveStyle(testStyles.content as any);
 
     expect(headerWrapper).toHaveClass(testClassNames.header?.wrapper as string);
     expect(headerWrapper).toHaveStyle(testStyles.header?.wrapper as any);
@@ -161,7 +161,7 @@ describe('Table', () => {
       section: 1,
       title: 1,
       footer: 1,
-      // content: 1,
+      content: 1,
       'body.wrapper': 1,
       'body.cell': 9,
       'body.row': 3,

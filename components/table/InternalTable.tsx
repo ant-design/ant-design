@@ -86,6 +86,7 @@ export type TableSemanticType = {
     title?: string;
     footer?: string;
     body?: ComponentsSemanticClassNames;
+    content?: string;
     header?: ComponentsSemanticClassNames;
     pagination?: PaginationSemanticType['classNames'];
   };
@@ -95,6 +96,7 @@ export type TableSemanticType = {
     title?: React.CSSProperties;
     footer?: React.CSSProperties;
     body?: ComponentsSemanticStyles;
+    content?: React.CSSProperties;
     header?: ComponentsSemanticStyles;
     pagination?: PaginationSemanticType['styles'];
   };
