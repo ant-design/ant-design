@@ -479,7 +479,7 @@ Array [
     <div
       aria-busy="true"
       class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
-      style="width: 200px; height: 200px;"
+      style="width: 200px; height: 200px; border-radius: 8px;"
     >
       <span
         aria-live="polite"
@@ -510,7 +510,7 @@ Array [
     <div
       aria-busy="true"
       class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
-      style="width: 200px; height: 200px;"
+      style="width: 200px; height: 200px; border-radius: 8px;"
     >
       <span
         aria-live="polite"
@@ -547,7 +547,7 @@ Array [
       aria-valuenow="50"
       class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
       role="progressbar"
-      style="width: 200px; height: 200px;"
+      style="width: 200px; height: 200px; border-radius: 8px;"
     >
       <div
         class="ant-image-progress-ink"
@@ -585,7 +585,7 @@ Array [
       aria-valuenow="75"
       class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
       role="progressbar"
-      style="width: 200px; height: 200px;"
+      style="width: 200px; height: 200px; border-radius: 8px;"
     >
       <div
         class="ant-image-progress-ink"
@@ -638,7 +638,7 @@ Array [
         class="ant-image-img"
         height="200"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?1479772800000"
-        style="height: 200px;"
+        style="height: 200px; border-radius: 8px;"
         width="200"
       />
       <div
@@ -646,7 +646,7 @@ Array [
         class="ant-image-placeholder"
       >
         <div
-          style="width: 100%; height: 100%; background: rgba(255, 255, 255, 0.3);"
+          style="width: 100%; height: 100%; background: rgba(255, 255, 255, 0.3); border-radius: 8px;"
         />
       </div>
       <div
@@ -668,7 +668,7 @@ Array [
       aria-valuenow="0"
       class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
       role="progressbar"
-      style="width: 200px; height: 200px;"
+      style="width: 200px; height: 200px; border-radius: 8px;"
     >
       <div
         class="ant-image-progress-ink"

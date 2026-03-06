@@ -29,12 +29,14 @@ const GeneratingProgress: React.FC = () => {
       <Image
         width={200}
         height={200}
+        style={{ borderRadius: 8 }}
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
       />
     ) : (
       <Image
         width={200}
         height={200}
+        style={{ borderRadius: 8 }}
         placeholder={{
           progress: {
             percent: Math.round(percent),
@@ -65,16 +67,28 @@ const App: React.FC = () => {
   return (
     <>
       <Flex gap={16}>
-        <Image width={200} height={200} placeholder={{ progress: true }} />
         <Image
           width={200}
           height={200}
+          style={{ borderRadius: 8 }}
+          placeholder={{ progress: true }}
+        />
+        <Image
+          width={200}
+          height={200}
+          style={{ borderRadius: 8 }}
           placeholder={{ progress: { render: () => 'loading...' } }}
         />
-        <Image width={200} height={200} placeholder={{ progress: { percent: 50 } }} />
         <Image
           width={200}
           height={200}
+          style={{ borderRadius: 8 }}
+          placeholder={{ progress: { percent: 50 } }}
+        />
+        <Image
+          width={200}
+          height={200}
+          style={{ borderRadius: 8 }}
           placeholder={{
             progress: {
               percent: 75,
@@ -101,6 +115,7 @@ const App: React.FC = () => {
           width={200}
           height={200}
           alt="basic image"
+          style={{ borderRadius: 8 }}
           src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
           placeholder={
             <div
@@ -109,6 +124,7 @@ const App: React.FC = () => {
                 height: '100%',
                 background: 'rgba(255, 255, 255, 0.3)',
                 backdropFilter: 'blur(10px)',
+                borderRadius: 8,
               }}
             />
           }
