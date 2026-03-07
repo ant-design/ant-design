@@ -722,7 +722,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
           measureRowRender={(measureRow) => (
-            <TableMeasureRowContext.Provider value={true}>
+            <TableMeasureRowContext.Provider value>
               <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
                 {measureRow}
               </ConfigProvider>
