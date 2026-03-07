@@ -166,10 +166,12 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   variant?: Variant;
 }
 
-const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataNode>(
+type InternalTreeSelectRef = <ValueType = any, OptionType extends DataNode = DataNode>(
   props: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
-) => {
+) => React.ReactElement;
+
+const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
@@ -292,18 +294,18 @@ const InternalTreeSelect = <ValueType = any, OptionType extends DataNode = DataN
   const mergedStatus = getMergedStatus(contextStatus, customStatus);
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps: TreeSelectProps<ValueType, OptionType> = {
+  const mergedProps = {
     ...props,
     size: mergedSize,
     disabled: mergedDisabled,
     status: mergedStatus,
     variant,
-  };
+  } as TreeSelectProps;
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
     TreeSelectClassNamesType,
     TreeSelectStylesType,
-    TreeSelectProps<ValueType, OptionType>
+    TreeSelectProps
   >(
     [contextClassNames, classNames],
     [contextStyles, styles],
