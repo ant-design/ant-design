@@ -52,12 +52,12 @@ const GeneratingProgress: React.FC = () => {
     );
 
   return (
-    <>
+    <Flex vertical gap={8}>
       <Button type="primary" onClick={handleStart} disabled={status === 'generating'}>
         Generate
       </Button>
       {imageNode}
-    </>
+    </Flex>
   );
 };
 
@@ -66,7 +66,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Flex gap={16}>
+      <Flex gap={16} wrap>
         <Image
           width={200}
           height={200}
@@ -102,33 +102,35 @@ const App: React.FC = () => {
           }}
         />
       </Flex>
-      <Flex gap={16} style={{ marginTop: 16 }}>
-        <Button
-          type="primary"
-          onClick={() => {
-            setRandom(Date.now());
-          }}
-        >
-          Reload Image
-        </Button>
-        <Image
-          width={200}
-          height={200}
-          alt="basic image"
-          style={{ borderRadius: 8 }}
-          src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
-          placeholder={
-            <div
-              style={{
-                width: '100%',
-                height: '100%',
-                background: 'rgba(255, 255, 255, 0.3)',
-                backdropFilter: 'blur(10px)',
-                borderRadius: 8,
-              }}
-            />
-          }
-        />
+      <Flex gap={16} wrap style={{ marginTop: 16 }}>
+        <Flex vertical gap={8}>
+          <Button
+            type="primary"
+            onClick={() => {
+              setRandom(Date.now());
+            }}
+          >
+            Reload Image
+          </Button>
+          <Image
+            width={200}
+            height={200}
+            alt="basic image"
+            style={{ borderRadius: 8 }}
+            src={`https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?${random}`}
+            placeholder={
+              <div
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  background: 'rgba(255, 255, 255, 0.3)',
+                  backdropFilter: 'blur(10px)',
+                  borderRadius: 8,
+                }}
+              />
+            }
+          />
+        </Flex>
         <GeneratingProgress />
       </Flex>
     </>
