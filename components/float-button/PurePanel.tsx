@@ -59,8 +59,8 @@ const PurePanel: React.FC<PurePanelProps> = ({
   return (
     <PureFloatButton
       className={clsx(className, pureCls)}
-      classNames={cls}
-      styles={styles}
+      classNames={cls as FloatButtonProps['classNames']}
+      styles={styles as FloatButtonProps['styles']}
       {...restProps}
     />
   );
