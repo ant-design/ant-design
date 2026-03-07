@@ -1,14 +1,16 @@
+import type React from 'react';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
+import type { TourProps } from '../.';
 import { semanticDemoTest } from '../../../tests/shared/demoTest';
 
 // Mock Tour component to ensure it renders correctly in test environment
 // Similar to demo-extend.test.ts, but handle getPopupContainer issue
 jest.mock('../.', () => {
-  const OriReact = jest.requireActual('react');
+  const OriReact: typeof React = jest.requireActual('react');
   const OriTour = jest.requireActual('../.').default;
 
-  const ProxyTour = OriReact.forwardRef((props: any, ref: any) => {
+  const ProxyTour = OriReact.forwardRef<any, TourProps>((props, ref) => {
     // Fix getPopupContainer: convert false to a function that returns body
     const getPopupContainerProp = props.getPopupContainer;
     const fixedGetPopupContainer =
