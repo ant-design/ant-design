@@ -727,8 +727,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           {...virtualProps}
           {...tableProps}
           scroll={mergedScroll}
-          classNames={mergedClassNames}
-          styles={mergedStyles}
+          classNames={mergedClassNames as RcTableProps<RecordType>['classNames']}
+          styles={mergedStyles as RcTableProps<RecordType>['styles']}
           ref={tblRef}
           columns={mergedColumns as RcTableProps<RecordType>['columns']}
           direction={direction}
