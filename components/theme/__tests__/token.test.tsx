@@ -44,12 +44,15 @@ describe('Theme', () => {
   });
 
   it('ConfigProvider with seed', () => {
-    const Demo = React.forwardRef((_, ref: any) => {
+    const Demo = React.forwardRef<ReturnType<typeof useToken>, any>((_, ref) => {
       const themeObj = useToken();
-      ref.current = themeObj;
+      if (typeof ref === 'function') {
+        ref(themeObj);
+      } else if (ref) {
+        ref.current = themeObj;
+      }
       return null;
     });
-
     const themeRef = React.createRef<ReturnType<typeof useToken>>();
     render(
       <ConfigProvider

@@ -13,8 +13,7 @@ concurrency:
 
 jobs:
   send-to-dingtalk:
-    # Only run for PRs from the same repo (not from forks) to prevent potential injection
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.repository == 'ant-design/ant-design'
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 10
     steps:
