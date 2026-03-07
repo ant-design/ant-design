@@ -166,12 +166,12 @@ export interface TreeSelectProps<ValueType = any, OptionType extends DataNode = 
   variant?: Variant;
 }
 
-type InternalTreeSelectFunction = <ValueType = any, OptionType extends DataNode = DataNode>(
+type InternalTreeSelectRef = <ValueType = any, OptionType extends DataNode = DataNode>(
   props: TreeSelectProps<ValueType, OptionType>,
   ref: React.Ref<BaseSelectRef>,
 ) => React.ReactElement;
 
-const InternalTreeSelect: InternalTreeSelectFunction = (props, ref) => {
+const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   const {
     prefixCls: customizePrefixCls,
     size: customizeSize,
