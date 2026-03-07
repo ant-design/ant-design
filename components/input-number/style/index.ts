@@ -102,6 +102,20 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
         }),
         ...genBorderlessStyle(token),
 
+        // InputNumber 两层结构：borderless 补偿只加在内层 input 的 CSS 变量上，避免外层+内层双重 padding 导致高度异常
+        [`&${componentCls}-borderless`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlock).add(lineWidth).equal()),
+        },
+        [`&${componentCls}-borderless${componentCls}-sm`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlockSM).add(lineWidth).equal()),
+        },
+        [`&${componentCls}-borderless${componentCls}-lg`]: {
+          paddingBlock: 0,
+          [varName('input-padding-block')]: unit(token.calc(paddingBlockLG).add(lineWidth).equal()),
+        },
+
         // ========================= RTL ==========================
         '&-rtl': {
           direction: 'rtl',

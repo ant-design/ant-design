@@ -216,7 +216,12 @@ export type ModalConfig = ComponentStyleConfig &
     | 'okButtonProps'
     | 'cancelButtonProps'
     | 'mask'
-  >;
+  > & {
+    infoIcon?: React.ReactNode;
+    successIcon?: React.ReactNode;
+    errorIcon?: React.ReactNode;
+    warningIcon?: React.ReactNode;
+  };
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<

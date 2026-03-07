@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, Badge, Card, Flex, Space } from 'antd';
-import type { BadgeProps } from 'antd';
+import type { BadgeProps, GetProp } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
@@ -30,19 +30,19 @@ const ribbonStyles: RibbonProps['styles'] = {
   },
 };
 
-const badgeStylesFn: BadgeProps['styles'] = (info) => {
-  if (info.props.size === 'default') {
+const badgeStylesFn: BadgeProps['styles'] = (info): GetProp<RibbonProps, 'styles', 'Return'> => {
+  if (info.props.size === 'medium') {
     return {
       indicator: {
         fontSize: 14,
         backgroundColor: '#696FC7',
       },
-    } satisfies BadgeProps['styles'];
+    };
   }
   return {};
 };
 
-const ribbonStylesFn: RibbonProps['styles'] = (info) => {
+const ribbonStylesFn: RibbonProps['styles'] = (info): GetProp<RibbonProps, 'styles', 'Return'> => {
   if (info.props.color === '#696FC7') {
     return {
       content: {
@@ -51,7 +51,7 @@ const ribbonStylesFn: RibbonProps['styles'] = (info) => {
       indicator: {
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
       },
-    } satisfies RibbonProps['styles'];
+    };
   }
   return {};
 };

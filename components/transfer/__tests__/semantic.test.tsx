@@ -1,7 +1,7 @@
 import React from 'react';
 
+import Transfer from '..';
 import { render } from '../../../tests/utils';
-import Transfer from '../index';
 
 describe('Transfer.Semantic', () => {
   it('semantic structure', () => {

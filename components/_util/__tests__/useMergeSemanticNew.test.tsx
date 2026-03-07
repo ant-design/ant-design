@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { render } from '../../../tests/utils';
-import { useMergeSemantic } from '../hooks/useMergeSemanticNew';
-import { fillObjectBySchema } from '../hooks/useMergeSemanticNew/utils';
+import { useMergeSemantic } from '../hooks/useMergeSemantic';
+import { fillObjectBySchema } from '../hooks/useMergeSemantic/utils';
 
 type DemoSemanticType = {
   classNames?: {
@@ -17,7 +17,7 @@ type DemoSemanticType = {
   };
 };
 
-describe('useMergeSemanticNew,', () => {
+describe('useMergeSemantic,', () => {
   it('utils fillObjectBySchema', () => {
     const schema = { dragger: { _default: 'default' }, level1: { level2: {} } };
     // test 1

@@ -141,7 +141,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       // ========================= Style ==========================
       // Use original useMergedPickerSemantic for proper popup handling
-      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<P>(
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
         pickerType,
         classNames,
         styles,

@@ -1108,4 +1108,80 @@ describe('Modal.confirm triggers callbacks correctly', () => {
       document.querySelector('.ant-modal-confirm-btns .ant-btn-primary.ant-btn-sm'),
     ).toBeTruthy();
   });
+
+  it('should be able to config info icon', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.info({});
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ infoIcon: <span className="custom-info-icon">foobar</span> }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.custom-info-icon')).toBeTruthy();
+  });
+
+  it('should be able to config success icon', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.success({});
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ successIcon: <span className="custom-success-icon">foobar</span> }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.custom-success-icon')).toBeTruthy();
+  });
+
+  it('should be able to config error icon', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.error({});
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ errorIcon: <span className="custom-error-icon">foobar</span> }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.custom-error-icon')).toBeTruthy();
+  });
+
+  it('should be able to config warning icon', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.warning({});
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ warningIcon: <span className="custom-warning-icon">foobar</span> }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.custom-warning-icon')).toBeTruthy();
+  });
 });

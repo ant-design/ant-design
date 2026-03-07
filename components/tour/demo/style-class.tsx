@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Button, Divider, Flex, Space, Tour } from 'antd';
-import type { TourProps, TourStepProps } from 'antd';
+import type { GetProp, TourProps, TourStepProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const btnProps: {
@@ -43,7 +43,7 @@ const stylesObject: TourProps['styles'] = {
   },
 };
 
-const stylesFunction: TourProps['styles'] = (info) => {
+const stylesFunction: TourProps['styles'] = (info): GetProp<TourProps, 'styles', 'Return'> => {
   if (info.props.type === 'primary') {
     return {
       mask: {
@@ -56,7 +56,7 @@ const stylesFunction: TourProps['styles'] = (info) => {
       cover: {
         borderRadius: '12px 12px 0 0',
       },
-    } satisfies TourProps['styles'];
+    };
   }
   return {};
 };

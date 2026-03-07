@@ -3,11 +3,12 @@ import type { Tab, TabBarExtraContent } from '@rc-component/tabs/lib/interface';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useVariant from '../form/hooks/useVariants';
 import Skeleton from '../skeleton';
 import type { TabsProps } from '../tabs';
@@ -17,7 +18,10 @@ import useStyle from './style';
 
 export type CardType = 'inner';
 
-export type CardSize = 'default' | 'small';
+/**
+ * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+ */
+export type CardSize = Exclude<SizeType, 'large'> | 'default';
 
 export interface CardTabListType extends Omit<Tab, 'label'> {
   key: string;
@@ -26,31 +30,28 @@ export interface CardTabListType extends Omit<Tab, 'label'> {
   label?: React.ReactNode;
 }
 
-export type CardSemanticName = keyof CardSemanticClassNames & keyof CardSemanticStyles;
-
-export type CardSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  extra?: string;
-  title?: string;
-  actions?: string;
-  cover?: string;
+export type CardSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    extra?: string;
+    title?: string;
+    actions?: string;
+    cover?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    extra?: React.CSSProperties;
+    title?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    cover?: React.CSSProperties;
+  };
 };
 
-export type CardSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  extra?: React.CSSProperties;
-  title?: React.CSSProperties;
-  actions?: React.CSSProperties;
-  cover?: React.CSSProperties;
-};
-
-export type CardClassNamesType = SemanticClassNamesType<CardProps, CardSemanticClassNames>;
-
-export type CardStylesType = SemanticStylesType<CardProps, CardSemanticStyles>;
+export type CardSemanticAllType = GenerateSemantic<CardSemanticType, CardProps>;
 
 export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'title'> {
   prefixCls?: string;
@@ -79,8 +80,8 @@ export interface CardProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 't
   activeTabKey?: string;
   defaultActiveTabKey?: string;
   tabProps?: TabsProps;
-  classNames?: CardClassNamesType;
-  styles?: CardStylesType;
+  classNames?: CardSemanticAllType['classNamesAndFn'];
+  styles?: CardSemanticAllType['stylesAndFn'];
   variant?: 'borderless' | 'outlined';
 }
 
@@ -145,6 +146,11 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   } = useComponentConfig('card');
   const [variant] = useVariant('card', customVariant, bordered);
 
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Card');
+    warning.deprecated(customizeSize !== 'default', 'size="default"', 'size="medium"');
+  }
+
   const mergedSize = useSize(customizeSize);
 
   // =========== Merged Props for Semantic ==========
@@ -155,13 +161,11 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     loading,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CardClassNamesType,
-    CardStylesType,
-    CardProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    { props: mergedProps },
+  );
 
   // =================Warning===================
   if (process.env.NODE_ENV !== 'production') {
@@ -203,7 +207,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
   };
 
   let head: React.ReactNode;
-  const tabSize = !mergedSize || mergedSize === 'default' ? 'large' : mergedSize;
+  const tabSize = mergedSize !== 'small' ? 'large' : mergedSize;
   const tabs = tabList ? (
     <Tabs
       size={tabSize}
@@ -276,7 +280,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
       [`${prefixCls}-hoverable`]: hoverable,
       [`${prefixCls}-contain-grid`]: isContainGrid,
       [`${prefixCls}-contain-tabs`]: tabList?.length,
-      [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-small`]: mergedSize === 'small',
       [`${prefixCls}-type-${type}`]: !!type,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },

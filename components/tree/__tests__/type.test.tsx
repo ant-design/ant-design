@@ -1,9 +1,9 @@
 import * as React from 'react';
 import type { BasicDataNode } from '@rc-component/tree';
 
+import type { DataNode } from '..';
+import Tree from '..';
 import { render } from '../../../tests/utils';
-import type { DataNode } from '../index';
-import Tree from '../index';
 
 const { DirectoryTree } = Tree;
 
