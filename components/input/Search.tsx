@@ -9,7 +9,7 @@ import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { cloneElement } from '../_util/reactNode';
 import Button from '../button/Button';
-import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button';
+import type { ButtonProps, ButtonSemanticClassNames, ButtonSemanticStyles } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import Compact, { useCompactItemContext } from '../space/Compact';
@@ -60,6 +60,7 @@ export interface SearchProps extends InputProps {
     },
   ) => void;
   enterButton?: React.ReactNode;
+  enterButtonProps?: ButtonProps;
   loading?: boolean;
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   classNames?: InputSearchClassNamesType;
@@ -74,6 +75,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     size: customizeSize,
     style,
     enterButton = false,
+    enterButtonProps,
     addonAfter,
     loading,
     disabled,
@@ -185,15 +187,19 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   } else {
     button = (
       <Button
-        classNames={mergedClassNames.button}
-        styles={mergedStyles.button}
-        className={btnClassName}
+        {...enterButtonProps}
+        classNames={{ ...mergedClassNames.button, ...enterButtonProps?.classNames }}
+        styles={{ ...mergedStyles.button, ...enterButtonProps?.styles }}
+        className={clsx(btnClassName, enterButtonProps?.className)}
         color={enterButton ? 'primary' : 'default'}
         size={size}
         disabled={disabled}
         key="enterButton"
         onMouseDown={onMouseDown}
-        onClick={onSearch}
+        onClick={(e) => {
+          enterButtonProps?.onClick?.(e);
+          onSearch(e);
+        }}
         loading={loading}
         icon={searchIcon}
         variant={

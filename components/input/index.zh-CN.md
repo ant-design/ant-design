@@ -113,6 +113,7 @@ interface CountConfig {
 | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-search), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-search), string> | - |  |
 | enterButton | 是否有确认按钮，可设为按钮文字。该属性会与 `addonAfter` 冲突。 | ReactNode | false |  |
+| enterButtonProps | 内置搜索按钮的属性。仅在 `enterButton` 不是自定义元素时生效。 | [ButtonProps](/components/button-cn) | - | 6.3.1 |
 | loading | 搜索 loading | boolean | false |  |
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-search) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search) , CSSProperties> | - |  |

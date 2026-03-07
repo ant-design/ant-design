@@ -78,6 +78,29 @@ describe('Input.Search', () => {
     expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
   });
 
+  it('should support enterButtonProps for internal button', () => {
+    const onSearch = jest.fn();
+    const onButtonClick = jest.fn();
+    const { container } = render(
+      <Search
+        defaultValue="search text"
+        enterButton
+        enterButtonProps={{ 'aria-label': 'SearchButton', onClick: onButtonClick }}
+        onSearch={onSearch}
+      />,
+    );
+
+    const button = container.querySelector('button');
+
+    expect(button).toHaveAttribute('aria-label', 'SearchButton');
+
+    fireEvent.click(button!);
+
+    expect(onButtonClick).toHaveBeenCalledTimes(1);
+    expect(onSearch).toHaveBeenCalledTimes(1);
+    expect(onSearch).toHaveBeenCalledWith('search text', expect.anything(), { source: 'input' });
+  });
+
   it('should trigger onSearch when click search button with customize button', () => {
     const onSearch = jest.fn();
     const { container } = render(
