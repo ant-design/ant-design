@@ -165,6 +165,13 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   const btnClassName = clsx(btnPrefixCls, {
     [`${btnPrefixCls}-${variant}`]: variant,
   });
+  const {
+    classNames: enterButtonClassNames,
+    styles: enterButtonStyles,
+    className: enterButtonClassName,
+    onClick: onEnterButtonClick,
+    ...restEnterButtonProps
+  } = enterButtonProps || {};
 
   let button: React.ReactNode;
   const enterButtonAsElement = (enterButton || {}) as React.ReactElement;
@@ -187,17 +194,17 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
   } else {
     button = (
       <Button
-        {...enterButtonProps}
-        classNames={{ ...mergedClassNames.button, ...enterButtonProps?.classNames }}
-        styles={{ ...mergedStyles.button, ...enterButtonProps?.styles }}
-        className={clsx(btnClassName, enterButtonProps?.className)}
+        {...restEnterButtonProps}
+        classNames={{ ...mergedClassNames.button, ...enterButtonClassNames }}
+        styles={{ ...mergedStyles.button, ...enterButtonStyles }}
+        className={clsx(btnClassName, enterButtonClassName)}
         color={enterButton ? 'primary' : 'default'}
         size={size}
         disabled={disabled}
         key="enterButton"
         onMouseDown={onMouseDown}
         onClick={(e) => {
-          enterButtonProps?.onClick?.(e);
+          onEnterButtonClick?.(e);
           onSearch(e);
         }}
         loading={loading}
