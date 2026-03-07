@@ -99,6 +99,19 @@ export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) 
 export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const { componentCls, motionDurationMid, motionEaseInOut, progressAnimationDuration } = token;
 
+  // Common ink layer base styles
+  const inkBaseStyle: CSSObject = {
+    position: 'absolute',
+    width: '150%',
+    height: '150%',
+    left: '-25%',
+    top: '-25%',
+    animationTimingFunction: motionEaseInOut,
+    animationIterationCount: 'infinite',
+    pointerEvents: 'none',
+    willChange: 'transform, opacity',
+  };
+
   return {
     // Progress root (wrapper)
     [`${componentCls}-progress-wrapper`]: {
@@ -109,61 +122,58 @@ export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (toke
       backgroundColor: token.colorBgBase,
       backdropFilter: 'blur(8px)',
 
-      // Common ink layer styles
-      [`${componentCls}-progress-ink`]: {
-        position: 'absolute',
-        width: '150%',
-        height: '150%',
-        left: '-25%',
-        top: '-25%',
-        animationTimingFunction: motionEaseInOut,
-        animationIterationCount: 'infinite',
-        pointerEvents: 'none',
-        willChange: 'transform, opacity',
-      },
-
-      // Ink 1 - Top left blue cloud
-      [`${componentCls}-progress-ink:nth-of-type(1)`]: {
+      // Ink group 1: Ink 1 (main) + Ink 2 (::before) + Ink 3 (::after)
+      [`${componentCls}-progress-ink-1`]: {
+        ...inkBaseStyle,
+        // Ink 1 - Top left blue cloud
         background: `radial-gradient(ellipse 65% 55% at 25% 30%, rgba(100, 180, 255, 0.98) 0%, transparent 55%)`,
         animationName: inkFlow1,
         animationDuration: progressAnimationDuration,
         filter: 'blur(40px)',
+
+        // Ink 2 - Center right lavender
+        '&::before': {
+          content: '""',
+          ...inkBaseStyle,
+          background: `radial-gradient(ellipse 60% 65% at 75% 45%, rgba(180, 140, 255, 0.95) 0%, transparent 50%)`,
+          animationName: inkFlow2,
+          animationDuration: `calc(${progressAnimationDuration} + 2s)`,
+          animationDelay: '-1s',
+          filter: 'blur(45px)',
+        },
+
+        // Ink 3 - Bottom center cyan
+        '&::after': {
+          content: '""',
+          ...inkBaseStyle,
+          background: `radial-gradient(ellipse 55% 50% at 50% 70%, rgba(100, 220, 220, 0.9) 0%, transparent 45%)`,
+          animationName: inkFlow3,
+          animationDuration: `calc(${progressAnimationDuration} + 0.5s)`,
+          animationDelay: '-2s',
+          filter: 'blur(38px)',
+        },
       },
 
-      // Ink 2 - Center right lavender
-      [`${componentCls}-progress-ink:nth-of-type(2)`]: {
-        background: `radial-gradient(ellipse 60% 65% at 75% 45%, rgba(180, 140, 255, 0.95) 0%, transparent 50%)`,
-        animationName: inkFlow2,
-        animationDuration: `calc(${progressAnimationDuration} + 2s)`,
-        animationDelay: '-1s',
-        filter: 'blur(45px)',
-      },
-
-      // Ink 3 - Bottom center cyan
-      [`${componentCls}-progress-ink:nth-of-type(3)`]: {
-        background: `radial-gradient(ellipse 55% 50% at 50% 70%, rgba(100, 220, 220, 0.9) 0%, transparent 45%)`,
-        animationName: inkFlow3,
-        animationDuration: `calc(${progressAnimationDuration} + 0.5s)`,
-        animationDelay: '-2s',
-        filter: 'blur(38px)',
-      },
-
-      // Ink 4 - Scattered pink blossom
-      [`${componentCls}-progress-ink:nth-of-type(4)`]: {
+      // Ink group 2: Ink 4 (main) + Ink 5 (::before)
+      [`${componentCls}-progress-ink-2`]: {
+        ...inkBaseStyle,
+        // Ink 4 - Scattered pink blossom
         background: `radial-gradient(ellipse 45% 40% at 60% 20%, rgba(255, 150, 200, 0.88) 0%, transparent 45%)`,
         animationName: inkFlow3,
         animationDuration: `calc(${progressAnimationDuration} + 1.5s)`,
         animationDelay: '-3s',
         filter: 'blur(42px)',
-      },
 
-      // Ink 5 - Soft periwinkle accent
-      [`${componentCls}-progress-ink:nth-of-type(5)`]: {
-        background: `radial-gradient(ellipse 50% 55% at 20% 75%, rgba(160, 190, 255, 0.88) 0%, transparent 50%)`,
-        animationName: inkFlow1,
-        animationDuration: `calc(${progressAnimationDuration} + 2.5s)`,
-        animationDelay: '-2.5s',
-        filter: 'blur(35px)',
+        // Ink 5 - Soft periwinkle accent
+        '&::before': {
+          content: '""',
+          ...inkBaseStyle,
+          background: `radial-gradient(ellipse 50% 55% at 20% 75%, rgba(160, 190, 255, 0.88) 0%, transparent 50%)`,
+          animationName: inkFlow1,
+          animationDuration: `calc(${progressAnimationDuration} + 2.5s)`,
+          animationDelay: '-2.5s',
+          filter: 'blur(35px)',
+        },
       },
 
       // Progress content

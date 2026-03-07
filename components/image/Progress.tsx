@@ -14,9 +14,6 @@ const VISUALLY_HIDDEN_STYLE: React.CSSProperties = {
   border: 0,
 };
 
-// Ink layer count for watercolor effect
-const INK_LAYER_COUNT = 5;
-
 export type ProgressClassNames = {
   root?: string;
   content?: string;
@@ -105,9 +102,6 @@ const Progress: React.FC<ProgressProps> = (props) => {
     </>
   );
 
-  // Pre-compute class names to avoid creating new strings in render
-  const inkClassName = `${prefixCls}-progress-ink`;
-
   return (
     <div
       className={clsx(
@@ -130,10 +124,9 @@ const Progress: React.FC<ProgressProps> = (props) => {
           Loading
         </span>
       )}
-      {/* Watercolor ink layers */}
-      {Array.from({ length: INK_LAYER_COUNT }, (_, i) => (
-        <div key={i} className={inkClassName} />
-      ))}
+      {/* Watercolor ink layers (2 elements with pseudo-elements = 5 ink layers) */}
+      <div className={`${prefixCls}-progress-ink-1`} />
+      <div className={`${prefixCls}-progress-ink-2`} />
       {/* Progress content */}
       <div
         className={clsx(`${prefixCls}-progress-content`, progressClassNames?.content)}

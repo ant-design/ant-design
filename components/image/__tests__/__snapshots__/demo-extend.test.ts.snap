@@ -489,19 +489,10 @@ Array [
         Loading
       </span>
       <div
-        class="ant-image-progress-ink"
+        class="ant-image-progress-ink-1"
       />
       <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
+        class="ant-image-progress-ink-2"
       />
       <div
         class="ant-image-progress-content"
@@ -520,19 +511,10 @@ Array [
         Loading
       </span>
       <div
-        class="ant-image-progress-ink"
+        class="ant-image-progress-ink-1"
       />
       <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
+        class="ant-image-progress-ink-2"
       />
       <div
         class="ant-image-progress-content"
@@ -550,19 +532,10 @@ Array [
       style="width: 200px; height: 200px; border-radius: 8px;"
     >
       <div
-        class="ant-image-progress-ink"
+        class="ant-image-progress-ink-1"
       />
       <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
+        class="ant-image-progress-ink-2"
       />
       <div
         class="ant-image-progress-content"
@@ -588,19 +561,10 @@ Array [
       style="width: 200px; height: 200px; border-radius: 8px;"
     >
       <div
-        class="ant-image-progress-ink"
+        class="ant-image-progress-ink-1"
       />
       <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
-      />
-      <div
-        class="ant-image-progress-ink"
+        class="ant-image-progress-ink-2"
       />
       <div
         class="ant-image-progress-content"
@@ -680,19 +644,10 @@ Array [
         style="width: 200px; height: 200px; border-radius: 8px;"
       >
         <div
-          class="ant-image-progress-ink"
+          class="ant-image-progress-ink-1"
         />
         <div
-          class="ant-image-progress-ink"
-        />
-        <div
-          class="ant-image-progress-ink"
-        />
-        <div
-          class="ant-image-progress-ink"
-        />
-        <div
-          class="ant-image-progress-ink"
+          class="ant-image-progress-ink-2"
         />
         <div
           class="ant-image-progress-content"
