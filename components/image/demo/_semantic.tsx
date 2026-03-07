@@ -60,7 +60,6 @@ const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }
           width={200}
           src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
           classNames={{ ...classNames, cover: clsx(classNames?.cover, styles.cover) }}
-          preview={{ getContainer: () => holderRef.current! }}
           {...restProps}
         />
       </Flex>
