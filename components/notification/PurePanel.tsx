@@ -224,8 +224,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         className={clsx(notificationClassName, contextClassName)}
         content={
           <PureContent
-            classNames={mergedClassNames}
-            styles={mergedStyles}
+            classNames={mergedClassNames as PureContentProps['classNames']}
+            styles={mergedStyles as PureContentProps['styles']}
             prefixCls={noticePrefixCls}
             icon={icon}
             type={type}
