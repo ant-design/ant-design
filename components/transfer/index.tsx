@@ -2,8 +2,10 @@ import type { ChangeEvent, CSSProperties } from 'react';
 import React, { useCallback, useContext } from 'react';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useMultipleSelect } from '../_util/hooks';
-import type { PrevSelectedIndex, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMultipleSelect } from '../_util/hooks';
+import type { PrevSelectedIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -28,11 +30,40 @@ export type { TransferOperationProps } from './Actions';
 export type { TransferSearchProps } from './search';
 export type { TransferListProps } from './Section';
 
-export type TransferSemanticName = keyof TransferBaseSemanticClassNames &
-  keyof TransferBaseSemanticStyles;
+export type TransferSemanticType = {
+  classNames?: {
+    root?: string;
+    section?: string;
+    header?: string;
+    title?: string;
+    body?: string;
+    list?: string;
+    item?: string;
+    itemIcon?: string;
+    itemContent?: string;
+    footer?: string;
+    actions?: string;
+    source?: TransferSectionSemanticClassNames;
+    target?: TransferSectionSemanticClassNames;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    section?: React.CSSProperties;
+    header?: React.CSSProperties;
+    title?: React.CSSProperties;
+    body?: React.CSSProperties;
+    list?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    footer?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    source?: TransferSectionSemanticStyles;
+    target?: TransferSectionSemanticStyles;
+  };
+};
 
-export type TransferBaseSemanticClassNames = {
-  root?: string;
+type TransferSectionSemanticClassNames = {
   section?: string;
   header?: string;
   title?: string;
@@ -42,18 +73,9 @@ export type TransferBaseSemanticClassNames = {
   itemIcon?: string;
   itemContent?: string;
   footer?: string;
-  actions?: string;
 };
 
-type TransferSectionSemanticClassNames = Omit<TransferBaseSemanticClassNames, 'root' | 'actions'>;
-
-export type TransferSemanticClassNames = TransferBaseSemanticClassNames & {
-  source?: TransferSectionSemanticClassNames;
-  target?: TransferSectionSemanticClassNames;
-};
-
-export type TransferBaseSemanticStyles = {
-  root?: React.CSSProperties;
+type TransferSectionSemanticStyles = {
   section?: React.CSSProperties;
   header?: React.CSSProperties;
   title?: React.CSSProperties;
@@ -63,33 +85,9 @@ export type TransferBaseSemanticStyles = {
   itemIcon?: React.CSSProperties;
   itemContent?: React.CSSProperties;
   footer?: React.CSSProperties;
-  actions?: React.CSSProperties;
 };
 
-type TransferSectionSemanticStyles = Omit<TransferBaseSemanticStyles, 'root' | 'actions'>;
-
-export type TransferSemanticStyles = TransferBaseSemanticStyles & {
-  source?: TransferSectionSemanticStyles;
-  target?: TransferSectionSemanticStyles;
-};
-
-export type TransferClassNamesType = SemanticClassNamesType<
-  TransferProps,
-  TransferBaseSemanticClassNames,
-  {
-    source?: TransferSectionSemanticClassNames;
-    target?: TransferSectionSemanticClassNames;
-  }
->;
-
-export type TransferStylesType = SemanticStylesType<
-  TransferProps,
-  TransferBaseSemanticStyles,
-  {
-    source?: TransferSectionSemanticStyles;
-    target?: TransferSectionSemanticStyles;
-  }
->;
+export type TransferSemanticAllType = GenerateSemantic<TransferSemanticType, TransferProps>;
 
 export type TransferDirection = 'left' | 'right';
 
@@ -109,7 +107,6 @@ export interface TransferItem {
 }
 
 export type KeyWise<T> = T & { key: TransferKey };
-
 export type KeyWiseTransferItem = KeyWise<TransferItem>;
 
 type TransferRender<RecordType> = (item: RecordType) => RenderResult;
@@ -151,8 +148,8 @@ export interface TransferProps<RecordType = any> {
   listStyle?: ((style: ListStyle) => CSSProperties) | CSSProperties;
   /** @deprecated Please use `styles.actions` instead. */
   operationStyle?: CSSProperties;
-  classNames?: TransferClassNamesType;
-  styles?: TransferStylesType;
+  classNames?: TransferSemanticAllType['classNamesAndFn'];
+  styles?: TransferSemanticAllType['stylesAndFn'];
 
   disabled?: boolean;
   dataSource?: RecordType[];
@@ -467,7 +464,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     selectedKey,
     checked,
     e,
-  ) => onItemSelect('right', selectedKey, checked, e?.shiftKey);
+  ) => {
+    onItemSelect('right', selectedKey, checked, e?.shiftKey);
+  };
 
   const onRightItemRemove = (keys: TransferKey[]) => {
     setStateKeys('right', []);
@@ -507,11 +506,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       .length > 0;
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TransferClassNamesType,
-    TransferStylesType,
-    TransferProps<RecordType>
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     {
@@ -560,10 +555,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     'footer',
   ] as const;
 
-  const getMergedSectionClassNames = (
-    direction: 'source' | 'target',
-  ): TransferSemanticClassNames => {
-    const mergedSectionClassNames: TransferSemanticClassNames = { ...mergedClassNames };
+  const getMergedSectionClassNames = (direction: 'source' | 'target') => {
+    const mergedSectionClassNames = { ...mergedClassNames };
     const directionClassNames = mergedClassNames[direction];
 
     sectionSemanticKeys.forEach((key) => {
@@ -573,8 +566,8 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
     return mergedSectionClassNames;
   };
 
-  const getMergedSectionStyles = (direction: 'source' | 'target'): TransferSemanticStyles => {
-    const mergedSectionStyles: TransferSemanticStyles = { ...mergedStyles };
+  const getMergedSectionStyles = (direction: 'source' | 'target') => {
+    const mergedSectionStyles = { ...mergedStyles };
     const directionStyles = mergedStyles[direction];
 
     sectionSemanticKeys.forEach((key) => {

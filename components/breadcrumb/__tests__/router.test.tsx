@@ -2,8 +2,8 @@ import React from 'react';
 import { MemoryRouter, useLocation } from 'react-router-dom';
 import type { Location as ReactRouterLocation } from 'react-router-dom';
 
+import Breadcrumb from '..';
 import { render } from '../../../tests/utils';
-import Breadcrumb from '../index';
 
 describe('react router', () => {
   beforeAll(() => {

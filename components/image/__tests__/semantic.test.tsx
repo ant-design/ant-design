@@ -1,8 +1,8 @@
 import React from 'react';
 
 import Image from '..';
+import type { ImageProps } from '..';
 import { render } from '../../../tests/utils';
-import type { ImageProps } from '../index';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 const alt = 'test image';
