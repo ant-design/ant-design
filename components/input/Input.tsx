@@ -237,15 +237,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
       // We normalise the event by re-pointing target/currentTarget to the real
       // input. We deliberately do NOT clone nativeEvent to avoid breaking
       // preventDefault() / stopPropagation() (Illegal invocation risk).
-      if (realInput && e.target !== realInput) {
-        return onChange(
-          Object.create(e, {
-            target: { value: realInput, enumerable: true, configurable: true },
-            currentTarget: { value: realInput, enumerable: true, configurable: true },
-          }) as React.ChangeEvent<HTMLInputElement>,
-        );
-      }
-      onChange(e);
+      const normalizedEvent =
+        realInput && e.target !== realInput
+          ? (Object.create(e, {
+              target: { value: realInput, enumerable: true, configurable: true },
+              currentTarget: { value: realInput, enumerable: true, configurable: true },
+            }) as React.ChangeEvent<HTMLInputElement>)
+          : e;
+      onChange(normalizedEvent);
     }
   };
 
