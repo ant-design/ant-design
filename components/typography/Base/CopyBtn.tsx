@@ -5,9 +5,10 @@ import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
 import { clsx } from 'clsx';
 
 import type { CopyConfig } from '.';
+import toList from '../../_util/toList';
 import type { Locale } from '../../locale';
 import Tooltip from '../../tooltip';
-import { getNode, toList } from './util';
+import { getNode } from './util';
 
 export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   prefixCls: string;
@@ -18,19 +19,21 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   loading: boolean;
 }
 
-const CopyBtn: React.FC<CopyBtnProps> = ({
-  prefixCls,
-  copied,
-  locale,
-  iconOnly,
-  tooltips,
-  icon,
-  tabIndex,
-  onCopy,
-  loading: btnLoading,
-}) => {
-  const tooltipNodes = toList(tooltips);
-  const iconNodes = toList(icon);
+const CopyBtn: React.FC<CopyBtnProps> = (props) => {
+  const {
+    prefixCls,
+    copied,
+    locale,
+    iconOnly,
+    tooltips,
+    icon,
+    tabIndex,
+    onCopy,
+    loading: btnLoading,
+  } = props;
+
+  const tooltipNodes = toList(tooltips, { preserveFalse: true });
+  const iconNodes = toList(icon, { preserveFalse: true });
   const { copied: copiedText, copy: copyText } = locale ?? {};
   const systemStr = copied ? copiedText : copyText;
   const copyTitle = getNode(tooltipNodes[copied ? 1 : 0], systemStr);

@@ -75,8 +75,10 @@ describe('Test utils function', () => {
     it('toList should work', () => {
       expect(toList(123)).toEqual([123]);
       expect(toList([123])).toEqual([123]);
-      expect(toList(null, true)).toEqual([]);
-      expect(toList(undefined, true)).toEqual([]);
+      expect(toList(false)).toEqual([false]);
+      expect(toList(null, { skipEmpty: true })).toEqual([]);
+      expect(toList(undefined, { skipEmpty: true })).toEqual([]);
+      expect(toList(false, { preserveFalse: true })).toEqual([false, false]);
     });
   });
 });
