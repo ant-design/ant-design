@@ -2,7 +2,7 @@ import toList from '../../_util/toList';
 
 export const toCopyConfigList = <T>(val: T | T[]): T[] => {
   if (val === false) {
-    return [false, false] as [T, T];
+    return [false, false] as T[];
   }
   return toList(val);
 };
