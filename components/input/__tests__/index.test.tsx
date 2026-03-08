@@ -355,6 +355,29 @@ describe('Input allowClear', () => {
     expect(container.querySelector('input')?.value).toBe('');
   });
 
+  it('onChange event.target should be the real mounted input element', () => {
+    // Regression: @rc-component/input's cloneEvent creates a detached DOM clone
+    // as event.target, breaking libraries like react-number-format that check
+    // e.target identity or call document.contains(e.target).
+    // See: https://github.com/ant-design/ant-design/issues/46999
+    let receivedTarget: EventTarget | null = null;
+
+    const { container } = render(
+      <Input
+        onChange={(e) => {
+          receivedTarget = e.target;
+        }}
+      />,
+    );
+
+    const input = container.querySelector('input')!;
+    fireEvent.change(input, { target: { value: '123' } });
+
+    // The target must be the real mounted <input>, not a detached clone
+    expect(receivedTarget).toBe(input);
+    expect(document.contains(receivedTarget as Node)).toBe(true);
+  });
+
   it('should trigger event correctly on controlled mode', () => {
     let argumentEventObjectType;
     let argumentEventObjectValue;
