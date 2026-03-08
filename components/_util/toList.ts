@@ -2,18 +2,13 @@ import isNonNullable from './isNonNullable';
 
 interface Config {
   skipEmpty?: boolean;
-  preserveFalse?: boolean;
 }
 
-const toList = <T>(candidate: T | T[], config: Config = {}): T[] => {
-  const { skipEmpty, preserveFalse } = config;
-  if (skipEmpty && !isNonNullable(candidate)) {
+const toList = <T>(val: T | T[], config: Config = {}): T[] => {
+  if (!isNonNullable(val) && config?.skipEmpty) {
     return [];
   }
-  if (preserveFalse && candidate === false) {
-    return [false, false] as [T, T];
-  }
-  return Array.isArray(candidate) ? candidate : [candidate];
+  return Array.isArray(val) ? val : [val];
 };
 
 export default toList;

@@ -78,7 +78,6 @@ describe('Test utils function', () => {
       expect(toList(false)).toEqual([false]);
       expect(toList(null, { skipEmpty: true })).toEqual([]);
       expect(toList(undefined, { skipEmpty: true })).toEqual([]);
-      expect(toList(false, { preserveFalse: true })).toEqual([false, false]);
     });
   });
 });
