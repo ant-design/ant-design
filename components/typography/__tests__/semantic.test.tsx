@@ -2,19 +2,20 @@ import React from 'react';
 import { clsx } from 'clsx';
 
 import Typography from '..';
+import type { TypographyProps } from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { TypographyClassNamesType, TypographyStylesType } from '../Base';
 
 describe('Typography.Semantic', () => {
   it('should support classNames and styles for root, actions, and action', () => {
-    const classNamesFn: TypographyClassNamesType = jest.fn(() => ({
+    const classNamesFn: GetProp<TypographyProps, 'classNames'> = jest.fn(() => ({
       root: 'custom-typography',
       actions: 'custom-actions',
       action: 'custom-action',
     }));
 
-    const stylesFn: TypographyStylesType = jest.fn(() => ({
+    const stylesFn: GetProp<TypographyProps, 'styles'> = jest.fn(() => ({
       root: { color: '#1890ff' },
       actions: { backgroundColor: '#f0f0f0' },
       action: { padding: '5px' },
@@ -75,18 +76,20 @@ describe('Typography.Semantic', () => {
   });
 
   it('should merge context and component classNames and styles', () => {
-    const contextClassNames: TypographyClassNamesType = {
+    const contextClassNames: Required<GetProp<TypographyProps, 'classNames', 'Return'>> = {
       root: 'context-root',
       actions: 'context-actions',
+      action: 'context-action',
     };
-    const contextStyles: TypographyStylesType = {
+    const contextStyles: Required<GetProp<TypographyProps, 'styles', 'Return'>> = {
       root: { padding: '10px' },
       actions: { margin: '5px' },
+      action: { color: '#123' },
     };
-    const componentClassNames: TypographyClassNamesType = {
+    const componentClassNames: GetProp<TypographyProps, 'classNames', 'Return'> = {
       root: 'component-root',
     };
-    const componentStyles: TypographyStylesType = {
+    const componentStyles: GetProp<TypographyProps, 'styles', 'Return'> = {
       root: { fontSize: '14px' },
     };
 
@@ -109,9 +112,11 @@ describe('Typography.Semantic', () => {
 
     const rootElement = document.querySelector<HTMLElement>('.ant-typography');
     const actionsElement = document.querySelector<HTMLElement>('.ant-typography-actions');
+    const actionElement = document.querySelector<HTMLElement>('.ant-typography-action');
 
     expect(rootElement).toHaveClass(clsx(contextClassNames.root, componentClassNames.root));
     expect(actionsElement).toHaveClass(contextClassNames.actions!);
+    expect(actionElement).toHaveClass(contextClassNames.action!);
 
     expect(rootElement).toHaveStyle({
       padding: contextStyles.root?.padding,

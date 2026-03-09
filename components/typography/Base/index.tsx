@@ -30,15 +30,27 @@ import { isEleEllipsis, isValidText } from './util';
 
 export type BaseType = 'secondary' | 'success' | 'warning' | 'danger';
 
-// Base typography props without generic parameter for semantic types
+export type TypographySemanticType = {
+  classNames?: {
+    root?: string;
+    actions?: string;
+    action?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    actions?: React.CSSProperties;
+    action?: React.CSSProperties;
+  };
+};
+
 export interface BaseTypographyProps extends React.HTMLAttributes<HTMLElement> {
   id?: string;
   prefixCls?: string;
   className?: string;
   rootClassName?: string;
   style?: React.CSSProperties;
-  classNames?: TypographyClassNamesType;
-  styles?: TypographyStylesType;
+  classNames?: TypographySemanticAllType['classNamesAndFn'];
+  styles?: TypographySemanticAllType['stylesAndFn'];
   children?: React.ReactNode;
   'aria-label'?: string;
   direction?: DirectionType;
@@ -46,27 +58,10 @@ export interface BaseTypographyProps extends React.HTMLAttributes<HTMLElement> {
   component?: keyof JSX.IntrinsicElements;
 }
 
-export type TypographySemanticClassNames = {
-  root?: string;
-  actions?: string;
-  action?: string;
-};
-
-export type TypographySemanticStyles = {
-  root?: React.CSSProperties;
-  actions?: React.CSSProperties;
-  action?: React.CSSProperties;
-};
-
-export type TypographyClassNamesType = GenerateSemantic<
-  { classNames: TypographySemanticClassNames; styles: TypographySemanticStyles },
+export type TypographySemanticAllType = GenerateSemantic<
+  TypographySemanticType,
   BaseTypographyProps
->['classNamesAndFn'];
-
-export type TypographyStylesType = GenerateSemantic<
-  { classNames: TypographySemanticClassNames; styles: TypographySemanticStyles },
-  BaseTypographyProps
->['stylesAndFn'];
+>;
 
 export interface CopyConfig {
   text?: string | (() => string | Promise<string>);

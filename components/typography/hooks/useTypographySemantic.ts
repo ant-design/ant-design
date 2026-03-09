@@ -3,28 +3,15 @@ import { useMemo } from 'react';
 import { useMergeSemantic } from '../../_util/hooks/useMergeSemantic';
 import type { DirectionType } from '../../config-provider';
 import { useComponentConfig } from '../../config-provider/context';
-import type {
-  BaseTypographyProps,
-  TypographyClassNamesType,
-  TypographySemanticClassNames,
-  TypographySemanticStyles,
-  TypographyStylesType,
-} from '../Base';
-
-type UseTypographySemanticResult = [
-  mergedClassNames: TypographySemanticClassNames,
-  mergedStyles: TypographySemanticStyles,
-  prefixCls: string,
-  direction: DirectionType | undefined,
-];
+import type { BaseTypographyProps, TypographySemanticAllType } from '../Base';
 
 export const useTypographySemantic = (
   customizePrefixCls?: string,
-  classNames?: TypographyClassNamesType | undefined,
-  styles?: TypographyStylesType | undefined,
+  classNames?: TypographySemanticAllType['classNamesAndFn'] | undefined,
+  styles?: TypographySemanticAllType['stylesAndFn'] | undefined,
   typographyDirection?: DirectionType,
   props?: BaseTypographyProps,
-): UseTypographySemanticResult => {
+) => {
   const {
     getPrefixCls,
     direction: contextDirection,
@@ -43,14 +30,16 @@ export const useTypographySemantic = (
     direction,
   };
 
-  const contextClassNamesObject = useMemo(() => ({ root: contextClassName }), [contextClassName]);
-  const contextStylesObject = useMemo(() => ({ root: contextStyle }), [contextStyle]);
+  const contextClassNamesObject = useMemo<TypographySemanticAllType['classNames']>(
+    () => ({ root: contextClassName }),
+    [contextClassName],
+  );
+  const contextStylesObject = useMemo<TypographySemanticAllType['styles']>(
+    () => ({ root: contextStyle }),
+    [contextStyle],
+  );
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TypographyClassNamesType,
-    TypographyStylesType,
-    BaseTypographyProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNamesObject, contextClassNames, classNames],
     [contextStylesObject, contextStyles, styles],
     {
@@ -58,5 +47,5 @@ export const useTypographySemantic = (
     },
   );
 
-  return [mergedClassNames, mergedStyles, prefixCls, direction];
+  return [mergedClassNames, mergedStyles, prefixCls, direction] as const;
 };
