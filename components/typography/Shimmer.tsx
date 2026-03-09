@@ -5,8 +5,7 @@ import { clsx } from 'clsx';
 import { ConfigContext } from '../config-provider';
 import useStyle from './style';
 
-export interface ShimmerProps<C extends keyof JSX.IntrinsicElements = 'span'>
-  extends React.HTMLAttributes<HTMLElement> {
+export interface ShimmerProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
   /** Animation duration in seconds */
   duration?: number;
@@ -14,10 +13,10 @@ export interface ShimmerProps<C extends keyof JSX.IntrinsicElements = 'span'>
   disabled?: boolean;
   prefixCls?: string;
   /** The element type to render */
-  component?: C;
+  component?: keyof JSX.IntrinsicElements;
 }
 
-type InternalShimmerProps = ShimmerProps<keyof JSX.IntrinsicElements>;
+type InternalShimmerProps = ShimmerProps;
 
 const Shimmer = React.forwardRef<HTMLElement, InternalShimmerProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
