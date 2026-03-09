@@ -25,8 +25,8 @@ tag: vVERSION
 - 🐞 Fix Skeleton.Avatar, Skeleton.Button, Skeleton.Input, Rate and Spin cannot take effect when `componentSize` is set globally. [#57093](https://github.com/ant-design/ant-design/pull/57093) [#57106](https://github.com/ant-design/ant-design/pull/57106) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Splitter may calculate wrong `size` if some panel in controlled mode. [#57142](https://github.com/ant-design/ant-design/pull/57142) [@js0753](https://github.com/js0753)
 - 🐞 Fix Tree and TreeSelect line alignment problem when customizing `titleHeight` property. [#56785](https://github.com/ant-design/ant-design/pull/56785) [@QDyanbing](https://github.com/QDyanbing)
-- 💄 Fix Checkbox.Group check box width when options text has different length or breaks. [#57144](https://github.com/ant-design/ant-design/pull/57144) [@QDyanbing](https://github.com/QDyanbing)
-- 💄 Fix ConfigProvider `csp` not take effect on all the dynamic style. [#57159](https://github.com/ant-design/ant-design/pull/57159) [@zombieJ](https://github.com/zombieJ)
+- 💄 Fix Checkbox.Group checkbox width when options text has different length or breaks. [#57144](https://github.com/ant-design/ant-design/pull/57144) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Fix ConfigProvider `csp` not taking effect on all the dynamic style. [#57159](https://github.com/ant-design/ant-design/pull/57159) [@zombieJ](https://github.com/zombieJ)
 - Select
   - 💄 Fix Select text jumping problem in Firefox browser. [#57030](https://github.com/ant-design/ant-design/pull/57030) [@pierreeurope](https://github.com/pierreeurope)
   - 💄 Fix Select cannot set `visibility: hidden` via `style` property. [#56720](https://github.com/ant-design/ant-design/pull/56720) [@claytonlin1110](https://github.com/claytonlin1110)
@@ -37,7 +37,7 @@ tag: vVERSION
 - 🛠 Unify `size` enumeration, replace `default` with `medium` for Badge, Card, Progress, Steps, Switch and Spin, replace `middle` and `default` with `medium` and `large` for Descriptions, replace `middle` with `medium` for Table and Divider. [#57127](https://github.com/ant-design/ant-design/pull/57127) [#57106](https://github.com/ant-design/ant-design/pull/57106) [@QDyanbing](https://github.com/QDyanbing)
 - 🛠 Unify `size` className for all components DOM. [#57106](https://github.com/ant-design/ant-design/pull/57106) [@QDyanbing](https://github.com/QDyanbing)
 - TypeScript
-  - 🤖 Add Upload.Dragger generic type definition supports. [#57103](https://github.com/ant-design/ant-design/pull/57103) [@fnoopv](https://github.com/fnoopv)
+  - 🤖 Add Upload.Dragger generic type definition support. [#57103](https://github.com/ant-design/ant-design/pull/57103) [@fnoopv](https://github.com/fnoopv)
   - 🤖 Fix Modal `KeyboardEvent` type definition for the arguments of `onCancel` event handler. [#57048](https://github.com/ant-design/ant-design/pull/57048) [@eureka928](https://github.com/eureka928)
 
 ## 6.3.1
