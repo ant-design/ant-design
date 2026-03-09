@@ -11,7 +11,7 @@ description: Create pull requests for ant-design using the repository's official
 
 二、严格使用 `ant-design` 仓库自带模板，不自行发明 PR 结构。
 
-三、根据用户语言习惯选择中文或英文模板，但 PR 标题始终使用英文，并贴近 `ant-design` 已合并 PR 的命名方式。
+三、根据用户语言习惯选择中文或英文模板，但 PR 标题始终使用英文，并遵循本文档约定的命名格式。
 
 ## 触发场景
 
@@ -47,7 +47,7 @@ description: Create pull requests for ant-design using the repository's official
 但无论模板选中文还是英文：
 
 - `PR title` 都必须是英文
-- `PR title` 要符合仓库近期已合并 PR 的写法
+- `PR title` 要符合本文档的标题规范
 - `PR body` 才跟随模板语言
 
 ### 三、先分析分支，再写 PR
@@ -127,32 +127,7 @@ git diff --name-only <base>...HEAD
 
 归纳时要覆盖该分支会进入 PR 的全部提交，而不是只写最后一次改动。
 
-### 4. 先看近期已合并 PR 标题风格
-
-生成标题前，必须参考仓库近期已合并 PR 的标题，而不是只参考 commit message。
-
-优先查看最近已 merge 的标题样式，例如：
-
-- `docs: add CLAUDE.md for AI assistant context`
-- `refactor(Image): extract normalizePlaceholder to usePlaceholderConfig hook`
-- `fix: fix config-prover path`
-- `type: improve TreeSelect type`
-- `site: fix ThemePreview copy button in dark theme`
-
-可见 `ant-design` 当前常见模式是：
-
-- `<type>: <subject>`
-- `<type>(<scope>): <subject>`
-
-其中：
-
-- `type` 用英文小写，如 `fix`、`feat`、`docs`、`refactor`、`type`、`site`、`demo`、`test`、`ci`、`chore`
-- `scope` 常用于组件名或模块名，可保留大小写，如 `Image`、`TreeSelect`
-- `subject` 使用英文，直接描述改动结果
-
-若可以访问 GitHub，建议查看最近已合并 PR 标题；若不能访问网络，也应至少遵守上面的命名模式。
-
-### 5. 判断模板语言
+### 4. 判断模板语言
 
 根据“语言由用户习惯决定”的规则，二选一：
 
@@ -176,20 +151,9 @@ git diff --name-only <base>...HEAD
 
 标题要求：
 
-- 必须是英文
-- 优先使用 `<type>: <subject>` 或 `<type>(<scope>): <subject>`
+- 按下方“写法要求 -> 标题”生成
 - 覆盖整条分支的主要目标
-- 简洁，不堆文件名
-- 与仓库语气一致
-- 优先贴近近期已合并 PR 的写法，而不是照搬 commit title
-
-可参考这些风格：
-
-- `fix: improve TreeSelect code`
-- `docs: add CLAUDE.md for AI assistant context`
-- `refactor(Image): extract normalizePlaceholder to usePlaceholderConfig hook`
-- `site: fix ThemePreview copy button in dark theme`
-- `feat: add Typography.Shimmer component`
+- 不要照搬单个 commit message
 
 ### 7. 按模板产出 PR 正文
 
@@ -205,14 +169,31 @@ git diff --name-only <base>...HEAD
 
 若用户要求真正发起 PR：
 
-1. 先确认当前分支已推送到远端；未推送则先推送
-2. 使用 `gh pr create`
-3. 标题和正文都使用已经整理好的内容
+1. 先确认当前分支的 tracking remote 和远端分支是否正确
+2. 再确认 PR 的目标仓库是 `ant-design/ant-design`，不要依赖 `gh` 的默认推断
+3. 若 tracking remote 缺失、指向不明确、或不是预期 fork，先向用户确认，不要默认推送
+4. 只有在推送目标 remote 明确无误时，才推送当前分支
+5. 使用 `gh pr create`
+6. 标题和正文都使用已经整理好的内容
+
+建议先检查：
+
+```bash
+git branch -vv
+git remote -v
+gh repo view --json nameWithOwner
+```
+
+若需要推送，优先使用明确的远端与分支名，例如：
+
+```bash
+git push -u <remote> HEAD
+```
 
 建议形式：
 
 ```bash
-gh pr create --base <base> --title "<title>" --body "$(cat <<'EOF'
+gh pr create --repo ant-design/ant-design --base <base> --title "<title>" --body "$(cat <<'EOF'
 <body>
 EOF
 )"
@@ -226,7 +207,7 @@ EOF
 
 - 必须是英文
 - 默认先判断 `type`，再决定是否需要 `scope`
-- 优先使用仓库里已经大量出现的 `type:` / `type(scope):` 格式
+- 优先使用 `type: subject` 或 `type(scope): subject`
 - 优先写结果，不写过程
 - 避免 `update`, `fix issues`, `misc changes` 这类空话
 - 若分支包含多类小改动，提炼一个更高层概括
@@ -268,6 +249,7 @@ EOF
 - 不看模板，直接凭印象生成正文
 - 用工作区未提交内容代替 PR 内容
 - 只总结最后一个 commit
+- 不确认 PR 的目标仓库，直接依赖 `gh` 默认推断
 - 标题写成中文
 - 标题不带 `type`，却伪装成符合仓库习惯
 - 模板正文语言和所选模板不一致
