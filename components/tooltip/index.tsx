@@ -199,6 +199,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     arrow: contextArrow,
     trigger: contextTrigger,
   } = useComponentConfig('tooltip');
+
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
   const mergedTrigger = trigger || contextTrigger || 'hover';
@@ -279,16 +280,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const mergedProps: TooltipProps = {
     ...props,
     trigger: mergedTrigger,
-    color,
-    placement,
-    builtinPlacements,
-    openClassName,
-    arrow: tooltipArrow,
-    autoAdjustOverflow,
-    getPopupContainer,
-    children,
-    destroyTooltipOnHide,
-    destroyOnHidden,
+    builtinPlacements: tooltipPlacements,
+    getPopupContainer: getPopupContainer || getTooltipContainer || getContextPopupContainer,
+    destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -353,7 +347,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     <RcTooltip
       unique
       {...restProps}
-      trigger={mergedTrigger}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
@@ -377,9 +370,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         uniqueContainer: containerStyle,
         arrow: mergedStyles.arrow,
       }}
-      getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
-      builtinPlacements={tooltipPlacements}
       overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onInternalOpenChange}
@@ -393,7 +384,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         ),
         motionDeadline: 1000,
       }}
-      destroyOnHidden={destroyOnHidden ?? !!destroyTooltipOnHide}
+      trigger={mergedTrigger}
+      builtinPlacements={tooltipPlacements}
+      getTooltipContainer={mergedProps.getPopupContainer}
+      destroyOnHidden={mergedProps.destroyOnHidden}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
