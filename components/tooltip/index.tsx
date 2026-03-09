@@ -203,6 +203,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
   const mergedTrigger = trigger || contextTrigger || 'hover';
+  const mergedGetPopupContainer = getPopupContainer || getContextPopupContainer;
+  const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -275,9 +277,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
-
-  const mergedGetPopupContainer = getPopupContainer || getContextPopupContainer;
-  const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
 
   // =========== Merged Props for Semantic ===========
   const mergedProps: TooltipProps = {
