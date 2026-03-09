@@ -33,13 +33,13 @@ Ant Design 推荐使用社区维护的 MCP server：[`@jzone-mcp/antd-components
 | **Claude Code** | 添加到 Claude 设置的 `mcpServers`。[文档](https://docs.anthropic.com/en/docs/claude-code) | `添加 Ant Design MCP 服务器。配置: { "mcpServers": { "antd-components": { "command": "npx", "args": ["-y", "@jzone-mcp/antd-components-mcp"] } } }` |
 | **Codex** | 添加到 `.codex/mcp.json`。[文档](https://github.com/openai/codex) | `添加 Ant Design MCP 服务器。配置: { "mcpServers": { "antd-components": { "command": "npx", "args": ["-y", "@jzone-mcp/antd-components-mcp"] } } }` |
 | **Gemini CLI** | 添加到 MCP 配置。[文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn) | `添加 Ant Design MCP 服务器。配置: { "mcpServers": { "antd-components": { "command": "npx", "args": ["-y", "@jzone-mcp/antd-components-mcp"] } } }` |
-| **Trae** | 添加到 MCP 设置。[文档](https://trae.ai/docs) | `添加 Ant Design MCP 服务器。配置: { "mcpServers": { "antd-components": { "command": "npx", "args": ["-y", "@jzone-mcp/antd-components-mcp"] } } }` |
+| **Trae** | 添加到 MCP 设置。[文档](https://www.trae.ai/docs) | `添加 Ant Design MCP 服务器。配置: { "mcpServers": { "antd-components": { "command": "npx", "args": ["-y", "@jzone-mcp/antd-components-mcp"] } } }` |
 | **Qoder** | 添加到 MCP 配置。[文档](https://docs.qoder.com/) | `添加 Ant Design MCP 服务器。配置: { "mcpServers": { "antd-components": { "command": "npx", "args": ["-y", "@jzone-mcp/antd-components-mcp"] } } }` |
 | **Neovate Code** | 在设置中配置 MCP 或使用提示词描述任务。[文档](https://github.com/neovateai/neovate-code) | `添加 Ant Design MCP 服务器。配置: { "mcpServers": { "antd-components": { "command": "npx", "args": ["-y", "@jzone-mcp/antd-components-mcp"] } } }` |
 
 ## 备选方案：使用 LLMs.txt
 
-如果您的 AI 工具不支持 MCP，可以使用我们的 [LLMs.txt](/docs/react/llms-cn) 支持。我们提供：
+如果您的 AI 工具不支持 MCP，可以使用我们的 [LLMs.txt](/docs/react/llms-zh-CN) 支持。我们提供：
 
 - [llms.txt](https://ant.design/llms.txt) - 所有组件的结构化概览
 - [llms-full.txt](https://ant.design/llms-full.txt) - 包含示例的完整文档
@@ -47,5 +47,5 @@ Ant Design 推荐使用社区维护的 MCP server：[`@jzone-mcp/antd-components
 ## 了解更多
 
 - [Model Context Protocol 文档](https://modelcontextprotocol.io/)
-- [Ant Design LLMs.txt 指南](/docs/react/llms-cn)
+- [Ant Design LLMs.txt 指南](/docs/react/llms-zh-CN)
 - [@jzone-mcp/antd-components-mcp npm 地址](https://www.npmjs.com/package/@jzone-mcp/antd-components-mcp)
