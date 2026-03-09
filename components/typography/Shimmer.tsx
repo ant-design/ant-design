@@ -24,7 +24,7 @@ const Shimmer = React.forwardRef<HTMLElement, InternalShimmerProps>((props, ref)
     prefixCls: customizePrefixCls,
     component = 'span',
     children,
-    duration = 2,
+    duration = 3,
     disabled,
     style,
     className,
