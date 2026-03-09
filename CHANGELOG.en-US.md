@@ -15,6 +15,33 @@ tag: vVERSION
 
 ---
 
+## 6.3.2
+
+`2026-03-09`
+
+- Select
+  - 🐞 Fix Select label not hiding when `visibility: hidden` is set via `style` prop. [#56720](https://github.com/ant-design/ant-design/pull/56720) [@claytonlin1110](https://github.com/claytonlin1110)
+  - 🐞 Fix Select text jumping in Firefox when selecting an option. [#57030](https://github.com/ant-design/ant-design/pull/57030) [@pierreeurope](https://github.com/pierreeurope)
+- Upload
+  - 🐞 Improve Upload touch-device usability by always showing list item actions on non-hover/coarse-pointer devices. [#57156](https://github.com/ant-design/ant-design/pull/57156) [@Arktomson](https://github.com/Arktomson)
+  - 🐞 Fix Upload picture-card list taking min-height when the file list is empty. [#57157](https://github.com/ant-design/ant-design/pull/57157) [@QDyanbing](https://github.com/QDyanbing)
+  - 🤖 Add generic support for Upload.Dragger. [#57103](https://github.com/ant-design/ant-design/pull/57103) [@fnoopv](https://github.com/fnoopv)
+- Tree/TreeSelect
+  - 🐞 Fix Tree/TreeSelect line alignment when `showLine` is used with a custom `titleHeight`. [#56785](https://github.com/ant-design/ant-design/pull/56785) [@QDyanbing](https://github.com/QDyanbing)
+- Form
+  - 🐞 Fix Form.Item unable to use `setFieldsValue` when using `Space.Compact` layout. [#57066](https://github.com/ant-design/ant-design/pull/57066)
+  - 🐞 Fix Form.Item validation failure when using dynamic `rules` with `dependencies`. [#57147](https://github.com/ant-design/ant-design/pull/57147) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Skeleton.Avatar/Button/Input not responding to `ConfigProvider.componentSize`. [#57093](https://github.com/ant-design/ant-design/pull/57093) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 Unify size className; Rate supports ConfigProvider size; Table supports medium. [#57106](https://github.com/ant-design/ant-design/pull/57106) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix ConfigProvider `csp` not taking effect on all dynamic styles. [#57159](https://github.com/ant-design/ant-design/pull/57159) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix Checkbox.Group checkbox width inconsistency when labels wrap or differ in length. [#57144](https://github.com/ant-design/ant-design/pull/57144) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Splitter panel sizes not being calculated correctly when some panels have `size` prop. [#57142](https://github.com/ant-design/ant-design/pull/57142) [@js0753](https://github.com/js0753)
+- 🐞 Fix InputNumber borderless variant height inconsistency with Input/Select. [#57162](https://github.com/ant-design/ant-design/pull/57162) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Radio.Group radio width inconsistency when labels wrap or differ in length. [#57171](https://github.com/ant-design/ant-design/pull/57171) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Image preview stacking context issue. [#57201](https://github.com/ant-design/ant-design/pull/57201) [@aojunhao123](https://github.com/aojunhao123)
+- 🤖 Modal `onCancel` now correctly types the event parameter to support keyboard events for Escape key dismissal. [#57048](https://github.com/ant-design/ant-design/pull/57048) [@eureka928](https://github.com/eureka928)
+- 🆕 Add es_US locale (Spanish with US date formatting). [#57137](https://github.com/ant-design/ant-design/pull/57137) [@yuriidumych-max](https://github.com/yuriidumych-max)
+
 ## 6.3.1
 
 `2026-02-24`
