@@ -24,17 +24,37 @@
 4. 脚本通过 gh CLI 获取 PR 信息
 5. 生成临时文件 `~changelog.md`
 
-### 阶段二：处理临时文件（按 AGENTS.md 规范）
+### 阶段二：处理临时文件
 
-读取 `~changelog.md` 后，按 [AGENTS.md Changelog 规范](./AGENTS.md#changelog-规范) 处理：
+读取 `~changelog.md` 后，按以下规范处理：
 
-**详细规范请参考 AGENTS.md：**
+**临时文件格式：**
 
-- [有效性过滤](./AGENTS.md#-核心原则) - 过滤 docs, test, refactor, chore, ci 等
-- [分组处理](./AGENTS.md#-格式与结构规范) - 按组件名分组，多项放分组，单项直接写
-- [描述规范](./AGENTS.md#-格式与结构规范) - Emoji 置顶、无冒号、属性用反引号
-- [Emoji 规范](./AGENTS.md#-emoji-规范严格执行) - 根据 commit 类型自动标记
-- [输出示例](./AGENTS.md#-输出示例参考) - 中英文格式参考
+```markdown
+# Changelog Temp File
+
+# Version: 6.4.0
+
+# Generated: 2026-03-09T...
+
+---
+
+## abc1234
+
+- PR: 56976
+- Committer: zombieJ
+- Commit: fix: Select height issue
+- Category: Select
+- English: Fix Select incorrect height when value is empty
+- Chinese: 修复 Select value 为空时高度不正确的问题
+```
+
+**AGENTS.md 规范引用：**
+
+- [核心原则](./AGENTS.md#核心原则) - 有效性过滤规则
+- [格式与结构规范](./AGENTS.md#格式与结构规范) - 分组、描述、Emoji 规范
+- [Emoji 规范](./AGENTS.md#emoji-规范严格执行) - 根据 commit 类型自动标记
+- [输出示例参考](./AGENTS.md#输出示例参考) - 中英文格式参考
 
 **交互确认**：
 
