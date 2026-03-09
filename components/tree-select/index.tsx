@@ -364,14 +364,7 @@ const InternalTreeSelect: InternalTreeSelectRef = (props, ref) => {
   }
 
   // ==================== Render =====================
-  const selectProps = omit(restProps, [
-    'suffixIcon',
-    'removeIcon',
-    'clearIcon',
-    'itemIcon' as any,
-    'switcherIcon' as any,
-    'style',
-  ]);
+  const selectProps = omit(restProps, ['suffixIcon', 'removeIcon', 'clearIcon']);
 
   // ===================== Placement =====================
   const memoizedPlacement = React.useMemo<Placement>(() => {
