@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { useMergeSemantic } from '../../_util/hooks';
+import { useMergeSemantic } from '../../_util/hooks/useMergeSemantic';
 import type { DirectionType } from '../../config-provider';
 import { useComponentConfig } from '../../config-provider/context';
 import type {

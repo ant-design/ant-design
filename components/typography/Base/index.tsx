@@ -8,7 +8,7 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { SemanticType } from '../../_util/hooks';
+import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
 import isNonNullable from '../../_util/isNonNullable';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
@@ -58,12 +58,15 @@ export type TypographySemanticStyles = {
   action?: React.CSSProperties;
 };
 
-export type TypographyClassNamesType = SemanticType<
-  BaseTypographyProps,
-  TypographySemanticClassNames
->;
+export type TypographyClassNamesType = GenerateSemantic<
+  { classNames: TypographySemanticClassNames; styles: TypographySemanticStyles },
+  BaseTypographyProps
+>['classNamesAndFn'];
 
-export type TypographyStylesType = SemanticType<BaseTypographyProps, TypographySemanticStyles>;
+export type TypographyStylesType = GenerateSemantic<
+  { classNames: TypographySemanticClassNames; styles: TypographySemanticStyles },
+  BaseTypographyProps
+>['stylesAndFn'];
 
 export interface CopyConfig {
   text?: string | (() => string | Promise<string>);
