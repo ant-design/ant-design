@@ -16,13 +16,173 @@
 
 ## 核心流程
 
-### 阶段一：生成临时文件
+### 阶段一：通过 gh CLI 收集 PR 信息
 
-1. 运行 `npx tsx scripts/generate-changelog.ts`
-2. 选择起始版本（tag）
-3. 选择目标分支
-4. 脚本通过 gh CLI 获取 PR 信息
-5. 生成临时文件 `~changelog.md`
+使用 GitHub CLI 直接收集两个版本/分支之间的 PR 信息。
+
+#### 1.1 获取可用的 Tags
+
+执行 `git fetch --tags` 确保最新，然后获取所有 tags：
+
+```bash
+git tag --list | grep -v -E '(experimental|alpha|resource)' | sort -V | tail -20
+```
+
+过滤规则：
+
+- 排除包含 `experimental`、`alpha`、`resource` 的 tag
+- 保留最近的 20 个有效版本 tag
+
+#### 1.2 选择起始版本和目标分支
+
+交互式询问用户：
+
+```
+🏷 请选择起始版本（tag）：
+- [列表显示最近的 tag]
+- [自定义输入]
+
+🔀 请选择目标分支：
+- master
+- feature
+- 自定义输入
+```
+
+#### 1.3 使用 gh 获取 commit 列表
+
+```bash
+git log <from-tag>..<to-branch> --oneline
+```
+
+解析每个 commit，提取 PR 编号（匹配 `#12345` 格式）。
+
+#### 1.4 使用 gh 获取每个 PR 的详情
+
+对每个 PR 编号执行：
+
+```bash
+gh pr view <pr-number> --json title,body,author
+```
+
+返回字段：
+
+- `title`: PR 标题
+- `body`: PR 描述（包含中英文 changelog）
+- `author`: 提交者
+
+#### 1.5 从 PR body 提取中英文描述
+
+PR body 中提取 changelog 的模式：
+
+```
+🇺🇸 English
+- Fix Select incorrect height when value is empty
+
+🇨🇳 Chinese
+- 修复 Select value 为空时高度不正确的问题
+```
+
+或者：
+
+```
+English:
+- Fix Select incorrect height when value is empty
+
+Chinese:
+- 修复 Select value 为空时高度不正确的问题
+```
+
+提取规则：
+
+- 识别 `🇺🇸 English` 或 `English:` 标记后的 `- ` 行作为英文描述
+- 识别 `🇨🇳 Chinese` 或 `Chinese:` 标记后的 `- ` 行作为中文描述
+
+#### 1.6 识别组件 Category
+
+从 PR title 和 body 中识别组件名：
+
+```typescript
+const componentNames = [
+  'Button',
+  'Checkbox',
+  'Radio',
+  'Switch',
+  'Input',
+  'Select',
+  'TreeSelect',
+  'Cascader',
+  'DatePicker',
+  'TimePicker',
+  'Calendar',
+  'Upload',
+  'Modal',
+  'Drawer',
+  'Message',
+  'Notification',
+  'Popconfirm',
+  'Tooltip',
+  'Popover',
+  'Table',
+  'List',
+  'Tree',
+  'Tabs',
+  'Steps',
+  'Progress',
+  'Spin',
+  'Avatar',
+  'Badge',
+  'Tag',
+  'Card',
+  'Collapse',
+  'Carousel',
+  'Breadcrumb',
+  'Pagination',
+  'Menu',
+  'Dropdown',
+  'Form',
+  'Descriptions',
+  'Skeleton',
+  'Empty',
+  'Result',
+  'Alert',
+  'Typography',
+  'Layout',
+  'Grid',
+  'Space',
+  'Flex',
+  'ConfigProvider',
+  'App',
+  'Watermark',
+  'ColorPicker',
+  'QRCode',
+  'Segmented',
+];
+```
+
+匹配规则：大小写不敏感，包含匹配。
+
+#### 1.7 生成临时文件
+
+将收集到的数据写入 `~changelog.md`：
+
+```markdown
+# Changelog Temp File
+
+# Version: 6.4.0
+
+# Generated: 2026-03-09T...
+
+---
+
+## abc1234
+
+- PR: 56976
+- Committer: zombieJ
+- Commit: fix: Select height issue
+- Category: Select
+- English: Fix Select incorrect height when value is empty
+- Chinese: 修复 Select value 为空时高度不正确的问题
+```
 
 ### 阶段二：处理临时文件
 
@@ -117,40 +277,52 @@
 ## 完整交互流程
 
 ```
-1. 运行 npx tsx scripts/generate-changelog.ts
+1. 获取可用 tags，选择起始版本
    ↓
-2. 选择版本，确认目标分支
+2. 选择目标分支（master/feature/自定义）
    ↓
-3. 读取生成的 ~changelog.md
+3. git log 获取两个版本间的 commits
    ↓
-4. 过滤无效 commit（交互确认）
+4. 对每个 PR 执行 gh pr view 获取详情
    ↓
-5. 分组处理（按组件名）
+5. 从 PR body 提取中英文描述
    ↓
-6. 检查描述规范性（交互确认）
+6. 识别组件 category
    ↓
-7. 重新生成不符合规范的描述（如需要）
+7. 生成 ~changelog.md 临时文件
    ↓
-8. 版本确认（minor/patch/不更新）
+8. 过滤无效 commit（交互确认）
    ↓
-9. 预览确认（交互确认）
+9. 分组处理（按组件名）
    ↓
-10. 写入 CHANGELOG.zh-CN.md 和 CHANGELOG.en-US.md
+10. 检查描述规范性（交互确认）
     ↓
-11. 清理临时文件 ~changelog.md
+11. 重新生成不符合规范的描述（如需要）
+    ↓
+12. 版本确认（minor/patch/不更新）
+    ↓
+13. 预览确认（交互确认）
+    ↓
+14. 写入 CHANGELOG.zh-CN.md 和 CHANGELOG.en-US.md
+    ↓
+15. 清理临时文件 ~changelog.md
 ```
 
-## 相关命令
+## 所需命令
 
-- `npx tsx scripts/generate-changelog.ts` - 生成临时 changelog
+此 skill 需要以下命令可用：
+
+- `git tag --list` - 获取版本标签
+- `git log <from>..<to> --oneline` - 获取版本间 commits
+- `gh pr view <pr-number> --json title,body,author` - 获取 PR 详情
 - `git show <hash>` - 查看 commit 详情
-- `git log <from>..<to> --oneline` - 查看版本间 commits
 - `npm version minor` - 升级次版本号（6.3.1 → 6.4.0）
 - `npm version patch` - 升级修订版本号（6.3.1 → 6.3.2）
 
 ## 注意事项
 
-- 需要 gh CLI 认证
+- 需要 gh CLI 认证（运行 `gh auth login`）
 - 写入前必须预览确认
 - 保持中英文同步更新
 - 组件名在正文中要出现（如 `Select 修复...`，不是 `修复 Select...`）
+- PR body 中没有中英文描述时，使用 PR title 作为后备
