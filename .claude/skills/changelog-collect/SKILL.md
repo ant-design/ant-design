@@ -161,9 +161,11 @@ const componentNames = [
 
 匹配规则：大小写不敏感，包含匹配。
 
-#### 1.7 生成临时文件
+#### 1.7 实时写入临时文件
 
-将收集到的数据写入 `~changelog.md`：
+**重要：每获取一个 PR 的信息就立即写入 `~changelog.md`，不要等全部遍历完毕再写入。** 这样可以防止超出对话上下文限制。
+
+首先初始化 `~changelog.md` 文件头部：
 
 ```markdown
 # Changelog Temp File
@@ -173,6 +175,26 @@ const componentNames = [
 # Generated: 2026-03-09T...
 
 ---
+```
+
+每获取一个 PR 的详情后，立即追加写入：
+
+```markdown
+## abc1234
+
+- PR: 56976
+- Committer: zombieJ
+- Commit: fix: Select height issue
+- Category: Select
+- English: Fix Select incorrect height when value is empty
+- Chinese: 修复 Select value 为空时高度不正确的问题
+```
+
+追加写入方式：
+
+```bash
+# 使用 >> 追加写入
+cat >> ~changelog.md << 'EOF'
 
 ## abc1234
 
@@ -182,6 +204,24 @@ const componentNames = [
 - Category: Select
 - English: Fix Select incorrect height when value is empty
 - Chinese: 修复 Select value 为空时高度不正确的问题
+EOF
+```
+
+或者使用 Node.js：
+
+```javascript
+const content = `
+## ${hash}
+
+- PR: ${prNumber}
+- Committer: ${committer}
+- Commit: ${commitMessage}
+- Category: ${category}
+- English: ${english}
+- Chinese: ${chinese}
+`;
+
+fs.appendFileSync('~changelog.md', content, 'utf8');
 ```
 
 ### 阶段二：处理临时文件
@@ -289,7 +329,7 @@ const componentNames = [
    ↓
 6. 识别组件 category
    ↓
-7. 生成 ~changelog.md 临时文件
+7. **实时追加写入** ~changelog.md（每获取一个 PR 就写入）
    ↓
 8. 过滤无效 commit（交互确认）
    ↓
@@ -318,6 +358,7 @@ const componentNames = [
 - `git show <hash>` - 查看 commit 详情
 - `npm version minor` - 升级次版本号（6.3.1 → 6.4.0）
 - `npm version patch` - 升级修订版本号（6.3.1 → 6.3.2）
+- `cat >> ~changelog.md` 或 Node.js fs.appendFileSync - 实时追加写入
 
 ## 注意事项
 
