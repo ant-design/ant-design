@@ -1,5 +1,6 @@
 import Link from './Link';
 import Paragraph from './Paragraph';
+import Shimmer from './Shimmer';
 import Text from './Text';
 import Title from './Title';
 import OriginTypography from './Typography';
@@ -9,6 +10,7 @@ export type TypographyProps = typeof OriginTypography & {
   Link: typeof Link;
   Title: typeof Title;
   Paragraph: typeof Paragraph;
+  Shimmer: typeof Shimmer;
 };
 
 const Typography = OriginTypography as TypographyProps;
@@ -16,5 +18,6 @@ Typography.Text = Text;
 Typography.Link = Link;
 Typography.Title = Title;
 Typography.Paragraph = Paragraph;
+Typography.Shimmer = Shimmer;
 
 export default Typography;
