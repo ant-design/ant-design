@@ -58,3 +58,4 @@ tag: New
 | **Trae** | 添加到项目的知识源设置中。[文档](https://trae.ai/docs) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
 | **Qoder** | 添加到 `.qoder/config.yml` 或在对话中使用 `@docs`。[文档](https://docs.qoder.com/) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
 | **Neovate Code** | 运行 `neovate` 并使用提示词描述任务。[文档](https://github.com/neovateai/neovate-code) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
+
