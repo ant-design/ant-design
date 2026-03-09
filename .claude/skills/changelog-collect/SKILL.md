@@ -177,7 +177,26 @@
 - 🐞 Fix Input height inconsistency with Select when using `variant="borderless"`. [#57014](...)
 ```
 
-#### 6. 写入确认（交互式）
+#### 6. 版本确认（交互式）
+
+在写入前询问是否需要更新版本：
+
+```
+是否需要更新 package.json 中的版本号？
+
+当前版本: 6.3.1
+选项:
+- [minor] 升级到 6.4.0（次版本号）
+- [patch] 升级到 6.3.2（修订版本号）
+- [不更新] 保持当前版本
+```
+
+用户选择后：
+
+- 如果选择 minor/patch：使用 `npm version` 命令更新 package.json
+- 写入 changelog 时使用新版本号
+
+#### 7. 写入确认（交互式）
 
 **预览确认**：
 
@@ -219,11 +238,13 @@
    ↓
 7. 重新生成不符合规范的描述（如需要）
    ↓
-8. 预览确认（交互确认）
+8. 版本确认（minor/patch/不更新）
    ↓
-9. 写入 CHANGELOG.zh-CN.md 和 CHANGELOG.en-US.md
+9. 预览确认（交互确认）
    ↓
-10. 清理临时文件 ~changelog.md
+10. 写入 CHANGELOG.zh-CN.md 和 CHANGELOG.en-US.md
+   ↓
+11. 清理临时文件 ~changelog.md
 ```
 
 ## 相关命令
@@ -231,6 +252,8 @@
 - `npx tsx scripts/generate-changelog.ts` - 生成临时 changelog
 - `git show <hash>` - 查看 commit 详情
 - `git log <from>..<to> --oneline` - 查看版本间 commits
+- `npm version minor` - 升级次版本号（6.3.1 → 6.4.0）
+- `npm version patch` - 升级修订版本号（6.3.1 → 6.3.2）
 
 ## 注意事项
 
