@@ -174,6 +174,8 @@ Chinese:
 - 识别 `🇺🇸 English` 或 `English:` 标记后的 `- ` 行作为英文描述
 - 识别 `🇨🇳 Chinese` 或 `Chinese:` 标记后的 `- ` 行作为中文描述
 
+如果 PR body 中没有明确的中英文描述，则查询完整 commit 内容，自动生成。
+
 ##### 识别组件 Category
 
 从 PR title 和 body 中识别组件名：
@@ -270,19 +272,7 @@ const componentNames = [
 - [Emoji 规范](./AGENTS.md#emoji-规范严格执行) - 根据 commit 类型自动标记
 - [输出示例参考](./AGENTS.md#输出示例参考) - 中英文格式参考
 
-**交互确认**：
-
-```
-过滤规则确认：
-- 将过滤: docs, test, refactor, chore, ci 开头的 commit
-- 保留: fix, feat, style, perf, a11y 等
-选项：[确认过滤] [不过滤全部] [自定义规则]
-```
-
-```
-发现 N 条不符合规范的描述
-选项：[全部重新生成] [逐个确认] [跳过]
-```
+根据 AGENTS.md 的规范，对 `~changelog.md` 中的条目进行过滤、分组、格式检查，并在必要时进行交互式确认和修改。
 
 ### 阶段三：写入文件
 
