@@ -37,59 +37,59 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
 | ellipsis | Display ellipsis when text overflows, can't configure expandable, rows and onExpand by using object. Diff with Typography.Paragraph, Text do not have 100% width style which means it will fix width on the first ellipsis. If you want to have responsive ellipsis, please set width manually | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false |  |
+| italic | Italic style | boolean | false | 4.16.0 |
 | keyboard | Keyboard style | boolean | false | 4.3.0 |
 | mark | Marked style | boolean | false |  |
-| onClick | Set the handler to handle click event | (event) => void | - |  |
 | strong | Bold style | boolean | false |  |
-| italic | Italic style | boolean | false | 4.16.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 
 ### Typography.Title
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  |
+| italic | Italic style | boolean | false | 4.16.0 |
 | level | Set content importance. Match with `h1`, `h2`, `h3`, `h4`, `h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | Marked style | boolean | false |  |
-| onClick | Set the handler to handle click event | (event) => void | - |  |
-| italic | Italic style | boolean | false | 4.16.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 
 ### Typography.Paragraph
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
 | delete | Deleted line style | boolean | false |  |
 | disabled | Disabled content | boolean | false |  |
 | editable | If editable. Can control edit state when is object | boolean \| [editable](#editable) | false |  |
 | ellipsis | Display ellipsis when text overflows, can configure rows and expandable by using object | boolean \| [ellipsis](#ellipsis) | false |  |
-| mark | Marked style | boolean | false |  |
-| onClick | Set the handler to handle click event | (event) => void | - |  |
-| strong | Bold style | boolean | false |  |
 | italic | Italic style | boolean | false | 4.16.0 |
+| mark | Marked style | boolean | false |  |
+| strong | Bold style | boolean | false |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
+| onClick | Set the handler to handle click event | (event) => void | - |  |
 
 ### copyable
 
@@ -106,10 +106,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | format | The Mime Type of the text | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode] | - | 4.6.0 |
+| tabIndex | Set tabIndex of the copy button | number | 0 | 5.17.0 |
 | text | The text to copy | string | - |  |
 | tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |
 | onCopy | Called when copied text | function | - |  |
-| tabIndex | Set tabIndex of the copy button | number | 0 | 5.17.0 |
 
 ### editable
 
@@ -133,17 +133,17 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | autoSize | `autoSize` attribute of textarea | boolean \| { minRows: number, maxRows: number } | - | 4.4.0 |
 | editing | Whether to be editable | boolean | false |  |
+| enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
 | icon | Custom editable icon | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | `maxLength` attribute of textarea | number | - | 4.4.0 |
-| tooltip | Custom tooltip text, hide when it is false | ReactNode | `Edit` | 4.6.0 |
-| text | Edit text, specify the editing content instead of using the children implicitly | string | - | 4.24.0 |
-| onChange | Called when input at textarea | function(value: string) | - |  |
-| onCancel | Called when type ESC to exit editable state | function | - |  |
-| onStart | Called when enter editable state | function | - |  |
-| onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
-| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
-| enterIcon | Custom "enter" icon in the edit field (passing `null` removes the icon) | ReactNode | `<EnterOutlined />` | 4.17.0 |
 | tabIndex | Set tabIndex of the edit button | number | 0 | 5.17.0 |
+| text | Edit text, specify the editing content instead of using the children implicitly | string | - | 4.24.0 |
+| tooltip | Custom tooltip text, hide when it is false | ReactNode | `Edit` | 4.6.0 |
+| triggerType | Edit mode trigger - icon, text or both (not specifying icon as trigger hides it) | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| onCancel | Called when type ESC to exit editable state | function | - |  |
+| onChange | Called when input at textarea | function(value: string) | - |  |
+| onEnd | Called when type ENTER to exit editable state | function | - | 4.14.0 |
+| onStart | Called when enter editable state | function | - |  |
 
 ### ellipsis
 
@@ -168,13 +168,13 @@ interface EllipsisConfig {
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| defaultExpanded | Default expand or collapse | boolean |  | 5.16.0 |
 | expandable | Whether to be expandable | boolean \| 'collapsible' | - | `collapsible`: 5.16.0 |
+| expanded | Expand or Collapse | boolean |  | 5.16.0 |
 | rows | Max rows of content | number | - |  |
 | suffix | Suffix of ellipsis content | string | - |  |
 | symbol | Custom description of ellipsis | ReactNode \| ((expanded: boolean) => ReactNode) | `Expand` `Collapse` |  |
 | tooltip | Show tooltip when ellipsis | ReactNode \| [TooltipProps](/components/tooltip/#api) | - | 4.11.0 |
-| defaultExpanded | Default expand or collapse | boolean |  | 5.16.0 |
-| expanded | Expand or Collapse | boolean |  | 5.16.0 |
 | onEllipsis | Called when enter or leave ellipsis state | function(ellipsis) | - | 4.2.0 |
 | onExpand | Called when expand content | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
 
