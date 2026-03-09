@@ -10,6 +10,7 @@ import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
+import usePlaceholderConfig, { isPlaceholderConfig } from './hooks/usePlaceholderConfig';
 import usePreviewConfig from './hooks/usePreviewConfig';
 import PreviewGroup, { icons } from './PreviewGroup';
 import Progress from './Progress';
@@ -105,31 +106,6 @@ export interface ImageProps
   classNames?: ImageSemanticAllType['classNamesAndFn'];
   styles?: ImageSemanticAllType['stylesAndFn'];
   placeholder?: PlaceholderType;
-}
-
-// ======================= Helper Functions =======================
-function isPlaceholderConfig(
-  placeholder: unknown,
-): placeholder is { progress?: boolean | ImageProgressConfig } {
-  return !!placeholder && typeof placeholder === 'object' && !React.isValidElement(placeholder);
-}
-
-function normalizePlaceholder(placeholder?: PlaceholderType): {
-  progressConfig?: ImageProgressConfig;
-} {
-  if (!placeholder || !isPlaceholderConfig(placeholder)) {
-    return {};
-  }
-
-  if (typeof placeholder.progress === 'boolean') {
-    return {
-      progressConfig: placeholder.progress ? {} : undefined,
-    };
-  }
-
-  return {
-    progressConfig: placeholder.progress,
-  };
 }
 
 export type { ProgressClassNames, ProgressStyles };
@@ -252,7 +228,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
   const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;
 
   // ============================= Progress ==============================
-  const { progressConfig } = normalizePlaceholder(placeholder);
+  const { progressConfig } = usePlaceholderConfig(placeholder);
   const showProgressOverlay = progressConfig !== undefined;
 
   const { percent, render: progressRender } = progressConfig || {};

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { CloseCircleFilled } from '@ant-design/icons';
 import { warning } from '@rc-component/util';
-import ConfigProvider from 'antd/es/config-provider';
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import { render, resetMockDate, setMockDate } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import enUS from '../locale/en_US';
 import { closePicker, getClearButton, openPicker, selectCell } from './utils';
 
