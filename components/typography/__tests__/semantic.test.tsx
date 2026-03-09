@@ -112,7 +112,7 @@ describe('Typography.Semantic', () => {
 
     const rootElement = document.querySelector<HTMLElement>('.ant-typography');
     const actionsElement = document.querySelector<HTMLElement>('.ant-typography-actions');
-    const actionElement = document.querySelector<HTMLElement>('.ant-typography-action');
+    const actionElement = document.querySelector<HTMLElement>('.ant-typography-copy');
 
     expect(rootElement).toHaveClass(clsx(contextClassNames.root, componentClassNames.root));
     expect(actionsElement).toHaveClass(contextClassNames.actions!);
