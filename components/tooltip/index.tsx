@@ -276,13 +276,16 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     </ContextIsolator>
   );
 
+  const mergedGetPopupContainer = getPopupContainer || getContextPopupContainer;
+  const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
+
   // =========== Merged Props for Semantic ===========
   const mergedProps: TooltipProps = {
     ...props,
     trigger: mergedTrigger,
     builtinPlacements: tooltipPlacements,
-    getPopupContainer: getPopupContainer || getTooltipContainer || getContextPopupContainer,
-    destroyOnHidden: destroyOnHidden ?? !!destroyTooltipOnHide,
+    getPopupContainer: mergedGetPopupContainer,
+    destroyOnHidden: mergedDestroyOnHidden,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic<
@@ -386,8 +389,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       }}
       trigger={mergedTrigger}
       builtinPlacements={tooltipPlacements}
-      getTooltipContainer={mergedProps.getPopupContainer}
-      destroyOnHidden={mergedProps.destroyOnHidden}
+      getTooltipContainer={mergedGetPopupContainer}
+      destroyOnHidden={mergedDestroyOnHidden}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
