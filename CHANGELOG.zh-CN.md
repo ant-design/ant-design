@@ -19,28 +19,26 @@ tag: vVERSION
 
 `2026-03-09`
 
+- 🐞 修复 Form.Item 使用动态 `rules` 与 `dependencies` 配合使用时，时序问题导致的校验失败的问题。[#57147](https://github.com/ant-design/ant-design/pull/57147) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 InputNumber 在 `borderless` 形态下与 Input 或 Select 并排时高度异常的问题。[#57162](https://github.com/ant-design/ant-design/pull/57162) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Radio.Group 在选项文案长短不一或换行时，勾选框宽度不一致的问题。[#57171](https://github.com/ant-design/ant-design/pull/57171) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Skeleton.Avatar，Skeleton.Button，Skeleton.Input，Rate 及 Spin 无法响应全局 `componentSize` 设置的问题。[#57093](https://github.com/ant-design/ant-design/pull/57093) [#57106](https://github.com/ant-design/ant-design/pull/57106) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Splitter 存在 `size` 受控面板时其他面板尺寸可能计算错误的问题。[#57142](https://github.com/ant-design/ant-design/pull/57142) [@js0753](https://github.com/js0753)
+- 🐞 修复 Tree 及 TreeSelect 在自定义 `titleHeight` 时会连线错位的问题。[#56785](https://github.com/ant-design/ant-design/pull/56785) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 Checkbox.Group 在选项文案长短不一或换行时，勾选框宽度不一致的问题。[#57144](https://github.com/ant-design/ant-design/pull/57144) [@QDyanbing](https://github.com/QDyanbing)
+- 💄 修复 ConfigProvider 的 `csp` 配置没有对所有的动态 style 生效的问题。[#57159](https://github.com/ant-design/ant-design/pull/57159) [@zombieJ](https://github.com/zombieJ)
 - Select
-  - 🐞 Select 修复通过 `style` 属性设置 `visibility: hidden` 时标签不隐藏的问题。[#56720](https://github.com/ant-design/ant-design/pull/56720) [@claytonlin1110](https://github.com/claytonlin1110)
-  - 🐞 Select 修复在 Firefox 中选择选项时文本跳动的问题。[#57030](https://github.com/ant-design/ant-design/pull/57030) [@pierreeurope](https://github.com/pierreeurope)
+  - 💄 修复 Select 在 Firefox 浏览器下可能出现文字跳动的问题。[#57030](https://github.com/ant-design/ant-design/pull/57030) [@pierreeurope](https://github.com/pierreeurope)
+  - 💄 修复 Select 无法通过 `style` 设置 `visibility: hidden` 的问题。[#56720](https://github.com/ant-design/ant-design/pull/56720) [@claytonlin1110](https://github.com/claytonlin1110)
 - Upload
-  - 🐞 Upload 优化触屏设备可用性，在不支持悬停或粗指针设备上默认显示列表操作按钮。[#57156](https://github.com/ant-design/ant-design/pull/57156) [@Arktomson](https://github.com/Arktomson)
-  - 🐞 Upload 修复 picture-card 模式下文件列表为空时仍占用最小高度导致空白区域的问题。[#57157](https://github.com/ant-design/ant-design/pull/57157) [@QDyanbing](https://github.com/QDyanbing)
-  - 🤖 Upload.Dragger 新增泛型支持。[#57103](https://github.com/ant-design/ant-design/pull/57103) [@fnoopv](https://github.com/fnoopv)
-- Tree/TreeSelect
-  - 🐞 Tree/TreeSelect 修复在 `showLine` + 自定义 `titleHeight` 时连接线错位问题。[#56785](https://github.com/ant-design/ant-design/pull/56785) [@QDyanbing](https://github.com/QDyanbing)
-- Form
-  - 🐞 Form.Item 修复在 `Space.Compact` 布局时无法使用 `setFieldsValue` 的问题。[#57066](https://github.com/ant-design/ant-design/pull/57066)
-  - 🐞 Form.Item 修复使用动态 `rules` 与 `dependencies` 配合时，时序问题导致的校验失败。[#57147](https://github.com/ant-design/ant-design/pull/57147) [@zombieJ](https://github.com/zombieJ)
-- 🐞 Skeleton.Avatar/Button/Input 修复无法响应 `ConfigProvider.componentSize` 的问题。[#57093](https://github.com/ant-design/ant-design/pull/57093) [@QDyanbing](https://github.com/QDyanbing)
-- 💄 ConfigProvider 统一 size className；Rate 支持全局 size；Table 支持 medium。[#57106](https://github.com/ant-design/ant-design/pull/57106) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 ConfigProvider 修复 `csp` 配置没有对所有动态 style 生效的问题。[#57159](https://github.com/ant-design/ant-design/pull/57159) [@zombieJ](https://github.com/zombieJ)
-- 🐞 Checkbox.Group 修复选项文案长短不一或换行时，勾选方框宽度不一致的问题。[#57144](https://github.com/ant-design/ant-design/pull/57144) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 Splitter 修复部分 Panel 设置 size 时计算不正确的问题。[#57142](https://github.com/ant-design/ant-design/pull/57142) [@js0753](https://github.com/js0753)
-- 🐞 InputNumber 修复 borderless 形态与 Input/Select 并排时高度异常的问题。[#57162](https://github.com/ant-design/ant-design/pull/57162) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 Radio.Group 修复选项文案长短不一或换行时，勾选方框宽度不一致的问题。[#57171](https://github.com/ant-design/ant-design/pull/57171) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 Image 修复预览层叠上下文问题。[#57201](https://github.com/ant-design/ant-design/pull/57201) [@aojunhao123](https://github.com/aojunhao123)
-- 🤖 Modal `onCancel` 事件参数类型现在正确支持键盘事件，以适配 Esc 键关闭场景。[#57048](https://github.com/ant-design/ant-design/pull/57048) [@eureka928](https://github.com/eureka928)
-- 🆕 新增 es_US 国际化支持（西班牙语美国日期格式）。[#57137](https://github.com/ant-design/ant-design/pull/57137) [@yuriidumych-max](https://github.com/yuriidumych-max)
+  - 💄 修复 Upload 在 `picture-card` 模式下无数据时仍然存在无效空白区域的问题。[#57157](https://github.com/ant-design/ant-design/pull/57157) [@QDyanbing](https://github.com/QDyanbing)
+  - ⌨️ 优化 Upload 在不支持悬停或粗指针的设备上默认显示列表操作按钮。[#57156](https://github.com/ant-design/ant-design/pull/57156) [@Arktomson](https://github.com/Arktomson)
+- 🌐 新增 `es_US` 国际化配置。[#57137](https://github.com/ant-design/ant-design/pull/57137) [@yuriidumych-max](https://github.com/yuriidumych-max)
+- 🛠 统一 `size` 枚举值定义，针对 Badge、Card、Progress、Steps、Switch 及 Spin 使用 `medium` 替代 `default`，针对 Descriptions 使用 `medium` 和 `large` 替代 `middle` 和 `default`，针对 Table 和 Divider 使用 `medium` 替代 `middle`。[#57127](https://github.com/ant-design/ant-design/pull/57127) [#57106](https://github.com/ant-design/ant-design/pull/57106) [@QDyanbing](https://github.com/QDyanbing)
+- 🛠 统一 `size` className 在所有组件元素上的设置值。[#57106](https://github.com/ant-design/ant-design/pull/57106) [@QDyanbing](https://github.com/QDyanbing)
+- TypeScript
+  - 🤖 新增 Upload.Dragger 的泛型支持。[#57103](https://github.com/ant-design/ant-design/pull/57103) [@fnoopv](https://github.com/fnoopv)
+  - 🤖 修复 Modal `onCancel` 入参不支持 `KeyboardEvent` 类型的问题。[#57048](https://github.com/ant-design/ant-design/pull/57048) [@eureka928](https://github.com/eureka928)
 
 ## 6.3.1
 
