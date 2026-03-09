@@ -9,6 +9,7 @@ import {
   getEllipsisStyles,
   getLinkStyles,
   getResetStyles,
+  getShimmerStyles,
   getTitleStyles,
 } from './mixins';
 
@@ -117,6 +118,9 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
       ...getCopyableStyles(token),
 
       ...getEllipsisStyles(),
+
+      // Shimmer
+      '&-shimmer': getShimmerStyles(token),
 
       '&-rtl': {
         direction: 'rtl',

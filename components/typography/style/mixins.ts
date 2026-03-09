@@ -10,10 +10,17 @@
 import { gold } from '@ant-design/colors';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { Keyframes } from '@ant-design/cssinjs';
 
 import type { TypographyToken } from '.';
 import { operationUnit, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
+
+// Shimmer animation keyframes
+const shimmerAnimation = new Keyframes('antTypographyShimmer', {
+  '0%': { backgroundPositionX: '200%' },
+  '100%': { backgroundPositionX: '-200%' },
+});
 
 const getTitleStyle = (
   fontSize: number | string,
@@ -321,3 +328,28 @@ export const getEllipsisStyles = (): CSSObject => ({
     WebkitBoxOrient: 'vertical',
   },
 });
+
+export const getShimmerStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
+  const { colorText } = token;
+
+  return {
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    color: 'transparent',
+    backgroundColor: 'transparent',
+    backgroundImage: `linear-gradient(90deg, transparent, ${colorText}, transparent)`,
+    backgroundSize: '200% 100%',
+    animationName: shimmerAnimation,
+    animationDuration: `var(--ant-typography-shimmer-duration, 2s)`,
+    animationIterationCount: 'infinite',
+    animationTimingFunction: 'linear',
+
+    '&-disabled': {
+      animation: 'none',
+      backgroundImage: 'none',
+      color: colorText,
+      WebkitBackgroundClip: 'unset',
+      backgroundClip: 'unset',
+    },
+  };
+};
