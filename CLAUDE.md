@@ -34,6 +34,7 @@ npm run format         # 代码格式化
 - 属性名使用小驼峰（camelCase）
 - 面板开启状态使用 `open`，避免使用 `visible`
 - 测试覆盖率要求 100%
+- **所有文件必须以换行符结尾**，避免 `final-newline` lint 警告
 
 ---
 
