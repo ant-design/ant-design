@@ -27,7 +27,7 @@ const Block: React.FC<Readonly<TypographyProps>> = (props) => {
   const [editing, setEditing] = React.useState(false);
 
   return (
-    <Flex vertical gap="middle" align="center" style={{ width: '100%', alignSelf: 'flex-start' }}>
+    <Flex vertical gap="middle" align="start" style={{ width: '100%', alignSelf: 'flex-start' }}>
       <Switch
         checked={editing}
         onChange={setEditing}
