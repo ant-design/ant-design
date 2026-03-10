@@ -532,6 +532,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
             }}
             component={component}
             ref={composeRef(resizeRef, typographyRef, ref)}
+            direction={direction}
             onClick={triggerType.includes('text') ? onEditClick : undefined}
             aria-label={topAriaLabel?.toString()}
             title={title}

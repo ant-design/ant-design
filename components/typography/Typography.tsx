@@ -75,7 +75,6 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps<keyof JSX.Intri
       prefixCls: customizePrefixCls,
       className,
       rootClassName,
-      children,
       direction: typographyDirection,
       classNames,
       styles,
@@ -88,16 +87,13 @@ const Typography = React.forwardRef<HTMLElement, TypographyProps<keyof JSX.Intri
     return (
       <InternalTypography
         ref={ref}
-        component="article"
         className={clsx(className, rootClassName)}
         direction={mergedDirection}
         classNames={mergedClassNames}
         styles={mergedStyles}
         prefixCls={mergedPrefixCls}
         {...restProps}
-      >
-        {children}
-      </InternalTypography>
+      />
     );
   },
 );
