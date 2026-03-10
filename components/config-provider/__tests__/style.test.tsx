@@ -1305,7 +1305,7 @@ describe('ConfigProvider support style and className props', () => {
       >
         <Table
           columns={[{ title: 'Address', dataIndex: 'address', key: 'address 1', ellipsis: true }]}
-          dataSource={[{ key: '1', name: 'Jim Green', age: 40, address: 'test', tags: ['loser'] }]}
+          dataSource={[{ key: '1', name: 'Jim Green', age: 40, address: 'test', tags: ['kawaii'] }]}
         />
       </ConfigProvider>,
     );

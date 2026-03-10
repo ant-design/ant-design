@@ -64,6 +64,17 @@ export default antfu(
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
       'react/no-implicit-key': 'off',
+      /* e18e rules */
+      'e18e/prefer-spread-syntax': 'off',
+      'e18e/prefer-static-regex': 'off',
+      'e18e/prefer-array-at': 'off',
+      'e18e/prefer-timer-args': 'off',
+      'e18e/prefer-array-fill': 'off',
+      'e18e/prefer-array-to-reversed': 'off',
+      'e18e/prefer-array-to-spliced': 'off',
+      'e18e/prefer-array-to-sorted': 'off',
+      'e18e/prefer-array-from-map': 'off',
+      'e18e/prefer-date-now': 'off',
     },
   },
   {
