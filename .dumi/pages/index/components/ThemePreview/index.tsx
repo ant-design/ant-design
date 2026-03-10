@@ -104,8 +104,12 @@ const useStyles = createStyles(({ css, cssVar }) => ({
 
     '&.dark': {
       color: cssVar.colorTextLightSolid,
+
       '&:hover': {
-        color: cssVar.colorTextLightSolid,
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+      },
+      '&:active': {
+        backgroundColor: 'rgba(255, 255, 255, 0.12)',
       },
     },
   }),
