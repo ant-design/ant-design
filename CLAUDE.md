@@ -1,40 +1,62 @@
 # Ant Design 项目开发指南
 
-> 本文件为 Claude Code 提供项目上下文，在每次会话开始时自动加载。
->
-> 完整的开发规范请查阅 [AGENTS.md](./AGENTS.md)
+> 本文件为 AI 编程助手提供项目上下文和开发规范。
 
-## 快速参考
-
-### 项目信息
+## 项目信息
 
 - React 组件库，发布为 npm 包 `antd`
 - 使用 TypeScript 和 React 开发
 - 采用 CSS-in-JS 架构（基于 `@ant-design/cssinjs`）
-- 支持 Design Token 主题系统
+- 支持 Design Token 主题系统、暗色模式、RTL 布局、SSR、国际化（150+ 语言）
 
-### 常用命令
+### 项目结构
 
-```bash
-npm start              # 启动开发服务器（http://127.0.0.1:8001）
-npm run build          # 完整构建
-npm test               # 运行测试
-npm run lint           # 代码检查
-npm run format         # 代码格式化
+```
+ant-design/
+├── components/              # 组件源代码（84+ 组件）
+│   ├── component-name/      # 单个组件目录
+│   │   ├── ComponentName.tsx      # 主组件实现
+│   │   ├── demo/                  # 演示代码（*.tsx 和 *.md）
+│   │   ├── style/                 # 样式系统（index.ts / token.ts）
+│   │   ├── __tests__/            # 单元测试
+│   │   ├── index.en-US.md        # 英文文档
+│   │   ├── index.zh-CN.md        # 中文文档
+│   │   └── index.tsx             # 导出入口
+│   ├── _util/                   # 共享工具函数库
+│   ├── theme/                   # 主题系统
+│   └── locale/                  # 国际化文本
+├── tests/                       # 测试工具和共享测试
+├── docs/                        # 站点文档
+├── CHANGELOG.zh-CN.md           # 中文更新日志
+└── CHANGELOG.en-US.md           # 英文更新日志
 ```
 
-### 核心规范
+---
 
-- 使用函数式组件和 Hooks，避免类组件
-- 使用 `forwardRef` 实现组件 ref 传递
-- 使用 `clsx` 处理类名拼接
-- 使用 `displayName` 设置组件调试名称
-- 支持 Semantic 样式系统（`classNames` 和 `styles` 属性）
-- 组件名使用大驼峰（PascalCase）
-- 属性名使用小驼峰（camelCase）
-- 面板开启状态使用 `open`，避免使用 `visible`
-- 测试覆盖率要求 100%
-- **所有文件必须以换行符结尾**，避免 `final-newline` lint 警告
+## 文档规范
+
+### API 表格格式
+
+| Property | Description | Type | Default | Version |
+|---|---|---|---|---|
+| disabled | 是否禁用 | boolean | false | - |
+| type | 按钮类型 | `primary` \| `default` | `default` | - |
+
+- 字符串默认值用反引号，布尔/数字直接写，无默认值用 `-`
+- API 按字母顺序排列，新增属性需声明版本号
+
+### 文档锚点 ID 规范
+
+- 中文标题必须手动指定英文锚点：`## 中文标题 {#english-anchor-id}`
+- 锚点 ID 符合 `^[a-zA-Z][\w-:\.]*$`，长度不超过 32 字符
+- FAQ 章节下的锚点必须以 `faq-` 为前缀
+- 同一问题的中英文锚点保持一致
+
+### 国际化规范
+
+- 本地化配置文件：`components/locale/`，命名如 `zh_CN.ts`、`en_US.ts`
+- 添加或修改本地化配置时，需同时修改所有语言文件
+- 类型入口：`components/locale/index.tsx`
 
 ---
 
@@ -99,7 +121,7 @@ npm run format         # 代码格式化
 #### 句式
 
 | 语言 | 格式 | 示例 |
-| --- | --- | --- |
+|---|---|---|
 | 中文 | `Emoji 组件名 动词/描述` | `🐞 Button 修复暗色主题下 \`color\` 的问题。` |
 | 英文 | `Emoji 动词 组件名 描述`（动词在前） | `🐞 Fix Button reversed \`hover\` colors in dark theme.` |
 
@@ -111,7 +133,7 @@ npm run format         # 代码格式化
 ### Emoji 规范
 
 | Emoji  | 用途                   |
-| ------ | ---------------------- |
+|--------|------------------------|
 | 🐞     | 修复 Bug               |
 | 💄     | 样式更新或 token 更新  |
 | 🆕     | 新增特性 / 新增属性    |
@@ -125,24 +147,12 @@ npm run format         # 代码格式化
 | 🛠     | 重构或工具链优化       |
 | ⚡️     | 性能提升               |
 
-### 示例
-
-**中文**：
-
-```markdown
-- Button
-  - 🐞 Button 修复暗色主题下 `color` 的 `hover` 与 `active` 状态颜色相反的问题。[#56872](链接) [@zombieJ](链接)
-- 💄 Modal 默认关闭蒙层 blur 效果。[#56781](链接) [@aojunhao123](链接)
-```
-
-**英文**：
-
-```markdown
-- Button
-  - 🐞 Fix Button reversed `hover` and `active` colors for `color` in dark theme. [#56872](link) [@zombieJ](link)
-- 💄 Disable Modal mask blur effect by default. [#56781](link) [@aojunhao123](link)
-```
+编写 Changelog 时，请参考 `CHANGELOG.zh-CN.md` 和 `CHANGELOG.en-US.md` 中已有条目的格式。
 
 ---
 
-**详细规范请查阅 [AGENTS.md](./AGENTS.md)**
+## 参考资源
+
+- [API Naming Rules](https://github.com/ant-design/ant-design/wiki/API-Naming-rules) - API 命名规范
+- [轮值规则和版本发布流程](https://github.com/ant-design/ant-design/wiki/%E8%BD%AE%E5%80%BC%E8%A7%84%E5%88%99%E5%92%8C%E7%89%88%E6%9C%AC%E5%8F%91%E5%B8%83%E6%B5%81%E7%A8%8B) - 版本发布流程
+- [Unique Panel Component](https://github.com/ant-design/ant-design/wiki/Unique-Panel-Component) - 独立面板组件规范
