@@ -158,6 +158,7 @@
   "devDependencies": {
     "@ant-design/compatible": "^5.1.4",
     "@ant-design/happy-work-theme": "^2.0.0",
+    "@ant-design/static-style-extract": "^2.1.0",
     "@ant-design/tools": "^19.1.0",
     "@ant-design/x": "^2.2.0",
     "@ant-design/x-sdk": "^2.2.0",
