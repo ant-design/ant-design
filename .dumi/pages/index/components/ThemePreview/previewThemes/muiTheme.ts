@@ -5,8 +5,6 @@ import type { ConfigProviderProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
-import type { UseTheme } from '.';
-
 type WaveConfig = GetProp<ConfigProviderProps, 'wave'>;
 
 // Prepare effect holder
@@ -124,7 +122,7 @@ const useStyles = createStyles(({ css }) => {
   };
 });
 
-const useMuiTheme: UseTheme = () => {
+const useMuiTheme = () => {
   const { styles } = useStyles();
 
   return useMemo<ConfigProviderProps>(
