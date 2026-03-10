@@ -126,4 +126,29 @@ describe('Typography.Semantic', () => {
     });
     expect(actionsElement).toHaveStyle({ margin: contextStyles.actions?.margin });
   });
+
+  it('should support classNames and styles for textarea in editing mode', () => {
+    const classNames = {
+      root: 'custom-root-class',
+      textarea: 'custom-textarea-class',
+    } as const;
+    const styles = {
+      root: { color: '#1890ff' },
+      textarea: { fontSize: '20px' },
+    } as const;
+
+    const { container } = render(
+      <Typography.Paragraph editable={{ editing: true }} classNames={classNames} styles={styles}>
+        Test Typography
+      </Typography.Paragraph>,
+    );
+
+    const rootElement = document.querySelector<HTMLElement>('.ant-typography');
+    expect(rootElement).toHaveClass('custom-root-class');
+    expect(rootElement).toHaveStyle({ color: 'rgb(24, 144, 255)' });
+
+    const textarea = container.querySelector<HTMLTextAreaElement>('textarea');
+    expect(textarea).toHaveClass('custom-textarea-class');
+    expect(textarea).toHaveStyle({ fontSize: '20px' });
+  });
 });
