@@ -5,14 +5,11 @@ import type { ThemeConfig } from 'antd';
 const MINIMAL_THEME_IMPORTS = `import React from 'react';
 import { ConfigProvider, theme } from 'antd';`;
 
-/** 从 hook 源码中解析 hook 名，并做仅去掉 UseTheme 依赖的清洗，保留 export default，作为单独的主题文件 */
+/** 从 hook 源码中解析 hook 名，并保留 export default 作为单独的主题文件 */
 function getThemeFileContent(source: string): { content: string; hookName: string } {
   const hookNameMatch = source.match(/export\s+default\s+(\w+)/);
   const hookName = hookNameMatch?.[1] ?? 'useTheme';
-  const content = source
-    .replace(/import type \{ UseTheme \} from '\.';\s*\n?/g, '')
-    .replace(/const (use\w+Theme): UseTheme = /g, 'const $1 = ')
-    .trim();
+  const content = source.trim();
   return { content, hookName };
 }
 

@@ -4,8 +4,6 @@ import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
-import type { UseTheme } from '.';
-
 const useStyles = createStyles(({ css, cssVar }) => {
   const lightBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
@@ -76,7 +74,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 });
 
-const useGeekTheme: UseTheme = () => {
+const useGeekTheme = () => {
   const { styles } = useStyles();
 
   return useMemo<ConfigProviderProps>(
