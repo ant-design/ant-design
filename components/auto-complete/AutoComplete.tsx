@@ -132,6 +132,34 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const getInputElement = customizeInput ? (): React.ReactElement => customizeInput! : undefined;
 
+  // ============================= Popup Offset =============================
+  // Calculate dynamic offset for textarea to position dropdown at cursor
+  const getPopupOffset = React.useCallback(
+    (inputElement: HTMLElement): [number, number] | null => {
+      // Only adjust for textarea elements
+      if (inputElement instanceof HTMLTextAreaElement) {
+        const textarea = inputElement;
+        const cursorPos = textarea.selectionStart;
+
+        // Calculate which line the cursor is on
+        const textBeforeCursor = textarea.value.substring(0, cursorPos);
+        const currentLine = textBeforeCursor.split('\n').length - 1;
+
+        // Only adjust if cursor is not on first line
+        if (currentLine > 0) {
+          // Get line height from computed styles
+          const styles = window.getComputedStyle(textarea);
+          const lineHeight = parseInt(styles.lineHeight, 10) || 20;
+
+          // Return offset: [x, y]
+          return [0, currentLine * lineHeight + 4];
+        }
+      }
+      return null;
+    },
+    [],
+  );
+
   // ============================ Options ============================
   let optionChildren: React.ReactNode;
 
@@ -267,6 +295,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
+      getPopupOffset={getPopupOffset}
       {...{
         // Internal api
         getInputElement,
