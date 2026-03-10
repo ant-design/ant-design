@@ -16,6 +16,8 @@ export interface CopyBtnProps extends Omit<CopyConfig, 'onCopy'> {
   onCopy: React.MouseEventHandler<HTMLButtonElement>;
   iconOnly: boolean;
   loading: boolean;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const CopyBtn: React.FC<CopyBtnProps> = (props) => {
@@ -29,6 +31,8 @@ const CopyBtn: React.FC<CopyBtnProps> = (props) => {
     tabIndex,
     onCopy,
     loading: btnLoading,
+    className,
+    style,
   } = props;
 
   const tooltipNodes = toCopyConfigList(tooltips);
@@ -42,10 +46,11 @@ const CopyBtn: React.FC<CopyBtnProps> = (props) => {
     <Tooltip title={copyTitle}>
       <button
         type="button"
-        className={clsx(`${prefixCls}-copy`, {
+        className={clsx(`${prefixCls}-copy`, className, {
           [`${prefixCls}-copy-success`]: copied,
           [`${prefixCls}-copy-icon-only`]: iconOnly,
         })}
+        style={style}
         onClick={onCopy}
         aria-label={ariaLabel}
         tabIndex={tabIndex}
