@@ -81,7 +81,6 @@ export default function usePreviewThemes() {
       {
         name: locale.dark,
         key: 'dark',
-        dark: true,
         bgImg:
           'https://mdn.alipayobjects.com/huamei_iwk9zp/afts/img/A*ETkNSJ-oUGwAAAAAQ_AAAAgAegCCAQ/original',
         bgImgDark: true,

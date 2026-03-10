@@ -61,21 +61,23 @@ export function generateFullCopyFile(params: {
     ].join('\n');
   }
 
-  const configPropsStr =
-    !themeConfig || !themeConfig.algorithm
-      ? '{ theme: { algorithm: theme.defaultAlgorithm } }'
-      : (() => {
-          const themeProps: string[] = [];
-          const algorithmStr = getAlgorithmStr(themeConfig.algorithm);
-          if (algorithmStr) themeProps.push(`algorithm: ${algorithmStr}`);
-          if (themeConfig.token && Object.keys(themeConfig.token).length > 0) {
-            themeProps.push(`token: ${stringifyValue(themeConfig.token, 1)}`);
-          }
-          if (themeConfig.components && Object.keys(themeConfig.components).length > 0) {
-            themeProps.push(`components: ${stringifyValue(themeConfig.components, 1)}`);
-          }
-          return `{ theme: { ${themeProps.join(', ')} } }`;
-        })();
+  const configPropsStr = !themeConfig
+    ? '{ theme: { algorithm: theme.defaultAlgorithm } }'
+    : (() => {
+        const themeProps: string[] = [];
+        const algorithmStr = getAlgorithmStr(themeConfig.algorithm);
+        if (algorithmStr) themeProps.push(`algorithm: ${algorithmStr}`);
+        if (themeConfig.token && Object.keys(themeConfig.token).length > 0) {
+          themeProps.push(`token: ${stringifyValue(themeConfig.token, 1)}`);
+        }
+        if (themeConfig.components && Object.keys(themeConfig.components).length > 0) {
+          themeProps.push(`components: ${stringifyValue(themeConfig.components, 1)}`);
+        }
+        if (themeProps.length === 0) {
+          themeProps.push('algorithm: theme.defaultAlgorithm');
+        }
+        return `{ theme: { ${themeProps.join(', ')} } }`;
+      })();
 
   return [
     '// ========== App.tsx ==========',
