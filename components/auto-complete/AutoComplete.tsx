@@ -197,8 +197,6 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   // =========== Merged Props for Semantic ===========
   const mergedProps: AutoCompleteProps = {
     ...props,
-    dataSource,
-    status: props.status,
     popupMatchSelectWidth: props.popupMatchSelectWidth || props.dropdownMatchSelectWidth,
     popupRender: mergedPopupRender,
     onOpenChange: mergedOnOpenChange,
