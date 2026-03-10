@@ -80,11 +80,13 @@ describe('Typography.Semantic', () => {
       root: 'context-root',
       actions: 'context-actions',
       action: 'context-action',
+      textarea: 'context-textarea',
     };
     const contextStyles: Required<GetProp<TypographyProps, 'styles', 'Return'>> = {
       root: { padding: '10px' },
       actions: { margin: '5px' },
       action: { color: '#123' },
+      textarea: { borderColor: '#456' },
     };
     const componentClassNames: GetProp<TypographyProps, 'classNames', 'Return'> = {
       root: 'component-root',

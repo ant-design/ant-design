@@ -35,11 +35,13 @@ export type TypographySemanticType = {
     root?: string;
     actions?: string;
     action?: string;
+    textarea?: string;
   };
   styles?: {
     root?: React.CSSProperties;
     actions?: React.CSSProperties;
     action?: React.CSSProperties;
+    textarea?: React.CSSProperties;
   };
 };
 
@@ -385,6 +387,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         maxLength={editConfig.maxLength}
         autoSize={editConfig.autoSize}
         enterIcon={editConfig.enterIcon}
+        classNames={mergedClassNames}
+        styles={mergedStyles}
       />
     );
   }
