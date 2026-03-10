@@ -195,6 +195,7 @@ export const getMediaSize = (token: AliasToken) => {
     lg: token.screenLGMin,
     xl: token.screenXLMin,
     xxl: token.screenXXLMin,
+    xxxl: token.screenXXXLMin,
   } as const;
 
   return mediaSizesMap;
