@@ -309,6 +309,16 @@ describe('should support showCount', () => {
 });
 
 describe('Input allowClear', () => {
+  it('should support allowClear.disabled', () => {
+    const { container, rerender } = render(
+      <Input allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
+    );
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+
+    rerender(<Input allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeFalsy();
+  });
+
   it('should change type when click', () => {
     const { asFragment, container } = render(<Input allowClear />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
