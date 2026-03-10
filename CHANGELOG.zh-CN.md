@@ -28,6 +28,8 @@ tag: vVERSION
   - 🆕 ConfigProvider 支持 Button 的 `loadingIcon` 全局配置。[#56439](https://github.com/ant-design/ant-design/pull/56439) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider 支持 `rangePicker.separator` 全局配置。[#56499](https://github.com/ant-design/ant-design/pull/56499) [@guoyunhe](https://github.com/guoyunhe)
   - 🆕 ConfigProvider 支持 Form 的 `tooltipIcon` 和 `tooltipProps` 全局配置。[#56372](https://github.com/ant-design/ant-design/pull/56372) [@guoyunhe](https://github.com/guoyunhe)
+- Table
+  - 🐞 修复 Table 在已选行从 dataSource 移除时选择状态未同步的问题。[#56975](https://github.com/ant-design/ant-design/pull/56975) [@kiannidev](https://github.com/kiannidev)
 - Upload
   - 🆕 Upload 新增 `classNames.trigger` 和 `styles.trigger` 属性。[#56578](https://github.com/ant-design/ant-design/pull/56578) [@QdabuliuQ](https://github.com/QdabuliuQ)
   - 🆕 Upload.Dragger 支持 `onDoubleClick` 事件。[#56579](https://github.com/ant-design/ant-design/pull/56579) [@ug-hero](https://github.com/ug-hero)

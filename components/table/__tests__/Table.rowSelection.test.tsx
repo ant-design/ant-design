@@ -119,7 +119,7 @@ describe('Table.rowSelection', () => {
     fireEvent.click(radios[0]);
     expect(getSelections(container)).toEqual([0]);
 
-    fireEvent.click(radios[radios.length - 1]);
+    fireEvent.click(radios.at(-1));
     expect(getSelections(container)).toEqual([3]);
   });
 
@@ -310,7 +310,7 @@ describe('Table.rowSelection', () => {
 
     const last = () => {
       const elements = container.querySelectorAll('td input');
-      return elements[elements.length - 1];
+      return elements.at(-1);
     };
 
     const first = () => {
@@ -348,7 +348,7 @@ describe('Table.rowSelection', () => {
 
     const last = () => {
       const elements = container.querySelectorAll('td input');
-      return elements[elements.length - 1];
+      return elements.at(-1);
     };
 
     const first = () => {
@@ -509,7 +509,7 @@ describe('Table.rowSelection', () => {
       jest.runAllTimers();
     });
     const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
-    fireEvent.click(dropdownMenuItems[dropdownMenuItems.length - 1]);
+    fireEvent.click(dropdownMenuItems.at(-1));
 
     expect(handleSelectNone).toHaveBeenCalled();
     expect(order).toEqual(['onChange', 'onSelectNone', 'onChange']);
@@ -1220,7 +1220,7 @@ describe('Table.rowSelection', () => {
       }),
     );
     const checkboxes = container.querySelectorAll('input');
-    fireEvent.click(checkboxes[checkboxes.length - 1]);
+    fireEvent.click(checkboxes.at(-1));
 
     expect(onRowClick).not.toHaveBeenCalled();
   });
@@ -1274,7 +1274,7 @@ describe('Table.rowSelection', () => {
     );
 
     const checkboxes = container.querySelectorAll<HTMLElement>('input');
-    fireEvent.click(checkboxes[checkboxes.length - 1]);
+    fireEvent.click(checkboxes.at(-1));
 
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
   });
@@ -1476,7 +1476,7 @@ describe('Table.rowSelection', () => {
 
         expect(getSelections(container).sort()).toEqual([3, 4, 5, 9]);
         expect(getIndeterminateSelection(container)).toEqual([]);
-        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([3, 4, 5, 9]);
+        expect(onChange.mock.calls[1][0].toSorted()).toEqual([3, 4, 5, 9]);
 
         fireEvent.click(checkboxes[4]);
         expect(getSelections(container)).toEqual([9]);
@@ -1512,7 +1512,7 @@ describe('Table.rowSelection', () => {
           'Jerry Tom Tom',
         ]);
         expect(getIndeterminateSelection(container)).toEqual([]);
-        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([
+        expect(onChange.mock.calls[1][0].toSorted()).toEqual([
           'Jerry',
           'Jerry Jack',
           'Jerry Lucy',
@@ -1553,7 +1553,7 @@ describe('Table.rowSelection', () => {
           'Jerry Tom Tom',
         ]);
         expect(getIndeterminateSelection(container)).toEqual([]);
-        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([
+        expect(onChange.mock.calls[1][0].toSorted()).toEqual([
           'Jerry',
           'Jerry Jack',
           'Jerry Lucy',

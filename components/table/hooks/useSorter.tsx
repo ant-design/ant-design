@@ -327,9 +327,7 @@ export const getSortData = <RecordType extends AnyObject = AnyObject>(
   sortStates: SortState<RecordType>[],
   childrenColumnName: string,
 ): RecordType[] => {
-  const innerSorterStates = sortStates
-    .slice()
-    .sort((a, b) => (b.multiplePriority as number) - (a.multiplePriority as number));
+  const innerSorterStates = sortStates.toSorted((a, b) => (b.multiplePriority as number) - (a.multiplePriority as number));
 
   const cloneData = data.slice();
 

@@ -156,7 +156,7 @@ const App: React.FC = () => {
   const tableColumns = columns.map((item) => ({ ...item, ellipsis }));
   if (xScroll === 'fixed') {
     tableColumns[0].fixed = true;
-    tableColumns[tableColumns.length - 1].fixed = 'right';
+    tableColumns.at(-1).fixed = 'right';
   }
 
   const tableProps: TableProps<DataType> = {

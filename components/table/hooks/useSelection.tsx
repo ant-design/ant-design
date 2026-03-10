@@ -177,8 +177,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
       // use flattedData keys
       const keysSet = new Set(flattedData.map(getRowKey));
       // remove preserveRecords that duplicate data
-      const preserveRecords = Array.from(preserveRecordsRef.current).reduce<RecordType[]>(
-        (total, [key, value]) => (keysSet.has(key) ? total : total.concat(value)),
+      const preserveRecords = [...preserveRecordsRef.current].reduce<RecordType[]>(
+        (total, [key, value]) => (keysSet.has(key) ? total : [...total, value]),
         [],
       );
       convertData = [...convertData, ...preserveRecords];
@@ -382,7 +382,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                 }
               });
 
-              const keys = Array.from(keySet);
+              const keys = [...keySet];
               if (onSelectInvert) {
                 warning.deprecated(false, 'onSelectInvert', 'onChange');
                 onSelectInvert(keys);
@@ -399,7 +399,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
             onSelect() {
               onSelectNone?.();
               setSelectedKeys(
-                Array.from(derivedSelectedKeySet).filter((key) => {
+                [...derivedSelectedKeySet].filter((key) => {
                   const checkProps = checkboxPropsMap.get(key);
                   return checkProps?.disabled;
                 }),
@@ -474,7 +474,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
           });
         }
 
-        const keys = Array.from(keySet);
+        const keys = [...keySet];
 
         onSelectAll?.(
           !checkedCurrentAll,
@@ -632,7 +632,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
                   if (shiftKey && checkStrictly && isMultiple) {
                     const changedKeys = multipleSelect(currentSelectedIndex, recordKeys, keySet);
-                    const keys = Array.from(keySet);
+                    const keys = [...keySet];
 
                     onSelectMultiple?.(
                       !checked,
@@ -665,7 +665,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
                         const tempKeySet = new Set(checkedKeys);
                         tempKeySet.delete(key);
                         nextCheckedKeys = conductCheck(
-                          Array.from(tempKeySet),
+                          [...tempKeySet],
                           { checked: false, halfCheckedKeys },
                           keyEntities as any,
                           isCheckboxDisabled as any,
