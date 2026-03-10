@@ -1,11 +1,7 @@
 import path from 'path';
-import React from 'react';
-import { createCache, extractStyle as extStyle, StyleProvider } from '@ant-design/cssinjs';
+import { extractStyle } from '@ant-design/static-style-extract';
 import fs from 'fs-extra';
 import minimist from 'minimist';
-import { renderToString } from 'react-dom/server';
-
-import * as antd from '../components';
 
 // Site build only, not use in npm package build
 const argv = minimist(process.argv.slice(2));
@@ -20,138 +16,15 @@ const output = path.join(
   enableLayer ? '~antd.layer.css' : 'antd.css',
 );
 
-const blackList: string[] = ['ConfigProvider', 'Grid'];
-
-const ComponentCustomizeRender: Record<
-  string,
-  (component: React.ComponentType<any>) => React.ReactNode
-> = {
-  Affix: (Affix) => (
-    <Affix>
-      <div />
-    </Affix>
-  ),
-  BackTop: () => <antd.FloatButton.BackTop />,
-  Cascader: () => (
-    <>
-      <antd.Cascader />
-      <antd.Cascader.Panel />
-    </>
-  ),
-  Dropdown: (Dropdown) => (
-    <Dropdown menu={{ items: [] }}>
-      <div />
-    </Dropdown>
-  ),
-  Menu: (Menu) => <Menu items={[]} />,
-  QRCode: (QRCode) => <QRCode value="https://ant.design" />,
-  Tree: (Tree) => <Tree treeData={[]} />,
-  Tag: (Tag) => (
-    <>
-      <Tag color="blue">Tag</Tag>
-      <Tag color="success">Tag</Tag>
-    </>
-  ),
-  Badge: (Badge: any) => (
-    <>
-      <Badge />
-      <Badge.Ribbon />
-    </>
-  ),
-  Space: (Space: any) => (
-    <>
-      <Space />
-      <Space.Compact>
-        <antd.Button />
-        <antd.Space.Addon>1</antd.Space.Addon>
-      </Space.Compact>
-    </>
-  ),
-  Input: (Input: any) => (
-    <>
-      <Input />
-      <Input.Group>
-        <Input />
-        <Input />
-      </Input.Group>
-      <Input.Search />
-      <Input.TextArea />
-      <Input.Password />
-      <Input.OTP />
-    </>
-  ),
-  Modal: (Modal: any) => (
-    <>
-      <Modal />
-      <Modal._InternalPanelDoNotUseOrYouWillBeFired />
-      <Modal._InternalPanelDoNotUseOrYouWillBeFired type="confirm" />
-    </>
-  ),
-  message: (message: any) => {
-    const { _InternalPanelDoNotUseOrYouWillBeFired: PurePanel } = message;
-    return <PurePanel />;
-  },
-  notification: (notification: any) => {
-    const { _InternalPanelDoNotUseOrYouWillBeFired: PurePanel } = notification;
-    return <PurePanel />;
-  },
-  Layout: () => (
-    <antd.Layout>
-      <antd.Layout.Header>Header</antd.Layout.Header>
-      <antd.Layout.Sider>Sider</antd.Layout.Sider>
-      <antd.Layout.Content>Content</antd.Layout.Content>
-      <antd.Layout.Footer>Footer</antd.Layout.Footer>
-    </antd.Layout>
-  ),
-};
-
-const defaultNode = () => (
-  <>
-    {Object.keys(antd)
-      .filter(
-        (name) =>
-          !blackList.includes(name) &&
-          (name[0] === name[0].toUpperCase() || ['message', 'notification'].includes(name)),
-      )
-      .map((compName) => {
-        const Comp = (antd as any)[compName];
-
-        const renderFunc = ComponentCustomizeRender[compName];
-
-        if (renderFunc) {
-          return <React.Fragment key={compName}>{renderFunc(Comp)}</React.Fragment>;
-        }
-
-        return <Comp key={compName} />;
-      })}
-  </>
-);
-
-function extractStyle(customTheme?: any): string {
-  const cache = createCache();
-  renderToString(
-    <antd.ConfigProvider theme={{ hashed: false }}>
-      <StyleProvider cache={cache} layer={enableLayer}>
-        {customTheme ? customTheme(defaultNode()) : defaultNode()}
-      </StyleProvider>
-    </antd.ConfigProvider>,
-  );
-
-  // Grab style from cache
-  const styleText = extStyle(cache, { plain: true, types: 'style' });
-
-  return styleText;
-}
-
-async function buildStyle() {
+function buildStyle() {
   if (fs.existsSync(output)) {
-    // Remove the old file if it exists
     fs.unlinkSync(output);
   }
-  // fs.rmSync(output);
-  const styleStr = extractStyle();
 
-  // If layer content is provided, prepend it to the CSS
+  const styleStr = extractStyle({
+    antdInstance: require('../components'),
+  });
+
   const finalStyleStr = layerContent ? `${layerContent}\n\n${styleStr}` : styleStr;
 
   fs.writeFileSync(output, finalStyleStr);
