@@ -1,7 +1,10 @@
+import React from 'react';
 import Module from 'module';
 import path from 'path';
 import fs from 'fs-extra';
 import minimist from 'minimist';
+
+import { ConfigProvider } from '../components';
 
 const originalResolve = (Module as any)._resolveFilename;
 
@@ -32,7 +35,15 @@ const run = async () => {
       fs.unlinkSync(output);
     }
 
-    const styleStr = extractStyle();
+    const styleStr = extractStyle((node) => (
+      <ConfigProvider
+        theme={{
+          hashed: false,
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    ));
 
     const finalStyleStr = layerContent ? `${layerContent}\n\n${styleStr}` : styleStr;
 
