@@ -15,7 +15,9 @@ We'd like to thank the following companies and individuals for their generous sp
 
 ## Sponsors [![](https://opencollective.com/ant-design/tiers/sponsors/badge.svg?label=Sponsors&color=brightgreen)](https://opencollective.com/ant-design/contribute/sponsors-218)
 
-[![TRACTIAN](https://images.opencollective.com/tractian/0235da9/logo/256.png?height=80)](https://tractian.com) [![LobeHub](https://images.opencollective.com/lobehub/ac07c4c/logo/256.png?height=80)](https://lobehub.com/)
+<a href="https://tractian.com"><img src="https://images.opencollective.com/tractian/0235da9/logo/256.png" width="128" height="128" alt="TRACTIAN"></a>
+<a href="https://lobehub.com"><img src="https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg" width="128" height="128" alt="LobeHub"></a>
+<a href="https://youmind.com"><img src="https://marketing-assets.youmind.com/logo-512.png" width="128" height="128" alt="YouMind"></a>
 
 [View all Sponsors ❤️](https://opencollective.com/ant-design/contribute/sponsors-218)
 

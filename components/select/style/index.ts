@@ -12,7 +12,7 @@ import { prepareComponentToken } from './token';
 export type { ComponentToken };
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<SelectToken> = (token) => {
+const genBaseStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { antCls, componentCls, motionDurationMid, inputPaddingHorizontalBase } = token;
 
   const hoverShowClearStyle: CSSObject = {

@@ -27,7 +27,7 @@ type SearchProps = GetProps<typeof Input.Search>;
 const { Search, TextArea, OTP, Password } = Input;
 
 const stylesFn: InputProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderColor: '#696FC7',
@@ -49,7 +49,7 @@ const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
 };
 
 const stylesFnPassword: PasswordProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderColor: '#F5D3C4',
@@ -60,7 +60,7 @@ const stylesFnPassword: PasswordProps['styles'] = (info) => {
 };
 
 const stylesFnOTP: OTPProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       input: {
         borderColor: '#6E8CFB',
@@ -101,7 +101,7 @@ const App: React.FC = () => {
         classNames={classNames}
         styles={stylesFn}
         placeholder="Function"
-        size="middle"
+        size="medium"
         name="input-fn"
       />
       <TextArea
@@ -115,10 +115,10 @@ const App: React.FC = () => {
         classNames={classNames}
         styles={stylesFnPassword}
         value="Password"
-        size="middle"
+        size="medium"
         name="password-fn"
       />
-      <OTP classNames={classNames} styles={stylesFnOTP} size="middle" length={6} separator="*" />
+      <OTP classNames={classNames} styles={stylesFnOTP} size="medium" length={6} separator="*" />
       <Search
         classNames={classNames}
         styles={stylesFnSearch}

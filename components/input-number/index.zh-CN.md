@@ -28,6 +28,7 @@ demo:
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/spinner.tsx" version="6.0.0">拨轮</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
+<code src="./demo/borderless-height-debug.tsx" debug>Borderless 高度对齐</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>
 <code src="./demo/presuffix.tsx">前缀/后缀</code>
 <code src="./demo/status.tsx">自定义状态</code>
@@ -64,7 +65,7 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | prefix | 带有前缀图标的 input | ReactNode | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - | 5.20.0 |
-| size | 输入框大小 | `large` \| `middle` \| `small` | - | - |
+| size | 输入框大小 | `large` \| `medium` \| `small` | - | - |
 | step | 每次改变步数，可以为小数 | number \| string | 1 | - |
 | stringMode | 字符值模式，开启后支持高精度小数。同时 `onChange` 将返回 string 类型 | boolean | false | 4.13.0 |
 | mode | 展示输入框或拨轮 | `'input' \| 'spinner'` | `'input'` |  |

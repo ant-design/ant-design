@@ -909,6 +909,7 @@ Array [
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                         title="Xiaoxiao Fu"
                                       >
@@ -925,6 +926,7 @@ Array [
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="Maomao Zhou"
                                       >
@@ -1073,6 +1075,7 @@ Array [
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                         title="private"
                                       >
@@ -1089,6 +1092,7 @@ Array [
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="public"
                                       >
@@ -1242,6 +1246,7 @@ Array [
                                       style="display: flex; flex-direction: column;"
                                     >
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option ant-select-item-option-active"
                                         title="Jack Ma"
                                       >
@@ -1258,6 +1263,7 @@ Array [
                                         />
                                       </div>
                                       <div
+                                        aria-disabled="false"
                                         class="ant-select-item ant-select-item-option"
                                         title="Tom Liu"
                                       >
@@ -4179,7 +4185,7 @@ exports[`renders components/drawer/demo/size.tsx extend context correctly 2`] = 
 
 exports[`renders components/drawer/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <button
     class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
@@ -4400,7 +4406,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
           style="padding: 16px 10px; background-color: rgb(250, 250, 250);"
         >
           <div
-            class="ant-flex css-var-test-id ant-flex-justify-flex-end ant-flex-gap-middle"
+            class="ant-flex css-var-test-id ant-flex-justify-flex-end ant-flex-gap-medium"
           >
             <button
               class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"

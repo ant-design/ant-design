@@ -48,7 +48,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | extra | 卡片右上角的操作区域 | ReactNode | - |  |
 | hoverable | 鼠标移过时可浮起 | boolean | false |  |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
-| size | card 的尺寸 | `default` \| `small` | `default` |  |
+| size | card 的尺寸 | `medium` \| `small` | `medium` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
 | tabList | 页签标题列表 | [TabItemType](/components/tabs-cn#tabitemtype)[] | - |  |
 | tabProps | [Tabs](/components/tabs-cn#tabs) | - | - |  |

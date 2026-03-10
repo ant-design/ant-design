@@ -45,7 +45,7 @@ describe('InputNumber useMergeSemantic', () => {
     const root = container.querySelector('.ant-input-number')!;
     expect(root).toHaveStyle('background-color: #1677FF');
 
-    rerender(<InputNumber styles={stylesFn} size="middle" />);
+    rerender(<InputNumber styles={stylesFn} size="medium" />);
     expect(root).toHaveStyle('background-color: #fffbe6');
   });
 });

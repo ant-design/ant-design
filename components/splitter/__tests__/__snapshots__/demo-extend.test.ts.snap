@@ -2,7 +2,7 @@
 
 exports[`renders components/splitter/demo/collapsible.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
@@ -263,7 +263,7 @@ exports[`renders components/splitter/demo/collapsibleIcon.tsx extend context cor
 
 exports[`renders components/splitter/demo/control.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-splitter ant-splitter-horizontal css-var-test-id ant-splitter-css-var"
@@ -314,7 +314,7 @@ exports[`renders components/splitter/demo/control.tsx extend context correctly 1
     </div>
   </div>
   <div
-    class="ant-flex css-var-test-id ant-flex-justify-space-between ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-justify-space-between ant-flex-gap-medium"
   >
     <button
       aria-checked="true"
@@ -542,7 +542,7 @@ exports[`renders components/splitter/demo/customize.tsx extend context correctly
 
 exports[`renders components/splitter/demo/debug.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <h3
     class="ant-typography css-var-test-id"

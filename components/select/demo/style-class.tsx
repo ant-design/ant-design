@@ -52,7 +52,7 @@ const App: React.FC = () => {
     prefix: <MehOutlined />,
   };
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Select {...sharedProps} styles={stylesObject} placeholder="Object" />
       <Select {...sharedProps} styles={stylesFn} placeholder="Function" variant="filled" />
     </Flex>

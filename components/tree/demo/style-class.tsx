@@ -74,7 +74,7 @@ const App: React.FC = () => {
     checkable: true,
   };
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Tree {...sharedProps} treeData={treeData} styles={styles} />
       <Tree
         {...sharedProps}

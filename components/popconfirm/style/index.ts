@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
@@ -16,7 +18,7 @@ export interface ComponentToken {
 export interface PopconfirmToken extends FullToken<'Popconfirm'> {}
 
 // =============================== Base ===============================
-const genBaseStyle: GenerateStyle<PopconfirmToken> = (token) => {
+const genBaseStyle: GenerateStyle<PopconfirmToken, CSSObject> = (token) => {
   const {
     componentCls,
     iconCls,
@@ -88,6 +90,6 @@ export const prepareComponentToken: GetDefaultToken<'Popconfirm'> = (token) => {
   };
 };
 
-export default genStyleHooks('Popconfirm', (token) => genBaseStyle(token), prepareComponentToken, {
+export default genStyleHooks('Popconfirm', genBaseStyle, prepareComponentToken, {
   resetStyle: false,
 });

@@ -97,8 +97,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
-      <Flex gap="middle">
+    <Flex vertical gap="medium">
+      <Flex gap="medium">
         <Button type="primary" onClick={() => setOpen(true)}>
           Begin Tour Object
         </Button>

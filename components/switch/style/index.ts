@@ -331,7 +331,7 @@ const genSwitchInnerStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   };
 };
 
-const genSwitchStyle = (token: SwitchToken): CSSObject => {
+const genSwitchStyle: GenerateStyle<SwitchToken, CSSObject> = (token) => {
   const { componentCls, trackHeight, trackMinWidth } = token;
 
   return {

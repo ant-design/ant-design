@@ -41,7 +41,7 @@ const centerStyle: CSSObject = {
   transform: 'translate(-50%, -50%)',
 };
 
-const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): CSSObject => {
+const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
   const {
     componentCls,
     colorFill,

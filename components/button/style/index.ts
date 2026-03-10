@@ -13,7 +13,7 @@ import genVariantStyle from './variant';
 export type { ComponentToken };
 
 // ============================== Shared ==============================
-const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token): CSSObject => {
+const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
   const {
     componentCls,
     iconCls,
@@ -211,7 +211,7 @@ const genSizeLargeButtonStyle: GenerateStyle<ButtonToken> = (token) => {
   return genButtonStyle(largeToken, `${token.componentCls}-lg`);
 };
 
-const genBlockButtonStyle: GenerateStyle<ButtonToken> = (token) => {
+const genBlockButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {

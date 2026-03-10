@@ -171,9 +171,9 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const activeLinkRef = React.useRef<string | null>(activeLink);
 
   const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const spanLinkNode = React.useRef<HTMLSpanElement>(null);
-  const animating = React.useRef<boolean>(false);
-  const scrollRequestId = React.useRef<(() => void) | null>(null);
+  const spanLinkNodeRef = React.useRef<HTMLSpanElement>(null);
+  const animatingRef = React.useRef<boolean>(false);
+  const scrollRequestIdRef = React.useRef<(() => void) | null>(null);
 
   const {
     direction,
@@ -211,8 +211,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     const linkNode = wrapperRef.current?.querySelector<HTMLElement>(
       `.${prefixCls}-link-title-active`,
     );
-    if (linkNode && spanLinkNode.current) {
-      const { style: inkStyle } = spanLinkNode.current;
+    if (linkNode && spanLinkNodeRef.current) {
+      const { style: inkStyle } = spanLinkNodeRef.current;
       const horizontalAnchor = anchorDirection === 'horizontal';
       inkStyle.top = horizontalAnchor ? '' : `${linkNode.offsetTop + linkNode.clientHeight / 2}px`;
       inkStyle.height = horizontalAnchor ? '' : `${linkNode.clientHeight}px`;
@@ -266,7 +266,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   });
 
   const handleScroll = React.useCallback(() => {
-    if (animating.current) {
+    if (animatingRef.current) {
       return;
     }
 
@@ -292,11 +292,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
         return;
       }
 
-      if (animating.current) {
+      if (animatingRef.current) {
         if (previousActiveLink === link) {
           return;
         }
-        scrollRequestId.current?.();
+        scrollRequestIdRef.current?.();
       }
 
       const container = getCurrentContainer();
@@ -304,11 +304,11 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       const eleOffsetTop = getOffsetTop(targetElement, container);
       let y = scrollTop + eleOffsetTop;
       y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
-      animating.current = true;
-      scrollRequestId.current = scrollTo(y, {
+      animatingRef.current = true;
+      scrollRequestIdRef.current = scrollTo(y, {
         getContainer: getCurrentContainer,
         callback() {
-          animating.current = false;
+          animatingRef.current = false;
         },
       });
     },
@@ -371,7 +371,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const anchorContent = (
     <div ref={wrapperRef} className={wrapperClass} style={wrapperStyle}>
       <div className={anchorClass}>
-        <span className={inkClass} ref={spanLinkNode} style={mergedStyles.indicator} />
+        <span className={inkClass} ref={spanLinkNodeRef} style={mergedStyles.indicator} />
         {'items' in props ? createNestedLink(items) : children}
       </div>
     </div>

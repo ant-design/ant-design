@@ -78,7 +78,9 @@ __image_snapshots__/
 .env
 examples/
 .neocoder/
-.claude/
+.claude/*
+!.claude/skills/
+!.claude/skills/*
 
 # generated css
 components/style/antd.css

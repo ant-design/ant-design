@@ -83,7 +83,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Card
         {...sharedCardProps}
         title="Object Card"

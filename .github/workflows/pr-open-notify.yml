@@ -7,9 +7,15 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   send-to-dingtalk:
+    if: github.repository == 'ant-design/ant-design'
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
     steps:
       - name: send to dingtalk
         uses: visiky/dingtalk-release-notify@64fcb0373782b6c2f6d9b9ea3c68af80ca189585

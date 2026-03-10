@@ -343,7 +343,7 @@ export const prepareComponentToken: GetDefaultToken<'ComponentName'> = (token) =
 });
 
 // 3. 样式生成函数
-const genComponentStyle: GenerateStyle<ComponentToken> = (token) => {
+const genComponentStyle: GenerateStyle<ComponentToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {
@@ -767,9 +767,14 @@ export const prepareComponentToken: GetDefaultToken<'ComponentName'> = (token) =
   componentPadding: token.paddingXS,
 });
 
-const genComponentStyle: GenerateStyle<ComponentToken> = (token) => {
+const genComponentStyle: GenerateStyle<ComponentToken, CSSObject> = (token) => {
   const { componentCls, fontSize, padding } = token;
-  return { [componentCls]: { fontSize, padding } };
+  return {
+    [componentCls]: {
+      fontSize,
+      padding,
+    },
+  };
 };
 
 export default genStyleHooks(
@@ -834,13 +839,11 @@ export default genStyleHooks(
 
 2. **组件名要求**：
    - **每条必含组件名**：每条 changelog 正文中都必须出现对应组件名（分组标题下的子条同样要在句中出现组件名）
-   - **组件名不用反引号**：组件名（如 Modal、Drawer、Button、Upload.Dragger）不使用 `` ` `` 包裹；属性名、API、token 等仍用反引号
+   - **组件名不用反引号**：组件名（如 Modal、Drawer、Button、Upload.Dragger）不使用 `` ` `` 包裹；属性名、API、token 等仍用反引号（如 `picture-card`、`defaultValue`）
 
 3. **中英文条目句式**：
-   - **中文**：`Emoji 组件名 动词/描述 … [#PR](链接) [@贡献者]`  
-     例：`🐞 Button 修复暗色主题下 \`color\` 的 \`hover\` 与 \`active\` 状态颜色相反的问题。`
-   - **英文**：`Emoji 动词 组件名 描述 … [#PR](链接) [@贡献者]`（动词在前，如 Fix / Add / Support / Remove / Disable / Refactor / Improve / Change）  
-     例：`🐞 Fix Button reversed \`hover\` and \`active\` colors for \`color\` in dark theme.`
+   - **中文**：`Emoji 组件名 动词/描述 … [#PR](链接) [@贡献者]` 例：`🐞 Button 修复暗色主题下 \`color\` 的 \`hover\` 与 \`active\` 状态颜色相反的问题。`
+   - **英文**：`Emoji 动词 组件名 描述 … [#PR](链接) [@贡献者]`（动词在前，如 Fix / Add / Support / Remove / Disable / Refactor / Improve / Change）例：`🐞 Fix Button reversed \`hover\` and \`active\` colors for \`color\` in dark theme.`；组件名在描述中应靠前出现，让用户快速知道变更的是哪个组件：`🐞 Upload.Dragger add generic type support.`，避免 `🐞 Add generic support for Upload.Dragger.`
 
 4. **分组逻辑**：
    - **多项改动**：同一组件有 2 条及以上改动时，使用 `- 组件名` 作为分类标题（不加粗），具体条目缩进排列，子条中仍须包含组件名

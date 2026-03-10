@@ -40,7 +40,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Empty
         {...emptySharedProps}
         description="Object styles"

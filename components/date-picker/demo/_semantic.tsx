@@ -72,7 +72,7 @@ const Block: React.FC<BlockProps<any>> = (props) => {
   const PickerComponent = type === 'Single' ? SingleComponent : MultipleComponent;
 
   return (
-    <Flex vertical ref={divRef} style={{ alignSelf: 'flex-start' }} gap="middle" align="center">
+    <Flex vertical ref={divRef} style={{ alignSelf: 'flex-start' }} gap="medium" align="center">
       <Segmented options={['Single', 'Multiple'] as const} value={type} onChange={setType} />
       <PickerComponent {...config} />
     </Flex>

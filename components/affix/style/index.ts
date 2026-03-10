@@ -16,7 +16,7 @@ interface AffixToken extends FullToken<'Affix'> {
 }
 
 // ============================== Shared ==============================
-const genSharedAffixStyle: GenerateStyle<AffixToken> = (token): CSSObject => {
+const genSharedAffixStyle: GenerateStyle<AffixToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [componentCls]: {

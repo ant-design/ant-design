@@ -167,3 +167,26 @@ exports[`Anchor Render renders items correctly#horizontal 1`] = `
   </div>
 </div>
 `;
+
+exports[`Anchor Render rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class=""
+>
+  <div
+    class=""
+  >
+    <div
+      class="css-var-root ant-anchor-css-var ant-anchor-wrapper ant-anchor-rtl"
+      style="max-height: 100vh;"
+    >
+      <div
+        class="ant-anchor"
+      >
+        <span
+          class="ant-anchor-ink"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

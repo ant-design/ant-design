@@ -35,7 +35,7 @@ interface EmptyToken extends FullToken<'Empty'> {
 }
 
 // ============================== Shared ==============================
-const genSharedEmptyStyle: GenerateStyle<EmptyToken> = (token): CSSObject => {
+const genSharedEmptyStyle: GenerateStyle<EmptyToken, CSSObject> = (token) => {
   const { componentCls, margin, marginXS, marginXL, fontSize, lineHeight } = token;
 
   return {

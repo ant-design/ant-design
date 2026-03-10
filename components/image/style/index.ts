@@ -57,7 +57,7 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
   inset: 0,
 });
 
-export const genImageCoverStyle = (token: ImageToken): CSSObject => {
+export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow, colorTextLightSolid } = token;
   return {
     [componentCls]: {
@@ -90,7 +90,7 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
   };
 };
 
-export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
+export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const {
     motionEaseOut,
     previewCls,
@@ -255,7 +255,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
   };
 };
 
-const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
+const genImageStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     // ============================== image ==============================
@@ -282,7 +282,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
   };
 };
 
-const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
+const genPreviewMotion: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const { previewCls, motionDurationSlow } = token;
 
   return {

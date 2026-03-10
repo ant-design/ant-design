@@ -7,9 +7,10 @@ import {
   genOutlinedStyle,
   genUnderlinedStyle,
 } from '../../input/style/variants';
+import type { GenerateStyle } from '../../theme/interface';
 import type { PickerToken } from './token';
 
-const genVariantsStyle = (token: PickerToken): CSSObject => {
+const genVariantsStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {

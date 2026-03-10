@@ -3764,7 +3764,7 @@ exports[`renders components/cascader/demo/status.tsx extend context correctly 2`
 
 exports[`renders components/cascader/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-select ant-cascader ant-select-outlined acss-rl6otz ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"
@@ -4732,7 +4732,7 @@ exports[`renders components/cascader/demo/suffix.tsx extend context correctly 2`
 
 exports[`renders components/cascader/demo/variant.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-select ant-cascader ant-select-borderless ant-select-css-var ant-cascader-css-var css-var-test-id ant-select-single ant-select-show-arrow"

@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { Keyframes, unit } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
@@ -139,7 +140,7 @@ const antBadgeLoadingCircle = new Keyframes('antBadgeLoadingCircle', {
   },
 });
 
-const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
+const genSharedBadgeStyle: GenerateStyle<BadgeToken, CSSObject> = (token) => {
   const {
     componentCls,
     iconCls,
@@ -372,7 +373,7 @@ const genSharedBadgeStyle: GenerateStyle<BadgeToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareToken: (token: Parameters<GenStyleFn<'Badge'>>[0]) => BadgeToken = (token) => {
+export const prepareToken = (token: Parameters<GenStyleFn<'Badge'>>[0]) => {
   const { fontHeight, lineWidth, marginXS, colorBorderBg } = token;
 
   const badgeFontHeight = fontHeight;

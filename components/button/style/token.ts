@@ -283,9 +283,7 @@ export interface ButtonToken
   buttonIconOnlyFontSize: number | string;
 }
 
-export const prepareToken: (token: Parameters<GenStyleFn<'Button'>>[0]) => ButtonToken = (
-  token,
-) => {
+export const prepareToken = (token: Parameters<GenStyleFn<'Button'>>[0]) => {
   const { paddingInline, onlyIconSize, borderColorDisabled } = token;
 
   const buttonToken = mergeToken<ButtonToken>(token, {
@@ -310,7 +308,7 @@ export const prepareComponentToken: GetDefaultToken<'Button'> = (token) => {
     : '#fff';
 
   const shadowColorTokens = PresetColors.reduce<CSSObject>(
-    (prev: CSSObject, colorKey: PresetColorKey) => ({
+    (prev, colorKey) => ({
       ...prev,
       [`${colorKey}ShadowColor`]: `0 ${unit(token.controlOutlineWidth)} 0 ${getAlphaColor(token[`${colorKey}1`], token.colorBgContainer)}`,
     }),

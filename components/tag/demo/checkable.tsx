@@ -11,7 +11,7 @@ const App: React.FC = () => {
   return (
     <Form labelCol={{ span: 6 }}>
       <Form.Item label="Checkable">
-        <Tag.CheckableTag checked={checked} onChange={(val) => setChecked(val)}>
+        <Tag.CheckableTag checked={checked} onChange={setChecked}>
           Yes
         </Tag.CheckableTag>
       </Form.Item>
@@ -19,7 +19,7 @@ const App: React.FC = () => {
         <Tag.CheckableTagGroup
           options={tagsData}
           value={singleSelected}
-          onChange={(val) => setSingleSelected(val)}
+          onChange={setSingleSelected}
         />
       </Form.Item>
       <Form.Item label="Multiple">
@@ -27,7 +27,7 @@ const App: React.FC = () => {
           multiple
           options={tagsData}
           value={multipleSelected}
-          onChange={(val) => setMultipleSelected(val)}
+          onChange={setMultipleSelected}
         />
       </Form.Item>
     </Form>

@@ -31,7 +31,7 @@ const stylesFn: DatePickerProps<Dayjs>['styles'] = (info) => {
 const App: React.FC = () => {
   const { styles: classNames } = useStyles();
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <DatePicker classNames={classNames} styles={stylesObject} placeholder="Object" />
       <DatePicker classNames={classNames} styles={stylesFn} placeholder="Function" size="large" />
     </Flex>

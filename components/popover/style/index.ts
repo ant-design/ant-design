@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
@@ -169,7 +171,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   ];
 };
 
-const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
+const genColorStyle: GenerateStyle<PopoverToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const [varName] = genCssVar(antCls, 'tooltip');
   return {
