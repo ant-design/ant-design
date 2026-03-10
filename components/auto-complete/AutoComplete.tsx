@@ -113,11 +113,14 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     onOpenChange,
     styles,
     classNames,
+    popupMatchSelectWidth,
+    dropdownMatchSelectWidth,
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
+  const mergedPopupMatchSelectWidth = popupMatchSelectWidth || dropdownMatchSelectWidth;
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
@@ -197,9 +200,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   // =========== Merged Props for Semantic ===========
   const mergedProps: AutoCompleteProps = {
     ...props,
-    popupMatchSelectWidth: props.popupMatchSelectWidth || props.dropdownMatchSelectWidth,
     popupRender: mergedPopupRender,
     onOpenChange: mergedOnOpenChange,
+    popupMatchSelectWidth: mergedPopupMatchSelectWidth,
   };
 
   // ========================= Style ==========================
@@ -265,6 +268,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       {...{
         // Internal api
         getInputElement,
