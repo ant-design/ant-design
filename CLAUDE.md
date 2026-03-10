@@ -38,7 +38,7 @@ ant-design/
 ### API 表格格式
 
 | Property | Description | Type | Default | Version |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | disabled | 是否禁用 | boolean | false | - |
 | type | 按钮类型 | `primary` \| `default` | `default` | - |
 
