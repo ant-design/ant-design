@@ -10,6 +10,7 @@ import {
   Flex,
   FloatButton,
   Image,
+  Input,
   Modal,
   notification,
   Table,
@@ -97,6 +98,11 @@ const Examples: React.FC = () => {
           />
         </Flex>
       </Image.PreviewGroup>
+      <Flex gap="small">
+        <Input allowClear defaultValue="Input" />
+        <Input.Search allowClear defaultValue="Search" />
+        <Input.Password allowClear defaultValue="Password" />
+      </Flex>
       <Flex gap="small">
         <Button onClick={() => setModalOpen(true)}>Open Modal</Button>
         <Modal title="Modal" open={modalOpen} onCancel={() => setModalOpen(false)} />

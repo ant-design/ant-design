@@ -75,6 +75,11 @@ const Demo: React.FC = () => {
           closeIcon: <XLg />,
         },
       }}
+      input={{
+        allowClear: {
+          clearIcon: <XCircle />,
+        },
+      }}
       modal={{
         closeIcon: <XLg />,
       }}

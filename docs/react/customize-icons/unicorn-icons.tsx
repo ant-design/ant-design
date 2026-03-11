@@ -61,6 +61,11 @@ const Demo: React.FC = () => {
           closeIcon: unicorn,
         },
       }}
+      input={{
+        allowClear: {
+          clearIcon: unicorn,
+        },
+      }}
       modal={{
         closeIcon: unicorn,
         infoIcon: unicorn,
