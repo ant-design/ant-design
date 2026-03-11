@@ -47,17 +47,17 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
   useEffect(() => {
     const nextState = getStoredValue();
     if (Object.is(nextState, stateRef.current)) {
-      return;
+      return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
     }
     stateRef.current = nextState;
     setState(nextState);
-  }, [getStoredValue]);
+  }, [key]);
 
   const updateState: React.Dispatch<React.SetStateAction<T>> = (value) => {
     const previousState = stateRef.current;
     const currentState = isFunction(value) ? value(previousState) : value;
     if (Object.is(currentState, previousState)) {
-      return;
+      return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
     }
     stateRef.current = currentState;
     setState(currentState);
@@ -92,7 +92,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       if (shouldSync(event)) {
         const nextState = getStoredValue();
         if (Object.is(nextState, stateRef.current)) {
-          return;
+          return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
         }
         stateRef.current = nextState;
         setState(nextState);
@@ -111,7 +111,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       if (shouldSyncCustomEvent(customEvent)) {
         const nextState = getStoredValue();
         if (Object.is(nextState, stateRef.current)) {
-          return;
+          return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
         }
         stateRef.current = nextState;
         setState(nextState);
