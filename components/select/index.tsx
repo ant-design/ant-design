@@ -16,6 +16,7 @@ import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
+import normalizeIcon from '../_util/normalizeIcon';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -290,15 +291,13 @@ const InternalSelect = <
     showSuffixIcon,
     prefixCls,
     componentName: 'Select',
-    clearIcon: typeof allowClear === 'object' ? allowClear.clearIcon : rest.clearIcon,
-    searchIcon: typeof rest.showSearch === 'object' ? rest.showSearch.searchIcon : undefined,
-    contextClearIcon:
-      typeof contextAllowClear === 'object' ? contextAllowClear.clearIcon : contextClearIcon,
+    clearIcon: normalizeIcon(allowClear, 'clearIcon', rest.clearIcon),
+    searchIcon: normalizeIcon(rest.showSearch, 'searchIcon'),
+    contextClearIcon: normalizeIcon(contextAllowClear, 'clearIcon', contextClearIcon),
     contextLoadingIcon,
     contextMenuItemSelectedIcon,
     contextRemoveIcon,
-    contextSearchIcon:
-      typeof contextShowSearch === 'object' ? contextShowSearch.searchIcon : undefined,
+    contextSearchIcon: normalizeIcon(contextShowSearch, 'searchIcon'),
     contextSuffixIcon,
   });
 
