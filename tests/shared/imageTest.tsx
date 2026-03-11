@@ -240,6 +240,23 @@ export default function imageTest(
         );
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
+
+      await page.waitForFunction(
+        () =>
+          new Promise((resolve) => {
+            const timeout = setTimeout(() => resolve(true), 100);
+            if (document.readyState === 'complete') {
+              clearTimeout(timeout);
+              resolve(true);
+            } else {
+              window.addEventListener('load', () => {
+                clearTimeout(timeout);
+                resolve(true);
+              });
+            }
+          }),
+      );
+
       const image = await page.screenshot({ fullPage: !options.onlyViewport });
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
       MockDate.reset();
