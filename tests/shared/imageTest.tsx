@@ -241,20 +241,19 @@ export default function imageTest(
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
 
-      await page.waitForFunction(
-        () =>
+      await page.waitForFunction(() =>
+        Promise.race([
+          // timeout 100ms
+          new Promise((resolve) => setTimeout(() => resolve(true), 100)),
+          // raf * 2
           new Promise((resolve) => {
-            const timeout = setTimeout(() => resolve(true), 100);
-            if (document.readyState === 'complete') {
-              clearTimeout(timeout);
-              resolve(true);
-            } else {
-              window.addEventListener('load', () => {
-                clearTimeout(timeout);
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
                 resolve(true);
               });
-            }
+            });
           }),
+        ]),
       );
 
       const image = await page.screenshot({ fullPage: !options.onlyViewport });
