@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { render } from '../../../tests/utils';
+import type { TooltipRef } from '../../tooltip';
 import SliderTooltip from '../SliderTooltip';
 
 let mockForceAlign: jest.Mock;
@@ -9,12 +10,14 @@ jest.mock('../../tooltip', () => {
   const ReactReal: typeof React = jest.requireActual('react');
   return {
     __esModule: true,
-    default: ReactReal.forwardRef((props: any, ref: any) => {
-      ReactReal.useImperativeHandle(ref, () => ({
-        forceAlign: mockForceAlign,
-      }));
-      return <div {...props} />;
-    }),
+    default: ReactReal.forwardRef<Partial<TooltipRef>, React.HTMLAttributes<HTMLDivElement>>(
+      (props, ref) => {
+        ReactReal.useImperativeHandle(ref, () => ({
+          forceAlign: mockForceAlign,
+        }));
+        return <div {...props} />;
+      },
+    ),
   };
 });
 

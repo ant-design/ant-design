@@ -1,10 +1,10 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 
+import Tree from '..';
 import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import Form from '../../form';
-import Tree from '../index';
 import type { AntTreeNodeProps } from '../Tree';
 
 const { TreeNode } = Tree;

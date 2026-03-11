@@ -75,6 +75,7 @@ import type {
   TourConfig,
   TransferConfig,
   TreeSelectConfig,
+  TypographyConfig,
   UploadConfig,
   Variant,
   WaveConfig,
@@ -227,7 +228,7 @@ export interface ConfigProviderProps {
   collapse?: CollapseConfig;
   divider?: ComponentStyleConfig;
   drawer?: DrawerConfig;
-  typography?: ComponentStyleConfig;
+  typography?: TypographyConfig;
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: ComponentStyleConfig;

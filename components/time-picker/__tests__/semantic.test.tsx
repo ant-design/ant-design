@@ -1,12 +1,14 @@
 import React from 'react';
 import dayjs from 'dayjs';
 
+import type { TimePickerProps } from '..';
 import TimePicker from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 describe('TimePicker.Semantic', () => {
   it('should support semantic classNames and styles with useMergeSemantic', () => {
-    const semanticClassNames = {
+    const semanticClassNames: Required<GetProp<TimePickerProps, 'classNames', 'Return'>> = {
       root: 'semantic-root',
       prefix: 'semantic-prefix',
       input: 'semantic-input',

@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Flex, Space, Switch } from 'antd';
-import type { SwitchProps } from 'antd';
+import type { GetProp, SwitchProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -16,15 +16,16 @@ const classNames = createStaticStyles(({ css }) => ({
   `,
 }));
 
-const stylesObject: SwitchProps['styles'] = {
+const stylesObject: Required<GetProp<SwitchProps, 'styles', 'Return'>> = {
   root: { background: 'red' },
+  content: { color: 'green' },
   indicator: { width: '20px' },
 };
 
 // 创建一个自定义 Hook 来获取 classNames 函数
 const useClassNames = () => {
-  const classNamesFn: SwitchProps['classNames'] = (info) => {
-    if (info.props.size === 'small') {
+  const classNamesFn: GetProp<SwitchProps, 'classNames'> = ({ props }) => {
+    if (props.size === 'small') {
       return {
         root: classNames.root,
         content: classNames.content,
