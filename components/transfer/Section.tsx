@@ -37,6 +37,22 @@ function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: Recor
   return items.filter((data) => !data.disabled).map((data) => data.key);
 }
 
+function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
+  renderResult: RenderResult,
+  item: RecordType,
+): string {
+  if (typeof renderResult === 'string' || typeof renderResult === 'number') {
+    return String(renderResult);
+  }
+  if (typeof item.title === 'string' || typeof item.title === 'number') {
+    return String(item.title);
+  }
+  if (typeof item.key === 'string' || typeof item.key === 'number') {
+    return String(item.key);
+  }
+  return '';
+}
+
 const isValidIcon = (icon: React.ReactNode) => icon !== undefined;
 
 export interface RenderedItem<RecordType> {
@@ -192,16 +208,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
       renderedText = renderResult.value;
     } else {
       renderedEl = renderResult;
-
-      if (typeof renderResult === 'string' || typeof renderResult === 'number') {
-        renderedText = String(renderResult);
-      } else if (typeof item.title === 'string' || typeof item.title === 'number') {
-        renderedText = String(item.title);
-      } else if (typeof item.key === 'string' || typeof item.key === 'number') {
-        renderedText = String(item.key);
-      } else {
-        renderedText = '';
-      }
+      renderedText = getTextFromRenderResult(renderResult, item);
     }
 
     return {
