@@ -10,7 +10,8 @@ import useLocale from '../../../../hooks/useLocale';
 import Group from '../Group';
 import ComponentsBlock from './ComponentsBlock';
 import usePreviewThemes from './previewThemes';
-import { generateThemeCode } from './themeCodeUtils';
+import type { PreviewThemeConfig } from './previewThemes';
+import { generateFullCopyFile } from './themeCodeUtils';
 
 const locales = {
   cn: {
@@ -104,8 +105,12 @@ const useStyles = createStyles(({ css, cssVar }) => ({
 
     '&.dark': {
       color: cssVar.colorTextLightSolid,
+
       '&:hover': {
-        color: cssVar.colorTextLightSolid,
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+      },
+      '&:active': {
+        backgroundColor: 'rgba(255, 255, 255, 0.12)',
       },
     },
   }),
@@ -197,19 +202,18 @@ function ThemePreviewContent(props: ThemePreviewProps) {
     }
   };
 
-  const handleCopyTheme = async (
-    event: React.MouseEvent,
-    themeProps: (typeof previewThemes)[0]['props'],
-    name: string,
-  ) => {
+  const handleCopyTheme = async (event: React.MouseEvent, previewTheme: PreviewThemeConfig) => {
     event.stopPropagation();
-    const code = generateThemeCode(themeProps?.theme);
+    const code = generateFullCopyFile({
+      themeConfig: previewTheme.props?.theme,
+      copyCode: previewTheme.copyCode,
+    });
     const success = await copy(code);
     if (success) {
       if (copyTimerRef.current) {
         clearTimeout(copyTimerRef.current);
       }
-      setCopiedName(name);
+      setCopiedName(previewTheme.name);
       message.success(locale.copySuccess);
       copyTimerRef.current = setTimeout(() => setCopiedName(null), 2000);
     }
@@ -271,7 +275,7 @@ function ThemePreviewContent(props: ThemePreviewProps) {
                       type="text"
                       size="small"
                       icon={copiedName === previewTheme.name ? <CheckOutlined /> : <CopyOutlined />}
-                      onClick={(e) => handleCopyTheme(e, previewTheme.props, previewTheme.name)}
+                      onClick={(e) => handleCopyTheme(e, previewTheme)}
                       aria-label={locale.copyTheme}
                     />
                   </Tooltip>

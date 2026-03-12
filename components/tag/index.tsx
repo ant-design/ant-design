@@ -121,9 +121,6 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       color: mergedColor,
       variant: mergedVariant,
       disabled: mergedDisabled,
-      href,
-      target,
-      icon,
     };
 
     // ====================== Styles ======================

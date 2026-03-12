@@ -4,8 +4,6 @@ import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
-import type { UseTheme } from '.';
-
 const useStyles = createStyles(({ css, cssVar }) => {
   const glassBorder = {
     boxShadow: [
@@ -68,7 +66,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 });
 
-const useGlassTheme: UseTheme = () => {
+const useGlassTheme = () => {
   const { styles } = useStyles();
 
   return useMemo<ConfigProviderProps>(

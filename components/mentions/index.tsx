@@ -153,8 +153,6 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     ...props,
     disabled: mergedDisabled,
     status: mergedStatus,
-    loading,
-    options,
     variant: customVariant,
   };
 

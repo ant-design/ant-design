@@ -130,7 +130,7 @@
     "@rc-component/mutate-observer": "^2.0.1",
     "@rc-component/notification": "~1.2.0",
     "@rc-component/pagination": "~1.2.0",
-    "@rc-component/picker": "~1.9.0",
+    "@rc-component/picker": "~1.9.1",
     "@rc-component/progress": "~1.0.2",
     "@rc-component/qrcode": "~1.1.1",
     "@rc-component/rate": "~1.0.1",
@@ -158,6 +158,7 @@
   "devDependencies": {
     "@ant-design/compatible": "^5.1.4",
     "@ant-design/happy-work-theme": "^2.0.0",
+    "@ant-design/static-style-extract": "^2.1.0",
     "@ant-design/tools": "^19.1.0",
     "@ant-design/x": "^2.2.0",
     "@ant-design/x-sdk": "^2.2.0",
