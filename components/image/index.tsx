@@ -77,6 +77,7 @@ export type ImageSemanticType = {
       body?: string;
       footer?: string;
       actions?: string;
+      close?: string;
     };
   };
   styles?: {
@@ -92,6 +93,7 @@ export type ImageSemanticType = {
       body?: React.CSSProperties;
       footer?: React.CSSProperties;
       actions?: React.CSSProperties;
+      close?: React.CSSProperties;
     };
   };
 };
