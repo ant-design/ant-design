@@ -223,11 +223,11 @@ describe('App', () => {
         </App>,
       );
 
-      const dynamicStyles = Array.from(document.querySelectorAll('style'));
+      const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
 
       const hasFocusVisibleStyle = dynamicStyles.some((style) => {
         const { innerHTML } = style;
-        return innerHTML.includes(':focus-visible') && innerHTML.includes('outline');
+        return innerHTML.includes('a:focus-visible') && innerHTML.includes('outline');
       });
 
       expect(hasFocusVisibleStyle).toBeTruthy();
