@@ -273,7 +273,7 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
               marginInlineEnd: token.marginXXS,
               color: labelRequiredMarkColor,
               fontSize: token.fontSize,
-              fontFamily: 'SimSun, sans-serif',
+              fontFamily: 'inherit',
               lineHeight: 1,
               content: '"*"',
             },
