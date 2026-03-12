@@ -55,7 +55,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | 带标签的 input，设置后置标签，请使用 Space.Compact 替换 | ReactNode | - |  |
 | ~~addonBefore~~ | 带标签的 input，设置前置标签，请使用 Space.Compact 替换 | ReactNode | - |  |
-| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode } | - |  |
+| allowClear | 可以点击清除图标删除内容 | boolean \| { clearIcon: ReactNode, disabled?: boolean } | - | disabled: 6.4.0 |
 | ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true | 4.5.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - |  |
 | count | 字符计数配置 | [CountConfig](#countconfig) | - | 5.10.0 |
@@ -67,7 +67,7 @@ demo:
 | showCount | 是否展示字数 | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-input), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), CSSProperties> | - |  |
-| size | 控件大小。注：标准表单内的输入框大小限制为 `middle` | `large` \| `middle` \| `small` | - |  |
+| size | 控件大小。注：标准表单内的输入框大小限制为 `medium` | `large` \| `medium` \| `small` | - |  |
 | suffix | 带有后缀图标的 input | ReactNode | - |  |
 | type | 声明 input 类型，同原生 input 标签的 type 属性，见：[MDN](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/input#属性)(请直接使用 `Input.TextArea` 代替 `type="textarea"`) | string | `text` |  |
 | value | 输入框内容 | string | - |  |
@@ -148,7 +148,7 @@ interface CountConfig {
 | length | 输入元素数量 | number | 6 |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-otp) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp) , CSSProperties> | - |  |
-| size | 输入框大小 | `small` \| `middle` \| `large` | `middle` |  |
+| size | 输入框大小 | `small` \| `medium` \| `large` | `medium` |  |
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 |
 | value | 输入框内容 | string | - |  |
 | onChange | 当输入框内容全部填充时触发回调 | (value: string) => void | - |  |

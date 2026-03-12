@@ -27,6 +27,7 @@ When a numeric value needs to be provided.
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/spinner.tsx" version="6.0.0">Spinner</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
+<code src="./demo/borderless-height-debug.tsx" debug>Borderless height alignment</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>
@@ -63,7 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | - |
 | prefix | The prefix icon for the Input | ReactNode | - |  |
 | suffix | The suffix icon for the Input | ReactNode | - | 5.20.0 |
-| size | The height of input box | `large` \| `middle` \| `small` | - | - |
+| size | The height of input box | `large` \| `medium` \| `small` | - | - |
 | step | The number to which the current value is increased or decreased. It can be an integer or decimal | number \| string | 1 | - |
 | stringMode | Set value as string to support high precision decimals. Will return string value by `onChange` | boolean | false |  |
 | mode | Show input or spinner | `'input' \| 'spinner'` | `'input'` |  |

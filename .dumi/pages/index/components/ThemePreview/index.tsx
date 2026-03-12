@@ -1,13 +1,17 @@
 import * as React from 'react';
-import { ConfigProvider, Flex, theme } from 'antd';
+import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
+import { App, Button, ConfigProvider, Flex, theme, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
+import copy from '../../../../../components/_util/copy';
 import { DarkContext } from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
 import Group from '../Group';
 import ComponentsBlock from './ComponentsBlock';
 import usePreviewThemes from './previewThemes';
+import type { PreviewThemeConfig } from './previewThemes';
+import { generateFullCopyFile } from './themeCodeUtils';
 
 const locales = {
   cn: {
@@ -15,6 +19,8 @@ const locales = {
     themeDesc: '开放样式算法与语义化结构，让你与 AI 一起轻松定制主题',
     aiGenerate: 'AI 生成主题',
     aiGenerateDesc: '用一句话描述你想要的风格',
+    copyTheme: '复制主题代码',
+    copySuccess: '已复制',
   },
   en: {
     themeTitle: 'Flexible theme customization',
@@ -22,6 +28,8 @@ const locales = {
       'Open style algorithms and semantic structures make it easy for you and AI to customize themes',
     aiGenerate: 'AI Generate Theme',
     aiGenerateDesc: 'Describe your desired style',
+    copyTheme: 'Copy theme code',
+    copySuccess: 'Copied',
   },
 };
 
@@ -56,11 +64,11 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     borderRadius: cssVar.borderRadius,
     borderColor: 'transparent',
     transition: `all ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
+    cursor: 'pointer',
 
-    '&:hover:not(.active):not(.ai-generate-item)': {
+    '&:hover:not(.active):not(.dark)': {
       borderColor: cssVar.colorPrimaryBorder,
       backgroundColor: cssVar.colorPrimaryBg,
-      cursor: 'pointer',
     },
 
     '&:focus-visible': {
@@ -86,19 +94,33 @@ const useStyles = createStyles(({ css, cssVar }) => ({
     },
   }),
 
+  copyButton: css({
+    opacity: 0,
+    transition: `opacity ${cssVar.motionDurationMid} ${cssVar.motionEaseInOut}`,
+    flexShrink: 0,
+
+    '&.visible': {
+      opacity: 1,
+    },
+
+    '&.dark': {
+      color: cssVar.colorTextLightSolid,
+
+      '&:hover': {
+        backgroundColor: 'rgba(255, 255, 255, 0.08)',
+      },
+      '&:active': {
+        backgroundColor: 'rgba(255, 255, 255, 0.12)',
+      },
+    },
+  }),
+
   // AI Generate Item
   aiGenerateItem: css({
     borderStyle: 'dashed',
     opacity: 0.7,
     cursor: 'pointer',
-    color: cssVar.colorTextSecondary,
     paddingInline: cssVar.padding,
-
-    '&:hover': {
-      borderColor: cssVar.colorPrimary,
-      color: cssVar.colorPrimary,
-      opacity: 1,
-    },
   }),
 
   aiGenerateContent: css({
@@ -139,21 +161,26 @@ export interface ThemePreviewProps {
   onOpenPromptDrawer?: () => void;
 }
 
-export default function ThemePreview(props: ThemePreviewProps = {}) {
+function ThemePreviewContent(props: ThemePreviewProps) {
   const { onOpenPromptDrawer } = props;
   const [locale] = useLocale(locales);
   const { styles } = useStyles();
   const isDark = React.use(DarkContext);
+  const { message } = App.useApp();
 
   const previewThemes = usePreviewThemes();
 
   const [activeName, setActiveName] = React.useState(() => previewThemes[0].name);
+  const [copiedName, setCopiedName] = React.useState<string | null>(null);
+  const [hoveredName, setHoveredName] = React.useState<string | null>(null);
+  const copyTimerRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
   React.useEffect(() => {
     const defaultThemeName = isDark ? 'dark' : 'light';
 
     const targetTheme =
-      previewThemes.find((theme) => theme.key === defaultThemeName)?.name || previewThemes[0].name;
+      previewThemes.find((previewTheme) => previewTheme.key === defaultThemeName)?.name ||
+      previewThemes[0].name;
 
     setActiveName(targetTheme);
   }, [isDark]);
@@ -175,71 +202,128 @@ export default function ThemePreview(props: ThemePreviewProps = {}) {
     }
   };
 
-  const activeTheme = previewThemes.find((theme) => theme.name === activeName);
+  const handleCopyTheme = async (event: React.MouseEvent, previewTheme: PreviewThemeConfig) => {
+    event.stopPropagation();
+    const code = generateFullCopyFile({
+      themeConfig: previewTheme.props?.theme,
+      copyCode: previewTheme.copyCode,
+    });
+    const success = await copy(code);
+    if (success) {
+      if (copyTimerRef.current) {
+        clearTimeout(copyTimerRef.current);
+      }
+      setCopiedName(previewTheme.name);
+      message.success(locale.copySuccess);
+      copyTimerRef.current = setTimeout(() => setCopiedName(null), 2000);
+    }
+  };
+
+  React.useEffect(
+    () => () => {
+      if (copyTimerRef.current) {
+        clearTimeout(copyTimerRef.current);
+      }
+    },
+    [],
+  );
+
+  const activeTheme = previewThemes.find((previewTheme) => previewTheme.name === activeName);
 
   return (
-    <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
-      <Group
-        title={locale.themeTitle}
-        description={locale.themeDesc}
-        background={activeTheme?.bgImg}
-        titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
-        backgroundPrefetchList={backgroundPrefetchList}
-      >
-        <Flex className={styles.container} gap="large">
-          <div
-            style={{
-              display: 'flex',
-            }}
-          >
-            <div className={styles.list} role="tablist" aria-label="Theme selection">
-              {previewThemes.map((theme) => (
-                <div
-                  className={clsx(
-                    styles.listItem,
-                    activeName === theme.name && 'active',
-                    activeTheme?.bgImgDark && 'dark',
-                  )}
-                  key={theme.name}
-                  role="tab"
-                  tabIndex={activeName === theme.name ? 0 : -1}
-                  aria-selected={activeName === theme.name}
-                  onClick={() => handleThemeClick(theme.name)}
-                  onKeyDown={(event) => handleKeyDown(event, theme.name)}
-                  style={{ marginBottom: 8 }}
-                >
-                  {theme.name}
-                </div>
-              ))}
-              {/* AI 生成主题 - 最后一个选项 */}
+    <Group
+      title={locale.themeTitle}
+      description={locale.themeDesc}
+      background={activeTheme?.bgImg}
+      titleColor={activeTheme?.bgImgDark ? '#fff' : undefined}
+      backgroundPrefetchList={backgroundPrefetchList}
+    >
+      <Flex className={styles.container} gap="large">
+        <div
+          style={{
+            display: 'flex',
+          }}
+        >
+          <div className={styles.list} role="tablist" aria-label="Theme selection">
+            {previewThemes.map((previewTheme) => (
               <div
-                className={clsx(styles.listItem, styles.aiGenerateItem, 'ai-generate-item')}
+                className={clsx(
+                  styles.listItem,
+                  activeName === previewTheme.name && 'active',
+                  activeTheme?.bgImgDark && 'dark',
+                )}
+                key={previewTheme.name}
                 role="tab"
-                tabIndex={0}
-                onClick={onOpenPromptDrawer}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' || event.key === ' ') {
-                    event.preventDefault();
-                    onOpenPromptDrawer?.();
-                  }
-                }}
+                tabIndex={activeName === previewTheme.name ? 0 : -1}
+                aria-selected={activeName === previewTheme.name}
+                onClick={() => handleThemeClick(previewTheme.name)}
+                onKeyDown={(event) => handleKeyDown(event, previewTheme.name)}
+                onMouseEnter={() => setHoveredName(previewTheme.name)}
+                onMouseLeave={() => setHoveredName(null)}
+                style={{ marginBottom: 8 }}
               >
-                <div className={styles.aiGenerateContent}>
-                  <span className={styles.aiGenerateIcon}>🎨</span>
-                  <span>{locale.aiGenerate}</span>
-                </div>
-                <div className={styles.aiGenerateDesc}>{locale.aiGenerateDesc}</div>
+                <Flex justify="space-between" align="center">
+                  <span>{previewTheme.name}</span>
+                  <Tooltip title={locale.copyTheme}>
+                    <Button
+                      className={clsx(
+                        styles.copyButton,
+                        (hoveredName === previewTheme.name || copiedName === previewTheme.name) &&
+                          'visible',
+                        activeTheme?.bgImgDark && 'dark',
+                      )}
+                      type="text"
+                      size="small"
+                      icon={copiedName === previewTheme.name ? <CheckOutlined /> : <CopyOutlined />}
+                      onClick={(e) => handleCopyTheme(e, previewTheme)}
+                      aria-label={locale.copyTheme}
+                    />
+                  </Tooltip>
+                </Flex>
               </div>
+            ))}
+            {/* AI 生成主题 - 最后一个选项 */}
+            <div
+              className={clsx(
+                styles.listItem,
+                styles.aiGenerateItem,
+                activeTheme?.bgImgDark && 'dark',
+              )}
+              role="tab"
+              tabIndex={0}
+              onClick={onOpenPromptDrawer}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  event.preventDefault();
+                  onOpenPromptDrawer?.();
+                }
+              }}
+            >
+              <div className={styles.aiGenerateContent}>
+                <span className={styles.aiGenerateIcon}>🎨</span>
+                <span>{locale.aiGenerate}</span>
+              </div>
+              <div className={styles.aiGenerateDesc}>{locale.aiGenerateDesc}</div>
             </div>
           </div>
-          <ComponentsBlock
-            key={activeName}
-            config={activeTheme?.props}
-            className={styles.componentsBlock}
-            containerClassName={styles.componentsBlockContainer}
-          />
-        </Flex>
-      </Group>
+        </div>
+        <ComponentsBlock
+          key={activeName}
+          config={activeTheme?.props}
+          className={styles.componentsBlock}
+          containerClassName={styles.componentsBlockContainer}
+        />
+      </Flex>
+    </Group>
+  );
+}
+
+export default function ThemePreview(props: ThemePreviewProps = {}) {
+  return (
+    <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
+      <App>
+        <ThemePreviewContent {...props} />
+      </App>
     </ConfigProvider>
   );
 }

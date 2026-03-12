@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Drawer, Flex } from 'antd';
-import type { DrawerProps } from 'antd';
+import type { DrawerProps, GetProp } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const lineStyle: React.CSSProperties = {
@@ -22,12 +22,14 @@ const sharedContent = (
   </>
 );
 
-const classNames = createStaticStyles(({ css }) => ({
-  container: css`
-    border-radius: 10px;
-    padding: 10px;
-  `,
-}));
+const classNames = createStaticStyles(
+  ({ css }): NonNullable<GetProp<DrawerProps, 'classNames', 'Return'>> => ({
+    root: css`
+      border-radius: 10px;
+      padding: 10px;
+    `,
+  }),
+);
 
 const styles: DrawerProps['styles'] = {
   mask: {
@@ -35,7 +37,7 @@ const styles: DrawerProps['styles'] = {
   },
 };
 
-const stylesFn: DrawerProps['styles'] = (info) => {
+const stylesFn: DrawerProps['styles'] = (info): GetProp<DrawerProps, 'styles', 'Return'> => {
   if (info.props.footer) {
     return {
       header: {
@@ -48,9 +50,8 @@ const stylesFn: DrawerProps['styles'] = (info) => {
         padding: '16px 10px',
         backgroundColor: '#fafafa',
       },
-    } satisfies DrawerProps['styles'];
+    };
   }
-  return {};
 };
 
 const App: React.FC = () => {
@@ -63,7 +64,7 @@ const App: React.FC = () => {
   };
 
   const footer: React.ReactNode = (
-    <Flex gap="middle" justify="flex-end">
+    <Flex gap="medium" justify="flex-end">
       <Button
         onClick={() => setDrawerFnOpen(false)}
         styles={{ root: { borderColor: '#ccc', color: '#171717', backgroundColor: '#fff' } }}
@@ -81,7 +82,7 @@ const App: React.FC = () => {
   );
 
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Button onClick={() => setDrawerOpen(true)}>Open Style Drawer</Button>
       <Button type="primary" onClick={() => setDrawerFnOpen(true)}>
         Open Function Drawer

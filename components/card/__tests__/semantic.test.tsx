@@ -1,26 +1,30 @@
 import React from 'react';
 
+import type { CardProps } from '..';
 import Card from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import Button from '../../button';
 
 describe('Card.Semantic', () => {
   it('should support useMergeSemantic with mergedProps', () => {
-    const semanticClassNames = {
+    const semanticClassNames: Required<GetProp<CardProps, 'classNames', 'Return'>> = {
       root: 'semantic-card-root',
       header: 'semantic-card-header',
       body: 'semantic-card-body',
       title: 'semantic-card-title',
       extra: 'semantic-card-extra',
       actions: 'semantic-card-actions',
+      cover: 'semantic-card-cover',
     };
-    const semanticStyles = {
+    const semanticStyles: Required<GetProp<CardProps, 'styles', 'Return'>> = {
       root: { backgroundColor: '#fafafa' },
       header: { color: '#111111', fontWeight: 700 },
       body: { padding: '20px' },
       title: { fontSize: '22px' },
       extra: { color: '#000000' },
       actions: { margin: '8px' },
+      cover: { padding: '10px' },
     };
     const { Meta } = Card;
     const { container } = render(
@@ -62,22 +66,24 @@ describe('Card.Semantic', () => {
   });
 
   it('should support function-based semantic classNames and styles', () => {
-    const dynamicClassNames = () => ({
-      root: 'dynamic-card-root',
+    const dynamicClassNames: GetProp<CardProps, 'classNames'> = ({ props }) => ({
+      root: `dynamic-card-root-${props.size}`,
       header: 'dynamic-card-header',
       body: 'dynamic-card-body',
       title: 'dynamic-card-title',
       extra: 'dynamic-card-extra',
       actions: 'dynamic-card-actions',
+      cover: 'dynamic-card-cover',
     });
 
-    const dynamicStyles = () => ({
-      root: { borderRadius: '12px' },
+    const dynamicStyles: GetProp<CardProps, 'styles'> = ({ props }) => ({
+      root: { borderRadius: props.size === 'small' ? '8px' : '12px' },
       header: { fontSize: '16px' },
       body: { padding: '20px' },
       title: { fontSize: '22px' },
       extra: { color: '#000000' },
       actions: { margin: '8px' },
+      cover: { padding: '10px' },
     });
 
     const { Meta } = Card;
@@ -87,6 +93,7 @@ describe('Card.Semantic', () => {
         title="card"
         extra={<Button type="link">More</Button>}
         style={{ width: 300 }}
+        size="small"
         actions={[<span key={1}>test</span>]}
         classNames={dynamicClassNames}
         styles={dynamicStyles}
@@ -102,14 +109,14 @@ describe('Card.Semantic', () => {
     const title = container.querySelector('.ant-card-head-title');
     const extra = container.querySelector('.ant-card-extra');
 
-    expect(root).toHaveClass('dynamic-card-root');
+    expect(root).toHaveClass('dynamic-card-root-small');
     expect(header).toHaveClass('dynamic-card-header');
     expect(body).toHaveClass('dynamic-card-body');
     expect(actions).toHaveClass('dynamic-card-actions');
     expect(title).toHaveClass('dynamic-card-title');
     expect(extra).toHaveClass('dynamic-card-extra');
 
-    expect(root).toHaveStyle('border-radius: 12px');
+    expect(root).toHaveStyle('border-radius: 8px');
     expect(header).toHaveStyle('font-size: 16px');
     expect(body).toHaveStyle('padding: 20px');
     expect(actions).toHaveStyle('margin: 8px');

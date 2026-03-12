@@ -2,53 +2,48 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 import { debounce } from 'throttle-debounce';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
+import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import Indicator from './Indicator';
 import useStyle from './style/index';
 import usePercent from './usePercent';
 
-const _SpinSizes = ['small', 'default', 'large'] as const;
-
-export type SpinSize = (typeof _SpinSizes)[number];
-
 export type SpinIndicator = React.ReactElement<HTMLElement>;
 
-export type SpinSemanticName = keyof SpinSemanticClassNames & keyof SpinSemanticStyles;
+export type SpinSemanticType = {
+  classNames?: {
+    root?: string;
+    section?: string;
+    indicator?: string;
+    description?: string;
 
-export type SpinSemanticClassNames = {
-  root?: string;
-  section?: string;
-  indicator?: string;
-  description?: string;
+    container?: string;
 
-  container?: string;
+    /** @deprecated Please use `description` instead */
+    tip?: string;
+    /** @deprecated Please use `root` instead */
+    mask?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    section?: React.CSSProperties;
+    indicator?: React.CSSProperties;
+    description?: React.CSSProperties;
 
-  /** @deprecated Please use `description` instead */
-  tip?: string;
-  /** @deprecated Please use `root` instead */
-  mask?: string;
+    container?: React.CSSProperties;
+
+    /** @deprecated Please use `description` instead */
+    tip?: React.CSSProperties;
+    /** @deprecated Please use `root` instead */
+    mask?: React.CSSProperties;
+  };
 };
 
-export type SpinSemanticStyles = {
-  root?: React.CSSProperties;
-  section?: React.CSSProperties;
-  indicator?: React.CSSProperties;
-  description?: React.CSSProperties;
-
-  container?: React.CSSProperties;
-
-  /** @deprecated Please use `description` instead */
-  tip?: React.CSSProperties;
-  /** @deprecated Please use `root` instead */
-  mask?: React.CSSProperties;
-};
-
-export type SpinClassNamesType = SemanticClassNamesType<SpinProps, SpinSemanticClassNames>;
-
-export type SpinStylesType = SemanticStylesType<SpinProps, SpinSemanticStyles>;
+export type SpinSemanticAllType = GenerateSemantic<SpinSemanticType, SpinProps>;
 
 export interface SpinProps {
   prefixCls?: string;
@@ -57,7 +52,10 @@ export interface SpinProps {
   /** Whether Spin is spinning */
   spinning?: boolean;
   style?: React.CSSProperties;
-  size?: SpinSize;
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: SizeType | 'default';
   /** Customize description content when Spin has children */
   /** @deprecated Please use `description` instead */
   tip?: React.ReactNode;
@@ -73,8 +71,8 @@ export interface SpinProps {
   /** Display a backdrop with the `Spin` component */
   fullscreen?: boolean;
   percent?: number | 'auto';
-  classNames?: SpinClassNamesType;
-  styles?: SpinStylesType;
+  classNames?: SpinSemanticAllType['classNamesAndFn'];
+  styles?: SpinSemanticAllType['stylesAndFn'];
 }
 
 export type SpinType = React.FC<SpinProps> & {
@@ -95,7 +93,7 @@ const Spin: SpinType = (props) => {
     delay = 0,
     className,
     rootClassName,
-    size = 'default',
+    size,
     tip,
     description,
     wrapperClassName,
@@ -143,13 +141,21 @@ const Spin: SpinType = (props) => {
     setSpinning(false);
   }, [delay, customSpinning]);
 
+  // ======================= Size ======================
+  const mergedSize = useSize((ctx) => size ?? ctx);
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Spin');
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+  }
+
   // ======================= Description ======================
   const mergedDescription = description ?? tip;
 
   // =============== Merged Props for Semantic ================
   const mergedProps: SpinProps = {
     ...props,
-    size,
+    size: mergedSize,
     spinning,
     tip: mergedDescription,
     description: mergedDescription,
@@ -159,13 +165,13 @@ const Spin: SpinType = (props) => {
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SpinClassNamesType,
-    SpinStylesType,
-    SpinProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ======================== Warning =========================
   if (process.env.NODE_ENV !== 'production') {
@@ -225,8 +231,8 @@ const Spin: SpinType = (props) => {
       className={clsx(
         prefixCls,
         {
-          [`${prefixCls}-sm`]: size === 'small',
-          [`${prefixCls}-lg`]: size === 'large',
+          [`${prefixCls}-sm`]: mergedSize === 'small',
+          [`${prefixCls}-lg`]: mergedSize === 'large',
           [`${prefixCls}-spinning`]: spinning,
           [`${prefixCls}-rtl`]: direction === 'rtl',
           [`${prefixCls}-fullscreen`]: fullscreen,

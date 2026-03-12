@@ -3,8 +3,8 @@ import type { BaseSelectRef } from '@rc-component/select';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
-import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
 import type { ConfigConsumerProps } from '../config-provider';
@@ -105,11 +105,14 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
     onOpenChange,
     styles,
     classNames,
+    popupMatchSelectWidth,
+    dropdownMatchSelectWidth,
   } = props;
   const childNodes: React.ReactElement[] = toArray(children);
 
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
+  const mergedPopupMatchSelectWidth = popupMatchSelectWidth || dropdownMatchSelectWidth;
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;
@@ -189,11 +192,9 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
   // =========== Merged Props for Semantic ===========
   const mergedProps: AutoCompleteProps = {
     ...props,
-    dataSource,
-    status: props.status,
-    popupMatchSelectWidth: props.popupMatchSelectWidth || props.dropdownMatchSelectWidth,
     popupRender: mergedPopupRender,
     onOpenChange: mergedOnOpenChange,
+    popupMatchSelectWidth: mergedPopupMatchSelectWidth,
   };
 
   // ========================= Style ==========================
@@ -255,6 +256,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
       mode={Select.SECRET_COMBOBOX_MODE_DO_NOT_USE as SelectProps['mode']}
       popupRender={mergedPopupRender}
       onPopupVisibleChange={mergedOnOpenChange}
+      popupMatchSelectWidth={mergedPopupMatchSelectWidth}
       {...{
         // Internal api
         getInputElement,

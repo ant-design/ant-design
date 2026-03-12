@@ -65,6 +65,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
+import type { TypographyProps } from '../typography';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
@@ -215,7 +216,12 @@ export type ModalConfig = ComponentStyleConfig &
     | 'okButtonProps'
     | 'cancelButtonProps'
     | 'mask'
-  >;
+  > & {
+    infoIcon?: React.ReactNode;
+    successIcon?: React.ReactNode;
+    errorIcon?: React.ReactNode;
+    warningIcon?: React.ReactNode;
+  };
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<
@@ -241,6 +247,9 @@ export type AlertConfig = ComponentStyleConfig &
   };
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
+
+export type TypographyConfig = ComponentStyleConfig &
+  Pick<TypographyProps, 'classNames' | 'styles'>;
 
 export type BreadcrumbConfig = ComponentStyleConfig &
   Pick<BreadcrumbProps, 'classNames' | 'styles' | 'separator' | 'dropdownIcon'>;
@@ -469,7 +478,7 @@ export interface ConfigComponentProps {
   collapse?: CollapseConfig;
   floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
-  typography?: ComponentStyleConfig;
+  typography?: TypographyConfig;
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;

@@ -141,7 +141,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       // ========================= Style ==========================
       // Use original useMergedPickerSemantic for proper popup handling
-      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<P>(
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
         pickerType,
         classNames,
         styles,
@@ -238,7 +238,8 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             rootClassName={mergedRootClassName}
             className={clsx(
               {
-                [`${prefixCls}-${mergedSize}`]: mergedSize,
+                [`${prefixCls}-large`]: mergedSize === 'large',
+                [`${prefixCls}-small`]: mergedSize === 'small',
                 [`${prefixCls}-${variant}`]: enableVariantCls,
               },
               getStatusClassNames(

@@ -1151,7 +1151,7 @@ exports[`renders components/empty/demo/simple.tsx extend context correctly 2`] =
 
 exports[`renders components/empty/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="css-var-test-id ant-empty ant-empty-normal acss-8yzyy9"

@@ -35,3 +35,8 @@ declare module '@microflash/rehype-figure';
 declare module 'dekko';
 
 declare module 'csstree-validator';
+
+declare module '*?raw' {
+  const content: string;
+  export default content;
+}

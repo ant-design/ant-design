@@ -3,13 +3,13 @@ import { Panel } from '@rc-component/dialog';
 import type { PanelProps } from '@rc-component/dialog/lib/Dialog/Content/Panel';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { withPureRenderTheme } from '../_util/PurePanel';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { ConfirmContent } from './ConfirmDialog';
-import type { ModalClassNamesType, ModalFuncProps, ModalStylesType } from './interface';
+import type { ModalFuncProps, ModalSemanticAllType } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
@@ -18,8 +18,8 @@ export interface PurePanelProps
     Pick<ModalFuncProps, 'type' | 'footer'> {
   prefixCls?: string;
   style?: React.CSSProperties;
-  classNames?: ModalClassNamesType;
-  styles?: ModalStylesType;
+  classNames?: ModalSemanticAllType['classNames'];
+  styles?: ModalSemanticAllType['styles'];
 }
 
 const PurePanel: React.FC<PurePanelProps> = (props) => {
@@ -49,13 +49,13 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const rootCls = useCSSVarCls(rootPrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ModalClassNamesType,
-    ModalStylesType,
-    PurePanelProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props,
+    },
+  );
 
   const confirmPrefixCls = `${prefixCls}-confirm`;
 

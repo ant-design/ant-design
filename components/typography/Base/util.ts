@@ -1,9 +1,11 @@
-export function toList<T>(val: T | T[]): T[] {
+import toList from '../../_util/toList';
+
+export const toCopyConfigList = <T>(val: T | T[]): T[] => {
   if (val === false) {
     return [false, false] as T[];
   }
-  return Array.isArray(val) ? val : [val];
-}
+  return toList(val);
+};
 
 export function getNode(dom: React.ReactNode, defaultNode: React.ReactNode, needDom?: boolean) {
   if (dom === true || dom === undefined) {

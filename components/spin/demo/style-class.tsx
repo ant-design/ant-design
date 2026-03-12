@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Spin } from 'antd';
-import type { SpinProps } from 'antd';
+import type { GetProp, SpinProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -15,13 +15,13 @@ const stylesObject: SpinProps['styles'] = {
   },
 };
 
-const stylesFn: SpinProps['styles'] = ({ props }) => {
+const stylesFn: SpinProps['styles'] = ({ props }): GetProp<SpinProps, 'styles', 'Return'> => {
   if (props.size === 'small') {
     return {
       indicator: {
         color: '#722ed1',
       },
-    } satisfies SpinProps['styles'];
+    };
   }
   return {};
 };
@@ -34,7 +34,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex align="center" gap="middle">
+    <Flex align="center" gap="medium">
       <Spin {...sharedProps} styles={stylesObject} />
       <Spin {...sharedProps} styles={stylesFn} size="small" />
     </Flex>

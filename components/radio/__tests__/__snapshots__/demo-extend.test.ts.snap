@@ -430,6 +430,78 @@ exports[`renders components/radio/demo/component-token.tsx extend context correc
 
 exports[`renders components/radio/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/radio/demo/debug-group-width.tsx extend context correctly 1`] = `
+<div
+  style="width: 280px; border: 1px solid rgb(238, 238, 238); padding: 16px;"
+>
+  <div
+    class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
+    role="radiogroup"
+  >
+    <label
+      class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target ant-radio-checked"
+      >
+        <input
+          checked=""
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="a"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Short
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="b"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Long label that may wrap in narrow container
+      </span>
+    </label>
+    <label
+      class="ant-radio-wrapper css-var-test-id ant-radio-css-var"
+    >
+      <span
+        class="ant-radio ant-wave-target"
+      >
+        <input
+          class="ant-radio-input"
+          name="test-id"
+          type="radio"
+          value="c"
+        />
+      </span>
+      <span
+        class="ant-radio-label"
+      >
+        Medium
+      </span>
+    </label>
+  </div>
+</div>
+`;
+
+exports[`renders components/radio/demo/debug-group-width.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/radio/demo/debug-upload.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -579,7 +651,7 @@ exports[`renders components/radio/demo/disabled.tsx extend context correctly 2`]
 
 exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline css-var-test-id ant-radio-css-var"
@@ -839,7 +911,7 @@ exports[`renders components/radio/demo/radiobutton.tsx extend context correctly 
 
 exports[`renders components/radio/demo/radiobutton-solid.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-solid css-var-test-id ant-radio-css-var"
@@ -1196,7 +1268,7 @@ exports[`renders components/radio/demo/radiogroup.tsx extend context correctly 2
 
 exports[`renders components/radio/demo/radiogroup-block.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-block css-var-test-id ant-radio-css-var"
@@ -1839,7 +1911,7 @@ exports[`renders components/radio/demo/radiogroup-with-name.tsx extend context c
 
 exports[`renders components/radio/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-radio-group ant-radio-group-outline ant-radio-group-large css-var-test-id ant-radio-css-var"
@@ -2094,7 +2166,7 @@ exports[`renders components/radio/demo/size.tsx extend context correctly 2`] = `
 
 exports[`renders components/radio/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <label
     class="ant-radio-wrapper ant-radio-wrapper-checked css-var-test-id ant-radio-css-var"

@@ -31,7 +31,7 @@ exports[`renders components/spin/demo/basic.tsx correctly 1`] = `
 
 exports[`renders components/spin/demo/custom-indicator.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-medium"
 >
   <div
     aria-busy="true"
@@ -139,7 +139,7 @@ exports[`renders components/spin/demo/custom-indicator.tsx correctly 1`] = `
 
 exports[`renders components/spin/demo/delayAndDebounce.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     aria-busy="false"
@@ -217,7 +217,7 @@ Array [
 
 exports[`renders components/spin/demo/nested.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     aria-busy="false"
@@ -277,7 +277,7 @@ exports[`renders components/spin/demo/nested.tsx correctly 1`] = `
 
 exports[`renders components/spin/demo/percent.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-medium"
 >
   <button
     aria-checked="false"
@@ -386,7 +386,7 @@ exports[`renders components/spin/demo/percent.tsx correctly 1`] = `
 
 exports[`renders components/spin/demo/size.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-medium"
 >
   <div
     aria-busy="true"
@@ -471,7 +471,7 @@ exports[`renders components/spin/demo/size.tsx correctly 1`] = `
 
 exports[`renders components/spin/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-medium"
 >
   <div
     aria-busy="true"
@@ -532,10 +532,10 @@ exports[`renders components/spin/demo/style-class.tsx correctly 1`] = `
 
 exports[`renders components/spin/demo/tip.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-flex css-var-test-id ant-flex-gap-middle"
+    class="ant-flex css-var-test-id ant-flex-gap-medium"
   >
     <div
       aria-busy="true"

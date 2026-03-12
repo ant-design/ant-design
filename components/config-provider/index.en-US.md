@@ -53,7 +53,7 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | componentDisabled | Config antd component `disabled` | boolean | - | 4.21.0 |
-| componentSize | Config antd component size | `small` \| `middle` \| `large` | - |  |
+| componentSize | Config antd component size | `small` \| `medium` \| `large` | - |  |
 | csp | Set [Content Security Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) config | { nonce: string } | - |  |
 | direction | Set direction of layout. See [demo](#config-provider-demo-direction) | `ltr` \| `rtl` | `ltr` |  |
 | getPopupContainer | To set the container of the popup element. The default is to create a `div` element in `body` | `(trigger?: HTMLElement) => HTMLElement \| ShadowRoot` | () => document.body |  |
@@ -102,7 +102,7 @@ const {
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | componentDisabled | antd component disabled state | boolean | - | 5.3.0 |
-| componentSize | antd component size state | `small` \| `middle` \| `large` | - | 5.3.0 |
+| componentSize | antd component size state | `small` \| `medium` \| `large` | - | 5.3.0 |
 
 ### Component Config
 
@@ -135,7 +135,7 @@ const {
 | floatButtonGroup | Set FloatButton.Group common props | { closeIcon?: React.ReactNode, className?: string, style?: React.CSSProperties, classNames?: [FloatButtonProps\["classNames"\]](/components/float-button#semantic-dom), styles?: [FloatButtonProps\["styles"\]](/components/float-button#semantic-dom) } | - |  |
 | form | Set Form common props | { className?: string, style?: React.CSSProperties, validateMessages?: [ValidateMessages](/components/form/#validatemessages), requiredMark?: boolean \| `optional`, scrollToFirstError?: boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options), classNames?:[FormConfig\["classNames"\]](/components/form#semantic-dom), styles?: [FormConfig\["styles"\]](/components/form#semantic-dom), tooltip?: [TooltipProps](/components/tooltip#api) & { icon?: ReactNode }, labelAlign?: `left` \| `right` } | - | `requiredMark`: 4.8.0; `colon`: 4.18.0; `scrollToFirstError`: 5.2.0; `className` and `style`: 5.7.0; `tooltip`: 6.3.0; `labelAlign`: 6.4.0 |
 | image | Set Image common props | { className?: string, style?: React.CSSProperties, preview?: { closeIcon?: React.ReactNode, classNames?:[ImageConfig\["classNames"\]](/components/image#semantic-dom), styles?: [ImageConfig\["styles"\]](/components/image#semantic-dom) }, fallback?: string } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` and `styles`: 6.0.0 |
-| input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode } } | - | 4.2.0, `allowClear`: 5.15.0 |
+| input | Set Input common props | { autoComplete?: string, className?: string, style?: React.CSSProperties, allowClear?: boolean \| { clearIcon?: ReactNode, disabled?: boolean } } | - | 4.2.0, `allowClear`: 5.15.0, `allowClear.disabled`: 6.4.0 |
 | inputNumber | Set InputNumber common props | { className?: string, style?: React.CSSProperties, classNames?: [InputNumberConfig\["classNames"\]](/components/input-number#semantic-dom), styles?: [InputNumberConfig\["styles"\]](/components/input-number#semantic-dom) } | - |  |
 | otp | Set OTP common props | { className?: string, style?: React.CSSProperties, classNames?: [OTPConfig\["classNames"\]](/components/input#semantic-otp), styles?: [OTPConfig\["styles"\]](/components/input#semantic-otp) } | - |  |
 | inputSearch | Set Search common props | { className?: string, style?: React.CSSProperties, classNames?: [InputSearchConfig\["classNames"\]](/components/input#semantic-search), styles?: [InputSearchConfig\["styles"\]](/components/input#semantic-search) } | - |  |
@@ -146,7 +146,7 @@ const {
 | menu | Set Menu common props | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties, classNames?:[MentionsConfig\["classNames"\]](/components/mentions#semantic-dom), styles?: [MentionsConfig\["styles"\]](/components/mentions#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | message | Set Message common props | { className?: string, style?: React.CSSProperties, classNames?: [MessageConfig\["classNames"\]](/components/message#semantic-dom), styles?: [MessageConfig\["styles"\]](/components/message#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
-| modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal#semantic-dom), styles?: [ModalProps\["styles"\]](/components/modal#semantic-dom), closeIcon?: React.ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0 |
+| modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal#semantic-dom), styles?: [ModalProps\["styles"\]](/components/modal#semantic-dom), closeIcon?: React.ReactNode, infoIcon?: React.ReactNode, successIcon?: React.ReactNode, errorIcon?: React.ReactNode, warningIcon?: React.ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0, `infoIcon`, `successIcon`, `errorIcon` and `warningIcon`: 6.4.0 |
 | notification | Set Notification common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification#semantic-dom), styles?: [NotificationConfig\["styles"\]](/components/notification#semantic-dom) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` and `styles`: 6.0.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, totalBoundaryShowSizeChanger?: number, className?: string, style?: React.CSSProperties,classNames?:[PaginationConfig\["classNames"\]](/components/pagination#semantic-dom), styles?: [PaginationConfig\["styles"\]](/components/pagination#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | progress | Set Progress common props | { className?: string, style?: React.CSSProperties, classNames?: [ProgressConfig\["classNames"\]](/components/progress#semantic-dom), styles?: [ProgressConfig\["styles"\]](/components/progress#semantic-dom) } | - |  |
