@@ -41,14 +41,10 @@ function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
   renderResult: RenderResult,
   item: RecordType,
 ): string {
-  if (typeof renderResult === 'string' || typeof renderResult === 'number') {
-    return String(renderResult);
-  }
-  if (typeof item.title === 'string' || typeof item.title === 'number') {
-    return String(item.title);
-  }
-  if (typeof item.key === 'string' || typeof item.key === 'number') {
-    return String(item.key);
+  for (const v of [renderResult, item.title, item.key]) {
+    if (typeof v === 'string' || typeof v === 'number') {
+      return String(v);
+    }
   }
   return '';
 }
@@ -200,16 +196,10 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
-    let renderedEl: React.ReactNode;
-    let renderedText: string;
-
-    if (isRenderResultPlain) {
-      renderedEl = renderResult.label;
-      renderedText = renderResult.value;
-    } else {
-      renderedEl = renderResult;
-      renderedText = getTextFromRenderResult(renderResult, item);
-    }
+    const renderedEl = isRenderResultPlain ? renderResult.label : renderResult;
+    const renderedText = isRenderResultPlain
+      ? renderResult.value
+      : getTextFromRenderResult(renderResult, item);
 
     return {
       item,
