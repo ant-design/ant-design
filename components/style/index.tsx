@@ -60,6 +60,16 @@ export const clearFix = (): CSSObject => ({
   },
 });
 
+export const genFocusOutline = (token: AliasToken, offset?: number): CSSObject => ({
+  outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
+  outlineOffset: offset ?? 1,
+  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
+});
+
+export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => ({
+  '&:focus-visible': genFocusOutline(token, offset),
+});
+
 export const genLinkStyle: GenerateStyle<AliasToken, CSSObject> = (token) => ({
   a: {
     color: token.colorLink,
@@ -90,10 +100,7 @@ export const genLinkStyle: GenerateStyle<AliasToken, CSSObject> = (token) => ({
     },
 
     // https://github.com/ant-design/ant-design/issues/57247
-    '&:focus-visible': {
-      outline: `${token.lineWidth} solid ${token.colorPrimary}`,
-      outlineOffset: 2,
-    },
+    ...genFocusStyle(token),
 
     '&[disabled]': {
       color: token.colorTextDisabled,
@@ -137,16 +144,6 @@ export const genCommonStyle = (
     },
   };
 };
-
-export const genFocusOutline = (token: AliasToken, offset?: number): CSSObject => ({
-  outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
-  outlineOffset: offset ?? 1,
-  transition: [`outline-offset`, `outline`].map((prop) => `${prop} 0s`).join(', '),
-});
-
-export const genFocusStyle = (token: AliasToken, offset?: number): CSSObject => ({
-  '&:focus-visible': genFocusOutline(token, offset),
-});
 
 export const genIconStyle = (iconPrefixCls: string): CSSObject => ({
   [`.${iconPrefixCls}`]: {
