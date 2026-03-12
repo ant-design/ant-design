@@ -269,12 +269,9 @@ const genFormItemStyle: GenerateStyle<FormToken, CSSObject> = (token) => {
 
           [`&${formItemCls}-required`]: {
             '&::before': {
-              display: 'inline-block',
               marginInlineEnd: token.marginXXS,
               color: labelRequiredMarkColor,
               fontSize: token.fontSize,
-              fontFamily: 'SimSun, sans-serif',
-              lineHeight: 1,
               content: '"*"',
             },
             [`&${formItemCls}-required-mark-hidden, &${formItemCls}-required-mark-optional`]: {
