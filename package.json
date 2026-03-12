@@ -121,7 +121,7 @@
     "@rc-component/drawer": "~1.4.2",
     "@rc-component/dropdown": "~1.0.2",
     "@rc-component/form": "~1.7.1",
-    "@rc-component/image": "~1.6.0",
+    "@rc-component/image": "~1.7.0",
     "@rc-component/input": "~1.2.0",
     "@rc-component/input-number": "~1.6.2",
     "@rc-component/mentions": "~1.7.1",
