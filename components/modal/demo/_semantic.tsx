@@ -72,7 +72,7 @@ const App: React.FC = () => {
         { name: 'close', desc: locale.close, version: '6.4.0' },
       ]}
     >
-      <BlockModal title="Title" closable={false} open getContainer={false} width={400}>
+      <BlockModal title="Title" open getContainer={false} width={400}>
         <p>Some contents...</p>
       </BlockModal>
     </SemanticPreview>
