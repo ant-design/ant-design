@@ -7,6 +7,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Password from '../Password';
 
 describe('Input.Password', () => {
@@ -177,5 +178,37 @@ describe('Input.Password', () => {
       <Input.Password suffix={<div className="custom-icon">custom icon</div>} />,
     );
     expect(container.querySelector('.custom-icon')).toBeTruthy();
+  });
+
+  describe('iconRender', () => {
+    it('should support iconRender prop', () => {
+      const { container } = render(
+        <Input.Password iconRender={() => <div className="custom-icon">custom</div>} />,
+      );
+      expect(container.querySelector('.custom-icon')).toBeTruthy();
+    });
+
+    it('should support iconRender prop in config provider', () => {
+      const { container } = render(
+        <ConfigProvider
+          inputPassword={{ iconRender: () => <div className="config-icon">config</div> }}
+        >
+          <Input.Password />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.config-icon')).toBeTruthy();
+    });
+
+    it('should prefer iconRender prop over config provider', () => {
+      const { container } = render(
+        <ConfigProvider
+          inputPassword={{ iconRender: () => <div className="config-icon">config</div> }}
+        >
+          <Input.Password iconRender={() => <div className="custom-icon">custom</div>} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.custom-icon')).toBeTruthy();
+      expect(container.querySelector('.config-icon')).toBeFalsy();
+    });
   });
 });

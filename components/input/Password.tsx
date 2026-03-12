@@ -2,12 +2,11 @@ import * as React from 'react';
 import { useRef, useState } from 'react';
 import EyeInvisibleOutlined from '@ant-design/icons/EyeInvisibleOutlined';
 import EyeOutlined from '@ant-design/icons/EyeOutlined';
-import { omit } from '@rc-component/util';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import type { ConfigConsumerProps } from '../config-provider';
-import { ConfigContext } from '../config-provider';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
@@ -43,14 +42,43 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     disabled: customDisabled,
     action = 'click',
     visibilityToggle = true,
-    iconRender = defaultIconRender,
+    iconRender,
+    prefixCls: customizePrefixCls,
+    inputPrefixCls: customizeInputPrefixCls,
     suffix,
+    className,
+    style,
+    classNames,
+    styles,
+    ...restProps
   } = props;
+
+  const {
+    getPrefixCls,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    iconRender: contextIconRender,
+  } = useComponentConfig('inputPassword');
+
   const [locale] = useLocale('Input');
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
+
+  // =========== Merged Props for Semantic ==========
+  const mergedProps: PasswordProps = {
+    ...props,
+    disabled: mergedDisabled,
+  };
+
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    { props: mergedProps },
+  );
 
   const visibilityControlled =
     typeof visibilityToggle === 'object' && visibilityToggle.visible !== undefined;
@@ -86,7 +114,8 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
 
   const getIcon = (prefixCls: string) => {
     const iconTrigger = actionMap[action] || '';
-    const icon = iconRender(visible);
+    const iconRenderer = iconRender || contextIconRender || defaultIconRender;
+    const icon = iconRenderer(visible);
 
     return (
       <span
@@ -119,26 +148,18 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     );
   };
 
-  const {
-    className,
-    prefixCls: customizePrefixCls,
-    inputPrefixCls: customizeInputPrefixCls,
-    size,
-    ...restProps
-  } = props;
-
-  const { getPrefixCls } = React.useContext<ConfigConsumerProps>(ConfigContext);
   const inputPrefixCls = getPrefixCls('input', customizeInputPrefixCls);
   const prefixCls = getPrefixCls('input-password', customizePrefixCls);
 
   const suffixIcon = visibilityToggle && getIcon(prefixCls);
 
-  const inputClassName = clsx(prefixCls, className, { [`${prefixCls}-${size}`]: !!size });
+  const inputClassName = clsx(prefixCls, contextClassName, className, {
+    [`${prefixCls}-${props.size}`]: !!props.size,
+  });
 
-  const omittedProps: InputProps = {
-    ...omit(restProps, ['suffix', 'iconRender', 'visibilityToggle']),
+  const inputProps: InputProps = {
+    ...restProps,
     type: visible ? 'text' : 'password',
-    className: inputClassName,
     prefixCls: inputPrefixCls,
     suffix: (
       <>
@@ -146,13 +167,14 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
         {suffix}
       </>
     ),
+    disabled: mergedDisabled,
+    className: inputClassName,
+    style: { ...contextStyle, ...style },
+    classNames: mergedClassNames,
+    styles: mergedStyles,
   };
 
-  if (size) {
-    omittedProps.size = size;
-  }
-
-  return <Input ref={composeRef(ref, inputRef)} {...omittedProps} />;
+  return <Input ref={composeRef(ref, inputRef)} {...inputProps} />;
 });
 
 if (process.env.NODE_ENV !== 'production') {
