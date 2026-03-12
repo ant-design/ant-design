@@ -41,12 +41,25 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
 
   const [state, setState] = React.useState<T>(getStoredValue);
 
+  const stateRef = React.useRef<T>(state);
+  stateRef.current = state;
+
   useEffect(() => {
-    setState(getStoredValue());
+    const nextState = getStoredValue();
+    if (Object.is(nextState, stateRef.current)) {
+      return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
+    }
+    stateRef.current = nextState;
+    setState(nextState);
   }, [key]);
 
   const updateState: React.Dispatch<React.SetStateAction<T>> = (value) => {
-    const currentState = isFunction(value) ? value(state) : value;
+    const previousState = stateRef.current;
+    const currentState = isFunction(value) ? value(previousState) : value;
+    if (Object.is(currentState, previousState)) {
+      return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
+    }
+    stateRef.current = currentState;
     setState(currentState);
     try {
       let newValue: string | null;
@@ -77,7 +90,12 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
   const onNativeStorage = useCallback(
     (event: StorageEvent) => {
       if (shouldSync(event)) {
-        setState(getStoredValue());
+        const nextState = getStoredValue();
+        if (Object.is(nextState, stateRef.current)) {
+          return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
+        }
+        stateRef.current = nextState;
+        setState(nextState);
       }
     },
     [key],
@@ -90,9 +108,13 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
   const onCustomStorage = useCallback(
     (event: Event) => {
       const customEvent = event as CustomEvent;
-
       if (shouldSyncCustomEvent(customEvent)) {
-        setState(getStoredValue());
+        const nextState = getStoredValue();
+        if (Object.is(nextState, stateRef.current)) {
+          return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
+        }
+        stateRef.current = nextState;
+        setState(nextState);
       }
     },
     [key],
