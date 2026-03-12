@@ -16,6 +16,7 @@ const locales = {
     title: '标题元素，包含外边距、颜色、字体权重、字体大小、行高、文字换行等标题文字样式',
     body: '内容元素，包含内容区域的背景色、内边距等内容展示样式',
     footer: '底部元素，包含底部的背景色、内边距、上边框、圆角等底部区域样式',
+    close: '预览关闭按钮元素，设置按钮的基础样式',
   },
   en: {
     root: 'Root element with relative positioning, top position, width, max-width, margins, bottom padding and other basic layout styles for modal container',
@@ -30,6 +31,7 @@ const locales = {
     body: 'Body element with content area background color, padding and other content display styles',
     footer:
       'Footer element with footer background color, padding, top border, border-radius and other footer area styles',
+    close: 'Preview close button element, sets basic button styles',
   },
 };
 
@@ -67,6 +69,7 @@ const App: React.FC = () => {
         { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'body', desc: locale.body, version: '5.13.0' },
         { name: 'footer', desc: locale.footer, version: '5.13.0' },
+        { name: 'close', desc: locale.close, version: '6.4.0' },
       ]}
     >
       <BlockModal title="Title" closable={false} open getContainer={false} width={400}>
