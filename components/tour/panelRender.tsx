@@ -56,7 +56,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     <button
       type="button"
       onClick={onClose}
-      className={`${prefixCls}-close`}
+      className={clsx(`${prefixCls}-close`, classNames.close)}
+      style={styles.close}
       aria-label={contextLocaleGlobal?.close}
       {...ariaProps}
     >

@@ -144,7 +144,7 @@
     "@rc-component/tabs": "~1.8.0",
     "@rc-component/textarea": "~1.2.0",
     "@rc-component/tooltip": "~1.4.0",
-    "@rc-component/tour": "~2.3.0",
+    "@rc-component/tour": "~2.4.0",
     "@rc-component/tree": "~1.2.4",
     "@rc-component/tree-select": "~1.8.0",
     "@rc-component/trigger": "^3.9.0",
