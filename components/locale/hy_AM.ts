@@ -164,6 +164,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Ցուցադրել գաղտնիությունը',
+    hidePassword: 'Թաքցնել գաղտնիությունը',
+  },
 };
 
 export default localeValues;

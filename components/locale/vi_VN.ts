@@ -144,6 +144,10 @@ const localeValues: Locale = {
     singleColor: 'Màu đơn',
     gradientColor: 'Màu chuyển sắc',
   },
+  Input: {
+    showPassword: 'Hiển thị mật khẩu',
+    hidePassword: 'Ẩn mật khẩu',
+  },
 };
 
 export default localeValues;

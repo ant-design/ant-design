@@ -102,6 +102,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Paroli rodi',
+    hidePassword: 'Paroli nēra rodi',
+  },
 };
 
 export default localeValues;

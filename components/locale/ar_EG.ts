@@ -130,6 +130,10 @@ const localeValues: Locale = {
     singleColor: 'لون واحد',
     gradientColor: 'تدرج لوني',
   },
+  Input: {
+    showPassword: 'إظهار كلمة المرور',
+    hidePassword: 'إخفاء كلمة المرور',
+  },
 };
 
 export default localeValues;

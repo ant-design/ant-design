@@ -133,6 +133,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'पासवर्ड दाखवा',
+    hidePassword: 'पासवर्ड लपवा',
+  },
 };
 
 export default localeValues;

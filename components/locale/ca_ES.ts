@@ -127,6 +127,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Mostra la contrasenya',
+    hidePassword: 'Amaga la contrasenya',
+  },
 };
 
 export default localeValues;

@@ -129,6 +129,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'পাসওয়ার্ড দেখানো',
+    hidePassword: 'পাসওয়ার্ড মোছা',
+  },
 };
 
 export default localeValues;

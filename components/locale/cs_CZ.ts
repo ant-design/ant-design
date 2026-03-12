@@ -142,6 +142,10 @@ const localeValues: Locale = {
     singleColor: 'Jednobarevné',
     gradientColor: 'Přechodové',
   },
+  Input: {
+    showPassword: 'Zobrazit heslo',
+    hidePassword: 'Skrýt heslo',
+  },
 };
 
 export default localeValues;

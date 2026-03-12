@@ -109,6 +109,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Prikaži geslo',
+    hidePassword: 'Skrij geslo',
+  },
 };
 
 export default localeValues;

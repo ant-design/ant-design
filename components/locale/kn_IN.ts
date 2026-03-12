@@ -132,6 +132,10 @@ const localeValues: Locale = {
     expired: 'QR ಕೋಡ್ ಅವಧಿ ಮೀರಿದೆ',
     refresh: 'ನವೀಕರಿಸಿ',
   },
+  Input: {
+    showPassword: 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
+    hidePassword: 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
+  },
 };
 
 export default localeValues;

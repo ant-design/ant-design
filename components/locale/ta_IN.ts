@@ -129,6 +129,10 @@ const localeValues: Locale = {
     expired: 'QR குறியீடு காலாவதியானது',
     refresh: 'புதுப்பிப்பு',
   },
+  Input: {
+    showPassword: 'கடவுச்சொல்லை காட்டு',
+    hidePassword: 'கடவுச்சொல்லை மறை',
+  },
 };
 
 export default localeValues;

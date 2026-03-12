@@ -144,6 +144,10 @@ const localeValues: Locale = {
     singleColor: '単色',
     gradientColor: 'グラデーション',
   },
+  Input: {
+    showPassword: 'パスワードを表示',
+    hidePassword: 'パスワードを非表示',
+  },
 };
 
 export default localeValues;

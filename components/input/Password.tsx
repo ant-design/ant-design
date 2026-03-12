@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
+import { useLocale } from '../locale';
 import useRemovePasswordTimeout from './hooks/useRemovePasswordTimeout';
 import type { InputProps, InputRef } from './Input';
 import Input from './Input';
@@ -45,6 +46,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     iconRender = defaultIconRender,
     suffix,
   } = props;
+  const [locale] = useLocale('Input');
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -93,7 +95,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
         tabIndex={0}
         className={`${prefixCls}-icon`}
         aria-pressed={visible}
-        aria-label={visible ? 'Hide password' : 'Show password'}
+        aria-label={visible ? locale.hidePassword : locale.showPassword}
         onMouseDown={(e) => {
           // Prevent focused state lost
           // https://github.com/ant-design/ant-design/issues/15173

@@ -135,6 +135,10 @@ const localeValues: Locale = {
     expired: 'QR-koden har upphört att gälla',
     refresh: 'Uppdatera',
   },
+  Input: {
+    showPassword: 'Visa lösenord',
+    hidePassword: 'Dölj lösenord',
+  },
 };
 
 export default localeValues;

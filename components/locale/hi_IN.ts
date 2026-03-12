@@ -129,6 +129,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'राज़िया शब्द दिखाएं',
+    hidePassword: 'राज़िया शब्द छुपाएं',
+  },
 };
 
 export default localeValues;

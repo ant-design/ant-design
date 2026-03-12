@@ -103,6 +103,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Sýna lykilorð',
+    hidePassword: 'Fela lykilorð',
+  },
 };
 
 export default localeValues;

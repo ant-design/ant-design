@@ -113,6 +113,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Парола покажи',
+    hidePassword: 'Парола скрији',
+  },
 };
 
 export default localeValues;

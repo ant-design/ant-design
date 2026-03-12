@@ -144,6 +144,10 @@ const localeValues: Locale = {
     singleColor: 'एक रंग',
     gradientColor: 'ग्रेडिएण्ट',
   },
+  Input: {
+    showPassword: 'पासवर्ड देखाउनुहोस्',
+    hidePassword: 'पासवर्ड लुकाउनुहोस्',
+  },
 };
 
 export default localeValues;

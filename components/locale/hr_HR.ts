@@ -128,6 +128,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Prikaži lozinku',
+    hidePassword: 'Sakrij lozinku',
+  },
 };
 
 export default localeValues;

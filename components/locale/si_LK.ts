@@ -131,6 +131,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'මුරපදය පෙන්වන්න',
+    hidePassword: 'මුරපදය සඟවන්න',
+  },
 };
 
 export default localeValues;

@@ -60,6 +60,10 @@ export interface Locale {
     singleColor: string;
     gradientColor: string;
   };
+  Input?: {
+    showPassword: string;
+    hidePassword: string;
+  };
 }
 
 export interface LocaleProviderProps {

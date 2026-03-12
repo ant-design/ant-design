@@ -112,6 +112,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Näytä salasana',
+    hidePassword: 'Piilota salasana',
+  },
 };
 
 export default localeValues;

@@ -103,6 +103,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Jelszó mutatása',
+    hidePassword: 'Jelszó elrejtése',
+  },
 };
 
 export default localeValues;

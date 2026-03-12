@@ -140,6 +140,10 @@ const localeValues: Locale = {
     expired: 'QR-kod eskirgan',
     refresh: 'Yangilash',
   },
+  Input: {
+    showPassword: "Parolni ko'rsatish",
+    hidePassword: 'Parolni yashirish',
+  },
 };
 
 export default localeValues;

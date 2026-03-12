@@ -143,6 +143,10 @@ const localeValues: Locale = {
     singleColor: 'Один цвет',
     gradientColor: 'Градиент',
   },
+  Input: {
+    showPassword: 'Показать пароль',
+    hidePassword: 'Скрыть пароль',
+  },
 };
 
 export default localeValues;
