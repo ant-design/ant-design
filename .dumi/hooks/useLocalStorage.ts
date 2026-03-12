@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
+import { useEvent } from '@rc-component/util';
 
 const ANT_SYNC_STORAGE_EVENT_KEY = 'ANT_SYNC_STORAGE_EVENT_KEY';
 
@@ -24,7 +25,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
 
   const handleError = typeof onError === 'function' ? onError : console.error;
 
-  const getStoredValue = useCallback((): T => {
+  const getStoredValue = useEvent((): T => {
     try {
       const rawData = storage?.getItem(key);
       if (rawData) {
@@ -37,42 +38,39 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       return defaultValue as T;
     }
     return defaultValue as T;
-  }, [storage, key, mergedDeserializer, handleError, defaultValue]);
+  });
 
   const [state, setState] = React.useState<T>(getStoredValue);
 
-  const updateState = useCallback<React.Dispatch<React.SetStateAction<T>>>(
-    (updater) => {
-      setState((originState) => {
-        const currentState = isFunction(updater) ? updater(originState) : updater;
-        if (Object.is(currentState, originState)) {
-          return originState;
+  const updateState = useEvent<React.Dispatch<React.SetStateAction<T>>>((updater) => {
+    setState((originState) => {
+      const currentState = isFunction(updater) ? updater(originState) : updater;
+      if (Object.is(currentState, originState)) {
+        return originState;
+      }
+      try {
+        let newValue: string | null;
+        const oldValue = storage?.getItem(key);
+        if (typeof currentState === 'undefined') {
+          newValue = null;
+          storage?.removeItem(key);
+        } else {
+          newValue = mergedSerializer(currentState);
+          storage?.setItem(key, newValue);
         }
-        try {
-          let newValue: string | null;
-          const oldValue = storage?.getItem(key);
-          if (typeof currentState === 'undefined') {
-            newValue = null;
-            storage?.removeItem(key);
-          } else {
-            newValue = mergedSerializer(currentState);
-            storage?.setItem(key, newValue);
-          }
-          dispatchEvent(
-            new CustomEvent(ANT_SYNC_STORAGE_EVENT_KEY, {
-              detail: { key, newValue, oldValue, storageArea: storage },
-            }),
-          );
-        } catch (e) {
-          if (process.env.NODE_ENV !== 'production') {
-            handleError(e);
-          }
+        dispatchEvent(
+          new CustomEvent(ANT_SYNC_STORAGE_EVENT_KEY, {
+            detail: { key, newValue, oldValue, storageArea: storage },
+          }),
+        );
+      } catch (e) {
+        if (process.env.NODE_ENV !== 'production') {
+          handleError(e);
         }
-        return currentState;
-      });
-    },
-    [storage, key, mergedSerializer, handleError],
-  );
+      }
+      return currentState;
+    });
+  });
 
   const shouldSync = useCallback(
     (ev: StorageEvent) => {
@@ -88,7 +86,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
     [key, storage],
   );
 
-  const syncState = useCallback(() => {
+  const syncState = useEvent(() => {
     const nextState = getStoredValue();
     setState((originState) => {
       if (Object.is(nextState, originState)) {
@@ -96,26 +94,20 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       }
       return nextState;
     });
-  }, [getStoredValue]);
+  });
 
-  const onNativeStorage = useCallback(
-    (event: StorageEvent) => {
-      if (shouldSync(event)) {
-        syncState();
-      }
-    },
-    [shouldSync, syncState],
-  );
+  const onNativeStorage = useEvent((event: StorageEvent) => {
+    if (shouldSync(event)) {
+      syncState();
+    }
+  });
 
-  const onCustomStorage = useCallback(
-    (event: Event) => {
-      const customEvent = event as CustomEvent;
-      if (shouldSyncCustomEvent(customEvent)) {
-        syncState();
-      }
-    },
-    [shouldSyncCustomEvent, syncState],
-  );
+  const onCustomStorage = useEvent((event: Event) => {
+    const customEvent = event as CustomEvent;
+    if (shouldSyncCustomEvent(customEvent)) {
+      syncState();
+    }
+  });
 
   useEffect(() => {
     syncState();
