@@ -141,7 +141,7 @@
     "@rc-component/steps": "~1.2.2",
     "@rc-component/switch": "~1.0.3",
     "@rc-component/table": "~1.9.1",
-    "@rc-component/tabs": "~1.7.0",
+    "@rc-component/tabs": "~1.8.0",
     "@rc-component/textarea": "~1.2.0",
     "@rc-component/tooltip": "~1.4.0",
     "@rc-component/tour": "~2.3.0",
