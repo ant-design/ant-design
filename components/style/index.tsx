@@ -99,7 +99,6 @@ export const genLinkStyle: GenerateStyle<AliasToken, CSSObject> = (token) => ({
       outline: 0,
     },
 
-    // https://github.com/ant-design/ant-design/issues/57247
     ...genFocusStyle(token),
 
     '&[disabled]': {
