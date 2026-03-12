@@ -89,6 +89,12 @@ export const genLinkStyle: GenerateStyle<AliasToken, CSSObject> = (token) => ({
       outline: 0,
     },
 
+    // https://github.com/ant-design/ant-design/issues/57247
+    '&:focus-visible': {
+      outline: `${token.lineWidth} solid ${token.colorPrimary}`,
+      outlineOffset: 2,
+    },
+
     '&[disabled]': {
       color: token.colorTextDisabled,
       cursor: 'not-allowed',

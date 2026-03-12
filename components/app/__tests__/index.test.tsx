@@ -215,6 +215,25 @@ describe('App', () => {
     });
   });
 
+  describe('a11y', () => {
+    it('link should have focus-visible outline styles', () => {
+      render(
+        <App>
+          <a href="#test">Accessible Link</a>
+        </App>,
+      );
+
+      const dynamicStyles = Array.from(document.querySelectorAll('style'));
+
+      const hasFocusVisibleStyle = dynamicStyles.some((style) => {
+        const { innerHTML } = style;
+        return innerHTML.includes(':focus-visible') && innerHTML.includes('outline');
+      });
+
+      expect(hasFocusVisibleStyle).toBeTruthy();
+    });
+  });
+
   describe('component', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
