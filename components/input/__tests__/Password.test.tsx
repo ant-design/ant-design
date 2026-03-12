@@ -1,4 +1,5 @@
 import React from 'react';
+import { LockOutlined } from '@ant-design/icons';
 
 import type { InputRef } from '..';
 import Input from '..';
@@ -7,7 +8,6 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Password from '../Password';
-import { LockOutlined } from '@ant-design/icons';
 
 describe('Input.Password', () => {
   focusTest(Input.Password, { refFocus: true });
@@ -54,6 +54,18 @@ describe('Input.Password', () => {
     expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
     fireEvent.click(container.querySelector('.anticon-eye-invisible')!);
     expect(container.querySelectorAll('.anticon-eye').length).toBe(0);
+  });
+
+  it('should toggle visibility on keyboard actions', () => {
+    const { container, getByDisplayValue } = render(<Input.Password />);
+    expect(container.querySelectorAll('.anticon-eye-invisible').length).toBe(1);
+    fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
+    fireEvent.keyDown(container.querySelector('.ant-input-password-icon')!, {
+      key: 'Enter',
+      keyCode: 13,
+    });
+    expect(container.querySelectorAll('.anticon-eye').length).toBe(1);
+    expect(getByDisplayValue('111')).toBeInTheDocument();
   });
 
   it('should keep focus state', () => {

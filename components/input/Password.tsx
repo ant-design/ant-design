@@ -37,8 +37,6 @@ const actionMap: Record<PropertyKey, keyof React.DOMAttributes<HTMLSpanElement>>
   hover: 'onMouseOver',
 };
 
-type IconPropsType = React.HTMLAttributes<HTMLSpanElement> & React.Attributes;
-
 const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const {
     disabled: customDisabled,
@@ -87,24 +85,35 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const getIcon = (prefixCls: string) => {
     const iconTrigger = actionMap[action] || '';
     const icon = iconRender(visible);
-    const iconProps: IconPropsType = {
-      [iconTrigger]: onVisibleChange,
-      className: `${prefixCls}-icon`,
-      key: 'passwordIcon',
-      onMouseDown: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-        // Prevent focused state lost
-        // https://github.com/ant-design/ant-design/issues/15173
-        e.preventDefault();
-      },
-      onMouseUp: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
-        // Prevent caret position change
-        // https://github.com/ant-design/ant-design/issues/23524
-        e.preventDefault();
-      },
-    };
-    return React.cloneElement<IconPropsType>(
-      React.isValidElement<IconPropsType>(icon) ? icon : <span>{icon}</span>,
-      iconProps,
+
+    return (
+      <span
+        key="passwordIcon"
+        role="button"
+        tabIndex={0}
+        className={`${prefixCls}-icon`}
+        aria-pressed={visible}
+        aria-label={visible ? 'Hide password' : 'Show password'}
+        onMouseDown={(e) => {
+          // Prevent focused state lost
+          // https://github.com/ant-design/ant-design/issues/15173
+          e.preventDefault();
+        }}
+        onMouseUp={(e) => {
+          // Prevent caret position change
+          // https://github.com/ant-design/ant-design/issues/23524
+          e.preventDefault();
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            onVisibleChange();
+          }
+        }}
+        {...{ [iconTrigger]: onVisibleChange }}
+      >
+        {icon}
+      </span>
     );
   };
 
