@@ -34,6 +34,7 @@ export type TabsSemanticType = {
   classNames?: {
     root?: string;
     item?: string;
+    remove?: string;
     indicator?: string;
     content?: string;
     header?: string;
@@ -42,6 +43,7 @@ export type TabsSemanticType = {
   styles?: {
     root?: React.CSSProperties;
     item?: React.CSSProperties;
+    remove?: React.CSSProperties;
     indicator?: React.CSSProperties;
     content?: React.CSSProperties;
     header?: React.CSSProperties;
