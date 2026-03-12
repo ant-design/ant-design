@@ -754,7 +754,10 @@ describe('Table.filter', () => {
 
     // Select Level3 value
     const items = getFilterMenu()?.querySelectorAll('li.ant-dropdown-menu-item');
-    fireEvent.click(items.at(-1)!);
+    if (items && items.length > 0) {
+      // eslint-disable-next-line e18e/prefer-array-at
+      fireEvent.click(items[items.length - 1]!);
+    }
     fireEvent.click(
       getFilterMenu()?.querySelector(
         '.ant-table-filter-dropdown-btns .ant-btn-color-primary.ant-btn-variant-solid',

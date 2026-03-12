@@ -327,9 +327,12 @@ export const getSortData = <RecordType extends AnyObject = AnyObject>(
   sortStates: SortState<RecordType>[],
   childrenColumnName: string,
 ): RecordType[] => {
-  const innerSorterStates = sortStates.toSorted((a, b) => (b.multiplePriority as number) - (a.multiplePriority as number));
+  // eslint-disable-next-line e18e/prefer-array-to-sorted
+  const innerSorterStates = sortStates
+    .slice()
+    .sort((a, b) => (b.multiplePriority as number) - (a.multiplePriority as number));
 
-  const cloneData = data.slice();
+  const cloneData = [...data];
 
   const runningSorters = innerSorterStates.filter(
     ({ column: { sorter }, sortOrder }) => getSortFunction<RecordType>(sorter) && sortOrder,

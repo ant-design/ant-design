@@ -156,7 +156,8 @@ const App: React.FC = () => {
   const tableColumns = columns.map((item) => ({ ...item, ellipsis }));
   if (xScroll === 'fixed') {
     tableColumns[0].fixed = true;
-    tableColumns.at(-1).fixed = 'right';
+    // eslint-disable-next-line e18e/prefer-array-at
+    tableColumns[tableColumns.length - 1].fixed = 'right';
   }
 
   const tableProps: TableProps<DataType> = {
