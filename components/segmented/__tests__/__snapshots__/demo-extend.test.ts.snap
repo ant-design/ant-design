@@ -1929,14 +1929,10 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
       style="width: 150px;"
     >
       <div
-        class="ant-select-content"
+        class="ant-select-content ant-select-content-has-value"
+        title="Lucy"
       >
-        <div
-          class="ant-select-content-value"
-          title="Lucy"
-        >
-          Lucy
-        </div>
+        Lucy
         <input
           aria-autocomplete="list"
           aria-expanded="false"
@@ -2008,6 +2004,7 @@ exports[`renders components/segmented/demo/size-consistent.tsx extend context co
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Lucy"
                 >
