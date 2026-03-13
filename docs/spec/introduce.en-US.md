@@ -32,15 +32,15 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 
 [React](https://react.dev/) is used to encapsulate a library of components which embody our design language. We welcome the community to implement [our design system](/docs/spec/introduce) in other front-end frameworks of their choice.
 
-- [Ant Design of React](/docs/react/introduce)（official implementation）
-- [NG-ZORRO - Ant Design of Angular](http://ng.ant.design)
-- [NG-ZORRO-MOBILE - Ant Design Mobile of Angular](http://ng.mobile.ant.design)
-- [Ant Design of Vue](http://antdv.com)
-- [Antdv Next](https://www.antdv-next.com)
-- [Ant Design Blazor](https://antblazor.com/)
-- [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd)
-- [antizer (ClojureScript)](https://github.com/priornix/antizer)
-- [AtomUI - Ant Design of Avalonia/.NET](https://github.com/atomui/atomui)
+- [Ant Design of React](/docs/react/introduce) (official implementation)
+- [NG-ZORRO - Ant Design of Angular](http://ng.ant.design) (community implementation)
+- [NG-ZORRO-MOBILE - Ant Design Mobile of Angular](http://ng.mobile.ant.design) (community implementation)
+- [Ant Design of Vue](http://antdv.com) (community implementation)
+- [Antdv Next](https://www.antdv-next.com) (community implementation)
+- [Ant Design Blazor](https://antblazor.com/) (community implementation)
+- [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd) (community implementation)
+- [antizer (ClojureScript)](https://github.com/priornix/antizer) (community implementation)
+- [AtomUI - Ant Design of Avalonia/.NET](https://github.com/atomui/atomui) (community implementation)
 
 ## Who's using Ant Design
 
