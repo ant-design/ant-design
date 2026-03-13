@@ -69,6 +69,26 @@ Common props ref：[Common props](/docs/react/common-props)
 | tooltip | tooltip for Segmented item | string \| [TooltipProps](../tooltip/index.en-US.md#api) | - |  |
 | value | Value for Segmented item | string \| number | - |  |
 
+## Data Attributes
+
+Each Segmented item element exposes the following data attributes, allowing state-based styling via [CSS attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) or Tailwind CSS [`data-*` variants](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes):
+
+| Attribute | Description | Values |
+| --- | --- | --- |
+| `data-selected` | Whether the item is currently selected | `"true"` \| `"false"` |
+| `data-disabled` | Whether the item is disabled (includes both per-item `disabled` and the component-level `disabled` prop) | `"true"` \| `"false"` |
+
+Example with Tailwind CSS:
+
+```jsx
+<Segmented
+  classNames={{
+    item: 'data-[selected=true]:border-purple-500 data-[disabled=true]:opacity-40',
+  }}
+  options={options}
+/>
+```
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
