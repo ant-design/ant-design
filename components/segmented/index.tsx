@@ -225,12 +225,10 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
     const isSelected = item.value === currentValue;
     const isDisabled = !!(item.disabled || disabled);
 
-    const nodeWithAttrs = React.isValidElement(node)
-      ? React.cloneElement(node as React.ReactElement<Record<string, unknown>>, {
-          'data-selected': String(isSelected),
-          'data-disabled': String(isDisabled),
-        })
-      : node;
+    const nodeWithAttrs = React.cloneElement(node as React.ReactElement<Record<string, unknown>>, {
+      'data-selected': String(isSelected),
+      'data-disabled': String(isDisabled),
+    });
 
     if (!item.tooltip) {
       return nodeWithAttrs;
