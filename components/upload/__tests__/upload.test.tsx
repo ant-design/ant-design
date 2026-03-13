@@ -1251,4 +1251,30 @@ describe('Upload', () => {
       expect(progressWithInfo).toBeFalsy();
     });
   });
+
+  describe('ConfigProvider accept', () => {
+    it('should use ConfigProvider accept when Upload has no accept prop', () => {
+      const { container } = render(
+        <ConfigProvider upload={{ accept: 'image/*' }}>
+          <Upload>
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+      const input = container.querySelector('input[type="file"]');
+      expect(input?.getAttribute('accept')).toBe('image/*');
+    });
+
+    it('should prefer Upload accept prop over ConfigProvider accept', () => {
+      const { container } = render(
+        <ConfigProvider upload={{ accept: 'image/*' }}>
+          <Upload accept=".pdf">
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+      const input = container.querySelector('input[type="file"]');
+      expect(input?.getAttribute('accept')).toBe('.pdf');
+    });
+  });
 });
