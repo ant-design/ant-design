@@ -58,11 +58,13 @@ export type TreeSelectPopupSemanticType = {
     root?: string;
     item?: string;
     itemTitle?: string;
+    itemSwitcher?: string;
   };
   styles?: {
     root?: React.CSSProperties;
     item?: React.CSSProperties;
     itemTitle?: React.CSSProperties;
+    itemSwitcher?: React.CSSProperties;
   };
 };
 

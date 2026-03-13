@@ -32,6 +32,7 @@ describe('TreeSelect.Semantic', () => {
             root: 'dynamic-popup-root',
             item: info.props.disabled ? 'disabled-item' : 'enabled-item',
             itemTitle: 'dynamic-item-title',
+            itemSwitcher: 'dynamic-item-switcher',
           },
         })}
         styles={(info) => ({
@@ -45,6 +46,7 @@ describe('TreeSelect.Semantic', () => {
             root: { zIndex: 1000 },
             item: { padding: '6px' },
             itemTitle: { color: 'black' },
+            itemSwitcher: { width: '32px' },
           },
         })}
       />,
