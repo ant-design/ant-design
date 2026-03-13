@@ -36,6 +36,7 @@ We provide comprehensive design guidelines, best practices, resources, and tools
 - [NG-ZORRO - Ant Design of Angular](http://ng.ant.design)
 - [NG-ZORRO-MOBILE - Ant Design Mobile of Angular](http://ng.mobile.ant.design)
 - [Ant Design of Vue](http://antdv.com)
+- [Antdv Next](https://www.antdv-next.com)
 - [Ant Design Blazor](https://antblazor.com/)
 - [San UI Toolkit for Ant Design](https://ecomfe.github.io/santd)
 - [antizer (ClojureScript)](https://github.com/priornix/antizer)
