@@ -173,8 +173,11 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token
         maxHeight: '70%',
         verticalAlign: 'middle',
         transform: 'scale3d(1, 1, 1)',
-        cursor: 'grab',
         transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
+      },
+
+      [`&-movable ${previewCls}-img`]: {
+        cursor: 'grab',
       },
 
       [`&-moving ${previewCls}-img`]: {
