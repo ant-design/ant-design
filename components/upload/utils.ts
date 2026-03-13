@@ -51,21 +51,21 @@ const extname = (url = '') => {
 const isImageFileType = (type: string): boolean => type.indexOf('image/') === 0;
 
 const imageExtensions = [
-  'avif',
-  'bmp',
-  'dpg',
-  'gif',
-  'heic',
-  'heif',
-  'ico',
-  'jfif',
-  'jpg',
-  'jpeg',
-  'png',
-  'svg',
-  'tif',
-  'tiff',
-  'webp',
+  '.avif',
+  '.bmp',
+  '.dpg',
+  '.gif',
+  '.heic',
+  '.heif',
+  '.ico',
+  '.jfif',
+  '.jpg',
+  '.jpeg',
+  '.png',
+  '.svg',
+  '.tif',
+  '.tiff',
+  '.webp',
 ];
 
 export const isImageUrl = (file: UploadFile): boolean => {

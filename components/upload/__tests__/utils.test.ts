@@ -137,6 +137,24 @@ describe('Upload utils', () => {
       expect(isImageUrl({ url: 'https://example.com/file.doc' } as UploadFile)).toBe(false);
     });
 
+    it('should return true when url has image extension', () => {
+      expect(isImageUrl({ url: 'https://example.com/image.webp' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.svg' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.png' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.gif' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.jpg' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.jpeg' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.jfif' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.bmp' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.dpg' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.ico' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.heic' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.heif' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.tif' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.tiff' } as UploadFile)).toBe(true);
+      expect(isImageUrl({ url: 'https://example.com/image.webp' } as UploadFile)).toBe(true);
+    });
+
     it('should return true when url has no extension (treated as image)', () => {
       expect(isImageUrl({ url: 'https://example.com/image' } as UploadFile)).toBe(true);
     });
