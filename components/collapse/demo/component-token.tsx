@@ -11,7 +11,7 @@ const items: CollapseProps['items'] = [
   { key: '3', label: `This is panel header 3, (${text})`, children: text },
 ];
 
-export default () => (
+const ComponentTokenDemo: React.FC = () => (
   <ConfigProvider
     theme={{
       components: {
@@ -27,3 +27,5 @@ export default () => (
     <Collapse items={items} />
   </ConfigProvider>
 );
+
+export default ComponentTokenDemo;

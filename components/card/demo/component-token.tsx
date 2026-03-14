@@ -2,7 +2,7 @@ import React from 'react';
 import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 import { Card, ConfigProvider } from 'antd';
 
-export default () => (
+const ComponentTokenDemo: React.FC = () => (
   <ConfigProvider
     theme={{
       components: {
@@ -54,3 +54,5 @@ export default () => (
     </Card>
   </ConfigProvider>
 );
+
+export default ComponentTokenDemo;

@@ -17,16 +17,18 @@ const styleTxt = `
 }
 `;
 
-const Block = (props: { children: React.ReactNode; style?: React.CSSProperties }) => (
+const Block: React.FC<React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>>> = (props) => (
   <div className="blog-css-tricks" style={props.style}>
     <p>{props.children}</p>
   </div>
 );
 
-export default () => (
+const ConditionExample: React.FC = () => (
   <Flex vertical gap="middle">
     <style>{styleTxt}</style>
     <Block>Without CSS Var</Block>
     <Block style={{ '--custom-var': '0px' }}>With CSS Var</Block>
   </Flex>
 );
+
+export default ConditionExample;

@@ -3,7 +3,7 @@ import { Anchor, Col, ConfigProvider, Row } from 'antd';
 
 /** Test usage. Do not use in your production. */
 
-export default () => (
+const ComponentTokenDemo: React.FC = () => (
   <ConfigProvider
     theme={{
       components: {
@@ -44,3 +44,5 @@ export default () => (
     </Row>
   </ConfigProvider>
 );
+
+export default ComponentTokenDemo;

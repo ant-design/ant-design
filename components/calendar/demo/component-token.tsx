@@ -4,7 +4,7 @@ import type { CalendarProps } from 'antd';
 import type { Dayjs } from 'dayjs';
 
 /** Test usage. Do not use in your production. */
-export default () => {
+const ComponentTokenDemo: React.FC = () => {
   const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
   };
@@ -27,3 +27,5 @@ export default () => {
     </ConfigProvider>
   );
 };
+
+export default ComponentTokenDemo;

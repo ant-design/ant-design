@@ -3,7 +3,7 @@ import { NotificationOutlined } from '@ant-design/icons';
 import { Avatar, Badge, ConfigProvider, Space } from 'antd';
 
 /** Test usage. Do not use in your production. */
-export default () => (
+const Demo: React.FC = () => (
   <ConfigProvider
     theme={{
       components: {
@@ -30,3 +30,5 @@ export default () => (
     </Space>
   </ConfigProvider>
 );
+
+export default Demo;

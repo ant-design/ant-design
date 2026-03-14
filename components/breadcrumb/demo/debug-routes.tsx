@@ -1,7 +1,7 @@
 import React from 'react';
 import { Breadcrumb } from 'antd';
 
-export default () => (
+const DebugRoutes: React.FC = () => (
   <Breadcrumb
     routes={[
       {
@@ -25,3 +25,5 @@ export default () => (
     ]}
   />
 );
+
+export default DebugRoutes;

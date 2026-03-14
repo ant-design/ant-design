@@ -1,9 +1,8 @@
 import React from 'react';
 import { ColorPicker } from 'antd';
 
-export default () => {
+const Demo: React.FC = () => {
   const [color, setColor] = React.useState<string>('#1677ff');
-
   return (
     <ColorPicker
       value={color}
@@ -14,3 +13,5 @@ export default () => {
     />
   );
 };
+
+export default Demo;

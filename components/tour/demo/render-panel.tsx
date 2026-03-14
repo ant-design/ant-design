@@ -4,7 +4,7 @@ import { Tour } from 'antd';
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Tour;
 
-export default () => (
+const Demo: React.FC = () => (
   <div
     style={{
       display: 'flex',
@@ -37,3 +37,5 @@ export default () => (
     />
   </div>
 );
+
+export default Demo;

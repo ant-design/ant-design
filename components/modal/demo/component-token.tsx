@@ -4,7 +4,7 @@ import { ConfigProvider, Modal } from 'antd';
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Modal;
 
-export default () => (
+const ComponentTokenDemo: React.FC = () => (
   <ConfigProvider
     theme={{
       components: {
@@ -37,3 +37,5 @@ export default () => (
     </div>
   </ConfigProvider>
 );
+
+export default ComponentTokenDemo;
