@@ -140,6 +140,49 @@ describe('Tree', () => {
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
+  // https://github.com/ant-design/ant-design/issues/57301
+  it('custom switcherIcon should have switcher-line-icon className when showLine is enabled', () => {
+    const { container } = render(
+      <Tree showLine switcherIcon={<i className="custom-switcher" />} defaultExpandAll>
+        <TreeNode title="parent" key="0-0">
+          <TreeNode title="child" key="0-0-0" />
+        </TreeNode>
+      </Tree>,
+    );
+    const customIcon = container.querySelector('.custom-switcher');
+    expect(customIcon).toBeTruthy();
+    expect(customIcon).toHaveClass('ant-tree-switcher-line-icon');
+    expect(customIcon).not.toHaveClass('ant-tree-switcher-icon');
+  });
+
+  it('custom switcherIcon should have switcher-icon className when showLine is disabled', () => {
+    const { container } = render(
+      <Tree switcherIcon={<i className="custom-switcher" />} defaultExpandAll>
+        <TreeNode title="parent" key="0-0">
+          <TreeNode title="child" key="0-0-0" />
+        </TreeNode>
+      </Tree>,
+    );
+    const customIcon = container.querySelector('.custom-switcher');
+    expect(customIcon).toBeTruthy();
+    expect(customIcon).toHaveClass('ant-tree-switcher-icon');
+    expect(customIcon).not.toHaveClass('ant-tree-switcher-line-icon');
+  });
+
+  it('custom switcherIcon as render function should have switcher-line-icon className when showLine is enabled', () => {
+    const { container } = render(
+      <Tree showLine defaultExpandAll switcherIcon={() => <i className="custom-fn-switcher" />}>
+        <TreeNode title="parent" key="0-0">
+          <TreeNode title="child" key="0-0-0" />
+        </TreeNode>
+      </Tree>,
+    );
+    const customIcon = container.querySelector('.custom-fn-switcher');
+    expect(customIcon).toBeTruthy();
+    expect(customIcon).toHaveClass('ant-tree-switcher-line-icon');
+    expect(customIcon).not.toHaveClass('ant-tree-switcher-icon');
+  });
+
   it('switcherIcon in Tree could be render prop function', () => {
     const { container } = render(
       <Tree
