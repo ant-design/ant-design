@@ -4,9 +4,8 @@ import { useTheme } from 'antd-style';
 
 const THEME_PREFIX = 'dumi-default-';
 
-export default () => {
+const SearchBar: React.FC = () => {
   const token = useTheme();
-
   return (
     <Global
       styles={css`
@@ -55,3 +54,5 @@ export default () => {
     />
   );
 };
+
+export default SearchBar;

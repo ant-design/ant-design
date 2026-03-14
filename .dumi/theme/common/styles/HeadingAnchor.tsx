@@ -2,7 +2,7 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
-export default () => {
+const HeadingAnchor: React.FC = () => {
   const token = useTheme();
   return (
     <Global
@@ -47,3 +47,5 @@ export default () => {
     />
   );
 };
+
+export default HeadingAnchor;
