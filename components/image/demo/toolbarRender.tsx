@@ -59,7 +59,7 @@ const App: React.FC = () => {
               onZoomOut,
               onZoomIn,
               onReset,
-              ...restActions
+              onChangeScale,
             },
           },
         ) => {
