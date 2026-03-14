@@ -88,9 +88,7 @@ const App: React.FC = () => {
                 step={0.1}
                 value={scale}
                 styles={{ root: { width: 100, marginInline: 12 } }}
-                onChange={(nextScale) => {
-                  onChangeScale?.(nextScale);
-                }}
+                onChange={onChangeScale}
               />
               <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
               <UndoOutlined onClick={onReset} />
