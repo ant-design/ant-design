@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConfigProvider, InputNumber, Space } from 'antd';
 
-const DebugTokenDemo: React.FC = () => (
+export default () => (
   <ConfigProvider
     theme={{
       components: {
@@ -61,5 +61,3 @@ const DebugTokenDemo: React.FC = () => (
     </Space>
   </ConfigProvider>
 );
-
-export default DebugTokenDemo;

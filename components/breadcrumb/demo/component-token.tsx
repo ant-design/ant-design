@@ -29,7 +29,7 @@ const menuItems = [
   },
 ];
 
-const Demo: React.FC = () => (
+export default () => (
   <ConfigProvider
     theme={{
       components: {
@@ -79,5 +79,3 @@ const Demo: React.FC = () => (
     />
   </ConfigProvider>
 );
-
-export default Demo;

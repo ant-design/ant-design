@@ -4,7 +4,7 @@ import { ConfigProvider, Drawer } from 'antd';
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalDrawer } = Drawer;
 
-const ComponentTokenDemo: React.FC = () => (
+export default () => (
   <ConfigProvider
     theme={{ components: { Drawer: { footerPaddingBlock: 0, footerPaddingInline: 0 } } }}
   >
@@ -15,5 +15,3 @@ const ComponentTokenDemo: React.FC = () => (
     </div>
   </ConfigProvider>
 );
-
-export default ComponentTokenDemo;

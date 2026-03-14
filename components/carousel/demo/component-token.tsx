@@ -11,7 +11,7 @@ const contentStyle: React.CSSProperties = {
   background: '#364d79',
 };
 
-const ComponentTokenDemo: React.FC = () => (
+export default () => (
   <ConfigProvider
     theme={{
       components: {
@@ -39,5 +39,3 @@ const ComponentTokenDemo: React.FC = () => (
     </Carousel>
   </ConfigProvider>
 );
-
-export default ComponentTokenDemo;

@@ -40,10 +40,8 @@ const Page: React.FC = () => {
 };
 
 // Entry component
-const Demo: React.FC = () => (
+export default () => (
   <App>
     <Page />
   </App>
 );
-
-export default Demo;

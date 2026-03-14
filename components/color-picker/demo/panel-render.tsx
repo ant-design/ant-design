@@ -65,7 +65,7 @@ const BasicDemo = () => (
   />
 );
 
-const ColorPickerDemo: React.FC = () => (
+export default () => (
   <Space vertical>
     <Space>
       <span>Add title:</span>
@@ -77,5 +77,3 @@ const ColorPickerDemo: React.FC = () => (
     </Space>
   </Space>
 );
-
-export default ColorPickerDemo;

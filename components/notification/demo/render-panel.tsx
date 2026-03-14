@@ -4,7 +4,7 @@ import { Button, notification } from 'antd';
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = notification;
 
-const Demo: React.FC = () => (
+export default () => (
   <InternalPanel
     title="Hello World!"
     description="Hello World?"
@@ -16,5 +16,3 @@ const Demo: React.FC = () => (
     }
   />
 );
-
-export default Demo;

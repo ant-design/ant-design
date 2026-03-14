@@ -4,7 +4,7 @@ import { ConfigProvider, Modal } from 'antd';
 /** Test usage. Do not use in your production. */
 const { _InternalPanelDoNotUseOrYouWillBeFired: InternalPanel } = Modal;
 
-const Demo: React.FC = () => (
+export default () => (
   <ConfigProvider theme={{ token: { wireframe: true } }}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16 }}>
       <InternalPanel title="Hello World!" style={{ width: '100%' }}>
@@ -19,5 +19,3 @@ const Demo: React.FC = () => (
     </div>
   </ConfigProvider>
 );
-
-export default Demo;

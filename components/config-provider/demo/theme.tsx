@@ -31,7 +31,7 @@ const defaultData: ThemeData = {
   },
 };
 
-const ThemeDemo: React.FC = () => {
+export default () => {
   const [form] = Form.useForm();
 
   const [data, setData] = React.useState<ThemeData>(defaultData);
@@ -101,5 +101,3 @@ const ThemeDemo: React.FC = () => {
     </div>
   );
 };
-
-export default ThemeDemo;

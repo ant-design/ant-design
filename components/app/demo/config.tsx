@@ -29,10 +29,8 @@ const Page: React.FC = () => {
 };
 
 // Entry component
-const Demo: React.FC = () => (
+export default () => (
   <App message={{ maxCount: 1 }} notification={{ placement: 'bottomLeft' }}>
     <Page />
   </App>
 );
-
-export default Demo;

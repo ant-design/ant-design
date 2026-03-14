@@ -18,7 +18,7 @@ const customFooterFn: ModalFuncProps['footer'] = (originNode, { OkBtn, CancelBtn
   </Space>
 );
 
-const RenderPanelDemo: React.FC = () => (
+export default () => (
   <div style={{ display: 'flex', flexDirection: 'column', rowGap: 16 }}>
     <InternalPanel title="Hello World!" style={{ width: '100%', height: 200 }}>
       Hello World?!
@@ -43,5 +43,3 @@ const RenderPanelDemo: React.FC = () => (
     </InternalPanel>
   </div>
 );
-
-export default RenderPanelDemo;

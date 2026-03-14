@@ -2,7 +2,7 @@ import React from 'react';
 import { ConfigProvider, Rate } from 'antd';
 
 /** Test usage. Do not use in your production. */
-const Demo: React.FC = () => (
+export default () => (
   <ConfigProvider
     theme={{
       components: {
@@ -18,5 +18,3 @@ const Demo: React.FC = () => (
     <Rate defaultValue={2.5} />
   </ConfigProvider>
 );
-
-export default Demo;
