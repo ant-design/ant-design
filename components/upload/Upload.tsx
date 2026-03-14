@@ -5,7 +5,7 @@ import RcUpload from '@rc-component/upload';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -15,10 +15,8 @@ import type {
   RcFile,
   ShowUploadListInterface,
   UploadChangeParam,
-  UploadClassNamesType,
   UploadFile,
   UploadProps,
-  UploadStylesType,
 } from './interface';
 import useStyle from './style';
 import UploadList from './UploadList';
@@ -59,7 +57,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     locale: propLocale,
     iconRender,
     isImageUrl,
-    progress,
+    progress: customProgress,
     prefixCls: customizePrefixCls,
     className,
     type = 'select',
@@ -83,6 +81,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const mergedDisabled = customDisabled ?? disabled;
 
   const customRequest = props.customRequest || config.customRequest;
+  const mergedProgress = { ...config.progress, ...customProgress };
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
@@ -364,13 +363,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    UploadClassNamesType,
-    UploadStylesType,
-    UploadProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const rcUploadProps = {
     onBatchStart,
@@ -446,7 +445,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         extra={extra}
         locale={{ ...contextLocale, ...propLocale }}
         isImageUrl={isImageUrl}
-        progress={progress}
+        progress={mergedProgress}
         appendAction={button}
         appendActionVisible={buttonVisible}
         itemRender={itemRender}

@@ -1,18 +1,19 @@
 import React from 'react';
 
-import Checkbox from '..';
 import type { CheckboxProps } from '..';
+import Checkbox from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 describe('Checkbox.Semantic', () => {
   it('should support custom styles', () => {
-    const customClassNames = {
+    const customClassNames: Required<GetProp<CheckboxProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       icon: 'custom-icon',
       label: 'custom-label',
     };
 
-    const customStyles = {
+    const customStyles: Required<GetProp<CheckboxProps, 'styles', 'Return'>> = {
       root: { backgroundColor: 'rgb(255, 0, 0)' },
       icon: { backgroundColor: 'rgb(0, 0, 0)' },
       label: { backgroundColor: 'rgb(128, 128, 128)' },
@@ -80,7 +81,11 @@ describe('Checkbox.Semantic', () => {
   });
 
   it('should get correct checked prop when defaultChecked is true', () => {
-    const classNamesFn: CheckboxProps['classNames'] = ({ props }) => {
+    const classNamesFn: GetProp<CheckboxProps, 'classNames'> = ({
+      props,
+    }: {
+      props: Pick<CheckboxProps, 'checked'>;
+    }) => {
       return {
         root: props.checked ? 'checked-checkbox' : 'unchecked-checkbox',
       };

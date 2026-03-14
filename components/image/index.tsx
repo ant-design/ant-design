@@ -4,14 +4,17 @@ import type { ImageProps as RcImageProps } from '@rc-component/image';
 import { clsx } from 'clsx';
 
 import type { MaskType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
-import type { GenerateSemantic } from '../_util/hooks/useMergeSemanticNew/semanticType';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useMergedPreviewConfig from './hooks/useMergedPreviewConfig';
+import usePlaceholderConfig, { isPlaceholderConfig } from './hooks/usePlaceholderConfig';
 import usePreviewConfig from './hooks/usePreviewConfig';
 import PreviewGroup, { icons } from './PreviewGroup';
+import Progress from './Progress';
+import type { ProgressClassNames, ProgressStyles } from './Progress';
 import useStyle from './style';
 
 type OriginPreviewConfig = NonNullable<Exclude<RcImageProps['preview'], boolean>>;
@@ -48,42 +51,66 @@ export interface CompositionImage<P> extends React.FC<P> {
   PreviewGroup: typeof PreviewGroup;
 }
 
+export interface ImageProgressConfig {
+  percent?: number;
+  /** Custom render function, receives default progress UI and percent */
+  render?: (progress: React.ReactNode, percent: number) => React.ReactNode;
+}
+
+export type PlaceholderType =
+  | React.ReactNode
+  | {
+      progress?: boolean | ImageProgressConfig;
+    };
+
 export type ImageSemanticType = {
   classNames?: {
     root?: string;
     image?: string;
     cover?: string;
+    placeholder?: {
+      progress?: ProgressClassNames;
+    };
     popup?: {
       root?: string;
       mask?: string;
       body?: string;
       footer?: string;
       actions?: string;
+      close?: string;
     };
   };
   styles?: {
     root?: React.CSSProperties;
     image?: React.CSSProperties;
     cover?: React.CSSProperties;
+    placeholder?: {
+      progress?: ProgressStyles;
+    };
     popup?: {
       root?: React.CSSProperties;
       mask?: React.CSSProperties;
       body?: React.CSSProperties;
       footer?: React.CSSProperties;
       actions?: React.CSSProperties;
+      close?: React.CSSProperties;
     };
   };
 };
 
 export type ImageSemanticAllType = GenerateSemantic<ImageSemanticType, ImageProps>;
 
-export interface ImageProps extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles'> {
+export interface ImageProps
+  extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles' | 'placeholder'> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;
   classNames?: ImageSemanticAllType['classNamesAndFn'];
   styles?: ImageSemanticAllType['stylesAndFn'];
+  placeholder?: PlaceholderType;
 }
+
+export type { ProgressClassNames, ProgressStyles };
 
 const Image: CompositionImage<ImageProps> = (props) => {
   const {
@@ -96,6 +123,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     classNames,
     wrapperStyle,
     fallback,
+    placeholder,
     ...otherProps
   } = props;
 
@@ -181,7 +209,7 @@ const Image: CompositionImage<ImageProps> = (props) => {
     [mergedMask, prefixCls, blurClassName],
   );
 
-  const internalClassNames = React.useMemo(
+  const internalClassNames = React.useMemo<ImageSemanticAllType['classNamesAndFn'][]>(
     () => [contextClassNames, classNames, mergedLegacyClassNames, { popup: mergedPopupClassNames }],
     [contextClassNames, classNames, mergedLegacyClassNames, mergedPopupClassNames],
   );
@@ -194,12 +222,58 @@ const Image: CompositionImage<ImageProps> = (props) => {
     },
     {
       popup: { _default: 'root' },
+      placeholder: {},
     },
   );
 
   const mergedStyle: React.CSSProperties = { ...contextStyle, ...style };
   const mergedFallback: RcImageProps['fallback'] = fallback ?? contextFallback;
+
+  // ============================= Progress ==============================
+  const { progressConfig } = usePlaceholderConfig(placeholder);
+  const showProgressOverlay = progressConfig !== undefined;
+
+  const { percent, render: progressRender } = progressConfig || {};
+
+  // Get progress classNames and styles
+  const progressClassNames = mergedClassNames?.placeholder?.progress as
+    | ProgressClassNames
+    | undefined;
+  const progressStyles = mergedStyles?.placeholder?.progress as ProgressStyles | undefined;
+
   // ============================== Render ==============================
+  const { width, height, src, ...restOtherProps } = otherProps;
+
+  // When placeholder is ReactNode (not progress config) and src is not provided,
+  // render it as an overlay since rc-image would set status to 'error' when src is empty
+  const placeholderNode = isPlaceholderConfig(placeholder) ? undefined : placeholder;
+  const shouldRenderPlaceholderOverlay = placeholderNode && !src;
+
+  // Memoize the placeholder render function to avoid creating new function on each render
+  const mergedProgressRender = shouldRenderPlaceholderOverlay
+    ? (_progress: React.ReactNode) => placeholderNode
+    : progressRender;
+
+  // When progress is active, render only progress layer with dimensions
+  if (showProgressOverlay || shouldRenderPlaceholderOverlay) {
+    return (
+      <Progress
+        prefixCls={prefixCls}
+        percent={percent}
+        render={mergedProgressRender}
+        classNames={progressClassNames}
+        styles={progressStyles}
+        rootClassName={clsx(mergedRootClassName, mergedClassName)}
+        rootStyle={{
+          ...mergedStyle,
+          ...mergedStyles?.root,
+        }}
+        width={width}
+        height={height}
+      />
+    );
+  }
+
   return (
     <RcImage
       prefixCls={prefixCls}
@@ -208,7 +282,11 @@ const Image: CompositionImage<ImageProps> = (props) => {
       className={mergedClassName}
       style={mergedStyle}
       fallback={mergedFallback}
-      {...otherProps}
+      placeholder={placeholderNode}
+      width={width}
+      height={height}
+      src={src}
+      {...restOtherProps}
       classNames={mergedClassNames}
       styles={mergedStyles}
     />

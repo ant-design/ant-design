@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Switch } from 'antd';
-import type { SwitchProps } from 'antd';
+import type { GetProp, SwitchProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyle = createStyles(({ token }) => ({
@@ -16,13 +16,13 @@ const stylesObject: SwitchProps['styles'] = {
   },
 };
 
-const stylesFn: SwitchProps['styles'] = (info) => {
-  if (info.props.size === 'default') {
+const stylesFn: SwitchProps['styles'] = (info): GetProp<SwitchProps, 'styles', 'Return'> => {
+  if (info.props.size === 'medium') {
     return {
       root: {
         backgroundColor: '#BDE3C3',
       },
-    } satisfies SwitchProps['styles'];
+    };
   }
   return {};
 };
@@ -38,7 +38,7 @@ const App: React.FC = () => {
         classNames={classNames}
         styles={stylesObject}
       />
-      <Switch classNames={classNames} size="default" styles={stylesFn} />
+      <Switch classNames={classNames} size="medium" styles={stylesFn} />
     </Flex>
   );
 };

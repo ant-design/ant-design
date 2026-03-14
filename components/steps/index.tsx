@@ -5,14 +5,15 @@ import RcSteps from '@rc-component/steps';
 import type { StepsProps as RcStepsProps } from '@rc-component/steps/lib/Steps';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
+import type { SizeType } from '../config-provider/SizeContext';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import Tooltip from '../tooltip';
@@ -28,37 +29,34 @@ export type IconRenderType = (
   info: Pick<RcIconRenderTypeInfo, 'index' | 'active' | 'item' | 'components'>,
 ) => React.ReactNode;
 
-export type StepsSemanticName = keyof StepsSemanticClassNames & keyof StepsSemanticStyles;
-
-export type StepsSemanticClassNames = {
-  root?: string;
-  item?: string;
-  itemWrapper?: string;
-  itemIcon?: string;
-  itemSection?: string;
-  itemHeader?: string;
-  itemTitle?: string;
-  itemSubtitle?: string;
-  itemContent?: string;
-  itemRail?: string;
+export type StepsSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemWrapper?: string;
+    itemIcon?: string;
+    itemSection?: string;
+    itemHeader?: string;
+    itemTitle?: string;
+    itemSubtitle?: string;
+    itemContent?: string;
+    itemRail?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemWrapper?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemSection?: React.CSSProperties;
+    itemHeader?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+    itemSubtitle?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+    itemRail?: React.CSSProperties;
+  };
 };
 
-export type StepsSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemWrapper?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemSection?: React.CSSProperties;
-  itemHeader?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-  itemSubtitle?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-  itemRail?: React.CSSProperties;
-};
-
-export type StepsClassNamesType = SemanticClassNamesType<StepsProps, StepsSemanticClassNames>;
-
-export type StepsStylesType = SemanticStylesType<StepsProps, StepsSemanticStyles>;
+export type StepsSemanticAllType = GenerateSemantic<StepsSemanticType, StepsProps>;
 
 interface StepItem {
   className?: string;
@@ -93,11 +91,13 @@ export interface BaseStepsProps {
   // Style
   className?: string;
   rootClassName?: string;
-  classNames?: StepsClassNamesType;
-  styles?: StepsStylesType;
+  classNames?: StepsSemanticAllType['classNamesAndFn'];
+  styles?: StepsSemanticAllType['stylesAndFn'];
   variant?: 'filled' | 'outlined';
-  size?: 'default' | 'small';
-
+  /**
+   * Note: `default` is deprecated and will be removed in v7, please use `medium` instead.
+   */
+  size?: Exclude<SizeType, 'large'> | 'default';
   // Layout
   type?: 'default' | 'navigation' | 'inline' | 'panel' | 'dot';
   /** @deprecated Please use `orientation` instead. */
@@ -203,6 +203,12 @@ const Steps = (props: StepsProps) => {
   const [varName] = genCssVar(rootPrefixCls, 'cmp-steps');
 
   // ============================= Size =============================
+
+  if (process.env.NODE_ENV !== 'production') {
+    const warning = devUseWarning('Steps');
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
+  }
+
   const mergedSize = useSize(size);
 
   // ============================= Item =============================
@@ -271,13 +277,13 @@ const Steps = (props: StepsProps) => {
   };
 
   // ============================ Styles ============================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    StepsClassNamesType,
-    StepsStylesType,
-    StepsProps
-  >([waveEffectClassNames, contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [waveEffectClassNames, contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Icon =============================
   const internalIconRender: RcStepsProps['iconRender'] = (_, info) => {
@@ -393,7 +399,7 @@ const Steps = (props: StepsProps) => {
       [`${prefixCls}-dot`]: isDot,
       [`${prefixCls}-ellipsis`]: ellipsis,
       [`${prefixCls}-with-progress`]: mergedPercent !== undefined,
-      [`${prefixCls}-${mergedSize}`]: mergedSize,
+      [`${prefixCls}-small`]: mergedSize === 'small',
     },
     className,
     rootClassName,

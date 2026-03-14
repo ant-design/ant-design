@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons';
 
+import type { SegmentedValue } from '..';
+import Segmented from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFor } from '../../../tests/utils';
-import type { SegmentedValue } from '../index';
-import Segmented from '../index';
 
 // Make CSSMotion working without transition
 jest.mock('@rc-component/motion/lib/util/motion', () => ({

@@ -1,13 +1,7 @@
 import InternalDropdown from './dropdown';
 import DropdownButton from './dropdown-button';
 
-export type {
-  DropdownProps as DropDownProps,
-  DropdownProps,
-  DropdownSemanticClassNames,
-  DropdownSemanticName,
-  DropdownSemanticStyles,
-} from './dropdown';
+export type { DropdownProps as DropDownProps, DropdownProps } from './dropdown';
 export type { DropdownButtonProps, DropdownButtonType } from './dropdown-button';
 
 const Dropdown = InternalDropdown as typeof InternalDropdown & {

@@ -27,6 +27,7 @@ When a numeric value needs to be provided.
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/spinner.tsx" version="6.0.0">Spinner</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
+<code src="./demo/borderless-height-debug.tsx" debug>Borderless height alignment</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
 <code src="./demo/presuffix.tsx">Prefix / Suffix</code>
 <code src="./demo/status.tsx">Status</code>

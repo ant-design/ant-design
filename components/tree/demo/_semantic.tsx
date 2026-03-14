@@ -18,12 +18,14 @@ const locales = {
     item: '条目元素，设置树节点的基础样式、拖拽状态、角色属性、缩进、切换器、内容包装器等节点结构',
     itemTitle: '标题元素，设置树节点标题文字的显示样式和文本内容',
     itemIcon: '图标元素，设置树节点图标的样式、尺寸和状态显示',
+    itemSwitcher: '展开收起切换器元素，设置树节点展开/收起按钮的样式和背景',
   },
   en: {
     root: 'Root element with tree control base styles, layout and container control',
     item: 'Item element with tree node base styles, drag state, role attributes, indentation, switcher, content wrapper and other node structure',
     itemTitle: 'Title element with tree node title text display styles and text content',
     itemIcon: 'Icon element with tree node icon styles, size and state display',
+    itemSwitcher: 'Switcher element with tree node expand/collapse button styles and background',
   },
 };
 
@@ -56,6 +58,7 @@ const App: React.FC = () => {
         { name: 'item', desc: locale.item, version: '6.0.0' },
         { name: 'itemIcon', desc: locale.itemIcon, version: '6.0.0' },
         { name: 'itemTitle', desc: locale.itemTitle, version: '6.0.0' },
+        { name: 'itemSwitcher', desc: locale.itemSwitcher, version: '6.4.0' },
       ]}
     >
       <Tree

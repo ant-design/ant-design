@@ -1,7 +1,8 @@
 import React from 'react';
+
+import InputNumber from '..';
+import type { InputNumberProps } from '..';
 import { render } from '../../../tests/utils';
-import InputNumber from '../index';
-import type { InputNumberProps } from '../index';
 
 describe('InputNumber useMergeSemantic', () => {
   it('should merge classNames and styles correctly', () => {

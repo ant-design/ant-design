@@ -5,7 +5,7 @@ import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks/useMergeSemanticNew';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
