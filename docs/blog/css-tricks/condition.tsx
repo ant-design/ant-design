@@ -23,7 +23,7 @@ const Block: React.FC<React.PropsWithChildren<React.HTMLAttributes<HTMLDivElemen
   </div>
 );
 
-const ConditionExample: React.FC = () => (
+const Example: React.FC = () => (
   <Flex vertical gap="middle">
     <style>{styleTxt}</style>
     <Block>Without CSS Var</Block>
@@ -31,4 +31,4 @@ const ConditionExample: React.FC = () => (
   </Flex>
 );
 
-export default ConditionExample;
+export default Example;

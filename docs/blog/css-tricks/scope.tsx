@@ -11,7 +11,7 @@ const styleTxt = `
   }
 `;
 
-const ScopeExample: React.FC = () => (
+const Example: React.FC = () => (
   <Flex vertical gap="middle">
     <style>{styleTxt}</style>
     <div className="blog-css-tricks-a">
@@ -27,4 +27,4 @@ const ScopeExample: React.FC = () => (
   </Flex>
 );
 
-export default ScopeExample;
+export default Example;
