@@ -63,11 +63,6 @@ const App: React.FC = () => {
             },
           },
         ) => {
-          const onChangeScale = (
-            restActions as typeof restActions & {
-              onChangeScale?: (nextScale: number) => void;
-            }
-          ).onChangeScale;
 
           return (
             <Space size={12} className="toolbar-wrapper">
