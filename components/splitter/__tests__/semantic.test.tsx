@@ -5,6 +5,7 @@ import Splitter from '..';
 import { render } from '../../../tests/utils';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
+
 const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>> = ({
   items = [{}, {}],
   ...props
