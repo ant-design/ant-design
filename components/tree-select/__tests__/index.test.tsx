@@ -1,7 +1,6 @@
 import React from 'react';
 import { SmileOutlined } from '@ant-design/icons';
 import { Button, ConfigProvider, Input, Space } from 'antd';
-import type { TreeNodeProps } from 'antd';
 
 import TreeSelect, { TreeNode } from '..';
 import { resetWarned } from '../../_util/warning';
@@ -9,6 +8,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen } from '../../../tests/utils';
+import type { AntTreeNodeProps } from '../../tree';
 
 describe('TreeSelect', () => {
   focusTest(TreeSelect, { refFocus: true });
@@ -371,7 +371,7 @@ describe('TreeSelect', () => {
     render(
       <ConfigProvider
         treeSelect={{
-          switcherIcon: ({ expanded }: TreeNodeProps) => {
+          switcherIcon: ({ expanded }: AntTreeNodeProps) => {
             return expanded ? (
               <span data-testid="custom-expanded">▼</span>
             ) : (
