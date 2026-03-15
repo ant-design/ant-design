@@ -1,8 +1,8 @@
 import React from 'react';
-import type { GetProp } from 'antd/es/_util/type';
 
 import FloatButton from '..';
 import type { FloatButtonGroupProps, FloatButtonProps } from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 import type { ButtonSemanticClassNames, ButtonSemanticStyles } from '../../button/Button';
 import type { FloatButtonSemanticName } from '../FloatButton';
