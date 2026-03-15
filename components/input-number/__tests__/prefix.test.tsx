@@ -1,8 +1,8 @@
 import React from 'react';
-import type { GetRef } from 'antd';
 
 import type { InputNumberProps } from '..';
 import InputNumber from '..';
+import type { GetRef } from '../../_util/type';
 import focusTest from '../../../tests/shared/focusTest';
 import { fireEvent, render } from '../../../tests/utils';
 

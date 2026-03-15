@@ -1,13 +1,12 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
-import { responsiveArrayReversed } from 'antd/es/_util/responsiveObserver';
-import type { ColProps } from 'antd/es/grid';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import type { FormInstance } from '..';
 import Form from '..';
+import { responsiveArrayReversed } from '../../_util/responsiveObserver';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -19,6 +18,7 @@ import ColorPicker from '../../color-picker';
 import ConfigProvider from '../../config-provider';
 import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
+import type { ColProps } from '../../grid';
 import Input from '../../input';
 import type { InputProps } from '../../input';
 import InputNumber from '../../input-number';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Circle } from '@rc-component/progress';
-import { ConfigProvider } from 'antd';
 
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Progress from '../progress';
 import type { GapPlacement, GapPosition } from '../progress';
 
