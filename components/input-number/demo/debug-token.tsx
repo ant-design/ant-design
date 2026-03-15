@@ -13,7 +13,6 @@ export default () => (
   >
     <Space wrap>
       <InputNumber />
-
       <ConfigProvider
         theme={{
           components: {

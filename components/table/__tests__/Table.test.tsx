@@ -1,11 +1,11 @@
 import React, { useRef } from 'react';
-import { ConfigProvider } from 'antd';
 
 import type { TableProps, TableRef } from '..';
 import Table from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 const { Column, ColumnGroup } = Table;
 

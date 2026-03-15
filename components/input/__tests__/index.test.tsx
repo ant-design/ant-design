@@ -7,9 +7,9 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFor } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
 import { triggerFocus } from '../Input';
-import { ConfigProvider } from 'antd';
 
 describe('Input', () => {
   const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
