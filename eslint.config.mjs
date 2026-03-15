@@ -97,7 +97,7 @@ export default antfu(
   },
   {
     // commonjs, build entry, and script files
-    files: ['**/*.js', '**/*.cjs', '**/*.mjs', 'scripts/**/*.{ts,tsx}'],
+    files: ['**/*.js', '**/*.cjs', '**/*.mjs', 'scripts/**/*.ts', 'scripts/**/*.tsx'],
     rules: {
       'ts/no-require-imports': 'off',
     },
