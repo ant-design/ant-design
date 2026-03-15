@@ -47,7 +47,7 @@ title: 详情页
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tKooSqMRdTEAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-基础详情单页直接平铺所有需要展示的的信息，推荐使用这种详情展示方式。
+基础详情单页直接平铺所有需要展示的信息，推荐使用这种详情展示方式。
 
 #### [模板 -  基础详情](https://preview.pro.ant.design/profile/basic)
 
@@ -127,7 +127,7 @@ title: 详情页
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*3jPZSa8n2g4AAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-根据各个信息之间的相关性，判断各个信息模块之间的亲密度。通常情况下，相关性强的内容尽量靠近，相关性弱的的内容尽量拉开层次。
+根据各个信息之间的相关性，判断各个信息模块之间的亲密度。通常情况下，相关性强的内容尽量靠近，相关性弱的内容尽量拉开层次。
 
 - 不通栏分割线：将相关内容分开；
 - 通栏分割线：将内容分成多个部分；
