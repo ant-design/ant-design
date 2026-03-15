@@ -9,8 +9,11 @@ import type { PanelProps, SplitterProps } from '../interface';
 
 const { resetWarned } = warning;
 
-const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
-  <Splitter {...props}>
+const SplitterDemo: React.FC<{ items?: PanelProps[] } & SplitterProps> = ({
+  items = [{}, {}],
+  ...rest
+}) => (
+  <Splitter {...rest}>
     {items?.map((item, idx) => {
       const key = `panel-${idx}`;
       return <Splitter.Panel key={key} {...item} />;

@@ -27,9 +27,9 @@ const resizeSplitter = async () => {
 
 const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>> = ({
   items = [{}, {}],
-  ...props
+  ...rest
 }) => (
-  <Splitter {...props}>
+  <Splitter {...rest}>
     {items?.map((item, idx) => {
       const key = `panel-${idx}`;
       return <Splitter.Panel key={key} {...item} />;
