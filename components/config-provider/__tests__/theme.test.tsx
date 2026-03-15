@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
-import { Modal } from 'antd';
 
 import ConfigProvider from '..';
 import { Button, InputNumber, Select } from '../..';
 import { render, waitFakeTimer } from '../../../tests/utils';
+import Modal from '../../modal';
 import theme from '../../theme';
 import type { GlobalToken } from '../../theme/internal';
 import { useToken } from '../../theme/internal';
