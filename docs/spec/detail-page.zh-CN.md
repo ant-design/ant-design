@@ -47,7 +47,7 @@ title: 详情页
 <img class="preview-img no-padding" src="https://gw.alipayobjects.com/mdn/rms_08e378/afts/img/A*tKooSqMRdTEAAAAAAAAAAABkARQnAQ">
 </ImagePreview>
 
-基础详情单页直接平铺所有需要展示信息，推荐使用这种详情展示方式。
+基础详情单页直接平铺所有需要展示的信息，推荐使用这种详情展示方式。
 
 #### [模板 -  基础详情](https://preview.pro.ant.design/profile/basic)
 
