@@ -319,8 +319,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         cssVarCls,
       )}
       style={{ ...contextStyle, ...style }}
-      rootClassName={clsx(mergedClassNames?.root, rootClassName)}
-      rootStyle={mergedStyles?.root}
+      rootClassName={clsx(mergedClassNames.root, rootClassName)}
+      rootStyle={mergedStyles.root}
       classNames={mergedClassNames}
       styles={mergedStyles}
       direction={direction}
