@@ -218,6 +218,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     rootClassName,
     classNames,
     styles,
+    icon,
   } = props;
 
   const contextDisabled = React.useContext(DisabledContext);
@@ -252,8 +253,9 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 
   const newProps = {
     ...mergedProps,
-    showLine: Boolean(showLine),
     dropIndicatorRender,
+    showLine: Boolean(showLine),
+    icon: icon as RcTreeProps<DataNode>['icon'],
   };
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -296,7 +298,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     />
   );
   return (
-    // @ts-ignore
     <RcTree
       itemHeight={itemHeight}
       ref={ref}
