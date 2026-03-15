@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { isPresetColor, isPresetStatusColor, type PresetColorType, type PresetStatusColorType } from '../_util/colors';
+import { isPresetColor, isPresetStatusColor } from '../_util/colors';
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
