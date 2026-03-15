@@ -253,9 +253,9 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
 
   const newProps = {
     ...mergedProps,
-    dropIndicatorRender,
     showLine: Boolean(showLine),
     icon: icon as RcTreeProps<DataNode>['icon'],
+    dropIndicatorRender: dropIndicatorRender as RcTreeProps<DataNode>['dropIndicatorRender'],
   };
 
   const [hashId, cssVarCls] = useStyle(prefixCls);

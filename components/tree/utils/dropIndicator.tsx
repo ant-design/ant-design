@@ -1,7 +1,4 @@
 import React from 'react';
-import type { TreeProps } from '@rc-component/tree';
-import type { DataNode } from '@rc-component/tree/lib/interface';
-
 import type { DirectionType } from '../../config-provider';
 
 export const offset = 4;
@@ -38,4 +35,4 @@ const dropIndicatorRender = (props: DropIndicatorProps) => {
   return <div style={style} className={`${prefixCls}-drop-indicator`} />;
 };
 
-export default dropIndicatorRender as TreeProps<DataNode>['dropIndicatorRender'];
+export default dropIndicatorRender;
