@@ -444,7 +444,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     if (
       rawLocale &&
       typeof rawLocale === 'object' &&
-      'default' in rawLocale &&
+      Object.hasOwn(rawLocale, 'default') &&
       (rawLocale as any).default?.locale
     ) {
       return (rawLocale as any).default as Locale;
