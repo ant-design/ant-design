@@ -274,6 +274,12 @@ const componentNames = [
 
 根据 AGENTS.md 的规范，对 `~changelog.md` 中的条目进行过滤、分组、格式检查，并在必要时进行交互式确认和修改。
 
+#### 描述与署名补充规则
+
+- 描述必须以动作开头：中文优先使用 `修复`、`优化`、`新增`、`重构` 等动词开头；英文优先使用 `Fix`、`Improve`、`Add`、`Refactor` 开头。
+- 在“动作开头”的前提下，正文仍需包含组件名（例如：`修复 Select ...`、`Fix Select ...`）。
+- 每条 changelog 统一补充 PR 作者链接（如 `[@username](https://github.com/username)`），不再校验是否为团队成员。
+
 ### 阶段三：写入文件
 
 在 `---` front matter 之后、第一个版本标题之前插入新内容：
@@ -367,5 +373,6 @@ const componentNames = [
 - 需要 gh CLI 认证（运行 `gh auth login`）
 - 写入前必须预览确认
 - 保持中英文同步更新
-- 组件名在正文中要出现（如 `Select 修复...`，不是 `修复 Select...`）
+- 描述以动作开头，并保证正文包含组件名（如 `修复 Select ...`、`Fix Select ...`）
+- 统一添加 PR 作者链接（不区分是否团队成员）
 - PR body 中没有中英文描述时，使用 PR title 作为后备

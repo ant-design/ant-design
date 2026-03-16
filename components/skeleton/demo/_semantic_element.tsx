@@ -29,7 +29,7 @@ const PreviewContent: React.FC<PreviewContentProps> = (props) => {
   const { element, setElement, ...rest } = props;
   const Element = COMPONENT_MAP[element];
   return (
-    <Flex vertical style={{ width: 'fit-content', marginRight: 'auto' }}>
+    <Flex vertical style={{ width: 'fit-content', marginInlineEnd: 'auto' }}>
       <Segmented options={OPTIONS} value={element} onChange={setElement} />
       <Divider titlePlacement="start" plain>
         Preview
