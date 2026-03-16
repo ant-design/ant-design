@@ -386,7 +386,6 @@ describe('Select', () => {
 
   describe('clearIcon', () => {
     const props = {
-      allowClear: true,
       options: [
         { value: 'jack', label: 'Jack' },
         { value: 'lucy', label: 'Lucy' },
@@ -395,7 +394,7 @@ describe('Select', () => {
     };
 
     it('should support clearIcon prop', () => {
-      const { container } = render(<Select {...props} clearIcon="clear" />);
+      const { container } = render(<Select {...props} allowClear clearIcon="clear" />);
       expect(container.querySelector('.ant-select-clear')!.textContent).toBe('clear');
     });
 
@@ -413,7 +412,7 @@ describe('Select', () => {
 
     it('should support clearIcon prop in config provider', () => {
       const { container } = render(
-        <ConfigProvider select={{ clearIcon: 'clear' }}>
+        <ConfigProvider select={{ allowClear: true, clearIcon: 'clear' }}>
           <Select {...props} />
         </ConfigProvider>,
       );

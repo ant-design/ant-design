@@ -196,6 +196,7 @@ const InternalSelect = <
     onOpenChange,
     styles,
     classNames,
+    clearIcon,
     ...rest
   } = props;
 
@@ -283,7 +284,12 @@ const InternalSelect = <
   }
 
   // ===================== Icons =====================
-  const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
+  const {
+    suffixIcon,
+    itemIcon,
+    removeIcon,
+    clearIcon: mergedClearIcon,
+  } = useIcons({
     ...rest,
     multiple: isMultiple,
     hasFeedback,
@@ -291,9 +297,9 @@ const InternalSelect = <
     showSuffixIcon,
     prefixCls,
     componentName: 'Select',
-    clearIcon: normalizeIcon(allowClear, 'clearIcon', rest.clearIcon),
+    clearIcon,
     searchIcon: normalizeIcon(rest.showSearch, 'searchIcon'),
-    contextClearIcon: normalizeIcon(contextAllowClear, 'clearIcon', contextClearIcon),
+    contextClearIcon,
     contextLoadingIcon,
     contextMenuItemSelectedIcon,
     contextRemoveIcon,
@@ -302,7 +308,8 @@ const InternalSelect = <
   });
 
   const finalAllowClear = allowClear ?? contextAllowClear;
-  const mergedAllowClear = finalAllowClear === true ? { clearIcon } : finalAllowClear;
+  const mergedAllowClear =
+    finalAllowClear === true ? { clearIcon: mergedClearIcon } : finalAllowClear;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
