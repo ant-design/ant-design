@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Tooltip } from 'antd';
 
 import type { ProgressProps } from '..';
 import Progress from '..';
@@ -7,6 +6,7 @@ import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
+import Tooltip from '../../tooltip';
 import { handleGradient, sortGradient } from '../Line';
 import { ProgressTypes } from '../progress';
 

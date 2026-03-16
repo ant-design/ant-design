@@ -11,7 +11,7 @@ const styleTxt = `
   }
 `;
 
-export default () => (
+const Example: React.FC = () => (
   <Flex vertical gap="middle">
     <style>{styleTxt}</style>
     <div className="blog-css-tricks-a">
@@ -26,3 +26,5 @@ export default () => (
     </div>
   </Flex>
 );
+
+export default Example;
