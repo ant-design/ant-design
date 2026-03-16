@@ -828,18 +828,18 @@ const genRtlStyle: GenerateStyle<TabsToken, CSSObject> = (token) => {
             },
             marginLeft: {
               _skip_check_: true,
-              value: unit(token.marginSM),
+              value: token.marginSM,
             },
           },
 
           [`${componentCls}-tab-remove`]: {
             marginRight: {
               _skip_check_: true,
-              value: unit(token.marginXS),
+              value: token.marginXS,
             },
             marginLeft: {
               _skip_check_: true,
-              value: unit(calc(token.marginXXS).mul(-1).equal()),
+              value: calc(token.marginXXS).mul(-1).equal(),
             },
 
             [iconCls]: {

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { ConfigProvider } from 'antd';
 
 import Divider from '..';
 import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { TitlePlacement } from '../index';
 
 describe('Divider', () => {
