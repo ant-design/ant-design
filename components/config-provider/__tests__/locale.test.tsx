@@ -115,7 +115,7 @@ describe('ConfigProvider.Locale', () => {
     );
   });
 
-  it('should unwrap nested default locale object automatically (e.g., Vite 8 interop issue)', () => {
+  it('should unwrap nested default locale object automatically caused by ESM/CJS interop', () => {
     const mockLocale: Locale = {
       locale: 'test-locale',
       Pagination: { items_per_page: '/ test page' },
