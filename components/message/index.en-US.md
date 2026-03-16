@@ -26,6 +26,7 @@ demo:
 <code src="./demo/custom-style.tsx">Customized style</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/update.tsx">Update Message Content</code>
+<code src="./demo/stack.tsx">Stack</code>
 <code src="./demo/info.tsx">Static method (deprecated)</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
@@ -112,6 +113,7 @@ message.config({
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
+| stack | Stack messages when exceeding threshold | boolean \| { threshold?: number } | `{ threshold: 3 }` |  |
 | top | Distance from top | string \| number | 8 |  |
 
 ## Semantic DOM

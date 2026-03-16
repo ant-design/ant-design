@@ -21,6 +21,7 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { MessageConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import { useToken } from '../theme/internal';
 import type {
   ArgsClassNamesType,
   ArgsProps,
@@ -87,9 +88,11 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     transitionName,
     onAllRemoved,
     pauseOnHover = true,
+    stack,
   } = props;
   const { getPrefixCls, direction, getPopupContainer } = useComponentConfig('message');
   const { message } = React.useContext(ConfigContext);
+  const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
@@ -129,6 +132,14 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     onAllRemoved,
     renderNotifications,
     pauseOnHover,
+    stack:
+      stack === false
+        ? false
+        : {
+            threshold: typeof stack === 'object' ? stack?.threshold : undefined,
+            offset: 8,
+            gap: token.margin,
+          },
   });
 
   // ================================ Ref ================================

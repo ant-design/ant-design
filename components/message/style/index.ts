@@ -6,6 +6,7 @@ import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import genStackStyle from './stack';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -31,13 +32,18 @@ export interface ComponentToken {
  * @desc Message 组件的 Token
  * @descEN Token for Message component
  */
-interface MessageToken extends FullToken<'Message'> {
+export interface MessageToken extends FullToken<'Message'> {
   // Custom token here
   /**
    * @desc 提示框高度
    * @descEN Height of Message
    */
   height: number;
+  /**
+   * @desc 提示框堆叠层数
+   * @descEN Stack layer of Message
+   */
+  messageStackLayer: number;
 }
 
 const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
@@ -210,8 +216,11 @@ export default genStyleHooks(
   'Message',
   (token) => {
     // Gen-style functions here
-    const combinedToken = mergeToken<MessageToken>(token, { height: 150 });
-    return genMessageStyle(combinedToken);
+    const combinedToken = mergeToken<MessageToken>(token, {
+      height: 150,
+      messageStackLayer: 3,
+    });
+    return [genMessageStyle(combinedToken), genStackStyle(combinedToken)];
   },
   prepareComponentToken,
 );
