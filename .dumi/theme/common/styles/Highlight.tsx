@@ -2,7 +2,7 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
-export default () => {
+const Highlight: React.FC = () => {
   const token = useTheme();
 
   return (
@@ -155,3 +155,5 @@ export default () => {
     />
   );
 };
+
+export default Highlight;

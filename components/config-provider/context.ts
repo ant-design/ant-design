@@ -416,7 +416,7 @@ export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
 export type UploadConfig = ComponentStyleConfig &
-  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest'>;
+  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest' | 'progress'>;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
