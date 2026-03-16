@@ -398,7 +398,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
               newCheckedKeysSet.add(key);
             }
           });
-          onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
+          onItemSelectAll?.([...newCheckedKeysSet], 'replace');
         },
       },
     ];
