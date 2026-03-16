@@ -1,6 +1,5 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { Button, ConfigProvider, Input, Space } from 'antd';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -9,7 +8,11 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
+import Input from '../../input';
+import Space from '../../space';
 
 describe('Select', () => {
   focusTest(Select, { refFocus: true });

@@ -118,12 +118,14 @@ export type TreeSemanticType = {
     item?: string;
     itemIcon?: string;
     itemTitle?: string;
+    itemSwitcher?: string;
   };
   styles?: {
     root?: React.CSSProperties;
     item?: React.CSSProperties;
     itemIcon?: React.CSSProperties;
     itemTitle?: React.CSSProperties;
+    itemSwitcher?: React.CSSProperties;
   };
 };
 

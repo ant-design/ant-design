@@ -1,11 +1,12 @@
 import React from 'react';
-import { ConfigProvider, Form } from 'antd';
 
 import Mentions, { Option } from '..';
 import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import Form from '../../form';
 
 const { getMentions } = Mentions;
 

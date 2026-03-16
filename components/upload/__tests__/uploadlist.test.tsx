@@ -1,9 +1,9 @@
 import React from 'react';
-import { ConfigProvider } from 'antd';
 
 import type { UploadFile, UploadProps } from '..';
 import Upload from '..';
 import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { FormInstance } from '../../form';
 import Form from '../../form';
 import type { UploadListProps, UploadLocale } from '../interface';
