@@ -1,7 +1,9 @@
 import React from 'react';
+
 import message, { actWrapper } from '..';
 import { act, render } from '../../../tests/utils';
 import { awaitPromise, triggerMotionEnd } from './util';
+
 jest.mock('react-dom', () => {
   const realReactDOM = jest.requireActual('react-dom');
 
@@ -142,7 +144,7 @@ describe('Message.semantic', () => {
         styles: {
           root: { marginTop: '20px', borderRadius: '8px' },
           content: { fontSize: '16px', lineHeight: '1.5' },
-          icon: { marginRight: '12px' },
+          icon: { marginInlineEnd: '12px' },
         },
       });
 
