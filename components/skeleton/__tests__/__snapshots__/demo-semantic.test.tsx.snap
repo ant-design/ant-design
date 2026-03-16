@@ -650,7 +650,7 @@ exports[`renders components/skeleton/demo/_semantic_element.tsx correctly 1`] = 
     >
       <div
         class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="width: fit-content; margin-right: auto;"
+        style="width: fit-content; margin-inline-end: auto;"
       >
         <div
           aria-label="segmented control"

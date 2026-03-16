@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect } from 'react';
+import { useEvent } from '@rc-component/util';
 
 const ANT_SYNC_STORAGE_EVENT_KEY = 'ANT_SYNC_STORAGE_EVENT_KEY';
 
@@ -24,7 +25,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
 
   const handleError = typeof onError === 'function' ? onError : console.error;
 
-  const getStoredValue = () => {
+  const getStoredValue = useEvent((): T => {
     try {
       const rawData = storage?.getItem(key);
       if (rawData) {
@@ -34,91 +35,83 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       if (process.env.NODE_ENV !== 'production') {
         handleError(e);
       }
-      return defaultValue;
+      return defaultValue as T;
     }
-    return defaultValue;
-  };
+    return defaultValue as T;
+  });
 
   const [state, setState] = React.useState<T>(getStoredValue);
 
-  const stateRef = React.useRef<T>(state);
-  stateRef.current = state;
+  const updateState = useEvent<React.Dispatch<React.SetStateAction<T>>>((updater) => {
+    setState((originState) => {
+      const currentState = isFunction(updater) ? updater(originState) : updater;
+      if (Object.is(currentState, originState)) {
+        return originState;
+      }
+      try {
+        let newValue: string | null;
+        const oldValue = storage?.getItem(key);
+        if (typeof currentState === 'undefined') {
+          newValue = null;
+          storage?.removeItem(key);
+        } else {
+          newValue = mergedSerializer(currentState);
+          storage?.setItem(key, newValue);
+        }
+        dispatchEvent(
+          new CustomEvent(ANT_SYNC_STORAGE_EVENT_KEY, {
+            detail: { key, newValue, oldValue, storageArea: storage },
+          }),
+        );
+      } catch (e) {
+        if (process.env.NODE_ENV !== 'production') {
+          handleError(e);
+        }
+      }
+      return currentState;
+    });
+  });
+
+  const shouldSync = useCallback(
+    (ev: StorageEvent) => {
+      return ev.key === key && ev.storageArea === storage;
+    },
+    [key, storage],
+  );
+
+  const shouldSyncCustomEvent = useCallback(
+    (ev: CustomEvent<{ key: string; storageArea: Storage }>) => {
+      return ev?.detail?.key === key && ev?.detail?.storageArea === storage;
+    },
+    [key, storage],
+  );
+
+  const syncState = useEvent(() => {
+    const nextState = getStoredValue();
+    setState((originState) => {
+      if (Object.is(nextState, originState)) {
+        return originState;
+      }
+      return nextState;
+    });
+  });
+
+  const onNativeStorage = useEvent((event: StorageEvent) => {
+    if (shouldSync(event)) {
+      syncState();
+    }
+  });
+
+  const onCustomStorage = useEvent((event: Event) => {
+    const customEvent = event as CustomEvent;
+    if (shouldSyncCustomEvent(customEvent)) {
+      syncState();
+    }
+  });
 
   useEffect(() => {
-    const nextState = getStoredValue();
-    if (Object.is(nextState, stateRef.current)) {
-      return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
-    }
-    stateRef.current = nextState;
-    setState(nextState);
-  }, [key]);
-
-  const updateState: React.Dispatch<React.SetStateAction<T>> = (value) => {
-    const previousState = stateRef.current;
-    const currentState = isFunction(value) ? value(previousState) : value;
-    if (Object.is(currentState, previousState)) {
-      return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
-    }
-    stateRef.current = currentState;
-    setState(currentState);
-    try {
-      let newValue: string | null;
-      const oldValue = storage?.getItem(key);
-      if (typeof currentState === 'undefined') {
-        newValue = null;
-        storage?.removeItem(key);
-      } else {
-        newValue = mergedSerializer(currentState);
-        storage?.setItem(key, newValue);
-      }
-      dispatchEvent(
-        new CustomEvent(ANT_SYNC_STORAGE_EVENT_KEY, {
-          detail: { key, newValue, oldValue, storageArea: storage },
-        }),
-      );
-    } catch (e) {
-      if (process.env.NODE_ENV !== 'production') {
-        handleError(e);
-      }
-    }
-  };
-
-  const shouldSync = (ev: StorageEvent) => {
-    return ev && ev.key === key && ev.storageArea === storage;
-  };
-
-  const onNativeStorage = useCallback(
-    (event: StorageEvent) => {
-      if (shouldSync(event)) {
-        const nextState = getStoredValue();
-        if (Object.is(nextState, stateRef.current)) {
-          return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
-        }
-        stateRef.current = nextState;
-        setState(nextState);
-      }
-    },
-    [key],
-  );
-
-  const shouldSyncCustomEvent = (ev: CustomEvent<{ key: string; storageArea: Storage }>) => {
-    return ev?.detail?.key === key && ev?.detail?.storageArea === storage;
-  };
-
-  const onCustomStorage = useCallback(
-    (event: Event) => {
-      const customEvent = event as CustomEvent;
-      if (shouldSyncCustomEvent(customEvent)) {
-        const nextState = getStoredValue();
-        if (Object.is(nextState, stateRef.current)) {
-          return; // 新旧状态相同，不更新 state，避免 setState 带来不必要的 re-render
-        }
-        stateRef.current = nextState;
-        setState(nextState);
-      }
-    },
-    [key],
-  );
+    syncState();
+  }, [key, syncState]);
 
   useEffect(() => {
     window?.addEventListener('storage', onNativeStorage);
@@ -127,7 +120,7 @@ const useLocalStorage = <T>(key: string, options: Options<T> = {}) => {
       window?.removeEventListener('storage', onNativeStorage);
       window?.removeEventListener(ANT_SYNC_STORAGE_EVENT_KEY, onCustomStorage);
     };
-  }, [key, onNativeStorage, onCustomStorage]);
+  }, [onNativeStorage, onCustomStorage]);
 
   return [state, updateState] as const;
 };
