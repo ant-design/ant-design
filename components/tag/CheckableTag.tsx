@@ -76,7 +76,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     {
       [`${prefixCls}-checkable-checked`]: checked,
       [`${prefixCls}-checkable-disabled`]: mergedDisabled,
-      [`${prefixCls}-${color}`]: isInternalColor && checked,
+      [`${prefixCls}-${color}`]: isInternalColor,
     },
     tag?.className,
     className,
