@@ -195,7 +195,7 @@ describe('Message.semantic', () => {
 
     expect(configRoot).toHaveStyle({ marginTop: '20px', borderRadius: '8px' });
     expect(configContent).toHaveStyle({ fontSize: '16px', lineHeight: '1.5' });
-    expect(configIcon).toHaveStyle({ marginRight: '12px' });
+    expect(configIcon).toHaveStyle({ marginInlineEnd: '12px' });
 
     expect(document.querySelector('.override-content')).toBeTruthy();
     expect(document.querySelector('.override-content')).toHaveStyle({
