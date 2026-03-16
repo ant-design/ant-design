@@ -72,16 +72,7 @@ demo:
 | tooltip | 分段项的工具提示 | string \| [TooltipProps](../tooltip/index.zh-CN.md#api) | - |  |
 | value | 分段项的值 | string \| number | - |  |
 
-## Data Attributes
-
-每个 Segmented 分段项元素都会暴露以下 data 属性，支持通过 [CSS 属性选择器](https://developer.mozilla.org/zh-CN/docs/Web/CSS/Attribute_selectors)或 Tailwind CSS [`data-*` 变体](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes) 实现基于状态的样式定制：
-
-| 属性 | 描述 | 值 |
-| --- | --- | --- |
-| `data-selected` | 当前分段项是否被选中 | `"true"` \| `"false"` |
-| `data-disabled` | 当前分段项是否被禁用（包含分段项自身的 `disabled` 属性以及组件级别的 `disabled` 属性） | `"true"` \| `"false"` |
-
-Tailwind CSS 使用示例：
+每个分段项元素还会暴露 `data-selected`（`"true"` \| `"false"`）和 `data-disabled`（`"true"` \| `"false"`）data 属性，支持通过 CSS 属性选择器或 Tailwind CSS `data-*` 变体实现基于状态的样式定制：
 
 ```jsx
 <Segmented

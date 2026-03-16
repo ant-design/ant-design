@@ -62,23 +62,14 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| disabled | Disabled state of segmented item | boolean | false |  |
 | className | The additional css class | string | - |  |
+| disabled | Disabled state of segmented item | boolean | false |  |
 | icon | Display icon for Segmented item | ReactNode | - |  |
 | label | Display text for Segmented item | ReactNode | - |  |
 | tooltip | tooltip for Segmented item | string \| [TooltipProps](../tooltip/index.en-US.md#api) | - |  |
 | value | Value for Segmented item | string \| number | - |  |
 
-## Data Attributes
-
-Each Segmented item element exposes the following data attributes, allowing state-based styling via [CSS attribute selectors](https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors) or Tailwind CSS [`data-*` variants](https://tailwindcss.com/docs/hover-focus-and-other-states#data-attributes):
-
-| Attribute | Description | Values |
-| --- | --- | --- |
-| `data-selected` | Whether the item is currently selected | `"true"` \| `"false"` |
-| `data-disabled` | Whether the item is disabled (includes both per-item `disabled` and the component-level `disabled` prop) | `"true"` \| `"false"` |
-
-Example with Tailwind CSS:
+Each item element also exposes `data-selected` (`"true"` \| `"false"`) and `data-disabled` (`"true"` \| `"false"`) data attributes for state-based styling via CSS attribute selectors or Tailwind CSS `data-*` variants:
 
 ```jsx
 <Segmented
