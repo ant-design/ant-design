@@ -147,6 +147,8 @@ ant-design/
 | 🛠     | 重构或工具链优化       |
 | ⚡️     | 性能提升               |
 
+每条 Changelog 仅选择一个 Emoji，不要在同一条目中叠加多个 Emoji。
+
 编写 Changelog 时，请参考 `CHANGELOG.zh-CN.md` 和 `CHANGELOG.en-US.md` 中已有条目的格式。
 
 ---
