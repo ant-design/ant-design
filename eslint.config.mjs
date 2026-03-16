@@ -74,6 +74,7 @@ export default antfu(
       'e18e/prefer-array-to-sorted': 'off',
       'e18e/prefer-array-from-map': 'off',
       'e18e/prefer-date-now': 'off',
+      'e18e/prefer-object-has-own': 'off',
     },
   },
   {
