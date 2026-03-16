@@ -1,6 +1,5 @@
 import React from 'react';
 import type { SingleValueType } from '@rc-component/cascader/lib/Cascader';
-import { Button, Input, Space } from 'antd';
 
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
@@ -10,7 +9,10 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 import ConfigProvider from '../../config-provider';
+import Input from '../../input';
+import Space from '../../space';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 

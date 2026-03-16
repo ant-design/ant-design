@@ -146,6 +146,8 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token
         inset: 0,
         position: 'absolute',
         background: colorBgMask,
+        backdropFilter: 'blur(0px)',
+        transition: `backdrop-filter ${motionDurationSlow}`,
         [`&${componentCls}-preview-mask-blur`]: {
           backdropFilter: 'blur(4px)',
         },

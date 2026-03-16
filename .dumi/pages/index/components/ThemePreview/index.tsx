@@ -130,7 +130,7 @@ const useStyles = createStyles(({ css, cssVar }) => ({
 
   aiGenerateIcon: css({
     fontSize: 14,
-    marginRight: 6,
+    marginInlineEnd: 6,
     opacity: 0.6,
   }),
 

@@ -218,6 +218,7 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     rootClassName,
     classNames,
     styles,
+    icon,
   } = props;
 
   const contextDisabled = React.useContext(DisabledContext);
@@ -253,7 +254,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
   const newProps = {
     ...mergedProps,
     showLine: Boolean(showLine),
-    dropIndicatorRender,
+    icon: icon as RcTreeProps<DataNode>['icon'],
+    dropIndicatorRender: dropIndicatorRender as RcTreeProps<DataNode>['dropIndicatorRender'],
   };
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -296,7 +298,6 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
     />
   );
   return (
-    // @ts-ignore
     <RcTree
       itemHeight={itemHeight}
       ref={ref}
@@ -318,8 +319,8 @@ const Tree = React.forwardRef<RcTree, TreeProps>((props, ref) => {
         cssVarCls,
       )}
       style={{ ...contextStyle, ...style }}
-      rootClassName={clsx(mergedClassNames?.root, rootClassName)}
-      rootStyle={mergedStyles?.root}
+      rootClassName={clsx(mergedClassNames.root, rootClassName)}
+      rootStyle={mergedStyles.root}
       classNames={mergedClassNames}
       styles={mergedStyles}
       direction={direction}
