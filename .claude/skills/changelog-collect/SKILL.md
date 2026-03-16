@@ -278,18 +278,7 @@ const componentNames = [
 
 - 描述必须以动作开头：中文优先使用 `修复`、`优化`、`新增`、`重构` 等动词开头；英文优先使用 `Fix`、`Improve`、`Add`、`Refactor` 开头。
 - 在“动作开头”的前提下，正文仍需包含组件名（例如：`修复 Select ...`、`Fix Select ...`）。
-- 每条 changelog 默认补充 PR 作者链接（如 `[@username](https://github.com/username)`）。
-- 如果作者属于 antd 团队成员，则跳过作者链接。
-- 团队成员判断优先级：
-  1. **优先使用 GitHub API 判定仓库协作权限**（最准确）：
-     - `gh api /repos/ant-design/ant-design/collaborators/<username>/permission`
-     - 若 `permission` 为 `admin` / `maintain` / `write`，视为团队成员，跳过作者链接。
-  2. 若 `gh` 不可用，可使用 REST API + Token：
-     - `curl -H "Authorization: Bearer <GITHUB_TOKEN>" https://api.github.com/repos/ant-design/ant-design/collaborators/<username>/permission`
-  3. API 不可用或权限不足时，再回退仓库静态名单（如 `contributors.json`、文档团队列表）。
-  4. 若仍无法可靠判断，交互式询问用户是否添加该作者链接。
-
-> 说明：GitHub Team（组织内具体 team）成员关系很多场景下是私有的，无法稳定直接读取；因此以仓库协作权限（collaborator permission）作为可执行且稳定的“团队成员”判定标准。
+- 每条 changelog 统一补充 PR 作者链接（如 `[@username](https://github.com/username)`），不再校验是否为团队成员。
 
 ### 阶段三：写入文件
 
@@ -374,7 +363,6 @@ const componentNames = [
 - `git tag --list` - 获取版本标签
 - `git log <from>..<to> --oneline` - 获取版本间 commits
 - `gh pr view <pr-number> --json title,body,author` - 获取 PR 详情
-- `gh api /repos/ant-design/ant-design/collaborators/<username>/permission` - 判定是否为团队成员（推荐）
 - `git show <hash>` - 查看 commit 详情
 - `npm version minor` - 升级次版本号（6.3.1 → 6.4.0）
 - `npm version patch` - 升级修订版本号（6.3.1 → 6.3.2）
@@ -383,9 +371,8 @@ const componentNames = [
 ## 注意事项
 
 - 需要 gh CLI 认证（运行 `gh auth login`）
-- 若需“团队成员识别”，必须保证 `gh` 已登录或提供 `GITHUB_TOKEN`
 - 写入前必须预览确认
 - 保持中英文同步更新
 - 描述以动作开头，并保证正文包含组件名（如 `修复 Select ...`、`Fix Select ...`）
-- 默认添加 PR 作者链接；若作者是 antd 团队成员则跳过
+- 统一添加 PR 作者链接（不区分是否团队成员）
 - PR body 中没有中英文描述时，使用 PR title 作为后备
