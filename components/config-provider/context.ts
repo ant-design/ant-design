@@ -216,6 +216,7 @@ export type ModalConfig = ComponentStyleConfig &
     | 'okButtonProps'
     | 'cancelButtonProps'
     | 'mask'
+    | 'focusable'
   > & {
     infoIcon?: React.ReactNode;
     successIcon?: React.ReactNode;
@@ -289,7 +290,7 @@ export type CalendarConfig = ComponentStyleConfig &
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
-  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask'>;
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask' | 'focusable'>;
 
 export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
 
