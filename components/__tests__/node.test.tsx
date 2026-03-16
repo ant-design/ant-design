@@ -34,7 +34,7 @@ describe('node', () => {
       );
 
       // Use mock to get config
-      require(`../../${componentTestFile}`);
+      jest.requireActual(`../../${componentTestFile}`);
       const option = (global as any).testConfig?.[componentName];
 
       demoList.forEach((demoFile) => {
@@ -42,7 +42,7 @@ describe('node', () => {
         const test = skip.some((skipMarkdown) => demoFile.includes(skipMarkdown)) ? it.skip : it;
 
         test(demoFile, () => {
-          const Demo = require(`../../${demoFile}`).default;
+          const Demo = jest.requireActual(`../../${demoFile}`).default;
           expect(() => {
             renderToString(<Demo />);
           }).not.toThrow();
