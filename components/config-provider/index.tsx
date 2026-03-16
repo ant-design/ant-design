@@ -357,7 +357,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     anchor,
     app,
     form,
-    locale,
+    locale: rawLocale,
     componentSize,
     direction,
     space,
@@ -438,6 +438,19 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     treeSelect,
     watermark,
   } = props;
+
+  // https://github.com/ant-design/ant-design/issues/57295
+  const locale = React.useMemo(() => {
+    if (
+      rawLocale &&
+      typeof rawLocale === 'object' &&
+      'default' in rawLocale &&
+      (rawLocale as any).default?.locale
+    ) {
+      return (rawLocale as any).default as Locale;
+    }
+    return rawLocale as Locale;
+  }, [rawLocale]);
 
   // =================================== Context ===================================
   const getPrefixCls = React.useCallback(
