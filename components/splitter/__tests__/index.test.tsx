@@ -1,10 +1,11 @@
 import React from 'react';
 import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
-import type { GetProps, SplitterProps } from 'antd';
-import { ConfigProvider, Splitter } from 'antd';
 
+import Splitter from '..';
+import type { SplitterProps } from '..';
 import type { Orientation } from '../../_util/hooks';
+import type { GetProps } from '../../_util/type';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -16,6 +17,7 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { SplitterSemanticAllType } from '../interface';
 import SplitBar from '../SplitBar';
 
@@ -28,9 +30,9 @@ const resizeSplitter = async () => {
 
 const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>> = ({
   items = [{}, {}],
-  ...props
+  ...rest
 }) => (
-  <Splitter {...props}>
+  <Splitter {...rest}>
     {items?.map((item, idx) => {
       const key = `panel-${idx}`;
       return <Splitter.Panel key={key} {...item} />;
