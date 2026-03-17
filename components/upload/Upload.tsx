@@ -46,7 +46,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     fileList,
     defaultFileList,
     onRemove,
-    showUploadList = true,
+    showUploadList: customShowUploadList,
     listType = 'text',
     onPreview,
     onDownload,
@@ -82,6 +82,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const customRequest = props.customRequest || config.customRequest;
   const mergedProgress = { ...config.progress, ...customProgress };
+  const mergedShowUploadList = customShowUploadList ?? config.showUploadList ?? true;
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
@@ -355,7 +356,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const mergedProps: UploadProps = {
     ...props,
     listType,
-    showUploadList,
+    showUploadList: mergedShowUploadList,
     type,
     multiple,
     hasControlInside,
@@ -414,14 +415,17 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     previewIcon,
     downloadIcon,
     extra,
-  } = typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
+  } =
+    typeof mergedShowUploadList === 'boolean'
+      ? ({} as ShowUploadListInterface)
+      : mergedShowUploadList;
 
   // use showRemoveIcon if it is specified explicitly
   const realShowRemoveIcon =
     typeof showRemoveIcon === 'undefined' ? !mergedDisabled : showRemoveIcon;
 
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) => {
-    if (!showUploadList) {
+    if (!mergedShowUploadList) {
       return button;
     }
     return (

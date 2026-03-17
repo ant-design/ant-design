@@ -1251,4 +1251,30 @@ describe('Upload', () => {
       expect(progressWithInfo).toBeFalsy();
     });
   });
+
+  describe('ConfigProvider showUploadList', () => {
+    const fileList: UploadProps['fileList'] = [{ uid: '1', name: 'test.png', status: 'done' }];
+
+    it('should use ConfigProvider showUploadList when Upload has no showUploadList prop', () => {
+      const { container } = render(
+        <ConfigProvider upload={{ showUploadList: false }}>
+          <Upload fileList={fileList}>
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-upload-list')).toBeFalsy();
+    });
+
+    it('should prefer Upload showUploadList prop over ConfigProvider', () => {
+      const { container } = render(
+        <ConfigProvider upload={{ showUploadList: false }}>
+          <Upload fileList={fileList} showUploadList>
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-upload-list')).toBeTruthy();
+    });
+  });
 });
