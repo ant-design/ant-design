@@ -8,7 +8,7 @@ import type {
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import getAllowClear from '../_util/getAllowClear';
+import useAllowClear from '../_util/hooks/useAllowClear';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';
@@ -130,6 +130,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
   const {
     getPrefixCls,
     direction,
+    allowClear: contextAllowClear,
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
@@ -209,7 +210,11 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
-  const mergedAllowClear = getAllowClear(allowClear);
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    contextAllowClear,
+    componentName: 'Mentions',
+  });
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);

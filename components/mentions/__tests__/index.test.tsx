@@ -96,6 +96,16 @@ describe('Mentions', () => {
     expect(textareaInstance.value).toEqual('');
   });
 
+  it('should support allowClear.disabled', () => {
+    const { container, rerender } = render(
+      <Mentions allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
+    );
+    expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeTruthy();
+
+    rerender(<Mentions allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
+    expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeFalsy();
+  });
+
   it('should support custom clearIcon', () => {
     const { container } = render(<Mentions allowClear={{ clearIcon: 'clear' }} />);
     expect(container.querySelector('.ant-mentions-clear-icon')?.textContent).toBe('clear');
