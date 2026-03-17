@@ -6,6 +6,7 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 import type { InputRef } from '../Input';
 import Search from '../Search';
 import type { SearchProps } from '../Search';
@@ -357,5 +358,30 @@ describe('Input.Search', () => {
     expect(button).toHaveStyle('color: rgb(0, 255, 0)');
     expect(buttonIcon).toHaveStyle('color: rgb(255, 0, 0)');
     expect(buttonContent).toHaveStyle('color: rgb(0, 255, 0)');
+  });
+
+  describe('searchIcon', () => {
+    it('should support custom searchIcon', () => {
+      const { container } = render(<Search searchIcon={<div>bamboo</div>} />);
+      expect(container.querySelector('.ant-input-search-btn')).toHaveTextContent('bamboo');
+    });
+
+    it('should support ConfigProvider searchIcon', () => {
+      const { container } = render(
+        <ConfigProvider inputSearch={{ searchIcon: <div>foobar</div> }}>
+          <Search />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-input-search-btn')).toHaveTextContent('foobar');
+    });
+
+    it('should prefer prop searchIcon over ConfigProvider searchIcon', () => {
+      const { container } = render(
+        <ConfigProvider inputSearch={{ searchIcon: <div>foobar</div> }}>
+          <Search searchIcon={<div>bamboo</div>} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-input-search-btn')).toHaveTextContent('bamboo');
+    });
   });
 });
