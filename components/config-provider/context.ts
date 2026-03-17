@@ -257,7 +257,8 @@ export type BreadcrumbConfig = ComponentStyleConfig &
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
-export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classNames' | 'styles'>;
+export type InputSearchConfig = ComponentStyleConfig &
+  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
