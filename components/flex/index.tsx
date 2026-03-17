@@ -66,7 +66,7 @@ const Flex = React.forwardRef<HTMLElement, React.PropsWithChildren<FlexProps>>((
   }
 
   if (isNonNullable(childrenFlex)) {
-    (mergedStyle as Record<string, unknown>)['--ant-flex-children-flex'] = childrenFlex;
+    mergedStyle['--ant-flex-children-flex'] = childrenFlex;
   }
 
   return (
