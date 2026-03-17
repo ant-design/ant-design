@@ -325,7 +325,7 @@ export function imageDemoTest(component: string, options: Options = {}) {
     describeMethod(`Test ${file} image`, () => {
       // Only require the demo file if it's not skipped to avoid dependency issues
       if (!shouldSkip) {
-        let Demo = require(`../../${file}`).default;
+        let Demo = jest.requireActual(`../../${file}`).default;
         if (typeof Demo === 'function') {
           Demo = <Demo />;
         }

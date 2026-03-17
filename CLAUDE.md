@@ -37,10 +37,10 @@ ant-design/
 
 ### API 表格格式
 
-| Property | Description | Type | Default | Version |
-|---|---|---|---|---|
-| disabled | 是否禁用 | boolean | false | - |
-| type | 按钮类型 | `primary` \| `default` | `default` | - |
+| Property | Description | Type                   | Default   | Version |
+| -------- | ----------- | ---------------------- | --------- | ------- |
+| disabled | 是否禁用    | boolean                | false     | -       |
+| type     | 按钮类型    | `primary` \| `default` | `default` | -       |
 
 - 字符串默认值用反引号，布尔/数字直接写，无默认值用 `-`
 - API 按字母顺序排列，新增属性需声明版本号
@@ -106,7 +106,7 @@ ant-design/
 - 必须同时提供中英文两个版本
 - 忽略用户无感知的改动（内部重构、纯测试更新、工具链优化等）
 - 描述"对开发者的影响"，而非"具体的实现细节"
-- 尽量给出 PR 链接，社区 PR 加贡献者链接
+- 尽量给出 PR 链接，并统一添加贡献者链接
 
 ### 格式规范
 
@@ -121,8 +121,8 @@ ant-design/
 #### 句式
 
 | 语言 | 格式 | 示例 |
-|---|---|---|
-| 中文 | `Emoji 组件名 动词/描述` | `🐞 Button 修复暗色主题下 \`color\` 的问题。` |
+| --- | --- | --- |
+| 中文 | `Emoji 动词 组件名 描述`（动词在前） | `🐞 修复 Button 在暗色主题下 \`color\` 的问题。` |
 | 英文 | `Emoji 动词 组件名 描述`（动词在前） | `🐞 Fix Button reversed \`hover\` colors in dark theme.` |
 
 #### 分组逻辑
@@ -133,7 +133,7 @@ ant-design/
 ### Emoji 规范
 
 | Emoji  | 用途                   |
-|--------|------------------------|
+| ------ | ---------------------- |
 | 🐞     | 修复 Bug               |
 | 💄     | 样式更新或 token 更新  |
 | 🆕     | 新增特性 / 新增属性    |
@@ -146,6 +146,8 @@ ant-design/
 | 🗑     | 废弃或移除             |
 | 🛠     | 重构或工具链优化       |
 | ⚡️     | 性能提升               |
+
+每条 Changelog 仅选择一个 Emoji，不要在同一条目中叠加多个 Emoji。
 
 编写 Changelog 时，请参考 `CHANGELOG.zh-CN.md` 和 `CHANGELOG.en-US.md` 中已有条目的格式。
 

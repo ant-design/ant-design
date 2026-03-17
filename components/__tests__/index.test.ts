@@ -1,8 +1,15 @@
 const OLD_NODE_ENV = process.env.NODE_ENV;
 process.env.NODE_ENV = 'development';
-const antd = require('..');
 
 describe('antd', () => {
+  let antd: typeof import('..');
+
+  beforeAll(() => {
+    jest.isolateModules(() => {
+      antd = jest.requireActual('..');
+    });
+  });
+
   afterAll(() => {
     process.env.NODE_ENV = OLD_NODE_ENV;
   });

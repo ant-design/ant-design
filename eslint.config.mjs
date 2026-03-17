@@ -30,7 +30,6 @@ export default antfu(
       'node/prefer-global/process': 'off', // TODO: remove this
       'node/prefer-global/buffer': 'off', // TODO: remove this
       'jsdoc/empty-tags': 'off',
-      'ts/no-require-imports': 'off',
       'ts/explicit-function-return-type': 'off',
       'ts/ban-ts-comment': 'off', // TODO: remove this
       'ts/consistent-type-definitions': 'off',
@@ -75,6 +74,7 @@ export default antfu(
       'e18e/prefer-array-to-sorted': 'off',
       'e18e/prefer-array-from-map': 'off',
       'e18e/prefer-date-now': 'off',
+      'e18e/prefer-object-has-own': 'off',
     },
   },
   {
@@ -94,6 +94,13 @@ export default antfu(
       'jsx-a11y/click-events-have-key-events': 'off',
       'jsx-a11y/no-autofocus': 'off',
       'jsx-a11y/anchor-is-valid': 'off', // TODO: remove this
+    },
+  },
+  {
+    // commonjs, build entry, and script files
+    files: ['**/*.js', '**/*.cjs', '**/*.mjs', 'scripts/**/*.ts', 'scripts/**/*.tsx'],
+    rules: {
+      'ts/no-require-imports': 'off',
     },
   },
   {

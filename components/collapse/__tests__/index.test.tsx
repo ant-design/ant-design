@@ -7,7 +7,7 @@ import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 
 describe('Collapse', () => {
-  const Collapse = require('..').default;
+  const Collapse = jest.requireActual('..').default;
   const Panel = Collapse.Panel;
 
   mountTest(Collapse);

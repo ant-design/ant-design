@@ -260,7 +260,8 @@ export type InputConfig = ComponentStyleConfig &
 export type InputPasswordConfig = ComponentStyleConfig &
   Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender'>;
 
-export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classNames' | 'styles'>;
+export type InputSearchConfig = ComponentStyleConfig &
+  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;

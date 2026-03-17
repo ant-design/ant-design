@@ -145,7 +145,7 @@ export default function accessibilityDemoTest(component: string, options: Option
 
       testMethod(`Test ${file} accessibility`, () => {
         if (!shouldSkip) {
-          const Demo: React.ComponentType<any> = require(`../../${file}`).default;
+          const Demo: React.ComponentType<any> = jest.requireActual(`../../${file}`).default;
           accessibilityTest(Demo, options.disabledRules);
         }
       });
