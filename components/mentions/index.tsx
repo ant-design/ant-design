@@ -104,7 +104,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     notFoundContent,
     options,
     status: customStatus,
-    allowClear = false,
+    allowClear,
     popupClassName,
     style,
     variant: customVariant,
@@ -213,6 +213,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
   const mergedAllowClear = useAllowClear({
     allowClear,
     contextAllowClear,
+    defaultAllowClear: false,
     componentName: 'Mentions',
   });
 

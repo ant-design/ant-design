@@ -111,6 +111,27 @@ describe('Mentions', () => {
     expect(container.querySelector('.ant-mentions-clear-icon')?.textContent).toBe('clear');
   });
 
+  describe('allowClear with ConfigProvider', () => {
+    it('should inherit allowClear from ConfigProvider when prop is undefined', () => {
+      const { container } = render(
+        <ConfigProvider mentions={{ allowClear: true }}>
+          <Mentions defaultValue="111" />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-mentions-clear-icon')).toBeTruthy();
+      expect(container.querySelector('.ant-mentions-clear-icon-hidden')).toBeFalsy();
+    });
+
+    it('should override ConfigProvider allowClear when prop is false', () => {
+      const { container } = render(
+        <ConfigProvider mentions={{ allowClear: true }}>
+          <Mentions defaultValue="111" allowClear={false} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-mentions-clear-icon')).toBeFalsy();
+    });
+  });
+
   it('warning if use Mentions.Option', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     render(
