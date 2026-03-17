@@ -5,6 +5,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
+import fallbackProp from '../_util/fallbackProp';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { cloneElement } from '../_util/reactNode';
@@ -50,6 +51,7 @@ export interface SearchProps extends InputProps {
       source?: 'clear' | 'input';
     },
   ) => void;
+  searchIcon?: React.ReactNode;
   enterButton?: React.ReactNode;
   loading?: boolean;
   onPressEnter?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
@@ -65,6 +67,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     size: customizeSize,
     style,
     enterButton = false,
+    searchIcon: customizeSearchIcon,
     addonAfter,
     loading,
     disabled,
@@ -85,6 +88,7 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     getPrefixCls,
     classNames: contextClassNames,
     styles: contextStyles,
+    searchIcon: contextSearchIcon,
   } = useComponentConfig('inputSearch');
 
   const mergedProps: SearchProps = {
@@ -145,7 +149,10 @@ const Search = React.forwardRef<InputRef, SearchProps>((props, ref) => {
     onSearch(e);
   };
 
-  const searchIcon = typeof enterButton === 'boolean' ? <SearchOutlined /> : null;
+  const searchIcon =
+    typeof enterButton === 'boolean'
+      ? fallbackProp(customizeSearchIcon, contextSearchIcon, <SearchOutlined />)
+      : null;
   const btnPrefixCls = `${prefixCls}-btn`;
   const btnClassName = clsx(btnPrefixCls, {
     [`${btnPrefixCls}-${variant}`]: variant,
