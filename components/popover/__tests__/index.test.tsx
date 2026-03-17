@@ -36,6 +36,27 @@ describe('Popover', () => {
     expect(container.querySelector('.ant-popover')).toBeTruthy();
   });
 
+  it('should support object autoAdjustOverflow config', () => {
+    expect(() => {
+      render(
+        <Popover
+          title="code"
+          content="content"
+          open
+          autoAdjustOverflow={{
+            adjustX: false,
+            adjustY: 1,
+            shiftX: 8,
+            shiftY: true,
+            alwaysByViewport: true,
+          }}
+        >
+          <span>show me your code</span>
+        </Popover>,
+      );
+    }).not.toThrow();
+  });
+
   it('shows content for render functions', () => {
     const renderTitle = () => 'some-title';
     const renderContent = () => 'some-content';
