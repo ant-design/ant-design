@@ -15,6 +15,18 @@ tag: vVERSION
 
 ---
 
+## 6.3.3
+
+`2026-03-16`
+
+- Image
+  - 💄 Improve Image preview mask blur transition for `backdrop-filter` to reduce flicker perception. [#57299](https://github.com/ant-design/ant-design/pull/57299) [@mango766](https://github.com/mango766)
+  - 🐞 Fix Image showing move cursor when `movable={false}`. [#57288](https://github.com/ant-design/ant-design/pull/57288) [@ug-hero](https://github.com/ug-hero)
+- ⌨️ Improve App link `:focus-visible` outline to enhance keyboard accessibility. [#57266](https://github.com/ant-design/ant-design/pull/57266) [@ug-hero](https://github.com/ug-hero)
+- 🐞 Fix Form required mark using hardcoded `SimSun` font. [#57273](https://github.com/ant-design/ant-design/pull/57273) [@mavericusdev](https://github.com/mavericusdev)
+- 🐞 Fix Grid media size mapping issue for `xxxl` breakpoint. [#57246](https://github.com/ant-design/ant-design/pull/57246) [@guoyunhe](https://github.com/guoyunhe)
+- 🐞 Fix Tree scrolling to top when clicking node. [#57242](https://github.com/ant-design/ant-design/pull/57242) [@aojunhao123](https://github.com/aojunhao123)
+
 ## 6.3.2
 
 `2026-03-09`

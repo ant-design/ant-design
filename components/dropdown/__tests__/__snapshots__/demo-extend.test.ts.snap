@@ -7369,7 +7369,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               aria-label="setting"
               class="anticon anticon-setting ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(24, 144, 255); margin-right: 8px;"
+              style="color: rgb(24, 144, 255); margin-inline-end: 8px;"
             >
               <svg
                 aria-hidden="true"
@@ -7426,7 +7426,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               aria-label="logout"
               class="anticon anticon-logout ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(24, 144, 255); margin-right: 8px;"
+              style="color: rgb(24, 144, 255); margin-inline-end: 8px;"
             >
               <svg
                 aria-hidden="true"
