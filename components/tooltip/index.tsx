@@ -60,7 +60,7 @@ export interface TooltipAlignConfig {
   points?: [string, string];
   offset?: [number | string, number | string];
   targetOffset?: [number | string, number | string];
-  overflow?: { adjustX: boolean; adjustY: boolean };
+  overflow?: AdjustOverflow;
   useCssRight?: boolean;
   useCssBottom?: boolean;
   useCssTransform?: boolean;
