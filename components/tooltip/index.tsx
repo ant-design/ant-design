@@ -348,7 +348,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const injectFromPopover = props['data-popover-inject'];
 
   // Accessibility: when used as Popover/Popconfirm (click trigger), move focus into overlay on open and back to trigger on close
-  const popoverFocus = usePopoverFocus(injectFromPopover, mergedTrigger, tooltipRef);
+  const popoverFocus = usePopoverFocus(!!injectFromPopover, mergedTrigger, tooltipRef);
 
   let tempOpen = open;
   // Hide tooltip when there is no title or in table measure row
@@ -426,8 +426,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       visible={tempOpen}
       onVisibleChange={onInternalOpenChange}
       afterVisibleChange={(visible) => {
-        popoverFocus(visible);
-        afterOpenChange?.(visible);
+        const nextVisible = !!visible;
+        popoverFocus(nextVisible);
+        afterOpenChange?.(nextVisible);
       }}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
