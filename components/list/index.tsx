@@ -1,7 +1,7 @@
 import * as React from 'react';
+import { mergeProps } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import extendsObject from '../_util/extendsObject';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -209,7 +209,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
 
   const containerCls = `${prefixCls}-container`;
 
-  const paginationProps = extendsObject(
+  const paginationProps = mergeProps(
     defaultPaginationProps,
     {
       total: dataSource.length,
