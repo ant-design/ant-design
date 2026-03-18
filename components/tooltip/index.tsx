@@ -33,6 +33,50 @@ import { parseColor } from './util';
 
 export type { AdjustOverflow, PlacementsConfig };
 
+/** WCAG 2.4.3: Focus order - move focus into popover/popconfirm when opened via click */
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+function getFirstFocusable(container: HTMLElement): HTMLElement | null {
+  const focusable = container.querySelector<HTMLElement>(FOCUSABLE_SELECTOR);
+  return focusable;
+}
+
+function usePopoverFocus(
+  injectFromPopover: boolean,
+  trigger: string | string[] | undefined,
+  tooltipRef: React.RefObject<RcTooltipRef | null>,
+): (visible: boolean) => void {
+  const isClickTrigger =
+    trigger === 'click' || (Array.isArray(trigger) && trigger.includes('click'));
+
+  return React.useCallback(
+    (visible: boolean) => {
+      if (!injectFromPopover || !isClickTrigger || !tooltipRef.current) return;
+
+      if (visible) {
+        const popupEl = tooltipRef.current.popupElement;
+        if (!popupEl) return;
+        requestAnimationFrame(() => {
+          const first = getFirstFocusable(popupEl);
+          if (first) {
+            first.focus();
+          } else {
+            popupEl.setAttribute('tabindex', '-1');
+            popupEl.focus();
+          }
+        });
+      } else {
+        const triggerEl = tooltipRef.current.nativeElement;
+        if (triggerEl?.focus) {
+          triggerEl.focus();
+        }
+      }
+    },
+    [injectFromPopover, isClickTrigger, tooltipRef],
+  );
+}
+
 export interface TooltipRef {
   forceAlign: VoidFunction;
   /** Wrapped dom element. Not promise valid if child not support ref */
@@ -303,6 +347,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const injectFromPopover = props['data-popover-inject'];
 
+  // Accessibility: when used as Popover/Popconfirm (click trigger), move focus into overlay on open and back to trigger on close
+  const popoverFocus = usePopoverFocus(injectFromPopover, mergedTrigger, tooltipRef);
+
   let tempOpen = open;
   // Hide tooltip when there is no title or in table measure row
   if ((!('open' in props) && noTitle) || inTableMeasureRow) {
@@ -378,7 +425,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onInternalOpenChange}
-      afterVisibleChange={afterOpenChange}
+      afterVisibleChange={(visible) => {
+        popoverFocus(visible);
+        afterOpenChange?.(visible);
+      }}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
         motionName: getTransitionName(
