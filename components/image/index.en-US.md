@@ -185,7 +185,6 @@ type TransformAction =
     onRotateRight: () => void;
     onZoomOut: () => void;
     onZoomIn: () => void;
-    onChangeScale: (scale: number) => void;
     onReset: () => void; // support after 5.17.3
     onClose: () => void;
   };

@@ -59,10 +59,18 @@ const App: React.FC = () => {
               onZoomOut,
               onZoomIn,
               onReset,
-              onChangeScale,
             },
           },
         ) => {
+          const handleScaleChange = (nextScale: number) => {
+            // `@rc-component/image` v1.7.x no longer exposes an `onChangeScale` action.
+            // We approximate scale changes by triggering one step of zoom in/out.
+            if (nextScale > scale) {
+              onZoomIn();
+            } else if (nextScale < scale) {
+              onZoomOut();
+            }
+          };
 
           return (
             <Space size={12} className="toolbar-wrapper">
@@ -83,7 +91,7 @@ const App: React.FC = () => {
                 step={0.1}
                 value={scale}
                 styles={{ root: { width: 100, marginInline: 12 } }}
-                onChange={onChangeScale}
+                onChange={handleScaleChange}
               />
               <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
               <UndoOutlined onClick={onReset} />
