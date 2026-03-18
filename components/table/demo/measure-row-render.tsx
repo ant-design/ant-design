@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import type { InputRef, TableColumnsType, TableColumnType } from 'antd';
-import { Button, Input, Space, Table } from 'antd';
+import { Button, Input, Popover, Space, Table } from 'antd';
 import type { FilterDropdownProps } from 'antd/es/table/interface';
 import Highlighter from 'react-highlight-words';
 
@@ -175,19 +175,17 @@ const App: React.FC = () => {
       },
     },
     {
-      title: 'Address',
+      title: (
+        <Popover open title="This is Address tip">
+          Address
+        </Popover>
+      ),
       dataIndex: 'address',
       key: 'address',
-      ...getColumnSearchProps('address'),
-      sorter: (a, b) => a.address.length - b.address.length,
-      sortDirections: ['descend', 'ascend'],
-      showSorterTooltip: {
-        open: true,
-      },
     },
   ];
 
-  return <Table<DataType> sticky columns={columns} dataSource={data} />;
+  return <Table<DataType> sticky columns={columns} dataSource={data} scroll={{ y: 200 }} />;
 };
 
 export default App;
