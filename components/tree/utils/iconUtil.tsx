@@ -49,7 +49,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
         });
       }
 
-      return leafIcon as unknown as React.ReactElement;
+      return leafIcon as unknown as React.ReactElement<any>;
     }
 
     return showLeafIcon ? (
@@ -73,7 +73,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
   }
 
   if (switcher !== undefined) {
-    return switcher as unknown as React.ReactElement;
+    return switcher as unknown as React.ReactElement<any>;
   }
 
   if (showLine) {
