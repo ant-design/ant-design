@@ -1,12 +1,12 @@
 import * as React from 'react';
 import FilterFilled from '@ant-design/icons/FilterFilled';
 import type { FieldDataNode } from '@rc-component/tree';
+import { mergeProps } from '@rc-component/util';
 import isEqual from '@rc-component/util/lib/isEqual';
 import type { AnyObject } from 'antd/es/_util/type';
 import { clsx } from 'clsx';
 
 import type { FilterState } from '.';
-import extendsObject from '../../../_util/extendsObject';
 import { useSyncState } from '../../../_util/hooks';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button/Button';
@@ -559,7 +559,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
     );
   }
 
-  const mergedDropdownProps = extendsObject(
+  const mergedDropdownProps = mergeProps(
     {
       trigger: ['click'],
       placement: direction === 'rtl' ? 'bottomLeft' : 'bottomRight',
