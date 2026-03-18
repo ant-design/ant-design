@@ -83,7 +83,7 @@ const genTooltipStyle: GenerateStyle<TooltipToken> = (token) => {
 
   const sharedTransformOrigin: CSSObject = {
     // When use `autoArrow`, origin will follow the arrow position
-    [varName('valid-offset-x')]: varRef('arrow-offset-horizontal', 'var(--arrow-x)'),
+    [varName('valid-offset-x')]: varRef('arrow-offset-x', 'var(--arrow-x)'),
     transformOrigin: [
       varRef('valid-offset-x', FALL_BACK_ORIGIN),
       `var(--arrow-y, ${FALL_BACK_ORIGIN})`,

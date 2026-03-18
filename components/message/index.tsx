@@ -7,9 +7,6 @@ import type {
   ArgsProps,
   ConfigOptions,
   MessageInstance,
-  MessageSemanticClassNames,
-  MessageSemanticName,
-  MessageSemanticStyles,
   MessageType,
   NoticeType,
   TypeOpen,
@@ -18,7 +15,7 @@ import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
 
-export type { ArgsProps, MessageSemanticClassNames, MessageSemanticName, MessageSemanticStyles };
+export type { ArgsProps };
 
 let message: GlobalMessage | null = null;
 

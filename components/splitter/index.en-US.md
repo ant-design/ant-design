@@ -28,6 +28,7 @@ Can be used to separate areas horizontally or vertically. When you need to freel
 <code src="./demo/lazy.tsx" version="5.23.0">Lazy</code>
 <code src="./demo/customize.tsx" version="6.0.0">Customize</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/reset.tsx" version="6.3.0">Double-clicked reset</code>
 <code src="./demo/nested-in-tabs.tsx" debug>Nested in tabs</code>
 <code src="./demo/debug.tsx" debug>Debug</code>
 <code src="./demo/size-mix.tsx" debug>Size Mix</code>
@@ -43,7 +44,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| collapsibleIcon | custom collapsible icon | `{start: ReactNode; end: ReactNode}` | - | 6.0.0 |
+| collapsible | `motion` to enable collapse animation, `icon` to customize collapse icons | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 |
+| ~collapsibleIcon~ | custom collapsible icon | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
 | draggerIcon | custom dragger icon | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | Layout direction | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | Lazy mode | `boolean` | `false` | 5.23.0 |
@@ -51,6 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | orientation | Orientation direction | `horizontal` \| `vertical` | `horizontal` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` |  |
+| onDraggerDoubleClick | Callback triggered when the dragger is double-clicked | `(index: number) => void` | - | 6.3.0 |
 | onResize | Panel size change callback | `(sizes: number[]) => void` | - | - |
 | onResizeEnd | Drag end callback | `(sizes: number[]) => void` | - | - |
 | onResizeStart | Callback before dragging starts | `(sizes: number[]) => void` | - | - |

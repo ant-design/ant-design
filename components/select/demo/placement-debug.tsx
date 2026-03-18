@@ -15,12 +15,12 @@ const randomOptions = (count?: number) => {
 };
 
 const App: React.FC = () => {
-  const [placement, SetPlacement] = useState<SelectCommonPlacement>('topLeft');
+  const [placement, setPlacement] = useState<SelectCommonPlacement>('topLeft');
   const [open, setOpen] = useState(false);
   const [options, setOptions] = useState(() => randomOptions(3));
 
   const placementChange = (e: RadioChangeEvent) => {
-    SetPlacement(e.target.value);
+    setPlacement(e.target.value);
   };
 
   return (

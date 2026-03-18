@@ -1,6 +1,5 @@
 import React from 'react';
 import { CloseOutlined } from '@ant-design/icons';
-import { Button, Input, Space } from 'antd';
 
 import type { SelectProps } from '..';
 import Select from '..';
@@ -9,7 +8,11 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
+import Button from '../../button';
+import ConfigProvider from '../../config-provider';
 import Form from '../../form';
+import Input from '../../input';
+import Space from '../../space';
 
 describe('Select', () => {
   focusTest(Select, { refFocus: true });
@@ -115,6 +118,61 @@ describe('Select', () => {
         jest.runAllTimers();
       });
       expect(asFragment().firstChild).toMatchSnapshot();
+    });
+  });
+
+  describe('Select allowClear with ConfigProvider', () => {
+    const SelectWithValue = (props: SelectProps) => (
+      <Select defaultValue="value" options={[{ value: 'value', label: 'Label' }]} {...props} />
+    );
+    it('should inherit allowClear from ConfigProvider when prop is undefined', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: true }}>
+          <SelectWithValue />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeTruthy();
+    });
+
+    it('should override ConfigProvider allowClear when prop is false', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: true }}>
+          <SelectWithValue allowClear={false} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeFalsy();
+    });
+
+    it('should override ConfigProvider allowClear when prop is true (context is false)', () => {
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: false }}>
+          <SelectWithValue allowClear />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-select-clear')).toBeTruthy();
+    });
+
+    it('should inherit custom clearIcon from ConfigProvider', () => {
+      const CustomIcon = () => <span className="custom-clear-icon">X</span>;
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: { clearIcon: <CustomIcon /> } }}>
+          <SelectWithValue />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.custom-clear-icon')).toBeTruthy();
+      expect(container.querySelector('.ant-select-clear')).toBeTruthy();
+    });
+
+    it('props custom icon should override ConfigProvider custom icon', () => {
+      const ContextIcon = () => <span className="context-icon">Ctx</span>;
+      const PropIcon = () => <span className="prop-icon">Prop</span>;
+      const { container } = render(
+        <ConfigProvider select={{ allowClear: { clearIcon: <ContextIcon /> } }}>
+          <SelectWithValue allowClear={{ clearIcon: <PropIcon /> }} />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.context-icon')).toBeFalsy();
+      expect(container.querySelector('.prop-icon')).toBeTruthy();
     });
   });
 

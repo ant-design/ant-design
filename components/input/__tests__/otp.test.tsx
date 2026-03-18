@@ -190,6 +190,15 @@ describe('Input.OTP', () => {
     expect(container.querySelector('input')).toHaveAttribute('type', 'number');
   });
 
+  it('support autoComplete', () => {
+    const { container } = render(<OTP autoComplete="one-time-code" />);
+    const inputs = container.querySelectorAll('input');
+    expect(inputs).toHaveLength(6);
+    inputs.forEach((input) => {
+      expect(input).toHaveAttribute('autocomplete', 'one-time-code');
+    });
+  });
+
   it('should call onInput with a string array when input changes', () => {
     const onInput = jest.fn();
     const { container } = render(<OTP length={4} onInput={onInput} />);

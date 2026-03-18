@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
+import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -41,7 +42,7 @@ const centerStyle: CSSObject = {
   transform: 'translate(-50%, -50%)',
 };
 
-const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): CSSObject => {
+const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
   const {
     componentCls,
     colorFill,
@@ -373,6 +374,11 @@ const genSplitterStyle: GenerateStyle<SplitterToken> = (token: SplitterToken): C
 
         [`&:has(${componentCls}:only-child)`]: {
           overflow: 'hidden',
+        },
+
+        '&-transition': {
+          transition: `flex-basis ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+          ...genNoMotionStyle(),
         },
       },
     },

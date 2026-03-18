@@ -65,6 +65,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
+import type { TypographyProps } from '../typography';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
@@ -173,6 +174,7 @@ export interface TableConfig<RecordType extends AnyObject = AnyObject>
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
   rowKey?: TableProps<RecordType>['rowKey'];
+  scroll?: TableProps<RecordType>['scroll'];
   classNames?: TableProps['classNames'];
   styles?: TableProps['styles'];
 }
@@ -214,7 +216,12 @@ export type ModalConfig = ComponentStyleConfig &
     | 'okButtonProps'
     | 'cancelButtonProps'
     | 'mask'
-  >;
+  > & {
+    infoIcon?: React.ReactNode;
+    successIcon?: React.ReactNode;
+    errorIcon?: React.ReactNode;
+    warningIcon?: React.ReactNode;
+  };
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<
@@ -241,13 +248,17 @@ export type AlertConfig = ComponentStyleConfig &
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
+export type TypographyConfig = ComponentStyleConfig &
+  Pick<TypographyProps, 'classNames' | 'styles'>;
+
 export type BreadcrumbConfig = ComponentStyleConfig &
   Pick<BreadcrumbProps, 'classNames' | 'styles' | 'separator' | 'dropdownIcon'>;
 
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
-export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classNames' | 'styles'>;
+export type InputSearchConfig = ComponentStyleConfig &
+  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
@@ -255,7 +266,9 @@ export type TextAreaConfig = ComponentStyleConfig &
 export type OTPConfig = ComponentStyleConfig & Pick<OTPProps, 'classNames' | 'styles'>;
 
 export type ButtonConfig = ComponentStyleConfig &
-  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'>;
+  Pick<ButtonProps, 'classNames' | 'styles' | 'autoInsertSpace' | 'variant' | 'color' | 'shape'> & {
+    loadingIcon?: React.ReactNode;
+  };
 
 export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
 
@@ -269,7 +282,7 @@ export type CardConfig = ComponentStyleConfig &
   Pick<CardProps, 'classNames' | 'styles' | 'variant'>;
 
 export type ColorPickerConfig = ComponentStyleConfig &
-  Pick<ColorPickerProps, 'classNames' | 'styles'>;
+  Pick<ColorPickerProps, 'classNames' | 'styles' | 'arrow'>;
 
 export type CalendarConfig = ComponentStyleConfig &
   Pick<CalendarProps<AnyObject>, 'classNames' | 'styles'>;
@@ -299,6 +312,7 @@ export type FormConfig = ComponentStyleConfig &
     | 'classNames'
     | 'styles'
     | 'tooltip'
+    | 'labelAlign'
   >;
 
 export type FloatButtonConfig = ComponentStyleConfig &
@@ -310,12 +324,15 @@ export type FloatButtonGroupConfig = ComponentStyleConfig &
   Pick<FloatButtonGroupProps, 'closeIcon' | 'classNames' | 'styles'>;
 
 export type PaginationConfig = ComponentStyleConfig &
-  Pick<PaginationProps, 'showSizeChanger' | 'totalBoundaryShowSizeChanger' | 'classNames' | 'styles'>;
+  Pick<
+    PaginationProps,
+    'showSizeChanger' | 'totalBoundaryShowSizeChanger' | 'classNames' | 'styles'
+  >;
 
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 
 export type SelectConfig = ComponentStyleConfig &
-  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles'>;
+  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles' | 'allowClear'>;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
@@ -366,7 +383,10 @@ export type InputNumberConfig = ComponentStyleConfig &
   Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
 
 export type CascaderConfig = ComponentStyleConfig &
-  Pick<CascaderProps, 'variant' | 'styles' | 'classNames'>;
+  Pick<
+    CascaderProps,
+    'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon' | 'removeIcon' | 'suffixIcon'
+  > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
   Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
@@ -374,13 +394,19 @@ export type TreeSelectConfig = ComponentStyleConfig &
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
-  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<
+    DatePickerProps,
+    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+  >;
 
 export type RangePickerConfig = ComponentStyleConfig &
   Pick<RangePickerProps, 'variant' | 'separator'>;
 
 export type TimePickerConfig = ComponentStyleConfig &
-  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<
+    TimePickerProps,
+    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+  >;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
@@ -388,7 +414,7 @@ export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
 export type UploadConfig = ComponentStyleConfig &
-  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest'>;
+  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest' | 'progress'>;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
@@ -430,6 +456,7 @@ export interface ConfigComponentProps {
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
   anchor?: AnchorStyleConfig;
+  app?: ComponentStyleConfig;
   button?: ButtonConfig;
   divider?: DividerConfig;
   drawer?: DrawerConfig;
@@ -440,7 +467,7 @@ export interface ConfigComponentProps {
   collapse?: CollapseConfig;
   floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
-  typography?: ComponentStyleConfig;
+  typography?: TypographyConfig;
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;

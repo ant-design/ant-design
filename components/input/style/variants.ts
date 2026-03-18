@@ -1,15 +1,16 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
+import type { GenerateStyle } from '../../theme/internal';
 import { mergeToken } from '../../theme/internal';
 import type { InputToken } from './token';
 
-export const genHoverStyle = (token: InputToken): CSSObject => ({
+export const genHoverStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   borderColor: token.hoverBorderColor,
   backgroundColor: token.hoverBg,
 });
 
-export const genDisabledStyle = (token: InputToken): CSSObject => ({
+export const genDisabledStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   color: token.colorTextDisabled,
   backgroundColor: token.colorBgContainerDisabled,
   borderColor: token.colorBorder,
@@ -133,7 +134,7 @@ const genOutlinedGroupStatusStyle = (
   },
 });
 
-export const genOutlinedGroupStyle = (token: InputToken): CSSObject => ({
+export const genOutlinedGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   '&-outlined': {
     [`${token.componentCls}-group`]: {
       '&-addon': {
@@ -178,6 +179,17 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
     '&-borderless': {
       background: 'transparent',
       border: 'none',
+      // Compensate for the removed border to maintain consistent height with other components
+      // (e.g. Select borderless) that keep a transparent border.
+      paddingBlock: token.calc(token.paddingBlock).add(token.lineWidth).equal(),
+
+      [`&${componentCls}-sm, &${componentCls}-affix-wrapper-sm`]: {
+        paddingBlock: token.calc(token.paddingBlockSM).add(token.lineWidth).equal(),
+      },
+
+      [`&${componentCls}-lg, &${componentCls}-affix-wrapper-lg`]: {
+        paddingBlock: token.calc(token.paddingBlockLG).add(token.lineWidth).equal(),
+      },
 
       '&:focus, &:focus-within': {
         outline: 'none',
@@ -308,7 +320,7 @@ const genFilledGroupStatusStyle = (
   },
 });
 
-export const genFilledGroupStyle = (token: InputToken): CSSObject => ({
+export const genFilledGroupStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   '&-filled': {
     [`${token.componentCls}-group-addon`]: {
       background: token.colorFillTertiary,

@@ -1,11 +1,14 @@
 import React from 'react';
 import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
-import type { GetProps, SplitterProps } from 'antd';
-import { ConfigProvider, Splitter } from 'antd';
 
+import Splitter from '..';
+import type { SplitterProps } from '..';
 import type { Orientation } from '../../_util/hooks';
+import type { GetProps } from '../../_util/type';
 import { resetWarned } from '../../_util/warning';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import {
   act,
   createEvent,
@@ -14,6 +17,9 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import type { SplitterSemanticAllType } from '../interface';
+import SplitBar from '../SplitBar';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
 
@@ -24,9 +30,9 @@ const resizeSplitter = async () => {
 
 const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>> = ({
   items = [{}, {}],
-  ...props
+  ...rest
 }) => (
-  <Splitter {...props}>
+  <Splitter {...rest}>
     {items?.map((item, idx) => {
       const key = `panel-${idx}`;
       return <Splitter.Panel key={key} {...item} />;
@@ -35,6 +41,9 @@ const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>>
 );
 
 describe('Splitter', () => {
+  mountTest(Splitter);
+  rtlTest(Splitter);
+
   const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
   let containerSize = 100;
@@ -79,6 +88,143 @@ describe('Splitter', () => {
     expect(panels?.[0]).toHaveStyle('flex-basis: 20px');
     expect(panels?.[1]).toHaveStyle('flex-basis: 45px');
     expect(panels?.[2]).toHaveStyle('flex-basis: 35px');
+  });
+
+  describe('onDraggerDoubleClick', () => {
+    it('should trigger onDraggerDoubleClick when clicking within 300ms', () => {
+      const onDraggerDoubleClick = jest.fn();
+      const { container } = render(
+        <SplitterDemo items={[{}, {}]} onDraggerDoubleClick={onDraggerDoubleClick} />,
+      );
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      fireEvent.doubleClick(dragger);
+
+      act(() => {
+        jest.advanceTimersByTime(200);
+      });
+
+      fireEvent.mouseDown(dragger);
+
+      expect(onDraggerDoubleClick).toHaveBeenCalledTimes(1);
+      expect(onDraggerDoubleClick).toHaveBeenCalledWith(0);
+    });
+
+    it('should NOT trigger onDraggerDoubleClick when time gap > 300ms', () => {
+      const onDraggerDoubleClick = jest.fn();
+      const { container } = render(
+        <SplitterDemo items={[{}, {}]} onDraggerDoubleClick={onDraggerDoubleClick} />,
+      );
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      fireEvent.mouseDown(dragger);
+      fireEvent.mouseUp(dragger);
+      fireEvent.click(dragger);
+
+      act(() => {
+        jest.advanceTimersByTime(400);
+      });
+
+      fireEvent.mouseDown(dragger);
+      fireEvent.mouseUp(dragger);
+      fireEvent.click(dragger);
+
+      expect(onDraggerDoubleClick).not.toHaveBeenCalled();
+    });
+
+    it('should trigger with correct index for multiple splitters', () => {
+      const onDraggerDoubleClick = jest.fn();
+      const { container } = render(
+        <SplitterDemo items={[{}, {}, {}]} onDraggerDoubleClick={onDraggerDoubleClick} />,
+      );
+
+      const draggers = container.querySelectorAll('.ant-splitter-bar-dragger');
+      const secondDragger = draggers[1];
+
+      fireEvent.doubleClick(secondDragger);
+
+      act(() => {
+        jest.advanceTimersByTime(100);
+      });
+
+      fireEvent.doubleClick(secondDragger);
+
+      expect(onDraggerDoubleClick).toHaveBeenCalledWith(1);
+    });
+
+    it('should stop propagation to allow nested splitter usage', () => {
+      const onOuterDoubleClick = jest.fn();
+      const onInnerDoubleClick = jest.fn();
+
+      const { getByTestId } = render(
+        <Splitter onDraggerDoubleClick={onOuterDoubleClick}>
+          <Splitter.Panel>Outer Left</Splitter.Panel>
+          <Splitter.Panel>
+            <div data-testid="inner-wrapper">
+              <Splitter onDraggerDoubleClick={onInnerDoubleClick}>
+                <Splitter.Panel>Inner Top</Splitter.Panel>
+                <Splitter.Panel>Inner Bottom</Splitter.Panel>
+              </Splitter>
+            </div>
+          </Splitter.Panel>
+        </Splitter>,
+      );
+
+      const innerWrapper = getByTestId('inner-wrapper');
+      const innerDragger = innerWrapper.querySelector('.ant-splitter-bar-dragger')!;
+
+      fireEvent.doubleClick(innerDragger);
+      act(() => {
+        jest.advanceTimersByTime(100);
+      });
+      fireEvent.doubleClick(innerDragger);
+
+      expect(onInnerDoubleClick).toHaveBeenCalled();
+      expect(onOuterDoubleClick).not.toHaveBeenCalled();
+    });
+
+    it('should prevent drag start (return early) when mouse down happens within 300ms', () => {
+      const onOffsetStart = jest.fn();
+
+      const { container } = render(
+        <SplitBar
+          index={0}
+          active={false}
+          prefixCls="ant-splitter"
+          rootPrefixCls="ant"
+          resizable
+          vertical={false}
+          startCollapsible
+          endCollapsible
+          showStartCollapsibleIcon
+          showEndCollapsibleIcon
+          containerSize={500}
+          ariaNow={50}
+          ariaMin={0}
+          ariaMax={100}
+          onOffsetStart={onOffsetStart}
+          onOffsetUpdate={jest.fn()}
+          onOffsetEnd={jest.fn()}
+          onCollapse={jest.fn()}
+        />,
+      );
+
+      const dragger = container.querySelector('.ant-splitter-bar-dragger')!;
+
+      fireEvent.mouseDown(dragger);
+
+      expect(onOffsetStart).toHaveBeenCalledTimes(1);
+
+      fireEvent.mouseUp(dragger);
+
+      act(() => {
+        jest.advanceTimersByTime(200);
+      });
+
+      fireEvent.mouseDown(dragger);
+
+      expect(onOffsetStart).toHaveBeenCalledTimes(1);
+    });
   });
 
   it('The layout should work fine', () => {
@@ -859,6 +1005,21 @@ describe('Splitter', () => {
       expect(onCollapse).toHaveBeenCalledTimes(2);
       expect(onCollapse).toHaveBeenCalledWith([false, false], [50, 50]);
     });
+
+    it('should apply transition when motion is true', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ collapsible: true }, { collapsible: true }]}
+          collapsible={{
+            motion: true,
+          }}
+        />,
+      );
+
+      expect(container.querySelector('.ant-splitter-panel')).toHaveClass(
+        'ant-splitter-panel-transition',
+      );
+    });
   });
 
   it('auto resize', async () => {
@@ -900,13 +1061,31 @@ describe('Splitter', () => {
       expect(draggerEle.querySelector('.customize-dragger-icon')).toBeTruthy();
     });
 
-    it('customize collapsibleIcon', async () => {
-      const { container } = render(
+    it('customize collapsibleIcon (deprecated)', async () => {
+      render(
         <SplitterDemo
           items={[{ size: 20, collapsible: true }, { collapsible: true }]}
           collapsibleIcon={{
             start: <CaretLeftOutlined className="customize-icon-start" />,
             end: <CaretRightOutlined className="customize-icon-end" />,
+          }}
+        />,
+      );
+
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Splitter] `collapsibleIcon` is deprecated. Please use `collapsible.icon` instead.',
+      );
+    });
+
+    it('customize collapsible.icon', async () => {
+      const { container } = render(
+        <SplitterDemo
+          items={[{ size: 20, collapsible: true }, { collapsible: true }]}
+          collapsible={{
+            icon: {
+              start: <CaretLeftOutlined className="customize-icon-start" />,
+              end: <CaretRightOutlined className="customize-icon-end" />,
+            },
           }}
         />,
       );
@@ -926,12 +1105,13 @@ describe('Splitter', () => {
     });
 
     it('styles', () => {
-      const customStyles = {
+      const customStyles: SplitterProps['styles'] = {
         root: { background: 'red' },
         panel: { background: 'blue' },
-        dragger: { background: 'green' },
+        // dragger: { background: 'green' },
+        dragger: { default: { background: 'green' } },
       };
-      const customClassNames = {
+      const customClassNames: SplitterSemanticAllType['classNamesNoString'] = {
         root: 'custom-root',
         panel: 'custom-panel',
         dragger: { default: 'custom-dragger', active: 'custom-dragger-active' },
@@ -942,22 +1122,22 @@ describe('Splitter', () => {
       );
 
       const root = container.querySelector('.ant-splitter');
-      expect(root).toHaveStyle(customStyles.root);
-      expect(root).toHaveClass(customClassNames.root);
+      expect(root).toHaveStyle(customStyles.root as Record<string, string>);
+      expect(root).toHaveClass(customClassNames.root as string);
 
       const panel = container.querySelector('.ant-splitter-panel');
-      expect(panel).toHaveStyle(customStyles.panel);
-      expect(panel).toHaveClass(customClassNames.panel);
-
+      expect(panel).toHaveStyle(customStyles.panel as Record<string, string>);
+      expect(panel).toHaveClass(customClassNames.panel as string);
       const dragger = container.querySelector('.ant-splitter-bar-dragger');
-      expect(dragger).toHaveStyle(customStyles.dragger);
-      expect(dragger).toHaveClass(customClassNames.dragger.default);
-      expect(dragger).not.toHaveClass(customClassNames.dragger.active);
+      expect(dragger).toHaveStyle(customStyles.dragger?.default as Record<string, string>);
+
+      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
+      expect(dragger).not.toHaveClass(customClassNames.dragger?.active as string);
 
       // Dragging
       fireEvent.mouseDown(dragger!);
-      expect(dragger).toHaveClass(customClassNames.dragger.default);
-      expect(dragger).toHaveClass(customClassNames.dragger.active);
+      expect(dragger).toHaveClass(customClassNames.dragger?.default as string);
+      expect(dragger).toHaveClass(customClassNames.dragger?.active as string);
     });
   });
 

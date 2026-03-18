@@ -12,15 +12,16 @@ import { clsx } from 'clsx';
 import type { PresetColorType } from '../_util/colors';
 import ContextIsolator from '../_util/ContextIsolator';
 import type { RenderFunction } from '../_util/getRenderPropValue';
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
-import zIndexContext from '../_util/zindexContext';
+import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
@@ -86,23 +87,20 @@ interface LegacyTooltipProps
   afterOpenChange?: RcTooltipProps['afterVisibleChange'];
 }
 
-export type TooltipSemanticName = keyof TooltipSemanticClassNames & keyof TooltipSemanticStyles;
-
-export type TooltipSemanticClassNames = {
-  root?: string;
-  container?: string;
-  arrow?: string;
+export type TooltipSemanticType = {
+  classNames?: {
+    root?: string;
+    container?: string;
+    arrow?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    container?: React.CSSProperties;
+    arrow?: React.CSSProperties;
+  };
 };
 
-export type TooltipSemanticStyles = {
-  root?: React.CSSProperties;
-  container?: React.CSSProperties;
-  arrow?: React.CSSProperties;
-};
-
-export type TooltipClassNamesType = SemanticClassNamesType<TooltipProps, TooltipSemanticClassNames>;
-
-export type TooltipStylesType = SemanticStylesType<TooltipProps, TooltipSemanticStyles>;
+export type TooltipSemanticAllType = GenerateSemantic<TooltipSemanticType, TooltipProps>;
 
 export interface AbstractTooltipProps extends LegacyTooltipProps {
   style?: React.CSSProperties;
@@ -137,8 +135,8 @@ export interface AbstractTooltipProps extends LegacyTooltipProps {
 export interface TooltipProps extends AbstractTooltipProps {
   title?: React.ReactNode | RenderFunction;
   overlay?: React.ReactNode | RenderFunction;
-  classNames?: TooltipClassNamesType;
-  styles?: TooltipStylesType;
+  classNames?: TooltipSemanticAllType['classNamesAndFn'];
+  styles?: TooltipSemanticAllType['stylesAndFn'];
 }
 
 interface InternalTooltipProps extends TooltipProps {
@@ -199,9 +197,12 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     arrow: contextArrow,
     trigger: contextTrigger,
   } = useComponentConfig('tooltip');
+
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
   const mergedTrigger = trigger || contextTrigger || 'hover';
+  const mergedGetPopupContainer = getPopupContainer || getContextPopupContainer;
+  const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -270,7 +271,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   }, [overlay, title]);
 
   const memoOverlayWrapper = (
-    <ContextIsolator space>
+    <ContextIsolator space form>
       {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
@@ -279,25 +280,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const mergedProps: TooltipProps = {
     ...props,
     trigger: mergedTrigger,
-    color,
-    placement,
-    builtinPlacements,
-    openClassName,
-    arrow: tooltipArrow,
-    autoAdjustOverflow,
-    getPopupContainer,
-    children,
-    destroyTooltipOnHide,
-    destroyOnHidden,
+    builtinPlacements: tooltipPlacements,
+    getPopupContainer: mergedGetPopupContainer,
+    destroyOnHidden: mergedDestroyOnHidden,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TooltipClassNamesType,
-    TooltipStylesType,
-    TooltipProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
@@ -353,7 +347,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     <RcTooltip
       unique
       {...restProps}
-      trigger={mergedTrigger}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
@@ -377,9 +370,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         uniqueContainer: containerStyle,
         arrow: mergedStyles.arrow,
       }}
-      getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
-      builtinPlacements={tooltipPlacements}
       overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onInternalOpenChange}
@@ -393,13 +384,16 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         ),
         motionDeadline: 1000,
       }}
-      destroyOnHidden={destroyOnHidden ?? !!destroyTooltipOnHide}
+      trigger={mergedTrigger}
+      builtinPlacements={tooltipPlacements}
+      getTooltipContainer={mergedGetPopupContainer}
+      destroyOnHidden={mergedDestroyOnHidden}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>
   );
 
-  return <zIndexContext.Provider value={contextZIndex}>{content}</zIndexContext.Provider>;
+  return <ZIndexContext.Provider value={contextZIndex}>{content}</ZIndexContext.Provider>;
 });
 
 type CompoundedComponent = typeof InternalTooltip & {

@@ -1,23 +1,5 @@
 // Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
-exports[`Radio Button rtl render component should be rendered correctly in RTL direction 1`] = `
-<label
-  class="ant-radio-button-wrapper ant-radio-button-wrapper-rtl css-var-root ant-radio-css-var"
->
-  <span
-    class="ant-radio-button"
-  >
-    <input
-      class="ant-radio-button-input"
-      type="radio"
-    />
-    <span
-      class="ant-radio-button-inner"
-    />
-  </span>
-</label>
-`;
-
 exports[`Radio Button should render correctly 1`] = `
 <label
   class="ant-radio-button-wrapper customized css-var-root ant-radio-css-var"
@@ -28,9 +10,6 @@ exports[`Radio Button should render correctly 1`] = `
     <input
       class="ant-radio-button-input"
       type="radio"
-    />
-    <span
-      class="ant-radio-button-inner"
     />
   </span>
   <span
@@ -58,9 +37,6 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         type="radio"
         value="Apple"
       />
-      <span
-        class="my-radio-inner"
-      />
     </span>
     <span
       class="my-radio-label"
@@ -80,9 +56,6 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         name="test-id"
         type="radio"
         value="Orange"
-      />
-      <span
-        class="my-radio-inner"
       />
     </span>
     <span

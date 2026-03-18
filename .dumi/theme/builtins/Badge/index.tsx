@@ -14,11 +14,18 @@ const colorMap = {
   success: 'green',
 };
 
-export default ({ type = 'info', ...props }: BadgeProps) => (
-  <Tag
-    variant="filled"
-    color={colorMap[type]}
-    {...props}
-    style={{ verticalAlign: 'top', ...props.style }}
-  />
-);
+const Badge: React.FC<BadgeProps> = (props) => {
+  const { type = 'info', style, children, ...rest } = props;
+  return (
+    <Tag
+      variant="filled"
+      color={colorMap[type]}
+      style={{ verticalAlign: 'top', ...style }}
+      {...rest}
+    >
+      {children}
+    </Tag>
+  );
+};
+
+export default Badge;

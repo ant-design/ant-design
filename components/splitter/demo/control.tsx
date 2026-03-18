@@ -13,7 +13,7 @@ const App: React.FC = () => {
   const [sizes, setSizes] = React.useState<(number | string)[]>(['50%', '50%']);
   const [enabled, setEnabled] = React.useState(true);
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Splitter
         onResize={setSizes}
         style={{ height: 200, boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)' }}
@@ -25,7 +25,7 @@ const App: React.FC = () => {
           <Desc text="Second" />
         </Splitter.Panel>
       </Splitter>
-      <Flex gap="middle" justify="space-between">
+      <Flex gap="medium" justify="space-between">
         <Switch
           value={enabled}
           onChange={() => setEnabled(!enabled)}

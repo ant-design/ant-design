@@ -34,6 +34,7 @@ demo:
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/multiple-line.tsx" debug>多行</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/line-debug.tsx" debug>连接线调试</code>
 
 ## API
 
@@ -78,6 +79,7 @@ demo:
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
 | virtual | 设置 false 时关闭虚拟滚动 | boolean | true | 4.1.0 |
 | onCheck | 点击复选框触发 | function(checkedKeys, e:{checked: boolean, checkedNodes, node, event, halfCheckedKeys}) | - |  |
+| onDoubleClick | 双击树节点触发 | function(event, node) | - |  |
 | onDragEnd | dragend 触发时调用 | function({event, node}) | - |  |
 | onDragEnter | dragenter 触发时调用 | function({event, node, expandedKeys}) | - |  |
 | onDragLeave | dragleave 触发时调用 | function({event, node}) | - |  |

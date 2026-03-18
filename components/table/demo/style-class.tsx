@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex, Table } from 'antd';
-import type { TableProps } from 'antd';
+import type { GetProp, TableProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -69,8 +69,10 @@ const styles: TableProps<DataType>['styles'] = {
   },
 };
 
-const stylesFn: TableProps<DataType>['styles'] = (info) => {
-  if (info?.props?.size === 'middle') {
+const stylesFn: TableProps<DataType>['styles'] = (
+  info,
+): GetProp<TableProps<DataType>, 'styles', 'Return'> => {
+  if (info?.props?.size === 'medium') {
     return {
       root: {
         color: '#e0e0e0',
@@ -104,7 +106,7 @@ const stylesFn: TableProps<DataType>['styles'] = (info) => {
           color: '#b8bdfd',
         },
       },
-    } satisfies TableProps<DataType>['styles'];
+    };
   }
   return {};
 };
@@ -118,7 +120,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Table<DataType>
         {...sharedProps}
         styles={styles}
@@ -131,7 +133,7 @@ const App: React.FC = () => {
         styles={stylesFn}
         title={() => 'Table Function Styles'}
         footer={() => 'Table Function Styles'}
-        size="middle"
+        size="medium"
       />
     </Flex>
   );

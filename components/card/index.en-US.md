@@ -47,7 +47,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | extra | Content to render in the top-right corner of the card | ReactNode | - |  |
 | hoverable | Lift up when hovering card | boolean | false |  |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |
-| size | Size of card | `default` \| `small` | `default` |  |
+| size | Size of card | `medium` \| `small` | `medium` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode | - |  |
 | tabList | List of TabPane's head | [TabItemType](/components/tabs#tabitemtype)[] | - |  |
 | tabProps | [Tabs](/components/tabs/#tabs) | - | - |  |

@@ -2,6 +2,7 @@ import { generate } from '@ant-design/colors';
 import type { DerivativeFunc } from '@ant-design/cssinjs';
 
 import type { MapToken, PresetColorType, SeedToken } from '../../interface';
+import { PresetColors } from '../../interface/presetColors';
 import defaultAlgorithm from '../default';
 import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
@@ -29,6 +30,19 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
     generateNeutralColorPalettes,
   });
 
+  const presetColorHoverActiveTokens = PresetColors.reduce<Record<string, string>>(
+    (prev, colorKey) => {
+      const colorBase = token[colorKey as keyof PresetColorType];
+      if (colorBase) {
+        const colorPalette = generateColorPalettes(colorBase);
+        prev[`${colorKey}Hover`] = colorPalette[7];
+        prev[`${colorKey}Active`] = colorPalette[5];
+      }
+      return prev;
+    },
+    {},
+  );
+
   return {
     ...mergedMapToken,
 
@@ -37,6 +51,8 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
 
     // Colors
     ...colorMapToken,
+
+    ...presetColorHoverActiveTokens,
 
     // Customize selected item background color
     // https://github.com/ant-design/ant-design/issues/30524#issuecomment-871961867

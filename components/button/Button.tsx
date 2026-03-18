@@ -3,12 +3,12 @@ import { omit, toArray, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
-import { ConfigContext, useComponentConfig } from '../config-provider/context';
+import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -29,26 +29,20 @@ import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-export type ButtonSemanticName = keyof ButtonSemanticClassNames & keyof ButtonSemanticStyles;
-
-export type ButtonSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  content?: string;
+export type ButtonSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type ButtonSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type ButtonClassNamesType = SemanticClassNamesType<
-  BaseButtonProps,
-  ButtonSemanticClassNames
->;
-
-export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticStyles>;
+export type ButtonSemanticAllType = GenerateSemantic<ButtonSemanticType, BaseButtonProps>;
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -70,8 +64,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: ButtonClassNamesType;
-  styles?: ButtonStylesType;
+  classNames?: ButtonSemanticAllType['classNamesAndFn'];
+  styles?: ButtonSemanticAllType['stylesAndFn'];
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.
@@ -161,9 +155,22 @@ const InternalCompoundedButton = React.forwardRef<
   // https://github.com/ant-design/ant-design/issues/47605
   // Compatible with original `type` behavior
   const mergedType = type || 'default';
-  const { button } = React.useContext(ConfigContext);
 
-  const shape = customizeShape || button?.shape || 'default';
+  const {
+    getPrefixCls,
+    direction,
+    autoInsertSpace: contextAutoInsertSpace,
+    className: contextClassName,
+    style: contextStyle,
+    classNames: contextClassNames,
+    styles: contextStyles,
+    loadingIcon: contextLoadingIcon,
+    shape: contextShape,
+    color: contextColor,
+    variant: contextVariant,
+  } = useComponentConfig('button');
+
+  const mergedShape = customizeShape || contextShape || 'default';
 
   const [parsedColor, parsedVariant] = useMemo<ColorVariantPairType>(() => {
     // >>>>> Local
@@ -182,12 +189,12 @@ const InternalCompoundedButton = React.forwardRef<
     }
 
     // >>> Context fallback
-    if (button?.color && button?.variant) {
-      return [button.color, button.variant];
+    if (contextColor && contextVariant) {
+      return [contextColor, contextVariant];
     }
 
     return ['default', 'outlined'];
-  }, [color, variant, type, danger, button?.color, button?.variant, mergedType]);
+  }, [color, variant, type, danger, contextColor, contextVariant, mergedType]);
 
   const [mergedColor, mergedVariant] = useMemo<ColorVariantPairType>(() => {
     if (ghost && parsedVariant === 'solid') {
@@ -198,16 +205,6 @@ const InternalCompoundedButton = React.forwardRef<
 
   const isDanger = mergedColor === 'danger';
   const mergedColorText = isDanger ? 'dangerous' : mergedColor;
-
-  const {
-    getPrefixCls,
-    direction,
-    autoInsertSpace: contextAutoInsertSpace,
-    className: contextClassName,
-    style: contextStyle,
-    classNames: contextClassNames,
-    styles: contextStyles,
-  } = useComponentConfig('button');
 
   const mergedInsertSpace = autoInsertSpace ?? contextAutoInsertSpace ?? true;
 
@@ -222,7 +219,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
+  const [innerLoading, setInnerLoading] = useState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -252,10 +249,10 @@ const InternalCompoundedButton = React.forwardRef<
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
-        setLoading(true);
+        setInnerLoading(true);
       }, loadingOrDelay.delay);
     } else {
-      setLoading(loadingOrDelay.loading);
+      setInnerLoading(loadingOrDelay.loading);
     }
 
     function cleanupTimer() {
@@ -331,11 +328,7 @@ const InternalCompoundedButton = React.forwardRef<
   // ========================== Size ==========================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined, medium: undefined };
-
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
-
-  const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
@@ -350,7 +343,7 @@ const InternalCompoundedButton = React.forwardRef<
     color: mergedColor,
     variant: mergedVariant,
     danger: isDanger,
-    shape,
+    shape: mergedShape,
     size: sizeFullName,
     disabled: mergedDisabled,
     loading: innerLoading,
@@ -358,11 +351,7 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ButtonClassNamesType,
-    ButtonStylesType,
-    ButtonProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [_skipSemantic ? undefined : contextClassNames, classNames],
     [_skipSemantic ? undefined : contextStyles, styles],
     { props: mergedProps },
@@ -374,14 +363,16 @@ const InternalCompoundedButton = React.forwardRef<
     hashId,
     cssVarCls,
     {
-      [`${prefixCls}-${shape}`]: shape !== 'default' && shape !== 'square' && shape,
+      [`${prefixCls}-${mergedShape}`]:
+        mergedShape !== 'default' && mergedShape !== 'square' && mergedShape,
       // Compatible with versions earlier than 5.21.0
       [`${prefixCls}-${mergedType}`]: mergedType,
       [`${prefixCls}-dangerous`]: danger,
 
       [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
       [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
-      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-lg`]: sizeFullName === 'large',
+      [`${prefixCls}-sm`]: sizeFullName === 'small',
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
       [`${prefixCls}-loading`]: innerLoading,
@@ -428,14 +419,19 @@ const InternalCompoundedButton = React.forwardRef<
     />
   );
 
+  const mergedLoadingIcon =
+    loading && typeof loading === 'object'
+      ? loading.icon || contextLoadingIcon
+      : contextLoadingIcon;
+
   /**
    * Using if-else statements can improve code readability without affecting future expansion.
    */
   let iconNode: React.ReactNode;
   if (icon && !innerLoading) {
     iconNode = iconWrapperElement(icon);
-  } else if (loading && typeof loading === 'object' && loading.icon) {
-    iconNode = iconWrapperElement(loading.icon);
+  } else if (loading && mergedLoadingIcon) {
+    iconNode = iconWrapperElement(mergedLoadingIcon);
   } else {
     iconNode = defaultLoadingIconElement;
   }

@@ -45,7 +45,6 @@ Please find below some of the design resources and tools about Ant Design that w
   - https://www.antuikit.com/antuikit.svg
   - Figma Design System, Blocks, Flows & Templates
   - https://www.antuikit.com
-  - Community
 - Figma Resources
   - https://gw.alipayobjects.com/zos/basement_prod/7b9ed3f2-6f05-4ddb-bac3-d55feb71e0ac.svg
   - Always up-to-date Ant Design Figma resources

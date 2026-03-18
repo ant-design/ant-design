@@ -63,7 +63,7 @@ jobs:
       - uses: utooland/setup-utoo@v1
 
       - name: download site artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: real-site
           path: _site
@@ -107,7 +107,7 @@ jobs:
     needs: build-site
     steps:
       - name: download site artifact
-        uses: actions/download-artifact@v7
+        uses: actions/download-artifact@v8
         with:
           name: real-site
           path: _site
@@ -119,7 +119,7 @@ jobs:
           cd ..
 
       - name: Upload to Release
-        uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2.5.0
+        uses: softprops/action-gh-release@b25b93d384199fc0fc8c2e126b2d937a0cbeb2ae # v2.5.2
         with:
           fail_on_unmatched_files: true
           files: website.tar.gz

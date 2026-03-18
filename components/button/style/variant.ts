@@ -1,10 +1,12 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { PresetColors } from '../../theme/interface';
 import type { GenerateStyle } from '../../theme/interface';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { ButtonToken } from './token';
 
-const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
-  const { componentCls, antCls } = token;
+const genVariantStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
+  const { componentCls, antCls, lineWidth } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'btn');
 
@@ -15,7 +17,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       // ==============================================================
       {
         // Border
-        [varName('border-width')]: '1px',
+        [varName('border-width')]: lineWidth,
 
         [varName('border-color')]: '#000',
         [varName('border-color-hover')]: varRef('border-color'),
@@ -165,6 +167,7 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [varName('color-base')]: token.colorLink,
           [varName('color-hover')]: token.colorLinkHover,
           [varName('color-active')]: token.colorLinkActive,
+          [varName('bg-color-hover')]: token.linkHoverBg,
         },
 
         // ======================== Compatible ========================
@@ -218,10 +221,14 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           [varName('color-light-hover')]: token.colorFillSecondary,
           [varName('color-light-active')]: token.colorFill,
 
-          [varName('text-color')]: token.colorText,
-          [varName('text-color-hover')]: token.defaultHoverBorderColor,
-          [varName('text-color-active')]: token.defaultActiveBorderColor,
+          [varName('text-color')]: token.defaultColor,
+          [varName('text-color-hover')]: token.defaultHoverColor,
+          [varName('text-color-active')]: token.defaultActiveColor,
           [varName('shadow')]: token.defaultShadow,
+
+          [`&${componentCls}-variant-outlined`]: {
+            [varName('bg-color-disabled')]: token.defaultBgDisabled,
+          },
 
           [`&${componentCls}-variant-solid`]: {
             [varName('text-color')]: token.solidTextColor,
@@ -235,8 +242,19 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
           },
 
           [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
+            [varName('text-color')]: token.defaultColor,
+            [varName('text-color-hover')]: token.defaultHoverColor,
+            [varName('text-color-active')]: token.defaultActiveColor,
+            [varName('bg-color-container')]: token.defaultBg,
             [varName('bg-color-hover')]: token.defaultHoverBg,
             [varName('bg-color-active')]: token.defaultActiveBg,
+          },
+
+          [`&${componentCls}-variant-text`]: {
+            [varName('text-color')]: token.textTextColor,
+            [varName('text-color-hover')]: token.textTextHoverColor,
+            [varName('text-color-active')]: token.textTextActiveColor,
+            [varName('bg-color-hover')]: token.textHoverBg,
           },
 
           [`&${componentCls}-background-ghost`]: {
@@ -252,10 +270,10 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       PresetColors.map((colorKey) => {
         const darkColor = token[`${colorKey}6`];
         const lightColor = token[`${colorKey}1`];
-        const hoverColor = token[`${colorKey}5`];
+        const hoverColor = token[`${colorKey}Hover`];
         const lightHoverColor = token[`${colorKey}2`];
         const lightActiveColor = token[`${colorKey}3`];
-        const activeColor = token[`${colorKey}7`];
+        const activeColor = token[`${colorKey}Active`];
 
         const shadowColor = token[`${colorKey}ShadowColor`];
 
@@ -292,8 +310,15 @@ const genVariantStyle: GenerateStyle<ButtonToken> = (token) => {
       {
         // Ghost
         [`&${componentCls}-background-ghost`]: {
-          [varName('bg-color')]: 'transparent',
+          [varName('bg-color')]: token.ghostBg,
+          [varName('bg-color-hover')]: token.ghostBg,
+          [varName('bg-color-active')]: token.ghostBg,
           [varName('shadow')]: 'none',
+
+          [`&${componentCls}-variant-outlined, &${componentCls}-variant-dashed`]: {
+            [varName('bg-color-hover')]: token.ghostBg,
+            [varName('bg-color-active')]: token.ghostBg,
+          },
         },
       },
     ],

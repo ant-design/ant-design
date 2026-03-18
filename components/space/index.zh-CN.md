@@ -38,6 +38,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 <code src="./demo/debug.tsx" debug>多样的 Child</code>
 <code src="./demo/gap-in-line.tsx" debug>Flex gap 样式</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
+<code src="./demo/component-token.tsx" debug>自定义主题</code>
 
 ## API
 
@@ -60,7 +61,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 
 ### Size
 
-`'small' | 'middle' | 'large' | number`
+`'small' | 'medium' | 'large' | number`
 
 ### Space.Compact
 
@@ -81,7 +82,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*37T2R6O9oi0AAA
 | block | 将宽度调整为父元素宽度的选项 | boolean | false | 4.24.0 |
 | ~~direction~~ | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` | 4.24.0 |
 | orientation | 指定排列方向 | `vertical` \| `horizontal` | `horizontal` |  |
-| size | 子组件大小 | `large` \| `middle` \| `small` | `middle` | 4.24.0 |
+| size | 子组件大小 | `large` \| `medium` \| `small` | `medium` | 4.24.0 |
 | vertical | 是否垂直，和 `orientation` 同时配置以 `orientation` 优先 | boolean | false | - |
 
 ### Space.Addon

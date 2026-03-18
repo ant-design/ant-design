@@ -34,6 +34,7 @@ jobs:
         shard: [1/2, 2/2]
     env:
       REACT: ${{ matrix.react }}
+      SKIP_SEMANTIC: '1'
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - uses: actions/checkout@v6
@@ -120,7 +121,7 @@ jobs:
       - uses: utooland/setup-utoo@v1
       - run: ut
 
-      - uses: actions/download-artifact@v7
+      - uses: actions/download-artifact@v8
         with:
           pattern: coverage-artifacts-*
           merge-multiple: true

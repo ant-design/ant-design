@@ -26,7 +26,7 @@ import {
 import type { ZIndexConsumer, ZIndexContainer } from '../hooks/useZIndex';
 import { consumerBaseZIndexOffset, containerBaseZIndexOffset, useZIndex } from '../hooks/useZIndex';
 import { resetWarned } from '../warning';
-import zIndexContext from '../zindexContext';
+import ZIndexContext from '../zindexContext';
 
 // TODO: Remove this. Mock for React 19
 jest.mock('react-dom', () => {
@@ -45,7 +45,7 @@ const WrapWithProvider: React.FC<PropsWithChildren<{ container: ZIndexContainer 
   container,
 }) => {
   const [, contextZIndex] = useZIndex(container);
-  return <zIndexContext.Provider value={contextZIndex}>{children}</zIndexContext.Provider>;
+  return <ZIndexContext.Provider value={contextZIndex}>{children}</ZIndexContext.Provider>;
 };
 
 const containerComponent: Partial<

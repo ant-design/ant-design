@@ -1,20 +1,19 @@
-import path from 'path';
+import path from 'node:path';
 import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider } from 'antd';
 import { globSync } from 'glob';
+import 'isomorphic-fetch';
 import kebabCase from 'lodash/kebabCase';
 import { renderToString } from 'react-dom/server';
 
 import { resetWarned } from '../../components/_util/warning';
-import { render } from '../utils';
+import { act, fireEvent, render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning, isSafeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
 
 export { rootPropsTest };
-
-require('isomorphic-fetch');
 
 export type Options = {
   skip?: boolean | string[];
@@ -24,6 +23,11 @@ export type Options = {
    * Not check component `displayName`, check path only
    */
   nameCheckPathOnly?: boolean;
+  /**
+   * Post-render function for semantic demo test
+   * Called after rendering and before snapshot
+   */
+  postRenderFn?: (container: HTMLElement) => Promise<void>;
 };
 
 function baseTest(doInject: boolean, component: string, options: Options = {}) {
@@ -35,7 +39,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
     file = file.split(path.sep).join('/');
     const testMethod =
       options.skip === true ||
-      (Array.isArray(options.skip) && options.skip.some((c) => file.includes(c)))
+      (Array.isArray(options.skip) && options.skip.includes(path.basename(file)))
         ? test.skip
         : test;
 
@@ -50,7 +54,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
         jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let Demo = require(`../../${file}`).default;
+        let Demo = jest.requireActual(`../../${file}`).default;
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
@@ -122,7 +126,9 @@ export default function demoTest(component: string, options: Options = {}) {
 
     // Path should exist
 
-    const Component: React.ComponentType<any> = require(`../../components/${kebabName}`).default;
+    const Component: React.ComponentType<any> = jest.requireActual(
+      `../../components/${kebabName}`,
+    ).default;
 
     if (options.nameCheckPathOnly !== true && Component.displayName) {
       expect(kebabCase(Component.displayName).replace(/^deprecated-/, '')).toBe(kebabName);
@@ -134,4 +140,79 @@ export default function demoTest(component: string, options: Options = {}) {
       props: options?.testRootProps,
     });
   }
+}
+
+/**
+ * Helper function to create a post-processing function that clicks buttons by title
+ * @param titles Array of button titles to click
+ */
+export function createPostFn(titles: string[]): (container: HTMLElement) => Promise<void> {
+  return async (container: HTMLElement) => {
+    for (const title of titles) {
+      const button = container.querySelector(`[title="${title}"]`);
+      if (button) {
+        await act(async () => {
+          fireEvent.click(button);
+          jest.advanceTimersByTime(100);
+        });
+      }
+    }
+  };
+}
+
+/**
+ * Test semantic demo snapshots (for _semantic.tsx files)
+ * Uses render instead of renderToString to get semantic classes
+ */
+export function semanticDemoTest(component: string, options: Options = {}) {
+  // Mock useLocale hook for _semantic.tsx files
+  jest.mock('../../.dumi/hooks/useLocale', () => {
+    return jest.fn((locales) => {
+      return [locales.cn || {}];
+    });
+  });
+
+  const files = globSync(`./components/${component}/demo/_semantic*.tsx`);
+  files.forEach((file) => {
+    // to compatible windows path
+    file = file.split(path.sep).join('/');
+    const testMethod =
+      options.skip === true ||
+      (Array.isArray(options.skip) && options.skip.includes(path.basename(file)))
+        ? test.skip
+        : test;
+
+    testMethod(`renders ${file} correctly`, async () => {
+      resetWarned();
+
+      const errSpy = excludeWarning();
+
+      Date.now = jest.fn(() => new Date('2016-11-22').getTime());
+      jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+
+      let Demo = jest.requireActual(`../../${file}`).default;
+      Demo = typeof Demo === 'function' ? <Demo /> : Demo;
+
+      // Inject cssinjs cache to avoid create <style /> element
+      Demo = (
+        <ConfigProvider theme={{ hashed: false }}>
+          <StyleProvider cache={createCache()}>{Demo}</StyleProvider>
+        </ConfigProvider>
+      );
+
+      // Use render to get container with semantic classes
+      const { container } = render(Demo);
+
+      // Run post-render function if provided
+      if (options.postRenderFn) {
+        await options.postRenderFn(container);
+      }
+
+      expect({ type: 'demo', html: container.innerHTML }).toMatchSnapshot();
+
+      jest.clearAllTimers();
+      errSpy.mockRestore();
+    });
+    jest.useRealTimers();
+  });
 }

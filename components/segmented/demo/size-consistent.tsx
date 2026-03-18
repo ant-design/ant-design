@@ -15,7 +15,7 @@ const App: React.FC = () => (
     </div>
     <div>
       <Segmented
-        size="middle"
+        size="medium"
         style={{ marginInlineEnd: 6 }}
         options={['Daily', 'Weekly', 'Monthly']}
       />

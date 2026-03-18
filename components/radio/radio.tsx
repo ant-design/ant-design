@@ -3,8 +3,7 @@ import RcCheckbox from '@rc-component/checkbox';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { TARGET_CLS } from '../_util/wave/interface';
@@ -14,13 +13,7 @@ import DisabledContext from '../config-provider/DisabledContext';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { FormItemInputContext } from '../form/context';
 import RadioGroupContext, { RadioOptionTypeContext } from './context';
-import type {
-  RadioChangeEvent,
-  RadioProps,
-  RadioRef,
-  RadioSemanticClassNames,
-  RadioSemanticStyles,
-} from './interface';
+import type { RadioChangeEvent, RadioProps, RadioRef } from './interface';
 import useStyle from './style';
 
 const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (props, ref) => {
@@ -75,10 +68,12 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
 
+  // ====================== Checked ======================
+  let mergedChecked = radioProps.checked;
   if (groupContext) {
     radioProps.name = groupContext.name;
     radioProps.onChange = onChange;
-    radioProps.checked = props.value === groupContext.value;
+    mergedChecked = props.value === groupContext.value;
     radioProps.disabled = radioProps.disabled ?? groupContext.disabled;
   }
 
@@ -88,20 +83,21 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
   const mergedProps: RadioProps = {
     ...props,
     ...radioProps,
+    checked: mergedChecked,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SemanticClassNamesType<RadioProps, RadioSemanticClassNames>,
-    SemanticStylesType<RadioProps, RadioSemanticStyles>,
-    RadioProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const wrapperClassString = clsx(
     `${prefixCls}-wrapper`,
     {
-      [`${prefixCls}-wrapper-checked`]: radioProps.checked,
+      [`${prefixCls}-wrapper-checked`]: mergedChecked,
       [`${prefixCls}-wrapper-disabled`]: radioProps.disabled,
       [`${prefixCls}-wrapper-rtl`]: direction === 'rtl',
       [`${prefixCls}-wrapper-in-form-item`]: isFormItemInput,
@@ -133,6 +129,7 @@ const InternalRadio: React.ForwardRefRenderFunction<RadioRef, RadioProps> = (pro
         {/* @ts-ignore */}
         <RcCheckbox
           {...radioProps}
+          checked={mergedChecked}
           className={clsx(mergedClassNames.icon, { [TARGET_CLS]: !isButtonType })}
           style={mergedStyles.icon}
           type="radio"

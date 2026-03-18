@@ -5,10 +5,12 @@ import KeyCode from '@rc-component/util/lib/KeyCode';
 import { clsx } from 'clsx';
 
 import { cloneElement } from '../_util/reactNode';
+import type { GetProp } from '../_util/type';
 import type { DirectionType } from '../config-provider';
 import type { TextAreaRef } from '../input/TextArea';
 import TextArea from '../input/TextArea';
 import useStyle from './style';
+import type { TypographyProps } from './Typography';
 
 interface EditableProps {
   prefixCls: string;
@@ -24,6 +26,8 @@ interface EditableProps {
   autoSize?: TextAreaProps['autoSize'];
   enterIcon?: React.ReactNode;
   component?: string;
+  classNames: NonNullable<GetProp<TypographyProps, 'classNames', 'Return'>>;
+  styles: NonNullable<GetProp<TypographyProps, 'styles', 'Return'>>;
 }
 
 const Editable: React.FC<EditableProps> = (props) => {
@@ -32,6 +36,8 @@ const Editable: React.FC<EditableProps> = (props) => {
     'aria-label': ariaLabel,
     className,
     style,
+    classNames,
+    styles,
     direction,
     maxLength,
     autoSize = true,
@@ -44,8 +50,8 @@ const Editable: React.FC<EditableProps> = (props) => {
   } = props;
   const ref = React.useRef<TextAreaRef>(null);
 
-  const inComposition = React.useRef(false);
-  const lastKeyCode = React.useRef<number>(null);
+  const inCompositionRef = React.useRef(false);
+  const lastKeyCodeRef = React.useRef<number>(null);
 
   const [current, setCurrent] = React.useState(value);
 
@@ -67,19 +73,19 @@ const Editable: React.FC<EditableProps> = (props) => {
   };
 
   const onCompositionStart = () => {
-    inComposition.current = true;
+    inCompositionRef.current = true;
   };
 
   const onCompositionEnd = () => {
-    inComposition.current = false;
+    inCompositionRef.current = false;
   };
 
   const onKeyDown: React.KeyboardEventHandler<HTMLTextAreaElement> = ({ keyCode }) => {
     // We don't record keyCode when IME is using
-    if (inComposition.current) {
+    if (inCompositionRef.current) {
       return;
     }
-    lastKeyCode.current = keyCode;
+    lastKeyCodeRef.current = keyCode;
   };
 
   const confirmChange = () => {
@@ -95,8 +101,8 @@ const Editable: React.FC<EditableProps> = (props) => {
   }) => {
     // Check if it's a real key
     if (
-      lastKeyCode.current !== keyCode ||
-      inComposition.current ||
+      lastKeyCodeRef.current !== keyCode ||
+      inCompositionRef.current ||
       ctrlKey ||
       altKey ||
       metaKey ||
@@ -126,12 +132,19 @@ const Editable: React.FC<EditableProps> = (props) => {
       [`${prefixCls}-${component}`]: !!component,
     },
     className,
+    classNames.root,
     hashId,
     cssVarCls,
   );
 
   return (
-    <div className={textAreaClassName} style={style}>
+    <div
+      className={textAreaClassName}
+      style={{
+        ...styles.root,
+        ...style,
+      }}
+    >
       <TextArea
         ref={ref}
         maxLength={maxLength}
@@ -145,6 +158,8 @@ const Editable: React.FC<EditableProps> = (props) => {
         aria-label={ariaLabel}
         rows={1}
         autoSize={autoSize}
+        className={classNames.textarea}
+        style={styles.textarea}
       />
       {enterIcon !== null
         ? cloneElement(enterIcon, { className: `${prefixCls}-edit-content-confirm` })

@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { SmileOutlined } from '@ant-design/icons';
-import ConfigProvider from 'antd/es/config-provider';
-import type { NotificationConfig } from 'antd/es/notification/interface';
 
 import App from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, waitFakeTimer } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
+import type { NotificationConfig } from '../../notification/interface';
 import type { AppConfig } from '../context';
 import { AppConfigContext } from '../context';
 
@@ -246,6 +246,21 @@ describe('App', () => {
       expect(errorSpy).toHaveBeenCalledWith(
         'Warning: [antd: App] When using cssVar, ensure `component` is assigned a valid React component string.',
       );
+    });
+
+    it('should warn if component is false and ref is not empty', () => {
+      const domRef = React.createRef<HTMLSpanElement>();
+      render(<App ref={domRef} component={false} />);
+
+      expect(errorSpy).toHaveBeenCalledWith(
+        'Warning: [antd: App] `ref` is not supported when `component` is `false`. Please provide a valid `component` instead.',
+      );
+    });
+
+    it('App should support Ref', () => {
+      const domRef = React.createRef<HTMLSpanElement>();
+      const { container } = render(<App ref={domRef} className="bamboo" component="span" />);
+      expect(domRef.current).toBe(container.querySelector('.bamboo'));
     });
   });
 });
