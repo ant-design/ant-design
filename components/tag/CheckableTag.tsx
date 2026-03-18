@@ -23,7 +23,7 @@ export interface CheckableTagProps {
    */
   icon?: React.ReactNode;
   /**
-   * @since 5.29.0
+   * @since 6.4.0
    */
   size?: SizeType;
   onChange?: (checked: boolean) => void;

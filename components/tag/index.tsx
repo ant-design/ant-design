@@ -47,7 +47,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   prefixCls?: string;
   className?: string;
   /**
-   * @since 5.27.0
+   * @since 6.4.0
    */
   size?: SizeType;
   rootClassName?: string;
