@@ -15,6 +15,8 @@ const emphasizedStyle: React.CSSProperties = {
   visibility: 'visible !important',
 } as unknown as React.CSSProperties;
 
+const noop = (): void => {};
+
 export type AppendWatermark = (
   base64Url: string,
   markWidth: number,
@@ -30,7 +32,7 @@ function useWatermark(
   isWatermarkEle: (ele: Node, index?: number) => boolean,
 ] {
   const watermarkMapRef = React.useRef(new Map<HTMLElement, HTMLDivElement>());
-  const onRemoveEvent = useEvent(onRemove);
+  const onRemoveEvent = useEvent(onRemove ?? noop);
 
   const appendWatermark = (base64Url: string, markWidth: number, container: HTMLElement) => {
     if (container) {
