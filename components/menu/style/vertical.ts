@@ -181,6 +181,9 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
           > ${componentCls}-item-group > ${componentCls}-item-group-list > ${componentCls}-item,
           > ${componentCls}-item-group > ${componentCls}-item-group-list > ${componentCls}-submenu > ${componentCls}-submenu-title,
           > ${componentCls}-submenu > ${componentCls}-submenu-title`]: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
           insetInlineStart: 0,
           paddingInline: `calc(50% - ${unit(token.calc(collapsedIconSize).div(2).equal())} - ${unit(
             itemMarginInline,
@@ -192,6 +195,12 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
             ${componentCls}-submenu-expand-icon
           `]: {
             opacity: 0,
+          },
+
+          [`> ${componentCls}-title-content`]: {
+            width: 0,
+            opacity: 0,
+            overflow: 'hidden',
           },
 
           [`${componentCls}-item-icon, ${iconCls}`]: {
