@@ -1276,6 +1276,34 @@ describe('Upload', () => {
       );
       expect(container.querySelector('.ant-upload-list')).toBeTruthy();
     });
+
+    it('should use ConfigProvider showUploadList object when Upload has no showUploadList prop', () => {
+      const fileListWithDone: UploadProps['fileList'] = [
+        { uid: '1', name: 'test.png', status: 'done', url: 'https://example.com/test.png' },
+      ];
+      const { container } = render(
+        <ConfigProvider upload={{ showUploadList: { showDownloadIcon: true } }}>
+          <Upload fileList={fileListWithDone}>
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-upload-list-item .anticon-download')).toBeTruthy();
+    });
+
+    it('should prefer Upload showUploadList object over ConfigProvider showUploadList object', () => {
+      const fileListWithDone: UploadProps['fileList'] = [
+        { uid: '1', name: 'test.png', status: 'done', url: 'https://example.com/test.png' },
+      ];
+      const { container } = render(
+        <ConfigProvider upload={{ showUploadList: { showDownloadIcon: true } }}>
+          <Upload fileList={fileListWithDone} showUploadList={{ showDownloadIcon: false }}>
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('.ant-upload-list-item .anticon-download')).toBeFalsy();
+    });
   });
 
   describe('ConfigProvider accept', () => {
