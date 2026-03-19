@@ -197,6 +197,7 @@ const InternalSelect = <
     styles,
     classNames,
     clearIcon,
+    showSearch,
     ...rest
   } = props;
 
@@ -298,7 +299,7 @@ const InternalSelect = <
     prefixCls,
     componentName: 'Select',
     clearIcon,
-    searchIcon: normalizeIcon(rest.showSearch, 'searchIcon'),
+    searchIcon: normalizeIcon(showSearch, 'searchIcon'),
     contextClearIcon,
     contextLoadingIcon,
     contextMenuItemSelectedIcon,
@@ -310,6 +311,7 @@ const InternalSelect = <
   const finalAllowClear = allowClear ?? contextAllowClear;
   const mergedAllowClear =
     finalAllowClear === true ? { clearIcon: mergedClearIcon } : finalAllowClear;
+  const mergedShowSearch = showSearch ?? contextShowSearch;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
@@ -430,7 +432,7 @@ const InternalSelect = <
       virtual={virtual}
       classNames={mergedClassNames}
       styles={mergedStyles}
-      showSearch={contextShowSearch}
+      showSearch={mergedShowSearch}
       {...selectProps}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}

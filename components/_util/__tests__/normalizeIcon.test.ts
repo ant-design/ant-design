@@ -24,8 +24,8 @@ describe('normalizeIcon', () => {
     expect(normalizeIcon(undefined, 'icon', 'default')).toBe('default');
   });
 
-  it('should return undefined if value is false', () => {
-    expect(normalizeIcon(false, 'icon', 'default')).toBe(undefined);
+  it('should return null if value is false', () => {
+    expect(normalizeIcon(false, 'icon', 'default')).toBe(null);
   });
 
   it('should return undefined if neither value nor fallback is provided', () => {
