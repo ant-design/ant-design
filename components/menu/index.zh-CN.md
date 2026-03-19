@@ -38,6 +38,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*Vn4XSqJFAxcAAA
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 <code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
 <code src="./demo/custom-popup-render.tsx">自定义弹出框</code>
+<code src="./demo/collapsed-icon-debug.tsx" debug>折叠菜单 icon 对齐</code>
 
 ## API
 
