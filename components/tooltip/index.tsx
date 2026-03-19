@@ -72,21 +72,19 @@ function usePopoverFocus(
           raf.cancel(focusRafRef.current);
         }
         focusRafRef.current = raf(() => {
-          if (!latestVisibleRef.current) {
-            return;
-          }
+          if (latestVisibleRef.current) {
+            const current = tooltipRef.current;
+            const popupEl = current?.popupElement;
+            if (!popupEl) return;
 
-          const current = tooltipRef.current;
-          const popupEl = current?.popupElement;
-          if (!popupEl) return;
-
-          const first = getFirstFocusable(popupEl);
-          /* istanbul ignore else -- hard to reliably cover in JSDOM */
-          if (first) {
-            first.focus();
-          } else {
-            popupEl.setAttribute('tabindex', '-1');
-            popupEl.focus();
+            const first = getFirstFocusable(popupEl);
+            /* istanbul ignore else -- hard to reliably cover in JSDOM */
+            if (first) {
+              first.focus();
+            } else {
+              popupEl.setAttribute('tabindex', '-1');
+              popupEl.focus();
+            }
           }
         });
       } else {
