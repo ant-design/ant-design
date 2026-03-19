@@ -104,6 +104,32 @@ group:
 
 <ComponentTokenTable component="Button"></ComponentTokenTable>
 
+## 全局配置 {#global-config}
+
+```jsx
+<ConfigProvider
+  button={
+    {
+      /* button config */
+    }
+  }
+>
+  ...
+</ConfigProvider>
+```
+
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| className | 自定义组件类名 | string | - |  |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| style | 自定义组件行内样式 | CSSProperties | - |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| autoInsertSpace | 我们默认提供两个汉字之间的空格，可以设置 `autoInsertSpace` 为 `false` 关闭 | boolean | `true` | 5.17.0 |
+| variant | 设置按钮的变体 | `outlined` \| `dashed` \| `solid` \| `filled` \| `text` \| `link` | - | 5.21.0 |
+| color | 设置按钮的颜色 | `default` \| `primary` \| `danger` \| [PresetColors](#presetcolors) | - | `default`、`primary` 和 `danger`: 5.21.0, `PresetColors`: 5.23.0 |
+| shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  |
+| loadingIcon | 设置按钮的加载图标 | ReactNode | `<LoadingOutlined />` | 6.3.0 |
+
 ## FAQ
 
 ### 类型和颜色与变体如何选择？ {#faq-type-color-variant}

@@ -100,6 +100,32 @@ It accepts all props which native buttons support.
 
 <ComponentTokenTable component="Button"></ComponentTokenTable>
 
+## Global Config
+
+```jsx
+<ConfigProvider
+  button={
+    {
+      /* button config */
+    }
+  }
+>
+  ...
+</ConfigProvider>
+```
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| className | Customize class for the component. | string | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| style | Customize inline style for the component. | CSSProperties | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| autoInsertSpace | We add a space between two Chinese characters by default, which removed by setting `autoInsertSpace` to `false`. | boolean | `true` | 5.17.0 |
+| variant | Set button variant | `outlined` \| `dashed` \| `solid` \| `filled` \| `text` \| `link` | - | 5.21.0 |
+| color | Set button color | `default` \| `primary` \| `danger` \| [PresetColors](#presetcolors) | - | `default`, `primary` and `danger`: 5.21.0, `PresetColors`: 5.23.0 |
+| shape | Can be used to set button shape | `default` \| `circle` \| `round` | `default` |  |
+| loadingIcon | Set the loading icon of button | ReactNode | `<LoadingOutlined />` | 6.3.0 |
+
 ## FAQ
 
 ### How to choose type and color & variant? {#faq-type-color-variant}
