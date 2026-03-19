@@ -21,6 +21,7 @@ import type {
 import useStyle from './style';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
+import fallbackProp from '../_util/fallbackProp';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -69,7 +70,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     multiple = false,
     hasControlInside = true,
     action = '',
-    accept = '',
+    accept: customAccept,
     supportServerRender = true,
     rootClassName,
     styles,
@@ -83,6 +84,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const customRequest = props.customRequest || config.customRequest;
   const mergedProgress = { ...config.progress, ...customProgress };
   const mergedShowUploadList = customShowUploadList ?? config.showUploadList ?? true;
+  const mergedAccept = fallbackProp(customAccept, config.accept, '');
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
@@ -382,7 +384,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     data,
     multiple,
     action,
-    accept,
+    accept: mergedAccept,
     supportServerRender,
     prefixCls,
     disabled: mergedDisabled,
