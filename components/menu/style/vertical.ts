@@ -210,7 +210,10 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
 
             '+ span': {
               display: 'inline-block',
+              width: 0,
               opacity: 0,
+              overflow: 'hidden',
+              marginInlineStart: 0,
             },
           },
         },
