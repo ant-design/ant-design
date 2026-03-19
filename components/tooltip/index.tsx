@@ -7,6 +7,7 @@ import type {
 } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
+import raf from '@rc-component/util/lib/raf';
 import { clsx } from 'clsx';
 
 import type { PresetColorType } from '../_util/colors';
@@ -49,18 +50,34 @@ function usePopoverFocus(
 ): (visible: boolean) => void {
   const isClickTrigger =
     trigger === 'click' || (Array.isArray(trigger) && trigger.includes('click'));
+  const focusRafRef = React.useRef<number | null>(null);
+  const latestVisibleRef = React.useRef(false);
+
+  React.useEffect(
+    () => () => {
+      if (focusRafRef.current !== null) {
+        raf.cancel(focusRafRef.current);
+      }
+    },
+    [],
+  );
 
   return React.useCallback(
     (visible: boolean) => {
       if (!injectFromPopover || !isClickTrigger) return;
+      latestVisibleRef.current = visible;
 
       if (visible) {
-        requestAnimationFrame(() => {
+        if (focusRafRef.current !== null) {
+          raf.cancel(focusRafRef.current);
+        }
+        focusRafRef.current = raf(() => {
+          if (!latestVisibleRef.current) {
+            return;
+          }
+
           const current = tooltipRef.current;
-          const doc = current?.nativeElement?.ownerDocument || document;
-          const popupEl =
-            current?.popupElement ||
-            (doc.querySelector('[role="tooltip"]') as HTMLDivElement | null);
+          const popupEl = current?.popupElement;
           if (!popupEl) return;
 
           const first = getFirstFocusable(popupEl);
@@ -73,6 +90,9 @@ function usePopoverFocus(
           }
         });
       } else {
+        if (focusRafRef.current !== null) {
+          raf.cancel(focusRafRef.current);
+        }
         const triggerEl = tooltipRef.current?.nativeElement;
         if (triggerEl?.focus) {
           triggerEl.focus();
@@ -302,11 +322,12 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const popoverFocus = usePopoverFocus(!!injectFromPopover, mergedTrigger, tooltipRef);
 
   const onInternalOpenChange = (vis: boolean) => {
-    setOpen(noTitle ? false : vis);
+    const nextOpen = noTitle ? false : vis;
+    setOpen(nextOpen);
     // Accessibility: when used as Popover/Popconfirm (click trigger), manage focus when open state changes
-    popoverFocus(vis);
+    popoverFocus(nextOpen);
     if (!noTitle && onOpenChange) {
-      onOpenChange(vis);
+      onOpenChange(nextOpen);
     }
   };
 
