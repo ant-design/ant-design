@@ -4,7 +4,17 @@ import { Bubble, Prompts, Sender, Welcome } from '@ant-design/x';
 import type { PromptsItemType } from '@ant-design/x';
 import type { BubbleItemType } from '@ant-design/x/es/bubble/interface';
 import type { SenderRef } from '@ant-design/x/es/sender';
-import { theme as antdTheme, Button, Divider, Drawer, Flex, Skeleton, Splitter, Tooltip, Typography } from 'antd';
+import {
+  theme as antdTheme,
+  Button,
+  Divider,
+  Drawer,
+  Flex,
+  Skeleton,
+  Splitter,
+  Tooltip,
+  Typography,
+} from 'antd';
 import type { ThemeConfig } from 'antd';
 
 import copy from '../../../../components/_util/copy';
