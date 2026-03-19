@@ -41,13 +41,14 @@ export interface UploadRef<T = any> {
 }
 
 const defaultProps: Partial<UploadProps> = {
+  accept: '',
   listType: 'text',
   type: 'select',
 };
 
 const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (props, ref) => {
   const config = useComponentConfig('upload');
-  const { accept, customRequest } = mergeProps(props, config, defaultProps);
+  const { accept, customRequest } = mergeProps(defaultProps, config, props);
   const {
     fileList,
     defaultFileList,
