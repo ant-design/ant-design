@@ -66,12 +66,12 @@ group:
 
 按钮的属性说明如下：
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 | 全局配置 |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| autoInsertSpace | 我们默认提供两个汉字之间的空格，可以设置 `autoInsertSpace` 为 `false` 关闭 | boolean | `true` | 5.17.0 | ✅ 5.17.0 |
+| autoInsertSpace | 我们默认提供两个汉字之间的空格，可以设置 `autoInsertSpace` 为 `false` 关闭 | boolean | `true` | 5.17.0 | 5.17.0 |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false |  |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | ✅ 5.6.0 |
-| color | 设置按钮的颜色 | `default` \| `primary` \| `danger` \| [PresetColors](#presetcolors) | - | `default`、`primary` 和 `danger`: 5.21.0, `PresetColors`: 5.23.0 | ✅ 5.21.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 5.6.0 |
+| color | 设置按钮的颜色 | `default` \| `primary` \| `danger` \| [PresetColors](#presetcolors) | - | `default`、`primary` 和 `danger`: 5.21.0, `PresetColors`: 5.23.0 | 5.21.0 |
 | danger | 语法糖，设置危险按钮。当设置 `color` 时会以后者为准 | boolean | false |  |  |
 | disabled | 设置按钮失效状态 | boolean | false |  |  |
 | ghost | 幽灵属性，使按钮背景透明 | boolean | false |  |  |
@@ -81,14 +81,14 @@ group:
 | ~~iconPosition~~ | 设置按钮图标组件的位置,请使用 `iconPlacement` 替换 | `start` \| `end` | `start` | 5.17.0 |  |
 | iconPlacement | 设置按钮图标组件的位置 | `start` \| `end` | `start` | - |  |
 | loading | 设置按钮载入状态 | boolean \| { delay: number, icon: ReactNode } | false | icon: 5.23.0 |  |
-| shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  | ✅ 5.27.0 |
+| shape | 设置按钮形状 | `default` \| `circle` \| `round` | `default` |  | 5.27.0 |
 | size | 设置按钮大小 | `large` \| `medium` \| `small` | `medium` |  |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | ✅ 5.6.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 5.6.0 |
 | target | 相当于 a 链接的 target 属性，href 存在时生效 | string | - |  |  |
 | type | 语法糖，设置按钮类型。当设置 `variant` 与 `color` 时以后者为准 | `primary` \| `dashed` \| `link` \| `text` \| `default` | `default` |  |  |
 | onClick | 点击按钮时的回调 | (event: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |  |
-| variant | 设置按钮的变体 | `outlined` \| `dashed` \| `solid` \| `filled` \| `text` \| `link` | - | 5.21.0 | ✅ 5.21.0 |
-| loadingIcon | （仅支持全局配置）设置按钮的加载图标 | ReactNode | `<LoadingOutlined />` |  | ✅ 6.3.0 |
+| variant | 设置按钮的变体 | `outlined` \| `dashed` \| `solid` \| `filled` \| `text` \| `link` | - | 5.21.0 | 5.21.0 |
+| loadingIcon | （仅支持全局配置）设置按钮的加载图标 | ReactNode | `<LoadingOutlined />` |  | 6.3.0 |
 
 支持原生 button 的其他所有属性。
 
