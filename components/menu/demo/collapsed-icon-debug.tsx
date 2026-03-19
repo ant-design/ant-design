@@ -111,7 +111,7 @@ const App: React.FC = () => {
         }
       `}</style>
       <div className="menu-collapsed-icon-debug">
-        <Menu onClick={onClick} inlineCollapsed items={items} />
+        <Menu onClick={onClick} mode="inline" inlineCollapsed items={items} />
       </div>
     </ConfigProvider>
   );
