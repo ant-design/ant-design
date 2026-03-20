@@ -12,11 +12,12 @@ export default antfu(
       '**/_site/**',
       '**/es/**',
       '**/lib/**',
-      '**/.dumi/tmp/**',
-      '**/.dumi/tmp-production/**',
+      '**/.dumi/**',
+      '.depslintrc.js',
       '**/*.snap',
       '**/*.md',
       '.dumi/scripts/clarity.js',
+      '.antd-tools.config.js',
     ],
     settings: {
       polyfills: ['Promise', 'URL'],
@@ -49,6 +50,7 @@ export default antfu(
       'react/no-children-only': 'off',
       'react/no-unstable-default-props': 'off',
       'react/no-create-ref': 'off', // TODO: remove this
+      'react/no-implicit-key': 'off',
       'perfectionist/sort-imports': 'off',
       'perfectionist/sort-named-imports': 'off',
       'perfectionist/sort-named-exports': 'off',
