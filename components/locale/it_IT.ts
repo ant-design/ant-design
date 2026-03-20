@@ -142,6 +142,10 @@ const localeValues: Locale = {
     singleColor: 'Tinta unita',
     gradientColor: 'Gradiente',
   },
+  Input: {
+    showPassword: 'Mostra la password',
+    hidePassword: 'Nascondi la password',
+  },
 };
 
 export default localeValues;

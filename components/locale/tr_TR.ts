@@ -130,6 +130,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Şifreyi göster',
+    hidePassword: 'Şifreyi gizle',
+  },
 };
 
 export default localeValues;

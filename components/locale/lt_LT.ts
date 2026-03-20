@@ -141,6 +141,10 @@ const localeValues: Locale = {
     singleColor: 'Vieno spalvos',
     gradientColor: 'Gradientas',
   },
+  Input: {
+    showPassword: 'Parolių rodyti',
+    hidePassword: 'Parolių nėra rodyti',
+  },
 };
 
 export default localeValues;

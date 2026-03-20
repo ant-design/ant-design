@@ -130,6 +130,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Afficher le mot de passe',
+    hidePassword: 'Masquer le mot de passe',
+  },
 };
 
 export default localeValues;

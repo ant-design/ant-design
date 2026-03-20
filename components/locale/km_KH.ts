@@ -107,6 +107,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'បង្ហាញលេខសម្ងាត',
+    hidePassword: 'លុបលេខសម្ងាត',
+  },
 };
 
 export default localeValues;

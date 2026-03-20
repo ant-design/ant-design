@@ -126,6 +126,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Құпия сөзді көрсету',
+    hidePassword: 'Құпия сөзді жасыру',
+  },
 };
 
 export default localeValues;

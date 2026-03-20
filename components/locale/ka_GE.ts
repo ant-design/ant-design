@@ -129,6 +129,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'პაროლის ნახვა',
+    hidePassword: 'პაროლის დამალვა',
+  },
 };
 
 export default localeValues;

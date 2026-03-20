@@ -141,6 +141,10 @@ const localeValues: Locale = {
     singleColor: 'Kolore bakarra',
     gradientColor: 'Gradiente kolorea',
   },
+  Input: {
+    showPassword: 'Erakutsi pasahitza',
+    hidePassword: 'Ezkutatu pasahitza',
+  },
 };
 
 export default localeValues;

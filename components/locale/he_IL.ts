@@ -119,6 +119,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'הצג סיסמה',
+    hidePassword: 'הסתר סיסמה',
+  },
 };
 
 export default localeValues;

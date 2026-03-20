@@ -144,6 +144,10 @@ const localeValues: Locale = {
     singleColor: 'تک‌رنگ',
     gradientColor: 'گرادینت',
   },
+  Input: {
+    showPassword: 'نمایش رمز عبور',
+    hidePassword: 'مخفی کردن رمز عبور',
+  },
 };
 
 export default localeValues;

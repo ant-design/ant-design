@@ -129,6 +129,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'پاس ورڈ دکھائیں',
+    hidePassword: 'پاس ورڈ چھپائیں',
+  },
 };
 
 export default localeValues;

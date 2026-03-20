@@ -133,6 +133,10 @@ const localeValues: Locale = {
     expired: 'QR ကုဒ် သက်တမ်းကုန်သွားပါပြီ။',
     refresh: 'ပြန်လည်စတင်ပါ။',
   },
+  Input: {
+    showPassword: 'လျှို့ဝှက်နံပါတ်ကို ပြပါ',
+    hidePassword: 'လျှို့ဝှက်နံပါတ်ကို ဖျောက်ပါ',
+  },
 };
 
 export default localeValues;

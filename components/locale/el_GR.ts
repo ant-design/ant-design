@@ -143,6 +143,10 @@ const localeValues: Locale = {
     singleColor: 'Μονόχρωμο',
     gradientColor: 'Διαβάθμιση χρώματος',
   },
+  Input: {
+    showPassword: 'Εμφάνιση κωδικού',
+    hidePassword: 'Απόκρυψη κωδικού',
+  },
 };
 
 export default localeValues;

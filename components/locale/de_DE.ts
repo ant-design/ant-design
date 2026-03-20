@@ -131,6 +131,10 @@ const localeValues: Locale = {
     expired: 'QR-Code abgelaufen',
     refresh: 'Aktualisieren',
   },
+  Input: {
+    showPassword: 'Passwort anzeigen',
+    hidePassword: 'Passwort ausblenden',
+  },
 };
 
 export default localeValues;

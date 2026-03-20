@@ -113,6 +113,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Mostrar contrasinal',
+    hidePassword: 'Ocultar contrasinal',
+  },
 };
 
 export default localeValues;

@@ -127,6 +127,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Paroly görkez',
+    hidePassword: 'Paroly gizläň',
+  },
 };
 
 export default localeValues;

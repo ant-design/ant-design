@@ -131,6 +131,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Нууц үгийг харуулах',
+    hidePassword: 'Нууц үгийг нуух',
+  },
 };
 
 export default localeValues;

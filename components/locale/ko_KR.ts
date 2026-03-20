@@ -141,6 +141,10 @@ const localeValues: Locale = {
     singleColor: '단색',
     gradientColor: '그라데이션',
   },
+  Input: {
+    showPassword: '비밀번호 표시',
+    hidePassword: '비밀번호 숨기기',
+  },
 };
 
 export default localeValues;

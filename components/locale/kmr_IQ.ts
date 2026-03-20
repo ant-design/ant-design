@@ -109,6 +109,10 @@ const localeValues: Locale = {
       },
     },
   },
+  Input: {
+    showPassword: 'Şîfreyê nîşan bide',
+    hidePassword: 'Şîfreyê veşêre',
+  },
 };
 
 export default localeValues;

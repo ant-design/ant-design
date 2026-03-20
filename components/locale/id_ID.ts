@@ -144,6 +144,10 @@ const localeValues: Locale = {
     singleColor: 'Warna tunggal',
     gradientColor: 'Warna gradien',
   },
+  Input: {
+    showPassword: 'Tampilkan kata sandi',
+    hidePassword: 'Sembunyikan kata sandi',
+  },
 };
 
 export default localeValues;

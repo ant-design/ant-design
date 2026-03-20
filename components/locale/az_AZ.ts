@@ -145,6 +145,10 @@ const localeValues: Locale = {
     singleColor: 'Tək rəng',
     gradientColor: 'Gradient rəng',
   },
+  Input: {
+    showPassword: 'Şifrəni göstər',
+    hidePassword: 'Şifrəni gizlət',
+  },
 };
 
 export default localeValues;
