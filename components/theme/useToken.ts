@@ -55,6 +55,7 @@ const preserve: {
   screenXLMax: true,
   screenXXL: true,
   screenXXLMin: true,
+  screenXXXLMin: true,
 };
 
 export const getComputedToken = (
