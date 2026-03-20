@@ -335,7 +335,19 @@ export type PaginationConfig = ComponentStyleConfig &
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 
 export type SelectConfig = ComponentStyleConfig &
-  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles' | 'allowClear'>;
+  Pick<
+    SelectProps,
+    | 'showSearch'
+    | 'variant'
+    | 'classNames'
+    | 'styles'
+    | 'allowClear'
+    | 'clearIcon'
+    | 'loadingIcon'
+    | 'menuItemSelectedIcon'
+    | 'removeIcon'
+    | 'suffixIcon'
+  >;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
