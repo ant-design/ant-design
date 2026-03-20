@@ -292,6 +292,49 @@ describe('Tooltip', () => {
     }).not.toThrow();
   });
 
+  it('should support extended autoAdjustOverflow config shape', () => {
+    expect(() => {
+      render(
+        <Tooltip
+          title={0}
+          open
+          autoAdjustOverflow={{
+            adjustX: false,
+            adjustY: 1,
+            shiftX: 8,
+            shiftY: true,
+            alwaysByViewport: true,
+          }}
+        >
+          <div />
+        </Tooltip>,
+      );
+    }).not.toThrow();
+  });
+
+  it('should keep custom overflow config shape', () => {
+    const placementInfo = getPlacements({
+      arrowWidth: 4,
+      autoAdjustOverflow: {
+        adjustX: false,
+        adjustY: 1,
+        shiftX: 8,
+        shiftY: true,
+        alwaysByViewport: true,
+      },
+      borderRadius: 10,
+      offset: 0,
+    });
+
+    expect(placementInfo.top.overflow).toEqual({
+      adjustX: false,
+      adjustY: 1,
+      shiftX: 8,
+      shiftY: true,
+      alwaysByViewport: true,
+    });
+  });
+
   describe('support other placement when mouse enter', () => {
     const placementList = [
       'top',

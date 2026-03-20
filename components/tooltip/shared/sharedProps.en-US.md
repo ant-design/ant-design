@@ -5,7 +5,7 @@
 | --- | --- | --- | --- | --- |
 | align | Please refer to the settings [dom-align](https://github.com/yiminghe/dom-align) | object | - |  |
 | arrow | Change arrow's visible state and change whether the arrow is pointed at the center of target. | boolean \| { pointAtCenter: boolean } | true | 5.2.0 |
-| autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen | boolean | true |  |
+| autoAdjustOverflow | Whether to adjust popup placement automatically when popup is off screen. Supports `adjustX`, `adjustY`, `shiftX`, `shiftY`, and `alwaysByViewport` in object mode | boolean \| { adjustX?: boolean \| number; adjustY?: boolean \| number; shiftX?: boolean \| number; shiftY?: boolean \| number; alwaysByViewport?: boolean } | true |  |
 | color | The background color | string | - | 4.3.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | |
 | defaultOpen | Whether the floating tooltip card is open by default | boolean | false | 4.23.0 |

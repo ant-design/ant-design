@@ -154,6 +154,26 @@ describe('Dropdown', () => {
     );
   });
 
+  it('dropdown should support object autoAdjustOverflow config', () => {
+    expect(() => {
+      render(
+        <Dropdown
+          menu={{ items }}
+          open
+          autoAdjustOverflow={{
+            adjustX: false,
+            adjustY: 1,
+            shiftX: 8,
+            shiftY: true,
+            alwaysByViewport: true,
+          }}
+        >
+          <button type="button">button</button>
+        </Dropdown>,
+      );
+    }).not.toThrow();
+  });
+
   it('menu item with group', () => {
     jest.useFakeTimers();
     const { container } = render(
