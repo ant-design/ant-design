@@ -26,7 +26,7 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   React.useImperativeHandle(ref, () => inputRef.current!);
 
   // ========================= Input ==========================
-  const onInternalChange: React.InputEventHandler<HTMLInputElement> = (e) => {
+  const onInternalChange: InputProps['onInput'] = (e) => {
     onChange(index, e.currentTarget.value);
   };
 
