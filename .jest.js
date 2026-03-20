@@ -6,6 +6,7 @@ const compileModules = [
   'countup.js',
   '.pnpm',
   '@asamuzakjp/css-color',
+  '@csstools',
 ];
 
 const ignoreList = [];
