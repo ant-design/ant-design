@@ -55,6 +55,7 @@ exports[`Transfer.List should render correctly 1`] = `
     >
       <li
         class="ant-transfer-list-content-item ant-transfer-list-content-item-checked"
+        title="a"
       >
         <label
           class="ant-checkbox-wrapper ant-checkbox-wrapper-checked ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
@@ -75,6 +76,7 @@ exports[`Transfer.List should render correctly 1`] = `
       </li>
       <li
         class="ant-transfer-list-content-item"
+        title="b"
       >
         <label
           class="ant-checkbox-wrapper ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
@@ -94,6 +96,7 @@ exports[`Transfer.List should render correctly 1`] = `
       </li>
       <li
         class="ant-transfer-list-content-item ant-transfer-list-content-item-disabled"
+        title="c"
       >
         <label
           class="ant-checkbox-wrapper ant-checkbox-wrapper-disabled ant-transfer-list-checkbox css-var-root ant-checkbox-css-var"
