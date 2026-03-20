@@ -115,6 +115,25 @@ describe('ConfigProvider.Locale', () => {
     );
   });
 
+  it('should unwrap nested default locale object automatically caused by ESM/CJS interop', () => {
+    const mockLocale: Locale = {
+      locale: 'test-locale',
+      Pagination: { items_per_page: '/ test page' },
+    } as Locale;
+
+    const wrappedLocale = { default: mockLocale };
+
+    const { container } = render(
+      <ConfigProvider locale={wrappedLocale as any}>
+        <Pagination total={50} showSizeChanger />
+      </ConfigProvider>,
+    );
+
+    expect(container.textContent).toContain('/ test page');
+
+    expect(container.textContent).not.toContain('/ page');
+  });
+
   describe('support legacy LocaleProvider', () => {
     function testLocale(wrapper: ReturnType<typeof render>): void {
       expect(wrapper.container.querySelector('input')?.placeholder).toBe(
