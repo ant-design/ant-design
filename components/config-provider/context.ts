@@ -423,7 +423,7 @@ export type TimePickerConfig = ComponentStyleConfig &
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
 export type MentionsConfig = ComponentStyleConfig &
-  Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<MentionsProps, 'variant' | 'classNames' | 'styles' | 'allowClear'>;
 
 export type UploadConfig = ComponentStyleConfig &
   Pick<UploadProps, 'classNames' | 'styles' | 'customRequest' | 'progress' | 'accept'>;
