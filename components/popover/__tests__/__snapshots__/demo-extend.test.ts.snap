@@ -15,6 +15,8 @@ Array [
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -31,6 +33,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -46,6 +50,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"

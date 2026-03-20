@@ -27,6 +27,8 @@ exports[`Segmented render label with ReactNode 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -43,6 +45,8 @@ exports[`Segmented render label with ReactNode 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -61,6 +65,8 @@ exports[`Segmented render label with ReactNode 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -94,6 +100,8 @@ exports[`Segmented render segmented ok 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -110,6 +118,8 @@ exports[`Segmented render segmented ok 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -125,6 +135,8 @@ exports[`Segmented render segmented ok 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -155,6 +167,8 @@ exports[`Segmented render segmented with \`block\` 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -171,6 +185,8 @@ exports[`Segmented render segmented with \`block\` 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -186,6 +202,8 @@ exports[`Segmented render segmented with \`block\` 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -216,6 +234,8 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -232,6 +252,8 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -247,6 +269,8 @@ exports[`Segmented render segmented with \`size#large\` 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -277,6 +301,8 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -293,6 +319,8 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -308,6 +336,8 @@ exports[`Segmented render segmented with \`size#small\` 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -338,6 +368,8 @@ exports[`Segmented render segmented with mixed options 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -354,6 +386,8 @@ exports[`Segmented render segmented with mixed options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -369,6 +403,8 @@ exports[`Segmented render segmented with mixed options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -399,6 +435,8 @@ exports[`Segmented render segmented with numeric options 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -415,6 +453,8 @@ exports[`Segmented render segmented with numeric options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -430,6 +470,8 @@ exports[`Segmented render segmented with numeric options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -445,6 +487,8 @@ exports[`Segmented render segmented with numeric options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -460,6 +504,8 @@ exports[`Segmented render segmented with numeric options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -489,6 +535,8 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
+      data-disabled="true"
+      data-selected="true"
     >
       <input
         checked=""
@@ -503,6 +551,8 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
     </label>
     <label
       class="ant-segmented-item ant-segmented-item-disabled"
+      data-disabled="true"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -516,6 +566,8 @@ exports[`Segmented render segmented with options null/undefined 1`] = `
     </label>
     <label
       class="ant-segmented-item ant-segmented-item-disabled"
+      data-disabled="true"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -545,6 +597,8 @@ exports[`Segmented render segmented with options: disabled 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -561,6 +615,8 @@ exports[`Segmented render segmented with options: disabled 1`] = `
     </label>
     <label
       class="ant-segmented-item ant-segmented-item-disabled"
+      data-disabled="true"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -577,6 +633,8 @@ exports[`Segmented render segmented with options: disabled 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -607,6 +665,8 @@ exports[`Segmented render segmented with string options 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -623,6 +683,8 @@ exports[`Segmented render segmented with string options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -638,6 +700,8 @@ exports[`Segmented render segmented with string options 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -668,6 +732,8 @@ exports[`Segmented render segmented with thumb 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -684,6 +750,8 @@ exports[`Segmented render segmented with thumb 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -699,6 +767,8 @@ exports[`Segmented render segmented with thumb 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -728,6 +798,8 @@ exports[`Segmented render segmented: disabled 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
+      data-disabled="true"
+      data-selected="true"
     >
       <input
         checked=""
@@ -745,6 +817,8 @@ exports[`Segmented render segmented: disabled 1`] = `
     </label>
     <label
       class="ant-segmented-item ant-segmented-item-disabled"
+      data-disabled="true"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -761,6 +835,8 @@ exports[`Segmented render segmented: disabled 1`] = `
     </label>
     <label
       class="ant-segmented-item ant-segmented-item-disabled"
+      data-disabled="true"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -792,6 +868,8 @@ exports[`Segmented render with icons 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -829,6 +907,8 @@ exports[`Segmented render with icons 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"

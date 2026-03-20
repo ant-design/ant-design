@@ -3802,6 +3802,8 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                   >
                     <label
                       class="ant-segmented-item"
+                      data-disabled="false"
+                      data-selected="false"
                     >
                       <input
                         class="ant-segmented-item-input"
@@ -3817,6 +3819,8 @@ exports[`renders components/color-picker/demo/line-gradient.tsx extend context c
                     </label>
                     <label
                       class="ant-segmented-item ant-segmented-item-selected"
+                      data-disabled="false"
+                      data-selected="true"
                     >
                       <input
                         checked=""
