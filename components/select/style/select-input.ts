@@ -21,6 +21,7 @@ interface VariableColors {
   backgroundDisabled?: string;
 
   color?: string;
+  shadow?: string;
 }
 
 /** Set CSS variables and hover/focus styles for a Select input based on provided colors. */
@@ -48,7 +49,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
         [varName('border-color')]: borderActive,
         [varName('background-color')]: colors.backgroundActive || baseBG,
 
-        boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${borderOutline}`,
+        boxShadow: colors.shadow || `0 0 0 ${unit(token.controlOutlineWidth)} ${borderOutline}`,
       },
     },
 
@@ -332,6 +333,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           borderActive: token.activeBorderColor,
           borderOutline: token.activeOutlineColor,
           borderDisabled: token.colorBorderDisabled,
+          shadow: token.activeShadow,
         },
         // Error
         {
@@ -339,6 +341,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           borderHover: token.colorErrorHover,
           borderActive: token.colorError,
           borderOutline: token.colorErrorOutline,
+          shadow: token.errorActiveShadow,
         },
         // Warning
         {
@@ -346,6 +349,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           borderHover: token.colorWarningHover,
           borderActive: token.colorWarning,
           borderOutline: token.colorWarningOutline,
+          shadow: token.warningActiveShadow,
         },
       ),
 
