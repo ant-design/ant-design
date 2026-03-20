@@ -90,6 +90,12 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
         },
 
+      [`${componentCls}-submenu:not(${componentCls}-submenu-selected)`]: {
+        [`> ${componentCls}-submenu-title:hover`]: {
+          color: itemHoverColor,
+        },
+      },
+
       [`&:not(${componentCls}-horizontal)`]: {
         [`${componentCls}-item:not(${componentCls}-item-selected)`]: {
           '&:hover': {
