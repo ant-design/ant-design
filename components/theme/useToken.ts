@@ -55,6 +55,8 @@ const preserve: {
   screenXLMax: true,
   screenXXL: true,
   screenXXLMin: true,
+  screenXXLMax: true,
+  screenXXXL: true,
   screenXXXLMin: true,
 };
 
