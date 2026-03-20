@@ -67,7 +67,7 @@ Supports passing parameters wrapped in an object:
 The properties of config are as follows:
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | className | Customized CSS class | string | - |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |
 | content | The content of the message | ReactNode | - |
