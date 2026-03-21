@@ -315,6 +315,16 @@ describe('TextArea', () => {
 });
 
 describe('TextArea allowClear', () => {
+  it('should support allowClear.disabled', () => {
+    const { container, rerender } = render(
+      <TextArea allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
+    );
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+
+    rerender(<TextArea allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeFalsy();
+  });
+
   it('should change type when click', () => {
     const { asFragment, container } = render(<TextArea allowClear />);
     fireEvent.change(container.querySelector('textarea')!, { target: { value: '111' } });

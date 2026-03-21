@@ -7,7 +7,7 @@ import type {
 import RcTextArea from '@rc-component/textarea';
 import { clsx } from 'clsx';
 
-import getAllowClear from '../_util/getAllowClear';
+import useAllowClear from '../_util/hooks/useAllowClear';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
@@ -147,7 +147,11 @@ const TextArea = forwardRef<TextAreaRef, TextAreaProps>((props, ref) => {
 
   const [variant, enableVariantCls] = useVariant('textArea', customVariant, bordered);
 
-  const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    contextAllowClear,
+    componentName: 'TextArea',
+  });
 
   // ==================== Resize ====================
   // https://github.com/ant-design/ant-design/issues/51594
