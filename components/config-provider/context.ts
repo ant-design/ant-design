@@ -426,7 +426,10 @@ export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
 export type UploadConfig = ComponentStyleConfig &
-  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest' | 'progress' | 'accept'>;
+  Pick<
+    UploadProps,
+    'classNames' | 'styles' | 'customRequest' | 'progress' | 'accept' | 'showUploadList'
+  >;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
