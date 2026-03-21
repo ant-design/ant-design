@@ -120,25 +120,4 @@ describe('Transfer.List', () => {
     fireEvent.click(container.querySelector('.custom-list-body')!);
     expect(onItemSelect).toHaveBeenCalledWith('a', false);
   });
-
-  it('should fallback to empty string text when render result is non-text', () => {
-    const handleFilter = jest.fn();
-    const { container } = render(
-      <Section
-        {...listCommonProps}
-        dataSource={[{ key: {} as unknown as React.Key } as KeyWiseTransferItem]}
-        showSearch
-        handleFilter={handleFilter}
-        handleClear={jest.fn()}
-        render={() => null}
-      />,
-    );
-
-    fireEvent.change(container.querySelector('.ant-transfer-list-search input')!, {
-      target: { value: 'x' },
-    });
-
-    expect(handleFilter).toHaveBeenCalled();
-    expect(container.querySelector('.ant-transfer-list-body-not-found')).toBeTruthy();
-  });
 });

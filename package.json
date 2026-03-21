@@ -243,7 +243,7 @@
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.0",
     "fast-glob": "^3.3.3",
-    "father": "4.6.17",
+    "father": "4.6.16",
     "fs-extra": "^11.3.2",
     "gh-pages": "^6.3.0",
     "github-slugger": "^2.0.0",
