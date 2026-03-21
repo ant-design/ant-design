@@ -15,8 +15,9 @@ const useWave = (
   component?: WaveComponent,
   colorSource?: WaveProps['colorSource'],
 ) => {
-  const { wave } = React.useContext(ConfigContext);
+  const { wave, getPrefixCls } = React.useContext(ConfigContext);
   const [, token, hashId] = useToken();
+  const rootPrefixCls = getPrefixCls();
 
   const showWave = useEvent<ShowWave>((event) => {
     const node = nodeRef.current;
@@ -33,6 +34,7 @@ const useWave = (
     (showEffect || showWaveEffect)(targetNode, {
       className,
       token,
+      rootPrefixCls,
       component,
       event,
       hashId,
