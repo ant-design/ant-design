@@ -316,6 +316,62 @@ describe('Tag', () => {
     expect(tagElement).not.toBeNull();
   });
 
+  it('should have contrasting text color for custom solid variant', () => {
+    // Light background should have dark text
+    const { container: lightContainer } = render(
+      <Tag color="#ffffff" variant="solid">
+        light
+      </Tag>,
+    );
+    const lightTag = lightContainer.querySelector('.ant-tag');
+    expect(lightTag).toHaveStyle({ color: '#000' });
+
+    // Dark background should have light text
+    const { container: darkContainer } = render(
+      <Tag color="#000000" variant="solid">
+        dark
+      </Tag>,
+    );
+    const darkTag = darkContainer.querySelector('.ant-tag');
+    expect(darkTag).toHaveStyle({ color: '#fff' });
+
+    // Semi-transparent dark color should have light text (opaque enough to be dark)
+    const { container: semiDarkContainer } = render(
+      <Tag color="rgba(0, 0, 0, 0.8)" variant="solid">
+        semi-dark
+      </Tag>,
+    );
+    const semiDarkTag = semiDarkContainer.querySelector('.ant-tag');
+    expect(semiDarkTag).toHaveStyle({ color: '#fff' });
+
+    // Semi-transparent light color should have dark text (opaque enough to be light)
+    const { container: semiLightContainer } = render(
+      <Tag color="rgba(255, 255, 255, 0.8)" variant="solid">
+        semi-light
+      </Tag>,
+    );
+    const semiLightTag = semiLightContainer.querySelector('.ant-tag');
+    expect(semiLightTag).toHaveStyle({ color: '#000' });
+
+    // Bright yellow should have dark text
+    const { container: yellowContainer } = render(
+      <Tag color="#ffff00" variant="solid">
+        yellow
+      </Tag>,
+    );
+    const yellowTag = yellowContainer.querySelector('.ant-tag');
+    expect(yellowTag).toHaveStyle({ color: '#000' });
+
+    // Dark blue should have light text
+    const { container: blueContainer } = render(
+      <Tag color="#000080" variant="solid">
+        blue
+      </Tag>,
+    );
+    const blueTag = blueContainer.querySelector('.ant-tag');
+    expect(blueTag).toHaveStyle({ color: '#fff' });
+  });
+
   it('legacy color inverse', () => {
     const { container } = render(<Tag color="green-inverse">tag</Tag>);
 
