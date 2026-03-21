@@ -3,7 +3,7 @@ import React from 'react';
 import type { TableProps } from '..';
 import Table from '..';
 import { resetWarned } from '../../_util/warning';
-import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer, waitFor } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { TableRowSelection } from '../interface';
 
@@ -119,6 +119,7 @@ describe('Table.rowSelection', () => {
     fireEvent.click(radios[0]);
     expect(getSelections(container)).toEqual([0]);
 
+    // eslint-disable-next-line e18e/prefer-array-at
     fireEvent.click(radios[radios.length - 1]);
     expect(getSelections(container)).toEqual([3]);
   });
@@ -310,6 +311,7 @@ describe('Table.rowSelection', () => {
 
     const last = () => {
       const elements = container.querySelectorAll('td input');
+      // eslint-disable-next-line e18e/prefer-array-at
       return elements[elements.length - 1];
     };
 
@@ -348,6 +350,7 @@ describe('Table.rowSelection', () => {
 
     const last = () => {
       const elements = container.querySelectorAll('td input');
+      // eslint-disable-next-line e18e/prefer-array-at
       return elements[elements.length - 1];
     };
 
@@ -509,6 +512,7 @@ describe('Table.rowSelection', () => {
       jest.runAllTimers();
     });
     const dropdownMenuItems = container.querySelectorAll('.ant-dropdown-menu-item');
+    // eslint-disable-next-line e18e/prefer-array-at
     fireEvent.click(dropdownMenuItems[dropdownMenuItems.length - 1]);
 
     expect(handleSelectNone).toHaveBeenCalled();
@@ -1220,6 +1224,7 @@ describe('Table.rowSelection', () => {
       }),
     );
     const checkboxes = container.querySelectorAll('input');
+    // eslint-disable-next-line e18e/prefer-array-at
     fireEvent.click(checkboxes[checkboxes.length - 1]);
 
     expect(onRowClick).not.toHaveBeenCalled();
@@ -1274,6 +1279,7 @@ describe('Table.rowSelection', () => {
     );
 
     const checkboxes = container.querySelectorAll<HTMLElement>('input');
+    // eslint-disable-next-line e18e/prefer-array-at
     fireEvent.click(checkboxes[checkboxes.length - 1]);
 
     expect(onChange.mock.calls[0][1]).toEqual([expect.objectContaining({ name: 'bamboo' })]);
@@ -1476,7 +1482,8 @@ describe('Table.rowSelection', () => {
 
         expect(getSelections(container).sort()).toEqual([3, 4, 5, 9]);
         expect(getIndeterminateSelection(container)).toEqual([]);
-        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([3, 4, 5, 9]);
+        // eslint-disable-next-line e18e/prefer-array-to-sorted
+        expect([...onChange.mock.calls[1][0]].sort()).toEqual([3, 4, 5, 9]);
 
         fireEvent.click(checkboxes[4]);
         expect(getSelections(container)).toEqual([9]);
@@ -1512,7 +1519,8 @@ describe('Table.rowSelection', () => {
           'Jerry Tom Tom',
         ]);
         expect(getIndeterminateSelection(container)).toEqual([]);
-        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([
+        // eslint-disable-next-line e18e/prefer-array-to-sorted
+        expect([...onChange.mock.calls[1][0]].sort()).toEqual([
           'Jerry',
           'Jerry Jack',
           'Jerry Lucy',
@@ -1553,7 +1561,8 @@ describe('Table.rowSelection', () => {
           'Jerry Tom Tom',
         ]);
         expect(getIndeterminateSelection(container)).toEqual([]);
-        expect(Array.from(onChange.mock.calls[1][0]).sort()).toEqual([
+        // eslint-disable-next-line e18e/prefer-array-to-sorted
+        expect([...onChange.mock.calls[1][0]].sort()).toEqual([
           'Jerry',
           'Jerry Jack',
           'Jerry Lucy',
@@ -2112,5 +2121,106 @@ describe('Table.rowSelection', () => {
     const checkbox = container.querySelector('.ant-checkbox-input');
     expect(checkbox).toBeDisabled();
     expect(checkbox).toHaveAttribute('aria-label', 'Custom label');
+  });
+
+  it('should sync selection state when selected rows are removed from dataSource (no onChange)', async () => {
+    const onChange = jest.fn();
+    const initialData = [
+      { key: 0, name: 'Jack' },
+      { key: 1, name: 'Lucy' },
+      { key: 2, name: 'Tom' },
+    ];
+
+    const { container, rerender } = render(
+      <Table
+        columns={columns}
+        dataSource={initialData}
+        rowSelection={{ onChange }}
+      />,
+    );
+
+    // Select all rows
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+    fireEvent.click(checkboxes[1]); // Select first row
+    fireEvent.click(checkboxes[2]); // Select second row
+    fireEvent.click(checkboxes[3]); // Select third row
+
+    expect(onChange).toHaveBeenCalledTimes(3);
+    onChange.mockClear();
+
+    // Remove all selected rows from dataSource
+    act(() => {
+      rerender(
+        <Table
+          columns={columns}
+          dataSource={[]}
+          rowSelection={{ onChange }}
+        />,
+      );
+    });
+
+    // Wait for useEffect to complete (internal sync only, no user onChange)
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    // onChange is not called by dataSource sync to avoid infinite loop
+    expect(onChange).not.toHaveBeenCalled();
+    // Internal selection state is synced: no rows to show, no selection
+    await waitFor(() => {
+      expect(getSelections(container)).toEqual([]);
+    });
+  });
+
+  it('should sync selection state when some selected rows are removed from dataSource (no onChange)', async () => {
+    const onChange = jest.fn();
+    const initialData = [
+      { key: 0, name: 'Jack' },
+      { key: 1, name: 'Lucy' },
+      { key: 2, name: 'Tom' },
+    ];
+
+    const { container, rerender } = render(
+      <Table
+        columns={columns}
+        dataSource={initialData}
+        rowSelection={{ onChange }}
+      />,
+    );
+
+    // Select all three rows
+    const checkboxes = container.querySelectorAll<HTMLInputElement>('input[type="checkbox"]');
+    fireEvent.click(checkboxes[1]); // Select first row (key: 0)
+    fireEvent.click(checkboxes[2]); // Select second row (key: 1)
+    fireEvent.click(checkboxes[3]); // Select third row (key: 2)
+
+    expect(onChange).toHaveBeenCalledTimes(3);
+    onChange.mockClear();
+
+    // Remove only key 0 from dataSource, keeping keys 1 and 2
+    act(() => {
+      rerender(
+        <Table
+          columns={columns}
+          dataSource={[
+            { key: 1, name: 'Lucy' },
+            { key: 2, name: 'Tom' },
+          ]}
+          rowSelection={{ onChange }}
+        />,
+      );
+    });
+
+    // Wait for useEffect to complete (internal sync only)
+    await act(async () => {
+      await Promise.resolve();
+    });
+
+    // onChange is not called by dataSource sync to avoid infinite loop
+    expect(onChange).not.toHaveBeenCalled();
+    // Internal selection state is synced: only keys 1 and 2 remain selected
+    await waitFor(() => {
+      expect(getSelections(container)).toEqual([1, 2]);
+    });
   });
 });

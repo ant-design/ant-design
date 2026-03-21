@@ -1283,7 +1283,7 @@ describe('Table.sorter', () => {
     const { container } = render(
       <Table columns={columns} dataSource={tableData} onChange={onChange} />,
     );
-    const sorterColumns = Array.from(container.querySelectorAll('.ant-table-column-has-sorters'));
+    const sorterColumns = [...container.querySelectorAll('.ant-table-column-has-sorters')];
     expect(sorterColumns.length).toBe(3);
     fireEvent.click(sorterColumns[0]);
     expect(onChange).toHaveBeenLastCalledWith(
