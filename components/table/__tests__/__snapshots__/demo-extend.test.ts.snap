@@ -28702,6 +28702,479 @@ exports[`renders components/table/demo/selections-debug.tsx extend context corre
 
 exports[`renders components/table/demo/selections-debug.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/show-header-false-bordered-radius-debug.tsx extend context correctly 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table ant-table-bordered ant-table-no-header css-var-test-id ant-table-css-var ant-table-fixed-header"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-body"
+            style="overflow-y: scroll; max-height: 400px;"
+          >
+            <table
+              style="table-layout: fixed;"
+            >
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  aria-hidden="true"
+                  class="ant-table-measure-row"
+                  style="height: 0px;"
+                >
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                    >
+                      Name
+                    </div>
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                    >
+                      Age
+                    </div>
+                  </td>
+                  <td
+                    style="padding-top: 0px; padding-bottom: 0px; border-top: 0px; border-bottom: 0px; height: 0px;"
+                  >
+                    <div
+                      style="height: 0px; overflow: hidden; font-weight: bold;"
+                    >
+                      Address
+                    </div>
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    New York No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    42
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    London No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="3"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Joe Black
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    32
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Sydney No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="4"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Alice White
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    28
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Tokyo No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="5"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Bob Wilson
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    35
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Paris No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="6"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Charlie Davis
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    45
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Berlin No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="7"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Diana Miller
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    29
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Seoul No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="8"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Edward Lee
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    38
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Beijing No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="9"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Fiona Clark
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    31
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Singapore No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="10"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    George Wang
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    27
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Hong Kong No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="11"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Hannah Kim
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    33
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Toronto No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="12"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Ivan Chen
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    41
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Vancouver No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="13"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Julia Park
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    26
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Melbourne No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="14"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Kevin Zhang
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    36
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Dubai No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="15"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Laura Liu
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    30
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Mumbai No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="16"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Michael Tan
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    44
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Bangkok No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="17"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Nancy Wu
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    25
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Jakarta No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="18"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Oscar Huang
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    39
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Manila No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="19"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Patricia Lin
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    34
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Taipei No. 1 Lake Park
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="20"
+                >
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Quinn Yang
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    37
+                  </td>
+                  <td
+                    class="ant-table-cell"
+                  >
+                    Osaka No. 1 Lake Park
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/show-header-false-bordered-radius-debug.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/size.tsx extend context correctly 1`] = `
 Array [
   <div
