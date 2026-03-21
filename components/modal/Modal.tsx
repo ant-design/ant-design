@@ -94,6 +94,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     cancelButtonProps: contextCancelButtonProps,
     okButtonProps: contextOkButtonProps,
     mask: contextMask,
+    focusable: contextFocusable,
   } = useComponentConfig('modal');
 
   const { modal: modalContext } = React.useContext(ConfigContext);
@@ -116,7 +117,11 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ========================== Focusable =========================
-  const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose);
+  const mergedFocusable = useFocusable(
+    { ...contextFocusable, ...focusable },
+    mergedMask,
+    focusTriggerAfterClose ?? contextFocusable?.focusTriggerAfterClose,
+  );
 
   // ============================ Open ============================
   const handleCancel = (
