@@ -31,11 +31,13 @@ export type TextAreaSemanticType = {
   classNames?: {
     root?: string;
     textarea?: string;
+    clear?: string;
     count?: string;
   };
   styles?: {
     root?: React.CSSProperties;
     textarea?: React.CSSProperties;
+    clear?: React.CSSProperties;
     count?: React.CSSProperties;
   };
 };
