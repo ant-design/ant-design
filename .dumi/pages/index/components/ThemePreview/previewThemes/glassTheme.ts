@@ -82,6 +82,11 @@ const useGlassTheme = () => {
           motionDurationMid: '0.1s',
           motionDurationFast: '0.05s',
         },
+        components: {
+          Segmented: {
+            itemSelectedBg: 'rgba(0,0,0,0.06)',
+          },
+        },
       },
       app: {
         className: styles.app,
@@ -109,6 +114,9 @@ const useGlassTheme = () => {
         className: clsx(styles.glassBox, styles.notBackdropFilter),
       },
       colorPicker: {
+        classNames: {
+          root: clsx(styles.glassBox, styles.notBackdropFilter),
+        },
         arrow: false,
       },
       dropdown: {
@@ -124,6 +132,24 @@ const useGlassTheme = () => {
           },
         },
       },
+      datePicker: {
+        classNames: {
+          root: clsx(styles.glassBox, styles.notBackdropFilter),
+          popup: {
+            container: styles.glassBox,
+          },
+        },
+      },
+      input: {
+        classNames: {
+          root: clsx(styles.glassBox, styles.notBackdropFilter),
+        },
+      },
+      inputNumber: {
+        classNames: {
+          root: clsx(styles.glassBox, styles.notBackdropFilter),
+        },
+      },
       popover: {
         classNames: {
           container: styles.glassBox,
@@ -133,6 +159,9 @@ const useGlassTheme = () => {
         classNames: {
           root: styles.switchRoot,
         },
+      },
+      segmented: {
+        className: clsx(styles.glassBox, styles.notBackdropFilter),
       },
       progress: {
         classNames: {
