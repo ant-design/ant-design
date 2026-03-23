@@ -25,30 +25,6 @@ const TRIGGER_TYPE_TO_EVENT_MAP = {
   onPointerUp: 'pointerup',
 } as const;
 
-function isWaveDisabled(node: HTMLElement): boolean {
-  // Check disabled attribute or property
-  if (node.getAttribute('disabled') || (node as HTMLInputElement).disabled) {
-    return true;
-  }
-
-  // Check disabled class (but not disabled: pseudo-class pattern)
-  if (node.className.includes('disabled') && !node.className.includes('disabled:')) {
-    return true;
-  }
-
-  // Check aria-disabled
-  if (node.getAttribute('aria-disabled') === 'true') {
-    return true;
-  }
-
-  // Check animation leave state
-  if (node.className.includes('-leave')) {
-    return true;
-  }
-
-  return false;
-}
-
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component, colorSource } = props;
   const { getPrefixCls, wave } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -71,7 +47,15 @@ const Wave: React.FC<WaveProps> = (props) => {
 
     const onClick = (e: Event) => {
       // Fix radio button click twice
-      if (!isVisible(e.target as HTMLElement) || !node.getAttribute || isWaveDisabled(node)) {
+      if (
+        !isVisible(e.target as HTMLElement) ||
+        !node.getAttribute ||
+        node.getAttribute('disabled') ||
+        (node as HTMLInputElement).disabled ||
+        (node.className.includes('disabled') && !node.className.includes('disabled:')) ||
+        node.getAttribute('aria-disabled') === 'true' ||
+        node.className.includes('-leave')
+      ) {
         return;
       }
       showWave(e as MouseEvent);
