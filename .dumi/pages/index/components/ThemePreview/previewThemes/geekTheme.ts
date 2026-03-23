@@ -86,6 +86,7 @@ const useGeekTheme = () => {
           lineWidth: 2,
           colorPrimary: '#39ff14',
           colorText: '#39ff14',
+          colorInfo: '#39ff14',
           controlHeightSM: 26,
           controlHeight: 34,
         },
@@ -122,6 +123,11 @@ const useGeekTheme = () => {
         arrow: false,
       },
       select: {
+        classNames: {
+          root: styles.lightBorder,
+        },
+      },
+      datePicker: {
         classNames: {
           root: styles.lightBorder,
         },
