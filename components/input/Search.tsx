@@ -24,6 +24,7 @@ export type InputSearchSemanticType = {
     input?: string;
     prefix?: string;
     suffix?: string;
+    clear?: string;
     count?: string;
     button?: ButtonSemanticType['classNames'];
   };
@@ -32,6 +33,7 @@ export type InputSearchSemanticType = {
     input?: React.CSSProperties;
     prefix?: React.CSSProperties;
     suffix?: React.CSSProperties;
+    clear?: React.CSSProperties;
     count?: React.CSSProperties;
     button?: ButtonSemanticType['styles'];
   };

@@ -17,9 +17,11 @@ import defaultSeedToken from '../theme/themes/seed';
 import UniqueProvider from '../tooltip/UniqueProvider';
 import type {
   AlertConfig,
+  AnchorStyleConfig,
   BadgeConfig,
   BreadcrumbConfig,
   ButtonConfig,
+  CalendarConfig,
   CardConfig,
   CardMetaConfig,
   CascaderConfig,
@@ -30,7 +32,9 @@ import type {
   ConfigConsumerProps,
   CSPConfig,
   DatePickerConfig,
+  DescriptionsConfig,
   DirectionType,
+  DividerConfig,
   DrawerConfig,
   DropdownConfig,
   EmptyConfig,
@@ -59,21 +63,29 @@ import type {
   QRcodeConfig,
   RadioConfig,
   RangePickerConfig,
+  ResultConfig,
   RibbonConfig,
+  SegmentedConfig,
   SelectConfig,
   SkeletonConfig,
+  SliderConfig,
   SpaceConfig,
   SpinConfig,
+  SplitterConfig,
+  StatisticConfig,
+  StepsConfig,
   SwitchStyleConfig,
   TableConfig,
   TabsConfig,
   TagConfig,
   TextAreaConfig,
   ThemeConfig,
+  TimelineConfig,
   TimePickerConfig,
   TooltipConfig,
   TourConfig,
   TransferConfig,
+  TreeConfig,
   TreeSelectConfig,
   TypographyConfig,
   UploadConfig,
@@ -203,7 +215,7 @@ export interface ConfigProviderProps {
    */
   direction?: DirectionType;
   space?: SpaceConfig;
-  splitter?: ComponentStyleConfig;
+  splitter?: SplitterConfig;
   /**
    * @descCN 设置 `false` 时关闭虚拟滚动。
    * @descEN Close the virtual scrolling when setting `false`.
@@ -218,37 +230,37 @@ export interface ConfigProviderProps {
   warning?: WarningContextProps;
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
-  anchor?: ComponentStyleConfig;
+  anchor?: AnchorStyleConfig;
   app?: ComponentStyleConfig;
   button?: ButtonConfig;
-  calendar?: ComponentStyleConfig;
+  calendar?: CalendarConfig;
   carousel?: ComponentStyleConfig;
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
-  divider?: ComponentStyleConfig;
+  divider?: DividerConfig;
   drawer?: DrawerConfig;
   typography?: TypographyConfig;
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
-  segmented?: ComponentStyleConfig;
-  statistic?: ComponentStyleConfig;
-  steps?: ComponentStyleConfig;
+  segmented?: SegmentedConfig;
+  statistic?: StatisticConfig;
+  steps?: StepsConfig;
   image?: ImageConfig;
   layout?: ComponentStyleConfig;
   list?: ListConfig;
   mentions?: MentionsConfig;
   modal?: ModalConfig;
   progress?: ProgressConfig;
-  result?: ComponentStyleConfig;
-  slider?: ComponentStyleConfig;
+  result?: ResultConfig;
+  slider?: SliderConfig;
   masonry?: MasonryConfig;
   breadcrumb?: BreadcrumbConfig;
   menu?: MenuConfig;
   floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
   checkbox?: CheckboxConfig;
-  descriptions?: ComponentStyleConfig;
+  descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
   radio?: RadioConfig;
@@ -263,11 +275,11 @@ export interface ConfigProviderProps {
   card?: CardConfig;
   cardMeta?: CardMetaConfig;
   tabs?: TabsConfig;
-  timeline?: ComponentStyleConfig;
+  timeline?: TimelineConfig;
   timePicker?: TimePickerConfig;
   upload?: UploadConfig;
   notification?: NotificationConfig;
-  tree?: ComponentStyleConfig;
+  tree?: TreeConfig;
   colorPicker?: ColorPickerConfig;
   datePicker?: DatePickerConfig;
   rangePicker?: RangePickerConfig;

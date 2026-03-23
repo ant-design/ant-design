@@ -11,6 +11,7 @@ const locales = {
     input: '输入框元素，包含输入框的核心交互样式和文本输入相关的样式',
     prefix: '前缀的包裹元素，包含前缀内容的布局和样式',
     suffix: '后缀的包裹元素，包含后缀内容的布局和样式',
+    clear: '清除按钮元素，包含清除内容按钮的布局、显隐和交互样式',
     count: '文字计数元素，包含字符计数显示的字体和颜色样式',
   },
   en: {
@@ -18,6 +19,8 @@ const locales = {
     input: 'Input element with core interactive styles and text input related styling',
     prefix: 'Prefix wrapper element with layout and styling for prefix content',
     suffix: 'Suffix wrapper element with layout and styling for suffix content',
+    clear:
+      'Clear button element with layout, visibility, and interaction styles for clearing content',
     count: 'Character count element with font and color styles for count display',
   },
 };
@@ -32,10 +35,12 @@ const App: React.FC = () => {
         { name: 'prefix', desc: locale.prefix },
         { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
+        { name: 'clear', desc: locale.clear },
         { name: 'count', desc: locale.count },
       ]}
     >
       <Input
+        allowClear
         showCount
         prefix={<UserOutlined />}
         suffix={<EditOutlined />}
