@@ -11,6 +11,7 @@ const locales = {
     input: '输入框元素',
     prefix: '前缀的包裹元素',
     suffix: '后缀的包裹元素',
+    clear: '清除按钮元素',
     count: '文字计数元素',
   },
   en: {
@@ -18,6 +19,7 @@ const locales = {
     input: 'input element',
     prefix: 'prefix element',
     suffix: 'suffix element',
+    clear: 'clear button element',
     count: 'count element',
   },
 };
@@ -32,10 +34,12 @@ const App: React.FC = () => {
         { name: 'prefix', desc: locale.prefix },
         { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
+        { name: 'clear', desc: locale.clear },
         { name: 'count', desc: locale.count },
       ]}
     >
       <Input.Password
+        allowClear
         showCount
         prefix={<UserOutlined />}
         suffix={<EditOutlined />}

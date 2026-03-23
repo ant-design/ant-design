@@ -1,6 +1,6 @@
 import * as React from 'react';
 import EnterOutlined from '@ant-design/icons/EnterOutlined';
-import type { TextAreaProps } from '@rc-component/textarea';
+import type { TextAreaProps } from '@rc-component/input';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { clsx } from 'clsx';
 
