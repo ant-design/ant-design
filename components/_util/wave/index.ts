@@ -17,6 +17,38 @@ export interface WaveProps {
   colorSource?: 'color' | 'backgroundColor' | 'borderColor' | null;
 }
 
+const TRIGGER_TYPE_TO_EVENT_MAP = {
+  onClick: 'click',
+  onMouseDown: 'mousedown',
+  onMouseUp: 'mouseup',
+  onPointerDown: 'pointerdown',
+  onPointerUp: 'pointerup',
+} as const;
+
+function isWaveDisabled(node: HTMLElement): boolean {
+  // Check disabled attribute or property
+  if (node.getAttribute('disabled') || (node as HTMLInputElement).disabled) {
+    return true;
+  }
+
+  // Check disabled class (but not disabled: pseudo-class pattern)
+  if (node.className.includes('disabled') && !node.className.includes('disabled:')) {
+    return true;
+  }
+
+  // Check aria-disabled
+  if (node.getAttribute('aria-disabled') === 'true') {
+    return true;
+  }
+
+  // Check animation leave state
+  if (node.className.includes('-leave')) {
+    return true;
+  }
+
+  return false;
+}
+
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component, colorSource } = props;
   const { getPrefixCls, wave } = useContext<ConfigConsumerProps>(ConfigContext);
@@ -37,36 +69,18 @@ const Wave: React.FC<WaveProps> = (props) => {
       return;
     }
 
-    // Click handler
     const onClick = (e: Event) => {
       // Fix radio button click twice
-      if (
-        !isVisible(e.target as HTMLElement) ||
-        // No need wave
-        !node.getAttribute ||
-        node.getAttribute('disabled') ||
-        (node as HTMLInputElement).disabled ||
-        (node.className.includes('disabled') && !node.className.includes('disabled:')) ||
-        node.getAttribute('aria-disabled') === 'true' ||
-        node.className.includes('-leave')
-      ) {
+      if (!isVisible(e.target as HTMLElement) || !node.getAttribute || isWaveDisabled(node)) {
         return;
       }
       showWave(e as MouseEvent);
     };
 
-    const triggerType = wave?.triggerType || 'onClick';
-
     const eventName =
-      {
-        onClick: 'click',
-        onMouseDown: 'mousedown',
-        onMouseUp: 'mouseup',
-        onPointerDown: 'pointerdown',
-        onPointerUp: 'pointerup',
-      }[triggerType] || 'click';
+      TRIGGER_TYPE_TO_EVENT_MAP[wave?.triggerType as keyof typeof TRIGGER_TYPE_TO_EVENT_MAP] ||
+      'click';
 
-    // Bind events
     node.addEventListener(eventName, onClick, true);
     return () => {
       node.removeEventListener(eventName, onClick, true);
