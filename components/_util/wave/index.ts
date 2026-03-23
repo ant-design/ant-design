@@ -61,15 +61,17 @@ const Wave: React.FC<WaveProps> = (props) => {
       showWave(e as MouseEvent);
     };
 
+    const triggerType = wave?.triggerType;
     const eventName =
-      TRIGGER_TYPE_TO_EVENT_MAP[wave?.triggerType as keyof typeof TRIGGER_TYPE_TO_EVENT_MAP] ||
-      'click';
+      triggerType && triggerType in TRIGGER_TYPE_TO_EVENT_MAP
+        ? TRIGGER_TYPE_TO_EVENT_MAP[triggerType]
+        : 'click';
 
     node.addEventListener(eventName, onClick, true);
     return () => {
       node.removeEventListener(eventName, onClick, true);
     };
-  }, [disabled, wave]);
+  }, [disabled, wave?.triggerType]);
 
   // ============================== Render ==============================
   if (!React.isValidElement(children)) {
