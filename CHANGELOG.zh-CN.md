@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 6.3.4
+
+`2026-03-24`
+
+- 🔥 新增官方命令行工具 [`@ant-design/cli`](https://www.npmjs.com/package/@ant-design/cli)，支持离线查询 Ant Design 组件知识、分析项目用法及提供迁移指导。[#57413](https://github.com/ant-design/ant-design/pull/57413) [@afc163](https://github.com/afc163)
+- 🐞 修复 Form.List 在使用 `onValuesChange` 时丢失同级字段值的问题。[#57399](https://github.com/ant-design/ant-design/pull/57399) [@zombieJ](https://github.com/zombieJ)
+- 🐞 修复 `useToken` 缺少 `screenXXXLMin` 导致生成错误的 antd.css 的问题。[#57372](https://github.com/ant-design/ant-design/pull/57372) [@sealye09](https://github.com/sealye09)
+- 🐞 修复 ConfigProvider 组件配置的类型定义，为已支持的组件暴露语义化 `classNames` 和 `styles`。[#57396](https://github.com/ant-design/ant-design/pull/57396) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Image 组件 `fetchPriority` 属性未正确透传到 `<img>` 元素的问题。[#57392](https://github.com/ant-design/ant-design/pull/57392) [@aojunhao123](https://github.com/aojunhao123)
+- Menu
+  - 🐞 修复通过 ConfigProvider 自定义 Menu 的 `itemHoverColor` 时，SubMenu 父级菜单项 hover 状态颜色不生效的问题。[#57374](https://github.com/ant-design/ant-design/pull/57374) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🐞 修复 Menu 自定义 `collapsedIconSize` 后折叠图标看起来未居中的问题。[#57360](https://github.com/ant-design/ant-design/pull/57360) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Table 在开启滚动时列头中受控 Popover 被重复渲染的问题。[#57342](https://github.com/ant-design/ant-design/pull/57342) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Transfer `render` 属性返回 JSX 元素时搜索功能失效的问题。[#57133](https://github.com/ant-design/ant-design/pull/57133) [@WustLCQ](https://github.com/WustLCQ)
+- 🐞 修复 Tree 开启 `showLine` 时自定义 `switcherIcon` 缺少 `switcher-line-icon` 类名导致样式异常的问题。[#57303](https://github.com/ant-design/ant-design/pull/57303) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Watermark 在未传入 `onRemove` 时的 TypeScript 报错。[#57344](https://github.com/ant-design/ant-design/pull/57344) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.3.3
 
 `2026-03-16`
