@@ -37,7 +37,17 @@ ant-design/
 
 ### API 表格格式
 
-| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+英文版：
+
+| Property | Description | Type | Default | Prop Ver. | [Config](/components/config-provider#component-config) Ver. |
+| --- | --- | --- | --- | --- | --- |
+| disabled | Whether the component is disabled | boolean | false | - | - |
+| type | Button type | `primary` \| `default` | `default` | - | - |
+| loadingIcon | (Global configuration only) Custom loading icon | ReactNode | - | - | 6.2.0 |
+
+中文版：
+
+| 参数 | 说明 | 类型 | 默认值 | 属性版本 | [配置](/components/config-provider#component-config)版本 |
 | --- | --- | --- | --- | --- | --- |
 | disabled | 是否禁用 | boolean | false | - | - |
 | type | 按钮类型 | `primary` \| `default` | `default` | - | - |
