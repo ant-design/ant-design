@@ -36,7 +36,8 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
     list-style: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
+    max-height: 600px;
   `,
   listItem: css`
     cursor: pointer;
