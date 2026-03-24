@@ -39,7 +39,7 @@ ant-design/
 
 英文版：
 
-| Property | Description | Type | Default | Prop Ver. | [Config](/components/config-provider#component-config) Ver. |
+| Property | Description | Type | Default | Prop Version | [Config](/components/config-provider#component-config) Version |
 | --- | --- | --- | --- | --- | --- |
 | disabled | Whether the component is disabled | boolean | false | - | - |
 | type | Button type | `primary` \| `default` | `default` | - | - |
