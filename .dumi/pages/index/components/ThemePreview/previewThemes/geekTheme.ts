@@ -4,6 +4,8 @@ import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
+import { withPriority } from './styleUtils';
+
 const useStyles = createStyles(({ css, cssVar }) => {
   const lightBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorPrimary}`,
@@ -11,15 +13,15 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 
   return {
-    lightBorder,
+    lightBorder: withPriority(css, lightBorder),
     app: css({
       textShadow: `0 0 5px color-mix(in srgb, currentColor 50%, transparent)`,
     }),
-    modalContainer: css({
+    modalContainer: withPriority(css, {
       ...lightBorder,
       padding: 0,
     }),
-    modalHeader: css({
+    modalHeader: withPriority(css, {
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
       margin: 0,
       position: 'relative',
@@ -36,29 +38,29 @@ const useStyles = createStyles(({ css, cssVar }) => {
         background: cssVar.colorPrimary,
       },
     }),
-    modalBody: css({
+    modalBody: withPriority(css, {
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
     }),
-    modalFooter: css({
+    modalFooter: withPriority(css, {
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
     }),
 
-    buttonRoot: css({
+    buttonRoot: withPriority(css, {
       ...lightBorder,
       border: undefined,
       borderWidth: cssVar.lineWidth,
       borderColor: cssVar.colorPrimary,
     }),
-    buttonRootSolid: css({
+    buttonRootSolid: withPriority(css, {
       color: cssVar.colorBgContainer,
       border: 'none',
       fontWeight: 'bolder',
     }),
-    buttonRootSolidDanger: css({
+    buttonRootSolidDanger: withPriority(css, {
       boxShadow: `0 0 5px ${cssVar.colorError}`,
     }),
 
-    colorPickerBody: css({
+    colorPickerBody: withPriority(css, {
       pointerEvents: 'none',
     }),
     tooltipRoot: css({
@@ -68,7 +70,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
       ...lightBorder,
       color: cssVar.colorPrimary,
     }),
-    progressTrack: css({
+    progressTrack: withPriority(css, {
       backgroundColor: cssVar.colorPrimary,
     }),
   };

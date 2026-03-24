@@ -4,6 +4,8 @@ import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
+import { withPriority } from './styleUtils';
+
 const useStyles = createStyles(({ css, cssVar }) => {
   const glassBorder = {
     boxShadow: [
@@ -20,26 +22,26 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 
   return {
-    glassBorder,
-    glassBox,
-    notBackdropFilter: css({
+    glassBorder: withPriority(css, glassBorder),
+    glassBox: withPriority(css, glassBox),
+    notBackdropFilter: withPriority(css, {
       backdropFilter: 'none',
     }),
     app: css({
       textShadow: '0 1px rgba(0,0,0,0.1)',
     }),
-    cardRoot: css({
+    cardRoot: withPriority(css, {
       ...glassBox,
       backgroundColor: `color-mix(in srgb, ${cssVar.colorBgContainer} 40%, transparent)`,
     }),
-    modalContainer: css({
+    modalContainer: withPriority(css, {
       ...glassBox,
       backdropFilter: 'none',
     }),
-    buttonRoot: css({
+    buttonRoot: withPriority(css, {
       ...glassBorder,
     }),
-    buttonRootDefaultColor: css({
+    buttonRootDefaultColor: withPriority(css, {
       background: 'transparent',
       color: cssVar.colorText,
 
@@ -54,7 +56,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
       },
     }),
 
-    dropdownRoot: css({
+    dropdownRoot: withPriority(css, {
       ...glassBox,
       borderRadius: cssVar.borderRadiusLG,
 
@@ -62,7 +64,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
         background: 'transparent',
       },
     }),
-    switchRoot: css({ ...glassBorder, border: 'none' }),
+    switchRoot: withPriority(css, { ...glassBorder, border: 'none' }),
   };
 });
 
