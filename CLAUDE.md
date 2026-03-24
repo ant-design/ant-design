@@ -47,7 +47,7 @@ ant-design/
 
 中文版：
 
-| 参数 | 说明 | 类型 | 默认值 | 属性版本 | [配置](/components/config-provider#component-config)版本 |
+| 属性 | 说明 | 类型 | 默认值 | 属性版本 | [配置](/components/config-provider#component-config)版本 |
 | --- | --- | --- | --- | --- | --- |
 | disabled | 是否禁用 | boolean | false | - | - |
 | type | 按钮类型 | `primary` \| `default` | `default` | - | - |
