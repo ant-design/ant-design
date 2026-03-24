@@ -332,7 +332,19 @@ export type PaginationConfig = ComponentStyleConfig &
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 
 export type SelectConfig = ComponentStyleConfig &
-  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles' | 'allowClear'>;
+  Pick<
+    SelectProps,
+    | 'showSearch'
+    | 'variant'
+    | 'classNames'
+    | 'styles'
+    | 'allowClear'
+    | 'clearIcon'
+    | 'loadingIcon'
+    | 'menuItemSelectedIcon'
+    | 'removeIcon'
+    | 'suffixIcon'
+  >;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
@@ -363,6 +375,8 @@ export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames'
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
 
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
+
+export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
@@ -453,7 +467,7 @@ export interface ConfigComponentProps {
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   space?: SpaceConfig;
-  splitter?: ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
+  splitter?: SplitterConfig;
   form?: FormConfig;
   select?: SelectConfig;
   alert?: AlertConfig;

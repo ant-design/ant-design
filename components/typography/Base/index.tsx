@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { JSX } from 'react';
 import EditOutlined from '@ant-design/icons/EditOutlined';
+import type { AutoSizeType } from '@rc-component/input';
 import ResizeObserver from '@rc-component/resize-observer';
-import type { AutoSizeType } from '@rc-component/textarea';
 import { omit, toArray, useControlledState } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { composeRef } from '@rc-component/util/lib/ref';
