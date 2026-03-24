@@ -11,7 +11,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 
   return {
-    lightBorder: css(lightBorder),
+    lightBorder,
     app: css({
       textShadow: `0 0 5px color-mix(in srgb, currentColor 50%, transparent)`,
     }),

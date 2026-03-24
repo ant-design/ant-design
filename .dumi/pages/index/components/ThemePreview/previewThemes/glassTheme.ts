@@ -20,8 +20,8 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 
   return {
-    glassBorder: css(glassBorder),
-    glassBox: css(glassBox),
+    glassBorder,
+    glassBox,
     notBackdropFilter: css({
       backdropFilter: 'none',
     }),

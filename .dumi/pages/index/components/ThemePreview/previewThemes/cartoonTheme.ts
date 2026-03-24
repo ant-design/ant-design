@@ -9,7 +9,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 
   return {
-    sharedBorder: css(sharedBorder),
+    sharedBorder,
     progressTrack: css({
       ...sharedBorder,
       marginInlineStart: `calc(-1 * ${cssVar.lineWidth})`,

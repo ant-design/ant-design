@@ -14,8 +14,8 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 
   return {
-    illustrationBorder: css(illustrationBorder),
-    illustrationBox: css(illustrationBox),
+    illustrationBorder,
+    illustrationBox,
     buttonRoot: css({
       ...illustrationBox,
       fontWeight: 600,

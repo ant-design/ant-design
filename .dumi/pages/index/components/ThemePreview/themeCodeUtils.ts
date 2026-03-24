@@ -4,29 +4,12 @@ import type { ThemeConfig } from 'antd';
 /** 仅 theme 时（默认/暗黑）复制用的最小 import */
 const MINIMAL_THEME_IMPORTS = `import React from 'react';
 import { ConfigProvider, theme } from 'antd';`;
-const USE_THEME_IMPORT_PATTERN =
-  /^\s*import\s+type\s+\{\s*UseTheme\s*\}\s+from\s+['"]\.['"];\s*\r?\n?/m;
-const USE_THEME_DECLARATION_PATTERN = /const\s+(\w+)\s*:\s*UseTheme\s*=\s*\(\)\s*=>\s*\{/;
-
-function normalizeCopyThemeSource(source: string): string {
-  let content = source.trim();
-
-  const replacedUseThemeDeclaration = content.replace(
-    USE_THEME_DECLARATION_PATTERN,
-    'const $1 = (): ConfigProviderProps => {',
-  );
-  if (replacedUseThemeDeclaration !== content) {
-    content = replacedUseThemeDeclaration.replace(USE_THEME_IMPORT_PATTERN, '');
-  }
-
-  return content;
-}
 
 /** 从 hook 源码中解析 hook 名，并保留 export default 作为单独的主题文件 */
 function getThemeFileContent(source: string): { content: string; hookName: string } {
   const hookNameMatch = source.match(/export\s+default\s+(\w+)/);
   const hookName = hookNameMatch?.[1] ?? 'useTheme';
-  const content = normalizeCopyThemeSource(source);
+  const content = source.trim();
   return { content, hookName };
 }
 
