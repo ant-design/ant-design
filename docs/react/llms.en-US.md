@@ -42,6 +42,7 @@ Each component has a semantic description file:
 - `https://ant.design/components/button-cn/semantic.md` (Chinese)
 
 Semantic documentation includes:
+
 - Component parts and their purposes
 - Usage examples and best practices
 - DOM structure overview
@@ -58,4 +59,3 @@ Semantic documentation includes:
 | **Trae** | Add to project's knowledge sources in settings. [Documentation](https://trae.ai/docs) | `Read https://ant.design/llms-full.txt and understand Ant Design components. Use this knowledge when writing code with Ant Design.` |
 | **Qoder** | Add to `.qoder/config.yml` or use `@docs` in conversation. [Documentation](https://docs.qoder.com/) | `Read https://ant.design/llms-full.txt and understand Ant Design components. Use this knowledge when writing code with Ant Design.` |
 | **Neovate Code** | Run `neovate` and describe task with prompt. [Documentation](https://github.com/neovateai/neovate-code) | `Read https://ant.design/llms-full.txt and understand Ant Design components. Use this knowledge when writing code with Ant Design.` |
-

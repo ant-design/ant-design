@@ -49,4 +49,3 @@ Ant Design 推荐使用社区维护的 MCP server：[`@jzone-mcp/antd-components
 - [Model Context Protocol 文档](https://modelcontextprotocol.io/)
 - [Ant Design LLMs.txt 指南](/docs/react/llms-zh-CN)
 - [@jzone-mcp/antd-components-mcp npm 地址](https://www.npmjs.com/package/@jzone-mcp/antd-components-mcp)
-
