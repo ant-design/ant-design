@@ -40,6 +40,8 @@ export default antfu(
       'regexp/no-misleading-capturing-group': 'off',
       'regexp/no-super-linear-backtracking': 'off', // TODO: remove this
       'regexp/optimal-quantifier-concatenation': 'off',
+      'react/jsx-key-before-spread': 'off',
+      'react/no-nested-component-definitions': 'off',
       'react-hooks/exhaustive-deps': 'off',
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
