@@ -42,8 +42,8 @@ ant-design/
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | disabled | Whether the component is disabled | boolean | false | - | × |
-| loadingIcon | (Global configuration only) Custom loading icon | ReactNode | - | - | 6.2.0 |
-| type | Button type | `primary` \| `default` | `default` | - | × |
+| loadingIcon | (Only supports global configuration) Custom loading icon | ReactNode | - | - | 6.2.0 |
+| type | Button type | `primary` \| `default` | `default` | - | ✔ |
 
 中文版：
 
@@ -51,7 +51,7 @@ ant-design/
 | --- | --- | --- | --- | --- | --- |
 | disabled | 是否禁用 | boolean | false | - | × |
 | loadingIcon | (仅支持全局配置) 自定义加载图标 | ReactNode | - | × | 6.2.0 |
-| type | 按钮类型 | `primary` \| `default` | `default` | - | × |
+| type | 按钮类型 | `primary` \| `default` | `default` | - | ✔ |
 
 - 参数：按字母顺序排列
 - 说明：简洁描述参数作用，如果仅支持全局配置需在描述中用括号注明
