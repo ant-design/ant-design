@@ -65,6 +65,46 @@ const useStyles = createStyles(({ css, cssVar }) => {
       },
     }),
     switchRoot: withPriority(css, { ...glassBorder, border: 'none' }),
+    segmentedRoot: withPriority(css, {
+      ...glassBorder,
+      background: 'transparent',
+      backdropFilter: 'none',
+
+      '& .ant-segmented-thumb': {
+        ...glassBox,
+      },
+
+      '& .ant-segmented-item-selected': {
+        ...glassBox,
+      },
+    }),
+    radioButtonRoot: withPriority(css, {
+      '&.ant-radio-button-wrapper': {
+        ...glassBorder,
+        background: 'transparent',
+        borderColor: 'rgba(255, 255, 255, 0.2)',
+        color: cssVar.colorText,
+
+        '&:hover': {
+          borderColor: 'rgba(255, 255, 255, 0.24)',
+          color: cssVar.colorText,
+        },
+
+        '&.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)': {
+          ...glassBox,
+          borderColor: 'rgba(255, 255, 255, 0.28)',
+          color: cssVar.colorText,
+
+          '&::before': {
+            backgroundColor: 'rgba(255, 255, 255, 0.18)',
+          },
+
+          '&:hover': {
+            color: cssVar.colorText,
+          },
+        },
+      },
+    }),
   };
 });
 
@@ -83,11 +123,6 @@ const useGlassTheme = () => {
           motionDurationSlow: '0.2s',
           motionDurationMid: '0.1s',
           motionDurationFast: '0.05s',
-        },
-        components: {
-          Segmented: {
-            itemSelectedBg: 'rgba(0,0,0,0.06)',
-          },
         },
       },
       app: {
@@ -162,8 +197,13 @@ const useGlassTheme = () => {
           root: styles.switchRoot,
         },
       },
+      radio: {
+        classNames: {
+          root: styles.radioButtonRoot,
+        },
+      },
       segmented: {
-        className: clsx(styles.glassBox, styles.notBackdropFilter),
+        className: styles.segmentedRoot,
       },
       progress: {
         classNames: {
