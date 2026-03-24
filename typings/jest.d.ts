@@ -1,5 +1,6 @@
 import type * as React from 'react';
 
+/// <reference types="jest-environment-puppeteer" />
 declare global {
   namespace jest {
     interface Matchers<R> {

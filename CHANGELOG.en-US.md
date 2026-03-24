@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 6.3.4
+
+`2026-03-24`
+
+- 🔥 Add [`@ant-design/cli`](https://www.npmjs.com/package/@ant-design/cli) official command-line tool for querying Ant Design component knowledge, analyzing project usage, and guiding migrations offline. [#57413](https://github.com/ant-design/ant-design/pull/57413) [@afc163](https://github.com/afc163)
+- 🐞 Fix Form.List losing sibling field values when using `onValuesChange`. [#57399](https://github.com/ant-design/ant-design/pull/57399) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix missing `screenXXXLMin` in `useToken` causing incorrect antd.css to be generated. [#57372](https://github.com/ant-design/ant-design/pull/57372) [@sealye09](https://github.com/sealye09)
+- 🐞 Fix ConfigProvider component config typings to expose semantic `classNames` and `styles` for supported components. [#57396](https://github.com/ant-design/ant-design/pull/57396) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Image `fetchPriority` prop not being passed through to the `<img>` element. [#57392](https://github.com/ant-design/ant-design/pull/57392) [@aojunhao123](https://github.com/aojunhao123)
+- Menu
+  - 🐞 Fix Menu SubMenu parent item not applying custom hover color via ConfigProvider. [#57374](https://github.com/ant-design/ant-design/pull/57374) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🐞 Fix Menu collapsed icons appearing misaligned when customizing `collapsedIconSize`. [#57360](https://github.com/ant-design/ant-design/pull/57360) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Table controlled popover in column title being rendered twice when scroll is enabled. [#57342](https://github.com/ant-design/ant-design/pull/57342) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Transfer `render` prop returning JSX elements causing search to fail. [#57133](https://github.com/ant-design/ant-design/pull/57133) [@WustLCQ](https://github.com/WustLCQ)
+- 🐞 Fix Tree custom `switcherIcon` missing `switcher-line-icon` className when `showLine` is enabled. [#57303](https://github.com/ant-design/ant-design/pull/57303) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Watermark TypeScript errors when `onRemove` is omitted. [#57344](https://github.com/ant-design/ant-design/pull/57344) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.3.3
 
 `2026-03-16`
