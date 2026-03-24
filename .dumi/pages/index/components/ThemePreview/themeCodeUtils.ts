@@ -5,34 +5,48 @@ import type { ThemeConfig } from 'antd';
 const MINIMAL_THEME_IMPORTS = `import React from 'react';
 import { ConfigProvider, theme } from 'antd';`;
 
-const WITH_PRIORITY_IMPORT = `import { withPriority } from './styleUtils';`;
 const WITH_PRIORITY_TYPE_IMPORT = `import type { CSSObject, CssUtil } from 'antd-style';`;
 const WITH_PRIORITY_HELPER = `const withPriority = (css: CssUtil, style: CSSObject) =>
   css({
     '&&&': style,
   });`;
+const WITH_PRIORITY_IMPORT_PATTERN =
+  /^\s*import\s+\{\s*withPriority\s*\}\s+from\s+['"]\.\/styleUtils['"];\s*\r?\n?/m;
+const CREATE_STYLES_IMPORT_PATTERN = /import\s+\{\s*createStyles\s*\}\s+from\s+['"]antd-style['"];/;
+const USE_STYLES_DECLARATION_PATTERN = /\r?\n(\s*)(export\s+)?const\s+useStyles\s*=/;
+const USE_THEME_IMPORT_PATTERN =
+  /^\s*import\s+type\s+\{\s*UseTheme\s*\}\s+from\s+['"]\.['"];\s*\r?\n?/m;
+const USE_THEME_DECLARATION_PATTERN = /const\s+(\w+)\s*:\s*UseTheme\s*=\s*\(\)\s*=>\s*\{/;
 
 function normalizeCopyThemeSource(source: string): string {
   let content = source.trim();
 
-  if (content.includes(WITH_PRIORITY_IMPORT)) {
-    content = content.replace(`${WITH_PRIORITY_IMPORT}\n`, '');
-    content = content.replace(
-      `import { createStyles } from 'antd-style';`,
-      `import { createStyles } from 'antd-style';\n${WITH_PRIORITY_TYPE_IMPORT}`,
+  if (WITH_PRIORITY_IMPORT_PATTERN.test(content)) {
+    const withoutWithPriorityImport = content.replace(WITH_PRIORITY_IMPORT_PATTERN, '');
+    const withPriorityTypeImport = withoutWithPriorityImport.replace(
+      CREATE_STYLES_IMPORT_PATTERN,
+      (match) => `${match}\n${WITH_PRIORITY_TYPE_IMPORT}`,
     );
-    content = content.replace(
-      `\n\nconst useStyles =`,
-      `\n\n${WITH_PRIORITY_HELPER}\n\nconst useStyles =`,
+    const withPriorityHelper = withPriorityTypeImport.replace(
+      USE_STYLES_DECLARATION_PATTERN,
+      (_match, spaces: string, exportKeyword = '') =>
+        `\n\n${WITH_PRIORITY_HELPER}\n\n${spaces}${exportKeyword}const useStyles =`,
     );
+
+    if (
+      withPriorityTypeImport !== withoutWithPriorityImport &&
+      withPriorityHelper !== withPriorityTypeImport
+    ) {
+      content = withPriorityHelper;
+    }
   }
 
-  if (content.includes(`import type { UseTheme } from '.';`)) {
-    content = content.replace(`import type { UseTheme } from '.';\n`, '');
-    content = content.replace(
-      /const (\w+): UseTheme = \(\) => \{/,
-      'const $1 = (): ConfigProviderProps => {',
-    );
+  const replacedUseThemeDeclaration = content.replace(
+    USE_THEME_DECLARATION_PATTERN,
+    'const $1 = (): ConfigProviderProps => {',
+  );
+  if (replacedUseThemeDeclaration !== content) {
+    content = replacedUseThemeDeclaration.replace(USE_THEME_IMPORT_PATTERN, '');
   }
 
   return content;
