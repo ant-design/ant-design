@@ -1,6 +1,6 @@
 import React from 'react';
 
-import type { CarouselRef, DotPlacement } from '..';
+import type { CarouselProps, CarouselRef, DotPlacement } from '..';
 import Carousel from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -242,7 +242,7 @@ describe('Carousel', () => {
       consoleSpy.mockRestore();
     });
 
-    const Demo = (props: any) => (
+    const Demo: React.FC<CarouselProps> = (props) => (
       <Carousel {...props}>
         <div>1</div>
         <div>2</div>
