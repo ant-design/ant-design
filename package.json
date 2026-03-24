@@ -317,7 +317,7 @@
     "tar": "^7.5.2",
     "tsx": "^4.21.0",
     "typedoc": "^0.28.15",
-    "typescript": "~5.9.3",
+    "typescript": "^6.0.2",
     "vanilla-jsoneditor": "^3.11.0",
     "vanilla-tilt": "^1.8.1",
     "webpack": "^5.103.0",
