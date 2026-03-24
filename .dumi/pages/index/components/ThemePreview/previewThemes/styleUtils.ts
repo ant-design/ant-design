@@ -1,7 +1,6 @@
-export const withPriority = (
-  css: (style: Record<string, unknown>) => string,
-  style: Record<string, unknown>,
-) =>
+import type { CSSObject, CssUtil } from 'antd-style';
+
+export const withPriority = (css: CssUtil, style: CSSObject) =>
   css({
     '&&&': style,
   });
