@@ -5,11 +5,44 @@ import type { ThemeConfig } from 'antd';
 const MINIMAL_THEME_IMPORTS = `import React from 'react';
 import { ConfigProvider, theme } from 'antd';`;
 
+const WITH_PRIORITY_IMPORT = `import { withPriority } from './styleUtils';`;
+const WITH_PRIORITY_TYPE_IMPORT = `import type { CSSObject, CssUtil } from 'antd-style';`;
+const WITH_PRIORITY_HELPER = `const withPriority = (css: CssUtil, style: CSSObject) =>
+  css({
+    '&&&': style,
+  });`;
+
+function normalizeCopyThemeSource(source: string): string {
+  let content = source.trim();
+
+  if (content.includes(WITH_PRIORITY_IMPORT)) {
+    content = content.replace(`${WITH_PRIORITY_IMPORT}\n`, '');
+    content = content.replace(
+      `import { createStyles } from 'antd-style';`,
+      `import { createStyles } from 'antd-style';\n${WITH_PRIORITY_TYPE_IMPORT}`,
+    );
+    content = content.replace(
+      `\n\nconst useStyles =`,
+      `\n\n${WITH_PRIORITY_HELPER}\n\nconst useStyles =`,
+    );
+  }
+
+  if (content.includes(`import type { UseTheme } from '.';`)) {
+    content = content.replace(`import type { UseTheme } from '.';\n`, '');
+    content = content.replace(
+      /const (\w+): UseTheme = \(\) => \{/,
+      'const $1 = (): ConfigProviderProps => {',
+    );
+  }
+
+  return content;
+}
+
 /** 从 hook 源码中解析 hook 名，并保留 export default 作为单独的主题文件 */
 function getThemeFileContent(source: string): { content: string; hookName: string } {
   const hookNameMatch = source.match(/export\s+default\s+(\w+)/);
   const hookName = hookNameMatch?.[1] ?? 'useTheme';
-  const content = source.trim();
+  const content = normalizeCopyThemeSource(source);
   return { content, hookName };
 }
 
