@@ -47,6 +47,7 @@ title: 社区精选组件
 | Flow 流 | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | 电话输入 | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 | AI 对话应用 | [Ant Design X](https://github.com/ant-design/x) |
+| 命令行工具 | [Ant Design CLI](https://github.com/ant-design/ant-design-cli) |
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 | React 手势库 | [use-gesture](https://use-gesture.netlify.app) |
 

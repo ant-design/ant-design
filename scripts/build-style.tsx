@@ -57,7 +57,9 @@ const run = async () => {
       throw new Error('Invalid media query found, example: @media (min-width: var(--xxx))');
     }
 
-    const finalStyleStr = layerContent ? `${layerContent}\n\n${styleStr}` : styleStr;
+    const finalStyleStr = enableLayer
+      ? `${layerContent ? `${layerContent}\n\n` : ''}@layer antd {\n${styleStr}\n}`
+      : styleStr;
 
     fs.writeFileSync(output, finalStyleStr);
   }
