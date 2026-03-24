@@ -95,12 +95,33 @@ async function downloadFile(url: string, destPath: string) {
   await finished(body.pipe(fs.createWriteStream(destPath)));
 }
 
-async function getBranchLatestRef(branchName: string) {
+async function getBranchLatestRef(branchName: string, fallbackBranch = 'master') {
   const baseImageRefUrl = `${ossDomain}/${branchName}/visual-regression-ref.txt`;
   // get content from baseImageRefText
   const res = await fetch(baseImageRefUrl);
+  if (!res.ok) {
+    // If branch doesn't exist, try fallback branch (e.g., master)
+    if (fallbackBranch && fallbackBranch !== branchName) {
+      console.log(`Branch ${branchName} not found in OSS, falling back to ${fallbackBranch}`);
+      return getBranchLatestRef(fallbackBranch, undefined);
+    }
+    const responseText = await res.text();
+    throw new Error(
+      `Failed to get branch latest ref: ${baseImageRefUrl}, status: ${res.status}, response: ${responseText.slice(0, 200)}`,
+    );
+  }
   const text = await res.text();
   const ref = text.trim();
+  if (!ref) {
+    // Try fallback branch
+    if (fallbackBranch && fallbackBranch !== branchName) {
+      console.log(`Branch ${branchName} has empty ref, falling back to ${fallbackBranch}`);
+      return getBranchLatestRef(fallbackBranch, undefined);
+    }
+    throw new Error(
+      `Empty ref for branch ${branchName}. Please initialize visual regression for this branch first.`,
+    );
+  }
   return ref;
 }
 
@@ -408,13 +429,11 @@ async function boot() {
 
   // compare cssinjs and css-var png from pr
   // to the same cssinjs png in `master` branch
-  const cssInJsImgNames = baseImgFileList
-    .filter((i) => !i.endsWith('.css-var.png'))
-    .map((n) => path.basename(n, path.extname(n)));
+  const cssInJsImgNames = baseImgFileList.map((n) => path.basename(n, path.extname(n)));
 
   // compare to target branch
   const compareTasks = cssInJsImgNames.map((basename) =>
-    ['.png', '.css-var.png'].map((extname) => async () => {
+    ['.png'].map((extname) => async () => {
       // baseImg always use cssinjs png
       const baseImgName = `${basename}.png`;
       const baseImgPath = path.join(baseImgSourceDir, baseImgName);
