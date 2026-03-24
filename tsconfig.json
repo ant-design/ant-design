@@ -6,15 +6,14 @@
     "jsxFragmentFactory": "React.Fragment",
     "lib": ["dom", "es2017"],
     "experimentalDecorators": true,
-    "baseUrl": "./",
     "module": "esnext",
     "moduleResolution": "Bundler",
     "paths": {
-      "@@/*": [".dumi/tmp/*"],
-      "antd": ["components/index.ts"],
-      "antd/es/*": ["components/*"],
-      "antd/lib/*": ["components/*"],
-      "antd/locale/*": ["components/locale/*"]
+      "@@/*": ["./.dumi/tmp/*"],
+      "antd": ["./components/index.ts"],
+      "antd/es/*": ["./components/*"],
+      "antd/lib/*": ["./components/*"],
+      "antd/locale/*": ["./components/locale/*"]
     },
     "resolvePackageJsonExports": true,
     "strict": true,
