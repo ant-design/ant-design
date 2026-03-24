@@ -4,42 +4,12 @@ import type { ThemeConfig } from 'antd';
 /** 仅 theme 时（默认/暗黑）复制用的最小 import */
 const MINIMAL_THEME_IMPORTS = `import React from 'react';
 import { ConfigProvider, theme } from 'antd';`;
-
-const WITH_PRIORITY_TYPE_IMPORT = `import type { CSSObject, CssUtil } from 'antd-style';`;
-const WITH_PRIORITY_HELPER = `const withPriority = (css: CssUtil, style: CSSObject) =>
-  css({
-    '&&&': style,
-  });`;
-const WITH_PRIORITY_IMPORT_PATTERN =
-  /^\s*import\s+\{\s*withPriority\s*\}\s+from\s+['"]\.\/styleUtils['"];\s*\r?\n?/m;
-const CREATE_STYLES_IMPORT_PATTERN = /import\s+\{\s*createStyles\s*\}\s+from\s+['"]antd-style['"];/;
-const USE_STYLES_DECLARATION_PATTERN = /\r?\n(\s*)(export\s+)?const\s+useStyles\s*=/;
 const USE_THEME_IMPORT_PATTERN =
   /^\s*import\s+type\s+\{\s*UseTheme\s*\}\s+from\s+['"]\.['"];\s*\r?\n?/m;
 const USE_THEME_DECLARATION_PATTERN = /const\s+(\w+)\s*:\s*UseTheme\s*=\s*\(\)\s*=>\s*\{/;
 
 function normalizeCopyThemeSource(source: string): string {
   let content = source.trim();
-
-  if (WITH_PRIORITY_IMPORT_PATTERN.test(content)) {
-    const withoutWithPriorityImport = content.replace(WITH_PRIORITY_IMPORT_PATTERN, '');
-    const withPriorityTypeImport = withoutWithPriorityImport.replace(
-      CREATE_STYLES_IMPORT_PATTERN,
-      (match) => `${match}\n${WITH_PRIORITY_TYPE_IMPORT}`,
-    );
-    const withPriorityHelper = withPriorityTypeImport.replace(
-      USE_STYLES_DECLARATION_PATTERN,
-      (_match, spaces: string, exportKeyword = '') =>
-        `\n\n${WITH_PRIORITY_HELPER}\n\n${spaces}${exportKeyword}const useStyles =`,
-    );
-
-    if (
-      withPriorityTypeImport !== withoutWithPriorityImport &&
-      withPriorityHelper !== withPriorityTypeImport
-    ) {
-      content = withPriorityHelper;
-    }
-  }
 
   const replacedUseThemeDeclaration = content.replace(
     USE_THEME_DECLARATION_PATTERN,

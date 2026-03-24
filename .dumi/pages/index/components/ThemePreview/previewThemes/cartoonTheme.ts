@@ -3,16 +3,14 @@ import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-import { withPriority } from './styleUtils';
-
 const useStyles = createStyles(({ css, cssVar }) => {
   const sharedBorder = {
     border: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorBorder}`,
   };
 
   return {
-    sharedBorder: withPriority(css, sharedBorder),
-    progressTrack: withPriority(css, {
+    sharedBorder: css(sharedBorder),
+    progressTrack: css({
       ...sharedBorder,
       marginInlineStart: `calc(-1 * ${cssVar.lineWidth})`,
       marginBlockStart: `calc(-1 * ${cssVar.lineWidth})`,

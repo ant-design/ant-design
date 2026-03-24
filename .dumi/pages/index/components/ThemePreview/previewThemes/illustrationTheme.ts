@@ -3,8 +3,6 @@ import { theme } from 'antd';
 import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 
-import { withPriority } from './styleUtils';
-
 const useStyles = createStyles(({ css, cssVar }) => {
   const illustrationBorder = {
     border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
@@ -16,30 +14,30 @@ const useStyles = createStyles(({ css, cssVar }) => {
   };
 
   return {
-    illustrationBorder: withPriority(css, illustrationBorder),
-    illustrationBox: withPriority(css, illustrationBox),
-    buttonRoot: withPriority(css, {
+    illustrationBorder: css(illustrationBorder),
+    illustrationBox: css(illustrationBox),
+    buttonRoot: css({
       ...illustrationBox,
       fontWeight: 600,
       textTransform: 'uppercase',
       letterSpacing: '0.5px',
     }),
-    modalContainer: withPriority(css, {
+    modalContainer: css({
       ...illustrationBox,
     }),
     tooltipRoot: css({
       padding: cssVar.padding,
     }),
-    popupBox: withPriority(css, {
+    popupBox: css({
       ...illustrationBox,
       borderRadius: cssVar.borderRadiusLG,
       backgroundColor: cssVar.colorBgContainer,
     }),
-    progressRail: withPriority(css, {
+    progressRail: css({
       border: `${cssVar.lineWidth} solid ${cssVar.colorBorder}`,
       boxShadow: `2px 2px 0 ${cssVar.colorBorder}`,
     }),
-    progressTrack: withPriority(css, {
+    progressTrack: css({
       border: 'none',
     }),
     inputNumberActions: css({

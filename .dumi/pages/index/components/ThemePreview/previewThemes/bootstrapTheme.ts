@@ -5,36 +5,35 @@ import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
 import type { UseTheme } from '.';
-import { withPriority } from './styleUtils';
 
 const useStyles = createStyles(({ css, cssVar }) => {
   return {
-    boxBorder: withPriority(css, {
+    boxBorder: css({
       border: `${cssVar.lineWidth} ${cssVar.lineType} color-mix(in srgb,${cssVar.colorBorder} 80%, #000)`,
     }),
-    alertRoot: withPriority(css, {
+    alertRoot: css({
       color: cssVar.colorInfoText,
       textShadow: `0 1px 0 rgba(255, 255, 255, 0.8)`,
     }),
 
-    modalContainer: withPriority(css, {
+    modalContainer: css({
       padding: 0,
       borderRadius: cssVar.borderRadiusLG,
     }),
-    modalHeader: withPriority(css, {
+    modalHeader: css({
       borderBottom: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorSplit}`,
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
     }),
-    modalBody: withPriority(css, {
+    modalBody: css({
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
     }),
-    modalFooter: withPriority(css, {
+    modalFooter: css({
       borderTop: `${cssVar.lineWidth} ${cssVar.lineType} ${cssVar.colorSplit}`,
       padding: `${cssVar.padding} ${cssVar.paddingLG}`,
       backgroundColor: cssVar.colorBgContainerDisabled,
       boxShadow: `inset 0 1px 0 ${cssVar.colorBgContainer}`,
     }),
-    buttonRoot: withPriority(css, {
+    buttonRoot: css({
       backgroundImage: `linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2))`,
       boxShadow: `inset 0 1px 0 rgba(255, 255, 255, 0.15)`,
       transition: 'none',
@@ -49,12 +48,12 @@ const useStyles = createStyles(({ css, cssVar }) => {
         boxShadow: `inset 0 1px 3px rgba(0, 0, 0, 0.15)`,
       },
     }),
-    buttonColorDefault: withPriority(css, {
+    buttonColorDefault: css({
       textShadow: 'none',
       color: cssVar.colorText,
       borderBottomColor: 'rgba(0, 0, 0, 0.5)',
     }),
-    popupBox: withPriority(css, {
+    popupBox: css({
       borderRadius: cssVar.borderRadiusLG,
       backgroundColor: cssVar.colorBgContainer,
 
@@ -62,7 +61,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
         paddingInline: 0,
       },
     }),
-    dropdownItem: withPriority(css, {
+    dropdownItem: css({
       borderRadius: 0,
       transition: 'none',
       paddingBlock: cssVar.paddingXXS,
@@ -73,17 +72,17 @@ const useStyles = createStyles(({ css, cssVar }) => {
         color: cssVar.colorTextLightSolid,
       },
     }),
-    selectPopupRoot: withPriority(css, {
+    selectPopupRoot: css({
       paddingInline: 0,
     }),
-    switchRoot: withPriority(css, {
+    switchRoot: css({
       boxShadow: `inset 0 1px 3px rgba(0, 0, 0, 0.4)`,
     }),
-    progressTrack: withPriority(css, {
+    progressTrack: css({
       backgroundImage: `linear-gradient(to bottom, ${cssVar.colorPrimaryHover}, ${cssVar.colorPrimary})`,
       borderRadius: cssVar.borderRadiusSM,
     }),
-    progressRail: withPriority(css, {
+    progressRail: css({
       borderRadius: cssVar.borderRadiusSM,
     }),
   };
