@@ -103,17 +103,14 @@ const useStyles = createStyles(({ css, cssVar }) => ({
       opacity: 1,
     },
 
-    '&&.dark': {
+    '&.dark': {
       color: cssVar.colorTextLightSolid,
 
-      '&:not(:disabled):not(.ant-btn-disabled):hover': {
+      '&:hover': {
         backgroundColor: 'rgba(255, 255, 255, 0.08)',
-        color: cssVar.colorTextLightSolid,
       },
-
-      '&:not(:disabled):not(.ant-btn-disabled):active': {
+      '&:active': {
         backgroundColor: 'rgba(255, 255, 255, 0.12)',
-        color: cssVar.colorTextLightSolid,
       },
     },
   }),
