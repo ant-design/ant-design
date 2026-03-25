@@ -42,7 +42,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | action | The action of Alert | ReactNode | - | 4.9.0 | - |
 | ~~afterClose~~ | Called when close animation is finished, please use `closable.afterClose` instead | () => void | - |  | - |
 | banner | Whether to show as banner | boolean | false |  | - |
-| className | The className of root element | string | - | - | 5.7.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | closable | The config of closable, >=5.15.0: support `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | 5.7.0 |
 | description | Additional content of Alert | ReactNode | - |  | - |
@@ -52,7 +51,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~message~~ | Content of Alert, please use `title` instead | ReactNode | - |  | - |
 | ~~onClose~~ | Callback when Alert is closed, please use `closable.onClose` instead | (e: MouseEvent) => void | - |  | - |
 | showIcon | Whether to show icon | boolean | false, in `banner` mode default is true |  | - |
-| style | The style of root element | CSSProperties | - | - | 5.7.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
 | successIcon | (Only supports global configuration) Custom success icon in Alert icon | ReactNode | - | - | 6.2.0 |
 | title | Content of Alert | ReactNode | - |  | - |
