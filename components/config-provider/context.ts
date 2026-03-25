@@ -168,9 +168,8 @@ export interface ComponentStyleConfig {
   style?: React.CSSProperties;
 }
 
-export interface TableConfig<
-  RecordType extends AnyObject = AnyObject,
-> extends ComponentStyleConfig {
+export interface TableConfig<RecordType extends AnyObject = AnyObject>
+  extends ComponentStyleConfig {
   expandable?: {
     expandIcon?: NonNullable<TableProps['expandable']>['expandIcon'];
   };
@@ -460,7 +459,7 @@ export interface WaveConfig {
   /**
    * @descCN 触发水波纹效果的事件。
    * @descEN The event that triggers the wave effect.
-   * @default 'onClick'
+   * @default 'click'
    */
   triggerType?: TriggerType;
 }
