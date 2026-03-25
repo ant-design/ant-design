@@ -410,7 +410,7 @@ const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
         color: token.colorIcon,
       },
 
-      '&:focus': {
+      '&:focus-visible': {
         color: token.colorIcon,
         outline: `${token.lineWidth}px solid ${token.colorPrimary}`,
         outlineOffset: token.lineWidth,
