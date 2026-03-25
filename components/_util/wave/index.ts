@@ -18,11 +18,11 @@ export interface WaveProps {
 }
 
 const TRIGGER_TYPE_TO_EVENT_MAP = {
-  onClick: 'click',
-  onMouseDown: 'mousedown',
-  onMouseUp: 'mouseup',
-  onPointerDown: 'pointerdown',
-  onPointerUp: 'pointerup',
+  click: 'click',
+  mousedown: 'mousedown',
+  mouseup: 'mouseup',
+  pointerdown: 'pointerdown',
+  pointerup: 'pointerup',
 } as const;
 
 const Wave: React.FC<WaveProps> = (props) => {

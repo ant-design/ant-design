@@ -442,7 +442,7 @@ export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as co
 
 export type Variant = (typeof Variants)[number];
 
-export type TriggerType = 'onClick' | 'onPointerDown' | 'onPointerUp' | 'onMouseDown' | 'onMouseUp';
+export type TriggerType = 'click' | 'pointerdown' | 'pointerup' | 'mousedown' | 'mouseup';
 
 export interface WaveConfig {
   /**

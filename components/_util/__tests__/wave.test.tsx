@@ -397,7 +397,7 @@ describe('Wave component', () => {
 
     it('should trigger on mousedown when configured', () => {
       const { container } = render(
-        <ConfigProvider wave={{ triggerType: 'onMouseDown' }}>
+        <ConfigProvider wave={{ triggerType: 'mousedown' }}>
           <Wave>
             <button type="button">Button</button>
           </Wave>
@@ -418,7 +418,7 @@ describe('Wave component', () => {
 
     it('should trigger on pointerdown when configured', () => {
       const { container } = render(
-        <ConfigProvider wave={{ triggerType: 'onPointerDown' }}>
+        <ConfigProvider wave={{ triggerType: 'pointerdown' }}>
           <Wave>
             <button type="button">Button</button>
           </Wave>

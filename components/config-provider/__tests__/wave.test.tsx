@@ -52,12 +52,12 @@ describe('ConfigProvider.Wave', () => {
 
   it('should pass wave config to context', () => {
     const { container } = render(
-      <ConfigProvider wave={{ triggerType: 'onPointerDown' }}>
+      <ConfigProvider wave={{ triggerType: 'pointerdown' }}>
         <ConfigContext.Consumer>
           {(context) => <div id="trigger">{context.wave?.triggerType}</div>}
         </ConfigContext.Consumer>
       </ConfigProvider>,
     );
-    expect(container.querySelector('#trigger')?.textContent).toBe('onPointerDown');
+    expect(container.querySelector('#trigger')?.textContent).toBe('pointerdown');
   });
 });

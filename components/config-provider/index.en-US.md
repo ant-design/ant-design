@@ -179,7 +179,7 @@ const {
 | treeSelect | Set TreeSelect common props | { className?: string, style?: React.CSSProperties, classNames?: [TreeSelectConfig\["classNames"\]](/components/tree-select#semantic-dom), styles?: [TreeSelectConfig\["styles"\]](/components/tree-select#semantic-dom), switcherIcon?: [TreeSelect\["switcherIcon"\]](/components/tree-select#api)} | - |  |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | Set Upload common props | { className?: string, style?: React.CSSProperties, classNames?:[UploadConfig\["classNames"\]](/components/upload#semantic-dom), styles?: [UploadConfig\["styles"\]](/components/upload#semantic-dom), customRequest?: [Upload\["customRequest"\]](/components/upload#api), progress?: [ProgressProps](/components/progress#api), accept?: [Upload\["accept"\]](/components/upload#api) } | - | 5.7.0, `customRequest`: 5.27.0, `classNames` and `styles`: 6.0.0, `accept` and `progress`: 6.4.0 |
-| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void, triggerType?: `onClick` \| `onPointerDown` \| `onPointerUp` \| `onMouseDown` \| `onMouseUp` } | - | 5.8.0, `triggerType`: 6.4.0 |
+| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void, triggerType?: `click` \| `pointerdown` \| `pointerup` \| `mousedown` \| `mouseup` } | - | 5.8.0, `triggerType`: 6.4.0 |
 
 ## FAQ
 
