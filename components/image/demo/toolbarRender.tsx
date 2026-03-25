@@ -10,7 +10,7 @@ import {
   ZoomInOutlined,
   ZoomOutOutlined,
 } from '@ant-design/icons';
-import { Image, Space } from 'antd';
+import { Image, Slider, Space } from 'antd';
 
 const imageList = [
   'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg',
@@ -61,23 +61,43 @@ const App: React.FC = () => {
               onReset,
             },
           },
-        ) => (
-          <Space size={12} className="toolbar-wrapper">
-            <LeftOutlined disabled={current === 0} onClick={() => onActive?.(-1)} />
-            <RightOutlined
-              disabled={current === imageList.length - 1}
-              onClick={() => onActive?.(1)}
-            />
-            <DownloadOutlined onClick={onDownload} />
-            <SwapOutlined rotate={90} onClick={onFlipY} />
-            <SwapOutlined onClick={onFlipX} />
-            <RotateLeftOutlined onClick={onRotateLeft} />
-            <RotateRightOutlined onClick={onRotateRight} />
-            <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
-            <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
-            <UndoOutlined onClick={onReset} />
-          </Space>
-        ),
+        ) => {
+          const handleScaleChange = (nextScale: number) => {
+            // `@rc-component/image` v1.7.x no longer exposes an `onChangeScale` action.
+            // We approximate scale changes by triggering one step of zoom in/out.
+            if (nextScale > scale) {
+              onZoomIn();
+            } else if (nextScale < scale) {
+              onZoomOut();
+            }
+          };
+
+          return (
+            <Space size={12} className="toolbar-wrapper">
+              <LeftOutlined disabled={current === 0} onClick={() => onActive?.(-1)} />
+              <RightOutlined
+                disabled={current === imageList.length - 1}
+                onClick={() => onActive?.(1)}
+              />
+              <DownloadOutlined onClick={onDownload} />
+              <SwapOutlined rotate={90} onClick={onFlipY} />
+              <SwapOutlined onClick={onFlipX} />
+              <RotateLeftOutlined onClick={onRotateLeft} />
+              <RotateRightOutlined onClick={onRotateRight} />
+              <ZoomOutOutlined disabled={scale === 1} onClick={onZoomOut} />
+              <Slider
+                min={1}
+                max={50}
+                step={0.1}
+                value={scale}
+                styles={{ root: { width: 100, marginInline: 12 } }}
+                onChange={handleScaleChange}
+              />
+              <ZoomInOutlined disabled={scale === 50} onClick={onZoomIn} />
+              <UndoOutlined onClick={onReset} />
+            </Space>
+          );
+        },
         onChange: (index) => {
           setCurrent(index);
         },
