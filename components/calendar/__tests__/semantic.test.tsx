@@ -5,16 +5,16 @@ import Calendar from '..';
 import { render } from '../../../tests/utils';
 
 describe('Calendar.Semantic', () => {
-  it('should support itemDateContent classNames and styles', () => {
+  it('should support itemContent classNames and styles', () => {
     const { container } = render(
       <Calendar
         value={dayjsGenerateConfig.getNow()}
         cellRender={() => <div className="custom-cell"> custom content </div>}
         classNames={{
-          itemDateContent: 'custom-item-date-content',
+          itemContent: 'custom-item-content',
         }}
         styles={{
-          itemDateContent: {
+          itemContent: {
             height: '50px',
             overflow: 'hidden',
           },
@@ -23,21 +23,21 @@ describe('Calendar.Semantic', () => {
     );
 
     const dateContent = container.querySelector('.ant-picker-calendar-date-content');
-    expect(dateContent).toHaveClass('custom-item-date-content');
+    expect(dateContent).toHaveClass('custom-item-content');
     expect(dateContent).toHaveStyle({ height: '50px', overflow: 'hidden' });
   });
 
-  it('should support itemDateContent classNames and styles in year mode', () => {
+  it('should support itemContent classNames and styles in year mode', () => {
     const { container } = render(
       <Calendar
         value={dayjsGenerateConfig.getNow()}
         mode="year"
         cellRender={() => <div className="custom-cell"> custom content </div>}
         classNames={{
-          itemDateContent: 'custom-item-date-content-year',
+          itemContent: 'custom-item-content-year',
         }}
         styles={{
-          itemDateContent: {
+          itemContent: {
             height: '80px',
             overflow: 'auto',
           },
@@ -46,7 +46,7 @@ describe('Calendar.Semantic', () => {
     );
 
     const dateContent = container.querySelector('.ant-picker-calendar-date-content');
-    expect(dateContent).toHaveClass('custom-item-date-content-year');
+    expect(dateContent).toHaveClass('custom-item-content-year');
     expect(dateContent).toHaveStyle({ height: '80px', overflow: 'auto' });
   });
 

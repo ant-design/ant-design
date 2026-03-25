@@ -36,7 +36,7 @@ export type CalendarSemanticType = {
     body?: string;
     content?: string;
     item?: string;
-    itemDateContent?: string;
+    itemContent?: string;
   };
   styles?: {
     root?: React.CSSProperties;
@@ -44,7 +44,7 @@ export type CalendarSemanticType = {
     body?: React.CSSProperties;
     content?: React.CSSProperties;
     item?: React.CSSProperties;
-    itemDateContent?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
   };
 };
 
@@ -169,6 +169,9 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         ] as const;
       }, [mergedClassNames, mergedStyles]);
 
+    const mergedItemContentClassName = mergedClassNames.itemContent;
+    const mergedItemContentStyle = mergedStyles.itemContent;
+
     const prefixCls = getPrefixCls('picker', customizePrefixCls);
     const calendarPrefixCls = `${prefixCls}-calendar`;
 
@@ -268,11 +271,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
               {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
             <div
-              className={clsx(
-                `${calendarPrefixCls}-date-content`,
-                mergedClassNames.itemDateContent,
-              )}
-              style={mergedStyles.itemDateContent}
+              className={clsx(`${calendarPrefixCls}-date-content`, mergedItemContentClassName)}
+              style={mergedItemContentStyle}
             >
               {typeof cellRender === 'function' ? cellRender(date, info) : dateCellRender?.(date)}
             </div>
@@ -287,8 +287,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         dateFullCellRender,
         cellRender,
         dateCellRender,
-        mergedClassNames.itemDateContent,
-        mergedStyles.itemDateContent,
+        mergedItemContentClassName,
+        mergedItemContentStyle,
       ],
     );
 
@@ -314,11 +314,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
               {months[generateConfig.getMonth(date)]}
             </div>
             <div
-              className={clsx(
-                `${calendarPrefixCls}-date-content`,
-                mergedClassNames.itemDateContent,
-              )}
-              style={mergedStyles.itemDateContent}
+              className={clsx(`${calendarPrefixCls}-date-content`, mergedItemContentClassName)}
+              style={mergedItemContentStyle}
             >
               {typeof cellRender === 'function' ? cellRender(date, info) : monthCellRender?.(date)}
             </div>
@@ -333,8 +330,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         monthFullCellRender,
         cellRender,
         monthCellRender,
-        mergedClassNames.itemDateContent,
-        mergedStyles.itemDateContent,
+        mergedItemContentClassName,
+        mergedItemContentStyle,
       ],
     );
 
