@@ -45,6 +45,7 @@ group:
 | banner | 是否用作顶部公告 | boolean | false |  | - |
 | classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | closable | 可关闭配置，>=5.15.0: 支持 `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | 5.7.0 |
+| closeIcon | （仅支持全局配置）自定义关闭图标 | ReactNode | - | x | 6.3.0 |
 | description | 警告提示的辅助性文字介绍 | ReactNode | - |  | - |
 | errorIcon | （仅支持全局配置）自定义错误图标（作用于 Alert 图标） | ReactNode | - | - | 6.2.0 |
 | icon | 自定义图标，`showIcon` 为 true 时有效 | ReactNode | - |  | - |

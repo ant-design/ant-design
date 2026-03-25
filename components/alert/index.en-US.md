@@ -44,6 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | banner | Whether to show as banner | boolean | false |  | - |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | closable | The config of closable, >=5.15.0: support `aria-*` | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | 5.7.0 |
+| closeIcon | (Only supports global configuration) Custom close icon | ReactNode | - | x | 6.3.0 |
 | description | Additional content of Alert | ReactNode | - |  | - |
 | errorIcon | (Only supports global configuration) Custom error icon in Alert icon | ReactNode | - | - | 6.2.0 |
 | icon | Custom icon, effective when `showIcon` is true | ReactNode | - |  | - |
