@@ -101,6 +101,7 @@ export default App;
 - [Ant Design Mini](https://mini.ant.design)
 - [Ant Design Charts](https://charts.ant.design)
 - [Ant Design Web3](https://web3.ant.design)
+- [🤖 Ant Design CLI](https://github.com/ant-design/ant-design-cli)
 - [Landing Pages](https://landing.ant.design)
 - [Ant Motion](https://motion.ant.design)
 - [Scaffold Market](https://scaffold.ant.design)
