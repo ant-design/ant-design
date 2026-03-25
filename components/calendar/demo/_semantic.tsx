@@ -36,7 +36,7 @@ const App: React.FC = () => {
         { name: 'body', desc: locale.body, version: '6.0.0' },
         { name: 'content', desc: locale.content, version: '6.0.0' },
         { name: 'item', desc: locale.item, version: '6.0.0' },
-        { name: 'itemDateContent', desc: locale.itemDateContent, version: '6.0.0' },
+        { name: 'itemDateContent', desc: locale.itemDateContent, version: '6.4.0' },
       ]}
     >
       <Calendar />
