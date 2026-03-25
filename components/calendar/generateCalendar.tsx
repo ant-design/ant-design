@@ -36,6 +36,7 @@ export type CalendarSemanticType = {
     body?: string;
     content?: string;
     item?: string;
+    itemDateContent?: string;
   };
   styles?: {
     root?: React.CSSProperties;
@@ -43,6 +44,7 @@ export type CalendarSemanticType = {
     body?: React.CSSProperties;
     content?: React.CSSProperties;
     item?: React.CSSProperties;
+    itemDateContent?: React.CSSProperties;
   };
 };
 
@@ -265,7 +267,13 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             <div className={`${calendarPrefixCls}-date-value`}>
               {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
-            <div className={`${calendarPrefixCls}-date-content`}>
+            <div
+              className={clsx(
+                `${calendarPrefixCls}-date-content`,
+                mergedClassNames.itemDateContent,
+              )}
+              style={mergedStyles.itemDateContent}
+            >
               {typeof cellRender === 'function' ? cellRender(date, info) : dateCellRender?.(date)}
             </div>
           </div>
@@ -279,6 +287,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         dateFullCellRender,
         cellRender,
         dateCellRender,
+        mergedClassNames.itemDateContent,
+        mergedStyles.itemDateContent,
       ],
     );
 
@@ -303,7 +313,13 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
             <div className={`${calendarPrefixCls}-date-value`}>
               {months[generateConfig.getMonth(date)]}
             </div>
-            <div className={`${calendarPrefixCls}-date-content`}>
+            <div
+              className={clsx(
+                `${calendarPrefixCls}-date-content`,
+                mergedClassNames.itemDateContent,
+              )}
+              style={mergedStyles.itemDateContent}
+            >
               {typeof cellRender === 'function' ? cellRender(date, info) : monthCellRender?.(date)}
             </div>
           </div>
@@ -317,6 +333,8 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         monthFullCellRender,
         cellRender,
         monthCellRender,
+        mergedClassNames.itemDateContent,
+        mergedStyles.itemDateContent,
       ],
     );
 
