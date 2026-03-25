@@ -2,7 +2,7 @@ import * as React from 'react';
 import { flushSync } from 'react-dom';
 import type { UploadProps as RcUploadProps } from '@rc-component/upload';
 import RcUpload from '@rc-component/upload';
-import { useControlledState } from '@rc-component/util';
+import { mergeProps, useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -21,7 +21,6 @@ import type {
 import useStyle from './style';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
-import fallbackProp from '../_util/fallbackProp';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -41,13 +40,20 @@ export interface UploadRef<T = any> {
   nativeElement: HTMLSpanElement | null;
 }
 
+const defaultProps: Partial<UploadProps> = {
+  accept: '',
+  listType: 'text',
+  type: 'select',
+};
+
 const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (props, ref) => {
   const config = useComponentConfig('upload');
+  const { accept, customRequest } = mergeProps(defaultProps, config, props);
   const {
     fileList,
     defaultFileList,
     onRemove,
-    showUploadList = true,
+    showUploadList: customShowUploadList,
     listType = 'text',
     onPreview,
     onDownload,
@@ -70,7 +76,6 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     multiple = false,
     hasControlInside = true,
     action = '',
-    accept: customAccept,
     supportServerRender = true,
     rootClassName,
     styles,
@@ -81,9 +86,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
 
-  const customRequest = props.customRequest || config.customRequest;
   const mergedProgress = { ...config.progress, ...customProgress };
-  const mergedAccept = fallbackProp(customAccept, config.accept, '');
+  const mergedShowUploadList = customShowUploadList ?? config.showUploadList ?? true;
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
@@ -357,7 +361,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const mergedProps: UploadProps = {
     ...props,
     listType,
-    showUploadList,
+    showUploadList: mergedShowUploadList,
     type,
     multiple,
     hasControlInside,
@@ -383,7 +387,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     data,
     multiple,
     action,
-    accept: mergedAccept,
+    accept,
     supportServerRender,
     prefixCls,
     disabled: mergedDisabled,
@@ -416,14 +420,17 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     previewIcon,
     downloadIcon,
     extra,
-  } = typeof showUploadList === 'boolean' ? ({} as ShowUploadListInterface) : showUploadList;
+  } =
+    typeof mergedShowUploadList === 'boolean'
+      ? ({} as ShowUploadListInterface)
+      : mergedShowUploadList;
 
   // use showRemoveIcon if it is specified explicitly
   const realShowRemoveIcon =
     typeof showRemoveIcon === 'undefined' ? !mergedDisabled : showRemoveIcon;
 
   const renderUploadList = (button?: React.ReactNode, buttonVisible?: boolean) => {
-    if (!showUploadList) {
+    if (!mergedShowUploadList) {
       return button;
     }
     return (
