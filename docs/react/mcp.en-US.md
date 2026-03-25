@@ -116,6 +116,6 @@ If your AI tool doesn't support MCP, you can use our [LLMs.txt](/docs/react/llms
 
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io/)
 - [Ant Design CLI](/docs/react/cli-en-US)
-- [Ant Design LLMs.txt Guide](/docs/react/llms-en-US)
 - [@ant-design/cli on GitHub](https://github.com/ant-design/ant-design-cli)
+- [Ant Design LLMs.txt Guide](/docs/react/llms-en-US)
 - [@jzone-mcp/antd-components-mcp on npm](https://www.npmjs.com/package/@jzone-mcp/antd-components-mcp)
