@@ -1,9 +1,32 @@
 import React from 'react';
 
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import Calendar from '..';
 import { render } from '../../../tests/utils';
 
 describe('Calendar.Semantic', () => {
+  it('should support itemDateContent classNames and styles', () => {
+    const { container } = render(
+      <Calendar
+        value={dayjsGenerateConfig.getNow()}
+        cellRender={() => <div className="custom-cell"> custom content </div>}
+        classNames={{
+          itemDateContent: 'custom-item-date-content',
+        }}
+        styles={{
+          itemDateContent: {
+            height: '50px',
+            overflow: 'hidden',
+          },
+        }}
+      />,
+    );
+
+    const dateContent = container.querySelector('.ant-picker-calendar-date-content');
+    expect(dateContent).toHaveClass('custom-item-date-content');
+    expect(dateContent).toHaveStyle({ height: '50px', overflow: 'hidden' });
+  });
+
   it('support classNames and styles as functions', () => {
     const { container } = render(
       <Calendar
