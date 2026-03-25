@@ -18,7 +18,8 @@
       "!package.json",
       "!components/style/antd.css",
       "!scripts/visual-regression/report-template.html",
-      "!.claude/skills"
+      "!.claude/skills",
+      "!.agents/skills"
     ]
   },
   "formatter": {
