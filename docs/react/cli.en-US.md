@@ -72,6 +72,14 @@ antd migrate 4 5 --apply ./src      # Agent-ready migration prompt
 | `--lang en\|zh`                 | Output language                     | `en`        |
 | `--detail`                      | Include extended information        | `false`     |
 
+### MCP Server
+
+| Command    | Description                                                        |
+| ---------- | ------------------------------------------------------------------ |
+| `antd mcp` | Start an MCP server with 7 tools and 2 prompts for IDE integration |
+
+The `antd mcp` command launches a [Model Context Protocol](https://modelcontextprotocol.io/) server, allowing AI assistants to access Ant Design knowledge directly. See the [MCP Server](/docs/react/mcp-en-US) guide for full details and configuration.
+
 ## Usage with AI Tools
 
 The CLI ships with a built-in [skill file](https://github.com/ant-design/ant-design-cli/blob/main/skills/antd/SKILL.md) that teaches code agents when and how to use each command:
