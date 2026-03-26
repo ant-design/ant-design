@@ -45,6 +45,7 @@ import type {
   ImageConfig,
   InputConfig,
   InputNumberConfig,
+  InputPasswordConfig,
   InputSearchConfig,
   ListConfig,
   MasonryConfig,
@@ -193,6 +194,7 @@ export interface ConfigProviderProps {
   variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
+  inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;
   otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
@@ -411,6 +413,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     menu,
     pagination,
     input,
+    inputPassword,
     inputSearch,
     textArea,
     otp,
@@ -511,6 +514,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     input,
+    inputPassword,
     inputSearch,
     textArea,
     otp,

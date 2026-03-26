@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Παρακαλώ επιλέξτε',
     close: 'Κλείσιμο',
+    show: 'Εμφάνιση',
+    hide: 'Απόκρυψη',
   },
   Table: {
     filterTitle: 'Μενού φίλτρων',

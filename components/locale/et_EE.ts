@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Palun vali',
     close: 'Sulge',
+    show: 'Näita',
+    hide: 'Peida',
   },
   Table: {
     filterTitle: 'Filtri menüü',
