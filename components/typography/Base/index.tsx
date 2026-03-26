@@ -466,10 +466,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const renderActionGroup = (key: React.Key, actionNodes: React.ReactNode[]) => {
-    const nodes = actionNodes.filter(
-      (node): node is Exclude<React.ReactNode, null | undefined | false> =>
-        isNonNullable(node) && node !== false,
-    );
+    const nodes = actionNodes.filter(isNonNullable);
 
     if (!nodes.length) {
       return null;
@@ -498,9 +495,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   const renderOperations = (canEllipsis: boolean) => {
     return renderActionGroup('operations', [
-      canEllipsis && renderExpand(),
+      canEllipsis ? renderExpand() : null,
       renderEdit(),
-      copyConfig.placement !== 'start' && renderCopy(),
+      copyConfig.placement !== 'start' ? renderCopy() : null,
     ]);
   };
 
