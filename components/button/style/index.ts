@@ -47,7 +47,11 @@ const genSharedButtonStyle: GenerateStyle<ButtonToken, CSSObject> = (token) => {
       },
 
       // https://github.com/ant-design/ant-design/issues/51380
-      [`${componentCls}-icon > svg`]: resetIcon(),
+
+      [`${componentCls}-icon`]: {
+        display: 'inline-flex',
+        [`& > svg`]: resetIcon(),
+      },
 
       '> a': {
         color: 'currentColor',
@@ -143,6 +147,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
     iconCls,
     buttonPaddingVertical,
     buttonIconOnlyFontSize,
+    lineHeightSM,
   } = token;
 
   return [
@@ -152,7 +157,7 @@ const genButtonStyle = (token: ButtonToken, prefixCls = ''): CSSInterpolation =>
         height: controlHeight,
         padding: `${unit(buttonPaddingVertical!)} ${unit(buttonPaddingHorizontal!)}`,
         borderRadius,
-
+        lineHeight: lineHeightSM,
         [`&${componentCls}-icon-only`]: {
           width: controlHeight,
 
