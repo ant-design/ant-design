@@ -475,16 +475,18 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderActionGroup = (key: React.Key, actionNodes: React.ReactNode[]) => {
-    const nodes = actionNodes.filter(isNonNullable);
+  const renderOperations = (canEllipsis: boolean) => {
+    const expandNode = canEllipsis ? renderExpand() : null;
+    const editNode = renderEdit();
+    const copyNode = renderCopy();
 
-    if (!nodes.length) {
+    if (!expandNode && !editNode && !copyNode) {
       return null;
     }
 
     return (
       <span
-        key={key}
+        key="operations"
         className={clsx(`${prefixCls}-actions`, mergedClassNames.actions, {
           [`${prefixCls}-actions-start`]: placement === 'start',
         })}
@@ -492,17 +494,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onMouseEnter={() => setIsHoveringOperations(true)}
         onMouseLeave={() => setIsHoveringOperations(false)}
       >
-        {nodes}
+        {expandNode}
+        {editNode}
+        {copyNode}
       </span>
     );
-  };
-
-  const renderOperations = (canEllipsis: boolean) => {
-    return renderActionGroup('operations', [
-      canEllipsis ? renderExpand() : null,
-      renderEdit(),
-      renderCopy(),
-    ]);
   };
 
   const renderEllipsis = (canEllipsis: boolean) => [
