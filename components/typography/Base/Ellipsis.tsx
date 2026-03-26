@@ -95,7 +95,7 @@ export interface EllipsisProps {
    * Mark for measurement update that may affect ellipsis content layout.
    * e.g. operation placement change.
    */
-  measureDeps?: any[];
+  measureDeps: any[];
   /**
    * Mark for misc update. Which will not affect ellipsis content length.
    * e.g. tooltip content update.
@@ -124,7 +124,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     children,
     rows,
     expanded,
-    measureDeps = [],
+    measureDeps,
     miscDeps,
     onEllipsis,
   } = props;
