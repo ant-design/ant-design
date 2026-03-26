@@ -15383,6 +15383,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       class="config-input-suffix"
     >
       <span
+        aria-disabled="false"
         aria-label="Show password"
         aria-pressed="false"
         class="config-input-password-icon"
@@ -15484,11 +15485,12 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
       class="config-input-suffix"
     >
       <span
+        aria-disabled="true"
         aria-label="Show password"
         aria-pressed="false"
         class="config-input-password-icon"
         role="button"
-        tabindex="0"
+        tabindex="-1"
       >
         <span
           aria-label="eye-invisible"
@@ -15582,6 +15584,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       class="config-input-suffix"
     >
       <span
+        aria-disabled="false"
         aria-label="Show password"
         aria-pressed="false"
         class="config-input-password-icon"
@@ -15679,6 +15682,7 @@ exports[`ConfigProvider components Input configProvider componentSize medium 1`]
       class="config-input-suffix"
     >
       <span
+        aria-disabled="false"
         aria-label="Show password"
         aria-pressed="false"
         class="config-input-password-icon"
@@ -15776,6 +15780,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
       class="config-input-suffix"
     >
       <span
+        aria-disabled="false"
         aria-label="Show password"
         aria-pressed="false"
         class="config-input-password-icon"
@@ -15873,6 +15878,7 @@ exports[`ConfigProvider components Input normal 1`] = `
       class="ant-input-suffix"
     >
       <span
+        aria-disabled="false"
         aria-label="Show password"
         aria-pressed="false"
         class="ant-input-password-icon"
@@ -15970,6 +15976,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       class="ant-input-suffix"
     >
       <span
+        aria-disabled="false"
         aria-label="Show password"
         aria-pressed="false"
         class="prefix-Input-icon"

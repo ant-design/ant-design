@@ -10725,6 +10725,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-input-suffix"
       >
         <span
+          aria-disabled="false"
           aria-label="Show password"
           aria-pressed="false"
           class="ant-input-password-icon"
@@ -10773,6 +10774,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-input-suffix"
       >
         <span
+          aria-disabled="false"
           aria-label="Show password"
           aria-pressed="false"
           class="ant-input-password-icon"
@@ -10827,6 +10829,7 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
             class="ant-input-suffix"
           >
             <span
+              aria-disabled="false"
               aria-label="Show password"
               aria-pressed="false"
               class="ant-input-password-icon"
@@ -10891,11 +10894,12 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-input-suffix"
       >
         <span
+          aria-disabled="true"
           aria-label="Show password"
           aria-pressed="false"
           class="ant-input-password-icon"
           role="button"
-          tabindex="0"
+          tabindex="-1"
         >
           <span
             aria-label="eye-invisible"
@@ -11070,6 +11074,7 @@ Array [
       class="ant-input-suffix"
     >
       <span
+        aria-disabled="false"
         aria-label="Show password"
         aria-pressed="false"
         class="ant-input-password-icon"
@@ -11958,6 +11963,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
       class="ant-input-suffix"
     >
       <span
+        aria-disabled="false"
         aria-label="Show password"
         aria-pressed="false"
         class="ant-input-password-icon"

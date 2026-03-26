@@ -94,6 +94,7 @@ exports[`renders components/form/demo/_semantic.tsx correctly 1`] = `
                       class="ant-input-suffix"
                     >
                       <span
+                        aria-disabled="false"
                         aria-label="Show password"
                         aria-pressed="false"
                         class="ant-input-password-icon"

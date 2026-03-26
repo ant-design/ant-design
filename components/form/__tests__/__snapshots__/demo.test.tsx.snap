@@ -506,6 +506,7 @@ exports[`renders components/form/demo/basic.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <span
+                  aria-disabled="false"
                   aria-label="Show password"
                   aria-pressed="false"
                   class="ant-input-password-icon"
@@ -698,6 +699,7 @@ Array [
                   class="ant-input-suffix"
                 >
                   <span
+                    aria-disabled="false"
                     aria-label="Show password"
                     aria-pressed="false"
                     class="ant-input-password-icon"
@@ -974,6 +976,7 @@ Array [
                   class="ant-input-suffix"
                 >
                   <span
+                    aria-disabled="false"
                     aria-label="Show password"
                     aria-pressed="false"
                     class="ant-input-password-icon"
@@ -6069,6 +6072,7 @@ exports[`renders components/form/demo/label-debug.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <span
+                  aria-disabled="false"
                   aria-label="Show password"
                   aria-pressed="false"
                   class="ant-input-password-icon"
@@ -7382,6 +7386,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <span
+                  aria-disabled="false"
                   aria-label="Show password"
                   aria-pressed="false"
                   class="ant-input-password-icon"
@@ -7458,6 +7463,7 @@ exports[`renders components/form/demo/register.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <span
+                  aria-disabled="false"
                   aria-label="Show password"
                   aria-pressed="false"
                   class="ant-input-password-icon"
@@ -13449,6 +13455,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                 class="ant-input-suffix"
               >
                 <span
+                  aria-disabled="false"
                   aria-label="Show password"
                   aria-pressed="false"
                   class="ant-input-password-icon"
@@ -13572,6 +13579,7 @@ exports[`renders components/form/demo/validate-static.tsx correctly 1`] = `
                   </span>
                 </button>
                 <span
+                  aria-disabled="false"
                   aria-label="Show password"
                   aria-pressed="false"
                   class="ant-input-password-icon"

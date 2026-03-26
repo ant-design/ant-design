@@ -121,8 +121,9 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
       <span
         key="passwordIcon"
         role="button"
-        tabIndex={0}
+        tabIndex={mergedDisabled ? -1 : 0}
         className={`${prefixCls}-icon`}
+        aria-disabled={mergedDisabled}
         aria-pressed={visible}
         aria-label={visible ? locale.hidePassword : locale.showPassword}
         onMouseDown={(e) => {
