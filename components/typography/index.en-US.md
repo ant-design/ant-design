@@ -20,6 +20,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/paragraph-debug.tsx" debug>Title and Paragraph</code>
 <code src="./demo/text.tsx">Text and Link Component</code>
 <code src="./demo/editable.tsx">Editable</code>
+<code src="./demo/actions.tsx">Actions</code>
 <code src="./demo/copyable.tsx">Copyable</code>
 <code src="./demo/ellipsis.tsx">Ellipsis</code>
 <code src="./demo/ellipsis-controlled.tsx" version="5.16.0">Controlled ellipsis expand/collapse</code>
@@ -37,6 +38,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
@@ -57,6 +59,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
@@ -76,6 +79,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
@@ -91,6 +95,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | underline | Underlined style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
 
+### actions
+
+    {
+      placement: 'start' | 'end',
+    }
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| placement | Set the operation bar placement relative to the text | `start` \| `end` | `end` | 6.4.0 |
+
 ### copyable
 
     {
@@ -99,7 +113,6 @@ Common props ref：[Common props](/docs/react/common-props)
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
       format: 'text/plain' | 'text/html',
-      placement: 'start' | 'end',
       tabIndex: number,
     }
 
@@ -107,7 +120,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | format | The Mime Type of the text | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode] | - | 4.6.0 |
-| placement | Set the copy button placement relative to the text | `start` \| `end` | `end` | 6.4.0 |
 | tabIndex | Set tabIndex of the copy button | number | 0 | 5.17.0 |
 | text | The text to copy | string | - |  |
 | tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |

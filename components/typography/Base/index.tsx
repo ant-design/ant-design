@@ -71,11 +71,14 @@ export interface CopyConfig {
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
-   /**
+  tabIndex?: number;
+}
+
+export interface ActionsConfig {
+  /**
    * @since 6.4.0
    */
   placement?: 'start' | 'end';
-  tabIndex?: number;
 }
 
 interface EditConfig {
@@ -108,6 +111,7 @@ export interface EllipsisConfig {
 
 export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
   extends TypographyProps<C> {
+  actions?: ActionsConfig;
   title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
@@ -175,6 +179,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     ellipsis,
     editable,
     copyable,
+    actions,
     component,
     title,
     onMouseEnter,
@@ -234,6 +239,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
+
+  const { placement = 'end' } = actions ?? {};
 
   const { copied, copyLoading, onClick: onCopyClick } = useCopyClick({ copyConfig, children });
 
@@ -478,7 +485,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return (
       <span
         key={key}
-        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
+        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions, {
+          [`${prefixCls}-actions-start`]: placement === 'start',
+        })}
         style={mergedStyles.actions}
         onMouseEnter={() => setIsHoveringOperations(true)}
         onMouseLeave={() => setIsHoveringOperations(false)}
@@ -488,19 +497,11 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderCopyActions = () => {
-    if (copyConfig.placement !== 'start') {
-      return null;
-    }
-
-    return renderActionGroup('copy-start', [renderCopy()]);
-  };
-
   const renderOperations = (canEllipsis: boolean) => {
     return renderActionGroup('operations', [
       canEllipsis ? renderExpand() : null,
       renderEdit(),
-      copyConfig.placement !== 'start' ? renderCopy() : null,
+      renderCopy(),
     ]);
   };
 
@@ -511,7 +512,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(canEllipsis),
   ];
 
   return (
@@ -565,13 +565,14 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
+              measureDeps={[placement]}
               miscDeps={[
                 copied,
                 expanded,
                 copyLoading,
                 enableEdit,
                 enableCopy,
-                copyConfig.placement,
+                placement,
                 textLocale,
                 ...DECORATION_PROPS.map((key) => props[key as keyof BlockProps]),
               ]}
@@ -580,7 +581,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 wrapperDecorations(
                   props,
                   <>
-                    {renderCopyActions()}
+                    {placement === 'start' ? renderOperations(canEllipsis) : null}
                     {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
                       <span key="show-content" aria-hidden>
                         {node}
@@ -589,6 +590,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                       node
                     )}
                     {renderEllipsis(canEllipsis)}
+                    {placement === 'start' ? null : renderOperations(canEllipsis)}
                   </>,
                 )
               }

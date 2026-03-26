@@ -733,7 +733,7 @@ describe('Typography.Ellipsis', () => {
     fireEvent.mouseLeave(operationsWrapper!);
   });
 
-  it('copyable with start placement + ellipsis: ellipsis tooltip hides when hovering copy, shows when hovering text', async () => {
+  it('copyable with start action bar placement + ellipsis: ellipsis tooltip hides when hovering copy, shows when hovering text', async () => {
     offsetWidth = 50;
     scrollWidth = 100;
 
@@ -742,7 +742,8 @@ describe('Typography.Ellipsis', () => {
       <Base
         ref={ref}
         component="p"
-        copyable={{ placement: 'start' }}
+        copyable
+        actions={{ placement: 'start' }}
         ellipsis={{ rows: 1, tooltip: true }}
       >
         {fullStr}

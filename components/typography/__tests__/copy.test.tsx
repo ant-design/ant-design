@@ -346,30 +346,30 @@ describe('Typography copy', () => {
     expect(container.querySelector('.ant-typography-copy')?.getAttribute('tabIndex')).toBe('-1');
   });
 
-  it('copy button placement', () => {
+  it('action bar placement', () => {
     const { container, rerender } = render(
-      <Base component="p" copyable>
+      <Base component="p" copyable editable>
         test
       </Base>,
     );
 
     const typography = container.querySelector('.ant-typography')!;
     expect(typography.lastElementChild).toHaveClass('ant-typography-actions');
-    expect(typography.querySelector('.ant-typography-copy')).not.toHaveClass(
-      'ant-typography-copy-start',
-    );
+    expect(typography.lastElementChild).not.toHaveClass('ant-typography-actions-start');
+    expect(typography.querySelector('.ant-typography-edit')).toBeTruthy();
+    expect(typography.querySelector('.ant-typography-copy')).toBeTruthy();
 
     rerender(
-      <Base component="p" copyable={{ placement: 'start' }}>
+      <Base component="p" copyable editable actions={{ placement: 'start' }}>
         test
       </Base>,
     );
 
     const updatedTypography = container.querySelector('.ant-typography')!;
     expect(updatedTypography.firstElementChild).toHaveClass('ant-typography-actions');
-    expect(updatedTypography.querySelector('.ant-typography-copy')).toHaveClass(
-      'ant-typography-copy-start',
-    );
+    expect(updatedTypography.firstElementChild).toHaveClass('ant-typography-actions-start');
+    expect(updatedTypography.querySelector('.ant-typography-edit')).toBeTruthy();
+    expect(updatedTypography.querySelector('.ant-typography-copy')).toBeTruthy();
   });
 
   it('locale text for button tooltip', async () => {

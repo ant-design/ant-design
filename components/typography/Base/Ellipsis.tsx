@@ -92,6 +92,11 @@ export interface EllipsisProps {
   onEllipsis: (isEllipsis: boolean) => void;
   expanded: boolean;
   /**
+   * Mark for measurement update that may affect ellipsis content layout.
+   * e.g. operation placement change.
+   */
+  measureDeps?: any[];
+  /**
    * Mark for misc update. Which will not affect ellipsis content length.
    * e.g. tooltip content update.
    */
@@ -112,14 +117,24 @@ const lineClipStyle: React.CSSProperties = {
 };
 
 export default function EllipsisMeasure(props: EllipsisProps) {
-  const { enableMeasure, width, text, children, rows, expanded, miscDeps, onEllipsis } = props;
+  const {
+    enableMeasure,
+    width,
+    text,
+    children,
+    rows,
+    expanded,
+    measureDeps = [],
+    miscDeps,
+    onEllipsis,
+  } = props;
 
   const nodeList = React.useMemo(() => toArray(text), [text]);
   const nodeLen = React.useMemo(() => getNodesLen(nodeList), [text]);
 
   // ========================= Full Content =========================
   // Used for measure only, which means it's always render as no need ellipsis
-  const fullContent = React.useMemo(() => children(nodeList, false), [text]);
+  const fullContent = React.useMemo(() => children(nodeList, false), [text, ...measureDeps]);
 
   // ========================= Cut Content ==========================
   const [ellipsisCutIndex, setEllipsisCutIndex] = React.useState<[number, number] | null>(null);
@@ -146,7 +161,7 @@ export default function EllipsisMeasure(props: EllipsisProps) {
     } else {
       setNeedEllipsis(STATUS_MEASURE_NONE);
     }
-  }, [width, text, rows, enableMeasure, nodeList]);
+  }, [width, text, rows, enableMeasure, nodeList, ...measureDeps]);
 
   // Measure process
   useLayoutEffect(() => {

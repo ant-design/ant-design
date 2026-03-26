@@ -123,12 +123,11 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
         marginInlineStart: token.marginXXS,
       },
 
-      [`${componentCls}-copy-start`]: {
-        marginInlineStart: 0,
+      [`${componentCls}-actions-start`]: {
         marginInlineEnd: token.marginXXS,
 
-        [`&${componentCls}-copy-icon-only`]: {
-          marginInlineEnd: 0,
+        '> :first-child': {
+          marginInlineStart: 0,
         },
       },
 

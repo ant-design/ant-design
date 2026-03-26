@@ -21,6 +21,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/paragraph-debug.tsx" debug>标题与段落</code>
 <code src="./demo/text.tsx">文本与超链接组件</code>
 <code src="./demo/editable.tsx">可编辑</code>
+<code src="./demo/actions.tsx">操作栏</code>
 <code src="./demo/copyable.tsx">可复制</code>
 <code src="./demo/ellipsis.tsx">省略号</code>
 <code src="./demo/ellipsis-controlled.tsx" version="5.16.0">受控省略展开/收起</code>
@@ -38,6 +39,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
@@ -58,6 +60,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
@@ -77,6 +80,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
@@ -92,6 +96,16 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | underline | 添加下划线样式 | boolean | false |  |
 | onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
 
+### actions
+
+    {
+      placement: 'start' | 'end',
+    }
+
+| 参数      | 说明                       | 类型             | 默认值 | 版本  |
+| --------- | -------------------------- | ---------------- | ------ | ----- |
+| placement | 设置操作栏相对于文本的位置 | `start` \| `end` | `end`  | 6.4.0 |
+
 ### copyable
 
     {
@@ -100,7 +114,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
       format: 'text/plain' | 'text/html',
-      placement: 'start' | 'end',
       tabIndex: number,
     }
 
@@ -108,7 +121,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | --- | --- | --- | --- | --- |
 | format | 剪切板数据的 Mime Type | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | 自定义拷贝图标：\[默认图标, 拷贝后的图标] | \[ReactNode, ReactNode] | - | 4.6.0 |
-| placement | 设置复制按钮相对于文本的位置 | `start` \| `end` | `end` | 6.4.0 |
 | tabIndex | 自定义复制按钮的 tabIndex | number | 0 | 5.17.0 |
 | text | 拷贝到剪切板里的文本 | string | - |  |
 | tooltips | 自定义提示文案，为 false 时隐藏文案 | \[ReactNode, ReactNode] | \[`复制`, `复制成功`] | 4.4.0 |
