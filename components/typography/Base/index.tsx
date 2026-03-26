@@ -71,6 +71,7 @@ export interface CopyConfig {
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
+  placement?: 'start' | 'end';
   tabIndex?: number;
 }
 
@@ -464,28 +465,43 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     );
   };
 
-  const renderOperations = (canEllipsis: boolean) => {
-    const expandNode = canEllipsis && renderExpand();
-    const editNode = renderEdit();
-    const copyNode = renderCopy();
+  const renderActionGroup = (key: React.Key, actionNodes: React.ReactNode[]) => {
+    const nodes = actionNodes.filter(
+      (node): node is Exclude<React.ReactNode, null | undefined | false> =>
+        isNonNullable(node) && node !== false,
+    );
 
-    if (!expandNode && !editNode && !copyNode) {
+    if (!nodes.length) {
       return null;
     }
 
     return (
       <span
-        key="operations"
+        key={key}
         className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
         style={mergedStyles.actions}
         onMouseEnter={() => setIsHoveringOperations(true)}
         onMouseLeave={() => setIsHoveringOperations(false)}
       >
-        {expandNode}
-        {editNode}
-        {copyNode}
+        {nodes}
       </span>
     );
+  };
+
+  const renderCopyActions = () => {
+    if (copyConfig.placement !== 'start') {
+      return null;
+    }
+
+    return renderActionGroup('copy-start', [renderCopy()]);
+  };
+
+  const renderOperations = (canEllipsis: boolean) => {
+    return renderActionGroup('operations', [
+      canEllipsis && renderExpand(),
+      renderEdit(),
+      copyConfig.placement !== 'start' && renderCopy(),
+    ]);
   };
 
   const renderEllipsis = (canEllipsis: boolean) => [
@@ -555,6 +571,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 copyLoading,
                 enableEdit,
                 enableCopy,
+                copyConfig.placement,
                 textLocale,
                 ...DECORATION_PROPS.map((key) => props[key as keyof BlockProps]),
               ]}
@@ -563,6 +580,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 wrapperDecorations(
                   props,
                   <>
+                    {renderCopyActions()}
                     {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
                       <span key="show-content" aria-hidden>
                         {node}

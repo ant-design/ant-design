@@ -99,6 +99,7 @@ Common props ref：[Common props](/docs/react/common-props)
       icon: ReactNode,
       tooltips: false | [ReactNode, ReactNode],
       format: 'text/plain' | 'text/html',
+      placement: 'start' | 'end',
       tabIndex: number,
     }
 
@@ -106,6 +107,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | format | The Mime Type of the text | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | Custom copy icon: \[copyIcon, copiedIcon] | \[ReactNode, ReactNode] | - | 4.6.0 |
+| placement | Set the copy button placement relative to the text | `start` \| `end` | `end` | 6.4.0 |
 | tabIndex | Set tabIndex of the copy button | number | 0 | 5.17.0 |
 | text | The text to copy | string | - |  |
 | tooltips | Custom tooltip text, hide when it is false | \[ReactNode, ReactNode] | \[`Copy`, `Copied`] | 4.4.0 |

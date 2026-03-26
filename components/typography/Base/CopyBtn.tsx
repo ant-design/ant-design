@@ -30,6 +30,7 @@ const CopyBtn: React.FC<CopyBtnProps> = (props) => {
     icon,
     tabIndex,
     onCopy,
+    placement,
     loading: btnLoading,
     className,
     style,
@@ -48,6 +49,7 @@ const CopyBtn: React.FC<CopyBtnProps> = (props) => {
         type="button"
         className={clsx(`${prefixCls}-copy`, className, {
           [`${prefixCls}-copy-success`]: copied,
+          [`${prefixCls}-copy-start`]: placement === 'start',
           [`${prefixCls}-copy-icon-only`]: iconOnly,
         })}
         style={style}

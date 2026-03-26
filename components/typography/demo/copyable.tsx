@@ -7,6 +7,7 @@ const { Paragraph, Text } = Typography;
 const App: React.FC = () => (
   <>
     <Paragraph copyable>This is a copyable text.</Paragraph>
+    <Paragraph copyable={{ placement: 'start' }}>Copy icon at the start of text.</Paragraph>
     <Paragraph copyable={{ text: 'Hello, Ant Design!' }}>Replace copy text.</Paragraph>
     <Paragraph
       copyable={{
