@@ -75,9 +75,6 @@ export interface CopyConfig {
 }
 
 export interface ActionsConfig {
-  /**
-   * @since 6.4.0
-   */
   placement?: 'start' | 'end';
 }
 
@@ -111,6 +108,9 @@ export interface EllipsisConfig {
 
 export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
   extends TypographyProps<C> {
+  /**
+   * @since 6.4.0
+   */
   actions?: ActionsConfig;
   title?: string;
   editable?: boolean | EditConfig;
