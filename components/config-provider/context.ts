@@ -442,6 +442,8 @@ export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as co
 
 export type Variant = (typeof Variants)[number];
 
+export type TriggerType = 'click' | 'pointerdown' | 'pointerup' | 'mousedown' | 'mouseup';
+
 export interface WaveConfig {
   /**
    * @descCN 是否禁用水波纹效果。
@@ -454,6 +456,12 @@ export interface WaveConfig {
    * @descEN Customized wave effect.
    */
   showEffect?: ShowWaveEffect;
+  /**
+   * @descCN 触发水波纹效果的事件。
+   * @descEN The event that triggers the wave effect.
+   * @default 'click'
+   */
+  triggerType?: TriggerType;
 }
 
 export interface ConfigComponentProps {

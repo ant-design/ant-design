@@ -82,7 +82,7 @@ ant-design/
 ### 标题与内容
 
 - PR 标题始终使用英文，格式：`类型: 简短描述`
-- PR 内容默认使用英文
+- PR 内容默认使用英文，可根据用户语言习惯决定使用中文或英文
 - 示例：`fix: fix button style issues in Safari browser`
 
 ### PR 模板（必须使用）
