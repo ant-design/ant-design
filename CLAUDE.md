@@ -37,13 +37,28 @@ ant-design/
 
 ### API 表格格式
 
-| Property | Description | Type | Default | Version |
-|---|---|---|---|---|
-| disabled | 是否禁用 | boolean | false | - |
-| type | 按钮类型 | `primary` \| `default` | `default` | - |
+英文版：
 
-- 字符串默认值用反引号，布尔/数字直接写，无默认值用 `-`
-- API 按字母顺序排列，新增属性需声明版本号
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| disabled | Whether the component is disabled | boolean | false | - | × |
+| loadingIcon | (Only supports global configuration) Custom loading icon | ReactNode | - | - | 6.2.0 |
+| type | Button type | `primary` \| `default` | `default` | - | ✔ |
+
+中文版：
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| disabled | 是否禁用 | boolean | false | - | × |
+| loadingIcon | (仅支持全局配置) 自定义加载图标 | ReactNode | - | × | 6.2.0 |
+| type | 按钮类型 | `primary` \| `default` | `default` | - | ✔ |
+
+- 参数：按字母顺序排列
+- 说明：简洁描述参数作用，如果仅支持全局配置需在描述中用括号注明
+- 类型：使用 TypeScript 定义的类型
+- 默认值：字符串用反引号，布尔/数字直接写，无默认值用 `-`
+- 版本：新增属性需声明引入的版本号；上个大版本已存在属性标注 `-`；仅支持全局配置的属性标注 `×`
+- 全局配置：支持全局配置的属性需标注版本号；上个大版本已支持的标注 `✔`；不支持全局配置的属性标注 `×`
 
 ### 文档锚点 ID 规范
 
@@ -65,7 +80,7 @@ ant-design/
 ### 标题与内容
 
 - PR 标题始终使用英文，格式：`类型: 简短描述`
-- PR 内容默认使用英文
+- PR 内容默认使用英文，可根据用户语言习惯决定使用中文或英文
 - 示例：`fix: fix button style issues in Safari browser`
 
 ### PR 模板（必须使用）
@@ -121,7 +136,7 @@ ant-design/
 #### 句式
 
 | 语言 | 格式 | 示例 |
-|---|---|---|
+| --- | --- | --- |
 | 中文 | `Emoji 动词 组件名 描述`（动词在前） | `🐞 修复 Button 在暗色主题下 \`color\` 的问题。` |
 | 英文 | `Emoji 动词 组件名 描述`（动词在前） | `🐞 Fix Button reversed \`hover\` colors in dark theme.` |
 
@@ -133,7 +148,7 @@ ant-design/
 ### Emoji 规范
 
 | Emoji  | 用途                   |
-|--------|------------------------|
+| ------ | ---------------------- |
 | 🐞     | 修复 Bug               |
 | 💄     | 样式更新或 token 更新  |
 | 🆕     | 新增特性 / 新增属性    |

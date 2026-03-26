@@ -101,7 +101,7 @@ exports[`renders components/input/demo/_semantic_input.tsx correctly 1`] = `
       class="ant-col ant-col-8 css-var-test-id"
     >
       <ul
-        class="acss-1ry21g5"
+        class="acss-11b5qta"
       >
         <li
           class="acss-1ehfz5v"
@@ -784,7 +784,7 @@ exports[`renders components/input/demo/_semantic_otp.tsx correctly 1`] = `
       class="ant-col ant-col-8 css-var-test-id"
     >
       <ul
-        class="acss-1ry21g5"
+        class="acss-11b5qta"
       >
         <li
           class="acss-1ehfz5v"
@@ -1195,7 +1195,7 @@ exports[`renders components/input/demo/_semantic_password.tsx correctly 1`] = `
       class="ant-col ant-col-8 css-var-test-id"
     >
       <ul
-        class="acss-1ry21g5"
+        class="acss-11b5qta"
       >
         <li
           class="acss-1ehfz5v"
@@ -1899,7 +1899,7 @@ exports[`renders components/input/demo/_semantic_search.tsx correctly 1`] = `
       class="ant-col ant-col-8 css-var-test-id"
     >
       <ul
-        class="acss-1ry21g5"
+        class="acss-11b5qta"
       >
         <li
           class="acss-1ehfz5v"
@@ -2805,7 +2805,7 @@ exports[`renders components/input/demo/_semantic_textarea.tsx correctly 1`] = `
       class="ant-col ant-col-8 css-var-test-id"
     >
       <ul
-        class="acss-1ry21g5"
+        class="acss-11b5qta"
       >
         <li
           class="acss-1ehfz5v"

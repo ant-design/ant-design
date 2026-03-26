@@ -109,12 +109,12 @@ const {
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | affix | Set Affix common props | { className?: string, style?: React.CSSProperties } | - | 6.0.0 |
-| alert | Set Alert common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, successIcon?: React.ReactNode, infoIcon?: React.ReactNode, warningIcon?: React.ReactNode, errorIcon?: React.ReactNode } | - | 5.7.0, `closeIcon`: 5.14.0, `successIcon`, `infoIcon`, `warningIcon` and `errorIcon`: 6.2.0 |
+| alert | Set Alert common props | See [Alert](/components/alert#api) | - | 5.7.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties, classNames?: [AnchorStyleConfig\["classNames"\]](/components/anchor#semantic-dom), styles?: [AnchorStyleConfig\["styles"\]](/components/anchor#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge#semantic-dom), styles?: [BadgeProps\["styles"\]](/components/badge#semantic-dom) } | - | 5.7.0 |
 | breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties, classNames?: [BreadcrumbConfig\["classNames"\]](/components/breadcrumb#semantic-dom), styles?: [BreadcrumbConfig\["styles"\]](/components/breadcrumb#semantic-dom), separator?: ReactNode, dropdownIcon?: ReactNode } | - | 5.7.0, `classNames`, `separator` and `styles`: 6.0.0, `dropdownIcon`: 6.2.0 |
-| button | Set Button common props | { className?: string, style?: React.CSSProperties, classNames?: [ButtonProps\["classNames"\]](/components/button#semantic-dom), styles?: [ButtonProps\["styles"\]](/components/button#semantic-dom), autoInsertSpace?: boolean, variant?: ButtonVariantType, color?: ButtonColorType, shape?: [ButtonProps\["shape"\]](/components/button#api), loadingIcon?: ReactNode } | - | 5.6.0, `autoInsertSpace`: 5.17.0, `variant` and `color`: 5.25.0, `shape`: 5.27.0, `loadingIcon`: 6.3.0 |
+| button | Set Button common props | See [Button](/components/button#api) | - | 5.6.0 |
 | card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#semantic-dom), styles?: [CardProps\["styles"\]](/components/card#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
 | cardMeta | Set Card.Meta common props | { className?: string, style?: React.CSSProperties, classNames?: [CardMetaProps\["classNames"\]](/components/card#semantic-dom), styles?: [CardMetaProps\["styles"\]](/components/card#semantic-dom) } | - | 6.0.0 |
 | calendar | Set Calendar common props | { className?: string, style?: React.CSSProperties, classNames?: [CalendarConfig\["classNames"\]](/components/calendar#semantic-dom), styles?: [CalendarConfig\["styles"\]](/components/calendar#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
@@ -179,7 +179,7 @@ const {
 | treeSelect | Set TreeSelect common props | { className?: string, style?: React.CSSProperties, classNames?: [TreeSelectConfig\["classNames"\]](/components/tree-select#semantic-dom), styles?: [TreeSelectConfig\["styles"\]](/components/tree-select#semantic-dom), switcherIcon?: [TreeSelect\["switcherIcon"\]](/components/tree-select#api)} | - |  |
 | typography | Set Typography common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | upload | Set Upload common props | { className?: string, style?: React.CSSProperties, classNames?:[UploadConfig\["classNames"\]](/components/upload#semantic-dom), styles?: [UploadConfig\["styles"\]](/components/upload#semantic-dom), customRequest?: [Upload\["customRequest"\]](/components/upload#api), progress?: [ProgressProps](/components/progress#api), accept?: [Upload\["accept"\]](/components/upload#api) } | - | 5.7.0, `customRequest`: 5.27.0, `classNames` and `styles`: 6.0.0, `accept` and `progress`: 6.4.0 |
-| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void } | - | 5.8.0 |
+| wave | Config wave effect | { disabled?: boolean, showEffect?: (node: HTMLElement, info: { className, token, component }) => void, triggerType?: `click` \| `pointerdown` \| `pointerup` \| `mousedown` \| `mouseup` } | - | 5.8.0, `triggerType`: 6.4.0 |
 
 ## FAQ
 

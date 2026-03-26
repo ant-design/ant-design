@@ -1,9 +1,55 @@
 import React from 'react';
 
+import dayjsGenerateConfig from '@rc-component/picker/generate/dayjs';
 import Calendar from '..';
 import { render } from '../../../tests/utils';
 
 describe('Calendar.Semantic', () => {
+  it('should support itemContent classNames and styles', () => {
+    const { container } = render(
+      <Calendar
+        value={dayjsGenerateConfig.getNow()}
+        cellRender={() => <div className="custom-cell"> custom content </div>}
+        classNames={{
+          itemContent: 'custom-item-content',
+        }}
+        styles={{
+          itemContent: {
+            height: '50px',
+            overflow: 'hidden',
+          },
+        }}
+      />,
+    );
+
+    const dateContent = container.querySelector('.ant-picker-calendar-date-content');
+    expect(dateContent).toHaveClass('custom-item-content');
+    expect(dateContent).toHaveStyle({ height: '50px', overflow: 'hidden' });
+  });
+
+  it('should support itemContent classNames and styles in year mode', () => {
+    const { container } = render(
+      <Calendar
+        value={dayjsGenerateConfig.getNow()}
+        mode="year"
+        cellRender={() => <div className="custom-cell"> custom content </div>}
+        classNames={{
+          itemContent: 'custom-item-content-year',
+        }}
+        styles={{
+          itemContent: {
+            height: '80px',
+            overflow: 'auto',
+          },
+        }}
+      />,
+    );
+
+    const dateContent = container.querySelector('.ant-picker-calendar-date-content');
+    expect(dateContent).toHaveClass('custom-item-content-year');
+    expect(dateContent).toHaveStyle({ height: '80px', overflow: 'auto' });
+  });
+
   it('support classNames and styles as functions', () => {
     const { container } = render(
       <Calendar
