@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'បិទ',
+    show: 'បង្ហាញ',
+    hide: 'លាក់',
   },
   Table: {
     filterTitle: 'បញ្ចីតម្រៀប',

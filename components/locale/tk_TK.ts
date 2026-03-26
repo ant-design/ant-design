@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Saýlaň',
     close: 'Ýagty',
+    show: 'Görkez',
+    hide: 'Gizle',
   },
   Table: {
     filterTitle: 'Filter',

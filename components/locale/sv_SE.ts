@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vänligen välj',
     close: 'Stäng',
+    show: 'Visa',
+    hide: 'Dölj',
   },
   Table: {
     filterTitle: 'Filtermeny',

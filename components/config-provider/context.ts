@@ -26,7 +26,7 @@ import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps, FloatButtonProps } from '../float-button';
 import type { FormProps } from '../form';
 import type { ImageProps } from '../image';
-import type { InputProps, SearchProps, TextAreaProps } from '../input';
+import type { InputProps, PasswordProps, SearchProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
 import type { OTPProps } from '../input/OTP';
 import type { ListItemProps } from '../list';
@@ -257,6 +257,9 @@ export type BreadcrumbConfig = ComponentStyleConfig &
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
+export type InputPasswordConfig = ComponentStyleConfig &
+  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender'>;
+
 export type InputSearchConfig = ComponentStyleConfig &
   Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
 
@@ -466,6 +469,7 @@ export interface WaveConfig {
 
 export interface ConfigComponentProps {
   input?: InputConfig;
+  inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;
   textArea?: TextAreaConfig;
   otp?: OTPConfig;

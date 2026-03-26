@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Ве молиме означете',
     close: 'Затвори',
+    show: 'Прикажи',
+    hide: 'Сокриј',
   },
   Table: {
     filterTitle: 'Мени за филтрирање',
