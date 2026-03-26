@@ -71,6 +71,9 @@ export interface CopyConfig {
   icon?: React.ReactNode;
   tooltips?: React.ReactNode;
   format?: 'text/plain' | 'text/html';
+   /**
+   * @since 6.4.0
+   */
   placement?: 'start' | 'end';
   tabIndex?: number;
 }
