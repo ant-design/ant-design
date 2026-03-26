@@ -476,7 +476,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   };
 
   const renderOperations = (canEllipsis: boolean) => {
-    const expandNode = canEllipsis ? renderExpand() : null;
+    const expandNode = canEllipsis && renderExpand();
     const editNode = renderEdit();
     const copyNode = renderCopy();
 
