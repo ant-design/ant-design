@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Silahkan pilih',
     close: 'Tutup',
+    show: 'Tampilkan',
+    hide: 'Sembunyikan',
   },
   Table: {
     filterTitle: 'Menu filter',
@@ -143,10 +145,6 @@ const localeValues: Locale = {
     transparent: 'Transparan',
     singleColor: 'Warna tunggal',
     gradientColor: 'Warna gradien',
-  },
-  Input: {
-    showPassword: 'Tampilkan kata sandi',
-    hidePassword: 'Sembunyikan kata sandi',
   },
 };
 

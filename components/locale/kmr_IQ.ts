@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Betal ke',
+    show: 'Nîşan bide',
+    hide: 'Veşêre',
   },
   Table: {
     filterTitle: 'Menuê peldanka',
@@ -108,10 +110,6 @@ const localeValues: Locale = {
         mismatch: '${label} bi şablon ${pattern} re li hev nayê',
       },
     },
-  },
-  Input: {
-    showPassword: 'Şîfreyê nîşan bide',
-    hidePassword: 'Şîfreyê veşêre',
   },
 };
 

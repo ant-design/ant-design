@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Selectează',
     close: 'Închide',
+    show: 'Arată',
+    hide: 'Ascunde',
   },
   Table: {
     filterTitle: 'Filtrează',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} nu respectă șablonul ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Arată parola',
-    hidePassword: 'Ascunde parola',
   },
 };
 

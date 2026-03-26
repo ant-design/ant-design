@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Selezionare',
     close: 'Chiudi',
+    show: 'Mostra',
+    hide: 'Nascondi',
   },
   Table: {
     filterTitle: 'Menù Filtro',
@@ -141,10 +143,6 @@ const localeValues: Locale = {
     transparent: 'Trasparente',
     singleColor: 'Tinta unita',
     gradientColor: 'Gradiente',
-  },
-  Input: {
-    showPassword: 'Mostra la password',
-    hidePassword: 'Nascondi la password',
   },
 };
 

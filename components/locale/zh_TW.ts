@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: '請選擇',
     close: '關閉',
+    show: '顯示',
+    hide: '隱藏',
   },
   Table: {
     filterTitle: '篩選器',
@@ -142,10 +144,6 @@ const localeValues: Locale = {
     transparent: '透明',
     singleColor: '單色',
     gradientColor: '漸變色',
-  },
-  Input: {
-    showPassword: '顯示密碼',
-    hidePassword: '隱藏密碼',
   },
 };
 

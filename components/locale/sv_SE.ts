@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vänligen välj',
     close: 'Stäng',
+    show: 'Visa',
+    hide: 'Dölj',
   },
   Table: {
     filterTitle: 'Filtermeny',
@@ -134,10 +136,6 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-koden har upphört att gälla',
     refresh: 'Uppdatera',
-  },
-  Input: {
-    showPassword: 'Visa lösenord',
-    hidePassword: 'Dölj lösenord',
   },
 };
 

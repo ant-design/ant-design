@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Izaberi',
     close: 'Zatvori',
+    show: 'Prikaži',
+    hide: 'Sakrij',
   },
   Table: {
     filterTitle: 'Meni filtera',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} ne odgovara obrascu ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Prikaži lozinku',
-    hidePassword: 'Sakrij lozinku',
   },
 };
 

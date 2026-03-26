@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Por favor escolha',
     close: 'Fechar',
+    show: 'Mostrar',
+    hide: 'Ocultar',
   },
   Table: {
     filterTitle: 'Menu de Filtro',
@@ -130,10 +132,6 @@ const localeValues: Locale = {
         mismatch: '${label} não se encaixa no padrão ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Mostrar senha',
-    hidePassword: 'Ocultar senha',
   },
 };
 

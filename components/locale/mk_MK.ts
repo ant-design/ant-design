@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Ве молиме означете',
     close: 'Затвори',
+    show: 'Прикажи',
+    hide: 'Сокриј',
   },
   Table: {
     filterTitle: 'Мени за филтрирање',
@@ -112,10 +114,6 @@ const localeValues: Locale = {
         mismatch: '${label} не се совпаѓа со шаблонот ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Парола покажи',
-    hidePassword: 'Парола скрији',
   },
 };
 

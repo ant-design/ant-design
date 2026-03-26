@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Prosím vyber',
     close: 'Zavrieť',
+    show: 'Zobraziť',
+    hide: 'Skryť',
   },
   Table: {
     filterTitle: 'Filter',
@@ -130,10 +132,6 @@ const localeValues: Locale = {
         mismatch: '${label} nezodpovedá vzoru ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Zobraziť heslo',
-    hidePassword: 'Skryť heslo',
   },
 };
 

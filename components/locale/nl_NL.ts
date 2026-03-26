@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Maak een selectie',
     close: 'Sluiten',
+    show: 'Weergeven',
+    hide: 'Verbergen',
   },
   Table: {
     cancelSort: 'Klik om sortering te annuleren',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} komt niet overeen met het patroon ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Wachtwoord weergeven',
-    hidePassword: 'Wachtwoord verbergen',
   },
 };
 

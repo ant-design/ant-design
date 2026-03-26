@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Saýlaň',
     close: 'Ýagty',
+    show: 'Görkez',
+    hide: 'Gizle',
   },
   Table: {
     filterTitle: 'Filter',
@@ -126,10 +128,6 @@ const localeValues: Locale = {
         mismatch: '${label} meýdany ${pattern} şablony bilen gabat gelmeýär',
       },
     },
-  },
-  Input: {
-    showPassword: 'Paroly görkez',
-    hidePassword: 'Paroly gizläň',
   },
 };
 

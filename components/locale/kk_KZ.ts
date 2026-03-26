@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Таңдаңыз',
     close: 'Жабу',
+    show: 'Көрсету',
+    hide: 'Жасыру',
   },
   Table: {
     filterTitle: 'Фильтр',
@@ -125,10 +127,6 @@ const localeValues: Locale = {
         mismatch: '${label} ${pattern} мен сәйкес келмейді',
       },
     },
-  },
-  Input: {
-    showPassword: 'Құпия сөзді көрсету',
-    hidePassword: 'Құпия сөзді жасыру',
   },
 };
 

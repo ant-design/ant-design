@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Παρακαλώ επιλέξτε',
     close: 'Κλείσιμο',
+    show: 'Εμφάνιση',
+    hide: 'Απόκρυψη',
   },
   Table: {
     filterTitle: 'Μενού φίλτρων',
@@ -142,10 +144,6 @@ const localeValues: Locale = {
     transparent: 'Διαφανές',
     singleColor: 'Μονόχρωμο',
     gradientColor: 'Διαβάθμιση χρώματος',
-  },
-  Input: {
-    showPassword: 'Εμφάνιση κωδικού',
-    hidePassword: 'Απόκρυψη κωδικού',
   },
 };
 

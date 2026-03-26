@@ -14,6 +14,8 @@ const localeValues: Locale = {
   Pagination,
   global: {
     close: 'Luk',
+    show: 'Vis',
+    hide: 'Skjul',
   },
   Table: {
     filterTitle: 'Filtermenu',
@@ -111,10 +113,6 @@ const localeValues: Locale = {
         mismatch: '${label} stemmer ikke overens med mønsteret ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Vis adgangskode',
-    hidePassword: 'Skjul adgangskode',
   },
 };
 

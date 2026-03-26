@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Sulje',
+    show: 'Näytä',
+    hide: 'Piilota',
   },
   Table: {
     filterTitle: 'Suodatus valikko',
@@ -111,10 +113,6 @@ const localeValues: Locale = {
         mismatch: '${label} ei vastaa mallia ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Näytä salasana',
-    hidePassword: 'Piilota salasana',
   },
 };
 

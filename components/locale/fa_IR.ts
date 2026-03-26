@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'لطفاً انتخاب کنید',
     close: 'بستن',
+    show: 'نمایش',
+    hide: 'مخفی کردن',
   },
   Table: {
     filterTitle: 'منوی فیلتر',
@@ -143,10 +145,6 @@ const localeValues: Locale = {
     transparent: 'شفاف',
     singleColor: 'تک‌رنگ',
     gradientColor: 'گرادینت',
-  },
-  Input: {
-    showPassword: 'نمایش رمز عبور',
-    hidePassword: 'مخفی کردن رمز عبور',
   },
 };
 

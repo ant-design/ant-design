@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Loka',
+    show: 'Sýna',
+    hide: 'Fela',
   },
   Table: {
     filterTitle: 'Afmarkanir',
@@ -102,10 +104,6 @@ const localeValues: Locale = {
         mismatch: '${label} passar ekki við mynstur ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Sýna lykilorð',
-    hidePassword: 'Fela lykilorð',
   },
 };
 

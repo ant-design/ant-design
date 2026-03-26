@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'გთხოვთ აირჩიოთ',
     close: 'დახურვა',
+    show: 'აჩვენე',
+    hide: 'დამალე',
   },
   Table: {
     filterTitle: 'ფილტრის მენიუ',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} არ ერგება შაბლონს ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'პაროლის ნახვა',
-    hidePassword: 'პაროლის დამალვა',
   },
 };
 

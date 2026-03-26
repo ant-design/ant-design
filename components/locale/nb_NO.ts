@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vennligst velg',
     close: 'Lukk',
+    show: 'Vis',
+    hide: 'Skjul',
   },
   Table: {
     filterTitle: 'Filtermeny',
@@ -125,10 +127,6 @@ const localeValues: Locale = {
         mismatch: '${label} stemmer ikke overens med mønsteret ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Vis passord',
-    hidePassword: 'Skjul passord',
   },
 };
 

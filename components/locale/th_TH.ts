@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'กรุณาเลือก',
     close: 'ปิด',
+    show: 'แสดง',
+    hide: 'ซ่อน',
   },
   Table: {
     filterTitle: 'ตัวกรอง',
@@ -143,10 +145,6 @@ const localeValues: Locale = {
     transparent: 'โปร่งใส',
     singleColor: 'สีเดียว',
     gradientColor: 'สีไล่ระดับ',
-  },
-  Input: {
-    showPassword: 'แสดงรหัสผ่าน',
-    hidePassword: 'ซ่อนรหัสผ่าน',
   },
 };
 

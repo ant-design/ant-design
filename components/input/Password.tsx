@@ -62,7 +62,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     iconRender: contextIconRender,
   } = useComponentConfig('inputPassword');
 
-  const [locale] = useLocale('Input');
+  const [locale] = useLocale('global');
 
   // ===================== Disabled =====================
   const disabled = React.useContext(DisabledContext);
@@ -125,7 +125,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
         className={`${prefixCls}-icon`}
         aria-disabled={mergedDisabled}
         aria-pressed={visible}
-        aria-label={visible ? locale.hidePassword : locale.showPassword}
+        aria-label={visible ? locale.hide : locale.show}
         onMouseDown={(e) => {
           // Prevent focused state lost
           // https://github.com/ant-design/ant-design/issues/15173

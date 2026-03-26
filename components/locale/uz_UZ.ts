@@ -21,6 +21,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Iltimos tanlang',
     close: 'Yopish',
+    show: "Ko'rsat",
+    hide: 'Yashir',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -139,10 +141,6 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-kod eskirgan',
     refresh: 'Yangilash',
-  },
-  Input: {
-    showPassword: "Parolni ko'rsatish",
-    hidePassword: 'Parolni yashirish',
   },
 };
 

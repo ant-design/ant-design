@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Bezárás',
+    show: 'Megjelenítés',
+    hide: 'Elrejtés',
   },
   Table: {
     filterTitle: 'Szűrők',
@@ -102,10 +104,6 @@ const localeValues: Locale = {
         mismatch: '${label} nem egyezik meg a ${pattern} mintával',
       },
     },
-  },
-  Input: {
-    showPassword: 'Jelszó mutatása',
-    hidePassword: 'Jelszó elrejtése',
   },
 };
 

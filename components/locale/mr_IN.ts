@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'कृपया निवडा',
     close: 'बंद करा',
+    show: 'दाखवा',
+    hide: 'लपवा',
   },
   Table: {
     filterTitle: 'फिल्टर मेनू',
@@ -132,10 +134,6 @@ const localeValues: Locale = {
         mismatch: '${label} हे ${pattern} पॅटर्नशी जुळत नाही',
       },
     },
-  },
-  Input: {
-    showPassword: 'पासवर्ड दाखवा',
-    hidePassword: 'पासवर्ड लपवा',
   },
 };
 

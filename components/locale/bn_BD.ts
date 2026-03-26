@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'অনুগ্রহ করে নির্বাচন করুন',
     close: 'বন্ধ',
+    show: 'দেখান',
+    hide: 'লুকান',
   },
   Table: {
     filterTitle: 'ফিল্টার মেনু',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} এই ${pattern} প্যাটার্নের সাথে মেলে না',
       },
     },
-  },
-  Input: {
-    showPassword: 'পাসওয়ার্ড দেখানো',
-    hidePassword: 'পাসওয়ার্ড মোছা',
   },
 };
 

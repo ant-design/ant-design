@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'منتخب کریں',
     close: 'بند کریں',
+    show: 'دکھائیں',
+    hide: 'چھپائیں',
   },
   Table: {
     filterTitle: 'فلٹر مینو',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} پیٹرن سے ملتا نہیں ہے ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'پاس ورڈ دکھائیں',
-    hidePassword: 'پاس ورڈ چھپائیں',
   },
 };
 

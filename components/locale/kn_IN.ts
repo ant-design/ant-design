@@ -17,6 +17,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'ದಯವಿಟ್ಟು ಆರಿಸಿ',
     close: 'ಮುಚ್ಚಿ',
+    show: 'ತೋರಿಸಿ',
+    hide: 'ಮರೆಮಾಡಿ',
   },
   Table: {
     filterTitle: 'ಪಟ್ಟಿ ಸೋಸಿ',
@@ -131,10 +133,6 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR ಕೋಡ್ ಅವಧಿ ಮೀರಿದೆ',
     refresh: 'ನವೀಕರಿಸಿ',
-  },
-  Input: {
-    showPassword: 'ಪಾಸ್‌ವರ್ಡ್ ತೋರಿಸಿ',
-    hidePassword: 'ಪಾಸ್‌ವರ್ಡ್ ಮರೆಮಾಡಿ',
   },
 };
 

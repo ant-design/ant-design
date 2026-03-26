@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: '선택하세요',
     close: '닫기',
+    show: '표시',
+    hide: '숨기기',
   },
   Table: {
     filterTitle: '필터 메뉴',
@@ -140,10 +142,6 @@ const localeValues: Locale = {
     transparent: '투명',
     singleColor: '단색',
     gradientColor: '그라데이션',
-  },
-  Input: {
-    showPassword: '비밀번호 표시',
-    hidePassword: '비밀번호 숨기기',
   },
 };
 

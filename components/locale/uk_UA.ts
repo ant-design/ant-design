@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Будь ласка, оберіть',
     close: 'Закрити',
+    show: 'Показати',
+    hide: 'Приховати',
   },
   Table: {
     filterTitle: 'Фільтрувати',
@@ -135,10 +137,6 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR-код закінчився',
     refresh: 'Оновити',
-  },
-  Input: {
-    showPassword: 'Показати пароль',
-    hidePassword: 'Приховати пароль',
   },
 };
 

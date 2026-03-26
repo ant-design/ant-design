@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'אנא בחר',
     close: 'סגור',
+    show: 'הצג',
+    hide: 'הסתר',
   },
   Table: {
     filterTitle: 'תפריט סינון',
@@ -118,10 +120,6 @@ const localeValues: Locale = {
         mismatch: '${label} לא תואם לתבנית ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'הצג סיסמה',
-    hidePassword: 'הסתר סיסמה',
   },
 };
 

@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'कृपया चुनें',
     close: 'बंद',
+    show: 'दिखाएं',
+    hide: 'छुपाएं',
   },
   Table: {
     filterTitle: 'सूची बंद करें',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} ${pattern} पैटर्न से मेल नहीं खाता',
       },
     },
-  },
-  Input: {
-    showPassword: 'राज़िया शब्द दिखाएं',
-    hidePassword: 'राज़िया शब्द छुपाएं',
   },
 };
 

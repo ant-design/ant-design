@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vui lòng chọn',
     close: 'Đóng',
+    show: 'Hiển thị',
+    hide: 'Ẩn',
   },
   Table: {
     filterTitle: 'Bộ lọc',
@@ -143,10 +145,6 @@ const localeValues: Locale = {
     transparent: 'Trong suốt',
     singleColor: 'Màu đơn',
     gradientColor: 'Màu chuyển sắc',
-  },
-  Input: {
-    showPassword: 'Hiển thị mật khẩu',
-    hidePassword: 'Ẩn mật khẩu',
   },
 };
 

@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'يرجى التحديد',
     close: 'إغلاق',
+    show: 'إظهار',
+    hide: 'إخفاء',
   },
   Table: {
     filterTitle: 'الفلاتر',
@@ -129,10 +131,6 @@ const localeValues: Locale = {
     transparent: 'شفاف',
     singleColor: 'لون واحد',
     gradientColor: 'تدرج لوني',
-  },
-  Input: {
-    showPassword: 'إظهار كلمة المرور',
-    hidePassword: 'إخفاء كلمة المرور',
   },
 };
 

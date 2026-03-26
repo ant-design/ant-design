@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Aukeratu',
     close: 'Itxi',
+    show: 'Erakutsi',
+    hide: 'Ezkutatu',
   },
   Table: {
     filterTitle: 'Iragazi menua',
@@ -140,10 +142,6 @@ const localeValues: Locale = {
     transparent: 'Gardena',
     singleColor: 'Kolore bakarra',
     gradientColor: 'Gradiente kolorea',
-  },
-  Input: {
-    showPassword: 'Erakutsi pasahitza',
-    hidePassword: 'Ezkutatu pasahitza',
   },
 };
 

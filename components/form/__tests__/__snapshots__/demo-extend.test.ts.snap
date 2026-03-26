@@ -669,7 +669,7 @@ exports[`renders components/form/demo/basic.tsx extend context correctly 1`] = `
               >
                 <span
                   aria-disabled="false"
-                  aria-label="Show password"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -864,7 +864,7 @@ Array [
                 >
                   <span
                     aria-disabled="false"
-                    aria-label="Show password"
+                    aria-label="Show"
                     aria-pressed="false"
                     class="ant-input-password-icon"
                     role="button"
@@ -1247,7 +1247,7 @@ Array [
                 >
                   <span
                     aria-disabled="false"
-                    aria-label="Show password"
+                    aria-label="Show"
                     aria-pressed="false"
                     class="ant-input-password-icon"
                     role="button"
@@ -9742,7 +9742,7 @@ exports[`renders components/form/demo/label-debug.tsx extend context correctly 1
               >
                 <span
                   aria-disabled="false"
-                  aria-label="Show password"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -11070,7 +11070,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               >
                 <span
                   aria-disabled="false"
-                  aria-label="Show password"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -11147,7 +11147,7 @@ exports[`renders components/form/demo/register.tsx extend context correctly 1`] 
               >
                 <span
                   aria-disabled="false"
-                  aria-label="Show password"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -31204,7 +31204,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
               >
                 <span
                   aria-disabled="false"
-                  aria-label="Show password"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"
@@ -31328,7 +31328,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 </button>
                 <span
                   aria-disabled="false"
-                  aria-label="Show password"
+                  aria-label="Show"
                   aria-pressed="false"
                   class="ant-input-password-icon"
                   role="button"

@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'කරුණාකර තෝරන්න',
     close: 'වසන්න',
+    show: 'පෙන්වන්න',
+    hide: 'සඟවන්න',
   },
   Table: {
     filterTitle: 'පෙරහන්',
@@ -130,10 +132,6 @@ const localeValues: Locale = {
         mismatch: '${pattern} රටාවට ${label} නොගැළපේ',
       },
     },
-  },
-  Input: {
-    showPassword: 'මුරපදය පෙන්වන්න',
-    hidePassword: 'මුරපදය සඟවන්න',
   },
 };
 

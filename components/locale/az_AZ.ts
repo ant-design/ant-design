@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Zəhmət olmasa seçin',
     close: 'Bağla',
+    show: 'Göstər',
+    hide: 'Gizlət',
   },
   Table: {
     filterTitle: 'Filter menyu',
@@ -144,10 +146,6 @@ const localeValues: Locale = {
     transparent: 'Şəffaf',
     singleColor: 'Tək rəng',
     gradientColor: 'Gradient rəng',
-  },
-  Input: {
-    showPassword: 'Şifrəni göstər',
-    hidePassword: 'Şifrəni gizlət',
   },
 };
 

@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Pasirinkite',
     close: 'Uždaryti',
+    show: 'Rodyti',
+    hide: 'Slėpti',
   },
   Table: {
     filterTitle: 'Filtras',
@@ -140,10 +142,6 @@ const localeValues: Locale = {
     transparent: 'Permatomas',
     singleColor: 'Vieno spalvos',
     gradientColor: 'Gradientas',
-  },
-  Input: {
-    showPassword: 'Parolių rodyti',
-    hidePassword: 'Parolių nėra rodyti',
   },
 };
 

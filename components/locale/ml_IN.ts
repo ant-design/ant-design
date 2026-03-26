@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'ദയവായി തിരഞ്ഞെടുക്കുക',
     close: 'മുടക്കുക',
+    show: 'കാണിക്കുക',
+    hide: 'മറയ്ക്കുക',
   },
   Table: {
     filterTitle: 'ഫിൽറ്റർ',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
         mismatch: '${label} ${pattern} മാതൃകയുമായി യോജിക്കുന്നില്ല',
       },
     },
-  },
-  Input: {
-    showPassword: 'പാസ്‌വേഡ് കാണിക്കുക',
-    hidePassword: 'പാസ്‌വേഡ് മറയ്ക്കുക',
   },
 };
 

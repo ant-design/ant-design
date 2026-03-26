@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Затвори',
+    show: 'Покажи',
+    hide: 'Скрий',
   },
   Table: {
     filterTitle: 'Филтриране',
@@ -102,10 +104,6 @@ const localeValues: Locale = {
         mismatch: '${label} не отговаря на модела ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Покажи паролата',
-    hidePassword: 'Скрий паролата',
   },
 };
 

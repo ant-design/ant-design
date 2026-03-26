@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: '選んでください',
     close: '閉じる',
+    show: '表示',
+    hide: '非表示',
   },
   Table: {
     filterTitle: 'フィルター',
@@ -143,10 +145,6 @@ const localeValues: Locale = {
     transparent: '透明',
     singleColor: '単色',
     gradientColor: 'グラデーション',
-  },
-  Input: {
-    showPassword: 'パスワードを表示',
-    hidePassword: 'パスワードを非表示',
   },
 };
 

@@ -64,6 +64,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Ընտրեք',
     close: 'Դադարեցնել',
+    show: 'Ցույց տալ',
+    hide: 'Թաքցնել',
   },
   Table: {
     filterTitle: 'ֆիլտրի ընտրացանկ',
@@ -163,10 +165,6 @@ const localeValues: Locale = {
         mismatch: '${label}-ը չի համապատասխանում ${pattern} ձևանմուշին',
       },
     },
-  },
-  Input: {
-    showPassword: 'Ցուցադրել գաղտնիությունը',
-    hidePassword: 'Թաքցնել գաղտնիությունը',
   },
 };
 

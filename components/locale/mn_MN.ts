@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Сонгоно уу',
     close: 'Хаах',
+    show: 'Харуулах',
+    hide: 'Нуух',
   },
   Table: {
     filterTitle: 'Хайх цэс',
@@ -130,10 +132,6 @@ const localeValues: Locale = {
         mismatch: '${label} нь ${pattern} загвартай тохирохгүй байна',
       },
     },
-  },
-  Input: {
-    showPassword: 'Нууц үгийг харуулах',
-    hidePassword: 'Нууц үгийг нуух',
   },
 };
 

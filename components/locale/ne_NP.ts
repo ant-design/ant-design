@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'कृपया छान्नुहोस्',
     close: 'बन्द',
+    show: 'देखाउनुहोस्',
+    hide: 'लुकाउनुहोस्',
   },
   Table: {
     filterTitle: 'फिल्टर मेनु',
@@ -143,10 +145,6 @@ const localeValues: Locale = {
     transparent: 'पारदर्शी',
     singleColor: 'एक रंग',
     gradientColor: 'ग्रेडिएण्ट',
-  },
-  Input: {
-    showPassword: 'पासवर्ड देखाउनुहोस्',
-    hidePassword: 'पासवर्ड लुकाउनुहोस्',
   },
 };
 

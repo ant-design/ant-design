@@ -17,6 +17,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'ကျေးဇူးပြု၍ ရွေးချယ်ပါ။',
     close: 'ပိတ်ပါ',
+    show: 'ပြပါ',
+    hide: 'ဖျောက်ပါ',
   },
   Table: {
     filterTitle: 'စစ်ထုတ်ခြင်း မီနူ',
@@ -132,10 +134,6 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR ကုဒ် သက်တမ်းကုန်သွားပါပြီ။',
     refresh: 'ပြန်လည်စတင်ပါ။',
-  },
-  Input: {
-    showPassword: 'လျှို့ဝှက်နံပါတ်ကို ပြပါ',
-    hidePassword: 'လျှို့ဝှက်နံပါတ်ကို ဖျောက်ပါ',
   },
 };
 

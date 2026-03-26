@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'បិទ',
+    show: 'បង្ហាញ',
+    hide: 'លាក់',
   },
   Table: {
     filterTitle: 'បញ្ចីតម្រៀប',
@@ -106,10 +108,6 @@ const localeValues: Locale = {
         mismatch: '${label} does not match the pattern ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'បង្ហាញលេខសម្ងាត',
-    hidePassword: 'លុបលេខសម្ងាត',
   },
 };
 

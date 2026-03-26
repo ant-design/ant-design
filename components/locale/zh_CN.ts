@@ -18,6 +18,8 @@ const localeValues: Locale = {
     placeholder: '请选择',
     close: '关闭',
     sortable: '可排序',
+    show: '显示',
+    hide: '隐藏',
   },
   Table: {
     filterTitle: '筛选',
@@ -145,10 +147,6 @@ const localeValues: Locale = {
     transparent: '无色',
     singleColor: '单色',
     gradientColor: '渐变色',
-  },
-  Input: {
-    showPassword: '显示密码',
-    hidePassword: '隐藏密码',
   },
 };
 

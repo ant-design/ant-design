@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Lütfen seçiniz',
     close: 'Kapat',
+    show: 'Göster',
+    hide: 'Gizle',
   },
   Table: {
     filterTitle: 'Filtre menüsü',
@@ -129,10 +131,6 @@ const localeValues: Locale = {
         mismatch: '${label} şu kalıpla eşleşmeli: ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Şifreyi göster',
-    hidePassword: 'Şifreyi gizle',
   },
 };
 

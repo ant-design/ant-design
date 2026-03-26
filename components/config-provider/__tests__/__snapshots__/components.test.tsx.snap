@@ -15384,7 +15384,7 @@ exports[`ConfigProvider components Input configProvider 1`] = `
     >
       <span
         aria-disabled="false"
-        aria-label="Show password"
+        aria-label="Show"
         aria-pressed="false"
         class="config-input-password-icon"
         role="button"
@@ -15486,7 +15486,7 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
     >
       <span
         aria-disabled="true"
-        aria-label="Show password"
+        aria-label="Show"
         aria-pressed="false"
         class="config-input-password-icon"
         role="button"
@@ -15585,7 +15585,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
     >
       <span
         aria-disabled="false"
-        aria-label="Show password"
+        aria-label="Show"
         aria-pressed="false"
         class="config-input-password-icon"
         role="button"
@@ -15683,7 +15683,7 @@ exports[`ConfigProvider components Input configProvider componentSize medium 1`]
     >
       <span
         aria-disabled="false"
-        aria-label="Show password"
+        aria-label="Show"
         aria-pressed="false"
         class="config-input-password-icon"
         role="button"
@@ -15781,7 +15781,7 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
     >
       <span
         aria-disabled="false"
-        aria-label="Show password"
+        aria-label="Show"
         aria-pressed="false"
         class="config-input-password-icon"
         role="button"
@@ -15879,7 +15879,7 @@ exports[`ConfigProvider components Input normal 1`] = `
     >
       <span
         aria-disabled="false"
-        aria-label="Show password"
+        aria-label="Show"
         aria-pressed="false"
         class="ant-input-password-icon"
         role="button"
@@ -15977,7 +15977,7 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
     >
       <span
         aria-disabled="false"
-        aria-label="Show password"
+        aria-label="Show"
         aria-pressed="false"
         class="prefix-Input-icon"
         role="button"

@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Prosím vyber',
     close: 'Zavřít',
+    show: 'Zobrazit',
+    hide: 'Skrýt',
   },
   Table: {
     filterTitle: 'Filtr',
@@ -141,10 +143,6 @@ const localeValues: Locale = {
     transparent: 'Průhledné',
     singleColor: 'Jednobarevné',
     gradientColor: 'Přechodové',
-  },
-  Input: {
-    showPassword: 'Zobrazit heslo',
-    hidePassword: 'Skrýt heslo',
   },
 };
 

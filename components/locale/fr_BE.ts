@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Fermer',
+    show: 'Afficher',
+    hide: 'Masquer',
   },
   Table: {
     filterTitle: 'Filtrer',
@@ -129,10 +131,6 @@ const localeValues: Locale = {
         mismatch: 'La valeur du champ ${label} ne correspond pas au modèle ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Afficher le mot de passe',
-    hidePassword: 'Masquer le mot de passe',
   },
 };
 

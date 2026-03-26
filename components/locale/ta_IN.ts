@@ -17,6 +17,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'தேதியைத் தேர்ந்தெடுக்கவும்',
     close: 'மூடு',
+    show: 'காட்டு',
+    hide: 'மறை',
   },
   Table: {
     filterTitle: 'பட்டியலை மூடு',
@@ -128,10 +130,6 @@ const localeValues: Locale = {
   QRCode: {
     expired: 'QR குறியீடு காலாவதியானது',
     refresh: 'புதுப்பிப்பு',
-  },
-  Input: {
-    showPassword: 'கடவுச்சொல்லை காட்டு',
-    hidePassword: 'கடவுச்சொல்லை மறை',
   },
 };
 

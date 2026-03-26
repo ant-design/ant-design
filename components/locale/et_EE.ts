@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Palun vali',
     close: 'Sulge',
+    show: 'Näita',
+    hide: 'Peida',
   },
   Table: {
     filterTitle: 'Filtri menüü',
@@ -130,10 +132,6 @@ const localeValues: Locale = {
         mismatch: '${label} ei vasta mustrile ${pattern}',
       },
     },
-  },
-  Input: {
-    showPassword: 'Näita parooli',
-    hidePassword: 'Peida parooli',
   },
 };
 
