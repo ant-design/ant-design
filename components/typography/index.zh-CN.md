@@ -38,53 +38,59 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  |
 | ellipsis | 自动溢出省略，为对象时不能设置省略行数、是否可展开、onExpand 展开事件。不同于 Typography.Paragraph，Text 组件自身不带 100% 宽度样式，因而默认情况下初次缩略后宽度便不再变化。如果需要自适应宽度，请手动配置宽度样式 | boolean \| [Omit<ellipsis, 'expandable' \| 'rows' \| 'onExpand'>](#ellipsis) | false |  |
+| italic | 是否斜体 | boolean | false | 4.16.0 |
 | keyboard | 添加键盘样式 | boolean | false | 4.3.0 |
 | mark | 添加标记样式 | boolean | false |  |
-| onClick | 点击 Text 时的回调 | (event) => void | - |  |
 | strong | 是否加粗 | boolean | false |  |
-| italic | 是否斜体 | boolean | false | 4.16.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
+| onClick | 点击 Text 时的回调 | (event) => void | - |  |
 
 ### Typography.Title
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  |
 | ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false |  |
+| italic | 是否斜体 | boolean | false | 4.16.0 |
 | level | 重要程度，相当于 `h1`、`h2`、`h3`、`h4`、`h5` | number: 1, 2, 3, 4, 5 | 1 | 5: 4.6.0 |
 | mark | 添加标记样式 | boolean | false |  |
-| onClick | 点击 Title 时的回调 | (event) => void | - |  |
-| italic | 是否斜体 | boolean | false | 4.16.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
+| onClick | 点击 Title 时的回调 | (event) => void | - |  |
 
 ### Typography.Paragraph
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
 | delete | 添加删除线样式 | boolean | false |  |
 | disabled | 禁用文本 | boolean | false |  |
 | editable | 是否可编辑，为对象时可对编辑进行控制 | boolean \| [editable](#editable) | false |  |
 | ellipsis | 自动溢出省略，为对象时可设置省略行数、是否可展开、添加后缀等 | boolean \| [ellipsis](#ellipsis) | false |  |
-| mark | 添加标记样式 | boolean | false |  |
-| onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
-| strong | 是否加粗 | boolean | false |  |
 | italic | 是否斜体 | boolean | false | 4.16.0 |
+| mark | 添加标记样式 | boolean | false |  |
+| strong | 是否加粗 | boolean | false |  |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
+| onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
 
 ### copyable
 
@@ -101,10 +107,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | --- | --- | --- | --- | --- |
 | format | 剪切板数据的 Mime Type | 'text/plain' \| 'text/html' | - | 4.21.0 |
 | icon | 自定义拷贝图标：\[默认图标, 拷贝后的图标] | \[ReactNode, ReactNode] | - | 4.6.0 |
+| tabIndex | 自定义复制按钮的 tabIndex | number | 0 | 5.17.0 |
 | text | 拷贝到剪切板里的文本 | string | - |  |
 | tooltips | 自定义提示文案，为 false 时隐藏文案 | \[ReactNode, ReactNode] | \[`复制`, `复制成功`] | 4.4.0 |
 | onCopy | 拷贝成功的回调函数 | function | - |  |
-| tabIndex | 自定义复制按钮的 tabIndex | number | 0 | 5.17.0 |
 
 ### editable
 
@@ -128,17 +134,17 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | --- | --- | --- | --- | --- |
 | autoSize | 自动 resize 文本域 | boolean \| { minRows: number, maxRows: number } | - | 4.4.0 |
 | editing | 控制是否是编辑中状态 | boolean | false |  |
+| enterIcon | 在编辑段中自定义"enter"图标（传递"null"将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 | icon | 自定义编辑图标 | ReactNode | &lt;EditOutlined /> | 4.6.0 |
 | maxLength | 编辑中文本域最大长度 | number | - | 4.4.0 |
-| tooltip | 自定义提示文本，为 false 时关闭 | ReactNode | `编辑` | 4.6.0 |
-| text | 显式地指定编辑文案，为空时将隐式地使用 children | string | - | 4.24.0 |
-| onChange | 文本域编辑时触发 | function(value: string) | - |  |
-| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
-| onStart | 进入编辑中状态时触发 | function | - |  |
-| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
-| triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
-| enterIcon | 在编辑段中自定义“enter”图标（传递“null”将删除图标） | ReactNode | `<EnterOutlined />` | 4.17.0 |
 | tabIndex | 自定义编辑按钮的 tabIndex | number | 0 | 5.17.0 |
+| text | 显式地指定编辑文案，为空时将隐式地使用 children | string | - | 4.24.0 |
+| tooltip | 自定义提示文本，为 false 时关闭 | ReactNode | `编辑` | 4.6.0 |
+| triggerType | 编辑模式触发器类型，图标、文本或者两者都设置（不设置图标作为触发器时它会隐藏） | Array&lt;`icon`\|`text`> | \[`icon`] |  |
+| onCancel | 按 ESC 退出编辑状态时触发 | function | - |  |
+| onChange | 文本域编辑时触发 | function(value: string) | - |  |
+| onEnd | 按 ENTER 结束编辑状态时触发 | function | - | 4.14.0 |
+| onStart | 进入编辑中状态时触发 | function | - |  |
 
 ### ellipsis
 
@@ -163,15 +169,20 @@ interface EllipsisConfig {
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| defaultExpanded | 默认展开或收起 | boolean |  | 5.16.0 |
 | expandable | 是否可展开 | boolean \| 'collapsible' | - | `collapsible`: 5.16.0 |
+| expanded | 展开或收起 | boolean |  | 5.16.0 |
 | rows | 最多显示的行数 | number | - |  |
 | suffix | 自定义省略内容后缀 | string | - |  |
 | symbol | 自定义展开描述文案 | ReactNode \| ((expanded: boolean) => ReactNode) | `展开` `收起` |  |
 | tooltip | 省略时，展示提示信息 | ReactNode \| [TooltipProps](/components/tooltip-cn/#api) | - | 4.11.0 |
-| defaultExpanded | 默认展开或收起 | boolean |  | 5.16.0 |
-| expanded | 展开或收起 | boolean |  | 5.16.0 |
 | onEllipsis | 触发省略时的回调 | function(ellipsis) | - | 4.2.0 |
 | onExpand | 点击展开或收起时的回调 | function(event, { expanded: boolean }) | - | `info`: 5.16.0 |
+
+## Semantic DOM
+
+<!-- prettier-ignore -->
+<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 

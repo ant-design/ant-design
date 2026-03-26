@@ -3,13 +3,7 @@ import type { Dayjs } from 'dayjs';
 
 import generateCalendar from './generateCalendar';
 
-export type {
-  CalendarMode,
-  CalendarProps,
-  CalendarSemanticClassNames,
-  CalendarSemanticName,
-  CalendarSemanticStyles,
-} from './generateCalendar';
+export type { CalendarMode, CalendarProps } from './generateCalendar';
 
 const Calendar = generateCalendar<Dayjs>(dayjsGenerateConfig);
 

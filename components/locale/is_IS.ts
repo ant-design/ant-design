@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Loka',
+    show: 'Sýna',
+    hide: 'Fela',
   },
   Table: {
     filterTitle: 'Afmarkanir',

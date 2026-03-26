@@ -4,8 +4,8 @@ import { useControlledState } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import CheckableTag from './CheckableTag';
@@ -30,17 +30,21 @@ interface CheckableTagGroupMultipleProps<CheckableTagValue> {
   onChange?: (value: CheckableTagValue[]) => void;
 }
 
-export type SemanticName = keyof TagGroupSemanticClassNames & keyof TagGroupSemanticStyles;
-
-export type TagGroupSemanticClassNames = {
-  root?: string;
-  item?: string;
+export type CheckableTagGroupSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+  };
 };
 
-export type TagGroupSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-};
+export type CheckableTagGroupSemanticAllType = GenerateSemantic<
+  CheckableTagGroupSemanticType,
+  CheckableTagGroupBaseProps<any>
+>;
 
 type CheckableTagGroupBaseProps<CheckableTagValue> = {
   // style
@@ -57,33 +61,24 @@ type CheckableTagGroupBaseProps<CheckableTagValue> = {
     [key: `aria-${string}`]: any;
   };
 
-export type CheckableTagGroupClassNamesType = SemanticClassNamesType<
-  CheckableTagGroupBaseProps<any>,
-  TagGroupSemanticClassNames
->;
-
-export type CheckableTagGroupStylesType = SemanticStylesType<
-  CheckableTagGroupBaseProps<any>,
-  TagGroupSemanticStyles
->;
-
-export type CheckableTagGroupProps<CheckableTagValue> =
+export type CheckableTagGroupProps<CheckableTagValue = any> =
   CheckableTagGroupBaseProps<CheckableTagValue> & {
-    classNames?: CheckableTagGroupClassNamesType;
-    styles?: CheckableTagGroupStylesType;
+    classNames?: CheckableTagGroupSemanticAllType['classNamesAndFn'];
+    styles?: CheckableTagGroupSemanticAllType['stylesAndFn'];
   };
 
 export interface CheckableTagGroupRef {
   nativeElement: HTMLDivElement;
 }
 
-function CheckableTagGroup<CheckableTagValue extends string | number>(
-  props: CheckableTagGroupProps<CheckableTagValue>,
-  ref: React.Ref<CheckableTagGroupRef>,
-) {
+type CheckableTagValue = string | number;
+
+const CheckableTagGroup = React.forwardRef<
+  CheckableTagGroupRef,
+  CheckableTagGroupProps<CheckableTagValue>
+>((props, ref) => {
   const {
     id,
-
     prefixCls: customizePrefixCls,
     rootClassName,
     className,
@@ -117,28 +112,26 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
   // ====================== Styles ======================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    CheckableTagGroupClassNamesType,
-    CheckableTagGroupStylesType,
-    typeof props
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames as CheckableTagGroupProps['classNames'], classNames],
+    [contextStyles as CheckableTagGroupProps['styles'], styles],
+    {
+      props,
+    },
+  );
 
   // =============================== Option ===============================
-  const parsedOptions = useMemo(
-    () =>
-      (options || []).map((option) => {
-        if (option && typeof option === 'object') {
-          return option;
-        }
-        return {
-          value: option,
-          label: option,
-        };
-      }),
-    [options],
-  );
+  const parsedOptions = useMemo(() => {
+    if (!Array.isArray(options)) {
+      return [];
+    }
+    return options.map((option) => {
+      if (option && typeof option === 'object') {
+        return option;
+      }
+      return { value: option, label: option };
+    });
+  }, [options]);
 
   // =============================== Values ===============================
   const [mergedValue, setMergedValue] = useControlledState(defaultValue, value);
@@ -215,18 +208,12 @@ function CheckableTagGroup<CheckableTagValue extends string | number>(
       ))}
     </div>
   );
-}
-
-const ForwardCheckableTagGroup = React.forwardRef(CheckableTagGroup) as (<
-  CheckableTagValue extends string | number,
->(
+}) as (<CheckableTagValue extends string | number>(
   props: CheckableTagGroupProps<CheckableTagValue> & { ref?: React.Ref<CheckableTagGroupRef> },
-) => React.ReactElement) & {
-  displayName?: string;
-};
+) => React.ReactElement<any>) & { displayName?: string };
 
 if (process.env.NODE_ENV !== 'production') {
-  ForwardCheckableTagGroup.displayName = 'CheckableTagGroup';
+  CheckableTagGroup.displayName = 'CheckableTagGroup';
 }
 
-export default ForwardCheckableTagGroup;
+export default CheckableTagGroup;

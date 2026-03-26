@@ -6,7 +6,7 @@ import { FastColor } from '@ant-design/fast-color';
 import { AggregationColor } from '../../color-picker/color';
 import { isBright } from '../../color-picker/components/ColorPresets';
 import { resetComponent } from '../../style';
-import type { FullToken, GenStyleFn, GetDefaultToken } from '../../theme/internal';
+import type { FullToken, GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
 export interface ComponentToken {
@@ -38,7 +38,7 @@ export interface TagToken extends FullToken<'Tag'> {
 
 // ============================== Styles ==============================
 
-const genBaseStyle = (token: TagToken): CSSInterpolation => {
+const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
   const { paddingXXS, lineWidth, tagPaddingHorizontal, componentCls, calc } = token;
   const paddingInline = calc(tagPaddingHorizontal).sub(lineWidth).equal();
   const iconMarginInline = calc(paddingXXS).sub(lineWidth).equal();
@@ -206,7 +206,7 @@ const genBaseStyle = (token: TagToken): CSSInterpolation => {
 };
 
 // ============================== Export ==============================
-export const prepareToken: (token: Parameters<GenStyleFn<'Tag'>>[0]) => TagToken = (token) => {
+export const prepareToken = (token: Parameters<GenStyleFn<'Tag'>>[0]) => {
   const { lineWidth, fontSizeIcon, calc } = token;
   const tagFontSize = token.fontSizeSM;
   const tagToken = mergeToken<TagToken>(token, {

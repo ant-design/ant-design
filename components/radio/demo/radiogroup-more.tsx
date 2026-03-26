@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { Input, Radio } from 'antd';
 
+const labelStyle: React.CSSProperties = {
+  height: 32,
+  lineHeight: '32px',
+};
+
 const App: React.FC = () => {
   const [value, setValue] = useState(1);
 
@@ -15,11 +20,12 @@ const App: React.FC = () => {
       onChange={onChange}
       value={value}
       options={[
-        { value: 1, label: 'Option A' },
-        { value: 2, label: 'Option B' },
-        { value: 3, label: 'Option C' },
+        { value: 1, style: labelStyle, label: 'Option A' },
+        { value: 2, style: labelStyle, label: 'Option B' },
+        { value: 3, style: labelStyle, label: 'Option C' },
         {
           value: 4,
+          style: labelStyle,
           label: (
             <>
               More...

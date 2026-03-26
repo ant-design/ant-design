@@ -42,9 +42,7 @@ interface TransferToken extends FullToken<'Transfer'> {
   transferHeaderVerticalPadding: number;
 }
 
-const genTransferCustomizeStyle: GenerateStyle<TransferToken> = (
-  token: TransferToken,
-): CSSObject => {
+const genTransferCustomizeStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
   const { antCls, componentCls, listHeight, controlHeightLG } = token;
 
   const tableCls = `${antCls}-table`;
@@ -98,7 +96,7 @@ const genTransferStatusColor = (token: TransferToken, color: string): CSSObject 
   };
 };
 
-const genTransferStatusStyle: GenerateStyle<TransferToken> = (token: TransferToken): CSSObject => {
+const genTransferStatusStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [`${componentCls}-status-error`]: {
@@ -110,7 +108,7 @@ const genTransferStatusStyle: GenerateStyle<TransferToken> = (token: TransferTok
   };
 };
 
-const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken): CSSObject => {
+const genTransferListStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
   const {
     componentCls,
     colorBorder,
@@ -314,7 +312,7 @@ const genTransferListStyle: GenerateStyle<TransferToken> = (token: TransferToken
   };
 };
 
-const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): CSSObject => {
+const genTransferStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
   const {
     antCls,
     iconCls,
@@ -358,7 +356,7 @@ const genTransferStyle: GenerateStyle<TransferToken> = (token: TransferToken): C
   };
 };
 
-const genTransferRTLStyle: GenerateStyle<TransferToken> = (token: TransferToken): CSSObject => {
+const genTransferRTLStyle: GenerateStyle<TransferToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [`${componentCls}-rtl`]: {

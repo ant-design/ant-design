@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Fermer',
+    show: 'Afficher',
+    hide: 'Masquer',
   },
   Table: {
     filterTitle: 'Filtrer',

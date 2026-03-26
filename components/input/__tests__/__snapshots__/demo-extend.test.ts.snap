@@ -129,6 +129,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                         title="http://"
                       >
@@ -145,6 +146,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option"
                         title="https://"
                       >
@@ -261,6 +263,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                       style="display: flex; flex-direction: column;"
                     >
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                         title=".com"
                       >
@@ -277,6 +280,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option"
                         title=".jp"
                       >
@@ -293,6 +297,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option"
                         title=".cn"
                       >
@@ -309,6 +314,7 @@ exports[`renders components/input/demo/addon.tsx extend context correctly 1`] = 
                         />
                       </div>
                       <div
+                        aria-disabled="false"
                         class="ant-select-item ant-select-item-option"
                         title=".org"
                       >
@@ -680,52 +686,56 @@ Array [
     class="ant-typography css-var-test-id"
   >
     Ant Design
-    <button
-      aria-describedby="test-id"
-      aria-label="Copy"
-      class="ant-typography-copy"
-      type="button"
+    <span
+      class="ant-typography-actions"
     >
-      <span
-        aria-label="copy"
-        class="anticon anticon-copy"
-        role="img"
-      >
-        <svg
-          aria-hidden="true"
-          data-icon="copy"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
-        >
-          <path
-            d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
-          />
-        </svg>
-      </span>
-    </button>
-    <div
-      class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
-      style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
-    >
-      <div
-        class="ant-tooltip-arrow"
-        style="position: absolute; bottom: 0px; left: 0px;"
+      <button
+        aria-describedby="test-id"
+        aria-label="Copy"
+        class="ant-typography-copy"
+        type="button"
       >
         <span
-          class="ant-tooltip-arrow-content"
-        />
-      </div>
+          aria-label="copy"
+          class="anticon anticon-copy"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="copy"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M832 64H296c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h496v688c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8V96c0-17.7-14.3-32-32-32zM704 192H192c-17.7 0-32 14.3-32 32v530.7c0 8.5 3.4 16.6 9.4 22.6l173.3 173.3c2.2 2.2 4.7 4 7.4 5.5v1.9h4.2c3.5 1.3 7.2 2 11 2H704c17.7 0 32-14.3 32-32V224c0-17.7-14.3-32-32-32zM350 856.2L263.9 770H350v86.2zM664 888H414V746c0-22.1-17.9-40-40-40H232V264h432v624z"
+            />
+          </svg>
+        </span>
+      </button>
       <div
-        class="ant-tooltip-container"
-        id="test-id"
-        role="tooltip"
+        class="ant-tooltip ant-zoom-big-fast-appear ant-zoom-big-fast-appear-prepare ant-zoom-big-fast ant-tooltip-css-var css-var-test-id ant-tooltip-placement-top"
+        style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
       >
-        Copy
+        <div
+          class="ant-tooltip-arrow"
+          style="position: absolute; bottom: 0px; left: 0px;"
+        >
+          <span
+            class="ant-tooltip-arrow-content"
+          />
+        </div>
+        <div
+          class="ant-tooltip-container"
+          id="test-id"
+          role="tooltip"
+        >
+          Copy
+        </div>
       </div>
-    </div>
+    </span>
   </span>,
   <span
     class="ant-input-affix-wrapper ant-input-outlined css-var-test-id ant-input-css-var"
@@ -3100,6 +3110,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                 title="Jack"
               >
@@ -3116,6 +3127,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lucy"
               >
@@ -3142,7 +3154,7 @@ Array [
     style="width: 100px;"
   >
     <div
-      class="ant-select-content ant-select-content-has-value"
+      class="ant-select-content"
       title=""
     >
       <input
@@ -3223,6 +3235,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Jack"
               >
@@ -3239,6 +3252,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lucy"
               >
@@ -3349,6 +3363,7 @@ Array [
               style="display: flex; flex-direction: column;"
             >
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option ant-select-item-option-active"
                 title="Jack"
               >
@@ -3365,6 +3380,7 @@ Array [
                 />
               </div>
               <div
+                aria-disabled="false"
                 class="ant-select-item ant-select-item-option"
                 title="Lucy"
               >
@@ -5651,7 +5667,7 @@ exports[`renders components/input/demo/borderless-debug.tsx extend context corre
 
 exports[`renders components/input/demo/compact-style.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
 >
   <div
     class="ant-space-item"
@@ -5885,6 +5901,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Zhejiang"
                   >
@@ -5901,6 +5918,7 @@ exports[`renders components/input/demo/compact-style.tsx extend context correctl
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jiangsu"
                   >
@@ -6822,6 +6840,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Zhejiang"
                 >
@@ -6838,6 +6857,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Jiangsu"
                 >
@@ -6854,6 +6874,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Other"
                 >
@@ -7121,6 +7142,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Option1"
                 >
@@ -7137,6 +7159,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Option2"
                 >
@@ -9162,6 +9185,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Option1-1"
                 >
@@ -9178,6 +9202,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Option1-2"
                 >
@@ -9285,6 +9310,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active"
                   title="Option2-1"
                 >
@@ -9301,6 +9327,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                   title="Option2-2"
                 >
@@ -9413,6 +9440,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Between"
                 >
@@ -9429,6 +9457,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Except"
                 >
@@ -9564,6 +9593,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Sign Up"
                 >
@@ -9580,6 +9610,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Sign In"
                 >
@@ -9659,6 +9690,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="text 1"
                 >
@@ -9675,6 +9707,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="text 2"
                 >
@@ -9788,6 +9821,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                 style="display: flex; flex-direction: column;"
               >
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                   title="Home"
                 >
@@ -9804,6 +9838,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
                   />
                 </div>
                 <div
+                  aria-disabled="false"
                   class="ant-select-item ant-select-item-option"
                   title="Company"
                 >
@@ -9975,7 +10010,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 2`] = 
 
 exports[`renders components/input/demo/otp.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-flex-start ant-flex-gap-medium ant-flex-vertical"
 >
   <h5
     class="ant-typography css-var-test-id"
@@ -10690,27 +10725,35 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-input-suffix"
       >
         <span
-          aria-label="eye-invisible"
-          class="anticon anticon-eye-invisible ant-input-password-icon"
-          role="img"
-          tabindex="-1"
+          aria-disabled="false"
+          aria-label="Show"
+          aria-pressed="false"
+          class="ant-input-password-icon"
+          role="button"
+          tabindex="0"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="eye-invisible"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="eye-invisible"
+            class="anticon anticon-eye-invisible"
+            role="img"
           >
-            <path
-              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-            />
-            <path
-              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="eye-invisible"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+              />
+              <path
+                d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+              />
+            </svg>
+          </span>
         </span>
       </span>
     </span>
@@ -10731,27 +10774,35 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-input-suffix"
       >
         <span
-          aria-label="eye-invisible"
-          class="anticon anticon-eye-invisible ant-input-password-icon"
-          role="img"
-          tabindex="-1"
+          aria-disabled="false"
+          aria-label="Show"
+          aria-pressed="false"
+          class="ant-input-password-icon"
+          role="button"
+          tabindex="0"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="eye-invisible"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="eye-invisible"
+            class="anticon anticon-eye-invisible"
+            role="img"
           >
-            <path
-              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-            />
-            <path
-              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="eye-invisible"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+              />
+              <path
+                d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+              />
+            </svg>
+          </span>
         </span>
       </span>
     </span>
@@ -10778,27 +10829,35 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
             class="ant-input-suffix"
           >
             <span
-              aria-label="eye-invisible"
-              class="anticon anticon-eye-invisible ant-input-password-icon"
-              role="img"
-              tabindex="-1"
+              aria-disabled="false"
+              aria-label="Show"
+              aria-pressed="false"
+              class="ant-input-password-icon"
+              role="button"
+              tabindex="0"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="eye-invisible"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
+              <span
+                aria-label="eye-invisible"
+                class="anticon anticon-eye-invisible"
+                role="img"
               >
-                <path
-                  d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-                />
-                <path
-                  d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-                />
-              </svg>
+                <svg
+                  aria-hidden="true"
+                  data-icon="eye-invisible"
+                  fill="currentColor"
+                  focusable="false"
+                  height="1em"
+                  viewBox="64 64 896 896"
+                  width="1em"
+                >
+                  <path
+                    d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+                  />
+                  <path
+                    d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+                  />
+                </svg>
+              </span>
             </span>
           </span>
         </span>
@@ -10835,27 +10894,35 @@ exports[`renders components/input/demo/password-input.tsx extend context correct
         class="ant-input-suffix"
       >
         <span
-          aria-label="eye-invisible"
-          class="anticon anticon-eye-invisible ant-input-password-icon"
-          role="img"
+          aria-disabled="true"
+          aria-label="Show"
+          aria-pressed="false"
+          class="ant-input-password-icon"
+          role="button"
           tabindex="-1"
         >
-          <svg
-            aria-hidden="true"
-            data-icon="eye-invisible"
-            fill="currentColor"
-            focusable="false"
-            height="1em"
-            viewBox="64 64 896 896"
-            width="1em"
+          <span
+            aria-label="eye-invisible"
+            class="anticon anticon-eye-invisible"
+            role="img"
           >
-            <path
-              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-            />
-            <path
-              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-            />
-          </svg>
+            <svg
+              aria-hidden="true"
+              data-icon="eye-invisible"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+              />
+              <path
+                d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+              />
+            </svg>
+          </span>
         </span>
       </span>
     </span>
@@ -11007,27 +11074,35 @@ Array [
       class="ant-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible ant-input-password-icon"
-        role="img"
-        tabindex="-1"
+        aria-disabled="false"
+        aria-label="Show"
+        aria-pressed="false"
+        class="ant-input-password-icon"
+        role="button"
+        tabindex="0"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
       <span
         aria-label="lock"
@@ -11616,7 +11691,7 @@ exports[`renders components/input/demo/show-count.tsx extend context correctly 2
 
 exports[`renders components/input/demo/size.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <span
     class="ant-input-affix-wrapper ant-input-affix-wrapper-lg ant-input-outlined css-var-test-id ant-input-css-var"
@@ -11844,7 +11919,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     value=""
   />
   <input
-    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+    class="ant-input ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     name="input-fn"
     placeholder="Function"
     style="border-color: rgb(105, 111, 199);"
@@ -11852,7 +11927,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     value=""
   />
   <span
-    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var"
+    class="ant-input-affix-wrapper ant-input-textarea-affix-wrapper ant-input-textarea-show-count ant-input-show-count ant-input-outlined css-var-test-id ant-input-css-var acss-c5jr4n"
     data-count="8"
     style="border-color: rgb(189, 227, 195);"
   >
@@ -11875,7 +11950,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </span>
   <span
-    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-middle css-var-test-id ant-input-css-var"
+    class="ant-input-affix-wrapper ant-input-outlined ant-input-password ant-input-password-medium css-var-test-id ant-input-css-var acss-c5jr4n"
     style="border-color: rgb(245, 211, 196);"
   >
     <input
@@ -11888,32 +11963,40 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
       class="ant-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible ant-input-password-icon"
-        role="img"
-        tabindex="-1"
+        aria-disabled="false"
+        aria-label="Show"
+        aria-pressed="false"
+        class="ant-input-password-icon"
+        role="button"
+        tabindex="0"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
   <div
-    class="ant-otp css-var-test-id"
+    class="ant-otp css-var-test-id acss-c5jr4n"
     role="group"
   >
     <span
@@ -12021,7 +12104,7 @@ exports[`renders components/input/demo/style-class.tsx extend context correctly 
     </span>
   </div>
   <div
-    class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large"
+    class="ant-space-compact ant-input-search css-var-test-id ant-input-search-large acss-c5jr4n"
     style="color: rgb(77, 168, 218);"
   >
     <input

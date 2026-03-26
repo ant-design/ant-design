@@ -4,6 +4,7 @@ import { Keyframes } from '@ant-design/cssinjs';
 import { resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken {
   /**
@@ -40,134 +41,79 @@ const antRotate = new Keyframes('antRotate', {
   to: { transform: 'rotate(405deg)' },
 });
 
-const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => {
-  const { componentCls, calc } = token;
+// =============================== Spin ===============================
+const genSpinStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  const sectionCls = `${componentCls}-section`;
+
   return {
     [componentCls]: {
       ...resetComponent(token),
-      position: 'absolute',
-      display: 'none',
-      color: token.colorPrimary,
-      fontSize: 0,
-      textAlign: 'center',
-      verticalAlign: 'middle',
-      opacity: 0,
-      transition: `transform ${token.motionDurationSlow} ${token.motionEaseInOutCirc}`,
+      position: 'relative',
 
-      '&-spinning': {
-        position: 'relative',
-        display: 'inline-block',
-        opacity: 1,
+      '&-rtl': {
+        direction: 'rtl',
       },
 
-      [`${componentCls}-text`]: {
-        fontSize: token.fontSize,
-        paddingTop: calc(calc(token.dotSize).sub(token.fontSize)).div(2).add(2).equal(),
-      },
-      '&-fullscreen': {
-        position: 'fixed',
-        width: '100vw',
-        height: '100vh',
-        backgroundColor: token.colorBgMask,
-        zIndex: token.zIndexPopupBase,
-        inset: 0,
+      // ========================== Section ===========================
+      [`&${sectionCls}, ${sectionCls}`]: {
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
-        justifyContent: 'center',
-        opacity: 0,
-        visibility: 'hidden',
-        transition: `all ${token.motionDurationMid}`,
-        '&-show': {
-          opacity: 1,
-          visibility: 'visible',
-        },
+        gap: token.paddingSM,
+        color: token.colorPrimary,
+      },
 
-        [componentCls]: {
-          [`${componentCls}-dot-holder`]: {
-            color: token.colorWhite,
-          },
-          [`${componentCls}-text`]: {
-            color: token.colorTextLightSolid,
-          },
+      [`&${sectionCls}`]: {
+        display: 'inline-flex',
+      },
+
+      [sectionCls]: {
+        position: 'absolute',
+        top: '50%',
+        left: {
+          _skip_check_: true,
+          value: '50%',
+        },
+        transform: 'translate(-50%, -50%)',
+        zIndex: 1,
+      },
+
+      [`${componentCls}-description`]: {
+        fontSize: token.fontSize,
+        lineHeight: 1,
+      },
+
+      // ========================= Container ==========================
+      [`${componentCls}-container`]: {
+        position: 'relative',
+        transition: `opacity ${token.motionDurationSlow}`,
+
+        '&::after': {
+          position: 'absolute',
+          top: 0,
+          insetInlineEnd: 0,
+          bottom: 0,
+          insetInlineStart: 0,
+          zIndex: 10,
+          width: '100%',
+          height: '100%',
+          background: token.colorBgContainer,
+          opacity: 0,
+          transition: `all ${token.motionDurationSlow}`,
+          content: '""',
+          pointerEvents: 'none',
         },
       },
 
-      '&-nested-loading': {
-        position: 'relative',
-        [`> div > ${componentCls}`]: {
-          position: 'absolute',
-          top: 0,
-          insetInlineStart: 0,
-          zIndex: 4,
-          display: 'block',
-          width: '100%',
-          height: '100%',
-          maxHeight: token.contentHeight,
-          [`${componentCls}-dot`]: {
-            position: 'absolute',
-            top: '50%',
-            insetInlineStart: '50%',
-            margin: calc(token.dotSize).mul(-1).div(2).equal(),
-          },
-          [`${componentCls}-text`]: {
-            position: 'absolute',
-            top: '50%',
-            width: '100%',
-            textShadow: `0 1px 2px ${token.colorBgContainer}`, // FIXME: shadow
-          },
-
-          [`&${componentCls}-show-text ${componentCls}-dot`]: {
-            marginTop: calc(token.dotSize).div(2).mul(-1).sub(10).equal(),
-          },
-
-          '&-sm': {
-            [`${componentCls}-dot`]: {
-              margin: calc(token.dotSizeSM).mul(-1).div(2).equal(),
-            },
-            [`${componentCls}-text`]: {
-              paddingTop: calc(calc(token.dotSizeSM).sub(token.fontSize)).div(2).add(2).equal(),
-            },
-            [`&${componentCls}-show-text ${componentCls}-dot`]: {
-              marginTop: calc(token.dotSizeSM).div(2).mul(-1).sub(10).equal(),
-            },
-          },
-
-          '&-lg': {
-            [`${componentCls}-dot`]: {
-              margin: calc(token.dotSizeLG).mul(-1).div(2).equal(),
-            },
-            [`${componentCls}-text`]: {
-              paddingTop: calc(calc(token.dotSizeLG).sub(token.fontSize)).div(2).add(2).equal(),
-            },
-            [`&${componentCls}-show-text ${componentCls}-dot`]: {
-              marginTop: calc(token.dotSizeLG).div(2).mul(-1).sub(10).equal(),
-            },
-          },
+      // ========================== Spinning ==========================
+      '&-spinning': {
+        [`${componentCls}-description`]: {
+          textShadow: `0 0px 5px ${token.colorBgContainer}`,
         },
 
         [`${componentCls}-container`]: {
-          position: 'relative',
-          transition: `opacity ${token.motionDurationSlow}`,
-
-          '&::after': {
-            position: 'absolute',
-            top: 0,
-            insetInlineEnd: 0,
-            bottom: 0,
-            insetInlineStart: 0,
-            zIndex: 10,
-            width: '100%',
-            height: '100%',
-            background: token.colorBgContainer,
-            opacity: 0,
-            transition: `all ${token.motionDurationSlow}`,
-            content: '""',
-            pointerEvents: 'none',
-          },
-        },
-
-        [`${componentCls}-blur`]: {
           clear: 'both',
           opacity: 0.5,
           userSelect: 'none',
@@ -180,51 +126,85 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
         },
       },
 
-      // tip
-      // ------------------------------
-      '&-tip': {
-        color: token.spinDotDefault,
-      },
+      // ========================= Fullscreen =========================
+      '&-fullscreen': {
+        position: 'fixed',
+        inset: 0,
+        backgroundColor: token.colorBgMask,
+        zIndex: token.zIndexPopupBase,
+        opacity: 0,
+        pointerEvents: 'none',
+        transition: `all ${token.motionDurationMid}`,
 
-      // holder
-      // ------------------------------
-      [`${componentCls}-dot-holder`]: {
-        width: '1em',
-        height: '1em',
-        fontSize: token.dotSize,
-        display: 'inline-block',
-        transition: `transform ${token.motionDurationSlow} ease, opacity ${token.motionDurationSlow} ease`,
-        transformOrigin: '50% 50%',
-        lineHeight: 1,
-        color: token.colorPrimary,
+        [`&${componentCls}-spinning`]: {
+          opacity: 1,
+          pointerEvents: 'auto',
+        },
 
-        '&-hidden': {
-          transform: 'scale(0.3)',
-          opacity: 0,
+        [sectionCls]: {
+          color: token.colorWhite,
+
+          [`${componentCls}-description`]: {
+            color: token.colorTextLightSolid,
+          },
         },
       },
+    },
+  };
+};
 
-      // progress
-      // ------------------------------
-      [`${componentCls}-dot-progress`]: {
-        position: 'absolute',
-        inset: 0,
-      },
+// ============================ Indicator =============================
+const genIndicatorStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
+  const { componentCls, antCls, motionDurationSlow } = token;
 
-      // dots
-      // ------------------------------
+  const [varName, varRef] = genCssVar(antCls, 'spin');
+
+  return {
+    [componentCls]: {
+      [varName('dot-holder-size')]: token.dotSize,
+      [varName('dot-item-size')]:
+        `calc((${varRef('dot-holder-size')} - ${token.marginXXS} / 2) / 2)`,
+
       [`${componentCls}-dot`]: {
+        // >>> holder
+        '&-holder': {
+          width: '1em',
+          height: '1em',
+          fontSize: varRef('dot-holder-size'),
+          display: 'inline-block',
+          transition: ['transform', 'opacity']
+            .map((prop) => `${prop} ${motionDurationSlow} ease`)
+            .join(', '),
+          transformOrigin: '50% 50%',
+          lineHeight: 1,
+
+          '&-hidden': {
+            transform: 'scale(0.3)',
+            opacity: 0,
+          },
+        },
+
+        // >>> holder > dot
         position: 'relative',
         display: 'inline-block',
-        fontSize: token.dotSize,
+        fontSize: varRef('dot-holder-size'),
         width: '1em',
         height: '1em',
 
+        '&-spin': {
+          transform: 'rotate(45deg)',
+          animationName: antRotate,
+          animationDuration: '1.2s',
+          animationIterationCount: 'infinite',
+          animationTimingFunction: 'linear',
+        },
+
+        // >>> holder > dot > item
         '&-item': {
           position: 'absolute',
           display: 'block',
-          width: calc(token.dotSize).sub(calc(token.marginXXS).div(2)).div(2).equal(),
-          height: calc(token.dotSize).sub(calc(token.marginXXS).div(2)).div(2).equal(),
+          width: varRef('dot-item-size'),
+          height: varRef('dot-item-size'),
           background: 'currentColor',
           borderRadius: '100%',
           transform: 'scale(0.75)',
@@ -261,18 +241,18 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           },
         },
 
-        '&-spin': {
-          transform: 'rotate(45deg)',
-          animationName: antRotate,
-          animationDuration: '1.2s',
-          animationIterationCount: 'infinite',
-          animationTimingFunction: 'linear',
+        // ========================= Progress =========================
+        '&-progress': {
+          position: 'absolute',
+          left: '50%',
+          top: 0,
+          transform: 'translateX(-50%)',
         },
 
         '&-circle': {
           strokeLinecap: 'round',
           transition: ['stroke-dashoffset', 'stroke-dasharray', 'stroke', 'stroke-width', 'opacity']
-            .map((item) => `${item} ${token.motionDurationSlow} ease`)
+            .map((item) => `${item} ${motionDurationSlow} ease`)
             .join(','),
           fillOpacity: 0,
           stroke: 'currentcolor',
@@ -282,42 +262,30 @@ const genSpinStyle: GenerateStyle<SpinToken> = (token: SpinToken): CSSObject => 
           stroke: token.colorFillSecondary,
         },
       },
-      // small
-      [`&-sm ${componentCls}-dot`]: {
-        '&, &-holder': {
-          fontSize: token.dotSizeSM,
-        },
-      },
-      [`&-sm ${componentCls}-dot-holder`]: {
-        i: {
-          width: calc(calc(token.dotSizeSM).sub(calc(token.marginXXS).div(2)))
-            .div(2)
-            .equal(),
-          height: calc(calc(token.dotSizeSM).sub(calc(token.marginXXS).div(2)))
-            .div(2)
-            .equal(),
-        },
-      },
-      // large
-      [`&-lg ${componentCls}-dot`]: {
-        '&, &-holder': {
-          fontSize: token.dotSizeLG,
-        },
-      },
-      [`&-lg ${componentCls}-dot-holder`]: {
-        i: {
-          width: calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
-          height: calc(calc(token.dotSizeLG).sub(token.marginXXS)).div(2).equal(),
-        },
+    },
+  };
+};
+
+// =============================== Size ===============================
+const genSizeStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  const [varName] = genCssVar(token.antCls, 'spin');
+
+  return {
+    [componentCls]: {
+      '&-sm': {
+        [varName('dot-holder-size')]: token.dotSizeSM,
       },
 
-      [`&${componentCls}-show-text ${componentCls}-text`]: {
-        display: 'block',
+      '&-lg': {
+        [varName('dot-holder-size')]: token.dotSizeLG,
       },
     },
   };
 };
 
+// ========================= Component Token ==========================
 export const prepareComponentToken: GetDefaultToken<'Spin'> = (token) => {
   const { controlHeightLG, controlHeight } = token;
   return {
@@ -335,7 +303,7 @@ export default genStyleHooks(
     const spinToken = mergeToken<SpinToken>(token, {
       spinDotDefault: token.colorTextDescription,
     });
-    return genSpinStyle(spinToken);
+    return [genSpinStyle(spinToken), genIndicatorStyle(spinToken), genSizeStyle(spinToken)];
   },
   prepareComponentToken,
 );

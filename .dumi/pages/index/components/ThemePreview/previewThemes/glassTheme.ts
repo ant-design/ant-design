@@ -4,11 +4,8 @@ import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
-import type { UseTheme } from '.';
-
 const useStyles = createStyles(({ css, cssVar }) => {
   const glassBorder = {
-    border: `${cssVar.lineWidth} solid rgba(255,255,255,0.3)`,
     boxShadow: [
       `${cssVar.boxShadowSecondary}`,
       `inset 0 0 5px 2px rgba(255, 255, 255, 0.3)`,
@@ -66,10 +63,50 @@ const useStyles = createStyles(({ css, cssVar }) => {
       },
     }),
     switchRoot: css({ ...glassBorder, border: 'none' }),
+    segmentedRoot: css({
+      ...glassBorder,
+      background: 'transparent',
+      backdropFilter: 'none',
+
+      '& .ant-segmented-thumb': {
+        ...glassBox,
+      },
+
+      '& .ant-segmented-item-selected': {
+        ...glassBox,
+      },
+    }),
+    radioButtonRoot: css({
+      '&.ant-radio-button-wrapper': {
+        ...glassBorder,
+        background: 'transparent',
+        borderColor: 'rgba(255, 255, 255, 0.2)',
+        color: cssVar.colorText,
+
+        '&:hover': {
+          borderColor: 'rgba(255, 255, 255, 0.24)',
+          color: cssVar.colorText,
+        },
+
+        '&.ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled)': {
+          ...glassBox,
+          borderColor: 'rgba(255, 255, 255, 0.28)',
+          color: cssVar.colorText,
+
+          '&::before': {
+            backgroundColor: 'rgba(255, 255, 255, 0.18)',
+          },
+
+          '&:hover': {
+            color: cssVar.colorText,
+          },
+        },
+      },
+    }),
   };
 });
 
-const useGlassTheme: UseTheme = () => {
+const useGlassTheme = () => {
   const { styles } = useStyles();
 
   return useMemo<ConfigProviderProps>(
@@ -112,6 +149,9 @@ const useGlassTheme: UseTheme = () => {
         className: clsx(styles.glassBox, styles.notBackdropFilter),
       },
       colorPicker: {
+        classNames: {
+          root: clsx(styles.glassBox, styles.notBackdropFilter),
+        },
         arrow: false,
       },
       dropdown: {
@@ -127,6 +167,24 @@ const useGlassTheme: UseTheme = () => {
           },
         },
       },
+      datePicker: {
+        classNames: {
+          root: clsx(styles.glassBox, styles.notBackdropFilter),
+          popup: {
+            container: styles.glassBox,
+          },
+        },
+      },
+      input: {
+        classNames: {
+          root: clsx(styles.glassBox, styles.notBackdropFilter),
+        },
+      },
+      inputNumber: {
+        classNames: {
+          root: clsx(styles.glassBox, styles.notBackdropFilter),
+        },
+      },
       popover: {
         classNames: {
           container: styles.glassBox,
@@ -136,6 +194,14 @@ const useGlassTheme: UseTheme = () => {
         classNames: {
           root: styles.switchRoot,
         },
+      },
+      radio: {
+        classNames: {
+          root: styles.radioButtonRoot,
+        },
+      },
+      segmented: {
+        className: styles.segmentedRoot,
       },
       progress: {
         classNames: {

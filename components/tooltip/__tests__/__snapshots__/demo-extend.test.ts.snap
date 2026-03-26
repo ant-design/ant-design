@@ -2219,7 +2219,7 @@ exports[`renders components/tooltip/demo/smooth-transition.tsx extend context co
 
 exports[`renders components/tooltip/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <button
     aria-describedby="test-id"

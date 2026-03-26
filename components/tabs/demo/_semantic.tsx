@@ -2,13 +2,14 @@ import React from 'react';
 import { Tabs } from 'antd';
 import type { TabsProps } from 'antd';
 
-import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
     root: '根元素，包含标签页容器的基础样式、布局和方向控制',
     item: 'Item 元素，包含相对定位、内边距、颜色、文本省略、圆角、过渡动画等标签项的样式和交互效果',
+    remove: '删除按钮元素，包含可编辑标签页关闭按钮的尺寸、颜色、悬浮态和交互反馈等样式',
     header: '头部元素，包含标签页头部导航的布局、背景、边框等样式',
     indicator: '指示器元素，包含指示条的颜色、位置、尺寸、过渡动画等活跃状态指示样式',
     content: '内容元素，包含标签页内容面板的布局、内边距等内容展示样式',
@@ -17,6 +18,8 @@ const locales = {
   en: {
     root: 'Root element with basic tab container styles, layout and direction control',
     item: 'Item element with relative positioning, padding, colors, text ellipsis, border-radius, transitions and other tab item styles and interactive effects',
+    remove:
+      'Remove button element with editable tab close button size, color, hover state and other interactive feedback styles',
     header:
       'Header element with tab navigation header layout, background, borders and other styles',
     indicator:
@@ -33,11 +36,13 @@ const Block: React.FC<Readonly<TabsProps>> = (props) => {
     <Tabs
       {...props}
       defaultActiveKey="1"
+      type="editable-card"
       style={{ height: 220, width: '100%' }}
       styles={{
         popup: {
           root: { background: '#fff' },
         },
+        indicator: { visibility: 'visible' },
       }}
       items={Array.from({ length: 30 }, (_, i) => {
         const id = String(i);
@@ -61,6 +66,7 @@ const App: React.FC = () => {
         { name: 'root', desc: locale.root },
         { name: 'header', desc: locale.root },
         { name: 'item', desc: locale.item },
+        { name: 'remove', desc: locale.remove, version: '6.4.0' },
         { name: 'indicator', desc: locale.indicator },
         { name: 'content', desc: locale.content },
         { name: 'popup.root', desc: locale['popup.root'] },

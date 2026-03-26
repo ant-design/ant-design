@@ -7269,7 +7269,7 @@ exports[`renders components/dropdown/demo/selectable.tsx extend context correctl
 
 exports[`renders components/dropdown/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-medium"
 >
   <div
     class="ant-space ant-space-vertical ant-space-gap-row-large ant-space-gap-col-large css-var-test-id"
@@ -7369,7 +7369,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               aria-label="setting"
               class="anticon anticon-setting ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(24, 144, 255); margin-right: 8px;"
+              style="color: rgb(24, 144, 255); margin-inline-end: 8px;"
             >
               <svg
                 aria-hidden="true"
@@ -7426,7 +7426,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               aria-label="logout"
               class="anticon anticon-logout ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(24, 144, 255); margin-right: 8px;"
+              style="color: rgb(24, 144, 255); margin-inline-end: 8px;"
             >
               <svg
                 aria-hidden="true"

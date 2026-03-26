@@ -570,6 +570,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Zhejiang"
                   >
@@ -586,6 +587,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jiangsu"
                   >
@@ -777,6 +779,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Zhejiang"
                   >
@@ -813,6 +816,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     </span>
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Jiangsu"
                   >
@@ -1084,6 +1088,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Option1"
                   >
@@ -1100,6 +1105,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Option2"
                   >
@@ -4349,6 +4355,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Option1-1"
                   >
@@ -4365,6 +4372,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Option1-2"
                   >
@@ -4472,6 +4480,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active"
                     title="Option2-1"
                   >
@@ -4488,6 +4497,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-selected"
                     title="Option2-2"
                   >
@@ -4603,6 +4613,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Between"
                   >
@@ -4619,6 +4630,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Except"
                   >
@@ -4757,6 +4769,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Sign Up"
                   >
@@ -4773,6 +4786,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sign In"
                   >
@@ -4852,6 +4866,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="text 1"
                   >
@@ -4868,6 +4883,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="text 2"
                   >
@@ -8958,6 +8974,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                               style="display: flex; flex-direction: column;"
                             >
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                                 title="HEX"
                               >
@@ -8974,6 +8991,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="HSB"
                               >
@@ -8990,6 +9008,7 @@ exports[`renders components/space/demo/compact.tsx extend context correctly 1`] 
                                 />
                               </div>
                               <div
+                                aria-disabled="false"
                                 class="ant-select-item ant-select-item-option"
                                 title="RGB"
                               >
@@ -10456,6 +10475,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title="http://"
                         >
@@ -10472,6 +10492,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title="https://"
                         >
@@ -10588,6 +10609,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                         style="display: flex; flex-direction: column;"
                       >
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                           title=".com"
                         >
@@ -10604,6 +10626,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title=".jp"
                         >
@@ -10620,6 +10643,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title=".cn"
                         >
@@ -10636,6 +10660,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                           />
                         </div>
                         <div
+                          aria-disabled="false"
                           class="ant-select-item ant-select-item-option"
                           title=".org"
                         >
@@ -12438,6 +12463,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                   style="display: flex; flex-direction: column;"
                 >
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                     title="Sign Up"
                   >
@@ -12454,6 +12480,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
                     />
                   </div>
                   <div
+                    aria-disabled="false"
                     class="ant-select-item ant-select-item-option"
                     title="Sign In"
                   >
@@ -13937,7 +13964,7 @@ exports[`renders components/space/demo/compact-debug.tsx extend context correctl
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-space-compact ant-space-compact-block"
@@ -14143,6 +14170,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
                     style="display: flex; flex-direction: column;"
                   >
                     <div
+                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option ant-select-item-option-active ant-select-item-option-selected"
                       title="Opt1"
                     >
@@ -14159,6 +14187,7 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
                       />
                     </div>
                     <div
+                      aria-disabled="false"
                       class="ant-select-item ant-select-item-option"
                       title="Opt2"
                     >
@@ -16062,6 +16091,28 @@ exports[`renders components/space/demo/compact-nested.tsx extend context correct
 
 exports[`renders components/space/demo/compact-nested.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/space/demo/component-token.tsx extend context correctly 1`] = `
+<div
+  class="ant-space-compact"
+>
+  <div
+    class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined"
+  >
+    Addon
+  </div>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+</div>
+`;
+
+exports[`renders components/space/demo/component-token.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/space/demo/debug.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -16448,13 +16499,13 @@ Array [
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="middle"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-label"
       >
-        middle
+        medium
       </span>
     </label>
     <label
@@ -16661,7 +16712,7 @@ exports[`renders components/space/demo/style-class.tsx extend context correctly 
 
 exports[`renders components/space/demo/vertical.tsx extend context correctly 1`] = `
 <div
-  class="ant-space ant-space-vertical ant-space-gap-row-middle ant-space-gap-col-middle css-var-test-id"
+  class="ant-space ant-space-vertical ant-space-gap-row-medium ant-space-gap-col-medium css-var-test-id"
   style="display: flex;"
 >
   <div

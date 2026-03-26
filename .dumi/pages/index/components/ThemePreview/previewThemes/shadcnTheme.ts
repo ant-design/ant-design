@@ -4,8 +4,6 @@ import type { ConfigProviderProps } from 'antd';
 import { createStyles } from 'antd-style';
 import clsx from 'clsx';
 
-import type { UseTheme } from '.';
-
 const useStyles = createStyles(({ css }) => {
   return {
     buttonPrimary: css({
@@ -48,7 +46,7 @@ const useStyles = createStyles(({ css }) => {
   };
 });
 
-const useShadcnTheme: UseTheme = () => {
+const useShadcnTheme = () => {
   const { styles } = useStyles();
 
   return useMemo<ConfigProviderProps>(

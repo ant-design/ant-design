@@ -27,8 +27,8 @@ const OTPInput = React.forwardRef<InputRef, OTPInputProps>((props, ref) => {
   React.useImperativeHandle(ref, () => inputRef.current!);
 
   // ========================= Input ==========================
-  const onInternalChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-    onChange(index, e.target.value);
+  const onInternalChange: React.InputEventHandler<HTMLInputElement> = (e) => {
+    onChange(index, (e.target as HTMLInputElement).value);
   };
 
   // ========================= Focus ==========================

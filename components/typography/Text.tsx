@@ -11,7 +11,7 @@ export interface TextProps
   ellipsis?: boolean | Omit<EllipsisConfig, 'expandable' | 'rows' | 'onExpand'>;
 }
 
-const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (props, ref) => {
+const Text = React.forwardRef<HTMLSpanElement, TextProps>((props, ref) => {
   const { ellipsis, children, ...restProps } = props;
   const mergedEllipsis = React.useMemo(() => {
     if (ellipsis && typeof ellipsis === 'object') {
@@ -37,6 +37,6 @@ const Text: React.ForwardRefRenderFunction<HTMLSpanElement, TextProps> = (props,
       {children}
     </Base>
   );
-};
+});
 
-export default React.forwardRef(Text);
+export default Text;

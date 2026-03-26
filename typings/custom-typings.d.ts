@@ -1,3 +1,5 @@
+/// <reference types="jquery" />
+
 // https://github.com/facebook/create-react-app/blob/f09d3d3a52c1b938cecc977c2bbc0942ea0a7e70/packages/react-scripts/lib/react-app.d.ts#L42-L49
 declare module '*.svg' {
   import type * as React from 'react';
@@ -35,3 +37,12 @@ declare module '@microflash/rehype-figure';
 declare module 'dekko';
 
 declare module 'csstree-validator';
+
+declare module '*?raw' {
+  const content: string;
+  export default content;
+}
+
+interface Window {
+  gtag?: (...args: any[]) => void;
+}

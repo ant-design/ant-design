@@ -9,6 +9,7 @@ const locales = {
   cn: {
     root: '引导根容器，设置绝对定位、层级控制、最大宽度、可见性、箭头背景色变量、主题样式等容器样式',
     cover: '卡片封面区域，设置文本居中对齐、内边距、图片宽度等图片展示样式',
+    close: '关闭按钮元素，设置绝对定位、尺寸、颜色、悬浮态和交互反馈等关闭按钮样式',
     section:
       '卡片主要内容区域，设置文本对齐、边框圆角、盒阴影、相对定位、背景色、边框、背景裁剪等卡片样式',
     footer: '卡片底部操作区域，设置内边距、文本右对齐、边框圆角、Flex布局等底部容器样式',
@@ -25,6 +26,8 @@ const locales = {
     root: 'Tour root container with absolute positioning, z-index control, max width, visibility, arrow background color variable, theme styles and other container styles',
     cover:
       'Card cover area with text center alignment, padding, image width and other image display styles',
+    close:
+      'Close button element with absolute positioning, size, color, hover state and other interactive feedback styles',
     section:
       'Card main content area with text alignment, border radius, box shadow, relative positioning, background color, border, background clip and other card styles',
     footer:
@@ -102,6 +105,7 @@ const App: React.FC = () => {
         { name: 'mask', desc: locale.mask, version: '6.0.0' },
         { name: 'section', desc: locale.section, version: '6.0.0' },
         { name: 'cover', desc: locale.cover, version: '6.0.0' },
+        { name: 'close', desc: locale.close, version: '6.4.0' },
         { name: 'header', desc: locale.header, version: '6.0.0' },
         { name: 'title', desc: locale.title, version: '6.0.0' },
         { name: 'description', desc: locale.description, version: '6.0.0' },

@@ -2,8 +2,11 @@
 
 exports[`renders components/image/demo/basic.tsx extend context correctly 1`] = `
 <div
+  aria-label="basic"
   class="ant-image css-var-test-id ant-image-css-var"
+  role="button"
   style="width: 200px;"
+  tabindex="0"
 >
   <img
     alt="basic"
@@ -22,8 +25,11 @@ exports[`renders components/image/demo/basic.tsx extend context correctly 2`] = 
 exports[`renders components/image/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="svg image"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 150px;"
+    tabindex="0"
   >
     <img
       alt="svg image"
@@ -36,8 +42,11 @@ Array [
     />
   </div>,
   <div
+    aria-label="basic image"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 150px;"
+    tabindex="0"
   >
     <img
       alt="basic image"
@@ -141,8 +150,11 @@ Array [
     </span>
   </button>,
   <div
+    aria-label="basic image"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 200px;"
+    tabindex="0"
   >
     <img
       alt="basic image"
@@ -170,8 +182,11 @@ exports[`renders components/image/demo/coverPlacement.tsx extend context correct
     class="ant-space-item"
   >
     <div
+      aria-label="basic image"
       class="ant-image css-var-test-id ant-image-css-var"
+      role="button"
       style="width: 96px;"
+      tabindex="0"
     >
       <img
         alt="basic image"
@@ -221,8 +236,11 @@ exports[`renders components/image/demo/coverPlacement.tsx extend context correct
     class="ant-space-item"
   >
     <div
+      aria-label="image"
       class="ant-image css-var-test-id ant-image-css-var"
+      role="button"
       style="width: 96px;"
+      tabindex="0"
     >
       <img
         alt="image"
@@ -272,8 +290,11 @@ exports[`renders components/image/demo/coverPlacement.tsx extend context correct
     class="ant-space-item"
   >
     <div
+      aria-label="image"
       class="ant-image css-var-test-id ant-image-css-var"
+      role="button"
       style="width: 96px;"
+      tabindex="0"
     >
       <img
         alt="image"
@@ -326,8 +347,11 @@ exports[`renders components/image/demo/coverPlacement.tsx extend context correct
 
 exports[`renders components/image/demo/fallback.tsx extend context correctly 1`] = `
 <div
+  aria-label="basic image"
   class="ant-image css-var-test-id ant-image-css-var"
+  role="button"
   style="width: 200px; height: 200px;"
+  tabindex="0"
 >
   <img
     alt="basic image"
@@ -347,8 +371,11 @@ exports[`renders components/image/demo/fallback.tsx extend context correctly 2`]
 
 exports[`renders components/image/demo/imageRender.tsx extend context correctly 1`] = `
 <div
+  aria-label="basic image"
   class="ant-image css-var-test-id ant-image-css-var"
+  role="button"
   style="width: 200px;"
+  tabindex="0"
 >
   <img
     alt="basic image"
@@ -372,11 +399,14 @@ exports[`renders components/image/demo/mask.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <div
+      aria-label="blur preview"
       class="ant-image css-var-test-id ant-image-css-var"
+      role="button"
       style="width: 100px;"
+      tabindex="0"
     >
       <img
-        alt="blur"
+        alt="blur preview"
         class="ant-image-img"
         src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png"
         width="100"
@@ -400,11 +430,14 @@ exports[`renders components/image/demo/mask.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <div
+      aria-label="Dimmed mask preview"
       class="ant-image css-var-test-id ant-image-css-var"
+      role="button"
       style="width: 100px;"
+      tabindex="0"
     >
       <img
-        alt="Dimmed mask"
+        alt="Dimmed mask preview"
         class="ant-image-img"
         src="https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg"
         width="100"
@@ -428,11 +461,14 @@ exports[`renders components/image/demo/mask.tsx extend context correctly 1`] = `
     class="ant-space-item"
   >
     <div
+      aria-label="No mask preview"
       class="ant-image css-var-test-id ant-image-css-var"
+      role="button"
       style="width: 100px;"
+      tabindex="0"
     >
       <img
-        alt="No mask"
+        alt="No mask preview"
         class="ant-image-img"
         src="https://gw.alipayobjects.com/zos/antfincdn/aPkFc8Sj7n/method-draw-image.svg"
         width="100"
@@ -471,57 +507,204 @@ exports[`renders components/image/demo/nested.tsx extend context correctly 1`] =
 exports[`renders components/image/demo/nested.tsx extend context correctly 2`] = `[]`;
 
 exports[`renders components/image/demo/placeholder.tsx extend context correctly 1`] = `
-<div
-  class="ant-space ant-space-horizontal ant-space-align-center css-var-test-id"
-  style="column-gap: 12px; row-gap: 12px;"
->
+Array [
   <div
-    class="ant-space-item"
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+    style="gap: 16px;"
   >
     <div
-      class="ant-image css-var-test-id ant-image-css-var"
-      style="width: 200px;"
+      aria-busy="true"
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      style="width: 200px; height: 200px; border-radius: 8px;"
     >
-      <img
-        alt="basic image"
-        class="ant-image-img"
-        src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?1479772800000"
-        width="200"
+      <span
+        aria-live="polite"
+        role="status"
+        style="position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border: 0px;"
+      >
+        Loading
+      </span>
+      <div
+        class="ant-image-progress-ink-1"
       />
       <div
-        aria-hidden="true"
-        class="ant-image-placeholder"
-      >
-        <div
-          class="ant-image css-var-test-id ant-image-css-var"
-          style="width: 200px;"
-        >
-          <img
-            alt="placeholder image"
-            class="ant-image-img"
-            src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?x-oss-process=image/blur,r_50,s_50/quality,q_1/resize,m_mfit,h_200,w_200"
-            width="200"
-          />
-        </div>
-      </div>
+        class="ant-image-progress-ink-2"
+      />
       <div
-        class="ant-image-cover ant-image-cover-center"
+        class="ant-image-progress-content"
       />
     </div>
-  </div>
-  <div
-    class="ant-space-item"
-  >
-    <button
-      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-      type="button"
+    <div
+      aria-busy="true"
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      style="width: 200px; height: 200px; border-radius: 8px;"
     >
-      <span>
-        Reload
+      <span
+        aria-live="polite"
+        role="status"
+        style="position: absolute; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; border: 0px;"
+      >
+        Loading
       </span>
-    </button>
-  </div>
-</div>
+      <div
+        class="ant-image-progress-ink-1"
+      />
+      <div
+        class="ant-image-progress-ink-2"
+      />
+      <div
+        class="ant-image-progress-content"
+      >
+        loading...
+      </div>
+    </div>
+    <div
+      aria-label="50%"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="50"
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      role="progressbar"
+      style="width: 200px; height: 200px; border-radius: 8px;"
+    >
+      <div
+        class="ant-image-progress-ink-1"
+      />
+      <div
+        class="ant-image-progress-ink-2"
+      />
+      <div
+        class="ant-image-progress-content"
+      >
+        <div
+          class="ant-image-progress-rail"
+          style="--progress-percent: 50%;"
+        />
+        <div
+          class="ant-image-progress-indicator"
+        >
+          50%
+        </div>
+      </div>
+    </div>
+    <div
+      aria-label="75%"
+      aria-valuemax="100"
+      aria-valuemin="0"
+      aria-valuenow="75"
+      class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+      role="progressbar"
+      style="width: 200px; height: 200px; border-radius: 8px;"
+    >
+      <div
+        class="ant-image-progress-ink-1"
+      />
+      <div
+        class="ant-image-progress-ink-2"
+      />
+      <div
+        class="ant-image-progress-content"
+      >
+        <div
+          class="ant-image-progress-rail"
+          style="--progress-percent: 75%;"
+        />
+        <div
+          style="margin-top: 8px;"
+        >
+          Generating 75%
+        </div>
+      </div>
+    </div>
+  </div>,
+  <div
+    class="ant-flex css-var-test-id ant-flex-wrap-wrap"
+    style="margin-top: 16px; gap: 16px;"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="gap: 8px;"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Reload Image
+        </span>
+      </button>
+      <div
+        aria-label="basic image"
+        class="ant-image css-var-test-id ant-image-css-var"
+        role="button"
+        style="width: 200px; height: 200px;"
+        tabindex="0"
+      >
+        <img
+          alt="basic image"
+          class="ant-image-img"
+          height="200"
+          src="https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png?1479772800000"
+          style="height: 200px; border-radius: 8px;"
+          width="200"
+        />
+        <div
+          aria-hidden="true"
+          class="ant-image-placeholder"
+        >
+          <div
+            style="width: 100%; height: 100%; background: rgba(255, 255, 255, 0.3); border-radius: 8px;"
+          />
+        </div>
+        <div
+          class="ant-image-cover ant-image-cover-center"
+        />
+      </div>
+    </div>
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="gap: 8px;"
+    >
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          Generate
+        </span>
+      </button>
+      <div
+        aria-label="0%"
+        aria-valuemax="100"
+        aria-valuemin="0"
+        aria-valuenow="0"
+        class="ant-image ant-image-progress-wrapper css-var-test-id ant-image-css-var"
+        role="progressbar"
+        style="width: 200px; height: 200px; border-radius: 8px;"
+      >
+        <div
+          class="ant-image-progress-ink-1"
+        />
+        <div
+          class="ant-image-progress-ink-2"
+        />
+        <div
+          class="ant-image-progress-content"
+        >
+          <div
+            class="ant-image-progress-rail"
+            style="--progress-percent: 0%;"
+          />
+          <div
+            style="margin-top: 8px;"
+          >
+            Generating 0%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+]
 `;
 
 exports[`renders components/image/demo/placeholder.tsx extend context correctly 2`] = `[]`;
@@ -529,8 +712,11 @@ exports[`renders components/image/demo/placeholder.tsx extend context correctly 
 exports[`renders components/image/demo/preview-group.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="svg image"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 200px;"
+    tabindex="0"
   >
     <img
       alt="svg image"
@@ -543,8 +729,11 @@ Array [
     />
   </div>,
   <div
+    aria-label="svg image"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 200px;"
+    tabindex="0"
   >
     <img
       alt="svg image"
@@ -564,8 +753,11 @@ exports[`renders components/image/demo/preview-group.tsx extend context correctl
 exports[`renders components/image/demo/preview-group-top-progress.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="svg image"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 150px;"
+    tabindex="0"
   >
     <img
       alt="svg image"
@@ -578,8 +770,11 @@ Array [
     />
   </div>,
   <div
+    aria-label="svg image"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 150px;"
+    tabindex="0"
   >
     <img
       alt="svg image"
@@ -592,8 +787,11 @@ Array [
     />
   </div>,
   <div
+    aria-label="svg image"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 150px;"
+    tabindex="0"
   >
     <img
       alt="svg image"
@@ -612,8 +810,11 @@ exports[`renders components/image/demo/preview-group-top-progress.tsx extend con
 
 exports[`renders components/image/demo/preview-group-visible.tsx extend context correctly 1`] = `
 <div
+  aria-label="webp image"
   class="ant-image css-var-test-id ant-image-css-var"
+  role="button"
   style="width: 200px;"
+  tabindex="0"
 >
   <img
     alt="webp image"
@@ -631,8 +832,11 @@ exports[`renders components/image/demo/preview-group-visible.tsx extend context 
 
 exports[`renders components/image/demo/preview-imgInfo.tsx extend context correctly 1`] = `
 <div
+  aria-label="test"
   class="ant-image css-var-test-id ant-image-css-var"
+  role="button"
   style="width: 200px; height: 200px;"
+  tabindex="0"
 >
   <img
     alt="test"
@@ -652,8 +856,11 @@ exports[`renders components/image/demo/preview-imgInfo.tsx extend context correc
 
 exports[`renders components/image/demo/preview-mask.tsx extend context correctly 1`] = `
 <div
+  aria-label="basic image"
   class="ant-image css-var-test-id ant-image-css-var"
+  role="button"
   style="width: 96px;"
+  tabindex="0"
 >
   <img
     alt="basic image"
@@ -704,8 +911,11 @@ exports[`renders components/image/demo/preview-mask.tsx extend context correctly
 
 exports[`renders components/image/demo/previewSrc.tsx extend context correctly 1`] = `
 <div
+  aria-label="basic image"
   class="ant-image css-var-test-id ant-image-css-var"
+  role="button"
   style="width: 200px;"
+  tabindex="0"
 >
   <img
     alt="basic image"
@@ -723,11 +933,14 @@ exports[`renders components/image/demo/previewSrc.tsx extend context correctly 2
 
 exports[`renders components/image/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <div
+    aria-label="示例图片"
     class="ant-image css-var-test-id ant-image-css-var acss-1tjmp0k"
+    role="button"
     style="width: 160px;"
+    tabindex="0"
   >
     <img
       alt="示例图片"
@@ -741,8 +954,11 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
     />
   </div>
   <div
+    aria-label="示例图片"
     class="ant-image css-var-test-id ant-image-css-var acss-1tjmp0k"
+    role="button"
     style="width: 160px; border: 2px solid rgb(165, 148, 249); border-radius: 8px; padding: 4px; transition: all 0.3s ease;"
+    tabindex="0"
   >
     <img
       alt="示例图片"
@@ -763,8 +979,11 @@ exports[`renders components/image/demo/style-class.tsx extend context correctly 
 exports[`renders components/image/demo/toolbarRender.tsx extend context correctly 1`] = `
 Array [
   <div
+    aria-label="image-0"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 200px;"
+    tabindex="0"
   >
     <img
       alt="image-0"
@@ -777,8 +996,11 @@ Array [
     />
   </div>,
   <div
+    aria-label="image-1"
     class="ant-image css-var-test-id ant-image-css-var"
+    role="button"
     style="width: 200px;"
+    tabindex="0"
   >
     <img
       alt="image-1"

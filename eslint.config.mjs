@@ -30,7 +30,6 @@ export default antfu(
       'node/prefer-global/process': 'off', // TODO: remove this
       'node/prefer-global/buffer': 'off', // TODO: remove this
       'jsdoc/empty-tags': 'off',
-      'ts/no-require-imports': 'off',
       'ts/explicit-function-return-type': 'off',
       'ts/ban-ts-comment': 'off', // TODO: remove this
       'ts/consistent-type-definitions': 'off',
@@ -63,9 +62,28 @@ export default antfu(
       'react-hooks/preserve-manual-memoization': 'off',
       'react-hooks/set-state-in-effect': 'off',
       'react-hooks/refs': 'off',
+      'react/no-implicit-key': 'off',
+      /* e18e rules */
+      'e18e/prefer-spread-syntax': 'off',
+      'e18e/prefer-static-regex': 'off',
+      'e18e/prefer-array-at': 'off',
+      'e18e/prefer-timer-args': 'off',
+      'e18e/prefer-array-fill': 'off',
+      'e18e/prefer-array-to-reversed': 'off',
+      'e18e/prefer-array-to-spliced': 'off',
+      'e18e/prefer-array-to-sorted': 'off',
+      'e18e/prefer-array-from-map': 'off',
+      'e18e/prefer-date-now': 'off',
+      'e18e/prefer-object-has-own': 'off',
     },
   },
-  compat.configs['flat/recommended'],
+  {
+    ...compat.configs['flat/recommended'],
+    rules: {
+      ...compat.configs['flat/recommended'].rules,
+      'compat/compat': 'off', // Disabled due to incompatibility with ESLint 10.0.0
+    },
+  },
   jest.configs['flat/recommended'],
   {
     ...jsxA11y.flatConfigs.recommended,
@@ -76,6 +94,13 @@ export default antfu(
       'jsx-a11y/click-events-have-key-events': 'off',
       'jsx-a11y/no-autofocus': 'off',
       'jsx-a11y/anchor-is-valid': 'off', // TODO: remove this
+    },
+  },
+  {
+    // commonjs, build entry, and script files
+    files: ['**/*.js', '**/*.cjs', '**/*.mjs', 'scripts/**/*.ts', 'scripts/**/*.tsx'],
+    rules: {
+      'ts/no-require-imports': 'off',
     },
   },
   {
@@ -108,6 +133,7 @@ export default antfu(
     // demos
     files: ['components/*/demo/*.tsx'],
     rules: {
+      'react-naming-convention/ref-name': 'off',
       'react/no-create-ref': 'off',
       'no-console': 'off',
       'unicorn/consistent-function-scoping': 'off',

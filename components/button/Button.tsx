@@ -3,8 +3,8 @@ import { omit, toArray, useComposeRef } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import isNonNullable from '../_util/isNonNullable';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -29,26 +29,20 @@ import Compact from './style/compact';
 
 export type LegacyButtonType = ButtonType | 'danger';
 
-export type ButtonSemanticName = keyof ButtonSemanticClassNames & keyof ButtonSemanticStyles;
-
-export type ButtonSemanticClassNames = {
-  root?: string;
-  icon?: string;
-  content?: string;
+export type ButtonSemanticType = {
+  classNames?: {
+    root?: string;
+    icon?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    icon?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
-export type ButtonSemanticStyles = {
-  root?: React.CSSProperties;
-  icon?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type ButtonClassNamesType = SemanticClassNamesType<
-  BaseButtonProps,
-  ButtonSemanticClassNames
->;
-
-export type ButtonStylesType = SemanticStylesType<BaseButtonProps, ButtonSemanticStyles>;
+export type ButtonSemanticAllType = GenerateSemantic<ButtonSemanticType, BaseButtonProps>;
 
 export interface BaseButtonProps {
   type?: ButtonType;
@@ -70,8 +64,8 @@ export interface BaseButtonProps {
   block?: boolean;
   children?: React.ReactNode;
   [key: `data-${string}`]: string;
-  classNames?: ButtonClassNamesType;
-  styles?: ButtonStylesType;
+  classNames?: ButtonSemanticAllType['classNamesAndFn'];
+  styles?: ButtonSemanticAllType['stylesAndFn'];
   // FloatButton reuse the Button as sub component,
   // But this should not consume context semantic classNames and styles.
   // Use props here to avoid context solution cost for normal usage.
@@ -225,7 +219,7 @@ const InternalCompoundedButton = React.forwardRef<
 
   const loadingOrDelay = useMemo<LoadingConfigType>(() => getLoadingConfig(loading), [loading]);
 
-  const [innerLoading, setLoading] = useState<boolean>(loadingOrDelay.loading);
+  const [innerLoading, setInnerLoading] = useState<boolean>(loadingOrDelay.loading);
 
   const [hasTwoCNChar, setHasTwoCNChar] = useState<boolean>(false);
 
@@ -255,10 +249,10 @@ const InternalCompoundedButton = React.forwardRef<
     if (loadingOrDelay.delay > 0) {
       delayTimer = setTimeout(() => {
         delayTimer = null;
-        setLoading(true);
+        setInnerLoading(true);
       }, loadingOrDelay.delay);
     } else {
-      setLoading(loadingOrDelay.loading);
+      setInnerLoading(loadingOrDelay.loading);
     }
 
     function cleanupTimer() {
@@ -334,11 +328,7 @@ const InternalCompoundedButton = React.forwardRef<
   // ========================== Size ==========================
   const { compactSize, compactItemClassnames } = useCompactItemContext(prefixCls, direction);
 
-  const sizeClassNameMap = { large: 'lg', small: 'sm', middle: undefined, medium: undefined };
-
   const sizeFullName = useSize((ctxSize) => customizeSize ?? compactSize ?? groupSize ?? ctxSize);
-
-  const sizeCls = sizeFullName ? (sizeClassNameMap[sizeFullName] ?? '') : '';
 
   const iconType = innerLoading ? 'loading' : icon;
 
@@ -361,11 +351,7 @@ const InternalCompoundedButton = React.forwardRef<
   };
 
   // ========================= Style ==========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ButtonClassNamesType,
-    ButtonStylesType,
-    ButtonProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [_skipSemantic ? undefined : contextClassNames, classNames],
     [_skipSemantic ? undefined : contextStyles, styles],
     { props: mergedProps },
@@ -385,7 +371,8 @@ const InternalCompoundedButton = React.forwardRef<
 
       [`${prefixCls}-color-${mergedColorText}`]: mergedColorText,
       [`${prefixCls}-variant-${mergedVariant}`]: mergedVariant,
-      [`${prefixCls}-${sizeCls}`]: sizeCls,
+      [`${prefixCls}-lg`]: sizeFullName === 'large',
+      [`${prefixCls}-sm`]: sizeFullName === 'small',
       [`${prefixCls}-icon-only`]: !children && children !== 0 && !!iconType,
       [`${prefixCls}-background-ghost`]: ghost && !isUnBorderedButtonVariant(mergedVariant),
       [`${prefixCls}-loading`]: innerLoading,

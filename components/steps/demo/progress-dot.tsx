@@ -32,11 +32,11 @@ const sharedVerticalProps = {
 } as const;
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <Steps {...sharedProps} />
     <Steps {...sharedProps} variant="outlined" />
     <Divider />
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Steps {...sharedVerticalProps} />
       <Steps {...sharedVerticalProps} variant="outlined" />
     </Flex>

@@ -1,11 +1,11 @@
 import React from 'react';
 
+import Badge from '..';
 import type { GetRef } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer19 } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
-import Badge from '../index';
 
 describe('Badge', () => {
   mountTest(Badge);

@@ -4,7 +4,8 @@ import ResizeObserver from '@rc-component/resize-observer';
 import { useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useOrientation } from '../_util/hooks';
+import { useOrientation } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -13,12 +14,7 @@ import useItems from './hooks/useItems';
 import useResizable from './hooks/useResizable';
 import useResize from './hooks/useResize';
 import useSizes from './hooks/useSizes';
-import type {
-  SplitterClassNamesType,
-  SplitterProps,
-  SplitterSemanticDraggerClassNames,
-  SplitterStylesType,
-} from './interface';
+import type { SplitterProps } from './interface';
 import { InternalPanel } from './Panel';
 import SplitBar from './SplitBar';
 import useStyle from './style';
@@ -28,6 +24,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     prefixCls: customizePrefixCls,
     className,
     classNames,
+    collapsible,
     style,
     styles,
     layout,
@@ -82,6 +79,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
       );
     }
     warning.deprecated(!layout, 'layout', 'orientation');
+    warning.deprecated(!collapsibleIcon, 'collapsibleIcon', 'collapsible.icon');
   }
 
   // ====================== Container =======================
@@ -154,11 +152,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
   };
 
   // ======================== Styles ========================
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SplitterClassNamesType,
-    SplitterStylesType,
-    SplitterProps
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     { props: mergedProps },
@@ -218,9 +212,14 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
             style: { ...mergedStyles.panel, ...item.style },
           };
 
-          // Panel
           const panel = (
-            <InternalPanel {...panelProps} prefixCls={prefixCls} size={panelSizes[idx]} destroyOnHidden={item.destroyOnHidden ?? destroyOnHidden} />
+            <InternalPanel
+              {...panelProps}
+              prefixCls={prefixCls}
+              size={panelSizes[idx]}
+              supportMotion={collapsible?.motion && movingIndex === undefined}
+              destroyOnHidden={item.destroyOnHidden ?? destroyOnHidden}
+            />
           );
 
           // Split Bar
@@ -244,9 +243,9 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
                 vertical={isVertical}
                 resizable={resizableInfo.resizable}
                 draggerStyle={mergedStyles.dragger}
-                draggerClassName={mergedClassNames.dragger as SplitterSemanticDraggerClassNames}
+                draggerClassName={mergedClassNames.dragger}
                 draggerIcon={draggerIcon}
-                collapsibleIcon={collapsibleIcon}
+                collapsibleIcon={collapsible?.icon || collapsibleIcon}
                 ariaNow={stackSizes[idx] * 100}
                 ariaMin={Math.max(ariaMinStart, ariaMinEnd) * 100}
                 ariaMax={Math.min(ariaMaxStart, ariaMaxEnd) * 100}

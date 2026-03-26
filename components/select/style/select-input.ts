@@ -89,7 +89,7 @@ const genSelectInputVariantStyle = (
   };
 };
 
-const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
+const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { componentCls, fontHeight, controlHeight, iconCls, antCls, calc } = token;
   const [varName, varRef] = genCssVar(antCls, 'select');
   return {
@@ -171,6 +171,11 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
             content: '"\\a0"',
             width: 0,
             overflow: 'hidden',
+          },
+
+          // >>> Value
+          '&-value': {
+            visibility: 'inherit',
           },
 
           // >>> Input: should only take effect for not customize mode
@@ -266,8 +271,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
         [`&-single:not(${componentCls}-customize)`]: {
           [`${componentCls}-input`]: {
             position: 'absolute',
-            insetInline: 0,
-            insetBlock: `calc(${varRef('padding-vertical')} * -1)`,
+            inset: 0,
             lineHeight: `calc(${varRef('font-height')} + ${varRef('padding-vertical')} * 2)`,
           },
 
@@ -297,6 +301,10 @@ const genSelectInputStyle: GenerateStyle<SelectToken> = (token) => {
 
           [`&${componentCls}-open ${componentCls}-content`]: {
             color: token.colorTextPlaceholder,
+
+            '&-has-search-value': {
+              color: 'transparent',
+            },
           },
         },
       },

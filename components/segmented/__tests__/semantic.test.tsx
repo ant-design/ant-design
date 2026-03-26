@@ -2,9 +2,8 @@ import React from 'react';
 import { AppstoreOutlined } from '@ant-design/icons';
 
 import Segmented from '..';
-import type { SegmentedProps } from '..';
+import type { SegmentedProps, SegmentedValue } from '..';
 import { render } from '../../../tests/utils';
-import type { SegmentedValue } from '../index';
 
 describe('Segmented.Semantic', () => {
   it('support function classNames and styles', () => {

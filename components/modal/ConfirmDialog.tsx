@@ -5,7 +5,8 @@ import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import { clsx } from 'clsx';
 
-import { CONTAINER_MAX_OFFSET } from '../_util/hooks';
+import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks';
+import isNonNullable from '../_util/isNonNullable';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
@@ -20,6 +21,7 @@ import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
 import Modal from './Modal';
 import Confirm from './style/confirm';
+import fallbackProp from '../_util/fallbackProp';
 
 export interface ConfirmDialogProps extends ModalFuncProps {
   prefixCls: string;
@@ -68,6 +70,8 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
     ...restProps
   } = props;
 
+  const { infoIcon, successIcon, errorIcon, warningIcon } = useComponentConfig('modal');
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
 
@@ -81,23 +85,20 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
   // Icon
   let mergedIcon: React.ReactNode = icon;
 
-  // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
-  if (!icon && icon !== null) {
+  // 支持传入 { icon: null } 或 { icon: false } 来隐藏`Modal.confirm`默认的Icon
+  if (icon === undefined) {
     switch (type) {
       case 'info':
-        mergedIcon = <InfoCircleFilled />;
+        mergedIcon = fallbackProp(infoIcon, <InfoCircleFilled />);
         break;
-
       case 'success':
-        mergedIcon = <CheckCircleFilled />;
+        mergedIcon = fallbackProp(successIcon, <CheckCircleFilled />);
         break;
-
       case 'error':
-        mergedIcon = <CloseCircleFilled />;
+        mergedIcon = fallbackProp(errorIcon, <CloseCircleFilled />);
         break;
-
       default:
-        mergedIcon = <ExclamationCircleFilled />;
+        mergedIcon = fallbackProp(warningIcon, <ExclamationCircleFilled />);
     }
   }
 
@@ -140,13 +141,19 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
     </>
   );
 
-  const hasTitle = props.title !== undefined && props.title !== null;
+  const hasTitle = isNonNullable(props.title) && props.title !== '';
+  const hasIcon = isNonNullable(mergedIcon);
 
   const bodyCls = `${confirmPrefixCls}-body`;
 
   return (
     <div className={`${confirmPrefixCls}-body-wrapper`}>
-      <div className={clsx(bodyCls, { [`${bodyCls}-has-title`]: hasTitle })}>
+      <div
+        className={clsx(bodyCls, {
+          [`${bodyCls}-has-title`]: hasTitle,
+          [`${bodyCls}-no-icon`]: !hasIcon,
+        })}
+      >
         {mergedIcon}
         <div className={`${confirmPrefixCls}-paragraph`}>
           {hasTitle && <span className={`${confirmPrefixCls}-title`}>{props.title}</span>}
@@ -183,6 +190,8 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
     onConfirm,
     styles,
     title,
+    mask,
+    maskClosable,
     okButtonProps,
     cancelButtonProps,
   } = props;
@@ -215,7 +224,13 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
 
   // ========================== Mask ==========================
   // 默认为 false，保持旧版默认行为
-  const maskClosable = props.maskClosable === undefined ? false : props.maskClosable;
+  const mergedMask = React.useMemo(() => {
+    const nextMaskConfig = normalizeMaskConfig(mask, maskClosable);
+
+    nextMaskConfig.closable ??= false;
+
+    return nextMaskConfig;
+  }, [mask, maskClosable]);
 
   // ========================= zIndex =========================
   const [, token] = useToken();
@@ -243,7 +258,7 @@ const ConfirmDialog: React.FC<ConfirmDialogProps> = (props) => {
       footer={null}
       transitionName={getTransitionName(rootPrefixCls || '', 'zoom', props.transitionName)}
       maskTransitionName={getTransitionName(rootPrefixCls || '', 'fade', props.maskTransitionName)}
-      maskClosable={maskClosable}
+      mask={mergedMask}
       style={style}
       styles={{ body: bodyStyle, mask: maskStyle, ...styles }}
       width={width}

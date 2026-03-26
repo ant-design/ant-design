@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { DrawerToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
 
@@ -55,20 +57,20 @@ const getPanelMotionStyles = (direction: Direction, duration: string) => [
   ),
 ];
 
-const genMotionStyle: GenerateStyle<DrawerToken> = (token) => {
+const genMotionStyle: GenerateStyle<DrawerToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow } = token;
-
   return {
     [componentCls]: {
       // ======================== Mask ========================
       [`${componentCls}-mask-motion`]: getFadeStyle(0, motionDurationSlow),
-
       // ======================= Panel ========================
       [`${componentCls}-panel-motion`]: ['left', 'right', 'top', 'bottom'].reduce(
-        (obj, direction) => ({
-          ...obj,
-          [`&-${direction}`]: getPanelMotionStyles(direction as Direction, motionDurationSlow),
-        }),
+        (obj, direction) => {
+          return {
+            ...obj,
+            [`&-${direction}`]: getPanelMotionStyles(direction as Direction, motionDurationSlow),
+          };
+        },
         {},
       ),
     },

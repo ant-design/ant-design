@@ -10,6 +10,7 @@ const testClassNames = {
   input: 'custom-input',
   textarea: 'custom-textarea',
   suffix: 'custom-suffix',
+  clear: 'custom-clear',
   count: 'custom-count',
   separator: 'custom-separator',
   button: {
@@ -25,6 +26,7 @@ const testStyles = {
   textarea: { color: 'rgb(0, 255, 0)' },
   prefix: { color: 'rgb(255, 255, 0)' },
   suffix: { color: 'rgb(128, 0, 128)' },
+  clear: { color: 'rgb(255, 20, 147)' },
   count: { color: 'rgb(255, 165, 0)' },
   separator: { color: 'rgb(255, 192, 203)' },
   button: {
@@ -39,6 +41,7 @@ describe('Input.Semantic', () => {
     const { container } = render(
       <Input
         value="123"
+        allowClear
         showCount
         prefix="prefix"
         suffix="suffix"
@@ -51,6 +54,7 @@ describe('Input.Semantic', () => {
     const input = container.querySelector('.ant-input');
     const prefix = container.querySelector('.ant-input-prefix');
     const suffix = container.querySelector('.ant-input-suffix');
+    const clear = container.querySelector('.custom-clear');
     const count = container.querySelector('.ant-input-show-count-suffix');
 
     expect(root).toHaveClass(testClassNames.root);
@@ -61,23 +65,28 @@ describe('Input.Semantic', () => {
     expect(prefix).toHaveStyle(testStyles.prefix);
     expect(suffix).toHaveClass(testClassNames.suffix);
     expect(suffix).toHaveStyle(testStyles.suffix);
+    expect(clear).toHaveClass(testClassNames.clear);
+    expect(clear).toHaveStyle(testStyles.clear);
     expect(count).toHaveClass(testClassNames.count);
     expect(count).toHaveStyle(testStyles.count);
   });
 
   it('textarea should support classNames and styles', () => {
     const { container } = render(
-      <Input.TextArea classNames={testClassNames} styles={testStyles} showCount />,
+      <Input.TextArea allowClear classNames={testClassNames} styles={testStyles} showCount />,
     );
 
     const root = container.querySelector('.ant-input-textarea-affix-wrapper');
     const textarea = container.querySelector('textarea');
+    const clear = container.querySelector('.custom-clear');
     const count = container.querySelector('.ant-input-data-count');
 
     expect(root).toHaveClass(testClassNames.root);
     expect(root).toHaveStyle(testStyles.root);
     expect(textarea).toHaveClass(testClassNames.textarea);
     expect(textarea).toHaveStyle(testStyles.textarea);
+    expect(clear).toHaveClass(testClassNames.clear);
+    expect(clear).toHaveStyle(testStyles.clear);
     expect(count).toHaveClass(testClassNames.count);
     expect(count).toHaveStyle(testStyles.count);
   });
@@ -86,6 +95,7 @@ describe('Input.Semantic', () => {
     const { container, getByText } = render(
       <Input.Search
         loading
+        allowClear
         enterButton="button text"
         classNames={testClassNames}
         styles={testStyles}
@@ -99,6 +109,7 @@ describe('Input.Semantic', () => {
     const input = container.querySelector('.ant-input');
     const prefix = container.querySelector('.ant-input-prefix');
     const suffix = container.querySelector('.ant-input-suffix');
+    const clear = container.querySelector('.custom-clear');
     const button = container.querySelector('.ant-btn');
     const buttonIcon = container.querySelector('.ant-btn-icon');
     const buttonContent = getByText('button text');
@@ -112,6 +123,8 @@ describe('Input.Semantic', () => {
     expect(prefix).toHaveStyle(testStyles.prefix);
     expect(suffix).toHaveClass(testClassNames.suffix);
     expect(suffix).toHaveStyle(testStyles.suffix);
+    expect(clear).toHaveClass(testClassNames.clear);
+    expect(clear).toHaveStyle(testStyles.clear);
     expect(button).toHaveClass(testClassNames.button.root);
     expect(button).toHaveStyle(testStyles.button.root);
     expect(buttonIcon).toHaveClass(testClassNames.button.icon);
@@ -125,6 +138,7 @@ describe('Input.Semantic', () => {
   it('password should support classNames and styles', () => {
     const { container } = render(
       <Input.Password
+        allowClear
         classNames={testClassNames}
         styles={testStyles}
         showCount
@@ -136,6 +150,7 @@ describe('Input.Semantic', () => {
     const input = container.querySelector('.ant-input');
     const prefix = container.querySelector('.ant-input-prefix');
     const suffix = container.querySelector('.ant-input-suffix');
+    const clear = container.querySelector('.custom-clear');
     const count = container.querySelector('.ant-input-show-count-suffix');
 
     expect(root).toHaveClass(testClassNames.root);
@@ -146,6 +161,8 @@ describe('Input.Semantic', () => {
     expect(prefix).toHaveStyle(testStyles.prefix);
     expect(suffix).toHaveClass(testClassNames.suffix);
     expect(suffix).toHaveStyle(testStyles.suffix);
+    expect(clear).toHaveClass(testClassNames.clear);
+    expect(clear).toHaveStyle(testStyles.clear);
     expect(count).toHaveClass(testClassNames.count);
     expect(count).toHaveStyle(testStyles.count);
   });

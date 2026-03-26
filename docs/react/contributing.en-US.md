@@ -78,11 +78,11 @@ Runs Ant Design website locally.
 
 <InstallDependencies npm='$ npm start' yarn='$ yarn start'></InstallDependencies>
 
-### Checks the code style
+### Check the code style
 
 <InstallDependencies npm='$ npm run lint' yarn='$ yarn lint'></InstallDependencies>
 
-### Run test
+### Run tests
 
 runs the complete test suite. (Make sure the `NODE_ENV` environment variable is unset, or it may causing some problems.)
 

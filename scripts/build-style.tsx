@@ -1,160 +1,70 @@
-import path from 'path';
 import React from 'react';
-import { createCache, extractStyle as extStyle, StyleProvider } from '@ant-design/cssinjs';
+import Module from 'module';
+import path from 'path';
 import fs from 'fs-extra';
 import minimist from 'minimist';
-import { renderToString } from 'react-dom/server';
 
-import * as antd from '../components';
+import { ConfigProvider } from '../components';
 
-// Site build only, not use in npm package build
-const argv = minimist(process.argv.slice(2));
-const enableLayer = argv.layer !== undefined;
-const layerContent = typeof argv.layer === 'string' ? argv.layer : '';
+const originalResolve = (Module as any)._resolveFilename;
 
-const output = path.join(
-  __dirname,
-  '..',
-  'components',
-  'style',
-  enableLayer ? '~antd.layer.css' : 'antd.css',
-);
-
-const blackList: string[] = ['ConfigProvider', 'Grid'];
-
-const ComponentCustomizeRender: Record<
-  string,
-  (component: React.ComponentType<any>) => React.ReactNode
-> = {
-  Affix: (Affix) => (
-    <Affix>
-      <div />
-    </Affix>
-  ),
-  BackTop: () => <antd.FloatButton.BackTop />,
-  Cascader: () => (
-    <>
-      <antd.Cascader />
-      <antd.Cascader.Panel />
-    </>
-  ),
-  Dropdown: (Dropdown) => (
-    <Dropdown menu={{ items: [] }}>
-      <div />
-    </Dropdown>
-  ),
-  Menu: (Menu) => <Menu items={[]} />,
-  QRCode: (QRCode) => <QRCode value="https://ant.design" />,
-  Tree: (Tree) => <Tree treeData={[]} />,
-  Tag: (Tag) => (
-    <>
-      <Tag color="blue">Tag</Tag>
-      <Tag color="success">Tag</Tag>
-    </>
-  ),
-  Badge: (Badge: any) => (
-    <>
-      <Badge />
-      <Badge.Ribbon />
-    </>
-  ),
-  Space: (Space: any) => (
-    <>
-      <Space />
-      <Space.Compact>
-        <antd.Button />
-        <antd.Space.Addon>1</antd.Space.Addon>
-      </Space.Compact>
-    </>
-  ),
-  Input: (Input: any) => (
-    <>
-      <Input />
-      <Input.Group>
-        <Input />
-        <Input />
-      </Input.Group>
-      <Input.Search />
-      <Input.TextArea />
-      <Input.Password />
-      <Input.OTP />
-    </>
-  ),
-  Modal: (Modal: any) => (
-    <>
-      <Modal />
-      <Modal._InternalPanelDoNotUseOrYouWillBeFired />
-      <Modal._InternalPanelDoNotUseOrYouWillBeFired type="confirm" />
-    </>
-  ),
-  message: (message: any) => {
-    const { _InternalPanelDoNotUseOrYouWillBeFired: PurePanel } = message;
-    return <PurePanel />;
-  },
-  notification: (notification: any) => {
-    const { _InternalPanelDoNotUseOrYouWillBeFired: PurePanel } = notification;
-    return <PurePanel />;
-  },
-  Layout: () => (
-    <antd.Layout>
-      <antd.Layout.Header>Header</antd.Layout.Header>
-      <antd.Layout.Sider>Sider</antd.Layout.Sider>
-      <antd.Layout.Content>Content</antd.Layout.Content>
-      <antd.Layout.Footer>Footer</antd.Layout.Footer>
-    </antd.Layout>
-  ),
+(Module as any)._resolveFilename = function (request: string, ...args: any[]) {
+  if (request === 'antd') {
+    return require.resolve('../components');
+  }
+  return originalResolve.call(this, request, ...args);
 };
 
-const defaultNode = () => (
-  <>
-    {Object.keys(antd)
-      .filter(
-        (name) =>
-          !blackList.includes(name) &&
-          (name[0] === name[0].toUpperCase() || ['message', 'notification'].includes(name)),
-      )
-      .map((compName) => {
-        const Comp = (antd as any)[compName];
+// Check for media queries using CSS var like: @media (min-width: var(--xxx))
+const isValidMediaQuery = (extractStyle: string) => {
+  const cssVarMediaRegex = /@media\s*\([^)]*(?:min-width|max-width)\s*:\s*var\(/;
+  const match = cssVarMediaRegex.test(extractStyle);
 
-        const renderFunc = ComponentCustomizeRender[compName];
+  return !match;
+};
 
-        if (renderFunc) {
-          return <React.Fragment key={compName}>{renderFunc(Comp)}</React.Fragment>;
-        }
+const run = async () => {
+  const { extractStyle } = await import('@ant-design/static-style-extract');
 
-        return <Comp key={compName} />;
-      })}
-  </>
-);
+  const argv = minimist(process.argv.slice(2));
+  const enableLayer = argv.layer !== undefined;
+  const layerContent = typeof argv.layer === 'string' ? argv.layer : '';
 
-function extractStyle(customTheme?: any): string {
-  const cache = createCache();
-  renderToString(
-    <antd.ConfigProvider theme={{ hashed: false }}>
-      <StyleProvider cache={cache} layer={enableLayer}>
-        {customTheme ? customTheme(defaultNode()) : defaultNode()}
-      </StyleProvider>
-    </antd.ConfigProvider>,
+  const output = path.join(
+    __dirname,
+    '..',
+    'components',
+    'style',
+    enableLayer ? '~antd.layer.css' : 'antd.css',
   );
 
-  // Grab style from cache
-  const styleText = extStyle(cache, { plain: true, types: 'style' });
+  function buildStyle() {
+    if (fs.existsSync(output)) {
+      fs.unlinkSync(output);
+    }
 
-  return styleText;
-}
+    const styleStr = extractStyle((node) => (
+      <ConfigProvider
+        theme={{
+          hashed: false,
+        }}
+      >
+        {node}
+      </ConfigProvider>
+    ));
 
-async function buildStyle() {
-  if (fs.existsSync(output)) {
-    // Remove the old file if it exists
-    fs.unlinkSync(output);
+    if (!isValidMediaQuery(styleStr)) {
+      throw new Error('Invalid media query found, example: @media (min-width: var(--xxx))');
+    }
+
+    const finalStyleStr = enableLayer
+      ? `${layerContent ? `${layerContent}\n\n` : ''}@layer antd {\n${styleStr}\n}`
+      : styleStr;
+
+    fs.writeFileSync(output, finalStyleStr);
   }
-  // fs.rmSync(output);
-  const styleStr = extractStyle();
 
-  // If layer content is provided, prepend it to the CSS
-  const finalStyleStr = layerContent ? `${layerContent}\n\n${styleStr}` : styleStr;
+  buildStyle();
+};
 
-  fs.writeFileSync(output, finalStyleStr);
-}
-
-buildStyle();
+run();

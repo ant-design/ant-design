@@ -63,3 +63,17 @@ type SelectOptionType1 = GetProp<SelectProps, 'options'>[number];
 type SelectOptionType2 = GetProp<typeof Select, 'options'>[number];
 type ContextOptionType = GetProp<typeof Context, 'name'>;
 ```
+
+Also supports getting the return type of a function property through the third parameter `'Return'`:
+
+```tsx
+import type { GetProp } from 'antd';
+
+interface Props {
+  func?: (value: number) => string;
+  configOrFunc?: { configA?: string } | (() => { anotherB?: string });
+}
+
+type OnChangeReturn = GetProp<Props, 'func', 'Return'>; // string
+type ClassNamesReturn = GetProp<Props, 'configOrFunc', 'Return'>; // { anotherB?: string }
+```

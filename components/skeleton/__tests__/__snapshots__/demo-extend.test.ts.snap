@@ -146,7 +146,7 @@ exports[`renders components/skeleton/demo/componentToken.tsx extend context corr
 
 exports[`renders components/skeleton/demo/element.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
@@ -425,26 +425,6 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                     role="radiogroup"
                   >
                     <label
-                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
-                    >
-                      <span
-                        class="ant-radio-button ant-radio-button-checked"
-                      >
-                        <input
-                          checked=""
-                          class="ant-radio-button-input"
-                          name="test-id"
-                          type="radio"
-                          value="default"
-                        />
-                      </span>
-                      <span
-                        class="ant-radio-button-label"
-                      >
-                        Default
-                      </span>
-                    </label>
-                    <label
                       class="ant-radio-button-wrapper ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
                     >
                       <span
@@ -461,6 +441,26 @@ exports[`renders components/skeleton/demo/element.tsx extend context correctly 1
                         class="ant-radio-button-label"
                       >
                         Large
+                      </span>
+                    </label>
+                    <label
+                      class="ant-radio-button-wrapper ant-radio-button-wrapper-checked ant-radio-button-wrapper-in-form-item css-var-test-id ant-radio-css-var"
+                    >
+                      <span
+                        class="ant-radio-button ant-radio-button-checked"
+                      >
+                        <input
+                          checked=""
+                          class="ant-radio-button-input"
+                          name="test-id"
+                          type="radio"
+                          value="medium"
+                        />
+                      </span>
+                      <span
+                        class="ant-radio-button-label"
+                      >
+                        Medium
                       </span>
                     </label>
                     <label
@@ -717,13 +717,15 @@ Array [
     class="ant-list ant-list-vertical ant-list-lg ant-list-split css-var-test-id"
   >
     <div
-      class="ant-spin-nested-loading css-var-test-id"
+      aria-busy="false"
+      aria-live="polite"
+      class="ant-spin css-var-test-id"
     >
       <div
         class="ant-spin-container"
       >
         <ul
-          class="ant-list-items"
+          class="ant-list-items ant-list-container css-var-test-id"
         >
           <li
             class="ant-list-item ant-list-item-no-flex"
@@ -827,7 +829,7 @@ exports[`renders components/skeleton/demo/list.tsx extend context correctly 2`] 
 
 exports[`renders components/skeleton/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <div
     class="ant-skeleton ant-skeleton-with-avatar acss-1nr40md css-var-test-id"

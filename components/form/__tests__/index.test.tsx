@@ -1,12 +1,12 @@
 import type { ChangeEventHandler } from 'react';
 import React, { version as ReactVersion, useEffect, useRef, useState } from 'react';
 import { AlertFilled } from '@ant-design/icons';
-import type { ColProps } from 'antd/es/grid';
 import { clsx } from 'clsx';
 import scrollIntoView from 'scroll-into-view-if-needed';
 
 import type { FormInstance } from '..';
 import Form from '..';
+import { responsiveArrayReversed } from '../../_util/responsiveObserver';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -18,17 +18,18 @@ import ColorPicker from '../../color-picker';
 import ConfigProvider from '../../config-provider';
 import DatePicker from '../../date-picker';
 import Drawer from '../../drawer';
+import type { ColProps } from '../../grid';
 import Input from '../../input';
 import type { InputProps } from '../../input';
 import InputNumber from '../../input-number';
 import zhCN from '../../locale/zh_CN';
 import Modal from '../../modal';
+import Popover from '../../popover';
 import Radio from '../../radio';
+import Segmented from '../../segmented';
 import Select from '../../select';
 import Slider from '../../slider';
 import Switch from '../../switch';
-import Popover from '../../popover';
-import Segmented from '../../segmented';
 import TreeSelect from '../../tree-select';
 import Upload from '../../upload';
 import type { NamePath } from '../interface';
@@ -828,13 +829,13 @@ describe('Form', () => {
   // https://github.com/ant-design/ant-design/issues/20813
   it('should update help directly when provided', async () => {
     const App: React.FC = () => {
-      const [message, updateMessage] = React.useState('');
+      const [message, setMessage] = React.useState('');
       return (
         <Form>
           <Form.Item label="hello" help={message}>
             <Input />
           </Form.Item>
-          <Button onClick={() => updateMessage('bamboo')} />
+          <Button onClick={() => setMessage('bamboo')} />
         </Form>
       );
     };
@@ -1442,7 +1443,7 @@ describe('Form', () => {
     expect(twoItem).toHaveClass('ant-col-14 ant-col-offset-4');
 
     // more size
-    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    const list = responsiveArrayReversed;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 4 } }} wrapperCol={{ span: 14 }}>
@@ -1491,7 +1492,7 @@ describe('Form', () => {
     expect(twoItem?.className.includes('offset')).toBeFalsy();
 
     // more size
-    const list = ['xs', 'sm', 'md', 'lg', 'xl', 'xxl'] as const;
+    const list = responsiveArrayReversed;
     list.forEach((size) => {
       const { container } = render(
         <Form labelCol={{ [size]: { span: 24 } }} wrapperCol={{ span: 24 }}>
@@ -2114,17 +2115,17 @@ describe('Form', () => {
 
   it('success feedback should display when pass hasFeedback prop and current value is valid value', async () => {
     const App = ({ trigger = false }: { trigger?: boolean }) => {
-      const form = useRef<FormInstance<any>>(null);
+      const formRef = useRef<FormInstance<any>>(null);
 
       useEffect(() => {
         if (!trigger) {
           return;
         }
-        form.current?.validateFields();
+        formRef.current?.validateFields();
       }, [trigger]);
 
       return (
-        <Form ref={form}>
+        <Form ref={formRef}>
           <Form.Item
             label="Success"
             name="name1"
@@ -2224,18 +2225,18 @@ describe('Form', () => {
 
   it('custom feedback icons should display when pass hasFeedback prop', async () => {
     const App = ({ trigger = false }: { trigger?: boolean }) => {
-      const form = useRef<FormInstance<any>>(null);
+      const formRef = useRef<FormInstance<any>>(null);
 
       useEffect(() => {
         if (!trigger) {
           return;
         }
-        form.current?.validateFields();
+        formRef.current?.validateFields();
       }, [trigger]);
 
       return (
         <Form
-          ref={form}
+          ref={formRef}
           feedbackIcons={() => ({
             error: <AlertFilled id="custom-error-icon" />,
           })}

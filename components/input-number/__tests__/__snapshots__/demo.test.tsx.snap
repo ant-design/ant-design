@@ -684,6 +684,401 @@ exports[`renders components/input-number/demo/basic.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/input-number/demo/borderless-height-debug.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+  style="gap:16px"
+>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center"
+    style="gap:8px"
+  >
+    <div
+      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-borderless ant-input-number-lg"
+      style="width:100px;background:lightpink"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+      <div
+        class="ant-input-number-actions"
+      >
+        <span
+          aria-disabled="false"
+          aria-label="Increase Value"
+          class="ant-input-number-action ant-input-number-action-up"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="up"
+            class="anticon anticon-up"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          aria-disabled="false"
+          aria-label="Decrease Value"
+          class="ant-input-number-action ant-input-number-action-down"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+    <input
+      class="ant-input ant-input-lg ant-input-borderless css-var-test-id ant-input-css-var"
+      style="width:100px;background:lightpink"
+      type="text"
+      value=""
+    />
+    <div
+      class="ant-select ant-select-lg ant-select-borderless css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      style="width:100px;background:lightpink"
+    >
+      <div
+        class="ant-select-content"
+      >
+        <div
+          class="ant-select-placeholder"
+          style="visibility:visible"
+        />
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          readonly=""
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-select-suffix"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center"
+    style="gap:8px"
+  >
+    <div
+      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-borderless"
+      style="width:100px;background:lightpink"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+      <div
+        class="ant-input-number-actions"
+      >
+        <span
+          aria-disabled="false"
+          aria-label="Increase Value"
+          class="ant-input-number-action ant-input-number-action-up"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="up"
+            class="anticon anticon-up"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          aria-disabled="false"
+          aria-label="Decrease Value"
+          class="ant-input-number-action ant-input-number-action-down"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+    <input
+      class="ant-input ant-input-borderless css-var-test-id ant-input-css-var"
+      style="width:100px;background:lightpink"
+      type="text"
+      value=""
+    />
+    <div
+      class="ant-select ant-select-borderless css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      style="width:100px;background:lightpink"
+    >
+      <div
+        class="ant-select-content"
+      >
+        <div
+          class="ant-select-placeholder"
+          style="visibility:visible"
+        />
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          readonly=""
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-select-suffix"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center"
+    style="gap:8px"
+  >
+    <div
+      class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-borderless ant-input-number-sm"
+      style="width:100px;background:lightpink"
+    >
+      <input
+        autocomplete="off"
+        class="ant-input-number-input"
+        role="spinbutton"
+        step="1"
+        value=""
+      />
+      <div
+        class="ant-input-number-actions"
+      >
+        <span
+          aria-disabled="false"
+          aria-label="Increase Value"
+          class="ant-input-number-action ant-input-number-action-up"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="up"
+            class="anticon anticon-up"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="up"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M890.5 755.3L537.9 269.2c-12.8-17.6-39-17.6-51.7 0L133.5 755.3A8 8 0 00140 768h75c5.1 0 9.9-2.5 12.9-6.6L512 369.8l284.1 391.6c3 4.1 7.8 6.6 12.9 6.6h75c6.5 0 10.3-7.4 6.5-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+        <span
+          aria-disabled="false"
+          aria-label="Decrease Value"
+          class="ant-input-number-action ant-input-number-action-down"
+          role="button"
+          unselectable="on"
+        >
+          <span
+            aria-label="down"
+            class="anticon anticon-down"
+            role="img"
+          >
+            <svg
+              aria-hidden="true"
+              data-icon="down"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
+            >
+              <path
+                d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+              />
+            </svg>
+          </span>
+        </span>
+      </div>
+    </div>
+    <input
+      class="ant-input ant-input-sm ant-input-borderless css-var-test-id ant-input-css-var"
+      style="width:100px;background:lightpink"
+      type="text"
+      value=""
+    />
+    <div
+      class="ant-select ant-select-sm ant-select-borderless css-var-test-id ant-select-css-var ant-select-single ant-select-show-arrow"
+      style="width:100px;background:lightpink"
+    >
+      <div
+        class="ant-select-content"
+      >
+        <div
+          class="ant-select-placeholder"
+          style="visibility:visible"
+        />
+        <input
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-haspopup="listbox"
+          autocomplete="off"
+          class="ant-select-input"
+          id="test-id"
+          readonly=""
+          role="combobox"
+          type="search"
+          value=""
+        />
+      </div>
+      <div
+        class="ant-select-suffix"
+      >
+        <span
+          aria-label="down"
+          class="anticon anticon-down"
+          role="img"
+        >
+          <svg
+            aria-hidden="true"
+            data-icon="down"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M884 256h-75c-5.1 0-9.9 2.5-12.9 6.6L512 654.2 227.9 262.6c-3-4.1-7.8-6.6-12.9-6.6h-75c-6.5 0-10.3 7.4-6.5 12.7l352.6 486.1c12.8 17.6 39 17.6 51.7 0l352.6-486.1c3.9-5.3.1-12.7-6.4-12.7z"
+            />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`renders components/input-number/demo/change-on-wheel.tsx correctly 1`] = `
 <div
   class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined"
@@ -2532,7 +2927,7 @@ exports[`renders components/input-number/demo/out-of-range.tsx correctly 1`] = `
 
 exports[`renders components/input-number/demo/presuffix.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined"
@@ -3122,7 +3517,7 @@ exports[`renders components/input-number/demo/size.tsx correctly 1`] = `
 
 exports[`renders components/input-number/demo/spinner.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-input-number ant-input-number-mode-spinner css-var-test-id ant-input-number-css-var ant-input-number-outlined"
@@ -3631,7 +4026,7 @@ exports[`renders components/input-number/demo/status.tsx correctly 1`] = `
 
 exports[`renders components/input-number/demo/style-class.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var acss-1tkizl6 ant-input-number-outlined acss-1tkizl6"

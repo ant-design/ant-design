@@ -240,6 +240,22 @@ export default function imageTest(
         );
         await page.setViewport({ width: 800, height: bodyHeight, ...sharedViewportConfig });
       }
+
+      await page.waitForFunction(() =>
+        Promise.race([
+          // timeout 100ms
+          new Promise((resolve) => setTimeout(() => resolve(true), 100)),
+          // raf * 2
+          new Promise((resolve) => {
+            requestAnimationFrame(() => {
+              requestAnimationFrame(() => {
+                resolve(true);
+              });
+            });
+          }),
+        ]),
+      );
+
       const image = await page.screenshot({ fullPage: !options.onlyViewport });
       await fse.writeFile(path.join(snapshotPath, `${identifier}${suffix}.png`), image);
       MockDate.reset();
@@ -303,22 +319,22 @@ export function imageDemoTest(component: string, options: Options = {}) {
   });
 
   files.forEach((file) => {
-    if (Array.isArray(options.skip) && options.skip.includes(path.basename(file))) {
-      describeMethod = describe.skip;
-    } else {
-      describeMethod = describe;
-    }
+    const shouldSkip = Array.isArray(options.skip) && options.skip.includes(path.basename(file));
+    describeMethod = shouldSkip ? describe.skip : describe;
 
     describeMethod(`Test ${file} image`, () => {
-      let Demo = require(`../../${file}`).default;
-      if (typeof Demo === 'function') {
-        Demo = <Demo />;
-      }
-      imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
+      // Only require the demo file if it's not skipped to avoid dependency issues
+      if (!shouldSkip) {
+        let Demo = jest.requireActual(`../../${file}`).default;
+        if (typeof Demo === 'function') {
+          Demo = <Demo />;
+        }
+        imageTest(Demo, `${component}-${path.basename(file, '.tsx')}`, file, getTestOption(file));
 
-      // Check if need mobile test
-      if ((options.mobile || []).includes(path.basename(file))) {
-        mobileDemos.push([file, Demo]);
+        // Check if need mobile test
+        if ((options.mobile || []).includes(path.basename(file))) {
+          mobileDemos.push([file, Demo]);
+        }
       }
     });
   });

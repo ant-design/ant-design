@@ -30,7 +30,7 @@ const genPickerPadding = (paddingBlock: number, paddingInline: number): CSSObjec
   };
 };
 
-const genPickerStatusStyle: GenerateStyle<PickerToken> = (token) => {
+const genPickerStatusStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const { componentCls, colorError, colorWarning } = token;
 
   return {
@@ -101,7 +101,9 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
         alignItems: 'center',
         lineHeight: 1,
         borderRadius,
-        transition: `border ${motionDurationMid}, box-shadow ${motionDurationMid}, background ${motionDurationMid}`,
+        transition: [`border`, `box-shadow`, `background-color`]
+          .map((prop) => `${prop} ${motionDurationMid}`)
+          .join(', '),
 
         [`${componentCls}-prefix`]: {
           flex: '0 0 auto',
@@ -180,7 +182,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           color: colorTextQuaternary,
           lineHeight: 1,
           pointerEvents: 'none',
-          transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
+          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
             verticalAlign: 'top',
@@ -200,7 +202,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           transform: 'translateY(-50%)',
           cursor: 'pointer',
           opacity: 0,
-          transition: `opacity ${motionDurationMid}, color ${motionDurationMid}`,
+          transition: ['opacity', 'color'].map((prop) => `${prop} ${motionDurationMid}`).join(', '),
 
           '> *': {
             verticalAlign: 'top',

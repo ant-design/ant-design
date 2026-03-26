@@ -5,8 +5,9 @@ import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColum
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useProxyImperativeHandle } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -22,10 +23,7 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
-import type {
-  PaginationSemanticClassNames,
-  PaginationSemanticStyles,
-} from '../pagination/Pagination';
+import type { PaginationSemanticType } from '../pagination/Pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
@@ -69,58 +67,42 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-export type TableSemanticName = keyof TableSemanticClassNames & keyof TableSemanticStyles;
-
-export type TableSemanticClassNames = {
-  root?: string;
-  section?: string;
-  title?: string;
-  footer?: string;
-  content?: string;
-};
-
-export type TableSemanticStyles = {
-  root?: React.CSSProperties;
-  section?: React.CSSProperties;
-  title?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type ComponentsSemantic = keyof ComponentsSemanticClassNames &
-  keyof ComponentsSemanticStyles;
-
-export type ComponentsSemanticClassNames = {
+type ComponentsSemanticClassNames = {
   wrapper?: string;
   cell?: string;
   row?: string;
 };
 
-export type ComponentsSemanticStyles = {
+type ComponentsSemanticStyles = {
   wrapper?: React.CSSProperties;
   cell?: React.CSSProperties;
   row?: React.CSSProperties;
 };
 
-export type TableClassNamesType<RecordType = AnyObject> = SemanticClassNamesType<
-  TableProps<RecordType>,
-  TableSemanticClassNames,
-  {
+export type TableSemanticType = {
+  classNames?: {
+    root?: string;
+    section?: string;
+    title?: string;
+    footer?: string;
     body?: ComponentsSemanticClassNames;
+    content?: string;
     header?: ComponentsSemanticClassNames;
-    pagination?: PaginationSemanticClassNames;
-  }
->;
-
-export type TableStylesType<RecordType = AnyObject> = SemanticStylesType<
-  TableProps<RecordType>,
-  TableSemanticStyles,
-  {
+    pagination?: PaginationSemanticType['classNames'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    section?: React.CSSProperties;
+    title?: React.CSSProperties;
+    footer?: React.CSSProperties;
     body?: ComponentsSemanticStyles;
+    content?: React.CSSProperties;
     header?: ComponentsSemanticStyles;
-    pagination?: PaginationSemanticStyles;
-  }
->;
+    pagination?: PaginationSemanticType['styles'];
+  };
+};
+
+export type TableSemanticAllType<T = any> = GenerateSemantic<TableSemanticType, TableProps<T>>;
 
 interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
@@ -150,8 +132,8 @@ export interface TableProps<RecordType = AnyObject>
     | 'classNames'
     | 'styles'
   > {
-  classNames?: TableClassNamesType<RecordType>;
-  styles?: TableStylesType<RecordType>;
+  classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
+  styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
@@ -178,17 +160,6 @@ export interface TableProps<RecordType = AnyObject>
   showSorterTooltip?: boolean | SorterTooltipProps;
   virtual?: boolean;
 }
-
-type SemanticType = {
-  classNames: Required<RcTableProps['classNames']> & {
-    root?: string;
-    pagination?: PaginationSemanticClassNames;
-  };
-  styles: Required<RcTableProps['styles']> & {
-    root?: React.CSSProperties;
-    pagination?: PaginationSemanticStyles;
-  };
-};
 
 /** Same as `TableProps` but we need record parent render times */
 export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
@@ -267,7 +238,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     styles: contextStyles,
   } = useComponentConfig('table');
 
-  const mergedSize = useSize(customizeSize);
+  const mergedSize = useSize((ctx) =>
+    customizeSize === 'middle' ? 'medium' : (customizeSize ?? ctx),
+  );
 
   // =========== Merged Props for Semantic ==========
   const mergedProps: TableProps<RecordType> = {
@@ -276,11 +249,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     bordered,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TableClassNamesType<RecordType>,
-    TableStylesType<RecordType>,
-    TableProps<RecordType>
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     { props: mergedProps },
@@ -295,7 +264,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         _default: 'wrapper',
       },
     },
-  ) as [SemanticType['classNames'], SemanticType['styles']];
+  );
 
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const [globalLocale] = useLocale('global', defaultLocale.global);
@@ -328,7 +297,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     return null;
   }, [childrenColumnName, rawData]);
 
-  const internalRefs: NonNullable<RcTableProps['internalRefs']> = {
+  const internalRef: NonNullable<RcTableProps['internalRefs']> = {
     body: React.useRef<HTMLDivElement>(null),
   } as NonNullable<RcTableProps['internalRefs']>;
 
@@ -395,9 +364,9 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       }
     }
 
-    if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRefs.body.current) {
+    if (scroll && scroll.scrollToFirstRowOnChange !== false && internalRef.body.current) {
       scrollTo(0, {
-        getContainer: () => internalRefs.body.current!,
+        getContainer: () => internalRef.body.current!,
       });
     }
 
@@ -601,7 +570,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     if (mergedPagination.size) {
       paginationSize = mergedPagination.size;
     } else {
-      paginationSize = mergedSize === 'small' || mergedSize === 'middle' ? 'small' : undefined;
+      paginationSize = mergedSize === 'small' || mergedSize === 'medium' ? 'small' : undefined;
     }
 
     const renderPagination = (placement: 'start' | 'end' | 'center' = 'end') => (
@@ -702,7 +671,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     const fontHeight = Math.floor(fontSize * lineHeight);
 
     switch (mergedSize) {
-      case 'middle':
+      case 'medium':
         return paddingSM * 2 + fontHeight + lineWidth;
 
       case 'small':
@@ -734,7 +703,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           prefixCls={prefixCls}
           className={clsx(
             {
-              [`${prefixCls}-middle`]: mergedSize === 'middle',
+              [`${prefixCls}-medium`]: mergedSize === 'medium',
               [`${prefixCls}-small`]: mergedSize === 'small',
               [`${prefixCls}-bordered`]: bordered,
               [`${prefixCls}-empty`]: rawData.length === 0,
@@ -749,11 +718,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
           emptyText={mergedEmptyNode}
           // Internal
           internalHooks={INTERNAL_HOOKS}
-          internalRefs={internalRefs}
+          internalRefs={internalRef}
           transformColumns={transformColumns as any}
           getContainerWidth={getContainerWidth}
           measureRowRender={(measureRow) => (
-            <TableMeasureRowContext.Provider value={true}>
+            <TableMeasureRowContext.Provider value>
               <ConfigProvider getPopupContainer={(node) => node as HTMLElement}>
                 {measureRow}
               </ConfigProvider>

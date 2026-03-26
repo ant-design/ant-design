@@ -6,7 +6,7 @@ export type { GetProp, GetProps, GetRef } from './_util/type';
 export { default as Affix } from './affix';
 export type { AffixProps, AffixRef } from './affix';
 export { default as Alert } from './alert';
-export type { AlertProps, AlertSemanticType, ErrorBoundaryProps } from './alert';
+export type { AlertProps, ErrorBoundaryProps } from './alert';
 export { default as Anchor } from './anchor';
 export type { AnchorLinkProps, AnchorProps } from './anchor';
 export { default as App } from './app';
@@ -81,7 +81,7 @@ export type {
 } from './form';
 export { default as Grid } from './grid';
 export { default as Image } from './image';
-export type { ImageProps } from './image';
+export type { ImageProgressConfig, ImageProps, PlaceholderType } from './image';
 export { default as Input } from './input';
 export type { InputProps, InputRef } from './input';
 export { default as InputNumber } from './input-number';

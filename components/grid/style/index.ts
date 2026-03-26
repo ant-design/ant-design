@@ -21,7 +21,7 @@ interface GridColToken extends FullToken<'Grid'> {
 }
 
 // ============================== Row-Shared ==============================
-const genGridRowStyle: GenerateStyle<GridRowToken> = (token): CSSObject => {
+const genGridRowStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -84,7 +84,7 @@ const genGridRowStyle: GenerateStyle<GridRowToken> = (token): CSSObject => {
 };
 
 // ============================== Col-Shared ==============================
-const genGridColStyle: GenerateStyle<GridColToken> = (token): CSSObject => {
+const genGridColStyle: GenerateStyle<GridColToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {
@@ -195,6 +195,7 @@ export const getMediaSize = (token: AliasToken) => {
     lg: token.screenLGMin,
     xl: token.screenXLMin,
     xxl: token.screenXXLMin,
+    xxxl: token.screenXXXLMin,
   } as const;
 
   return mediaSizesMap;

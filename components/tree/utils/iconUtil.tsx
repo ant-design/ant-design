@@ -49,7 +49,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
         });
       }
 
-      return leafIcon as unknown as React.ReactElement;
+      return leafIcon as unknown as React.ReactElement<any>;
     }
 
     return showLeafIcon ? (
@@ -65,12 +65,15 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
   if (React.isValidElement<{ className?: string }>(switcher)) {
     return cloneElement(switcher, {
-      className: clsx(switcher.props?.className, switcherCls),
+      className: clsx(
+        switcher.props?.className,
+        showLine ? `${prefixCls}-switcher-line-icon` : switcherCls,
+      ),
     });
   }
 
   if (switcher !== undefined) {
-    return switcher as unknown as React.ReactElement;
+    return switcher as unknown as React.ReactElement<any>;
   }
 
   if (showLine) {

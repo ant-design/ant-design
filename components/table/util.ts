@@ -1,11 +1,12 @@
+import isNonNullable from '../_util/isNonNullable';
 import type { AnyObject } from '../_util/type';
 import type { ColumnTitle, ColumnTitleProps, ColumnType, Key } from './interface';
 
 export const getColumnKey = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
   defaultKey: string,
-): Key => {
-  if ('key' in column && column.key !== undefined && column.key !== null) {
+) => {
+  if ('key' in column && isNonNullable(column.key)) {
     return column.key;
   }
   if (column.dataIndex) {

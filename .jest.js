@@ -6,11 +6,13 @@ const compileModules = [
   'countup.js',
   '.pnpm',
   '@asamuzakjp/css-color',
+  '@asamuzakjp/dom-selector',
   '@rc-component',
-  // jsdom 27+ depends on ESM parse5, need transform
+  // jsdom 27+ pulls ESM dependencies that need transform
   'parse5',
   '@exodus',
   'jsdom',
+  '@csstools',
 ];
 
 // cnpm use `_` as prefix
@@ -62,7 +64,7 @@ module.exports = {
   ],
   transform: {
     '\\.tsx?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
-    '\\.(m?)js$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
+    '\\.(m?)js(m)?$': './node_modules/@ant-design/tools/lib/jest/codePreprocessor',
     '\\.md$': './node_modules/@ant-design/tools/lib/jest/demoPreprocessor',
     '\\.(jpg|png|gif|svg)$': './node_modules/@ant-design/tools/lib/jest/imagePreprocessor',
   },

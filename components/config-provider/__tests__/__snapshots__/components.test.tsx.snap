@@ -54,7 +54,7 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Alert configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Alert configProvider componentSize medium 1`] = `
 <div
   class="config-alert config-alert-success config-alert-no-icon css-var-root"
   data-show="true"
@@ -228,7 +228,7 @@ exports[`ConfigProvider components Anchor configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Anchor configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Anchor configProvider componentSize medium 1`] = `
 <div
   class=""
 >
@@ -443,7 +443,7 @@ exports[`ConfigProvider components AutoComplete configProvider componentSize lar
 </div>
 `;
 
-exports[`ConfigProvider components AutoComplete configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components AutoComplete configProvider componentSize medium 1`] = `
 <div
   class="config-select config-select-outlined config-select-auto-complete css-var-root config-select-css-var config-select-single config-select-show-search"
 >
@@ -580,7 +580,7 @@ exports[`ConfigProvider components Avatar configProvider componentSize large 1`]
 </span>
 `;
 
-exports[`ConfigProvider components Avatar configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Avatar configProvider componentSize medium 1`] = `
 <span
   class="config-avatar config-avatar-circle css-var-root config-avatar-css-var"
 >
@@ -726,7 +726,7 @@ exports[`ConfigProvider components BackTop configProvider componentSize large 1`
 </div>
 `;
 
-exports[`ConfigProvider components BackTop configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components BackTop configProvider componentSize medium 1`] = `
 <div
   class="css-var-root config-back-top"
 >
@@ -973,7 +973,7 @@ exports[`ConfigProvider components Badge configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Badge configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Badge configProvider componentSize medium 1`] = `
 <div>
   <span
     class="config-badge css-var-root"
@@ -1220,7 +1220,7 @@ exports[`ConfigProvider components Breadcrumb configProvider componentSize large
 </nav>
 `;
 
-exports[`ConfigProvider components Breadcrumb configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Breadcrumb configProvider componentSize medium 1`] = `
 <nav
   class="config-breadcrumb css-var-root"
 >
@@ -1454,7 +1454,7 @@ exports[`ConfigProvider components Button configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Button configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Button configProvider componentSize medium 1`] = `
 <div>
   <button
     class="config-btn css-var-root config-btn-default config-btn-color-default config-btn-variant-outlined"
@@ -5328,7 +5328,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Calendar configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Calendar configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-picker-calendar config-picker-calendar-full css-var-root"
@@ -5427,7 +5427,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         </div>
       </div>
       <div
-        class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
         role="radiogroup"
       >
         <label
@@ -6294,7 +6294,7 @@ exports[`ConfigProvider components Calendar configProvider componentSize middle 
         </div>
       </div>
       <div
-        class="config-radio-group config-radio-group-outline config-radio-group-middle config-picker-calendar-mode-switch css-var-root config-radio-css-var"
+        class="config-radio-group config-radio-group-outline config-picker-calendar-mode-switch css-var-root config-radio-css-var"
         role="radiogroup"
       >
         <label
@@ -10346,7 +10346,7 @@ exports[`ConfigProvider components Card configProvider componentDisabled 1`] = `
 
 exports[`ConfigProvider components Card configProvider componentSize large 1`] = `
 <div
-  class="config-card config-card-bordered config-card-contain-grid config-card-large css-var-root"
+  class="config-card config-card-bordered config-card-contain-grid css-var-root"
 >
   <div
     class="config-card-body"
@@ -10362,9 +10362,9 @@ exports[`ConfigProvider components Card configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Card configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Card configProvider componentSize medium 1`] = `
 <div
-  class="config-card config-card-bordered config-card-contain-grid config-card-middle css-var-root"
+  class="config-card config-card-bordered config-card-contain-grid css-var-root"
 >
   <div
     class="config-card-body"
@@ -10770,7 +10770,7 @@ exports[`ConfigProvider components Carousel configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Carousel configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Carousel configProvider componentSize medium 1`] = `
 <div
   class="config-carousel css-var-root"
 >
@@ -11366,7 +11366,7 @@ exports[`ConfigProvider components Cascader configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Cascader configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Cascader configProvider componentSize medium 1`] = `
 <div
   class="config-select config-cascader config-select-outlined config-select-css-var config-cascader-css-var css-var-root config-select-single config-select-show-arrow config-select-show-search"
 >
@@ -11638,7 +11638,7 @@ exports[`ConfigProvider components Checkbox configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Checkbox configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Checkbox configProvider componentSize medium 1`] = `
 <div
   class="config-checkbox-group css-var-root config-checkbox-css-var"
   role="group"
@@ -11879,7 +11879,7 @@ exports[`ConfigProvider components Collapse configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Collapse configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Collapse configProvider componentSize medium 1`] = `
 <div
   class="config-collapse config-collapse-icon-placement-start css-var-root"
 >
@@ -12097,7 +12097,7 @@ exports[`ConfigProvider components ColorPicker configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider components ColorPicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components ColorPicker configProvider componentSize medium 1`] = `
 <div
   class="config-color-picker-trigger css-var-root config-color-picker-css-var"
 >
@@ -12267,10 +12267,10 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker DatePicker configProvider componentSize medium 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input"
@@ -12569,10 +12569,10 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker MonthPicker configProvider componentSize medium 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input"
@@ -13007,10 +13007,10 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker RangePicker configProvider componentSize medium 1`] = `
 <div>
   <div
-    class="config-picker config-picker-range config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-range config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input config-picker-input-start"
@@ -13489,10 +13489,10 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
 </div>
 `;
 
-exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components DatePicker WeekPicker configProvider componentSize medium 1`] = `
 <div>
   <div
-    class="config-picker config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input"
@@ -13682,7 +13682,7 @@ exports[`ConfigProvider components Divider configProvider componentSize large 1`
 />
 `;
 
-exports[`ConfigProvider components Divider configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Divider configProvider componentSize medium 1`] = `
 <div
   class="config-divider css-var-root config-divider-horizontal config-divider-md config-divider-rail"
   role="separator"
@@ -13887,7 +13887,7 @@ exports[`ConfigProvider components Drawer configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Drawer configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Drawer configProvider componentSize medium 1`] = `
 <div
   class="config-drawer config-drawer-right css-var-root config-drawer-open config-drawer-inline"
   tabindex="-1"
@@ -14254,7 +14254,7 @@ exports[`ConfigProvider components Dropdown configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Dropdown configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Dropdown configProvider componentSize medium 1`] = `
 <div
   class="config-space-compact config-space-compact-block config-dropdown-button"
 >
@@ -14642,7 +14642,7 @@ exports[`ConfigProvider components Empty configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Empty configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Empty configProvider componentSize medium 1`] = `
 <div
   class="css-var-root config-empty"
 >
@@ -15069,9 +15069,9 @@ exports[`ConfigProvider components Form configProvider componentSize large 1`] =
 </form>
 `;
 
-exports[`ConfigProvider components Form configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Form configProvider componentSize medium 1`] = `
 <form
-  class="config-form config-form-horizontal config-form-middle css-var-root config-form-css-var"
+  class="config-form config-form-horizontal css-var-root config-form-css-var"
 >
   <div
     class="config-form-item css-var-root config-form-css-var config-form-item-with-help config-form-item-has-error config-form-item-horizontal"
@@ -15283,7 +15283,7 @@ exports[`ConfigProvider components Grid configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Grid configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Grid configProvider componentSize medium 1`] = `
 <div
   class="config-row css-var-root"
 >
@@ -15383,27 +15383,35 @@ exports[`ConfigProvider components Input configProvider 1`] = `
       class="config-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible config-input-password-icon"
-        role="img"
-        tabindex="-1"
+        aria-disabled="false"
+        aria-label="Show"
+        aria-pressed="false"
+        class="config-input-password-icon"
+        role="button"
+        tabindex="0"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
@@ -15477,27 +15485,35 @@ exports[`ConfigProvider components Input configProvider componentDisabled 1`] = 
       class="config-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible config-input-password-icon"
-        role="img"
+        aria-disabled="true"
+        aria-label="Show"
+        aria-pressed="false"
+        class="config-input-password-icon"
+        role="button"
         tabindex="-1"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
@@ -15568,27 +15584,35 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
       class="config-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible config-input-password-icon"
-        role="img"
-        tabindex="-1"
+        aria-disabled="false"
+        aria-label="Show"
+        aria-pressed="false"
+        class="config-input-password-icon"
+        role="button"
+        tabindex="0"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
@@ -15598,7 +15622,7 @@ exports[`ConfigProvider components Input configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Input configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Input configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-space-compact config-input-group css-var-root"
@@ -15609,7 +15633,7 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       value=""
     />
     <div
-      class="config-space-compact config-input-search css-var-root config-input-search-middle"
+      class="config-space-compact config-input-search css-var-root config-input-search-medium"
     >
       <input
         class="config-input config-input-outlined css-var-root config-input-css-var config-input-compact-item"
@@ -15658,27 +15682,35 @@ exports[`ConfigProvider components Input configProvider componentSize middle 1`]
       class="config-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible config-input-password-icon"
-        role="img"
-        tabindex="-1"
+        aria-disabled="false"
+        aria-label="Show"
+        aria-pressed="false"
+        class="config-input-password-icon"
+        role="button"
+        tabindex="0"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
@@ -15748,27 +15780,35 @@ exports[`ConfigProvider components Input configProvider componentSize small 1`] 
       class="config-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible config-input-password-icon"
-        role="img"
-        tabindex="-1"
+        aria-disabled="false"
+        aria-label="Show"
+        aria-pressed="false"
+        class="config-input-password-icon"
+        role="button"
+        tabindex="0"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
@@ -15838,27 +15878,35 @@ exports[`ConfigProvider components Input normal 1`] = `
       class="ant-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible ant-input-password-icon"
-        role="img"
-        tabindex="-1"
+        aria-disabled="false"
+        aria-label="Show"
+        aria-pressed="false"
+        class="ant-input-password-icon"
+        role="button"
+        tabindex="0"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
@@ -15928,27 +15976,35 @@ exports[`ConfigProvider components Input prefixCls 1`] = `
       class="ant-input-suffix"
     >
       <span
-        aria-label="eye-invisible"
-        class="anticon anticon-eye-invisible prefix-Input-icon"
-        role="img"
-        tabindex="-1"
+        aria-disabled="false"
+        aria-label="Show"
+        aria-pressed="false"
+        class="prefix-Input-icon"
+        role="button"
+        tabindex="0"
       >
-        <svg
-          aria-hidden="true"
-          data-icon="eye-invisible"
-          fill="currentColor"
-          focusable="false"
-          height="1em"
-          viewBox="64 64 896 896"
-          width="1em"
+        <span
+          aria-label="eye-invisible"
+          class="anticon anticon-eye-invisible"
+          role="img"
         >
-          <path
-            d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-          />
-          <path
-            d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-          />
-        </svg>
+          <svg
+            aria-hidden="true"
+            data-icon="eye-invisible"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            viewBox="64 64 896 896"
+            width="1em"
+          >
+            <path
+              d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+            />
+            <path
+              d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+            />
+          </svg>
+        </span>
       </span>
     </span>
   </span>
@@ -16117,7 +16173,7 @@ exports[`ConfigProvider components InputNumber configProvider componentSize larg
 </div>
 `;
 
-exports[`ConfigProvider components InputNumber configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components InputNumber configProvider componentSize medium 1`] = `
 <div
   class="config-input-number config-input-number-mode-input css-var-root config-input-number-css-var config-input-number-outlined"
 >
@@ -16489,7 +16545,7 @@ exports[`ConfigProvider components Layout configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Layout configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Layout configProvider componentSize medium 1`] = `
 <div
   class="config-layout config-layout-has-sider css-var-root"
 >
@@ -16606,13 +16662,15 @@ exports[`ConfigProvider components List configProvider 1`] = `
   class="config-list config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16658,13 +16716,15 @@ exports[`ConfigProvider components List configProvider componentDisabled 1`] = `
   class="config-list config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16710,13 +16770,15 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
   class="config-list config-list-lg config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin config-spin-lg css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16757,18 +16819,20 @@ exports[`ConfigProvider components List configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components List configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components List configProvider componentSize medium 1`] = `
 <div
   class="config-list config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16814,13 +16878,15 @@ exports[`ConfigProvider components List configProvider componentSize small 1`] =
   class="config-list config-list-sm config-list-split css-var-root"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin config-spin-sm css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <ul
-        class="config-list-items"
+        class="config-list-items config-list-container css-var-root"
       >
         <li
           class="config-list-item"
@@ -16866,13 +16932,15 @@ exports[`ConfigProvider components List normal 1`] = `
   class="ant-list ant-list-split css-var-root"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="ant-list-items"
+        class="ant-list-items ant-list-container css-var-root"
       >
         <li
           class="ant-list-item"
@@ -16918,13 +16986,15 @@ exports[`ConfigProvider components List prefixCls 1`] = `
   class="prefix-List prefix-List-split css-var-root"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
     >
       <ul
-        class="prefix-List-items"
+        class="prefix-List-items prefix-List-container css-var-root"
       >
         <li
           class="prefix-List-item"
@@ -17196,7 +17266,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider components Menu configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Menu configProvider componentSize medium 1`] = `
 Array [
   <ul
     class="config-menu config-menu-root config-menu-inline config-menu-light css-var-root config-menu-css-var"
@@ -17758,7 +17828,7 @@ exports[`ConfigProvider components Modal configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Modal configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Modal configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-modal-root css-var-root config-modal-css-var"
@@ -18879,10 +18949,10 @@ exports[`ConfigProvider components Pagination configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider components Pagination configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Pagination configProvider componentSize medium 1`] = `
 <div>
   <ul
-    class="config-pagination config-pagination-middle css-var-root"
+    class="config-pagination config-pagination-medium css-var-root"
   >
     <li
       aria-disabled="true"
@@ -20189,7 +20259,7 @@ exports[`ConfigProvider components Popconfirm configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider components Popconfirm configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Popconfirm configProvider componentSize medium 1`] = `
 <div>
   <span
     aria-describedby="test-id"
@@ -20628,7 +20698,7 @@ exports[`ConfigProvider components Popover configProvider componentSize large 1`
 </div>
 `;
 
-exports[`ConfigProvider components Popover configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Popover configProvider componentSize medium 1`] = `
 <div>
   <span
     aria-describedby="test-id"
@@ -20749,7 +20819,7 @@ exports[`ConfigProvider components Progress configProvider 1`] = `
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default css-var-root"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info css-var-root"
   role="progressbar"
 >
   <div
@@ -20780,7 +20850,7 @@ exports[`ConfigProvider components Progress configProvider componentDisabled 1`]
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default css-var-root"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info css-var-root"
   role="progressbar"
 >
   <div
@@ -20811,7 +20881,7 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default css-var-root"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info css-var-root"
   role="progressbar"
 >
   <div
@@ -20837,12 +20907,12 @@ exports[`ConfigProvider components Progress configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Progress configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Progress configProvider componentSize medium 1`] = `
 <div
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default css-var-root"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info css-var-root"
   role="progressbar"
 >
   <div
@@ -20873,7 +20943,7 @@ exports[`ConfigProvider components Progress configProvider componentSize small 1
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow="0"
-  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info config-progress-default css-var-root"
+  class="config-progress config-progress-status-normal config-progress-line config-progress-line-align-end config-progress-line-position-outer config-progress-show-info css-var-root"
   role="progressbar"
 >
   <div
@@ -20904,7 +20974,7 @@ exports[`ConfigProvider components Progress normal 1`] = `
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow="0"
-  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info ant-progress-default css-var-root"
+  class="ant-progress ant-progress-status-normal ant-progress-line ant-progress-line-align-end ant-progress-line-position-outer ant-progress-show-info css-var-root"
   role="progressbar"
 >
   <div
@@ -20935,7 +21005,7 @@ exports[`ConfigProvider components Progress prefixCls 1`] = `
   aria-valuemax="100"
   aria-valuemin="0"
   aria-valuenow="0"
-  class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line prefix-Progress-line-align-end prefix-Progress-line-position-outer prefix-Progress-show-info prefix-Progress-default css-var-root"
+  class="prefix-Progress prefix-Progress-status-normal prefix-Progress-line prefix-Progress-line-align-end prefix-Progress-line-position-outer prefix-Progress-show-info css-var-root"
   role="progressbar"
 >
   <div
@@ -21122,10 +21192,10 @@ exports[`ConfigProvider components Radio configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Radio configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Radio configProvider componentSize medium 1`] = `
 <div>
   <div
-    class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
     role="radiogroup"
   >
     <label
@@ -21149,7 +21219,7 @@ exports[`ConfigProvider components Radio configProvider componentSize middle 1`]
     </label>
   </div>
   <div
-    class="config-radio-group config-radio-group-outline config-radio-group-middle css-var-root config-radio-css-var"
+    class="config-radio-group config-radio-group-outline css-var-root config-radio-css-var"
     role="radiogroup"
   >
     <label
@@ -21336,7 +21406,7 @@ exports[`ConfigProvider components Radio prefixCls 1`] = `
 
 exports[`ConfigProvider components Rate configProvider 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root"
+  class="config-rate css-var-root"
   tabindex="0"
 >
   <li
@@ -21634,7 +21704,7 @@ exports[`ConfigProvider components Rate configProvider 1`] = `
 
 exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root config-rate-disabled"
+  class="config-rate css-var-root config-rate-disabled"
   tabindex="-1"
 >
   <li
@@ -21932,7 +22002,7 @@ exports[`ConfigProvider components Rate configProvider componentDisabled 1`] = `
 
 exports[`ConfigProvider components Rate configProvider componentSize large 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root"
+  class="config-rate config-rate-large css-var-root"
   tabindex="0"
 >
   <li
@@ -22228,9 +22298,9 @@ exports[`ConfigProvider components Rate configProvider componentSize large 1`] =
 </ul>
 `;
 
-exports[`ConfigProvider components Rate configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Rate configProvider componentSize medium 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root"
+  class="config-rate css-var-root"
   tabindex="0"
 >
   <li
@@ -22528,7 +22598,7 @@ exports[`ConfigProvider components Rate configProvider componentSize middle 1`] 
 
 exports[`ConfigProvider components Rate configProvider componentSize small 1`] = `
 <ul
-  class="config-rate config-rate-middle css-var-root"
+  class="config-rate config-rate-small css-var-root"
   tabindex="0"
 >
   <li
@@ -22826,7 +22896,7 @@ exports[`ConfigProvider components Rate configProvider componentSize small 1`] =
 
 exports[`ConfigProvider components Rate normal 1`] = `
 <ul
-  class="ant-rate ant-rate-middle css-var-root"
+  class="ant-rate css-var-root"
   tabindex="0"
 >
   <li
@@ -23124,7 +23194,7 @@ exports[`ConfigProvider components Rate normal 1`] = `
 
 exports[`ConfigProvider components Rate prefixCls 1`] = `
 <ul
-  class="prefix-Rate prefix-Rate-middle css-var-root"
+  class="prefix-Rate css-var-root"
   tabindex="0"
 >
   <li
@@ -23571,7 +23641,7 @@ exports[`ConfigProvider components Select configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Select configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Select configProvider componentSize medium 1`] = `
 <div
   class="config-select config-select-outlined css-var-root config-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
@@ -23859,7 +23929,7 @@ exports[`ConfigProvider components Skeleton configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Skeleton configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Skeleton configProvider componentSize medium 1`] = `
 <div
   class="config-skeleton config-skeleton-with-avatar css-var-root"
 >
@@ -24117,7 +24187,7 @@ exports[`ConfigProvider components Slider configProvider componentSize large 1`]
 </div>
 `;
 
-exports[`ConfigProvider components Slider configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Slider configProvider componentSize medium 1`] = `
 <div
   class="config-slider css-var-root config-slider-horizontal"
 >
@@ -24317,7 +24387,7 @@ exports[`ConfigProvider components Spin configProvider 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24346,7 +24416,7 @@ exports[`ConfigProvider components Spin configProvider componentDisabled 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24375,7 +24445,7 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-lg config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24400,11 +24470,11 @@ exports[`ConfigProvider components Spin configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Spin configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Spin configProvider componentSize medium 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24433,7 +24503,7 @@ exports[`ConfigProvider components Spin configProvider componentSize small 1`] =
 <div
   aria-busy="true"
   aria-live="polite"
-  class="config-spin config-spin-spinning css-var-root"
+  class="config-spin config-spin-sm config-spin-spinning config-spin-section css-var-root"
 >
   <span
     class="config-spin-dot-holder"
@@ -24462,7 +24532,7 @@ exports[`ConfigProvider components Spin normal 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="ant-spin ant-spin-spinning css-var-root"
+  class="ant-spin ant-spin-spinning ant-spin-section css-var-root"
 >
   <span
     class="ant-spin-dot-holder"
@@ -24491,7 +24561,7 @@ exports[`ConfigProvider components Spin prefixCls 1`] = `
 <div
   aria-busy="true"
   aria-live="polite"
-  class="prefix-Spin prefix-Spin-spinning css-var-root"
+  class="prefix-Spin prefix-Spin-spinning prefix-Spin-section css-var-root"
 >
   <span
     class="prefix-Spin-dot-holder"
@@ -24576,7 +24646,7 @@ exports[`ConfigProvider components Statistic configProvider componentSize large 
 </div>
 `;
 
-exports[`ConfigProvider components Statistic configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Statistic configProvider componentSize medium 1`] = `
 <div
   class="config-statistic css-var-root"
 >
@@ -24744,7 +24814,7 @@ exports[`ConfigProvider components Steps configProvider componentDisabled 1`] = 
 
 exports[`ConfigProvider components Steps configProvider componentSize large 1`] = `
 <div
-  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-large css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
   style="--config-cmp-steps-items-offset: 0;"
 >
   <div
@@ -24785,9 +24855,9 @@ exports[`ConfigProvider components Steps configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Steps configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Steps configProvider componentSize medium 1`] = `
 <div
-  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled config-steps-middle css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-filled css-var-root"
   style="--config-cmp-steps-items-offset: 0;"
 >
   <div
@@ -25027,7 +25097,7 @@ exports[`ConfigProvider components Switch configProvider componentSize large 1`]
 </button>
 `;
 
-exports[`ConfigProvider components Switch configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Switch configProvider componentSize medium 1`] = `
 <button
   aria-checked="false"
   class="config-switch css-var-root"
@@ -25124,7 +25194,9 @@ exports[`ConfigProvider components Table configProvider 1`] = `
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
@@ -25428,7 +25500,9 @@ exports[`ConfigProvider components Table configProvider componentDisabled 1`] = 
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
@@ -25734,7 +25808,9 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin config-spin-lg css-var-root"
   >
     <div
       class="config-spin-container"
@@ -26033,18 +26109,20 @@ exports[`ConfigProvider components Table configProvider componentSize large 1`] 
 </div>
 `;
 
-exports[`ConfigProvider components Table configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Table configProvider componentSize medium 1`] = `
 <div
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin css-var-root"
   >
     <div
       class="config-spin-container"
     >
       <div
-        class="config-table config-table-middle config-table-empty css-var-root config-table-css-var"
+        class="config-table config-table-medium config-table-empty css-var-root config-table-css-var"
       >
         <div
           class="config-table-container"
@@ -26342,7 +26420,9 @@ exports[`ConfigProvider components Table configProvider componentSize small 1`] 
   class="css-var-root config-table-css-var config-table-wrapper"
 >
   <div
-    class="config-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="config-spin config-spin-sm css-var-root"
   >
     <div
       class="config-spin-container"
@@ -26646,7 +26726,9 @@ exports[`ConfigProvider components Table normal 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -26950,7 +27032,9 @@ exports[`ConfigProvider components Table prefixCls 1`] = `
   class="css-var-root prefix-Table-css-var prefix-Table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -27516,9 +27600,9 @@ exports[`ConfigProvider components Tabs configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Tabs configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tabs configProvider componentSize medium 1`] = `
 <div
-  class="config-tabs config-tabs-top config-tabs-middle css-var-root config-tabs-css-var"
+  class="config-tabs config-tabs-top css-var-root config-tabs-css-var"
 >
   <div
     aria-orientation="horizontal"
@@ -27923,7 +28007,7 @@ exports[`ConfigProvider components Tags configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Tags configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tags configProvider componentSize medium 1`] = `
 <div>
   <span
     class="config-tag config-tag-filled css-var-root"
@@ -31160,10 +31244,10 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider components TimePicker configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components TimePicker configProvider componentSize medium 1`] = `
 Array [
   <div
-    class="config-picker config-picker-middle config-picker-outlined css-var-root config-picker-css-var"
+    class="config-picker config-picker-outlined css-var-root config-picker-css-var"
   >
     <div
       class="config-picker-input"
@@ -37468,7 +37552,7 @@ exports[`ConfigProvider components Timeline configProvider componentDisabled 1`]
 
 exports[`ConfigProvider components Timeline configProvider componentSize large 1`] = `
 <ol
-  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-large config-timeline css-var-root css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
   style="--config-cmp-steps-items-offset: 0;"
 >
   <li
@@ -37497,9 +37581,9 @@ exports[`ConfigProvider components Timeline configProvider componentSize large 1
 </ol>
 `;
 
-exports[`ConfigProvider components Timeline configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Timeline configProvider componentSize medium 1`] = `
 <ol
-  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-steps-middle config-timeline css-var-root css-var-root"
+  class="config-steps config-steps-vertical config-steps-title-horizontal config-steps-outlined config-steps-dot config-timeline css-var-root css-var-root"
   style="--config-cmp-steps-items-offset: 0;"
 >
   <li
@@ -37715,7 +37799,7 @@ Array [
 ]
 `;
 
-exports[`ConfigProvider components Tooltip configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tooltip configProvider componentSize medium 1`] = `
 Array [
   <span
     aria-describedby="test-id"
@@ -38678,7 +38762,7 @@ exports[`ConfigProvider components Transfer configProvider componentSize large 1
 </div>
 `;
 
-exports[`ConfigProvider components Transfer configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Transfer configProvider componentSize medium 1`] = `
 <div
   class="config-transfer css-var-root"
 >
@@ -40276,7 +40360,7 @@ exports[`ConfigProvider components Tree configProvider componentSize large 1`] =
 </div>
 `;
 
-exports[`ConfigProvider components Tree configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Tree configProvider componentSize medium 1`] = `
 <div>
   <div
     class="config-tree config-tree-icon-hide css-var-root"
@@ -41071,7 +41155,7 @@ exports[`ConfigProvider components TreeSelect configProvider componentSize large
 </div>
 `;
 
-exports[`ConfigProvider components TreeSelect configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components TreeSelect configProvider componentSize medium 1`] = `
 <div
   class="config-select config-tree-select config-select-outlined css-var-root config-select-css-var config-tree-select-css-var config-select-single config-select-show-arrow config-select-open"
 >
@@ -41540,7 +41624,7 @@ exports[`ConfigProvider components Upload configProvider componentSize large 1`]
 </span>
 `;
 
-exports[`ConfigProvider components Upload configProvider componentSize middle 1`] = `
+exports[`ConfigProvider components Upload configProvider componentSize medium 1`] = `
 <span
   class="config-upload-wrapper css-var-root"
 >

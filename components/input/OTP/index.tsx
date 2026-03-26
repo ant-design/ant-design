@@ -3,8 +3,8 @@ import { useEvent } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks';
+import { useMergeSemantic } from '../../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
@@ -19,21 +19,20 @@ import useStyle from '../style/otp';
 import OTPInput from './OTPInput';
 import type { OTPInputProps } from './OTPInput';
 
-export type OTPSemanticClassNames = {
-  root?: string;
-  input?: string;
-  separator?: string;
+export type OTPSemanticType = {
+  classNames?: {
+    root?: string;
+    input?: string;
+    separator?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    input?: React.CSSProperties;
+    separator?: React.CSSProperties;
+  };
 };
 
-export type OTPSemanticStyles = {
-  root?: React.CSSProperties;
-  input?: React.CSSProperties;
-  separator?: React.CSSProperties;
-};
-
-export type OTPClassNamesType = SemanticClassNamesType<OTPProps, OTPSemanticClassNames>;
-
-export type OTPStylesType = SemanticStylesType<OTPProps, OTPSemanticStyles>;
+export type OTPSemanticAllType = GenerateSemantic<OTPSemanticType, OTPProps>;
 
 export interface OTPRef {
   focus: VoidFunction;
@@ -72,8 +71,8 @@ export interface OTPProps
 
   onInput?: (value: string[]) => void;
 
-  classNames?: OTPClassNamesType;
-  styles?: OTPStylesType;
+  classNames?: OTPSemanticAllType['classNamesAndFn'];
+  styles?: OTPSemanticAllType['stylesAndFn'];
 }
 
 function strToArr(str: string) {
@@ -152,13 +151,13 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
     length,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    OTPClassNamesType,
-    OTPStylesType,
-    OTPProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const domAttrs = pickAttrs(restProps, {
     aria: true,
@@ -190,15 +189,15 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
   // ========================= Refs =========================
   const containerRef = React.useRef<HTMLDivElement>(null);
 
-  const refs = React.useRef<Record<number, InputRef | null>>({});
+  const inputsRef = React.useRef<Record<number, InputRef | null>>({});
 
   React.useImperativeHandle(ref, () => ({
     focus: () => {
-      refs.current[0]?.focus();
+      inputsRef.current[0]?.focus();
     },
     blur: () => {
       for (let i = 0; i < length; i += 1) {
-        refs.current[i]?.blur();
+        inputsRef.current[i]?.blur();
       }
     },
     nativeElement: containerRef.current!,
@@ -279,22 +278,22 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
 
     const nextIndex = Math.min(index + txt.length, length - 1);
     if (nextIndex !== index && nextCells[index] !== undefined) {
-      refs.current[nextIndex]?.focus();
+      inputsRef.current[nextIndex]?.focus();
     }
 
     triggerValueCellsChange(nextCells);
   };
 
   const onInputActiveChange: OTPInputProps['onActiveChange'] = (nextIndex) => {
-    refs.current[nextIndex]?.focus();
+    inputsRef.current[nextIndex]?.focus();
   };
 
   // ======================== Focus ========================
   const onInputFocus = (event: React.FocusEvent<HTMLInputElement>, index: number) => {
     // keep focus on the first empty cell
     for (let i = 0; i < index; i += 1) {
-      if (!refs.current[i]?.input?.value) {
-        refs.current[i]?.focus();
+      if (!inputsRef.current[i]?.input?.value) {
+        inputsRef.current[i]?.focus();
         break;
       }
     }
@@ -341,7 +340,7 @@ const OTP = React.forwardRef<OTPRef, OTPProps>((props, ref) => {
             <React.Fragment key={key}>
               <OTPInput
                 ref={(inputEle) => {
-                  refs.current[index] = inputEle;
+                  inputsRef.current[index] = inputEle;
                 }}
                 index={index}
                 size={mergedSize}

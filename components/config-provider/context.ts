@@ -26,7 +26,7 @@ import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps, FloatButtonProps } from '../float-button';
 import type { FormProps } from '../form';
 import type { ImageProps } from '../image';
-import type { InputProps, SearchProps, TextAreaProps } from '../input';
+import type { InputProps, PasswordProps, SearchProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
 import type { OTPProps } from '../input/OTP';
 import type { ListItemProps } from '../list';
@@ -65,6 +65,7 @@ import type { TourProps } from '../tour/interface';
 import type { TransferProps } from '../transfer';
 import type { TreeProps } from '../tree';
 import type { TreeSelectProps } from '../tree-select';
+import type { TypographyProps } from '../typography';
 import type { UploadProps } from '../upload';
 import type { RenderEmptyHandler } from './defaultRenderEmpty';
 
@@ -215,7 +216,12 @@ export type ModalConfig = ComponentStyleConfig &
     | 'okButtonProps'
     | 'cancelButtonProps'
     | 'mask'
-  >;
+  > & {
+    infoIcon?: React.ReactNode;
+    successIcon?: React.ReactNode;
+    errorIcon?: React.ReactNode;
+    warningIcon?: React.ReactNode;
+  };
 
 export type TabsConfig = ComponentStyleConfig &
   Pick<
@@ -242,13 +248,20 @@ export type AlertConfig = ComponentStyleConfig &
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
 
+export type TypographyConfig = ComponentStyleConfig &
+  Pick<TypographyProps, 'classNames' | 'styles'>;
+
 export type BreadcrumbConfig = ComponentStyleConfig &
   Pick<BreadcrumbProps, 'classNames' | 'styles' | 'separator' | 'dropdownIcon'>;
 
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
-export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classNames' | 'styles'>;
+export type InputPasswordConfig = ComponentStyleConfig &
+  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender'>;
+
+export type InputSearchConfig = ComponentStyleConfig &
+  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
@@ -302,6 +315,7 @@ export type FormConfig = ComponentStyleConfig &
     | 'classNames'
     | 'styles'
     | 'tooltip'
+    | 'labelAlign'
   >;
 
 export type FloatButtonConfig = ComponentStyleConfig &
@@ -321,7 +335,19 @@ export type PaginationConfig = ComponentStyleConfig &
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 
 export type SelectConfig = ComponentStyleConfig &
-  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles'>;
+  Pick<
+    SelectProps,
+    | 'showSearch'
+    | 'variant'
+    | 'classNames'
+    | 'styles'
+    | 'allowClear'
+    | 'clearIcon'
+    | 'loadingIcon'
+    | 'menuItemSelectedIcon'
+    | 'removeIcon'
+    | 'suffixIcon'
+  >;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
@@ -353,6 +379,8 @@ export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | '
 
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
 
+export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
+
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
 export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classNames' | 'styles'>;
@@ -372,7 +400,10 @@ export type InputNumberConfig = ComponentStyleConfig &
   Pick<InputNumberProps, 'variant' | 'classNames' | 'styles'>;
 
 export type CascaderConfig = ComponentStyleConfig &
-  Pick<CascaderProps, 'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon'>;
+  Pick<
+    CascaderProps,
+    'variant' | 'styles' | 'classNames' | 'expandIcon' | 'loadingIcon' | 'removeIcon' | 'suffixIcon'
+  > & { clearIcon?: React.ReactNode; searchIcon?: React.ReactNode };
 
 export type TreeSelectConfig = ComponentStyleConfig &
   Pick<TreeSelectProps, 'variant' | 'classNames' | 'styles' | 'switcherIcon'>;
@@ -380,13 +411,19 @@ export type TreeSelectConfig = ComponentStyleConfig &
 export type TreeConfig = ComponentStyleConfig & Pick<TreeProps, 'classNames' | 'styles'>;
 
 export type DatePickerConfig = ComponentStyleConfig &
-  Pick<DatePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
+  Pick<
+    DatePickerProps,
+    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+  >;
 
 export type RangePickerConfig = ComponentStyleConfig &
   Pick<RangePickerProps, 'variant' | 'separator'>;
 
 export type TimePickerConfig = ComponentStyleConfig &
-  Pick<TimePickerProps, 'variant' | 'classNames' | 'styles' | 'suffixIcon'>;
+  Pick<
+    TimePickerProps,
+    'variant' | 'classNames' | 'styles' | 'suffixIcon' | 'allowClear' | 'clearIcon'
+  >;
 
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
@@ -394,7 +431,7 @@ export type MentionsConfig = ComponentStyleConfig &
   Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
 
 export type UploadConfig = ComponentStyleConfig &
-  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest'>;
+  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest' | 'progress' | 'accept'>;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
@@ -408,6 +445,8 @@ export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as co
 
 export type Variant = (typeof Variants)[number];
 
+export type TriggerType = 'click' | 'pointerdown' | 'pointerup' | 'mousedown' | 'mouseup';
+
 export interface WaveConfig {
   /**
    * @descCN 是否禁用水波纹效果。
@@ -420,17 +459,24 @@ export interface WaveConfig {
    * @descEN Customized wave effect.
    */
   showEffect?: ShowWaveEffect;
+  /**
+   * @descCN 触发水波纹效果的事件。
+   * @descEN The event that triggers the wave effect.
+   * @default 'click'
+   */
+  triggerType?: TriggerType;
 }
 
 export interface ConfigComponentProps {
   input?: InputConfig;
+  inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;
   textArea?: TextAreaConfig;
   otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   space?: SpaceConfig;
-  splitter?: ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
+  splitter?: SplitterConfig;
   form?: FormConfig;
   select?: SelectConfig;
   alert?: AlertConfig;
@@ -447,7 +493,7 @@ export interface ConfigComponentProps {
   collapse?: CollapseConfig;
   floatButton?: FloatButtonConfig;
   floatButtonGroup?: FloatButtonGroupConfig;
-  typography?: ComponentStyleConfig;
+  typography?: TypographyConfig;
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;

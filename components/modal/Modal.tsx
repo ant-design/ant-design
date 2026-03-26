@@ -1,29 +1,25 @@
 import * as React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import Dialog from '@rc-component/dialog';
+import type { DialogProps } from '@rc-component/dialog';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import {
-  pickClosable,
-  useClosable,
-  useMergedMask,
-  useMergeSemantic,
-  useZIndex,
-} from '../_util/hooks';
+import { pickClosable, useClosable, useMergedMask, useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
 import { devUseWarning } from '../_util/warning';
-import zIndexContext from '../_util/zindexContext';
+import ZIndexContext from '../_util/zindexContext';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useFocusable from '../drawer/useFocusable';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
-import type { ModalClassNamesType, ModalProps, ModalStylesType, MousePosition } from './interface';
+import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
@@ -77,6 +73,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     closable,
     mask: modalMask,
     modalRender,
+    maskClosable,
 
     // Focusable
     focusTriggerAfterClose,
@@ -111,13 +108,20 @@ const Modal: React.FC<ModalProps> = (props) => {
   const rootPrefixCls = getPrefixCls();
 
   // ============================ Mask ============================
-  const [mergedMask, maskBlurClassName] = useMergedMask(modalMask, contextMask, prefixCls);
+  const [mergedMask, maskBlurClassName, mergeMaskClosable] = useMergedMask(
+    modalMask,
+    contextMask,
+    prefixCls,
+    maskClosable,
+  );
 
   // ========================== Focusable =========================
   const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose);
 
   // ============================ Open ============================
-  const handleCancel = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleCancel = (
+    e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLElement>,
+  ) => {
     if (confirmLoading) {
       return;
     }
@@ -139,6 +143,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       ['destroyOnClose', 'destroyOnHidden'],
       ['autoFocusButton', 'focusable.autoFocusButton'],
       ['focusTriggerAfterClose', 'focusable.focusTriggerAfterClose'],
+      ['maskClosable', 'mask.closable'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, newName);
     });
@@ -203,16 +208,17 @@ const Modal: React.FC<ModalProps> = (props) => {
     focusTriggerAfterClose: mergedFocusable.focusTriggerAfterClose,
     focusable: mergedFocusable,
     mask: mergedMask,
+    maskClosable: mergeMaskClosable,
     zIndex,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ModalClassNamesType,
-    ModalStylesType,
-    ModalProps
-  >([contextClassNames, classNames, maskBlurClassName], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames, maskBlurClassName],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<
@@ -241,7 +247,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   // =========================== Render ===========================
   return (
     <ContextIsolator form space>
-      <zIndexContext.Provider value={contextZIndex}>
+      <ZIndexContext.Provider value={contextZIndex}>
         <Dialog
           width={numWidth}
           {...restProps}
@@ -253,12 +259,13 @@ const Modal: React.FC<ModalProps> = (props) => {
           footer={dialogFooter}
           visible={open}
           mousePosition={customizeMousePosition ?? mousePosition}
-          onClose={handleCancel as any}
+          onClose={handleCancel as DialogProps['onClose']}
           closable={mergedClosable}
           closeIcon={mergedCloseIcon}
           transitionName={getTransitionName(rootPrefixCls, 'zoom', props.transitionName)}
           maskTransitionName={getTransitionName(rootPrefixCls, 'fade', props.maskTransitionName)}
           mask={mergedMask}
+          maskClosable={mergeMaskClosable}
           className={clsx(hashId, className, contextClassName)}
           style={{ ...contextStyle, ...style, ...responsiveWidthVars }}
           classNames={{
@@ -284,7 +291,7 @@ const Modal: React.FC<ModalProps> = (props) => {
             children
           )}
         </Dialog>
-      </zIndexContext.Provider>
+      </ZIndexContext.Provider>
     </ContextIsolator>
   );
 };

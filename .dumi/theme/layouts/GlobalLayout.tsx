@@ -235,18 +235,14 @@ const GlobalLayout: React.FC = () => {
   const [themeConfig, componentsClassNames] = React.useMemo<
     [ThemeConfig, SimpleComponentClassNames]
   >(() => {
-    let mergedTheme = theme;
+    const mergedTheme = theme;
 
+    // Ignore `algorithm` from AI-generated theme to preserve user's dark/light preference
     const {
-      algorithm: dynamicAlgorithm,
+      algorithm: _dynamicAlgorithm,
       token: dynamicToken,
       ...rawComponentsClassNames
     } = dynamicTheme || {};
-
-    if (dynamicAlgorithm) {
-      mergedTheme = mergedTheme.filter((c) => c !== 'dark' && c !== 'light');
-      mergedTheme.push(dynamicAlgorithm);
-    }
 
     // Convert rawComponentsClassNames to nextComponentsClassNames
     const nextComponentsClassNames: any = {};

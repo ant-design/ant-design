@@ -36,6 +36,8 @@ export interface Locale {
     placeholder?: string;
     close?: string;
     sortable?: string;
+    show?: string;
+    hide?: string;
   };
   Icon?: Record<string, any>;
   Text?: {

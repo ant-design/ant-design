@@ -16,19 +16,19 @@ const defaultTiltOptions: TiltOptions = {
 };
 
 const Tilt: React.FC<TiltProps> = ({ options, ...props }) => {
-  const node = useRef<HTMLDivElement>(null);
+  const nodeRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (node.current) {
-      VanillaTilt.init(node.current, {
+    if (nodeRef.current) {
+      VanillaTilt.init(nodeRef.current, {
         ...defaultTiltOptions,
         ...options,
       });
     }
     return () => {
-      (node.current as any)?.vanillaTilt.destroy();
+      (nodeRef.current as any)?.vanillaTilt.destroy();
     };
   }, []);
-  return <div ref={node} {...props} />;
+  return <div ref={nodeRef} {...props} />;
 };
 
 export default Tilt;

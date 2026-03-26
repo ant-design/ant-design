@@ -10,17 +10,17 @@ const contentStyle: React.CSSProperties = {
 const content = <div style={contentStyle} />;
 
 const App: React.FC = () => (
-  <Flex gap="middle" vertical>
-    <Flex gap="middle">
-      <Spin tip="Loading" size="small">
+  <Flex gap="medium" vertical>
+    <Flex gap="medium">
+      <Spin description="Loading" size="small">
         {content}
       </Spin>
-      <Spin tip="Loading">{content}</Spin>
-      <Spin tip="Loading" size="large">
+      <Spin description="Loading">{content}</Spin>
+      <Spin description="Loading" size="large">
         {content}
       </Spin>
     </Flex>
-    <Spin tip="Loading...">
+    <Spin description="Loading...">
       <Alert
         title="Alert message title"
         description="Further details about the context of this alert."

@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { operationUnit } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
@@ -26,7 +28,7 @@ export interface ComponentToken {
 
 export type TypographyToken = FullToken<'Typography'>;
 
-const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
+const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) => {
   const { componentCls, titleMarginTop } = token;
 
   return {
@@ -107,6 +109,10 @@ const genTypographyStyle: GenerateStyle<TypographyToken> = (token) => {
       ...getLinkStyles(token),
 
       // Operation
+      [`${componentCls}-actions`]: {
+        display: 'inline',
+      },
+
       [`
         ${componentCls}-expand,
         ${componentCls}-collapse,

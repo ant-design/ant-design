@@ -34,7 +34,6 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 <code src="./demo/user-profile.tsx">Preview drawer</code>
 <code src="./demo/multi-level-drawer.tsx">Multi-level drawer</code>
 <code src="./demo/size.tsx">Preset size</code>
-<code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/mask.tsx">mask</code>
 <code src="./demo/closable-placement.tsx" version="5.28.0">Closable placement</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
@@ -47,11 +46,6 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 ## API
 
 Common props ref：[Common props](/docs/react/common-props)
-
-<!-- prettier-ignore -->
-:::warning{title=Note}
-v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, instead of `className` & `style` from v4. This is done to align the API with Modal.
-:::
 
 | Props | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
@@ -70,8 +64,8 @@ v5 uses `rootClassName` & `rootStyle` to configure the outermost element style, 
 | ~~height~~ | Placement is `top` or `bottom`, height of the Drawer dialog, please use `size` instead | string \| number | 378 |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
 | loading | Show the Skeleton | boolean | false | 5.17.0 |
-| mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean }` | true |  |
-| maskClosable | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
+| mask | Mask effect | boolean \| `{ enabled?: boolean, blur?: boolean, closable?: boolean }` | true | mask.closable: 6.3.0 |
+| ~~maskClosable~~ | Clicking on the mask (area outside the Drawer) to close the Drawer or not | boolean | true |  |
 | maxSize | Maximum size (width or height depending on `placement`) when resizable | number | - | 6.0.0 |
 | open | Whether the Drawer dialog is visible or not | boolean | false |  |
 | placement | The placement of the Drawer | `top` \| `right` \| `bottom` \| `left` | `right` |  |

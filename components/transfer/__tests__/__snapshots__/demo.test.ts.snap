@@ -3100,7 +3100,9 @@ Array [
             class="css-var-test-id ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading css-var-test-id"
+              aria-busy="false"
+              aria-live="polite"
+              class="ant-spin css-var-test-id"
             >
               <div
                 class="ant-spin-container"
@@ -3796,7 +3798,9 @@ Array [
             class="css-var-test-id ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading css-var-test-id"
+              aria-busy="false"
+              aria-live="polite"
+              class="ant-spin css-var-test-id"
             >
               <div
                 class="ant-spin-container"
@@ -6333,7 +6337,7 @@ exports[`renders components/transfer/demo/search.tsx correctly 1`] = `
 
 exports[`renders components/transfer/demo/status.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-transfer ant-transfer-status-error css-var-test-id"
@@ -7342,7 +7346,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-actions acss-rzg7ne"
+      class="ant-transfer-actions acss-1vej3a6"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -7967,7 +7971,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
       </div>
     </div>
     <div
-      class="ant-transfer-actions acss-rzg7ne"
+      class="ant-transfer-actions acss-1vej3a6"
     >
       <button
         class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm ant-btn-icon-only"
@@ -8292,7 +8296,7 @@ exports[`renders components/transfer/demo/style-class.tsx correctly 1`] = `
 
 exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-start ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-transfer ant-transfer-customize-list css-var-test-id"
@@ -8393,7 +8397,9 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
             class="css-var-test-id ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading css-var-test-id"
+              aria-busy="false"
+              aria-live="polite"
+              class="ant-spin css-var-test-id"
             >
               <div
                 class="ant-spin-container"
@@ -9159,7 +9165,9 @@ exports[`renders components/transfer/demo/table-transfer.tsx correctly 1`] = `
             class="css-var-test-id ant-table-css-var ant-table-wrapper"
           >
             <div
-              class="ant-spin-nested-loading css-var-test-id"
+              aria-busy="false"
+              aria-live="polite"
+              class="ant-spin css-var-test-id"
             >
               <div
                 class="ant-spin-container"

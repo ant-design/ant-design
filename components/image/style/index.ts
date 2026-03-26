@@ -4,6 +4,7 @@ import { FastColor } from '@ant-design/fast-color';
 
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { inkFlow1, inkFlow2, inkFlow3, progressActive } from './progressAnimation';
 
 export interface ComponentToken {
   /**
@@ -31,6 +32,11 @@ export interface ComponentToken {
    * @descEN Disabled color of preview operation icon
    */
   previewOperationColorDisabled: string;
+  /**
+   * @desc 加载动画基础时长
+   * @descEN Base duration of loading animation
+   */
+  progressAnimationDuration: string;
 }
 
 /**
@@ -57,7 +63,7 @@ export const genBoxStyle = (position?: PositionType): CSSObject => ({
   inset: 0,
 });
 
-export const genImageCoverStyle = (token: ImageToken): CSSObject => {
+export const genImageCoverStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const { componentCls, motionDurationSlow, colorTextLightSolid } = token;
   return {
     [componentCls]: {
@@ -90,7 +96,140 @@ export const genImageCoverStyle = (token: ImageToken): CSSObject => {
   };
 };
 
-export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
+export const genImageProgressStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
+  const { componentCls, motionDurationMid, motionEaseInOut, progressAnimationDuration } = token;
+
+  // Common ink layer base styles
+  const inkBaseStyle: CSSObject = {
+    position: 'absolute',
+    width: '150%',
+    height: '150%',
+    left: '-25%',
+    top: '-25%',
+    animationTimingFunction: motionEaseInOut,
+    animationIterationCount: 'infinite',
+    pointerEvents: 'none',
+    willChange: 'transform, opacity',
+  };
+
+  return {
+    // Progress root (wrapper)
+    [`${componentCls}-progress-wrapper`]: {
+      position: 'relative',
+      display: 'inline-block',
+      overflow: 'hidden',
+      borderRadius: 'inherit',
+      backgroundColor: token.colorBgBase,
+      backdropFilter: 'blur(8px)',
+
+      // Ink group 1: Ink 1 (main) + Ink 2 (::before) + Ink 3 (::after)
+      [`${componentCls}-progress-ink-1`]: {
+        ...inkBaseStyle,
+        // Ink 1 - Top left blue cloud
+        background: `radial-gradient(ellipse 65% 55% at 25% 30%, rgba(100, 180, 255, 0.98) 0%, transparent 55%)`,
+        animationName: inkFlow1,
+        animationDuration: progressAnimationDuration,
+        filter: 'blur(40px)',
+
+        // Ink 2 - Center right lavender
+        '&::before': {
+          content: '""',
+          ...inkBaseStyle,
+          background: `radial-gradient(ellipse 60% 65% at 75% 45%, rgba(180, 140, 255, 0.95) 0%, transparent 50%)`,
+          animationName: inkFlow2,
+          animationDuration: `calc(${progressAnimationDuration} + 2s)`,
+          animationDelay: '-1s',
+          filter: 'blur(45px)',
+        },
+
+        // Ink 3 - Bottom center cyan
+        '&::after': {
+          content: '""',
+          ...inkBaseStyle,
+          background: `radial-gradient(ellipse 55% 50% at 50% 70%, rgba(100, 220, 220, 0.9) 0%, transparent 45%)`,
+          animationName: inkFlow3,
+          animationDuration: `calc(${progressAnimationDuration} + 0.5s)`,
+          animationDelay: '-2s',
+          filter: 'blur(38px)',
+        },
+      },
+
+      // Ink group 2: Ink 4 (main) + Ink 5 (::before)
+      [`${componentCls}-progress-ink-2`]: {
+        ...inkBaseStyle,
+        // Ink 4 - Scattered pink blossom
+        background: `radial-gradient(ellipse 45% 40% at 60% 20%, rgba(255, 150, 200, 0.88) 0%, transparent 45%)`,
+        animationName: inkFlow3,
+        animationDuration: `calc(${progressAnimationDuration} + 1.5s)`,
+        animationDelay: '-3s',
+        filter: 'blur(42px)',
+
+        // Ink 5 - Soft periwinkle accent
+        '&::before': {
+          content: '""',
+          ...inkBaseStyle,
+          background: `radial-gradient(ellipse 50% 55% at 20% 75%, rgba(160, 190, 255, 0.88) 0%, transparent 50%)`,
+          animationName: inkFlow1,
+          animationDuration: `calc(${progressAnimationDuration} + 2.5s)`,
+          animationDelay: '-2.5s',
+          filter: 'blur(35px)',
+        },
+      },
+
+      // Progress content
+      [`${componentCls}-progress-content`]: {
+        position: 'absolute',
+        top: '50%',
+        left: 0,
+        transform: 'translateY(-50%)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '100%',
+        paddingInline: token.paddingLG,
+        textAlign: 'center',
+        fontSize: token.fontSize,
+        color: token.colorTextSecondary,
+        zIndex: 1,
+      },
+
+      // Progress rail (background container)
+      [`${componentCls}-progress-rail`]: {
+        width: '100%',
+        height: 6,
+        marginTop: token.marginSM,
+        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+        borderRadius: token.borderRadiusXS,
+        overflow: 'hidden',
+        backdropFilter: 'blur(4px)',
+
+        // Track (filled portion) using ::before
+        '&::before': {
+          content: '""',
+          display: 'block',
+          height: '100%',
+          width: 'var(--progress-percent, 0%)',
+          background:
+            'linear-gradient(90deg, rgba(120, 170, 255, 0.85) 0%, rgba(160, 150, 245, 0.85) 40%, rgba(130, 200, 220, 0.85) 60%, rgba(120, 170, 255, 0.85) 100%)',
+          backgroundSize: '200% 100%',
+          borderRadius: token.borderRadiusXS / 2,
+          transition: `width ${motionDurationMid} ease`,
+          animationName: progressActive,
+          animationDuration: progressAnimationDuration,
+          animationTimingFunction: 'linear',
+          animationIterationCount: 'infinite',
+        },
+      },
+
+      // Progress indicator (percent text)
+      [`${componentCls}-progress-indicator`]: {
+        marginTop: token.marginXS,
+      },
+    },
+  } as CSSObject;
+};
+
+export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const {
     motionEaseOut,
     previewCls,
@@ -146,6 +285,8 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
         inset: 0,
         position: 'absolute',
         background: colorBgMask,
+        backdropFilter: 'blur(0px)',
+        transition: `backdrop-filter ${motionDurationSlow}`,
         [`&${componentCls}-preview-mask-blur`]: {
           backdropFilter: 'blur(4px)',
         },
@@ -173,8 +314,11 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
         maxHeight: '70%',
         verticalAlign: 'middle',
         transform: 'scale3d(1, 1, 1)',
-        cursor: 'grab',
         transition: `transform ${motionDurationSlow} ${motionEaseOut} 0s`,
+      },
+
+      [`&-movable ${previewCls}-img`]: {
+        cursor: 'grab',
       },
 
       [`&-moving ${previewCls}-img`]: {
@@ -255,7 +399,7 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken> = (token: ImageToke
   };
 };
 
-const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
+const genImageStyle: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     // ============================== image ==============================
@@ -282,7 +426,7 @@ const genImageStyle: GenerateStyle<ImageToken> = (token: ImageToken) => {
   };
 };
 
-const genPreviewMotion: GenerateStyle<ImageToken> = (token) => {
+const genPreviewMotion: GenerateStyle<ImageToken, CSSObject> = (token) => {
   const { previewCls, motionDurationSlow } = token;
 
   return {
@@ -331,6 +475,7 @@ export const prepareComponentToken: GetDefaultToken<'Image'> = (token) => ({
   previewOperationHoverColor: new FastColor(token.colorTextLightSolid).setA(0.85).toRgbString(),
   previewOperationColorDisabled: new FastColor(token.colorTextLightSolid).setA(0.25).toRgbString(),
   previewOperationSize: token.fontSizeIcon * 1.5, // FIXME: fontSizeIconLG
+  progressAnimationDuration: '3s',
 });
 
 export default genStyleHooks(
@@ -346,6 +491,7 @@ export default genStyleHooks(
     return [
       genImageStyle(imageToken),
       genImageCoverStyle(imageToken),
+      genImageProgressStyle(imageToken),
       genImagePreviewStyle(imageToken),
       genPreviewMotion(imageToken),
     ];

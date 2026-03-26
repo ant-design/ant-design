@@ -76,7 +76,7 @@ export const genActiveStyle = (
   outline: 0,
 });
 
-const genRtlStyle = (token: ColorPickerToken): CSSObject => {
+const genRtlStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     '&-rtl': {
@@ -133,7 +133,7 @@ const genClearStyle = (
   };
 };
 
-const genStatusStyle = (token: ColorPickerToken): CSSObject => {
+const genStatusStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     colorError,
@@ -164,7 +164,7 @@ const genStatusStyle = (token: ColorPickerToken): CSSObject => {
     },
   };
 };
-const genSizeStyle = (token: ColorPickerToken): CSSObject => {
+const genSizeStyle: GenerateStyle<ColorPickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     controlHeightLG,
