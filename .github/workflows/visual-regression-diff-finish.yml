@@ -94,11 +94,11 @@ jobs:
     if: fromJSON(needs.check-trust.outputs.trusted)
     steps:
       - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
       # We need get persist-index first
       - name: download image snapshot artifact
-        uses: dawidd6/action-download-artifact@v14
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # v14
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -120,7 +120,7 @@ jobs:
       - name: download report artifact
         id: download_report
         if: ${{ needs.upstream-workflow-summary.outputs.build-status == 'success' || needs.upstream-workflow-summary.outputs.build-status == 'failure' }}
-        uses: dawidd6/action-download-artifact@v14
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # v14
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -153,7 +153,7 @@ jobs:
           echo "${delimiter}" >> "${GITHUB_OUTPUT}"
 
       - name: success comment
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
         if: ${{ steps.report.outcome == 'success' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -165,7 +165,7 @@ jobs:
 
       - name: failed comment
         if: ${{ steps.download_report.outcome == 'failure' || steps.report.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |

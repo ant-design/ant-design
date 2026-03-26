@@ -22,7 +22,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v6
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
       - name: size-limit
         uses: ant-design/size-limit-action@1cd308b2fb976363849b02434e706bbca8727aa1 # pin@master
         with:

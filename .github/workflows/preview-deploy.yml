@@ -89,7 +89,7 @@ jobs:
     steps:
       # We need get PR id first
       - name: download pr artifact
-        uses: dawidd6/action-download-artifact@v14
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # v14
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -109,7 +109,7 @@ jobs:
       # Download site artifact
       - name: download site artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@v14
+        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # v14
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -120,12 +120,13 @@ jobs:
         continue-on-error: true
         env:
           PR_ID: ${{ steps.pr.outputs.id }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
           export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${SURGE_TOKEN}
 
       - name: success comment
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
         if: ${{ steps.deploy.outcome == 'success' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -137,7 +138,7 @@ jobs:
 
       - name: failed comment
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-failure) || steps.deploy.outcome == 'failure' || failure() }}
-        uses: actions-cool/maintain-one-comment@v3
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
