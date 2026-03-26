@@ -72,6 +72,14 @@ antd migrate 4 5 --apply ./src      # 生成 Agent 迁移提示
 | `--lang en\|zh`                 | 输出语言                      | `en`     |
 | `--detail`                      | 包含扩展信息                  | `false`  |
 
+### MCP Server {#mcp-server}
+
+| 命令       | 说明                                                       |
+| ---------- | ---------------------------------------------------------- |
+| `antd mcp` | 启动 MCP 服务器，提供 7 个工具和 2 个提示词，支持 IDE 集成 |
+
+`antd mcp` 命令启动 [Model Context Protocol](https://modelcontextprotocol.io/) 服务器，让 AI 助手可以直接访问 Ant Design 知识。详细配置参见 [MCP Server](/docs/react/mcp-zh-CN) 指南。
+
 ## 在 AI 工具中的使用 {#usage-with-ai-tools}
 
 CLI 内置 [Skill 文件](https://github.com/ant-design/ant-design-cli/blob/main/skills/antd/SKILL.md)，指导 Code Agent 在正确的时机调用正确的命令：
