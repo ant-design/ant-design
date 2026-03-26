@@ -1419,7 +1419,7 @@ describe('Upload List', () => {
     const onDownload = jest.fn();
     const onRemove = jest.fn();
     const onPreview = jest.fn();
-    const itemRender: UploadListProps['itemRender'] = (_, file, currFileList, actions) => {
+    const itemRender: UploadListProps['itemRender'] = (_, file, currFileList, actions, info) => {
       const { name, status, uid, url } = file;
       const index = currFileList.indexOf(file);
       return (
@@ -1429,6 +1429,7 @@ describe('Upload List', () => {
               currFileList.length
             }`}
           </span>
+          {info.error ? <span className="custom-item-render-error">{info.error}</span> : null}
           <span onClick={actions.remove} className="custom-item-render-action-remove">
             remove
           </span>
@@ -1461,6 +1462,32 @@ describe('Upload List', () => {
 
     fireEvent.click(wrapper.querySelectorAll('.custom-item-render-action-preview')[0]);
     expect(onPreview.mock.calls[0][0]).toEqual(fileList[0]);
+
+    unmount();
+  });
+
+  it('itemRender should receive error message', () => {
+    const itemRender: NonNullable<UploadListProps['itemRender']> = jest.fn(
+      (_, __, ___, ____, info) => <span className="custom-item-render-error">{info.error}</span>,
+    );
+
+    const { container, unmount } = render(
+      <UploadList
+        locale={{ uploadError: 'Upload failed' }}
+        items={[
+          {
+            uid: 'error-file',
+            name: 'foo.png',
+            status: 'error',
+            error: { message: 'Network error' },
+          },
+        ]}
+        itemRender={itemRender}
+      />,
+    );
+
+    expect(itemRender).toHaveBeenCalled();
+    expect(container.querySelector('.custom-item-render-error')).toHaveTextContent('Network error');
 
     unmount();
   });

@@ -296,11 +296,19 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     return (
       <div className={clsx(`${prefixCls}-list-item-container`, className)} style={style} ref={ref}>
         {itemRender
-          ? itemRender(item, file, items, {
-              download: onDownload.bind(null, file),
-              preview: onPreview.bind(null, file) as any,
-              remove: onClose.bind(null, file),
-            })
+          ? itemRender(
+              item,
+              file,
+              items,
+              {
+                download: onDownload.bind(null, file),
+                preview: onPreview.bind(null, file) as any,
+                remove: onClose.bind(null, file),
+              },
+              {
+                error: mergedStatus === 'error' ? message : null,
+              },
+            )
           : item}
       </div>
     );
