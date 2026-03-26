@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Sulje',
+    show: 'Näytä',
+    hide: 'Piilota',
   },
   Table: {
     filterTitle: 'Suodatus valikko',

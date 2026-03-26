@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Zəhmət olmasa seçin',
     close: 'Bağla',
+    show: 'Göstər',
+    hide: 'Gizlət',
   },
   Table: {
     filterTitle: 'Filter menyu',
