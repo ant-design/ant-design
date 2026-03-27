@@ -79,8 +79,8 @@ export default function confirm(config: ModalFuncProps) {
   let currentConfig = { ...config, close, open: true } as any;
   let timeoutId: ReturnType<typeof setTimeout>;
 
-  function destroy(...args: any[]) {
-    const triggerCancel = args.some((param) => param?.triggerCancel);
+  function destroy(...args: unknown[]) {
+    const triggerCancel = args.some((param) => param && typeof param === 'object' && 'triggerCancel' in param && param.triggerCancel);
     if (triggerCancel) {
       config.onCancel?.(() => {}, ...args.slice(1));
     }
@@ -121,7 +121,7 @@ export default function confirm(config: ModalFuncProps) {
     });
   };
 
-  function close(...args: any[]) {
+  function close(...args: unknown[]) {
     currentConfig = {
       ...currentConfig,
       open: false,
@@ -129,8 +129,8 @@ export default function confirm(config: ModalFuncProps) {
         if (typeof config.afterClose === 'function') {
           config.afterClose();
         }
-        // @ts-ignore
-        destroy.apply(this, args);
+        // Fixed: Direct call instead of using apply with @ts-ignore
+        destroy(...args);
       },
     };
 
