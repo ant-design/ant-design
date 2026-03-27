@@ -125,6 +125,7 @@ const Drawer: React.FC<DrawerProps> & {
     classNames: contextClassNames,
     styles: contextStyles,
     mask: contextMask,
+    focusable: contextFocusable,
   } = useComponentConfig('drawer');
 
   const prefixCls = getPrefixCls('drawer', customizePrefixCls);
@@ -192,7 +193,10 @@ const Drawer: React.FC<DrawerProps> & {
   );
 
   // ========================== Focusable =========================
-  const mergedFocusable = useFocusable(focusable, getContainer !== false && mergedMask);
+  const mergedFocusable = useFocusable(
+    { ...contextFocusable, ...focusable },
+    getContainer !== false && mergedMask,
+  );
 
   // =========================== Render ===========================
   const { classNames, styles, rootStyle } = rest;
