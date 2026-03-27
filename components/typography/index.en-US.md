@@ -21,7 +21,6 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/text.tsx">Text and Link Component</code>
 <code src="./demo/editable.tsx">Editable</code>
 <code src="./demo/copyable.tsx">Copyable</code>
-<code src="./demo/actions.tsx" version="6.4.0">Action Bar Placement</code>
 <code src="./demo/ellipsis.tsx">Ellipsis</code>
 <code src="./demo/ellipsis-controlled.tsx" version="5.16.0">Controlled ellipsis expand/collapse</code>
 <code src="./demo/ellipsis-middle.tsx">Ellipsis from middle</code>
