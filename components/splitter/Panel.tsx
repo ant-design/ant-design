@@ -17,7 +17,7 @@ export const InternalPanel = forwardRef<
     supportMotion,
   } = props;
 
-  const isCollapsed = size === 0;
+  const isCollapsed = size === 0 || (typeof size === 'string' && Number.parseFloat(size) === 0);
 
   const panelClassName = clsx(
     `${prefixCls}-panel`,
