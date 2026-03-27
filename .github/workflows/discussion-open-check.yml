@@ -26,7 +26,7 @@ jobs:
             ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
           notify_title: '🔥 @${{ github.event.discussion.user.login }} 创建了讨论：${{ github.event.discussion.title }} ${{ github.event.discussion.html_url }}'
           notify_body: |
-            ### 🔥 ![](${{ github.event.discussion.user.avatar_url }}&s=36) [@${{ github.event.discussion.user.login }}](https://github.com/${{ github.event.discussion.user.login }}) 开启了一个讨论：
+            ### 🔥 ![](${{ github.event.discussion.user.avatar_url }}) [@${{ github.event.discussion.user.login }}](https://github.com/${{ github.event.discussion.user.login }}) 开启了一个讨论：
             [${{ github.event.discussion.title }} · Discussion #${{ github.event.discussion.number }}](${{ github.event.discussion.html_url }})
             <hr />
           notify_footer: '> 🫵🏻 欢迎前往 GitHub 进行讨论，社区需要你的帮助！'
