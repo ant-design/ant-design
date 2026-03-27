@@ -153,6 +153,8 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       `${prefixCls}-${mergedVariant}`,
       {
         [`${prefixCls}-${mergedColor}`]: isInternalColor,
+        [`${prefixCls}-default`]:
+          mergedVariant === 'solid' && !isInternalColor && !mergedColor,
         [`${prefixCls}-hidden`]: !visible,
         [`${prefixCls}-rtl`]: direction === 'rtl',
         [`${prefixCls}-disabled`]: mergedDisabled,
