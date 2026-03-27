@@ -99,7 +99,7 @@ jobs:
             Hello @${{ github.event.issue.user.login }}, v4 only support IE11 and above.
 
       - name: send to dingtalk
-        uses: visiky/dingtalk-release-notify@64fcb0373782b6c2f6d9b9ea3c68af80ca189585 # pin@main
+        uses: visiky/dingtalk-release-notify@64fcb0373782b6c2f6d9b9ea3c68af80ca189585 # main
         with:
           DING_TALK_TOKEN: |
             ${{ secrets.DINGDING_BOT_TOKEN }}
