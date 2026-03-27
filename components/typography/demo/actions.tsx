@@ -23,6 +23,8 @@ const App: React.FC = () => (
     <Title level={5} copyable actions={{ placement: 'start' }}>
       Title action bar at the start.
     </Title>
+
+    <Text copyable={{ text: 'Copyable text' }} actions={{ placement: 'start' }} />
   </div>
 );
 

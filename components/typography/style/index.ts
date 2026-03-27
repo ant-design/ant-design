@@ -124,10 +124,14 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
       },
 
       [`${componentCls}-actions-start`]: {
-        marginInlineEnd: token.marginXXS,
-
-        '> :first-child': {
+        [`
+          ${componentCls}-expand,
+          ${componentCls}-collapse,
+          ${componentCls}-edit,
+          ${componentCls}-copy:not(${componentCls}-copy-icon-only)
+        `]: {
           marginInlineStart: 0,
+          marginInlineEnd: token.marginXXS,
         },
       },
 
