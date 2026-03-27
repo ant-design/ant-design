@@ -108,7 +108,7 @@ const {
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| affix | Set Affix common props | { className?: string, style?: React.CSSProperties } | - | 6.0.0 |
+| affix | Set Affix common props | See [Affix](/components/affix#api) | - | 6.0.0 |
 | alert | Set Alert common props | See [Alert](/components/alert#api) | - | 5.7.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties, classNames?: [AnchorStyleConfig\["classNames"\]](/components/anchor#semantic-dom), styles?: [AnchorStyleConfig\["styles"\]](/components/anchor#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |

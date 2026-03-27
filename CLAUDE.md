@@ -53,7 +53,9 @@ ant-design/
 | loadingIcon | (仅支持全局配置) 自定义加载图标 | ReactNode | - | × | 6.2.0 |
 | type | 按钮类型 | `primary` \| `default` | `default` | - | ✔ |
 
-- 参数：按字母顺序排列
+列说明：
+
+- 参数：按字母顺序排列，忽略 className, style, onClick, onKeyDown 等通用属性
 - 说明：简洁描述参数作用，如果仅支持全局配置需在描述中用括号注明
 - 类型：使用 TypeScript 定义的类型
 - 默认值：字符串用反引号，布尔/数字直接写，无默认值用 `-`
