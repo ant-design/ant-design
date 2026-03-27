@@ -17,17 +17,18 @@ export const InternalPanel = forwardRef<
     supportMotion,
   } = props;
 
+  const isCollapsed = size === 0;
+
   const panelClassName = clsx(
     `${prefixCls}-panel`,
     {
-      [`${prefixCls}-panel-hidden`]: size === 0,
+      [`${prefixCls}-panel-hidden`]: isCollapsed,
       [`${prefixCls}-panel-transition`]: supportMotion,
     },
     className,
   );
 
   const hasSize = size !== undefined;
-  const isCollapsed = size === 0;
 
   return (
     <div
