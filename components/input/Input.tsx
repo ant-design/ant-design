@@ -226,7 +226,26 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
-    onChange?.(e);
+    if (onChange) {
+      const realInput = inputRef.current?.input;
+      // @rc-component/input's resolveOnChange passes a cloneEvent()-created object
+      // whose target/currentTarget point to a detached DOM clone (not the mounted
+      // element). Third-party libraries such as react-number-format that use
+      // customInput perform DOM operations (e.g. document.contains, identity
+      // checks) against e.target and fail silently when it is detached.
+      //
+      // We normalise the event by re-pointing target/currentTarget to the real
+      // input. We deliberately do NOT clone nativeEvent to avoid breaking
+      // preventDefault() / stopPropagation() (Illegal invocation risk).
+      const normalizedEvent =
+        realInput && e.target !== realInput
+          ? (Object.create(e, {
+              target: { value: realInput, enumerable: true, configurable: true },
+              currentTarget: { value: realInput, enumerable: true, configurable: true },
+            }) as React.ChangeEvent<HTMLInputElement>)
+          : e;
+      onChange(normalizedEvent);
+    }
   };
 
   const suffixNode = (hasFeedback || suffix) && (
