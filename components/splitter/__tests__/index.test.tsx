@@ -94,6 +94,11 @@ describe('Splitter', () => {
     expect(panels?.[2]).toHaveStyle('flex-basis: 35px');
   });
 
+  it('should render panel without style prop', () => {
+    const { container } = render(<SplitterDemo items={[{ style: undefined }, {}]} />);
+    expect(container.querySelectorAll('.ant-splitter-panel')).toHaveLength(2);
+  });
+
   describe('onDraggerDoubleClick', () => {
     it('should trigger onDraggerDoubleClick when clicking within 300ms', () => {
       const onDraggerDoubleClick = jest.fn();
