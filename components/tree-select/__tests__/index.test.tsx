@@ -397,4 +397,38 @@ describe('TreeSelect', () => {
     const customIcon = screen.getByTestId(/custom-(expanded|collapsed)/);
     expect(customIcon).toBeInTheDocument();
   });
+
+  it('aligns switcher and its hover mask vertically in checkable mode', () => {
+    render(
+      <TreeSelect
+        id="ts-align-checkable"
+        open
+        treeCheckable
+        treeDefaultExpandAll
+        treeData={[
+          {
+            value: 'parent',
+            title:
+              'This is a very very very very very very very very very very very very long parent title',
+            children: [{ value: 'child', title: 'child' }],
+          },
+        ]}
+      />,
+    );
+
+    const dynamicStyles = Array.from(document.querySelectorAll('style[data-css-hash]'));
+    const hasSwitcherAlignStyle = dynamicStyles.some((style) => {
+      const { innerHTML } = style;
+      return (
+        innerHTML.includes('.ant-select-tree-switcher') &&
+        innerHTML.includes('display:flex') &&
+        innerHTML.includes('align-items:center') &&
+        innerHTML.includes('justify-content:center') &&
+        innerHTML.includes('top:50%') &&
+        innerHTML.includes('transform:translateY(-50%)')
+      );
+    });
+
+    expect(hasSwitcherAlignStyle).toBeTruthy();
+  });
 });
