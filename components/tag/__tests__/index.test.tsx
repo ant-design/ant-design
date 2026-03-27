@@ -407,7 +407,7 @@ describe('Tag', () => {
       </StyleProvider>,
     );
 
-    expect(container.querySelector('.ant-tag-default')).toBeTruthy();
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-default');
   });
 
   it('legacy bordered={false}', () => {
