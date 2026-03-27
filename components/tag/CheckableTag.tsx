@@ -1,6 +1,9 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { isPresetColor, isPresetStatusColor } from '../_util/colors';
+import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
+import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
 import useStyle from './style';
@@ -23,6 +26,11 @@ export interface CheckableTagProps {
   onChange?: (checked: boolean) => void;
   onClick?: (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => void;
   disabled?: boolean;
+  /**
+   * Support preset colors for checkable mode
+   * @since 5.28.0
+   */
+  color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
 }
 
 const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props, ref) => {
@@ -36,12 +44,18 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     onChange,
     onClick,
     disabled: customDisabled,
+    color,
     ...restProps
   } = props;
   const { getPrefixCls, tag } = React.useContext(ConfigContext);
 
   const disabled = React.useContext(DisabledContext);
   const mergedDisabled = customDisabled ?? disabled;
+
+  // Check if color is preset or status using shared utilities
+  const isPreset = isPresetColor(color);
+  const isStatus = isPresetStatusColor(color);
+  const isInternalColor = isPreset || isStatus;
 
   const handleClick = (e: React.MouseEvent<HTMLSpanElement, MouseEvent>) => {
     if (mergedDisabled) {
@@ -62,6 +76,7 @@ const CheckableTag = React.forwardRef<HTMLSpanElement, CheckableTagProps>((props
     {
       [`${prefixCls}-checkable-checked`]: checked,
       [`${prefixCls}-checkable-disabled`]: mergedDisabled,
+      [`${prefixCls}-${color}`]: isInternalColor,
     },
     tag?.className,
     className,
