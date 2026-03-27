@@ -732,4 +732,57 @@ describe('Typography.Ellipsis', () => {
     fireEvent.mouseLeave(typographyEl);
     fireEvent.mouseLeave(operationsWrapper!);
   });
+
+  it('copyable with start action bar placement + ellipsis: ellipsis tooltip hides when hovering copy, shows when hovering text', async () => {
+    offsetWidth = 50;
+    scrollWidth = 100;
+
+    const ref = React.createRef<HTMLElement>();
+    const { container, baseElement } = render(
+      <Base
+        ref={ref}
+        component="p"
+        copyable
+        actions={{ placement: 'start' }}
+        ellipsis={{ rows: 1, tooltip: true }}
+      >
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    const copyBtn = container.querySelector('.ant-typography-copy');
+    const operationsWrapper = copyBtn?.parentElement;
+    expect(operationsWrapper).toBeTruthy();
+
+    const typographyEl = ref.current!;
+
+    const getTooltipContent = () =>
+      baseElement.querySelector('[role="tooltip"]')?.textContent?.trim();
+
+    fireEvent.mouseEnter(typographyEl);
+    await waitFakeTimer();
+    await waitFor(() => {
+      expect(getTooltipContent()).toContain(fullStr);
+    });
+
+    fireEvent.mouseEnter(operationsWrapper!);
+    await waitFakeTimer();
+    await waitFor(() => {
+      const ellipsisTooltip = baseElement.querySelector('[role="tooltip"]');
+      expect(ellipsisTooltip?.closest('.ant-tooltip')).toHaveClass('ant-tooltip-hidden');
+    });
+
+    fireEvent.mouseLeave(operationsWrapper!);
+    fireEvent.mouseEnter(typographyEl);
+    await waitFakeTimer();
+    await waitFor(() => {
+      expect(getTooltipContent()).toContain(fullStr);
+    });
+
+    fireEvent.mouseLeave(typographyEl);
+    fireEvent.mouseLeave(operationsWrapper!);
+  });
 });

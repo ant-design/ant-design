@@ -37,6 +37,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
@@ -57,6 +58,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
@@ -76,6 +78,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| actions | Configure the operation bar | [actions](#actions) | - | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | Code style | boolean | false |  |
 | copyable | Whether to be copyable, customize it via setting an object | boolean \| [copyable](#copyable) | false |  |
@@ -90,6 +93,16 @@ Common props ref：[Common props](/docs/react/common-props)
 | type | Content type | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | Underlined style | boolean | false |  |
 | onClick | Set the handler to handle click event | (event) => void | - |  |
+
+### actions
+
+    {
+      placement: 'start' | 'end',
+    }
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| placement | Set the operation bar placement relative to the text | `start` \| `end` | `end` | 6.4.0 |
 
 ### copyable
 
