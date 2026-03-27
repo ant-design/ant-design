@@ -1,8 +1,12 @@
 // eslint.config.mjs
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import antfu from '@antfu/eslint-config';
 import compat from 'eslint-plugin-compat';
 import jest from 'eslint-plugin-jest';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
+
+const tsconfigRootDir = dirname(fileURLToPath(import.meta.url));
 
 export default antfu(
   {
@@ -67,6 +71,27 @@ export default antfu(
       'react-hooks/refs': 'off',
     },
   },
+  {
+    files: ['**/*.{ts,tsx,mts,cts}'],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir,
+      },
+    },
+  },
+  {
+    files: ['**/*.{js,mjs,cjs,jsx}'],
+    rules: {
+      'react/no-implicit-key': 'off',
+    },
+  },
+  {
+    files: ['eslint.config.mjs', '.*.{js,mjs,cjs}', '*.config.{js,mjs,cjs}'],
+    rules: {
+      'react/no-implicit-key': 'off',
+    },
+  },
   compat.configs['flat/recommended'],
   jest.configs['flat/recommended'],
   {
@@ -87,6 +112,7 @@ export default antfu(
       'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
+      'react/no-nested-component-definitions': 'off',
       'react/no-nested-components': 'off',
       'react/no-useless-fragment': 'off',
       'no-console': 'off',
