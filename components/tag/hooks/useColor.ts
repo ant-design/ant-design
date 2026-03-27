@@ -3,6 +3,8 @@ import { FastColor } from '@ant-design/fast-color';
 
 import type { TagProps } from '..';
 import { isPresetColor, isPresetStatusColor } from '../../_util/colors';
+import { AggregationColor } from '../../color-picker/color';
+import { isBright } from '../../color-picker/components/ColorPresets';
 
 /**
  * Convert color related props to a unified object,
@@ -48,7 +50,21 @@ export default function useColor(
 
     if (!nextIsPreset && !nextIsStatus && nextColor) {
       if (nextVariant === 'solid') {
-        tagStyle.backgroundColor = color;
+        tagStyle.backgroundColor = nextColor;
+        // Calculate contrasting text color for custom solid tags.
+        // For opaque colors, use standard luminance formula.
+        // For semi-transparent colors, we assume a light background as fallback
+        // since we don't have access to theme context here.
+        // Note: Semi-transparent solid tags are an edge case - most solid tags use opaque colors.
+        const aggregatedColor = new AggregationColor(nextColor);
+        const { r, g, b, a } = aggregatedColor.toRgb();
+        // For opaque colors (alpha > 0.5), use luminance formula directly
+        // For semi-transparent colors, fall back to isBright with white background
+        const isLightColor =
+          a > 0.5
+            ? r * 0.299 + g * 0.587 + b * 0.114 > 192
+            : isBright(aggregatedColor, '#fff');
+        tagStyle.color = isLightColor ? '#000' : '#fff';
       } else {
         const hsl = new FastColor(nextColor).toHsl();
         hsl.l = 0.95;
