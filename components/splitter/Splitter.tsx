@@ -31,6 +31,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
     orientation,
     vertical,
     children,
+    destroyOnHidden,
     draggerIcon,
     collapsibleIcon,
     rootClassName,
@@ -217,6 +218,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
               prefixCls={prefixCls}
               size={panelSizes[idx]}
               supportMotion={collapsible?.motion && movingIndex === undefined}
+              destroyOnHidden={item.destroyOnHidden ?? destroyOnHidden}
             />
           );
 
