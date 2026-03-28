@@ -20,6 +20,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/title.tsx">标题组件</code>
 <code src="./demo/paragraph-debug.tsx" debug>标题与段落</code>
 <code src="./demo/text.tsx">文本与超链接组件</code>
+<code src="./demo/shimmer.tsx">闪烁文字</code>
 <code src="./demo/editable.tsx">可编辑</code>
 <code src="./demo/copyable.tsx">可复制</code>
 <code src="./demo/ellipsis.tsx">省略号</code>
@@ -104,6 +105,15 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | 参数      | 说明                       | 类型             | 默认值 | 版本  |
 | --------- | -------------------------- | ---------------- | ------ | ----- |
 | placement | 设置操作栏相对于文本的位置 | `start` \| `end` | `end`  | 6.4.0 |
+
+### Typography.Shimmer
+
+| 参数      | 说明               | 类型                        | 默认值 | 版本 |
+| --------- | ------------------ | --------------------------- | ------ | ---- |
+| children  | 文本内容           | ReactNode                   | -      |      |
+| duration  | 动画持续时间（秒） | number                      | 2      |      |
+| disabled  | 禁用动画           | boolean                     | false  |      |
+| component | 设置渲染的元素类型 | keyof JSX.IntrinsicElements | 'span' |      |
 
 ### copyable
 

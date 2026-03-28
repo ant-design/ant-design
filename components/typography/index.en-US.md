@@ -19,6 +19,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/title.tsx">Title Component</code>
 <code src="./demo/paragraph-debug.tsx" debug>Title and Paragraph</code>
 <code src="./demo/text.tsx">Text and Link Component</code>
+<code src="./demo/shimmer.tsx">Shimmer Text</code>
 <code src="./demo/editable.tsx">Editable</code>
 <code src="./demo/copyable.tsx">Copyable</code>
 <code src="./demo/ellipsis.tsx">Ellipsis</code>
@@ -103,6 +104,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | placement | Set the operation bar placement relative to the text | `start` \| `end` | `end` | 6.4.0 |
+
+### Typography.Shimmer
+
+| Property  | Description                    | Type                        | Default | Version |
+| --------- | ------------------------------ | --------------------------- | ------- | ------- |
+| children  | Text content                   | ReactNode                   | -       |         |
+| duration  | Animation duration in seconds  | number                      | 2       |         |
+| disabled  | Disable animation              | boolean                     | false   |         |
+| component | Set the element type to render | keyof JSX.IntrinsicElements | 'span'  |         |
 
 ### copyable
 
