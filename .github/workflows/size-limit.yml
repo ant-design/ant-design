@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v6
       - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
       - name: size-limit
-        uses: ant-design/size-limit-action@1cd308b2fb976363849b02434e706bbca8727aa1 # pin@master
+        uses: ant-design/size-limit-action@1cd308b2fb976363849b02434e706bbca8727aa1 # master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           package_manager: ut
