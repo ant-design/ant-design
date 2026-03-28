@@ -1,11 +1,5 @@
 import { extendTest } from '../../../tests/shared/demoTest';
 
 extendTest('tree', {
-  skip: [
-    'big-data.tsx',
-    'virtual-scroll.tsx',
-    'component-token.tsx',
-    'directory-debug.tsx',
-    'parent-node-element-debug.tsx',
-  ],
+  skip: ['big-data.tsx', 'virtual-scroll.tsx', 'component-token.tsx', 'directory-debug.tsx'],
 });

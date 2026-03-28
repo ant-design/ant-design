@@ -34,6 +34,7 @@ Almost anything can be represented in a tree structure. Examples include directo
 <code src="./demo/multiple-line.tsx" debug>Multiple lines</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/line-debug.tsx" debug>Line debug</code>
+<code src="./demo/parent-node-element-debug.tsx" debug>Parent wrap: switcher, checkbox, title align & hover</code>
 
 ## API
 
