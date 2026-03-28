@@ -120,6 +120,51 @@ describe('Input', () => {
     expect(container.querySelector('input')?.selectionEnd).toEqual(5);
   });
 
+  it('should normalize cloned change event target to the real input for custom input integrations', () => {
+    const fakeTarget = document.createElement('input');
+    let eventTarget: EventTarget | null = null;
+    let nativeEventTarget: EventTarget | null = null;
+
+    const CustomInput = React.forwardRef<HTMLInputElement, React.InputHTMLAttributes<HTMLInputElement>>(
+      (props, ref) => {
+        const { onChange, ...restProps } = props;
+
+        return (
+          <input
+            {...restProps}
+            ref={ref}
+            onChange={(event) => {
+              const clonedEvent = Object.create(event, {
+                target: {
+                  value: fakeTarget,
+                },
+              }) as React.ChangeEvent<HTMLInputElement>;
+
+              onChange?.(clonedEvent);
+            }}
+          />
+        );
+      },
+    );
+
+    const { container } = render(
+      <Input
+        defaultValue="1"
+        inputElement={<CustomInput />}
+        onChange={(event) => {
+          eventTarget = event.target;
+          nativeEventTarget = event.nativeEvent.target;
+        }}
+      />,
+    );
+
+    const input = container.querySelector('input')!;
+    fireEvent.change(input, { target: { value: '12' } });
+
+    expect(eventTarget).toBe(input);
+    expect(nativeEventTarget).toBe(input);
+  });
+
   it('warning for Input.Group', () => {
     resetWarned();
     render(<Input.Group />);
