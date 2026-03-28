@@ -42,6 +42,7 @@ import type {
   FloatButtonConfig,
   FloatButtonGroupConfig,
   FormConfig,
+  IconsConfig,
   ImageConfig,
   InputConfig,
   InputNumberConfig,
@@ -227,6 +228,7 @@ export interface ConfigProviderProps {
   popupMatchSelectWidth?: boolean;
   popupOverflow?: PopupOverflow;
   theme?: ThemeConfig;
+  icons?: IconsConfig;
   warning?: WarningContextProps;
   alert?: AlertConfig;
   affix?: ComponentStyleConfig;
@@ -307,6 +309,7 @@ type holderRenderType = (children: React.ReactNode) => React.ReactNode;
 let globalPrefixCls: string;
 let globalIconPrefixCls: string;
 let globalTheme: ThemeConfig;
+let globalIcons: IconsConfig;
 let globalHolderRender: holderRenderType | undefined;
 
 function getGlobalPrefixCls() {
@@ -322,10 +325,11 @@ export interface GlobalConfigProps {
   iconPrefixCls?: string;
   theme?: ThemeConfig;
   holderRender?: holderRenderType;
+  icons?: IconsConfig;
 }
 
 const setGlobalConfig = (props: GlobalConfigProps) => {
-  const { prefixCls, iconPrefixCls, theme, holderRender } = props;
+  const { prefixCls, iconPrefixCls, theme, holderRender, icons } = props;
   if (prefixCls !== undefined) {
     globalPrefixCls = prefixCls;
   }
@@ -338,6 +342,9 @@ const setGlobalConfig = (props: GlobalConfigProps) => {
 
   if (theme) {
     globalTheme = theme;
+  }
+  if (icons) {
+    globalIcons = icons;
   }
 };
 
@@ -359,6 +366,7 @@ export const globalConfig = () => ({
     return getGlobalPrefixCls();
   },
   getTheme: () => globalTheme,
+  getIcons: () => globalIcons,
   holderRender: globalHolderRender,
 });
 
@@ -385,6 +393,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     parentContext,
     iconPrefixCls: customIconPrefixCls,
     theme,
+    icons,
     componentDisabled,
     segmented,
     statistic,
@@ -476,6 +485,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   const csp = customCsp || parentContext.csp;
 
   const mergedTheme = useTheme(theme, parentContext.theme, { prefixCls: getPrefixCls('') });
+  const mergedIcons = { ...parentContext.icons, ...icons };
 
   if (process.env.NODE_ENV !== 'production') {
     existThemeConfig = existThemeConfig || !!mergedTheme;
@@ -498,6 +508,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     getPrefixCls,
     iconPrefixCls,
     theme: mergedTheme,
+    icons: mergedIcons,
     segmented,
     statistic,
     spin,
