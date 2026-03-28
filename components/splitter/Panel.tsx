@@ -13,7 +13,7 @@ export const InternalPanel = forwardRef<
     children,
     destroyOnHidden = false,
     size,
-    style = {},
+    style,
     supportMotion,
   } = props;
 
@@ -35,7 +35,7 @@ export const InternalPanel = forwardRef<
       ref={ref}
       className={panelClassName}
       style={{
-        ...style,
+        ...(style ?? {}),
         // Use auto when start from ssr
         flexBasis: hasSize ? size : 'auto',
         flexGrow: hasSize ? 0 : 1,
