@@ -19,7 +19,9 @@ const useSuffixIcon = ({ picker, hasFeedback, feedbackIcon, suffixIcon }: UseSuf
   if (suffixIcon === true || suffixIcon === undefined) {
     return (
       <>
-        {picker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
+        <span aria-hidden="true">
+          {picker === TIME ? <ClockCircleOutlined /> : <CalendarOutlined />}
+        </span>
         {hasFeedback && feedbackIcon}
       </>
     );
