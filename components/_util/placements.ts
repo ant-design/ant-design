@@ -2,9 +2,8 @@ import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 
 import { getArrowOffsetToken } from '../style/placementArrow';
 
-export interface AdjustOverflow {
-  adjustX?: 0 | 1;
-  adjustY?: 0 | 1;
+export interface AdjustOverflow extends NonNullable<AlignType['overflow']> {
+  alwaysByViewport?: boolean;
 }
 
 export interface PlacementsConfig {
