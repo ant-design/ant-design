@@ -35,6 +35,7 @@ demo:
 <code src="./demo/multiple-line.tsx" debug>多行</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/line-debug.tsx" debug>连接线调试</code>
+<code src="./demo/parent-node-element-debug.tsx" debug>父节点换行：箭头、复选框、标题对齐与 hover</code>
 
 ## API
 
