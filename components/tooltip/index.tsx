@@ -7,6 +7,7 @@ import type {
 } from '@rc-component/tooltip/lib/Tooltip';
 import type { BuildInPlacements } from '@rc-component/trigger';
 import { useControlledState } from '@rc-component/util';
+import raf from '@rc-component/util/lib/raf';
 import { clsx } from 'clsx';
 
 import type { PresetColorType } from '../_util/colors';
@@ -32,6 +33,73 @@ import UniqueProvider from './UniqueProvider';
 import { parseColor } from './util';
 
 export type { AdjustOverflow, PlacementsConfig };
+
+/** WCAG 2.4.3: Focus order - move focus into popover/popconfirm when opened via click */
+const FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+function getFirstFocusable(container: HTMLElement): HTMLElement | null {
+  const focusable = container.querySelector<HTMLElement>(FOCUSABLE_SELECTOR);
+  return focusable;
+}
+
+function usePopoverFocus(
+  injectFromPopover: boolean,
+  trigger: string | string[] | undefined,
+  tooltipRef: React.RefObject<RcTooltipRef | null>,
+): (visible: boolean) => void {
+  const isClickTrigger =
+    trigger === 'click' || (Array.isArray(trigger) && trigger.includes('click'));
+  const focusRafRef = React.useRef<number | null>(null);
+  const latestVisibleRef = React.useRef(false);
+
+  React.useEffect(
+    () => () => {
+      if (focusRafRef.current !== null) {
+        raf.cancel(focusRafRef.current);
+      }
+    },
+    [],
+  );
+
+  return React.useCallback(
+    (visible: boolean) => {
+      if (!injectFromPopover || !isClickTrigger) return;
+      latestVisibleRef.current = visible;
+
+      if (visible) {
+        if (focusRafRef.current !== null) {
+          raf.cancel(focusRafRef.current);
+        }
+        focusRafRef.current = raf(() => {
+          if (latestVisibleRef.current) {
+            const current = tooltipRef.current;
+            const popupEl = current?.popupElement;
+            if (!popupEl) return;
+
+            const first = getFirstFocusable(popupEl);
+            /* istanbul ignore else -- hard to reliably cover in JSDOM */
+            if (first) {
+              first.focus();
+            } else {
+              popupEl.setAttribute('tabindex', '-1');
+              popupEl.focus();
+            }
+          }
+        });
+      } else {
+        if (focusRafRef.current !== null) {
+          raf.cancel(focusRafRef.current);
+        }
+        const triggerEl = tooltipRef.current?.nativeElement;
+        if (triggerEl?.focus) {
+          triggerEl.focus();
+        }
+      }
+    },
+    [injectFromPopover, isClickTrigger, tooltipRef],
+  );
+}
 
 export interface TooltipRef {
   forceAlign: VoidFunction;
@@ -246,10 +314,18 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const noTitle = !title && !overlay && title !== 0; // overlay for old version compatibility
 
+  const injectFromPopover = props['data-popover-inject'];
+
+  // Accessibility: when used as Popover/Popconfirm (click trigger), move focus into overlay on open and back to trigger on close
+  const popoverFocus = usePopoverFocus(!!injectFromPopover, mergedTrigger, tooltipRef);
+
   const onInternalOpenChange = (vis: boolean) => {
-    setOpen(noTitle ? false : vis);
+    const nextOpen = noTitle ? false : vis;
+    setOpen(nextOpen);
+    // Accessibility: when used as Popover/Popconfirm (click trigger), manage focus when open state changes
+    popoverFocus(nextOpen);
     if (!noTitle && onOpenChange) {
-      onOpenChange(vis);
+      onOpenChange(nextOpen);
     }
   };
 
@@ -300,8 +376,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
   const rootPrefixCls = getPrefixCls();
-
-  const injectFromPopover = props['data-popover-inject'];
 
   let tempOpen = open;
   // Hide tooltip when there is no title or in table measure row
@@ -378,7 +452,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
       overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onInternalOpenChange}
-      afterVisibleChange={afterOpenChange}
+      afterVisibleChange={(visible) => {
+        afterOpenChange?.(visible ?? tempOpen);
+      }}
       arrowContent={<span className={`${prefixCls}-arrow-content`} />}
       motion={{
         motionName: getTransitionName(
