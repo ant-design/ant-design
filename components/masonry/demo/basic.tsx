@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card, Masonry } from 'antd';
+import type { MasonryProps } from 'antd';
 
-import type { MasonryItemType } from '../MasonryItem';
+type MasonryItemType = NonNullable<MasonryProps<number>['items']>[number];
 
 const heights = [150, 50, 90, 70, 110, 150, 130, 80, 50, 90, 100, 150, 60, 50, 80].map(
   (height, index) => {
