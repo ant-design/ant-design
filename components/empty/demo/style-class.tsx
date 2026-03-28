@@ -1,9 +1,7 @@
 import React from 'react';
-import type { GetProp } from 'antd';
+import type { EmptyProps, GetProp } from 'antd';
 import { Button, Empty, Flex } from 'antd';
 import { createStaticStyles } from 'antd-style';
-
-import type { EmptyProps } from '..';
 
 const emptySharedProps: EmptyProps = {
   image: Empty.PRESENTED_IMAGE_SIMPLE,

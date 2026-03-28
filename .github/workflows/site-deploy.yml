@@ -23,7 +23,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v6
 
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
       - run: ut
 
@@ -60,7 +60,7 @@ jobs:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     needs: build-site
     steps:
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
       - name: download site artifact
         uses: actions/download-artifact@v8
@@ -69,7 +69,7 @@ jobs:
           path: _site
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./_site
@@ -78,7 +78,7 @@ jobs:
 
       # Since force_orphan will not trigger Sync to Gitee, we need to force run it here
       - name: Sync to Gitee
-        uses: wearerequired/git-mirror-action@v1
+        uses: wearerequired/git-mirror-action@c44c68aebe42de49a80a8dfd557416b6a0cafdad # v1
         env:
           SSH_PRIVATE_KEY: ${{ secrets.GITEE_SSH_PRIVATE_KEY }}
         with:
@@ -93,7 +93,7 @@ jobs:
 
       - name: Create Commit Comment
         if: ${{ needs.build-site.outputs.formatted_version != 'master' }}
-        uses: peter-evans/commit-comment@v4
+        uses: peter-evans/commit-comment@f6d60c65d05bb59f750fa51ad3de1d443ba0eb52 # v4
         with:
           body: |
             - Documentation site for this release: https://ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
