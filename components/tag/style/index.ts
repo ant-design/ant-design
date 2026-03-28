@@ -220,9 +220,9 @@ export const prepareToken = (token: Parameters<GenStyleFn<'Tag'>>[0]) => {
 };
 
 export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
-  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), '#fff')
-    ? '#000'
-    : '#fff';
+  const solidTextColor = isBright(new AggregationColor(token.colorBgSolid), token.colorBgContainer)
+    ? token.colorTextSolid
+    : token.colorTextLightSolid;
 
   return {
     defaultBg: new FastColor(token.colorFillTertiary)
