@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { MoonOutlined, SunOutlined } from '@ant-design/icons';
 import { Flex, Segmented } from 'antd';
+import type { SegmentedProps } from 'antd';
 
-import type { SizeType } from '../../config-provider/SizeContext';
+type SizeType = NonNullable<SegmentedProps['size']>;
 
 const Demo: React.FC = () => {
   const [size, setSize] = useState<SizeType>('medium');
