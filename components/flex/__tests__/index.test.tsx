@@ -106,6 +106,42 @@ describe('Flex', () => {
     });
   });
 
+  // ============================= childrenFlex =============================
+  describe('Props: childrenFlex', () => {
+    it('should add children-flex class and CSS variable', () => {
+      const { container } = render(
+        <Flex childrenFlex={1}>
+          <div>child1</div>
+          <div>child2</div>
+        </Flex>,
+      );
+      const flexEl = container.querySelector('.ant-flex');
+      expect(flexEl).toHaveClass('ant-flex-children-flex');
+      expect(flexEl).toHaveStyle({ '--ant-flex-children-flex': '1' });
+    });
+
+    it('should support string value', () => {
+      const { container } = render(
+        <Flex childrenFlex="1 0 auto">
+          <div>child1</div>
+          <div>child2</div>
+        </Flex>,
+      );
+      const flexEl = container.querySelector('.ant-flex');
+      expect(flexEl).toHaveClass('ant-flex-children-flex');
+      expect(flexEl).toHaveStyle({ '--ant-flex-children-flex': '1 0 auto' });
+    });
+
+    it('should not add class when childrenFlex is not set', () => {
+      const { container } = render(
+        <Flex>
+          <div>child1</div>
+        </Flex>,
+      );
+      expect(container.querySelector('.ant-flex')).not.toHaveClass('ant-flex-children-flex');
+    });
+  });
+
   // ============================= orientation =============================
   describe('orientation attribute', () => {
     it('vertical=true orientation=horizontal, result orientation=horizontal', () => {
