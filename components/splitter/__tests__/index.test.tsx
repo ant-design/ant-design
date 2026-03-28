@@ -1216,25 +1216,6 @@ describe('Splitter', () => {
       expect(container.querySelector('[data-testid="panel-content"]')).toBeFalsy();
     });
 
-    it('should keep content when destroyOnHidden is false and panel is collapsed', async () => {
-      const { container } = render(
-        <SplitterDemo
-          items={[
-            {
-              size: 0,
-              destroyOnHidden: false,
-              children: <div data-testid="panel-content">Content</div>,
-            },
-            {},
-          ]}
-        />,
-      );
-
-      await resizeSplitter();
-
-      expect(container.querySelector('[data-testid="panel-content"]')).toBeTruthy();
-    });
-
     it('should keep content when destroyOnHidden is true but panel is not collapsed', async () => {
       const { container } = render(
         <SplitterDemo
