@@ -54,9 +54,7 @@ jobs:
       - name: Format version
         if: ${{ always() }}
         id: shared-formatted_version
-        run: echo "VERSION=$(echo ${REF_NAME} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
-        env:
-          REF_NAME: ${{ github.ref_name }}
+        run: echo "VERSION=$(echo ${{ github.ref_name }} | sed 's/\./-/g')" >> $GITHUB_OUTPUT
 
   deploy-to-pages:
     runs-on: blacksmith-4vcpu-ubuntu-2404
@@ -91,10 +89,8 @@ jobs:
         if: ${{ needs.build-site.outputs.formatted_version != 'master' }}
         run: |
           export DEPLOY_DOMAIN=ant-design-${{ needs.build-site.outputs.formatted_version }}.surge.sh
-          utx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${SURGE_TOKEN}
+          utx surge --project ./_site --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
-        env:
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
       - name: Create Commit Comment
         if: ${{ needs.build-site.outputs.formatted_version != 'master' }}
         uses: peter-evans/commit-comment@f6d60c65d05bb59f750fa51ad3de1d443ba0eb52 # v4
