@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - name: verify-version
-        uses: actions-cool/verify-package-version@v1
+        uses: actions-cool/verify-package-version@d6700746374ce4876f4aa8778879ee54e2315d2f # v1
         with:
           title-include-content: docs
           title-include-version: true
