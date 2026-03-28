@@ -120,10 +120,8 @@ jobs:
         continue-on-error: true
         env:
           PR_ID: ${{ steps.pr.outputs.id }}
-          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
         run: |
-          export DEPLOY_DOMAIN=https://preview-${PR_ID}-ant-design.surge.sh
-          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${SURGE_TOKEN}
+          npx surge --project ./ --domain $DEPLOY_DOMAIN --token ${{ secrets.SURGE_TOKEN }}
 
       - name: success comment
         uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
