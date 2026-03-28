@@ -53,18 +53,6 @@ const genBaseStyle: GenerateStyle<TreeSelectToken> = (token) => {
                 },
               },
             },
-
-            // Keep switcher centered with checkbox when title wraps in checkable mode.
-            [`${treeCls}-switcher`]: {
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-
-              '&:before': {
-                top: '50%',
-                transform: 'translateY(-50%)',
-              },
-            },
           },
         },
 

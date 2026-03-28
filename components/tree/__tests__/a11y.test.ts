@@ -7,5 +7,6 @@ accessibilityDemoTest('tree', {
     'big-data.tsx',
     // we can set aria attributes to fix it
     'line.tsx',
+    'parent-node-element-debug.tsx',
   ],
 });
