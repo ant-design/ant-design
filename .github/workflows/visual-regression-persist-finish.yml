@@ -98,7 +98,7 @@ jobs:
 
       # We need get persist key first
       - name: Download Visual Regression Ref
-        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # v14
+        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
@@ -112,7 +112,7 @@ jobs:
 
       - name: Download Visual-Regression Artifact
         if: ${{ fromJSON(needs.upstream-workflow-summary.outputs.build-success) }}
-        uses: dawidd6/action-download-artifact@5c98f0b039f36ef966fdb7dfa9779262785ecb05 # v14
+        uses: dawidd6/action-download-artifact@v14 # Do not upgrade.
         with:
           workflow: ${{ github.event.workflow_run.workflow_id }}
           run_id: ${{ github.event.workflow_run.id }}
