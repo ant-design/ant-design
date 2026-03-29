@@ -111,10 +111,14 @@ const AffixTabs: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    listenerEvents.forEach((event) => window.addEventListener(event, onSyncAffix));
+    listenerEvents.forEach((event) => {
+      window.addEventListener(event, onSyncAffix);
+    });
     onSyncAffix();
     return () => {
-      listenerEvents.forEach((event) => window.removeEventListener(event, onSyncAffix));
+      listenerEvents.forEach((event) => {
+        window.removeEventListener(event, onSyncAffix);
+      });
     };
   }, [onSyncAffix]);
 

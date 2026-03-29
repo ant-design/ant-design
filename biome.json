@@ -64,7 +64,6 @@
         "noNonNullAssertedOptionalChain": "off",
         "noThenProperty": "off",
         "noTemplateCurlyInString": "off",
-        "useIterableCallbackReturn": "off",
         "noPrototypeBuiltins": "off"
       },
       "performance": {
