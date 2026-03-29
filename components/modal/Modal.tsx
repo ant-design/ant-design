@@ -120,7 +120,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const mergedFocusable = useFocusable(
     { ...contextFocusable, ...focusable },
     mergedMask,
-    focusTriggerAfterClose ?? contextFocusable?.focusTriggerAfterClose,
+    focusTriggerAfterClose,
   );
 
   // ============================ Open ============================
