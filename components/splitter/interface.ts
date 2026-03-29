@@ -41,6 +41,7 @@ export interface SplitterProps {
   layout?: Orientation;
   orientation?: Orientation;
   vertical?: boolean;
+  destroyOnHidden?: boolean;
   draggerIcon?: React.ReactNode;
   /**
    * @deprecated please use `collapsible.icon`
@@ -68,6 +69,7 @@ export interface PanelProps {
     | { start?: boolean; end?: boolean; showCollapsibleIcon?: ShowCollapsibleIconMode };
   resizable?: boolean;
   defaultSize?: number | string;
+  destroyOnHidden?: boolean;
 }
 
 // ================ inside ================
@@ -91,8 +93,10 @@ export interface UseResize {
   setOffset: (offset: number, containerSize: number, index: number) => void;
 }
 
-export interface UseHandleProps
-  extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResizeEnd'> {
+export interface UseHandleProps extends Pick<
+  SplitterProps,
+  'layout' | 'onResizeStart' | 'onResizeEnd'
+> {
   basicsState: number[];
   containerRef?: React.RefObject<HTMLDivElement | null>;
   setOffset: UseResize['setOffset'];
