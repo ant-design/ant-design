@@ -19,6 +19,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
+<code src="./demo/variant.tsx">Variants</code>
 <code src="./demo/colorful.tsx">Colorful Tag</code>
 <code src="./demo/control.tsx">Add & Remove Dynamically</code>
 <code src="./demo/checkable.tsx">Checkable</code>
@@ -48,7 +49,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onClose | Callback executed when tag is closed (can be prevented by `e.preventDefault()`) | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | target | Same as target attribute of a, works when href is specified | string | - | 6.0.0 |
-| variant | Variant of the tag | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 |
+| variant | Variant of the tag | `'filled' \| 'solid' \| 'outlined' \| 'blur'` | `'filled'` | 6.0.0 |
 
 ### Tag.CheckableTag
 

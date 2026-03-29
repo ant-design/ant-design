@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider, Flex, Tag } from 'antd';
 
-const variants = ['filled', 'solid', 'outlined'] as const;
+const variants = ['filled', 'solid', 'outlined', 'blur'] as const;
 const presets = [
   'magenta',
   'red',

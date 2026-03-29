@@ -22,6 +22,11 @@ const genPresetStyle = (token: TagToken) =>
           backgroundColor: lightColor,
           color: textColor,
         },
+        [`&${token.componentCls}-blur`]: {
+          borderColor: 'transparent',
+          backgroundColor: new FastColor(lightColor).setA(0.5).toRgbString(),
+          color: textColor,
+        },
       },
   }));
 
