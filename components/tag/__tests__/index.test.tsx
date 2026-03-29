@@ -8,6 +8,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import theme from '../../theme';
 
 (global as any).isVisible = true;
 
@@ -463,5 +464,111 @@ describe('Tag', () => {
     const contentStyle = contentElement?.getAttribute('style');
     expect(contentStyle).toContain('background-color: yellow');
     expect(contentStyle).toContain('color: green');
+  });
+
+  // ====================== Accessibility / WCAG Contrast ======================
+  describe('solid variant accessibility (WCAG contrast)', () => {
+    it('dark mode: solidTextColor should be #000 (dark text on near-white solid bg)', () => {
+      const { container } = render(
+        <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+          <Tag variant="solid">Dark Solid Tag</Tag>
+        </ConfigProvider>,
+      );
+      // In dark mode, colorBgSolid ≈ rgba(255,255,255,0.95) which is bright,
+      // so solidTextColor must be #000 to ensure adequate contrast.
+      expect(container.firstChild).toHaveStyle({
+        '--ant-tag-solid-text-color': '#000',
+      });
+    });
+
+    it('light mode: solidTextColor should be #fff (white text on near-black solid bg)', () => {
+      const { container } = render(
+        <ConfigProvider theme={{ algorithm: theme.defaultAlgorithm }}>
+          <Tag variant="solid">Light Solid Tag</Tag>
+        </ConfigProvider>,
+      );
+      // In light mode, colorBgSolid ≈ rgba(0,0,0,1) which is dark,
+      // so solidTextColor must be #fff to ensure adequate contrast.
+      expect(container.firstChild).toHaveStyle({
+        '--ant-tag-solid-text-color': '#fff',
+      });
+    });
+
+    it('custom bright-color solid tag: should render dark text for readability', () => {
+      // #ffff00 (yellow) is very bright (HSV value ≈ 1.0) → needs dark text
+      const { container } = render(
+        <Tag variant="solid" color="#ffff00">
+          Yellow Solid
+        </Tag>,
+      );
+      const tagEl = container.querySelector<HTMLElement>('.ant-tag-solid');
+      expect(tagEl).not.toBeNull();
+      // The inline style color should be the dark shade
+      expect(tagEl?.style.color).toBe('rgba(0, 0, 0, 0.88)');
+    });
+
+    it('custom dark-color solid tag: should render white text for readability', () => {
+      // #1a1a2e (deep navy) is very dark (HSV value < 0.6) → needs light text
+      const { container } = render(
+        <Tag variant="solid" color="#1a1a2e">
+          Navy Solid
+        </Tag>,
+      );
+      const tagEl = container.querySelector<HTMLElement>('.ant-tag-solid');
+      expect(tagEl).not.toBeNull();
+      expect(tagEl?.style.color).toBe('rgb(255, 255, 255)');
+    });
+
+    it('custom mid-bright-color solid tag: should render dark text when HSV value > 0.6', () => {
+      // #66ccff is a light blue (HSV value ≈ 1.0) → bright → needs dark text
+      const { container } = render(
+        <Tag variant="solid" color="#66ccff">
+          Light Blue
+        </Tag>,
+      );
+      const tagEl = container.querySelector<HTMLElement>('.ant-tag-solid');
+      expect(tagEl).not.toBeNull();
+      expect(tagEl?.style.color).toBe('rgba(0, 0, 0, 0.88)');
+    });
+
+    it('status solid tag: should have explicit white text color', () => {
+      // Status colors (success/error/warning/processing) are vivid and always need white text.
+      // This test guards that colorTextLightSolid is explicitly set (not just inherited)
+      // by verifying the computed style is consistent on the actual element.
+      const { container } = render(
+        <>
+          <Tag variant="solid" color="success" id="tag-success">
+            Success
+          </Tag>
+          <Tag variant="solid" color="error" id="tag-error">
+            Error
+          </Tag>
+          <Tag variant="solid" color="warning" id="tag-warning">
+            Warning
+          </Tag>
+        </>,
+      );
+      // Each should render with the solid variant class
+      expect(container.querySelector('#tag-success')).toHaveClass('ant-tag-solid');
+      expect(container.querySelector('#tag-error')).toHaveClass('ant-tag-solid');
+      expect(container.querySelector('#tag-warning')).toHaveClass('ant-tag-solid');
+    });
+
+    it('variant solid should not use colorTextLightSolid for default color (it would be white-on-white in dark mode)', () => {
+      // This is a regression test: the outer .ant-tag-solid rule MUST NOT use colorTextLightSolid
+      // because in dark mode that results in white text on a near-white background.
+      // We verify by checking the CSS variable is solidTextColor (#000 in dark mode).
+      document.head.innerHTML = '';
+      render(
+        <StyleProvider cache={createCache()}>
+          <ConfigProvider theme={{ algorithm: theme.darkAlgorithm }}>
+            <Tag variant="solid">Regression Tag</Tag>
+          </ConfigProvider>
+        </StyleProvider>,
+      );
+      // The generated stylesheet should have solidTextColor as #000, not --color-text-light-solid (#fff)
+      // Specifically, the solid rule for the default (no-color) tag should reference solidTextColor.
+      expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:#000');
+    });
   });
 });

@@ -49,6 +49,9 @@ export default function useColor(
     if (!nextIsPreset && !nextIsStatus && nextColor) {
       if (nextVariant === 'solid') {
         tagStyle.backgroundColor = color;
+        // Compute accessible text color: use dark text on bright backgrounds, white on dark ones
+        const hsv = new FastColor(nextColor).toHsv();
+        tagStyle.color = hsv.v > 0.6 ? 'rgba(0,0,0,0.88)' : '#fff';
       } else {
         const hsl = new FastColor(nextColor).toHsl();
         hsl.l = 0.95;
