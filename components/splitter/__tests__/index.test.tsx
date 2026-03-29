@@ -33,9 +33,13 @@ const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>>
   ...rest
 }) => (
   <Splitter {...rest}>
-    {items?.map((item, idx) => {
+    {items?.map(({ children, ...item }, idx) => {
       const key = `panel-${idx}`;
-      return <Splitter.Panel key={key} {...item} />;
+      return (
+        <Splitter.Panel key={key} {...item}>
+          {children}
+        </Splitter.Panel>
+      );
     })}
   </Splitter>
 );
@@ -1172,5 +1176,57 @@ describe('Splitter', () => {
         );
       }
     });
+  });
+
+  it('destroyOnHidden', async () => {
+    const onResize = jest.fn();
+
+    const { container } = render(
+      <SplitterDemo
+        destroyOnHidden
+        onResize={onResize}
+        items={[
+          {
+            collapsible: true,
+            children: <div data-testid="panel-1">Panel 1</div>,
+          },
+          {
+            collapsible: true,
+            destroyOnHidden: false,
+            children: <div data-testid="panel-2">Panel 2</div>,
+          },
+        ]}
+      />,
+    );
+
+    await resizeSplitter();
+
+    // Both panels should exist initially
+    expect(container.querySelector('[data-testid="panel-1"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
+
+    // Collapse the first panel (inherits destroyOnHidden from Splitter)
+    fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+    expect(onResize).toHaveBeenCalledWith([0, 100]);
+
+    // Panel 1 should be destroyed, panel 2 should remain
+    expect(container.querySelector('[data-testid="panel-1"]')).toBeFalsy();
+    expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
+
+    // Collapse the second panel (has destroyOnHidden=false override)
+    onResize.mockReset();
+    fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+
+    // Panel 1 should restore (expanded back), panel 2 should remain (override)
+    expect(container.querySelector('[data-testid="panel-1"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
+
+    // Collapse panel 2 fully
+    onResize.mockReset();
+    fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+
+    // Panel 1 should exist, panel 2 should still exist (destroyOnHidden=false)
+    expect(container.querySelector('[data-testid="panel-1"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
   });
 });
