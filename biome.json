@@ -44,7 +44,6 @@
   "linter": {
     "rules": {
       "style": {
-        "useNodejsImportProtocol": "off",
         "noNonNullAssertion": "off"
       },
       "complexity": {
