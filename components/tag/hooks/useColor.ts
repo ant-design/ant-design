@@ -51,7 +51,6 @@ export default function useColor(
         tagStyle.backgroundColor = color;
       } else if (nextVariant === 'blur') {
         const fc = new FastColor(nextColor);
-        tagStyle.borderColor = 'transparent';
         tagStyle.backgroundColor = fc.clone().setA(0.38).toRgbString();
         tagStyle.color = color;
       } else {

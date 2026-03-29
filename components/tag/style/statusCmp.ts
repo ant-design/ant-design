@@ -32,9 +32,8 @@ const genTagStatusStyle = (
         color: token[`color${cssVariableType}`],
       },
       [`&${token.componentCls}-blur`]: {
-        borderColor: 'transparent',
         backgroundColor: new FastColor(token[`color${capitalizedCssVariableType}Bg`])
-          .setA(0.55)
+          .setA(token.blurAlpha)
           .toRgbString(),
         color: token[`color${cssVariableType}`],
       },

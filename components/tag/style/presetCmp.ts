@@ -1,4 +1,6 @@
 // Style as status component
+import { FastColor } from '@ant-design/fast-color';
+
 import { prepareComponentToken, prepareToken } from '.';
 import type { TagToken } from '.';
 import { genPresetColor, genSubStyleComponent } from '../../theme/internal';
@@ -23,7 +25,6 @@ const genPresetStyle = (token: TagToken) =>
           color: textColor,
         },
         [`&${token.componentCls}-blur`]: {
-          borderColor: 'transparent',
           backgroundColor: new FastColor(lightColor).setA(0.5).toRgbString(),
           color: textColor,
         },

@@ -38,6 +38,24 @@ export interface ComponentToken {
    * @descEN Default text color for blur variant tag.
    */
   blurColor: string;
+
+  /**
+   * @desc blur 变体的透明度（浅色主题）
+   * @descEN Alpha for blur variant (light theme)
+   */
+  blurAlpha: number;
+
+  /**
+   * @desc blur 变体的透明度（深色主题）
+   * @descEN Alpha for blur variant (dark theme)
+   */
+  blurDarkAlpha: number;
+
+  /**
+   * @desc blur 变体的边框色
+   * @descEN Border color for blur variant
+   */
+  blurBorderColor: string;
 }
 
 export interface TagToken extends FullToken<'Tag'> {
@@ -46,6 +64,9 @@ export interface TagToken extends FullToken<'Tag'> {
   tagIconSize: number | string;
   tagPaddingHorizontal: number;
   tagBorderlessBg: string;
+  blurAlpha: number;
+  blurDarkAlpha: number;
+  blurBorderColor: string;
 }
 
 // ============================== Styles ==============================
@@ -177,7 +198,7 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
     },
 
     [`${componentCls}-blur`]: {
-      borderColor: 'transparent',
+      borderColor: token.blurBorderColor,
       backgroundColor: token.blurBg,
       backdropFilter: 'blur(8px)',
       WebkitBackdropFilter: 'blur(8px)',
@@ -229,7 +250,7 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
         backdropFilter: 'none',
         WebkitBackdropFilter: 'none',
         backgroundColor: token.colorBgContainerDisabled,
-        borderColor: 'transparent',
+        borderColor: token.blurBorderColor,
       },
 
       [`${componentCls}-close-icon`]: {
@@ -267,12 +288,18 @@ export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
     new AggregationColor(token.colorBgContainer),
     '#fff',
   );
+  const blurAlpha = 0.55;
+  const blurDarkAlpha = 0.45;
+  const blurBorderColor = 'transparent';
+
   const blurBg = containerIsDark
-    ? new FastColor('#000').setA(0.45).toRgbString()
-    : new FastColor(token.colorFillTertiary).setA(0.55).toRgbString();
+    ? new FastColor('#000').setA(blurDarkAlpha).toRgbString()
+    : new FastColor(token.colorFillTertiary).setA(blurAlpha).toRgbString();
 
   const blurBgComposite = (
-    containerIsDark ? new FastColor('#000').setA(0.45) : new FastColor(token.colorFillTertiary).setA(0.55)
+    containerIsDark
+      ? new FastColor('#000').setA(blurDarkAlpha)
+      : new FastColor(token.colorFillTertiary).setA(blurAlpha)
   ).onBackground(token.colorBgContainer).toHexString();
 
   const blurColor = isBright(new AggregationColor(blurBgComposite), '#fff')
@@ -287,6 +314,9 @@ export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
     solidTextColor,
     blurBg,
     blurColor,
+    blurAlpha,
+    blurDarkAlpha,
+    blurBorderColor,
   };
 };
 
