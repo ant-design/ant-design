@@ -35,6 +35,7 @@ export type InputSemanticType = {
     root?: string;
     prefix?: string;
     suffix?: string;
+    clear?: string;
     input?: string;
     count?: string;
   };
@@ -42,6 +43,7 @@ export type InputSemanticType = {
     root?: React.CSSProperties;
     prefix?: React.CSSProperties;
     suffix?: React.CSSProperties;
+    clear?: React.CSSProperties;
     input?: React.CSSProperties;
     count?: React.CSSProperties;
   };

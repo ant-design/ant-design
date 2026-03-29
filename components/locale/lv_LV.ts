@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Aizvērt',
+    show: 'Rādīt',
+    hide: 'Slēpt',
   },
   Table: {
     filterTitle: 'Filtrēšanas izvēlne',

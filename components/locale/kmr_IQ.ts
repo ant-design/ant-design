@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Betal ke',
+    show: 'Nîşan bide',
+    hide: 'Veşêre',
   },
   Table: {
     filterTitle: 'Menuê peldanka',

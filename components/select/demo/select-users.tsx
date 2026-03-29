@@ -51,7 +51,7 @@ function DebounceSelect<
       options={options}
       optionRender={(option) => (
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          {option.data.avatar && <Avatar src={option.data.avatar} style={{ marginRight: 8 }} />}
+          {option.data.avatar && <Avatar src={option.data.avatar} style={{ marginInlineEnd: 8 }} />}
           {option.label}
         </div>
       )}
@@ -72,7 +72,7 @@ async function fetchUserList(username: string): Promise<UserValue[]> {
     .then((res) => res.json())
     .then((res) => {
       const results = Array.isArray(res) ? res : [];
-      return results.map((user) => ({
+      return results.map<UserValue>((user) => ({
         label: user.name,
         value: user.id,
         avatar: user.avatar,

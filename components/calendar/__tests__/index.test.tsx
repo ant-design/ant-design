@@ -11,12 +11,14 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import enUS from '../../locale/en_US';
 import Group from '../../radio/group';
 import Button from '../../radio/radioButton';
 import Select from '../../select';
 import type { DefaultOptionType } from '../../select';
 import Header from '../Header';
 import type { CalendarHeaderProps } from '../Header';
+import zhCN from '../locale/zh_CN';
 
 import 'dayjs/locale/zh-cn';
 
@@ -207,7 +209,6 @@ describe('Calendar', () => {
   it('Calendar should support locale', () => {
     MockDate.set(Dayjs('2018-10-19').valueOf());
 
-    const zhCN = require('../locale/zh_CN').default;
     const wrapper = render(<Calendar locale={zhCN} />);
     expect(wrapper.container.children[0]).toMatchSnapshot();
     MockDate.reset();
@@ -216,11 +217,8 @@ describe('Calendar', () => {
   it('Calendar locale support should override ConfigProvider locale', () => {
     MockDate.set(Dayjs('2018-10-19').valueOf());
 
-    const zhCN = require('../locale/zh_CN').default;
-
-    const enUs = require('../../locale/en_US').default;
     const wrapper = render(
-      <ConfigProvider locale={enUs}>
+      <ConfigProvider locale={enUS}>
         <Calendar locale={zhCN} />
       </ConfigProvider>,
     );

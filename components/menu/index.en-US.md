@@ -37,6 +37,7 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
 <code src="./demo/custom-popup-render.tsx">Custom Submenu Render</code>
+<code src="./demo/collapsed-icon-debug.tsx" debug>Collapsed menu icon alignment</code>
 
 ## API
 

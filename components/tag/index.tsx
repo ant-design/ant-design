@@ -29,11 +29,13 @@ export type TagSemanticType = {
     root?: string;
     icon?: string;
     content?: string;
+    close?: string;
   };
   styles?: {
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     content?: React.CSSProperties;
+    close?: React.CSSProperties;
   };
 };
 
@@ -180,7 +182,11 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       closable: false,
       closeIconRender: (iconNode: React.ReactNode) => {
         const replacement = (
-          <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
+          <span
+            className={clsx(`${prefixCls}-close-icon`, mergedClassNames.close)}
+            onClick={handleCloseClick}
+            style={mergedStyles.close}
+          >
             {iconNode}
           </span>
         );
@@ -189,7 +195,12 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
             originProps?.onClick?.(e);
             handleCloseClick(e);
           },
-          className: clsx(originProps?.className, `${prefixCls}-close-icon`),
+          className: clsx(
+            originProps?.className,
+            `${prefixCls}-close-icon`,
+            mergedClassNames.close,
+          ),
+          style: { ...mergedStyles.close, ...originProps?.style },
         }));
       },
     });

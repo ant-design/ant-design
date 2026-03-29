@@ -49,6 +49,7 @@ const miscKeys = [
   'antd',
   '@ant-design/cssinjs',
   '@ant-design/icons',
+  '@ant-design/cli',
   'rc-motion',
   '@rc-component/motion',
   ' IE ',

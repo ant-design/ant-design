@@ -33,17 +33,50 @@ ant-design/
 
 ---
 
+## Demo 导入规范
+
+- 本规范同时适用于 `components/**/demo/` 和 `.dumi/` 下的示例、站点、主题相关文件。（`semantic.test.tsx` 文件除外）
+- 在这些目录下引入 Ant Design 组件、组件内部模块、工具方法、变量、类型定义时，一律使用绝对路径导入，不使用相对路径导入。
+- 允许的导入形式应优先使用项目公开入口或已配置别名，例如：`antd`、`antd/es/*`、`antd/lib/*`、`antd/locale/*`、`.dumi/*`、`@@/*`。
+- 禁止使用 `..`、`../xxx`、`../../xxx`、`./xxx` 这类相对路径去引用组件实现、内部模块、方法、变量、类型，包含跨 demo、跨目录复用的场景。
+- demo 与 `.dumi` 文件之间不要互相相对引用；如果需要复用少量逻辑，优先内联，或提取到可通过绝对路径访问的公共位置。
+
+## Test 导入规范
+
+- 本规范适用于 `components/**/__tests__/` 下的测试文件。
+- 在这些目录下引入 Ant Design 组件，或引入组件内部模块、工具方法、变量、类型定义时，一律使用相对路径导入，不使用绝对路径导入。
+- 测试文件应优先从当前组件目录、相邻内部模块或共享测试工具目录通过相对路径引用，例如：`..`、`../index`、`../xxx`、`../../_util/*`、`../../../tests/shared/*`。
+- 禁止在 `__tests__` 目录下使用 `antd`、`antd/es/*`、`antd/lib/*`、`antd/locale/*`、`.dumi/*`、`@@/*` 这类绝对路径或别名路径去引用仓库内代码。
+- 如需引用仓库外第三方依赖，仍按依赖包名正常导入，例如 `react`、`@testing-library/react`、`dayjs`。
+
+---
+
 ## 文档规范
 
 ### API 表格格式
 
-| Property | Description | Type | Default | Version |
-|---|---|---|---|---|
-| disabled | 是否禁用 | boolean | false | - |
-| type | 按钮类型 | `primary` \| `default` | `default` | - |
+英文版：
 
-- 字符串默认值用反引号，布尔/数字直接写，无默认值用 `-`
-- API 按字母顺序排列，新增属性需声明版本号
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| disabled | Whether the component is disabled | boolean | false | - | × |
+| loadingIcon | (Only supports global configuration) Custom loading icon | ReactNode | - | - | 6.2.0 |
+| type | Button type | `primary` \| `default` | `default` | - | ✔ |
+
+中文版：
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| disabled | 是否禁用 | boolean | false | - | × |
+| loadingIcon | (仅支持全局配置) 自定义加载图标 | ReactNode | - | × | 6.2.0 |
+| type | 按钮类型 | `primary` \| `default` | `default` | - | ✔ |
+
+- 参数：按字母顺序排列
+- 说明：简洁描述参数作用，如果仅支持全局配置需在描述中用括号注明
+- 类型：使用 TypeScript 定义的类型
+- 默认值：字符串用反引号，布尔/数字直接写，无默认值用 `-`
+- 版本：新增属性需声明引入的版本号；上个大版本已存在属性标注 `-`；仅支持全局配置的属性标注 `×`
+- 全局配置：支持全局配置的属性需标注版本号；上个大版本已支持的标注 `✔`；不支持全局配置的属性标注 `×`
 
 ### 文档锚点 ID 规范
 
@@ -65,7 +98,7 @@ ant-design/
 ### 标题与内容
 
 - PR 标题始终使用英文，格式：`类型: 简短描述`
-- PR 内容默认使用英文
+- PR 内容默认使用英文，可根据用户语言习惯决定使用中文或英文
 - 示例：`fix: fix button style issues in Safari browser`
 
 ### PR 模板（必须使用）
@@ -106,7 +139,7 @@ ant-design/
 - 必须同时提供中英文两个版本
 - 忽略用户无感知的改动（内部重构、纯测试更新、工具链优化等）
 - 描述"对开发者的影响"，而非"具体的实现细节"
-- 尽量给出 PR 链接，社区 PR 加贡献者链接
+- 尽量给出 PR 链接，并统一添加贡献者链接
 
 ### 格式规范
 
@@ -121,8 +154,8 @@ ant-design/
 #### 句式
 
 | 语言 | 格式 | 示例 |
-|---|---|---|
-| 中文 | `Emoji 组件名 动词/描述` | `🐞 Button 修复暗色主题下 \`color\` 的问题。` |
+| --- | --- | --- |
+| 中文 | `Emoji 动词 组件名 描述`（动词在前） | `🐞 修复 Button 在暗色主题下 \`color\` 的问题。` |
 | 英文 | `Emoji 动词 组件名 描述`（动词在前） | `🐞 Fix Button reversed \`hover\` colors in dark theme.` |
 
 #### 分组逻辑
@@ -133,7 +166,7 @@ ant-design/
 ### Emoji 规范
 
 | Emoji  | 用途                   |
-|--------|------------------------|
+| ------ | ---------------------- |
 | 🐞     | 修复 Bug               |
 | 💄     | 样式更新或 token 更新  |
 | 🆕     | 新增特性 / 新增属性    |
@@ -146,6 +179,8 @@ ant-design/
 | 🗑     | 废弃或移除             |
 | 🛠     | 重构或工具链优化       |
 | ⚡️     | 性能提升               |
+
+每条 Changelog 仅选择一个 Emoji，不要在同一条目中叠加多个 Emoji。
 
 编写 Changelog 时，请参考 `CHANGELOG.zh-CN.md` 和 `CHANGELOG.en-US.md` 中已有条目的格式。
 

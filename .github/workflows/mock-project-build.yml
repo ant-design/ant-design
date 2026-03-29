@@ -23,7 +23,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v6
 
-      - uses: utooland/setup-utoo@v1
+      - uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
       - uses: actions/cache@v5
         with:
@@ -57,7 +57,7 @@ jobs:
         if: ${{ failure() }}
         run: utx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
 
-      - uses: actions-cool/ci-notice@v1
+      - uses: actions-cool/ci-notice@a53fd6b8dcf8aa31dc62acd902ddc0c7b082c877 # v1
         if: ${{ failure() }}
         with:
           notice-types: dingding

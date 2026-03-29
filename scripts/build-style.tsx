@@ -15,6 +15,14 @@ const originalResolve = (Module as any)._resolveFilename;
   return originalResolve.call(this, request, ...args);
 };
 
+// Check for media queries using CSS var like: @media (min-width: var(--xxx))
+const isValidMediaQuery = (extractStyle: string) => {
+  const cssVarMediaRegex = /@media\s*\([^)]*(?:min-width|max-width)\s*:\s*var\(/;
+  const match = cssVarMediaRegex.test(extractStyle);
+
+  return !match;
+};
+
 const run = async () => {
   const { extractStyle } = await import('@ant-design/static-style-extract');
 
@@ -45,7 +53,13 @@ const run = async () => {
       </ConfigProvider>
     ));
 
-    const finalStyleStr = layerContent ? `${layerContent}\n\n${styleStr}` : styleStr;
+    if (!isValidMediaQuery(styleStr)) {
+      throw new Error('Invalid media query found, example: @media (min-width: var(--xxx))');
+    }
+
+    const finalStyleStr = enableLayer
+      ? `${layerContent ? `${layerContent}\n\n` : ''}@layer antd {\n${styleStr}\n}`
+      : styleStr;
 
     fs.writeFileSync(output, finalStyleStr);
   }

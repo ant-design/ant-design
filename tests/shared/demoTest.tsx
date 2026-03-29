@@ -3,18 +3,17 @@ import * as React from 'react';
 import { createCache, StyleProvider } from '@ant-design/cssinjs';
 import { ConfigProvider } from 'antd';
 import { globSync } from 'glob';
+import 'isomorphic-fetch';
 import kebabCase from 'lodash/kebabCase';
 import { renderToString } from 'react-dom/server';
 
 import { resetWarned } from '../../components/_util/warning';
-import { render } from '../utils';
+import { act, fireEvent, render } from '../utils';
 import { TriggerMockContext } from './demoTestContext';
 import { excludeWarning, isSafeWarning } from './excludeWarning';
 import rootPropsTest from './rootPropsTest';
 
 export { rootPropsTest };
-
-require('isomorphic-fetch');
 
 export type Options = {
   skip?: boolean | string[];
@@ -55,7 +54,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
         jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-        let Demo = require(`../../${file}`).default;
+        let Demo = jest.requireActual(`../../${file}`).default;
         // Inject Trigger status unless skipped
         Demo = typeof Demo === 'function' ? <Demo /> : Demo;
         if (doInject) {
@@ -127,7 +126,9 @@ export default function demoTest(component: string, options: Options = {}) {
 
     // Path should exist
 
-    const Component: React.ComponentType<any> = require(`../../components/${kebabName}`).default;
+    const Component: React.ComponentType<any> = jest.requireActual(
+      `../../components/${kebabName}`,
+    ).default;
 
     if (options.nameCheckPathOnly !== true && Component.displayName) {
       expect(kebabCase(Component.displayName).replace(/^deprecated-/, '')).toBe(kebabName);
@@ -147,7 +148,6 @@ export default function demoTest(component: string, options: Options = {}) {
  */
 export function createPostFn(titles: string[]): (container: HTMLElement) => Promise<void> {
   return async (container: HTMLElement) => {
-    const { fireEvent, act } = require('../utils');
     for (const title of titles) {
       const button = container.querySelector(`[title="${title}"]`);
       if (button) {
@@ -190,7 +190,7 @@ export function semanticDemoTest(component: string, options: Options = {}) {
       Date.now = jest.fn(() => new Date('2016-11-22').getTime());
       jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
 
-      let Demo = require(`../../${file}`).default;
+      let Demo = jest.requireActual(`../../${file}`).default;
       Demo = typeof Demo === 'function' ? <Demo /> : Demo;
 
       // Inject cssinjs cache to avoid create <style /> element

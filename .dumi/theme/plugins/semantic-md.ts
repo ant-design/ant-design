@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import type { IApi } from 'dumi';
+import { JSDOM } from 'jsdom';
 
 let COMPONENT_ROUTES: Array<{ absPath: string; componentName: string; outputPath: string }> = [];
 let SEMANTIC_MD_EMITTED = false;
@@ -398,7 +399,6 @@ function getComponentHTMLSnapshot(semanticFile: string, cwd: string): string | n
       } catch {}
     }
 
-    const { JSDOM } = require('jsdom');
     const dom = new JSDOM(html);
     const document = dom.window.document;
     const semanticElements = document.querySelectorAll('[class*="semantic-"]');

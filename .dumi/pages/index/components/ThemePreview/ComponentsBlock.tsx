@@ -158,10 +158,9 @@ const ComponentsBlock: React.FC<ComponentsBlockProps> = (props) => {
 
             {/* Filled variants */}
             <Flex gap="middle">
-              <DatePicker variant="filled" />
+              <DatePicker />
 
               <Select
-                variant="filled"
                 style={{ flex: 'auto' }}
                 mode="multiple"
                 maxTagCount="responsive"

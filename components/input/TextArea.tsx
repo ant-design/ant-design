@@ -3,8 +3,8 @@ import { forwardRef } from 'react';
 import type {
   TextAreaProps as RcTextAreaProps,
   TextAreaRef as RcTextAreaRef,
-} from '@rc-component/textarea';
-import RcTextArea from '@rc-component/textarea';
+} from '@rc-component/input';
+import { TextArea as RcTextArea } from '@rc-component/input';
 import { clsx } from 'clsx';
 
 import getAllowClear from '../_util/getAllowClear';
@@ -31,11 +31,13 @@ export type TextAreaSemanticType = {
   classNames?: {
     root?: string;
     textarea?: string;
+    clear?: string;
     count?: string;
   };
   styles?: {
     root?: React.CSSProperties;
     textarea?: React.CSSProperties;
+    clear?: React.CSSProperties;
     count?: React.CSSProperties;
   };
 };

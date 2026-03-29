@@ -539,7 +539,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
           width: timeColumnWidth,
           margin: `${unit(paddingXXS)} 0`,
           padding: 0,
-          overflowY: 'hidden',
+          overflowY: 'auto',
           textAlign: 'start',
           listStyle: 'none',
           transition: `background-color ${motionDurationMid}`,
@@ -573,10 +573,6 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
 
           '&-active': {
             background: new FastColor(controlItemBgActive).setA(0.2).toHexString(),
-          },
-
-          '&:hover': {
-            overflowY: 'auto',
           },
 
           '> li': {

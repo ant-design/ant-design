@@ -116,6 +116,7 @@ interface CountConfig {
 | loading | 搜索 loading | boolean | false |  |
 | onSearch | 点击搜索图标、清除图标，或按下回车键时的回调 | function(value, event, { source: "input" \| "clear" }) | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-search) , CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search) , CSSProperties> | - |  |
+| searchIcon | 自定义搜索图标 | ReactNode | - | 6.4.0 |
 
 其余属性和 Input 一致。
 

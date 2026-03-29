@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Vui lòng chọn',
     close: 'Đóng',
+    show: 'Hiển thị',
+    hide: 'Ẩn',
   },
   Table: {
     filterTitle: 'Bộ lọc',
