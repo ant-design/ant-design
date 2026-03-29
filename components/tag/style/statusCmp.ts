@@ -1,4 +1,5 @@
 // Style as status component
+import { FastColor } from '@ant-design/fast-color';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import { prepareComponentToken, prepareToken } from '.';
