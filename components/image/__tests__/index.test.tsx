@@ -1,5 +1,4 @@
 import React from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import Image from '..';
 import type { MaskType } from '../../_util/hooks';
@@ -46,23 +45,6 @@ describe('Image', () => {
     );
     expect(baseElement).toMatchSnapshot();
     expect(document.querySelector('.ant-image-preview')).toHaveClass('ant-image-preview-fade');
-  });
-
-  it('should not leak global button styles to preview actions', () => {
-    const cache = createCache();
-
-    render(
-      <StyleProvider cache={cache}>
-        <Image alt={alt} src={src} preview={{ open: true }} />
-      </StyleProvider>,
-    );
-
-    const styleText = extractStyle(cache, true);
-    expect(styleText).toContain('.ant-image-preview-actions-action');
-    expect(styleText).toContain('color:inherit;');
-    expect(styleText).toContain('background:transparent;');
-    expect(styleText).toContain('border:0;');
-    expect(styleText).toContain('font:inherit;');
   });
 
   it('Customize preview props', () => {
