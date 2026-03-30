@@ -179,6 +179,10 @@ const InternalCompoundedButton = React.forwardRef<
       return [color, variant];
     }
 
+    if (variant === 'solid') {
+      return ['primary', variant];
+    }
+
     // Sugar syntax
     if (type || danger) {
       const colorVariantPair = ButtonTypeMap[mergedType] || [];
@@ -191,6 +195,10 @@ const InternalCompoundedButton = React.forwardRef<
     // >>> Context fallback
     if (contextColor && contextVariant) {
       return [contextColor, contextVariant];
+    }
+
+    if (contextVariant === 'solid') {
+      return ['primary', contextVariant];
     }
 
     return ['default', 'outlined'];
