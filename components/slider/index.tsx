@@ -227,7 +227,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const [dragging, setDragging] = useRafLock();
 
   const onInternalChangeComplete: RcSliderProps['onChangeComplete'] = (nextValues) => {
-    ((onChangeComplete ?? onAfterChange) as RcSliderProps['onChangeComplete'])?.(nextValues);
+    (onChangeComplete as RcSliderProps['onChangeComplete'])?.(nextValues);
     setDragging(false);
   };
 
@@ -276,7 +276,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       ['tipFormatter', 'formatter'],
       ['tooltipPlacement', 'placement'],
       ['tooltipVisible', 'open'],
-      ['onAfterChange', 'onChangeComplete'],
     ].forEach(([deprecatedName, newName]) => {
       warning.deprecated(!(deprecatedName in props), deprecatedName, `tooltip.${newName}`);
     });
