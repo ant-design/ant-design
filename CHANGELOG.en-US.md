@@ -20,7 +20,7 @@ tag: vVERSION
 `2026-03-30`
 
 - 🐞 Fix TimePicker column cannot scroll directly on touch devices. [#57468](https://github.com/ant-design/ant-design/pull/57468) [@afc163](https://github.com/afc163)
-- 🐞 MISC: Fix Icon not being centered in certain scenarios. [#57460](https://github.com/ant-design/ant-design/pull/57460) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 MISC: Fix Icon not being centered in certain scenarios. [#57460](https://github.com/ant-design/ant-design/pull/57460) [@QDyanbing](https://github.com/QDyanbing)
 
 ## 6.3.4
 

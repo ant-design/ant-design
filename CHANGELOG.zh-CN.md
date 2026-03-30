@@ -20,7 +20,7 @@ tag: vVERSION
 `2026-03-30`
 
 - 🐞 修复 TimePicker 在移动端触摸设备无法直接滚动时间列的问题。[#57468](https://github.com/ant-design/ant-design/pull/57468) [@afc163](https://github.com/afc163)
-- 🐞 杂项：修复 Icon 在特定场景没有居中对齐的问题。[#57460](https://github.com/ant-design/ant-design/pull/57460) [@li-jia-nan](https://github.com/li-jia-nan)
+- 🐞 杂项：修复 Icon 在特定场景没有居中对齐的问题。[#57460](https://github.com/ant-design/ant-design/pull/57460) [@QDyanbing](https://github.com/QDyanbing)
 
 ## 6.3.4
 
