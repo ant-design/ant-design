@@ -57,7 +57,7 @@ jobs:
         if: ${{ failure() }}
         run: utx diff-yarn-lock --source=~tmpProj/yarn.lock --target=~tmpProj/yarn.lock.failed
 
-      - uses: actions-cool/ci-notice@a53fd6b8dcf8aa31dc62acd902ddc0c7b082c877 # v1
+      - uses: actions-cool/ci-notice@89af4a933717226a062cbf65c439beda5eb8aa5d # v1
         if: ${{ failure() }}
         with:
           notice-types: dingding
