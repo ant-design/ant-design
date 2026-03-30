@@ -381,6 +381,10 @@ export const genImagePreviewStyle: GenerateStyle<ImageToken, CSSObject> = (token
         fontSize: previewOperationSize,
 
         '&-action': {
+          color: 'inherit',
+          background: 'transparent',
+          border: 0,
+          font: 'inherit',
           padding: paddingSM,
           cursor: 'pointer',
           transition: `all ${motionDurationSlow}`,

@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 6.3.5
+
+`2026-03-30`
+
+- 🐞 Fix Image preview action buttons not resetting native button styles. [#57491](https://github.com/ant-design/ant-design/pull/57491) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix TimePicker column cannot scroll directly on touch devices. [#57468](https://github.com/ant-design/ant-design/pull/57468) [@afc163](https://github.com/afc163)
+- 🐞 MISC: Fix Icon not being centered in certain scenarios. [#57460](https://github.com/ant-design/ant-design/pull/57460) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.3.4
 
 `2026-03-24`
