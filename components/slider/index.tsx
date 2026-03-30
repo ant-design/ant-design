@@ -159,7 +159,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     // Deprecated Props
     tooltip = {},
     onChange,
-    onAfterChange,
     onChangeComplete,
     classNames,
     styles,
