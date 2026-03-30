@@ -1,7 +1,7 @@
-import { spawnSync } from 'child_process';
-import path from 'path';
-import { Readable } from 'stream';
-import { finished } from 'stream/promises';
+import { spawnSync } from 'node:child_process';
+import path from 'node:path';
+import { Readable } from 'node:stream';
+import { finished } from 'node:stream/promises';
 import { checkbox, confirm, input, select } from '@inquirer/prompts';
 import { Octokit } from '@octokit/rest';
 import envPaths from 'env-paths';

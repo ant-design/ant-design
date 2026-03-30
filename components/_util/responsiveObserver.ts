@@ -105,7 +105,9 @@ const useResponsiveObserver = () => {
       matchHandlers: {},
       dispatch(pointMap: ScreenMap) {
         screens = pointMap;
-        subscribers.forEach((func) => func(screens));
+        subscribers.forEach((func) => {
+          func(screens);
+        });
         return subscribers.size >= 1;
       },
       subscribe(func: SubscribeFunc): number {
