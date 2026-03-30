@@ -409,7 +409,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
 
   return (
     <RcSlider
-      {...restProps}
+      {...(restProps as Omit<SliderProps, 'onAfterChange' | 'onChange'>)}
       classNames={mergedClassNames}
       styles={mergedStyles}
       step={restProps.step}
@@ -422,7 +422,6 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
       prefixCls={prefixCls}
       handleRender={handleRender}
       activeHandleRender={activeHandleRender}
-      onChange={onChange as RcSliderProps['onChange']}
       onChangeComplete={onInternalChangeComplete}
     />
   );
