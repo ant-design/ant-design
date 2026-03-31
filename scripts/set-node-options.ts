@@ -1,6 +1,6 @@
-import os from 'os';
+import os from 'node:os';
 
-const childProcess = require('child_process');
+const childProcess = require('node:child_process');
 
 const totalMemory = Math.floor(os.totalmem() / (1024 * 1024));
 

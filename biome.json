@@ -45,7 +45,6 @@
   "linter": {
     "rules": {
       "style": {
-        "useNodejsImportProtocol": "off",
         "noNonNullAssertion": "off"
       },
       "complexity": {
@@ -65,7 +64,6 @@
         "noNonNullAssertedOptionalChain": "off",
         "noThenProperty": "off",
         "noTemplateCurlyInString": "off",
-        "useIterableCallbackReturn": "off",
         "noPrototypeBuiltins": "off"
       },
       "performance": {
