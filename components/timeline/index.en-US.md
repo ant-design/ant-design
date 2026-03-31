@@ -65,7 +65,7 @@ Node of timeline.
 | ~~label~~ | Set the label. Please use `title` instead | ReactNode | - |
 | loading | Set loading state | boolean | false |
 | placement | Customize node placement | `start` \| `end` | - |
-| ~~position~~ | Customize node position，Please use `placement` instead | `start` \| `end` | - |
+| ~~position~~ | Customize node position. Please use `placement` instead | `start` \| `end` | - |
 | title | Set the title | ReactNode | - |
 
 ## Semantic DOM
