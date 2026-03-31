@@ -103,9 +103,9 @@ type PresetColorType = {
 | toCssString | 转换成 CSS 支持的格式 | `() => string` | 5.20.0 |
 | toHex | 转换成 `hex` 格式字符，返回格式如：`1677ff` | `() => string` | - |
 | toHexString | 转换成 `hex` 格式颜色字符串，返回格式如：`#1677ff` | `() => string` | - |
-| toHsb | 转换成 `hsb` 对象  | `() => ({ h: number, s: number, b: number, a number })` | - |
+| toHsb | 转换成 `hsb` 对象  | `() => ({ h: number, s: number, b: number, a: number })` | - |
 | toHsbString | 转换成 `hsb` 格式颜色字符串，返回格式如：`hsb(215, 91%, 100%)` | `() => string` | - |
-| toRgb | 转换成 `rgb` 对象  | `() => ({ r: number, g: number, b: number, a number })` | - |
+| toRgb | 转换成 `rgb` 对象  | `() => ({ r: number, g: number, b: number, a: number })` | - |
 | toRgbString | 转换成 `rgb` 格式颜色字符串，返回格式如：`rgb(22, 119, 255)` | `() => string` | - |
 
 ## Semantic DOM
