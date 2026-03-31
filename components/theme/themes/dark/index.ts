@@ -8,7 +8,10 @@ import { defaultPresetColors } from '../seed';
 import genColorMapToken from '../shared/genColorMapToken';
 import { generateColorPalettes, generateNeutralColorPalettes } from './colors';
 
-const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
+const derivative: DerivativeFunc<SeedToken, MapToken & { shadowColor?: string }> = (
+  token,
+  mapToken,
+) => {
   const colorPalettes = Object.keys(defaultPresetColors)
     .map((colorKey) => {
       const colors = generate(token[colorKey as keyof PresetColorType], { theme: 'dark' });

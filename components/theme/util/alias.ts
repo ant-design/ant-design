@@ -5,7 +5,10 @@ import seedToken from '../themes/seed';
 import getAlphaColor from './getAlphaColor';
 
 /** Raw merge of `@ant-design/cssinjs` token. Which need additional process */
-type RawMergedToken = MapToken & OverrideToken & { override: Partial<AliasToken> };
+type RawMergedToken = (MapToken & { shadowColor?: string }) &
+  OverrideToken & {
+    override: Partial<AliasToken>;
+  };
 
 /**
  * Seed (designer) > Derivative (designer) > Alias (developer).
@@ -13,10 +16,10 @@ type RawMergedToken = MapToken & OverrideToken & { override: Partial<AliasToken>
  * Merge seed & derivative & override token and generate alias token for developer.
  */
 export default function formatToken(derivativeToken: RawMergedToken): AliasToken {
-  const { override, ...restToken } = derivativeToken;
+  const { override, shadowColor = '#000', ...restToken } = derivativeToken;
   const overrideTokens = { ...override };
-  const shadowColor = (restToken as { shadowColor?: string }).shadowColor || '#000';
-  const getShadowColor = (alpha: number) => new FastColor(shadowColor).setA(alpha).toRgbString();
+  const shadowBaseColor = new FastColor(shadowColor);
+  const getShadowColor = (alpha: number) => shadowBaseColor.clone().setA(alpha).toRgbString();
 
   Object.keys(seedToken).forEach((token) => {
     delete overrideTokens[token as keyof SeedToken];
