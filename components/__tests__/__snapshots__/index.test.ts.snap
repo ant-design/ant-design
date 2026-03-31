@@ -12,6 +12,7 @@ exports[`antd exports modules correctly 1`] = `
   "Badge",
   "Breadcrumb",
   "Button",
+  "CSSGrid",
   "Calendar",
   "Card",
   "Carousel",
