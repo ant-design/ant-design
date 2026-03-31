@@ -9,7 +9,7 @@ import genFontMapToken from '../shared/genFontMapToken';
 import genSizeMapToken from '../shared/genSizeMapToken';
 import { generateColorPalettes, generateNeutralColorPalettes } from './colors';
 
-export default function derivative(token: SeedToken): MapToken {
+export default function derivative(token: SeedToken): MapToken & { shadowColor?: string } {
   // pink is deprecated name of magenta, keep this for backwards compatibility
   presetPrimaryColors.pink = presetPrimaryColors.magenta;
   presetPalettes.pink = presetPalettes.magenta;
@@ -46,5 +46,6 @@ export default function derivative(token: SeedToken): MapToken {
     ...genControlHeight(token),
     // Others
     ...genCommonMapToken(token),
+    shadowColor: '#000',
   };
 }

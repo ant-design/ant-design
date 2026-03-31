@@ -315,6 +315,21 @@ describe('Theme', () => {
     });
   });
 
+  it('shadow tokens should adapt to dark theme', () => {
+    const { token } = getHookToken();
+    const { token: darkToken } = getHookToken({ algorithm: [theme.darkAlgorithm] });
+    const { token: darkCustomTextBaseToken } = getHookToken({
+      algorithm: [theme.darkAlgorithm],
+      token: { colorTextBase: '#ff0000' },
+    });
+
+    expect(token.boxShadow).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.08\)/);
+    expect(token.boxShadowCard).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.16\)/);
+    expect(darkToken.boxShadow).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.08\)/);
+    expect(darkToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.16\)/);
+    expect(darkCustomTextBaseToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.16\)/);
+  });
+
   it('component token should support algorithm', () => {
     const Demo: React.FC<{ algorithm?: boolean | typeof theme.darkAlgorithm }> = (props) => {
       const { algorithm } = props;
