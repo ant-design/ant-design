@@ -197,7 +197,7 @@ npm publish
 - changelog 或版本号缺失时不要直接发布
 - 如果明显是 feature release，不要默认对着 `master` 准备发布，除非用户明确确认
 
-## Claude 执行动作
+## Agent 执行动作
 
 当用户要求你协助发版时：
 
