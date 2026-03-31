@@ -53,7 +53,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | orientation | Orientation | `horizontal` \| `vertical` | `horizontal` |  |
 | size | The size of the Segmented. | `large` \| `medium` \| `small` | `medium` |  |
 | styles | Customize inline style for each semantic structure inside the Segmented component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| vertical | Orientation，Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | 5.21.0 |
+| vertical | Orientation. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | `false` | 5.21.0 |
 | value | Currently selected value | string \| number |  |  |
 | shape | shape of Segmented | `default` \| `round` | `default` | 5.24.0 |
 | name | The `name` property of all `input[type="radio"]` children. if not set, it will fallback to a randomly generated name | string |  | 5.23.0 |
