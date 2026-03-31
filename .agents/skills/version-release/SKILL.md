@@ -206,7 +206,7 @@ npm publish
 3. 更新 changelog 和 `package.json`
 4. 运行 `npm run lint:changelog`
 5. 用带版本号的 `docs:` 标题提交
-6. 用正确的 base branch 和官方模板创建 PR
+6. 参考 .github/PULL_REQUEST_TEMPLATE.md，用正确的 base branch 创建 PR
 7. 只有在 PR 合并后、且用户明确要求时，才执行 `npm publish`
 
 如果任务只是“准备 release PR”，那就在创建 PR 后停止，不要继续执行发布。
