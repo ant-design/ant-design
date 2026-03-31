@@ -1,124 +1,104 @@
 ---
 name: antd-code-review
-description: Code review checklist for ant-design. Use when reviewing PRs, diffs, or code changes in the ant-design repository. Covers correctness, compatibility, tests, docs, styling, i18n, and ant-design specific project rules for components, demos, tests, changelog, and release-facing changes.
+description: ant-design 仓库的代码审查清单。在 review PR、diff 或代码改动时使用。覆盖兼容性、测试、样式与 token、文档、国际化以及 ant-design 特有的 demo、测试、changelog 等约束。输出语言应跟随使用者的语言习惯。
 ---
 
-# Ant Design Code Review Guide
+# Ant Design Code Review 指南
 
-## Before You Start
+## 开始前
 
-1. Read AGENTS.md for repository rules before reviewing.
-2. Get the diff unless it is already provided in context:
+1. 先读 `AGENTS.md`，确认仓库规则。
+2. 先拿到 diff，不要只看文件名猜：
    - `git diff`
    - `git diff origin/master...HEAD`
-   - Feature work may need `git diff origin/feature...HEAD`
-3. Review the full source around each changed hunk before raising a finding. Do not rely on the diff alone.
+   - 新特性分支可额外看 `git diff origin/feature...HEAD`
+3. 对每条 finding，都要回看对应文件的完整上下文，不能只凭 diff 片段下结论。
 
-## Checklist
+## 检查清单
 
-### Correctness
+### 正确性与兼容性
 
-- Does the change match existing component patterns instead of introducing one-off behavior?
-- Are controlled and uncontrolled modes both handled correctly where applicable?
-- Are edge cases covered, including empty values, disabled state, loading state, and nested usage?
-- Are there leftover `console.log`, `console.debug`, or temporary debug branches?
-- Does the implementation preserve backward compatibility for public props, events, class names, and ref behavior?
-- If behavior changed intentionally, is the change clearly documented and versioned where needed?
+- 是否遵循现有组件模式，而不是引入一次性的特殊逻辑？
+- 涉及受控/非受控时，两种模式是否都正确？
+- 空值、禁用、加载、嵌套使用等边界情况是否考虑到？
+- 是否遗留 `console.log`、`console.debug` 或临时调试代码？
+- 是否破坏了公开 API、事件、`className`、ref 或现有行为兼容性？
+- 如果是有意改行为，文档和版本信息是否同步更新？
 
-### React And Runtime Safety
+### React 与运行时安全
 
-- Any effect, ref, or event logic that can break under Strict Mode or repeated mount/unmount?
-- Any direct DOM access that can break in SSR or before mount?
-- Any assumption about `window`, `document`, `HTMLElement`, `ResizeObserver`, or `matchMedia` without guards?
-- Any unstable key usage, stale closure risk, or race between async state updates and unmount?
+- effect、ref、事件逻辑在 Strict Mode 或重复挂载/卸载下是否有问题？
+- 是否直接访问 DOM，导致 SSR 或未挂载阶段出错？
+- `window`、`document`、`ResizeObserver`、`matchMedia` 等是否做了保护？
+- 是否存在不稳定 key、闭包过期、异步更新与卸载竞争问题？
 
-### Styling And Tokens
+### 样式、Token 与主题
 
-- New styles should follow the existing `style/index.ts` and token-based CSS-in-JS patterns.
-- Avoid hardcoded colors, spacing, radii, shadows, and z-index when an existing token should be used.
-- If styles changed, check whether component token definitions in `style/token.ts` or `prepareComponentToken` also need updates.
-- Review CSS selector specificity and motion changes for regression risk across variants and composed components.
-- Check visual changes in dark theme and compact theme when the touched component supports them.
+- 新样式是否遵循 `style/index.ts` 和 token 驱动的 CSS-in-JS 方式？
+- 是否引入了本可用 token 替代的硬编码颜色、间距、圆角、阴影、z-index？
+- 如果样式变了，是否也需要同步检查组件 token 或 `prepareComponentToken`？
+- 是否会影响暗色主题、紧凑主题、组合场景下的样式表现？
 
-### Theme, RTL, And Semantic DOM
+### RTL、语义化 DOM 与结构
 
-- Style or layout changes should be checked for RTL behavior, especially margin, padding, placement, and icon direction.
-- Public structure changes should not break semantic DOM APIs such as `classNames` and `styles`.
-- If semantic DOM was changed, review semantic demos, snapshots, and related docs.
-- Token or algorithm changes should not accidentally break global token override or component token inheritance.
+- margin、padding、placement、图标方向等是否兼容 RTL？
+- 结构调整是否影响 `classNames`、`styles` 等语义化 DOM 能力？
+- 如果改了 semantic DOM，demo、快照和文档是否也同步？
+- token 或算法调整是否会破坏全局 token 覆盖与组件 token 继承？
 
-### API, Types, And Deprecation
+### API、类型与文档
 
-- Public prop names should follow Ant Design naming conventions and remain consistent with similar components.
-- Type changes should preserve existing inference and avoid narrowing public API unintentionally.
-- New props, slots, methods, or semantic nodes should include docs and version fields.
-- Removed or renamed API should be treated as breaking unless a compatible migration path exists.
+- 新增或修改的 prop 命名是否符合 Ant Design 习惯，并和同类组件保持一致？
+- 类型调整是否意外收窄了公开 API 或破坏了原有推导？
+- 新增 prop、方法、语义节点时，中英文文档和 `Version` 是否补齐？
+- 删除或重命名 API 时，是否已经构成 breaking change？
 
-### Testing
+### 测试
 
-- Bug fixes should include or update tests that cover the fixed scenario.
-- New branches in component logic should have test coverage where practical.
-- Existing snapshots should still be meaningful; snapshot churn alone is not sufficient validation.
-- Tests in `components/**/__tests__/` must use relative imports, not `antd`, `antd/es/*`, `antd/lib/*`, `.dumi/*`, or `@@/*`.
-- If the change affects style, semantic DOM, RTL, popup behavior, keyboard interaction, or focus handling, look for dedicated test coverage.
+- Bug 修复是否补了对应测试？
+- 新增逻辑分支是否有合理覆盖？
+- 快照变更是否真反映行为变化，而不只是“快照更新了”？
+- `components/**/__tests__/` 下是否仍使用相对路径导入？
+- 涉及样式、semantic DOM、RTL、弹层、键盘交互、焦点管理时，是否有针对性测试？
 
-### Demo And Import Rules
+### Demo、国际化与发布面
 
-- Files under `components/**/demo/` and `.dumi/` should use absolute imports, not relative imports into component internals.
-- Demo files should not cross-reference other demos with relative paths.
-- Demo code should reflect recommended public usage instead of internal shortcuts.
+- `components/**/demo/` 和 `.dumi/` 是否使用了绝对导入，而不是相对引用内部实现？
+- demo 是否展示公开推荐用法，而不是内部捷径？
+- 新的用户可见文案是否需要走 locale，而不是直接硬编码？
+- 改了 `components/locale/` 时，是否同步了所有语言和 `components/locale/index.tsx`？
+- 用户可感知改动是否同步更新了 `index.en-US.md`、`index.zh-CN.md`、以及必要的 changelog？
 
-### Docs And Examples
+### 无障碍与性能
 
-- User-facing API changes require updates to both `index.en-US.md` and `index.zh-CN.md`.
-- API tables should stay alphabetically sorted.
-- New API entries should include the `Version` column when applicable.
-- String defaults should use backticks; boolean or numeric defaults should be plain values; missing defaults should be `-`.
-- Chinese headings that need anchors should use explicit English anchor ids, and FAQ anchors should start with `faq-`.
-- If behavior changed, demos and prose should explain the new behavior instead of only changing the code sample.
+- 键盘交互、焦点管理、ARIA 是否有回归？
+- 弹层、下拉、模态框是否保持 escape、焦点返回等行为？
+- 是否引入不必要的重渲染、重复测量或明显重复逻辑？
 
-### i18n And Locale
+## 重点关注场景
 
-- New user-facing strings should go through locale mechanisms instead of being hardcoded in component logic where localization is expected.
-- Changes under `components/locale/` should be synchronized across all locale files, not only one language.
-- Locale type exports in `components/locale/index.tsx` should stay consistent with locale file changes.
+- 弹层与 Portal：placement、container、滚动、层级、嵌套弹层
+- Form 体系：值流转、校验状态、`Form.Item` 联动
+- CSS-in-JS：token 派生、SSR、css variables、hash 样式
+- semantic DOM / design token：代码、demo、快照、文档通常要一起看
 
-### Accessibility
+## 输出格式
 
-- Check keyboard interaction, focus management, ARIA attributes, and screen reader labeling for regressions.
-- Visual-only state changes should not be the only signal for disabled, error, selected, or expanded state.
-- Popup, modal, dropdown, and composite widget changes should preserve focus return and escape behavior.
+本地 CLI review 默认按以下格式输出：
 
-### Performance And Bundle Impact
+1. 按顺序编号列出 findings
+2. 标明优先级：`[high]`、`[medium]`、`[low]`
+3. 每条都带文件路径和行号
+4. 只写问题，不写表扬和总结
+5. 输出前重新核对一遍对应源码
+6. 最后一行输出 `All findings verified.`
 
-- Avoid unnecessary rerenders, repeated measurements, or layout thrashing in hot paths.
-- Shared helpers should be reused instead of duplicating logic across components.
-- Watch for added dependencies, larger locale data, or shipping demo-only code into runtime bundles.
+输出语言要跟随使用者的语言习惯：
 
-### Release Surface
+- 用户主要用中文，就用中文写 findings
+- 用户主要用英文，就用英文写 findings
+- 如果用户明确指定输出语言，按用户指定执行
 
-- User-visible component changes may require changelog updates in both `CHANGELOG.en-US.md` and `CHANGELOG.zh-CN.md`.
-- Changelog entries should describe user impact, not internal implementation details, and follow existing Ant Design formatting.
-- If a change is docs-only, test-only, or internal refactor with no user impact, it usually should not appear in changelog.
+如果没有发现问题，输出：
 
-## Ant Design Specific Hotspots
-
-- Popup and portal components: placement, container, scroll, z-index, and nested popup interactions.
-- Form-related components: controlled value flow, validation status, feedback icons, and `Form.Item` integration.
-- CSS-in-JS changes: token derivation, hashed styles, SSR style extraction, and compatibility with css variables.
-- Semantic DOM and design token work: docs, demos, and test snapshots often need coordinated updates.
-
-## Output Format
-
-For local CLI review:
-
-1. Number all findings sequentially.
-2. Indicate priority with `[high]`, `[medium]`, or `[low]`.
-3. Include file path and line number for each finding.
-4. Only list problems. No summary or praise.
-5. Re-read the full source for every finding before emitting it.
-6. After the findings, output `All findings verified.`
-
-If there are no findings, output:
-
-`No findings. Residual risk: <short note>.`
+`No findings. Residual risk: <简短说明>.`
