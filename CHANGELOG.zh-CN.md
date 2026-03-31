@@ -15,6 +15,14 @@ tag: vVERSION
 
 ---
 
+## 6.3.5
+
+`2026-03-30`
+
+- 🐞 修复 Image 预览底部操作按钮没有重置原生按钮样式的问题。[#57491](https://github.com/ant-design/ant-design/pull/57491) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 TimePicker 在移动端触摸设备无法直接滚动时间列的问题。[#57468](https://github.com/ant-design/ant-design/pull/57468) [@afc163](https://github.com/afc163)
+- 🐞 杂项：修复 Icon 在特定场景没有居中对齐的问题。[#57460](https://github.com/ant-design/ant-design/pull/57460) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.3.4
 
 `2026-03-24`

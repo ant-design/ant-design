@@ -225,7 +225,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const [dragging, setDragging] = useRafLock();
 
   const onInternalChangeComplete: RcSliderProps['onChangeComplete'] = (nextValues) => {
-    onChangeComplete?.(nextValues as any);
+    (onChangeComplete as RcSliderProps['onChangeComplete'])?.(nextValues);
     setDragging(false);
   };
 
@@ -406,9 +406,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   };
 
   return (
-    // @ts-ignore
     <RcSlider
-      {...restProps}
+      {...(restProps as Omit<SliderProps, 'onAfterChange' | 'onChange'>)}
       classNames={mergedClassNames}
       styles={mergedStyles}
       step={restProps.step}

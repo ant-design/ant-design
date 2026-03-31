@@ -1,6 +1,6 @@
 import React from 'react';
-import Module from 'module';
-import path from 'path';
+import Module from 'node:module';
+import path from 'node:path';
 import fs from 'fs-extra';
 import minimist from 'minimist';
 

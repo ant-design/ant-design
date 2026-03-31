@@ -1,8 +1,8 @@
 /* eslint-disable unicorn/prefer-dom-node-text-content */
 
-import type http from 'http';
-import type https from 'https';
-import { join } from 'path';
+import type http from 'node:http';
+import type https from 'node:https';
+import { join } from 'node:path';
 import { DOMParser } from 'domparser-rs';
 import { globSync } from 'glob';
 import { createServer } from 'http-server';
