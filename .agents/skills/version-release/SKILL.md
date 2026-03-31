@@ -204,7 +204,7 @@ npm publish
 1. 检查当前分支、版本号和最近 tags
 2. 根据目标分支和改动范围判断是 patch 还是 minor
 3. 更新 changelog 和 `package.json`
-4. 运行 `npm run lint:changelog`
+4. 运行 npm run lint:changelog 和 tsx scripts/check-version-md.ts 校验
 5. 用带版本号的 `docs:` 标题提交
 6. 参考 .github/PULL_REQUEST_TEMPLATE.md，用正确的 base branch 创建 PR
 7. 只有在 PR 合并后、且用户明确要求时，才执行 `npm publish`
