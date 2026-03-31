@@ -7,7 +7,7 @@ description: Code review checklist for ant-design. Use when reviewing PRs, diffs
 
 ## Before You Start
 
-1. Read `/Users/yujian/Desktop/home/ant-design/AGENTS.md` for repository rules before reviewing.
+1. Read AGENTS.md for repository rules before reviewing.
 2. Get the diff unless it is already provided in context:
    - `git diff`
    - `git diff origin/master...HEAD`
