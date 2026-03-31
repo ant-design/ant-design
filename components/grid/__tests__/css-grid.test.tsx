@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ConfigProvider } from 'antd';
+import { ConfigProvider } from '../..';
 import CSSGrid from '../css-grid';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';

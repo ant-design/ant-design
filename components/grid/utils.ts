@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 import type { CSSGridProps } from './css-grid';
 
 // CSS Grid alignment values - keep in sync with style/index.ts
-export const justifyItemsValues = [
+export const justifyItemsValues: React.CSSProperties['justifyItems'][] = [
   'start',
   'end',
   'center',
@@ -12,9 +12,11 @@ export const justifyItemsValues = [
   'flex-end',
   'self-start',
   'self-end',
+  'normal',
+  'legacy',
 ];
 
-export const alignItemsValues = [
+export const alignItemsValues: React.CSSProperties['alignItems'][] = [
   'start',
   'end',
   'center',
@@ -24,9 +26,11 @@ export const alignItemsValues = [
   'flex-end',
   'self-start',
   'self-end',
+  'normal',
+  'legacy',
 ];
 
-export const justifyContentValues = [
+export const justifyContentValues: React.CSSProperties['justifyContent'][] = [
   'start',
   'end',
   'center',
@@ -36,9 +40,11 @@ export const justifyContentValues = [
   'space-evenly',
   'flex-start',
   'flex-end',
+  'normal',
+  'baseline',
 ];
 
-export const alignContentValues = [
+export const alignContentValues: React.CSSProperties['alignContent'][] = [
   'start',
   'end',
   'center',
@@ -48,47 +54,24 @@ export const alignContentValues = [
   'space-evenly',
   'flex-start',
   'flex-end',
+  'normal',
+  'baseline',
 ];
 
-// Generate class names for alignment props
-const genClsJustifyItems = (prefixCls: string, props: CSSGridProps) => {
-  const cls: Record<string, boolean> = {};
-  justifyItemsValues.forEach((value) => {
-    cls[`${prefixCls}-justify-items-${value}`] = props.justifyItems === value;
-  });
-  return cls;
-};
-
-const genClsAlignItems = (prefixCls: string, props: CSSGridProps) => {
-  const cls: Record<string, boolean> = {};
-  alignItemsValues.forEach((value) => {
-    cls[`${prefixCls}-align-items-${value}`] = props.alignItems === value;
-  });
-  return cls;
-};
-
-const genClsJustifyContent = (prefixCls: string, props: CSSGridProps) => {
-  const cls: Record<string, boolean> = {};
-  justifyContentValues.forEach((value) => {
-    cls[`${prefixCls}-justify-content-${value}`] = props.justifyContent === value;
-  });
-  return cls;
-};
-
-const genClsAlignContent = (prefixCls: string, props: CSSGridProps) => {
-  const cls: Record<string, boolean> = {};
-  alignContentValues.forEach((value) => {
-    cls[`${prefixCls}-align-content-${value}`] = props.alignContent === value;
-  });
-  return cls;
-};
-
+// Generate class names for alignment props (preset values only)
 const createCSSGridClassNames = (prefixCls: string, props: CSSGridProps) => {
+  const { justifyItems, alignItems, justifyContent, alignContent } = props;
   return clsx(
-    genClsJustifyItems(prefixCls, props),
-    genClsAlignItems(prefixCls, props),
-    genClsJustifyContent(prefixCls, props),
-    genClsAlignContent(prefixCls, props),
+    justifyItems &&
+      justifyItemsValues.includes(justifyItems) &&
+      `${prefixCls}-justify-items-${justifyItems}`,
+    alignItems && alignItemsValues.includes(alignItems) && `${prefixCls}-align-items-${alignItems}`,
+    justifyContent &&
+      justifyContentValues.includes(justifyContent) &&
+      `${prefixCls}-justify-content-${justifyContent}`,
+    alignContent &&
+      alignContentValues.includes(alignContent) &&
+      `${prefixCls}-align-content-${alignContent}`,
   );
 };
 

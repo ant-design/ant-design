@@ -163,13 +163,13 @@ const CSSGrid = React.forwardRef<HTMLDivElement, React.PropsWithChildren<CSSGrid
     }
 
     // Gap: preset values use class, dynamic values use inline style
-    if (gap && !isPresetSize(gap)) {
+    if (isNonNullable(gap) && !isPresetSize(gap)) {
       mergedStyle.gap = gap;
     }
-    if (rowGap && !isPresetSize(rowGap)) {
+    if (isNonNullable(rowGap) && !isPresetSize(rowGap)) {
       mergedStyle.rowGap = rowGap;
     }
-    if (columnGap && !isPresetSize(columnGap)) {
+    if (isNonNullable(columnGap) && !isPresetSize(columnGap)) {
       mergedStyle.columnGap = columnGap;
     }
 
