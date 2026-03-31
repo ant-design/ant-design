@@ -646,6 +646,17 @@ describe('Button', () => {
     expect(container.firstChild).toHaveClass('ant-btn-color-primary');
   });
 
+  it('danger should preserve variant color priority', () => {
+    const { container } = render(
+      <Button danger variant="solid">
+        Button
+      </Button>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-solid');
+    expect(container.firstChild).toHaveClass('ant-btn-color-dangerous');
+  });
+
   it('ConfigProvider support button shape', () => {
     const { container } = render(
       <ConfigProvider button={{ shape: 'round' }}>

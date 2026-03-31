@@ -179,6 +179,10 @@ const InternalCompoundedButton = React.forwardRef<
       return [color, variant];
     }
 
+    if (danger && variant) {
+      return ['danger', variant];
+    }
+
     if (variant === 'solid') {
       return ['primary', variant];
     }
