@@ -79,6 +79,8 @@ export type {
   FormProps,
   Rule as FormRule,
 } from './form';
+export { CSSGrid } from './grid';
+export type { CSSGridProps } from './grid';
 export { default as Grid } from './grid';
 export { default as Image } from './image';
 export type { ImageProgressConfig, ImageProps, PlaceholderType } from './image';

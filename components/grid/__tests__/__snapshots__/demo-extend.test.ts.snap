@@ -73,6 +73,91 @@ Array [
 
 exports[`renders components/grid/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/grid/demo/css-grid-areas.tsx extend context correctly 1`] = `
+<div
+  class="ant-css-grid css-var-test-id ant-css-grid-gap-middle"
+  style="min-height: 300px; grid-template-columns: 100px 200px 1fr; grid-template-rows: auto 1fr auto; grid-template-areas: \\"menu header header\\" \\"menu sidebar main\\" \\"menu footer footer\\";"
+>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center; grid-area: menu;"
+  >
+    Menu
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center; grid-area: header;"
+  >
+    Header
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center; grid-area: sidebar;"
+  >
+    Sidebar
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center; grid-area: main;"
+  >
+    Main Content
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center; grid-area: footer;"
+  >
+    Footer
+  </div>
+</div>
+`;
+
+exports[`renders components/grid/demo/css-grid-areas.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/grid/demo/css-grid-responsive.tsx extend context correctly 1`] = `
+<div
+  class="ant-css-grid css-var-test-id ant-css-grid-gap-middle"
+  style="grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));"
+>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center;"
+  >
+    Item 1
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center;"
+  >
+    Item 2
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center;"
+  >
+    Item 3
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center;"
+  >
+    Item 4
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center;"
+  >
+    Item 5
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center;"
+  >
+    Item 6
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center;"
+  >
+    Item 7
+  </div>
+  <div
+    style="background: rgb(22, 119, 255); color: rgb(255, 255, 255); padding: 24px; text-align: center;"
+  >
+    Item 8
+  </div>
+</div>
+`;
+
+exports[`renders components/grid/demo/css-grid-responsive.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/grid/demo/flex.tsx extend context correctly 1`] = `
 Array [
   <div

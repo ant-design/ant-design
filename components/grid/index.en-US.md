@@ -32,6 +32,14 @@ Our grid systems base on Flex layout to allow the elements within the parent to 
 
 Layout uses a 24 grid layout to define the width of each "box", but does not rigidly adhere to the grid layout.
 
+## CSS Grid {#css-grid}
+
+In addition to the Flex-based grid system, Ant Design also provides a CSS Grid-based layout component `CSSGrid`. Compared to the traditional grid system, CSS Grid provides more powerful layout capabilities:
+
+- **Responsive Layout**: Use `auto-fit` and `minmax()` to easily implement responsive layouts without writing media queries
+- **Template Areas**: Define complex layouts visually through `templateAreas`
+- **Two-dimensional Layout**: Support controlling rows and columns simultaneously, suitable for complex page structures
+
 ## Examples
 
 <!-- prettier-ignore -->
@@ -48,10 +56,32 @@ Layout uses a 24 grid layout to define the width of each "box", but does not rig
 <code src="./demo/responsive-more.tsx">More responsive</code>
 <code src="./demo/playground.tsx">Playground</code>
 <code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>
+<code src="./demo/css-grid-responsive.tsx">Responsive Auto-fit</code>
+<code src="./demo/css-grid-areas.tsx">Template Areas</code>
 
 ## API
 
+> CSSGrid component is available since `antd@6.4.0`.
+
 Common props ref：[Common props](/docs/react/common-props)
+
+### CSSGrid
+
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| templateColumns | Sets the column template | string | - | 6.4.0 |
+| templateRows | Sets the row template | string | - | 6.4.0 |
+| templateAreas | Sets the area template | string | - | 6.4.0 |
+| justifyItems | Aligns items horizontally (justify items) | string | - | 6.4.0 |
+| alignItems | Aligns items vertically (align items) | string | - | 6.4.0 |
+| justifyContent | Aligns entire grid horizontally (justify content) | string | - | 6.4.0 |
+| alignContent | Aligns entire grid vertically (align content) | string | - | 6.4.0 |
+| gap | Gap between grid items | `small` \| `middle` \| `large` \| string \| number | - | 6.4.0 |
+| rowGap | Gap between rows | `small` \| `middle` \| `large` \| string \| number | - | 6.4.0 |
+| columnGap | Gap between columns | `small` \| `middle` \| `large` \| string \| number | - | 6.4.0 |
+| autoFlow | Controls how auto-placed items flow | string | - | 6.4.0 |
+| classNames | Customize class for each semantic structure inside the component | { root?: string } | - | 6.4.0 |
+| styles | Customize inline style for each semantic structure inside the component | { root?: React.CSSProperties } | - | 6.4.0 |
 
 If the Ant Design grid layout component does not meet your needs, you can use the excellent layout components of the community:
 

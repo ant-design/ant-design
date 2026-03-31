@@ -5,8 +5,34 @@ import type { AliasToken, FullToken, GenerateStyle, GetDefaultToken } from '../.
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
+import {
+  alignContentValues,
+  alignItemsValues,
+  justifyContentValues,
+  justifyItemsValues,
+} from '../utils';
+
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
+
+// ============================== CSSGrid Token ==============================
+export interface CSSGridToken extends FullToken<'Grid'> {
+  /**
+   * @desc 小间距
+   * @descEN Small gap
+   */
+  cssGridGapSM: number;
+  /**
+   * @desc 间距
+   * @descEN Gap
+   */
+  cssGridGap: number;
+  /**
+   * @desc 大间距
+   * @descEN Large gap
+   */
+  cssGridGapLG: number;
+}
 
 interface GridRowToken extends FullToken<'Grid'> {
   //
@@ -219,4 +245,120 @@ export const useColStyle = genStyleHooks(
     ];
   },
   prepareColComponentToken,
+);
+
+// ============================== CSSGrid Style ==============================
+const genCSSGridStyle: GenerateStyle<CSSGridToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
+      display: 'grid',
+      margin: 0,
+      padding: 0,
+      '&-rtl': {
+        direction: 'rtl',
+      },
+      '&:empty': {
+        display: 'none',
+      },
+    },
+  };
+};
+
+const genCSSGridGapStyle: GenerateStyle<CSSGridToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+  return {
+    [componentCls]: {
+      '&-gap-small': {
+        gap: token.cssGridGapSM,
+      },
+      '&-gap-medium, &-gap-middle': {
+        gap: token.cssGridGap,
+      },
+      '&-gap-large': {
+        gap: token.cssGridGapLG,
+      },
+      '&-row-gap-small': {
+        rowGap: token.cssGridGapSM,
+      },
+      '&-row-gap-medium, &-row-gap-middle': {
+        rowGap: token.cssGridGap,
+      },
+      '&-row-gap-large': {
+        rowGap: token.cssGridGapLG,
+      },
+      '&-column-gap-small': {
+        columnGap: token.cssGridGapSM,
+      },
+      '&-column-gap-medium, &-column-gap-middle': {
+        columnGap: token.cssGridGap,
+      },
+      '&-column-gap-large': {
+        columnGap: token.cssGridGapLG,
+      },
+    },
+  };
+};
+
+const genCSSGridJustifyItemsStyle: GenerateStyle<CSSGridToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+  const style: CSSObject = {};
+  justifyItemsValues.forEach((value) => {
+    style[`${componentCls}-justify-items-${value}`] = { justifyItems: value };
+  });
+  return style;
+};
+
+const genCSSGridAlignItemsStyle: GenerateStyle<CSSGridToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+  const style: CSSObject = {};
+  alignItemsValues.forEach((value) => {
+    style[`${componentCls}-align-items-${value}`] = { alignItems: value };
+  });
+  return style;
+};
+
+const genCSSGridJustifyContentStyle: GenerateStyle<CSSGridToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+  const style: CSSObject = {};
+  justifyContentValues.forEach((value) => {
+    style[`${componentCls}-justify-content-${value}`] = { justifyContent: value };
+  });
+  return style;
+};
+
+const genCSSGridAlignContentStyle: GenerateStyle<CSSGridToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+  const style: CSSObject = {};
+  alignContentValues.forEach((value) => {
+    style[`${componentCls}-align-content-${value}`] = { alignContent: value };
+  });
+  return style;
+};
+
+export const prepareCSSGridComponentToken: GetDefaultToken<'Grid'> = () => ({});
+
+export const useGridStyle = genStyleHooks(
+  'Grid',
+  (token) => {
+    const { paddingXS, padding, paddingLG } = token;
+    const cssGridToken = mergeToken<CSSGridToken>(token, {
+      cssGridGapSM: paddingXS,
+      cssGridGap: padding,
+      cssGridGapLG: paddingLG,
+    });
+    return [
+      genCSSGridStyle(cssGridToken),
+      genCSSGridGapStyle(cssGridToken),
+      genCSSGridJustifyItemsStyle(cssGridToken),
+      genCSSGridAlignItemsStyle(cssGridToken),
+      genCSSGridJustifyContentStyle(cssGridToken),
+      genCSSGridAlignContentStyle(cssGridToken),
+    ];
+  },
+  prepareCSSGridComponentToken,
+  {
+    // CSSGrid component don't apply extra font style
+    resetStyle: false,
+  },
 );

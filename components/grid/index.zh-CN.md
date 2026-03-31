@@ -31,6 +31,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAA
 
 布局是基于 24 栅格来定义每一个『盒子』的宽度，但不拘泥于栅格。
 
+## CSS Grid {#css-grid}
+
+除了基于 Flex 的栅格系统，Ant Design 还提供了基于 CSS Grid 的布局组件 `CSSGrid`。相比传统的栅格系统，CSS Grid 提供了更强大的布局能力：
+
+- **响应式布局**：使用 `auto-fit` 和 `minmax()` 可以轻松实现响应式布局，无需编写媒体查询
+- **模板区域**：通过 `templateAreas` 可以用可视化的方式定义复杂布局
+- **二维布局**：支持同时控制行和列，适合复杂的页面结构
+
 ## 代码演示 {#examples}
 
 <!-- prettier-ignore -->
@@ -47,10 +55,32 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*DLUwQ4B2_zQAAA
 <code src="./demo/responsive-more.tsx">其他属性的响应式</code>
 <code src="./demo/playground.tsx">栅格配置器</code>
 <code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>
+<code src="./demo/css-grid-responsive.tsx">响应式自动填充</code>
+<code src="./demo/css-grid-areas.tsx">模板区域</code>
 
 ## API
 
+> CSSGrid 组件自 `antd@6.4.0` 起可用。
+
 通用属性参考：[通用属性](/docs/react/common-props)
+
+### CSSGrid
+
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| templateColumns | 列模板 | string | - | 6.4.0 |
+| templateRows | 行模板 | string | - | 6.4.0 |
+| templateAreas | 区域模板 | string | - | 6.4.0 |
+| justifyItems | 水平对齐（单元格） | string | - | 6.4.0 |
+| alignItems | 垂直对齐（单元格） | string | - | 6.4.0 |
+| justifyContent | 水平对齐（整体） | string | - | 6.4.0 |
+| alignContent | 垂直对齐（整体） | string | - | 6.4.0 |
+| gap | 间距 | `small` \| `middle` \| `large` \| string \| number | - | 6.4.0 |
+| rowGap | 行间距 | `small` \| `middle` \| `large` \| string \| number | - | 6.4.0 |
+| columnGap | 列间距 | `small` \| `middle` \| `large` \| string \| number | - | 6.4.0 |
+| autoFlow | 自动流动 | string | - | 6.4.0 |
+| classNames | 自定义类名 | { root?: string } | - | 6.4.0 |
+| styles | 自定义样式 | { root?: React.CSSProperties } | - | 6.4.0 |
 
 Ant Design 的布局组件若不能满足你的需求，你也可以直接使用社区的优秀布局组件：
 

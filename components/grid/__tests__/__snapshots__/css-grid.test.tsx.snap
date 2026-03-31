@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CSSGrid rtl render component should be rendered correctly in RTL direction 1`] = `
+<div
+  class="ant-css-grid css-var-root ant-css-grid-rtl"
+>
+  <div>
+    test1
+  </div>
+  <div>
+    test2
+  </div>
+</div>
+`;
