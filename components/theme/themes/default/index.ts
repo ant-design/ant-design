@@ -34,10 +34,14 @@ export default function derivative(token: SeedToken): MapToken {
     ...token,
     ...colorPalettes,
     // Colors
-    ...genColorMapToken(token, {
-      generateColorPalettes,
-      generateNeutralColorPalettes,
-    }),
+    ...genColorMapToken(
+      token,
+      {
+        generateColorPalettes,
+        generateNeutralColorPalettes,
+      },
+      '#000',
+    ),
     // Font
     ...genFontMapToken(token.fontSize),
     // Size

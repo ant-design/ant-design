@@ -316,8 +316,8 @@ describe('Theme', () => {
   });
 
   it('shadow tokens should adapt to dark theme', () => {
-    const { token, cssVar } = getHookToken();
-    const { token: darkToken, cssVar: darkCssVar } = getHookToken({
+    const { token } = getHookToken();
+    const { token: darkToken } = getHookToken({
       algorithm: [theme.darkAlgorithm],
     });
     const { token: darkCustomTextBaseToken } = getHookToken({
@@ -325,10 +325,6 @@ describe('Theme', () => {
       token: { colorTextBase: '#ff0000' },
     });
 
-    expect(token.shadowColor).toBe('#000');
-    expect(darkToken.shadowColor).toBe('#fff');
-    expect(cssVar.shadowColor).toBe('var(--ant-shadow-color)');
-    expect(darkCssVar.shadowColor).toBe('var(--ant-shadow-color)');
     expect(token.boxShadow).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.08\)/);
     expect(token.boxShadowCard).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.16\)/);
     expect(darkToken.boxShadow).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.08\)/);

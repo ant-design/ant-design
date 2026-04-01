@@ -22,14 +22,16 @@ export const generateColorPalettes: GenerateColorMap = (baseColor: string) => {
 export const generateNeutralColorPalettes: GenerateNeutralColorMap = (
   bgBaseColor: string,
   textBaseColor: string,
+  shadowColor?: string,
 ) => {
   const colorBgBase = bgBaseColor || '#fff';
   const colorTextBase = textBaseColor || '#000';
+  const colorShadow = shadowColor || '#000';
 
   return {
     colorBgBase,
     colorTextBase,
-    shadowColor: '#000',
+    colorShadow,
 
     colorText: getAlphaColor(colorTextBase, 0.88),
     colorTextSecondary: getAlphaColor(colorTextBase, 0.65),

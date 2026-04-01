@@ -12,7 +12,7 @@ export interface ColorNeutralMapToken {
   /**
    * @internal
    */
-  shadowColor: string;
+  colorShadow: string;
 
   // ----------   Text   ---------- //
 
