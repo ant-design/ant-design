@@ -84,7 +84,7 @@ export default antfu(
       'react/use-memo': 'off',
       'react/use-state': 'off',
       'react/exhaustive-deps': 'off',
-      'react-naming-convention/id-name': 'off',
+      'react-naming-convention/id-name': 'off', // Do not turn on — it would break the original semantics.
     },
   },
   {
