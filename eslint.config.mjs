@@ -82,7 +82,6 @@ export default antfu(
       'react/rules-of-hooks': 'off',
       'react/set-state-in-effect': 'off',
       'react/purity': 'off',
-      'react/error-boundaries': 'off',
       'react/use-memo': 'off',
       'react/use-state': 'off',
       'react/exhaustive-deps': 'off',
@@ -119,6 +118,7 @@ export default antfu(
     // tests
     files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
     rules: {
+      'react/error-boundaries': 'off',
       'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
