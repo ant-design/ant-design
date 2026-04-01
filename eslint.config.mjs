@@ -107,7 +107,6 @@ export default antfu(
     // tests
     files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
     rules: {
-      'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
       'react/no-nested-component-definitions': 'off',
