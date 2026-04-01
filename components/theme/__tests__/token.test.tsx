@@ -325,10 +325,10 @@ describe('Theme', () => {
       token: { colorTextBase: '#ff0000' },
     });
 
-    expect(token).not.toHaveProperty('shadowColor');
-    expect(darkToken).not.toHaveProperty('shadowColor');
-    expect(cssVar).not.toHaveProperty('shadowColor');
-    expect(darkCssVar).not.toHaveProperty('shadowColor');
+    expect(token.shadowColor).toBe('#000');
+    expect(darkToken.shadowColor).toBe('#fff');
+    expect(cssVar.shadowColor).toBe('var(--ant-shadow-color)');
+    expect(darkCssVar.shadowColor).toBe('var(--ant-shadow-color)');
     expect(token.boxShadow).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.08\)/);
     expect(token.boxShadowCard).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.16\)/);
     expect(darkToken.boxShadow).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.08\)/);

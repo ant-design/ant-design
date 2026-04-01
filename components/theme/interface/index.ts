@@ -5,7 +5,7 @@ import type { AliasToken } from './alias';
 import type { MapToken } from './maps';
 import type { SeedToken } from './seeds';
 
-export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken & { shadowColor?: string }>;
+export type MappingAlgorithm = DerivativeFunc<SeedToken, MapToken>;
 
 export type { AliasToken } from './alias';
 export type { ComponentTokenMap } from './components';
