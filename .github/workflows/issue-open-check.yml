@@ -20,7 +20,7 @@ jobs:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     timeout-minutes: 10
     steps:
-      - uses: actions-cool/check-user-permission@7b90a27f92f3961b368376107661682c441f6103 # v2
+      - uses: actions-cool/check-user-permission@c21884f3dda18dafc2f8b402fe807ccc9ec1aa5e # v2
         id: checkUser
         with:
           require: write
