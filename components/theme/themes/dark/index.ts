@@ -25,14 +25,10 @@ const derivative: DerivativeFunc<SeedToken, MapToken> = (token, mapToken) => {
 
   const mergedMapToken = mapToken ?? defaultAlgorithm(token);
 
-  const colorMapToken = genColorMapToken(
-    token,
-    {
-      generateColorPalettes,
-      generateNeutralColorPalettes,
-    },
-    '#fff',
-  );
+  const colorMapToken = genColorMapToken(token, {
+    generateColorPalettes,
+    generateNeutralColorPalettes,
+  });
 
   const presetColorHoverActiveTokens = PresetColors.reduce<Record<string, string>>(
     (prev, colorKey) => {

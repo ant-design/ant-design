@@ -12,7 +12,6 @@ interface PaletteGenerators {
 export default function genColorMapToken(
   seed: SeedToken,
   { generateColorPalettes, generateNeutralColorPalettes }: PaletteGenerators,
-  shadowColor?: string,
 ): ColorMapToken {
   const {
     colorSuccess: colorSuccessBase,
@@ -29,7 +28,7 @@ export default function genColorMapToken(
   const warningColors = generateColorPalettes(colorWarningBase);
   const errorColors = generateColorPalettes(colorErrorBase);
   const infoColors = generateColorPalettes(colorInfoBase);
-  const neutralColors = generateNeutralColorPalettes(colorBgBase, colorTextBase, shadowColor);
+  const neutralColors = generateNeutralColorPalettes(colorBgBase, colorTextBase);
 
   // Color Link
   const colorLink = seed.colorLink || seed.colorInfo;
