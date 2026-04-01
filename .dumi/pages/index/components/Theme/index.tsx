@@ -52,10 +52,12 @@ const { Header, Content, Sider } = Layout;
 
 const TokenChecker: React.FC = () => {
   const token = theme.useToken();
-  if (process.env.NODE_ENV !== 'production') {
-    // eslint-disable-next-line no-console
-    console.log('Demo Token:', token);
-  }
+  React.useEffect(() => {
+    if (process.env.NODE_ENV !== 'production') {
+      // eslint-disable-next-line no-console
+      console.log('Demo Token:', token);
+    }
+  }, [token]);
   return null;
 };
 
