@@ -81,7 +81,6 @@ export default antfu(
       'react/component-hook-factories': 'off',
       'react/rules-of-hooks': 'off',
       'react/set-state-in-effect': 'off',
-      'react/purity': 'off',
       'react/error-boundaries': 'off',
       'react/use-memo': 'off',
       'react/use-state': 'off',
