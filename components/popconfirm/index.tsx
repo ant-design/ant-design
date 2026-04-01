@@ -9,14 +9,35 @@ import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticT
 import { devUseWarning } from '../_util/warning';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import { useComponentConfig } from '../config-provider/context';
-import type { PopoverProps, PopoverSemanticAllType } from '../popover';
+import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import type { AbstractTooltipProps, TooltipRef } from '../tooltip';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
 import PurePanel, { Overlay } from './PurePanel';
 import useStyle from './style';
 
-export type PopconfirmSemanticType = PopoverSemanticAllType;
+type PopconfirmSemanticClassNames = {
+  root?: string;
+  container?: string;
+  icon?: string;
+  title?: string;
+  content?: string;
+  arrow?: string;
+};
+
+type PopconfirmSemanticStyles = {
+  root?: React.CSSProperties;
+  container?: React.CSSProperties;
+  icon?: React.CSSProperties;
+  title?: React.CSSProperties;
+  content?: React.CSSProperties;
+  arrow?: React.CSSProperties;
+};
+
+export type PopconfirmSemanticType = {
+  classNames?: PopconfirmSemanticClassNames;
+  styles?: PopconfirmSemanticStyles;
+};
 
 export type PopconfirmSemanticAllType = GenerateSemantic<PopconfirmSemanticType, PopconfirmProps>;
 
