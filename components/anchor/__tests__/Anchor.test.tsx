@@ -331,6 +331,43 @@ describe('Anchor Render', () => {
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 800);
   });
 
+  // https://github.com/ant-design/ant-design/issues/45634
+  it('targetOffset can be set per Anchor.Link and fallback to global', async () => {
+    const hash = getHashUrl();
+
+    const scrollToSpy = jest.spyOn(window, 'scrollTo');
+    const root = createDiv();
+    render(<h1 id={hash}>Hello</h1>, { container: root });
+    const { container } = render(
+      <Anchor
+        targetOffset={100}
+        items={[
+          { key: 'link1', href: `#${hash}`, title: 'Link 1', targetOffset: 50 },
+          { key: 'link2', href: `#${hash}`, title: 'Link 2' },
+          { key: 'link3', href: `#${hash}`, title: 'Link 3' },
+        ]}
+      />,
+    );
+
+    // Link with local targetOffset (50) takes precedence
+    fireEvent.click(container.querySelector('a[title="Link 1"]')!);
+    await waitFakeTimer();
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 950);
+
+    // Link without local targetOffset uses global (100)
+    fireEvent.click(container.querySelector('a[title="Link 2"]')!);
+    await waitFakeTimer();
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
+
+    // No global targetOffset, link uses default 0
+    const { container: container3 } = render(
+      <Anchor items={[{ key: 'link3', href: `#${hash}`, title: 'Link 3' }]} />,
+    );
+    fireEvent.click(container3.querySelector('a[title="Link 3"]')!);
+    await waitFakeTimer();
+    expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
+  });
+
   it('onClick event', () => {
     const hash = getHashUrl();
     let event;

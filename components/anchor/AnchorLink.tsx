@@ -13,6 +13,7 @@ export interface AnchorLinkBaseProps {
   title: React.ReactNode;
   className?: string;
   replace?: boolean;
+  targetOffset?: number;
 }
 
 export interface AnchorLinkProps extends AnchorLinkBaseProps {
@@ -28,6 +29,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
     className,
     target,
     replace,
+    targetOffset,
   } = props;
 
   const context = React.useContext<AntAnchor | undefined>(AnchorContext);
@@ -52,7 +54,7 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     onClick?.(e, { title, href });
-    scrollTo?.(href);
+    scrollTo?.(href, targetOffset);
 
     // Support clicking on an anchor does not record history.
     if (e.defaultPrevented) {

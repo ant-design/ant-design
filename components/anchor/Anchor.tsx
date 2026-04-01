@@ -117,7 +117,7 @@ export interface AntAnchor {
   registerLink: (link: string) => void;
   unregisterLink: (link: string) => void;
   activeLink: string | null;
-  scrollTo: (link: string) => void;
+  scrollTo: (link: string, targetOffset?: number) => void;
   onClick?: (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
     link: { title: React.ReactNode; href: string },
@@ -276,8 +276,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     setCurrentActiveLink(currentActiveLink);
   }, [links, targetOffset, offsetTop, bounds]);
 
-  const handleScrollTo = React.useCallback<(link: string) => void>(
-    (link) => {
+  const handleScrollTo = React.useCallback<(link: string, targetOffsetParams?: number) => void>(
+    (link, targetOffsetParams) => {
       const previousActiveLink = activeLinkRef.current;
       setCurrentActiveLink(link);
       const sharpLinkMatch = sharpMatcherRegex.exec(link);
@@ -300,7 +300,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       const scrollTop = getScroll(container);
       const eleOffsetTop = getOffsetTop(targetElement, container);
       let y = scrollTop + eleOffsetTop;
-      y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
+      const finalTargetOffset = targetOffsetParams ?? targetOffset ?? offsetTop ?? 0;
+      y -= finalTargetOffset;
       animatingRef.current = true;
       scrollRequestIdRef.current = scrollTo(y, {
         getContainer: getCurrentContainer,

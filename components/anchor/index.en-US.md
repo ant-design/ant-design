@@ -66,16 +66,18 @@ Common props ref：[Common props](/docs/react/common-props)
 | title | The content of hyperlink | ReactNode |  |  |
 | children | Nested Anchor Link, `Attention: This attribute does not support horizontal orientation` | [AnchorItem](#anchoritem)\[] | - |  |
 | replace | Replace item href in browser history instead of pushing it | boolean | false | 5.7.0 |
+| targetOffset | Customize scroll offset for this anchor link. It takes precedence over the `targetOffset` prop of the Anchor component | number | - | 6.4.0 |
 
 ### Link Props
 
 We recommend using the items form instead.
 
-| Property | Description                               | Type      | Default | Version |
-| -------- | ----------------------------------------- | --------- | ------- | ------- |
-| href     | The target of hyperlink                   | string    |         |         |
-| target   | Specifies where to display the linked URL | string    |         |         |
-| title    | The content of hyperlink                  | ReactNode |         |         |
+| Property | Description | Type | Default | Version |
+| --- | --- | --- | --- | --- |
+| href | The target of hyperlink | string |  |  |
+| target | Specifies where to display the linked URL | string |  |  |
+| title | The content of hyperlink | ReactNode |  |  |
+| targetOffset | Customize scroll offset for this anchor link. It takes precedence over the `targetOffset` prop of the Anchor component | number | - | 6.4.0 |
 
 ## Semantic DOM
 
