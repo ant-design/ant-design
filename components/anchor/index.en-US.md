@@ -27,6 +27,7 @@ For displaying anchor hyperlinks on page and jumping between them.
 <code src="./demo/onClick.tsx">Customize the onClick event</code>
 <code src="./demo/customizeHighlight.tsx">Customize the anchor highlight</code>
 <code src="./demo/targetOffset.tsx" iframe="200">Set Anchor scroll offset</code>
+<code src="./demo/targetOffset-per-link.tsx" iframe="200" version="6.4.0" debug>Set scroll offset per link</code>
 <code src="./demo/onChange.tsx">Listening for anchor link change</code>
 <code src="./demo/replace.tsx" iframe="200">Replace href in history</code>
 <code src="./demo/legacy-anchor.tsx" debug>Deprecated JSX demo</code>

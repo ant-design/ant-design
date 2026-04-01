@@ -28,6 +28,7 @@ group:
 <code src="./demo/onClick.tsx">自定义 onClick 事件</code>
 <code src="./demo/customizeHighlight.tsx">自定义锚点高亮</code>
 <code src="./demo/targetOffset.tsx" iframe="200">设置锚点滚动偏移量</code>
+<code src="./demo/targetOffset-per-link.tsx" iframe="200" version="6.4.0" debug>每个链接单独的滚动偏移量</code>
 <code src="./demo/onChange.tsx">监听锚点链接改变</code>
 <code src="./demo/replace.tsx" iframe="200">替换历史中的 href</code>
 <code src="./demo/legacy-anchor.tsx" debug>废弃的 JSX 示例</code>
