@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 import sortBy from 'lodash/sortBy';
 import unionBy from 'lodash/unionBy';
 import simpleGit from 'simple-git';
