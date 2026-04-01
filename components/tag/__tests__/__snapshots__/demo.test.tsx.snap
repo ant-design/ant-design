@@ -1104,6 +1104,7 @@ exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
+        disabled=""
         type="button"
       >
         <span
@@ -1160,6 +1161,7 @@ exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
+        disabled=""
         type="button"
       >
         <span
@@ -1192,6 +1194,7 @@ exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
+        disabled=""
         type="button"
       >
         <span
@@ -1262,6 +1265,7 @@ exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
+        disabled=""
         type="button"
       >
         <span
