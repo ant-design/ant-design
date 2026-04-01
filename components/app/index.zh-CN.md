@@ -38,7 +38,7 @@ const MyPage: React.FC = () => {
   modal.warning({ title: 'Good' });
   // ....
   // other message, notification, modal static function
-  return <div>Hello word</div>;
+  return <div>Hello world</div>;
 };
 
 const MyApp: React.FC = () => (
@@ -54,7 +54,7 @@ export default MyApp;
 
 ### 与 ConfigProvider 先后顺序 {#sequence-with-configprovider}
 
-App 组件只能在 `ConfigProvider` 之下才能使用 Design Token， 如果需要使用其样式重置能力，则 ConfigProvider 与 App 组件必须成对出现。
+App 组件只能在 `ConfigProvider` 之下才能使用 Design Token，如果需要使用其样式重置能力，则 ConfigProvider 与 App 组件必须成对出现。
 
 ```tsx
 <ConfigProvider theme={{ ... }}>

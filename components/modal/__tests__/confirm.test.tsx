@@ -1013,6 +1013,79 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     );
   });
 
+  it('should support focusable global config in App.useApp modal.confirm', () => {
+    const classNames = jest.fn(() => ({}));
+
+    const Confirm = () => {
+      const { modal } = App.useApp();
+
+      React.useEffect(() => {
+        modal.confirm({
+          classNames,
+          onCancel: () => undefined,
+        });
+      }, [modal]);
+
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: false,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
+  it('should prefer focusable prop over global config in App.useApp modal.confirm', () => {
+    const classNames = jest.fn(() => ({}));
+
+    const Confirm = () => {
+      const { modal } = App.useApp();
+
+      React.useEffect(() => {
+        modal.confirm({
+          classNames,
+          focusable: { trap: true },
+          onCancel: () => undefined,
+        });
+      }, [modal]);
+
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: true,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
   it('should support cancelButtonProps global config', () => {
     const Confirm = () => {
       const { modal } = App.useApp();
