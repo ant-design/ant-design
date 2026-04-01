@@ -182,22 +182,24 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       closeIconRender: (iconNode: React.ReactNode) => {
         // If the custom closeIcon is already an interactive element, merge props instead of wrapping
         if (React.isValidElement<any>(iconNode) && iconNode.type === 'button') {
-          return React.cloneElement(iconNode, {
+          return React.cloneElement<any>(iconNode, {
             onClick: (e: React.MouseEvent<HTMLElement>) => {
-              iconNode.props?.onClick?.(e);
+              (iconNode.props as any)?.onClick?.(e);
               handleCloseClick(e);
             },
-            className: clsx(iconNode.props?.className, `${prefixCls}-close-icon`),
+            className: clsx((iconNode.props as any)?.className, `${prefixCls}-close-icon`),
           });
         }
+        const decorativeIcon = React.isValidElement<any>(iconNode)
+          ? React.cloneElement<any>(iconNode, { 'aria-hidden': true })
+          : iconNode;
         return (
           <button
             type="button"
             className={`${prefixCls}-close-icon`}
             onClick={handleCloseClick}
-            tabIndex={0}
           >
-            {iconNode}
+            {decorativeIcon}
           </button>
         );
       },

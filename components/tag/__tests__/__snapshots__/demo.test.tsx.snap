@@ -12,10 +12,10 @@ Array [
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
+          aria-hidden="true"
           aria-label="close"
           class="anticon anticon-close"
           role="img"
@@ -44,10 +44,10 @@ Array [
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
+          aria-hidden="true"
           aria-label="close"
           class="anticon anticon-close"
           role="img"
@@ -76,10 +76,10 @@ Array [
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
+          aria-hidden="true"
           aria-label="close"
           class="anticon anticon-close"
           role="img"
@@ -160,10 +160,10 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
+        aria-hidden="true"
         aria-label="close"
         class="anticon anticon-close"
         role="img"
@@ -192,10 +192,10 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
+        aria-hidden="true"
         aria-label="close-circle"
         class="anticon anticon-close-circle"
         role="img"
@@ -224,10 +224,10 @@ exports[`renders components/tag/demo/basic.tsx correctly 1`] = `
     <button
       aria-label="Close Button"
       class="ant-tag-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
+        aria-hidden="true"
         aria-label="delete"
         class="anticon anticon-delete"
         role="img"
@@ -839,10 +839,10 @@ exports[`renders components/tag/demo/control.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
+        aria-hidden="true"
         aria-label="close"
         class="anticon anticon-close"
         role="img"
@@ -874,10 +874,10 @@ exports[`renders components/tag/demo/control.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
+        aria-hidden="true"
         aria-label="close"
         class="anticon anticon-close"
         role="img"
@@ -943,7 +943,6 @@ exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
-      tabindex="0"
       type="button"
     >
       关 闭
@@ -956,10 +955,10 @@ exports[`renders components/tag/demo/customize.tsx correctly 1`] = `
     <button
       aria-label="Close"
       class="ant-tag-close-icon"
-      tabindex="0"
       type="button"
     >
       <span
+        aria-hidden="true"
         aria-label="close-circle"
         class="anticon anticon-close-circle"
         role="img"
@@ -1105,10 +1104,10 @@ exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
+          aria-hidden="true"
           aria-label="close"
           class="anticon anticon-close"
           role="img"
@@ -1161,10 +1160,10 @@ exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
+          aria-hidden="true"
           aria-label="close"
           class="anticon anticon-close"
           role="img"
@@ -1193,10 +1192,10 @@ exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
+          aria-hidden="true"
           aria-label="close-circle"
           class="anticon anticon-close-circle"
           role="img"
@@ -1263,10 +1262,10 @@ exports[`renders components/tag/demo/disabled.tsx correctly 1`] = `
       <button
         aria-label="Close"
         class="ant-tag-close-icon"
-        tabindex="0"
         type="button"
       >
         <span
+          aria-hidden="true"
           aria-label="close"
           class="anticon anticon-close"
           role="img"

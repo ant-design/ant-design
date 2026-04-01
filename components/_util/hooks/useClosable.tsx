@@ -117,9 +117,9 @@ const computeCloseIcon = (
         ...ariaOrDataProps,
       })
     ) : (
-      <button type="button" aria-label={closeLabel} {...ariaOrDataProps}>
+      <span aria-label={closeLabel} {...ariaOrDataProps}>
         {finalCloseIcon}
-      </button>
+      </span>
     );
   }
 
@@ -132,11 +132,11 @@ export const computeClosable = (
   fallbackCloseCollection: FallbackCloseCollection = EmptyFallbackCloseCollection,
   closeLabel = 'Close',
 ): [
-    closable: boolean,
-    closeIcon: React.ReactNode,
-    closeBtnIsDisabled: boolean,
-    ariaOrDataProps: React.AriaAttributes & DataAttributes,
-  ] => {
+  closable: boolean,
+  closeIcon: React.ReactNode,
+  closeBtnIsDisabled: boolean,
+  ariaOrDataProps: React.AriaAttributes & DataAttributes,
+] => {
   const propConfig = computeClosableConfig(
     propCloseCollection?.closable,
     propCloseCollection?.closeIcon,
