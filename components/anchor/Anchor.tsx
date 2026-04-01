@@ -114,7 +114,7 @@ export interface AnchorDefaultProps extends AnchorProps {
 export type AnchorDirection = 'vertical' | 'horizontal';
 
 export interface AntAnchor {
-  registerLink: (link: string) => void;
+  registerLink: (link: string, targetOffset?: number) => void;
   unregisterLink: (link: string) => void;
   activeLink: string | null;
   scrollTo: (link: string, targetOffset?: number) => void;
@@ -171,6 +171,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const spanLinkNodeRef = React.useRef<HTMLSpanElement>(null);
   const animatingRef = React.useRef<boolean>(false);
   const scrollRequestIdRef = React.useRef<(() => void) | null>(null);
+  const linkTargetOffsetRef = React.useRef<Record<string, number>>({});
 
   const {
     direction,
@@ -192,9 +193,13 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const dependencyListItem: React.DependencyList[number] = JSON.stringify(links);
 
-  const registerLink = useEvent<AntAnchor['registerLink']>((link) => {
+  const registerLink = useEvent<AntAnchor['registerLink']>((link, newTargetOffset) => {
     if (!links.includes(link)) {
       setLinks((prev) => [...prev, link]);
+    }
+    // Store link-level targetOffset for scroll detection
+    if (newTargetOffset !== undefined) {
+      linkTargetOffsetRef.current[link] = newTargetOffset;
     }
   });
 
@@ -202,6 +207,8 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     if (links.includes(link)) {
       setLinks((prev) => prev.filter((i) => i !== link));
     }
+    // Clean up targetOffset when unregistering
+    delete linkTargetOffsetRef.current[link];
   });
 
   const updateInk = () => {
@@ -221,7 +228,12 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     }
   };
 
-  const getInternalCurrentAnchor = (_links: string[], _offsetTop = 0, _bounds = 5): string => {
+  const getInternalCurrentAnchor = (
+    _links: string[],
+    _offsetTop = 0,
+    _bounds = 5,
+    _linkTargetOffset?: Record<string, number>,
+  ): string => {
     const linkSections: Section[] = [];
     const container = getCurrentContainer();
     _links.forEach((link) => {
@@ -231,8 +243,10 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       }
       const target = document.getElementById(sharpLinkMatch[1]);
       if (target) {
+        // Use link-level targetOffset if provided, otherwise use global offsetTop
+        const linkOffsetTop = _linkTargetOffset?.[link] ?? _offsetTop;
         const top = getOffsetTop(target, container);
-        if (top <= _offsetTop + _bounds) {
+        if (top <= linkOffsetTop + _bounds) {
           linkSections.push({ link, top });
         }
       }
@@ -271,6 +285,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       links,
       targetOffset !== undefined ? targetOffset : offsetTop || 0,
       bounds,
+      linkTargetOffsetRef.current,
     );
 
     setCurrentActiveLink(currentActiveLink);

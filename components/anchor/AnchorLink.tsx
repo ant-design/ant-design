@@ -46,11 +46,11 @@ const AnchorLink: React.FC<AnchorLinkProps> = (props) => {
   } = context || {};
 
   React.useEffect(() => {
-    registerLink?.(href);
+    registerLink?.(href, targetOffset);
     return () => {
       unregisterLink?.(href);
     };
-  }, [href]);
+  }, [href, targetOffset]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
     onClick?.(e, { title, href });
