@@ -87,9 +87,6 @@ export default antfu(
       'react/use-state': 'off',
       'react/exhaustive-deps': 'off',
       'react-naming-convention/id-name': 'off',
-      'react-hooks/rules-of-hooks': 'off',
-      'react-hooks/immutability': 'off',
-      'react-hooks/purity': 'off',
     },
   },
   {
@@ -122,6 +119,7 @@ export default antfu(
     // tests
     files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
     rules: {
+      'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
       'react/no-nested-component-definitions': 'off',
