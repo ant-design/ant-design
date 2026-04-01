@@ -189,6 +189,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
             },
             className: clsx((iconNode.props as any)?.className, `${prefixCls}-close-icon`),
             disabled: mergedDisabled,
+            type: (iconNode.props as any)?.type ?? 'button',
           });
         }
         const decorativeIcon = React.isValidElement<any>(iconNode)
