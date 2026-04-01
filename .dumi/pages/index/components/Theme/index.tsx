@@ -26,17 +26,16 @@ import {
 } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import { generateColor } from 'antd/es/color-picker/util';
+import copy from 'antd/lib/_util/copy';
 import { clsx } from 'clsx';
 import { useLocation } from 'dumi';
-
-import copy from '../../../../../components/_util/copy';
-import { generateThemeCode } from '../ThemePreview/themeCodeUtils';
 
 import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import { getLocalizedPathname } from '../../../../theme/utils';
 import Group from '../Group';
+import { generateThemeCode } from '../ThemePreview/themeCodeUtils';
 import { getCarouselStyle } from '../util';
 import { DarkContext } from './../../../../hooks/useDark';
 import BackgroundImage from './BackgroundImage';

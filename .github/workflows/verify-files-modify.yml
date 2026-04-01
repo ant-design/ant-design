@@ -15,7 +15,7 @@ jobs:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: verify-version
-        uses: actions-cool/verify-files-modify@9f38a3b3d324d4d92c88c8a946001522e17ad554 # pin to latest verified commit
+        uses: actions-cool/verify-files-modify@a54698778b0a8570ffc245c2a03ac80be849c9fb # pin to latest verified commit
         with:
           forbid-paths: '.github/, scripts/'
           forbid-files: 'CHANGELOG.zh-CN.md, CHANGELOG.en-US.md, LICENSE'
@@ -36,7 +36,7 @@ jobs:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: verify-readme
-        uses: actions-cool/verify-files-modify@9f38a3b3d324d4d92c88c8a946001522e17ad554 # pin to latest verified commit
+        uses: actions-cool/verify-files-modify@a54698778b0a8570ffc245c2a03ac80be849c9fb # pin to latest verified commit
         with:
           forbid-files: README.md
           skip-verify-authority: write
