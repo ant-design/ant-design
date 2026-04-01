@@ -24,6 +24,8 @@ if (process.env.LIB_DIR === 'dist') {
   });
 }
 
+type SnapshotTarget = HTMLElement | DocumentFragment | HTMLCollection | NodeList | Node[];
+
 function cleanup(node: HTMLElement) {
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
@@ -37,12 +39,12 @@ function cleanup(node: HTMLElement) {
   return node;
 }
 
-function formatHTML(nodes: any) {
-  let cloneNodes: any;
+function formatHTML(nodes: SnapshotTarget) {
+  let cloneNodes: Node | Node[];
   if (Array.isArray(nodes) || nodes instanceof HTMLCollection || nodes instanceof NodeList) {
-    cloneNodes = Array.from(nodes).map((node) => cleanup(node.cloneNode(true) as any));
+    cloneNodes = Array.from(nodes).map((node) => cleanup(node.cloneNode(true) as HTMLElement));
   } else {
-    cloneNodes = cleanup(nodes.cloneNode(true));
+    cloneNodes = cleanup(nodes.cloneNode(true) as HTMLElement);
   }
 
   const htmlContent = format(cloneNodes, {
@@ -81,7 +83,7 @@ expect.addSnapshotSerializer({
       element instanceof DocumentFragment ||
       element instanceof HTMLCollection ||
       (Array.isArray(element) && element[0] instanceof HTMLElement)),
-  print: (element) => formatHTML(element),
+  print: (element) => formatHTML(element as SnapshotTarget),
 });
 
 /** Demo Test only accept render as SSR to make sure align with both `server` & `client` side */
@@ -106,7 +108,7 @@ expect.addSnapshotSerializer({
       }
     });
 
-    return formatHTML(children.length > 1 ? children : children[0]);
+    return formatHTML((children.length > 1 ? children : children[0]) as SnapshotTarget);
   },
 });
 
