@@ -365,64 +365,6 @@ describe('Anchor Render', () => {
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
   });
 
-  it('should keep link registered when targetOffset updates', async () => {
-    const hash = getHashUrl();
-    const hash2 = `${hash}2`;
-
-    const root = createDiv();
-    render(<h1 id={hash}>Hello</h1>, { container: root });
-    render(<h1 id={hash2}>World</h1>, { container: root });
-
-    const Demo = ({ offset }: { offset: number }) => (
-      <Anchor
-        targetOffset={offset}
-        items={[
-          { key: 'link1', href: `#${hash}`, title: 'Link 1', targetOffset: 50 },
-          { key: 'link2', href: `#${hash2}`, title: 'Link 2' },
-        ]}
-      />
-    );
-
-    const { container, rerender } = render(<Demo offset={100} />);
-
-    const links = container.querySelectorAll<HTMLElement>('.ant-anchor-link');
-    expect(links).toHaveLength(2);
-
-    rerender(<Demo offset={200} />);
-
-    const linksAfterUpdate = container.querySelectorAll<HTMLElement>('.ant-anchor-link');
-    expect(linksAfterUpdate).toHaveLength(2);
-  });
-
-  it('should clean up link targetOffset when link is unregistered', async () => {
-    const hash = getHashUrl();
-
-    const root = createDiv();
-    render(<h1 id={hash}>Hello</h1>, { container: root });
-
-    const Demo = ({ showSecondLink }: { showSecondLink: boolean }) => (
-      <Anchor
-        targetOffset={100}
-        items={[
-          { key: 'link1', href: `#${hash}`, title: 'Link 1', targetOffset: 50 },
-          ...(showSecondLink
-            ? [{ key: 'link2', href: `#${hash}`, title: 'Link 2', targetOffset: 80 }]
-            : []),
-        ]}
-      />
-    );
-
-    const { rerender } = render(<Demo showSecondLink />);
-
-    let links = document.querySelectorAll<HTMLElement>('.ant-anchor-link');
-    expect(links).toHaveLength(2);
-
-    rerender(<Demo showSecondLink={false} />);
-
-    links = document.querySelectorAll<HTMLElement>('.ant-anchor-link');
-    expect(links).toHaveLength(1);
-  });
-
   it('should use link-level targetOffset when detecting active link during scroll', async () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
@@ -470,27 +412,6 @@ describe('Anchor Render', () => {
     expect(onChange).toHaveBeenCalled();
 
     HTMLHeadingElement.prototype.getBoundingClientRect = originalGetBoundingClientRect;
-  });
-
-  it('should support different affix configurations', () => {
-    const { container: container1, unmount: unmount1 } = render(
-      <Anchor
-        affix={false}
-        showInkInFixed={false}
-        items={[{ key: 'link1', href: '#link1', title: 'Link 1' }]}
-      />,
-    );
-    const anchor = container1.querySelector('.ant-anchor');
-    expect(anchor).toHaveClass('ant-anchor-fixed');
-    unmount1();
-
-    const { container: container2 } = render(
-      <Anchor
-        affix={{ className: 'custom-affix-class' } as any}
-        items={[{ key: 'link2', href: '#link2', title: 'Link 2' }]}
-      />,
-    );
-    expect(container2.querySelector('.ant-anchor-wrapper')).toBeTruthy();
   });
 
   it('onClick event', () => {

@@ -193,7 +193,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const dependencyListItem: React.DependencyList[number] = JSON.stringify(links);
 
-  const registerLink = useEvent<AntAnchor['registerLink']>((link, newTargetOffset) => {
+  const registerLink: AntAnchor['registerLink'] = (link, newTargetOffset) => {
     setLinks((prev) => {
       if (!prev.includes(link)) {
         return [...prev, link];
@@ -204,13 +204,13 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     if (newTargetOffset !== undefined) {
       linkTargetOffsetRef.current[link] = newTargetOffset;
     }
-  });
+  };
 
-  const unregisterLink = useEvent<AntAnchor['unregisterLink']>((link) => {
+  const unregisterLink: AntAnchor['unregisterLink'] = (link) => {
     setLinks((prev) => prev.filter((i) => i !== link));
     // Clean up targetOffset when unregistering
     delete linkTargetOffsetRef.current[link];
-  });
+  };
 
   const updateInk = () => {
     const linkNode = wrapperRef.current?.querySelector<HTMLElement>(
