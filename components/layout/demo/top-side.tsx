@@ -29,6 +29,8 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
+const currentYear = new Date().getFullYear();
+
 const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -66,9 +68,7 @@ const App: React.FC = () => {
           <Content style={{ padding: '0 24px', minHeight: 280 }}>Content</Content>
         </Layout>
       </div>
-      <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©{new Date().getFullYear()} Created by Ant UED
-      </Footer>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©{currentYear} Created by Ant UED</Footer>
     </Layout>
   );
 };
