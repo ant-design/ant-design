@@ -99,6 +99,7 @@ const columns = [
 <code src="./demo/drag-column-sorting.tsx">列拖拽排序</code>
 <code src="./demo/drag-sorting-handler.tsx">拖拽手柄列</code>
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
+<code src="./demo/column-defaults.tsx" version="6.4.0">默认列配置</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
 <code src="./demo/custom-empty.tsx">自定义空状态</code>
 <code src="./demo/summary.tsx">总结栏</code>
@@ -127,6 +128,7 @@ const columns = [
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[] | - |  |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
+| columnDefaults | 默认列配置，仅在单列未声明同名属性时生效 | Partial<[ColumnType](#column)> | - | 6.4.0 |
 | expandable | 配置展开属性 | [expandable](#expandable) | - |  |
 | footer | 表格尾部 | function(currentPageData) | - |  |
 | getPopupContainer | 设置表格内各类浮层的渲染节点，如筛选菜单 | (triggerNode) => HTMLElement | () => TableHtmlElement |  |

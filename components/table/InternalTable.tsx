@@ -62,6 +62,7 @@ import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 import TableMeasureRowContext from './TableMeasureRowContext';
+import { fillColumnDefaults } from './util';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -137,6 +138,7 @@ export interface TableProps<RecordType = AnyObject>
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
   columns?: ColumnsType<RecordType>;
+  columnDefaults?: Partial<ColumnType<RecordType>>;
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
   size?: SizeType;
@@ -186,6 +188,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     rowKey: customizeRowKey,
     rowClassName,
     columns,
+    columnDefaults,
     children,
     childrenColumnName: legacyChildrenColumnName,
     onChange,
@@ -205,9 +208,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const warning = devUseWarning('Table');
 
-  const baseColumns = React.useMemo(
+  const rawColumns = React.useMemo(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
     [columns, children],
+  );
+  const baseColumns = React.useMemo(
+    () => fillColumnDefaults(rawColumns, columnDefaults),
+    [rawColumns, columnDefaults],
   );
   const needResponsive = React.useMemo(
     () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
@@ -222,7 +229,12 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     return baseColumns.filter((c) => !c.responsive || c.responsive.some((r) => matched.has(r)));
   }, [baseColumns, screens]);
 
-  const tableProps: TableProps<RecordType> = omit(props, ['className', 'style', 'columns']);
+  const tableProps: TableProps<RecordType> = omit(props, [
+    'className',
+    'style',
+    'columns',
+    'columnDefaults',
+  ]);
 
   const { locale: contextLocale = defaultLocale, table } =
     React.useContext<ConfigConsumerProps>(ConfigContext);

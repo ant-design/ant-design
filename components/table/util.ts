@@ -1,6 +1,16 @@
+import { EXPAND_COLUMN } from '@rc-component/table';
+
 import isNonNullable from '../_util/isNonNullable';
 import type { AnyObject } from '../_util/type';
-import type { ColumnTitle, ColumnTitleProps, ColumnType, Key } from './interface';
+import { SELECTION_COLUMN } from './hooks/useSelection';
+import type {
+  ColumnGroupType,
+  ColumnsType,
+  ColumnTitle,
+  ColumnTitleProps,
+  ColumnType,
+  Key,
+} from './interface';
 
 export const getColumnKey = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
@@ -45,4 +55,33 @@ export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
     return '';
   }
   return res;
+};
+
+export const fillColumnDefaults = <RecordType extends AnyObject = AnyObject>(
+  columns: ColumnsType<RecordType>,
+  columnDefaults?: Partial<ColumnType<RecordType>>,
+): ColumnsType<RecordType> => {
+  if (!columnDefaults) {
+    return columns;
+  }
+
+  return columns.map((column) => {
+    if (column === SELECTION_COLUMN || column === EXPAND_COLUMN) {
+      return column;
+    }
+
+    const mergedColumn: ColumnGroupType<RecordType> | ColumnType<RecordType> = {
+      ...columnDefaults,
+      ...column,
+    };
+
+    if ('children' in column && Array.isArray(column.children)) {
+      return {
+        ...mergedColumn,
+        children: fillColumnDefaults(column.children, columnDefaults),
+      } as ColumnGroupType<RecordType>;
+    }
+
+    return mergedColumn;
+  });
 };

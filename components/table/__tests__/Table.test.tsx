@@ -144,6 +144,21 @@ describe('Table', () => {
     );
   });
 
+  it('should not crash when columnDefaults is set and column children is empty', () => {
+    render(
+      <Table<{ name?: string }>
+        columns={[
+          {
+            dataIndex: 'name',
+            children: undefined,
+          },
+        ]}
+        columnDefaults={{ ellipsis: true }}
+        dataSource={[]}
+      />,
+    );
+  });
+
   it('should not crash when dataSource is array with none-object items', () => {
     render(
       <Table
@@ -231,6 +246,100 @@ describe('Table', () => {
       .forEach((td) => {
         expect((td.attributes as any).title).toBeTruthy();
       });
+  });
+
+  it('supports columnDefaults for columns', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          { title: 'Name', dataIndex: 'name' },
+          { title: 'Address', dataIndex: 'address', align: 'left' },
+        ]}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Jack',
+            address: 'No. 1, Long Long Long Long Long Street',
+          },
+        ]}
+        columnDefaults={{ align: 'center', ellipsis: true }}
+        pagination={false}
+      />,
+    );
+
+    const cells = container.querySelectorAll('.ant-table-tbody td');
+
+    expect(cells[0]).toHaveStyle({ textAlign: 'center' });
+    expect(cells[0]).toHaveClass('ant-table-cell-ellipsis');
+    expect(cells[1]).toHaveStyle({ textAlign: 'left' });
+    expect(cells[1]).toHaveClass('ant-table-cell-ellipsis');
+  });
+
+  it('supports columnDefaults for empty column objects', () => {
+    const { container } = render(
+      <Table<{ key: string; name: string }>
+        columns={[{}]}
+        columnDefaults={{
+          title: 'Name',
+          render: (_, record) => record.name,
+        }}
+        dataSource={[{ key: '1', name: 'Jack' }]}
+        pagination={false}
+      />,
+    );
+
+    expect(container.querySelector('.ant-table-thead th')?.textContent).toEqual('Name');
+    expect(container.querySelector('.ant-table-tbody td')?.textContent).toEqual('Jack');
+  });
+
+  it('supports columnDefaults for JSX columns recursively', () => {
+    const { container } = render(
+      <Table
+        dataSource={[
+          {
+            key: '1',
+            name: 'Jack',
+            age: 20,
+          },
+        ]}
+        columnDefaults={{ align: 'center', ellipsis: true }}
+        pagination={false}
+      >
+        <Column title="Name" dataIndex="name" />
+        <ColumnGroup title="Info">
+          <Column title="Age" dataIndex="age" align="right" />
+        </ColumnGroup>
+      </Table>,
+    );
+
+    const cells = container.querySelectorAll('.ant-table-tbody td');
+
+    expect(cells[0]).toHaveStyle({ textAlign: 'center' });
+    expect(cells[0]).toHaveClass('ant-table-cell-ellipsis');
+    expect(cells[1]).toHaveStyle({ textAlign: 'right' });
+    expect(cells[1]).toHaveClass('ant-table-cell-ellipsis');
+  });
+
+  it('columnDefaults should not affect internal selection column', () => {
+    const { container } = render(
+      <Table
+        columns={[{ title: 'Name', dataIndex: 'name' }]}
+        dataSource={[{ key: '1', name: 'Jack' }]}
+        columnDefaults={{ align: 'center', ellipsis: true }}
+        pagination={false}
+        rowSelection={{}}
+      />,
+    );
+
+    expect(container.querySelector('.ant-table-selection-column')).not.toHaveClass(
+      'ant-table-cell-ellipsis',
+    );
+    expect(
+      container.querySelector('.ant-table-tbody td.ant-table-selection-column'),
+    ).not.toHaveClass('ant-table-cell-ellipsis');
+    expect(container.querySelectorAll('.ant-table-tbody td')[1]).toHaveStyle({
+      textAlign: 'center',
+    });
   });
 
   it('warn about rowKey when using index parameter', () => {

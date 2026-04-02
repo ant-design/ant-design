@@ -97,6 +97,7 @@ const columns = [
 <code src="./demo/drag-column-sorting.tsx">Drag Column sorting</code>
 <code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
+<code src="./demo/column-defaults.tsx" version="6.4.0">Column defaults</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
 <code src="./demo/custom-empty.tsx">Custom empty</code>
 <code src="./demo/summary.tsx">Summary</code>
@@ -125,6 +126,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | columns | Columns of table | [ColumnsType](#column)\[] | - |  |
 | components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | Data record array to be displayed | object\[] | - |  |
+| columnDefaults | Default props applied to columns when the same property is not defined on the column itself | Partial<[ColumnType](#column)> | - | 6.4.0 |
 | expandable | Config expandable content | [expandable](#expandable) | - |  |
 | footer | Table footer renderer | function(currentPageData) | - |  |
 | getPopupContainer | The render container of dropdowns in table | (triggerNode) => HTMLElement | () => TableHtmlElement |  |
