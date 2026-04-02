@@ -101,6 +101,7 @@ const getColumnsStyle: GenerateStyle<CascaderToken, CSSInterpolation> = (token) 
             '&-content': {
               flex: 'auto',
               minWidth: 0,
+              maxWidth: 400,
               ...textEllipsis,
             },
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import type { CascaderProps } from 'antd';
-import { Cascader, Flex, Typography } from 'antd';
+import { Cascader } from 'antd';
 import type { HTMLAriaDataAttributes } from 'antd/es/_util/aria-data-attrs';
 
 type Option = {
@@ -60,30 +60,6 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
   console.log(value);
 };
 
-const App: React.FC = () => (
-  <Flex gap="middle" wrap align="flex-start">
-    <style>{`
-      .cascader-panel-ellipsis-debug-fixed .ant-cascader-menu {
-        width: 160px;
-        min-width: 160px;
-        flex: none;
-      }
-    `}</style>
-
-    <Flex vertical gap="small">
-      <Typography.Text strong>Constrained item width</Typography.Text>
-      <Cascader.Panel
-        className="cascader-panel-ellipsis-debug-fixed"
-        options={options}
-        onChange={onChange}
-      />
-    </Flex>
-
-    <Flex vertical gap="small">
-      <Typography.Text strong>Default item width</Typography.Text>
-      <Cascader.Panel options={options} onChange={onChange} />
-    </Flex>
-  </Flex>
-);
+const App: React.FC = () => <Cascader.Panel options={options} onChange={onChange} />;
 
 export default App;
