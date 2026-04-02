@@ -194,9 +194,12 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   const dependencyListItem: React.DependencyList[number] = JSON.stringify(links);
 
   const registerLink = useEvent<AntAnchor['registerLink']>((link, newTargetOffset) => {
-    if (!links.includes(link)) {
-      setLinks((prev) => [...prev, link]);
-    }
+    setLinks((prev) => {
+      if (!prev.includes(link)) {
+        return [...prev, link];
+      }
+      return prev;
+    });
     // Store link-level targetOffset for scroll detection
     if (newTargetOffset !== undefined) {
       linkTargetOffsetRef.current[link] = newTargetOffset;
@@ -204,9 +207,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   });
 
   const unregisterLink = useEvent<AntAnchor['unregisterLink']>((link) => {
-    if (links.includes(link)) {
-      setLinks((prev) => prev.filter((i) => i !== link));
-    }
+    setLinks((prev) => prev.filter((i) => i !== link));
     // Clean up targetOffset when unregistering
     delete linkTargetOffsetRef.current[link];
   });

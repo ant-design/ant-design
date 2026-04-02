@@ -368,6 +368,38 @@ describe('Anchor Render', () => {
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 1000);
   });
 
+  it('should keep link registered when targetOffset updates', async () => {
+    const hash = getHashUrl();
+    const hash2 = `${hash}2`;
+
+    const root = createDiv();
+    render(<h1 id={hash}>Hello</h1>, { container: root });
+    render(<h1 id={hash2}>World</h1>, { container: root });
+
+    const Demo = ({ offset }: { offset: number }) => (
+      <Anchor
+        targetOffset={offset}
+        items={[
+          { key: 'link1', href: `#${hash}`, title: 'Link 1', targetOffset: 50 },
+          { key: 'link2', href: `#${hash2}`, title: 'Link 2' },
+        ]}
+      />
+    );
+
+    const { container, rerender } = render(<Demo offset={100} />);
+
+    // Initial state - both links should be registered
+    const links = container.querySelectorAll<HTMLElement>('.ant-anchor-link');
+    expect(links).toHaveLength(2);
+
+    // Update targetOffset - this should not cause links to unregister
+    rerender(<Demo offset={200} />);
+
+    // Links should still be registered after targetOffset update
+    const linksAfterUpdate = container.querySelectorAll<HTMLElement>('.ant-anchor-link');
+    expect(linksAfterUpdate).toHaveLength(2);
+  });
+
   it('onClick event', () => {
     const hash = getHashUrl();
     let event;
