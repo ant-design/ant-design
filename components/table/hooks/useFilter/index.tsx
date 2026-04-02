@@ -193,8 +193,8 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
         return keyMap.has(strKey) ? keyMap.get(strKey) : key;
       });
 
-      // Optimization 2 & 3: use `reduce` to merge the original
-      // `map` (shallow copy) + `filter` into a two-pass traversal.
+      // Optimization 2 & 3: use `reduce` to combine the original
+      // `map` (shallow copy) + `filter` into a single-pass traversal.
       return currentData.reduce<RecordType[]>((acc, record) => {
         // Shallow copy
         const clonedRecord = { ...record } as any;
