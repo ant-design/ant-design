@@ -28,6 +28,7 @@ import Compact from './style/compact';
 export type LegacyButtonType = ButtonType | 'danger';
 
 export interface BaseButtonProps {
+  hrefComponent?: 'a' | React.ComponentType<any>;
   type?: ButtonType;
   color?: ButtonColorType;
   variant?: ButtonVariantType;
@@ -122,6 +123,7 @@ const InternalCompoundedButton = React.forwardRef<
     style: customStyle = {},
     autoInsertSpace,
     autoFocus,
+    hrefComponent,
     ...rest
   } = props;
 
@@ -297,7 +299,10 @@ const InternalCompoundedButton = React.forwardRef<
 
   const iconType = innerLoading ? 'loading' : icon;
 
-  const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, ['navigate']);
+  const linkButtonRestProps = omit(rest as ButtonProps & { navigate: any }, [
+    'navigate',
+    'hrefComponent',
+  ]);
 
   // ========================= Render =========================
   const classes = classNames(
@@ -369,13 +374,15 @@ const InternalCompoundedButton = React.forwardRef<
     children || children === 0 ? spaceChildren(children, needInserted && mergedInsertSpace) : null;
 
   if (linkButtonRestProps.href !== undefined) {
+    const Component = hrefComponent ?? 'a';
+
     return wrapCSSVar(
-      <a
+      <Component
         {...linkButtonRestProps}
         className={classNames(classes, {
           [`${prefixCls}-disabled`]: mergedDisabled,
         })}
-        href={mergedDisabled ? undefined : linkButtonRestProps.href}
+        href={mergedDisabled ? '#' : linkButtonRestProps.href}
         style={fullStyle}
         onClick={handleClick}
         ref={mergedRef as React.Ref<HTMLAnchorElement>}
@@ -384,7 +391,7 @@ const InternalCompoundedButton = React.forwardRef<
       >
         {iconNode}
         {kids}
-      </a>,
+      </Component>,
     );
   }
 
