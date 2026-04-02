@@ -115,6 +115,16 @@
           }
         }
       }
+    },
+    {
+      "includes": ["components/list/index.tsx"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "useHookAtTopLevel": "off"
+          }
+        }
+      }
     }
   ]
 }

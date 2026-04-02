@@ -48,7 +48,7 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
         const errSpy = excludeWarning();
 
         Date.now = jest.fn(() => new Date('2016-11-22').getTime());
-        jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+        jest.useFakeTimers().setSystemTime(new Date('2016-11-22').getTime());
 
         let Demo = require(`../../${file}`).default;
         // Inject Trigger status unless skipped
