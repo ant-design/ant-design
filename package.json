@@ -161,7 +161,7 @@
     "@ant-design/tools": "^19.1.0",
     "@ant-design/x": "^2.2.0",
     "@ant-design/x-sdk": "^2.2.0",
-    "@antfu/eslint-config": "7.7.3",
+    "@antfu/eslint-config": "8.0.0",
     "@biomejs/biome": "2.4.10",
     "@blazediff/core": "^1.7.0",
     "@codecov/webpack-plugin": "^1.9.1",
@@ -172,7 +172,7 @@
     "@dnd-kit/utilities": "^3.2.2",
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
-    "@eslint-react/eslint-plugin": "2.13.0",
+    "@eslint-react/eslint-plugin": "3.0.0",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@inquirer/prompts": "^8.0.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",
@@ -325,6 +325,17 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
+  },
+  "pnpm": {
+    "overrides": {
+      "@sinonjs/fake-timers": "15.2.0"
+    }
+  },
+  "overrides": {
+    "@sinonjs/fake-timers": "15.2.0"
+  },
+  "resolutions": {
+    "@sinonjs/fake-timers": "15.2.0"
   },
   "size-limit": [
     {
