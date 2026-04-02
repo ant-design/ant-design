@@ -327,6 +327,17 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
+  "pnpm": {
+    "overrides": {
+      "@sinonjs/fake-timers": "15.2.0"
+    }
+  },
+  "overrides": {
+    "@sinonjs/fake-timers": "15.2.0"
+  },
+  "resolutions": {
+    "@sinonjs/fake-timers": "15.2.0"
+  },
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
