@@ -39,6 +39,8 @@ const items: MenuItem[] = [
   getItem('Files', '9', <FileOutlined />),
 ];
 
+const currentYear = new Date().getFullYear();
+
 const App: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const {
@@ -67,7 +69,7 @@ const App: React.FC = () => {
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
+          Ant Design ©{currentYear} Created by Ant UED
         </Footer>
       </Layout>
     </Layout>
