@@ -292,6 +292,44 @@ describe('Table', () => {
     expect(container.querySelector('.ant-table-tbody td')?.textContent).toEqual('Jack');
   });
 
+  it('keeps columnDefaults when column props are undefined', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            align: undefined,
+            ellipsis: undefined,
+          },
+        ]}
+        columnDefaults={{ align: 'center', ellipsis: true }}
+        dataSource={[{ key: '1', name: 'Jack Long Long Long Name' }]}
+        pagination={false}
+      />,
+    );
+
+    const cell = container.querySelector('.ant-table-tbody td');
+
+    expect(cell).toHaveStyle({ textAlign: 'center' });
+    expect(cell).toHaveClass('ant-table-cell-ellipsis');
+  });
+
+  it('does not apply default children to leaf columns', () => {
+    const { container } = render(
+      <Table<{ key: string; name: string }>
+        columns={[{ title: 'Name', dataIndex: 'name' }]}
+        columnDefaults={{ children: [] } as any}
+        dataSource={[{ key: '1', name: 'Jack' }]}
+        pagination={false}
+      />,
+    );
+
+    expect(container.querySelectorAll('.ant-table-thead th')).toHaveLength(1);
+    expect(container.querySelector('.ant-table-thead th')?.textContent).toEqual('Name');
+    expect(container.querySelector('.ant-table-tbody td')?.textContent).toEqual('Jack');
+  });
+
   it('supports columnDefaults for JSX columns recursively', () => {
     const { container } = render(
       <Table

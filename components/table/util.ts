@@ -65,23 +65,40 @@ export const fillColumnDefaults = <RecordType extends AnyObject = AnyObject>(
     return columns;
   }
 
+  const mergeDefinedProps = <T extends object>(base: T, override: Partial<T>): T => {
+    const filteredOverride = Object.fromEntries(
+      Object.entries(override).filter(([, value]) => value !== undefined),
+    ) as Partial<T>;
+
+    return {
+      ...base,
+      ...filteredOverride,
+    };
+  };
+
   return columns.map((column) => {
     if (column === SELECTION_COLUMN || column === EXPAND_COLUMN) {
       return column;
     }
 
-    const mergedColumn: ColumnGroupType<RecordType> | ColumnType<RecordType> = {
-      ...columnDefaults,
-      ...column,
-    };
-
     if ('children' in column && Array.isArray(column.children)) {
+      const mergedColumn = mergeDefinedProps(
+        columnDefaults as ColumnGroupType<RecordType>,
+        column as Partial<ColumnGroupType<RecordType>>,
+      );
+
       return {
         ...mergedColumn,
         children: fillColumnDefaults(column.children, columnDefaults),
       } as ColumnGroupType<RecordType>;
     }
 
-    return mergedColumn;
+    const { children: _, ...columnDefaultsWithoutChildren } =
+      columnDefaults as ColumnGroupType<RecordType>;
+
+    return mergeDefinedProps(
+      columnDefaultsWithoutChildren as ColumnType<RecordType>,
+      column as Partial<ColumnType<RecordType>>,
+    );
   });
 };
