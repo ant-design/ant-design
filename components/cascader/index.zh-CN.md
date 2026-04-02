@@ -39,6 +39,7 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">面板使用</code>
+<code src="./demo/ellipsis-debug.tsx" debug>菜单项省略样式调试</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 

@@ -38,6 +38,7 @@ demo:
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">Panel</code>
+<code src="./demo/ellipsis-debug.tsx" debug>Menu item ellipsis</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
