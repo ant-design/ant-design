@@ -81,13 +81,7 @@ export default antfu(
     },
   },
   {
-    files: ['**/*.{js,mjs,cjs,jsx}'],
-    rules: {
-      'react/no-implicit-key': 'off',
-    },
-  },
-  {
-    files: ['eslint.config.mjs', '.*.{js,mjs,cjs}', '*.config.{js,mjs,cjs}'],
+    files: ['**/*.{js,mjs,cjs}', '.*.{js,mjs,cjs}'],
     rules: {
       'react/no-implicit-key': 'off',
     },

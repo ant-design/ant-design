@@ -1,4 +1,3 @@
-import { assert } from 'console';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
@@ -106,7 +105,9 @@ async function getBranchLatestRef(branchName: string) {
 
   const text = await res.text();
   const ref = text.trim();
-  assert(ref, `Empty visual regression ref from ${branchName}`);
+  if (!ref) {
+    throw new Error(`Empty visual regression ref from ${branchName}`);
+  }
   return ref;
 }
 
@@ -180,9 +181,15 @@ async function parseArgs() {
   // parse args from -- --pr-id=123 --base_ref=feature --max-workers=2
   const argv = minimist(process.argv.slice(2));
   const prId = argv['pr-id'];
-  assert(prId, 'Missing --pr-id');
+  if (!prId) {
+    throw new Error('Missing --pr-id');
+  }
+
   const baseRef = argv['base-ref'];
-  assert(baseRef, 'Missing --base-ref');
+  if (!baseRef) {
+    throw new Error('Missing --base-ref');
+  }
+
   const baseSha = argv['base-sha'];
 
   const maxWorkers = argv['max-workers'] ? Number.parseInt(argv['max-workers'], 10) : 1;
@@ -406,7 +413,9 @@ async function boot() {
     ((isLocalEnv || useLocalBaselineEnv) && hasLocalBaseSnapshots
       ? await getBranchHeadRef(targetBranch)
       : await getBranchLatestRef(targetBranch));
-  assert(targetCommitSha, `Missing commit sha from ${targetBranch}`);
+  if (!targetCommitSha) {
+    throw new Error(`Missing commit sha from ${targetBranch}`);
+  }
 
   if (!isLocalEnv && !useLocalBaselineEnv) {
     await downloadBaseSnapshots(targetCommitSha, baseImgSourceDir);
