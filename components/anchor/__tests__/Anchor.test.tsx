@@ -349,17 +349,14 @@ describe('Anchor Render', () => {
       />,
     );
 
-    // Link with local targetOffset (50) takes precedence
     fireEvent.click(container.querySelector('a[title="Link 1"]')!);
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 950);
 
-    // Link without local targetOffset uses global (100)
     fireEvent.click(container.querySelector('a[title="Link 2"]')!);
     await waitFakeTimer();
     expect(scrollToSpy).toHaveBeenLastCalledWith(0, 900);
 
-    // No global targetOffset, link uses default 0
     const { container: container3 } = render(
       <Anchor items={[{ key: 'link3', href: `#${hash}`, title: 'Link 3' }]} />,
     );
@@ -388,19 +385,15 @@ describe('Anchor Render', () => {
 
     const { container, rerender } = render(<Demo offset={100} />);
 
-    // Initial state - both links should be registered
     const links = container.querySelectorAll<HTMLElement>('.ant-anchor-link');
     expect(links).toHaveLength(2);
 
-    // Update targetOffset - this should not cause links to unregister
     rerender(<Demo offset={200} />);
 
-    // Links should still be registered after targetOffset update
     const linksAfterUpdate = container.querySelectorAll<HTMLElement>('.ant-anchor-link');
     expect(linksAfterUpdate).toHaveLength(2);
   });
 
-  // Test for coverage: unregister link should clean up targetOffset
   it('should clean up link targetOffset when link is unregistered', async () => {
     const hash = getHashUrl();
 
@@ -421,25 +414,20 @@ describe('Anchor Render', () => {
 
     const { rerender } = render(<Demo showSecondLink />);
 
-    // Initially both links should exist
     let links = document.querySelectorAll<HTMLElement>('.ant-anchor-link');
     expect(links).toHaveLength(2);
 
-    // Remove second link - this should trigger unregister and clean up targetOffset
     rerender(<Demo showSecondLink={false} />);
 
-    // Only first link should remain
     links = document.querySelectorAll<HTMLElement>('.ant-anchor-link');
     expect(links).toHaveLength(1);
   });
 
-  // Test for coverage: scroll detection should use link-level targetOffset
   it('should use link-level targetOffset when detecting active link during scroll', async () => {
     const hash1 = getHashUrl();
     const hash2 = getHashUrl();
 
     const root = createDiv();
-    // Place element below both threshold values to test link-specific offset
     render(
       <div>
         <h1 id={hash1}>Section 1</h1>
@@ -448,7 +436,6 @@ describe('Anchor Render', () => {
       { container: root },
     );
 
-    // Mock getBoundingClientRect to return positions that trigger both links at different offsets
     const originalGetBoundingClientRect = HTMLHeadingElement.prototype.getBoundingClientRect;
     HTMLHeadingElement.prototype.getBoundingClientRect = jest.fn().mockImplementation(function (
       this: HTMLElement,
@@ -474,46 +461,36 @@ describe('Anchor Render', () => {
       />,
     );
 
-    // Initial onChange should be called
     expect(onChange).toHaveBeenCalled();
 
-    // Trigger scroll event - the first link has targetOffset: 50, second uses global: 100
-    // First link's threshold = 50 + bounds(5) = 55
-    // Second link's threshold = 100 + bounds(5) = 105
-    // With top=60, first link should be active (60 <= 55 is false, but let's check logic)
     fireEvent.scroll(window);
 
     await waitFakeTimer();
 
-    // The scroll handler should have been called and used link-specific targetOffset
     expect(onChange).toHaveBeenCalled();
 
     HTMLHeadingElement.prototype.getBoundingClientRect = originalGetBoundingClientRect;
   });
 
-  // Tests for coverage: anchor without affix should have fixed class
-  it('should add fixed class when affix is false', () => {
-    const { container } = render(
+  it('should support different affix configurations', () => {
+    const { container: container1, unmount: unmount1 } = render(
       <Anchor
         affix={false}
         showInkInFixed={false}
         items={[{ key: 'link1', href: '#link1', title: 'Link 1' }]}
       />,
     );
-    const anchor = container.querySelector('.ant-anchor');
+    const anchor = container1.querySelector('.ant-anchor');
     expect(anchor).toHaveClass('ant-anchor-fixed');
-  });
+    unmount1();
 
-  // Test for coverage: affix as object
-  it('should accept affix as object and pass props to Affix', () => {
-    const { container } = render(
+    const { container: container2 } = render(
       <Anchor
         affix={{ className: 'custom-affix-class' } as any}
-        items={[{ key: 'link1', href: '#link1', title: 'Link 1' }]}
+        items={[{ key: 'link2', href: '#link2', title: 'Link 2' }]}
       />,
     );
-    // The anchor wrapper should exist
-    expect(container.querySelector('.ant-anchor-wrapper')).toBeTruthy();
+    expect(container2.querySelector('.ant-anchor-wrapper')).toBeTruthy();
   });
 
   it('onClick event', () => {
