@@ -60,14 +60,62 @@ jobs:
           merge-multiple: true
           path: imageSnapshots/
 
+      - name: detect baseline snapshots
+        id: baseline
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          SNAPSHOT_URL="https://antd-visual-diff.oss-accelerate.aliyuncs.com/$BASE_SHA/imageSnapshots.tar.gz"
+          echo "snapshot-url=$SNAPSHOT_URL" >> "$GITHUB_OUTPUT"
+
+          if curl --fail --silent --location --head "$SNAPSHOT_URL" > /dev/null; then
+            echo "mode=remote" >> "$GITHUB_OUTPUT"
+            echo "Use remote baseline snapshot: $SNAPSHOT_URL"
+          else
+            echo "mode=local" >> "$GITHUB_OUTPUT"
+            echo "Remote baseline snapshot missing, rebuild locally from $BASE_SHA"
+          fi
+
+      - name: checkout base commit
+        if: steps.baseline.outputs.mode == 'local'
+        uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: .visual-regression-base
+
+      - name: generate local baseline snapshots
+        if: steps.baseline.outputs.mode == 'local'
+        env:
+          BASE_DIR: .visual-regression-base
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          NODE_OPTIONS: --max_old_space_size=4096
+        run: |
+          node node_modules/puppeteer/install.mjs
+          ln -sfn ../node_modules "$BASE_DIR/node_modules"
+          cp .jest.js "$BASE_DIR/.jest.js"
+          cp .jest.image.js "$BASE_DIR/.jest.image.js"
+
+          (cd "$BASE_DIR" && bun run version)
+          (cd "$BASE_DIR" && bun run test:image -- --shard=1/2)
+          (cd "$BASE_DIR" && bun run test:image -- --shard=2/2)
+
+          rm -rf "imageSnapshots-$BASE_REF"
+          mv "$BASE_DIR/imageSnapshots" "imageSnapshots-$BASE_REF"
+
       # Execute visual regression diff task and zip then
       # output as visualRegressionReport.tar.gz
       - name: visual regression diff
         env:
           EVENT_NUMBER: ${{ github.event.number }}
-          BASE_REF: ${{ github.base_ref }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BASELINE_MODE: ${{ steps.baseline.outputs.mode }}
         run: |
-          bun run test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --max-workers=2
+          if [ "$BASELINE_MODE" = "local" ]; then
+            VISUAL_REGRESSION_USE_LOCAL_BASELINE=1 bun run test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --base-sha=$BASE_SHA --max-workers=2
+          else
+            bun run test:visual-regression -- --pr-id=$EVENT_NUMBER --base-ref=$BASE_REF --base-sha=$BASE_SHA --max-workers=2
+          fi
 
       # Upload report in `visualRegressionReport`
       - name: upload report artifact

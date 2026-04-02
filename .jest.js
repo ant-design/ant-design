@@ -3,6 +3,7 @@ const compileModules = [
   'rc-tween-one',
   '@babel',
   '@ant-design',
+  '@csstools',
   'countup.js',
   '.pnpm',
   '@asamuzakjp/css-color',
