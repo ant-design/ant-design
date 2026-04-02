@@ -17,16 +17,13 @@ tag: 6.3.0
 
 ## API {#api}
 
-| 属性     | 说明           | 类型             | 默认值 | 版本  |
-| -------- | -------------- | ---------------- | ------ | ----- |
-| maxWidth | 容器的最大宽度 | number \| string | -      | 6.4.0 |
-| minWidth | 容器的最小宽度 | number \| string | -      | 6.4.0 |
-| type     | [CSS 容器类型] | string           | -      | 6.4.0 |
-| name     | [CSS 容器名称] | string           | -      | 6.4.0 |
+| 属性 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| maxWidth | 容器的最大宽度 | number \| string | - | 6.4.0 |
+| minWidth | 容器的最小宽度 | number \| string | - | 6.4.0 |
+| name | [CSS 容器名称](https://developer.mozilla.org/en-US/docs/Web/CSS/container-name) | string | - | 6.4.0 |
+| type | [CSS 容器类型](https://developer.mozilla.org/en-US/docs/Web/CSS/container-type) | string | - | 6.4.0 |
 
 ## Design Token
 
 <ComponentTokenTable component="Container"></ComponentTokenTable>
-
-[CSS 容器类型]: https://developer.mozilla.org/en-US/docs/Web/CSS/container-type
-[CSS 容器名称]: https://developer.mozilla.org/en-US/docs/Web/CSS/container-name
