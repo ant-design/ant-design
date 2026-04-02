@@ -26,7 +26,7 @@ import type { FlexProps } from '../flex/interface';
 import type { FloatButtonGroupProps, FloatButtonProps } from '../float-button';
 import type { FormProps } from '../form';
 import type { ImageProps } from '../image';
-import type { InputProps, SearchProps, TextAreaProps } from '../input';
+import type { InputProps, PasswordProps, SearchProps, TextAreaProps } from '../input';
 import type { InputNumberProps } from '../input-number';
 import type { OTPProps } from '../input/OTP';
 import type { ListItemProps } from '../list';
@@ -216,6 +216,7 @@ export type ModalConfig = ComponentStyleConfig &
     | 'okButtonProps'
     | 'cancelButtonProps'
     | 'mask'
+    | 'focusable'
   > & {
     infoIcon?: React.ReactNode;
     successIcon?: React.ReactNode;
@@ -257,7 +258,11 @@ export type BreadcrumbConfig = ComponentStyleConfig &
 export type InputConfig = ComponentStyleConfig &
   Pick<InputProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
 
-export type InputSearchConfig = ComponentStyleConfig & Pick<SearchProps, 'classNames' | 'styles'>;
+export type InputPasswordConfig = ComponentStyleConfig &
+  Pick<PasswordProps, 'classNames' | 'styles' | 'iconRender'>;
+
+export type InputSearchConfig = ComponentStyleConfig &
+  Pick<SearchProps, 'classNames' | 'styles' | 'searchIcon'>;
 
 export type TextAreaConfig = ComponentStyleConfig &
   Pick<TextAreaProps, 'autoComplete' | 'classNames' | 'styles' | 'allowClear' | 'variant'>;
@@ -289,7 +294,7 @@ export type CalendarConfig = ComponentStyleConfig &
 export type CardMetaConfig = ComponentStyleConfig & Pick<CardMetaProps, 'classNames' | 'styles'>;
 
 export type DrawerConfig = ComponentStyleConfig &
-  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask'>;
+  Pick<DrawerProps, 'classNames' | 'styles' | 'closeIcon' | 'closable' | 'mask' | 'focusable'>;
 
 export type DividerConfig = ComponentStyleConfig & Pick<DividerProps, 'classNames' | 'styles'>;
 
@@ -331,7 +336,19 @@ export type PaginationConfig = ComponentStyleConfig &
 export type ProgressConfig = ComponentStyleConfig & Pick<ProgressProps, 'classNames' | 'styles'>;
 
 export type SelectConfig = ComponentStyleConfig &
-  Pick<SelectProps, 'showSearch' | 'variant' | 'classNames' | 'styles' | 'allowClear'>;
+  Pick<
+    SelectProps,
+    | 'showSearch'
+    | 'variant'
+    | 'classNames'
+    | 'styles'
+    | 'allowClear'
+    | 'clearIcon'
+    | 'loadingIcon'
+    | 'menuItemSelectedIcon'
+    | 'removeIcon'
+    | 'suffixIcon'
+  >;
 
 export type SpaceConfig = ComponentStyleConfig & Pick<SpaceProps, 'size' | 'classNames' | 'styles'>;
 
@@ -362,6 +379,8 @@ export type QRcodeConfig = ComponentStyleConfig & Pick<QRCodeProps, 'classNames'
 export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | 'classNames'>;
 
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
+
+export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
 
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
@@ -410,10 +429,10 @@ export type TimePickerConfig = ComponentStyleConfig &
 export type TimelineConfig = ComponentStyleConfig & Pick<TimelineProps, 'classNames' | 'styles'>;
 
 export type MentionsConfig = ComponentStyleConfig &
-  Pick<MentionsProps, 'variant' | 'classNames' | 'styles'>;
+  Pick<MentionsProps, 'variant' | 'classNames' | 'styles' | 'allowClear'>;
 
 export type UploadConfig = ComponentStyleConfig &
-  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest' | 'progress'>;
+  Pick<UploadProps, 'classNames' | 'styles' | 'customRequest' | 'progress' | 'accept'>;
 
 export type RibbonConfig = ComponentStyleConfig & Pick<RibbonProps, 'classNames' | 'styles'>;
 
@@ -427,6 +446,8 @@ export const Variants = ['outlined', 'borderless', 'filled', 'underlined'] as co
 
 export type Variant = (typeof Variants)[number];
 
+export type TriggerType = 'click' | 'pointerdown' | 'pointerup' | 'mousedown' | 'mouseup';
+
 export interface WaveConfig {
   /**
    * @descCN 是否禁用水波纹效果。
@@ -439,17 +460,24 @@ export interface WaveConfig {
    * @descEN Customized wave effect.
    */
   showEffect?: ShowWaveEffect;
+  /**
+   * @descCN 触发水波纹效果的事件。
+   * @descEN The event that triggers the wave effect.
+   * @default 'click'
+   */
+  triggerType?: TriggerType;
 }
 
 export interface ConfigComponentProps {
   input?: InputConfig;
+  inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;
   textArea?: TextAreaConfig;
   otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   space?: SpaceConfig;
-  splitter?: ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
+  splitter?: SplitterConfig;
   form?: FormConfig;
   select?: SelectConfig;
   alert?: AlertConfig;

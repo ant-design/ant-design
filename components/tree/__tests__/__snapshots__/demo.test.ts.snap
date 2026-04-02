@@ -6247,7 +6247,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-tree-switcher-icon"
+                class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -6298,7 +6298,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-tree-switcher-icon"
+                class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -6460,7 +6460,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-tree-switcher-icon"
+                class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
               >
                 <svg
@@ -6511,7 +6511,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx correctly 1`] = `
             >
               <span
                 aria-label="down"
-                class="anticon anticon-down ant-tree-switcher-icon"
+                class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
               >
                 <svg

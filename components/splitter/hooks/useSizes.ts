@@ -1,5 +1,6 @@
 import React from 'react';
 
+import isNonNullable from '../../_util/isNonNullable';
 import type { PanelProps } from '../interface';
 import { autoPtgSizes } from './sizeUtil';
 
@@ -31,9 +32,7 @@ export default function useSizes(items: PanelProps[], containerSize?: number) {
   const sizes = React.useMemo(() => {
     // If any panel has a `size` passed as a prop, use `propSizes` and calculate all other panel sizes that don't have a `size` defined by the prop.
     // If no panel has received a value for the `size` prop, use `innerSizes`.
-    return propSizes.some((propSize) => propSize !== null && propSize !== undefined)
-      ? propSizes
-      : innerSizes;
+    return propSizes.some(isNonNullable) ? propSizes : innerSizes;
   }, [itemsCount, innerSizes, propSizes]);
 
   const postPercentMinSizes = React.useMemo(

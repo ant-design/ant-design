@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 import type { TableProps, TableRef } from '..';
 import Table from '..';
@@ -6,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Popover from '../../popover';
 
 const { Column, ColumnGroup } = Table;
 
@@ -430,6 +431,55 @@ describe('Table', () => {
     fireEvent.click(container.querySelector('.ant-table-filter-trigger')!);
     await waitFakeTimer();
     expect(container.querySelector('.ant-dropdown')).toBeTruthy();
+  });
+
+  it('should not render duplicated controlled Popover in column title when scroll is enabled', async () => {
+    jest.useFakeTimers();
+
+    try {
+      const Demo = () => {
+        const [open, setOpen] = useState(false);
+
+        return (
+          <Table
+            pagination={false}
+            scroll={{ y: 200 }}
+            columns={[
+              {
+                key: 'name',
+                dataIndex: 'name',
+                title: (
+                  <Popover
+                    open={open}
+                    onOpenChange={setOpen}
+                    trigger="click"
+                    content={<button type="button">Popover Content</button>}
+                  >
+                    <button type="button">Name</button>
+                  </Popover>
+                ),
+              },
+            ]}
+            dataSource={[{ key: '1', name: 'Bamboo' }]}
+          />
+        );
+      };
+
+      const { container } = render(<Demo />);
+
+      fireEvent.click(container.querySelector('thead button')!);
+      await waitFakeTimer();
+
+      expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1);
+
+      fireEvent.click(document.body.querySelector('.ant-popover button')!);
+      await waitFakeTimer();
+
+      expect(document.body.querySelectorAll('.ant-popover')).toHaveLength(1);
+    } finally {
+      jest.runOnlyPendingTimers();
+      jest.useRealTimers();
+    }
   });
 
   it('support reference', () => {

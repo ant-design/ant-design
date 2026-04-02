@@ -3,7 +3,11 @@ import * as React from 'react';
 import type { BaseSelectRef, SelectProps as RcSelectProps } from '@rc-component/select';
 import RcSelect, { OptGroup, Option } from '@rc-component/select';
 import type { OptionProps } from '@rc-component/select/lib/Option';
-import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib/Select';
+import type {
+  BaseOptionType,
+  DefaultOptionType,
+  SearchConfig,
+} from '@rc-component/select/lib/Select';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
@@ -12,6 +16,7 @@ import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
+import normalizeIcon from '../_util/normalizeIcon';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -109,6 +114,8 @@ export interface InternalSelectProps<
   variant?: Variant;
   classNames?: SelectSemanticAllType['classNamesAndFn'];
   styles?: SelectSemanticAllType['stylesAndFn'];
+  loadingIcon?: React.ReactNode;
+  showSearch?: boolean | (SearchConfig<OptionType> & { searchIcon?: React.ReactNode });
 }
 
 export interface SelectProps<
@@ -189,6 +196,8 @@ const InternalSelect = <
     onOpenChange,
     styles,
     classNames,
+    clearIcon,
+    showSearch,
     ...rest
   } = props;
 
@@ -203,12 +212,17 @@ const InternalSelect = <
   } = React.useContext(ConfigContext);
 
   const {
-    showSearch,
+    showSearch: contextShowSearch,
     allowClear: contextAllowClear,
     style: contextStyle,
     styles: contextStyles,
     className: contextClassName,
     classNames: contextClassNames,
+    clearIcon: contextClearIcon,
+    loadingIcon: contextLoadingIcon,
+    menuItemSelectedIcon: contextMenuItemSelectedIcon,
+    removeIcon: contextRemoveIcon,
+    suffixIcon: contextSuffixIcon,
   } = useComponentConfig('select');
 
   const [, token] = useToken();
@@ -271,7 +285,12 @@ const InternalSelect = <
   }
 
   // ===================== Icons =====================
-  const { suffixIcon, itemIcon, removeIcon, clearIcon } = useIcons({
+  const {
+    suffixIcon,
+    itemIcon,
+    removeIcon,
+    clearIcon: mergedClearIcon,
+  } = useIcons({
     ...rest,
     multiple: isMultiple,
     hasFeedback,
@@ -279,10 +298,20 @@ const InternalSelect = <
     showSuffixIcon,
     prefixCls,
     componentName: 'Select',
+    clearIcon,
+    searchIcon: normalizeIcon(showSearch, 'searchIcon'),
+    contextClearIcon,
+    contextLoadingIcon,
+    contextMenuItemSelectedIcon,
+    contextRemoveIcon,
+    contextSearchIcon: normalizeIcon(contextShowSearch, 'searchIcon'),
+    contextSuffixIcon,
   });
 
   const finalAllowClear = allowClear ?? contextAllowClear;
-  const mergedAllowClear = finalAllowClear === true ? { clearIcon } : finalAllowClear;
+  const mergedAllowClear =
+    finalAllowClear === true ? { clearIcon: mergedClearIcon } : finalAllowClear;
+  const mergedShowSearch = showSearch ?? contextShowSearch;
 
   const selectProps = omit(rest, ['suffixIcon', 'itemIcon' as any]);
 
@@ -403,7 +432,7 @@ const InternalSelect = <
       virtual={virtual}
       classNames={mergedClassNames}
       styles={mergedStyles}
-      showSearch={showSearch}
+      showSearch={mergedShowSearch}
       {...selectProps}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       popupMatchSelectWidth={mergedPopupMatchSelectWidth}
