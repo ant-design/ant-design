@@ -231,7 +231,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
   const getInternalCurrentAnchor = (
     _links: string[],
-    _offsetTop = 0,
+    _offsetTop: number,
     _bounds = 5,
     _linkTargetOffset?: Record<string, number>,
   ): string => {
