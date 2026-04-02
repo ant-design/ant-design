@@ -2,6 +2,11 @@ import React from 'react';
 
 import { fireEvent, render, sleep } from '../utils';
 
+type FocusableRef = {
+  focus: () => void;
+  blur: () => void;
+};
+
 const focusTest = (
   Component: React.ComponentType<any>,
   { refFocus = false, blurDelay = 0 } = {},
@@ -40,42 +45,47 @@ const focusTest = (
       document.body.removeChild(containerHtml);
     });
 
-    const getElement = (container: HTMLElement) =>
-      container.querySelector('input') ||
-      container.querySelector('button') ||
-      container.querySelector('textarea') ||
-      container.querySelector('div[tabIndex]');
+    const getElement = (container: HTMLElement): HTMLElement => {
+      const element =
+        container.querySelector<HTMLElement>('input') ||
+        container.querySelector<HTMLElement>('button') ||
+        container.querySelector<HTMLElement>('textarea') ||
+        container.querySelector<HTMLElement>('div[tabIndex]');
+
+      expect(element).not.toBeNull();
+      return element!;
+    };
 
     if (refFocus) {
       it('Ref: focus() and onFocus', () => {
         const onFocus = jest.fn();
-        const ref = React.createRef<any>();
+        const ref = React.createRef<FocusableRef>();
         const { container } = render(
           <div>
             <Component onFocus={onFocus} ref={ref} />
           </div>,
         );
-        ref.current.focus();
+        ref.current!.focus();
         expect(focused).toBeTruthy();
 
-        fireEvent.focus(getElement(container)!);
+        fireEvent.focus(getElement(container));
         expect(onFocus).toHaveBeenCalled();
       });
 
       it('Ref: blur() and onBlur', async () => {
         jest.useRealTimers();
         const onBlur = jest.fn();
-        const ref = React.createRef<any>();
+        const ref = React.createRef<FocusableRef>();
         const { container } = render(
           <div>
             <Component onBlur={onBlur} ref={ref} />
           </div>,
         );
 
-        ref.current.blur();
+        ref.current!.blur();
         expect(blurred).toBeTruthy();
 
-        fireEvent.blur(getElement(container)!);
+        fireEvent.blur(getElement(container));
         await sleep(blurDelay);
         expect(onBlur).toHaveBeenCalled();
       });
@@ -86,14 +96,14 @@ const focusTest = (
 
         expect(focused).toBeTruthy();
 
-        fireEvent.focus(getElement(container)!);
+        fireEvent.focus(getElement(container));
         expect(onFocus).toHaveBeenCalled();
       });
     } else {
       it('focus() and onFocus', () => {
         const handleFocus = jest.fn();
         const { container } = render(<Component onFocus={handleFocus} />);
-        fireEvent.focus(getElement(container)!);
+        fireEvent.focus(getElement(container));
         expect(handleFocus).toHaveBeenCalled();
       });
 
@@ -101,9 +111,9 @@ const focusTest = (
         jest.useRealTimers();
         const handleBlur = jest.fn();
         const { container } = render(<Component onBlur={handleBlur} />);
-        fireEvent.focus(getElement(container)!);
+        fireEvent.focus(getElement(container));
         await sleep(0);
-        fireEvent.blur(getElement(container)!);
+        fireEvent.blur(getElement(container));
         await sleep(0);
         expect(handleBlur).toHaveBeenCalled();
       });
