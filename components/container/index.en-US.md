@@ -5,7 +5,7 @@ title: Container
 description: Page content width container.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
-tag: 6.3.0
+tag: 6.4.0
 ---
 
 ## Examples
@@ -16,12 +16,12 @@ tag: 6.3.0
 
 ## API
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| maxWidth | The maximum width of the container | number \| string | - | 6.4.0 |
-| minWidth | The minimum width of the container | number \| string | - | 6.4.0 |
-| name | [CSS container name](https://developer.mozilla.org/en-US/docs/Web/CSS/container-name) | string | - | 6.4.0 |
-| type | [CSS container type](https://developer.mozilla.org/en-US/docs/Web/CSS/container-type) | string | - | 6.4.0 |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| maxWidth | The maximum width of the container | number \| string | - | 6.4.0 | 6.4.0 |
+| minWidth | The minimum width of the container | number \| string | - | 6.4.0 | 6.4.0 |
+| name | [CSS container name](https://developer.mozilla.org/en-US/docs/Web/CSS/container-name) | string | - | × |
+| type | [CSS container type](https://developer.mozilla.org/en-US/docs/Web/CSS/container-type) | string | - | × |
 
 ## Design Token
 

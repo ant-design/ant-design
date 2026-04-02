@@ -6,7 +6,7 @@ subtitle: 容器
 description: 页面内容宽度容器。
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*4i58ToAcxaYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*HdS6Q5vUCDcAAAAAAAAAAAAADrJ8AQ/original
-tag: 6.3.0
+tag: 6.4.0
 ---
 
 ## 代码演示 {#examples}
@@ -17,12 +17,12 @@ tag: 6.3.0
 
 ## API {#api}
 
-| 属性 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| maxWidth | 容器的最大宽度 | number \| string | - | 6.4.0 |
-| minWidth | 容器的最小宽度 | number \| string | - | 6.4.0 |
-| name | [CSS 容器名称](https://developer.mozilla.org/en-US/docs/Web/CSS/container-name) | string | - | 6.4.0 |
-| type | [CSS 容器类型](https://developer.mozilla.org/en-US/docs/Web/CSS/container-type) | string | - | 6.4.0 |
+| 属性 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| maxWidth | 容器的最大宽度 | number \| string | - | 6.4.0 | 6.4.0 |
+| minWidth | 容器的最小宽度 | number \| string | - | 6.4.0 | 6.4.0 |
+| name | [CSS 容器名称](https://developer.mozilla.org/en-US/docs/Web/CSS/container-name) | string | - | × |
+| type | [CSS 容器类型](https://developer.mozilla.org/en-US/docs/Web/CSS/container-type) | string | - | × |
 
 ## Design Token
 

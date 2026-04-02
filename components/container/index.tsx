@@ -1,9 +1,10 @@
 import React from 'react';
+import { mergeProps } from '@rc-component/util';
 import clsx from 'clsx';
 
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
-import { ConfigContext, useComponentConfig } from '../config-provider/context';
+import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -12,67 +13,59 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   minWidth?: number | string;
   type?: string;
   name?: string;
-  rootClassName?: string;
 }
 
+const defaultProps: Partial<ContainerProps> = {};
+
 export default function Container(props: ContainerProps) {
+  const config = useComponentConfig('container');
   const {
+    getPrefixCls,
+    getPopupContainer,
+    renderEmpty,
+    classNames,
+    styles,
+    direction,
+    prefixCls: customizePrefixCls,
     maxWidth,
     minWidth,
     type,
     name,
     children,
-    className,
-    prefixCls: customizePrefixCls,
-    style,
-    rootClassName,
     ...rest
-  } = props;
-  const {
-    maxWidth: contextMaxWidth,
-    minWidth: contextMinWidth,
-    className: contextClassName,
-    style: contextStyle,
-  } = useComponentConfig('container');
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  } = mergeProps(defaultProps, config, props);
 
   const prefixCls = getPrefixCls('container', customizePrefixCls);
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const mergedMaxWidth = maxWidth ?? contextMaxWidth;
-  const mergedMinWidth = minWidth ?? contextMinWidth;
-
   const isMaxWidthBreakpoint =
-    typeof mergedMaxWidth === 'string' && responsiveArray.includes(mergedMaxWidth as Breakpoint);
+    typeof maxWidth === 'string' && responsiveArray.includes(maxWidth as Breakpoint);
   const isMinWidthBreakpoint =
-    typeof mergedMinWidth === 'string' && responsiveArray.includes(mergedMinWidth as Breakpoint);
-
-  const classNames = clsx(
-    prefixCls,
-    {
-      [`${prefixCls}-max-width-${mergedMaxWidth}`]: isMaxWidthBreakpoint,
-      [`${prefixCls}-min-width-${mergedMinWidth}`]: isMinWidthBreakpoint,
-    },
-    hashId,
-    cssVarCls,
-    contextClassName,
-    className,
-    rootClassName,
-  );
+    typeof minWidth === 'string' && responsiveArray.includes(minWidth as Breakpoint);
 
   return (
     <div
-      className={classNames}
+      {...rest}
+      className={clsx(
+        prefixCls,
+        {
+          [`${prefixCls}-max-width-${maxWidth}`]: isMaxWidthBreakpoint,
+          [`${prefixCls}-min-width-${minWidth}`]: isMinWidthBreakpoint,
+        },
+        hashId,
+        cssVarCls,
+        config.className,
+        props.className,
+      )}
       style={{
-        ...contextStyle,
-        ...style,
-        maxWidth: isMaxWidthBreakpoint ? undefined : mergedMaxWidth,
-        minWidth: isMinWidthBreakpoint ? undefined : mergedMinWidth,
+        ...config.style,
+        ...props.style,
+        maxWidth: isMaxWidthBreakpoint ? undefined : maxWidth,
+        minWidth: isMinWidthBreakpoint ? undefined : minWidth,
         containerType: type,
         containerName: name,
       }}
-      {...rest}
     >
       {children}
     </div>
