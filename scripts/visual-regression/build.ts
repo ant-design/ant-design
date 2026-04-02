@@ -23,6 +23,8 @@ const ALI_OSS_BUCKET = 'antd-visual-diff';
 const REPORT_DIR = path.join(ROOT_DIR, './visualRegressionReport');
 
 const isLocalEnv = process.env.LOCAL;
+const useLocalBaselineEnv = process.env.VISUAL_REGRESSION_USE_LOCAL_BASELINE;
+const git = simpleGit();
 
 const compareScreenshots = async (
   baseImgPath: string,
@@ -97,11 +99,38 @@ async function downloadFile(url: string, destPath: string) {
 
 async function getBranchLatestRef(branchName: string) {
   const baseImageRefUrl = `${ossDomain}/${branchName}/visual-regression-ref.txt`;
-  // get content from baseImageRefText
   const res = await fetch(baseImageRefUrl);
+  if (!res.ok || res.status !== 200) {
+    throw new Error(`Missing visual regression ref: ${new URL(baseImageRefUrl).pathname}`);
+  }
+
   const text = await res.text();
   const ref = text.trim();
+  assert(ref, `Empty visual regression ref from ${branchName}`);
   return ref;
+}
+
+async function getBranchHeadRef(branchName: string) {
+  const remoteNames = ['origin', 'upstream'];
+
+  for (const remoteName of remoteNames) {
+    try {
+      await git.raw([
+        'fetch',
+        '--depth=1',
+        remoteName,
+        `refs/heads/${branchName}:refs/remotes/${remoteName}/${branchName}`,
+      ]);
+
+      return (
+        await git.raw(['rev-parse', '--verify', `refs/remotes/${remoteName}/${branchName}`])
+      ).trim();
+    } catch {
+      // Ignore missing remote branch and continue trying other remotes.
+    }
+  }
+
+  return (await git.raw(['rev-parse', '--verify', branchName])).trim();
 }
 
 async function downloadBaseSnapshots(ref: string, targetDir: string) {
@@ -147,8 +176,6 @@ export interface IBadCase {
   weight: number;
 }
 
-const git = simpleGit();
-
 async function parseArgs() {
   // parse args from -- --pr-id=123 --base_ref=feature --max-workers=2
   const argv = minimist(process.argv.slice(2));
@@ -156,6 +183,7 @@ async function parseArgs() {
   assert(prId, 'Missing --pr-id');
   const baseRef = argv['base-ref'];
   assert(baseRef, 'Missing --base-ref');
+  const baseSha = argv['base-sha'];
 
   const maxWorkers = argv['max-workers'] ? Number.parseInt(argv['max-workers'], 10) : 1;
 
@@ -164,6 +192,7 @@ async function parseArgs() {
   return {
     prId,
     baseRef,
+    baseSha,
     currentRef: latest?.hash.slice(0, 8) || '',
     maxWorkers,
   };
@@ -357,26 +386,31 @@ async function boot() {
   const args = await parseArgs();
   console.log(`Args: ${JSON.stringify(args)}`);
 
-  const { prId, baseRef: targetBranch = 'master', currentRef, maxWorkers } = args;
+  const { prId, baseRef: targetBranch = 'master', baseSha, currentRef, maxWorkers } = args;
 
   const baseImgSourceDir = path.resolve(ROOT_DIR, `./imageSnapshots-${targetBranch}`);
+  const hasLocalBaseSnapshots = fse.existsSync(baseImgSourceDir);
 
   const publicPath = isLocalEnv ? '.' : `${ossDomain}/pr-${prId}/${path.basename(REPORT_DIR)}`;
 
   /* --- prepare stage --- */
   console.log(
     chalk.green(
-      `Preparing image snapshots from latest \`${targetBranch}\` branch for pr \`${prId}\`\n`,
+      `Preparing image snapshots from \`${baseSha || targetBranch}\` for pr \`${prId}\`\n`,
     ),
   );
   await fse.ensureDir(baseImgSourceDir);
 
-  const targetCommitSha = await getBranchLatestRef(targetBranch);
+  const targetCommitSha =
+    baseSha ||
+    ((isLocalEnv || useLocalBaselineEnv) && hasLocalBaseSnapshots
+      ? await getBranchHeadRef(targetBranch)
+      : await getBranchLatestRef(targetBranch));
   assert(targetCommitSha, `Missing commit sha from ${targetBranch}`);
 
-  if (!isLocalEnv) {
+  if (!isLocalEnv && !useLocalBaselineEnv) {
     await downloadBaseSnapshots(targetCommitSha, baseImgSourceDir);
-  } else if (!fse.existsSync(baseImgSourceDir)) {
+  } else if (!hasLocalBaseSnapshots) {
     console.log(
       chalk.yellow(
         `Please prepare image snapshots in folder \`$projectRoot/${path.basename(
