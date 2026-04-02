@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from 'react';
 import { CheckOutlined, SketchOutlined } from '@ant-design/icons';
 import { App } from 'antd';
 import { createStaticStyles } from 'antd-style';
-import copy from '../../../../components/_util/copy';
+import copy from 'antd/lib/_util/copy';
 import { nodeToGroup } from 'html2sketch';
 
 import type { AntdPreviewerProps } from '.';
@@ -27,7 +27,7 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
     position: relative;
     border: 1px solid ${cssVar.colorBorderSecondary};
     border-radius: ${cssVar.borderRadius};
-    padding: ${cssVar.paddingMD} ${cssVar.paddingLG} ${cssVar.paddingMD * 2};
+    padding: ${cssVar.paddingMD} ${cssVar.paddingLG} calc(${cssVar.paddingMD} * 2);
     margin-bottom: ${cssVar.marginLG};
   `,
   title: css`
@@ -67,7 +67,7 @@ const styles = createStaticStyles(({ cssVar, css }) => ({
   `,
   tip: css`
     color: ${cssVar.colorTextTertiary};
-    margin-top: ${cssVar.marginMD * 2};
+    margin-top: calc(${cssVar.marginMD} * 2);
   `,
 }));
 

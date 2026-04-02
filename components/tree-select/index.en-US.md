@@ -69,7 +69,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~searchValue~~ | Work with `onSearch` to make search value controlled | string | - |  |
 | showCheckedStrategy | The way show selected item in box when `treeCheckable` set. **Default:** just show child nodes. **`TreeSelect.SHOW_ALL`:** show all checked treeNodes (include parent treeNode). **`TreeSelect.SHOW_PARENT`:** show checked treeNodes (just show parent treeNode) | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | Support search or not | boolean \| [Object](#showsearch) | single: false \| multiple: true |  |
-| size | To set the size of the select input | `large` \| `middle` \| `small` | - |  |
+| size | To set the size of the select input | `large` \| `medium` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | The custom suffix icon | ReactNode | `<DownOutlined />` |  |
 | switcherIcon | Customize collapse/expand icon of tree node | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |

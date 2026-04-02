@@ -83,7 +83,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | preserve | Keep field value even when field removed. You can get the preserve field value by `getFieldsValue(true)` | boolean | true | 4.4.0 |
 | requiredMark | Required mark style. Can use required mark or optional mark. You can not config to single Form.Item since this is a Form level config | boolean \| `optional` \| ((label: ReactNode, info: { required: boolean }) => ReactNode) | true | `renderProps`: 5.9.0 |
 | scrollToFirstError | Auto scroll to first failed field when submit | boolean \| [Options](https://github.com/stipsan/scroll-into-view-if-needed/tree/ece40bd9143f48caf4b99503425ecb16b0ad8249#options) \| { focus: boolean } | false | focus: 5.24.0 |
-| size | Set field component size (antd components only) | `small` \| `middle` \| `large` | - |  |
+| size | Set field component size (antd components only) | `small` \| `medium` \| `large` | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | tooltip | Config tooltip props | [TooltipProps](/components/tooltip#api) & { icon?: ReactNode } | - | 6.3.0 |
 | validateMessages | Validation prompt template, description [see below](#validatemessages) | [ValidateMessages](https://github.com/ant-design/ant-design/blob/6234509d18bac1ac60fbb3f92a5b2c6a6361295a/components/locale/en_US.ts#L88-L134) | - |  |
@@ -578,6 +578,10 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 <ComponentTokenTable component="Form"></ComponentTokenTable>
 
 ## FAQ
+
+### Why can't Segmented be disabled by Form `disabled`? {#faq-segmented-cannot-disabled}
+
+Segmented is designed as a data display component, not a form control component. Although it can be used as a form control similar to Radio, it was not designed for this purpose. Therefore, its behavior is more similar to the Tabs component and will not be disabled by Form's `disabled` prop. For related discussions, see [#54749](https://github.com/ant-design/ant-design/pull/54749#issuecomment-3797737096).
 
 ### Why can't Switch, Checkbox bind data? {#faq-switch-checkbox-binding}
 

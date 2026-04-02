@@ -10,6 +10,9 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
   box: css`
     position: relative;
     transition: all ${cssVar.motionDurationSlow};
+    background-size: cover;
+    background-position: 50% 0%;
+    background-repeat: no-repeat;
   `,
   container: css`
     position: absolute;
@@ -41,29 +44,75 @@ export interface GroupProps {
   /** 是否不使用两侧 margin */
   collapse?: boolean;
   decoration?: React.ReactNode;
+  /** 预加载的背景图片列表 */
+  backgroundPrefetchList?: string[];
+  /** 标题右侧的操作按钮 */
+  extra?: React.ReactNode;
 }
 
 const Group: React.FC<React.PropsWithChildren<GroupProps>> = (props) => {
-  const { id, title, titleColor, description, children, decoration, background, collapse } = props;
+  const {
+    id,
+    title,
+    titleColor,
+    description,
+    children,
+    decoration,
+    background,
+    collapse,
+    backgroundPrefetchList,
+    extra,
+  } = props;
+
+  // 预加载背景图片
+  React.useEffect(() => {
+    if (backgroundPrefetchList && backgroundPrefetchList.length > 0) {
+      backgroundPrefetchList.forEach((url) => {
+        if (url && url.startsWith('https')) {
+          const img = new Image();
+          img.src = url;
+        }
+      });
+    }
+  }, [backgroundPrefetchList]);
+
   const token = useTheme();
   const { isMobile } = React.use(SiteContext);
   return (
-    <div style={{ backgroundColor: background }} className={styles.box}>
+    <div
+      style={
+        background?.startsWith('https')
+          ? { backgroundImage: `url(${background})` }
+          : { backgroundColor: background }
+      }
+      className={styles.box}
+    >
       <div className={styles.container}>{decoration}</div>
       <GroupMaskLayer style={{ paddingBlock: token.marginFarSM }}>
         <div className={styles.typographyWrapper}>
-          <Typography.Title
-            id={id}
-            level={1}
+          <div
             style={{
-              fontWeight: 900,
-              color: titleColor,
-              // Special for the title
-              fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: token.paddingXS,
             }}
           >
-            {title}
-          </Typography.Title>
+            <Typography.Title
+              id={id}
+              level={1}
+              style={{
+                fontWeight: 900,
+                color: titleColor,
+                margin: 0,
+                // Special for the title
+                fontSize: isMobile ? token.fontSizeHeading2 : token.fontSizeHeading1,
+              }}
+            >
+              {title}
+            </Typography.Title>
+            {extra}
+          </div>
           <Typography.Paragraph
             style={{
               color: titleColor,

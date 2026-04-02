@@ -22,7 +22,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Flex gap="middle">
+      <Flex gap="medium">
         <Button type="primary" onClick={() => setShowModal(true)}>
           Show in Modal
         </Button>

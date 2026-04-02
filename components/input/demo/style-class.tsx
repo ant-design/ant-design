@@ -1,10 +1,10 @@
 import React from 'react';
 import { Flex, Input } from 'antd';
-import type { GetProps } from 'antd';
+import type { GetProp, GetProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const styles = createStaticStyles(({ css, cssVar }) => ({
-  focusEffect: css`
+  root: css`
     border-width: ${cssVar.lineWidth};
     border-radius: ${cssVar.borderRadius};
     transition: box-shadow ${cssVar.motionDurationMid};
@@ -27,51 +27,55 @@ type SearchProps = GetProps<typeof Input.Search>;
 const { Search, TextArea, OTP, Password } = Input;
 
 const stylesFn: InputProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderColor: '#696FC7',
       },
-    } satisfies InputProps['styles'];
+    };
   }
   return {};
 };
 
-const stylesFnTextArea: TextAreaProps['styles'] = (info) => {
+const stylesFnTextArea: TextAreaProps['styles'] = (
+  info,
+): GetProp<TextAreaProps, 'styles', 'Return'> => {
   if (info.props.showCount) {
     return {
       root: { borderColor: '#BDE3C3' },
       textarea: { resize: 'none' },
       count: { color: '#BDE3C3' },
-    } satisfies TextAreaProps['styles'];
+    };
   }
   return {};
 };
 
-const stylesFnPassword: PasswordProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+const stylesFnPassword: PasswordProps['styles'] = (
+  info,
+): GetProp<PasswordProps, 'styles', 'Return'> => {
+  if (info.props.size === 'medium') {
     return {
       root: {
         borderColor: '#F5D3C4',
       },
-    } satisfies PasswordProps['styles'];
+    };
   }
   return {};
 };
 
-const stylesFnOTP: OTPProps['styles'] = (info) => {
-  if (info.props.size === 'middle') {
+const stylesFnOTP: OTPProps['styles'] = (info): GetProp<OTPProps, 'styles', 'Return'> => {
+  if (info.props.size === 'medium') {
     return {
       input: {
         borderColor: '#6E8CFB',
         width: 32,
       },
-    } satisfies OTPProps['styles'];
+    };
   }
   return {};
 };
 
-const stylesFnSearch: SearchProps['styles'] = (info) => {
+const stylesFnSearch: SearchProps['styles'] = (info): GetProp<SearchProps, 'styles', 'Return'> => {
   if (info.props.size === 'large') {
     return {
       root: { color: '#4DA8DA' },
@@ -83,7 +87,7 @@ const stylesFnSearch: SearchProps['styles'] = (info) => {
         root: { color: '#4DA8DA', borderColor: '#4DA8DA' },
         icon: { color: '#4DA8DA' },
       },
-    } satisfies SearchProps['styles'];
+    };
   }
   return {};
 };
@@ -92,16 +96,12 @@ const App: React.FC = () => {
   const classNames = styles;
   return (
     <Flex vertical gap="large">
-      <Input
-        classNames={{ root: classNames.focusEffect }}
-        placeholder="Object"
-        name="input-object"
-      />
+      <Input classNames={classNames} placeholder="Object" name="input-object" />
       <Input
         classNames={classNames}
         styles={stylesFn}
         placeholder="Function"
-        size="middle"
+        size="medium"
         name="input-fn"
       />
       <TextArea
@@ -115,10 +115,10 @@ const App: React.FC = () => {
         classNames={classNames}
         styles={stylesFnPassword}
         value="Password"
-        size="middle"
+        size="medium"
         name="password-fn"
       />
-      <OTP classNames={classNames} styles={stylesFnOTP} size="middle" length={6} separator="*" />
+      <OTP classNames={classNames} styles={stylesFnOTP} size="medium" length={6} separator="*" />
       <Search
         classNames={classNames}
         styles={stylesFnSearch}

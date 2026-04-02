@@ -4,6 +4,6 @@
 
 ## en-US
 
-There are two compacted table sizes: `middle` and `small`. The `small` size is used in Modals only.
+There are two compacted table sizes: `medium` and `small`. The `small` size is used in Modals only.
 
 <style>#table-demo-size h4 { margin-bottom: 16px; }</style>

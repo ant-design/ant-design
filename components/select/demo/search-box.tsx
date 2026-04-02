@@ -1,4 +1,3 @@
-/* eslint-disable compat/compat */
 import React, { useState } from 'react';
 import { Select } from 'antd';
 import type { SelectProps } from 'antd';

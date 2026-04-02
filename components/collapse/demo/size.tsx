@@ -9,9 +9,9 @@ const text = `
 
 const App: React.FC = () => (
   <>
-    <Divider titlePlacement="start">Default Size</Divider>
+    <Divider titlePlacement="start">Medium Size</Divider>
     <Collapse
-      items={[{ key: '1', label: 'This is default size panel header', children: <p>{text}</p> }]}
+      items={[{ key: '1', label: 'This is medium size panel header', children: <p>{text}</p> }]}
     />
     <Divider titlePlacement="start">Small Size</Divider>
     <Collapse

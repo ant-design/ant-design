@@ -60,10 +60,10 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 
 ### Skeleton.Avatar
 
-| 属性  | 说明                 | 类型                                      | 默认值    |
-| ----- | -------------------- | ----------------------------------------- | --------- |
-| shape | 指定头像的形状       | `circle` \| `square`                      | `circle`  |
-| size  | 设置头像占位图的大小 | number \| `large` \| `small` \| `default` | `default` |
+| 属性  | 说明                 | 类型                                     | 默认值   |
+| ----- | -------------------- | ---------------------------------------- | -------- |
+| shape | 指定头像的形状       | `circle` \| `square`                     | `circle` |
+| size  | 设置头像占位图的大小 | number \| `large` \| `medium` \| `small` | `medium` |
 
 ### Skeleton.Button
 
@@ -71,13 +71,13 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*VcjGQLSrYdcAAA
 | --- | --- | --- | --- | --- |
 | block | 将按钮宽度调整为其父宽度的选项 | boolean | false | 4.17.0 |
 | shape | 指定按钮的形状 | `circle` \| `round` \| `square` \| `default` | - |  |
-| size | 设置按钮的大小 | `large` \| `small` \| `default` | - |  |
+| size | 设置按钮的大小 | `large` \| `medium` \| `small` | `medium` |  |
 
 ### Skeleton.Input
 
-| 属性 | 说明             | 类型                            | 默认值 |
-| ---- | ---------------- | ------------------------------- | ------ |
-| size | 设置输入框的大小 | `large` \| `small` \| `default` | -      |
+| 属性 | 说明             | 类型                           | 默认值   |
+| ---- | ---------------- | ------------------------------ | -------- |
+| size | 设置输入框的大小 | `large` \| `medium` \| `small` | `medium` |
 
 ## Semantic DOM
 

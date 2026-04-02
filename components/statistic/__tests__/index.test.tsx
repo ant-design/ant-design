@@ -1,5 +1,4 @@
 import React from 'react';
-import { Tooltip } from 'antd';
 import dayjs from 'dayjs';
 import { renderToString } from 'react-dom/server';
 
@@ -8,6 +7,7 @@ import Statistic from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
+import Tooltip from '../../tooltip';
 import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {

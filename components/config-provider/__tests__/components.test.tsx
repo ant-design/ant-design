@@ -96,9 +96,9 @@ describe('ConfigProvider', () => {
           expect(isArray ? container.children : container.firstChild).toMatchSnapshot();
         });
 
-        it('configProvider componentSize middle', () => {
+        it('configProvider componentSize medium', () => {
           const { container } = render(
-            <ConfigProvider componentSize="middle" prefixCls="config">
+            <ConfigProvider componentSize="medium" prefixCls="config">
               {renderComponent({})}
             </ConfigProvider>,
           );

@@ -209,9 +209,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
 export default genStyleHooks(
   'Steps',
   (token) => {
-    const stepsToken = mergeToken<StepsToken>(token, {
-      inlineDotSize: 6,
-    });
+    const stepsToken = mergeToken<StepsToken>(token, { inlineDotSize: 6 });
     return [
       genBasicStyle(stepsToken),
       genIconStyle(stepsToken),

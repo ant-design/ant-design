@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'אנא בחר',
     close: 'סגור',
+    show: 'הצג',
+    hide: 'הסתר',
   },
   Table: {
     filterTitle: 'תפריט סינון',

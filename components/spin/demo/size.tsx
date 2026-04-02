@@ -2,7 +2,7 @@ import React from 'react';
 import { Flex, Spin } from 'antd';
 
 const App: React.FC = () => (
-  <Flex align="center" gap="middle">
+  <Flex align="center" gap="medium">
     <Spin size="small" />
     <Spin />
     <Spin size="large" />

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Avatar, Badge, Card, Flex, Space } from 'antd';
-import type { BadgeProps } from 'antd';
+import type { BadgeProps, GetProp } from 'antd';
 import { createStaticStyles } from 'antd-style';
 import type { RibbonProps } from 'antd/es/badge/Ribbon';
 
 const badgeClassNames = createStaticStyles(({ css }) => ({
   indicator: css`
-   font-size: 10px;
+    font-size: 10px;
   `,
 }));
 
@@ -30,19 +30,19 @@ const ribbonStyles: RibbonProps['styles'] = {
   },
 };
 
-const badgeStylesFn: BadgeProps['styles'] = (info) => {
-  if (info.props.size === 'default') {
+const badgeStylesFn: BadgeProps['styles'] = (info): GetProp<RibbonProps, 'styles', 'Return'> => {
+  if (info.props.size === 'medium') {
     return {
       indicator: {
         fontSize: 14,
         backgroundColor: '#696FC7',
       },
-    } satisfies BadgeProps['styles'];
+    };
   }
   return {};
 };
 
-const ribbonStylesFn: RibbonProps['styles'] = (info) => {
+const ribbonStylesFn: RibbonProps['styles'] = (info): GetProp<RibbonProps, 'styles', 'Return'> => {
   if (info.props.color === '#696FC7') {
     return {
       content: {
@@ -51,7 +51,7 @@ const ribbonStylesFn: RibbonProps['styles'] = (info) => {
       indicator: {
         boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
       },
-    } satisfies RibbonProps['styles'];
+    };
   }
   return {};
 };
@@ -59,7 +59,7 @@ const ribbonStylesFn: RibbonProps['styles'] = (info) => {
 const App: React.FC = () => {
   return (
     <Space size="large" vertical>
-      <Flex gap="middle">
+      <Flex gap="medium">
         <Badge size="small" count={5} classNames={badgeClassNames} styles={badgeStyles}>
           <Avatar shape="square" size="large" />
         </Badge>
@@ -67,7 +67,7 @@ const App: React.FC = () => {
           <Avatar shape="square" size="large" />
         </Badge>
       </Flex>
-      <Flex vertical gap="middle">
+      <Flex vertical gap="medium">
         <Badge.Ribbon text="Custom Ribbon" classNames={ribbonClassNames} styles={ribbonStyles}>
           <Card title="Card with custom ribbon" size="small">
             This card has a customized ribbon with semantic classNames and styles.

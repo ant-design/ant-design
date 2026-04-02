@@ -40,21 +40,21 @@ const useWave = (
     });
   });
 
-  const rafId = React.useRef<number>(null);
+  const rafIdRef = React.useRef<number>(null);
 
   // Clean up RAF on unmount to prevent memory leaks and stale callbacks
   React.useEffect(
     () => () => {
-      raf.cancel(rafId.current!);
+      raf.cancel(rafIdRef.current!);
     },
     [],
   );
 
   // Merge trigger event into one for each frame
   const showDebounceWave: ShowWave = (event) => {
-    raf.cancel(rafId.current!);
+    raf.cancel(rafIdRef.current!);
 
-    rafId.current = raf(() => {
+    rafIdRef.current = raf(() => {
       showWave(event);
     });
   };

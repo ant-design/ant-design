@@ -1,7 +1,7 @@
 ## zh-CN
 
-遮罩效果，默认 `blur`。
+遮罩效果。
 
 ## en-US
 
-mask effect, default `blur`.
+mask effect.

@@ -101,7 +101,9 @@ exports[`Table.filter renders custom filter icon as ReactNode 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -205,7 +207,9 @@ exports[`Table.filter renders custom filter icon as string correctly 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -315,7 +319,9 @@ exports[`Table.filter renders custom filter icon with right Tooltip title 1`] = 
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -442,7 +448,9 @@ exports[`Table.filter renders filter correctly 1`] = `
   class="css-var-root ant-table-css-var ant-table-wrapper"
 >
   <div
-    class="ant-spin-nested-loading css-var-root"
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-root"
   >
     <div
       class="ant-spin-container"
@@ -586,9 +594,6 @@ exports[`Table.filter renders menu correctly 1`] = `
               class="ant-checkbox-input"
               type="checkbox"
             />
-            <span
-              class="ant-checkbox-inner"
-            />
           </span>
         </label>
         <span>
@@ -614,9 +619,6 @@ exports[`Table.filter renders menu correctly 1`] = `
             <input
               class="ant-checkbox-input"
               type="checkbox"
-            />
-            <span
-              class="ant-checkbox-inner"
             />
           </span>
         </label>
@@ -726,9 +728,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
               class="ant-radio-input"
               type="radio"
             />
-            <span
-              class="ant-radio-inner"
-            />
           </span>
         </label>
         <span>
@@ -754,9 +753,6 @@ exports[`Table.filter renders radio filter correctly 1`] = `
             <input
               class="ant-radio-input"
               type="radio"
-            />
-            <span
-              class="ant-radio-inner"
             />
           </span>
         </label>

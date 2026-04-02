@@ -8,8 +8,7 @@ import type {
   PercentPositionType,
   ProgressGradient,
   ProgressProps,
-  ProgressSemanticClassNames,
-  ProgressSemanticStyles,
+  ProgressSemanticAllType,
   StringGradients,
 } from './progress';
 import { LineStrokeColorVar } from './style';
@@ -20,8 +19,8 @@ interface LineProps extends Omit<ProgressProps, 'classNames' | 'styles'> {
   direction?: DirectionType;
   strokeColor?: string | ProgressGradient;
   percentPosition: PercentPositionType;
-  classNames: ProgressSemanticClassNames;
-  styles: ProgressSemanticStyles;
+  classNames: NonNullable<ProgressSemanticAllType['classNames']>;
+  styles: NonNullable<ProgressSemanticAllType['styles']>;
 }
 
 /**

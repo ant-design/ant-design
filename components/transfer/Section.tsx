@@ -15,8 +15,7 @@ import type {
   TransferDirection,
   TransferLocale,
   TransferSearchOption,
-  TransferSemanticClassNames,
-  TransferSemanticStyles,
+  TransferSemanticAllType,
 } from './';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
@@ -37,6 +36,18 @@ function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: Recor
   return items.filter((data) => !data.disabled).map((data) => data.key);
 }
 
+function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
+  renderResult: RenderResult,
+  item: RecordType,
+): string {
+  for (const v of [renderResult, item.title, item.key]) {
+    if (typeof v === 'string' || typeof v === 'number') {
+      return String(v);
+    }
+  }
+  return '';
+}
+
 const isValidIcon = (icon: React.ReactNode) => icon !== undefined;
 
 export interface RenderedItem<RecordType> {
@@ -50,8 +61,8 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   style?: React.CSSProperties;
-  classNames: TransferSemanticClassNames;
-  styles: TransferSemanticStyles;
+  classNames: NonNullable<TransferSemanticAllType['classNames']>;
+  styles: NonNullable<TransferSemanticAllType['styles']>;
 
   titleText: React.ReactNode;
   dataSource: RecordType[];
@@ -184,10 +195,15 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
+    const renderedEl = isRenderResultPlain ? renderResult.label : renderResult;
+    const renderedText = isRenderResultPlain
+      ? renderResult.value
+      : getTextFromRenderResult(renderResult, item);
+
     return {
       item,
-      renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
-      renderedText: isRenderResultPlain ? renderResult.value : (renderResult as string),
+      renderedEl,
+      renderedText,
     };
   };
 
@@ -381,7 +397,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
               newCheckedKeysSet.add(key);
             }
           });
-          onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
+          onItemSelectAll?.([...newCheckedKeysSet], 'replace');
         },
       },
     ];

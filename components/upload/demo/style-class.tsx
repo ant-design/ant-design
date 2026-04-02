@@ -1,7 +1,7 @@
 import React from 'react';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Flex, Upload } from 'antd';
-import type { UploadProps } from 'antd';
+import type { GetProp, UploadProps } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -17,9 +17,16 @@ const stylesObject: UploadProps<any>['styles'] = {
     backgroundColor: 'rgba(5, 5, 5, 0.06)',
     height: 30,
   },
+  trigger: {
+    backgroundColor: 'rgba(84, 89, 172, 0.1)',
+    padding: 8,
+    borderRadius: 4,
+  },
 };
 
-const stylesFn: UploadProps<any>['styles'] = (info) => {
+const stylesFn: UploadProps<any>['styles'] = (
+  info,
+): GetProp<UploadProps<any>, 'styles', 'Return'> => {
   if (info.props.multiple) {
     return {
       root: { border: '1px solid #5459AC' },
@@ -28,7 +35,12 @@ const stylesFn: UploadProps<any>['styles'] = (info) => {
         backgroundColor: 'rgba(5, 5, 5, 0.06)',
         height: 30,
       },
-    } satisfies UploadProps<any>['styles'];
+      trigger: {
+        backgroundColor: 'rgba(84, 89, 172, 0.2)',
+        padding: 8,
+        borderRadius: 4,
+      },
+    };
   }
   return {};
 };

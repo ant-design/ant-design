@@ -136,7 +136,7 @@ const App: React.FC = () => {
       columns={columns}
       dataSource={dataSource}
       bordered
-      size="middle"
+      size="medium"
       scroll={{ x: 'calc(700px + 50%)', y: 47 * 5 }}
     />
   );

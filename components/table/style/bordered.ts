@@ -18,7 +18,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
   const tableBorder = `${unit(lineWidth)} ${lineType} ${tableBorderColor}`;
 
   const getSizeBorderStyle = (
-    size: 'small' | 'middle',
+    size: 'small' | 'medium',
     paddingVertical: number,
     paddingHorizontal: number,
   ) => ({
@@ -135,7 +135,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
         // ============================ Size ============================
         ...getSizeBorderStyle(
-          'middle',
+          'medium',
           token.tablePaddingVerticalMiddle,
           token.tablePaddingHorizontalMiddle,
         ),

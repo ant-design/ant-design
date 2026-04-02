@@ -1,3 +1,4 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle } from '../../style';
@@ -31,7 +32,7 @@ export interface ComponentToken {
 export interface DrawerToken extends FullToken<'Drawer'> {}
 
 // =============================== Base ===============================
-const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
+const genDrawerStyle: GenerateStyle<DrawerToken, CSSObject> = (token) => {
   const {
     borderRadiusSM,
     componentCls,
@@ -278,7 +279,10 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       [`${draggerCls}-left`]: {
         top: 0,
         bottom: 0,
-        insetInlineEnd: 0,
+        right: {
+          _skip_check_: true,
+          value: 0,
+        },
         width: draggerSize,
         cursor: 'col-resize',
       },
@@ -286,7 +290,10 @@ const genDrawerStyle: GenerateStyle<DrawerToken> = (token) => {
       [`${draggerCls}-right`]: {
         top: 0,
         bottom: 0,
-        insetInlineStart: 0,
+        left: {
+          _skip_check_: true,
+          value: 0,
+        },
         width: draggerSize,
         cursor: 'col-resize',
       },

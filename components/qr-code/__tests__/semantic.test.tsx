@@ -37,7 +37,7 @@ describe('QRCode.Semantic', () => {
         value="test"
         size={160}
         type="svg"
-        bordered={true}
+        bordered
         status="expired"
         onRefresh={() => {}}
         classNames={(info) => ({

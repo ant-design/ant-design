@@ -19,7 +19,7 @@ const App: React.FC = () => {
     <>
       <Radio.Group value={size} onChange={(e) => setSize(e.target.value)}>
         <Radio.Button value="large">Large</Radio.Button>
-        <Radio.Button value="default">Default</Radio.Button>
+        <Radio.Button value="medium">Medium</Radio.Button>
         <Radio.Button value="small">Small</Radio.Button>
       </Radio.Group>
       <Divider titlePlacement="start" plain>

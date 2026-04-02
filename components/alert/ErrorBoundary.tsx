@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import isNonNullable from '../_util/isNonNullable';
 import Alert from './Alert';
 
 export interface ErrorBoundaryProps {
@@ -13,22 +14,18 @@ export interface ErrorBoundaryProps {
   id?: string;
 }
 
-interface ErrorBoundaryStates {
+export interface ErrorBoundaryStates {
   error?: Error | null;
-  info?: {
-    componentStack?: string;
-  };
+  info?: React.ErrorInfo;
 }
 
-class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryStates> {
-  state = {
+class ErrorBoundary extends React.PureComponent<ErrorBoundaryProps, ErrorBoundaryStates> {
+  state: ErrorBoundaryStates = {
     error: undefined,
-    info: {
-      componentStack: '',
-    },
+    info: {},
   };
 
-  componentDidCatch(error: Error | null, info: object) {
+  componentDidCatch(error: Error, info: React.ErrorInfo) {
     this.setState({ error, info });
   }
 
@@ -37,9 +34,8 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
     const { error, info } = this.state;
     const mergedTitle = title ?? message;
     const componentStack = info?.componentStack || null;
-    const errorMessage =
-      typeof mergedTitle === 'undefined' ? (error || '').toString() : mergedTitle;
-    const errorDescription = typeof description === 'undefined' ? componentStack : description;
+    const errorMessage = isNonNullable(mergedTitle) ? mergedTitle : error?.toString();
+    const errorDescription = isNonNullable(description) ? description : componentStack;
     if (error) {
       return (
         <Alert
@@ -50,7 +46,7 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundarySta
             <pre style={{ fontSize: '0.9em', overflowX: 'auto' }}>{errorDescription}</pre>
           }
         />
-      ) as React.ReactNode;
+      );
     }
     return children;
   }

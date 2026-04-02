@@ -340,13 +340,11 @@ const Demo: React.FC = () => {
     setOpen(true);
   };
 
-  const handleOk = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    console.log(e);
+  const handleOk = () => {
     setOpen(false);
   };
 
-  const handleCancel = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    console.log(e);
+  const handleCancel = () => {
     setOpen(false);
   };
 

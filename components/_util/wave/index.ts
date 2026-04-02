@@ -17,9 +17,17 @@ export interface WaveProps {
   colorSource?: 'color' | 'backgroundColor' | 'borderColor' | null;
 }
 
+const TRIGGER_TYPE_TO_EVENT_MAP = {
+  click: 'click',
+  mousedown: 'mousedown',
+  mouseup: 'mouseup',
+  pointerdown: 'pointerdown',
+  pointerup: 'pointerup',
+} as const;
+
 const Wave: React.FC<WaveProps> = (props) => {
   const { children, disabled, component, colorSource } = props;
-  const { getPrefixCls } = useContext<ConfigConsumerProps>(ConfigContext);
+  const { getPrefixCls, wave } = useContext<ConfigConsumerProps>(ConfigContext);
 
   const containerRef = useRef<HTMLElement | null>(null);
 
@@ -37,12 +45,10 @@ const Wave: React.FC<WaveProps> = (props) => {
       return;
     }
 
-    // Click handler
-    const onClick = (e: MouseEvent) => {
+    const onClick = (e: Event) => {
       // Fix radio button click twice
       if (
         !isVisible(e.target as HTMLElement) ||
-        // No need wave
         !node.getAttribute ||
         node.getAttribute('disabled') ||
         (node as HTMLInputElement).disabled ||
@@ -52,15 +58,20 @@ const Wave: React.FC<WaveProps> = (props) => {
       ) {
         return;
       }
-      showWave(e);
+      showWave(e as MouseEvent);
     };
 
-    // Bind events
-    node.addEventListener('click', onClick, true);
+    const triggerType = wave?.triggerType;
+    const eventName =
+      triggerType && triggerType in TRIGGER_TYPE_TO_EVENT_MAP
+        ? TRIGGER_TYPE_TO_EVENT_MAP[triggerType]
+        : 'click';
+
+    node.addEventListener(eventName, onClick, true);
     return () => {
-      node.removeEventListener('click', onClick, true);
+      node.removeEventListener(eventName, onClick, true);
     };
-  }, [disabled]);
+  }, [disabled, wave?.triggerType]);
 
   // ============================== Render ==============================
   if (!React.isValidElement(children)) {

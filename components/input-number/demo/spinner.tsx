@@ -16,7 +16,7 @@ const sharedProps = {
 };
 
 const App: React.FC = () => (
-  <Flex vertical gap="middle">
+  <Flex vertical gap="medium">
     <InputNumber {...sharedProps} placeholder="Outlined" />
     <InputNumber {...sharedProps} variant="filled" placeholder="Filled" />
   </Flex>

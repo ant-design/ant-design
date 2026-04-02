@@ -1,4 +1,5 @@
 import type React from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { getMediaSize } from '../../grid/style';
@@ -184,7 +185,7 @@ export const genModalMaskStyle: GenerateStyle<TokenWithCommonCls<AliasToken>> = 
 };
 
 const genModalStyle: GenerateStyle<ModalToken> = (token) => {
-  const { componentCls } = token;
+  const { componentCls, motionDurationMid } = token;
 
   return [
     // ======================== Root =========================
@@ -284,8 +285,9 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
           border: 0,
           outline: 0,
           cursor: 'pointer',
-          transition: `color ${token.motionDurationMid}, background-color ${token.motionDurationMid}`,
-
+          transition: ['color', 'background-color']
+            .map((prop) => `${prop} ${motionDurationMid}`)
+            .join(', '),
           '&-x': {
             display: 'flex',
             fontSize: token.fontSizeLG,
@@ -380,13 +382,12 @@ const genModalStyle: GenerateStyle<ModalToken> = (token) => {
   ];
 };
 
-const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
+const genRTLStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
   const { componentCls } = token;
   return {
     [`${componentCls}-root`]: {
       [`${componentCls}-wrap-rtl`]: {
         direction: 'rtl',
-
         [`${componentCls}-confirm-body`]: {
           direction: 'rtl',
         },
@@ -395,7 +396,7 @@ const genRTLStyle: GenerateStyle<ModalToken> = (token) => {
   };
 };
 
-const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
+const genResponsiveWidthStyle: GenerateStyle<ModalToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   const oriGridMediaSizesMap: Record<string, number> = getMediaSize(token);
@@ -433,7 +434,7 @@ const genResponsiveWidthStyle: GenerateStyle<ModalToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareToken: (token: Parameters<GenStyleFn<'Modal'>>[0]) => ModalToken = (token) => {
+export const prepareToken = (token: Parameters<GenStyleFn<'Modal'>>[0]) => {
   const headerPaddingVertical = token.padding;
   const headerFontSize = token.fontSizeHeading5;
   const headerLineHeight = token.lineHeightHeading5;

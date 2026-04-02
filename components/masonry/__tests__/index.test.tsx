@@ -3,6 +3,8 @@ import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 
 import Masonry from '..';
 import type { MasonryProps } from '..';
+import mountTest from '../../../tests/shared/mountTest';
+import rtlTest from '../../../tests/shared/rtlTest';
 import { render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 import { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -41,6 +43,9 @@ jest.mock('../../_util/responsiveObserver', () => {
 });
 
 describe('Masonry', () => {
+  mountTest(Masonry);
+  rtlTest(Masonry);
+
   let minWidth = '';
 
   beforeAll(() => {

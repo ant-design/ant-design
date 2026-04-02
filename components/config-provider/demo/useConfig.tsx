@@ -33,7 +33,7 @@ const App: React.FC = () => {
           }}
         >
           <Radio.Button value="small">Small</Radio.Button>
-          <Radio.Button value="middle">Middle</Radio.Button>
+          <Radio.Button value="medium">Medium</Radio.Button>
           <Radio.Button value="large">Large</Radio.Button>
         </Radio.Group>
         <Checkbox checked={disabled} onChange={(e) => setDisabled(e.target.checked)}>

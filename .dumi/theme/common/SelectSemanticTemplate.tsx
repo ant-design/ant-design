@@ -67,11 +67,14 @@ const Block: React.FC<BlockProps> = ({
   ...props
 }) => {
   const divRef = React.useRef<HTMLDivElement>(null);
-  const [value, setValue] = React.useState(defaultValue);
+  // 多选模式下，优先使用 multipleProps 中的 defaultValue
+  const multipleDefaultValue = (multipleProps as any)?.defaultValue;
+  const initialValue = mode === 'single' ? defaultValue : multipleDefaultValue;
+  const [value, setValue] = React.useState(initialValue);
 
   React.useEffect(() => {
-    setValue(defaultValue);
-  }, [mode]);
+    setValue(mode === 'single' ? defaultValue : multipleDefaultValue);
+  }, [mode, defaultValue, multipleDefaultValue]);
 
   return (
     <Flex
@@ -101,7 +104,7 @@ const Block: React.FC<BlockProps> = ({
         options={options}
         {...(mode === 'multiple' ? multipleProps : {})}
         styles={{ popup: { zIndex: 1 } }}
-        maxTagCount="responsive"
+        maxTagCount={process.env.NODE_ENV === 'test' ? 1 : 'responsive'}
         placeholder="Please select"
         allowClear
       />

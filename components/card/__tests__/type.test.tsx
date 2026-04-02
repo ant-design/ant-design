@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import Card from '../index';
+import Card from '..';
 
 describe('Card.typescript', () => {
   it('ref', () => {

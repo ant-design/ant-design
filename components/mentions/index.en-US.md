@@ -40,7 +40,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| allowClear | If allow to remove mentions content with clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.13.0 |
+| allowClear | If allow to remove mentions content with clear icon | boolean \| { clearIcon?: ReactNode, disabled?: boolean } | false | 5.13.0, disabled: 6.4.0 |
 | autoSize | Textarea height autosize feature, can be set to true \| false or an object { minRows: 2, maxRows: 6 } | boolean \| object | false |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultValue | Default value | string | - |  |
@@ -50,6 +50,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Set popup placement | `top` \| `bottom` | `bottom` |  |
 | prefix | Set trigger prefix keyword | string \| string\[] | `@` |  |
 | split | Set split string before and after selected mention | string | ` ` |  |
+| size | The size of the input box | `large` \| `medium` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' \| 'success' \| 'validating' | - | 4.19.0 |
 | validateSearch | Customize trigger search logic | (text: string, props: MentionsProps) => void | - |  |
 | value | Set value of mentions | string | - |  |

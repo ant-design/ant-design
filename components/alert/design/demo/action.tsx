@@ -58,12 +58,12 @@ const Demo: React.FC = () => {
   const [expandB, setExpandB] = React.useState(true);
   return (
     <Flex gap="large" vertical style={{ maxWidth: 600 }}>
-      <Flex gap="middle" vertical>
+      <Flex gap="medium" vertical>
         <div>{locale.closeAlertTitle}</div>
         <Alert showIcon closable title={locale.welcomeMessage} />
         <Alert showIcon closable title={locale.helpTitle} description={locale.helpDescription} />
       </Flex>
-      <Flex gap="middle" vertical>
+      <Flex gap="medium" vertical>
         <div>{locale.expandCollapseTitle}</div>
         <Alert
           showIcon
@@ -96,7 +96,7 @@ const Demo: React.FC = () => {
           style={{ alignItems: 'baseline' }}
         />
       </Flex>
-      <Flex gap="middle" vertical>
+      <Flex gap="medium" vertical>
         <div>{locale.otherActionsTitle}</div>
         <Alert
           showIcon

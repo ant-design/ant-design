@@ -9,10 +9,12 @@ import { clsx } from 'clsx';
 
 import ContextIsolator from '../../_util/ContextIsolator';
 import { useZIndex } from '../../_util/hooks';
+import useAllowClear from '../../_util/hooks/useAllowClear';
 import { getMergedStatus, getStatusClassNames } from '../../_util/statusUtils';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
+import { useComponentConfig } from '../../config-provider/context';
 import DisabledContext from '../../config-provider/DisabledContext';
 import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
 import useSize from '../../config-provider/hooks/useSize';
@@ -42,8 +44,8 @@ import type {
   PickerProps,
   PickerPropsWithMultiple,
 } from './interface';
-import SuffixIcon from './SuffixIcon';
 import useComponents from './useComponents';
+import useSuffixIcon from './useSuffixIcon';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,
@@ -52,7 +54,10 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
   type TimePickerProps = GenericTimePickerProps<DateType>;
 
-  const getPicker = <P extends DatePickerProps>(picker?: PickerMode, displayName?: string) => {
+  const getPicker = <P extends DatePickerProps>(
+    picker?: PickerMode,
+    displayName = 'DatePicker',
+  ) => {
     const pickerType = displayName === TIMEPICKER ? 'timePicker' : 'datePicker';
     const Picker = forwardRef<PickerRef, P>((props, ref) => {
       const {
@@ -76,12 +81,20 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
         popupStyle,
         rootClassName,
         suffixIcon,
+        allowClear,
+        clearIcon,
         ...restProps
       } = props;
 
+      const {
+        suffixIcon: contextSuffixIcon,
+        clearIcon: contextClearIcon,
+        allowClear: contextAllowClear,
+      } = useComponentConfig(displayName === TIMEPICKER ? 'timePicker' : 'datePicker');
+
       // ====================== Warning =======================
       if (process.env.NODE_ENV !== 'production') {
-        const warning = devUseWarning(displayName! || 'DatePicker');
+        const warning = devUseWarning(displayName);
         warning(
           picker !== 'quarter',
           'deprecated',
@@ -128,7 +141,7 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
 
       // ========================= Style ==========================
       // Use original useMergedPickerSemantic for proper popup handling
-      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic<P>(
+      const [mergedClassNames, mergedStyles] = useMergedPickerSemantic(
         pickerType,
         classNames,
         styles,
@@ -169,7 +182,15 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       };
 
       // ===================== Icon =====================
-      const [mergedAllowClear, removeIcon] = useIcons(props, prefixCls);
+      const [, removeIcon] = useIcons(props, prefixCls);
+      const mergedAllowClear = useAllowClear({
+        componentName: displayName,
+        allowClear,
+        clearIcon,
+        contextAllowClear,
+        contextClearIcon,
+        defaultAllowClear: true,
+      });
 
       // ================== components ==================
       const mergedComponents = useComponents(components);
@@ -178,9 +199,12 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
       const formItemContext = useContext(FormItemInputContext);
       const { hasFeedback, status: contextStatus, feedbackIcon } = formItemContext;
 
-      const mergedSuffixIcon = (
-        <SuffixIcon {...{ picker: mergedPicker, hasFeedback, feedbackIcon, suffixIcon }} />
-      );
+      const mergedSuffixIcon = useSuffixIcon({
+        picker: mergedPicker,
+        hasFeedback,
+        feedbackIcon,
+        suffixIcon: suffixIcon === undefined ? contextSuffixIcon : suffixIcon,
+      });
       const [contextLocale] = useLocale('DatePicker', enUS);
 
       const locale = merge(contextLocale, (props.locale || {}) as PickerLocale);
@@ -214,7 +238,8 @@ const generatePicker = <DateType extends AnyObject = AnyObject>(
             rootClassName={mergedRootClassName}
             className={clsx(
               {
-                [`${prefixCls}-${mergedSize}`]: mergedSize,
+                [`${prefixCls}-large`]: mergedSize === 'large',
+                [`${prefixCls}-small`]: mergedSize === 'small',
                 [`${prefixCls}-${variant}`]: enableVariantCls,
               },
               getStatusClassNames(

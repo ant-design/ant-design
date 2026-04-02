@@ -14,6 +14,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 jobs:
   visual-regression-diff-start:
     permissions:
@@ -21,6 +25,7 @@ jobs:
       pull-requests: write  # for actions-cool/maintain-one-comment to modify or create PR comments
     name: start visual-regression diff
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 10
     steps:
       - name: update status comment
         uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b

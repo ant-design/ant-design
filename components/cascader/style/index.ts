@@ -92,11 +92,10 @@ const genBaseStyle: GenerateStyle<CascaderToken> = (token) => {
 };
 
 // ============================== Export ==============================
-export const prepareComponentToken = (token: GlobalToken) => {
+export const prepareComponentToken = (token: GlobalToken): ComponentToken => {
   const itemPaddingVertical = Math.round(
     (token.controlHeight - token.fontSize * token.lineHeight) / 2,
   );
-
   return {
     controlWidth: 184,
     controlItemWidth: 111,

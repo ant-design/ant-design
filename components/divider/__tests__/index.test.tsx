@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { ConfigProvider } from 'antd';
 
 import Divider from '..';
+import type { TitlePlacement } from '..';
 import type { Orientation } from '../../_util/hooks';
 import mountTest from '../../../tests/shared/mountTest';
 import { render } from '../../../tests/utils';
-import type { TitlePlacement } from '../index';
+import ConfigProvider from '../../config-provider';
 
 describe('Divider', () => {
   mountTest(Divider);
@@ -46,7 +46,7 @@ describe('Divider', () => {
 
   it('should apply the componentSize of ConfigProvider', () => {
     const { container, rerender } = render(
-      <ConfigProvider componentSize="middle">
+      <ConfigProvider componentSize="medium">
         <Divider />
       </ConfigProvider>,
     );
@@ -61,7 +61,7 @@ describe('Divider', () => {
   });
 
   it('support vertical size', () => {
-    const { container, rerender } = render(<Divider type="vertical" size="middle" />);
+    const { container, rerender } = render(<Divider type="vertical" size="medium" />);
     expect(container.querySelector<HTMLSpanElement>('.ant-divider-md')).toBeTruthy();
 
     rerender(<Divider type="vertical" size="small" />);

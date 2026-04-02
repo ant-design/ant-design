@@ -21,7 +21,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Flex gap="small" wrap>
         <Tag disabled>Basic Tag</Tag>
         <Tag disabled>

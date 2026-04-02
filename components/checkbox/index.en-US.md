@@ -26,6 +26,7 @@ demo:
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/debug-line.tsx" debug>Same line</code>
 <code src="./demo/debug-disable-popover.tsx" debug>Disabled to show Tooltip</code>
+<code src="./demo/debug-group-width.tsx" debug>Group same width</code>
 <code src="./demo/custom-line-width.tsx" debug>customize lineWidth</code>
 
 ## API

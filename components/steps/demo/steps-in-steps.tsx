@@ -3,7 +3,7 @@ import type { StepsProps } from 'antd';
 import { Card, Radio, Steps } from 'antd';
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<StepsProps['size']>('default');
+  const [size, setSize] = useState<StepsProps['size']>('medium');
   const content = 'This is a content.';
   const horizontalSteps = (
     <Card>
@@ -35,7 +35,7 @@ const App: React.FC = () => {
         onChange={(e) => setSize(e.target.value)}
       >
         <Radio value="small">Small</Radio>
-        <Radio value="default">Default</Radio>
+        <Radio value="medium">Medium</Radio>
       </Radio.Group>
       <Steps
         size={size}

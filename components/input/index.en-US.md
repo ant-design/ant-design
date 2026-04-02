@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | ~~addonAfter~~ | The label text displayed after (on the right side of) the input field, please use Space.Compact instead | ReactNode | - |  |
 | ~~addonBefore~~ | The label text displayed before (on the left side of) the input field, please use Space.Compact instead | ReactNode | - |  |
-| allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode } | false |  |
+| allowClear | If allow to remove input content with clear icon | boolean \| { clearIcon: ReactNode, disabled?: boolean } | - | disabled: 6.4.0 |
 | ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | 4.5.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-input), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), string> | - |  |
 | count | Character count config | [CountConfig](#countconfig) | - | 5.10.0 |
@@ -66,7 +66,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showCount | Whether to show character count | boolean \| { formatter: (info: { value: string, count: number, maxLength?: number }) => ReactNode } | false | 4.18.0 info.value: 4.23.0 |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-input), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-input), CSSProperties> | - |  |
-| size | The size of the input box. Note: in the context of a form, the `middle` size is used | `large` \| `middle` \| `small` | - |  |
+| size | The size of the input box. Note: in the context of a form, the `medium` size is used | `large` \| `medium` \| `small` | - |  |
 | suffix | The suffix icon for the Input | ReactNode | - |  |
 | type | The type of input, see: [MDN](https://developer.mozilla.org/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types)( use `Input.TextArea` instead of `type="textarea"`) | string | `text` |  |
 | value | The input content value | string | - |  |
@@ -115,6 +115,7 @@ The rest of the props of `Input.TextArea` are the same as the original [textarea
 | loading | Search box with loading | boolean | false |  |
 | onSearch | The callback function triggered when you click on the search-icon, the clear-icon or press the Enter key | function(value, event, { source: "input" \| "clear" }) | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-search), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-search), CSSProperties> | - |  |
+| searchIcon | Customize the search icon | ReactNode | - | 6.4.0 |
 
 Supports all props of `Input`.
 
@@ -137,6 +138,7 @@ Added in `5.16.0`.
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
+| autoComplete | The autocomplete attribute for input elements, e.g. `one-time-code` for OTP autofill | string | - | 6.3.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-otp), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-otp), string> | - |  |
 | defaultValue | Default value | string | - |  |
 | disabled | Whether the input is disabled | boolean | false |  |
@@ -146,7 +148,7 @@ Added in `5.16.0`.
 | mask | Custom display, the original value will not be modified | boolean \| string | `false` | `5.17.0` |
 | length | The number of input elements | number | 6 |  |
 | status | Set validation status | 'error' \| 'warning' | - |  |
-| size | The size of the input box | `small` \| `middle` \| `large` | `middle` |  |
+| size | The size of the input box | `small` \| `medium` \| `large` | `medium` |  |
 | variant | Variants of Input | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | `underlined`: 5.24.0 |
 | value | The input content value | string | - |  |
 | onChange | Trigger when all the fields are filled | (value: string) => void | - |  |
@@ -194,7 +196,7 @@ Added in `5.16.0`.
 
 ## FAQ
 
-### Why Input lose focus when change `prefix/suffix/showCount` {#faq-lose-focus}
+### Why Input loses focus when change `prefix/suffix/showCount` {#faq-lose-focus}
 
 When Input dynamic add or remove `prefix/suffix/showCount` will make React recreate the dom structure and new input will be not focused. You can set an empty `<span />` element to keep the dom structure:
 

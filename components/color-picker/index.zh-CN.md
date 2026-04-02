@@ -62,7 +62,7 @@ group:
 | placement | 弹出窗口的位置 | 同 `Tooltips` 组件的 [placement](/components/tooltip-cn/#api) 参数设计 | `bottomLeft` | |
 | panelRender | 自定义渲染面板 | `(panel: React.ReactNode, extra: { components: { Picker: FC; Presets: FC } }) => React.ReactNode` | - | 5.7.0 |
 | showText | 显示颜色文本 | boolean \| `(color: Color) => React.ReactNode` | - | 5.7.0 |
-| size | 设置触发器大小 | `large` \| `middle` \| `small` | `middle` | 5.7.0 |
+| size | 设置触发器大小 | `large` \| `medium` \| `small` | `medium` | 5.7.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | |
 | trigger | 颜色选择器的触发模式 | `hover` \| `click` | `click` | |
 | value | 颜色的值 | [ColorType](#colortype) | - | |
@@ -103,9 +103,9 @@ type PresetColorType = {
 | toCssString | 转换成 CSS 支持的格式 | `() => string` | 5.20.0 |
 | toHex | 转换成 `hex` 格式字符，返回格式如：`1677ff` | `() => string` | - |
 | toHexString | 转换成 `hex` 格式颜色字符串，返回格式如：`#1677ff` | `() => string` | - |
-| toHsb | 转换成 `hsb` 对象  | `() => ({ h: number, s: number, b: number, a number })` | - |
+| toHsb | 转换成 `hsb` 对象  | `() => ({ h: number, s: number, b: number, a: number })` | - |
 | toHsbString | 转换成 `hsb` 格式颜色字符串，返回格式如：`hsb(215, 91%, 100%)` | `() => string` | - |
-| toRgb | 转换成 `rgb` 对象  | `() => ({ r: number, g: number, b: number, a number })` | - |
+| toRgb | 转换成 `rgb` 对象  | `() => ({ r: number, g: number, b: number, a: number })` | - |
 | toRgbString | 转换成 `rgb` 格式颜色字符串，返回格式如：`rgb(22, 119, 255)` | `() => string` | - |
 
 ## Semantic DOM

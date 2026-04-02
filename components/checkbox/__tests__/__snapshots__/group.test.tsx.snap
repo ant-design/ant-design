@@ -16,9 +16,6 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
         type="checkbox"
         value="Apple"
       />
-      <span
-        class="my-checkbox-inner"
-      />
     </span>
     <span
       class="my-checkbox-label"
@@ -37,9 +34,6 @@ exports[`CheckboxGroup passes prefixCls down to checkbox 1`] = `
         class="my-checkbox-input"
         type="checkbox"
         value="Orange"
-      />
-      <span
-        class="my-checkbox-inner"
       />
     </span>
     <span

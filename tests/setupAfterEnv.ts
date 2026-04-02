@@ -1,7 +1,6 @@
 import '@testing-library/jest-dom';
 
 import { toHaveNoViolations } from 'jest-axe';
-import jsdom from 'jsdom';
 import format, { plugins } from 'pretty-format';
 
 import { defaultConfig } from '../components/theme/internal';
@@ -25,6 +24,8 @@ if (process.env.LIB_DIR === 'dist') {
   });
 }
 
+type SnapshotTarget = HTMLElement | DocumentFragment | HTMLCollection | NodeList | Node[];
+
 function cleanup(node: HTMLElement) {
   const childList = Array.from(node.childNodes);
   node.innerHTML = '';
@@ -38,12 +39,12 @@ function cleanup(node: HTMLElement) {
   return node;
 }
 
-function formatHTML(nodes: any) {
-  let cloneNodes: any;
+function formatHTML(nodes: SnapshotTarget) {
+  let cloneNodes: Node | Node[];
   if (Array.isArray(nodes) || nodes instanceof HTMLCollection || nodes instanceof NodeList) {
-    cloneNodes = Array.from(nodes).map((node) => cleanup(node.cloneNode(true) as any));
+    cloneNodes = Array.from(nodes).map((node) => cleanup(node.cloneNode(true) as HTMLElement));
   } else {
-    cloneNodes = cleanup(nodes.cloneNode(true));
+    cloneNodes = cleanup(nodes.cloneNode(true) as HTMLElement);
   }
 
   const htmlContent = format(cloneNodes, {
@@ -82,7 +83,7 @@ expect.addSnapshotSerializer({
       element instanceof DocumentFragment ||
       element instanceof HTMLCollection ||
       (Array.isArray(element) && element[0] instanceof HTMLElement)),
-  print: (element) => formatHTML(element),
+  print: (element) => formatHTML(element as SnapshotTarget),
 });
 
 /** Demo Test only accept render as SSR to make sure align with both `server` & `client` side */
@@ -90,14 +91,13 @@ expect.addSnapshotSerializer({
   test: (node) => node && typeof node === 'object' && node.type === 'demo' && node.html,
   // @ts-ignore
   print: ({ html }) => {
-    const { JSDOM } = jsdom;
-    const { document } = new JSDOM().window;
-    document.body.innerHTML = html;
+    // Create a temporary container to parse HTML
+    const container = document.createElement('div');
+    container.innerHTML = html;
 
-    const children = Array.from(document.body.childNodes).filter(
-      (node) =>
-        // Ignore `link` node since React 18 or blew not support this
-        node.nodeName !== 'LINK',
+    const children = Array.from(container.childNodes).filter(
+      // Ignore `link` node since React 18 or below not support this
+      (node) => node.nodeName !== 'LINK',
     );
 
     // Clean up `data-reactroot` since React 18 do not have this
@@ -108,7 +108,7 @@ expect.addSnapshotSerializer({
       }
     });
 
-    return formatHTML(children.length > 1 ? children : children[0]);
+    return formatHTML((children.length > 1 ? children : children[0]) as SnapshotTarget);
   },
 });
 

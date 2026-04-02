@@ -1,10 +1,14 @@
 import isNonNullable from './isNonNullable';
 
-const toList = <T>(candidate: T | T[], skipEmpty = false): T[] => {
-  if (skipEmpty && !isNonNullable(candidate)) {
+interface Config {
+  skipEmpty?: boolean;
+}
+
+const toList = <T>(val: T | T[], config: Config = {}): T[] => {
+  if (!isNonNullable(val) && config?.skipEmpty) {
     return [];
   }
-  return Array.isArray(candidate) ? candidate : [candidate];
+  return Array.isArray(val) ? val : [val];
 };
 
 export default toList;

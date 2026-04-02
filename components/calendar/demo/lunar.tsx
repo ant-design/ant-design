@@ -99,7 +99,7 @@ const App: React.FC = () => {
   const { styles } = useStyle({ test: true });
 
   const [selectDate, setSelectDate] = React.useState<Dayjs>(() => dayjs());
-  const [panelDateDate, setPanelDate] = React.useState<Dayjs>(() => dayjs());
+  const [panelDate, setPanelDate] = React.useState<Dayjs>(() => dayjs());
 
   const onPanelChange = (value: Dayjs, mode: CalendarProps<Dayjs>['mode']) => {
     console.log(value.format('YYYY-MM-DD'), mode);
@@ -131,7 +131,7 @@ const App: React.FC = () => {
             <span
               className={clsx({
                 [styles.weekend]: isWeekend,
-                gray: !panelDateDate.isSame(date, 'month'),
+                gray: !panelDate.isSame(date, 'month'),
               })}
             >
               {date.get('date')}

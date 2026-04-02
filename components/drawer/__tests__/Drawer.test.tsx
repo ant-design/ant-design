@@ -528,6 +528,52 @@ describe('Drawer', () => {
     );
   });
 
+  it('should support focusable global config', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <ConfigProvider drawer={{ focusable: { trap: true, focusTriggerAfterClose: false } }}>
+        <Drawer open getContainer={false} classNames={classNames}>
+          Here is content of Drawer
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: true,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
+  it('should prefer focusable prop over global config', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <ConfigProvider drawer={{ focusable: { trap: true, focusTriggerAfterClose: false } }}>
+        <Drawer open getContainer={false} focusable={{ trap: false }} classNames={classNames}>
+          Here is content of Drawer
+        </Drawer>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: false,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
   describe('Drawer mask blur className', () => {
     const testCases: [
       mask?: MaskType,
@@ -536,11 +582,11 @@ describe('Drawer', () => {
       openMask?: boolean,
     ][] = [
       // Format: [modalMask, configMask,  expectedBlurClass, openMask]
-      [undefined, true, true, true],
-      [true, undefined, true, true],
-      [undefined, undefined, true, true],
+      [undefined, true, false, true],
+      [true, undefined, false, true],
+      [undefined, undefined, false, true],
       [false, true, false, false],
-      [true, false, true, true],
+      [true, false, false, true],
       [{ enabled: false }, { blur: true }, true, false],
       [{ enabled: true }, { blur: false }, false, true],
       [{ blur: true }, { enabled: false }, true, false],

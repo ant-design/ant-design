@@ -9,7 +9,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle" align="flex-start">
+    <Flex vertical gap="medium" align="flex-start">
       <Timeline
         reverse={reverse}
         items={[

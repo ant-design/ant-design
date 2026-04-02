@@ -37,8 +37,8 @@ const Block: React.FC<Readonly<ProgressProps>> = (props) => {
   };
 
   return (
-    <Flex vertical gap="middle" style={{ width: '100%' }} align="center">
-      <Flex align="center" gap="middle">
+    <Flex vertical gap="medium" style={{ width: '100%' }} align="center">
+      <Flex align="center" gap="medium">
         <Segmented
           options={['line', 'steps', 'circle', 'dashboard']}
           value={type}

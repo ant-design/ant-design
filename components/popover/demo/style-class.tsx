@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Flex, Popover } from 'antd';
-import type { PopoverProps } from 'antd';
+import type { GetProp, PopoverProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
@@ -19,7 +19,7 @@ const styles: PopoverProps['styles'] = {
   },
 };
 
-const stylesFn: PopoverProps['styles'] = (info) => {
+const stylesFn: PopoverProps['styles'] = (info): GetProp<PopoverProps, 'styles', 'Return'> => {
   if (!info.props.arrow) {
     return {
       container: {
@@ -30,14 +30,13 @@ const stylesFn: PopoverProps['styles'] = (info) => {
       content: {
         color: '#fff',
       },
-    } satisfies PopoverProps['styles'];
+    };
   }
-  return {};
 };
 
 const App: React.FC = () => {
   return (
-    <Flex gap="middle">
+    <Flex gap="medium">
       <Popover content="Object text" classNames={classNames} styles={styles} arrow={false}>
         <Button>Object Style</Button>
       </Popover>

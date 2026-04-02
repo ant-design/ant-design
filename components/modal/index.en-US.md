@@ -34,7 +34,6 @@ Additionally, if you need to show a simple confirmation dialog, you can use [`Ap
 <code src="./demo/width.tsx">To customize the width of modal</code>
 <code src="./demo/static-info.tsx">Static Method</code>
 <code src="./demo/confirm.tsx">Static confirmation</code>
-<code src="./demo/classNames.tsx">Customize className for build-in module</code>
 <code src="./demo/confirm-router.tsx">destroy confirmation modal dialog</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/nested.tsx" debug>Nested Modal</code>
@@ -65,8 +64,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | focusable | Configuration for focus management in the Modal | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | The mounted node for Modal but still display at fullscreen | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | keyboard | Whether support press esc to close | boolean | true |  |
-| mask | Mask effect | boolean \| `{enabled: boolean, blur: boolean}` | true |  |
-| maskClosable | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
+| mask | Mask effect | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true | mask.closable: 6.3.0 |
+| ~~maskClosable~~ | Whether to close the modal dialog when the mask (area outside the modal) is clicked | boolean | true |  |
 | modalRender | Custom modal content render | (node: ReactNode) => ReactNode | - | 4.7.0 |
 | okButtonProps | The ok button props | [ButtonProps](/components/button/#api) | - |  |
 | okText | Text of the OK button | ReactNode | `OK` |  |

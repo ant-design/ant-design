@@ -70,6 +70,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | fieldNames | Custom field name for label and value and children | object | { label: `label`, value: `value`, children: `children` } |  |
 | getPopupContainer | Parent Node which the selector should be rendered to. Default to `body`. When position issues happen, try to modify it into scrollable content and position it relative. [example](https://codepen.io/afc163/pen/zEjNOy?editors=0010) | function(triggerNode) | () => document.body |  |
 | loadData | To load option lazily, and it cannot work with `showSearch` | (selectedOptions) => void | - |  |
+| loadingIcon | Customize the loading icon | ReactNode | - |  |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | 4.17.0 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - | 4.17.0 |
 | maxTagTextLength | Max tag text length to show | number | - | 4.17.0 |
@@ -80,7 +81,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
-| size | The input size | `large` \| `middle` \| `small` | - |  |
+| size | The input size | `large` \| `medium` \| `small` | `medium` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
@@ -96,7 +97,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~onSearch~~ | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
 | ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `popupMenuColumnStyle` instead | CSSProperties | - |  |
 | popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
-| loadingIcon | The appearance of lazy loading (now is useless) | ReactNode | - |  |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch
@@ -111,6 +111,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | sort | Used to sort filtered options | function(a, b, inputValue) | - |  |
 | searchValue | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
 | onSearch | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
+| searchIcon | Customize the search icon | ReactNode | - | 6.3.0 |
 
 ### Option
 

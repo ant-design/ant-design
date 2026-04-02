@@ -94,7 +94,6 @@ describe('Typography copy', () => {
             );
           }
 
-          jest.useFakeTimers();
           fireEvent.click(container.querySelectorAll('.ant-typography-copy')[0]);
           await waitFakeTimer();
 
@@ -344,6 +343,32 @@ describe('Typography copy', () => {
       </Base>,
     );
     expect(container.querySelector('.ant-typography-copy')?.getAttribute('tabIndex')).toBe('-1');
+  });
+
+  it('action bar placement', () => {
+    const { container, rerender } = render(
+      <Base component="p" copyable editable>
+        test
+      </Base>,
+    );
+
+    const typography = container.querySelector('.ant-typography')!;
+    expect(typography.lastElementChild).toHaveClass('ant-typography-actions');
+    expect(typography.lastElementChild).not.toHaveClass('ant-typography-actions-start');
+    expect(typography.querySelector('.ant-typography-edit')).toBeTruthy();
+    expect(typography.querySelector('.ant-typography-copy')).toBeTruthy();
+
+    rerender(
+      <Base component="p" copyable editable actions={{ placement: 'start' }}>
+        test
+      </Base>,
+    );
+
+    const updatedTypography = container.querySelector('.ant-typography')!;
+    expect(updatedTypography.firstElementChild).toHaveClass('ant-typography-actions');
+    expect(updatedTypography.firstElementChild).toHaveClass('ant-typography-actions-start');
+    expect(updatedTypography.querySelector('.ant-typography-edit')).toBeTruthy();
+    expect(updatedTypography.querySelector('.ant-typography-copy')).toBeTruthy();
   });
 
   it('locale text for button tooltip', async () => {

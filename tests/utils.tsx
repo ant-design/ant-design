@@ -33,7 +33,7 @@ const customRender = (ui: ReactElement, options?: Partial<RenderOptions>) =>
   render(ui, { wrapper: StrictMode, ...options });
 
 export function renderHook<T>(func: () => T): { result: React.RefObject<T> } {
-  const result = createRef<any>();
+  const result = createRef<ReturnType<typeof func>>();
 
   const Demo: React.FC = () => {
     result.current = func();

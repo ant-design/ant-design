@@ -6,7 +6,7 @@ import { getStyle as getCheckboxStyle } from '../../checkbox/style';
 import { textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
-const getColumnsStyle: GenerateStyle<CascaderToken> = (token: CascaderToken): CSSInterpolation => {
+const getColumnsStyle: GenerateStyle<CascaderToken, CSSInterpolation> = (token) => {
   const { prefixCls, componentCls } = token;
 
   const cascaderMenuItemCls = `${componentCls}-menu-item`;

@@ -41,21 +41,21 @@ const App: React.FC = () => {
   };
 
   return (
-    <Flex vertical gap="middle">
+    <Flex vertical gap="medium">
       <Steps {...sharedProps} variant="filled" />
       <Steps {...sharedProps} />
       <Steps {...sharedProps} size="small" />
       <Steps {...sharedPercentProps} size="small" />
-      <Flex gap="middle">
+      <Flex gap="medium">
         <Steps {...sharedPercentProps} orientation="vertical" />
         <Steps {...sharedPercentProps} size="small" orientation="vertical" />
       </Flex>
-      <Flex gap="middle">
+      <Flex gap="medium">
         <Steps {...sharedProps} orientation="vertical" />
         <Steps {...sharedProps} orientation="vertical" size="small" />
       </Flex>
       <Steps {...sharedProps} type="dot" size="small" />
-      <Flex gap="middle">
+      <Flex gap="medium">
         <Steps {...sharedProps} type="dot" size="small" orientation="vertical" />
         <Steps {...sharedProps} type="navigation" size="small" orientation="vertical" />
       </Flex>

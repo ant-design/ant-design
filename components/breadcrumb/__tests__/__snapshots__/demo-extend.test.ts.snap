@@ -877,7 +877,7 @@ exports[`renders components/breadcrumb/demo/separator-component.tsx extend conte
 
 exports[`renders components/breadcrumb/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <nav
     aria-label="Breadcrumb with Object"

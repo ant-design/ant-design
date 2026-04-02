@@ -6,7 +6,7 @@ author: MadCcc
 
 ### 堆叠
 
-在 5.10.0 中，我们为 Notification 组件引入了一个新的特性，让原本会堆满屏幕的的醒目提醒堆叠到了一起，让原本紧张感满满的组件迎来了一丝灵动：
+在 5.10.0 中，我们为 Notification 组件引入了一个新的特性，让原本会堆满屏幕的醒目提醒堆叠到了一起，让原本紧张感满满的组件迎来了一丝灵动：
 
 ![Image](https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*ZAFSQ60WMVEAAAAAAAAAAAAADrJ8AQ/original)
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Modal } from 'antd';
 
 import Image from '..';
 import type { MaskType } from '../../_util/hooks';
@@ -7,6 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
+import Modal from '../../modal';
 
 const src = 'https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png';
 const alt = 'test image';
@@ -209,18 +209,18 @@ describe('Image', () => {
       openMask?: boolean,
     ][] = [
       // Format: [imageMask, configMask,  expectedBlurClass, openMask]
-      [undefined, true, true, true],
-      [true, undefined, true, true],
-      [undefined, undefined, true, true],
+      [undefined, true, false, true],
+      [true, undefined, false, true],
+      [undefined, undefined, false, true],
       [false, true, false, false],
-      [true, false, true, true],
+      [true, false, false, true],
       [{ enabled: false }, { blur: true }, true, false],
       [{ enabled: true }, { blur: false }, false, true],
       [{ blur: true }, { enabled: false }, true, false],
       [{ blur: false }, { enabled: true, blur: true }, false, true],
       [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
-      [<div key="1">123</div>, true, true, true],
-      [<div key="2">123</div>, false, true, false],
+      [<div key="1">123</div>, true, false, true],
+      [<div key="2">123</div>, false, false, false],
       [<div key="3">123</div>, { blur: false }, false, true],
     ];
     const demos = [
@@ -266,6 +266,53 @@ describe('Image', () => {
           expect(maskElement).not.toHaveClass('ant-image-preview-mask-blur');
         }
       });
+    });
+  });
+
+  describe('placeholder', () => {
+    it('should show ReactNode placeholder when src is not provided', () => {
+      const placeholderContent = 'Loading...';
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          placeholder={<div className="custom-placeholder">{placeholderContent}</div>}
+        />,
+      );
+
+      // Should render the placeholder content
+      expect(container.querySelector('.custom-placeholder')).toBeInTheDocument();
+      expect(container.querySelector('.custom-placeholder')?.textContent).toBe(placeholderContent);
+    });
+
+    it('should show ReactNode placeholder when src is empty string', () => {
+      const placeholderContent = 'No Image';
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          src=""
+          placeholder={<div className="custom-placeholder">{placeholderContent}</div>}
+        />,
+      );
+
+      // Should render the placeholder content
+      expect(container.querySelector('.custom-placeholder')).toBeInTheDocument();
+      expect(container.querySelector('.custom-placeholder')?.textContent).toBe(placeholderContent);
+    });
+
+    it('should still render with src and placeholder', () => {
+      const { container } = render(
+        <Image
+          width={200}
+          height={200}
+          src={src}
+          placeholder={<div className="custom-placeholder">Loading...</div>}
+        />,
+      );
+
+      // Should render the image element
+      expect(container.querySelector('.ant-image-img')).toBeInTheDocument();
     });
   });
 });

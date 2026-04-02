@@ -50,7 +50,7 @@ group: 数据展示
 | offset | 设置状态点的位置偏移 | \[number, number] | - |  |
 | overflowCount | 展示封顶的数字值 | number | 99 |  |
 | showZero | 当数值为 0 时，是否展示 Badge | boolean | false |  |
-| size | 在设置了 `count` 的前提下有效，设置小圆点的大小 | `default` \| `small` | - | - |
+| size | 在设置了 `count` 的前提下有效，设置小圆点的大小 | `medium` \| `small` | - | - |
 | status | 设置 Badge 为状态点 | `success` \| `processing` \| `default` \| `error` \| `warning` | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | text | 在设置了 `status` 的前提下有效，设置状态点的文本 | ReactNode | - |  |

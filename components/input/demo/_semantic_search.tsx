@@ -11,6 +11,7 @@ const locales = {
     input: '输入框元素',
     prefix: '前缀的包裹元素',
     suffix: '后缀的包裹元素',
+    clear: '清除按钮元素',
     count: '文字计数元素',
     'button.root': '按钮根元素',
     'button.icon': '按钮图标元素',
@@ -21,6 +22,7 @@ const locales = {
     input: 'input element',
     prefix: 'prefix element',
     suffix: 'suffix element',
+    clear: 'clear button element',
     count: 'count element',
     'button.root': 'button root element',
     'button.icon': 'button icon element',
@@ -38,6 +40,7 @@ const App: React.FC = () => {
         { name: 'prefix', desc: locale.prefix },
         { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
+        { name: 'clear', desc: locale.clear },
         { name: 'count', desc: locale.count },
         { name: 'button.root', desc: locale['button.root'] },
         { name: 'button.icon', desc: locale['button.icon'] },
@@ -46,6 +49,7 @@ const App: React.FC = () => {
     >
       <Input.Search
         loading
+        allowClear
         enterButton="Searching..."
         showCount
         prefix={<UserOutlined />}

@@ -1,7 +1,9 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import type { GenerateStyle } from '../../theme/interface';
 import type { SelectToken } from './token';
 
-const genSelectInputCustomizeStyle: GenerateStyle<SelectToken> = (token) => {
+const genSelectInputCustomizeStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
   const { componentCls } = token;
 
   return {

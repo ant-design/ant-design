@@ -974,9 +974,6 @@ Array [
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -994,16 +991,13 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="default"
-        />
-        <span
-          class="ant-radio-button-inner"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-button-label"
       >
-        Default
+        Medium
       </span>
     </label>
     <label
@@ -1017,9 +1011,6 @@ Array [
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span
@@ -2601,9 +2592,6 @@ Array [
               type="radio"
               value="start"
             />
-            <span
-              class="ant-radio-button-inner"
-            />
           </span>
           <span
             class="ant-radio-button-label"
@@ -2623,9 +2611,6 @@ Array [
               name="test-id"
               type="radio"
               value="end"
-            />
-            <span
-              class="ant-radio-button-inner"
             />
           </span>
           <span
@@ -3590,9 +3575,6 @@ Array [
           type="radio"
           value="large"
         />
-        <span
-          class="ant-radio-button-inner"
-        />
       </span>
       <span
         class="ant-radio-button-label"
@@ -3610,16 +3592,13 @@ Array [
           class="ant-radio-button-input"
           name="test-id"
           type="radio"
-          value="default"
-        />
-        <span
-          class="ant-radio-button-inner"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-button-label"
       >
-        Default
+        Medium
       </span>
     </label>
     <label
@@ -3633,9 +3612,6 @@ Array [
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-button-inner"
         />
       </span>
       <span

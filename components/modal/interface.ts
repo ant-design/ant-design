@@ -1,44 +1,39 @@
 import type React from 'react';
 import type { DialogProps } from '@rc-component/dialog';
 
-import type {
-  ClosableType,
-  MaskType,
-  SemanticClassNamesType,
-  SemanticStylesType,
-} from '../_util/hooks';
+import type { ClosableType, MaskType } from '../_util/hooks';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { ButtonProps, LegacyButtonType } from '../button/Button';
 import type { DirectionType } from '../config-provider';
 import type { FocusableConfig, OmitFocusType } from '../drawer/useFocusable';
 
-export type ModalSemanticName = keyof ModalSemanticClassNames & keyof ModalSemanticStyles;
-
-export type ModalSemanticClassNames = {
-  root?: string;
-  header?: string;
-  body?: string;
-  footer?: string;
-  container?: string;
-  title?: string;
-  wrapper?: string;
-  mask?: string;
+export type ModalSemanticType = {
+  classNames?: {
+    root?: string;
+    header?: string;
+    body?: string;
+    footer?: string;
+    container?: string;
+    title?: string;
+    wrapper?: string;
+    mask?: string;
+    close?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    header?: React.CSSProperties;
+    body?: React.CSSProperties;
+    footer?: React.CSSProperties;
+    container?: React.CSSProperties;
+    title?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
+    mask?: React.CSSProperties;
+    close?: React.CSSProperties;
+  };
 };
 
-export type ModalSemanticStyles = {
-  root?: React.CSSProperties;
-  header?: React.CSSProperties;
-  body?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  container?: React.CSSProperties;
-  title?: React.CSSProperties;
-  wrapper?: React.CSSProperties;
-  mask?: React.CSSProperties;
-};
-
-export type ModalClassNamesType = SemanticClassNamesType<ModalProps, ModalSemanticClassNames>;
-
-export type ModalStylesType = SemanticStylesType<ModalProps, ModalSemanticStyles>;
+export type ModalSemanticAllType = GenerateSemantic<ModalSemanticType, ModalProps>;
 
 interface ModalCommonProps
   extends Omit<
@@ -64,8 +59,8 @@ interface ModalCommonProps
   closable?:
     | boolean
     | (Exclude<ClosableType, boolean> & { onClose?: () => void; afterClose?: () => void });
-  classNames?: ModalClassNamesType;
-  styles?: ModalStylesType;
+  classNames?: ModalSemanticAllType['classNamesAndFn'];
+  styles?: ModalSemanticAllType['stylesAndFn'];
 }
 
 export interface ModalProps extends ModalCommonProps {
@@ -77,8 +72,8 @@ export interface ModalProps extends ModalCommonProps {
   title?: React.ReactNode;
   /** Specify a function that will be called when a user clicks the OK button */
   onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button */
-  onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  /** Specify a function that will be called when a user clicks mask, close button on top right or Cancel button, or presses Esc key */
+  onCancel?: (e: React.MouseEvent<HTMLButtonElement> | React.KeyboardEvent<HTMLElement>) => void;
   afterClose?: () => void;
   /** Callback when the animation ends when Modal is turned on and off */
   afterOpenChange?: (open: boolean) => void;
@@ -92,7 +87,10 @@ export interface ModalProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   /** Text of the Cancel button */
   cancelText?: React.ReactNode;
-  /** Whether to close the modal dialog when the mask (area outside the modal) is clicked */
+  /**
+   * @deprecated Please use `mask.closable` instead
+   * @description Whether to close the modal dialog when the mask (area outside the modal) is clicked
+   */
   maskClosable?: boolean;
   /** Force render Modal */
   forceRender?: boolean;
@@ -157,8 +155,9 @@ export interface ModalFuncProps extends ModalCommonProps {
   okType?: LegacyButtonType;
   cancelText?: React.ReactNode;
   icon?: React.ReactNode;
-  mask?: MaskType;
+  /** @deprecated Please use `mask.closable` instead */
   maskClosable?: boolean;
+  mask?: MaskType;
   zIndex?: number;
   okCancel?: boolean;
   style?: React.CSSProperties;

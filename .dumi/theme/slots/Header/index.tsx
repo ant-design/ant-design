@@ -159,7 +159,6 @@ interface VersionItem {
 }
 
 const fetcher = (...args: Parameters<typeof fetch>) => {
-  // eslint-disable-next-line compat/compat
   return fetch(...args).then((res) => res.json());
 };
 
@@ -204,7 +203,7 @@ const Header: React.FC = () => {
   });
 
   const { direction, isMobile, bannerVisible, updateSiteConfig } = React.use(SiteContext);
-  const pingTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const pingTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const location = useLocation();
   const { pathname, search } = location;
 
@@ -248,8 +247,8 @@ const Header: React.FC = () => {
     window.addEventListener('resize', onWindowResize);
     return () => {
       window.removeEventListener('resize', onWindowResize);
-      if (pingTimer.current) {
-        clearTimeout(pingTimer.current);
+      if (pingTimerRef.current) {
+        clearTimeout(pingTimerRef.current);
       }
     };
   }, [onWindowResize]);

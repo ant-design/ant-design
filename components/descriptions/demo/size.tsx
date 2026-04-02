@@ -89,7 +89,7 @@ const items: DescriptionsProps['items'] = [
 ];
 
 const App: React.FC = () => {
-  const [size, setSize] = useState<'default' | 'middle' | 'small'>('default');
+  const [size, setSize] = useState<'large' | 'medium' | 'small'>('large');
 
   const onChange = (e: RadioChangeEvent) => {
     console.log('size checked', e.target.value);
@@ -99,8 +99,8 @@ const App: React.FC = () => {
   return (
     <div>
       <Radio.Group onChange={onChange} value={size}>
-        <Radio value="default">default</Radio>
-        <Radio value="middle">middle</Radio>
+        <Radio value="large">large</Radio>
+        <Radio value="medium">medium</Radio>
         <Radio value="small">small</Radio>
       </Radio.Group>
       <br />

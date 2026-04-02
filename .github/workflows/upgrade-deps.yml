@@ -22,7 +22,7 @@ jobs:
             package.json
 
       - name: setup utoo
-        uses: utooland/setup-utoo@v1
+        uses: utooland/setup-utoo@3a51006d0b66afcc32d1b9177a4b200b74f4a8cb # v1
 
       - name: upgrade deps
         id: upgrade
@@ -40,7 +40,7 @@ jobs:
 
       - name: create pull request
         id: cpr
-        uses: peter-evans/create-pull-request@v8
+        uses: peter-evans/create-pull-request@c0f553fe549906ede9cf27b5156039d195d2ece0 # v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }} # Cannot be default!!!
           assignees: 'afc163, yoyo837, Wxh16144, li-jia-nan, thinkasany'

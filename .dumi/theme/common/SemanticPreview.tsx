@@ -36,7 +36,8 @@ const styles = createStaticStyles(({ css, cssVar }) => ({
     list-style: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: auto;
+    max-height: 600px;
   `,
   listItem: css`
     cursor: pointer;
@@ -122,6 +123,7 @@ export interface SemanticPreviewProps {
   height?: number;
   padding?: false;
   style?: React.CSSProperties;
+  motion?: boolean;
 }
 
 const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
@@ -133,6 +135,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
     style,
     componentName = 'Component',
     itemsAPI,
+    motion = false,
   } = props;
   const { token } = theme.useToken();
 
@@ -183,7 +186,7 @@ const SemanticPreview: React.FC<SemanticPreviewProps> = (props) => {
           className={clsx(styles.colWrap, padding === false && styles.colWrapPaddingLess)}
           style={style}
         >
-          <ConfigProvider theme={{ token: { motion: false } }}>{cloneNode}</ConfigProvider>
+          <ConfigProvider theme={{ token: { motion } }}>{cloneNode}</ConfigProvider>
         </Col>
         <Col span={8}>
           <ul className={clsx(styles.listWrap)}>

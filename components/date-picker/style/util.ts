@@ -116,7 +116,9 @@ export const genOverflowStyle = (
         marginBlock: INTERNAL_FIXED_ITEM_MARGIN,
         borderRadius: borderRadiusSM,
         cursor: 'default',
-        transition: `font-size ${motionDurationSlow}, line-height ${motionDurationSlow}, height ${motionDurationSlow}`,
+        transition: [`font-size`, `line-height`, `height`]
+          .map((prop) => `${prop} ${motionDurationSlow}`)
+          .join(', '),
         marginInlineEnd: token.calc(INTERNAL_FIXED_ITEM_MARGIN).mul(2).equal(),
         paddingInlineStart: paddingXS,
         paddingInlineEnd: token.calc(paddingXS).div(2).equal(),

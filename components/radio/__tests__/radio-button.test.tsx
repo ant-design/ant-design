@@ -3,15 +3,10 @@ import React from 'react';
 import type { RadioGroupProps } from '..';
 import Radio, { Button } from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import mountTest from '../../../tests/shared/mountTest';
-import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render } from '../../../tests/utils';
 
 describe('Radio Button', () => {
   focusTest(Button, { refFocus: true });
-  mountTest(Button);
-
-  rtlTest(Button);
 
   it('should render correctly', () => {
     const { container } = render(<Button className="customized">Test</Button>);

@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { genComponentStyleHook } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -7,8 +9,15 @@ export interface ComponentToken {}
 
 export interface WaveToken extends FullToken<'Wave'> {}
 
-const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
-  const { componentCls, colorPrimary, antCls } = token;
+const genWaveStyle: GenerateStyle<WaveToken, CSSObject> = (token) => {
+  const {
+    componentCls,
+    colorPrimary,
+    motionDurationSlow,
+    motionEaseInOut,
+    motionEaseOutCirc,
+    antCls,
+  } = token;
   const [, varRef] = genCssVar(antCls, 'wave');
   return {
     [componentCls]: {
@@ -22,20 +31,18 @@ const genWaveStyle: GenerateStyle<WaveToken> = (token) => {
 
       // =================== Motion ===================
       '&.wave-motion-appear': {
-        transition: [
-          `box-shadow 0.4s ${token.motionEaseOutCirc}`,
-          `opacity 2s ${token.motionEaseOutCirc}`,
-        ].join(','),
+        transition: [`box-shadow 0.4s`, `opacity 2s`]
+          .map((prop) => `${prop} ${motionEaseOutCirc}`)
+          .join(','),
 
         '&-active': {
           boxShadow: `0 0 0 6px currentcolor`,
           opacity: 0,
         },
         '&.wave-quick': {
-          transition: [
-            `box-shadow ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-            `opacity ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-          ].join(','),
+          transition: [`box-shadow`, `opacity`]
+            .map((prop) => `${prop} ${motionDurationSlow} ${motionEaseInOut}`)
+            .join(','),
         },
       },
     },

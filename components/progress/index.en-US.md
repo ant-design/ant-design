@@ -56,7 +56,7 @@ Properties that shared by all types.
 | success | Configs of successfully progress bar | { percent: number, strokeColor: string } | - | - |
 | ~~trailColor~~ | The color of unfilled part. Please use `railColor` instead | string | - | - |
 | type | To set the type, options: `line` `circle` `dashboard` | string | `line` |
-| size | Progress size | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "default" | "default" | 5.3.0, Object: 5.18.0 |
+| size | Progress size | number \| \[number \| string, number] \| { width: number, height: number } \| "small" \| "medium" | "medium" | 5.3.0, Object: 5.18.0 |
 
 ### `type="line"`
 

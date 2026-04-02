@@ -8,9 +8,9 @@ import type {
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import getAllowClear from '../_util/getAllowClear';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import useAllowClear from '../_util/hooks/useAllowClear';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import genPurePanel from '../_util/PurePanel';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
@@ -45,28 +45,22 @@ export interface OptionProps {
   [key: string]: any;
 }
 
-export type MentionSemanticName = keyof MentionSemanticClassNames & keyof MentionSemanticStyles;
-
-export type MentionSemanticClassNames = {
-  root?: string;
-  textarea?: string;
-  popup?: string;
-  suffix?: string;
+export type MentionSemanticType = {
+  classNames?: {
+    root?: string;
+    textarea?: string;
+    popup?: string;
+    suffix?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    textarea?: React.CSSProperties;
+    popup?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+  };
 };
 
-export type MentionSemanticStyles = {
-  root?: React.CSSProperties;
-  textarea?: React.CSSProperties;
-  popup?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-};
-
-export type MentionsClassNamesType = SemanticClassNamesType<
-  MentionProps,
-  MentionSemanticClassNames
->;
-
-export type MentionsStylesType = SemanticStylesType<MentionProps, MentionSemanticStyles>;
+export type MentionSemanticAllType = GenerateSemantic<MentionSemanticType, MentionProps>;
 
 export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNames' | 'styles'> {
   rootClassName?: string;
@@ -79,8 +73,8 @@ export interface MentionProps extends Omit<RcMentionsProps, 'suffix' | 'classNam
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: MentionsClassNamesType;
-  styles?: MentionsStylesType;
+  classNames?: MentionSemanticAllType['classNamesAndFn'];
+  styles?: MentionSemanticAllType['stylesAndFn'];
   size?: SizeType;
 }
 
@@ -110,7 +104,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     notFoundContent,
     options,
     status: customStatus,
-    allowClear = false,
+    allowClear,
     popupClassName,
     style,
     variant: customVariant,
@@ -136,6 +130,7 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
   const {
     getPrefixCls,
     direction,
+    allowClear: contextAllowClear,
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
@@ -159,18 +154,16 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
     ...props,
     disabled: mergedDisabled,
     status: mergedStatus,
-    loading,
-    options,
     variant: customVariant,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    MentionsClassNamesType,
-    MentionsStylesType,
-    MentionProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const onFocus: React.FocusEventHandler<HTMLTextAreaElement> = (...args) => {
     if (restProps.onFocus) {
@@ -217,7 +210,12 @@ const InternalMentions = React.forwardRef<MentionsRef, MentionProps>((props, ref
 
   const mentionsfilterOption = loading ? loadingFilterOption : filterOption;
 
-  const mergedAllowClear = getAllowClear(allowClear);
+  const mergedAllowClear = useAllowClear({
+    allowClear,
+    contextAllowClear,
+    defaultAllowClear: false,
+    componentName: 'Mentions',
+  });
 
   // Style
   const rootCls = useCSSVarCls(prefixCls);

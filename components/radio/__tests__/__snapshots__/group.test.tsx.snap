@@ -17,9 +17,6 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         type="radio"
         value="Apple"
       />
-      <span
-        class="my-radio-inner"
-      />
     </span>
     <span
       class="my-radio-label"
@@ -39,9 +36,6 @@ exports[`Radio Group passes prefixCls down to radio 1`] = `
         name="test-id"
         type="radio"
         value="Orange"
-      />
-      <span
-        class="my-radio-inner"
       />
     </span>
     <span

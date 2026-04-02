@@ -516,16 +516,13 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="default"
-        />
-        <span
-          class="ant-radio-inner"
+          value="large"
         />
       </span>
       <span
         class="ant-radio-label"
       >
-        default
+        large
       </span>
     </label>
     <label
@@ -538,16 +535,13 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="middle"
-        />
-        <span
-          class="ant-radio-inner"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-label"
       >
-        middle
+        medium
       </span>
     </label>
     <label
@@ -561,9 +555,6 @@ exports[`renders components/descriptions/demo/component-token.tsx extend context
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -1617,16 +1608,13 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="default"
-        />
-        <span
-          class="ant-radio-inner"
+          value="large"
         />
       </span>
       <span
         class="ant-radio-label"
       >
-        default
+        large
       </span>
     </label>
     <label
@@ -1639,16 +1627,13 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           class="ant-radio-input"
           name="test-id"
           type="radio"
-          value="middle"
-        />
-        <span
-          class="ant-radio-inner"
+          value="medium"
         />
       </span>
       <span
         class="ant-radio-label"
       >
-        middle
+        medium
       </span>
     </label>
     <label
@@ -1662,9 +1647,6 @@ exports[`renders components/descriptions/demo/size.tsx extend context correctly 
           name="test-id"
           type="radio"
           value="small"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2085,9 +2067,6 @@ Array [
           type="radio"
           value="horizontal"
         />
-        <span
-          class="ant-radio-inner"
-        />
       </span>
       <span
         class="ant-radio-label"
@@ -2106,9 +2085,6 @@ Array [
           name="test-id"
           type="radio"
           value="vertical"
-        />
-        <span
-          class="ant-radio-inner"
         />
       </span>
       <span
@@ -2315,7 +2291,7 @@ exports[`renders components/descriptions/demo/style.tsx extend context correctly
 
 exports[`renders components/descriptions/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-middle ant-flex-vertical"
+  class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
     class="ant-descriptions acss-ven0qr ant-descriptions-small ant-descriptions-bordered css-var-test-id"
@@ -2802,7 +2778,9 @@ exports[`renders components/descriptions/demo/text.tsx extend context correctly 
                   class="css-var-test-id ant-table-css-var ant-table-wrapper"
                 >
                   <div
-                    class="ant-spin-nested-loading css-var-test-id"
+                    aria-busy="false"
+                    aria-live="polite"
+                    class="ant-spin css-var-test-id"
                   >
                     <div
                       class="ant-spin-container"

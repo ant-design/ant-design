@@ -8,6 +8,8 @@ const items = Array.from({ length: 15 }).map((_, index) => ({
   label: `nav ${index + 1}`,
 }));
 
+const currentYear = new Date().getFullYear();
+
 const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
@@ -41,9 +43,7 @@ const App: React.FC = () => {
           Content
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>
-        Ant Design ©{new Date().getFullYear()} Created by Ant UED
-      </Footer>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©{currentYear} Created by Ant UED</Footer>
     </Layout>
   );
 };

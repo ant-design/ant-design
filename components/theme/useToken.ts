@@ -2,6 +2,7 @@ import React from 'react';
 import type { Theme } from '@ant-design/cssinjs';
 import { useCacheToken } from '@ant-design/cssinjs';
 
+import { ConfigContext } from '../config-provider/context';
 import version from '../version';
 import type { DesignTokenProviderProps } from './context';
 import { defaultTheme, DesignTokenContext } from './context';
@@ -54,6 +55,9 @@ const preserve: {
   screenXLMax: true,
   screenXXL: true,
   screenXXLMin: true,
+  screenXXLMax: true,
+  screenXXXL: true,
+  screenXXXLMin: true,
 };
 
 export const getComputedToken = (
@@ -117,6 +121,8 @@ export default function useToken(): [
     zeroRuntime,
   } = React.useContext(DesignTokenContext);
 
+  const { csp } = React.useContext(ConfigContext);
+
   const cssVar = {
     prefix: ctxCssVar?.prefix ?? 'ant',
     key: ctxCssVar?.key ?? 'css-var-root',
@@ -139,6 +145,7 @@ export default function useToken(): [
         ignore,
         preserve,
       },
+      nonce: csp?.nonce,
     },
   );
 

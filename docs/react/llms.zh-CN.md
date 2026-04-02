@@ -7,7 +7,7 @@ title: LLMs.txt
 tag: New
 ---
 
-本指南介绍如何让 Cursor、Windsurf 和 Claude 等 AI 工具更好地理解 Ant Design。
+本指南介绍如何让 AI 工具更好地理解 Ant Design。
 
 ## 什么是 LLMs.txt？
 
@@ -15,49 +15,47 @@ tag: New
 
 ## 可用资源
 
-我们提供多个 LLMs.txt 路由来帮助 AI 工具访问文档：
+### LLMs.txt 聚合文件
 
-- [llms.txt](https://ant.design/llms.txt) - 包含所有组件及其文档链接的结构化概览
-- [llms-full.txt](https://ant.design/llms-full.txt) - 提供包含实现细节和示例的完整文档
+我们提供多个聚合文件来帮助 AI 工具访问文档：
+
+| 文件 | 说明 |
+| --- | --- |
+| [llms.txt](https://ant.design/llms.txt) | 导航文件，包含所有文档和组件的链接 |
+| [llms-full.txt](https://ant.design/llms-full.txt) | 完整的组件文档（英文），包含实现细节和示例 |
+| [llms-full-cn.txt](https://ant.design/llms-full-cn.txt) | 完整的组件文档（中文） |
+| [llms-semantic.md](https://ant.design/llms-semantic.md) | 组件语义描述（英文），包含 DOM 结构和使用模式 |
+| [llms-semantic-cn.md](https://ant.design/llms-semantic-cn.md) | 组件语义描述（中文） |
+
+### 单个组件文档
+
+通过 `.md` 后缀直接访问单个组件文档：
+
+- `https://ant.design/components/button.md`（英文）
+- `https://ant.design/components/button-cn.md`（中文）
+
+### 语义文档
+
+每个组件都有对应的语义描述文件：
+
+- `https://ant.design/components/button/semantic.md`（英文）
+- `https://ant.design/components/button-cn/semantic.md`（中文）
+
+语义文档包含：
+
+- 组件部件及其用途
+- 使用示例和最佳实践
+- DOM 结构概览
 
 ## 在 AI 工具中的使用
 
-### Cursor
-
-在 Cursor 中使用 `@Docs` 功能将 LLMs.txt 文件包含到您的项目中。这有助于 Cursor 为 Ant Design 组件提供更准确的代码建议和文档。
-
-[详细了解 Cursor 中的 @Docs 功能](https://docs.cursor.com/zh/context/@-symbols/@-docs)
-
-### Windsurf
-
-通过 `@` 引用或在 `.windsurf/rules` 文件中配置 LLMs.txt 文件，以增强 Windsurf 对 Ant Design 组件的理解。
-
-[详细了解 Windsurf Memories 功能](https://docs.windsurf.com/windsurf/cascade/memories)
-
-### Claude Code
-
-在 Claude Code 中，将 `LLMs.txt` 添加到工作区的知识库（Docs / Context Files）配置中，即可在代码补全与解释时引用其中的内容，从而提升对 Ant Design 组件的理解。
-
-[详细了解 Claude Code 文档上下文配置](https://code.claude.com/docs)
-
-### Gemini CLI
-
-在 Gemini CLI 中，可以通过 `--context` 参数或在 `.gemini/config.json` 中指定 `LLMs.txt` 文件路径，让 Gemini 在回答和生成代码时参考该文档。
-
-[详细了解 Gemini CLI 上下文配置](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
-
-### Trae
-
-在 Trae 中，将 `LLMs.txt` 文件放入项目的 knowledge sources 并在设置里开启引用，即可让 Trae 在生成或分析代码时更好地支持 Ant Design 组件。
-
-[详细了解 Trae 的知识源功能](https://trae.ai/docs)
-
-### Qoder
-
-在 Qoder 中，可以在 `.qoder/config.yml` 中添加 `LLMs.txt` 作为外部知识文件，或在对话中通过 `@docs LLMs.txt` 进行临时引用，增强对 Ant Design 组件的支持。
-
-[详细了解 Qoder 配置方法](https://docs.qoder.com/)
-
-### 其他 AI 工具
-
-任何支持 LLMs.txt 的 AI 工具均可使用以上路径来更好地理解 Ant Design。
+| 工具 | 说明 | 提示词 |
+| --- | --- | --- |
+| **Cursor** | 使用 `@Docs` 功能引入 LLMs.txt，或添加提示词到 `.cursor/rules`。[文档](https://docs.cursor.com/zh/context/@-symbols/@-docs) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
+| **Windsurf** | 添加提示词到 `.windsurf/rules` 或使用 cascade memories。[文档](https://docs.windsurf.com/windsurf/cascade/memories) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
+| **Claude Code** | 添加到 CLAUDE.md 或使用 `/memory` 持久化。[文档](https://docs.anthropic.com/en/docs/claude-code) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
+| **Codex** | 添加到 `.codex/settings.json` 或 AGENTS.md。[文档](https://github.com/openai/codex) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
+| **Gemini CLI** | 使用 `--context` 参数或添加到 `.gemini/config.json`。[文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
+| **Trae** | 添加到项目的知识源设置中。[文档](https://trae.ai/docs) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
+| **Qoder** | 添加到 `.qoder/config.yml` 或在对话中使用 `@docs`。[文档](https://docs.qoder.com/) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
+| **Neovate Code** | 运行 `neovate` 并使用提示词描述任务。[文档](https://github.com/neovateai/neovate-code) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |

@@ -5,7 +5,7 @@ import { FastColor } from '@ant-design/fast-color';
 import type { GenerateStyle } from '../../theme/internal';
 import type { PickerToken, SharedPickerToken } from './token';
 
-const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
+const genPickerCellInnerStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
     pickerCellCls,
     pickerCellInnerCls,
@@ -141,7 +141,7 @@ const genPickerCellInnerStyle = (token: SharedPickerToken): CSSObject => {
   };
 };
 
-export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
+export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     pickerCellCls,
@@ -539,7 +539,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
           width: timeColumnWidth,
           margin: `${unit(paddingXXS)} 0`,
           padding: 0,
-          overflowY: 'hidden',
+          overflowY: 'auto',
           textAlign: 'start',
           listStyle: 'none',
           transition: `background-color ${motionDurationMid}`,
@@ -573,10 +573,6 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
 
           '&-active': {
             background: new FastColor(controlItemBgActive).setA(0.2).toHexString(),
-          },
-
-          '&:hover': {
-            overflowY: 'auto',
           },
 
           '> li': {
@@ -625,7 +621,7 @@ export const genPanelStyle = (token: SharedPickerToken): CSSObject => {
   };
 };
 
-const genPickerPanelStyle: GenerateStyle<PickerToken> = (token) => {
+const genPickerPanelStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const {
     componentCls,
     textHeight,

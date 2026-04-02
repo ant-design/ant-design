@@ -6,17 +6,19 @@ import RightOutlined from '@ant-design/icons/RightOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import type { Breakpoint } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
 import { LayoutContext } from './context';
 import useStyle from './style/sider';
 
-const dimensionMaxMap = {
+const dimensionMaxMap: Record<Breakpoint, string> = {
   xs: '479.98px',
   sm: '575.98px',
   md: '767.98px',
   lg: '991.98px',
   xl: '1199.98px',
   xxl: '1599.98px',
+  xxxl: `1839.98px`,
 };
 
 const isNumeric = (val: any) =>
@@ -43,7 +45,7 @@ export interface SiderProps extends React.HTMLAttributes<HTMLDivElement> {
   trigger?: React.ReactNode;
   width?: number | string;
   collapsedWidth?: number | string;
-  breakpoint?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+  breakpoint?: Breakpoint;
   theme?: SiderTheme;
   onBreakpoint?: (broken: boolean) => void;
 }

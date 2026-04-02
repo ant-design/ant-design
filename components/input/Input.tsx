@@ -7,9 +7,9 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import getAllowClear from '../_util/getAllowClear';
-import { useMergeSemantic } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import useAllowClear from '../_util/hooks/useAllowClear';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -30,27 +30,26 @@ export type { InputFocusOptions };
 export type { InputRef };
 export { triggerFocus };
 
-export type InputSemanticName = keyof InputSemanticClassNames & keyof InputSemanticStyles;
-
-export type InputSemanticClassNames = {
-  root?: string;
-  prefix?: string;
-  suffix?: string;
-  input?: string;
-  count?: string;
+export type InputSemanticType = {
+  classNames?: {
+    root?: string;
+    prefix?: string;
+    suffix?: string;
+    clear?: string;
+    input?: string;
+    count?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    prefix?: React.CSSProperties;
+    suffix?: React.CSSProperties;
+    clear?: React.CSSProperties;
+    input?: React.CSSProperties;
+    count?: React.CSSProperties;
+  };
 };
 
-export type InputSemanticStyles = {
-  root?: React.CSSProperties;
-  prefix?: React.CSSProperties;
-  suffix?: React.CSSProperties;
-  input?: React.CSSProperties;
-  count?: React.CSSProperties;
-};
-
-export type InputClassNamesType = SemanticClassNamesType<InputProps, InputSemanticClassNames>;
-
-export type InputStylesType = SemanticStylesType<InputProps, InputSemanticStyles>;
+export type InputSemanticAllType = GenerateSemantic<InputSemanticType, InputProps>;
 
 export interface InputProps
   extends Omit<
@@ -102,8 +101,8 @@ export interface InputProps
    * @default "outlined"
    */
   variant?: Variant;
-  classNames?: InputClassNamesType;
-  styles?: InputStylesType;
+  classNames?: InputSemanticAllType['classNamesAndFn'];
+  styles?: InputSemanticAllType['stylesAndFn'];
   [key: `data-${string}`]: string | undefined;
 }
 
@@ -177,13 +176,13 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    InputClassNamesType,
-    InputStylesType,
-    InputProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ===================== Status =====================
   const { status: contextStatus, hasFeedback, feedbackIcon } = useContext(FormItemInputContext);
@@ -191,7 +190,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   // ===================== Focus warning =====================
   const inputHasPrefixSuffix = hasPrefixSuffix(props) || !!hasFeedback;
-  const prevHasPrefixSuffix = useRef<boolean>(inputHasPrefixSuffix);
+  const prevHasPrefixSuffixRef = useRef<boolean>(inputHasPrefixSuffix);
 
   /* eslint-disable react-hooks/rules-of-hooks */
   if (process.env.NODE_ENV !== 'production') {
@@ -199,14 +198,14 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
     // biome-ignore lint/correctness/useHookAtTopLevel: Development-only warning hook called conditionally
     useEffect(() => {
-      if (inputHasPrefixSuffix && !prevHasPrefixSuffix.current) {
+      if (inputHasPrefixSuffix && !prevHasPrefixSuffixRef.current) {
         warning(
           document.activeElement === inputRef.current?.input,
           'usage',
           `When Input is focused, dynamic add or remove prefix / suffix will make it lose focus caused by dom structure change. Read more: https://ant.design/components/input/#FAQ`,
         );
       }
-      prevHasPrefixSuffix.current = inputHasPrefixSuffix;
+      prevHasPrefixSuffixRef.current = inputHasPrefixSuffix;
     }, [inputHasPrefixSuffix]);
   }
   /* eslint-enable */
@@ -236,7 +235,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
+  const mergedAllowClear = useAllowClear({ allowClear, contextAllowClear, componentName: 'Input' });
 
   const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 

@@ -106,7 +106,7 @@ const getArrowStyle = <
         },
 
         '&-placement-topLeft': {
-          [varName('arrow-offset-horizontal')]: arrowOffsetHorizontal,
+          [varName('arrow-offset-x')]: arrowOffsetHorizontal,
 
           [`> ${componentCls}-arrow`]: {
             left: {
@@ -117,7 +117,7 @@ const getArrowStyle = <
         },
 
         '&-placement-topRight': {
-          [varName('arrow-offset-horizontal')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+          [varName('arrow-offset-x')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
 
           [`> ${componentCls}-arrow`]: {
             right: {
@@ -148,7 +148,7 @@ const getArrowStyle = <
         },
 
         '&-placement-bottomLeft': {
-          [varName('arrow-offset-horizontal')]: arrowOffsetHorizontal,
+          [varName('arrow-offset-x')]: arrowOffsetHorizontal,
 
           [`> ${componentCls}-arrow`]: {
             left: {
@@ -159,7 +159,7 @@ const getArrowStyle = <
         },
 
         '&-placement-bottomRight': {
-          [varName('arrow-offset-horizontal')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
+          [varName('arrow-offset-x')]: `calc(100% - ${unit(arrowOffsetHorizontal)})`,
 
           [`> ${componentCls}-arrow`]: {
             right: {

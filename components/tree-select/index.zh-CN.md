@@ -70,7 +70,7 @@ demo:
 | ~~searchValue~~ | 搜索框的值，可以通过 `onSearch` 获取用户输入 | string | - |  |
 | showCheckedStrategy | 配置 `treeCheckable` 时，定义选中项回填的方式。`TreeSelect.SHOW_ALL`: 显示所有选中节点(包括父节点)。`TreeSelect.SHOW_PARENT`: 只显示父节点(当父节点下所有子节点都选中时)。 默认只显示子节点 | `TreeSelect.SHOW_ALL` \| `TreeSelect.SHOW_PARENT` \| `TreeSelect.SHOW_CHILD` | `TreeSelect.SHOW_CHILD` |  |
 | showSearch | 是否支持搜索框 | boolean \| [Object](#showsearch) | 单选：false \| 多选：true |  |
-| size | 选择框大小 | `large` \| `middle` \| `small` | - |  |
+| size | 选择框大小 | `large` \| `medium` \| `small` | - |  |
 | status | 设置校验状态 | 'error' \| 'warning' | - | 4.19.0 |
 | suffixIcon | 自定义的选择框后缀图标 | ReactNode | `<DownOutlined />` |  |
 | switcherIcon | 自定义树节点的展开/折叠图标 | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
@@ -147,7 +147,7 @@ demo:
 
 从性能角度考虑，我们默认不透出父节点信息。你可以这样获得：<https://codesandbox.io/s/get-parent-node-in-onchange-eb1608>
 
-### 自定义 Option 样式导致滿动异常怎么办？ {#faq-custom-option-scroll}
+### 自定义 Option 样式导致滚动异常怎么办？ {#faq-custom-option-scroll}
 
 请参考 Select 的 [FAQ](/components/select-cn)。
 

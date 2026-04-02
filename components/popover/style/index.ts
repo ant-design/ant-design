@@ -1,3 +1,5 @@
+import type { CSSObject } from '@ant-design/cssinjs';
+
 import { resetComponent } from '../../style';
 import { initZoomMotion } from '../../style/motion';
 import type { ArrowOffsetToken } from '../../style/placementArrow';
@@ -108,7 +110,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
         userSelect: 'text',
 
         // When use `autoArrow`, origin will follow the arrow position
-        [varName('valid-offset-x')]: varRef('arrow-offset-horizontal', 'var(--arrow-x)'),
+        [varName('valid-offset-x')]: varRef('arrow-offset-x', 'var(--arrow-x)'),
         transformOrigin: [
           varRef('valid-offset-x', FALL_BACK_ORIGIN),
           `var(--arrow-y, ${FALL_BACK_ORIGIN})`,
@@ -169,7 +171,7 @@ const genBaseStyle: GenerateStyle<PopoverToken> = (token) => {
   ];
 };
 
-const genColorStyle: GenerateStyle<PopoverToken> = (token) => {
+const genColorStyle: GenerateStyle<PopoverToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const [varName] = genCssVar(antCls, 'tooltip');
   return {

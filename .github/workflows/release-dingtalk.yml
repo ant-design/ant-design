@@ -13,15 +13,20 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.ref_type }}-${{ github.event.ref }}
+  cancel-in-progress: true
+
 jobs:
   release-helper:
     permissions:
       contents: write  # for actions-cool/release-helper to create releases
     if: github.event.ref_type == 'tag'
     runs-on: blacksmith-4vcpu-ubuntu-2404
+    timeout-minutes: 30
     steps:
       - name: Send to Ant Design DingGroup
-        uses: actions-cool/release-helper@v2
+        uses: actions-cool/release-helper@8efc07eaf5c8fd333c7ac53667de49bf11f07851 # v2
         with:
           trigger: tag
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
@@ -37,7 +42,7 @@ jobs:
           prerelease-filter: '-, a, b, A, B'
 
       - name: Send to Bigfish DingGroup
-        uses: actions-cool/release-helper@v2
+        uses: actions-cool/release-helper@8efc07eaf5c8fd333c7ac53667de49bf11f07851 # v2
         with:
           trigger: tag
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'

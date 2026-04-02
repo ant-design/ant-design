@@ -2053,7 +2053,7 @@ exports[`renders components/popover/demo/shift.tsx extend context correctly 2`] 
 
 exports[`renders components/popover/demo/style-class.tsx extend context correctly 1`] = `
 <div
-  class="ant-flex css-var-test-id ant-flex-gap-middle"
+  class="ant-flex css-var-test-id ant-flex-gap-medium"
 >
   <button
     aria-describedby="test-id"

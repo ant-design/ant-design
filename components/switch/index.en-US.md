@@ -39,7 +39,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Alias for `defaultChecked` | boolean | - | 5.12.0 |
 | disabled | Disable switch | boolean | false |  |
 | loading | Loading state of switch | boolean | false |  |
-| size | The size of the Switch, options: `default` `small` | string | `default` |  |
+| size | The size of the Switch, options: `medium` `small` | string | `medium` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |
 | unCheckedChildren | The content to be shown when the state is unchecked | ReactNode | - |  |
 | value | Alias for `checked` | boolean | - | 5.12.0 |
