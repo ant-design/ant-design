@@ -62,9 +62,21 @@ const onChange: CascaderProps<Option>['onChange'] = (value) => {
 
 const App: React.FC = () => (
   <Flex gap="middle" wrap align="flex-start">
+    <style>{`
+      .cascader-panel-ellipsis-debug-fixed .ant-cascader-menu {
+        width: 160px;
+        min-width: 160px;
+        flex: none;
+      }
+    `}</style>
+
     <Flex vertical gap="small">
       <Typography.Text strong>Constrained item width</Typography.Text>
-      <Cascader.Panel options={options} onChange={onChange} popupMenuColumnStyle={{ width: 160 }} />
+      <Cascader.Panel
+        className="cascader-panel-ellipsis-debug-fixed"
+        options={options}
+        onChange={onChange}
+      />
     </Flex>
 
     <Flex vertical gap="small">

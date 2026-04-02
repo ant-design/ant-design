@@ -1293,6 +1293,13 @@ exports[`renders components/cascader/demo/ellipsis-debug.tsx extend context corr
 <div
   class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-flex-start ant-flex-gap-middle"
 >
+  <style>
+      .cascader-panel-ellipsis-debug-fixed .ant-cascader-menu {
+        width: 160px;
+        min-width: 160px;
+        flex: none;
+      }
+  </style>
   <div
     class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
   >
@@ -1304,7 +1311,7 @@ exports[`renders components/cascader/demo/ellipsis-debug.tsx extend context corr
       </strong>
     </span>
     <div
-      class="ant-cascader-panel css-var-test-id ant-cascader-css-var"
+      class="ant-cascader-panel cascader-panel-ellipsis-debug-fixed css-var-test-id ant-cascader-css-var"
     >
       <div
         class="ant-cascader-menus"
