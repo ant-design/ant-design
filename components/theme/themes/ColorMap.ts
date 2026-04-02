@@ -14,7 +14,9 @@ export interface ColorMap {
 }
 
 export type GenerateColorMap = (baseColor: string) => ColorMap;
+
 export type GenerateNeutralColorMap = (
   bgBaseColor: string,
   textBaseColor: string,
+  shadowColor?: string,
 ) => ColorNeutralMapToken;
