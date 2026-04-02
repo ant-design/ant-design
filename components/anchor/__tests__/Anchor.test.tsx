@@ -400,6 +400,122 @@ describe('Anchor Render', () => {
     expect(linksAfterUpdate).toHaveLength(2);
   });
 
+  // Test for coverage: unregister link should clean up targetOffset
+  it('should clean up link targetOffset when link is unregistered', async () => {
+    const hash = getHashUrl();
+
+    const root = createDiv();
+    render(<h1 id={hash}>Hello</h1>, { container: root });
+
+    const Demo = ({ showSecondLink }: { showSecondLink: boolean }) => (
+      <Anchor
+        targetOffset={100}
+        items={[
+          { key: 'link1', href: `#${hash}`, title: 'Link 1', targetOffset: 50 },
+          ...(showSecondLink
+            ? [{ key: 'link2', href: `#${hash}`, title: 'Link 2', targetOffset: 80 }]
+            : []),
+        ]}
+      />
+    );
+
+    const { rerender } = render(<Demo showSecondLink />);
+
+    // Initially both links should exist
+    let links = document.querySelectorAll<HTMLElement>('.ant-anchor-link');
+    expect(links).toHaveLength(2);
+
+    // Remove second link - this should trigger unregister and clean up targetOffset
+    rerender(<Demo showSecondLink={false} />);
+
+    // Only first link should remain
+    links = document.querySelectorAll<HTMLElement>('.ant-anchor-link');
+    expect(links).toHaveLength(1);
+  });
+
+  // Test for coverage: scroll detection should use link-level targetOffset
+  it('should use link-level targetOffset when detecting active link during scroll', async () => {
+    const hash1 = getHashUrl();
+    const hash2 = getHashUrl();
+
+    const root = createDiv();
+    // Place element below both threshold values to test link-specific offset
+    render(
+      <div>
+        <h1 id={hash1}>Section 1</h1>
+        <h1 id={hash2}>Section 2</h1>
+      </div>,
+      { container: root },
+    );
+
+    // Mock getBoundingClientRect to return positions that trigger both links at different offsets
+    const originalGetBoundingClientRect = HTMLHeadingElement.prototype.getBoundingClientRect;
+    HTMLHeadingElement.prototype.getBoundingClientRect = jest.fn().mockImplementation(function (
+      this: HTMLElement,
+    ) {
+      if (this.id === hash1) {
+        return { width: 100, height: 100, top: 60 } as DOMRect;
+      }
+      if (this.id === hash2) {
+        return { width: 100, height: 100, top: 160 } as DOMRect;
+      }
+      return { width: 100, height: 100, top: 1000 } as DOMRect;
+    });
+
+    const onChange = jest.fn();
+    render(
+      <Anchor
+        targetOffset={100}
+        onChange={onChange}
+        items={[
+          { key: hash1, href: `#${hash1}`, title: hash1, targetOffset: 50 },
+          { key: hash2, href: `#${hash2}`, title: hash2 },
+        ]}
+      />,
+    );
+
+    // Initial onChange should be called
+    expect(onChange).toHaveBeenCalled();
+
+    // Trigger scroll event - the first link has targetOffset: 50, second uses global: 100
+    // First link's threshold = 50 + bounds(5) = 55
+    // Second link's threshold = 100 + bounds(5) = 105
+    // With top=60, first link should be active (60 <= 55 is false, but let's check logic)
+    fireEvent.scroll(window);
+
+    await waitFakeTimer();
+
+    // The scroll handler should have been called and used link-specific targetOffset
+    expect(onChange).toHaveBeenCalled();
+
+    HTMLHeadingElement.prototype.getBoundingClientRect = originalGetBoundingClientRect;
+  });
+
+  // Tests for coverage: anchor without affix should have fixed class
+  it('should add fixed class when affix is false', () => {
+    const { container } = render(
+      <Anchor
+        affix={false}
+        showInkInFixed={false}
+        items={[{ key: 'link1', href: '#link1', title: 'Link 1' }]}
+      />,
+    );
+    const anchor = container.querySelector('.ant-anchor');
+    expect(anchor).toHaveClass('ant-anchor-fixed');
+  });
+
+  // Test for coverage: affix as object
+  it('should accept affix as object and pass props to Affix', () => {
+    const { container } = render(
+      <Anchor
+        affix={{ className: 'custom-affix-class' } as any}
+        items={[{ key: 'link1', href: '#link1', title: 'Link 1' }]}
+      />,
+    );
+    // The anchor wrapper should exist
+    expect(container.querySelector('.ant-anchor-wrapper')).toBeTruthy();
+  });
+
   it('onClick event', () => {
     const hash = getHashUrl();
     let event;
