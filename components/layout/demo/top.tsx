@@ -8,12 +8,12 @@ const items = Array.from({ length: 15 }).map((_, index) => ({
   label: `nav ${index + 1}`,
 }));
 
-const currentYear = new Date().getFullYear();
-
 const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const currentYear = new Date().getFullYear();
 
   return (
     <Layout>
