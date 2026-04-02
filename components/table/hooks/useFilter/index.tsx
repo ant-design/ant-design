@@ -176,7 +176,7 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
     } = filterState;
 
     if (onFilter && filteredKeys && filteredKeys.length) {
-      // Optimization 1: preprocess the keys corresponding to the filter tree,
+      // Preprocess the keys corresponding to the filter tree,
       // use Map to improve lookup performance to O(1).
       const flatKeys = flattenKeys(filters);
       const keyMap = new Map<string, FilterValue[number]>();
@@ -195,9 +195,15 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
       const internalFilter = (subset: RecordType[]): RecordType[] =>
         subset.reduce<RecordType[]>((acc, record) => {
           const clonedRecord = { ...record } as any;
+
           if (clonedRecord[childrenColumnName]) {
-            clonedRecord[childrenColumnName] = internalFilter(clonedRecord[childrenColumnName]);
+            clonedRecord[childrenColumnName] = getFilterData(
+              clonedRecord[childrenColumnName],
+              filterStates,
+              childrenColumnName,
+            );
           }
+
           if (realKeys.some((realKey) => onFilter(realKey, clonedRecord))) {
             acc.push(clonedRecord);
           }
