@@ -174,6 +174,16 @@ const genGridMediaStyle = (token: GridColToken, screenSize: number, sizeCls: str
   const gridStyle = genGridStyle(token, sizeCls);
   return {
     [`@media (min-width: ${unit(screenSize)})`]: gridStyle,
+  };
+};
+
+const genGridContainerStyle = (
+  token: GridColToken,
+  screenSize: number,
+  sizeCls: string,
+): CSSObject => {
+  const gridStyle = genGridStyle(token, sizeCls);
+  return {
     [`@container (min-width: ${unit(screenSize)})`]: gridStyle,
   };
 };
@@ -213,6 +223,9 @@ export const useColStyle = genStyleHooks(
       genGridStyle(gridToken, '-xs'),
       Object.keys(gridMediaSizesMap)
         .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key], `-${key}`))
+        .reduce<CSSObject>((pre, cur) => ({ ...pre, ...cur }), {}),
+      Object.keys(gridMediaSizesMap)
+        .map((key) => genGridContainerStyle(gridToken, gridMediaSizesMap[key], `-${key}`))
         .reduce<CSSObject>((pre, cur) => ({ ...pre, ...cur }), {}),
     ];
   },
