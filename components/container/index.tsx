@@ -9,6 +9,7 @@ import useStyle from './style';
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
+  rootClassName?: string;
   maxWidth?: number | string;
   minWidth?: number | string;
   type?: string;
@@ -23,9 +24,9 @@ export default function Container(props: ContainerProps) {
     getPrefixCls,
     getPopupContainer,
     renderEmpty,
+    direction,
     classNames,
     styles,
-    direction,
     prefixCls: customizePrefixCls,
     maxWidth,
     minWidth,
@@ -57,6 +58,7 @@ export default function Container(props: ContainerProps) {
         cssVarCls,
         config.className,
         props.className,
+        props.rootClassName,
       )}
       style={{
         ...config.style,
