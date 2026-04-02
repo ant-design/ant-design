@@ -147,7 +147,6 @@ export default antfu(
       'react-naming-convention/ref-name': 'off',
       'react/no-create-ref': 'off',
       'no-console': 'off',
-      'react/purity': 'off',
       'unicorn/consistent-function-scoping': 'off',
       'jsx-a11y/anchor-is-valid': 'off',
       'jsx-a11y/anchor-has-content': 'off',
