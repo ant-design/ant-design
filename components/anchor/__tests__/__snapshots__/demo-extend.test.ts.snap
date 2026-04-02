@@ -873,3 +873,108 @@ exports[`renders components/anchor/demo/targetOffset.tsx extend context correctl
 `;
 
 exports[`renders components/anchor/demo/targetOffset.tsx extend context correctly 2`] = `[]`;
+
+exports[`renders components/anchor/demo/targetOffset-per-link.tsx extend context correctly 1`] = `
+<div
+  class="ant-row css-var-test-id"
+>
+  <div
+    class="ant-col ant-col-18 css-var-test-id"
+  >
+    <div
+      id="part-1"
+      style="height: 100vh; background: rgba(255, 0, 0, 0.2);"
+    />
+    <div
+      id="part-2"
+      style="height: 100vh; background: rgba(0, 255, 0, 0.2);"
+    />
+    <div
+      id="part-3"
+      style="height: 100vh; background: rgba(0, 0, 255, 0.2);"
+    />
+    <div
+      id="part-4"
+      style="height: 100vh; background: rgba(0, 255, 229, 0.2);"
+    />
+  </div>
+  <div
+    class="ant-col ant-col-6 css-var-test-id"
+  >
+    <div
+      class=""
+    >
+      <div
+        class=""
+      >
+        <div
+          class="css-var-test-id ant-anchor-css-var ant-anchor-wrapper"
+          style="max-height: 100vh;"
+        >
+          <div
+            class="ant-anchor"
+          >
+            <span
+              class="ant-anchor-ink ant-anchor-ink-visible"
+              style="top: 0px; height: 0px;"
+            />
+            <div
+              class="ant-anchor-link ant-anchor-link-active"
+            >
+              <a
+                class="ant-anchor-link-title ant-anchor-link-title-active"
+                href="#part-1"
+                title="Part 1"
+              >
+                Part 1
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link"
+            >
+              <a
+                class="ant-anchor-link-title"
+                href="#part-2"
+                title="Part 2 (uses link targetOffset: 50)"
+              >
+                Part 2 (uses link targetOffset: 50)
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link"
+            >
+              <a
+                class="ant-anchor-link-title"
+                href="#part-3"
+                title="Part 3 (uses link targetOffset: 50)"
+              >
+                Part 3 (uses link targetOffset: 50)
+              </a>
+            </div>
+            <div
+              class="ant-anchor-link"
+            >
+              <a
+                class="ant-anchor-link-title"
+                href="#part-4"
+                title="Part 4 (uses global targetOffset: 20)"
+              >
+                Part 4 (uses global targetOffset: 20)
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    style="height: 20px; background-color: rgba(0, 0, 0, 0.85); position: fixed; top: 0px; inset-inline-start: 0; width: 75%; color: rgb(255, 255, 255);"
+  >
+    <div>
+      Fixed Top Block
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/anchor/demo/targetOffset-per-link.tsx extend context correctly 2`] = `[]`;
