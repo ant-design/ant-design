@@ -18,9 +18,14 @@ tag: 6.3.0
 
 | Property | Description                        | Type             | Default | Version |
 | -------- | ---------------------------------- | ---------------- | ------- | ------- |
-| maxWidth | The maximum width of the container | number \| string | -       | 6.3.0   |
-| minWidth | The minimum width of the container | number \| string | -       | 6.3.0   |
+| maxWidth | The maximum width of the container | number \| string | -       | 6.4.0   |
+| minWidth | The minimum width of the container | number \| string | -       | 6.4.0   |
+| type     | [CSS container type]               | string           | -       | 6.4.0   |
+| name     | [CSS container name]               | string           | -       | 6.4.0   |
 
 ## Design Token
 
 <ComponentTokenTable component="Container"></ComponentTokenTable>
+
+[CSS container type]: https://developer.mozilla.org/en-US/docs/Web/CSS/container-type
+[CSS container name]: https://developer.mozilla.org/en-US/docs/Web/CSS/container-name

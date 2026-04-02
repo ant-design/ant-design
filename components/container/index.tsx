@@ -10,6 +10,8 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   prefixCls?: string;
   maxWidth?: number | string;
   minWidth?: number | string;
+  type?: string;
+  name?: string;
   rootClassName?: string;
 }
 
@@ -17,6 +19,8 @@ export default function Container(props: ContainerProps) {
   const {
     maxWidth,
     minWidth,
+    type,
+    name,
     children,
     className,
     prefixCls: customizePrefixCls,
@@ -65,6 +69,8 @@ export default function Container(props: ContainerProps) {
         ...style,
         maxWidth: isMaxWidthBreakpoint ? undefined : mergedMaxWidth,
         minWidth: isMinWidthBreakpoint ? undefined : mergedMinWidth,
+        containerType: type,
+        containerName: name,
       }}
       {...rest}
     >
