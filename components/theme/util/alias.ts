@@ -25,7 +25,12 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...overrideTokens,
   };
   const shadowBaseColor = new FastColor(mergedToken.colorShadow);
-  const getShadowColor = (alpha: number) => shadowBaseColor.clone().setA(alpha).toRgbString();
+  const shadowBaseAlpha = shadowBaseColor.a;
+  const getShadowColor = (alpha: number) =>
+    shadowBaseColor
+      .clone()
+      .setA(shadowBaseAlpha * alpha)
+      .toRgbString();
 
   const screenXS = 480;
   const screenSM = 576;

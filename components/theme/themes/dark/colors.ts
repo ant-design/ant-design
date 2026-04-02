@@ -26,7 +26,7 @@ export const generateNeutralColorPalettes: GenerateNeutralColorMap = (
 ) => {
   const colorBgBase = bgBaseColor || '#000';
   const colorTextBase = textBaseColor || '#fff';
-  const colorShadow = shadowColor || '#fff';
+  const colorShadow = shadowColor || 'rgba(255, 255, 255, 0.2)';
 
   return {
     colorBgBase,

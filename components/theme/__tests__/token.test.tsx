@@ -327,9 +327,9 @@ describe('Theme', () => {
 
     expect(token.boxShadow).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.08\)/);
     expect(token.boxShadowCard).toMatch(/rgba\(0,\s*0,\s*0,\s*0\.16\)/);
-    expect(darkToken.boxShadow).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.08\)/);
-    expect(darkToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.16\)/);
-    expect(darkCustomTextBaseToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.16\)/);
+    expect(darkToken.boxShadow).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.016\)/);
+    expect(darkToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.032\)/);
+    expect(darkCustomTextBaseToken.boxShadowCard).toMatch(/rgba\(255,\s*255,\s*255,\s*0\.032\)/);
   });
 
   it('component token should support algorithm', () => {
