@@ -174,33 +174,55 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
       column: { onFilter, filters },
       filteredKeys,
     } = filterState;
+
     if (onFilter && filteredKeys && filteredKeys.length) {
-      return (
-        currentData
-          // shallow copy
-          .map((record) => ({ ...record }))
-          .filter((record: any) =>
-            filteredKeys.some((key) => {
-              const keys = flattenKeys(filters);
-              const keyIndex = keys.findIndex((k) => String(k) === String(key));
-              const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
+      // Optimization 1: preprocess the keys corresponding to the filter tree,
+      // use Map to improve lookup performance to O(1).
+      const flatKeys = flattenKeys(filters);
+      const keyMap = new Map<string, any>(); // realKey
+      flatKeys.forEach((k) => {
+        const strKey = String(k);
+        if (!keyMap.has(strKey)) {
+          keyMap.set(strKey, k); // preserve first-match semantics
+        }
+      });
 
-              // filter children
-              if (record[childrenColumnName]) {
-                record[childrenColumnName] = getFilterData(
-                  record[childrenColumnName],
-                  filterStates,
-                  childrenColumnName,
-                );
-              }
+      // Preconvert the incoming `filteredKeys` to `realKeys`.
+      const realKeys = filteredKeys.map((key) => {
+        const strKey = String(key);
+        return keyMap.has(strKey) ? keyMap.get(strKey) : key;
+      });
 
-              return onFilter(realKey, record);
-            }),
-          )
-      );
+      // Optimization 2 & 3: use `reduce` to merge the original
+      // `map` (shallow copy) + `filter` into a two-pass traversal.
+      return currentData.reduce<RecordType[]>((acc, record) => {
+        // Shallow copy
+        const clonedRecord = { ...record } as any;
+
+        // Optimization: move filtering `children` out of `some` (which runs on every comparison)
+        // to ensure each child node is filtered only once.
+        if (clonedRecord[childrenColumnName]) {
+          clonedRecord[childrenColumnName] = getFilterData(
+            clonedRecord[childrenColumnName],
+            filterStates,
+            childrenColumnName,
+          );
+        }
+
+        // Compare one by one using the preprocessed `realKeys`.
+        const isMatch = realKeys.some((realKey) => onFilter(realKey, clonedRecord));
+
+        if (isMatch) {
+          acc.push(clonedRecord);
+        }
+
+        return acc;
+      }, []);
     }
+
     return currentData;
   }, data);
+
   return filterDatas;
 };
 
