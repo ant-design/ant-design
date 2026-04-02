@@ -329,14 +329,14 @@
   },
   "pnpm": {
     "overrides": {
-      "@sinonjs/fake-timers": "15.2.0"
+      "@sinonjs/fake-timers": "15.3.0"
     }
   },
   "overrides": {
-    "@sinonjs/fake-timers": "15.2.0"
+    "@sinonjs/fake-timers": "15.3.0"
   },
   "resolutions": {
-    "@sinonjs/fake-timers": "15.2.0"
+    "@sinonjs/fake-timers": "15.3.0"
   },
   "size-limit": [
     {
