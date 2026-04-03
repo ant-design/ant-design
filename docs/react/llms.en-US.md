@@ -31,15 +31,15 @@ We provide several aggregated files to help AI tools access our documentation:
 
 Add `.md` suffix to the original component documentation URL:
 
-- `https://ant.design/components/button.md` (English)
-- `https://ant.design/components/button-cn.md` (Chinese)
+- [`https://ant.design/components/button.md`](https://ant.design/components/button.md) (English)
+- [`https://ant.design/components/button-cn.md`](https://ant.design/components/button-cn.md) (Chinese)
 
 ### Semantic Documentation
 
 Each component has a semantic description file:
 
-- `https://ant.design/components/button/semantic.md` (English)
-- `https://ant.design/components/button-cn/semantic.md` (Chinese)
+- [`https://ant.design/components/button/semantic.md`](https://ant.design/components/button/semantic.md) (English)
+- [`https://ant.design/components/button-cn/semantic.md`](https://ant.design/components/button-cn/semantic.md) (Chinese)
 
 Semantic documentation includes:
 

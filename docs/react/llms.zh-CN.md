@@ -31,15 +31,15 @@ tag: New
 
 在原始组件文档 URL 后加 `.md` 即可访问 Markdown 格式文档：
 
-- `https://ant.design/components/button.md`（英文）
-- `https://ant.design/components/button-cn.md`（中文）
+- [`https://ant.design/components/button.md`](https://ant.design/components/button.md)（英文）
+- [`https://ant.design/components/button-cn.md`](https://ant.design/components/button-cn.md)（中文）
 
 ### 语义文档
 
 每个组件都有对应的语义描述文件：
 
-- `https://ant.design/components/button/semantic.md`（英文）
-- `https://ant.design/components/button-cn/semantic.md`（中文）
+- [`https://ant.design/components/button/semantic.md`](https://ant.design/components/button/semantic.md)（英文）
+- [`https://ant.design/components/button-cn/semantic.md`](https://ant.design/components/button-cn/semantic.md)（中文）
 
 语义文档包含：
 
