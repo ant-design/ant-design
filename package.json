@@ -232,7 +232,7 @@
     "cypress-image-diff-html-report": "2.2.0",
     "dekko": "^0.2.1",
     "domparser-rs": "0.0.7",
-    "dotenv": "^17.2.3",
+    "dotenv": "^17.4.0",
     "dumi": "~2.4.23",
     "dumi-plugin-color-chunk": "^2.1.0",
     "env-paths": "^4.0.0",
@@ -326,17 +326,6 @@
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
-  },
-  "pnpm": {
-    "overrides": {
-      "@sinonjs/fake-timers": "15.2.0"
-    }
-  },
-  "overrides": {
-    "@sinonjs/fake-timers": "15.2.0"
-  },
-  "resolutions": {
-    "@sinonjs/fake-timers": "15.2.0"
   },
   "size-limit": [
     {
