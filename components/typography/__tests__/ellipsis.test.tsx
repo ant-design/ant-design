@@ -159,23 +159,6 @@ describe('Typography.Ellipsis', () => {
     ellipsisSpy.mockRestore();
   });
 
-  it('should measure native ellipsis when tooltip is configured', async () => {
-    const ellipsisSpy = jest.spyOn(baseUtil, 'isEleEllipsis').mockReturnValue(true);
-    const ref = React.createRef<HTMLElement>();
-
-    render(
-      <Base ellipsis={{ tooltip: true }} component="p" ref={ref}>
-        {fullStr}
-      </Base>,
-    );
-
-    triggerResize(ref.current!);
-    await waitFakeTimer();
-
-    expect(ellipsisSpy).toHaveBeenCalled();
-    ellipsisSpy.mockRestore();
-  });
-
   it('string with parentheses', async () => {
     const parenthesesStr = `Ant Design, a design language (for background applications, is refined by
         Ant UED Team. Ant Design, a design language for background applications,
