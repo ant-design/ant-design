@@ -18,7 +18,7 @@ jest.mock('../../tests/shared/demoTest', () => {
 
 describe('node', () => {
   beforeAll(() => {
-    jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+    jest.useFakeTimers().setSystemTime(new Date('2016-11-22').getTime());
   });
 
   // Find the component exist demo test file
