@@ -17,18 +17,18 @@ description: Create pull requests for ant-design using the repository's official
 
 ## 触发场景
 
-当用户提及以下任一情况时使用本 skill：
+当用户的意图是创建 PR，或需要为创建 PR 做准备时，使用本 skill。
 
-- 创建 PR、发起 pull request
-- 写 PR 标题或 PR 描述
-- 总结当前分支改动用于提 PR
-- 用 `gh pr create` 为 `ant-design` 开 PR
+可包含但不限于以下情况：
 
-如果用户只输入很短的口语化指令，也应直接触发本 skill，不要因为信息太少而跳过。例如：
-- 中文：`创建pr`、`创建 PR`、`开pr`、`开个pr`、`提pr`、`提个pr`、`帮我提个pr`、`发pr`、`写pr`、`准备pr`。
-- 英文：`create pr`、`create a pr`、`open pr`、`open a pr`、`submit pr`、`send pr`、`draft pr`、`prepare pr`、`help me create a pr`、`open a pull request`。
+- 明确要求创建 PR、发起 pull request
+- 要求撰写 PR 标题、PR 描述或完整正文
+- 要求总结当前分支改动，用于提 PR
+- 提到 `gh pr create`
 
-这类短句默认表示：先分析当前分支改动并整理待确认的 `base`、`title`、`body` 草稿，等用户确认后再真正创建 PR。
+不要把触发限制成固定短语匹配。
+
+即使用户表达很短、很口语，或没有把要求说完整，只要可以判断其核心意图是在“创建 PR”而不是单纯讨论 PR 概念，就应直接进入本 skill 的工作流：先分析当前分支改动并整理待确认的 `base`、`title`、`body` 草稿，等用户确认后再真正创建 PR。
 
 ## 基本规则
 
