@@ -163,6 +163,11 @@ export interface ComponentToken {
    */
   expandIconBg: string;
   /**
+   * @desc 展开图标
+   * @descEN Expand icon
+   */
+  expandIcon?: React.ReactNode;
+  /**
    * @desc 选择列宽度
    * @descEN Width of selection column
    */

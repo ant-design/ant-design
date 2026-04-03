@@ -10,12 +10,62 @@ interface DefaultExpandIconProps<RecordType = AnyObject> {
   expanded: boolean;
   expandable: boolean;
   onExpand: (record: RecordType, e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  /** Custom expand icon from ComponentToken */
+  icon?: React.ReactNode;
 }
 
 function renderExpandIcon(locale: TableLocale) {
   return <RecordType extends AnyObject = AnyObject>(props: DefaultExpandIconProps<RecordType>) => {
-    const { prefixCls, onExpand, record, expanded, expandable } = props;
+    const { prefixCls, onExpand, record, expanded, expandable, icon } = props;
     const iconPrefix = `${prefixCls}-row-expand-icon`;
+    
+    // If custom icon is provided via ComponentToken, render it with wrapper
+    if (icon) {
+      const iconClassName = clsx(iconPrefix, {
+        [`${iconPrefix}-spaced`]: !expandable,
+        [`${iconPrefix}-expanded`]: expandable && expanded,
+        [`${iconPrefix}-collapsed`]: expandable && !expanded,
+      });
+      
+      if (typeof icon === 'function') {
+        // If icon is a render function, call it with the current state
+        const customIconElement = icon({ expanded, expandable });
+        return (
+          <span
+            role="button"
+            onClick={(e) => {
+              if (expandable) {
+                onExpand(record, e!);
+              }
+              e!.stopPropagation();
+            }}
+            className={iconClassName}
+            aria-label={expanded ? locale.collapse : locale.expand}
+            aria-expanded={expanded}
+          >
+            {customIconElement}
+          </span>
+        );
+      }
+      
+      return (
+        <span
+          role="button"
+          onClick={(e) => {
+            if (expandable) {
+              onExpand(record, e!);
+            }
+            e!.stopPropagation();
+          }}
+          className={iconClassName}
+          aria-label={expanded ? locale.collapse : locale.expand}
+          aria-expanded={expanded}
+        >
+          {icon}
+        </span>
+      );
+    }
+    
     return (
       <button
         type="button"
