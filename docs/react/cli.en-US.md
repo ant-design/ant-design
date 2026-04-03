@@ -62,6 +62,8 @@ antd migrate 4 5 --apply ./src      # Agent-ready migration prompt
 | `antd usage [dir]` | Import stats, sub-component breakdown (`Form.Item`), non-component exports |
 | `antd lint [target]` | Deprecated APIs, accessibility gaps, performance issues, best practices |
 | `antd migrate <from> <to>` | Migration checklist with auto-fixable/manual split and `--apply` agent prompt |
+| `antd env [dir]` | Collect environment information for bug reports |
+| `antd bug` | Submit a bug to the ant-design repository |
 
 ### Global Flags
 

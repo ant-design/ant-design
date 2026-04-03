@@ -62,6 +62,8 @@ antd migrate 4 5 --apply ./src      # 生成 Agent 迁移提示
 | `antd usage [dir]`         | 导入统计、子组件分布（`Form.Item`）、非组件导出                   |
 | `antd lint [target]`       | 废弃 API、无障碍缺陷、性能问题、最佳实践                          |
 | `antd migrate <from> <to>` | 迁移清单，区分自动修复/手动处理，`--apply` 生成 Agent 提示        |
+| `antd env [dir]`           | 收集环境信息，用于 Bug 报告                                       |
+| `antd bug`                 | 提交 Bug 到 ant-design 仓库                                       |
 
 ### 全局参数 {#global-flags}
 
