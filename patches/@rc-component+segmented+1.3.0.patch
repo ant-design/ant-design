@@ -1,0 +1,70 @@
+diff --git a/node_modules/@rc-component/segmented/es/index.js b/node_modules/@rc-component/segmented/es/index.js
+index e278a0e..44e0406 100644
+--- a/node_modules/@rc-component/segmented/es/index.js
++++ b/node_modules/@rc-component/segmented/es/index.js
+@@ -145,11 +145,25 @@ const Segmented = /*#__PURE__*/React.forwardRef((props, ref) => {
+   const onOffset = offset => {
+     const currentIndex = segmentedOptions.findIndex(option => option.value === rawValue);
+     const total = segmentedOptions.length;
+-    const nextIndex = (currentIndex + offset + total) % total;
+-    const nextOption = segmentedOptions[nextIndex];
+-    if (nextOption) {
+-      setRawValue(nextOption.value);
+-      onChange?.(nextOption.value);
++
++    // Find next non-disabled option
++    let nextIndex = (currentIndex + offset + total) % total;
++    let iterations = 0;
++
++    // Loop until we find a non-disabled option or we've checked all options
++    while (iterations < total) {
++      const nextOption = segmentedOptions[nextIndex];
++
++      // Check if the option is not disabled
++      if (nextOption && !nextOption.disabled) {
++        setRawValue(nextOption.value);
++        onChange?.(nextOption.value);
++        return;
++      }
++
++      // Move to next option
++      nextIndex = (nextIndex + offset + total) % total;
++      iterations++;
+     }
+   };
+   const handleKeyDown = event => {
+diff --git a/node_modules/@rc-component/segmented/lib/index.js b/node_modules/@rc-component/segmented/lib/index.js
+index 83354b0..917a028 100644
+--- a/node_modules/@rc-component/segmented/lib/index.js
++++ b/node_modules/@rc-component/segmented/lib/index.js
+@@ -154,11 +154,25 @@ const Segmented = /*#__PURE__*/React.forwardRef((props, ref) => {
+   const onOffset = offset => {
+     const currentIndex = segmentedOptions.findIndex(option => option.value === rawValue);
+     const total = segmentedOptions.length;
+-    const nextIndex = (currentIndex + offset + total) % total;
+-    const nextOption = segmentedOptions[nextIndex];
+-    if (nextOption) {
+-      setRawValue(nextOption.value);
+-      onChange?.(nextOption.value);
++
++    // Find next non-disabled option
++    let nextIndex = (currentIndex + offset + total) % total;
++    let iterations = 0;
++
++    // Loop until we find a non-disabled option or we've checked all options
++    while (iterations < total) {
++      const nextOption = segmentedOptions[nextIndex];
++
++      // Check if the option is not disabled
++      if (nextOption && !nextOption.disabled) {
++        setRawValue(nextOption.value);
++        onChange?.(nextOption.value);
++        return;
++      }
++
++      // Move to next option
++      nextIndex = (nextIndex + offset + total) % total;
++      iterations++;
+     }
+   };
+   const handleKeyDown = event => {

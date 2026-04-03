@@ -388,4 +388,117 @@ describe('Segmented', () => {
       });
     });
   });
+
+  describe('keyboard navigation with disabled items', () => {
+    it('should skip disabled items when navigating with arrow keys', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Segmented
+          options={[
+            'Daily',
+            { label: 'Weekly', value: 'Weekly', disabled: true },
+            'Monthly',
+          ]}
+          onChange={onChange}
+        />,
+      );
+
+      const inputs = container.querySelectorAll<HTMLInputElement>(`.${prefixCls}-item-input`);
+
+      // Initially, 'Daily' should be selected
+      expectMatchChecked(container, [true, false, false]);
+
+      // Focus the first input and simulate pressing ArrowRight key
+      inputs[0].focus();
+      fireEvent.keyDown(inputs[0], { key: 'ArrowRight' });
+
+      // Should skip disabled 'Weekly' and select 'Monthly'
+      expectMatchChecked(container, [false, false, true]);
+      expect(onChange).toHaveBeenCalledWith('Monthly');
+    });
+
+    it('should skip disabled items when navigating backwards with arrow keys', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Segmented
+          defaultValue="Monthly"
+          options={[
+            'Daily',
+            { label: 'Weekly', value: 'Weekly', disabled: true },
+            'Monthly',
+          ]}
+          onChange={onChange}
+        />,
+      );
+
+      const inputs = container.querySelectorAll<HTMLInputElement>(`.${prefixCls}-item-input`);
+
+      // Initially, 'Monthly' should be selected
+      expectMatchChecked(container, [false, false, true]);
+
+      // Focus the third input and simulate pressing ArrowLeft key
+      inputs[2].focus();
+      fireEvent.keyDown(inputs[2], { key: 'ArrowLeft' });
+
+      // Should skip disabled 'Weekly' and select 'Daily'
+      expectMatchChecked(container, [true, false, false]);
+      expect(onChange).toHaveBeenCalledWith('Daily');
+    });
+
+    it('should skip multiple consecutive disabled items', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Segmented
+          options={[
+            'Daily',
+            { label: 'Weekly', value: 'Weekly', disabled: true },
+            { label: 'Monthly', value: 'Monthly', disabled: true },
+            'Quarterly',
+          ]}
+          onChange={onChange}
+        />,
+      );
+
+      const inputs = container.querySelectorAll<HTMLInputElement>(`.${prefixCls}-item-input`);
+
+      // Initially, 'Daily' should be selected
+      expectMatchChecked(container, [true, false, false, false]);
+
+      // Focus the first input and simulate pressing ArrowRight key
+      inputs[0].focus();
+      fireEvent.keyDown(inputs[0], { key: 'ArrowRight' });
+
+      // Should skip both disabled items and select 'Quarterly'
+      expectMatchChecked(container, [false, false, false, true]);
+      expect(onChange).toHaveBeenCalledWith('Quarterly');
+    });
+
+    it('should handle wrapping around when all items in one direction are disabled', () => {
+      const onChange = jest.fn();
+      const { container } = render(
+        <Segmented
+          options={[
+            'Daily',
+            'Weekly',
+            { label: 'Monthly', value: 'Monthly', disabled: true },
+            { label: 'Quarterly', value: 'Quarterly', disabled: true },
+          ]}
+          onChange={onChange}
+        />,
+      );
+
+      const inputs = container.querySelectorAll<HTMLInputElement>(`.${prefixCls}-item-input`);
+
+      // Initially, 'Daily' should be selected
+      expectMatchChecked(container, [true, false, false, false]);
+
+      // Focus the first input and simulate pressing ArrowLeft key (should wrap around to 'Weekly')
+      inputs[0].focus();
+      fireEvent.keyDown(inputs[0], { key: 'ArrowLeft' });
+
+      // Should wrap around, skip disabled items, and select 'Weekly'
+      expectMatchChecked(container, [false, true, false, false]);
+      expect(onChange).toHaveBeenCalledWith('Weekly');
+    });
+  });
 });
