@@ -23,11 +23,11 @@ const EllipsisTooltip: React.FC<EllipsisTooltipProps> = ({
     return children;
   }
 
-  const controlledOpen = typeof open === 'boolean' ? open && isEllipsis : undefined;
+  const tooltipOpenProp = typeof open === 'boolean' ? { open: open && isEllipsis } : {};
   const mergedTitle = isEllipsis ? tooltipProps.title : '';
 
   return (
-    <Tooltip {...tooltipProps} title={mergedTitle} open={controlledOpen}>
+    <Tooltip {...tooltipProps} title={mergedTitle} {...tooltipOpenProp}>
       {children}
     </Tooltip>
   );
