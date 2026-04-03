@@ -81,7 +81,6 @@ export default antfu(
       'react/component-hook-factories': 'off',
       'react/rules-of-hooks': 'off',
       'react/set-state-in-effect': 'off',
-      'react/use-memo': 'off',
       'react/use-state': 'off',
       'react/exhaustive-deps': 'off',
       'react-naming-convention/id-name': 'off', // Do not turn on — it would break the original semantics.
