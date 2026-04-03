@@ -219,7 +219,7 @@ Please ref dynamic theme document [SSR](/docs/react/server-side-rendering) part.
 
 ## What is the relationship between colorPrimary and colorInfo and colorLink in V5?
 
-In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed Token](../react/customize-theme.en-US.md#seed-token), so they are independent of each other. `colorLink` is an [Alias Token](../react/customize-theme.en-US.md#alias-token), inherits `colorInfo` by default, and is independent of `colorPrimary`.
+In the Ant Design Token system, `colorPrimary` and `colorInfo` are both [Seed Token](/docs/react/customize-theme#seed-token), so they are independent of each other. `colorLink` is an [Alias Token](/docs/react/customize-theme#alias-token), inherits `colorInfo` by default, and is independent of `colorPrimary`.
 
 ## How to spell Ant Design correctly?
 

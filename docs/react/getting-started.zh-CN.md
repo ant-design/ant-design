@@ -10,6 +10,8 @@ Ant Design React 致力于提供给程序员**愉悦**的开发体验。
 
 > 在开始之前，推荐先学习 [React](https://react.dev)，并正确安装和配置了 [Node.js](https://nodejs.org/) v16 或以上。官方指南假设你已了解关于 HTML、CSS 和 JavaScript 的中级知识，并且已经完全掌握了 React 全家桶的正确开发方式。如果你刚开始学习前端或者 React，将 UI 框架作为你的第一步可能不是最好的主意。
 
+如果你是在本地开发环境中工作，请参考 [脚手架指南](https://u.ant.design/guide) 创建新项目。
+
 ---
 
 ## 第一个例子
@@ -99,6 +101,16 @@ createRoot(document.getElementById('root')).render(<App />);
 - [Ant Design Pro](https://pro.ant.design/)
 - [create-next-app](https://github.com/ant-design/ant-design-examples/tree/main/examples/with-nextjs-inline-style)
 - 更多脚手架可以查看 [脚手架市场](https://scaffold.ant.design/)
+
+## 使用 Jest 测试
+
+如果你使用 `create-react-app`，请参考[这里](/docs/react/use-with-create-react-app-cn)的说明。
+
+Jest 不支持 `esm` 模块，而 Ant Design 使用了它们。为了使用 Jest 测试你的 Ant Design 应用，你需要在 Jest 配置中添加以下内容：
+
+```json
+"transform": { "^.+\\.(ts|tsx|js|jsx)?$": "ts-jest" }
+```
 
 ## 按需加载
 
