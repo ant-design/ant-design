@@ -554,7 +554,7 @@ describe('Calendar', () => {
   });
 
   it('support Calendar.generateCalendar', () => {
-    jest.useFakeTimers().setSystemTime(new Date('2000-01-01'));
+    jest.useFakeTimers().setSystemTime(new Date('2000-01-01').getTime());
 
     const MyCalendar = Calendar.generateCalendar(dayjsGenerateConfig);
     const { container } = render(<MyCalendar />);

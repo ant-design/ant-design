@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import path from 'path';
+import path from 'node:path';
 
 const testDist = process.env.LIB_DIR === 'dist' || process.env.CHANGELOG_TEST;
 

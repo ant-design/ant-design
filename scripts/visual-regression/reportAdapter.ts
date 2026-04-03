@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 // locked to v2.2.0
 import {
   getReportHtmlAfterPopulatingData,

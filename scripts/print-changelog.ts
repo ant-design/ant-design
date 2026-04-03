@@ -1,5 +1,5 @@
-import { spawn } from 'child_process';
-import path from 'path';
+import { spawn } from 'node:child_process';
+import path from 'node:path';
 import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
 import fs from 'fs-extra';
@@ -15,7 +15,7 @@ const { document } = new JSDOM('').window;
 global.document = document;
 global.window = window as any;
 
-const $ = require('jquery');
+const $ = require('jquery') as JQueryStatic;
 
 const QUERY_TITLE = '.gh-header-title .js-issue-title';
 const QUERY_DESCRIPTION_LINES = '.comment-body table tbody tr';
@@ -252,7 +252,7 @@ async function printLog() {
 
       const lines: Line[] = [];
 
-      prLines.each(function getDesc() {
+      prLines.each(function getDesc(this: HTMLElement) {
         lines.push({
           text: $(this).text().trim(),
           element: $(this),

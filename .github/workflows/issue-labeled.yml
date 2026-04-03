@@ -23,7 +23,7 @@ jobs:
     steps:
       - name: help wanted
         if: github.event.label.name == 'help wanted'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@200c78641dbf33838311e5a1e0c31bbdb92d7cf0 # v3
         with:
           actions: create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -37,7 +37,7 @@ jobs:
 
       - name: 🤔 Need Reproduce
         if: github.event.label.name == '🤔 Need Reproduce'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@200c78641dbf33838311e5a1e0c31bbdb92d7cf0 # v3
         with:
           actions: create-comment
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -53,7 +53,7 @@ jobs:
 
       - name: Usage
         if: github.event.label.name == 'Usage' || github.event.label.name == 'Question'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@200c78641dbf33838311e5a1e0c31bbdb92d7cf0 # v3
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -65,7 +65,7 @@ jobs:
 
       - name: 3.x or 4.x
         if: github.event.label.name == '3.x' || github.event.label.name == '4.x'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@200c78641dbf33838311e5a1e0c31bbdb92d7cf0 # v3
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -77,7 +77,7 @@ jobs:
 
       - name: invalid
         if: github.event.label.name == 'Invalid'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@200c78641dbf33838311e5a1e0c31bbdb92d7cf0 # v3
         with:
           actions: 'create-comment,close-issue'
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -89,7 +89,7 @@ jobs:
 
       - name: remove unconfirmed label
         if: github.event.label.name != 'unconfirmed'
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@200c78641dbf33838311e5a1e0c31bbdb92d7cf0 # v3
         with:
             actions: remove-labels
             issue-number: ${{ github.event.issue.number }}

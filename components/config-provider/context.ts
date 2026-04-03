@@ -353,6 +353,8 @@ export type SliderConfig = ComponentStyleConfig & Pick<SliderProps, 'styles' | '
 
 export type SkeletonConfig = ComponentStyleConfig & Pick<SkeletonProps, 'styles' | 'classNames'>;
 
+export type SplitterConfig = ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
+
 export type SegmentedConfig = ComponentStyleConfig & Pick<SegmentedProps, 'classNames' | 'styles'>;
 
 export type StepsConfig = ComponentStyleConfig & Pick<StepsProps, 'classNames' | 'styles'>;
@@ -430,7 +432,7 @@ export interface ConfigComponentProps {
   inputNumber?: InputNumberConfig;
   pagination?: PaginationConfig;
   space?: SpaceConfig;
-  splitter?: ComponentStyleConfig & Pick<SplitterProps, 'classNames' | 'styles'>;
+  splitter?: SplitterConfig;
   form?: FormConfig;
   select?: SelectConfig;
   alert?: AlertConfig;

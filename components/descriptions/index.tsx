@@ -85,7 +85,13 @@ export interface DescriptionsProps {
   column?: number | Partial<Record<Breakpoint, number>>;
   layout?: 'horizontal' | 'vertical';
   colon?: boolean;
+  /**
+   * @deprecated use `styles.label` instead
+   */
   labelStyle?: React.CSSProperties;
+  /**
+   * @deprecated use `styles.content` instead
+   */
   contentStyle?: React.CSSProperties;
   styles?: DescriptionsStylesType;
   classNames?: DescriptionsClassNamesType;

@@ -13,7 +13,7 @@ const { resetWarned } = warning;
 describe('Calendar.onSelect', () => {
   beforeEach(() => {
     resetWarned();
-    jest.useFakeTimers().setSystemTime(new Date('2000-02-01'));
+    jest.useFakeTimers().setSystemTime(new Date('2000-02-01').getTime());
   });
 
   afterEach(() => {
