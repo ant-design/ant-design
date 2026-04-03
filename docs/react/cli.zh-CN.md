@@ -94,6 +94,7 @@ npx skills add ant-design/ant-design-cli
 | **Cursor** | 安装 Skill 后，Agent 会自动调用 CLI 命令。[文档](https://docs.cursor.com/zh/context/@-symbols/@-docs) |
 | **Codex** | 安装 Skill 以启用 Agent 访问。[文档](https://github.com/openai/codex) |
 | **Gemini CLI** | 安装 Skill 以启用自动命令调用。[文档](https://github.com/google-gemini/gemini-cli) |
+| **Qwen Code** | 开源终端 AI 代理，支持 OAuth 免费层级。运行 `qwen` 启动交互模式。[文档](https://github.com/QwenLM/qwen-code) |
 
 支持所有兼容 [skills](https://github.com/nicepkg/agent-skills) 协议的 Agent。
 
