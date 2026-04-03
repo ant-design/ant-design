@@ -95,8 +95,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | showCheckedStrategy | The way to show selected items in the box (only effective when `multiple` is `true`). `Cascader.SHOW_CHILD`: just show child treeNode. `Cascader.SHOW_PARENT`: just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | ~~searchValue~~ | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
 | ~~onSearch~~ | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
-| ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `popupMenuColumnStyle` instead | CSSProperties | - |  |
-| popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
+| ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `styles.popup.listItem` instead | CSSProperties | - |  |
+| ~~popupMenuColumnStyle~~ | The style of the drop-down menu column, use `styles.popup.listItem` instead | CSSProperties | - |  |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch

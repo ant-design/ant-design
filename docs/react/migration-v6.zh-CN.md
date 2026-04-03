@@ -112,7 +112,7 @@ pnpm add @ant-design/icons@6
   - `dropdownClassName` 弃用，变为 `classNames.popup.root`。
   - `dropdownStyle` 弃用，变为 `styles.popup.root`。
   - `dropdownRender` 弃用，变为 `popupRender`。
-  - `dropdownMenuColumnStyle` 弃用，变为 `popupMenuColumnStyle`。
+  - `dropdownMenuColumnStyle` 弃用，变为 `styles.popup.listItem`。
   - `onDropdownVisibleChange` 弃用，变为 `onOpenChange`。
   - `onPopupVisibleChange` 弃用，变为 `onOpenChange`。
   - `bordered` 弃用，变为 `variant`。
