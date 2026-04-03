@@ -461,6 +461,35 @@ describe('Typography.Ellipsis', () => {
         expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
       });
     });
+
+    it('should keep open when mouse move to tooltip popup', async () => {
+      const { container, baseElement } = await getWrapper({
+        title: 'This is tooltip',
+      });
+
+      fireEvent.mouseEnter(container.firstChild!);
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+      });
+
+      fireEvent.mouseLeave(container.firstChild!);
+      fireEvent.mouseEnter(baseElement.querySelector('.ant-tooltip')!);
+      await act(async () => {
+        jest.advanceTimersByTime(200);
+      });
+
+      expect(baseElement.querySelector('.ant-tooltip-open')).not.toBeNull();
+
+      fireEvent.mouseLeave(baseElement.querySelector('.ant-tooltip')!);
+      await act(async () => {
+        jest.advanceTimersByTime(200);
+      });
+
+      await waitFor(() => {
+        expect(baseElement.querySelector('.ant-tooltip-open')).toBeFalsy();
+      });
+    });
+
     it('tooltip element', async () => {
       const { container, baseElement } = await getWrapper(
         <div className="tooltip-class-name">title</div>,
