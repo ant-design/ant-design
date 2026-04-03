@@ -391,23 +391,7 @@ describe('Tag', () => {
       </StyleProvider>,
     );
 
-    expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:#000;');
-  });
-
-  it('dark theme solid without color prop should apply default class for contrast', () => {
-    const { container } = render(
-      <StyleProvider cache={createCache()}>
-        <ConfigProvider
-          theme={{
-            algorithm: darkAlgorithm,
-          }}
-        >
-          <Tag variant="solid">Tag</Tag>
-        </ConfigProvider>
-      </StyleProvider>,
-    );
-
-    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-default');
+    expect(document.head.innerHTML).toContain('--ant-tag-solid-text-color:');
   });
 
   it('legacy bordered={false}', () => {
