@@ -29,17 +29,17 @@ tag: New
 
 ### 单个组件文档
 
-通过 `.md` 后缀直接访问单个组件文档：
+在原始组件文档 URL 后加 `.md` 即可访问 Markdown 格式文档：
 
-- [Button 英文文档](https://ant.design/components/button.md)（英文）
-- [Button 中文文档](https://ant.design/components/button-cn.md)（中文）
+- `https://ant.design/components/button.md`（英文）
+- `https://ant.design/components/button-cn.md`（中文）
 
 ### 语义文档
 
 每个组件都有对应的语义描述文件：
 
-- [Button 语义文档](https://ant.design/components/button/semantic.md)（英文）
-- [Button 语义文档](https://ant.design/components/button-cn/semantic.md)（中文）
+- `https://ant.design/components/button/semantic.md`（英文）
+- `https://ant.design/components/button-cn/semantic.md`（中文）
 
 语义文档包含：
 

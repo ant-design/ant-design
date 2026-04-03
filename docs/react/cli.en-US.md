@@ -94,7 +94,6 @@ npx skills add ant-design/ant-design-cli
 | **Cursor** | Install skill, the agent will call CLI commands automatically. [Documentation](https://docs.cursor.com/context/@-symbols/@-docs) |
 | **Codex** | Install skill to enable agent access. [Documentation](https://github.com/openai/codex) |
 | **Gemini CLI** | Install skill for automatic command invocation. [Documentation](https://github.com/google-gemini/gemini-cli) |
-| **Qwen Code** | Open-source terminal AI agent with free OAuth tier. Run `qwen` for interactive mode. [Documentation](https://github.com/QwenLM/qwen-code) |
 
 Works with any agent supporting the [skills](https://github.com/nicepkg/agent-skills) protocol.
 

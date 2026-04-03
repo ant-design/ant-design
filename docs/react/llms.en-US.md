@@ -29,17 +29,17 @@ We provide several aggregated files to help AI tools access our documentation:
 
 ### Single Component Documentation
 
-Access individual component documentation with `.md` suffix:
+Add `.md` suffix to the original component documentation URL:
 
-- [Button Documentation](https://ant.design/components/button.md) (English)
-- [Button Documentation](https://ant.design/components/button-cn.md) (Chinese)
+- `https://ant.design/components/button.md` (English)
+- `https://ant.design/components/button-cn.md` (Chinese)
 
 ### Semantic Documentation
 
 Each component has a semantic description file:
 
-- [Button Semantic Doc](https://ant.design/components/button/semantic.md) (English)
-- [Button Semantic Doc](https://ant.design/components/button-cn/semantic.md) (Chinese)
+- `https://ant.design/components/button/semantic.md` (English)
+- `https://ant.design/components/button-cn/semantic.md` (Chinese)
 
 Semantic documentation includes:
 
