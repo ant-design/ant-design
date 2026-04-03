@@ -1,4 +1,5 @@
 import { EXPAND_COLUMN } from '@rc-component/table';
+import { mergeProps, omit } from '@rc-component/util';
 
 import isNonNullable from '../_util/isNonNullable';
 import type { AnyObject } from '../_util/type';
@@ -65,27 +66,16 @@ export const fillColumnDefaults = <RecordType extends AnyObject = AnyObject>(
     return columns;
   }
 
-  const mergeDefinedProps = <T extends object>(base: T, override: Partial<T>): T => {
-    const filteredOverride = Object.fromEntries(
-      Object.entries(override).filter(([, value]) => value !== undefined),
-    ) as Partial<T>;
-
-    return {
-      ...base,
-      ...filteredOverride,
-    };
-  };
-
   return columns.map((column) => {
     if (column === SELECTION_COLUMN || column === EXPAND_COLUMN) {
       return column;
     }
 
     if ('children' in column && Array.isArray(column.children)) {
-      const mergedColumn = mergeDefinedProps(
-        columnDefaults as ColumnGroupType<RecordType>,
+      const mergedColumn = mergeProps(
+        columnDefaults as Partial<ColumnGroupType<RecordType>>,
         column as Partial<ColumnGroupType<RecordType>>,
-      );
+      ) as ColumnGroupType<RecordType>;
 
       return {
         ...mergedColumn,
@@ -93,12 +83,14 @@ export const fillColumnDefaults = <RecordType extends AnyObject = AnyObject>(
       } as ColumnGroupType<RecordType>;
     }
 
-    const { children: _, ...columnDefaultsWithoutChildren } =
-      columnDefaults as ColumnGroupType<RecordType>;
+    const columnDefaultsWithoutChildren = omit(
+      columnDefaults as Partial<ColumnGroupType<RecordType>>,
+      ['children'],
+    ) as Partial<ColumnType<RecordType>>;
 
-    return mergeDefinedProps(
-      columnDefaultsWithoutChildren as ColumnType<RecordType>,
+    return mergeProps(
+      columnDefaultsWithoutChildren,
       column as Partial<ColumnType<RecordType>>,
-    );
+    ) as ColumnType<RecordType>;
   });
 };

@@ -179,6 +179,21 @@ describe('Table.sorter', () => {
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
   });
 
+  it('keeps sorter uncontrolled when columnDefaults.sortOrder is undefined', () => {
+    const { container } = render(
+      createTable({
+        columnDefaults: {
+          sortOrder: undefined,
+        },
+      }),
+    );
+
+    expect(renderedNames(container)).toEqual(['Jack', 'Lucy', 'Tom', 'Jerry']);
+
+    fireEvent.click(container.querySelector('.ant-table-column-sorters')!);
+    expect(renderedNames(container)).toEqual(['Jack', 'Jerry', 'Lucy', 'Tom']);
+  });
+
   it('sort records when press enter', () => {
     const { container } = render(createTable());
 
