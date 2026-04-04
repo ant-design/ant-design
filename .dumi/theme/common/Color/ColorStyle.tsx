@@ -177,7 +177,7 @@ ${makeGrayPalette(index + 1)}
           &-item &-value {
             position: relative;
             inset-inline-start: ${token.marginXXS}px;
-            float: end;
+            float: inline-end;
             transform: scale(0.85);
             transform-origin: 100% 50%;
             opacity: 0;
