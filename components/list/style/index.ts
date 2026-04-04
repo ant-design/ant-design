@@ -419,7 +419,7 @@ const genBaseStyle: GenerateStyle<ListToken, CSSObject> = (token) => {
     [`${componentCls}:not(${componentCls}-vertical)`]: {
       [`${componentCls}-item-no-flex`]: {
         [`${componentCls}-item-action`]: {
-          float: 'right',
+          float: 'inline-end',
         },
       },
     },
