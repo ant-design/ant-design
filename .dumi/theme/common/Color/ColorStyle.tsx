@@ -170,7 +170,7 @@ ${makeGrayPalette(index + 1)}
           }
 
           &-item &-text {
-            float: start;
+            float: inline-start;
             transition: all ${token.motionDurationSlow};
           }
 
