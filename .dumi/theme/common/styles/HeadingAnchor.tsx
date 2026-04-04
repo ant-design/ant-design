@@ -24,7 +24,7 @@ const HeadingAnchor: React.FC = () => {
             margin-inline-start: -${token.marginLG}px;
 
             [data-direction='rtl'] & {
-              float: end;
+              float: inline-end;
             }
 
             &:hover {
