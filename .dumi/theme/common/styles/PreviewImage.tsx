@@ -10,7 +10,7 @@ const PreviewImage: React.FC = () => {
       styles={css`
         .preview-image-boxes {
           display: flex;
-          float: end;
+          float: inline-end;
           clear: both;
           width: 496px;
           margin: 0 0 70px 64px;
