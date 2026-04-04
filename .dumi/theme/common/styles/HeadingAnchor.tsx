@@ -14,7 +14,7 @@ const HeadingAnchor: React.FC = () => {
         h5,
         h6 {
           > a[aria-hidden]:first-child {
-            float: start;
+            float: inline-start;
             width: 20px;
             padding-inline-end: ${token.paddingXXS}px;
             font-size: 0;
