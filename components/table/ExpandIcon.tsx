@@ -14,22 +14,23 @@ interface DefaultExpandIconProps<RecordType = AnyObject> {
   icon?: React.ReactNode;
 }
 
-function renderExpandIcon(locale: TableLocale) {
+function renderExpandIcon(locale: TableLocale, customIcon?: React.ReactNode) {
   return <RecordType extends AnyObject = AnyObject>(props: DefaultExpandIconProps<RecordType>) => {
     const { prefixCls, onExpand, record, expanded, expandable, icon } = props;
+    const resolvedIcon = icon ?? customIcon;
     const iconPrefix = `${prefixCls}-row-expand-icon`;
     
     // If custom icon is provided via ComponentToken, render it with wrapper
-    if (icon) {
+    if (resolvedIcon) {
       const iconClassName = clsx(iconPrefix, {
         [`${iconPrefix}-spaced`]: !expandable,
         [`${iconPrefix}-expanded`]: expandable && expanded,
         [`${iconPrefix}-collapsed`]: expandable && !expanded,
       });
       
-      if (typeof icon === 'function') {
+      if (typeof resolvedIcon === 'function') {
         // If icon is a render function, call it with the current state
-        const customIconElement = icon({ expanded, expandable });
+        const customIconElement = resolvedIcon({ expanded, expandable });
         return (
           <span
             role="button"
@@ -61,7 +62,7 @@ function renderExpandIcon(locale: TableLocale) {
           aria-label={expanded ? locale.collapse : locale.expand}
           aria-expanded={expanded}
         >
-          {icon}
+          {resolvedIcon}
         </span>
       );
     }
