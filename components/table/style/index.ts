@@ -1,5 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+import type React from 'react';
 import { FastColor } from '@ant-design/fast-color';
 
 import { clearFix, resetComponent } from '../../style';

@@ -27,28 +27,11 @@ function renderExpandIcon(locale: TableLocale, customIcon?: React.ReactNode) {
         [`${iconPrefix}-expanded`]: expandable && expanded,
         [`${iconPrefix}-collapsed`]: expandable && !expanded,
       });
-      
-      if (typeof resolvedIcon === 'function') {
-        // If icon is a render function, call it with the current state
-        const customIconElement = resolvedIcon({ expanded, expandable });
-        return (
-          <span
-            role="button"
-            onClick={(e) => {
-              if (expandable) {
-                onExpand(record, e!);
-              }
-              e!.stopPropagation();
-            }}
-            className={iconClassName}
-            aria-label={expanded ? locale.collapse : locale.expand}
-            aria-expanded={expanded}
-          >
-            {customIconElement}
-          </span>
-        );
-      }
-      
+
+      const iconContent = typeof resolvedIcon === 'function'
+        ? resolvedIcon({ expanded, expandable })
+        : resolvedIcon;
+
       return (
         <span
           role="button"
@@ -62,7 +45,7 @@ function renderExpandIcon(locale: TableLocale, customIcon?: React.ReactNode) {
           aria-label={expanded ? locale.collapse : locale.expand}
           aria-expanded={expanded}
         >
-          {resolvedIcon}
+          {iconContent}
         </span>
       );
     }
