@@ -143,6 +143,7 @@ export default antfu(
     // demos
     files: ['components/*/demo/*.tsx'],
     rules: {
+      'react/purity': 'off',
       'react-naming-convention/ref-name': 'off',
       'react/no-create-ref': 'off',
       'no-console': 'off',
