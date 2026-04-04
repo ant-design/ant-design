@@ -146,7 +146,7 @@ const PreviewImage: React.FC = () => {
 
         .transition-video-player,
         .motion-video-min {
-          float: end;
+          float: inline-end;
           width: 600px;
           padding: 0 0 70px 20px;
 
