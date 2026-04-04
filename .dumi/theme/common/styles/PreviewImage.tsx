@@ -24,7 +24,7 @@ const PreviewImage: React.FC = () => {
           }
 
           .ant-row-rtl & {
-            float: start;
+            float: inline-start;
             margin: 0 64px 70px 0;
           }
         }
@@ -155,7 +155,7 @@ const PreviewImage: React.FC = () => {
           }
 
           .ant-row-rtl & {
-            float: start;
+            float: inline-start;
           }
         }
 
