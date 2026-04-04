@@ -105,10 +105,9 @@ const GlobalStyle: React.FC = () => {
         .markdown p,
         .markdown pre {
           margin: 1em 0;
-
+          text-align: start;
           ${antCls}-row-rtl & {
             direction: rtl;
-            text-align: end;
           }
         }
 

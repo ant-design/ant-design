@@ -231,7 +231,6 @@ ${makeGrayPalette(index + 1)}
 
               .ant-row-rtl & {
                 direction: rtl;
-                text-align: end;
               }
             }
           }
