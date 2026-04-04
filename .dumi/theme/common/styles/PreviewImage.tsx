@@ -34,7 +34,7 @@ const PreviewImage: React.FC = () => {
         }
 
         .preview-image-box {
-          float: start;
+          float: inline-start;
           width: 100%;
         }
 
