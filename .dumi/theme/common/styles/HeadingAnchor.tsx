@@ -14,17 +14,17 @@ const HeadingAnchor: React.FC = () => {
         h5,
         h6 {
           > a[aria-hidden]:first-child {
-            float: left;
+            float: inline-start;
             width: 20px;
             padding-inline-end: ${token.paddingXXS}px;
             font-size: 0;
             line-height: inherit;
-            text-align: right;
+            text-align: end;
             padding-inline-end: ${token.paddingXXS}px;
             margin-inline-start: -${token.marginLG}px;
 
             [data-direction='rtl'] & {
-              float: right;
+              float: inline-end;
             }
 
             &:hover {

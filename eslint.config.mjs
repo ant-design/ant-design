@@ -81,7 +81,6 @@ export default antfu(
       'react/component-hook-factories': 'off',
       'react/rules-of-hooks': 'off',
       'react/set-state-in-effect': 'off',
-      'react/use-state': 'off',
       'react/exhaustive-deps': 'off',
       'react-naming-convention/id-name': 'off', // Do not turn on — it would break the original semantics.
     },
@@ -116,6 +115,7 @@ export default antfu(
     // tests
     files: ['**/*.test.ts', 'tests/**/*', '**/__tests__/**/*', 'scripts/**/*', '**/*.test.tsx'],
     rules: {
+      'react/use-state': 'off',
       'react/error-boundaries': 'off',
       'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
@@ -143,6 +143,7 @@ export default antfu(
     // demos
     files: ['components/*/demo/*.tsx'],
     rules: {
+      'react/purity': 'off',
       'react-naming-convention/ref-name': 'off',
       'react/no-create-ref': 'off',
       'no-console': 'off',
