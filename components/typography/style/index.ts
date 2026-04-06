@@ -64,42 +64,19 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
         userSelect: 'none',
       },
 
-      [`
-        div&,
-        p
-      `]: {
+      'div&, p': {
         marginBottom: '1em',
       },
 
       ...getTitleStyles(token),
 
-      [`
-      & + h1${componentCls},
-      & + h2${componentCls},
-      & + h3${componentCls},
-      & + h4${componentCls},
-      & + h5${componentCls}
-      `]: {
-        marginTop: titleMarginTop,
-      },
+      [`& + h1${componentCls}, & + h2${componentCls}, & + h3${componentCls}, & + h4${componentCls}, & + h5${componentCls}`]:
+        {
+          marginTop: titleMarginTop,
+        },
 
-      [`
-      div,
-      ul,
-      li,
-      p,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5`]: {
-        [`
-        + h1,
-        + h2,
-        + h3,
-        + h4,
-        + h5
-        `]: {
+      'div, ul, li, p, h1, h2, h3, h4, h5': {
+        '+ h1, + h2, + h3, + h4, + h5': {
           marginTop: titleMarginTop,
         },
       },

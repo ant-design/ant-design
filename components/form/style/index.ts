@@ -123,9 +123,7 @@ const resetForm: GenerateStyle<AliasToken, CSSObject> = (token) => ({
   },
 
   // Focus for file, radio, and checkbox
-  [`input[type='file']:focus,
-  input[type='radio']:focus,
-  input[type='checkbox']:focus`]: {
+  "input[type='file']:focus, input[type='radio']:focus, input[type='checkbox']:focus": {
     outline: 0,
     boxShadow: `0 0 0 ${unit(token.controlOutlineWidth)} ${token.controlOutline}`,
   },
