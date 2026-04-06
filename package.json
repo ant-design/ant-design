@@ -326,17 +326,11 @@
   },
   "pnpm": {
     "overrides": {
-      "@asamuzakjp/css-color>lru-cache": "11.2.7",
-      "@asamuzakjp/dom-selector>lru-cache": "11.2.7"
+      "lru-cache@>=11": "11.2.7"
     }
   },
   "overrides": {
-    "@asamuzakjp/css-color": {
-      "lru-cache": "11.2.7"
-    },
-    "@asamuzakjp/dom-selector": {
-      "lru-cache": "11.2.7"
-    }
+    "lru-cache@>=11": "11.2.7"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
