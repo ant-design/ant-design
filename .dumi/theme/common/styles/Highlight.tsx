@@ -34,7 +34,7 @@ const Highlight: React.FC = () => {
           line-height: ${token.lineHeightLG};
           direction: ltr;
           white-space: pre;
-          text-align: left;
+          text-align: start;
           word-wrap: normal;
           word-break: normal;
           word-spacing: normal;
