@@ -326,11 +326,15 @@
   },
   "pnpm": {
     "overrides": {
-      "dumi>lru-cache": "11.2.7"
+      "@asamuzakjp/css-color>lru-cache": "11.2.7",
+      "@asamuzakjp/dom-selector>lru-cache": "11.2.7"
     }
   },
   "overrides": {
-    "dumi": {
+    "@asamuzakjp/css-color": {
+      "lru-cache": "11.2.7"
+    },
+    "@asamuzakjp/dom-selector": {
       "lru-cache": "11.2.7"
     }
   },
