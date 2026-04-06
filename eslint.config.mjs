@@ -44,7 +44,6 @@ export default antfu(
       'regexp/no-misleading-capturing-group': 'off',
       'regexp/no-super-linear-backtracking': 'off', // TODO: remove this
       'regexp/optimal-quantifier-concatenation': 'off',
-      'react-hooks/exhaustive-deps': 'off',
       'react-refresh/only-export-components': 'off', // TODO: remove this
       'react/no-clone-element': 'off',
       'react/no-children-for-each': 'off',
@@ -58,12 +57,8 @@ export default antfu(
       'react/no-forward-ref': 'off',
       'react/no-context-provider': 'off',
       'react/no-use-context': 'off',
-      'react-hooks-extra/no-direct-set-state-in-use-effect': 'off',
       /* turn off 升级 @antfu/eslint-config@6 带来的 warning */
       'react/no-unnecessary-use-prefix': 'off',
-      'react-hooks/globals': 'off',
-      'react-hooks/preserve-manual-memoization': 'off',
-      'react-hooks/refs': 'off',
       'react/no-implicit-key': 'off',
       /* e18e rules */
       'e18e/prefer-spread-syntax': 'off',
@@ -117,7 +112,6 @@ export default antfu(
     rules: {
       'react/use-state': 'off',
       'react/error-boundaries': 'off',
-      'react-hooks/immutability': 'off',
       'test/prefer-lowercase-title': 'off',
       'react/no-create-ref': 'off',
       'react/no-nested-component-definitions': 'off',
