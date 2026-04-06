@@ -326,14 +326,21 @@
   },
   "pnpm": {
     "overrides": {
-      "lru-cache": "11.2.7"
+      "@asamuzakjp/css-color>lru-cache": "11.2.7",
+      "@asamuzakjp/dom-selector>lru-cache": "11.2.7",
+      "jsdom>lru-cache": "11.2.7"
     }
   },
   "overrides": {
-    "lru-cache": "11.2.7"
-  },
-  "resolutions": {
-    "lru-cache": "11.2.7"
+    "@asamuzakjp/css-color": {
+      "lru-cache": "11.2.7"
+    },
+    "@asamuzakjp/dom-selector": {
+      "lru-cache": "11.2.7"
+    },
+    "jsdom": {
+      "lru-cache": "11.2.7"
+    }
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
