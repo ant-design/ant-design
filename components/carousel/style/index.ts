@@ -128,7 +128,7 @@ const genCarouselStyle: GenerateStyle<CarouselToken, CSSObject> = (token) => {
 
       '.slick-slide': {
         display: 'none',
-        float: 'inline-start',
+        float: 'left',
         height: '100%',
         minHeight: 1,
 
