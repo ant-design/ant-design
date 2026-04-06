@@ -515,7 +515,6 @@ describe('notification', () => {
   it('reserves close button spacing for description when title is empty', async () => {
     act(() => {
       notification.open({
-        title: null,
         description: 'This is a long notification description used to verify close button spacing.',
         duration: 0,
       });
