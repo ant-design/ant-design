@@ -512,21 +512,6 @@ describe('notification', () => {
     expect(document.querySelectorAll('.ant-notification-description').length).toBe(0);
   });
 
-  it('reserves close button spacing for description when title is empty', async () => {
-    act(() => {
-      notification.open({
-        description: 'This is a long notification description used to verify close button spacing.',
-        duration: 0,
-      });
-    });
-    await awaitPromise();
-
-    const notice = document.querySelector('.ant-notification-notice');
-    expect(notice?.querySelector('.ant-notification-notice-close')).toBeTruthy();
-    expect(notice?.querySelector('.ant-notification-notice-description')).toBeTruthy();
-    expect(notice?.querySelector('.ant-notification-notice-title')).toBeFalsy();
-    expect(notice?.querySelector('.ant-notification-notice-no-title')).toBeTruthy();
-  });
   describe('When closeIcon is null, there is no close button', () => {
     it('Notification method', async () => {
       act(() => {

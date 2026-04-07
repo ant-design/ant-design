@@ -186,11 +186,6 @@ export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
       paddingInlineEnd: token.paddingLG,
     },
 
-    [`${noticeCls}-closable ${noticeCls}-no-title ${noticeCls}-description`]: {
-      marginTop: 0,
-      paddingBlockStart: token.calc(token.notificationCloseButtonSize).add(token.paddingXXS).equal(),
-    },
-
     [`${noticeCls}-with-icon ${noticeCls}-title`]: {
       marginBottom: token.marginXS,
       marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),

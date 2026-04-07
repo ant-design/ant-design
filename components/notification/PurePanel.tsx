@@ -80,7 +80,6 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
     styles,
     classNames: pureContentCls,
   } = props;
-  const hasTitle = title !== null && title !== undefined;
 
   let iconNode: React.ReactNode = null;
   if (icon) {
@@ -96,19 +95,11 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
     });
   }
   return (
-    <div
-      className={clsx({
-        [`${prefixCls}-with-icon`]: iconNode,
-        [`${prefixCls}-no-title`]: !hasTitle,
-      })}
-      role={role}
-    >
+    <div className={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
       {iconNode}
-      {hasTitle && (
-        <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
-          {title}
-        </div>
-      )}
+      <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
+        {title}
+      </div>
       {description && (
         <div
           className={clsx(`${prefixCls}-description`, pureContentCls.description)}
