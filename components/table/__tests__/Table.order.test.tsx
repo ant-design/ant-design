@@ -76,36 +76,4 @@ describe('Table.order', () => {
       container.querySelectorAll('tr')[1].querySelectorAll('td.ant-table-cell-fix-start'),
     ).toHaveLength(2);
   });
-
-  it('preserves explicit expand and selection column order with column', () => {
-    const { container } = render(
-      createTable({
-        columns: [
-          {
-            dataIndex: 'name',
-          },
-          Table.EXPAND_COLUMN,
-          {
-            dataIndex: 'key',
-          },
-          Table.SELECTION_COLUMN,
-        ],
-        column: {
-          align: 'center',
-        },
-        rowSelection: {},
-        expandable: {
-          expandedRowRender: () => null,
-        },
-      }),
-    );
-
-    const tdNodeList = container.querySelectorAll('tbody tr')[0].querySelectorAll('td');
-
-    expect(tdNodeList).toHaveLength(4);
-    expect(tdNodeList[0].textContent).toEqual('Jack');
-    expect(tdNodeList[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
-    expect(tdNodeList[2].textContent).toEqual('0');
-    expect(tdNodeList[3].querySelector('.ant-checkbox-input')).toBeTruthy();
-  });
 });

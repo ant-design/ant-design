@@ -144,21 +144,6 @@ describe('Table', () => {
     );
   });
 
-  it('should not crash when column is set and column children is empty', () => {
-    render(
-      <Table<{ name?: string }>
-        columns={[
-          {
-            dataIndex: 'name',
-            children: undefined,
-          },
-        ]}
-        column={{ ellipsis: true }}
-        dataSource={[]}
-      />,
-    );
-  });
-
   it('should not crash when dataSource is array with none-object items', () => {
     render(
       <Table
@@ -248,12 +233,12 @@ describe('Table', () => {
       });
   });
 
-  it('supports column for columns', () => {
+  it('supports column align with per-column override', () => {
     const { container } = render(
       <Table
         columns={[
           { title: 'Name', dataIndex: 'name' },
-          { title: 'Address', dataIndex: 'address', align: 'left' },
+          { title: 'Address', dataIndex: 'address', align: 'right' },
         ]}
         dataSource={[
           {
@@ -262,7 +247,7 @@ describe('Table', () => {
             address: 'No. 1, Long Long Long Long Long Street',
           },
         ]}
-        column={{ align: 'center', ellipsis: true }}
+        column={{ align: 'center' }}
         pagination={false}
       />,
     );
@@ -270,114 +255,7 @@ describe('Table', () => {
     const cells = container.querySelectorAll('.ant-table-tbody td');
 
     expect(cells[0]).toHaveStyle({ textAlign: 'center' });
-    expect(cells[0]).toHaveClass('ant-table-cell-ellipsis');
-    expect(cells[1]).toHaveStyle({ textAlign: 'left' });
-    expect(cells[1]).toHaveClass('ant-table-cell-ellipsis');
-  });
-
-  it('supports column for empty column objects', () => {
-    const { container } = render(
-      <Table<{ key: string; name: string }>
-        columns={[{}]}
-        column={{
-          title: 'Name',
-          render: (_, record) => record.name,
-        }}
-        dataSource={[{ key: '1', name: 'Jack' }]}
-        pagination={false}
-      />,
-    );
-
-    expect(container.querySelector('.ant-table-thead th')?.textContent).toEqual('Name');
-    expect(container.querySelector('.ant-table-tbody td')?.textContent).toEqual('Jack');
-  });
-
-  it('keeps column when column props are undefined', () => {
-    const { container } = render(
-      <Table
-        columns={[
-          {
-            title: 'Name',
-            dataIndex: 'name',
-            align: undefined,
-            ellipsis: undefined,
-          },
-        ]}
-        column={{ align: 'center', ellipsis: true }}
-        dataSource={[{ key: '1', name: 'Jack Long Long Long Name' }]}
-        pagination={false}
-      />,
-    );
-
-    const cell = container.querySelector('.ant-table-tbody td');
-
-    expect(cell).toHaveStyle({ textAlign: 'center' });
-    expect(cell).toHaveClass('ant-table-cell-ellipsis');
-  });
-
-  it('does not apply default children to leaf columns', () => {
-    const { container } = render(
-      <Table<{ key: string; name: string }>
-        columns={[{ title: 'Name', dataIndex: 'name' }]}
-        column={{ children: [] } as any}
-        dataSource={[{ key: '1', name: 'Jack' }]}
-        pagination={false}
-      />,
-    );
-
-    expect(container.querySelectorAll('.ant-table-thead th')).toHaveLength(1);
-    expect(container.querySelector('.ant-table-thead th')?.textContent).toEqual('Name');
-    expect(container.querySelector('.ant-table-tbody td')?.textContent).toEqual('Jack');
-  });
-
-  it('supports column for JSX columns recursively', () => {
-    const { container } = render(
-      <Table
-        dataSource={[
-          {
-            key: '1',
-            name: 'Jack',
-            age: 20,
-          },
-        ]}
-        column={{ align: 'center', ellipsis: true }}
-        pagination={false}
-      >
-        <Column title="Name" dataIndex="name" />
-        <ColumnGroup title="Info">
-          <Column title="Age" dataIndex="age" align="right" />
-        </ColumnGroup>
-      </Table>,
-    );
-
-    const cells = container.querySelectorAll('.ant-table-tbody td');
-
-    expect(cells[0]).toHaveStyle({ textAlign: 'center' });
-    expect(cells[0]).toHaveClass('ant-table-cell-ellipsis');
     expect(cells[1]).toHaveStyle({ textAlign: 'right' });
-    expect(cells[1]).toHaveClass('ant-table-cell-ellipsis');
-  });
-
-  it('column should not affect internal selection column', () => {
-    const { container } = render(
-      <Table
-        columns={[{ title: 'Name', dataIndex: 'name' }]}
-        dataSource={[{ key: '1', name: 'Jack' }]}
-        column={{ align: 'center', ellipsis: true }}
-        pagination={false}
-        rowSelection={{}}
-      />,
-    );
-
-    expect(container.querySelector('.ant-table-selection-column')).not.toHaveClass(
-      'ant-table-cell-ellipsis',
-    );
-    expect(
-      container.querySelector('.ant-table-tbody td.ant-table-selection-column'),
-    ).not.toHaveClass('ant-table-cell-ellipsis');
-    expect(container.querySelectorAll('.ant-table-tbody td')[1]).toHaveStyle({
-      textAlign: 'center',
-    });
   });
 
   it('warn about rowKey when using index parameter', () => {

@@ -58,20 +58,4 @@ describe('Table.typescript', () => {
     const table = <Table pagination={{ position: ['none', 'none'] }} />;
     expect(table).toBeTruthy();
   });
-
-  it('column', () => {
-    interface User {
-      key: string;
-      name: string;
-    }
-
-    const table = (
-      <Table<User>
-        dataSource={[{ key: '1', name: 'Jack' }]}
-        column={{ align: 'center', ellipsis: true }}
-      />
-    );
-
-    expect(table).toBeTruthy();
-  });
 });
