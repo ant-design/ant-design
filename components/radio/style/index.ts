@@ -230,7 +230,7 @@ const getRadioBasicStyle: GenerateStyle<RadioToken, CSSObject> = (token) => {
           content: '""',
           position: 'absolute',
           top: '50%',
-          left: '50%',
+          insetInlineStart: '50%',
           transform: 'translate(-50%, -50%) scale(0)',
           width: `calc(${dotSize} * 1px)`,
           height: `calc(${dotSize} * 1px)`,
