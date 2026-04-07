@@ -173,13 +173,6 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
     {
       [componentCls]: {
         // ======================= Shared =======================
-        [`
-          ${componentCls}-action-up-disabled,
-          ${componentCls}-action-down-disabled
-        `]: {
-          cursor: 'not-allowed',
-        },
-
         [`${componentCls}-action`]: {
           ...resetIcon(),
 
@@ -197,6 +190,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           // Hover
           '&:hover': {
             color: handleHoverColor,
+          },
+
+          [`&${componentCls}-action-up-disabled, &${componentCls}-action-down-disabled`]: {
+            cursor: 'not-allowed',
           },
         },
 
