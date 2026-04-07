@@ -324,14 +324,6 @@
     "webpack-bundle-analyzer": "^5.1.0",
     "xhr-mock": "^2.5.1"
   },
-  "pnpm": {
-    "overrides": {
-      "lru-cache@>=11": "11.2.7"
-    }
-  },
-  "overrides": {
-    "lru-cache@>=11": "11.2.7"
-  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
