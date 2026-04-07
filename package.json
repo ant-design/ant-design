@@ -230,7 +230,7 @@
     "csstree-validator": "^4.0.1",
     "cypress-image-diff-html-report": "2.2.0",
     "dekko": "^0.2.1",
-    "domparser-rs": "0.0.7",
+    "domparser-rs": "0.1.0",
     "dotenv": "^17.4.0",
     "dumi": "~2.4.23",
     "dumi-plugin-color-chunk": "^2.1.0",
@@ -325,17 +325,11 @@
   },
   "pnpm": {
     "overrides": {
-      "@asamuzakjp/css-color>lru-cache": "11.2.7",
-      "@asamuzakjp/dom-selector>lru-cache": "11.2.7"
+      "lru-cache@>=11": "11.2.7"
     }
   },
   "overrides": {
-    "@asamuzakjp/css-color": {
-      "lru-cache": "11.2.7"
-    },
-    "@asamuzakjp/dom-selector": {
-      "lru-cache": "11.2.7"
-    }
+    "lru-cache@>=11": "11.2.7"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
