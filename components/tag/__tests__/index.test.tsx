@@ -356,6 +356,31 @@ describe('Tag', () => {
     });
   });
 
+  it('supports autoContrast for custom outlined color', () => {
+    const { container } = render(
+      <Tag color="#7c3aed" variant="outlined" autoContrast>
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      borderColor: 'rgb(124, 58, 237)',
+      color: 'rgb(0, 0, 0)',
+    });
+  });
+
+  it('keeps solid custom text color unset when autoContrast is disabled', () => {
+    const { container } = render(
+      <Tag color="#7c3aed" variant="solid">
+        tag
+      </Tag>,
+    );
+    const tagNode = container.querySelector('.ant-tag');
+    expect(tagNode).toHaveStyle({
+      backgroundColor: 'rgb(124, 58, 237)',
+    });
+    expect(tagNode).not.toHaveStyle({ color: 'rgb(0, 0, 0)' });
+  });
+
   describe('CheckableTagGroup', () => {
     it('should check single tag in group', async () => {
       const onChange = jest.fn();
