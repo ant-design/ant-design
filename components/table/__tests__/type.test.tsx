@@ -59,7 +59,7 @@ describe('Table.typescript', () => {
     expect(table).toBeTruthy();
   });
 
-  it('columnDefaults', () => {
+  it('column', () => {
     interface User {
       key: string;
       name: string;
@@ -68,7 +68,7 @@ describe('Table.typescript', () => {
     const table = (
       <Table<User>
         dataSource={[{ key: '1', name: 'Jack' }]}
-        columnDefaults={{ align: 'center', ellipsis: true }}
+        column={{ align: 'center', ellipsis: true }}
       />
     );
 

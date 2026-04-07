@@ -58,39 +58,38 @@ export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
   return res;
 };
 
-export const fillColumnDefaults = <RecordType extends AnyObject = AnyObject>(
+export const fillColumn = <RecordType extends AnyObject = AnyObject>(
   columns: ColumnsType<RecordType>,
-  columnDefaults?: Partial<ColumnType<RecordType>>,
+  column?: Partial<ColumnType<RecordType>>,
 ): ColumnsType<RecordType> => {
-  if (!columnDefaults) {
+  if (!column) {
     return columns;
   }
 
-  return columns.map((column) => {
-    if (column === SELECTION_COLUMN || column === EXPAND_COLUMN) {
-      return column;
+  return columns.map((col) => {
+    if (col === SELECTION_COLUMN || col === EXPAND_COLUMN) {
+      return col;
     }
 
-    if ('children' in column && Array.isArray(column.children)) {
+    if ('children' in col && Array.isArray(col.children)) {
       const mergedColumn = mergeProps(
-        columnDefaults as Partial<ColumnGroupType<RecordType>>,
         column as Partial<ColumnGroupType<RecordType>>,
+        col as Partial<ColumnGroupType<RecordType>>,
       ) as ColumnGroupType<RecordType>;
 
       return {
         ...mergedColumn,
-        children: fillColumnDefaults(column.children, columnDefaults),
+        children: fillColumn(col.children, column),
       } as ColumnGroupType<RecordType>;
     }
 
-    const columnDefaultsWithoutChildren = omit(
-      columnDefaults as Partial<ColumnGroupType<RecordType>>,
-      ['children'],
-    ) as Partial<ColumnType<RecordType>>;
+    const columnWithoutChildren = omit(column as Partial<ColumnGroupType<RecordType>>, [
+      'children',
+    ]) as Partial<ColumnType<RecordType>>;
 
     return mergeProps(
-      columnDefaultsWithoutChildren,
-      column as Partial<ColumnType<RecordType>>,
+      columnWithoutChildren,
+      col as Partial<ColumnType<RecordType>>,
     ) as ColumnType<RecordType>;
   });
 };

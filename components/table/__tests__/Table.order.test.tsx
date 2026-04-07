@@ -77,7 +77,7 @@ describe('Table.order', () => {
     ).toHaveLength(2);
   });
 
-  it('preserves explicit expand and selection column order with columnDefaults', () => {
+  it('preserves explicit expand and selection column order with column', () => {
     const { container } = render(
       createTable({
         columns: [
@@ -90,7 +90,7 @@ describe('Table.order', () => {
           },
           Table.SELECTION_COLUMN,
         ],
-        columnDefaults: {
+        column: {
           align: 'center',
         },
         rowSelection: {},

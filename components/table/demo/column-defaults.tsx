@@ -47,7 +47,7 @@ const App: React.FC = () => (
   <Table<DataType>
     columns={columns}
     dataSource={data}
-    columnDefaults={{ align: 'center', ellipsis: true }}
+    column={{ align: 'center', ellipsis: true }}
     pagination={false}
   />
 );

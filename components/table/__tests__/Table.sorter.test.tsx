@@ -179,10 +179,10 @@ describe('Table.sorter', () => {
     expect(getNameColumn()?.getAttribute('aria-sort')).toEqual('descending');
   });
 
-  it('keeps sorter uncontrolled when columnDefaults.sortOrder is undefined', () => {
+  it('keeps sorter uncontrolled when column.sortOrder is undefined', () => {
     const { container } = render(
       createTable({
-        columnDefaults: {
+        column: {
           sortOrder: undefined,
         },
       }),

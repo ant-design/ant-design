@@ -144,7 +144,7 @@ describe('Table', () => {
     );
   });
 
-  it('should not crash when columnDefaults is set and column children is empty', () => {
+  it('should not crash when column is set and column children is empty', () => {
     render(
       <Table<{ name?: string }>
         columns={[
@@ -153,7 +153,7 @@ describe('Table', () => {
             children: undefined,
           },
         ]}
-        columnDefaults={{ ellipsis: true }}
+        column={{ ellipsis: true }}
         dataSource={[]}
       />,
     );
@@ -248,7 +248,7 @@ describe('Table', () => {
       });
   });
 
-  it('supports columnDefaults for columns', () => {
+  it('supports column for columns', () => {
     const { container } = render(
       <Table
         columns={[
@@ -262,7 +262,7 @@ describe('Table', () => {
             address: 'No. 1, Long Long Long Long Long Street',
           },
         ]}
-        columnDefaults={{ align: 'center', ellipsis: true }}
+        column={{ align: 'center', ellipsis: true }}
         pagination={false}
       />,
     );
@@ -275,11 +275,11 @@ describe('Table', () => {
     expect(cells[1]).toHaveClass('ant-table-cell-ellipsis');
   });
 
-  it('supports columnDefaults for empty column objects', () => {
+  it('supports column for empty column objects', () => {
     const { container } = render(
       <Table<{ key: string; name: string }>
         columns={[{}]}
-        columnDefaults={{
+        column={{
           title: 'Name',
           render: (_, record) => record.name,
         }}
@@ -292,7 +292,7 @@ describe('Table', () => {
     expect(container.querySelector('.ant-table-tbody td')?.textContent).toEqual('Jack');
   });
 
-  it('keeps columnDefaults when column props are undefined', () => {
+  it('keeps column when column props are undefined', () => {
     const { container } = render(
       <Table
         columns={[
@@ -303,7 +303,7 @@ describe('Table', () => {
             ellipsis: undefined,
           },
         ]}
-        columnDefaults={{ align: 'center', ellipsis: true }}
+        column={{ align: 'center', ellipsis: true }}
         dataSource={[{ key: '1', name: 'Jack Long Long Long Name' }]}
         pagination={false}
       />,
@@ -319,7 +319,7 @@ describe('Table', () => {
     const { container } = render(
       <Table<{ key: string; name: string }>
         columns={[{ title: 'Name', dataIndex: 'name' }]}
-        columnDefaults={{ children: [] } as any}
+        column={{ children: [] } as any}
         dataSource={[{ key: '1', name: 'Jack' }]}
         pagination={false}
       />,
@@ -330,7 +330,7 @@ describe('Table', () => {
     expect(container.querySelector('.ant-table-tbody td')?.textContent).toEqual('Jack');
   });
 
-  it('supports columnDefaults for JSX columns recursively', () => {
+  it('supports column for JSX columns recursively', () => {
     const { container } = render(
       <Table
         dataSource={[
@@ -340,7 +340,7 @@ describe('Table', () => {
             age: 20,
           },
         ]}
-        columnDefaults={{ align: 'center', ellipsis: true }}
+        column={{ align: 'center', ellipsis: true }}
         pagination={false}
       >
         <Column title="Name" dataIndex="name" />
@@ -358,12 +358,12 @@ describe('Table', () => {
     expect(cells[1]).toHaveClass('ant-table-cell-ellipsis');
   });
 
-  it('columnDefaults should not affect internal selection column', () => {
+  it('column should not affect internal selection column', () => {
     const { container } = render(
       <Table
         columns={[{ title: 'Name', dataIndex: 'name' }]}
         dataSource={[{ key: '1', name: 'Jack' }]}
-        columnDefaults={{ align: 'center', ellipsis: true }}
+        column={{ align: 'center', ellipsis: true }}
         pagination={false}
         rowSelection={{}}
       />,

@@ -62,7 +62,7 @@ import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 import TableMeasureRowContext from './TableMeasureRowContext';
-import { fillColumnDefaults } from './util';
+import { fillColumn } from './util';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -120,25 +120,24 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject>
-  extends Omit<
-    RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'scroll'
-    | 'emptyText'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TableProps<RecordType = AnyObject> extends Omit<
+  RcTableProps<RecordType>,
+  | 'transformColumns'
+  | 'internalHooks'
+  | 'internalRefs'
+  | 'data'
+  | 'columns'
+  | 'scroll'
+  | 'emptyText'
+  | 'classNames'
+  | 'styles'
+> {
   classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
   styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
+  column?: Partial<ColumnType<RecordType>>;
   columns?: ColumnsType<RecordType>;
-  columnDefaults?: Partial<ColumnType<RecordType>>;
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
   size?: SizeType;
@@ -187,8 +186,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     rowSelection,
     rowKey: customizeRowKey,
     rowClassName,
+    column,
     columns,
-    columnDefaults,
     children,
     childrenColumnName: legacyChildrenColumnName,
     onChange,
@@ -212,10 +211,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
     [columns, children],
   );
-  const baseColumns = React.useMemo(
-    () => fillColumnDefaults(rawColumns, columnDefaults),
-    [rawColumns, columnDefaults],
-  );
+  const baseColumns = React.useMemo(() => fillColumn(rawColumns, column), [rawColumns, column]);
   const needResponsive = React.useMemo(
     () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
     [baseColumns],
@@ -232,8 +228,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const tableProps: TableProps<RecordType> = omit(props, [
     'className',
     'style',
+    'column',
     'columns',
-    'columnDefaults',
   ]);
 
   const { locale: contextLocale = defaultLocale, table } =
