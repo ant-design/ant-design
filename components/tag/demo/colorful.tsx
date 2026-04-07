@@ -16,7 +16,6 @@ const presets = [
   'purple',
 ];
 const customs = ['#f50', '#2db7f5', '#87d068', '#108ee9'];
-const wcagCustoms = ['#7c3aed', '#777777', '#f59e0b', '#06b6d4'];
 
 const App: React.FC = () => (
   <>
@@ -38,18 +37,6 @@ const App: React.FC = () => (
         <Flex gap="small" align="center" wrap>
           {customs.map((color) => (
             <Tag key={color} color={color} variant={variant}>
-              {color}
-            </Tag>
-          ))}
-        </Flex>
-      </div>
-    ))}
-    {variants.map((variant) => (
-      <div key={`wcag-${variant}`}>
-        <Divider titlePlacement="start">Custom autoContrast ({variant})</Divider>
-        <Flex gap="small" align="center" wrap>
-          {wcagCustoms.map((color) => (
-            <Tag key={color} color={color} variant={variant} autoContrast>
               {color}
             </Tag>
           ))}
