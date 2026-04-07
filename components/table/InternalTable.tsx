@@ -31,6 +31,7 @@ import renderExpandIcon from './ExpandIcon';
 import useContainerWidth from './hooks/useContainerWidth';
 import type { FilterConfig, FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
+import useFilledColumns from './hooks/useFilledColumns';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useSelection from './hooks/useSelection';
@@ -62,7 +63,6 @@ import RcTable from './RcTable';
 import RcVirtualTable from './RcTable/VirtualTable';
 import useStyle from './style';
 import TableMeasureRowContext from './TableMeasureRowContext';
-import { fillColumn } from './util';
 
 export type { ColumnsType, TablePaginationConfig };
 
@@ -120,18 +120,19 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject> extends Omit<
-  RcTableProps<RecordType>,
-  | 'transformColumns'
-  | 'internalHooks'
-  | 'internalRefs'
-  | 'data'
-  | 'columns'
-  | 'scroll'
-  | 'emptyText'
-  | 'classNames'
-  | 'styles'
-> {
+export interface TableProps<RecordType = AnyObject>
+  extends Omit<
+    RcTableProps<RecordType>,
+    | 'transformColumns'
+    | 'internalHooks'
+    | 'internalRefs'
+    | 'data'
+    | 'columns'
+    | 'scroll'
+    | 'emptyText'
+    | 'classNames'
+    | 'styles'
+  > {
   classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
   styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
@@ -211,7 +212,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
     [columns, children],
   );
-  const baseColumns = React.useMemo(() => fillColumn(rawColumns, column), [rawColumns, column]);
+  const baseColumns = useFilledColumns(rawColumns, column);
   const needResponsive = React.useMemo(
     () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
     [baseColumns],
