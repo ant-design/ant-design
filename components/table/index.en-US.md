@@ -158,7 +158,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Version |
 | --- | --- | --- | --- |
 | nativeElement | The wrap element | HTMLDivElement | 5.11.0 |
-| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey`. When `offset` is specified, the table will scroll to align the target row to the top with the given offset and not working with `top` | (config: { index?: number, key?: React.Key, top?: number, offset?: number }) => void | 5.11.0 |
+| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey`. When `offset` is specified, the table will scroll to align the target row to the top with the given offset and not working with `top`. Optional `align` param to control alignment: `start` align to top, `center` align to center, `end` align to bottom, `nearest` smart align (default). `center` align is not supported in virtual scrolling mode | (config: { index?: number, key?: React.Key, top?: number, offset?: number, align?: 'start' \| 'center' \| 'end' \| 'nearest' }) => void | 5.11.0 |
 
 #### onRow usage
 

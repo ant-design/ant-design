@@ -160,7 +160,7 @@ const columns = [
 | 参数 | 说明 | 类型 | 版本 |
 | --- | --- | --- | --- |
 | nativeElement | 最外层 div 元素 | HTMLDivElement | 5.11.0 |
-| scrollTo | 滚动到目标位置（设置 `key` 时为 Record 对应的 `rowKey`）。当指定 `offset` 时，表格会滚动至目标行顶部对齐并应用指定的偏移量。`offset` 对 `top` 无效 | (config: { index?: number, key?: React.Key, top?: number, offset?: number }) => void | 5.11.0 |
+| scrollTo | 滚动到目标位置（设置 `key` 时为 Record 对应的 `rowKey`）。当指定 `offset` 时，表格会滚动至目标行顶部对齐并应用指定的偏移量。`offset` 对 `top` 无效。可选 `align` 参数控制对齐方式：`start` 顶部对齐、`center` 中间对齐、`end` 底部对齐、`nearest` 智能对齐（默认）。虚拟滚动模式下不支持 `center` 对齐 | (config: { index?: number, key?: React.Key, top?: number, offset?: number, align?: 'start' \| 'center' \| 'end' \| 'nearest' }) => void | 5.11.0 |
 
 #### onRow 用法
 

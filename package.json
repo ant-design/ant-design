@@ -140,7 +140,7 @@
     "@rc-component/slider": "~1.0.1",
     "@rc-component/steps": "~1.2.2",
     "@rc-component/switch": "~1.0.3",
-    "@rc-component/table": "~1.9.1",
+    "@rc-component/table": "~1.10.0",
     "@rc-component/tabs": "~1.8.0",
     "@rc-component/tooltip": "~1.4.0",
     "@rc-component/tour": "~2.4.0",
@@ -343,7 +343,7 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "435 KiB",
+      "limit": "436 KiB",
       "gzip": true
     },
     {
