@@ -242,7 +242,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   const paddingHorizontal = 12; // Fixed value here.
   return {
-    withDescriptionIconSize: token.fontSizeHeading3,
+    withDescriptionIconSize: Number(token.fontSizeHeading3),
     defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
     withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
   };

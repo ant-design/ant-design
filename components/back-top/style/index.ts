@@ -145,7 +145,7 @@ export default genStyleHooks(
       backTopBackground: colorTextDescription,
       backTopColor: colorTextLightSolid,
       backTopHoverBackground: colorText,
-      backTopFontSize: fontSizeHeading3,
+      backTopFontSize: Number(fontSizeHeading3),
       backTopSize: controlHeightLG,
       backTopBlockEnd: calc(controlHeightLG).mul(1.25).equal(),
       backTopInlineEnd: calc(controlHeightLG).mul(2.5).equal(),

@@ -139,9 +139,9 @@ const genResultStyle: GenerateStyle<ResultToken> = (token) => [
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => ({
-  titleFontSize: token.fontSizeHeading3,
+  titleFontSize: Number(token.fontSizeHeading3),
   subtitleFontSize: token.fontSize,
-  iconFontSize: token.fontSizeHeading3 * 3,
+  iconFontSize: Number(token.fontSizeHeading3) * 3,
   extraMargin: `${token.paddingLG}px 0 0 0`,
 });
 

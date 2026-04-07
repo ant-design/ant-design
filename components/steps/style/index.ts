@@ -193,7 +193,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
   iconSize: token.controlHeight,
   iconTop: -0.5, // magic for ui experience
   iconFontSize: token.fontSize,
-  iconSizeSM: token.fontSizeHeading3,
+  iconSizeSM: Number(token.fontSizeHeading3),
   dotSize: token.controlHeight / 4,
   dotCurrentSize: token.controlHeightLG / 4,
   navArrowColor: token.colorTextDisabled,

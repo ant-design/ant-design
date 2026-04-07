@@ -461,7 +461,7 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   footerBg: 'transparent',
   headerBg: 'transparent',
   titleLineHeight: token.lineHeightHeading5,
-  titleFontSize: token.fontSizeHeading5,
+  titleFontSize: Number(token.fontSizeHeading5),
   contentBg: token.colorBgElevated,
   titleColor: token.colorTextHeading,
 

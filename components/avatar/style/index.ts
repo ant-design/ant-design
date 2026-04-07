@@ -213,7 +213,7 @@ export const prepareComponentToken: GetDefaultToken<'Avatar'> = (token) => {
     textFontSizeLG: fontSize,
     textFontSizeSM: fontSize,
     iconFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
-    iconFontSizeLG: fontSizeHeading3,
+    iconFontSizeLG: Number(fontSizeHeading3),
     iconFontSizeSM: fontSize,
     groupSpace: marginXXS,
     groupOverlapping: -marginXS,

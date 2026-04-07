@@ -73,7 +73,7 @@ export const prepareComponentToken: GetDefaultToken<'Statistic'> = (token) => {
   const { fontSizeHeading3, fontSize } = token;
   return {
     titleFontSize: fontSize,
-    contentFontSize: fontSizeHeading3,
+    contentFontSize: Number(fontSizeHeading3),
   };
 };
 
