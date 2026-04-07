@@ -223,4 +223,68 @@ describe('Grid', () => {
     expect(row).toBeTruthy();
     expect(row).toHaveStyle({ justifyContent: 'space-evenly' });
   });
+
+  // Grid mode tests
+  it('should render with ant-grid class when mode is grid', () => {
+    const { container } = render(<Row mode="grid">test</Row>);
+    expect(container.querySelector('div')).toHaveClass('ant-grid');
+  });
+
+  it('should render with ant-row class when mode is flex (default)', () => {
+    const { container } = render(<Row>test</Row>);
+    expect(container.querySelector('div')).toHaveClass('ant-row');
+  });
+
+  it('should render with ant-row class when mode is explicitly flex', () => {
+    const { container } = render(<Row mode="flex">test</Row>);
+    expect(container.querySelector('div')).toHaveClass('ant-row');
+  });
+
+  it('should use gap style in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid" gutter={[16, 20]}>
+        test
+      </Row>,
+    );
+    expect(container.querySelector('div')).toHaveStyle({
+      columnGap: '16px',
+      rowGap: '20px',
+    });
+  });
+
+  it('should use string gap in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid" gutter={['1rem', '2rem']}>
+        test
+      </Row>,
+    );
+    expect(container.querySelector('div')).toHaveStyle({
+      columnGap: '1rem',
+      rowGap: '2rem',
+    });
+  });
+
+  it('should not apply justify/align in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid" justify="center" align="middle">
+        <Col>test</Col>
+      </Row>,
+    );
+    const row = container.querySelector('.ant-grid');
+    // Grid 模式下不使用 justify/align 类名
+    expect(row).not.toHaveClass('ant-grid-center');
+    expect(row).not.toHaveClass('ant-grid-middle');
+  });
+
+  it('should support flex mode gutter with array', () => {
+    const { container } = render(
+      <Row mode="flex" gutter={[16, 20]}>
+        test
+      </Row>,
+    );
+    expect(container.querySelector('div')).toHaveStyle({
+      marginInline: '-8px',
+      rowGap: '20px',
+    });
+  });
 });

@@ -48,6 +48,7 @@ Layout uses a 24 grid layout to define the width of each "box", but does not rig
 <code src="./demo/responsive-more.tsx">More responsive</code>
 <code src="./demo/playground.tsx">Playground</code>
 <code src="./demo/useBreakpoint.tsx">useBreakpoint Hook</code>
+<code src="./demo/grid.tsx">CSS Grid Layout</code>
 
 ## API
 
@@ -62,20 +63,36 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | Vertical alignment | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
+| align | Vertical alignment (only works in mode=flex) | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
 | gutter | Spacing between grids, could be a [string CSS units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units) or a object like { xs: 8, sm: 16, md: 24}. Or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| string \| object \| array | 0 | string: 5.28.0 |
-| justify | Horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
-| wrap | Auto wrap line | boolean | true | 4.8.0 |
+| justify | Horizontal arrangement (only works in mode=flex) | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
+| mode | Grid layout mode, `grid` for CSS Grid layout, `flex` for traditional Flex layout | `flex` \| `grid` | `flex` | 5.25.0 |
+| wrap | Auto wrap line (only works in mode=flex) | boolean | true | 4.8.0 |
+| gridTemplateColumns | Grid mode column template, supports CSS grid-template-columns syntax | string | - | 5.25.0 |
+| gridTemplateRows | Grid mode row template, supports CSS grid-template-rows syntax | string | - | 5.25.0 |
+| gridTemplateAreas | Grid mode grid areas template, supports CSS grid-template-areas syntax | string | - | 5.25.0 |
+| gridAutoColumns | Grid mode auto columns template, supports CSS grid-auto-columns syntax | string | - | 5.25.0 |
+| gridAutoRows | Grid mode auto rows template, supports CSS grid-auto-rows syntax | string | - | 5.25.0 |
+| gridAutoFlow | Grid mode auto-placement algorithm | `row` \| `column` \| `dense` \| `row dense` \| `column dense` | - | 5.25.0 |
+| justifyItems | Grid mode cell alignment along row axis, equivalent to justify-items | `start` \| `end` \| `center` \| `stretch` | - | 5.25.0 |
+| alignItems | Grid mode cell alignment along column axis, equivalent to align-items | `start` \| `end` \| `center` \| `stretch` | - | 5.25.0 |
+| justifyContent | Grid mode content alignment along row axis, equivalent to justify-content | string | - | 5.25.0 |
+| alignContent | Grid mode content alignment along column axis, equivalent to align-content | string | - | 5.25.0 |
 
 ### Col
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| flex | Flex layout style | string \| number | - |  |
-| offset | The number of cells to offset Col from the left | number | 0 |  |
-| order | Raster order | number | 0 |  |
-| pull | The number of cells that raster is moved to the left | number | 0 |  |
-| push | The number of cells that raster is moved to the right | number | 0 |  |
+| flex | Flex layout style (only works in mode=flex) | string \| number | - |  |
+| offset | The number of cells to offset Col from the left (only works in mode=flex) | number | 0 |  |
+| order | Raster order (only works in mode=flex) | number | 0 |  |
+| pull | The number of cells that raster is moved to the left (only works in mode=flex) | number | 0 |  |
+| push | The number of cells that raster is moved to the right (only works in mode=flex) | number | 0 |  |
+| gridColumn | Grid mode grid column position, equivalent to CSS grid-column | string | - | 5.25.0 |
+| gridRow | Grid mode grid row position, equivalent to CSS grid-row | string | - | 5.25.0 |
+| gridArea | Grid mode grid area name, equivalent to CSS grid-area | string | - | 5.25.0 |
+| justifySelf | Grid mode cell alignment along row axis, equivalent to CSS justify-self | `start` \| `end` \| `center` \| `stretch` | - | 5.25.0 |
+| alignSelf | Grid mode cell alignment along column axis, equivalent to CSS align-self | `start` \| `end` \| `center` \| `stretch` | - | 5.25.0 |
 | span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
 | xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  |
 | sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | number \| object | - |  |

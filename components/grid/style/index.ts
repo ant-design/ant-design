@@ -83,6 +83,27 @@ const genGridRowStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
   };
 };
 
+// ============================== Grid Mode Style ==============================
+const genGridRowModeStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [componentCls]: {
+      display: 'grid',
+      minWidth: 0,
+    },
+  };
+};
+
+// ============================== Grid Mode Col Style ==============================
+const genGridColModeStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [componentCls]: {},
+  };
+};
+
 // ============================== Col-Shared ==============================
 const genGridColStyle: GenerateStyle<GridColToken, CSSObject> = (token) => {
   const { componentCls } = token;
@@ -186,6 +207,10 @@ export const prepareColComponentToken: GetDefaultToken<'Grid'> = () => ({});
 
 // ============================== Export ==============================
 export const useRowStyle = genStyleHooks('Grid', genGridRowStyle, prepareRowComponentToken);
+
+export const useGridStyle = genStyleHooks('Grid', genGridRowModeStyle, prepareRowComponentToken);
+
+export const useGridColStyle = genStyleHooks('Grid', genGridColModeStyle, prepareColComponentToken);
 
 export const getMediaSize = (token: AliasToken) => {
   const mediaSizesMap = {
