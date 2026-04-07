@@ -99,6 +99,7 @@ const columns = [
 <code src="./demo/drag-column-sorting.tsx">列拖拽排序</code>
 <code src="./demo/drag-sorting-handler.tsx">拖拽手柄列</code>
 <code src="./demo/ellipsis.tsx">单元格自动省略</code>
+<code src="./demo/column-defaults.tsx" version="6.4.0">统一列配置</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">自定义单元格省略提示</code>
 <code src="./demo/custom-empty.tsx">自定义空状态</code>
 <code src="./demo/summary.tsx">总结栏</code>
@@ -124,6 +125,7 @@ const columns = [
 | --- | --- | --- | --- | --- |
 | bordered | 是否展示外边框和列边框 | boolean | false |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| column | 统一列配置，仅在单列未声明同名属性时生效 | Partial<[ColumnType](#column)> | - | 6.4.0 |
 | columns | 表格列的配置描述，具体项见下表 | [ColumnsType](#column)\[] | - |  |
 | components | 覆盖默认的 table 元素 | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | 数据数组 | object\[] | - |  |
