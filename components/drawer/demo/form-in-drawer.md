@@ -13,8 +13,8 @@ Use a form in Drawer with a submit button.
   bottom: 0;
   width: 100%;
   padding: 10px 16px;
-  text-align: right;
-  background: #fff;
+  text-align: end;
+  background-color: #fff;
   border-top: 1px solid #e9e9e9;
 }
 ```

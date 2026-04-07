@@ -65,8 +65,8 @@ const getColumnsStyle: GenerateStyle<CascaderToken, CSSInterpolation> = (token) 
           },
 
           '&-item': {
-            ...textEllipsis,
             display: 'flex',
+            maxWidth: 400,
             flexWrap: 'nowrap',
             alignItems: 'center',
             padding: token.optionPadding,
@@ -101,6 +101,8 @@ const getColumnsStyle: GenerateStyle<CascaderToken, CSSInterpolation> = (token) 
 
             '&-content': {
               flex: 'auto',
+              minWidth: 0,
+              ...textEllipsis,
             },
 
             [iconCls]: {
