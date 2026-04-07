@@ -176,7 +176,7 @@ export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
       color: colorText,
       marginTop: token.marginXS,
       
-      [`${noticeCls}-description:first-child`]: {
+      '&:first-child': {
         marginTop: 0,
         marginInlineEnd: token.marginSM,
       },
