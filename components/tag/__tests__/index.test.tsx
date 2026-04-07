@@ -322,6 +322,40 @@ describe('Tag', () => {
     expect(container.querySelector('.ant-tag-green')).toHaveClass('ant-tag-solid');
   });
 
+  it('supports autoContrast for custom solid color', () => {
+    const { container } = render(
+      <Tag color="#777777" variant="solid" autoContrast>
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      backgroundColor: 'rgb(119, 119, 119)',
+      color: 'rgb(0, 0, 0)',
+    });
+  });
+
+  it('keeps original custom color when autoContrast is disabled', () => {
+    const { container } = render(
+      <Tag color="#f59e0b" variant="filled">
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      color: 'rgb(245, 158, 11)',
+    });
+  });
+
+  it('supports autoContrast for custom filled color', () => {
+    const { container } = render(
+      <Tag color="#f59e0b" variant="filled" autoContrast>
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      color: 'rgb(0, 0, 0)',
+    });
+  });
+
   describe('CheckableTagGroup', () => {
     it('should check single tag in group', async () => {
       const onChange = jest.fn();

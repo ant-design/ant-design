@@ -39,6 +39,7 @@ demo:
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| autoContrast | 自动调整自定义颜色 Tag 的文本颜色以提升 WCAG 对比度 | boolean | false | 6.4.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closeIcon | 自定义关闭按钮。5.7.0：设置为 `null` 或 `false` 时隐藏关闭按钮 | ReactNode | false | 4.4.0 |
 | color | 标签色 | string | - |  |
