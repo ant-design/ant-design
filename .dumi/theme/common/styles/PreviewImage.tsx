@@ -10,7 +10,7 @@ const PreviewImage: React.FC = () => {
       styles={css`
         .preview-image-boxes {
           display: flex;
-          float: right;
+          float: inline-end;
           clear: both;
           width: 496px;
           margin: 0 0 70px 64px;
@@ -24,7 +24,7 @@ const PreviewImage: React.FC = () => {
           }
 
           .ant-row-rtl & {
-            float: left;
+            float: inline-start;
             margin: 0 64px 70px 0;
           }
         }
@@ -34,7 +34,7 @@ const PreviewImage: React.FC = () => {
         }
 
         .preview-image-box {
-          float: left;
+          float: inline-start;
           width: 100%;
         }
 
@@ -146,7 +146,7 @@ const PreviewImage: React.FC = () => {
 
         .transition-video-player,
         .motion-video-min {
-          float: right;
+          float: inline-end;
           width: 600px;
           padding: 0 0 70px 20px;
 
@@ -155,7 +155,7 @@ const PreviewImage: React.FC = () => {
           }
 
           .ant-row-rtl & {
-            float: left;
+            float: inline-start;
           }
         }
 

@@ -14,6 +14,7 @@ import type { ConfigProviderProps } from '../../config-provider';
 import zhCN from '../../locale/zh_CN';
 import type { EllipsisConfig } from '../Base';
 import Base from '../Base';
+import * as baseUtil from '../Base/util';
 
 type Locale = ConfigProviderProps['locale'];
 jest.mock('copy-to-clipboard');
@@ -139,6 +140,23 @@ describe('Typography.Ellipsis', () => {
           ?.style as any
       )?.WebkitLineClamp,
     ).toEqual('2');
+  });
+
+  it('should skip native ellipsis measure when tooltip is not configured', async () => {
+    const ellipsisSpy = jest.spyOn(baseUtil, 'isEleEllipsis').mockReturnValue(true);
+    const ref = React.createRef<HTMLElement>();
+
+    render(
+      <Base ellipsis component="p" ref={ref}>
+        {fullStr}
+      </Base>,
+    );
+
+    triggerResize(ref.current!);
+    await waitFakeTimer();
+
+    expect(ellipsisSpy).not.toHaveBeenCalled();
+    ellipsisSpy.mockRestore();
   });
 
   it('string with parentheses', async () => {
@@ -328,7 +346,11 @@ describe('Typography.Ellipsis', () => {
         disconnect = disconnectFn;
       };
 
-      const { container, unmount } = render(<Base ellipsis component="p" />);
+      const { container, unmount } = render(
+        <Base ellipsis={{ tooltip: true }} component="p">
+          {fullStr}
+        </Base>,
+      );
 
       expect(observeFn).toHaveBeenCalled();
 
