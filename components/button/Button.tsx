@@ -188,9 +188,17 @@ const InternalCompoundedButton = React.forwardRef<
       return colorVariantPair;
     }
 
+    if (variant === 'solid') {
+      return ['primary', variant];
+    }
+
     // >>> Context fallback
     if (contextColor && contextVariant) {
       return [contextColor, contextVariant];
+    }
+
+    if (contextVariant === 'solid') {
+      return ['primary', contextVariant];
     }
 
     return ['default', 'outlined'];
