@@ -521,13 +521,11 @@ describe('notification', () => {
     });
     await awaitPromise();
 
-    expect(document.querySelector('.ant-notification-notice-close')).toBeTruthy();
-    expect(document.querySelector('.ant-notification-notice-description')).toBeTruthy();
-    expect(
-      Array.from(document.querySelectorAll('style'))
-        .map((node) => node.textContent)
-        .join(''),
-    ).toContain('.ant-notification-notice-closable .ant-notification-notice-description');
+    const notice = document.querySelector('.ant-notification-notice');
+    expect(notice?.querySelector('.ant-notification-notice-close')).toBeTruthy();
+    expect(notice?.querySelector('.ant-notification-notice-description')).toBeTruthy();
+    expect(notice?.querySelector('.ant-notification-notice-title')).toBeFalsy();
+    expect(notice?.querySelector('.ant-notification-notice-no-title')).toBeTruthy();
   });
   describe('When closeIcon is null, there is no close button', () => {
     it('Notification method', async () => {
