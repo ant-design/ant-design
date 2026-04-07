@@ -372,6 +372,24 @@ describe('Tag', () => {
     });
   });
 
+  it('solid variant without color should have default class', () => {
+    const { container } = render(
+      <Tag variant="solid" color="default">
+        Tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag-default')).toBeTruthy();
+  });
+
+  it('solid variant with color should not have default class', () => {
+    const { container } = render(
+      <Tag variant="solid" color="blue">
+        Tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag-default')).toBeFalsy();
+  });
+
   it('legacy bordered={false}', () => {
     const { container } = render(<Tag bordered={false}>Tag</Tag>);
     expect(container.querySelector('.ant-tag-filled')).toBeTruthy();
