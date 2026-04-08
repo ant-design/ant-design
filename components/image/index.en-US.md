@@ -79,7 +79,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo) }) => React.ReactNode | - |  |
-| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean, closable?: boolean } | true | mask.closable: 6.4.0 |
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
 | minScale | Minimum zoom scale | number | 1 |  |
@@ -115,7 +115,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
 | imageRender | Custom preview content | (originalNode: React.ReactElement, info: { transform: [TransformType](#transformtype), image: [ImgInfo](#imginfo), current: number }) => React.ReactNode | - |  |
-| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean } | true |  |
+| mask | preview mask effect | boolean \| { enabled?: boolean, blur?: boolean, closable?: boolean } | true | mask.closable: 6.4.0 |
 | ~~maskClassName~~ | Thumbnail mask class name; please use 'classNames.cover' instead | string | - |  |
 | minScale | Minimum zoom scale | number | 1 |  |
 | maxScale | Maximum zoom scale | number | 50 |  |
