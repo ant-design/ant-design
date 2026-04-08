@@ -5534,12 +5534,12 @@ exports[`renders components/tree/demo/multiple-line.tsx correctly 1`] = `
             </span>
             <span
               class="ant-tree-node-content-wrapper ant-tree-node-content-wrapper-open ant-tree-node-selected"
-              title="parent 1-1"
+              title="This is a very very very very long title"
             >
               <span
                 class="ant-tree-title"
               >
-                parent 1-1
+                This is a very very very very long title
               </span>
             </span>
           </div>
