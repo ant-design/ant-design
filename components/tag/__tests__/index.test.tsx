@@ -374,16 +374,25 @@ describe('Tag', () => {
 
   it('solid variant without color should have default class', () => {
     const { container } = render(
-      <Tag variant="solid" color="default">
+      <Tag variant="solid">
         Tag
       </Tag>,
     );
     expect(container.querySelector('.ant-tag-default')).toBeTruthy();
   });
 
-  it('solid variant with color should not have default class', () => {
+  it('solid variant with preset color should not have default class', () => {
     const { container } = render(
       <Tag variant="solid" color="blue">
+        Tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag-default')).toBeFalsy();
+  });
+
+  it('solid variant with status color should not have default class', () => {
+    const { container } = render(
+      <Tag variant="solid" color="default">
         Tag
       </Tag>,
     );
