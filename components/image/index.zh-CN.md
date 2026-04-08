@@ -76,6 +76,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | actionsRender | 自定义工具栏渲染 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - |  |
 | cover | 自定义预览遮罩 | React.ReactNode \| [CoverConfig](#coverconfig) | - | CoverConfig v6.0 开始支持 |
+| focusTrap | 预览打开时是否在预览内捕获焦点 | boolean | true |  |
 | ~~destroyOnClose~~ | 关闭预览时销毁子元素，已移除，不再支持 | boolean | false |  |
 | ~~forceRender~~ | 强制渲染预览图，已移除，不再支持 | boolean | - |  |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
@@ -112,6 +113,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LVQ3R5JjjJEAAA
 | actionsRender | 自定义工具栏渲染 | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | closeIcon | 自定义关闭 Icon | React.ReactNode | - |  |
 | countRender | 自定义预览计数内容 | (current: number, total: number) => React.ReactNode | - |  |
+| focusTrap | 预览打开时是否在预览内捕获焦点 | boolean | true |  |
 | current | 当前预览图的 index | number | - |  |
 | ~~forceRender~~ | 强制渲染预览图，已移除，不再支持 | boolean | - |  |
 | getContainer | 指定预览挂载的节点，但依旧为全屏展示，false 为挂载在当前位置 | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
