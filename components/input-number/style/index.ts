@@ -185,10 +185,13 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           cursor: 'pointer',
           transition: `all ${motionDurationMid} linear`,
 
-          '&:active': {
-            background: handleActiveBg,
-          },
-          // Hover
+          // Active: change background not disabled only;
+          [`&:active:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
+            {
+              background: handleActiveBg,
+            },
+
+          // Hover: change color not disabled only;
           [`&:hover:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
             {
               color: handleHoverColor,
@@ -196,10 +199,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
 
           [`&${componentCls}-action-up-disabled, &${componentCls}-action-down-disabled`]: {
             cursor: 'not-allowed',
-
-            '&:hover': {
-              color: colorTextDisabled,
-            },
+            color: colorTextDisabled,
           },
         },
 
@@ -245,16 +245,10 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
             height: '50%',
             borderInlineStart: borderStyle,
 
-            // Hover
+            // Hover: change height not disabled only;
             [`&:hover:not(${componentCls}-action-up-disabled):not(${componentCls}-action-down-disabled)`]:
               {
                 height: `60%`,
-              },
-
-            [`&${componentCls}-action-up-disabled:hover, &${componentCls}-action-down-disabled:hover`]:
-              {
-                color: colorTextDisabled,
-                height: '50%',
               },
           },
 
