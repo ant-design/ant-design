@@ -175,6 +175,11 @@ export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
       fontSize,
       color: colorText,
       marginTop: token.marginXS,
+      
+      '&:first-child': {
+        marginTop: 0,
+        marginInlineEnd: token.marginSM,
+      },
     },
 
     [`${noticeCls}-closable ${noticeCls}-title`]: {

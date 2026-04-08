@@ -230,17 +230,12 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
       // ========================================================
       // =                     Shared Panel                     =
       // ========================================================
-      [`&-decade-panel,
-        &-year-panel,
-        &-quarter-panel,
-        &-month-panel,
-        &-week-panel,
-        &-date-panel,
-        &-time-panel`]: {
-        display: 'flex',
-        flexDirection: 'column',
-        width: pickerPanelWidth,
-      },
+      '&-decade-panel, &-year-panel, &-quarter-panel, &-month-panel, &-week-panel, &-date-panel, &-time-panel':
+        {
+          display: 'flex',
+          flexDirection: 'column',
+          width: pickerPanelWidth,
+        },
 
       // ======================= Header =======================
       '&-header': {
@@ -306,10 +301,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
         },
       },
       // Arrow button
-      [`&-prev-icon,
-        &-next-icon,
-        &-super-prev-icon,
-        &-super-next-icon`]: {
+      '&-prev-icon, &-next-icon, &-super-prev-icon, &-super-next-icon': {
         position: 'relative',
         width: pickerControlIconSize,
         height: pickerControlIconSize,
@@ -327,8 +319,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
         },
       },
 
-      [`&-super-prev-icon,
-        &-super-next-icon`]: {
+      '&-super-prev-icon, &-super-next-icon': {
         '&::after': {
           position: 'absolute',
           top: pickerControlIconMargin,
@@ -383,10 +374,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
         ...genPickerCellInnerStyle(token),
       },
 
-      [`&-decade-panel,
-        &-year-panel,
-        &-quarter-panel,
-        &-month-panel`]: {
+      '&-decade-panel, &-year-panel, &-quarter-panel, &-month-panel': {
         [`${componentCls}-content`]: {
           height: token.calc(withoutTimeCellHeight).mul(4).equal(),
         },
@@ -418,9 +406,7 @@ export const genPanelStyle: GenerateStyle<SharedPickerToken, CSSObject> = (token
       },
 
       // ============= Year & Quarter & Month Panel =============
-      [`&-year-panel,
-        &-quarter-panel,
-        &-month-panel`]: {
+      '&-year-panel, &-quarter-panel, &-month-panel': {
         [`${componentCls}-body`]: {
           padding: `0 ${unit(paddingXS)}`,
         },
