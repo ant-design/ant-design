@@ -7,7 +7,7 @@ import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import RowContext from './RowContext';
-import { useColStyle, useGridColStyle } from './style';
+import { useColStyle } from './style';
 
 // https://github.com/ant-design/ant-design/issues/14324
 type ColSpanType = number | string;
@@ -32,15 +32,10 @@ export interface ColProps
   offset?: ColSpanType;
   push?: ColSpanType;
   pull?: ColSpanType;
-  /** Grid 模式下设置网格列位置，等同于 CSS grid-column */
   gridColumn?: string | number;
-  /** Grid 模式下设置网格行位置，等同于 CSS grid-row */
   gridRow?: string | number;
-  /** Grid 模式下设置网格区域名称 */
   gridArea?: string;
-  /** Grid 模式下单元格在行轴的对齐方式，等同于 justify-self */
   justifySelf?: 'start' | 'end' | 'center' | 'stretch';
-  /** Grid 模式下单元格在列轴的对齐方式，等同于 align-self */
   alignSelf?: 'start' | 'end' | 'center' | 'stretch';
   prefixCls?: string;
 }
@@ -89,15 +84,10 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   } = props;
 
   const isGrid = mode === 'grid';
-  const prefixCls = getPrefixCls(isGrid ? 'grid' : 'col', customizePrefixCls);
+  const prefixCls = getPrefixCls(isGrid ? 'grid-col' : 'col', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
-  // 必须无条件调用 hooks（React rules of hooks）
-  const [colHashId, colCssVarCls] = useColStyle(prefixCls);
-  const [gridColHashId, gridColCssVarCls] = useGridColStyle(prefixCls);
-  const [hashId, cssVarCls] = isGrid
-    ? [gridColHashId, gridColCssVarCls]
-    : [colHashId, colCssVarCls];
+  const [hashId, cssVarCls] = useColStyle(prefixCls);
 
   const [varName] = genCssVar(rootPrefixCls, 'col');
 
@@ -106,7 +96,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   let sizeClassObj: Record<string, boolean | ColSpanType> = {};
 
-  // Grid 模式下跳过 flex 相关的 class
   const shouldAddFlexClass = !isGrid;
 
   responsiveArrayReversed.forEach((size) => {
@@ -144,14 +133,12 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   // ==================== Normal =====================
   const classes = clsx(
     prefixCls,
-    {
-      // Grid 模式下 span 不生成 class，通过 inline style 控制
-      [`${prefixCls}-${span}`]: !isGrid && span !== undefined,
-      // Grid 模式下不支持这些属性
-      [`${prefixCls}-order-${order}`]: !isGrid && order,
-      [`${prefixCls}-offset-${offset}`]: !isGrid && offset,
-      [`${prefixCls}-push-${push}`]: !isGrid && push,
-      [`${prefixCls}-pull-${pull}`]: !isGrid && pull,
+    !isGrid && {
+      [`${prefixCls}-${span}`]: span !== undefined,
+      [`${prefixCls}-order-${order}`]: order,
+      [`${prefixCls}-offset-${offset}`]: offset,
+      [`${prefixCls}-push-${push}`]: push,
+      [`${prefixCls}-pull-${pull}`]: pull,
     },
     className,
     sizeClassObj,
@@ -161,7 +148,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const mergedStyle: React.CSSProperties = {};
 
-  // Grid 模式下不需要 padding，gap 由 Row 的 style 控制
   if (!isGrid && gutter?.[0]) {
     const horizontalGutter =
       typeof gutter[0] === 'number' ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
@@ -178,11 +164,10 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     }
   }
 
-  // Grid 模式样式
+  // Grid mode
   if (isGrid) {
     const gridStyles: Record<string, string | number> = {};
 
-    // span 自动映射为 grid-column: span N
     if (span !== undefined) {
       const spanNum = typeof span === 'number' ? span : Number.parseInt(String(span), 10);
       if (!Number.isNaN(spanNum) && spanNum > 0) {
@@ -190,7 +175,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       }
     }
 
-    // Grid 属性直接设置（优先级高于 span）
     const gridProps = { gridColumn, gridRow, gridArea, justifySelf, alignSelf };
     Object.entries(gridProps).forEach(([key, value]) => {
       if (value) gridStyles[key] = value;

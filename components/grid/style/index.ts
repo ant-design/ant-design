@@ -23,21 +23,31 @@ interface GridColToken extends FullToken<'Grid'> {
 // ============================== Row-Shared ==============================
 const genGridRowStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
   const { componentCls } = token;
+  const isGrid = componentCls.endsWith('-grid');
+  const baseStyle: CSSObject = isGrid
+    ? {
+        display: 'grid',
+        minWidth: 0,
+        '&::before, &::after': {
+          display: 'none',
+        },
+      }
+    : {
+        display: 'flex',
+        flexFlow: 'row wrap',
+        minWidth: 0,
+
+        '&::before, &::after': {
+          display: 'flex',
+        },
+        '&-no-wrap': {
+          flexWrap: 'nowrap',
+        },
+      };
 
   return {
-    // Grid system
     [componentCls]: {
-      display: 'flex',
-      flexFlow: 'row wrap',
-      minWidth: 0,
-
-      '&::before, &::after': {
-        display: 'flex',
-      },
-
-      '&-no-wrap': {
-        flexWrap: 'nowrap',
-      },
+      ...baseStyle,
 
       // The origin of the X-axis
       '&-start': {
@@ -80,27 +90,6 @@ const genGridRowStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
         alignItems: 'flex-end',
       },
     },
-  };
-};
-
-// ============================== Grid Mode Style ==============================
-const genGridRowModeStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [componentCls]: {
-      display: 'grid',
-      minWidth: 0,
-    },
-  };
-};
-
-// ============================== Grid Mode Col Style ==============================
-const genGridColModeStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
-  const { componentCls } = token;
-
-  return {
-    [componentCls]: {},
   };
 };
 
@@ -207,10 +196,6 @@ export const prepareColComponentToken: GetDefaultToken<'Grid'> = () => ({});
 
 // ============================== Export ==============================
 export const useRowStyle = genStyleHooks('Grid', genGridRowStyle, prepareRowComponentToken);
-
-export const useGridStyle = genStyleHooks('Grid', genGridRowModeStyle, prepareRowComponentToken);
-
-export const useGridColStyle = genStyleHooks('Grid', genGridColModeStyle, prepareColComponentToken);
 
 export const getMediaSize = (token: AliasToken) => {
   const mediaSizesMap = {

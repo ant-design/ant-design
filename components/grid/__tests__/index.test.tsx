@@ -287,4 +287,134 @@ describe('Grid', () => {
       rowGap: '20px',
     });
   });
+
+  // Grid mode: Row props
+  it('should support gridTemplateColumns/gridTemplateRows in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid" gridTemplateColumns="repeat(4, 1fr)" gridTemplateRows="100px">
+        test
+      </Row>,
+    );
+    expect(container.querySelector('div')).toHaveStyle({
+      gridTemplateColumns: 'repeat(4, 1fr)',
+      gridTemplateRows: '100px',
+    });
+  });
+
+  it('should support gridAutoColumns/gridAutoRows in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid" gridAutoColumns="100px" gridAutoRows="50px">
+        test
+      </Row>,
+    );
+    expect(container.querySelector('div')).toHaveStyle({
+      gridAutoColumns: '100px',
+      gridAutoRows: '50px',
+    });
+  });
+
+  it('should support justify/align in grid mode', () => {
+    const { container } = render(
+      <Row
+        mode="grid"
+        justifyContent="center"
+        alignContent="space-between"
+        justifyItems="start"
+        alignItems="end"
+      >
+        test
+      </Row>,
+    );
+    expect(container.querySelector('div')).toHaveStyle({
+      justifyContent: 'center',
+      alignContent: 'space-between',
+      justifyItems: 'start',
+      alignItems: 'end',
+    });
+  });
+
+  // Edge cases
+  it('should handle empty grid template values', () => {
+    const { container } = render(
+      <Row mode="grid" gridTemplateColumns="" gridTemplateRows="">
+        test
+      </Row>,
+    );
+    const style = container.querySelector('div')?.getAttribute('style');
+    expect(style).toBeDefined();
+  });
+});
+
+describe('Grid Col', () => {
+  // Grid mode: Col props
+  it('should render with ant-grid-col class in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid">
+        <Col span={2}>test</Col>
+      </Row>,
+    );
+    expect(container.querySelector('.ant-grid-col')).toBeTruthy();
+  });
+
+  it('should apply gridColumn from span in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid">
+        <Col span={4}>test</Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-grid-col');
+    expect(col).toHaveStyle({
+      gridColumn: 'span 4',
+    });
+  });
+
+  it('should support gridRow/gridArea in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid">
+        <Col gridRow="span 2" gridArea="header">
+          test
+        </Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-grid-col');
+    expect(col).toHaveStyle({
+      gridRow: 'span 2',
+      gridArea: 'header',
+    });
+  });
+
+  it('should support justifySelf/alignSelf in grid mode', () => {
+    const { container } = render(
+      <Row mode="grid">
+        <Col justifySelf="center" alignSelf="end">
+          test
+        </Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-grid-col');
+    expect(col).toHaveStyle({
+      justifySelf: 'center',
+      alignSelf: 'end',
+    });
+  });
+
+  // Edge cases
+  it('should not apply gridColumn when span is 0', () => {
+    const { container } = render(
+      <Row mode="grid">
+        <Col span={0}>test</Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-grid-col');
+    expect(col).not.toHaveStyle({ gridColumn: 'span 0' });
+  });
+
+  it('should render with ant-col class in flex mode', () => {
+    const { container } = render(
+      <Row mode="flex">
+        <Col span={4}>test</Col>
+      </Row>,
+    );
+    expect(container.querySelector('.ant-col')).toBeTruthy();
+  });
 });
