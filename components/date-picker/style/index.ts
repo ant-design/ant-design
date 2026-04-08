@@ -39,6 +39,9 @@ const genPickerStatusStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
         [`${componentCls}-active-bar`]: {
           background: colorError,
         },
+        [`${componentCls}-prefix, ${componentCls}-suffix`]: {
+          color: token.colorErrorAffix,
+        },
       },
 
       [`&${componentCls}-status-warning`]: {

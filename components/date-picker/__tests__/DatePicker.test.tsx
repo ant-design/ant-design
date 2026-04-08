@@ -12,7 +12,7 @@ import MockDate from 'mockdate';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
@@ -546,6 +546,20 @@ describe('DatePicker', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+    });
+
+    it('should support global colorErrorAffix token for error status suffix', async () => {
+      const { container } = render(
+        <ConfigProvider theme={{ token: { colorErrorAffix: '#12abcd' } }}>
+          <DatePicker status="error" suffixIcon="suffix" />
+        </ConfigProvider>,
+      );
+
+      const suffix = container.querySelector('.ant-picker-suffix') as HTMLSpanElement;
+
+      await waitFor(() => {
+        expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
+      });
     });
   });
 
