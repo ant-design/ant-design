@@ -392,7 +392,7 @@ describe('Tag', () => {
 
   it('solid variant with status color should not have default class', () => {
     const { container } = render(
-      <Tag variant="solid" color="default">
+      <Tag variant="solid" color="success">
         Tag
       </Tag>,
     );
