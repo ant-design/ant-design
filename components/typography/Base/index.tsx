@@ -252,7 +252,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     setCssEllipsis(canUseCssEllipsis && mergedEnableEllipsis);
   }, [canUseCssEllipsis, mergedEnableEllipsis]);
 
-  const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis);
+  const tooltipProps = useTooltipProps(ellipsisConfig.tooltip, editConfig.text, children);
+  const needNativeEllipsisMeasure = cssEllipsis && !!tooltipProps.title;
+
+  const isMergedEllipsis =
+    mergedEnableEllipsis &&
+    (cssEllipsis ? needNativeEllipsisMeasure && isNativeEllipsis : isJsEllipsis);
 
   const cssTextOverflow = mergedEnableEllipsis && rows === 1 && cssEllipsis;
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
@@ -284,14 +289,21 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   React.useEffect(() => {
     const textEle = typographyRef.current;
 
-    if (enableEllipsis && cssEllipsis && textEle) {
+    if (enableEllipsis && needNativeEllipsisMeasure && textEle) {
       const currentEllipsis = isEleEllipsis(textEle);
 
       if (isNativeEllipsis !== currentEllipsis) {
         setIsNativeEllipsis(currentEllipsis);
       }
     }
-  }, [enableEllipsis, cssEllipsis, children, cssLineClamp, isNativeVisible, ellipsisWidth]);
+  }, [
+    enableEllipsis,
+    needNativeEllipsisMeasure,
+    children,
+    cssLineClamp,
+    isNativeVisible,
+    ellipsisWidth,
+  ]);
 
   // https://github.com/ant-design/ant-design/issues/36786
   // Use IntersectionObserver to check if element is invisible
@@ -300,7 +312,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     if (
       typeof IntersectionObserver === 'undefined' ||
       !textEle ||
-      !cssEllipsis ||
+      !needNativeEllipsisMeasure ||
       !mergedEnableEllipsis
     ) {
       return;
@@ -314,11 +326,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return () => {
       observer.disconnect();
     };
-  }, [cssEllipsis, mergedEnableEllipsis]);
+  }, [needNativeEllipsisMeasure, mergedEnableEllipsis]);
 
   // ========================== Tooltip ===========================
-  const tooltipProps = useTooltipProps(ellipsisConfig.tooltip, editConfig.text, children);
-
   const topAriaLabel = React.useMemo(() => {
     if (!enableEllipsis || cssEllipsis) {
       return undefined;

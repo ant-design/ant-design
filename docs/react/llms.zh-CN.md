@@ -29,19 +29,20 @@ tag: New
 
 ### 单个组件文档
 
-通过 `.md` 后缀直接访问单个组件文档：
+在原始组件文档 URL 后加 `.md` 即可访问 Markdown 格式文档：
 
-- `https://ant.design/components/button.md`（英文）
-- `https://ant.design/components/button-cn.md`（中文）
+- [`https://ant.design/components/button.md`](https://ant.design/components/button.md)（英文）
+- [`https://ant.design/components/button-cn.md`](https://ant.design/components/button-cn.md)（中文）
 
 ### 语义文档
 
 每个组件都有对应的语义描述文件：
 
-- `https://ant.design/components/button/semantic.md`（英文）
-- `https://ant.design/components/button-cn/semantic.md`（中文）
+- [`https://ant.design/components/button/semantic.md`](https://ant.design/components/button/semantic.md)（英文）
+- [`https://ant.design/components/button-cn/semantic.md`](https://ant.design/components/button-cn/semantic.md)（中文）
 
 语义文档包含：
+
 - 组件部件及其用途
 - 使用示例和最佳实践
 - DOM 结构概览
@@ -58,4 +59,4 @@ tag: New
 | **Trae** | 添加到项目的知识源设置中。[文档](https://trae.ai/docs) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
 | **Qoder** | 添加到 `.qoder/config.yml` 或在对话中使用 `@docs`。[文档](https://docs.qoder.com/) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
 | **Neovate Code** | 运行 `neovate` 并使用提示词描述任务。[文档](https://github.com/neovateai/neovate-code) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |
-
+| **Qwen Code** | 开源终端 AI 代理，支持 OAuth 免费层级。运行 `qwen` 启动交互模式，用 `@` 引用文件。[文档](https://github.com/QwenLM/qwen-code) | `阅读 https://ant.design/llms-full.txt 并理解 Ant Design 组件库，在编写 Ant Design 代码时使用这些知识。` |

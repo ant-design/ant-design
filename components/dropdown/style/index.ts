@@ -126,11 +126,7 @@ const genBaseStyle: GenerateStyle<DropdownToken> = (token) => {
           },
         },
 
-        [`
-        &-hidden,
-        &-menu-hidden,
-        &-menu-submenu-hidden
-      `]: {
+        '&-hidden, &-menu-hidden, &-menu-submenu-hidden': {
           display: 'none',
         },
 
