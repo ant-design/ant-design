@@ -743,59 +743,35 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             },
           },
 
-          [`
-          &-placement-leftTop,
-          &-placement-bottomRight,
-          `]: {
+          '&-placement-leftTop, &-placement-bottomRight': {
             transformOrigin: '100% 0',
           },
 
-          [`
-          &-placement-leftBottom,
-          &-placement-topRight,
-          `]: {
+          '&-placement-leftBottom, &-placement-topRight': {
             transformOrigin: '100% 100%',
           },
 
-          [`
-          &-placement-rightBottom,
-          &-placement-topLeft,
-          `]: {
+          '&-placement-rightBottom, &-placement-topLeft': {
             transformOrigin: '0 100%',
           },
 
-          [`
-          &-placement-bottomLeft,
-          &-placement-rightTop,
-          `]: {
+          '&-placement-bottomLeft, &-placement-rightTop': {
             transformOrigin: '0 0',
           },
 
-          [`
-          &-placement-leftTop,
-          &-placement-leftBottom
-          `]: {
+          '&-placement-leftTop, &-placement-leftBottom': {
             paddingInlineEnd: token.paddingXS,
           },
 
-          [`
-          &-placement-rightTop,
-          &-placement-rightBottom
-          `]: {
+          '&-placement-rightTop, &-placement-rightBottom': {
             paddingInlineStart: token.paddingXS,
           },
 
-          [`
-          &-placement-topRight,
-          &-placement-topLeft
-          `]: {
+          '&-placement-topRight, &-placement-topLeft': {
             paddingBottom: token.paddingXS,
           },
 
-          [`
-          &-placement-bottomRight,
-          &-placement-bottomLeft
-          `]: {
+          '&-placement-bottomRight, &-placement-bottomLeft': {
             paddingTop: token.paddingXS,
           },
         },

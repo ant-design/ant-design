@@ -29,12 +29,12 @@ const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOu
   },
 );
 
-const currentYear = new Date().getFullYear();
-
 const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const currentYear = new Date().getFullYear();
 
   return (
     <Layout>

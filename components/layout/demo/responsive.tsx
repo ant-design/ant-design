@@ -12,12 +12,12 @@ const items = [UserOutlined, VideoCameraOutlined, UploadOutlined, UserOutlined].
   }),
 );
 
-const currentYear = new Date().getFullYear();
-
 const App: React.FC = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+
+  const currentYear = new Date().getFullYear();
 
   return (
     <Layout>

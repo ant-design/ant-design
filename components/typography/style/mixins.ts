@@ -219,10 +219,7 @@ export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
 
 export const getCopyableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => ({
   [`${token.componentCls}-copy-success`]: {
-    [`
-    &,
-    &:hover,
-    &:focus`]: {
+    '&, &:hover, &:focus': {
       color: token.colorSuccess,
     },
   },
@@ -232,10 +229,7 @@ export const getCopyableStyles: GenerateStyle<TypographyToken, CSSObject> = (tok
 });
 
 export const getEllipsisStyles = (): CSSObject => ({
-  [`
-  a&-ellipsis,
-  span&-ellipsis
-  `]: {
+  'a&-ellipsis, span&-ellipsis': {
     display: 'inline-block',
     maxWidth: '100%',
   },

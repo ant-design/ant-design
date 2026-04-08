@@ -628,6 +628,24 @@ describe('Button', () => {
     expect(container.firstChild).toHaveClass('ant-btn-color-blue');
   });
 
+  it('button variant should provide default color', () => {
+    const { container } = render(<Button variant="solid">Button</Button>);
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-solid');
+    expect(container.firstChild).toHaveClass('ant-btn-color-primary');
+  });
+
+  it('ConfigProvider button variant should provide default color', () => {
+    const { container } = render(
+      <ConfigProvider button={{ variant: 'solid' }}>
+        <Button>Button</Button>
+      </ConfigProvider>,
+    );
+
+    expect(container.firstChild).toHaveClass('ant-btn-variant-solid');
+    expect(container.firstChild).toHaveClass('ant-btn-color-primary');
+  });
+
   it('ConfigProvider support button shape', () => {
     const { container } = render(
       <ConfigProvider button={{ shape: 'round' }}>

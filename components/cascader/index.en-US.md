@@ -38,6 +38,7 @@ demo:
 <code src="./demo/status.tsx">Status</code>
 <code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">Panel</code>
+<code src="./demo/ellipsis-debug.tsx" debug>Menu item ellipsis</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -95,8 +96,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | showCheckedStrategy | The way to show selected items in the box (only effective when `multiple` is `true`). `Cascader.SHOW_CHILD`: just show child treeNode. `Cascader.SHOW_PARENT`: just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |
 | ~~searchValue~~ | Set search value, Need work with `showSearch` | string | - | 4.17.0 |
 | ~~onSearch~~ | The callback function triggered when input changed | (search: string) => void | - | 4.17.0 |
-| ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `popupMenuColumnStyle` instead | CSSProperties | - |  |
-| popupMenuColumnStyle | The style of the drop-down menu column | CSSProperties | - |  |
+| ~~dropdownMenuColumnStyle~~ | The style of the drop-down menu column, use `styles.popup.listItem` instead | CSSProperties | - |  |
+| ~~popupMenuColumnStyle~~ | The style of the drop-down menu column, use `styles.popup.listItem` instead | CSSProperties | - |  |
 | optionRender | Customize the rendering dropdown options | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch

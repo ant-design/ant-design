@@ -105,10 +105,9 @@ const GlobalStyle: React.FC = () => {
         .markdown p,
         .markdown pre {
           margin: 1em 0;
-
+          text-align: start;
           ${antCls}-row-rtl & {
             direction: rtl;
-            text-align: right;
           }
         }
 
@@ -154,7 +153,7 @@ const GlobalStyle: React.FC = () => {
           color: ${token.colorText};
           font-size: ${Math.max(token.fontSize - 1, 12)}px;
           direction: ltr;
-          text-align: left;
+          text-align: start;
           background-color: ${token.colorBgLayout};
           border: none;
         }
@@ -295,7 +294,7 @@ const GlobalStyle: React.FC = () => {
             th,
             td {
               padding: ${token.paddingSM}px ${token.paddingLG}px;
-              text-align: left;
+              text-align: start;
               border: 1px solid ${token.colorSplit};
 
               &:first-child {
