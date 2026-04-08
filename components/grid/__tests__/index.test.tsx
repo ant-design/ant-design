@@ -225,9 +225,9 @@ describe('Grid', () => {
   });
 
   // Grid mode tests
-  it('should render with ant-grid class when mode is grid', () => {
+  it('should render with ant-row-grid class when mode is grid', () => {
     const { container } = render(<Row mode="grid">test</Row>);
-    expect(container.querySelector('div')).toHaveClass('ant-grid');
+    expect(container.querySelector('div')).toHaveClass('ant-row-grid');
   });
 
   it('should render with ant-row class when mode is flex (default)', () => {
@@ -270,10 +270,10 @@ describe('Grid', () => {
         <Col>test</Col>
       </Row>,
     );
-    const row = container.querySelector('.ant-grid');
+    const row = container.querySelector('.ant-row-grid');
     // Grid 模式下不使用 justify/align 类名
-    expect(row).not.toHaveClass('ant-grid-center');
-    expect(row).not.toHaveClass('ant-grid-middle');
+    expect(row).not.toHaveClass('ant-row-center');
+    expect(row).not.toHaveClass('ant-row-middle');
   });
 
   it('should support flex mode gutter with array', () => {
@@ -347,13 +347,13 @@ describe('Grid', () => {
 
 describe('Grid Col', () => {
   // Grid mode: Col props
-  it('should render with ant-grid-col class in grid mode', () => {
+  it('should render with ant-col-grid class in grid mode', () => {
     const { container } = render(
       <Row mode="grid">
         <Col span={2}>test</Col>
       </Row>,
     );
-    expect(container.querySelector('.ant-grid-col')).toBeTruthy();
+    expect(container.querySelector('.ant-col-grid')).toBeTruthy();
   });
 
   it('should apply gridColumn from span in grid mode', () => {
@@ -362,7 +362,7 @@ describe('Grid Col', () => {
         <Col span={4}>test</Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-grid-col');
+    const col = container.querySelector('.ant-col-grid');
     expect(col).toHaveStyle({
       gridColumn: 'span 4',
     });
@@ -376,7 +376,7 @@ describe('Grid Col', () => {
         </Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-grid-col');
+    const col = container.querySelector('.ant-col-grid');
     expect(col).toHaveStyle({
       gridRow: 'span 2',
       gridArea: 'header',
@@ -391,7 +391,7 @@ describe('Grid Col', () => {
         </Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-grid-col');
+    const col = container.querySelector('.ant-col-grid');
     expect(col).toHaveStyle({
       justifySelf: 'center',
       alignSelf: 'end',
@@ -405,7 +405,7 @@ describe('Grid Col', () => {
         <Col span={0}>test</Col>
       </Row>,
     );
-    const col = container.querySelector('.ant-grid-col');
+    const col = container.querySelector('.ant-col-grid');
     expect(col).not.toHaveStyle({ gridColumn: 'span 0' });
   });
 

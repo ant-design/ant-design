@@ -84,7 +84,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   } = props;
 
   const isGrid = mode === 'grid';
-  const prefixCls = getPrefixCls(isGrid ? 'grid-col' : 'col', customizePrefixCls);
+  const prefixCls = getPrefixCls('col', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
   const [hashId, cssVarCls] = useColStyle(prefixCls);
@@ -140,6 +140,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       [`${prefixCls}-push-${push}`]: push,
       [`${prefixCls}-pull-${pull}`]: pull,
     },
+    { [`${prefixCls}-grid`]: isGrid },
     className,
     sizeClassObj,
     hashId,

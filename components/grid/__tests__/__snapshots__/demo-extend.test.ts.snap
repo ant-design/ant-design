@@ -724,47 +724,47 @@ Array [
     />
   </div>,
   <div
-    class="ant-grid css-var-test-id"
+    class="ant-row ant-row-grid css-var-test-id"
     style="column-gap: 16px; row-gap: 16px; grid-template-columns: repeat(4, 1fr);"
   >
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-column: span 1; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       col-1
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-column: span 1; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       col-1
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-column: span 1; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       col-1
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-column: span 1; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       col-1
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-column: span 2; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       col-2
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-column: span 1; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       col-1
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-column: span 1; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       col-1
@@ -787,29 +787,29 @@ Array [
     />
   </div>,
   <div
-    class="ant-grid css-var-test-id"
+    class="ant-row ant-row-grid css-var-test-id"
     style="column-gap: 16px; row-gap: 16px; grid-template-columns: 100px 1fr 50px 1fr; grid-template-areas: \\"sidebar header header header\\" \\"sidebar main main content\\";"
   >
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-area: header; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       Header
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-area: sidebar; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       Sidebar
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-area: main; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       Main
     </div>
     <div
-      class="ant-grid-col css-var-test-id"
+      class="ant-col ant-col-grid css-var-test-id"
       style="grid-area: content; background: rgb(22, 119, 255); color: rgb(255, 255, 255); min-height: 60px; display: flex; align-items: center; justify-content: center;"
     >
       Content

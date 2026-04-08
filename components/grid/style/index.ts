@@ -23,31 +23,27 @@ interface GridColToken extends FullToken<'Grid'> {
 // ============================== Row-Shared ==============================
 const genGridRowStyle: GenerateStyle<GridRowToken, CSSObject> = (token) => {
   const { componentCls } = token;
-  const isGrid = componentCls.endsWith('-grid');
-  const baseStyle: CSSObject = isGrid
-    ? {
-        display: 'grid',
-        minWidth: 0,
-        '&::before, &::after': {
-          display: 'none',
-        },
-      }
-    : {
-        display: 'flex',
-        flexFlow: 'row wrap',
-        minWidth: 0,
-
-        '&::before, &::after': {
-          display: 'flex',
-        },
-        '&-no-wrap': {
-          flexWrap: 'nowrap',
-        },
-      };
 
   return {
     [componentCls]: {
-      ...baseStyle,
+      display: 'flex',
+      flexFlow: 'row wrap',
+      minWidth: 0,
+
+      '&::before, &::after': {
+        display: 'flex',
+      },
+      '&-no-wrap': {
+        flexWrap: 'nowrap',
+      },
+
+      '&-grid': {
+        display: 'grid',
+
+        '&::before, &::after': {
+          display: 'none',
+        },
+      },
 
       // The origin of the X-axis
       '&-start': {

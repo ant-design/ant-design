@@ -117,9 +117,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const mergedJustify = useMergedPropByScreen(justify, screens);
 
   const isGrid = mode === 'grid';
-  const prefixCls = isGrid
-    ? getPrefixCls('grid', customizePrefixCls)
-    : getPrefixCls('row', customizePrefixCls);
+  const prefixCls = getPrefixCls('row', customizePrefixCls);
 
   const [hashId, cssVarCls] = useRowStyle(prefixCls);
 
@@ -132,6 +130,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
       [`${prefixCls}-${mergedAlign}`]: mergedAlign,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
+    { [`${prefixCls}-grid`]: isGrid },
     className,
     hashId,
     cssVarCls,
