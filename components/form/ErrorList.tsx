@@ -6,7 +6,7 @@ import { clsx } from 'clsx';
 import isNonNullable from '../_util/isNonNullable';
 import initCollapseMotion from '../_util/motion';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { FormItemPrefixContext } from './context';
+import { FormContext, FormItemPrefixContext } from './context';
 import type { ValidateStatus } from './FormItem';
 import useDebounce from './hooks/useDebounce';
 import useStyle from './style';
@@ -52,6 +52,7 @@ const ErrorList: React.FC<ErrorListProps> = ({
   onVisibleChanged,
 }) => {
   const { prefixCls } = React.useContext(FormItemPrefixContext);
+  const { classNames: contextClassNames, styles: contextStyles } = React.useContext(FormContext);
 
   const baseClassName = `${prefixCls}-item-explain`;
 
@@ -113,12 +114,13 @@ const ErrorList: React.FC<ErrorListProps> = ({
             className={clsx(
               baseClassName,
               holderClassName,
+              contextClassNames?.help,
               cssVarCls,
               rootCls,
               rootClassName,
               hashId,
             )}
-            style={holderStyle}
+            style={{ ...contextStyles?.help, ...holderStyle }}
           >
             <CSSMotionList
               keys={filledKeyFullKeyList}
@@ -134,14 +136,13 @@ const ErrorList: React.FC<ErrorListProps> = ({
                   className: itemClassName,
                   style: itemStyle,
                 } = itemProps;
-
                 return (
                   <div
                     key={key}
-                    className={clsx(itemClassName, {
+                    className={clsx(itemClassName, contextClassNames?.helpItem, {
                       [`${baseClassName}-${errorStatus}`]: errorStatus,
                     })}
-                    style={itemStyle}
+                    style={{ ...contextStyles?.helpItem, ...itemStyle }}
                   >
                     {error}
                   </div>
