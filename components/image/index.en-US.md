@@ -75,7 +75,7 @@ Other Property ref [&lt;img>](https://developer.mozilla.org/en-US/docs/Web/HTML/
 | actionsRender | Custom toolbar render | (originalNode: React.ReactElement, info: ToolbarRenderInfoType) => React.ReactNode | - |  |
 | closeIcon | Custom close icon | React.ReactNode | - |  |
 | cover | Custom preview mask | React.ReactNode \| [CoverConfig](#coverconfig) | - | CoverConfig support after v6.0 |
-| focusTrap | Whether to trap focus within the preview when open | boolean | true |  |
+| focusTrap | Whether to trap focus within the preview when open | boolean | true | 6.4.0 |
 | ~~destroyOnClose~~ | Destroy child elements on preview close (removed, no longer supported) | boolean | false |  |
 | ~~forceRender~~ | Force render preview image (removed, no longer supported) | boolean | - |  |
 | getContainer | Specify container for preview mounting; still full screen; false mounts at current location | string \| HTMLElement \| (() => HTMLElement) \| false | - |  |
