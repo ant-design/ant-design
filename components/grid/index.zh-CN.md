@@ -62,36 +62,27 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| align | 垂直对齐方式（仅 mode=flex 时生效） | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
+| align | 垂直对齐方式（仅非 grid 模式时生效） | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
 | gutter | 栅格间隔，可以写成[字符串CSS单位](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Values_and_Units)或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 `[水平间距, 垂直间距]` | number \| string \| object \| array | 0 | string: 5.28.0 |
-| justify | 水平排列方式（仅 mode=flex 时生效） | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
-| mode | 栅格布局模式，`grid` 使用 CSS Grid 布局，`flex` 使用传统 Flex 布局 | `flex` \| `grid` | `flex` | 6.4.0 |
-| wrap | 是否自动换行（仅 mode=flex 时生效） | boolean | true | 4.8.0 |
+| justify | 水平排列方式（仅非 grid 模式时生效） | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
+| grid | 启用 CSS Grid 布局，设置为 true 时使用 Grid 布局，否则使用 Flex 布局 | boolean | false | 6.4.0 |
+| wrap | 是否自动换行（仅非 grid 模式时生效） | boolean | true | 4.8.0 |
 | gridTemplateColumns | Grid 模式下列宽模板，支持 CSS grid-template-columns 语法 | string | - | 6.4.0 |
 | gridTemplateRows | Grid 模式下行高模板，支持 CSS grid-template-rows 语法 | string | - | 6.4.0 |
 | gridTemplateAreas | Grid 模式下网格区域模板，支持 CSS grid-template-areas 语法 | string | - | 6.4.0 |
-| gridAutoColumns | Grid 模式下自动列宽模板，支持 CSS grid-auto-columns 语法 | string | - | 6.4.0 |
-| gridAutoRows | Grid 模式下自动行高模板，支持 CSS grid-auto-rows 语法 | string | - | 6.4.0 |
-| gridAutoFlow | Grid 模式下自动放置算法 | `row` \| `column` \| `dense` \| `row dense` \| `column dense` | - | 6.4.0 |
-| justifyItems | Grid 模式下单元格在行轴的对齐方式，等同于 justify-items | `start` \| `end` \| `center` \| `stretch` | - | 6.4.0 |
-| alignItems | Grid 模式下单元格在列轴的对齐方式，等同于 align-items | `start` \| `end` \| `center` \| `stretch` | - | 6.4.0 |
-| justifyContent | Grid 模式下内容在行轴的对齐方式，等同于 justify-content | string | - | 6.4.0 |
-| alignContent | Grid 模式下内容在列轴的对齐方式，等同于 align-content | string | - | 6.4.0 |
 
 ### Col
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| flex | flex 布局属性（仅 mode=flex 时生效） | string \| number | - |  |
-| offset | 栅格左侧的间隔格数（仅 mode=flex 时生效） | number | 0 |  |
-| order | 栅格顺序（仅 mode=flex 时生效） | number | 0 |  |
-| pull | 栅格向左移动格数（仅 mode=flex 时生效） | number | 0 |  |
-| push | 栅格向右移动格数（仅 mode=flex 时生效） | number | 0 |  |
+| flex | flex 布局属性（仅非 grid 模式时生效） | string \| number | - |  |
+| offset | 栅格左侧的间隔格数（仅非 grid 模式时生效） | number | 0 |  |
+| order | 栅格顺序（仅非 grid 模式时生效） | number | 0 |  |
+| pull | 栅格向左移动格数（仅非 grid 模式时生效） | number | 0 |  |
+| push | 栅格向右移动格数（仅非 grid 模式时生效） | number | 0 |  |
 | gridColumn | Grid 模式下设置网格列位置，等同于 CSS grid-column | string | - | 6.4.0 |
 | gridRow | Grid 模式下设置网格行位置，等同于 CSS grid-row | string | - | 6.4.0 |
 | gridArea | Grid 模式下设置网格区域名称，等同于 CSS grid-area | string | - | 6.4.0 |
-| justifySelf | Grid 模式下单元格在行轴的对齐方式，等同于 CSS justify-self | `start` \| `end` \| `center` \| `stretch` | - | 6.4.0 |
-| alignSelf | Grid 模式下单元格在列轴的对齐方式，等同于 CSS align-self | `start` \| `end` \| `center` \| `stretch` | - | 6.4.0 |
 | span | 栅格占位格数，为 0 时相当于 `display: none` | number | - |  |
 | xs | `窗口宽度 < 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | sm | `窗口宽度 ≥ 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |

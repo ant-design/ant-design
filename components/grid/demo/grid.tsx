@@ -19,7 +19,7 @@ const App: React.FC = () => (
   <>
     {/* Basic Grid with span */}
     <Divider titlePlacement="start">Basic Grid (span maps to grid-column)</Divider>
-    <Row mode="grid" gutter={[16, 16]} gridTemplateColumns="repeat(4, 1fr)">
+    <Row grid gutter={[16, 16]} gridTemplateColumns="repeat(4, 1fr)">
       {[1, 1, 1, 1, 2, 1, 1].map((span, idx) => (
         <Col key={`span-${idx}`} span={span} style={cssObj}>
           col-{span}
@@ -30,10 +30,10 @@ const App: React.FC = () => (
     {/* Grid Template Areas */}
     <Divider titlePlacement="start">Grid Template Areas Layout</Divider>
     <Row
-      mode="grid"
+      grid
       gutter={[16, 16]}
       gridTemplateColumns="100px 1fr 50px 1fr"
-      gridTemplateAreas={'"sidebar header header header" "sidebar main main content"'}
+      gridTemplateAreas='"sidebar header header header" "sidebar main main content"'
     >
       {[
         { gridArea: 'header', children: 'Header' },

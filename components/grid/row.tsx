@@ -10,8 +10,6 @@ import RowContext from './RowContext';
 import type { RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
-export type RowModeType = 'flex' | 'grid';
-
 const _RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
 const _RowJustify = [
   'start',
@@ -33,17 +31,10 @@ type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
 type ResponsiveJustify = ResponsiveLike<(typeof _RowJustify)[number]>;
 
 export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
-  mode?: RowModeType;
+  grid?: boolean;
   gridTemplateColumns?: string;
   gridTemplateRows?: string;
   gridTemplateAreas?: string;
-  gridAutoColumns?: string;
-  gridAutoRows?: string;
-  gridAutoFlow?: 'row' | 'column' | 'dense' | 'row dense' | 'column dense';
-  justifyContent?: string;
-  alignContent?: string;
-  justifyItems?: string;
-  alignItems?: string;
   gutter?: Gutter | [Gutter, Gutter];
   align?: (typeof _RowAligns)[number] | ResponsiveAligns;
   justify?: (typeof _RowJustify)[number] | ResponsiveJustify;
@@ -88,19 +79,12 @@ function useMergedPropByScreen(
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
-    mode = 'flex',
+    grid = false,
     justify,
     align,
     gridTemplateColumns,
     gridTemplateRows,
     gridTemplateAreas,
-    gridAutoColumns,
-    gridAutoRows,
-    gridAutoFlow,
-    justifyContent,
-    alignContent,
-    justifyItems,
-    alignItems,
     className,
     style,
     children,
@@ -116,7 +100,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const mergedAlign = useMergedPropByScreen(align, screens);
   const mergedJustify = useMergedPropByScreen(justify, screens);
 
-  const isGrid = mode === 'grid';
   const prefixCls = getPrefixCls('row', customizePrefixCls);
 
   const [hashId, cssVarCls] = useRowStyle(prefixCls);
@@ -124,13 +107,15 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const gutters = useGutter(gutter, screens);
   const classes = clsx(
     prefixCls,
-    !isGrid && {
+    !grid && {
       [`${prefixCls}-no-wrap`]: wrap === false,
       [`${prefixCls}-${mergedJustify}`]: mergedJustify,
       [`${prefixCls}-${mergedAlign}`]: mergedAlign,
+    },
+    {
+      [`${prefixCls}-grid`]: grid,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
-    { [`${prefixCls}-grid`]: isGrid },
     className,
     hashId,
     cssVarCls,
@@ -139,20 +124,13 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const rowStyle: React.CSSProperties = {};
   const [gutterH, gutterV] = gutters;
 
-  if (isGrid) {
+  if (grid) {
     const gridStyles = {
       columnGap: gutterH !== undefined && (typeof gutterH === 'number' ? `${gutterH}px` : gutterH),
       rowGap: gutterV !== undefined && (typeof gutterV === 'number' ? `${gutterV}px` : gutterV),
       gridTemplateColumns,
       gridTemplateRows,
       gridTemplateAreas,
-      gridAutoColumns,
-      gridAutoRows,
-      gridAutoFlow,
-      justifyContent,
-      alignContent,
-      justifyItems,
-      alignItems,
     };
     Object.entries(gridStyles).forEach(([key, value]) => {
       if (value) (rowStyle as any)[key] = value;
@@ -166,8 +144,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   }
 
   const rowContext = React.useMemo<RowContextState>(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, mode }),
-    [gutterH, gutterV, wrap, mode],
+    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, grid }),
+    [gutterH, gutterV, wrap, grid],
   );
 
   return (

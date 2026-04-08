@@ -35,8 +35,6 @@ export interface ColProps
   gridColumn?: string | number;
   gridRow?: string | number;
   gridArea?: string;
-  justifySelf?: 'start' | 'end' | 'center' | 'stretch';
-  alignSelf?: 'start' | 'end' | 'center' | 'stretch';
   prefixCls?: string;
 }
 
@@ -62,7 +60,7 @@ function parseFlex(flex: FlexType): string {
 
 const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const { getPrefixCls, direction } = React.useContext(ConfigContext);
-  const { gutter, wrap, mode } = React.useContext(RowContext);
+  const { gutter, wrap, grid } = React.useContext(RowContext);
 
   const {
     prefixCls: customizePrefixCls,
@@ -74,8 +72,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     gridColumn,
     gridRow,
     gridArea,
-    justifySelf,
-    alignSelf,
     className,
     children,
     flex,
@@ -83,7 +79,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     ...others
   } = props;
 
-  const isGrid = mode === 'grid';
   const prefixCls = getPrefixCls('col', customizePrefixCls);
   const rootPrefixCls = getPrefixCls();
 
@@ -95,8 +90,6 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   const sizeStyle: Record<string, string> = {};
 
   let sizeClassObj: Record<string, boolean | ColSpanType> = {};
-
-  const shouldAddFlexClass = !isGrid;
 
   responsiveArrayReversed.forEach((size) => {
     let sizeProps: ColSize = {};
@@ -113,18 +106,18 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       ...sizeClassObj,
       [`${prefixCls}-${size}-${sizeProps.span}`]: sizeProps.span !== undefined,
       [`${prefixCls}-${size}-order-${sizeProps.order}`]:
-        shouldAddFlexClass && (sizeProps.order || sizeProps.order === 0),
+        !grid && (sizeProps.order || sizeProps.order === 0),
       [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
-        shouldAddFlexClass && (sizeProps.offset || sizeProps.offset === 0),
+        !grid && (sizeProps.offset || sizeProps.offset === 0),
       [`${prefixCls}-${size}-push-${sizeProps.push}`]:
-        shouldAddFlexClass && (sizeProps.push || sizeProps.push === 0),
+        !grid && (sizeProps.push || sizeProps.push === 0),
       [`${prefixCls}-${size}-pull-${sizeProps.pull}`]:
-        shouldAddFlexClass && (sizeProps.pull || sizeProps.pull === 0),
+        !grid && (sizeProps.pull || sizeProps.pull === 0),
       [`${prefixCls}-rtl`]: direction === 'rtl',
     };
 
     // Responsive flex layout
-    if (shouldAddFlexClass && sizeProps.flex) {
+    if (!grid && sizeProps.flex) {
       sizeClassObj[`${prefixCls}-${size}-flex`] = true;
       sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
     }
@@ -133,14 +126,14 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   // ==================== Normal =====================
   const classes = clsx(
     prefixCls,
-    !isGrid && {
+    !grid && {
       [`${prefixCls}-${span}`]: span !== undefined,
       [`${prefixCls}-order-${order}`]: order,
       [`${prefixCls}-offset-${offset}`]: offset,
       [`${prefixCls}-push-${push}`]: push,
       [`${prefixCls}-pull-${pull}`]: pull,
     },
-    { [`${prefixCls}-grid`]: isGrid },
+    { [`${prefixCls}-grid`]: grid },
     className,
     sizeClassObj,
     hashId,
@@ -149,7 +142,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   const mergedStyle: React.CSSProperties = {};
 
-  if (!isGrid && gutter?.[0]) {
+  if (!grid && gutter?.[0]) {
     const horizontalGutter =
       typeof gutter[0] === 'number' ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
     mergedStyle.paddingInline = horizontalGutter;
@@ -166,17 +159,17 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   }
 
   // Grid mode
-  if (isGrid) {
+  if (grid) {
     const gridStyles: Record<string, string | number> = {};
 
-    if (span !== undefined) {
+    if (span !== undefined && !gridColumn) {
       const spanNum = typeof span === 'number' ? span : Number.parseInt(String(span), 10);
       if (!Number.isNaN(spanNum) && spanNum > 0) {
         gridStyles.gridColumn = `span ${spanNum}`;
       }
     }
 
-    const gridProps = { gridColumn, gridRow, gridArea, justifySelf, alignSelf };
+    const gridProps = { gridColumn, gridRow, gridArea };
     Object.entries(gridProps).forEach(([key, value]) => {
       if (value) gridStyles[key] = value;
     });
