@@ -10,7 +10,7 @@ export interface ComponentToken {
    * @desc 标题字体大小
    * @descEN Title font size
    */
-  titleFontSize: number;
+  titleFontSize: number | string;
   /**
    * @desc 副标题字体大小
    * @descEN Subtitle font size
@@ -20,7 +20,7 @@ export interface ComponentToken {
    * @desc 图标大小
    * @descEN Icon size
    */
-  iconFontSize: number;
+  iconFontSize: number | string;
   /**
    * @desc 额外区域外间距
    * @descEN Margin of extra area
@@ -139,9 +139,9 @@ const genResultStyle: GenerateStyle<ResultToken> = (token) => [
 
 // ============================== Export ==============================
 export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => ({
-  titleFontSize: Number(token.fontSizeHeading3),
+  titleFontSize: token.fontSizeHeading3,
   subtitleFontSize: token.fontSize,
-  iconFontSize: Number(token.fontSizeHeading3) * 3,
+  iconFontSize: token.calc(token.fontSizeHeading3).mul(3).equal(),
   extraMargin: `${token.paddingLG}px 0 0 0`,
 });
 

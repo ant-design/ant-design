@@ -32,7 +32,7 @@ export interface ComponentToken {
    * @desc 标题字体大小
    * @descEN Font size of title
    */
-  titleFontSize: number;
+  titleFontSize: number | string;
   /**
    * @desc 标题字体颜色
    * @descEN Font color of title
@@ -461,7 +461,7 @@ export const prepareComponentToken = (token: GlobalToken) => ({
   footerBg: 'transparent',
   headerBg: 'transparent',
   titleLineHeight: token.lineHeightHeading5,
-  titleFontSize: Number(token.fontSizeHeading5),
+  titleFontSize: token.fontSizeHeading5,
   contentBg: token.colorBgElevated,
   titleColor: token.colorTextHeading,
 

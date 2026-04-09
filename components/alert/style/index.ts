@@ -22,7 +22,7 @@ export interface ComponentToken {
    * @desc 带有描述时的图标尺寸
    * @descEN Icon size with description
    */
-  withDescriptionIconSize: number;
+  withDescriptionIconSize: number | string;
 }
 
 type AlertToken = FullToken<'Alert'> & {
@@ -242,7 +242,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   const paddingHorizontal = 12; // Fixed value here.
   return {
-    withDescriptionIconSize: Number(token.fontSizeHeading3),
+    withDescriptionIconSize: token.fontSizeHeading3,
     defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
     withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
   };

@@ -14,7 +14,7 @@ export interface ComponentToken {
    * @desc 内容字体大小
    * @descEN Content font size
    */
-  contentFontSize: number;
+  contentFontSize: number | string;
 }
 
 interface StatisticToken extends FullToken<'Statistic'> {}
@@ -73,7 +73,7 @@ export const prepareComponentToken: GetDefaultToken<'Statistic'> = (token) => {
   const { fontSizeHeading3, fontSize } = token;
   return {
     titleFontSize: fontSize,
-    contentFontSize: Number(fontSizeHeading3),
+    contentFontSize: fontSizeHeading3,
   };
 };
 

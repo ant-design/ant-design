@@ -34,7 +34,7 @@ type BackTopToken = FullToken<'BackTop'> & {
    * @desc BackTop 字体大小
    * @descEN Font size of BackTop
    */
-  backTopFontSize: number;
+  backTopFontSize: number | string;
   /**
    * @desc BackTop 尺寸
    * @descEN Size of BackTop
@@ -145,7 +145,7 @@ export default genStyleHooks(
       backTopBackground: colorTextDescription,
       backTopColor: colorTextLightSolid,
       backTopHoverBackground: colorText,
-      backTopFontSize: Number(fontSizeHeading3),
+      backTopFontSize: fontSizeHeading3,
       backTopSize: controlHeightLG,
       backTopBlockEnd: calc(controlHeightLG).mul(1.25).equal(),
       backTopInlineEnd: calc(controlHeightLG).mul(2.5).equal(),

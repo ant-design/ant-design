@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
@@ -45,7 +46,7 @@ export interface ComponentToken {
    * @desc 大号头像图标大小
    * @descEN Font size of large Avatar icon
    */
-  iconFontSizeLG: number;
+  iconFontSizeLG: number | string;
   /**
    * @desc 小号头像图标大小
    * @descEN Font size of small Avatar icon
@@ -105,7 +106,7 @@ const genBaseStyle: GenerateStyle<AvatarToken, CSSObject> = (token) => {
   const avatarSizeStyle = (
     size: number,
     fontSize: number,
-    iconFontSize: number,
+    iconFontSize: CSSProperties['fontSize'],
     radius: number,
   ): CSSObject => ({
     width: size,
@@ -213,7 +214,7 @@ export const prepareComponentToken: GetDefaultToken<'Avatar'> = (token) => {
     textFontSizeLG: fontSize,
     textFontSizeSM: fontSize,
     iconFontSize: Math.round((fontSizeLG + fontSizeXL) / 2),
-    iconFontSizeLG: Number(fontSizeHeading3),
+    iconFontSizeLG: fontSizeHeading3,
     iconFontSizeSM: fontSize,
     groupSpace: marginXXS,
     groupOverlapping: -marginXS,

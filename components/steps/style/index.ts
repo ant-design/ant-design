@@ -79,7 +79,7 @@ export interface ComponentToken {
    * @desc 小号步骤条图标大小
    * @descEN Size of small steps icon
    */
-  iconSizeSM: number;
+  iconSizeSM: number | string;
   /**
    * TODO: deprecated warning since not used anymore
    * @desc 标题行高
@@ -193,7 +193,7 @@ export const prepareComponentToken: GetDefaultToken<'Steps'> = (token) => ({
   iconSize: token.controlHeight,
   iconTop: -0.5, // magic for ui experience
   iconFontSize: token.fontSize,
-  iconSizeSM: Number(token.fontSizeHeading3),
+  iconSizeSM: token.fontSizeHeading3,
   dotSize: token.controlHeight / 4,
   dotCurrentSize: token.controlHeightLG / 4,
   navArrowColor: token.colorTextDisabled,
