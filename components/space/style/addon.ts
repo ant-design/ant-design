@@ -45,6 +45,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
         borderWidth: lineWidth,
         borderStyle: 'solid',
         borderRadius,
+        whiteSpace: 'nowrap',
 
         '&:hover': {
           zIndex: 0,
