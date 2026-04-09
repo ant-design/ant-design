@@ -91,6 +91,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
       style: contextStyle,
       classNames: contextClassNames,
       styles: contextStyles,
+      autoContrast: contextAutoContrast,
     } = useComponentConfig('tag');
 
     // ===================== Warnings =====================
@@ -102,7 +103,10 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
 
     // ====================== Colors ======================
     const [mergedVariant, mergedColor, isPreset, isStatus, customTagStyle] = useColor(
-      props,
+      {
+        ...props,
+        autoContrast: props.autoContrast ?? contextAutoContrast,
+      },
       contextVariant,
     );
 
