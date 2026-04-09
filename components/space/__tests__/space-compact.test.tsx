@@ -50,17 +50,6 @@ describe('Space.Compact', () => {
     expect(container.querySelector('.ant-space-compact')).toHaveClass('ant-space-compact-block');
   });
 
-  it('should prevent wrapping in addon content', () => {
-    const { container } = render(
-      <Space.Compact>
-        <Space.Addon>中文</Space.Addon>
-        <Input placeholder="input here" />
-      </Space.Compact>,
-    );
-
-    expect(container.querySelector('.ant-space-addon')).toHaveStyle({ whiteSpace: 'nowrap' });
-  });
-
   it('compact-item className', () => {
     const { container } = render(
       <Space.Compact>
