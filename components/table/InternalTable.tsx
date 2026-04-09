@@ -309,7 +309,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const [, token] = useToken();
 
   const mergedRowSelection = React.useMemo(() => {
-    return typeof customizeRowSelection === 'object'
+    return customizeRowSelection && typeof customizeRowSelection === 'object'
       ? { columnWidth: token.Table?.selectionColumnWidth, ...customizeRowSelection }
       : customizeRowSelection;
   }, [customizeRowSelection, token.Table?.selectionColumnWidth]);
