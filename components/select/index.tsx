@@ -7,7 +7,7 @@ import type { BaseOptionType, DefaultOptionType } from '@rc-component/select/lib
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
+import { useMergeSemantic, usePopupScope, useZIndex } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
@@ -30,7 +30,6 @@ import { useToken } from '../theme/internal';
 import mergedBuiltinPlacements from './mergedBuiltinPlacements';
 import useStyle from './style';
 import useIcons from './useIcons';
-import usePopupRender from './usePopupRender';
 import useShowArrow from './useShowArrow';
 
 type RawValue = string | number;
@@ -203,6 +202,7 @@ const InternalSelect = <
      */
     popupRender,
     onDropdownVisibleChange,
+    open: propsOpen,
     onOpenChange,
     styles,
     classNames,
@@ -226,6 +226,18 @@ const InternalSelect = <
     className: contextClassName,
     classNames: contextClassNames,
   } = useComponentConfig('select');
+
+  const {
+    popupRender: mergedPopupRender,
+    getPopupContainer: mergedGetPopupContainer,
+    open: mergedOpen,
+    onPopupVisibleChange: mergedOnPopupVisibleChange,
+  } = usePopupScope({
+    popupRender: popupRender || dropdownRender,
+    getPopupContainer: getPopupContainer || getContextPopupContainer,
+    open: propsOpen,
+    onOpenChange: onOpenChange || onDropdownVisibleChange,
+  });
 
   const [, token] = useToken();
 
@@ -262,10 +274,6 @@ const InternalSelect = <
 
   const mergedPopupMatchSelectWidth =
     popupMatchSelectWidth ?? dropdownMatchSelectWidth ?? contextPopupMatchSelectWidth;
-
-  const mergedPopupRender = usePopupRender(popupRender || dropdownRender);
-
-  const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
 
   // ===================== Form Status =====================
   const {
@@ -441,14 +449,15 @@ const InternalSelect = <
       allowClear={mergedAllowClear}
       notFoundContent={mergedNotFound}
       className={mergedClassName}
-      getPopupContainer={getPopupContainer || getContextPopupContainer}
+      getPopupContainer={mergedGetPopupContainer}
       popupClassName={mergedPopupClassName}
       disabled={mergedDisabled}
       popupStyle={{ ...mergedStyles.popup?.root, ...mergedPopupStyle, zIndex }}
       maxCount={isMultiple ? maxCount : undefined}
       tagRender={isMultiple ? tagRender : undefined}
       popupRender={mergedPopupRender}
-      onPopupVisibleChange={mergedOnOpenChange}
+      open={mergedOpen}
+      onPopupVisibleChange={mergedOnPopupVisibleChange}
     />
   );
 };
