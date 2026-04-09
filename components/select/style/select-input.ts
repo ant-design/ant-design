@@ -147,6 +147,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         paddingBlock: varRef('padding-vertical'),
         // ========================= Prefix =========================
         [`${componentCls}-prefix`]: {
+          color: varRef('affix-color'),
           flex: 'none',
           lineHeight: 1,
         },
@@ -185,11 +186,6 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
             cursor: 'inherit',
             caretColor: 'transparent',
           },
-        },
-
-        // ======================== Prefix =========================
-        [`${componentCls}-prefix`]: {
-          color: varRef('affix-color'),
         },
 
         // ========================= Suffix =========================
