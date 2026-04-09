@@ -141,7 +141,10 @@ const genResultStyle: GenerateStyle<ResultToken> = (token) => [
 export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => ({
   titleFontSize: token.fontSizeHeading3,
   subtitleFontSize: token.fontSize,
-  iconFontSize: token.calc(token.fontSizeHeading3).mul(3).equal(),
+  iconFontSize:
+    typeof token.fontSizeHeading3 === 'number'
+      ? token.fontSizeHeading3 * 3
+      : `calc(${token.fontSizeHeading3} * 3)`,
   extraMargin: `${token.paddingLG}px 0 0 0`,
 });
 
