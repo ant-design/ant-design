@@ -11,7 +11,7 @@ jobs:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: Send Unconfirmed Issues to DingTalk
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         env:
             DINGDING_BOT_TOKEN: ${{ secrets.DINGDING_BOT_COLLABORATOR_TOKEN }}
             actionTitle: 近 7 天未确认的 issue

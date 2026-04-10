@@ -211,7 +211,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     dropdownPrefixCls: customizeDropdownPrefixCls,
     dataSource,
     pagination,
-    rowSelection,
+    rowSelection: customizeRowSelection,
     rowKey: customizeRowKey,
     rowClassName,
     columns,
@@ -307,6 +307,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
   const [, token] = useToken();
+
+  const mergedRowSelection = React.useMemo(() => {
+    return customizeRowSelection && typeof customizeRowSelection === 'object'
+      ? { columnWidth: token.Table?.selectionColumnWidth, ...customizeRowSelection }
+      : customizeRowSelection;
+  }, [customizeRowSelection, token.Table?.selectionColumnWidth]);
+
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
@@ -552,7 +559,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       locale: tableLocale,
       getPopupContainer: getPopupContainer || getContextPopupContainer,
     },
-    rowSelection,
+    mergedRowSelection,
   );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
@@ -577,8 +584,8 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
   if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
-    mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
-  } else if (mergedExpandable.expandIconColumnIndex! > 0 && rowSelection) {
+    mergedExpandable.expandIconColumnIndex = mergedRowSelection ? 1 : 0;
+  } else if (mergedExpandable.expandIconColumnIndex! > 0 && mergedRowSelection) {
     mergedExpandable.expandIconColumnIndex! -= 1;
   }
 
