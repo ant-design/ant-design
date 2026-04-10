@@ -35,7 +35,7 @@ Comparing with `Tooltip`, besides information `Popover` card can also provide ac
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Param | Description | Type | Default value | Version |
+| Property | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | content | Content of the card | ReactNode \| () => ReactNode | - |  |
