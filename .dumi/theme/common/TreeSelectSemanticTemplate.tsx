@@ -18,6 +18,7 @@ export const locales = {
     'popup.root': '弹出菜单元素，设置下拉树形选择面板的定位、层级、背景、边框、阴影等弹层样式',
     'popup.item': '弹出菜单条目元素，设置树节点选项的样式、悬停态、选中态等交互状态',
     'popup.itemTitle': '弹出菜单标题元素，设置树节点标题文字的显示样式',
+    'popup.itemSwitcher': '弹出菜单切换器元素，设置树节点展开/收起按钮的样式和背景',
   },
   en: {
     root: 'Root element with tree selector base styles, border, border radius container styles',
@@ -37,6 +38,8 @@ export const locales = {
     'popup.item':
       'Popup item element with tree node option styles, hover state, selected state and other interaction states',
     'popup.itemTitle': 'Popup title element with tree node title text display styles',
+    'popup.itemSwitcher':
+      'Popup switcher element with tree node expand/collapse button styles and background',
   },
 };
 
@@ -140,6 +143,7 @@ const TreeSelectSemanticTemplate: React.FC<TreeSelectSemanticTemplateProps> = ({
           { name: 'popup.root', desc: locale['popup.root'] },
           { name: 'popup.item', desc: locale['popup.item'] },
           { name: 'popup.itemTitle', desc: locale['popup.itemTitle'] },
+          { name: 'popup.itemSwitcher', desc: locale['popup.itemSwitcher'] },
         ].filter((semantic) => !ignoreSemantics.includes(semantic.name))
       : [
           { name: 'root', desc: locale.root },
@@ -154,6 +158,7 @@ const TreeSelectSemanticTemplate: React.FC<TreeSelectSemanticTemplateProps> = ({
           { name: 'popup.root', desc: locale['popup.root'] },
           { name: 'popup.item', desc: locale['popup.item'] },
           { name: 'popup.itemTitle', desc: locale['popup.itemTitle'] },
+          { name: 'popup.itemSwitcher', desc: locale['popup.itemSwitcher'] },
         ].filter((semantic) => !ignoreSemantics.includes(semantic.name));
 
   return (

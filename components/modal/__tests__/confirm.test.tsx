@@ -1013,6 +1013,79 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     );
   });
 
+  it('should support focusable global config in App.useApp modal.confirm', () => {
+    const classNames = jest.fn(() => ({}));
+
+    const Confirm = () => {
+      const { modal } = App.useApp();
+
+      React.useEffect(() => {
+        modal.confirm({
+          classNames,
+          onCancel: () => undefined,
+        });
+      }, [modal]);
+
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: false,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
+  it('should prefer focusable prop over global config in App.useApp modal.confirm', () => {
+    const classNames = jest.fn(() => ({}));
+
+    const Confirm = () => {
+      const { modal } = App.useApp();
+
+      React.useEffect(() => {
+        modal.confirm({
+          classNames,
+          focusable: { trap: true },
+          onCancel: () => undefined,
+        });
+      }, [modal]);
+
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: true,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
   it('should support cancelButtonProps global config', () => {
     const Confirm = () => {
       const { modal } = App.useApp();
@@ -1107,5 +1180,81 @@ describe('Modal.confirm triggers callbacks correctly', () => {
     expect(
       document.querySelector('.ant-modal-confirm-btns .ant-btn-primary.ant-btn-sm'),
     ).toBeTruthy();
+  });
+
+  it('should be able to config info icon', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.info({});
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ infoIcon: <span className="custom-info-icon">foobar</span> }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.custom-info-icon')).toBeTruthy();
+  });
+
+  it('should be able to config success icon', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.success({});
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ successIcon: <span className="custom-success-icon">foobar</span> }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.custom-success-icon')).toBeTruthy();
+  });
+
+  it('should be able to config error icon', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.error({});
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ errorIcon: <span className="custom-error-icon">foobar</span> }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.custom-error-icon')).toBeTruthy();
+  });
+
+  it('should be able to config warning icon', async () => {
+    const Confirm = () => {
+      const { modal } = App.useApp();
+      React.useEffect(() => {
+        modal.warning({});
+      }, []);
+      return null;
+    };
+
+    render(
+      <ConfigProvider modal={{ warningIcon: <span className="custom-warning-icon">foobar</span> }}>
+        <App>
+          <Confirm />
+        </App>
+      </ConfigProvider>,
+    );
+    expect(document.querySelector('.custom-warning-icon')).toBeTruthy();
   });
 });

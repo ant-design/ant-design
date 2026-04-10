@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: '선택하세요',
     close: '닫기',
+    show: '표시',
+    hide: '숨기기',
   },
   Table: {
     filterTitle: '필터 메뉴',

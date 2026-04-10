@@ -78,11 +78,15 @@ export default function useColor(
     }
 
     // ==================== Color ====================
-    const nextColor = isInverseColor ? color?.replace('-inverse', '') : color;
+    let nextColor = isInverseColor ? color?.replace('-inverse', '') : color;
+
+    if (nextColor === undefined && nextVariant === 'solid') {
+      nextColor = 'default';
+    }
 
     // =============== Preset & Status ===============
-    const nextIsPreset = isPresetColor(color);
-    const nextIsStatus = isPresetStatusColor(color);
+    const nextIsPreset = isPresetColor(nextColor);
+    const nextIsStatus = isPresetStatusColor(nextColor);
 
     // ================== Customize ==================
     // When `color` is not preset color,

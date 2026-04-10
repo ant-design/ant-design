@@ -79,7 +79,7 @@ export interface ComponentToken {
    * @desc 小号步骤条图标大小
    * @descEN Size of small steps icon
    */
-  iconSizeSM: number;
+  iconSizeSM: number | string;
   /**
    * TODO: deprecated warning since not used anymore
    * @desc 标题行高

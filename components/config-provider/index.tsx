@@ -45,6 +45,7 @@ import type {
   ImageConfig,
   InputConfig,
   InputNumberConfig,
+  InputPasswordConfig,
   InputSearchConfig,
   ListConfig,
   MasonryConfig,
@@ -86,6 +87,7 @@ import type {
   TransferConfig,
   TreeConfig,
   TreeSelectConfig,
+  TypographyConfig,
   UploadConfig,
   Variant,
   WaveConfig,
@@ -192,6 +194,7 @@ export interface ConfigProviderProps {
   variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
+  inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;
   otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
@@ -237,7 +240,7 @@ export interface ConfigProviderProps {
   collapse?: CollapseConfig;
   divider?: DividerConfig;
   drawer?: DrawerConfig;
-  typography?: ComponentStyleConfig;
+  typography?: TypographyConfig;
   skeleton?: SkeletonConfig;
   spin?: SpinConfig;
   segmented?: SegmentedConfig;
@@ -410,6 +413,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     menu,
     pagination,
     input,
+    inputPassword,
+    inputSearch,
     textArea,
     otp,
     empty,
@@ -509,6 +514,8 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     input,
+    inputPassword,
+    inputSearch,
     textArea,
     otp,
     layout,

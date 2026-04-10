@@ -97,6 +97,7 @@ const columns = [
 <code src="./demo/drag-column-sorting.tsx">Drag Column sorting</code>
 <code src="./demo/drag-sorting-handler.tsx">Drag sorting with handler</code>
 <code src="./demo/ellipsis.tsx">ellipsis column</code>
+<code src="./demo/column-defaults.tsx" version="6.4.0">Shared column props</code>
 <code src="./demo/ellipsis-custom-tooltip.tsx">ellipsis column custom tooltip</code>
 <code src="./demo/custom-empty.tsx">Custom empty</code>
 <code src="./demo/summary.tsx">Summary</code>
@@ -122,6 +123,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | bordered | Whether to show all table borders | boolean | false |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| column | Shared props applied to columns when the same property is not defined on the column itself | Partial<[ColumnType](#column)> | - | 6.4.0 |
 | columns | Columns of table | [ColumnsType](#column)\[] | - |  |
 | components | Override default table elements | [TableComponents](https://github.com/react-component/table/blob/75ee0064e54a4b3215694505870c9d6c817e9e4a/src/interface.ts#L129) | - |  |
 | dataSource | Data record array to be displayed | object\[] | - |  |
@@ -156,7 +158,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Version |
 | --- | --- | --- | --- |
 | nativeElement | The wrap element | HTMLDivElement | 5.11.0 |
-| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey`. When `offset` is specified, the table will scroll to align the target row to the top with the given offset and not working with `top` | (config: { index?: number, key?: React.Key, top?: number, offset?: number }) => void | 5.11.0 |
+| scrollTo | Trigger to scroll to target position. `key` match with record `rowKey`. When `offset` is specified, the table will scroll to align the target row to the top with the given offset and not working with `top`. Optional `align` param to control alignment: `start` align to top, `center` align to center, `end` align to bottom, `nearest` smart align (default). `center` align is not supported in virtual scrolling mode | (config: { index?: number, key?: React.Key, top?: number, offset?: number, align?: 'start' \| 'center' \| 'end' \| 'nearest' }) => void | 5.11.0 |
 
 #### onRow usage
 

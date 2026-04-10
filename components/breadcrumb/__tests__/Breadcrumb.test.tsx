@@ -1,12 +1,13 @@
 import React from 'react';
 
+import Breadcrumb from '..';
+import type { GetProp } from '../../_util/type';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { render, screen } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import type { ItemType } from '../Breadcrumb';
-import Breadcrumb from '../index';
+import type { BreadcrumbProps, ItemType } from '../Breadcrumb';
 
 describe('Breadcrumb', () => {
   mountTest(Breadcrumb);
@@ -389,12 +390,12 @@ describe('Breadcrumb', () => {
   });
 
   it('support classNames and styles', async () => {
-    const customClassNames = {
+    const customClassNames: Required<GetProp<BreadcrumbProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       item: 'custom-item',
       separator: 'custom-separator',
     };
-    const customStyles = {
+    const customStyles: Required<GetProp<BreadcrumbProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       item: { color: 'rgb(0, 128, 0)' },
       separator: { color: 'rgb(0, 0, 255)' },
@@ -431,9 +432,9 @@ describe('Breadcrumb', () => {
     expect(item).toHaveClass(customClassNames.item);
     expect(separator).toHaveClass(customClassNames.separator);
 
-    expect(root).toHaveStyle({ color: customStyles.root?.color });
-    expect(item).toHaveStyle({ color: customStyles.item?.color });
-    expect(separator).toHaveStyle({ color: customStyles.separator?.color });
+    expect(root).toHaveStyle({ color: customStyles.root.color });
+    expect(item).toHaveStyle({ color: customStyles.item.color });
+    expect(separator).toHaveStyle({ color: customStyles.separator.color });
   });
 
   it('supports ConfigProvider separator', () => {

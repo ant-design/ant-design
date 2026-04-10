@@ -1,7 +1,6 @@
 export * from './useClosable';
 export * from './useForceUpdate';
 export * from './useMergedMask';
-export * from './useMergeSemantic';
 export * from './useMultipleSelect';
 export * from './useOrientation';
 export * from './usePatchElement';
