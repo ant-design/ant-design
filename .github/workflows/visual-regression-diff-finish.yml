@@ -47,7 +47,7 @@ jobs:
       build-status: ${{ steps.visual_diff_build_job_status.outputs.build-status }}
     steps:
       - name: summary jobs status
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         id: visual_diff_build_job_status
         with:
           script: |
@@ -182,7 +182,7 @@ jobs:
 
       # Resync commit status. This will be also reset by `visual-regression-diff-approver`
       - name: Reset Commit Status
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         if: ${{ steps.report.outcome == 'success' }}
         env:
           PR_ID: ${{ steps.pr.outputs.id }}
