@@ -2778,6 +2778,70 @@ Array [
 
 exports[`renders components/typography/demo/suffix.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/typography/demo/table.tsx extend context correctly 1`] = `
+<article
+  class="ant-typography css-var-test-id"
+>
+  <h1
+    class="ant-typography css-var-test-id"
+  >
+    Typography with Table
+  </h1>
+  <table>
+    <thead>
+      <tr>
+        <th>
+          Plan
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          Features
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Basic
+        </td>
+        <td>
+          Free
+        </td>
+        <td>
+          1GB Storage, Basic Support
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Pro
+        </td>
+        <td>
+          $9.99/month
+        </td>
+        <td>
+          100GB Storage, Priority Support
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Enterprise
+        </td>
+        <td>
+          Contact us
+        </td>
+        <td>
+          Unlimited Storage, 24/7 Support
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+`;
+
+exports[`renders components/typography/demo/table.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/typography/demo/text.tsx extend context correctly 1`] = `
 <div
   class="ant-space ant-space-vertical ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
