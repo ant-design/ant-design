@@ -174,33 +174,48 @@ export const getFilterData = <RecordType extends AnyObject = AnyObject>(
       column: { onFilter, filters },
       filteredKeys,
     } = filterState;
+
     if (onFilter && filteredKeys && filteredKeys.length) {
-      return (
-        currentData
-          // shallow copy
-          .map((record) => ({ ...record }))
-          .filter((record: any) =>
-            filteredKeys.some((key) => {
-              const keys = flattenKeys(filters);
-              const keyIndex = keys.findIndex((k) => String(k) === String(key));
-              const realKey = keyIndex !== -1 ? keys[keyIndex] : key;
+      // Preprocess the keys corresponding to the filter tree,
+      // use Map to improve lookup performance to O(1).
+      const flatKeys = flattenKeys(filters);
+      const keyMap = new Map<string, FilterValue[number]>();
+      flatKeys.forEach((k) => {
+        const strKey = String(k);
+        if (!keyMap.has(strKey)) {
+          keyMap.set(strKey, k);
+        }
+      });
 
-              // filter children
-              if (record[childrenColumnName]) {
-                record[childrenColumnName] = getFilterData(
-                  record[childrenColumnName],
-                  filterStates,
-                  childrenColumnName,
-                );
-              }
+      const realKeys = filteredKeys.map((key) => {
+        const strKey = String(key);
+        return keyMap.get(strKey) ?? key;
+      });
 
-              return onFilter(realKey, record);
-            }),
-          )
-      );
+      const internalFilter = (subset: RecordType[]): RecordType[] =>
+        subset.reduce<RecordType[]>((acc, record) => {
+          const clonedRecord = { ...record } as any;
+
+          if (clonedRecord[childrenColumnName]) {
+            clonedRecord[childrenColumnName] = getFilterData(
+              clonedRecord[childrenColumnName],
+              filterStates,
+              childrenColumnName,
+            );
+          }
+
+          if (realKeys.some((realKey) => onFilter(realKey, clonedRecord))) {
+            acc.push(clonedRecord);
+          }
+          return acc;
+        }, []);
+
+      return internalFilter(currentData);
     }
+
     return currentData;
   }, data);
+
   return filterDatas;
 };
 
