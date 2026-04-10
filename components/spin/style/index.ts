@@ -244,7 +244,7 @@ const genIndicatorStyle: GenerateStyle<SpinToken, CSSObject> = (token) => {
         // ========================= Progress =========================
         '&-progress': {
           position: 'absolute',
-          insetInlineStart: '50%',
+          left: '50%',
           top: 0,
           transform: 'translateX(-50%)',
         },
