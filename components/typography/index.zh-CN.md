@@ -29,7 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/suffix.tsx">后缀</code>
 <code src="./demo/componentToken-debug.tsx" debug>组件 Token</code>
 <code src="./demo/link-danger-debug.tsx" debug>Link danger Debug</code>
-<code src="./demo/table.tsx" debug>表格</code>
+<code src="./demo/table.tsx">表格</code>
 
 ## API
 

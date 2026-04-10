@@ -28,7 +28,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/suffix.tsx">suffix</code>
 <code src="./demo/componentToken-debug.tsx" debug>Component Token</code>
 <code src="./demo/link-danger-debug.tsx" debug>Link danger Debug</code>
-<code src="./demo/table.tsx" debug>Table</code>
+<code src="./demo/table.tsx">Table</code>
 
 ## API
 

@@ -8,7 +8,7 @@ const { Title } = Typography;
  */
 const App: React.FC = () => (
   <Typography>
-    <Title>Typography with Table</Title>
+    <Title level={4}>Typography with Table</Title>
 
     <table>
       <thead>

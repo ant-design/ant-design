@@ -2782,11 +2782,11 @@ exports[`renders components/typography/demo/table.tsx extend context correctly 1
 <article
   class="ant-typography css-var-test-id"
 >
-  <h1
+  <h4
     class="ant-typography css-var-test-id"
   >
     Typography with Table
-  </h1>
+  </h4>
   <table>
     <thead>
       <tr>

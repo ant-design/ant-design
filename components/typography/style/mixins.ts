@@ -185,7 +185,6 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
   table: {
     width: '100%',
     textAlign: 'start',
-    borderRadius: `${unit(token.borderRadiusLG)} ${unit(token.borderRadiusLG)} 0 0`,
     borderCollapse: 'separate',
     borderSpacing: 0,
     marginBlock: '1em',
@@ -209,8 +208,7 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
       position: 'relative',
       color: token.colorTextHeading,
       fontWeight: token.fontWeightStrong,
-      background: token.colorFillAlter,
-      borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+      backgroundColor: token.colorFillAlter,
       transition: `background-color ${token.motionDurationMid} ease`,
 
       '&:not(:last-child)::before': {
@@ -221,18 +219,16 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
         height: '1.6em',
         backgroundColor: token.colorSplit,
         transform: 'translateY(-50%)',
-        transition: `background-color ${token.motionDurationMid}`,
         content: '""',
       },
     },
 
     'tbody > tr': {
       '> th, > td': {
-        borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
-        transition: `background-color ${token.motionDurationMid} ease, border-color ${token.motionDurationMid} ease`,
+        transition: `background-color ${token.motionDurationMid} ease`,
       },
-      '&:hover > td': {
-        background: token.colorFillAlter,
+      '&:hover > th, &:hover > td': {
+        backgroundColor: token.colorFillAlter,
       },
     },
   },
