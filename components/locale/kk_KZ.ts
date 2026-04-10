@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Таңдаңыз',
     close: 'Жабу',
+    show: 'Көрсету',
+    hide: 'Жасыру',
   },
   Table: {
     filterTitle: 'Фильтр',

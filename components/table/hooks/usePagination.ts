@@ -1,6 +1,6 @@
 import { useState } from 'react';
+import { mergeProps } from '@rc-component/util';
 
-import extendsObject from '../../_util/extendsObject';
 import type { PaginationProps } from '../../pagination';
 import type { TablePaginationConfig } from '../interface';
 
@@ -45,7 +45,7 @@ function usePagination(
   );
 
   // ============ Basic Pagination Config ============
-  const mergedPagination = extendsObject(innerPagination, paginationObj, {
+  const mergedPagination = mergeProps(innerPagination, paginationObj, {
     total: paginationTotal > 0 ? paginationTotal : total,
   });
 

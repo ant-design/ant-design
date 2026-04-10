@@ -1,6 +1,6 @@
 import React from 'react';
 import { ColorPicker, Flex, Space } from 'antd';
-import type { ColorPickerProps } from 'antd';
+import type { ColorPickerProps, GetProp } from 'antd';
 import { createStyles } from 'antd-style';
 
 const useStyles = createStyles(({ token }) => ({
@@ -17,7 +17,9 @@ const stylesObject: ColorPickerProps['styles'] = {
   },
 };
 
-const stylesFn: ColorPickerProps['styles'] = (info) => {
+const stylesFn: ColorPickerProps['styles'] = (
+  info,
+): GetProp<ColorPickerProps, 'styles', 'Return'> => {
   if (info.props.size === 'large') {
     return {
       popup: {
@@ -25,7 +27,7 @@ const stylesFn: ColorPickerProps['styles'] = (info) => {
           border: '1px solid #722ed1',
         },
       },
-    } satisfies ColorPickerProps['styles'];
+    };
   }
   return {};
 };

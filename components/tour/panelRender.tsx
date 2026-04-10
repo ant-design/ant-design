@@ -9,7 +9,7 @@ import type { ButtonProps } from '../button/Button';
 import Button from '../button/Button';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { TourProps, TourStepProps } from './interface';
+import type { TourProps, TourSemanticAllType, TourStepProps } from './interface';
 
 interface TourPanelProps {
   stepProps: Omit<TourStepProps, 'closable'> & {
@@ -18,8 +18,8 @@ interface TourPanelProps {
   current: number;
   type: TourProps['type'];
   indicatorsRender?: TourProps['indicatorsRender'];
-  classNames?: TourProps['classNames'];
-  styles?: TourProps['styles'];
+  classNames?: TourSemanticAllType['classNames'];
+  styles?: TourSemanticAllType['styles'];
   actionsRender?: TourProps['actionsRender'];
 }
 
@@ -56,7 +56,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     <button
       type="button"
       onClick={onClose}
-      className={`${prefixCls}-close`}
+      className={clsx(`${prefixCls}-close`, classNames.close)}
+      style={styles.close}
       aria-label={contextLocaleGlobal?.close}
       {...ariaProps}
     >

@@ -4,6 +4,7 @@ import { fireEvent, render, waitFor } from '@testing-library/react';
 
 import type { SelectAllLabel, TransferProps } from '..';
 import Transfer from '..';
+import type { GetProp } from '../../_util/type';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { waitFakeTimer } from '../../../tests/utils';
@@ -586,19 +587,19 @@ describe('Transfer', () => {
   });
 
   it('should apply custom classNames and styles to Transfer', () => {
-    const customClassNames: TransferProps['classNames'] = {
+    const customClassNames: Required<GetProp<TransferProps, 'classNames', 'Return'>> = {
       root: 'custom-transfer-root',
       section: 'custom-transfer-section',
       header: 'custom-transfer-header',
       actions: 'custom-transfer-actions',
-    };
+    } as Required<GetProp<TransferProps, 'classNames', 'Return'>> & {};
 
-    const customStyles: TransferProps['styles'] = {
+    const customStyles: Required<GetProp<TransferProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       section: { color: 'rgb(0, 0, 255)' },
       header: { color: 'rgb(255, 255, 0)' },
       actions: { color: 'rgb(0, 128, 0)' },
-    };
+    } as Required<GetProp<TransferProps, 'styles', 'Return'>> & {};
 
     const { container } = render(
       <Transfer
@@ -615,20 +616,20 @@ describe('Transfer', () => {
     const actionsElement = container.querySelector<HTMLElement>('.ant-transfer-actions');
 
     // check classNames
-    expect(rootElement).toHaveClass(customClassNames.root!);
-    expect(sectionElements[0]).toHaveClass(customClassNames.section!);
-    expect(sectionElements[1]).toHaveClass(customClassNames.section!);
-    expect(headerElements[0]).toHaveClass(customClassNames.header!);
-    expect(headerElements[1]).toHaveClass(customClassNames.header!);
-    expect(actionsElement).toHaveClass(customClassNames.actions!);
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(sectionElements[0]).toHaveClass(customClassNames.section);
+    expect(sectionElements[1]).toHaveClass(customClassNames.section);
+    expect(headerElements[0]).toHaveClass(customClassNames.header);
+    expect(headerElements[1]).toHaveClass(customClassNames.header);
+    expect(actionsElement).toHaveClass(customClassNames.actions);
 
     // check styles
-    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
-    expect(sectionElements[0]).toHaveStyle({ color: customStyles.section?.color });
-    expect(sectionElements[1]).toHaveStyle({ color: customStyles.section?.color });
-    expect(headerElements[0]).toHaveStyle({ color: customStyles.header?.color });
-    expect(headerElements[1]).toHaveStyle({ color: customStyles.header?.color });
-    expect(actionsElement).toHaveStyle({ color: customStyles.actions?.color });
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(sectionElements[0]).toHaveStyle({ color: customStyles.section.color });
+    expect(sectionElements[1]).toHaveStyle({ color: customStyles.section.color });
+    expect(headerElements[0]).toHaveStyle({ color: customStyles.header.color });
+    expect(headerElements[1]).toHaveStyle({ color: customStyles.header.color });
+    expect(actionsElement).toHaveStyle({ color: customStyles.actions.color });
   });
 
   it('should support classNames and styles as functions', () => {

@@ -1,5 +1,6 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
+import { resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import { genStyleHooks } from '../../theme/internal';
 import type { FullToken, GenerateStyle } from '../../theme/internal';
@@ -9,11 +10,11 @@ import { genCssVar } from '../../theme/util/genStyleUtils';
 // biome-ignore lint/suspicious/noEmptyInterface: ComponentToken need to be empty by default
 export interface ComponentToken {}
 
-interface SpaceToken extends FullToken<'Space'> {
+interface AddonToken extends FullToken<'Space'> {
   // Custom token here
 }
 
-const genSpaceAddonStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
+const genSpaceAddonStyle: GenerateStyle<AddonToken, CSSObject> = (token) => {
   const {
     componentCls,
     borderRadius,
@@ -29,7 +30,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
     antCls,
   } = token;
 
-  const [varName, varRef] = genCssVar(antCls, 'space');
+  const [varName, varRef] = genCssVar(antCls, 'space-addon');
 
   return {
     [componentCls]: [
@@ -37,6 +38,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
       // ==                         Base                         ==
       // ==========================================================
       {
+        ...resetComponent(token),
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
@@ -146,7 +148,7 @@ const genSpaceAddonStyle: GenerateStyle<SpaceToken, CSSObject> = (token) => {
 };
 
 // ============================== Export ==============================
-export default genStyleHooks(['Space', 'Addon'], (token) => [
+export default genStyleHooks('Addon', (token) => [
   genSpaceAddonStyle(token),
   genCompactItemStyle(token, { focus: false }),
 ]);

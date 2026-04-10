@@ -24,6 +24,7 @@ describe('Tree.Semantic', () => {
       item: 'custom-tree-item',
       itemIcon: 'custom-tree-item-icon',
       itemTitle: 'custom-tree-item-title',
+      itemSwitcher: 'custom-tree-item-switcher',
     };
 
     const testStyles: TreeProps['styles'] = {
@@ -31,6 +32,7 @@ describe('Tree.Semantic', () => {
       item: { color: 'blue' },
       itemIcon: { fontSize: '16px' },
       itemTitle: { fontWeight: 'bold' },
+      itemSwitcher: { width: '32px' },
     };
 
     const { container } = render(
@@ -46,6 +48,10 @@ describe('Tree.Semantic', () => {
     const root = container.querySelector('.ant-tree');
     expect(root).toHaveClass(testClassNames.root!);
     expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+
+    const switcher = container.querySelector('.ant-tree-switcher');
+    expect(switcher).toHaveClass('custom-tree-item-switcher');
+    expect(switcher).toHaveStyle({ width: '32px' });
   });
 
   it('should support function-based classNames and styles', () => {
