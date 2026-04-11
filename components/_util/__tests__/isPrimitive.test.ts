@@ -1,6 +1,6 @@
 /* eslint-disable unicorn/new-for-builtins */
 /* eslint-disable no-new-wrappers */
-import isPrimitive from '../isPrimitive';
+import { isPrimitive } from '../is';
 
 describe('isPrimitive', () => {
   it('should return true for primitive types', () => {

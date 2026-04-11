@@ -15,7 +15,9 @@ function getThemeFileContent(source: string): { content: string; hookName: strin
 
 /** useGlassTheme -> glassTheme */
 function hookNameToFileName(hookName: string): string {
-  if (hookName.length <= 3) return hookName;
+  if (hookName.length <= 3) {
+    return hookName;
+  }
   return hookName.slice(3, 4).toLowerCase() + hookName.slice(4);
 }
 
@@ -93,18 +95,30 @@ export function generateFullCopyFile(params: {
 }
 
 function getAlgorithmStr(algorithm: ThemeConfig['algorithm']): string | null {
-  if (!algorithm) return null;
+  if (!algorithm) {
+    return null;
+  }
 
   if (Array.isArray(algorithm)) {
     const algoStrs = algorithm.map(getAlgorithmStr).filter(Boolean) as string[];
-    if (algoStrs.length === 0) return null;
-    if (algoStrs.length === 1) return algoStrs[0];
+    if (algoStrs.length === 0) {
+      return null;
+    }
+    if (algoStrs.length === 1) {
+      return algoStrs[0];
+    }
     return `[${algoStrs.join(', ')}]`;
   }
 
-  if (algorithm === antdTheme.defaultAlgorithm) return 'theme.defaultAlgorithm';
-  if (algorithm === antdTheme.darkAlgorithm) return 'theme.darkAlgorithm';
-  if (algorithm === antdTheme.compactAlgorithm) return 'theme.compactAlgorithm';
+  if (algorithm === antdTheme.defaultAlgorithm) {
+    return 'theme.defaultAlgorithm';
+  }
+  if (algorithm === antdTheme.darkAlgorithm) {
+    return 'theme.darkAlgorithm';
+  }
+  if (algorithm === antdTheme.compactAlgorithm) {
+    return 'theme.compactAlgorithm';
+  }
 
   return null;
 }
@@ -113,11 +127,21 @@ function stringifyValue(value: unknown, depth = 0): string {
   const indent = '  '.repeat(depth + 1);
   const closingIndent = '  '.repeat(depth);
 
-  if (value === undefined) return 'undefined';
-  if (value === null) return 'null';
-  if (typeof value === 'boolean') return String(value);
-  if (typeof value === 'number') return String(value);
-  if (typeof value === 'string') return `'${value}'`;
+  if (value === undefined) {
+    return 'undefined';
+  }
+  if (value === null) {
+    return 'null';
+  }
+  if (typeof value === 'boolean') {
+    return String(value);
+  }
+  if (typeof value === 'number') {
+    return String(value);
+  }
+  if (typeof value === 'string') {
+    return `'${value}'`;
+  }
 
   if (typeof value === 'function') {
     const algoStr = getAlgorithmStr(value as ThemeConfig['algorithm']);
@@ -125,7 +149,9 @@ function stringifyValue(value: unknown, depth = 0): string {
   }
 
   if (Array.isArray(value)) {
-    if (value.length === 0) return '[]';
+    if (value.length === 0) {
+      return '[]';
+    }
     const items = value.map((item) => `${indent}${stringifyValue(item, depth + 1)}`);
     return `[\n${items.join(',\n')},\n${closingIndent}]`;
   }
@@ -134,7 +160,9 @@ function stringifyValue(value: unknown, depth = 0): string {
     const entries = Object.entries(value as Record<string, unknown>).filter(
       ([, v]) => v !== undefined && typeof v !== 'function',
     );
-    if (entries.length === 0) return '{}';
+    if (entries.length === 0) {
+      return '{}';
+    }
     const items = entries.map(([k, v]) => `${indent}${k}: ${stringifyValue(v, depth + 1)}`);
     return `{\n${items.join(',\n')},\n${closingIndent}}`;
   }

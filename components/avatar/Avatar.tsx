@@ -3,6 +3,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -174,14 +175,13 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     hashId,
   );
 
-  const sizeStyle: React.CSSProperties =
-    typeof size === 'number'
-      ? {
-          width: size,
-          height: size,
-          fontSize: icon ? size / 2 : 18,
-        }
-      : {};
+  const sizeStyle: React.CSSProperties = isNumber(size)
+    ? {
+        width: size,
+        height: size,
+        fontSize: icon ? size / 2 : 18,
+      }
+    : {};
 
   let childrenToRender: React.ReactNode;
   if (typeof src === 'string' && isImgExist) {
