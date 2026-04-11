@@ -1,4 +1,5 @@
 import type { MasonryProps } from '..';
+import { isNumber } from '../../_util/is';
 
 describe('Masonry.Semantic', () => {
   it('should support classNames and styles props types', () => {
@@ -54,12 +55,12 @@ describe('Masonry.Semantic', () => {
   it('should support function form classNames and styles with different props', () => {
     // Test function behavior with different prop values
     const classNamesFn = ({ props }: { props: MasonryProps }) => ({
-      root: `cols-${typeof props.columns === 'number' ? props.columns : 'responsive'}`,
+      root: `cols-${isNumber(props.columns) ? props.columns : 'responsive'}`,
       item: `gutter-${Array.isArray(props.gutter) ? props.gutter[0] : props.gutter || 0}`,
     });
 
     const stylesFn = ({ props }: { props: MasonryProps }) => {
-      const isWideLayout = typeof props.columns === 'number' && props.columns >= 4;
+      const isWideLayout = isNumber(props.columns) && props.columns >= 4;
       return {
         root: {
           backgroundColor: isWideLayout ? '#e6f7ff' : '#f6ffed',
