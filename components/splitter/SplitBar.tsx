@@ -40,9 +40,9 @@ export interface SplitBarProps {
   containerSize: number;
 }
 
-function getValidNumber(num?: number): number {
-  return isNumber(num) ? Math.round(num) : 0;
-}
+const getValidNumber = (num?: number) => {
+  return isNumber(num) && Number.isFinite(num) ? Math.round(num) : 0;
+};
 
 const DOUBLE_CLICK_TIME_GAP = 300;
 
