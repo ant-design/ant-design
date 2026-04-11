@@ -256,7 +256,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   // search in tree mode column filter
   const [searchValue, setSearchValue] = React.useState('');
-  const normalizedSearchValue = searchValue.trim().toLowerCase();
+  const normalizedSearchValue = React.useMemo(() => searchValue.trim().toLowerCase(), [searchValue]);
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchValue(value);
