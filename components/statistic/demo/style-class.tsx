@@ -25,6 +25,11 @@ const styleFn: StatisticProps['styles'] = ({
       content: {
         color: '#ff7875',
       },
+      value: {
+        backgroundColor: '#fff1f0',
+        borderRadius: 4,
+        paddingInline: 6,
+      },
     };
   }
   return {};
@@ -42,7 +47,16 @@ const App: React.FC = () => {
         {...statisticSharedProps}
         title="Monthly Active Users"
         value={93241}
-        styles={{ title: { color: '#1890ff', fontWeight: 600 }, content: { fontSize: '24px' } }}
+        styles={{
+          title: { color: '#1890ff', fontWeight: 600 },
+          content: { fontSize: '24px' },
+          value: {
+            backgroundColor: '#e6f4ff',
+            borderRadius: 4,
+            color: '#0958d9',
+            paddingInline: 6,
+          },
+        }}
         suffix="users"
       />
       <Statistic
