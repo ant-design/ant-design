@@ -120,7 +120,7 @@ const renderFilterItems = (options: RenderFilterItemsOptions): Required<MenuProp
     };
     if (normalizedSearchValue) {
       if (typeof filterSearch === 'function') {
-        return filterSearch(searchValue, filter) ? item : null;
+        return filterSearch(normalizedSearchValue, filter) ? item : null;
       }
       return searchValueMatched(normalizedSearchValue, filter.text) ? item : null;
     }
@@ -256,7 +256,12 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   // search in tree mode column filter
   const [searchValue, setSearchValue] = React.useState('');
-  const normalizedSearchValue = React.useMemo(() => searchValue.trim().toLowerCase(), [searchValue]);
+
+  const normalizedSearchValue = React.useMemo<string>(
+    () => searchValue.trim().toLowerCase(),
+    [searchValue],
+  );
+
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchValue(value);
