@@ -18,6 +18,7 @@ import {
   resolveStyleOrClass,
   useMergeSemantic,
 } from '../_util/hooks';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -95,8 +96,9 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
+
   const mergedDuration = useMemo(
-    () => (typeof duration === 'number' && duration > 0 ? duration : false),
+    () => (isNumber(duration) && duration > 0 ? duration : false),
     [duration],
   );
 

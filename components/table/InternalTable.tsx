@@ -7,6 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -137,19 +138,18 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject>
-  extends Omit<
-    RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'scroll'
-    | 'emptyText'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TableProps<RecordType = AnyObject> extends Omit<
+  RcTableProps<RecordType>,
+  | 'transformColumns'
+  | 'internalHooks'
+  | 'internalRefs'
+  | 'data'
+  | 'columns'
+  | 'scroll'
+  | 'emptyText'
+  | 'classNames'
+  | 'styles'
+> {
   classNames?: TableClassNamesType<RecordType>;
   styles?: TableStylesType<RecordType>;
   dropdownPrefixCls?: string;
@@ -591,7 +591,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // Indent size
   if (typeof mergedExpandable.indentSize !== 'number') {
-    mergedExpandable.indentSize = typeof indentSize === 'number' ? indentSize : 15;
+    mergedExpandable.indentSize = isNumber(indentSize) ? indentSize : 15;
   }
 
   // ============================ Render ============================

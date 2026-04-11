@@ -193,7 +193,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
               {prefix}
             </span>
           )}
-          {valueRender ? valueRender(valueNode) : valueNode}
+          {typeof valueRender === 'function' ? valueRender(valueNode) : valueNode}
           {suffix && (
             <span className={suffixClassNames} style={mergedStyles.suffix}>
               {suffix}

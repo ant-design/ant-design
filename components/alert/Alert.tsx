@@ -11,7 +11,7 @@ import { clsx } from 'clsx';
 
 import type { ClosableType, SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';

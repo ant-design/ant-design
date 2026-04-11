@@ -4,6 +4,7 @@ import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import type { Locale } from '../../locale';
 import type { TooltipProps } from '../../tooltip';
@@ -29,7 +30,7 @@ const DESCEND = 'descend';
 const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
 ): number | false => {
-  if (typeof column.sorter === 'object' && typeof column.sorter.multiple === 'number') {
+  if (typeof column.sorter === 'object' && isNumber(column.sorter.multiple)) {
     return column.sorter.multiple;
   }
   return false;

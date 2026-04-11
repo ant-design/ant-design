@@ -15,7 +15,7 @@ import {
   resolveStyleOrClass,
   useMergeSemantic,
 } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
