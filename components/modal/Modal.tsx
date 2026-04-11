@@ -242,9 +242,7 @@ const Modal: React.FC<ModalProps> = (props) => {
       Object.keys(responsiveWidth).forEach((breakpoint) => {
         const breakpointWidth = responsiveWidth[breakpoint as Breakpoint];
         if (isNonNullable(breakpointWidth)) {
-          vars[`--${prefixCls}-${breakpoint}-width`] = isNumber(breakpointWidth)
-            ? `${breakpointWidth}px`
-            : breakpointWidth;
+          vars[`--${prefixCls}-${breakpoint}-width`] = isNumber(breakpointWidth) ? `${breakpointWidth}px` : breakpointWidth;
         }
       });
     }
