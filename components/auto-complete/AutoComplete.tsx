@@ -120,7 +120,7 @@ const AutoComplete: React.ForwardRefRenderFunction<RefSelectProps, AutoCompleteP
 
   const mergedPopupRender = popupRender || dropdownRender;
   const mergedOnOpenChange = onOpenChange || onDropdownVisibleChange;
-  const mergedPopupMatchSelectWidth = popupMatchSelectWidth || dropdownMatchSelectWidth;
+  const mergedPopupMatchSelectWidth = popupMatchSelectWidth ?? dropdownMatchSelectWidth;
 
   // ============================= Input =============================
   let customizeInput: React.ReactElement | undefined;

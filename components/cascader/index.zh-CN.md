@@ -39,6 +39,7 @@ demo:
 <code src="./demo/status.tsx">自定义状态</code>
 <code src="./demo/style-class.tsx" version="6.0.0">自定义语义结构的样式和类</code>
 <code src="./demo/panel.tsx" version=">= 5.10.0">面板使用</code>
+<code src="./demo/ellipsis-debug.tsx" debug>菜单项省略样式调试</code>
 <code src="./demo/render-panel.tsx" debug>_InternalPanelDoNotUseOrYouWillBeFired</code>
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 
@@ -96,8 +97,8 @@ demo:
 | removeIcon | 自定义的多选框清除图标 | ReactNode | - |  |
 | ~searchValue~ | 设置搜索的值，需要与 `showSearch` 配合使用 | string | - | 4.17.0 |
 | ~onSearch~ | 监听搜索，返回输入的值 | (search: string) => void | - | 4.17.0 |
-| ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `popupMenuColumnStyle` 替换 | CSSProperties | - |  |
-| popupMenuColumnStyle | 下拉菜单列的样式 | CSSProperties | - |  |
+| ~~dropdownMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `styles.popup.listItem` 替换 | CSSProperties | - |  |
+| ~~popupMenuColumnStyle~~ | 下拉菜单列的样式，请使用 `styles.popup.listItem` 替换 | CSSProperties | - |  |
 | optionRender | 自定义渲染下拉选项 | (option: Option) => React.ReactNode | - | 5.16.0 |
 
 ### showSearch

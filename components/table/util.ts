@@ -1,4 +1,4 @@
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import type { ColumnTitle, ColumnTitleProps, ColumnType, Key } from './interface';
 

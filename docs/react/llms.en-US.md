@@ -29,19 +29,20 @@ We provide several aggregated files to help AI tools access our documentation:
 
 ### Single Component Documentation
 
-Access individual component documentation with `.md` suffix:
+Add `.md` suffix to the original component documentation URL:
 
-- `https://ant.design/components/button.md` (English)
-- `https://ant.design/components/button-cn.md` (Chinese)
+- [`https://ant.design/components/button.md`](https://ant.design/components/button.md) (English)
+- [`https://ant.design/components/button-cn.md`](https://ant.design/components/button-cn.md) (Chinese)
 
 ### Semantic Documentation
 
 Each component has a semantic description file:
 
-- `https://ant.design/components/button/semantic.md` (English)
-- `https://ant.design/components/button-cn/semantic.md` (Chinese)
+- [`https://ant.design/components/button/semantic.md`](https://ant.design/components/button/semantic.md) (English)
+- [`https://ant.design/components/button-cn/semantic.md`](https://ant.design/components/button-cn/semantic.md) (Chinese)
 
 Semantic documentation includes:
+
 - Component parts and their purposes
 - Usage examples and best practices
 - DOM structure overview
@@ -58,4 +59,4 @@ Semantic documentation includes:
 | **Trae** | Add to project's knowledge sources in settings. [Documentation](https://trae.ai/docs) | `Read https://ant.design/llms-full.txt and understand Ant Design components. Use this knowledge when writing code with Ant Design.` |
 | **Qoder** | Add to `.qoder/config.yml` or use `@docs` in conversation. [Documentation](https://docs.qoder.com/) | `Read https://ant.design/llms-full.txt and understand Ant Design components. Use this knowledge when writing code with Ant Design.` |
 | **Neovate Code** | Run `neovate` and describe task with prompt. [Documentation](https://github.com/neovateai/neovate-code) | `Read https://ant.design/llms-full.txt and understand Ant Design components. Use this knowledge when writing code with Ant Design.` |
-
+| **Qwen Code** | Open-source terminal AI agent with free OAuth tier. Run `qwen` for interactive mode, use `@` to reference files. [Documentation](https://github.com/QwenLM/qwen-code) | `Read https://ant.design/llms-full.txt and understand Ant Design components. Use this knowledge when writing code with Ant Design.` |

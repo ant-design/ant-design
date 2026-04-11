@@ -27,7 +27,7 @@ return (
   />
 );
 
-// No recommended 🙅🏻‍♀️
+// Not recommended 🙅🏼‍♀️
 return (
   <Radio.Group value={value}>
     <Radio value={1}>A</Radio>

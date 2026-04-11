@@ -15,7 +15,7 @@ import {
   resolveStyleOrClass,
   useMergeSemantic,
 } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -173,7 +173,6 @@ export function useInternalMessage(
           'You are calling notice in render which will break in React 18 concurrent mode. Please trigger in effect instead.',
         );
         const fakeResult: any = () => {};
-        // eslint-disable-next-line react-hooks/immutability
         fakeResult.then = () => {};
         return fakeResult;
       }

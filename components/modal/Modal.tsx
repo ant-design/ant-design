@@ -13,6 +13,7 @@ import {
   useMergeSemantic,
   useZIndex,
 } from '../_util/hooks';
+import { isNonNullable, isNumber } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -240,9 +241,8 @@ const Modal: React.FC<ModalProps> = (props) => {
     if (responsiveWidth) {
       Object.keys(responsiveWidth).forEach((breakpoint) => {
         const breakpointWidth = responsiveWidth[breakpoint as Breakpoint];
-        if (breakpointWidth !== undefined) {
-          vars[`--${prefixCls}-${breakpoint}-width`] =
-            typeof breakpointWidth === 'number' ? `${breakpointWidth}px` : breakpointWidth;
+        if (isNonNullable(breakpointWidth)) {
+          vars[`--${prefixCls}-${breakpoint}-width`] = isNumber(breakpointWidth) ? `${breakpointWidth}px` : breakpointWidth;
         }
       });
     }

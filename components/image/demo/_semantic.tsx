@@ -71,7 +71,7 @@ const Block: React.FC<Readonly<ImagePropsBlock>> = ({ classNames, ...restProps }
           ]}
           classNames={classNames}
           styles={{ popup: { root: { position: 'absolute' } } }}
-          preview={{ getContainer: () => holderRef.current!, open: true }}
+          preview={{ getContainer: () => holderRef.current!, open: true, focusTrap: false }}
         />
       </div>
     </Flex>

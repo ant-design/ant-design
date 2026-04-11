@@ -2,6 +2,7 @@ import * as React from 'react';
 import { List } from '@rc-component/form';
 import type { StoreValue, ValidatorRule } from '@rc-component/form/lib/interface';
 
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { FormItemPrefixContext } from './context';
@@ -38,8 +39,7 @@ const FormList: React.FC<FormListProps> = ({
     const warning = devUseWarning('Form.List');
 
     warning(
-      typeof props.name === 'number' ||
-        (Array.isArray(props.name) ? !!props.name.length : !!props.name),
+      isNumber(props.name) || (Array.isArray(props.name) ? !!props.name.length : !!props.name),
       'usage',
       'Miss `name` prop.',
     );
