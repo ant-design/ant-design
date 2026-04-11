@@ -330,7 +330,7 @@
     }
   },
   "overrides": {
-    "webpack": "5.106.0"
+    "webpack": "5.106.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
