@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import { SpaceContext } from './context';
 import type { SpaceContextType } from './context';
 

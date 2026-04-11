@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isNumber } from '../_util/is';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { useComponentConfig } from '../config-provider/context';
@@ -138,7 +139,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
       return 3;
     }
 
-    if (typeof columns === 'number') {
+    if (isNumber(columns)) {
       return columns;
     }
 

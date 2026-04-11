@@ -7,6 +7,7 @@ import { useEvent } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
 
@@ -39,11 +40,9 @@ export interface SplitBarProps {
   containerSize: number;
 }
 
-function getValidNumber(num?: number): number {
-  return typeof num === 'number' && !Number.isNaN(num) && Number.isFinite(num)
-    ? Math.round(num)
-    : 0;
-}
+const getValidNumber = (num?: number) => {
+  return isNumber(num) && Number.isFinite(num) ? Math.round(num) : 0;
+};
 
 const DOUBLE_CLICK_TIME_GAP = 300;
 

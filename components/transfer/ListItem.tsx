@@ -3,6 +3,7 @@ import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import { clsx } from 'clsx';
 
 import type { KeyWiseTransferItem, TransferSemanticClassNames, TransferSemanticStyles } from '.';
+import { isNumber } from '../_util/is';
 import Checkbox from '../checkbox';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
@@ -42,7 +43,7 @@ const ListItem = <RecordType extends KeyWiseTransferItem>(props: ListItemProps<R
   });
 
   let title: string | undefined;
-  if (typeof renderedText === 'string' || typeof renderedText === 'number') {
+  if (typeof renderedText === 'string' || isNumber(renderedText)) {
     title = String(renderedText);
   }
 

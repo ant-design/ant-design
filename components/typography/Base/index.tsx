@@ -8,7 +8,7 @@ import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import isNonNullable from '../../_util/isNonNullable';
+import { isNonNullable } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import { ConfigContext } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -65,8 +65,9 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
-  extends TypographyProps<C> {
+export interface BlockProps<
+  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
+> extends TypographyProps<C> {
   title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
