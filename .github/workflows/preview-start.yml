@@ -22,7 +22,7 @@ jobs:
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
       - name: update status comment
-        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b
+        uses: actions-cool/maintain-one-comment@4b2dbf086015f892dcb5e8c1106f5fccd6c1476b # v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           body: |
