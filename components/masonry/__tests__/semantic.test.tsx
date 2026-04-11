@@ -20,7 +20,7 @@ describe('Masonry.Semantic', () => {
     };
 
     const classNamesFn = ({ props }: { props: MasonryProps }) => ({
-      root: `dynamic-root-${typeof props.columns === 'number' ? props.columns : 'default'}`,
+      root: `dynamic-root-${isNumber(props.columns) ? props.columns : 'default'}`,
       item: 'dynamic-item',
     });
 
