@@ -99,7 +99,15 @@ const genClearStyle = (
   size: number,
   extraStyle?: CSSObject,
 ): CSSObject => {
-  const { componentCls, borderRadiusSM, lineWidth, colorSplit, colorBorder, red6 } = token;
+  const {
+    componentCls,
+    borderRadiusSM,
+    lineWidth,
+    colorSplit,
+    colorBorder,
+    colorBgContainerDisabled,
+    red6,
+  } = token;
 
   return {
     [`${componentCls}-clear`]: {
@@ -128,6 +136,16 @@ const genClearStyle = (
 
       '&:hover': {
         borderColor: colorBorder,
+      },
+
+      '&-disabled': {
+        cursor: 'not-allowed',
+        opacity: 0.5,
+        background: colorBgContainerDisabled,
+
+        '&:hover': {
+          borderColor: colorSplit,
+        },
       },
     },
   };
