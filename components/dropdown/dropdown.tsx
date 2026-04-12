@@ -43,7 +43,7 @@ const _Placements = [
 
 type Placement = (typeof _Placements)[number];
 
-type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter' | 'left' | 'right'>;
+type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 
 export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
@@ -217,14 +217,6 @@ const Dropdown: CompoundedComponent = (props) => {
 
     if (placement.includes('Center')) {
       return placement.slice(0, placement.indexOf('Center')) as DropdownPlacement;
-    }
-
-    // Map bare 'left'/'right' to their default sub-positions
-    if (placement === 'left') {
-      return 'leftTop' as DropdownPlacement;
-    }
-    if (placement === 'right') {
-      return 'rightTop' as DropdownPlacement;
     }
 
     return placement as DropdownPlacement;
