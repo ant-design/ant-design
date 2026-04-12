@@ -29,18 +29,18 @@ const styleFn: StatisticProps['styles'] = ({
         backgroundColor: '#fff1f0',
         borderRadius: 4,
         paddingInline: 6,
+        userSelect: 'none',
       },
     };
   }
   return {};
 };
 
-const App: React.FC = () => {
+const Demo: React.FC = () => {
   const statisticSharedProps: StatisticProps = {
     classNames: { root: classNames.root },
     prefix: <ArrowUpOutlined />,
   };
-
   return (
     <Flex vertical gap="medium">
       <Statistic
@@ -55,6 +55,7 @@ const App: React.FC = () => {
             borderRadius: 4,
             color: '#0958d9',
             paddingInline: 6,
+            userSelect: 'none',
           },
         }}
         suffix="users"
@@ -71,4 +72,4 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+export default Demo;
