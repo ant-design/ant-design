@@ -8,13 +8,20 @@ import { clsx } from 'clsx';
 import useLocale from '../../../hooks/useLocale';
 import { tokenMeta } from '../versionToken';
 
+const isNumber = (val: any): val is number => {
+  return typeof val === 'number' && !Number.isNaN(val);
+};
+
 const styles = createStaticStyles(({ cssVar, css }) => {
-  const height = cssVar.controlHeightLG;
-  const dotSize = Number(height) / 5;
+  const { controlHeightLG } = cssVar;
+
+  const height = isNumber(controlHeightLG) ? controlHeightLG : 40;
+
+  const dotSize = height / 5;
 
   return {
     container: css`
-      background: #fff;
+      background-color: #fff;
       border-radius: ${cssVar.borderRadiusLG};
       overflow: hidden;
     `,
@@ -35,7 +42,7 @@ const styles = createStaticStyles(({ cssVar, css }) => {
     `,
 
     colDark: css`
-      background: #000;
+      background-color: #000;
       color: #fff;
     `,
 
@@ -43,7 +50,7 @@ const styles = createStaticStyles(({ cssVar, css }) => {
       border-radius: 100%;
       width: ${dotSize}px;
       height: ${dotSize}px;
-      background: #000;
+      background-color: #000;
       box-shadow: 0 0 0 1px rgba(150, 150, 150, 0.25);
     `,
 
@@ -65,7 +72,7 @@ interface ColorCircleProps {
 const ColorCircle: React.FC<ColorCircleProps> = ({ color }) => {
   return (
     <Flex align="center" gap={4}>
-      <div className={styles.dot} style={{ background: color }} />
+      <div className={styles.dot} style={{ backgroundColor: color }} />
       <div className={styles.dotColor}>{color}</div>
     </Flex>
   );
