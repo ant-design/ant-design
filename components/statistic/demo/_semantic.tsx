@@ -31,7 +31,7 @@ const locales = {
   },
 };
 
-const BlockList: React.FC<React.PropsWithChildren<StatisticProps>> = (props) => {
+const BlockList: React.FC<StatisticProps> = (props) => {
   const divRef = React.useRef<HTMLDivElement>(null);
   return (
     <div ref={divRef} style={{ position: 'absolute' }}>
@@ -39,7 +39,17 @@ const BlockList: React.FC<React.PropsWithChildren<StatisticProps>> = (props) => 
         title="Active"
         value={11.28}
         precision={2}
-        styles={{ content: { color: '#3f8600' } }}
+        styles={{
+          content: {
+            color: '#3f8600',
+            fontSize: 24,
+          },
+          value: {
+            color: '#e11b1b',
+            fontSize: 32,
+            paddingInline: 8,
+          },
+        }}
         prefix={<ArrowUpOutlined />}
         suffix="%"
         {...props}
