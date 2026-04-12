@@ -3,14 +3,14 @@ import React from 'react';
 import { FastColor } from '@ant-design/fast-color';
 import { Flex, theme } from 'antd';
 import { createStaticStyles } from 'antd-style';
-import tokenMeta from 'antd/es/version/token-meta.json';
 import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
+import { tokenMeta } from '../versionToken';
 
 const styles = createStaticStyles(({ cssVar, css }) => {
   const height = cssVar.controlHeightLG;
-  const dotSize = height / 5;
+  const dotSize = Number(height) / 5;
 
   return {
     container: css`
@@ -86,7 +86,7 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
     const darkTokens = theme.getDesignToken({ algorithm: theme.darkAlgorithm });
 
     return list.map((tokenName) => {
-      const meta = (tokenMeta.global as any)[tokenName];
+      const meta = tokenMeta.global?.[tokenName];
       const name = lang === 'cn' ? meta.name : meta.nameEn;
       return {
         name: name.replace('颜色', '').replace('色', '').replace('Color', '').trim(),
