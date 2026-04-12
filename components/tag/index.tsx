@@ -45,7 +45,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   className?: string;
   rootClassName?: string;
   color?: LiteralUnion<PresetColorType | PresetStatusColorType>;
-  variant?: 'filled' | 'solid' | 'outlined';
+  variant?: 'filled' | 'solid' | 'outlined' | 'blur';
   /** Advised to use closeIcon instead. */
   closable?: ClosableType;
   closeIcon?: React.ReactNode;

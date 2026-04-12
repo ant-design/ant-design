@@ -26,6 +26,36 @@ export interface ComponentToken {
    * @descEN Default text color for solid tag.
    */
   solidTextColor: string;
+
+  /**
+   * @desc 模糊背景标签的底色
+   * @descEN Background color for blur variant tag.
+   */
+  blurBg: string;
+
+  /**
+   * @desc 模糊背景标签的默认文字色
+   * @descEN Default text color for blur variant tag.
+   */
+  blurColor: string;
+
+  /**
+   * @desc blur 变体的透明度（浅色主题）
+   * @descEN Alpha for blur variant (light theme)
+   */
+  blurAlpha: number;
+
+  /**
+   * @desc blur 变体的透明度（深色主题）
+   * @descEN Alpha for blur variant (dark theme)
+   */
+  blurDarkAlpha: number;
+
+  /**
+   * @desc blur 变体的边框色
+   * @descEN Border color for blur variant
+   */
+  blurBorderColor: string;
 }
 
 export interface TagToken extends FullToken<'Tag'> {
@@ -34,6 +64,9 @@ export interface TagToken extends FullToken<'Tag'> {
   tagIconSize: number | string;
   tagPaddingHorizontal: number;
   tagBorderlessBg: string;
+  blurAlpha: number;
+  blurDarkAlpha: number;
+  blurBorderColor: string;
 }
 
 // ============================== Styles ==============================
@@ -164,6 +197,25 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
       backgroundColor: token.tagBorderlessBg,
     },
 
+    [`${componentCls}-blur`]: {
+      borderColor: token.blurBorderColor,
+      backgroundColor: token.blurBg,
+      backdropFilter: 'blur(8px)',
+      WebkitBackdropFilter: 'blur(8px)',
+      color: token.blurColor,
+      '&, a, a:hover': {
+        color: token.blurColor,
+      },
+      [`${componentCls}-close-icon`]: {
+        color: token.blurColor,
+        opacity: 0.65,
+        '&:hover': {
+          opacity: 1,
+          color: token.colorTextHeading,
+        },
+      },
+    },
+
     [`&${componentCls}-disabled`]: {
       color: token.colorTextDisabled,
       cursor: 'not-allowed',
@@ -187,11 +239,18 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
         borderColor: token.colorBorderDisabled,
       },
 
-      [`&${componentCls}-solid, &${componentCls}-filled`]: {
+      [`&${componentCls}-solid, &${componentCls}-filled, &${componentCls}-blur`]: {
         color: token.colorTextDisabled,
         [`${componentCls}-close-icon`]: {
           color: token.colorTextDisabled,
         },
+      },
+
+      [`&${componentCls}-blur`]: {
+        backdropFilter: 'none',
+        WebkitBackdropFilter: 'none',
+        backgroundColor: token.colorBgContainerDisabled,
+        borderColor: token.blurBorderColor,
       },
 
       [`${componentCls}-close-icon`]: {
@@ -224,12 +283,40 @@ export const prepareComponentToken: GetDefaultToken<'Tag'> = (token) => {
     ? '#000'
     : '#fff';
 
+  // Dark theme: blur uses black tint (not light fill tertiary) so default frosted glass reads as dark.
+  const containerIsDark = !isBright(
+    new AggregationColor(token.colorBgContainer),
+    '#fff',
+  );
+  const blurAlpha = 0.55;
+  const blurDarkAlpha = 0.45;
+  const blurBorderColor = 'transparent';
+
+  const blurBg = containerIsDark
+    ? new FastColor('#000').setA(blurDarkAlpha).toRgbString()
+    : new FastColor(token.colorFillTertiary).setA(blurAlpha).toRgbString();
+
+  const blurBgComposite = (
+    containerIsDark
+      ? new FastColor('#000').setA(blurDarkAlpha)
+      : new FastColor(token.colorFillTertiary).setA(blurAlpha)
+  ).onBackground(token.colorBgContainer).toHexString();
+
+  const blurColor = isBright(new AggregationColor(blurBgComposite), '#fff')
+    ? token.colorText
+    : token.colorTextLightSolid;
+
   return {
     defaultBg: new FastColor(token.colorFillTertiary)
       .onBackground(token.colorBgContainer)
       .toHexString(),
     defaultColor: token.colorText,
     solidTextColor,
+    blurBg,
+    blurColor,
+    blurAlpha,
+    blurDarkAlpha,
+    blurBorderColor,
   };
 };
 

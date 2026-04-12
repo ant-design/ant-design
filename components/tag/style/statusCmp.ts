@@ -1,4 +1,5 @@
 // Style as status component
+import { FastColor } from '@ant-design/fast-color';
 import type { CSSInterpolation } from '@ant-design/cssinjs';
 
 import { prepareComponentToken, prepareToken } from '.';
@@ -28,6 +29,12 @@ const genTagStatusStyle = (
       },
       [`&${token.componentCls}-filled`]: {
         backgroundColor: token[`color${capitalizedCssVariableType}Bg`],
+        color: token[`color${cssVariableType}`],
+      },
+      [`&${token.componentCls}-blur`]: {
+        backgroundColor: new FastColor(token[`color${capitalizedCssVariableType}Bg`])
+          .setA(token.blurAlpha)
+          .toRgbString(),
         color: token[`color${cssVariableType}`],
       },
     },

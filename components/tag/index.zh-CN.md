@@ -19,6 +19,7 @@ demo:
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基本</code>
+<code src="./demo/variant.tsx">变体</code>
 <code src="./demo/colorful.tsx">多彩标签</code>
 <code src="./demo/control.tsx">动态添加和删除</code>
 <code src="./demo/checkable.tsx">可选择标签</code>
@@ -48,7 +49,7 @@ demo:
 | onClose | 关闭时的回调（可通过 `e.preventDefault()` 来阻止默认行为） | (e: React.MouseEvent<HTMLElement, MouseEvent>) => void | - |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - | 6.0.0 |
-| variant | 标签变体 | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 |
+| variant | 标签变体 | `'filled' \| 'solid' \| 'outlined' \| 'blur'` | `'filled'` | 6.0.0 |
 
 ### Tag.CheckableTag
 
