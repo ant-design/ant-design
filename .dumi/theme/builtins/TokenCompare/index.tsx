@@ -8,16 +8,10 @@ import { clsx } from 'clsx';
 import useLocale from '../../../hooks/useLocale';
 import { tokenMeta } from '../versionToken';
 
-const isNumber = (val: any): val is number => {
-  return typeof val === 'number' && !Number.isNaN(val);
-};
-
 const styles = createStaticStyles(({ cssVar, css }) => {
   const { controlHeightLG } = cssVar;
 
-  const height = isNumber(controlHeightLG) ? controlHeightLG : 40;
-
-  const dotSize = height / 5;
+  const dotSize = `calc(${controlHeightLG} / 5)`;
 
   return {
     container: css`
@@ -33,7 +27,7 @@ const styles = createStaticStyles(({ cssVar, css }) => {
 
     col: css`
       flex: 1 1 33%;
-      height: ${height}px;
+      height: ${controlHeightLG};
       display: flex;
       align-items: center;
       justify-content: center;
@@ -48,8 +42,8 @@ const styles = createStaticStyles(({ cssVar, css }) => {
 
     dot: css`
       border-radius: 100%;
-      width: ${dotSize}px;
-      height: ${dotSize}px;
+      width: ${dotSize};
+      height: ${dotSize};
       background-color: #000;
       box-shadow: 0 0 0 1px rgba(150, 150, 150, 0.25);
     `,
