@@ -27,7 +27,7 @@ exports[`renders components/statistic/demo/_semantic.tsx correctly 1`] = `
           </div>
           <div
             class="ant-statistic-content semantic-mark-content"
-            style="color: rgb(63, 134, 0);"
+            style="color: rgb(63, 134, 0); font-size: 24px;"
           >
             <span
               class="ant-statistic-content-prefix semantic-mark-prefix"
@@ -54,6 +54,7 @@ exports[`renders components/statistic/demo/_semantic.tsx correctly 1`] = `
             </span>
             <span
               class="ant-statistic-content-value semantic-mark-value"
+              style="color: rgb(225, 27, 27); font-size: 32px; padding-inline: 8px;"
             >
               <span
                 class="ant-statistic-content-value-int"
