@@ -3,6 +3,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -42,7 +43,7 @@ function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
   item: RecordType,
 ): string {
   for (const v of [renderResult, item.title, item.key]) {
-    if (typeof v === 'string' || typeof v === 'number') {
+    if (typeof v === 'string' || isNumber(v)) {
       return String(v);
     }
   }

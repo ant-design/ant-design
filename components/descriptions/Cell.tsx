@@ -3,7 +3,7 @@ import { clsx } from 'clsx';
 
 import type { DescriptionsClassNamesType, DescriptionsStylesType } from '.';
 import { useMergeSemantic } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import DescriptionsContext from './DescriptionsContext';
 import type { CellSemanticClassNames, CellSemanticStyles } from './DescriptionsContext';
 

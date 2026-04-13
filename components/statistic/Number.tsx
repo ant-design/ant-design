@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { isNumber } from '../_util/is';
 import type { FormatConfig, valueType } from './utils';
 
 interface NumberProps extends FormatConfig {
@@ -30,7 +31,7 @@ const StatisticNumber: React.FC<NumberProps> = (props) => {
 
       int = int.replace(/\B(?=(\d{3})+(?!\d))/g, groupSeparator);
 
-      if (typeof precision === 'number') {
+      if (isNumber(precision)) {
         decimal = decimal.padEnd(precision, '0').slice(0, precision > 0 ? precision : 0);
       }
 

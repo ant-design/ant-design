@@ -45,7 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Menu
 
-| Param | Description | Type | Default value | Version |
+| Property | Description | Type | Default value | Version |
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultOpenKeys | Array with the keys of default opened sub menus | string\[] | - |  |
@@ -82,7 +82,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### MenuItemType
 
-| Param    | Description                          | Type      | Default value | Version |
+| Property | Description                          | Type      | Default value | Version |
 | -------- | ------------------------------------ | --------- | ------------- | ------- |
 | danger   | Display the danger style             | boolean   | false         |         |
 | disabled | Whether menu item is disabled        | boolean   | false         |         |
@@ -120,7 +120,7 @@ const groupItem = {
 };
 ```
 
-| Param    | Description            | Type                              | Default value | Version |
+| Property | Description            | Type                              | Default value | Version |
 | -------- | ---------------------- | --------------------------------- | ------------- | ------- |
 | children | Sub-menu items         | [MenuItemType\[\]](#menuitemtype) | -             |         |
 | label    | The title of the group | ReactNode                         | -             |         |
@@ -135,9 +135,9 @@ const dividerItem = {
 };
 ```
 
-| Param  | Description            | Type    | Default value | Version |
-| ------ | ---------------------- | ------- | ------------- | ------- |
-| dashed | Whether line is dashed | boolean | false         |         |
+| Property | Description            | Type    | Default value | Version |
+| -------- | ---------------------- | ------- | ------------- | ------- |
+| dashed   | Whether line is dashed | boolean | false         |         |
 
 ## FAQ
 
