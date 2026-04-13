@@ -15,6 +15,23 @@ tag: vVERSION
 
 ---
 
+## 6.3.6
+
+`2026-04-13`
+
+- 🐞 Fix InputNumber disabled handlers showing hover styles. [#57592](https://github.com/ant-design/ant-design/pull/57592) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Space.Addon wrapping CJK content in compact layouts. [#57622](https://github.com/ant-design/ant-design/pull/57622) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Cascader menu item ellipsis styles for long option labels. [#57540](https://github.com/ant-design/ant-design/pull/57540) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Image preview focus not being locked when opened via keyboard, and restore focus to trigger element after preview closes. [#57613](https://github.com/ant-design/ant-design/pull/57613) [#57614](https://github.com/ant-design/ant-design/pull/57614) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix Input disabled border color to use `colorBorderDisabled` token. [#57518](https://github.com/ant-design/ant-design/pull/57518) [@Gdhanush-13](https://github.com/Gdhanush-13)
+- 🐞 Fix `rc-motion` crashing when `getRealHeight` receives a `null` node. [#57636](https://github.com/ant-design/ant-design/pull/57636) [@momesana](https://github.com/momesana)
+- 🐞 Fix Notification close button overlapping description when title is empty. [#57590](https://github.com/ant-design/ant-design/pull/57590) [@EndlessLucky](https://github.com/EndlessLucky)
+- 🐞 Fix Radio hover color display issue in disabled state. [#57562](https://github.com/ant-design/ant-design/pull/57562) [@yfy3939](https://github.com/yfy3939)
+- 🐞 Fix Table `rowSelection` to use `selectionColumnWidth` from Design Token as default `columnWidth`. [#57621](https://github.com/ant-design/ant-design/pull/57621) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Design Token shadow tokens not adapting to dark theme. [#57511](https://github.com/ant-design/ant-design/pull/57511) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Transfer remove button still changing color on hover when the list item is disabled. [#57579](https://github.com/ant-design/ant-design/pull/57579) [@Jiyur](https://github.com/Jiyur)
+- 🐞 Fix Tree checkbox, switcher and content alignment when parent nodes have multiple lines of content. [#57471](https://github.com/ant-design/ant-design/pull/57471) [@jiangrong-devops](https://github.com/jiangrong-devops)
+
 ## 6.3.5
 
 `2026-03-30`
