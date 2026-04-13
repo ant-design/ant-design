@@ -8,6 +8,7 @@ import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import Tooltip from '../../tooltip';
+import StatisticNumber from '../Number';
 import { formatTimeStr } from '../utils';
 
 describe('Statistic', () => {
@@ -41,6 +42,18 @@ describe('Statistic', () => {
     expect(container.querySelector('.ant-statistic-content-value')!.textContent).toEqual(
       '1__TEST__128',
     );
+  });
+
+  it('fallback groupSeparator to empty string in internal number', () => {
+    const { container } = render(<StatisticNumber value={1128} prefixCls="ant-statistic" />);
+    expect(container.querySelector('.ant-statistic-content-value-int')?.textContent).toBe('1128');
+  });
+
+  it('fallback empty integer part to 0 in internal number', () => {
+    const { container } = render(
+      <StatisticNumber value=".5" prefixCls="ant-statistic" decimalSeparator="." />,
+    );
+    expect(container.textContent).toBe('0.5');
   });
 
   it('not a number', () => {
