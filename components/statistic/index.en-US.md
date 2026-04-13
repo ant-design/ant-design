@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix node of value | ReactNode | - |  |
 | title | Display title | ReactNode | - |  |
 | value | Display value | string \| number | - |  |
-| valueStyle | Set value section style | CSSProperties | - |  |
+| ~~valueStyle~~ | Set value section style, please use `styles.content` instead | CSSProperties | - |  |
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 

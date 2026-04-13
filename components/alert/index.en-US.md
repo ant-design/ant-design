@@ -52,6 +52,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | type | Type of Alert styles, options: `success`, `info`, `warning`, `error` | string | `info`, in `banner` mode default is `warning` |  |
 | ~~onClose~~ | Callback when Alert is closed, please use `closable.onClose` instead | (e: MouseEvent) => void | - |  |
+| ~~closeIcon~~ | Custom close icon, please use `closable.closeIcon` instead | ReactNode | - | - |
+| ~~closeText~~ | Close text to show, please use `closable.closeIcon` instead | ReactNode | - | - |
 
 ### ClosableType
 

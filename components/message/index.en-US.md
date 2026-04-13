@@ -42,7 +42,7 @@ This component provides some static methods, with usage and arguments as followi
 - `message.warning(content, [duration], onClose)`
 - `message.loading(content, [duration], onClose)`
 
-| Argument | Description | Type | Default |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | content | The content of the message | ReactNode \| config | - |
 | duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |
@@ -105,7 +105,7 @@ message.config({
 });
 ```
 
-| Argument | Description | Type | Default | Version |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | duration | Time before auto-dismiss, in seconds | number | 3 |  |
 | getContainer | Return the mount node for Message, but still display at fullScreen | () => HTMLElement | () => document.body |  |

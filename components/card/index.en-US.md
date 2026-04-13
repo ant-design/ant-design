@@ -55,6 +55,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | type | Card style type, can be set to `inner` or not set | string | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
+| ~~bodyStyle~~ | Style of card body, please use `styles.body` instead | CSSProperties | - | - |
+| ~~headStyle~~ | Style of card head, please use `styles.header` instead | CSSProperties | - | - |
 
 ### Card.Grid
 

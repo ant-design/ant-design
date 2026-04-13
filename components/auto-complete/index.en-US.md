@@ -80,6 +80,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | onClear | Called when clear | function | - | 4.6.0 |
 | onInputKeyDown | Called when key pressed | (event: KeyboardEvent) => void | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - |  |
+| ~~dataSource~~ | Data source of autocomplete options, please use `options` instead | DataSourceItemType[] | - | - |
+| ~~dropdownClassName~~ | The className of dropdown menu, please use `classNames.popup.root` instead | string | - | - |
+| ~~dropdownMatchSelectWidth~~ | Determine whether the dropdown menu and the input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - |
 
 ### showSearch
 

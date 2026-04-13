@@ -135,6 +135,9 @@ The following APIs are shared by DatePicker, RangePicker.
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
+| ~~dropdownClassName~~ | The className of popup calendar, please use `classNames.popup.root` instead | string | - | - |
+| ~~onSelect~~ | Callback when a date is selected, please use `onCalendarChange` instead | function(value) | - | - |
 
 ### Common Methods
 

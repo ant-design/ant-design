@@ -80,6 +80,11 @@ Common props ref：[Common props](/docs/react/common-props)
 | zIndex | The `z-index` of the Drawer | number | 1000 |  |
 | onClose | Specify a callback that will be called when a user clicks mask, close button or Cancel button | function(e) | - |  |
 | drawerRender | Custom drawer content render | (node: ReactNode) => ReactNode | - | 5.18.0 |
+| ~~bodyStyle~~ | Style of the drawer body, please use `styles.body` instead | CSSProperties | - | - |
+| ~~contentWrapperStyle~~ | Style of the drawer wrapper, please use `styles.wrapper` instead | CSSProperties | - | - |
+| ~~drawerStyle~~ | Style of the drawer panel, please use `styles.section` instead | CSSProperties | - | - |
+| ~~footerStyle~~ | Style of the drawer footer, please use `styles.footer` instead | CSSProperties | - | - |
+| ~~maskStyle~~ | Style of the drawer mask, please use `styles.mask` instead | CSSProperties | - | - |
 
 ### ResizableConfig
 

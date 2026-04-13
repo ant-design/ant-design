@@ -98,6 +98,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | onSelect | A callback function, can be executed when you select a treeNode | function(value, node, extra) | - |  |
 | onTreeExpand | A callback function, can be executed when treeNode expanded | function(expandedKeys) | - |  |
 | onPopupScroll | Called when dropdown scrolls | (event: UIEvent) => void | - | 5.17.0 |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
+| ~~dropdownClassName~~ | The className of dropdown menu, please use `classNames.popup.root` instead | string | - | - |
+| ~~dropdownMatchSelectWidth~~ | Determine whether the popup menu and the select input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - |
+| ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - |
 
 ### showSearch
 
