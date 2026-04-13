@@ -121,6 +121,7 @@ const GradientColorBar = (props: GradientColorBarProps) => {
   // ============================= Change =============================
   const onInternalChangeComplete = (nextValues: number[]) => {
     if (disabled) {
+      onGradientDragging(false);
       return;
     }
 

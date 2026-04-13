@@ -1,3 +1,4 @@
+import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import { AggregationColor } from '../color';
@@ -107,16 +108,19 @@ const createPanelContext = (
   ...overrides,
 });
 
+const renderPanelPicker = (contextValue: PanelPickerContextProps) =>
+  render(
+    <PanelPickerContext.Provider value={contextValue}>
+      <PanelPicker />
+    </PanelPickerContext.Provider>,
+  );
+
 describe('ColorPicker panel disabled logic', () => {
   it('should ignore picker and input events when disabled', () => {
     const onChange = jest.fn();
     const onChangeComplete = jest.fn();
     const contextValue = createPanelContext({ onChange, onChangeComplete });
-    const { container } = render(
-      <PanelPickerContext.Provider value={contextValue}>
-        <PanelPicker />
-      </PanelPickerContext.Provider>,
-    );
+    const { container } = renderPanelPicker(contextValue);
 
     fireEvent.click(container.querySelector('.mock-picker-change')!);
     fireEvent.click(container.querySelector('.mock-picker-complete')!);
@@ -159,6 +163,52 @@ describe('ColorPicker panel disabled logic', () => {
     expect(onChange).not.toHaveBeenCalled();
     expect(onChangeComplete).not.toHaveBeenCalled();
     expect(onActive).not.toHaveBeenCalled();
-    expect(onGradientDragging).not.toHaveBeenCalled();
+    expect(onGradientDragging.mock.calls).toEqual([[false]]);
+  });
+
+  it('should reset gradient dragging when disabled during complete', () => {
+    const onChange = jest.fn();
+    const onChangeComplete = jest.fn();
+    const onGradientDragging = jest.fn();
+    const value = new AggregationColor([
+      { percent: 0, color: '#ff0000' },
+      { percent: 100, color: '#0000ff' },
+    ]);
+
+    const { container, rerender } = render(
+      <GradientColorBar
+        {...createPanelContext({
+          disabled: false,
+          mode: 'gradient',
+          value,
+          onChange,
+          onChangeComplete,
+          onGradientDragging,
+        })}
+        colors={value.getColors()}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.mock-gradient-start')!);
+
+    rerender(
+      <GradientColorBar
+        {...createPanelContext({
+          disabled: true,
+          mode: 'gradient',
+          value,
+          onChange,
+          onChangeComplete,
+          onGradientDragging,
+        })}
+        colors={value.getColors()}
+      />,
+    );
+
+    fireEvent.click(container.querySelector('.mock-gradient-complete')!);
+
+    expect(onChange).toHaveBeenCalledTimes(1);
+    expect(onChangeComplete).not.toHaveBeenCalled();
+    expect(onGradientDragging.mock.calls).toEqual([[true], [false]]);
   });
 });

@@ -1,3 +1,4 @@
+import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 
 import ColorAlphaInput from '../components/ColorAlphaInput';
