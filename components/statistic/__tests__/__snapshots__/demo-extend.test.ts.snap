@@ -500,6 +500,7 @@ exports[`renders components/statistic/demo/style-class.tsx extend context correc
       </span>
       <span
         class="ant-statistic-content-value"
+        style="background-color: rgb(230, 244, 255); border-radius: 4px; color: rgb(9, 88, 217); padding-inline: 6px; user-select: none;"
       >
         <span
           class="ant-statistic-content-value-int"
@@ -556,6 +557,7 @@ exports[`renders components/statistic/demo/style-class.tsx extend context correc
       </span>
       <span
         class="ant-statistic-content-value"
+        style="background-color: rgb(255, 241, 240); border-radius: 4px; padding-inline: 6px; user-select: none;"
       >
         <span
           class="ant-statistic-content-value-int"
