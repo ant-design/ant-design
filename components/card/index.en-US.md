@@ -40,12 +40,14 @@ Common props ref：[Common props](/docs/react/common-props)
 | actions | The action list, shows at the bottom of the Card | Array&lt;ReactNode> | - |  |
 | activeTabKey | Current TabPane's key | string | - |  |
 | ~~bordered~~ | Toggles rendering of the border around the card, please use `variant` instead | boolean | true |  |
+| ~~bodyStyle~~ | Style of card body, please use `styles.body` instead | CSSProperties | - | - |
 | variant | Variants of Card | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | cover | Card cover | ReactNode | - |  |
 | defaultActiveTabKey | Initial active TabPane's key, if `activeTabKey` is not set | string | `The key of first tab` |  |
 | extra | Content to render in the top-right corner of the card | ReactNode | - |  |
 | hoverable | Lift up when hovering card | boolean | false |  |
+| ~~headStyle~~ | Style of card head, please use `styles.header` instead | CSSProperties | - | - |
 | loading | Shows a loading indicator while the contents of the card are being fetched | boolean | false |  |
 | size | Size of card | `medium` \| `small` | `medium` |  |
 | tabBarExtraContent | Extra content in tab bar | ReactNode | - |  |
@@ -55,8 +57,6 @@ Common props ref：[Common props](/docs/react/common-props)
 | type | Card style type, can be set to `inner` or not set | string | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | onTabChange | Callback when tab is switched | (key) => void | - |  |
-| ~~bodyStyle~~ | Style of card body, please use `styles.body` instead | CSSProperties | - | - |
-| ~~headStyle~~ | Style of card head, please use `styles.header` instead | CSSProperties | - | - |
 
 ### Card.Grid
 
