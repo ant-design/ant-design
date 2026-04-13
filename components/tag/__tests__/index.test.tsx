@@ -356,6 +356,17 @@ describe('Tag', () => {
     });
   });
 
+  it('prefers AA-compliant custom color over pure black/white', () => {
+    const { container } = render(
+      <Tag color="#0050b3" variant="filled" autoContrast>
+        tag
+      </Tag>,
+    );
+    expect(container.querySelector('.ant-tag')).toHaveStyle({
+      color: 'rgb(0, 80, 179)',
+    });
+  });
+
   it('supports autoContrast for custom outlined color', () => {
     const { container } = render(
       <Tag color="#7c3aed" variant="outlined" autoContrast>

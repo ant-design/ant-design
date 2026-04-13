@@ -13,6 +13,7 @@ export default function useColor(
   contextVariant?: TagProps['variant'],
 ) {
   const { color, variant, bordered, autoContrast } = props;
+  const AA_CONTRAST_RATIO = 4.5;
 
   return React.useMemo(() => {
     const getRelativeLuminance = (inputColor: string) => {
@@ -34,6 +35,7 @@ export default function useColor(
     };
 
     const getReadableColor = (bgColor: string, baseColor: string) => {
+      const baseRgb = new FastColor(baseColor).toRgb();
       const hsl = new FastColor(baseColor).toHsl();
       const darker = new FastColor({
         ...hsl,
@@ -45,16 +47,35 @@ export default function useColor(
       }).toHexString();
       const candidates = [baseColor, darker, lighter, '#000000', '#ffffff'];
       const uniqueCandidates = [...new Set(candidates)];
+      const contrastCandidates = uniqueCandidates.map((current) => {
+        const currentRgb = new FastColor(current).toRgb();
+        const distance =
+          (currentRgb.r - baseRgb.r) ** 2 +
+          (currentRgb.g - baseRgb.g) ** 2 +
+          (currentRgb.b - baseRgb.b) ** 2;
 
-      return uniqueCandidates.reduce(
-        (best, current) => {
-          const contrast = getContrastRatio(bgColor, current);
-          if (contrast > best.contrast) {
-            return { color: current, contrast };
+        return {
+          color: current,
+          contrast: getContrastRatio(bgColor, current),
+          distance,
+        };
+      });
+
+      const aaCandidates = contrastCandidates.filter((candidate) => candidate.contrast >= AA_CONTRAST_RATIO);
+      if (aaCandidates.length) {
+        return aaCandidates.reduce((best, current) => {
+          if (current.distance < best.distance) {
+            return current;
+          }
+          if (current.distance === best.distance && current.contrast > best.contrast) {
+            return current;
           }
           return best;
-        },
-        { color: '#000000', contrast: getContrastRatio(bgColor, '#000000') },
+        }).color;
+      }
+
+      return contrastCandidates.reduce((best, current) =>
+        current.contrast > best.contrast ? current : best,
       ).color;
     };
 
