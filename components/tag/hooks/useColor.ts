@@ -34,8 +34,11 @@ export default function useColor(
       return (lighter + 0.05) / (darker + 0.05);
     };
 
-    const getReadableColor = (bgColor: string, baseColor: string) => {
-      const baseRgb = new FastColor(baseColor).toRgb();
+    const getReadableColor = (
+      bgColor: string,
+      baseColor: string,
+      pickClosestAA?: boolean,
+    ) => {
       const hsl = new FastColor(baseColor).toHsl();
       const darker = new FastColor({
         ...hsl,
@@ -47,35 +50,51 @@ export default function useColor(
       }).toHexString();
       const candidates = [baseColor, darker, lighter, '#000000', '#ffffff'];
       const uniqueCandidates = [...new Set(candidates)];
-      const contrastCandidates = uniqueCandidates.map((current) => {
-        const currentRgb = new FastColor(current).toRgb();
-        const distance =
-          (currentRgb.r - baseRgb.r) ** 2 +
-          (currentRgb.g - baseRgb.g) ** 2 +
-          (currentRgb.b - baseRgb.b) ** 2;
+      if (pickClosestAA) {
+        const baseRgb = new FastColor(baseColor).toRgb();
+        const contrastCandidates = uniqueCandidates.map((current) => {
+          const currentRgb = new FastColor(current).toRgb();
+          const distance =
+            (currentRgb.r - baseRgb.r) ** 2 +
+            (currentRgb.g - baseRgb.g) ** 2 +
+            (currentRgb.b - baseRgb.b) ** 2;
 
-        return {
-          color: current,
-          contrast: getContrastRatio(bgColor, current),
-          distance,
-        };
-      });
+          return {
+            color: current,
+            contrast: getContrastRatio(bgColor, current),
+            distance,
+          };
+        });
 
-      const aaCandidates = contrastCandidates.filter((candidate) => candidate.contrast >= AA_CONTRAST_RATIO);
-      if (aaCandidates.length) {
-        return aaCandidates.reduce((best, current) => {
-          if (current.distance < best.distance) {
-            return current;
-          }
-          if (current.distance === best.distance && current.contrast > best.contrast) {
-            return current;
-          }
-          return best;
-        }).color;
+        const aaCandidates = contrastCandidates.filter(
+          (candidate) => candidate.contrast >= AA_CONTRAST_RATIO,
+        );
+        if (aaCandidates.length) {
+          return aaCandidates.reduce((best, current) => {
+            if (current.distance < best.distance) {
+              return current;
+            }
+            if (current.distance === best.distance && current.contrast > best.contrast) {
+              return current;
+            }
+            return best;
+          }).color;
+        }
+
+        return contrastCandidates.reduce((best, current) =>
+          current.contrast > best.contrast ? current : best,
+        ).color;
       }
 
-      return contrastCandidates.reduce((best, current) =>
-        current.contrast > best.contrast ? current : best,
+      return uniqueCandidates.reduce(
+        (best, current) => {
+          const contrast = getContrastRatio(bgColor, current);
+          if (contrast > best.contrast) {
+            return { color: current, contrast };
+          }
+          return best;
+        },
+        { color: '#000000', contrast: getContrastRatio(bgColor, '#000000') },
       ).color;
     };
 
@@ -118,7 +137,7 @@ export default function useColor(
       if (nextVariant === 'solid') {
         tagStyle.backgroundColor = color;
         if (autoContrast) {
-          tagStyle.color = getReadableColor(nextColor, nextColor);
+          tagStyle.color = getReadableColor(nextColor, nextColor, true);
         }
       } else {
         const hsl = new FastColor(nextColor).toHsl();
