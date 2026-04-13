@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useControlledState } from '@rc-component/util';
 
 import { devUseWarning } from '../../_util/warning';
@@ -56,12 +56,15 @@ export default function useColorPickerPanelState(
 
   const [formatValue, setFormatValue] = useControlledState(defaultFormat, format);
 
-  const triggerFormatChange = (newFormat?: ColorPickerPanelState['format']) => {
-    setFormatValue(newFormat);
-    if (formatValue !== newFormat) {
-      onFormatChange?.(newFormat);
-    }
-  };
+  const triggerFormatChange = useCallback(
+    (newFormat?: ColorPickerPanelState['format']) => {
+      setFormatValue(newFormat);
+      if (formatValue !== newFormat) {
+        onFormatChange?.(newFormat);
+      }
+    },
+    [formatValue, onFormatChange, setFormatValue],
+  );
 
   const [mergedColor, setColor, modeState, setModeState, modeOptions] = useModeColor(
     defaultValue,
@@ -75,64 +78,73 @@ export default function useColorPickerPanelState(
     null,
   );
 
-  const onInternalChangeComplete: ColorPickerProps['onChangeComplete'] = (color) => {
-    if (onChangeComplete) {
-      let changeColor = generateColor(color);
+  const onInternalChangeComplete: ColorPickerProps['onChangeComplete'] = useCallback(
+    (color) => {
+      if (onChangeComplete) {
+        let changeColor = generateColor(color);
+
+        if (disabledAlpha && isAlphaColor) {
+          changeColor = genAlphaColor(color);
+        }
+
+        onChangeComplete(changeColor);
+      }
+    },
+    [disabledAlpha, isAlphaColor, onChangeComplete],
+  );
+
+  const onInternalChange: PanelPickerContextProps['onChange'] = useCallback(
+    (data, changeFromPickerDrag) => {
+      let color: AggregationColor = generateColor(data as AggregationColor);
 
       if (disabledAlpha && isAlphaColor) {
-        changeColor = genAlphaColor(color);
+        color = genAlphaColor(color);
       }
 
-      onChangeComplete(changeColor);
-    }
-  };
+      setColor(color);
+      setCachedGradientColor(null);
 
-  const onInternalChange: PanelPickerContextProps['onChange'] = (data, changeFromPickerDrag) => {
-    let color: AggregationColor = generateColor(data as AggregationColor);
+      onChange?.(color, color.toCssString());
 
-    if (disabledAlpha && isAlphaColor) {
-      color = genAlphaColor(color);
-    }
-
-    setColor(color);
-    setCachedGradientColor(null);
-
-    onChange?.(color, color.toCssString());
-
-    if (!changeFromPickerDrag) {
-      onInternalChangeComplete(color);
-    }
-  };
+      if (!changeFromPickerDrag) {
+        onInternalChangeComplete(color);
+      }
+    },
+    [disabledAlpha, isAlphaColor, onChange, onInternalChangeComplete, setColor],
+  );
 
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [gradientDragging, setGradientDragging] = React.useState(false);
 
-  const onInternalModeChange = (newMode: ColorPickerPanelState['mode']) => {
-    setModeState(newMode);
+  const onInternalModeChange = useCallback(
+    (newMode: ColorPickerPanelState['mode']) => {
+      setModeState(newMode);
 
-    if (newMode === 'single' && mergedColor.isGradient()) {
-      setActiveIndex(0);
-      onInternalChange(new AggregationColor(mergedColor.getColors()[0].color));
-      setCachedGradientColor(mergedColor);
-    } else if (newMode === 'gradient' && !mergedColor.isGradient()) {
-      const baseColor = isAlphaColor ? genAlphaColor(mergedColor) : mergedColor;
+      if (newMode === 'single' && mergedColor.isGradient()) {
+        setActiveIndex(0);
+        onInternalChange(new AggregationColor(mergedColor.getColors()[0].color));
+        setCachedGradientColor(mergedColor);
+      } else if (newMode === 'gradient' && !mergedColor.isGradient()) {
+        const baseColor = isAlphaColor ? genAlphaColor(mergedColor) : mergedColor;
 
-      onInternalChange(
-        new AggregationColor(
-          cachedGradientColor || [
-            {
-              percent: 0,
-              color: baseColor,
-            },
-            {
-              percent: 100,
-              color: baseColor,
-            },
-          ],
-        ),
-      );
-    }
-  };
+        onInternalChange(
+          new AggregationColor(
+            cachedGradientColor || [
+              {
+                percent: 0,
+                color: baseColor,
+              },
+              {
+                percent: 100,
+                color: baseColor,
+              },
+            ],
+          ),
+        );
+      }
+    },
+    [cachedGradientColor, isAlphaColor, mergedColor, onInternalChange, setModeState],
+  );
 
   if (process.env.NODE_ENV !== 'production' && !skipWarning) {
     const warning = devUseWarning(componentName);
@@ -144,18 +156,32 @@ export default function useColorPickerPanelState(
     );
   }
 
-  return {
-    activeIndex,
-    format: formatValue,
-    gradientDragging,
-    mode: modeState,
-    modeOptions,
-    onActive: setActiveIndex,
-    onChange: onInternalChange,
-    onChangeComplete: onInternalChangeComplete,
-    onFormatChange: triggerFormatChange,
-    onGradientDragging: setGradientDragging,
-    onModeChange: onInternalModeChange,
-    value: mergedColor,
-  };
+  return useMemo(
+    () => ({
+      activeIndex,
+      format: formatValue,
+      gradientDragging,
+      mode: modeState,
+      modeOptions,
+      onActive: setActiveIndex,
+      onChange: onInternalChange,
+      onChangeComplete: onInternalChangeComplete,
+      onFormatChange: triggerFormatChange,
+      onGradientDragging: setGradientDragging,
+      onModeChange: onInternalModeChange,
+      value: mergedColor,
+    }),
+    [
+      activeIndex,
+      formatValue,
+      gradientDragging,
+      mergedColor,
+      modeOptions,
+      modeState,
+      onInternalChange,
+      onInternalChangeComplete,
+      onInternalModeChange,
+      triggerFormatChange,
+    ],
+  );
 }

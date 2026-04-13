@@ -15,6 +15,7 @@ import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import { useCompactItemContext } from '../space/Compact';
 import useMergedArrow from '../tooltip/hook/useMergedArrow';
+import type { ColorPickerPanelProps } from './ColorPickerPanel';
 import ColorPickerPanel from './ColorPickerPanel';
 import ColorTrigger from './components/ColorTrigger';
 import useColorPickerPanelState from './hooks/useColorPickerPanelState';
@@ -22,7 +23,7 @@ import type { ColorPickerProps, TriggerPlacement } from './interface';
 import useStyle from './style';
 
 type CompoundedComponent = React.FC<ColorPickerProps> & {
-  Panel: typeof ColorPickerPanel;
+  Panel: React.FC<ColorPickerPanelProps>;
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
 };
 
@@ -233,7 +234,7 @@ const PurePanel = genPurePanel(
   (prefixCls) => prefixCls,
 );
 
-ColorPicker.Panel = ColorPickerPanel;
+ColorPicker.Panel = ColorPickerPanel as React.FC<ColorPickerPanelProps>;
 ColorPicker._InternalPanelDoNotUseOrYouWillBeFired = PurePanel;
 
 export default ColorPicker;

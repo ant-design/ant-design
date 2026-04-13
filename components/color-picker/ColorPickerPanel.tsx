@@ -167,7 +167,26 @@ const ColorPickerPanel: React.FC<InternalColorPickerPanelProps> = (props) => {
       onGradientDragging: panelState.onGradientDragging,
       disabledFormat,
     }),
-    [allowClear, disabledAlpha, disabledFormat, mergedDisabled, onClear, panelState, prefixCls],
+    [
+      allowClear,
+      disabledAlpha,
+      disabledFormat,
+      mergedDisabled,
+      onClear,
+      panelState.activeIndex,
+      panelState.format,
+      panelState.gradientDragging,
+      panelState.mode,
+      panelState.modeOptions,
+      panelState.onActive,
+      panelState.onChange,
+      panelState.onChangeComplete,
+      panelState.onFormatChange,
+      panelState.onGradientDragging,
+      panelState.onModeChange,
+      panelState.value,
+      prefixCls,
+    ],
   );
 
   const presetContext: PanelPresetsContextProps = React.useMemo(
