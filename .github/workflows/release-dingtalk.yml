@@ -26,7 +26,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Send to Ant Design DingGroup
-        uses: actions-cool/release-helper@8efc07eaf5c8fd333c7ac53667de49bf11f07851 # v2
+        uses: actions-cool/release-helper@51142a9df443bffa1cb1729e90c21cb86a115428 # v2
         with:
           trigger: tag
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'
@@ -42,7 +42,7 @@ jobs:
           prerelease-filter: '-, a, b, A, B'
 
       - name: Send to Bigfish DingGroup
-        uses: actions-cool/release-helper@8efc07eaf5c8fd333c7ac53667de49bf11f07851 # v2
+        uses: actions-cool/release-helper@51142a9df443bffa1cb1729e90c21cb86a115428 # v2
         with:
           trigger: tag
           changelogs: 'CHANGELOG.en-US.md, CHANGELOG.zh-CN.md'

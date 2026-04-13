@@ -3,11 +3,12 @@ import FilterFilled from '@ant-design/icons/FilterFilled';
 import type { FieldDataNode } from '@rc-component/tree';
 import { mergeProps } from '@rc-component/util';
 import isEqual from '@rc-component/util/lib/isEqual';
-import type { AnyObject } from 'antd/es/_util/type';
 import { clsx } from 'clsx';
 
 import type { FilterState } from '.';
 import { useSyncState } from '../../../_util/hooks';
+import { isNumber } from '../../../_util/is';
+import type { AnyObject } from '../../../_util/type';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button/Button';
 import type { CheckboxChangeEvent } from '../../../checkbox';
@@ -59,7 +60,7 @@ function hasSubMenu(filters: ColumnFilterItem[]) {
 }
 
 function searchValueMatched(searchValue: string, text: React.ReactNode) {
-  if (typeof text === 'string' || typeof text === 'number') {
+  if (typeof text === 'string' || isNumber(text)) {
     return text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase());
   }
   return false;

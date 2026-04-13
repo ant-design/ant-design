@@ -16,7 +16,7 @@ import { operationUnit } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const getTitleStyle = (
-  fontSize: number,
+  fontSize: number | string,
   lineHeight: number,
   color: string,
   token: TypographyToken,

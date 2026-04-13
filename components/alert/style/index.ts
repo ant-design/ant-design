@@ -22,7 +22,7 @@ export interface ComponentToken {
    * @desc 带有描述时的图标尺寸
    * @descEN Icon size with description
    */
-  withDescriptionIconSize: number;
+  withDescriptionIconSize: number | string;
 }
 
 type AlertToken = FullToken<'Alert'> & {
