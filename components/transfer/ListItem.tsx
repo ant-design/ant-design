@@ -2,15 +2,15 @@ import * as React from 'react';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import { clsx } from 'clsx';
 
-import type { KeyWiseTransferItem, TransferSemanticClassNames, TransferSemanticStyles } from '.';
+import type { KeyWiseTransferItem, TransferSemanticAllType } from '.';
 import Checkbox from '../checkbox';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 
 type ListItemProps<RecordType> = {
   prefixCls: string;
-  classNames: TransferSemanticClassNames;
-  styles: TransferSemanticStyles;
+  classNames: NonNullable<TransferSemanticAllType['classNames']>;
+  styles: NonNullable<TransferSemanticAllType['styles']>;
   renderedText?: string | number;
   renderedEl: React.ReactNode;
   disabled?: boolean;

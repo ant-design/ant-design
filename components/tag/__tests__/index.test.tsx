@@ -316,6 +316,31 @@ describe('Tag', () => {
     expect(tagElement).not.toBeNull();
   });
 
+  it('solid variant should provide default color', () => {
+    const { container } = render(<Tag variant="solid">tag</Tag>);
+
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-solid');
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-default');
+  });
+
+  it('ConfigProvider tag variant should provide default color', () => {
+    const { container } = render(
+      <ConfigProvider tag={{ variant: 'solid' }}>
+        <Tag>tag</Tag>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-solid');
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-default');
+  });
+
+  it('non-solid variant should not provide default color', () => {
+    const { container } = render(<Tag variant="outlined">tag</Tag>);
+
+    expect(container.querySelector('.ant-tag')).toHaveClass('ant-tag-outlined');
+    expect(container.querySelector('.ant-tag')).not.toHaveClass('ant-tag-default');
+  });
+
   it('legacy color inverse', () => {
     const { container } = render(<Tag color="green-inverse">tag</Tag>);
 

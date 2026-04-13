@@ -233,6 +233,43 @@ describe('Table', () => {
       });
   });
 
+  it('supports column align with per-column override and special columns', () => {
+    const { container } = render(
+      <Table
+        columns={[
+          { title: 'Name', dataIndex: 'name' },
+          Table.EXPAND_COLUMN,
+          {
+            title: 'Info',
+            children: [{ title: 'Age', dataIndex: 'age', align: 'right' }],
+          },
+          Table.SELECTION_COLUMN,
+        ]}
+        dataSource={[
+          {
+            key: '1',
+            name: 'Jack',
+            age: 20,
+          },
+        ]}
+        column={{ align: 'center' }}
+        expandable={{ expandedRowRender: () => null }}
+        rowSelection={{}}
+        pagination={false}
+      />,
+    );
+
+    const cells = container.querySelectorAll('tbody tr')[0].querySelectorAll('td');
+
+    expect(cells).toHaveLength(4);
+    expect(cells[0]).toHaveStyle({ textAlign: 'center' });
+    expect(cells[0].textContent).toEqual('Jack');
+    expect(cells[1].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
+    expect(cells[2]).toHaveStyle({ textAlign: 'right' });
+    expect(cells[2].textContent).toEqual('20');
+    expect(cells[3].querySelector('.ant-checkbox-input')).toBeTruthy();
+  });
+
   it('warn about rowKey when using index parameter', () => {
     warnSpy.mockReset();
     const columns: TableProps<any>['columns'] = [

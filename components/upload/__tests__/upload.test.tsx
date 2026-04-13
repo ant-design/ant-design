@@ -1201,4 +1201,80 @@ describe('Upload', () => {
       expect(file.status).toBe('done');
     });
   });
+
+  describe('ConfigProvider progress', () => {
+    const uploadingFileList: UploadProps['fileList'] = [
+      {
+        uid: '1',
+        name: 'test.png',
+        status: 'uploading',
+        percent: 50,
+      },
+    ];
+
+    it('should use ConfigProvider progress config when Upload has no progress prop', async () => {
+      const { container } = render(
+        <ConfigProvider upload={{ progress: { showInfo: true } }}>
+          <Upload fileList={uploadingFileList}>
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+
+      // ListItem delays showing progress by 300ms
+      await act(async () => {
+        jest.advanceTimersByTime(300);
+      });
+
+      const progressBar = container.querySelector('.ant-upload-list-item-progress');
+      expect(progressBar).toBeTruthy();
+      const progressWithInfo = container.querySelector('.ant-progress-show-info');
+      expect(progressWithInfo).toBeTruthy();
+    });
+
+    it('should prefer Upload progress prop over ConfigProvider progress', async () => {
+      const { container } = render(
+        <ConfigProvider upload={{ progress: { showInfo: true } }}>
+          <Upload fileList={uploadingFileList} progress={{ showInfo: false }}>
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+
+      await act(async () => {
+        jest.advanceTimersByTime(300);
+      });
+
+      const progressBar = container.querySelector('.ant-upload-list-item-progress');
+      expect(progressBar).toBeTruthy();
+      const progressWithInfo = container.querySelector('.ant-progress-show-info');
+      expect(progressWithInfo).toBeFalsy();
+    });
+  });
+
+  describe('ConfigProvider accept', () => {
+    it('should use ConfigProvider accept when Upload has no accept prop', () => {
+      const { container } = render(
+        <ConfigProvider upload={{ accept: 'image/*' }}>
+          <Upload>
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+      const input = container.querySelector('input[type="file"]');
+      expect(input?.getAttribute('accept')).toBe('image/*');
+    });
+
+    it('should prefer Upload accept prop over ConfigProvider accept', () => {
+      const { container } = render(
+        <ConfigProvider upload={{ accept: 'image/*' }}>
+          <Upload accept=".pdf">
+            <button type="button">upload</button>
+          </Upload>
+        </ConfigProvider>,
+      );
+      const input = container.querySelector('input[type="file"]');
+      expect(input?.getAttribute('accept')).toBe('.pdf');
+    });
+  });
 });

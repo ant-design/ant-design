@@ -1,4 +1,4 @@
-import type { TimePickerLocale } from '../index';
+import type { TimePickerLocale } from '..';
 
 const locale: TimePickerLocale = {
   placeholder: 'Цаг сонгох',

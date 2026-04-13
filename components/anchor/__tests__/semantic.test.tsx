@@ -2,15 +2,18 @@ import React from 'react';
 
 import Anchor from '..';
 import type { AnchorProps } from '..';
+import type { GetProp } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
-const classNames: AnchorProps['classNames'] = (info) => {
+const classNames: AnchorProps['classNames'] = (
+  info,
+): GetProp<AnchorProps, 'classNames', 'Return'> => {
   if (info.props.direction === 'horizontal') {
     return { root: 'anchor-horizontal' };
   }
   return { root: 'anchor-vertical' };
 };
-const styles: AnchorProps['styles'] = (info) => {
+const styles: AnchorProps['styles'] = (info): GetProp<AnchorProps, 'styles', 'Return'> => {
   if (info.props.direction === 'horizontal') {
     return { root: { padding: 12 } };
   }

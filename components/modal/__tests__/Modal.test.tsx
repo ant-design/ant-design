@@ -480,6 +480,52 @@ describe('Modal', () => {
     );
   });
 
+  it('should support focusable global config', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
+        <Modal open getContainer={false} classNames={classNames}>
+          Here is content of Modal
+        </Modal>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: false,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
+  it('should prefer focusable prop over global config', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
+        <Modal open getContainer={false} focusable={{ trap: true }} classNames={classNames}>
+          Here is content of Modal
+        </Modal>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: true,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
   it('should warning when using deprecated autoFocusButton', () => {
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
