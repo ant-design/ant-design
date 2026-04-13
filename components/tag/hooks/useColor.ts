@@ -55,29 +55,6 @@ export default function useColor(
       return bestColor;
     };
 
-    const getSolidReadableColor = (bgColor: string, baseColor: string) => {
-      const hsl = new FastColor(baseColor).toHsl();
-      const candidates = [
-        new FastColor({ ...hsl, l: Math.max(0, hsl.l * 0.35) }).toHexString(),
-        new FastColor({ ...hsl, l: Math.min(1, hsl.l + (1 - hsl.l) * 0.35) }).toHexString(),
-        '#000000',
-        '#ffffff',
-      ];
-      let bestColor = '';
-      let bestDistance = 2;
-      candidates.forEach((current) => {
-        if (getContrastRatio(bgColor, current) >= 4.5) {
-          const distance = Math.abs(new FastColor(current).toHsl().l - hsl.l);
-          if (distance < bestDistance) {
-            bestColor = current;
-            bestDistance = distance;
-          }
-        }
-      });
-
-      return bestColor || getReadableColor(bgColor, baseColor);
-    };
-
     const isInverseColor = color?.endsWith('-inverse');
 
     // =================== Variant ===================
@@ -117,7 +94,19 @@ export default function useColor(
       if (nextVariant === 'solid') {
         tagStyle.backgroundColor = color;
         if (autoContrast) {
-          tagStyle.color = getSolidReadableColor(nextColor, nextColor);
+          const hsl = new FastColor(nextColor).toHsl();
+          const darkerColor = new FastColor({ ...hsl, l: Math.max(0, hsl.l * 0.35) }).toHexString();
+          const lighterColor = new FastColor({
+            ...hsl,
+            l: Math.min(1, hsl.l + (1 - hsl.l) * 0.35),
+          }).toHexString();
+          if (getContrastRatio(nextColor, lighterColor) >= 4.5) {
+            tagStyle.color = lighterColor;
+          } else if (getContrastRatio(nextColor, darkerColor) >= 4.5) {
+            tagStyle.color = darkerColor;
+          } else {
+            tagStyle.color = getReadableColor(nextColor, nextColor);
+          }
         }
       } else {
         const hsl = new FastColor(nextColor).toHsl();
