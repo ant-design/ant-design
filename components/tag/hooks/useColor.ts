@@ -15,14 +15,14 @@ export default function useColor(
   const { color, variant, bordered, autoContrast } = props;
 
   return React.useMemo(() => {
+    const toLinear = (value: number) => {
+      const channel = value / 255;
+      return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
+    };
+
     const getRelativeLuminance = (inputColor: string) => {
       const { r, g, b } = new FastColor(inputColor).toRgb();
-      const [sr, sg, sb] = [r, g, b].map((value) => {
-        const channel = value / 255;
-        return channel <= 0.03928 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4;
-      });
-
-      return 0.2126 * sr + 0.7152 * sg + 0.0722 * sb;
+      return 0.2126 * toLinear(r) + 0.7152 * toLinear(g) + 0.0722 * toLinear(b);
     };
 
     const getContrastRatio = (leftColor: string, rightColor: string) => {
@@ -35,26 +35,24 @@ export default function useColor(
 
     const getReadableColor = (bgColor: string, baseColor: string) => {
       const hsl = new FastColor(baseColor).toHsl();
-      const darker = new FastColor({
-        ...hsl,
-        l: Math.max(0, hsl.l * 0.35),
-      }).toHexString();
-      const lighter = new FastColor({
-        ...hsl,
-        l: Math.min(1, hsl.l + (1 - hsl.l) * 0.35),
-      }).toHexString();
-      const candidates = [baseColor, darker, lighter, '#000000', '#ffffff'];
-      const uniqueCandidates = [...new Set(candidates)];
-      return uniqueCandidates.reduce(
-        (best, current) => {
-          const contrast = getContrastRatio(bgColor, current);
-          if (contrast > best.contrast) {
-            return { color: current, contrast };
-          }
-          return best;
-        },
-        { color: '#000000', contrast: getContrastRatio(bgColor, '#000000') },
-      ).color;
+      const candidates = [
+        baseColor,
+        new FastColor({ ...hsl, l: Math.max(0, hsl.l * 0.35) }).toHexString(),
+        new FastColor({ ...hsl, l: Math.min(1, hsl.l + (1 - hsl.l) * 0.35) }).toHexString(),
+        '#000000',
+        '#ffffff',
+      ];
+      let bestColor = '#000000';
+      let bestContrast = getContrastRatio(bgColor, bestColor);
+      for (let index = 0; index < candidates.length; index += 1) {
+        const current = candidates[index];
+        const contrast = getContrastRatio(bgColor, current);
+        if (contrast > bestContrast) {
+          bestColor = current;
+          bestContrast = contrast;
+        }
+      }
+      return bestColor;
     };
 
     const getSolidReadableColor = (bgColor: string, baseColor: string) => {
