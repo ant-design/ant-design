@@ -13,7 +13,6 @@ export default function useColor(
   contextVariant?: TagProps['variant'],
 ) {
   const { color, variant, bordered, autoContrast } = props;
-  const AA_CONTRAST_RATIO = 4.5;
 
   return React.useMemo(() => {
     const getRelativeLuminance = (inputColor: string) => {
@@ -34,11 +33,7 @@ export default function useColor(
       return (lighter + 0.05) / (darker + 0.05);
     };
 
-    const getReadableColor = (
-      bgColor: string,
-      baseColor: string,
-      pickClosestAA?: boolean,
-    ) => {
+    const getReadableColor = (bgColor: string, baseColor: string) => {
       const hsl = new FastColor(baseColor).toHsl();
       const darker = new FastColor({
         ...hsl,
@@ -50,42 +45,6 @@ export default function useColor(
       }).toHexString();
       const candidates = [baseColor, darker, lighter, '#000000', '#ffffff'];
       const uniqueCandidates = [...new Set(candidates)];
-      if (pickClosestAA) {
-        const baseRgb = new FastColor(baseColor).toRgb();
-        const contrastCandidates = uniqueCandidates.map((current) => {
-          const currentRgb = new FastColor(current).toRgb();
-          const distance =
-            (currentRgb.r - baseRgb.r) ** 2 +
-            (currentRgb.g - baseRgb.g) ** 2 +
-            (currentRgb.b - baseRgb.b) ** 2;
-
-          return {
-            color: current,
-            contrast: getContrastRatio(bgColor, current),
-            distance,
-          };
-        });
-
-        const aaCandidates = contrastCandidates.filter(
-          (candidate) => candidate.contrast >= AA_CONTRAST_RATIO,
-        );
-        if (aaCandidates.length) {
-          return aaCandidates.reduce((best, current) => {
-            if (current.distance < best.distance) {
-              return current;
-            }
-            if (current.distance === best.distance && current.contrast > best.contrast) {
-              return current;
-            }
-            return best;
-          }).color;
-        }
-
-        return contrastCandidates.reduce((best, current) =>
-          current.contrast > best.contrast ? current : best,
-        ).color;
-      }
-
       return uniqueCandidates.reduce(
         (best, current) => {
           const contrast = getContrastRatio(bgColor, current);
@@ -96,6 +55,29 @@ export default function useColor(
         },
         { color: '#000000', contrast: getContrastRatio(bgColor, '#000000') },
       ).color;
+    };
+
+    const getSolidReadableColor = (bgColor: string, baseColor: string) => {
+      const hsl = new FastColor(baseColor).toHsl();
+      const candidates = [
+        new FastColor({ ...hsl, l: Math.max(0, hsl.l * 0.35) }).toHexString(),
+        new FastColor({ ...hsl, l: Math.min(1, hsl.l + (1 - hsl.l) * 0.35) }).toHexString(),
+        '#000000',
+        '#ffffff',
+      ];
+      let bestColor = '';
+      let bestDistance = 2;
+      candidates.forEach((current) => {
+        if (getContrastRatio(bgColor, current) >= 4.5) {
+          const distance = Math.abs(new FastColor(current).toHsl().l - hsl.l);
+          if (distance < bestDistance) {
+            bestColor = current;
+            bestDistance = distance;
+          }
+        }
+      });
+
+      return bestColor || getReadableColor(bgColor, baseColor);
     };
 
     const isInverseColor = color?.endsWith('-inverse');
@@ -137,7 +119,7 @@ export default function useColor(
       if (nextVariant === 'solid') {
         tagStyle.backgroundColor = color;
         if (autoContrast) {
-          tagStyle.color = getReadableColor(nextColor, nextColor, true);
+          tagStyle.color = getSolidReadableColor(nextColor, nextColor);
         }
       } else {
         const hsl = new FastColor(nextColor).toHsl();
