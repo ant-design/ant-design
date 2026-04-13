@@ -54,6 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | classNames | Customize class for each semantic structure inside the Drawer component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closable | Whether to show a close button. The position can be configured with `placement` | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; placement?: 'start' \| 'end' } | true | placement: 5.28.0 |
 | ~~destroyOnClose~~ | Whether to unmount child components on closing drawer or not | boolean | false |  |
+| ~~destroyInactivePanel~~ | Whether to unmount child components on closing drawer or not, please use `destroyOnHidden` instead | boolean | false | - |
 | destroyOnHidden | Whether to unmount child components on closing drawer or not | boolean | false | 5.25.0 |
 | extra | Extra actions area at corner | ReactNode | - | 4.17.0 |
 | footer | The footer for Drawer | ReactNode | - |  |
