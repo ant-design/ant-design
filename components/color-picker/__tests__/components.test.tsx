@@ -28,6 +28,19 @@ describe('ColorPicker Components test', () => {
     expect(handleAlphaChange).toHaveBeenCalledTimes(1);
   });
 
+  it('Should ColorSteppers not trigger change when disabled', () => {
+    const handleAlphaChange = jest.fn();
+    const { container } = render(
+      <ColorSteppers prefixCls="test" disabled onChange={handleAlphaChange} />,
+    );
+
+    fireEvent.change(container.querySelector('.test-steppers input')!, {
+      target: { value: 1 },
+    });
+
+    expect(handleAlphaChange).not.toHaveBeenCalled();
+  });
+
   it('Should ColorAlphaInput work correct', () => {
     const handleAlphaChange = jest.fn();
     const { container } = render(<ColorAlphaInput prefixCls="test" onChange={handleAlphaChange} />);

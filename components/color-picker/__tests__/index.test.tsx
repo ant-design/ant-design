@@ -293,6 +293,20 @@ describe('ColorPicker', () => {
     expect(container.querySelector('.ant-color-picker-rgb-input')).toBeTruthy();
   });
 
+  it('Should onFormatChange work for ColorPicker.Panel', async () => {
+    const onFormatChange = jest.fn();
+    const { container } = render(
+      <ColorPicker.Panel defaultValue="#1677ff" onFormatChange={onFormatChange} />,
+    );
+
+    fireEvent.mouseDown(container.querySelector('.ant-color-picker-format-select')!);
+    await waitFakeTimer();
+    fireEvent.click(container.querySelector('.ant-select-item[title="RGB"]')!);
+    await waitFakeTimer();
+
+    expect(onFormatChange).toHaveBeenCalledWith('rgb');
+  });
+
   it('Should hex input work', async () => {
     const { container } = render(<ColorPicker open format="hex" />);
     fireEvent.change(container.querySelector('.ant-color-picker-hex-input input')!, {

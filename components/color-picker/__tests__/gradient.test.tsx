@@ -289,6 +289,39 @@ describe('ColorPicker.gradient', () => {
     expect(onChange).toHaveBeenCalledWith(expect.anything(), 'rgb(255,0,0)');
   });
 
+  it('restore cached gradient when switch back from single', async () => {
+    const onChange = jest.fn();
+
+    const { container } = render(
+      <ColorPicker.Panel
+        mode={['single', 'gradient']}
+        defaultValue={[
+          {
+            color: '#FF0000',
+            percent: 0,
+          },
+          {
+            color: '#0000FF',
+            percent: 100,
+          },
+        ]}
+        onChange={onChange}
+      />,
+    );
+
+    const modeInputs = container.querySelectorAll('.ant-segmented-item-input');
+
+    fireEvent.click(modeInputs[0]);
+    fireEvent.click(modeInputs[1]);
+
+    expect(onChange).toHaveBeenNthCalledWith(1, expect.anything(), 'rgb(255,0,0)');
+    expect(onChange).toHaveBeenNthCalledWith(
+      2,
+      expect.anything(),
+      'linear-gradient(90deg, rgb(255,0,0) 0%, rgb(0,0,255) 100%)',
+    );
+  });
+
   it('not crash when pass gradient color', async () => {
     const color = new AggregationColor([
       {
