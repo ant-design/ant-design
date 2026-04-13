@@ -16,6 +16,7 @@ export type StatisticSemanticType = {
   classNames?: {
     root?: string;
     content?: string;
+    value?: string; /* 👈 6.4.0+ */
     title?: string;
     header?: string;
     prefix?: string;
@@ -24,6 +25,7 @@ export type StatisticSemanticType = {
   styles?: {
     root?: React.CSSProperties;
     content?: React.CSSProperties;
+    value?: React.CSSProperties; /* 👈 6.4.0+ */
     title?: React.CSSProperties;
     header?: React.CSSProperties;
     prefix?: React.CSSProperties;
@@ -121,17 +123,6 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
     });
   }
 
-  const valueNode: React.ReactNode = (
-    <StatisticNumber
-      decimalSeparator={decimalSeparator}
-      groupSeparator={groupSeparator}
-      prefixCls={prefixCls}
-      formatter={formatter}
-      precision={precision}
-      value={value}
-    />
-  );
-
   const rootClassNames = clsx(
     prefixCls,
     {
@@ -151,9 +142,24 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
 
   const contentClassNames = clsx(`${prefixCls}-content`, mergedClassNames.content);
 
+  const valueClassNames = clsx(`${prefixCls}-content-value`, mergedClassNames.value);
+
   const prefixClassNames = clsx(`${prefixCls}-content-prefix`, mergedClassNames.prefix);
 
   const suffixClassNames = clsx(`${prefixCls}-content-suffix`, mergedClassNames.suffix);
+
+  const valueNode = (
+    <StatisticNumber
+      decimalSeparator={decimalSeparator}
+      groupSeparator={groupSeparator}
+      prefixCls={prefixCls}
+      formatter={formatter}
+      precision={precision}
+      value={value}
+      className={valueClassNames}
+      style={mergedStyles.value}
+    />
+  );
 
   const internalRef = React.useRef<HTMLDivElement>(null);
 
