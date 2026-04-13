@@ -18,7 +18,7 @@ jobs:
       pull-requests: write  # for actions-cool/pr-welcome to request reviewer
     runs-on: blacksmith-4vcpu-ubuntu-2404
     steps:
-      - uses: actions-cool/pr-welcome@4bd317d60ef3b40a3ccda39c22f66c3358010f92
+      - uses: actions-cool/pr-welcome@9bbddff4f05191c4e7efe2b1d380c580d84b5aed
         with:
           refuse-issue-label: 🎱 Collaborate PR only
           need-creator-authority: write
