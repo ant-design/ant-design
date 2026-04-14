@@ -96,6 +96,7 @@ dayjs.locale('zh-cn');
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | allowClear | 自定义清除按钮 | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: 支持对象类型 |
+| ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - |
 | className | 选择器 className | string | - |  |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dateRender | 自定义日期单元格的内容，5.4.0 起用 `cellRender` 代替 | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
@@ -104,6 +105,7 @@ dayjs.locale('zh-cn');
 | defaultOpen | 是否默认展开控制弹层 | boolean | - |  |
 | disabled | 禁用 | boolean | false |  |
 | disabledDate | 不可选择的日期 | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 |
+| ~~dropdownClassName~~ | 弹出日历的 className，请使用 `classNames.popup.root` 替代 | string | - | - |
 | format | 设置日期格式，为数组时支持多格式匹配，展示以第一个为准。配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。示例：[自定义格式](#date-picker-demo-format) | [formatType](#formattype) | [@rc-component/picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | 多选、范围时是否自动排序 | boolean | true | 5.14.0 |
 | preserveInvalidOnBlur | 失去焦点是否要清空输入框内无效内容 | boolean | false | 5.14.0 |
@@ -136,6 +138,7 @@ dayjs.locale('zh-cn');
 | variant | 形态变体 | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onOpenChange | 弹出日历和关闭日历的回调 | function(open) | - |  |
 | onPanelChange | 日历面板切换的回调 | function(value, mode) | - |  |
+| ~~onSelect~~ | 选中日期时的回调，请使用 `onCalendarChange` 替代 | function(value) | - | - |
 
 ### 共同的方法
 

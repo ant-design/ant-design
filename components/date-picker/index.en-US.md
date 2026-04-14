@@ -95,6 +95,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
 | className | The picker className | string | - |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
@@ -103,6 +104,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | defaultOpen | Initial open state of picker | boolean | - |  |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 |
+| ~~dropdownClassName~~ | The className of popup calendar, please use `classNames.popup.root` instead | string | - | - |
 | format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [@rc-component/picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | Auto order date when multiple or range selection | boolean | true | 5.14.0 |
 | ~~popupClassName~~ | To customize the className of the popup calendar, use `classNames.popup.root` instead | string | - | 4.23.0 |
@@ -135,6 +137,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
+| ~~onSelect~~ | Callback when a date is selected, please use `onCalendarChange` instead | function(value) | - | - |
 
 ### Common Methods
 
