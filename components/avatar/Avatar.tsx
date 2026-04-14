@@ -1,5 +1,6 @@
 import * as React from 'react';
 import ResizeObserver from '@rc-component/resize-observer';
+import { mergeProps } from '@rc-component/util';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
@@ -11,13 +12,13 @@ import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useSize from '../config-provider/hooks/useSize';
 import useBreakpoint from '../grid/hooks/useBreakpoint';
-import type { AvatarContextType, AvatarSize } from './AvatarContext';
+import type { AvatarContextType, AvatarShape, AvatarSize } from './AvatarContext';
 import AvatarContext from './AvatarContext';
 import useStyle from './style';
 
 export interface AvatarProps {
   /** Shape of avatar, options: `circle`, `square` */
-  shape?: 'circle' | 'square';
+  shape?: AvatarShape;
   /*
    * Size of avatar, options: `large`, `medium`, `small`
    * or a custom number size
@@ -45,16 +46,20 @@ export interface AvatarProps {
 }
 
 const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
+  const config = useComponentConfig('avatar');
+  const avatarCtx = React.useContext<AvatarContextType>(AvatarContext);
   const {
+    getPrefixCls,
+    direction, // unused
+    classNames, // unused
+    styles, // unused
     prefixCls: customizePrefixCls,
-    shape,
     size: customSize,
+    shape = 'circle',
     src,
     srcSet,
     icon,
-    className,
     rootClassName,
-    style,
     alt,
     draggable,
     children,
@@ -62,7 +67,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     gap = 4,
     onError,
     ...others
-  } = props;
+  } = mergeProps(config, avatarCtx, props);
 
   const [scale, setScale] = React.useState(1);
   const [mounted, setMounted] = React.useState(false);
@@ -71,14 +76,6 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const avatarNodeRef = React.useRef<HTMLSpanElement>(null);
   const avatarChildrenRef = React.useRef<HTMLSpanElement>(null);
   const avatarNodeMergedRef = composeRef<HTMLSpanElement>(ref, avatarNodeRef);
-
-  const {
-    getPrefixCls,
-    className: contextClassName,
-    style: contextStyle,
-  } = useComponentConfig('avatar');
-
-  const avatarCtx = React.useContext<AvatarContextType>(AvatarContext);
 
   const setScaleParam = () => {
     if (!avatarChildrenRef.current || !avatarNodeRef.current) {
@@ -112,7 +109,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
     }
   };
 
-  const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'medium');
+  const size = useSize((ctxSize) => customSize ?? ctxSize ?? 'medium');
 
   const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
     responsiveArray.includes(key as Breakpoint),
@@ -157,20 +154,18 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
 
   const hasImageElement = React.isValidElement(src);
 
-  const mergedShape = shape || avatarCtx?.shape || 'circle';
-
   const classString = clsx(
     prefixCls,
     sizeCls,
-    contextClassName,
-    `${prefixCls}-${mergedShape}`,
+    config.className,
+    `${prefixCls}-${shape}`,
     {
       [`${prefixCls}-image`]: hasImageElement || (src && isImgExist),
       [`${prefixCls}-icon`]: !!icon,
     },
     cssVarCls,
     rootCls,
-    className,
+    props.className,
     rootClassName,
     hashId,
   );
@@ -225,7 +220,7 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   return (
     <span
       {...others}
-      style={{ ...sizeStyle, ...responsiveSizeStyle, ...contextStyle, ...style }}
+      style={{ ...sizeStyle, ...responsiveSizeStyle, ...config.style, ...props.style }}
       className={classString}
       ref={avatarNodeMergedRef}
     >

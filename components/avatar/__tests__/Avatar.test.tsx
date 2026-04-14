@@ -223,6 +223,38 @@ describe('Avatar Render', () => {
     expect(container.querySelector('.ant-avatar-lg')).toBeTruthy();
   });
 
+  it('should apply avatar size from ConfigProvider component config', () => {
+    const { container } = render(
+      <ConfigProvider avatar={{ size: 'small' }}>
+        <Avatar>test</Avatar>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-avatar-sm')).toBeTruthy();
+  });
+
+  it('should apply avatar shape from ConfigProvider component config', () => {
+    const { container } = render(
+      <ConfigProvider avatar={{ shape: 'square' }}>
+        <Avatar>test</Avatar>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-avatar-square')).toBeTruthy();
+  });
+
+  it('should prefer avatar shape in Avatar.Group over ConfigProvider component config', () => {
+    const { container } = render(
+      <ConfigProvider avatar={{ shape: 'circle' }}>
+        <Avatar.Group shape="square">
+          <Avatar>test</Avatar>
+        </Avatar.Group>
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-avatar-square')).toBeTruthy();
+  });
+
   it('Avatar.Group support max series props and prompt to deprecated', async () => {
     const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     jest.useFakeTimers();

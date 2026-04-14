@@ -9,7 +9,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { PopoverProps } from '../popover';
 import Popover from '../popover';
 import Avatar from './Avatar';
-import type { AvatarContextType, AvatarSize } from './AvatarContext';
+import type { AvatarContextType, AvatarShape, AvatarSize } from './AvatarContext';
 import AvatarContext from './AvatarContext';
 import useStyle from './style';
 
@@ -48,7 +48,7 @@ export interface AvatarGroupProps {
    * or a custom number size
    * */
   size?: AvatarSize;
-  shape?: 'circle' | 'square';
+  shape?: AvatarShape;
 }
 
 const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {

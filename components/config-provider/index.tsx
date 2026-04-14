@@ -18,6 +18,7 @@ import UniqueProvider from '../tooltip/UniqueProvider';
 import type {
   AlertConfig,
   AnchorStyleConfig,
+  AvatarConfig,
   BadgeConfig,
   BreadcrumbConfig,
   ButtonConfig,
@@ -268,7 +269,7 @@ export interface ConfigProviderProps {
   ribbon?: RibbonConfig;
   switch?: SwitchStyleConfig;
   transfer?: TransferConfig;
-  avatar?: ComponentStyleConfig;
+  avatar?: AvatarConfig;
   message?: MessageConfig;
   tag?: TagConfig;
   table?: TableConfig;
