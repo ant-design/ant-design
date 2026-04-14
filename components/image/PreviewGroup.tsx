@@ -34,7 +34,10 @@ export const icons = {
 
 type RcPreviewGroupProps = GetProps<typeof RcImage.PreviewGroup>;
 
-type OriginPreviewConfig = NonNullable<Exclude<RcPreviewGroupProps['preview'], boolean>>;
+type OriginPreviewConfig = Omit<
+  NonNullable<Exclude<RcPreviewGroupProps['preview'], boolean>>,
+  'maskClosable'
+>;
 
 export type GroupPreviewConfig = OriginPreviewConfig &
   DeprecatedPreviewConfig & {

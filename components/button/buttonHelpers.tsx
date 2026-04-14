@@ -1,7 +1,7 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
 import type { BaseButtonProps, LegacyButtonType } from './Button';

@@ -27,6 +27,7 @@ demo:
 <code src="./demo/change-on-wheel.tsx" version="5.14.0">鼠标滚轮</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/spinner.tsx" version="6.0.0">拨轮</code>
+<code src="./demo/disabled-hover-debug.tsx" debug>禁用步进按钮 hover</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/borderless-height-debug.tsx" debug>Borderless 高度对齐</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>

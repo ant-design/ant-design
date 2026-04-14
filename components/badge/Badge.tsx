@@ -7,7 +7,7 @@ import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable, isNumber } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -177,8 +177,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   // =============================== Render ===============================
   // >>> Title
   const titleNode =
-    title ??
-    (typeof livingCount === 'string' || typeof livingCount === 'number' ? livingCount : undefined);
+    title ?? (typeof livingCount === 'string' || isNumber(livingCount) ? livingCount : undefined);
 
   // >>> Status Text
   const showStatusTextNode = !isHidden && (text === 0 ? showZero : !!text && text !== true);

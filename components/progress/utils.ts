@@ -1,5 +1,6 @@
 import { presetPrimaryColors } from '@ant-design/colors';
 
+import { isNumber } from '../_util/is';
 import type { CircleProps } from './Circle';
 import type { ProgressProps } from './progress';
 
@@ -37,10 +38,7 @@ export const getStrokeColor = ({
 export const getSize = (
   size: ProgressProps['size'],
   type: ProgressProps['type'] | 'step',
-  extra?: {
-    steps?: number;
-    strokeWidth?: number;
-  },
+  extra?: { steps?: number; strokeWidth?: number },
 ): [number, number] => {
   let width = -1;
   let height = -1;
@@ -50,7 +48,7 @@ export const getSize = (
     if (typeof size === 'string' || typeof size === 'undefined') {
       width = size === 'small' ? 2 : 14;
       height = strokeWidth ?? 8;
-    } else if (typeof size === 'number') {
+    } else if (isNumber(size)) {
       [width, height] = [size, size];
     } else {
       [width = 14, height = 8] = (Array.isArray(size) ? size : [size.width, size.height]) as [
@@ -64,7 +62,7 @@ export const getSize = (
     const strokeWidth = extra?.strokeWidth;
     if (typeof size === 'string' || typeof size === 'undefined') {
       height = strokeWidth || (size === 'small' ? 6 : 8);
-    } else if (typeof size === 'number') {
+    } else if (isNumber(size)) {
       [width, height] = [size, size];
     } else {
       [width = -1, height = 8] = (Array.isArray(size) ? size : [size.width, size.height]) as [
@@ -75,7 +73,7 @@ export const getSize = (
   } else if (type === 'circle' || type === 'dashboard') {
     if (typeof size === 'string' || typeof size === 'undefined') {
       [width, height] = size === 'small' ? [60, 60] : [120, 120];
-    } else if (typeof size === 'number') {
+    } else if (isNumber(size)) {
       [width, height] = [size, size];
     } else if (Array.isArray(size)) {
       width = (size[0] ?? size[1] ?? 120) as number;

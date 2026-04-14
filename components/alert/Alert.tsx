@@ -12,7 +12,7 @@ import { clsx } from 'clsx';
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
