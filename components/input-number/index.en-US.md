@@ -74,6 +74,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons / Keyboard / Wheel | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - |  |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
 
 ## Ref
 

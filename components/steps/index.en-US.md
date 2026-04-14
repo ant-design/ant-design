@@ -52,7 +52,7 @@ The whole of the step bar.
 | ~~labelPlacement~~ | Place title and content with `horizontal` or `vertical` direction | string | `horizontal` |  |
 | orientation | To specify the orientation of the step bar, `horizontal` or `vertical` | string | `horizontal` |  |
 | percent | Progress circle percentage of current step in `process` status (only works on basic Steps) | number | - | 4.5.0 |
-| progressDot | Steps with progress dot style, customize the progress dot by setting it to a function. `titlePlacement` will be `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  |
+| ~~progressDot~~ | Steps with progress dot style, customize the progress dot by setting it to a function. Please use `type="dot"` instead. `titlePlacement` will be `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  |
 | responsive | Change to vertical direction when screen width smaller than `532px` | boolean | true |  |
 | size | To specify the size of the step bar, `medium` and `small` are currently supported | string | `medium` |  |
 | status | To specify the status of current step, can be set to one of the following values: `wait` `process` `finish` `error` | string | `process` |  |
