@@ -290,6 +290,15 @@ export const genBaseStyle = (prefixCls: string, token: TreeToken): CSSObject => 
       // https://github.com/ant-design/ant-design/issues/56957
       [`${treeCls}-checkbox`]: {
         flexShrink: 0,
+        // When the title spans multiple lines, the checkbox aligns vertically centered with other elements
+        // However, the switcher aligns to flex-start, causing a vertical alignment discrepancy in the parent node
+        // Currently, the checkbox uses start alignment, but this causes it to stick to the top, resulting in a visually higher position
+        // By setting the switcher's lineHeight to titleHeight, the required margin-block-start distance can be calculated to correct the alignment
+        alignSelf: 'flex-start',
+        marginBlockStart: token
+          .calc(token.calc(titleHeight).sub(token.controlInteractiveSize))
+          .div(2)
+          .equal(),
       },
 
       // >>> Switcher

@@ -17,7 +17,7 @@ import Progress from './Progress';
 import type { ProgressClassNames, ProgressStyles } from './Progress';
 import useStyle from './style';
 
-type OriginPreviewConfig = NonNullable<Exclude<RcImageProps['preview'], boolean>>;
+type OriginPreviewConfig = Omit<NonNullable<Exclude<RcImageProps['preview'], boolean>>, 'maskClosable'>;
 
 export type DeprecatedPreviewConfig = {
   /** @deprecated Use `open` instead */

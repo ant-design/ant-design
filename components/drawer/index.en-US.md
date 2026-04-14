@@ -47,7 +47,7 @@ A Drawer is a panel that is typically overlaid on top of a page and slides in fr
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Props | Description | Type | Default | Version |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | afterOpenChange | Callback after the animation ends when switching drawers | function(open) | - |  |
 | className | Config Drawer Panel className. Use `rootClassName` if want to config top DOM style | string | - |  |
@@ -83,7 +83,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### ResizableConfig
 
-| Props         | Description                 | Type                   | Default | Version |
+| Property      | Description                 | Type                   | Default | Version |
 | ------------- | --------------------------- | ---------------------- | ------- | ------- |
 | onResizeStart | Callback when resize starts | () => void             | -       | 6.0.0   |
 | onResize      | Callback during resizing    | (size: number) => void | -       | 6.0.0   |

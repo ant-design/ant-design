@@ -8,6 +8,7 @@ import { clsx } from 'clsx';
 import { useProxyImperativeHandle } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -29,9 +30,9 @@ import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import renderExpandIcon from './ExpandIcon';
 import useContainerWidth from './hooks/useContainerWidth';
+import useFilledColumns from './hooks/useFilledColumns';
 import type { FilterConfig, FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
-import useFilledColumns from './hooks/useFilledColumns';
 import useLazyKVMap from './hooks/useLazyKVMap';
 import usePagination, { DEFAULT_PAGE_SIZE, getPaginationParam } from './hooks/usePagination';
 import useSelection from './hooks/useSelection';
@@ -120,19 +121,18 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject>
-  extends Omit<
-    RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'scroll'
-    | 'emptyText'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TableProps<RecordType = AnyObject> extends Omit<
+  RcTableProps<RecordType>,
+  | 'transformColumns'
+  | 'internalHooks'
+  | 'internalRefs'
+  | 'data'
+  | 'columns'
+  | 'scroll'
+  | 'emptyText'
+  | 'classNames'
+  | 'styles'
+> {
   classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
   styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
@@ -184,7 +184,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     dropdownPrefixCls: customizeDropdownPrefixCls,
     dataSource,
     pagination,
-    rowSelection,
+    rowSelection: customizeRowSelection,
     rowKey: customizeRowKey,
     rowClassName,
     column,
@@ -283,6 +283,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const dropdownPrefixCls = getPrefixCls('dropdown', customizeDropdownPrefixCls);
 
   const [, token] = useToken();
+
+  const mergedRowSelection = React.useMemo(() => {
+    return customizeRowSelection && typeof customizeRowSelection === 'object'
+      ? { columnWidth: token.Table?.selectionColumnWidth, ...customizeRowSelection }
+      : customizeRowSelection;
+  }, [customizeRowSelection, token.Table?.selectionColumnWidth]);
+
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
 
@@ -528,7 +535,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
       locale: tableLocale,
       getPopupContainer: getPopupContainer || getContextPopupContainer,
     },
-    rowSelection,
+    mergedRowSelection,
   );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
@@ -553,14 +560,14 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
   if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
-    mergedExpandable.expandIconColumnIndex = rowSelection ? 1 : 0;
-  } else if (mergedExpandable.expandIconColumnIndex! > 0 && rowSelection) {
+    mergedExpandable.expandIconColumnIndex = mergedRowSelection ? 1 : 0;
+  } else if (mergedExpandable.expandIconColumnIndex! > 0 && mergedRowSelection) {
     mergedExpandable.expandIconColumnIndex! -= 1;
   }
 
   // Indent size
   if (typeof mergedExpandable.indentSize !== 'number') {
-    mergedExpandable.indentSize = typeof indentSize === 'number' ? indentSize : 15;
+    mergedExpandable.indentSize = isNumber(indentSize) ? indentSize : 15;
   }
 
   // ============================ Render ============================

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { isValidElement } from 'react';
 
 import type { TooltipProps } from '../tooltip';
-import isNonNullable from './isNonNullable';
+import { isNonNullable } from './is';
 
 const convertToTooltipProps = <P extends TooltipProps>(tooltip: P | ReactNode, context?: P) => {
   if (!isNonNullable(tooltip)) {
