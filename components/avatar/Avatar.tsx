@@ -51,6 +51,8 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
   const {
     getPrefixCls,
     direction, // unused
+    getPopupContainer, // unused
+    renderEmpty, // unused
     classNames, // unused
     styles, // unused
     prefixCls: customizePrefixCls,
