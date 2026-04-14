@@ -34,7 +34,7 @@ type BackTopToken = FullToken<'BackTop'> & {
    * @desc BackTop 字体大小
    * @descEN Font size of BackTop
    */
-  backTopFontSize: number;
+  backTopFontSize: number | string;
   /**
    * @desc BackTop 尺寸
    * @descEN Size of BackTop

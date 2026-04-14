@@ -2,6 +2,7 @@ import React from 'react';
 
 import Table from '..';
 import { render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 
 describe('Table.Virtual', () => {
   it('should work', () => {
@@ -124,5 +125,51 @@ describe('Table.Virtual', () => {
         '.ant-table-tbody-virtual-holder .ant-table-expanded-row .ant-table-row',
       ),
     ).toHaveStyle({ display: 'table-row' });
+  });
+
+  it('should support columnWidth from token', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Table: {
+              selectionColumnWidth: 200,
+            },
+          },
+        }}
+      >
+        <Table
+          columns={[{ dataIndex: 'key' }]}
+          dataSource={[{ key: '0' }]}
+          virtual
+          scroll={{ y: 0 }}
+          rowSelection={{}}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-table-selection-col')).toHaveStyle({ width: '200px' });
+  });
+
+  it('should support custom columnWidth priority over token', () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Table: {
+              selectionColumnWidth: 200,
+            },
+          },
+        }}
+      >
+        <Table
+          columns={[{ dataIndex: 'key' }]}
+          dataSource={[{ key: '0' }]}
+          virtual
+          scroll={{ y: 0 }}
+          rowSelection={{ columnWidth: 50 }}
+        />
+      </ConfigProvider>,
+    );
+    expect(container.querySelector('.ant-table-selection-col')).toHaveStyle({ width: '50px' });
   });
 });

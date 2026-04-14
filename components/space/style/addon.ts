@@ -42,6 +42,7 @@ const genSpaceAddonStyle: GenerateStyle<AddonToken, CSSObject> = (token) => {
         display: 'inline-flex',
         alignItems: 'center',
         gap: 0,
+        whiteSpace: 'nowrap',
         paddingInline: paddingSM,
         margin: 0,
         borderWidth: lineWidth,

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { NoFormStyle } from '../form/context';
 import { NoCompactStyle } from '../space/Compact';
-import isNonNullable from './isNonNullable';
+import { isNonNullable } from './is';
 
 const ContextIsolator: React.FC<
   Readonly<React.PropsWithChildren<Partial<Record<'space' | 'form', boolean>>>>

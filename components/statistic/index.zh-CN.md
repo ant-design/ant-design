@@ -79,6 +79,8 @@ demo:
 
 ## Semantic DOM
 
+Statistic 提供 `root`、`header`、`title`、`content`、`value`、`prefix` 和 `suffix` 语义化 DOM 节点。
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
