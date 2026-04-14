@@ -17,7 +17,7 @@ tag: vVERSION
 
 ## 6.3.6
 
-`2026-04-13`
+`2026-04-14`
 
 - 🐞 Fix InputNumber disabled handlers showing hover styles. [#57592](https://github.com/ant-design/ant-design/pull/57592) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Space.Addon wrapping CJK content in compact layouts. [#57622](https://github.com/ant-design/ant-design/pull/57622) [@QDyanbing](https://github.com/QDyanbing)
