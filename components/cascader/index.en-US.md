@@ -54,6 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- |
 | allowClear | Show clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
 | ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `multiple` is `true` | boolean | true | 5.9.0 |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
 | changeOnSelect | Change value on each selection if set to true, see above demo for details | boolean | false |  |
 | className | The additional css class | string | - |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
@@ -63,6 +64,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | displayRender | The render function of displaying selected options | (label, selectedOptions) => ReactNode | label => label.join(`/`) | `multiple`: 4.18.0 |
 | tagRender | Custom render function for tags in `multiple` mode | (label: string, onClose: function, value: string) => ReactNode | - |  |
 | ~~popupClassName~~ | The additional className of popup overlay, use `classNames.popup.root` instead | string | - | 4.23.0 |
+| ~~dropdownClassName~~ | The additional className of popup overlay, please use `classNames.popup.root` instead | string | - | - |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (menus: ReactNode) => ReactNode | - | 4.4.0 |
 | popupRender | Customize dropdown content | (menus: ReactNode) => ReactNode | - |  |
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |
@@ -81,6 +83,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | placeholder | The input placeholder | string | - |  |
 | placement | Use preset popup align config from builtinPlacements | `bottomLeft` `bottomRight` `topLeft` `topRight` | `bottomLeft` | 4.17.0 |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
+| ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - |
 | showSearch | Whether show search input in single mode | boolean \| [Object](#showsearch) | false |  |
 | size | The input size | `large` \| `medium` \| `small` | `medium` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
@@ -91,6 +94,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Callback when finishing cascader select | (value, selectedOptions) => void | - |  |
 | ~~onDropdownVisibleChange~~ | Callback when popup shown or hidden, use `onOpenChange` instead | (value) => void | - | 4.17.0 |
 | onOpenChange | Callback when popup shown or hidden | (value) => void | - |  |
+| ~~onPopupVisibleChange~~ | Callback when popup shown or hidden, please use `onOpenChange` instead | (value) => void | - | - |
 | multiple | Support multiple or not | boolean | - | 4.17.0 |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | showCheckedStrategy | The way to show selected items in the box (only effective when `multiple` is `true`). `Cascader.SHOW_CHILD`: just show child treeNode. `Cascader.SHOW_PARENT`: just show parent treeNode (when all child treeNode under the parent treeNode are checked) | `Cascader.SHOW_PARENT` \| `Cascader.SHOW_CHILD` | `Cascader.SHOW_PARENT` | 4.20.0 |

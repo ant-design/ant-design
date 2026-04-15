@@ -75,6 +75,7 @@ demo:
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - |
 | onPressEnter | 按下回车的回调 | function(e) | - | - |
 | onStep | 点击上下箭头、键盘、滚轮的回调 | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - | 4.7.0 |
+| ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - |
 
 ## Ref
 

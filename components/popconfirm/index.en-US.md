@@ -34,7 +34,7 @@ The difference with the `confirm` modal dialog is that it's more lightweight tha
 
 Common props ref：[Common props](/docs/react/common-props)
 
-| Property | Description | Type | Default value | Version |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | cancelButtonProps | The cancel button props | [ButtonProps](/components/button/#api) | - |  |
 | cancelText | The text of the Cancel button | string | `Cancel` |  |
