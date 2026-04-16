@@ -320,7 +320,7 @@
     "typescript": "^6.0.2",
     "vanilla-jsoneditor": "^3.11.0",
     "vanilla-tilt": "^1.8.1",
-    "webpack": "5.106.1",
+    "webpack": "5.106.2",
     "webpack-bundle-analyzer": "^5.1.0",
     "xhr-mock": "^2.5.1"
   },
