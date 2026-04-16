@@ -39,7 +39,7 @@ demo:
 | --- | --- | --- | --- | --- | --- |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | dropdownIcon | 自定义下拉图标 | ReactNode | `<DownOutlined />` | 6.2.0 | 6.2.0 |
-| items | 路由栈信息（>=5.3.0 推荐使用，旧版请使用 `Breadcrumb.Item` 子组件方式） | [items\[\]](#itemtype) | - | 5.3.0 | × |
+| items | 路由栈信息（>=5.3.0 推荐使用，旧版请使用 `Breadcrumb.Item` 子组件方式） | [ItemType\[\]](#itemtype) | - | 5.3.0 | × |
 | itemRender | 自定义链接函数，和 react-router 配合使用，详见[示例](#use-with-browserhistory) | (route, params, routes, paths) => ReactNode | - |  | × |
 | params | 路由的参数 | object | - |  | × |
 | separator | 分隔符自定义 | ReactNode | `/` |  | 6.0.0 |
