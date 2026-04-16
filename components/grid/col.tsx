@@ -25,7 +25,8 @@ export interface ColSize {
 }
 
 export interface ColProps
-  extends React.HTMLAttributes<HTMLDivElement>, Partial<Record<Breakpoint, ColSpanType | ColSize>> {
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Partial<Record<Breakpoint, ColSpanType | ColSize>> {
   flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;
@@ -140,6 +141,8 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
   if (!grid && gutter?.[0]) {
     const horizontalGutter = isNumber(gutter[0]) ? `${gutter[0] / 2}px` : `calc(${gutter[0]} / 2)`;
+    mergedStyle.paddingInline = horizontalGutter;
+  }
 
   if (flex) {
     mergedStyle.flex = parseFlex(flex);
