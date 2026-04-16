@@ -47,6 +47,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
       [`${componentCls}-row-indent`]: {
         height: 1,
+        flexShrink: 0,
       },
 
       [`${componentCls}-row-expand-icon`]: {
@@ -60,6 +61,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         border: tableBorder,
         borderRadius,
         transform: `scale(${expandIconScale})`,
+        flexShrink: 0,
 
         '&:focus, &:hover, &:active': {
           borderColor: 'currentcolor',
@@ -112,9 +114,8 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
       },
 
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
-        marginTop: unit(calc(expandIconMarginTop).add(1).equal()),
+        marginTop: unit(calc(expandIconMarginTop).add(lineWidth).equal()),
         marginInlineEnd: paddingXS,
-        flexShrink: 0,
       },
 
       [`tr${componentCls}-expanded-row`]: {
