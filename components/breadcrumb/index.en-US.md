@@ -42,7 +42,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | itemRender | Custom item renderer, work with react-router, see [example](#use-with-browserhistory) | (route, params, routes, paths) => ReactNode | - |  | × |
 | params | Routing parameters | object | - |  | × |
 | separator | Custom separator | ReactNode | `/` |  | 6.0.0 |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
 
 ### ItemType
 
