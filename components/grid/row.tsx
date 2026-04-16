@@ -138,8 +138,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     });
   } else {
     if (gutterH) {
-      rowStyle.marginInline =
-        typeof gutterH === 'number' ? `${gutterH / -2}px` : `calc(${gutterH} / -2)`;
+      rowStyle.marginInline = isNumber(gutterH) ? `${gutterH / -2}px` : `calc(${gutterH} / -2)`;
     }
     rowStyle.rowGap = gutterV;
   }
