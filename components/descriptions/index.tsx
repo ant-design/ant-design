@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -139,16 +140,11 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   }
   // Column count
   const mergedColumn = React.useMemo(() => {
-    if (typeof column === 'number') {
+    if (isNumber(column)) {
       return column;
     }
 
-    return (
-      matchScreen(screens, {
-        ...DEFAULT_COLUMN_MAP,
-        ...column,
-      }) ?? 3
-    );
+    return matchScreen(screens, { ...DEFAULT_COLUMN_MAP, ...column }) ?? 3;
   }, [screens, column]);
 
   // Items with responsive

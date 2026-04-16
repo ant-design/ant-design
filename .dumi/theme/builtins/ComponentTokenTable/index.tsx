@@ -3,12 +3,11 @@ import { LinkOutlined, QuestionCircleOutlined, RightOutlined } from '@ant-design
 import { ConfigProvider, Flex, Popover, Table, Typography } from 'antd';
 import { createStyles, css, useTheme } from 'antd-style';
 import { getDesignToken } from 'antd-token-previewer';
-import tokenMeta from 'antd/es/version/token-meta.json';
-import tokenData from 'antd/es/version/token.json';
 
 import useLocale from '../../../hooks/useLocale';
-import { useColumns } from '../TokenTable';
 import type { TokenData } from '../TokenTable';
+import { useColumns } from '../TokenTable';
+import { tokenData, tokenMeta } from '../versionToken';
 
 const compare = (token1: string, token2: string) => {
   const hasColor1 = token1.toLowerCase().includes('color');
@@ -112,23 +111,25 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
 
   const data = tokens
     .sort(component ? undefined : compare)
-    .map<TokenData>((name) => {
+    .map<TokenData | null>((name) => {
       const meta = component
         ? tokenMeta.components[component].find((item) => item.token === name)
         : tokenMeta.global[name];
 
       if (!meta) {
-        return null as unknown as TokenData;
+        return null;
       }
 
       return {
         name,
         desc: lang === 'cn' ? meta.desc : meta.descEn,
         type: meta.type,
-        value: component ? tokenData[component].component[name] : defaultToken[name],
+        value: component
+          ? tokenData[component]?.component[name]
+          : defaultToken[name as keyof typeof defaultToken],
       };
     })
-    .filter(Boolean);
+    .filter((item): item is TokenData => item !== null && item !== undefined);
 
   const code = component
     ? `<ConfigProvider

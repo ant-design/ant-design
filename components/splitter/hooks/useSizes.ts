@@ -1,6 +1,6 @@
 import React from 'react';
 
-import isNonNullable from '../../_util/isNonNullable';
+import { isNonNullable } from '../../_util/is';
 import type { PanelProps } from '../interface';
 import { autoPtgSizes } from './sizeUtil';
 

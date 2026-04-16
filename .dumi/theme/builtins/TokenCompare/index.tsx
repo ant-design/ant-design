@@ -3,18 +3,19 @@ import React from 'react';
 import { FastColor } from '@ant-design/fast-color';
 import { Flex, theme } from 'antd';
 import { createStaticStyles } from 'antd-style';
-import tokenMeta from 'antd/es/version/token-meta.json';
 import { clsx } from 'clsx';
 
 import useLocale from '../../../hooks/useLocale';
+import { tokenMeta } from '../versionToken';
 
 const styles = createStaticStyles(({ cssVar, css }) => {
-  const height = cssVar.controlHeightLG;
-  const dotSize = height / 5;
+  const { controlHeightLG } = cssVar;
+
+  const dotSize = `calc(${controlHeightLG} / 5)`;
 
   return {
     container: css`
-      background: #fff;
+      background-color: #fff;
       border-radius: ${cssVar.borderRadiusLG};
       overflow: hidden;
     `,
@@ -26,7 +27,7 @@ const styles = createStaticStyles(({ cssVar, css }) => {
 
     col: css`
       flex: 1 1 33%;
-      height: ${height}px;
+      height: ${controlHeightLG};
       display: flex;
       align-items: center;
       justify-content: center;
@@ -35,15 +36,15 @@ const styles = createStaticStyles(({ cssVar, css }) => {
     `,
 
     colDark: css`
-      background: #000;
+      background-color: #000;
       color: #fff;
     `,
 
     dot: css`
       border-radius: 100%;
-      width: ${dotSize}px;
-      height: ${dotSize}px;
-      background: #000;
+      width: ${dotSize};
+      height: ${dotSize};
+      background-color: #000;
       box-shadow: 0 0 0 1px rgba(150, 150, 150, 0.25);
     `,
 
@@ -65,7 +66,7 @@ interface ColorCircleProps {
 const ColorCircle: React.FC<ColorCircleProps> = ({ color }) => {
   return (
     <Flex align="center" gap={4}>
-      <div className={styles.dot} style={{ background: color }} />
+      <div className={styles.dot} style={{ backgroundColor: color }} />
       <div className={styles.dotColor}>{color}</div>
     </Flex>
   );
@@ -86,7 +87,7 @@ const TokenCompare: React.FC<TokenCompareProps> = (props) => {
     const darkTokens = theme.getDesignToken({ algorithm: theme.darkAlgorithm });
 
     return list.map((tokenName) => {
-      const meta = (tokenMeta.global as any)[tokenName];
+      const meta = tokenMeta.global?.[tokenName];
       const name = lang === 'cn' ? meta.name : meta.nameEn;
       return {
         name: name.replace('颜色', '').replace('色', '').replace('Color', '').trim(),
