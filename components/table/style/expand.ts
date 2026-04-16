@@ -41,6 +41,7 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
         [`${componentCls}-row-expand-icon`]: {
           display: 'inline-flex',
+          float: 'none',
           verticalAlign: 'sub',
         },
       },
