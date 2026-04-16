@@ -41,20 +41,17 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
 
         [`${componentCls}-row-expand-icon`]: {
           display: 'inline-flex',
-          float: 'none',
           verticalAlign: 'sub',
         },
       },
 
       [`${componentCls}-row-indent`]: {
         height: 1,
-        float: 'left',
       },
 
       [`${componentCls}-row-expand-icon`]: {
         ...operationUnit(token),
         position: 'relative',
-        float: 'left',
         width: expandIconSize,
         height: expandIconSize,
         color: 'inherit',
@@ -110,9 +107,14 @@ const genExpandStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
         },
       },
 
+      [`${componentCls}-cell-with-append`]: {
+        display: 'inline-flex',
+      },
+
       [`${componentCls}-row-indent + ${componentCls}-row-expand-icon`]: {
-        marginTop: expandIconMarginTop,
+        marginTop: unit(calc(expandIconMarginTop).add(1).equal()),
         marginInlineEnd: paddingXS,
+        flexShrink: 0,
       },
 
       [`tr${componentCls}-expanded-row`]: {
