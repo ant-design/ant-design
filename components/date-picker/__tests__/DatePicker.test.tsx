@@ -125,7 +125,7 @@ describe('DatePicker', () => {
           value={value}
           onChange={(nextValue) => setValue(nextValue ?? [])}
           tagRender={({ label, onClose, value: tagValue }) => {
-            const locked = tagValue.isBefore(dayjs().startOf('day'), 'day');
+            const locked = tagValue.isBefore(dayjs('2016-11-22'), 'day');
 
             return (
               <span data-testid={`tag-${tagValue.format('YYYY-MM-DD')}`}>

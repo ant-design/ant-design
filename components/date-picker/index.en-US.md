@@ -162,7 +162,6 @@ The following APIs are shared by DatePicker, RangePicker.
 | ~~showTime.defaultValue~~ | Use `showTime.defaultOpenValue` instead | [dayjs](https://day.js.org/) | dayjs() | 5.27.3 |
 | showTime.defaultOpenValue | To set default time of selected date, [demo](#date-picker-demo-disabled-date) | [dayjs](https://day.js.org/) | dayjs() |  |
 | showWeek | Show week info when in DatePicker | boolean | false | 5.14.0 |
-| tagRender | Customize tag render, only applies when `multiple` is set | (props) => ReactNode | - | 6.4.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 | onOk | Callback when click ok button | function() | - |  |
