@@ -27,6 +27,7 @@ demo:
 <code src="./demo/change-on-wheel.tsx" version="5.14.0">鼠标滚轮</code>
 <code src="./demo/variant.tsx" version="5.13.0">形态变体</code>
 <code src="./demo/spinner.tsx" version="6.0.0">拨轮</code>
+<code src="./demo/disabled-hover-debug.tsx" debug>禁用步进按钮 hover</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/borderless-height-debug.tsx" debug>Borderless 高度对齐</code>
 <code src="./demo/out-of-range.tsx">超出边界</code>
@@ -74,6 +75,7 @@ demo:
 | onChange | 变化回调 | function(value: number \| string \| null) | - | - |
 | onPressEnter | 按下回车的回调 | function(e) | - | - |
 | onStep | 点击上下箭头、键盘、滚轮的回调 | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - | 4.7.0 |
+| ~~bordered~~ | 是否带边框，请使用 `variant` 替代 | boolean | true | - |
 
 ## Ref
 

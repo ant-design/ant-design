@@ -46,7 +46,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### MasonryItem
 
-| Parameter | Description | Type | Default Value |
+| Property | Description | Type | Default Value |
 | --- | --- | --- | --- |
 | children | Custom display content, takes precedence over `itemRender` | `React.ReactNode` | - |
 | column | Specifies the column to which the item belongs | `number` | - |

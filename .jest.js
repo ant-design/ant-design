@@ -5,9 +5,9 @@ const compileModules = [
   '@ant-design',
   'countup.js',
   '.pnpm',
-  '@asamuzakjp/css-color',
+  '@asamuzakjp',
   '@rc-component',
-  // jsdom 27+ depends on ESM parse5, need transform
+  // jsdom 27+ pulls ESM dependencies that need transform
   'parse5',
   '@exodus',
   'jsdom',

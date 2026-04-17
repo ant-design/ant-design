@@ -26,7 +26,7 @@ const createHolder = (node: HTMLElement) => {
 const createDot = (holder: HTMLElement, color: string, left: number, top: number, size = 0) => {
   const dot = document.createElement('div');
   dot.style.position = 'absolute';
-  dot.style.left = `${left}px`;
+  dot.style.insetInlineStart = `${left}px`;
   dot.style.top = `${top}px`;
   dot.style.width = `${size}px`;
   dot.style.height = `${size}px`;

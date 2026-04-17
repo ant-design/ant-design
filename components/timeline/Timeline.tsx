@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable, isNumber } from '../_util/is';
 import type { GetProp, GetProps, LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -267,7 +267,7 @@ const Timeline: CompoundedComponent = (props) => {
   const stepStyle: React.CSSProperties = { ...contextStyle, ...style };
 
   if (isNonNullable(titleSpan) && mergedMode !== 'alternate') {
-    if (typeof titleSpan === 'number' && !Number.isNaN(titleSpan)) {
+    if (isNumber(titleSpan)) {
       stepStyle[varName('head-span')] = titleSpan;
     } else {
       stepStyle[varName('head-span-ptg')] = titleSpan;

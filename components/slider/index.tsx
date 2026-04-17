@@ -7,6 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -145,7 +146,7 @@ function getTipFormatter(tipFormatter?: Formatter) {
   if (tipFormatter || tipFormatter === null) {
     return tipFormatter;
   }
-  return (val?: number) => (typeof val === 'number' ? val.toString() : '');
+  return (val?: number) => (isNumber(val) ? val.toString() : '');
 }
 
 const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>((props, ref) => {
@@ -225,7 +226,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const [dragging, setDragging] = useRafLock();
 
   const onInternalChangeComplete: RcSliderProps['onChangeComplete'] = (nextValues) => {
-    onChangeComplete?.(nextValues as any);
+    (onChangeComplete as RcSliderProps['onChangeComplete'])?.(nextValues);
     setDragging(false);
   };
 
@@ -406,9 +407,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   };
 
   return (
-    // @ts-ignore
     <RcSlider
-      {...restProps}
+      {...(restProps as Omit<SliderProps, 'onAfterChange' | 'onChange'>)}
       classNames={mergedClassNames}
       styles={mergedStyles}
       step={restProps.step}

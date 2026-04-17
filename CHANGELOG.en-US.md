@@ -15,6 +15,51 @@ tag: vVERSION
 
 ---
 
+## 6.3.6
+
+`2026-04-17`
+
+- 🐞 Fix InputNumber disabled handlers showing hover styles. [#57592](https://github.com/ant-design/ant-design/pull/57592) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Space.Addon wrapping CJK content in compact layouts. [#57622](https://github.com/ant-design/ant-design/pull/57622) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Cascader menu item ellipsis styles for long option labels. [#57540](https://github.com/ant-design/ant-design/pull/57540) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Image preview focus not being locked when opened via keyboard, and restore focus to trigger element after preview closes. [#57613](https://github.com/ant-design/ant-design/pull/57613) [#57614](https://github.com/ant-design/ant-design/pull/57614) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 Fix Input disabled border color to use `colorBorderDisabled` token. [#57518](https://github.com/ant-design/ant-design/pull/57518) [@Gdhanush-13](https://github.com/Gdhanush-13)
+- 🐞 MISC: Fix some expand animation crash issues. [#57636](https://github.com/ant-design/ant-design/pull/57636) [@momesana](https://github.com/momesana)
+- 🐞 Fix Notification close button overlapping description when title is empty. [#57590](https://github.com/ant-design/ant-design/pull/57590) [@EndlessLucky](https://github.com/EndlessLucky)
+- 🐞 Fix Radio hover color display issue in disabled state. [#57562](https://github.com/ant-design/ant-design/pull/57562) [@yfy3939](https://github.com/yfy3939)
+- Table
+  - ⚡️ Improve Table filter performance by caching flattened filter keys. [#57546](https://github.com/ant-design/ant-design/pull/57546) [@Jiyur](https://github.com/Jiyur)
+  - ⚡️ Improve Table filter search performance by reusing normalized search input. [#57651](https://github.com/ant-design/ant-design/pull/57651) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🐞 Fix Table `rowSelection` to use `selectionColumnWidth` from Design Token as default `columnWidth`. [#57621](https://github.com/ant-design/ant-design/pull/57621) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 Fix Design Token shadow tokens not adapting to dark theme. [#57511](https://github.com/ant-design/ant-design/pull/57511) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Transfer remove button still changing color on hover when the list item is disabled. [#57579](https://github.com/ant-design/ant-design/pull/57579) [@Jiyur](https://github.com/Jiyur)
+- 🐞 Fix Tree checkbox, switcher and content alignment when parent nodes have multiple lines of content. [#57471](https://github.com/ant-design/ant-design/pull/57471) [@jiangrong-devops](https://github.com/jiangrong-devops)
+
+## 6.3.5
+
+`2026-03-30`
+
+- 🐞 Fix Image preview action buttons not resetting native button styles. [#57491](https://github.com/ant-design/ant-design/pull/57491) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix TimePicker column cannot scroll directly on touch devices. [#57468](https://github.com/ant-design/ant-design/pull/57468) [@afc163](https://github.com/afc163)
+- 🐞 MISC: Fix Icon not being centered in certain scenarios. [#57460](https://github.com/ant-design/ant-design/pull/57460) [@QDyanbing](https://github.com/QDyanbing)
+
+## 6.3.4
+
+`2026-03-24`
+
+- 🔥 Add [`@ant-design/cli`](https://www.npmjs.com/package/@ant-design/cli) official command-line tool for querying Ant Design component knowledge, analyzing project usage, and guiding migrations offline. [#57413](https://github.com/ant-design/ant-design/pull/57413) [@afc163](https://github.com/afc163)
+- 🐞 Fix Form.List losing sibling field values when using `onValuesChange`. [#57399](https://github.com/ant-design/ant-design/pull/57399) [@zombieJ](https://github.com/zombieJ)
+- 🐞 Fix missing `screenXXXLMin` in `useToken` causing incorrect antd.css to be generated. [#57372](https://github.com/ant-design/ant-design/pull/57372) [@sealye09](https://github.com/sealye09)
+- 🐞 Fix ConfigProvider component config typings to expose semantic `classNames` and `styles` for supported components. [#57396](https://github.com/ant-design/ant-design/pull/57396) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Image `fetchPriority` prop not being passed through to the `<img>` element. [#57392](https://github.com/ant-design/ant-design/pull/57392) [@aojunhao123](https://github.com/aojunhao123)
+- Menu
+  - 🐞 Fix Menu SubMenu parent item not applying custom hover color via ConfigProvider. [#57374](https://github.com/ant-design/ant-design/pull/57374) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+  - 🐞 Fix Menu collapsed icons appearing misaligned when customizing `collapsedIconSize`. [#57360](https://github.com/ant-design/ant-design/pull/57360) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Table controlled popover in column title being rendered twice when scroll is enabled. [#57342](https://github.com/ant-design/ant-design/pull/57342) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Transfer `render` prop returning JSX elements causing search to fail. [#57133](https://github.com/ant-design/ant-design/pull/57133) [@WustLCQ](https://github.com/WustLCQ)
+- 🐞 Fix Tree custom `switcherIcon` missing `switcher-line-icon` className when `showLine` is enabled. [#57303](https://github.com/ant-design/ant-design/pull/57303) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 Fix Watermark TypeScript errors when `onRemove` is omitted. [#57344](https://github.com/ant-design/ant-design/pull/57344) [@QDyanbing](https://github.com/QDyanbing)
+
 ## 6.3.3
 
 `2026-03-16`
@@ -22,7 +67,7 @@ tag: vVERSION
 - Image
   - 💄 Improve Image preview mask blur transition for `backdrop-filter` to reduce flicker perception. [#57299](https://github.com/ant-design/ant-design/pull/57299) [@mango766](https://github.com/mango766)
   - 🐞 Fix Image showing move cursor when `movable={false}`. [#57288](https://github.com/ant-design/ant-design/pull/57288) [@ug-hero](https://github.com/ug-hero)
-- ⌨️ ♿ Improve App link `:focus-visible` outline to enhance keyboard accessibility. [#57266](https://github.com/ant-design/ant-design/pull/57266) [@ug-hero](https://github.com/ug-hero)
+- ⌨️ Improve App link `:focus-visible` outline to enhance keyboard accessibility. [#57266](https://github.com/ant-design/ant-design/pull/57266) [@ug-hero](https://github.com/ug-hero)
 - 🐞 Fix Form required mark using hardcoded `SimSun` font. [#57273](https://github.com/ant-design/ant-design/pull/57273) [@mavericusdev](https://github.com/mavericusdev)
 - 🐞 Fix Grid media size mapping issue for `xxxl` breakpoint. [#57246](https://github.com/ant-design/ant-design/pull/57246) [@guoyunhe](https://github.com/guoyunhe)
 - 🐞 Fix Tree scrolling to top when clicking node. [#57242](https://github.com/ant-design/ant-design/pull/57242) [@aojunhao123](https://github.com/aojunhao123)

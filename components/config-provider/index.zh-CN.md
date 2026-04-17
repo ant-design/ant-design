@@ -69,6 +69,8 @@ export default Demo;
 | variant | 设置全局输入组件形态变体 | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 | warning | 设置警告等级，`strict` 为 `false` 时会将废弃相关信息聚合为单条信息 | { strict: boolean } | - | 5.10.0 |
+| ~~autoInsertSpaceInButton~~ | Button 自动空格配置，请使用 `button={{ autoInsertSpace: boolean }}` 替代 | boolean | - | - |
+| ~~dropdownMatchSelectWidth~~ | 下拉菜单和选择器是否同宽，请使用 `popupMatchSelectWidth` 替代 | boolean | - | - |
 
 ### ConfigProvider.config() {#config}
 
@@ -155,7 +157,7 @@ const {
 | radio | 设置 Radio 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [RadioConfig\["classNames"\]](/components/radio-cn#semantic-dom), styles?: [RadioConfig\["styles"\]](/components/radio-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | rate | 设置 Rate 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | 设置 Result 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ResultProps\["classNames"\]](/components/result-cn#semantic-dom), styles?: [ResultProps\["styles"\]](/components/result-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
-| ribbon | 设置 Ribbon 组件的通用属性 | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge-cn#semantic-dom), styles?: [RibbonProps\["styles"\]](/components/badge-cn#semantic-dom) } | - | 6.0.0 |
+| ribbon | 设置 Ribbon 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [RibbonProps\["classNames"\]](/components/badge-cn#semantic-dom), styles?: [RibbonProps\["styles"\]](/components/badge-cn#semantic-dom) } | - | 6.0.0 |
 | skeleton | 设置 Skeleton 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SkeletonProps\["classNames"\]](/components/skeleton-cn#semantic-dom), styles?: [SkeletonProps\["styles"\]](/components/skeleton-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | segmented | 设置 Segmented 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [SegmentedProps\["classNames"\]](/components/segmented-cn#semantic-dom), styles?: [SegmentedProps\["styles"\]](/components/segmented-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | select | 设置 Select 组件的通用属性 | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectConfig\["classNames"\]](/components/select-cn#semantic-dom), styles?: [SelectConfig\["styles"\]](/components/select-cn#semantic-dom) } | - | 5.7.0,`classNames` 和 `styles`: 6.0.0 |

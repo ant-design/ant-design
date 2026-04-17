@@ -5,6 +5,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
@@ -94,8 +95,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     src: icon,
     x: undefined,
     y: undefined,
-    height: typeof iconSize === 'number' ? iconSize : (iconSize?.height ?? 40),
-    width: typeof iconSize === 'number' ? iconSize : (iconSize?.width ?? 40),
+    height: isNumber(iconSize) ? iconSize : (iconSize?.height ?? 40),
+    width: isNumber(iconSize) ? iconSize : (iconSize?.width ?? 40),
     excavate: true,
     crossOrigin: 'anonymous',
   };

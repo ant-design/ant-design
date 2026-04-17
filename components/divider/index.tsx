@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
@@ -162,7 +163,7 @@ const Divider: React.FC<DividerProps> = (props) => {
   );
 
   const memoizedPlacementMargin = React.useMemo<string | number>(() => {
-    if (typeof orientationMargin === 'number') {
+    if (isNumber(orientationMargin)) {
       return orientationMargin;
     }
     if (/^\d+$/.test(orientationMargin!)) {

@@ -179,8 +179,9 @@ export interface CascaderProps<
   /** @deprecated Please use `popupRender` instead */
   dropdownRender?: (menu: React.ReactElement) => React.ReactElement;
   popupRender?: (menu: React.ReactElement) => React.ReactElement;
-  /** @deprecated Please use `popupMenuColumnStyle` instead */
+  /** @deprecated Please use `styles.popup.listItem` instead */
   dropdownMenuColumnStyle?: React.CSSProperties;
+  /** @deprecated Please use `styles.popup.listItem` instead */
   popupMenuColumnStyle?: React.CSSProperties;
   /** @deprecated Please use `onOpenChange` instead */
   onDropdownVisibleChange?: (visible: boolean) => void;
@@ -280,7 +281,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       dropdownClassName: 'classNames.popup.root',
       dropdownStyle: 'styles.popup.root',
       dropdownRender: 'popupRender',
-      dropdownMenuColumnStyle: 'popupMenuColumnStyle',
+      dropdownMenuColumnStyle: 'styles.popup.listItem',
+      popupMenuColumnStyle: 'styles.popup.listItem',
       onDropdownVisibleChange: 'onOpenChange',
       onPopupVisibleChange: 'onOpenChange',
       bordered: 'variant',

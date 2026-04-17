@@ -65,7 +65,10 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
   if (React.isValidElement<{ className?: string }>(switcher)) {
     return cloneElement(switcher, {
-      className: clsx(switcher.props?.className, switcherCls),
+      className: clsx(
+        switcher.props?.className,
+        showLine ? `${prefixCls}-switcher-line-icon` : switcherCls,
+      ),
     });
   }
 

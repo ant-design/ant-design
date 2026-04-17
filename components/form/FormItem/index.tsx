@@ -7,7 +7,7 @@ import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
 import { clsx } from 'clsx';
 
-import isNonNullable from '../../_util/isNonNullable';
+import { isNonNullable } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -84,9 +84,7 @@ const MemoInput = React.memo<React.PropsWithChildren<MemoInputProps>>(
 );
 
 export interface FormItemProps<Values = any>
-  extends Omit<FormItemLabelProps, 'requiredMark'>,
-    FormItemInputProps,
-    RcFieldProps<Values> {
+  extends Omit<FormItemLabelProps, 'requiredMark'>, FormItemInputProps, RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;

@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'node:fs';
 import type { IApi } from 'dumi';
 import ReactTechStack from 'dumi/dist/techStacks/react';
 import tsToJs from '../utils/tsToJs';

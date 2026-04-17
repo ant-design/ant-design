@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
@@ -114,8 +115,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const rowStyle: React.CSSProperties = {};
 
   if (gutters?.[0]) {
-    const horizontalGutter =
-      typeof gutters[0] === 'number' ? `${gutters[0] / -2}px` : `calc(${gutters[0]} / -2)`;
+    const horizontalGutter = isNumber(gutters[0])
+      ? `${gutters[0] / -2}px`
+      : `calc(${gutters[0]} / -2)`;
     rowStyle.marginInline = horizontalGutter;
   }
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import Alert from './Alert';
 
 export interface ErrorBoundaryProps {

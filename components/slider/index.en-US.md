@@ -56,6 +56,10 @@ Common props ref：[Common props](/docs/react/common-props)
 | vertical | If true, the slider will be vertical. Simultaneously existing with `orientation`, `orientation` takes priority | boolean | false |  |
 | onChangeComplete | Fire when `mouseup` or `keyup` is fired | (value) => void | - |  |
 | onChange | Callback function that is fired when the user changes the slider's value | (value) => void | - |  |
+| ~~handleStyle~~ | Style of the slider handle, please use `styles.handle` instead | CSSProperties | - | - |
+| ~~onAfterChange~~ | Callback fired when `mouseup` or `keyup` is fired, please use `onChangeComplete` instead | (value) => void | - | - |
+| ~~railStyle~~ | Style of the slider rail, please use `styles.rail` instead | CSSProperties | - | - |
+| ~~trackStyle~~ | Style of the slider track, please use `styles.track` instead | CSSProperties | - | - |
 
 ### range
 

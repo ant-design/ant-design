@@ -22,7 +22,7 @@ exports[`renders components/statistic/demo/animated.tsx extend context correctly
         </div>
       </div>
       <div
-        class="ant-statistic-content"
+        class="ant-statistic-content acss-1paxlqs"
       >
         <span
           class="ant-statistic-content-value"
@@ -51,7 +51,7 @@ exports[`renders components/statistic/demo/animated.tsx extend context correctly
         </div>
       </div>
       <div
-        class="ant-statistic-content"
+        class="ant-statistic-content acss-1paxlqs"
       >
         <span
           class="ant-statistic-content-value"
@@ -593,7 +593,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
       class="ant-statistic css-var-test-id"
     >
       <div
-        class="ant-statistic-content"
+        class="ant-statistic-content acss-1paxlqs"
       >
         <span
           class="ant-statistic-content-value"
@@ -620,7 +620,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         </div>
       </div>
       <div
-        class="ant-statistic-content"
+        class="ant-statistic-content acss-1paxlqs"
       >
         <span
           class="ant-statistic-content-value"
@@ -647,7 +647,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         </div>
       </div>
       <div
-        class="ant-statistic-content"
+        class="ant-statistic-content acss-1paxlqs"
       >
         <span
           class="ant-statistic-content-value"
@@ -674,7 +674,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         </div>
       </div>
       <div
-        class="ant-statistic-content"
+        class="ant-statistic-content acss-1paxlqs"
       >
         <span
           class="ant-statistic-content-value"
@@ -701,7 +701,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         </div>
       </div>
       <div
-        class="ant-statistic-content"
+        class="ant-statistic-content acss-1paxlqs"
       >
         <span
           class="ant-statistic-content-value"
@@ -728,7 +728,7 @@ exports[`renders components/statistic/demo/timer.tsx extend context correctly 1`
         </div>
       </div>
       <div
-        class="ant-statistic-content"
+        class="ant-statistic-content acss-1paxlqs"
       >
         <span
           class="ant-statistic-content-value"

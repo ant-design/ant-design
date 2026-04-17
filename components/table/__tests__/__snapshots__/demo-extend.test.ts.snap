@@ -17412,7 +17412,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         >
                           <div
                             aria-describedby="test-id"
-                            class="ant-table-column-sorters ant-tooltip-open"
+                            class="ant-table-column-sorters"
                           >
                             <span
                               class="ant-table-column-title"

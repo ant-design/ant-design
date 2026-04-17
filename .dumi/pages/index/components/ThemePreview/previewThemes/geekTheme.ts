@@ -28,8 +28,7 @@ const useStyles = createStyles(({ css, cssVar }) => {
         ...lightBorder,
         content: '""',
         position: 'absolute',
-        left: 0,
-        right: 0,
+        insetInline: 0,
         bottom: 0,
         border: 0,
         height: cssVar.lineWidth,
@@ -86,6 +85,7 @@ const useGeekTheme = () => {
           lineWidth: 2,
           colorPrimary: '#39ff14',
           colorText: '#39ff14',
+          colorInfo: '#39ff14',
           controlHeightSM: 26,
           controlHeight: 34,
         },
@@ -122,6 +122,11 @@ const useGeekTheme = () => {
         arrow: false,
       },
       select: {
+        classNames: {
+          root: styles.lightBorder,
+        },
+      },
+      datePicker: {
         classNames: {
           root: styles.lightBorder,
         },

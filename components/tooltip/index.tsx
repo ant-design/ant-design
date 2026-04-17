@@ -23,6 +23,7 @@ import { devUseWarning } from '../_util/warning';
 import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import TableMeasureRowContext from '../table/TableMeasureRowContext';
 import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
 import PurePanel from './PurePanel';
@@ -205,6 +206,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const mergedTrigger = trigger || contextTrigger || 'hover';
   const mergedGetPopupContainer = getPopupContainer || getContextPopupContainer;
   const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
+  const inTableMeasureRow = React.useContext(TableMeasureRowContext);
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -302,8 +304,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const injectFromPopover = props['data-popover-inject'];
 
   let tempOpen = open;
-  // Hide tooltip when there is no title
-  if (!('open' in props) && noTitle) {
+  // Hide tooltip when there is no title or in table measure row
+  if ((!('open' in props) && noTitle) || inTableMeasureRow) {
     tempOpen = false;
   }
 

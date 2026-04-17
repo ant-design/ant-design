@@ -68,6 +68,8 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | variant | Set variant of data entry components | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
+| ~~autoInsertSpaceInButton~~ | Button auto spacing config, please use `button={{ autoInsertSpace: boolean }}` instead | boolean | - | - |
+| ~~dropdownMatchSelectWidth~~ | Determine whether the dropdown menu and the select input are the same width, please use `popupMatchSelectWidth` instead | boolean | - | - |
 
 ### ConfigProvider.config() {#config}
 
@@ -153,7 +155,7 @@ const {
 | radio | Set Radio common props | { className?: string, style?: React.CSSProperties, classNames?: [RadioConfig\["classNames"\]](/components/radio#semantic-dom), styles?: [RadioConfig\["styles"\]](/components/radio#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | rate | Set Rate common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | result | Set Result common props | { className?: string, style?: React.CSSProperties , classNames?: [ResultProps\["classNames"\]](/components/result#semantic-dom), styles?: [ResultProps\["styles"\]](/components/result#semantic-dom)} | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
-| ribbon | Set Ribbon common props | { className?: string, style?: React.CSSProperties, , classNames?: [RibbonProps\["classNames"\]](/components/badge#semantic-dom), styles?: [RibbonProps\["styles"\]](/components/badge#semantic-dom) } | - | 6.0.0 |
+| ribbon | Set Ribbon common props | { className?: string, style?: React.CSSProperties, classNames?: [RibbonProps\["classNames"\]](/components/badge#semantic-dom), styles?: [RibbonProps\["styles"\]](/components/badge#semantic-dom) } | - | 6.0.0 |
 | skeleton | Set Skeleton common props | { className?: string, style?: React.CSSProperties, classNames?: [SkeletonProps\["classNames"\]](/components/skeleton#semantic-dom), styles?: [SkeletonProps\["styles"\]](/components/skeleton#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | segmented | Set Segmented common props | { className?: string, style?: React.CSSProperties, classNames?: [SegmentedProps\["classNames"\]](/components/segmented#semantic-dom), styles?: [SegmentedProps\["styles"\]](/components/segmented#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | select | Set Select common props | { className?: string, showSearch?: boolean, style?: React.CSSProperties, classNames?: [SelectConfig\["classNames"\]](/components/select#semantic-dom), styles?: [SelectConfig\["styles"\]](/components/select#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |

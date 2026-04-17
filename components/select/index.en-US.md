@@ -62,12 +62,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
-| ~autoClearSearchValue~ | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
+| ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
 | classNames | Customize class for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
+| ~~dropdownClassName~~ | The className of dropdown menu, please use `classNames.popup.root` instead | string | - | - |
+| ~~dropdownMatchSelectWidth~~ | Determine whether the popup menu and the select input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - |
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - |  |
@@ -97,6 +100,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
 | removeIcon | The custom remove icon | ReactNode | - |  |
 | ~~searchValue~~ | The current input "search" text | string | - |  |
+| ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - |
 | showSearch | Whether select is searchable | boolean \| [Object](#showsearch) | single: false, multiple: true |  |
 | size | Size of Select input | `large` \| `medium` \| `small` | `medium` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
