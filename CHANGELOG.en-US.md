@@ -27,7 +27,10 @@ tag: vVERSION
 - 🐞 Fix `rc-motion` crashing when `getRealHeight` receives a `null` node. [#57636](https://github.com/ant-design/ant-design/pull/57636) [@momesana](https://github.com/momesana)
 - 🐞 Fix Notification close button overlapping description when title is empty. [#57590](https://github.com/ant-design/ant-design/pull/57590) [@EndlessLucky](https://github.com/EndlessLucky)
 - 🐞 Fix Radio hover color display issue in disabled state. [#57562](https://github.com/ant-design/ant-design/pull/57562) [@yfy3939](https://github.com/yfy3939)
-- 🐞 Fix Table `rowSelection` to use `selectionColumnWidth` from Design Token as default `columnWidth`. [#57621](https://github.com/ant-design/ant-design/pull/57621) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- Table
+  - ⚡️ Improve Table filter performance by caching flattened filter keys. [#57546](https://github.com/ant-design/ant-design/pull/57546) [@Jiyur](https://github.com/Jiyur)
+  - ⚡️ Improve Table filter search performance by reusing normalized search input. [#57651](https://github.com/ant-design/ant-design/pull/57651) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🐞 Fix Table `rowSelection` to use `selectionColumnWidth` from Design Token as default `columnWidth`. [#57621](https://github.com/ant-design/ant-design/pull/57621) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
 - 🐞 Fix Design Token shadow tokens not adapting to dark theme. [#57511](https://github.com/ant-design/ant-design/pull/57511) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Transfer remove button still changing color on hover when the list item is disabled. [#57579](https://github.com/ant-design/ant-design/pull/57579) [@Jiyur](https://github.com/Jiyur)
 - 🐞 Fix Tree checkbox, switcher and content alignment when parent nodes have multiple lines of content. [#57471](https://github.com/ant-design/ant-design/pull/57471) [@jiangrong-devops](https://github.com/jiangrong-devops)
