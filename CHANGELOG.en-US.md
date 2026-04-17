@@ -24,7 +24,7 @@ tag: vVERSION
 - 🐞 Fix Cascader menu item ellipsis styles for long option labels. [#57540](https://github.com/ant-design/ant-design/pull/57540) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Image preview focus not being locked when opened via keyboard, and restore focus to trigger element after preview closes. [#57613](https://github.com/ant-design/ant-design/pull/57613) [#57614](https://github.com/ant-design/ant-design/pull/57614) [@aojunhao123](https://github.com/aojunhao123)
 - 🐞 Fix Input disabled border color to use `colorBorderDisabled` token. [#57518](https://github.com/ant-design/ant-design/pull/57518) [@Gdhanush-13](https://github.com/Gdhanush-13)
-- 🐞 Fix `rc-motion` crashing when `getRealHeight` receives a `null` node. [#57636](https://github.com/ant-design/ant-design/pull/57636) [@momesana](https://github.com/momesana)
+- 🐞 MISC: Fix some expand animation crash issues. [#57636](https://github.com/ant-design/ant-design/pull/57636) [@momesana](https://github.com/momesana)
 - 🐞 Fix Notification close button overlapping description when title is empty. [#57590](https://github.com/ant-design/ant-design/pull/57590) [@EndlessLucky](https://github.com/EndlessLucky)
 - 🐞 Fix Radio hover color display issue in disabled state. [#57562](https://github.com/ant-design/ant-design/pull/57562) [@yfy3939](https://github.com/yfy3939)
 - Table
