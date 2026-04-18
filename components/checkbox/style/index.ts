@@ -69,9 +69,10 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         },
 
         [`&${wrapperCls}-in-form-item`]: {
+          // Match native input hit area to `.ant-checkbox` (checkboxSize / controlInteractiveSize).
           'input[type="checkbox"]': {
-            width: 14, // FIXME: magic
-            height: 14, // FIXME: magic
+            width: checkboxSize,
+            height: checkboxSize,
           },
         },
       },
@@ -86,7 +87,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         cursor: 'pointer',
 
         // To make alignment right when `controlHeight` is changed
-        // Ref: https://github.com/ant-design/ant-design/issues/41564
+        // Ref: Changing `controlHeight` breaks vertical alignment of Checkbox component · Issue #41564 · ant-design
         alignSelf: 'center',
 
         // Styles moved from inner
@@ -127,7 +128,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           position: 'absolute',
           // Since baseline align will get additional space offset,
           // we need to move input to top to make it align with text.
-          // Ref: https://github.com/ant-design/ant-design/issues/38926#issuecomment-1486137799
+          // Ref: Table onRow -> onClick wrongly fired when clicking on the Checkbox (only when unselecting) · Issue #
           inset: `calc(-1 * (${lineWidth}))`,
           zIndex: 1,
           cursor: 'pointer',
@@ -207,7 +208,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
             content: '""',
           },
 
-          // https://github.com/ant-design/ant-design/issues/50074
+          // Collapse组件items label中使用Checkbox组件indeterminate状态时样式错误 · Issue #50074 · ant-design/ant-design
           '&:hover': {
             backgroundColor: token.colorBgContainer,
             borderColor: token.colorPrimary,
@@ -229,7 +230,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         [`&, ${checkboxCls}-input`]: {
           cursor: 'not-allowed',
           // Disabled for native input to enable Tooltip event handler
-          // ref: https://github.com/ant-design/ant-design/issues/39822#issuecomment-1365075901
+          // ref: Checkbox 为 disabled 状态的时候有概率不会触发 Popover 隐藏 · Issue #39822 · ant-design/ant-design
           pointerEvents: 'none',
         },
 
