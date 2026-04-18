@@ -15,6 +15,26 @@ tag: vVERSION
 
 ---
 
+## 6.3.6
+
+`2026-04-17`
+
+- 🐞 修复 InputNumber 禁用步进按钮仍显示悬浮样式的问题。 [#57592](https://github.com/ant-design/ant-design/pull/57592) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Space.Addon 在紧凑布局中展示中文等 CJK 内容时会换行的问题。 [#57622](https://github.com/ant-design/ant-design/pull/57622) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Cascader 菜单项长选项文本的省略样式问题。 [#57540](https://github.com/ant-design/ant-design/pull/57540) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Image 通过键盘打开预览时焦点未被正确锁定的问题，并在关闭预览后恢复焦点到触发元素。 [#57613](https://github.com/ant-design/ant-design/pull/57613) [#57614](https://github.com/ant-design/ant-design/pull/57614) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 修复 Input 禁用状态边框未使用 `colorBorderDisabled` token 的问题。 [#57518](https://github.com/ant-design/ant-design/pull/57518) [@Gdhanush-13](https://github.com/Gdhanush-13)
+- 🐞 MISC: 修复部分展开动画崩溃的问题。 [#57636](https://github.com/ant-design/ant-design/pull/57636) [@momesana](https://github.com/momesana)
+- 🐞 修复 Notification 在 title 为空时关闭按钮与描述内容重叠的问题。 [#57590](https://github.com/ant-design/ant-design/pull/57590) [@EndlessLucky](https://github.com/EndlessLucky)
+- 🐞 修复 Radio 禁用状态下 hover 仍显示主色的问题。 [#57562](https://github.com/ant-design/ant-design/pull/57562) [@yfy3939](https://github.com/yfy3939)
+- Table
+  - ⚡️ 优化 Table 筛选性能，缓存展开后的筛选键，避免重复计算。 [#57546](https://github.com/ant-design/ant-design/pull/57546) [@Jiyur](https://github.com/Jiyur)
+  - ⚡️ 优化 Table 筛选搜索性能，复用规范化后的搜索输入。 [#57651](https://github.com/ant-design/ant-design/pull/57651) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🐞 修复 Table `rowSelection` 默认未使用 Design Token 中 `selectionColumnWidth` 的问题。 [#57621](https://github.com/ant-design/ant-design/pull/57621) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Design Token 阴影 token 未适配暗色主题的问题。 [#57511](https://github.com/ant-design/ant-design/pull/57511) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Transfer 列表项禁用时移除按钮在悬停下仍会变色的问题。 [#57579](https://github.com/ant-design/ant-design/pull/57579) [@Jiyur](https://github.com/Jiyur)
+- 🐞 修复 Tree 父级节点出现多行内容时 checkbox、switcher 和 content 未整体对齐的问题。 [#57471](https://github.com/ant-design/ant-design/pull/57471) [@jiangrong-devops](https://github.com/jiangrong-devops)
+
 ## 6.3.5
 
 `2026-03-30`
