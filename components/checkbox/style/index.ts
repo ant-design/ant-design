@@ -87,7 +87,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         cursor: 'pointer',
 
         // To make alignment right when `controlHeight` is changed
-        // Ref: Changing `controlHeight` breaks vertical alignment of Checkbox component · Issue #41564 · ant-design
+        // Ref: https://github.com/ant-design/ant-design/issues/41564
         alignSelf: 'center',
 
         // Styles moved from inner
@@ -128,7 +128,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
           position: 'absolute',
           // Since baseline align will get additional space offset,
           // we need to move input to top to make it align with text.
-          // Ref: Table onRow -> onClick wrongly fired when clicking on the Checkbox (only when unselecting) · Issue #
+          // Ref: https://github.com/ant-design/ant-design/issues/38926#issuecomment-1486137799
           inset: `calc(-1 * (${lineWidth}))`,
           zIndex: 1,
           cursor: 'pointer',
@@ -208,7 +208,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
             content: '""',
           },
 
-          // Collapse组件items label中使用Checkbox组件indeterminate状态时样式错误 · Issue #50074 · ant-design/ant-design
+          // https://github.com/ant-design/ant-design/issues/50074
           '&:hover': {
             backgroundColor: token.colorBgContainer,
             borderColor: token.colorPrimary,
@@ -230,7 +230,7 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         [`&, ${checkboxCls}-input`]: {
           cursor: 'not-allowed',
           // Disabled for native input to enable Tooltip event handler
-          // ref: Checkbox 为 disabled 状态的时候有概率不会触发 Popover 隐藏 · Issue #39822 · ant-design/ant-design
+          // ref: https://github.com/ant-design/ant-design/issues/39822#issuecomment-1365075901
           pointerEvents: 'none',
         },
 
