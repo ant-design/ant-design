@@ -30,7 +30,7 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'textarea', desc: locale.textarea },
-        { name: 'clear', desc: locale.clear },
+        { name: 'clear', desc: locale.clear, version: '6.4.0' },
         { name: 'count', desc: locale.count },
       ]}
     >

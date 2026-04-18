@@ -48,10 +48,13 @@ Common props ref：[Common props](/docs/react/common-props)
 | backfill | If backfill selected item the input when using keyboard | boolean | false |  |
 | children | Customize input element | HTMLInputElement \| HTMLTextAreaElement \| React.ReactElement&lt;InputProps> | &lt;Input /> |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| ~~dataSource~~ | Data source of autocomplete options, please use `options` instead | DataSourceItemType[] | - | - |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string | - |  |
 | disabled | Whether disabled select | boolean | false |  |
+| ~~dropdownClassName~~ | The className of dropdown menu, please use `classNames.popup.root` instead | string | - | - |
+| ~~dropdownMatchSelectWidth~~ | Determine whether the dropdown menu and the input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - | 4.24.0 |
 | popupRender | Customize dropdown content | (originNode: ReactNode) => ReactNode | - |  |
 | ~~dropdownStyle~~ | The style of dropdown menu, use `styles.popup.root` instead | CSSProperties | - |  |

@@ -141,7 +141,7 @@ const genInputNumberStyles: GenerateStyle<InputNumberToken> = (token) => {
           textAlign: 'start',
           backgroundColor: 'transparent',
           border: 0,
-          borderRadius,
+          borderRadius: 0,
           outline: 0,
           transition: `all ${motionDurationMid} linear`,
           appearance: 'textfield',

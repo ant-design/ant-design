@@ -41,12 +41,14 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*5WDvQp_H7LUAAA
 | actions | 卡片操作组，位置在卡片底部 | Array&lt;ReactNode> | - |  |
 | activeTabKey | 当前激活页签的 key | string | - |  |
 | ~~bordered~~ | 是否有边框, 请使用 `variant` 替换 | boolean | true |  |
+| ~~bodyStyle~~ | 卡片内容区域样式，请使用 `styles.body` 替代 | CSSProperties | - | - |
 | variant | 形态变体 | `outlined` \| `borderless` \| | `outlined` | 5.24.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | cover | 卡片封面 | ReactNode | - |  |
 | defaultActiveTabKey | 初始化选中页签的 key，如果没有设置 activeTabKey | string | `第一个页签的 key` |  |
 | extra | 卡片右上角的操作区域 | ReactNode | - |  |
 | hoverable | 鼠标移过时可浮起 | boolean | false |  |
+| ~~headStyle~~ | 卡片头部样式，请使用 `styles.header` 替代 | CSSProperties | - | - |
 | loading | 当卡片内容还在加载中时，可以用 loading 展示一个占位 | boolean | false |  |
 | size | card 的尺寸 | `medium` \| `small` | `medium` |  |
 | tabBarExtraContent | tab bar 上额外的元素 | ReactNode | - |  |
