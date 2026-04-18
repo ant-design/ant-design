@@ -67,14 +67,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         [`& + ${wrapperCls}`]: {
           marginInlineStart: 0,
         },
-
-        [`&${wrapperCls}-in-form-item`]: {
-          // Match native input hit area to `.ant-checkbox` (checkboxSize / controlInteractiveSize).
-          'input[type="checkbox"]': {
-            width: checkboxSize,
-            height: checkboxSize,
-          },
-        },
       },
 
       // Wrapper > Checkbox
