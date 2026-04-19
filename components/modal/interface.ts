@@ -35,21 +35,20 @@ export type ModalSemanticType = {
 
 export type ModalSemanticAllType = GenerateSemantic<ModalSemanticType, ModalProps>;
 
-interface ModalCommonProps
-  extends Omit<
-    DialogProps,
-    | 'footer'
-    | 'width'
-    | 'onClose'
-    | 'animation'
-    | 'maskAnimation'
-    | 'transitionName'
-    | 'maskTransitionName'
-    | 'mask'
-    | 'classNames'
-    | 'styles'
-    | OmitFocusType
-  > {
+interface ModalCommonProps extends Omit<
+  DialogProps,
+  | 'footer'
+  | 'width'
+  | 'onClose'
+  | 'animation'
+  | 'maskAnimation'
+  | 'transitionName'
+  | 'maskTransitionName'
+  | 'mask'
+  | 'classNames'
+  | 'styles'
+  | OmitFocusType
+> {
   footer?:
     | React.ReactNode
     | ((

@@ -262,10 +262,7 @@ type GroupToken = {
 };
 
 export interface ButtonToken
-  extends FullToken<'Button'>,
-    ShadowColorMap,
-    PresetColorHoverActiveMap,
-    GroupToken {
+  extends FullToken<'Button'>, ShadowColorMap, PresetColorHoverActiveMap, GroupToken {
   /**
    * @desc 按钮横向内边距
    * @descEN Horizontal padding of button

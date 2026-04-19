@@ -89,13 +89,11 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
   return (
     <div className={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
       {iconNode}
-      {
-        title && (
-          <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
-            {title}
-          </div>
-        )
-      }
+      {title && (
+        <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
+          {title}
+        </div>
+      )}
       {description && (
         <div
           className={clsx(`${prefixCls}-description`, pureContentCls.description)}
@@ -117,7 +115,8 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
 };
 
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends
+    Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
   classNames?: AnchorSemanticAllType['classNamesAndFn'];

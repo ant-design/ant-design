@@ -52,7 +52,8 @@ export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = 
 };
 
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends
+    Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
   classNames?: MessageSemanticAllType['classNamesAndFn'];

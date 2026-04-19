@@ -131,18 +131,17 @@ export type TreeSemanticType = {
 
 export type TreeSemanticAllType = GenerateSemantic<TreeSemanticType, TreeProps>;
 
-export interface TreeProps<T extends BasicDataNode = DataNode>
-  extends Omit<
-    RcTreeProps<T>,
-    | 'prefixCls'
-    | 'showLine'
-    | 'direction'
-    | 'draggable'
-    | 'icon'
-    | 'switcherIcon'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TreeProps<T extends BasicDataNode = DataNode> extends Omit<
+  RcTreeProps<T>,
+  | 'prefixCls'
+  | 'showLine'
+  | 'direction'
+  | 'draggable'
+  | 'icon'
+  | 'switcherIcon'
+  | 'classNames'
+  | 'styles'
+> {
   showLine?: boolean | { showLeafIcon: boolean | TreeLeafIcon };
   className?: string;
   classNames?: TreeSemanticAllType['classNamesAndFn'];

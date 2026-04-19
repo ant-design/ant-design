@@ -246,7 +246,7 @@ const GlobalDemoStyles: React.FC = () => {
             cursor: pointer;
           }
 
-           &-codeblock {
+          &-codeblock {
             width: 16px;
             height: 16px;
             overflow: hidden;

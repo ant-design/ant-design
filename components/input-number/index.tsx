@@ -52,8 +52,10 @@ export type InputNumberSemanticAllType = GenerateSemantic<
   InputNumberProps
 >;
 
-export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
+export interface InputNumberProps<T extends ValueType = ValueType> extends Omit<
+  RcInputNumberProps<T>,
+  'prefix' | 'size' | 'controls' | 'classNames' | 'styles'
+> {
   prefixCls?: string;
   rootClassName?: string;
   classNames?: InputNumberSemanticAllType['classNamesAndFn'];

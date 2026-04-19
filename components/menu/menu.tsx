@@ -102,11 +102,10 @@ export type MenuStylesType =
   | MenuStylesSchemaType
   | ((info: { props: MenuProps }) => MenuStylesSchemaType);
 
-export interface MenuProps
-  extends Omit<
-    RcMenuProps,
-    'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
-  > {
+export interface MenuProps extends Omit<
+  RcMenuProps,
+  'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
+> {
   theme?: MenuTheme;
   inlineIndent?: number;
   tooltip?: false | TooltipProps;

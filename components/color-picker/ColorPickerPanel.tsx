@@ -9,8 +9,7 @@ import type { PanelPickerContextProps, PanelPresetsContextProps } from './contex
 import type { ColorPickerProps } from './interface';
 
 export interface ColorPickerPanelProps
-  extends PanelPickerContextProps,
-    Omit<PanelPresetsContextProps, 'onChange'> {
+  extends PanelPickerContextProps, Omit<PanelPresetsContextProps, 'onChange'> {
   onClear?: () => void;
   panelRender?: ColorPickerProps['panelRender'];
 }

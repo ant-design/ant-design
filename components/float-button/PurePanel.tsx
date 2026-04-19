@@ -17,7 +17,8 @@ type ClassNamesType = PureFloatButtonProps['classNames'] | FloatButtonGroupProps
 type StylesType = PureFloatButtonProps['styles'] | FloatButtonGroupProps['styles'];
 
 export interface PurePanelProps
-  extends Omit<PureFloatButtonProps, 'classNames' | 'styles'>,
+  extends
+    Omit<PureFloatButtonProps, 'classNames' | 'styles'>,
     Omit<FloatButtonGroupProps, 'children' | 'classNames' | 'styles'> {
   /** Convert to FloatGroup when configured */
   items?: PureFloatButtonProps[];

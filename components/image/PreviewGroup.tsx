@@ -46,8 +46,10 @@ export type GroupPreviewConfig = OriginPreviewConfig &
     mask?: MaskType;
   };
 
-export interface PreviewGroupProps
-  extends Omit<RcPreviewGroupProps, 'preview' | 'styles' | 'classNames'> {
+export interface PreviewGroupProps extends Omit<
+  RcPreviewGroupProps,
+  'preview' | 'styles' | 'classNames'
+> {
   preview?: boolean | GroupPreviewConfig;
   classNames?: ImageSemanticAllType['classNamesAndFn'];
   styles?: ImageSemanticAllType['stylesAndFn'];

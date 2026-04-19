@@ -7,8 +7,9 @@ import type { BaseTypographyProps, TypographySemanticType } from './Base';
 import { useTypographySemantic } from './hooks/useTypographySemantic';
 import useStyle from './style';
 
-export interface TypographyProps<C extends keyof JSX.IntrinsicElements = any>
-  extends BaseTypographyProps {
+export interface TypographyProps<
+  C extends keyof JSX.IntrinsicElements = any,
+> extends BaseTypographyProps {
   /** @internal */
   component?: C;
 }

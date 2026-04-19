@@ -62,8 +62,10 @@ const LANGS = {
   style: 'CSS',
 };
 
-interface CodePreviewProps
-  extends Omit<ComponentProps<typeof LiveCode>, 'initialValue' | 'lang' | 'onChange'> {
+interface CodePreviewProps extends Omit<
+  ComponentProps<typeof LiveCode>,
+  'initialValue' | 'lang' | 'onChange'
+> {
   sourceCode?: string;
   jsxCode?: string;
   styleCode?: string;

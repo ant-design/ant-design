@@ -15,15 +15,19 @@ export interface MenuItemType extends RcMenuItemType, DataAttributes {
   title?: string;
 }
 
-export interface SubMenuType<T extends MenuItemType = MenuItemType>
-  extends Omit<RcSubMenuType, 'children'> {
+export interface SubMenuType<T extends MenuItemType = MenuItemType> extends Omit<
+  RcSubMenuType,
+  'children'
+> {
   icon?: React.ReactNode;
   theme?: 'dark' | 'light';
   children: ItemType<T>[];
 }
 
-export interface MenuItemGroupType<T extends MenuItemType = MenuItemType>
-  extends Omit<RcMenuItemGroupType, 'children'> {
+export interface MenuItemGroupType<T extends MenuItemType = MenuItemType> extends Omit<
+  RcMenuItemGroupType,
+  'children'
+> {
   children?: ItemType<T>[];
   key?: React.Key;
 }

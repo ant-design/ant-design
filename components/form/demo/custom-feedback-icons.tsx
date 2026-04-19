@@ -24,7 +24,9 @@ const App: React.FC = () => {
         error: (
           <Tooltip
             key="tooltipKey"
-            title={errors?.map((error) => <div key={uniqueId()}>{error}</div>)}
+            title={errors?.map((error) => (
+              <div key={uniqueId()}>{error}</div>
+            ))}
             color="red"
           >
             <CloseSquareFilled />
@@ -53,7 +55,9 @@ const App: React.FC = () => {
             error: (
               <Tooltip
                 key="tooltipKey"
-                title={errors?.map((error) => <div key={uniqueId()}>{error}</div>)}
+                title={errors?.map((error) => (
+                  <div key={uniqueId()}>{error}</div>
+                ))}
                 color="pink"
               >
                 <AlertFilled />

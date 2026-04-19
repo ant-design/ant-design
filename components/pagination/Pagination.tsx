@@ -39,8 +39,10 @@ export type PaginationSemanticType = {
 
 export type PaginationSemanticAllType = GenerateSemantic<PaginationSemanticType, PaginationProps>;
 
-export interface PaginationProps
-  extends Omit<RcPaginationProps, 'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'> {
+export interface PaginationProps extends Omit<
+  RcPaginationProps,
+  'showSizeChanger' | 'pageSizeOptions' | 'classNames' | 'styles'
+> {
   showQuickJumper?: boolean | { goButton?: React.ReactNode };
   size?: SizeType;
   responsive?: boolean;

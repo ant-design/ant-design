@@ -17,7 +17,10 @@ import Progress from './Progress';
 import type { ProgressClassNames, ProgressStyles } from './Progress';
 import useStyle from './style';
 
-type OriginPreviewConfig = Omit<NonNullable<Exclude<RcImageProps['preview'], boolean>>, 'maskClosable'>;
+type OriginPreviewConfig = Omit<
+  NonNullable<Exclude<RcImageProps['preview'], boolean>>,
+  'maskClosable'
+>;
 
 export type DeprecatedPreviewConfig = {
   /** @deprecated Use `open` instead */
@@ -100,8 +103,10 @@ export type ImageSemanticType = {
 
 export type ImageSemanticAllType = GenerateSemantic<ImageSemanticType, ImageProps>;
 
-export interface ImageProps
-  extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles' | 'placeholder'> {
+export interface ImageProps extends Omit<
+  RcImageProps,
+  'preview' | 'classNames' | 'styles' | 'placeholder'
+> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;
