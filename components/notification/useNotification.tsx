@@ -23,7 +23,6 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import { useToken } from '../theme/internal';
 import type {
   ArgsProps,
   NotificationConfig,
@@ -88,7 +87,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   } = props;
   const { getPrefixCls, getPopupContainer, direction } = useComponentConfig('notification');
   const { notification } = useContext(ConfigContext);
-  const [, token] = useToken();
 
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
 
@@ -126,7 +124,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
         : {
             threshold: typeof stack === 'object' ? stack?.threshold : undefined,
             offset: 8,
-            gap: token.margin,
           },
   });
 
@@ -245,7 +242,7 @@ export function useInternalNotification(
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
-        content: (
+        description: (
           <PureContent
             prefixCls={noticePrefixCls}
             icon={icon}
