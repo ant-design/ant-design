@@ -21,6 +21,7 @@ import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import ZIndexContext from '../_util/zindexContext';
+import type { ConfigComponentProps } from '../config-provider/context';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import TableMeasureRowContext from '../table/TableMeasureRowContext';
@@ -150,6 +151,18 @@ interface InternalTooltipProps extends TooltipProps {
   'data-popover-inject'?: boolean;
 }
 
+type TooltipContextConfig = Pick<
+  NonNullable<ConfigComponentProps['tooltip']>,
+  'className' | 'style' | 'classNames' | 'styles' | 'arrow' | 'trigger'
+>;
+
+const getTooltipContextConfig = (
+  injectFromPopover: boolean,
+  config: TooltipContextConfig,
+): Partial<TooltipContextConfig> => {
+  return injectFromPopover ? {} : config;
+};
+
 const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -188,18 +201,35 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   } = props;
 
   const [, token] = useToken();
+  const injectFromPopover = !!props['data-popover-inject'];
 
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    className: tooltipContextClassName,
+    style: tooltipContextStyle,
+    classNames: tooltipContextClassNames,
+    styles: tooltipContextStyles,
+    arrow: tooltipContextArrow,
+    trigger: tooltipContextTrigger,
+  } = useComponentConfig('tooltip');
+
+  const {
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
-  } = useComponentConfig('tooltip');
+  } = getTooltipContextConfig(injectFromPopover, {
+    className: tooltipContextClassName,
+    style: tooltipContextStyle,
+    classNames: tooltipContextClassNames,
+    styles: tooltipContextStyles,
+    arrow: tooltipContextArrow,
+    trigger: tooltipContextTrigger,
+  });
 
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
@@ -300,8 +330,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
   const rootPrefixCls = getPrefixCls();
-
-  const injectFromPopover = props['data-popover-inject'];
 
   let tempOpen = open;
   // Hide tooltip when there is no title or in table measure row

@@ -418,6 +418,35 @@ describe('Popconfirm', () => {
     expect(getTooltipArrow()).not.toBeNull();
   });
 
+  it('should not leak ConfigProvider tooltip semantic config', () => {
+    const { container } = render(
+      <ConfigProvider
+        tooltip={{
+          classNames: {
+            root: 'custom-tooltip-root',
+            arrow: 'custom-tooltip-arrow',
+          },
+          styles: {
+            root: { padding: 99 },
+            arrow: { opacity: 0.25 },
+          },
+        }}
+      >
+        <Popconfirm open title="title">
+          <span>show me your code</span>
+        </Popconfirm>
+      </ConfigProvider>,
+    );
+
+    const popconfirmElement = container.querySelector<HTMLElement>('.ant-popconfirm')!;
+    const popconfirmArrowElement = container.querySelector<HTMLElement>('.ant-popover-arrow')!;
+
+    expect(popconfirmElement).not.toHaveClass('custom-tooltip-root');
+    expect(popconfirmArrowElement).not.toHaveClass('custom-tooltip-arrow');
+    expect(popconfirmElement).not.toHaveStyle({ padding: '99px' });
+    expect(popconfirmArrowElement).not.toHaveStyle({ opacity: '0.25' });
+  });
+
   it('should warn when onOpenChange has more than one argument', () => {
     resetWarned();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});

@@ -202,6 +202,35 @@ describe('Popover', () => {
     expect(getTooltipArrow()).not.toBeNull();
   });
 
+  it('should not leak ConfigProvider tooltip semantic config', () => {
+    const { container } = render(
+      <ConfigProvider
+        tooltip={{
+          classNames: {
+            root: 'custom-tooltip-root',
+            arrow: 'custom-tooltip-arrow',
+          },
+          styles: {
+            root: { padding: 99 },
+            arrow: { opacity: 0.25 },
+          },
+        }}
+      >
+        <Popover open content="content" title="title">
+          <span>show me your code</span>
+        </Popover>
+      </ConfigProvider>,
+    );
+
+    const popoverElement = container.querySelector<HTMLElement>('.ant-popover')!;
+    const popoverArrowElement = container.querySelector<HTMLElement>('.ant-popover-arrow')!;
+
+    expect(popoverElement).not.toHaveClass('custom-tooltip-root');
+    expect(popoverArrowElement).not.toHaveClass('custom-tooltip-arrow');
+    expect(popoverElement).not.toHaveStyle({ padding: '99px' });
+    expect(popoverArrowElement).not.toHaveStyle({ opacity: '0.25' });
+  });
+
   it('should warn when onOpenChange has more than one argument', () => {
     resetWarned();
     const errorSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
