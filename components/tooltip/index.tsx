@@ -21,7 +21,6 @@ import { cloneElement, isFragment } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import ZIndexContext from '../_util/zindexContext';
-import type { ConfigComponentProps } from '../config-provider/context';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import TableMeasureRowContext from '../table/TableMeasureRowContext';
@@ -151,18 +150,6 @@ interface InternalTooltipProps extends TooltipProps {
   'data-popover-inject'?: boolean;
 }
 
-type TooltipContextConfig = Pick<
-  NonNullable<ConfigComponentProps['tooltip']>,
-  'className' | 'style' | 'classNames' | 'styles' | 'arrow' | 'trigger'
->;
-
-const getTooltipContextConfig = (
-  injectFromPopover: boolean,
-  config: TooltipContextConfig,
-): Partial<TooltipContextConfig> => {
-  return injectFromPopover ? {} : config;
-};
-
 const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((props, ref) => {
   const {
     prefixCls: customizePrefixCls,
@@ -203,17 +190,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const [, token] = useToken();
   const injectFromPopover = !!props['data-popover-inject'];
 
-  const {
-    getPopupContainer: getContextPopupContainer,
-    getPrefixCls,
-    direction,
-    className: tooltipContextClassName,
-    style: tooltipContextStyle,
-    classNames: tooltipContextClassNames,
-    styles: tooltipContextStyles,
-    arrow: tooltipContextArrow,
-    trigger: tooltipContextTrigger,
-  } = useComponentConfig('tooltip');
+  const tooltipConfig = useComponentConfig('tooltip');
+
+  const { getPopupContainer: getContextPopupContainer, getPrefixCls, direction } = tooltipConfig;
 
   const {
     className: contextClassName,
@@ -222,14 +201,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
-  } = getTooltipContextConfig(injectFromPopover, {
-    className: tooltipContextClassName,
-    style: tooltipContextStyle,
-    classNames: tooltipContextClassNames,
-    styles: tooltipContextStyles,
-    arrow: tooltipContextArrow,
-    trigger: tooltipContextTrigger,
-  });
+  }: Partial<typeof tooltipConfig> = injectFromPopover ? {} : tooltipConfig;
 
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
