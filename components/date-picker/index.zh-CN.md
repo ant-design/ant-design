@@ -176,6 +176,7 @@ dayjs.locale('zh-cn');
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY` |  |
 | multiple | 是否为多选 | boolean | false | 5.14.0 |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
+| tagRender | 自定义 tag 内容 render，仅在 `multiple` 模式下生效 | (props) => ReactNode | - | 6.4.0 |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
@@ -189,6 +190,7 @@ dayjs.locale('zh-cn');
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-\QQ` |  |
 | multiple | 是否为多选 | boolean | false | 5.14.0 |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
+| tagRender | 自定义 tag 内容 render，仅在 `multiple` 模式下生效 | (props) => ReactNode | - | 6.4.0 |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
@@ -200,6 +202,7 @@ dayjs.locale('zh-cn');
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-MM` |  |
 | multiple | 是否为多选 | boolean | false | 5.14.0 |
 | renderExtraFooter | 在面板中添加额外的页脚 | () => React.ReactNode | - |  |
+| tagRender | 自定义 tag 内容 render，仅在 `multiple` 模式下生效 | (props) => ReactNode | - | 6.4.0 |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
@@ -211,6 +214,7 @@ dayjs.locale('zh-cn');
 | format | 展示的日期格式，配置参考 [dayjs#format](https://day.js.org/docs/zh-CN/display/format#%E6%94%AF%E6%8C%81%E7%9A%84%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%8D%A0%E4%BD%8D%E7%AC%A6%E5%88%97%E8%A1%A8)。 | [formatType](#formattype) | `YYYY-wo` |  |
 | multiple | 是否为多选 | boolean | false | 5.14.0 |
 | renderExtraFooter | 在面板中添加额外的页脚 | (mode) => React.ReactNode | - |  |
+| tagRender | 自定义 tag 内容 render，仅在 `multiple` 模式下生效 | (props) => ReactNode | - | 6.4.0 |
 | value | 日期 | [dayjs](https://day.js.org/) | - |  |
 | onChange | 时间发生变化的回调，发生在用户选择时间时 | function(date: dayjs \| null, dateString: string \| null) | - |  |
 | showWeek | DatePicker 下展示当前周 | boolean | true | 5.14.0 |
