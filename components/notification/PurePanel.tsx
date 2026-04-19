@@ -5,8 +5,8 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import { Notice } from '@rc-component/notification';
-import type { NoticeProps } from '@rc-component/notification/lib/Notice';
+import { Notification as RcNotification } from '@rc-component/notification';
+import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
 import { pickClosable, useClosable } from '../_util/hooks';
@@ -89,13 +89,11 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
   return (
     <div className={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
       {iconNode}
-      {
-        title && (
-          <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
-            {title}
-          </div>
-        )
-      }
+      {title && (
+        <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
+          {title}
+        </div>
+      )}
       {description && (
         <div
           className={clsx(`${prefixCls}-description`, pureContentCls.description)}
@@ -117,7 +115,10 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
 };
 
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends Omit<
+      RcNotificationProps,
+      'prefixCls' | 'classNames' | 'styles' | 'title' | 'description' | 'icon' | 'actions'
+    >,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
   classNames?: AnchorSemanticAllType['classNamesAndFn'];
@@ -208,15 +209,14 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       style={mergedStyles.root}
     >
       <PurePanelStyle prefixCls={prefixCls} />
-      <Notice
+      <RcNotification
         style={{ ...contextStyle, ...style }}
         {...restProps}
         prefixCls={prefixCls}
-        eventKey="pure"
         duration={null}
         closable={mergedClosable}
         className={clsx(notificationClassName, contextClassName)}
-        content={
+        description={
           <PureContent
             classNames={mergedClassNames as PureContentProps['classNames']}
             styles={mergedStyles as PureContentProps['styles']}
