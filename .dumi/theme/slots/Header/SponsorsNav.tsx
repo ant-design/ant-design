@@ -42,36 +42,39 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
   card: css`
     width: 300px;
   `,
-  cardTop: css`
+  cardBody: css`
     display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid ${cssVar.colorBorderSecondary};
+    gap: 14px;
     margin-bottom: 12px;
   `,
   cardLogo: css`
-    width: 56px;
-    height: 56px;
-    border-radius: 12px;
+    width: 64px;
+    height: 64px;
+    border-radius: 14px;
     object-fit: contain;
     background: ${cssVar.colorFillQuaternary};
     border: 1px solid ${cssVar.colorBorderSecondary};
-    padding: 6px;
+    padding: 8px;
     box-sizing: border-box;
     flex-shrink: 0;
   `,
+  cardInfo: css`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    min-width: 0;
+  `,
   cardName: css`
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     color: ${cssVar.colorText};
     line-height: 1.4;
   `,
   cardDesc: css`
-    font-size: 14px;
+    font-size: 13px;
     color: ${cssVar.colorTextSecondary};
     line-height: 1.6;
-    margin-bottom: 12px;
   `,
   cardFooter: css`
     display: flex;
@@ -110,11 +113,13 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description,
   const isCN = lang === 'cn';
   return (
     <div className={styles.card}>
-      <div className={styles.cardTop}>
+      <div className={styles.cardBody}>
         <img src={logo} alt={name} className={styles.cardLogo} />
-        <span className={styles.cardName}>{name}</span>
+        <div className={styles.cardInfo}>
+          <span className={styles.cardName}>{name}</span>
+          <span className={styles.cardDesc}>{description}</span>
+        </div>
       </div>
-      <div className={styles.cardDesc}>{description}</div>
       <div className={styles.cardFooter}>
         <span className={styles.sponsorLabel}>
           <HeartFilled className={styles.heartIcon} />
