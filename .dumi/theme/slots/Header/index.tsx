@@ -53,6 +53,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         max-width: 220px;
         height: 32px;
         margin: 0;
+        margin-inline-end: ${cssVar.paddingMD};
         background: ${cssVar.colorBgContainer};
         border-radius: ${cssVar.borderRadiusSM};
         transition: background ${cssVar.motionDurationSlow};
@@ -107,9 +108,10 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
     menuRow: css`
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       margin: 0;
       column-gap: 2px;
-      padding-inline-end: 0;
+      padding-inline-end: ${cssVar.paddingMD};
 
       > * {
         flex: none;
