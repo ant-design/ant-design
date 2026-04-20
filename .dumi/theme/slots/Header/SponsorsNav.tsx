@@ -25,11 +25,13 @@ const useStyle = createStyles(({ cssVar, css }) => ({
       margin-inline-start: 0;
     }
 
-    &:hover {
+    &:hover,
+    &:focus-within {
       z-index: 1;
 
       img {
         transform: translateY(-2px);
+        opacity: 1;
       }
     }
   `,
@@ -40,7 +42,8 @@ const useStyle = createStyles(({ cssVar, css }) => ({
     border-radius: 50%;
     object-fit: contain;
     background: ${cssVar.colorBgContainer};
-    transition: transform ${cssVar.motionDurationFast};
+    opacity: 0.5;
+    transition: transform ${cssVar.motionDurationFast}, opacity ${cssVar.motionDurationSlow};
   `,
 }));
 
