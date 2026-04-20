@@ -154,7 +154,7 @@ const SponsorsNav: React.FC = () => {
             />
           }
           trigger="hover"
-          placement="bottom"
+          placement="bottomRight"
           destroyOnHidden
         >
           <a
