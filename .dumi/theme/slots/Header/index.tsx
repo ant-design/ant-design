@@ -22,6 +22,7 @@ import type { SharedProps } from './interface';
 import Logo from './Logo';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
+import SponsorsNav from './SponsorsNav';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -370,6 +371,7 @@ const Header: React.FC = () => {
       aria-label="RTL Switch Button"
     />,
     <ThemeSwitch key="theme" />,
+    <SponsorsNav key="sponsors" />,
     <a
       key="github"
       href="https://github.com/ant-design/ant-design"
