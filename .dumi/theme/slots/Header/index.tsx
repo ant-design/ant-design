@@ -53,7 +53,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         max-width: 220px;
         height: 32px;
         margin: 0;
-        margin-inline-end: ${cssVar.paddingMD};
+        margin-inline-end: ${cssVar.paddingXL};
         background: ${cssVar.colorBgContainer};
         border-radius: ${cssVar.borderRadiusSM};
         transition: background ${cssVar.motionDurationSlow};
@@ -62,6 +62,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
           width: 14px;
           fill: ${searchIconColor};
           flex-shrink: 0;
+          margin-inline-start: 6px;
         }
 
         > input {
