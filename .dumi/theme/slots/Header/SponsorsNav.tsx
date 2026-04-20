@@ -10,6 +10,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
   wrap: css`
     display: flex;
     align-items: center;
+    margin-inline-start: 8px;
     margin-inline-end: 6px;
   `,
   avatarLink: css`

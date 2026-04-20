@@ -108,7 +108,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       align-items: center;
       margin: 0;
       column-gap: 2px;
-      padding-inline-end: ${cssVar.paddingLG};
+      padding-inline-end: 0;
 
       > * {
         flex: none;
