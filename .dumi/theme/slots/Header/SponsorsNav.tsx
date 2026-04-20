@@ -102,10 +102,12 @@ interface SponsorCardProps {
   logo: string;
   url: string;
   description: string;
+  lang: string;
 }
 
-const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description }) => {
+const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description, lang }) => {
   const { styles } = useStyle();
+  const isCN = lang === 'cn';
   return (
     <div className={styles.card}>
       <div className={styles.cardTop}>
@@ -116,7 +118,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description 
       <div className={styles.cardFooter}>
         <span className={styles.sponsorLabel}>
           <HeartFilled className={styles.heartIcon} />
-          Sponsor
+          {isCN ? '赞助商' : 'Sponsor'}
         </span>
         <Button
           type="link"
@@ -126,7 +128,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description 
           rel="noreferrer"
           className={styles.visitBtn}
         >
-          Visit website →
+          {isCN ? '访问官网 →' : 'Visit website →'}
         </Button>
       </div>
     </div>
@@ -148,6 +150,7 @@ const SponsorsNav: React.FC = () => {
               logo={sponsor.logo}
               url={sponsor.url}
               description={sponsor.description[lang as 'cn' | 'en'] ?? sponsor.description.en}
+              lang={lang}
             />
           }
           trigger="hover"
