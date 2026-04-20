@@ -50,8 +50,11 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         display: inline-flex;
         align-items: center;
         flex: auto;
+        max-width: 220px;
         margin: 0;
         border-inline-start: 1px solid rgba(0, 0, 0, 0.06);
+        background: ${cssVar.colorFillTertiary};
+        border-radius: ${cssVar.borderRadiusSM};
         transition: background ${cssVar.motionDurationSlow};
 
         > svg {
@@ -62,7 +65,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         > input {
           height: 22px;
           border: 0;
-          max-width: calc(100vw - 768px);
+          max-width: 160px;
 
           &:focus {
             box-shadow: none;
@@ -73,9 +76,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
           }
         }
 
-        &:hover {
+        &:hover,
+        &:focus-within {
           background: ${cssVar.colorFillSecondary};
-          border-radius: ${cssVar.borderRadiusSM};
         }
 
         .dumi-default-search-shortcut {
@@ -101,8 +104,8 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       display: flex;
       align-items: center;
       margin: 0;
-      column-gap: 4px;
-      padding-inline-end: ${cssVar.padding};
+      column-gap: 2px;
+      padding-inline-end: ${cssVar.paddingSM};
 
       > * {
         flex: none;
@@ -135,8 +138,8 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       }
     `,
     versionSelect: css`
-      width: 90px;
-      min-width: 90px; // 这个宽度需要和 Empty 状态的宽度保持一致
+      width: 80px;
+      min-width: 80px; // 这个宽度需要和 Empty 状态的宽度保持一致
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
@@ -337,6 +340,7 @@ const Header: React.FC = () => {
 
   let menu = [
     navigationNode,
+    <SponsorsNav key="sponsors" />,
     <Select
       key="version"
       size="small"
@@ -371,7 +375,6 @@ const Header: React.FC = () => {
       aria-label="RTL Switch Button"
     />,
     <ThemeSwitch key="theme" />,
-    <SponsorsNav key="sponsors" />,
     <a
       key="github"
       href="https://github.com/ant-design/ant-design"
