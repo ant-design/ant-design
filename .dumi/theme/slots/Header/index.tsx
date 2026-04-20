@@ -51,21 +51,24 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         align-items: center;
         flex: auto;
         max-width: 220px;
+        height: 32px;
         margin: 0;
         border-inline-start: 1px solid rgba(0, 0, 0, 0.06);
-        background: ${cssVar.colorFillTertiary};
+        background: ${cssVar.colorBgContainer};
         border-radius: ${cssVar.borderRadiusSM};
         transition: background ${cssVar.motionDurationSlow};
 
         > svg {
           width: 14px;
           fill: ${searchIconColor};
+          flex-shrink: 0;
         }
 
         > input {
-          height: 22px;
+          flex: 1;
+          min-width: 0;
+          height: 100%;
           border: 0;
-          max-width: 160px;
           background: transparent;
 
           &:focus {
