@@ -111,6 +111,8 @@ type RadiusModel = {
   vertical: RadiusSequence;
 };
 
+const EMPTY_MUTATION_TARGETS: HTMLElement[] = [];
+
 const getRadiusTokenValue = (token: string): number | undefined => {
   const normalizedToken = token.trim().toLowerCase();
 
@@ -437,8 +439,10 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     [scheduleMeasuredChildRadiusSync],
   );
 
-  const rootMutationTarget = needMeasureChildRadius ? rootRef.current : undefined;
-  const childMutationTarget = needMeasureChildRadius ? observedChildElement : undefined;
+  const rootMutationTarget =
+    needMeasureChildRadius && rootRef.current ? rootRef.current : EMPTY_MUTATION_TARGETS;
+  const childMutationTarget =
+    needMeasureChildRadius && observedChildElement ? observedChildElement : EMPTY_MUTATION_TARGETS;
 
   useMutateObserver(rootMutationTarget, onChildMutate, ROOT_MUTATION_OBSERVER_OPTIONS);
   useMutateObserver(childMutationTarget, onChildMutate, CHILD_MUTATION_OBSERVER_OPTIONS);
