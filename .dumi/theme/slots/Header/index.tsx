@@ -101,7 +101,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       display: flex;
       align-items: center;
       margin: 0;
-      column-gap: ${cssVar.paddingSM};
+      column-gap: 4px;
       padding-inline-end: ${cssVar.padding};
 
       > * {
@@ -135,8 +135,8 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       }
     `,
     versionSelect: css`
-      width: 112px;
-      min-width: 112px; // 这个宽度需要和 Empty 状态的宽度保持一致
+      width: 90px;
+      min-width: 90px;
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
