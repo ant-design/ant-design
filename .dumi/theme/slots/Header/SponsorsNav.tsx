@@ -18,7 +18,6 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     border-radius: 50%;
     margin-inline-start: -6px;
     border: 2px solid ${cssVar.colorBgLayout};
-    transition: transform ${cssVar.motionDurationFast};
     position: relative;
     z-index: 0;
 
@@ -27,8 +26,11 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     }
 
     &:hover {
-      transform: translateY(-2px);
       z-index: 1;
+
+      img {
+        transform: translateY(-2px);
+      }
     }
   `,
   avatar: css`
@@ -38,6 +40,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     border-radius: 50%;
     object-fit: contain;
     background: ${cssVar.colorBgContainer};
+    transition: transform ${cssVar.motionDurationFast};
   `,
   card: css`
     width: 300px;
@@ -159,7 +162,8 @@ const SponsorsNav: React.FC = () => {
             />
           }
           trigger="hover"
-          placement="bottomRight"
+          placement="bottom"
+          arrow={{ pointAtCenter: true }}
           destroyOnHidden
         >
           <a
