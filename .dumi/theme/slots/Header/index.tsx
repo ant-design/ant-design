@@ -72,6 +72,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
 
           &:focus {
             box-shadow: none;
+            background: transparent;
           }
 
           &::placeholder {
