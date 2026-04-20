@@ -66,6 +66,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
           height: 22px;
           border: 0;
           max-width: 160px;
+          background: transparent;
 
           &:focus {
             box-shadow: none;

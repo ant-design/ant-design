@@ -10,33 +10,21 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     display: flex;
     align-items: center;
     gap: 4px;
-    padding: 2px 8px 2px 6px;
-    border-radius: 20px;
-    border: 1px solid ${cssVar.colorBorderSecondary};
-    background: ${cssVar.colorFillQuaternary};
+    height: 24px;
+    padding-inline: 8px;
+    border-radius: ${cssVar.borderRadius};
+    background: ${cssVar.colorFillTertiary};
     cursor: default;
     transition: background ${cssVar.motionDurationSlow};
 
     &:hover {
-      background: ${cssVar.colorFillTertiary};
+      background: ${cssVar.colorFillSecondary};
     }
-  `,
-  label: css`
-    display: flex;
-    align-items: center;
-    gap: 3px;
-    font-size: 11px;
-    color: ${cssVar.colorTextTertiary};
-    white-space: nowrap;
-  `,
-  heartIcon: css`
-    color: #ff4d4f;
-    font-size: 10px;
   `,
   avatar: css`
     display: block;
-    width: 18px;
-    height: 18px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     object-fit: contain;
     background: ${cssVar.colorBgContainer};
@@ -46,6 +34,18 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     &:hover {
       transform: scale(1.15);
     }
+  `,
+  popoverTitle: css`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: ${cssVar.colorTextSecondary};
+    margin-bottom: 4px;
+  `,
+  heartIcon: css`
+    color: #ff4d4f;
+    font-size: 10px;
   `,
   card: css`
     display: flex;
@@ -87,11 +87,9 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description 
     <div className={styles.card}>
       <div className={styles.cardHeader}>
         <img src={logo} alt={name} className={styles.cardLogo} />
-        <div>
-          <Typography.Text strong style={{ fontSize: 13 }}>
-            {name}
-          </Typography.Text>
-        </div>
+        <Typography.Text strong style={{ fontSize: 13 }}>
+          {name}
+        </Typography.Text>
       </div>
       <Typography.Text type="secondary" style={{ fontSize: 12 }}>
         {description}
@@ -108,13 +106,15 @@ const SponsorsNav: React.FC = () => {
 
   return (
     <div className={styles.wrap} aria-label="Sponsors">
-      <span className={styles.label}>
-        <HeartFilled className={styles.heartIcon} />
-        Sponsors
-      </span>
       {sponsors.map((sponsor) => (
         <Popover
           key={sponsor.name}
+          title={
+            <span className={styles.popoverTitle}>
+              <HeartFilled className={styles.heartIcon} />
+              Sponsor
+            </span>
+          }
           content={
             <SponsorCard
               name={sponsor.name}
@@ -135,3 +135,4 @@ const SponsorsNav: React.FC = () => {
 };
 
 export default SponsorsNav;
+
