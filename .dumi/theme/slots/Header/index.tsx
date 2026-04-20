@@ -72,14 +72,14 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
           }
         }
 
-        .dumi-default-search-shortcut {
-          color: ${searchIconColor};
-          background-color: rgba(150, 150, 150, 0.06);
-          border-color: rgba(100, 100, 100, 0.2);
+        &:hover {
+          background: ${cssVar.colorFillSecondary};
           border-radius: ${cssVar.borderRadiusSM};
-          position: static;
-          top: unset;
-          transform: unset;
+          transition: background ${cssVar.motionDurationSlow};
+        }
+
+        .dumi-default-search-shortcut {
+          display: none;
         }
 
         .dumi-default-search-popover {
@@ -358,6 +358,7 @@ const Header: React.FC = () => {
       label2="En"
       tooltip1="中文 / English"
       tooltip2="English / 中文"
+      to={utils.isZhCN(pathname) ? pathname.replace(/-cn$/, '') : `${pathname}-cn`}
     />,
     <SwitchBtn
       key="direction"
@@ -369,6 +370,7 @@ const Header: React.FC = () => {
       tooltip2="RTL"
       pure
       aria-label="RTL Switch Button"
+      to={direction === 'rtl' ? pathname : `${pathname}?direction=rtl`}
     />,
     <ThemeSwitch key="theme" />,
     <SponsorsNav key="sponsors" />,
