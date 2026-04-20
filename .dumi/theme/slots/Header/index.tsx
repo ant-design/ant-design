@@ -53,7 +53,6 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         max-width: 220px;
         height: 32px;
         margin: 0;
-        border-inline-start: 1px solid rgba(0, 0, 0, 0.06);
         background: ${cssVar.colorBgContainer};
         border-radius: ${cssVar.borderRadiusSM};
         transition: background ${cssVar.motionDurationSlow};
