@@ -128,16 +128,28 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description,
           <HeartFilled className={styles.heartIcon} />
           {isCN ? '赞助商' : 'Sponsor'}
         </span>
-        <Button
-          type="link"
-          size="small"
-          href={url}
-          target="_blank"
-          rel="noreferrer"
-          className={styles.visitBtn}
-        >
-          {isCN ? '访问官网 →' : 'Visit website →'}
-        </Button>
+        <div>
+          <Button
+            type="link"
+            size="small"
+            href="https://opencollective.com/ant-design"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.visitBtn}
+          >
+            {isCN ? '成为赞助商' : 'Become a sponsor'}
+          </Button>
+          <Button
+            type="link"
+            size="small"
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.visitBtn}
+          >
+            {isCN ? '访问官网 →' : 'Visit website →'}
+          </Button>
+        </div>
       </div>
     </div>
   );
