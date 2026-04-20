@@ -1,8 +1,9 @@
 import React from 'react';
-import useLocale from '.dumi/hooks/useLocale';
-import SemanticPreview from '.dumi/theme/common/SemanticPreview';
 import { BorderBeam, theme, Typography } from 'antd';
 import type { BorderBeamProps } from 'antd';
+
+import useLocale from '../../../.dumi/hooks/useLocale';
+import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 
 const locales = {
   cn: {
