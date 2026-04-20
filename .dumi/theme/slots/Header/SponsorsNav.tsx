@@ -1,12 +1,12 @@
 import React from 'react';
-import { HeartFilled } from '@ant-design/icons';
-import { Button, Popover } from 'antd';
+import { Popover } from 'antd';
 import { createStyles } from 'antd-style';
 
 import useLocale from '../../../hooks/useLocale';
-import { sponsors } from './sponsors';
+import SponsorCard from './SponsorCard';
+import { getSponsorUrl, sponsors } from './sponsors';
 
-const useStyle = createStyles(({ cssVar, token, css }) => ({
+const useStyle = createStyles(({ cssVar, css }) => ({
   wrap: css`
     display: flex;
     align-items: center;
@@ -42,123 +42,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     background: ${cssVar.colorBgContainer};
     transition: transform ${cssVar.motionDurationFast};
   `,
-  card: css`
-    width: 300px;
-  `,
-  cardBody: css`
-    display: flex;
-    gap: 14px;
-    margin-bottom: 12px;
-  `,
-  cardLogo: css`
-    width: 64px;
-    height: 64px;
-    border-radius: 14px;
-    object-fit: contain;
-    background: ${cssVar.colorFillQuaternary};
-    border: 1px solid ${cssVar.colorBorderSecondary};
-    padding: 8px;
-    box-sizing: border-box;
-    flex-shrink: 0;
-  `,
-  cardInfo: css`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 4px;
-    min-width: 0;
-  `,
-  cardName: css`
-    font-size: 15px;
-    font-weight: 600;
-    color: ${cssVar.colorText};
-    line-height: 1.4;
-  `,
-  cardDesc: css`
-    font-size: 13px;
-    color: ${cssVar.colorTextSecondary};
-    line-height: 1.6;
-  `,
-  cardFooter: css`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  `,
-  sponsorLabel: css`
-    display: flex;
-    align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    color: ${cssVar.colorTextTertiary};
-  `,
-  heartIcon: css`
-    color: #ff4d4f;
-    font-size: 11px;
-  `,
-  visitBtn: css`
-    font-size: 13px;
-    height: 28px;
-    padding-inline: 10px;
-    color: ${token.colorPrimary} !important;
-  `,
-  becomeBtn: css`
-    font-size: 13px;
-    height: 28px;
-    padding-inline: 10px;
-    color: ${cssVar.colorTextTertiary} !important;
-  `,
 }));
-
-interface SponsorCardProps {
-  name: string;
-  logo: string;
-  url: string;
-  description: string;
-  lang: string;
-}
-
-const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description, lang }) => {
-  const { styles } = useStyle();
-  const isCN = lang === 'cn';
-  return (
-    <div className={styles.card}>
-      <div className={styles.cardBody}>
-        <img src={logo} alt={name} className={styles.cardLogo} />
-        <div className={styles.cardInfo}>
-          <span className={styles.cardName}>{name}</span>
-          <span className={styles.cardDesc}>{description}</span>
-        </div>
-      </div>
-      <div className={styles.cardFooter}>
-        <span className={styles.sponsorLabel}>
-          <HeartFilled className={styles.heartIcon} />
-          {isCN ? '赞助商' : 'Sponsor'}
-        </span>
-        <div>
-          <Button
-            type="link"
-            size="small"
-            href="https://opencollective.com/ant-design"
-            target="_blank"
-            rel="noreferrer"
-            className={styles.becomeBtn}
-          >
-            {isCN ? '成为赞助商' : 'Become a sponsor'}
-          <Button
-            type="link"
-            size="small"
-            href={url}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.visitBtn}
-          >
-            {isCN ? '访问官网 →' : 'Visit website →'}
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const SponsorsNav: React.FC = () => {
   const { styles } = useStyle();
@@ -173,7 +57,7 @@ const SponsorsNav: React.FC = () => {
             <SponsorCard
               name={sponsor.name}
               logo={sponsor.logo}
-              url={sponsor.url}
+              url={getSponsorUrl(sponsor.url, lang)}
               description={sponsor.description[lang as 'cn' | 'en'] ?? sponsor.description.en}
               lang={lang}
             />
@@ -184,7 +68,7 @@ const SponsorsNav: React.FC = () => {
           destroyOnHidden
         >
           <a
-            href={sponsor.url}
+            href={getSponsorUrl(sponsor.url, lang)}
             target="_blank"
             rel="noreferrer"
             className={styles.avatarLink}

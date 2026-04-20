@@ -1,12 +1,15 @@
 export interface Sponsor {
   name: string;
   logo: string;
-  url: string;
+  url: string | { cn: string; en: string };
   description: {
     cn: string;
     en: string;
   };
 }
+
+export const getSponsorUrl = (url: Sponsor['url'], lang: string): string =>
+  typeof url === 'string' ? url : (url[lang as 'cn' | 'en'] ?? url.en);
 
 export const sponsors: Sponsor[] = [
   {
@@ -30,7 +33,10 @@ export const sponsors: Sponsor[] = [
   {
     name: 'YouMind',
     logo: 'https://marketing-assets.youmind.com/logo-512.png',
-    url: 'https://youmind.com?from=ant-design',
+    url: {
+      cn: 'https://youmind.com/zh-CN?from=ant-design',
+      en: 'https://youmind.com?from=ant-design',
+    },
     description: {
       cn: 'YouMind 是学习与创作交汇的地方。在 YouMind 中，你可以与 AI 智能体一起学习、思考和创作。一切自然流动，与你共同成长。',
       en: 'The first AI creation studio where learning meets writing.',
