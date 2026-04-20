@@ -3,6 +3,9 @@ import { HeartFilled } from '@ant-design/icons';
 import { Button } from 'antd';
 import { createStyles } from 'antd-style';
 
+import type { Sponsor } from './sponsors';
+import { getSponsorDescription, getSponsorUrl } from './sponsors';
+
 export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
   card: css`
     width: 300px;
@@ -72,23 +75,21 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
 }));
 
 export interface SponsorCardProps {
-  name: string;
-  logo: string;
-  url: string;
-  description: string;
-  lang: string;
+  sponsor: Sponsor;
+  lang: 'cn' | 'en';
 }
 
-const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description, lang }) => {
+const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, lang }) => {
   const { styles } = useCardStyle();
   const isCN = lang === 'cn';
+  const url = getSponsorUrl(sponsor.url, lang);
   return (
     <div className={styles.card}>
       <div className={styles.cardBody}>
-        <img src={logo} alt={name} className={styles.cardLogo} />
+        <img src={sponsor.logo} alt={sponsor.name} className={styles.cardLogo} />
         <div className={styles.cardInfo}>
-          <span className={styles.cardName}>{name}</span>
-          <span className={styles.cardDesc}>{description}</span>
+          <span className={styles.cardName}>{sponsor.name}</span>
+          <span className={styles.cardDesc}>{getSponsorDescription(sponsor.description, lang)}</span>
         </div>
       </div>
       <div className={styles.cardFooter}>

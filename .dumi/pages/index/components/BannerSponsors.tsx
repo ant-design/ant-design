@@ -76,15 +76,7 @@ const BannerSponsors: React.FC = () => {
         <React.Fragment key={sponsor.name}>
           {index > 0 && <div className={styles.divider} />}
           <Popover
-            content={
-              <SponsorCard
-                name={sponsor.name}
-                logo={sponsor.logo}
-                url={getSponsorUrl(sponsor.url, lang)}
-                description={sponsor.description[lang as 'cn' | 'en'] ?? sponsor.description.en}
-                lang={lang}
-              />
-            }
+            content={<SponsorCard sponsor={sponsor} lang={lang} />}
             trigger="hover"
             placement="top"
             arrow={{ pointAtCenter: true }}

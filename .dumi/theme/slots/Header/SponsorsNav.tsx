@@ -53,15 +53,7 @@ const SponsorsNav: React.FC = () => {
       {sponsors.map((sponsor) => (
         <Popover
           key={sponsor.name}
-          content={
-            <SponsorCard
-              name={sponsor.name}
-              logo={sponsor.logo}
-              url={getSponsorUrl(sponsor.url, lang)}
-              description={sponsor.description[lang as 'cn' | 'en'] ?? sponsor.description.en}
-              lang={lang}
-            />
-          }
+          content={<SponsorCard sponsor={sponsor} lang={lang} />}
           trigger="hover"
           placement="bottomRight"
           arrow={{ pointAtCenter: true }}
