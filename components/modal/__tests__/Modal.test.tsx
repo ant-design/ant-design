@@ -191,7 +191,10 @@ describe('Modal', () => {
 
   it('responsive width', () => {
     render(
-      <Modal open width={{ xs: '90%', sm: '80%', md: '70%', lg: '60%', xl: '50%', xxl: '40%' }} />,
+      <Modal
+        open
+        width={{ xs: '90%', sm: '80%', md: '70%', lg: '60%', xl: '50%', xxl: '40%', xxxl: 1200 }}
+      />,
     );
 
     const modalEle = document.querySelector<HTMLDivElement>('.ant-modal')!;
@@ -202,6 +205,7 @@ describe('Modal', () => {
       '--ant-modal-lg-width': '60%',
       '--ant-modal-xl-width': '50%',
       '--ant-modal-xxl-width': '40%',
+      '--ant-modal-xxxl-width': '1200px',
     });
   });
 
