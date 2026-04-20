@@ -1,8 +1,9 @@
 import React from 'react';
 import { HeartFilled } from '@ant-design/icons';
-import { Button, Popover, Typography } from 'antd';
+import { Button, Popover } from 'antd';
 import { createStyles } from 'antd-style';
 
+import useLocale from '../../../hooks/useLocale';
 import { sponsors } from './sponsors';
 
 const useStyle = createStyles(({ cssVar, token, css }) => ({
@@ -16,7 +17,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     border-radius: 50%;
     margin-inline-start: -6px;
     border: 2px solid ${cssVar.colorBgLayout};
-    transition: transform ${cssVar.motionDurationFast}, z-index 0s;
+    transition: transform ${cssVar.motionDurationFast};
     position: relative;
     z-index: 0;
 
@@ -38,20 +39,20 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     background: ${cssVar.colorBgContainer};
   `,
   card: css`
-    width: 220px;
+    width: 260px;
   `,
   cardTop: css`
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding-bottom: 10px;
+    gap: 12px;
+    padding-bottom: 12px;
     border-bottom: 1px solid ${cssVar.colorBorderSecondary};
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   `,
   cardLogo: css`
-    width: 44px;
-    height: 44px;
-    border-radius: 10px;
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
     object-fit: contain;
     background: ${cssVar.colorFillQuaternary};
     border: 1px solid ${cssVar.colorBorderSecondary};
@@ -60,16 +61,16 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     flex-shrink: 0;
   `,
   cardName: css`
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     color: ${cssVar.colorText};
     line-height: 1.4;
   `,
   cardDesc: css`
-    font-size: 12px;
+    font-size: 13px;
     color: ${cssVar.colorTextSecondary};
     line-height: 1.6;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   `,
   cardFooter: css`
     display: flex;
@@ -80,16 +81,16 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     display: flex;
     align-items: center;
     gap: 4px;
-    font-size: 11px;
+    font-size: 12px;
     color: ${cssVar.colorTextTertiary};
   `,
   heartIcon: css`
     color: #ff4d4f;
-    font-size: 10px;
+    font-size: 11px;
   `,
   visitBtn: css`
-    font-size: 12px;
-    height: 26px;
+    font-size: 13px;
+    height: 28px;
     padding-inline: 10px;
     color: ${token.colorPrimary} !important;
   `,
@@ -133,6 +134,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description 
 
 const SponsorsNav: React.FC = () => {
   const { styles } = useStyle();
+  const [, lang] = useLocale();
 
   return (
     <div className={styles.wrap} aria-label="Sponsors">
@@ -144,20 +146,18 @@ const SponsorsNav: React.FC = () => {
               name={sponsor.name}
               logo={sponsor.logo}
               url={sponsor.url}
-              description={sponsor.description}
+              description={sponsor.description[lang as 'cn' | 'en'] ?? sponsor.description.en}
             />
           }
           trigger="hover"
           placement="bottom"
           destroyOnHidden
-          arrow={false}
         >
           <a
             href={sponsor.url}
             target="_blank"
             rel="noreferrer"
             className={styles.avatarLink}
-            onClick={(e) => e.stopPropagation()}
           >
             <img src={sponsor.logo} alt={sponsor.name} className={styles.avatar} />
           </a>
