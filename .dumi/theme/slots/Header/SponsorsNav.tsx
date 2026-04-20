@@ -40,7 +40,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     background: ${cssVar.colorBgContainer};
   `,
   card: css`
-    width: 260px;
+    width: 300px;
   `,
   cardTop: css`
     display: flex;
@@ -51,8 +51,8 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     margin-bottom: 12px;
   `,
   cardLogo: css`
-    width: 52px;
-    height: 52px;
+    width: 56px;
+    height: 56px;
     border-radius: 12px;
     object-fit: contain;
     background: ${cssVar.colorFillQuaternary};
@@ -62,13 +62,13 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     flex-shrink: 0;
   `,
   cardName: css`
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     color: ${cssVar.colorText};
     line-height: 1.4;
   `,
   cardDesc: css`
-    font-size: 13px;
+    font-size: 14px;
     color: ${cssVar.colorTextSecondary};
     line-height: 1.6;
     margin-bottom: 12px;
