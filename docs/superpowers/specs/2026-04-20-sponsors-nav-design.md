@@ -92,6 +92,24 @@ sponsorAvatar: css`
 `,
 ```
 
+## 导航条配套 UI 调整
+
+为配合 Sponsors 胶囊的加入，同步优化导航条横向空间与视觉和谐性。
+
+### 1. Version 选择框宽度
+
+- 当前宽度 `112px`，适当收窄（待测量具体版本号长度后定，预计 `90px` 左右）
+
+### 2. 搜索框
+
+- **去掉 cmd+k 快捷键提示**：完全隐藏 `.dumi-default-search-shortcut` 元素（`display: none`）
+- **Hover 时变为 filled 风格**：搜索框整体 hover 时背景切换为 `token.colorFillSecondary`，过渡动画 `transition: background motionDurationSlow`
+
+### 3. 右上角图标间距
+
+- 当前 `menuRow` 的 `column-gap` 为 `paddingSM`，整体偏松
+- 收紧为 `4px`，各图标按钮保持 `padding` 不变，整体更紧凑
+
 ## 不在范围内
 
 - 首页 Sponsors 区块
