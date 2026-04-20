@@ -101,6 +101,12 @@ const useStyle = createStyles(({ cssVar, token, css }) => ({
     padding-inline: 10px;
     color: ${token.colorPrimary} !important;
   `,
+  becomeBtn: css`
+    font-size: 13px;
+    height: 28px;
+    padding-inline: 10px;
+    color: ${cssVar.colorTextTertiary} !important;
+  `,
 }));
 
 interface SponsorCardProps {
@@ -135,10 +141,9 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ name, logo, url, description,
             href="https://opencollective.com/ant-design"
             target="_blank"
             rel="noreferrer"
-            className={styles.visitBtn}
+            className={styles.becomeBtn}
           >
             {isCN ? '成为赞助商' : 'Become a sponsor'}
-          </Button>
           <Button
             type="link"
             size="small"
