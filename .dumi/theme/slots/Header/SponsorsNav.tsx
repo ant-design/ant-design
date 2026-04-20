@@ -54,7 +54,7 @@ const SponsorsNav: React.FC = () => {
         <Popover
           key={sponsor.name}
           content={<SponsorCard sponsor={sponsor} lang={lang} />}
-          trigger="hover"
+          trigger={['hover', 'focus']}
           placement="bottomRight"
           arrow={{ pointAtCenter: true }}
           destroyOnHidden

@@ -77,7 +77,7 @@ const BannerSponsors: React.FC = () => {
           {index > 0 && <div className={styles.divider} />}
           <Popover
             content={<SponsorCard sponsor={sponsor} lang={lang} />}
-            trigger="hover"
+            trigger={['hover', 'focus']}
             placement="top"
             arrow={{ pointAtCenter: true }}
             destroyOnHidden
