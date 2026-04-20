@@ -143,6 +143,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
     versionSelect: css`
       width: 68px;
       min-width: 68px; // 这个宽度需要和 Empty 状态的宽度保持一致
+      margin-inline-end: 6px;
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
