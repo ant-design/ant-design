@@ -52,6 +52,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         flex: auto;
         margin: 0;
         border-inline-start: 1px solid rgba(0, 0, 0, 0.06);
+        transition: background ${cssVar.motionDurationSlow};
 
         > svg {
           width: 14px;
@@ -75,7 +76,6 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         &:hover {
           background: ${cssVar.colorFillSecondary};
           border-radius: ${cssVar.borderRadiusSM};
-          transition: background ${cssVar.motionDurationSlow};
         }
 
         .dumi-default-search-shortcut {
