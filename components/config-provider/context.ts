@@ -127,7 +127,6 @@ export interface ThemeConfig {
   /**
    * @descCN 通过 `cssVar` 配置来开启 CSS 变量模式，这个配置会被继承。
    * @descEN Enable CSS variable mode through `cssVar` configuration, This configuration will be inherited.
-   * @default false
    * @since 5.12.0
    */
   cssVar?: {
@@ -146,7 +145,7 @@ export interface ThemeConfig {
   /**
    * @descCN 开启零运行时模式，不会在运行时产生样式，需要手动引入 CSS 文件。
    * @descEN Enable zero-runtime mode, which will not generate style at runtime, need to import additional CSS file.
-   * @default true
+   * @default false
    * @since 6.0.0
    * @example
    * ```tsx
