@@ -110,7 +110,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, lang }) => {
           <Button
             type="link"
             size="small"
-            href="https://opencollective.com/ant-design"
+            href="https://opencollective.com/ant-design/contribute/sponsors-218"
             target="_blank"
             rel="noreferrer"
             className={styles.becomeBtn}
