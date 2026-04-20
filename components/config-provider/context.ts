@@ -8,6 +8,7 @@ import type { AlertProps } from '../alert';
 import type { AnchorProps } from '../anchor';
 import type { BadgeProps } from '../badge';
 import type { RibbonProps } from '../badge/Ribbon';
+import type { BorderBeamProps } from '../border-beam';
 import type { BreadcrumbProps } from '../breadcrumb';
 import type { ButtonProps } from '../button';
 import type { CalendarProps } from '../calendar';
@@ -248,6 +249,9 @@ export type AlertConfig = ComponentStyleConfig &
   };
 
 export type BadgeConfig = ComponentStyleConfig & Pick<BadgeProps, 'classNames' | 'styles'>;
+
+export type BorderBeamConfig = ComponentStyleConfig &
+  Pick<BorderBeamProps, 'classNames' | 'styles'>;
 
 export type TypographyConfig = ComponentStyleConfig &
   Pick<TypographyProps, 'classNames' | 'styles'>;
@@ -515,6 +519,7 @@ export interface ConfigComponentProps {
   descriptions?: DescriptionsConfig;
   empty?: EmptyConfig;
   badge?: BadgeConfig;
+  borderBeam?: BorderBeamConfig;
   radio?: RadioConfig;
   rate?: ComponentStyleConfig;
   switch?: SwitchStyleConfig;
