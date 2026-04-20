@@ -30,48 +30,14 @@ export type BorderBeamSemanticAllType = GenerateSemantic<BorderBeamSemanticType,
 export interface BorderBeamProps {
   prefixCls?: string;
   className?: string;
-  rootClassName?: string;
   style?: React.CSSProperties;
-  borderWidth?: number;
   children?: React.ReactNode;
   classNames?: BorderBeamSemanticAllType['classNamesAndFn'];
-  color?: string;
   colorFrom?: string;
   colorTo?: string;
-  delay?: number;
-  disabled?: boolean;
-  duration?: number;
-  offset?: number;
   pathRadius?: React.CSSProperties['borderRadius'];
-  paused?: boolean;
-  reverse?: boolean;
-  size?: number;
   styles?: BorderBeamSemanticAllType['stylesAndFn'];
 }
-
-const getPositiveNumber = (value: number | undefined, fallback: number) => {
-  if (!isNumber(value) || value < 0) {
-    return fallback;
-  }
-
-  return value;
-};
-
-const getDuration = (value: number | undefined, fallback: number) => {
-  if (!isNumber(value) || value <= 0) {
-    return fallback;
-  }
-
-  return value;
-};
-
-const getNormalizedOffset = (value: number | undefined) => {
-  if (!isNumber(value)) {
-    return 0;
-  }
-
-  return ((value % 100) + 100) % 100;
-};
 
 const toCSSLength = (
   value: React.CSSProperties['borderRadius'] | undefined,
@@ -291,6 +257,9 @@ const getMotionPathRadius = (
 };
 
 const DEFAULT_BEAM_DURATION = 6;
+const DEFAULT_BEAM_DELAY = 0;
+const DEFAULT_BEAM_OFFSET_START = 0;
+const DEFAULT_BEAM_OFFSET_END = 100;
 const DEFAULT_BEAM_SIZE = 60;
 const DEFAULT_BEAM_ANCHOR = '90%';
 const ROOT_MUTATION_OBSERVER_OPTIONS: MutationObserverInit = {
@@ -308,22 +277,12 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const {
     prefixCls: customizePrefixCls,
     className,
-    rootClassName,
     style,
-    borderWidth,
     children,
     classNames,
-    color,
     colorFrom,
     colorTo,
-    delay,
-    disabled = false,
-    duration,
-    offset,
     pathRadius,
-    paused = false,
-    reverse = false,
-    size,
     styles,
   } = props;
 
@@ -338,34 +297,15 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const prefixCls = getPrefixCls('border-beam', customizePrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const mergedBorderWidth = getPositiveNumber(
-    borderWidth,
-    token.BorderBeam?.borderBeamWidth ?? token.lineWidth,
-  );
-  const mergedDuration = getDuration(duration, DEFAULT_BEAM_DURATION);
-  const mergedSize = getPositiveNumber(size, DEFAULT_BEAM_SIZE);
-  const mergedDelay = isNumber(delay) ? delay : 0;
-  const normalizedOffset = getNormalizedOffset(offset);
-  const mergedColorFrom =
-    colorFrom ?? color ?? token.BorderBeam?.beamColorFrom ?? token.colorPrimary;
-  const mergedColorTo =
-    colorTo ?? color ?? token.BorderBeam?.beamColorTo ?? token.colorPrimaryHover;
-  const beamOffsetStart = reverse ? 100 - normalizedOffset : normalizedOffset;
-  const beamOffsetEnd = reverse ? -normalizedOffset : 100 + normalizedOffset;
+  const mergedBorderWidth = token.BorderBeam?.borderBeamWidth ?? token.lineWidth;
+  const mergedColorFrom = colorFrom ?? token.BorderBeam?.beamColorFrom ?? token.colorPrimary;
+  const mergedColorTo = colorTo ?? token.BorderBeam?.beamColorTo ?? token.colorPrimaryHover;
 
   const mergedProps: BorderBeamProps = {
     ...props,
-    borderWidth: mergedBorderWidth,
     colorFrom: mergedColorFrom,
     colorTo: mergedColorTo,
-    delay: mergedDelay,
-    disabled,
-    duration: mergedDuration,
-    offset: normalizedOffset,
     pathRadius,
-    paused,
-    reverse,
-    size: mergedSize,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
@@ -463,7 +403,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const trackRadius = needMeasureChildRadius
     ? measuredChildRadius || configuredTrackRadius
     : configuredTrackRadius;
-  const motionPathRadius = getMotionPathRadius(trackRadius, mergedSize) ?? trackRadius;
+  const motionPathRadius = getMotionPathRadius(trackRadius, DEFAULT_BEAM_SIZE) ?? trackRadius;
 
   const rootPrefixCls = getPrefixCls();
   const [varName] = genCssVar(rootPrefixCls, 'border-beam');
@@ -471,14 +411,14 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const rootStyle: React.CSSProperties = {
     [varName('beam-color-from')]: mergedColorFrom,
     [varName('beam-color-to')]: mergedColorTo,
-    [varName('beam-delay')]: `${mergedDelay}s`,
-    [varName('beam-duration')]: `${mergedDuration}s`,
-    [varName('beam-offset-end')]: `${beamOffsetEnd}%`,
-    [varName('beam-offset-start')]: `${beamOffsetStart}%`,
+    [varName('beam-delay')]: `${DEFAULT_BEAM_DELAY}s`,
+    [varName('beam-duration')]: `${DEFAULT_BEAM_DURATION}s`,
+    [varName('beam-offset-end')]: `${DEFAULT_BEAM_OFFSET_END}%`,
+    [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`,
     [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR,
     [varName('beam-clip-radius')]: trackRadius,
     [varName('beam-path-radius')]: motionPathRadius,
-    [varName('beam-size')]: `${mergedSize}px`,
+    [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`,
     [varName('border-width')]: `${mergedBorderWidth}px`,
     ...restMergedRootStyles,
     ...restContextStyle,
@@ -490,17 +430,11 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
       ref={rootRef}
       className={clsx(
         prefixCls,
-        rootClassName,
         className,
         contextClassName,
         mergedClassNames.root,
         hashId,
         cssVarCls,
-        {
-          [`${prefixCls}-disabled`]: disabled,
-          [`${prefixCls}-paused`]: paused,
-          [`${prefixCls}-reverse`]: reverse,
-        },
       )}
       style={rootStyle}
     >

@@ -24,7 +24,6 @@ tag: 6.4.0
 <code src="./demo/customized-color.tsx">自定义颜色</code>
 <code src="./demo/radius.tsx">圆角容器</code>
 <code src="./demo/non-uniform-radius.tsx">不规则圆角</code>
-<code src="./demo/controlled.tsx">受控状态</code>
 <code src="./demo/component-token.tsx">组件 Token</code>
 
 ## API
@@ -35,21 +34,12 @@ tag: 6.4.0
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| borderWidth | 流光边框环宽度。 | `number` | `1` | 6.4.0 | × |
-| children | 被包裹内容。 | `ReactNode` | - | 6.4.0 | × |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数。 | `Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>` | - | 6.4.0 | 6.4.0 |
-| color | 单色快捷配置。设置后会同时作为 `colorFrom` 和 `colorTo` 使用。 | `string` | - | 6.4.0 | × |
-| colorFrom | 流光起始颜色。 | `string` | `#1677ff` | 6.4.0 | × |
-| colorTo | 流光结束颜色。 | `string` | `#4096ff` | 6.4.0 | × |
-| delay | 动画延迟时间，单位为秒。 | `number` | `0` | 6.4.0 | × |
-| disabled | 是否关闭流光效果。 | `boolean` | `false` | 6.4.0 | × |
-| duration | 动画时长，单位为秒。 | `number` | `6` | 6.4.0 | × |
-| offset | 初始偏移位置，百分比。 | `number` | `0` | 6.4.0 | × |
-| pathRadius | 流光轨迹圆角，不会修改被包裹内容的圆角。 | `React.CSSProperties['borderRadius']` | - | 6.4.0 | × |
-| paused | 是否暂停动画。 | `boolean` | `false` | 6.4.0 | × |
-| reverse | 是否反向运动。 | `boolean` | `false` | 6.4.0 | × |
-| size | 流光束尺寸，单位为 px。 | `number` | `60` | 6.4.0 | × |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数。 | `Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>` | - | 6.4.0 | 6.4.0 |
+| children | 被包裹内容 | `ReactNode` | - | 6.4.0 | × |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | `Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>` | - | 6.4.0 | 6.4.0 |
+| colorFrom | 流光起始颜色 | `string` | `#1677ff` | 6.4.0 | × |
+| colorTo | 流光结束颜色 | `string` | `#4096ff` | 6.4.0 | × |
+| pathRadius | 流光轨迹圆角，不会修改被包裹内容的圆角 | `React.CSSProperties['borderRadius']` | - | 6.4.0 | × |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | `Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>` | - | 6.4.0 | 6.4.0 |
 
 ## Semantic DOM
 
@@ -69,7 +59,7 @@ tag: 6.4.0
 
 `pathRadius` 只控制流光轨迹圆角，`BorderBeam` 不会把这个圆角反向写回被包裹内容。
 
-如果没有传入 `pathRadius`，`BorderBeam` 会尝试读取第一个子节点四个角的计算后圆角作为轨迹回退值。为了获得更稳定、可预期的跨组件表现，建议优先显式传入 `pathRadius`。动画轨迹在运行时可能会做内部平滑处理；如果你已经通过根节点样式管理轨迹，也可以继续使用 `style.borderRadius` 或 `styles.root.borderRadius` 作为轨迹配置。
+如果没有传入 `pathRadius`，`BorderBeam` 会尝试从根节点样式或第一个子节点的计算后圆角中推导轨迹回退值。为了获得更稳定、可预期的跨组件表现，建议优先显式传入 `pathRadius`。动画轨迹在运行时可能会做内部平滑处理。
 
 如果希望内容轮廓与流光轨迹在视觉上对齐，请单独配置内容本身的圆角：
 

@@ -96,14 +96,6 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
         },
       },
 
-      [`&${componentCls}-paused > ${beamCls}::before`]: {
-        animationPlayState: 'paused',
-      },
-
-      [`&${componentCls}-disabled > ${beamCls}::before`]: {
-        display: 'none',
-      },
-
       '@media (prefers-reduced-motion: reduce)': {
         [`> ${beamCls}::before`]: {
           display: 'none',

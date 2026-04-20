@@ -31,7 +31,7 @@ describe('BorderBeam', () => {
 
   it('should prefer pathRadius over inferred child radius', () => {
     const { container } = render(
-      <BorderBeam pathRadius={24} size={60}>
+      <BorderBeam pathRadius={24}>
         <div style={{ borderRadius: 12 }}>content</div>
       </BorderBeam>,
     );
@@ -44,7 +44,7 @@ describe('BorderBeam', () => {
 
   it('should treat style borderRadius as track configuration without applying it to root', () => {
     const { container } = render(
-      <BorderBeam size={60} style={{ borderRadius: 18 }}>
+      <BorderBeam style={{ borderRadius: 18 }}>
         <div>content</div>
       </BorderBeam>,
     );
@@ -163,7 +163,7 @@ describe('BorderBeam', () => {
 
   it('should infer non-uniform radius from the first child', () => {
     const { container } = render(
-      <BorderBeam size={60}>
+      <BorderBeam>
         <div style={{ borderRadius: '20px 20px 0px 0px' }}>content</div>
       </BorderBeam>,
     );
