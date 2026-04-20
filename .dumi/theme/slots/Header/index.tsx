@@ -62,7 +62,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
           width: 14px;
           fill: ${searchIconColor};
           flex-shrink: 0;
-          margin-inline-start: 6px;
+          margin-inline-start: 2px;
         }
 
         > input {
