@@ -22,18 +22,13 @@ const App: React.FC = () => {
           onChange={setDisabled}
         />
       </Flex>
-      <BorderBeam
-        borderWidth={2}
-        paused={paused}
-        disabled={disabled}
-        pathRadius={radius}
-        size={84}
-        style={{ width: 360 }}
-      >
-        <Card title="Release monitor" style={{ borderRadius: radius }}>
-          Track dependency changes, build status, and deployment health from a single place.
-        </Card>
-      </BorderBeam>
+      <div style={{ width: 360 }}>
+        <BorderBeam paused={paused} disabled={disabled}>
+          <Card title="Release monitor" style={{ borderRadius: radius }}>
+            Track dependency changes, build status, and deployment health from a single place.
+          </Card>
+        </BorderBeam>
+      </div>
     </Flex>
   );
 };

@@ -27,7 +27,7 @@ export interface ComponentToken {
 interface BorderBeamToken extends FullToken<'BorderBeam'> {}
 
 const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) => {
-  const { componentCls, antCls, borderRadius } = token;
+  const { componentCls, antCls } = token;
   const [varName, varRef] = genCssVar(antCls, 'border-beam');
   const antBorderBeamMove = new Keyframes('antBorderBeamMove', {
     from: {
@@ -45,10 +45,10 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       [varName('beam-duration')]: '6s',
       [varName('beam-delay')]: '0s',
       [varName('beam-anchor')]: '90%',
-      [varName('beam-clip-radius')]: `${borderRadius}px`,
+      [varName('beam-clip-radius')]: '0px',
       [varName('beam-offset-end')]: '100%',
       [varName('beam-offset-start')]: '0%',
-      [varName('beam-path-radius')]: `${borderRadius}px`,
+      [varName('beam-path-radius')]: '0px',
       [varName('beam-size')]: '60px',
       [varName('beam-color-from')]: token.beamColorFrom,
       [varName('beam-color-to')]: token.beamColorTo,

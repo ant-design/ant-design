@@ -25,7 +25,7 @@ tag: 6.4.0
 <code src="./demo/radius.tsx">圆角容器</code>
 <code src="./demo/non-uniform-radius.tsx">不规则圆角</code>
 <code src="./demo/controlled.tsx">受控状态</code>
-<code src="./demo/component-token.tsx" debug>组件 Token</code>
+<code src="./demo/component-token.tsx">组件 Token</code>
 
 ## API
 
@@ -69,7 +69,7 @@ tag: 6.4.0
 
 `pathRadius` 只控制流光轨迹圆角，`BorderBeam` 不会把这个圆角反向写回被包裹内容。
 
-如果没有传入 `pathRadius`，`BorderBeam` 会尝试读取并跟随第一个子节点的计算后 `borderRadius` 作为回退值。为了获得更稳定、可预期的跨组件表现，建议优先显式传入 `pathRadius`。如果你已经通过根节点样式管理轨迹，也可以继续使用 `style.borderRadius` 或 `styles.root.borderRadius` 作为轨迹配置。
+如果没有传入 `pathRadius`，`BorderBeam` 会尝试读取第一个子节点四个角的计算后圆角作为轨迹回退值。为了获得更稳定、可预期的跨组件表现，建议优先显式传入 `pathRadius`。动画轨迹在运行时可能会做内部平滑处理；如果你已经通过根节点样式管理轨迹，也可以继续使用 `style.borderRadius` 或 `styles.root.borderRadius` 作为轨迹配置。
 
 如果希望内容轮廓与流光轨迹在视觉上对齐，请单独配置内容本身的圆角：
 

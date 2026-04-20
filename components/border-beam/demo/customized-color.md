@@ -1,7 +1,7 @@
 ## zh-CN
 
-通过 `colorFrom`、`colorTo`、`duration` 和 `size` 自定义流光的颜色与速度。
+通过 `colorFrom` 和 `colorTo` 自定义流光颜色。
 
 ## en-US
 
-Customize the beam color and motion speed with `colorFrom`, `colorTo`, `duration`, and `size`.
+Customize the beam color with `colorFrom` and `colorTo`.

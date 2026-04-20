@@ -7,6 +7,7 @@ import { clsx } from 'clsx';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
+import throttleByAnimationFrame from '../_util/throttleByAnimationFrame';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
@@ -103,46 +104,201 @@ const getDefinedRadius = (
   return undefined;
 };
 
-const getBeamPathRadius = (
-  value: React.CSSProperties['borderRadius'] | undefined,
-  beamSize: number,
-  fallback: number,
-): string => {
-  // Ensure numeric corner radii are at least as large as the beam itself so the motion path
-  // stays smooth through tight corners. Non-numeric CSS values are preserved as authored.
-  const getNormalizedRadiusToken = (token: string) => {
-    const match = token.match(/^(-?\d+(\.\d+)?)(px)?$/);
+type RadiusCorner = readonly [string, string];
+type RadiusSequence = readonly [string, string, string, string];
+type RadiusModel = {
+  horizontal: RadiusSequence;
+  vertical: RadiusSequence;
+};
 
-    if (!match) {
-      return token;
+const getRadiusTokenValue = (token: string): number | undefined => {
+  const normalizedToken = token.trim().toLowerCase();
+
+  if (!normalizedToken) {
+    return undefined;
+  }
+
+  const plainNumber = Number(normalizedToken);
+
+  if (Number.isFinite(plainNumber)) {
+    return plainNumber;
+  }
+
+  if (normalizedToken.endsWith('px')) {
+    const pxValue = Number(normalizedToken.slice(0, -2));
+
+    if (Number.isFinite(pxValue)) {
+      return pxValue;
     }
+  }
 
-    return `${Math.max(Number.parseFloat(match[1]), beamSize)}px`;
-  };
+  return undefined;
+};
 
+const expandRadiusTokens = (tokens: string[]): RadiusSequence | undefined => {
+  switch (tokens.length) {
+    case 1:
+      return [tokens[0], tokens[0], tokens[0], tokens[0]];
+    case 2:
+      return [tokens[0], tokens[1], tokens[0], tokens[1]];
+    case 3:
+      return [tokens[0], tokens[1], tokens[2], tokens[1]];
+    case 4:
+      return [tokens[0], tokens[1], tokens[2], tokens[3]];
+    default:
+      return undefined;
+  }
+};
+
+const compactRadiusTokens = (tokens: RadiusSequence): string[] => {
+  const [topLeft, topRight, bottomRight, bottomLeft] = tokens;
+
+  if (topLeft === topRight && topLeft === bottomRight && topLeft === bottomLeft) {
+    return [topLeft];
+  }
+
+  if (topLeft === bottomRight && topRight === bottomLeft) {
+    return [topLeft, topRight];
+  }
+
+  if (topRight === bottomLeft) {
+    return [topLeft, topRight, bottomRight];
+  }
+
+  return [topLeft, topRight, bottomRight, bottomLeft];
+};
+
+const parseRadiusCorner = (value: string): RadiusCorner | undefined => {
+  const tokens = value.trim().split(/\s+/).filter(Boolean);
+
+  switch (tokens.length) {
+    case 1:
+      return [tokens[0], tokens[0]];
+    case 2:
+      return [tokens[0], tokens[1]];
+    default:
+      return undefined;
+  }
+};
+
+const parseRadiusValue = (
+  value: React.CSSProperties['borderRadius'] | undefined,
+): RadiusModel | undefined => {
   if (isNumber(value)) {
-    return `${Math.max(value, beamSize)}px`;
+    const normalizedValue = `${value}px`;
+    return {
+      horizontal: [normalizedValue, normalizedValue, normalizedValue, normalizedValue],
+      vertical: [normalizedValue, normalizedValue, normalizedValue, normalizedValue],
+    };
   }
 
   if (typeof value === 'string') {
     const trimmedValue = value.trim();
 
     if (trimmedValue) {
-      return trimmedValue
-        .split('/')
-        .map((group) => group.trim().split(/\s+/).map(getNormalizedRadiusToken).join(' '))
-        .join(' / ');
+      const radiusGroups = trimmedValue.split('/').map((group) => group.trim());
+
+      if (radiusGroups.length > 2 || radiusGroups.some((group) => !group)) {
+        return undefined;
+      }
+
+      const horizontal = expandRadiusTokens(radiusGroups[0].split(/\s+/));
+      const vertical = radiusGroups[1]
+        ? expandRadiusTokens(radiusGroups[1].split(/\s+/))
+        : horizontal;
+
+      if (!horizontal || !vertical) {
+        return undefined;
+      }
+
+      return { horizontal, vertical };
     }
   }
 
-  return `${Math.max(fallback, beamSize)}px`;
+  return undefined;
+};
+
+const formatRadiusValue = ({ horizontal, vertical }: RadiusModel): string => {
+  const horizontalValue = compactRadiusTokens(horizontal).join(' ');
+  const verticalValue = compactRadiusTokens(vertical).join(' ');
+
+  if (horizontalValue === verticalValue) {
+    return horizontalValue;
+  }
+
+  return `${horizontalValue} / ${verticalValue}`;
+};
+
+const getComputedRadius = (style: CSSStyleDeclaration): string | undefined => {
+  const topLeft = parseRadiusCorner(style.borderTopLeftRadius);
+  const topRight = parseRadiusCorner(style.borderTopRightRadius);
+  const bottomRight = parseRadiusCorner(style.borderBottomRightRadius);
+  const bottomLeft = parseRadiusCorner(style.borderBottomLeftRadius);
+
+  if (!topLeft || !topRight || !bottomRight || !bottomLeft) {
+    // JSDOM may omit corner longhands even when the shorthand is available.
+    const fallbackRadius = parseRadiusValue(style.borderRadius);
+
+    return fallbackRadius ? formatRadiusValue(fallbackRadius) : undefined;
+  }
+
+  return formatRadiusValue({
+    horizontal: [topLeft[0], topRight[0], bottomRight[0], bottomLeft[0]],
+    vertical: [topLeft[1], topRight[1], bottomRight[1], bottomLeft[1]],
+  });
+};
+
+const mapRadiusSequence = (
+  sequence: RadiusSequence,
+  mapToken: (token: string) => string,
+): RadiusSequence => [
+  mapToken(sequence[0]),
+  mapToken(sequence[1]),
+  mapToken(sequence[2]),
+  mapToken(sequence[3]),
+];
+
+const getMotionPathRadius = (
+  value: React.CSSProperties['borderRadius'] | undefined,
+  minMotionRadius: number,
+): string | undefined => {
+  const radiusModel = parseRadiusValue(value);
+
+  if (!radiusModel) {
+    return undefined;
+  }
+
+  const createNormalizedModel = (minMotionRadius: number) => {
+    const normalizeToken = (token: string) => {
+      const tokenValue = getRadiusTokenValue(token);
+
+      if (tokenValue === undefined) {
+        return token;
+      }
+
+      return `${Math.max(tokenValue, minMotionRadius)}px`;
+    };
+
+    return {
+      horizontal: mapRadiusSequence(radiusModel.horizontal, normalizeToken),
+      vertical: mapRadiusSequence(radiusModel.vertical, normalizeToken),
+    };
+  };
+
+  return formatRadiusValue(createNormalizedModel(minMotionRadius));
 };
 
 const DEFAULT_BEAM_DURATION = 6;
 const DEFAULT_BEAM_SIZE = 60;
 const DEFAULT_BEAM_ANCHOR = '90%';
-const CHILD_LIST_OBSERVER_OPTIONS: MutationObserverInit = {
+const ROOT_MUTATION_OBSERVER_OPTIONS: MutationObserverInit = {
   childList: true,
+  attributes: true,
+  attributeFilter: ['class', 'style'],
+};
+const CHILD_MUTATION_OBSERVER_OPTIONS: MutationObserverInit = {
+  attributes: true,
+  attributeFilter: ['class', 'style'],
 };
 
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
@@ -226,14 +382,13 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     contextBorderRadius,
     semanticBorderRadius,
   );
-  const configuredTrackRadius = toCSSLength(explicitPathRadius, `${token.borderRadius}px`);
+  const configuredTrackRadius = toCSSLength(explicitPathRadius, '0px');
   const needMeasureChildRadius = explicitPathRadius === undefined;
   const rootRef = React.useRef<HTMLDivElement>(null);
   const [observedChildElement, setObservedChildElement] = React.useState<HTMLElement>();
   const [measuredChildRadius, setMeasuredChildRadius] = React.useState<string>();
 
   const syncMeasuredChildRadius = useEvent(() => {
-    // Only measure as a fallback when no explicit track radius is provided.
     const childElement = Array.from(rootRef.current?.children ?? []).find(
       (node) => !node.classList.contains(`${prefixCls}-beam`),
     ) as HTMLElement | undefined;
@@ -243,7 +398,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     );
 
     const nextChildRadius = childElement
-      ? window.getComputedStyle(childElement).borderRadius
+      ? getComputedRadius(window.getComputedStyle(childElement))
       : undefined;
 
     setMeasuredChildRadius((prevRadius) => {
@@ -254,6 +409,10 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
       return nextChildRadius;
     });
   });
+  const scheduleMeasuredChildRadiusSync = React.useMemo(
+    () => throttleByAnimationFrame(syncMeasuredChildRadius),
+    [syncMeasuredChildRadius],
+  );
 
   useLayoutEffect(() => {
     if (!needMeasureChildRadius) {
@@ -265,42 +424,42 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     }
 
     syncMeasuredChildRadius();
-  }, [children, needMeasureChildRadius, syncMeasuredChildRadius]);
+  }, [needMeasureChildRadius, syncMeasuredChildRadius]);
 
   const onChildMutate = useEvent(() => {
-    syncMeasuredChildRadius();
+    scheduleMeasuredChildRadiusSync();
   });
 
-  const rootMutationTarget = needMeasureChildRadius && rootRef.current ? [rootRef.current] : [];
-  const childMutationTarget =
-    needMeasureChildRadius && observedChildElement ? [observedChildElement] : [];
+  useLayoutEffect(
+    () => () => {
+      scheduleMeasuredChildRadiusSync.cancel();
+    },
+    [scheduleMeasuredChildRadiusSync],
+  );
 
-  useMutateObserver(rootMutationTarget, onChildMutate, CHILD_LIST_OBSERVER_OPTIONS);
-  useMutateObserver(childMutationTarget, onChildMutate);
+  const rootMutationTarget = needMeasureChildRadius ? rootRef.current : undefined;
+  const childMutationTarget = needMeasureChildRadius ? observedChildElement : undefined;
+
+  useMutateObserver(rootMutationTarget, onChildMutate, ROOT_MUTATION_OBSERVER_OPTIONS);
+  useMutateObserver(childMutationTarget, onChildMutate, CHILD_MUTATION_OBSERVER_OPTIONS);
 
   useLayoutEffect(() => {
     if (!needMeasureChildRadius || !observedChildElement || typeof ResizeObserver === 'undefined') {
       return;
     }
 
-    const resizeObserver = new ResizeObserver(syncMeasuredChildRadius);
+    const resizeObserver = new ResizeObserver(scheduleMeasuredChildRadiusSync);
     resizeObserver.observe(observedChildElement);
 
     return () => {
       resizeObserver.disconnect();
     };
-  }, [needMeasureChildRadius, observedChildElement, syncMeasuredChildRadius]);
+  }, [needMeasureChildRadius, observedChildElement, scheduleMeasuredChildRadiusSync]);
 
   const trackRadius = needMeasureChildRadius
     ? measuredChildRadius || configuredTrackRadius
     : configuredTrackRadius;
-  // Keep the visible clip radius aligned with the real container shape, while allowing the
-  // motion path radius to be smoothed independently to reduce corner stutter.
-  const mergedBeamPathRadius = getBeamPathRadius(
-    explicitPathRadius ?? measuredChildRadius,
-    mergedSize,
-    token.borderRadius,
-  );
+  const motionPathRadius = getMotionPathRadius(trackRadius, mergedSize) ?? trackRadius;
 
   const rootPrefixCls = getPrefixCls();
   const [varName] = genCssVar(rootPrefixCls, 'border-beam');
@@ -314,7 +473,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     [varName('beam-offset-start')]: `${beamOffsetStart}%`,
     [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR,
     [varName('beam-clip-radius')]: trackRadius,
-    [varName('beam-path-radius')]: mergedBeamPathRadius,
+    [varName('beam-path-radius')]: motionPathRadius,
     [varName('beam-size')]: `${mergedSize}px`,
     [varName('border-width')]: `${mergedBorderWidth}px`,
     ...restMergedRootStyles,

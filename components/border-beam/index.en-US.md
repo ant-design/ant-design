@@ -24,7 +24,7 @@ tag: 6.4.0
 <code src="./demo/radius.tsx">Rounded container</code>
 <code src="./demo/non-uniform-radius.tsx">Non-uniform radius</code>
 <code src="./demo/controlled.tsx">Controlled state</code>
-<code src="./demo/component-token.tsx" debug>Component Token</code>
+<code src="./demo/component-token.tsx">Component Token</code>
 
 ## API
 
@@ -68,7 +68,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 `pathRadius` only controls the beam track radius. `BorderBeam` does not write that radius back to the wrapped content.
 
-If `pathRadius` is omitted, `BorderBeam` will try to read and follow the first child's computed `borderRadius` as a fallback. For stable cross-component usage, prefer passing `pathRadius` explicitly. When you already manage the track through root styles, `style.borderRadius` and `styles.root.borderRadius` are also treated as track configuration.
+If `pathRadius` is omitted, `BorderBeam` will try to read the computed corner radii of the first child as a track fallback. For stable cross-component usage, prefer passing `pathRadius` explicitly. The running beam may still apply internal motion smoothing; when you already manage the track through root styles, `style.borderRadius` and `styles.root.borderRadius` are also treated as track configuration.
 
 If you want the content shape to align visually with the beam, configure the content radius separately:
 

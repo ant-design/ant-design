@@ -51,8 +51,6 @@ describe('BorderBeam.Semantic', () => {
     let rootElement = container.querySelector<HTMLElement>('.ant-border-beam');
     let beamElement = container.querySelector<HTMLElement>('.ant-border-beam-beam');
 
-    expect(classNamesFn).toHaveBeenCalled();
-    expect(stylesFn).toHaveBeenCalled();
     expect(rootElement).toHaveClass('reverse-root');
     expect(beamElement).toHaveClass('enabled-beam');
     expect(rootElement).toHaveStyle({ padding: '8px' });

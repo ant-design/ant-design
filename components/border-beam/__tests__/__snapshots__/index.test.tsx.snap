@@ -3,7 +3,7 @@
 exports[`BorderBeam rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-border-beam css-var-root"
-  style="--ant-border-beam-beam-color-from: #1677ff; --ant-border-beam-beam-color-to: #4096ff; --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 6px; --ant-border-beam-beam-path-radius: 60px; --ant-border-beam-beam-size: 60px; --ant-border-beam-border-width: 1px;"
+  style="--ant-border-beam-beam-color-from: #1677ff; --ant-border-beam-beam-color-to: #4096ff; --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 0px; --ant-border-beam-beam-path-radius: 60px; --ant-border-beam-beam-size: 60px; --ant-border-beam-border-width: 1px;"
 >
   content
   <div
