@@ -358,7 +358,6 @@ const Header: React.FC = () => {
       label2="En"
       tooltip1="中文 / English"
       tooltip2="English / 中文"
-      to={utils.isZhCN(pathname) ? pathname.replace(/-cn$/, '') : `${pathname}-cn`}
     />,
     <SwitchBtn
       key="direction"
@@ -370,7 +369,6 @@ const Header: React.FC = () => {
       tooltip2="RTL"
       pure
       aria-label="RTL Switch Button"
-      to={direction === 'rtl' ? pathname : `${pathname}?direction=rtl`}
     />,
     <ThemeSwitch key="theme" />,
     <SponsorsNav key="sponsors" />,
