@@ -28,7 +28,7 @@ const SponsorsNav: React.FC = () => {
   const { styles } = useStyle();
 
   return (
-    <div className={styles.wrap}>
+    <div className={styles.wrap} aria-label="Sponsors">
       {sponsors.map((sponsor) => (
         <Tooltip key={sponsor.name} title={sponsor.name} destroyOnHidden>
           <a href={sponsor.url} target="_blank" rel="noreferrer">
