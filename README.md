@@ -16,7 +16,7 @@ An enterprise-class UI design language and React UI library.
 
 | | | |
 |:---:|:---:|:---:|
-| [![YouMind](https://marketing-assets.youmind.com/logo-512.png)](https://youmind.com?from=ant-design) | [![TRACTIAN](https://images.opencollective.com/tractian/0235da9/logo/256.png)](https://tractian.com?from=ant-design) | [![LobeHub](https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg)](https://lobehub.com?from=ant-design) |
+| <a href="https://youmind.com?from=ant-design"><img src="https://marketing-assets.youmind.com/logo-512.png" width="128" height="128" alt="YouMind"></a> | <a href="https://tractian.com?from=ant-design"><img src="https://images.opencollective.com/tractian/0235da9/logo/256.png" width="128" height="128" alt="TRACTIAN"></a> | <a href="https://lobehub.com?from=ant-design"><img src="https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg" width="128" height="128" alt="LobeHub"></a> |
 
 [npm-image]: https://img.shields.io/npm/v/antd.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/antd
