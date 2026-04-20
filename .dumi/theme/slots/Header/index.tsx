@@ -71,6 +71,7 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
           height: 100%;
           border: 0;
           background: transparent;
+          padding-inline-start: 32px;
 
           &:focus {
             box-shadow: none;
