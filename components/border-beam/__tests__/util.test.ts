@@ -108,6 +108,8 @@ describe('BorderBeam util', () => {
   it('should parse radius corners and values', () => {
     expect(parseRadiusCorner('12px')).toEqual(['12px', '12px']);
     expect(parseRadiusCorner('12px 16px')).toEqual(['12px', '16px']);
+    expect(parseRadiusCorner('calc(100% / 2)')).toEqual(['calc(100% / 2)', 'calc(100% / 2)']);
+    expect(parseRadiusCorner('calc(100% / 2) 16px')).toEqual(['calc(100% / 2)', '16px']);
     expect(parseRadiusCorner('12px 16px 20px')).toBeUndefined();
 
     expect(parseRadiusValue(12)).toEqual({
@@ -117,6 +119,10 @@ describe('BorderBeam util', () => {
     expect(parseRadiusValue('12px 16px / 20px 24px')).toEqual({
       horizontal: ['12px', '16px', '12px', '16px'],
       vertical: ['20px', '24px', '20px', '24px'],
+    });
+    expect(parseRadiusValue('calc(100% / 2) 16px / 20px calc(50% / 2)')).toEqual({
+      horizontal: ['calc(100% / 2)', '16px', 'calc(100% / 2)', '16px'],
+      vertical: ['20px', 'calc(50% / 2)', '20px', 'calc(50% / 2)'],
     });
     expect(parseRadiusValue('12px / ')).toBeUndefined();
     expect(parseRadiusValue('12px / 20px / 24px')).toBeUndefined();
@@ -147,6 +153,18 @@ describe('BorderBeam util', () => {
         }),
       ),
     ).toBe('12px 16px / 20px 24px');
+
+    expect(
+      getComputedRadius(
+        createStyleDeclaration({
+          borderTopLeftRadius: '',
+          borderTopRightRadius: '',
+          borderBottomRightRadius: '',
+          borderBottomLeftRadius: '',
+          borderRadius: 'calc(100% / 2) 16px / 20px calc(50% / 2)',
+        }),
+      ),
+    ).toBe('calc(100% / 2) 16px / 20px calc(50% / 2)');
 
     expect(
       getComputedRadius(

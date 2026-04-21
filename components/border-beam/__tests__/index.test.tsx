@@ -88,6 +88,24 @@ describe('BorderBeam', () => {
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
   });
 
+  it('should re-measure inferred radius when the first child mounts later', async () => {
+    const { container, rerender } = render(<BorderBeam>{null}</BorderBeam>);
+
+    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('0px');
+
+    rerender(
+      <BorderBeam>
+        <div style={{ borderRadius: 12 }}>content</div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
+    });
+  });
+
   it('should follow child radius updates when using inferred radius fallback', async () => {
     const Child = () => {
       const [radius, setRadius] = React.useState(12);

@@ -54,7 +54,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### How do I keep the beam radius aligned with my container? {#faq-radius}
 
-`BorderBeam` will infer the beam track from the computed radius on the root element styles or the first child.
+`BorderBeam` will infer the beam track from the root radius provided through component styles, or from the computed radius on the first child.
 
 If you want the content shape to align visually with the beam, configure the radius on the actual content element. The running beam may still apply internal motion smoothing.
 

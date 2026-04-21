@@ -133,8 +133,15 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const configuredTrackRadius = toCSSLength(configuredRadius, '0px');
   const needMeasureChildRadius = configuredRadius === undefined;
   const rootRef = React.useRef<HTMLDivElement>(null);
+  const [rootElement, setRootElement] = React.useState<HTMLDivElement | null>(null);
   const [observedChildElement, setObservedChildElement] = React.useState<HTMLElement>();
   const [measuredChildRadius, setMeasuredChildRadius] = React.useState<string>();
+
+  const setRootNode = useEvent((node: HTMLDivElement | null) => {
+    rootRef.current = node;
+
+    setRootElement((prevNode) => (prevNode === node ? prevNode : node));
+  });
 
   // ========================= Radius Sync =========================
   const syncMeasuredChildRadius = useEvent(() => {
@@ -175,6 +182,15 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     syncMeasuredChildRadius();
   }, [needMeasureChildRadius, syncMeasuredChildRadius]);
 
+  useLayoutEffect(() => {
+    if (!needMeasureChildRadius || !rootElement) {
+      return;
+    }
+
+    // Re-measure after the DOM commit so late-mounted children do not miss the initial sync window.
+    syncMeasuredChildRadius();
+  }, [children, needMeasureChildRadius, rootElement, syncMeasuredChildRadius]);
+
   const onChildMutate = useEvent(() => {
     scheduleMeasuredChildRadiusSync();
   });
@@ -187,7 +203,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   );
 
   const rootMutationTarget =
-    needMeasureChildRadius && rootRef.current ? rootRef.current : EMPTY_MUTATION_TARGETS;
+    needMeasureChildRadius && rootElement ? rootElement : EMPTY_MUTATION_TARGETS;
   const childMutationTarget =
     needMeasureChildRadius && observedChildElement ? observedChildElement : EMPTY_MUTATION_TARGETS;
 
@@ -233,7 +249,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   // ============================ Render ============================
   return (
     <div
-      ref={rootRef}
+      ref={setRootNode}
       className={clsx(
         prefixCls,
         className,
