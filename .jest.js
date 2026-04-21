@@ -9,6 +9,7 @@ const compileModules = [
   '@rc-component',
   // jsdom 27+ pulls ESM dependencies that need transform
   'parse5',
+  'entities',
   '@exodus',
   'jsdom',
   '@csstools',
