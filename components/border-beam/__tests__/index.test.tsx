@@ -29,17 +29,38 @@ describe('BorderBeam', () => {
     expect(beamElement).toHaveAttribute('aria-hidden', 'true');
   });
 
-  it('should prefer pathRadius over inferred child radius', () => {
+  it('should support color prop', () => {
     const { container } = render(
-      <BorderBeam pathRadius={24}>
-        <div style={{ borderRadius: 12 }}>content</div>
+      <BorderBeam color="#36cfc9">
+        <div>content</div>
       </BorderBeam>,
     );
 
     const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
 
-    expect(element.style.borderRadius).toBe('');
-    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('24px');
+    expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
+      'linear-gradient(to left, #36cfc9, #36cfc9, transparent)',
+    );
+  });
+
+  it('should support gradient color prop', () => {
+    const { container } = render(
+      <BorderBeam
+        color={[
+          { color: '#1677ff', percent: 0 },
+          { color: '#36cfc9', percent: 55 },
+          { color: '#95de64', percent: 100 },
+        ]}
+      >
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+    expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
+      'linear-gradient(to left, #1677ff 0%, #36cfc9 55%, #95de64 100%, transparent)',
+    );
   });
 
   it('should treat style borderRadius as track configuration without applying it to root', () => {
@@ -55,7 +76,7 @@ describe('BorderBeam', () => {
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
   });
 
-  it('should infer radius from the first child when pathRadius is not provided', () => {
+  it('should infer radius from the first child when root radius is not configured', () => {
     const { container } = render(
       <BorderBeam>
         <div style={{ borderRadius: 12 }}>content</div>
@@ -147,10 +168,10 @@ describe('BorderBeam', () => {
     });
   });
 
-  it('should support non-uniform pathRadius values', () => {
+  it('should support non-uniform root style radius values', () => {
     const radius = '20px 20px 0px 0px';
     const { container } = render(
-      <BorderBeam pathRadius={radius}>
+      <BorderBeam style={{ borderRadius: radius }}>
         <div>content</div>
       </BorderBeam>,
     );

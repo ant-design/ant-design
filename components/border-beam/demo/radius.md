@@ -1,7 +1,7 @@
 ## zh-CN
 
-通过设置 `pathRadius` 让流光边框跟随圆角容器。
+通过被包裹内容自身的圆角，让流光边框自动跟随圆角容器。
 
 ## en-US
 
-Let the beam follow rounded containers by setting `pathRadius`.
+Let the beam follow rounded containers by using the wrapped content's own radius.

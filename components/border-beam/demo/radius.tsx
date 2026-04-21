@@ -7,7 +7,7 @@ const App: React.FC = () => {
 
   return (
     <div style={{ width: 360 }}>
-      <BorderBeam pathRadius={radius}>
+      <BorderBeam>
         <Flex
           vertical
           gap={16}

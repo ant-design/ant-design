@@ -39,8 +39,6 @@ const App: React.FC = () => (
       theme={{
         components: {
           BorderBeam: {
-            beamColorFrom: '#fa541c',
-            beamColorTo: '#13c2c2',
             borderBeamWidth: 3,
           },
         },
@@ -48,7 +46,7 @@ const App: React.FC = () => (
     >
       <Panel
         title="Custom token"
-        desc="Override beamColorFrom, beamColorTo, and borderBeamWidth from theme.components.BorderBeam."
+        desc="Override borderBeamWidth from theme.components.BorderBeam."
       />
     </ConfigProvider>
   </Flex>

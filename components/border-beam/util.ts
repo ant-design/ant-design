@@ -8,6 +8,12 @@ export type RadiusModel = {
   horizontal: RadiusSequence;
   vertical: RadiusSequence;
 };
+type BorderBeamGradientItem = {
+  color: string;
+  percent: number;
+};
+export type BorderBeamGradient = BorderBeamGradientItem[];
+export type BorderBeamColor = string | BorderBeamGradient;
 
 export const toCSSLength = (
   value: CSSProperties['borderRadius'] | undefined,
@@ -38,6 +44,45 @@ export const getDefinedRadius = (
   }
 
   return undefined;
+};
+
+export const getBorderBeamGradient = (
+  value: BorderBeamColor | undefined,
+  fallbackStartColor: string,
+  fallbackEndColor: string,
+) => {
+  const fallbackGradient = `linear-gradient(to left, ${fallbackStartColor}, ${fallbackEndColor}, transparent)`;
+
+  if (typeof value === 'string') {
+    const trimmedValue = value.trim();
+
+    if (trimmedValue) {
+      return `linear-gradient(to left, ${trimmedValue}, ${trimmedValue}, transparent)`;
+    }
+
+    return fallbackGradient;
+  }
+
+  if (Array.isArray(value)) {
+    const normalizedStops = value
+      .filter(
+        (item): item is BorderBeamGradient[number] =>
+          typeof item?.color === 'string' && item.color.trim().length > 0 && isNumber(item.percent),
+      )
+      .map((item) => ({
+        color: item.color.trim(),
+        percent: Math.min(Math.max(item.percent, 0), 100),
+      }))
+      .sort((prev, next) => prev.percent - next.percent);
+
+    if (normalizedStops.length) {
+      const colorStops = normalizedStops.map((item) => `${item.color} ${item.percent}%`).join(', ');
+
+      return `linear-gradient(to left, ${colorStops}, transparent)`;
+    }
+  }
+
+  return fallbackGradient;
 };
 
 export const getRadiusTokenValue = (token: string): number | undefined => {

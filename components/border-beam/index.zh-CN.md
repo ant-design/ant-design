@@ -36,9 +36,7 @@ tag: 6.4.0
 | --- | --- | --- | --- | --- | --- |
 | children | 被包裹内容 | `ReactNode` | - | 6.4.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | `Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>` | - | 6.4.0 | 6.4.0 |
-| colorFrom | 流光起始颜色 | `string` | `#1677ff` | 6.4.0 | × |
-| colorTo | 流光结束颜色 | `string` | `#4096ff` | 6.4.0 | × |
-| pathRadius | 流光轨迹圆角，不会修改被包裹内容的圆角 | `React.CSSProperties['borderRadius']` | - | 6.4.0 | × |
+| color | 流光颜色配置，支持单色字符串或渐变停靠点数组 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | `Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>` | - | 6.4.0 | 6.4.0 |
 
 ## Semantic DOM
@@ -57,16 +55,16 @@ tag: 6.4.0
 
 ### 如何让流光边框跟随容器圆角？ {#faq-radius}
 
-`pathRadius` 只控制流光轨迹圆角，`BorderBeam` 不会把这个圆角反向写回被包裹内容。
+`BorderBeam` 会优先读取根节点样式或第一个子节点的计算后圆角来推导流光轨迹。
 
-如果没有传入 `pathRadius`，`BorderBeam` 会尝试从根节点样式或第一个子节点的计算后圆角中推导轨迹回退值。为了获得更稳定、可预期的跨组件表现，建议优先显式传入 `pathRadius`。动画轨迹在运行时可能会做内部平滑处理。
+如果希望内容轮廓与流光轨迹在视觉上对齐，直接为实际内容元素配置圆角即可。动画轨迹在运行时可能会做内部平滑处理。
 
-如果希望内容轮廓与流光轨迹在视觉上对齐，请单独配置内容本身的圆角：
+例如：
 
 ```tsx
 const radius = 24;
 
-<BorderBeam pathRadius={radius}>
+<BorderBeam>
   <Card style={{ borderRadius: radius }} />
 </BorderBeam>;
 ```

@@ -1,18 +1,18 @@
 import React from 'react';
 import { BorderBeam, Button, Flex, theme, Typography } from 'antd';
 
-const pathRadius = '20px 20px 0 0';
+const radius = '20px 20px 0 0';
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
 
   return (
     <div style={{ width: 360 }}>
-      <BorderBeam pathRadius={pathRadius}>
+      <BorderBeam>
         <Flex
           vertical
           style={{
-            borderRadius: pathRadius,
+            borderRadius: radius,
             border: `${token.lineWidth}px solid ${token.colorBorderSecondary}`,
             overflow: 'hidden',
             background: token.colorBgContainer,
@@ -31,7 +31,7 @@ const App: React.FC = () => {
               Activity stream
             </Typography.Title>
             <Typography.Text type="secondary">
-              Use a multi-value `pathRadius` like `20px 20px 0 0` to keep the beam aligned with
+              Use a multi-value `borderRadius` like `20px 20px 0 0` to keep the beam aligned with
               non-uniform corners.
             </Typography.Text>
           </Flex>

@@ -2,6 +2,7 @@ import {
   compactRadiusTokens,
   expandRadiusTokens,
   formatRadiusValue,
+  getBorderBeamGradient,
   getComputedRadius,
   getDefinedRadius,
   getMotionPathRadius,
@@ -33,6 +34,32 @@ describe('BorderBeam util', () => {
     expect(getDefinedRadius(undefined, '   ', 16, '24px')).toBe(16);
     expect(getDefinedRadius(undefined, '   ', '24px')).toBe('24px');
     expect(getDefinedRadius(undefined, '   ')).toBeUndefined();
+  });
+
+  it('should normalize beam colors into gradient strings', () => {
+    expect(getBorderBeamGradient(undefined, '#1677ff', '#4096ff')).toBe(
+      'linear-gradient(to left, #1677ff, #4096ff, transparent)',
+    );
+    expect(getBorderBeamGradient('   ', '#1677ff', '#4096ff')).toBe(
+      'linear-gradient(to left, #1677ff, #4096ff, transparent)',
+    );
+    expect(getBorderBeamGradient('#36cfc9', '#1677ff', '#4096ff')).toBe(
+      'linear-gradient(to left, #36cfc9, #36cfc9, transparent)',
+    );
+    expect(
+      getBorderBeamGradient(
+        [
+          { color: '#95de64', percent: 100 },
+          { color: '#1677ff', percent: 0 },
+          { color: '#36cfc9', percent: 55 },
+        ],
+        '#1677ff',
+        '#4096ff',
+      ),
+    ).toBe('linear-gradient(to left, #1677ff 0%, #36cfc9 55%, #95de64 100%, transparent)');
+    expect(getBorderBeamGradient([{ color: '   ', percent: 20 }], '#1677ff', '#4096ff')).toBe(
+      'linear-gradient(to left, #1677ff, #4096ff, transparent)',
+    );
   });
 
   it('should parse radius tokens', () => {

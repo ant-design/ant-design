@@ -18,19 +18,15 @@ const locales = {
 
 const Block: React.FC<Readonly<BorderBeamProps>> = (props) => {
   const { token } = theme.useToken();
-  const { pathRadius = 20, style, ...restProps } = props;
+  const radius = 20;
+  const { style, ...restProps } = props;
 
   return (
-    <BorderBeam
-      {...restProps}
-      pathRadius={pathRadius}
-      colorTo={token.colorInfo}
-      style={{ width: 320, ...style }}
-    >
+    <BorderBeam {...restProps} color={token.colorInfo} style={{ width: 320, ...style }}>
       <div
         style={{
           padding: 24,
-          borderRadius: pathRadius,
+          borderRadius: radius,
           border: `${token.lineWidth}px solid ${token.colorBorderSecondary}`,
           background: token.colorBgContainer,
           boxShadow: token.boxShadowTertiary,

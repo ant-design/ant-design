@@ -32,21 +32,20 @@ describe('BorderBeam.Semantic', () => {
   it('should support classNames and styles as functions', () => {
     const classNamesFn = jest.fn(
       ({ props }: { props: React.ComponentProps<typeof BorderBeam> }) => ({
-        root: props.pathRadius ? 'radius-root' : 'default-root',
-        beam: props.colorTo === '#36cfc9' ? 'custom-beam' : 'default-beam',
+        root: props.style?.borderRadius ? 'radius-root' : 'default-root',
+        beam: props.color === '#36cfc9' ? 'custom-beam' : 'default-beam',
       }),
     );
 
     const stylesFn = jest.fn(({ props }: { props: React.ComponentProps<typeof BorderBeam> }) => ({
-      root: { padding: props.pathRadius ? '8px' : '4px' },
-      beam: { opacity: props.colorFrom === '#fa541c' ? 0.5 : 1 },
+      root: { padding: props.style?.borderRadius ? '8px' : '4px' },
+      beam: { opacity: props.color === '#36cfc9' ? 0.5 : 1 },
     }));
 
     const { container, rerender } = render(
       <BorderBeam
-        pathRadius={20}
-        colorFrom="#fa541c"
-        colorTo="#36cfc9"
+        color="#36cfc9"
+        style={{ borderRadius: 20 }}
         classNames={classNamesFn}
         styles={stylesFn}
       >

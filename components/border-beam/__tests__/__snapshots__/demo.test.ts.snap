@@ -6,7 +6,7 @@ exports[`renders components/border-beam/demo/basic.tsx correctly 1`] = `
 >
   <div
     class="ant-border-beam css-var-test-id"
-    style="--ant-border-beam-beam-color-from:#1677ff;--ant-border-beam-beam-color-to:#4096ff;--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:60px;--ant-border-beam-beam-size:60px;--ant-border-beam-border-width:1px"
+    style="--ant-border-beam-beam-gradient:linear-gradient(to left, #1677ff, #4096ff, transparent);--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:200px;--ant-border-beam-beam-size:100px;--ant-border-beam-border-width:1px"
   >
     <div
       class="ant-card ant-card-bordered css-var-test-id"
@@ -48,7 +48,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
   >
     <div
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-color-from:#1677ff;--ant-border-beam-beam-color-to:#4096ff;--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:60px;--ant-border-beam-beam-size:60px;--ant-border-beam-border-width:1px"
+      style="--ant-border-beam-beam-gradient:linear-gradient(to left, #1677ff, #4096ff, transparent);--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:200px;--ant-border-beam-beam-size:100px;--ant-border-beam-border-width:1px"
     >
       <div
         class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
@@ -77,7 +77,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
   >
     <div
       class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-color-from:#fa541c;--ant-border-beam-beam-color-to:#13c2c2;--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:60px;--ant-border-beam-beam-size:60px;--ant-border-beam-border-width:3px"
+      style="--ant-border-beam-beam-gradient:linear-gradient(to left, #1677ff, #4096ff, transparent);--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:200px;--ant-border-beam-beam-size:100px;--ant-border-beam-border-width:3px"
     >
       <div
         class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
@@ -92,7 +92,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
         <span
           class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          Override beamColorFrom, beamColorTo, and borderBeamWidth from theme.components.BorderBeam.
+          Override borderBeamWidth from theme.components.BorderBeam.
         </span>
       </div>
       <div
@@ -110,7 +110,7 @@ exports[`renders components/border-beam/demo/customized-color.tsx correctly 1`] 
 >
   <div
     class="ant-border-beam css-var-test-id"
-    style="--ant-border-beam-beam-color-from:#1677ff;--ant-border-beam-beam-color-to:#36cfc9;--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:60px;--ant-border-beam-beam-size:60px;--ant-border-beam-border-width:1px"
+    style="--ant-border-beam-beam-gradient:linear-gradient(to left, #1677ff 0%, #36cfc9 40%, #95de64 76%, transparent);--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:200px;--ant-border-beam-beam-size:100px;--ant-border-beam-border-width:1px"
   >
     <div
       class="ant-card ant-card-bordered css-var-test-id"
@@ -148,7 +148,7 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx correctly 1`
 >
   <div
     class="ant-border-beam css-var-test-id"
-    style="--ant-border-beam-beam-color-from:#1677ff;--ant-border-beam-beam-color-to:#4096ff;--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:20px 20px 0 0;--ant-border-beam-beam-path-radius:60px;--ant-border-beam-beam-size:60px;--ant-border-beam-border-width:1px"
+    style="--ant-border-beam-beam-gradient:linear-gradient(to left, #1677ff, #4096ff, transparent);--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:200px;--ant-border-beam-beam-size:100px;--ant-border-beam-border-width:1px"
   >
     <div
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
@@ -169,7 +169,7 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx correctly 1`
         <span
           class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          Use a multi-value \`pathRadius\` like \`20px 20px 0 0\` to keep the beam aligned with non-uniform corners.
+          Use a multi-value \`borderRadius\` like \`20px 20px 0 0\` to keep the beam aligned with non-uniform corners.
         </span>
       </div>
       <div
@@ -207,7 +207,7 @@ exports[`renders components/border-beam/demo/radius.tsx correctly 1`] = `
 >
   <div
     class="ant-border-beam css-var-test-id"
-    style="--ant-border-beam-beam-color-from:#1677ff;--ant-border-beam-beam-color-to:#4096ff;--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:24px;--ant-border-beam-beam-path-radius:60px;--ant-border-beam-beam-size:60px;--ant-border-beam-border-width:1px"
+    style="--ant-border-beam-beam-gradient:linear-gradient(to left, #1677ff, #4096ff, transparent);--ant-border-beam-beam-delay:0s;--ant-border-beam-beam-duration:6s;--ant-border-beam-beam-offset-end:100%;--ant-border-beam-beam-offset-start:0%;--ant-border-beam-beam-anchor:90%;--ant-border-beam-beam-clip-radius:0px;--ant-border-beam-beam-path-radius:200px;--ant-border-beam-beam-size:100px;--ant-border-beam-border-width:1px"
   >
     <div
       class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"

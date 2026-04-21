@@ -12,7 +12,16 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import useStyle from './style';
-import { getComputedRadius, getDefinedRadius, getMotionPathRadius, toCSSLength } from './util';
+import {
+  getBorderBeamGradient,
+  getComputedRadius,
+  getDefinedRadius,
+  getMotionPathRadius,
+  toCSSLength,
+} from './util';
+import type { BorderBeamColor } from './util';
+
+export type { BorderBeamColor, BorderBeamGradient } from './util';
 
 export type BorderBeamSemanticType = {
   classNames?: {
@@ -33,25 +42,31 @@ export interface BorderBeamProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   classNames?: BorderBeamSemanticAllType['classNamesAndFn'];
-  colorFrom?: string;
-  colorTo?: string;
-  pathRadius?: React.CSSProperties['borderRadius'];
+  color?: BorderBeamColor;
   styles?: BorderBeamSemanticAllType['stylesAndFn'];
 }
 
+// Reuse a stable empty target when inferred radius tracking is disabled.
 const EMPTY_MUTATION_TARGETS: HTMLElement[] = [];
 
+// Default motion values written to CSS custom properties.
 const DEFAULT_BEAM_DURATION = 6;
 const DEFAULT_BEAM_DELAY = 0;
 const DEFAULT_BEAM_OFFSET_START = 0;
 const DEFAULT_BEAM_OFFSET_END = 100;
-const DEFAULT_BEAM_SIZE = 60;
+const DEFAULT_BEAM_SIZE = 100;
+// Use a larger motion radius so the beam turns more continuously around corners.
+const DEFAULT_MOTION_PATH_RADIUS = DEFAULT_BEAM_SIZE * 2;
+// Keep the beam head slightly ahead on the path so the tail remains visible.
 const DEFAULT_BEAM_ANCHOR = '90%';
+
+// Watch the wrapper for child replacement and class/style driven radius updates.
 const ROOT_MUTATION_OBSERVER_OPTIONS: MutationObserverInit = {
   childList: true,
   attributes: true,
   attributeFilter: ['class', 'style'],
 };
+// Watch the inferred child for its own class/style driven radius updates.
 const CHILD_MUTATION_OBSERVER_OPTIONS: MutationObserverInit = {
   attributes: true,
   attributeFilter: ['class', 'style'],
@@ -65,9 +80,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     style,
     children,
     classNames,
-    colorFrom,
-    colorTo,
-    pathRadius,
+    color,
     styles,
   } = props;
 
@@ -79,18 +92,25 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     styles: contextStyles,
   } = useComponentConfig('borderBeam');
 
+  // ============================ Prefix ============================
   const prefixCls = getPrefixCls('border-beam', customizePrefixCls);
+  const rootPrefixCls = getPrefixCls();
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const mergedBorderWidth = token.BorderBeam?.borderBeamWidth ?? token.lineWidth;
-  const mergedColorFrom = colorFrom ?? token.BorderBeam?.beamColorFrom ?? token.colorPrimary;
-  const mergedColorTo = colorTo ?? token.BorderBeam?.beamColorTo ?? token.colorPrimaryHover;
+  const [varName] = genCssVar(rootPrefixCls, 'border-beam');
 
+  // ============================ BorderWidth ============================
+  const mergedBorderWidth = token.BorderBeam?.borderBeamWidth ?? token.lineWidth;
+
+  // ============================ Color ============================
+  const fallbackStartColor = token.colorPrimary;
+  const fallbackEndColor = token.colorPrimaryHover;
+  const mergedBeamGradient = getBorderBeamGradient(color, fallbackStartColor, fallbackEndColor);
+
+  // =========== Merged Props for Semantic ===========
   const mergedProps: BorderBeamProps = {
     ...props,
-    colorFrom: mergedColorFrom,
-    colorTo: mergedColorTo,
-    pathRadius,
+    color,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
@@ -100,21 +120,23 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
       props: mergedProps,
     },
   );
+
+  // ============================ Radius ============================
   const { borderRadius: semanticBorderRadius, ...restMergedRootStyles } = mergedStyles.root ?? {};
   const { borderRadius: contextBorderRadius, ...restContextStyle } = contextStyle ?? {};
   const { borderRadius: styleBorderRadius, ...restStyle } = style ?? {};
-  const explicitPathRadius = getDefinedRadius(
-    pathRadius,
+  const configuredRadius = getDefinedRadius(
     styleBorderRadius,
     contextBorderRadius,
     semanticBorderRadius,
   );
-  const configuredTrackRadius = toCSSLength(explicitPathRadius, '0px');
-  const needMeasureChildRadius = explicitPathRadius === undefined;
+  const configuredTrackRadius = toCSSLength(configuredRadius, '0px');
+  const needMeasureChildRadius = configuredRadius === undefined;
   const rootRef = React.useRef<HTMLDivElement>(null);
   const [observedChildElement, setObservedChildElement] = React.useState<HTMLElement>();
   const [measuredChildRadius, setMeasuredChildRadius] = React.useState<string>();
 
+  // ========================= Radius Sync =========================
   const syncMeasuredChildRadius = useEvent(() => {
     const childElement = Array.from(rootRef.current?.children ?? []).find(
       (node) => !node.classList.contains(`${prefixCls}-beam`),
@@ -188,28 +210,27 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const trackRadius = needMeasureChildRadius
     ? measuredChildRadius || configuredTrackRadius
     : configuredTrackRadius;
-  const motionPathRadius = getMotionPathRadius(trackRadius, DEFAULT_BEAM_SIZE) ?? trackRadius;
+  const motionPathRadius =
+    getMotionPathRadius(trackRadius, DEFAULT_MOTION_PATH_RADIUS) ?? trackRadius;
 
-  const rootPrefixCls = getPrefixCls();
-  const [varName] = genCssVar(rootPrefixCls, 'border-beam');
-
+  // ============================ Styles ============================
   const rootStyle: React.CSSProperties = {
-    [varName('beam-color-from')]: mergedColorFrom,
-    [varName('beam-color-to')]: mergedColorTo,
-    [varName('beam-delay')]: `${DEFAULT_BEAM_DELAY}s`,
-    [varName('beam-duration')]: `${DEFAULT_BEAM_DURATION}s`,
-    [varName('beam-offset-end')]: `${DEFAULT_BEAM_OFFSET_END}%`,
-    [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`,
-    [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR,
-    [varName('beam-clip-radius')]: trackRadius,
-    [varName('beam-path-radius')]: motionPathRadius,
-    [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`,
-    [varName('border-width')]: `${mergedBorderWidth}px`,
+    [varName('beam-gradient')]: mergedBeamGradient, // Beam gradient colors.
+    [varName('beam-delay')]: `${DEFAULT_BEAM_DELAY}s`, // Animation start delay.
+    [varName('beam-duration')]: `${DEFAULT_BEAM_DURATION}s`, // Duration for one full loop.
+    [varName('beam-offset-end')]: `${DEFAULT_BEAM_OFFSET_END}%`, // Motion path end offset.
+    [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`, // Motion path start offset.
+    [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR, // Anchor point used to hang the beam on the path.
+    [varName('beam-clip-radius')]: trackRadius, // Visible border ring radius.
+    [varName('beam-path-radius')]: motionPathRadius, // Smoothed radius used by the motion path.
+    [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`, // Beam length / size.
+    [varName('border-width')]: `${mergedBorderWidth}px`, // Border ring thickness.
     ...restMergedRootStyles,
     ...restContextStyle,
     ...restStyle,
   };
 
+  // ============================ Render ============================
   return (
     <div
       ref={rootRef}
