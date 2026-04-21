@@ -35,7 +35,7 @@ tag: 6.4.0
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | children | 被包裹内容 | `ReactNode` | - | 6.4.0 | × |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | `Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string>` | - | 6.4.0 | 6.4.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
 
