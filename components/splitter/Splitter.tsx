@@ -6,6 +6,7 @@ import { clsx } from 'clsx';
 
 import { useOrientation } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -278,7 +279,7 @@ const Splitter: React.FC<React.PropsWithChildren<SplitterProps>> = (props) => {
         })}
 
         {/* Fake mask for cursor */}
-        {typeof movingIndex === 'number' && (
+        {isNumber(movingIndex) && (
           <div aria-hidden className={clsx(maskCls, `${maskCls}-${mergedOrientation}`)} />
         )}
       </div>

@@ -45,7 +45,7 @@ demo:
 | suffix | 设置数值的后缀 | ReactNode | - |  |
 | title | 数值的标题 | ReactNode | - |  |
 | value | 数值内容 | string \| number | - |  |
-| valueStyle | 设置数值区域的样式 | CSSProperties | - |  |
+| ~~valueStyle~~ | 设置数值区域的样式，请使用 `styles.content` 替代 | CSSProperties | - |  |
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 
@@ -78,6 +78,8 @@ demo:
 | onChange | 倒计时时间变化时触发 | (value: number) => void | - |  |
 
 ## Semantic DOM
+
+Statistic 提供 `root`、`header`、`title`、`content`、`value`、`prefix` 和 `suffix` 语义化 DOM 节点。
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

@@ -9,6 +9,7 @@ import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -141,7 +142,7 @@ function getTipFormatter(tipFormatter?: Formatter) {
   if (tipFormatter || tipFormatter === null) {
     return tipFormatter;
   }
-  return (val?: number) => (typeof val === 'number' ? val.toString() : '');
+  return (val?: number) => (isNumber(val) ? val.toString() : '');
 }
 
 const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>((props, ref) => {

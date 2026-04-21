@@ -34,7 +34,7 @@ const App: React.FC = () => {
         { name: 'prefix', desc: locale.prefix },
         { name: 'input', desc: locale.input },
         { name: 'suffix', desc: locale.suffix },
-        { name: 'clear', desc: locale.clear },
+        { name: 'clear', desc: locale.clear, version: '6.4.0' },
         { name: 'count', desc: locale.count },
       ]}
     >
