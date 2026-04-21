@@ -69,8 +69,12 @@ export const toCSSLength = (
     return `${value}px`;
   }
 
-  if (typeof value === 'string' && value.trim()) {
-    return value;
+  if (typeof value === 'string') {
+    const trimmedValue = value.trim();
+
+    if (trimmedValue) {
+      return trimmedValue;
+    }
   }
 
   return fallback;
@@ -85,8 +89,12 @@ export const getDefinedRadius = (
       return value;
     }
 
-    if (typeof value === 'string' && value.trim()) {
-      return value;
+    if (typeof value === 'string') {
+      const trimmedValue = value.trim();
+
+      if (trimmedValue) {
+        return trimmedValue;
+      }
     }
   }
 

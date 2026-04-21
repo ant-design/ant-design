@@ -63,7 +63,7 @@ describe('BorderBeam', () => {
     );
   });
 
-  it('should treat style borderRadius as track configuration without applying it to root', () => {
+  it('should apply style borderRadius to both the root and beam track', () => {
     const { container } = render(
       <BorderBeam style={{ borderRadius: 18 }}>
         <div>content</div>
@@ -72,7 +72,7 @@ describe('BorderBeam', () => {
 
     const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
 
-    expect(element.style.borderRadius).toBe('');
+    expect(element.style.borderRadius).toBe('18px');
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
   });
 
@@ -314,7 +314,7 @@ describe('BorderBeam', () => {
 
     const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
 
-    expect(element.style.borderRadius).toBe('');
+    expect(element.style.borderRadius).toBe(radius);
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe(radius);
   });
 

@@ -30,10 +30,13 @@ describe('BorderBeam util', () => {
   it('should resolve configured radius values', () => {
     expect(toCSSLength(12, '0px')).toBe('12px');
     expect(toCSSLength('24px', '0px')).toBe('24px');
+    expect(toCSSLength(' 24px ', '0px')).toBe('24px');
+    expect(toCSSLength('   ', '0px')).toBe('0px');
     expect(toCSSLength(undefined, '0px')).toBe('0px');
 
     expect(getDefinedRadius(undefined, '   ', 16, '24px')).toBe(16);
     expect(getDefinedRadius(undefined, '   ', '24px')).toBe('24px');
+    expect(getDefinedRadius(undefined, ' 24px ')).toBe('24px');
     expect(getDefinedRadius(undefined, '   ')).toBeUndefined();
     expect(hasRadiusValue('0px')).toBe(false);
     expect(hasRadiusValue('12px')).toBe(true);

@@ -2,8 +2,12 @@ import React from 'react';
 
 import BorderBeam from '..';
 import { render, waitFor } from '../../../tests/utils';
+import ConfigProvider, { defaultPrefixCls } from '../../config-provider';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 describe('BorderBeam.Semantic', () => {
+  const [varName] = genCssVar(defaultPrefixCls, 'border-beam');
+
   it('should support classNames and styles as objects', async () => {
     const { container } = render(
       <BorderBeam
@@ -12,7 +16,7 @@ describe('BorderBeam.Semantic', () => {
           beam: 'custom-beam',
         }}
         styles={{
-          root: { padding: 8 },
+          root: { padding: 8, borderRadius: 18 },
           beam: { opacity: 0.8 },
         }}
       >
@@ -26,6 +30,8 @@ describe('BorderBeam.Semantic', () => {
     expect(rootElement).toHaveClass('custom-root');
     expect(beamElement).toHaveClass('custom-beam');
     expect(rootElement).toHaveStyle({ padding: '8px' });
+    expect(rootElement).toHaveStyle({ borderRadius: '18px' });
+    expect(rootElement?.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
 
     await waitFor(() => {
       expect(beamElement).toHaveStyle({ opacity: '0.8' });
@@ -80,5 +86,21 @@ describe('BorderBeam.Semantic', () => {
     await waitFor(() => {
       expect(beamElement).toHaveStyle({ opacity: '1' });
     });
+  });
+
+  it('should apply ConfigProvider root styles to both the wrapper and beam track', () => {
+    const { container } = render(
+      <ConfigProvider borderBeam={{ style: { borderRadius: 22, padding: 6 } }}>
+        <BorderBeam>
+          <div>content</div>
+        </BorderBeam>
+      </ConfigProvider>,
+    );
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-border-beam');
+
+    expect(rootElement).toHaveStyle({ borderRadius: '22px' });
+    expect(rootElement).toHaveStyle({ padding: '6px' });
+    expect(rootElement?.style.getPropertyValue(varName('beam-clip-radius'))).toBe('22px');
   });
 });

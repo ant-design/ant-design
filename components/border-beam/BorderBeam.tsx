@@ -98,13 +98,10 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   );
 
   // ============================ Radius ============================
-  const { borderRadius: semanticBorderRadius, ...restMergedRootStyles } = mergedStyles.root ?? {};
-  const { borderRadius: contextBorderRadius, ...restContextStyle } = contextStyle ?? {};
-  const { borderRadius: styleBorderRadius, ...restStyle } = style ?? {};
   const configuredRadius = getDefinedRadius(
-    styleBorderRadius,
-    contextBorderRadius,
-    semanticBorderRadius,
+    style?.borderRadius,
+    contextStyle?.borderRadius,
+    mergedStyles.root?.borderRadius,
   );
   const { beamVisible, setRootNode, trackRadius } = useBorderBeamRadius({
     prefixCls,
@@ -126,9 +123,9 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     [varName('beam-path-radius')]: motionPathRadius, // Smoothed radius used by the motion path.
     [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`, // Beam length / size.
     [varName('border-width')]: `${mergedBorderWidth}px`, // Border ring thickness.
-    ...restMergedRootStyles,
-    ...restContextStyle,
-    ...restStyle,
+    ...mergedStyles.root,
+    ...contextStyle,
+    ...style,
   };
   const beamStyle: React.CSSProperties = {
     ...mergedStyles.beam,
