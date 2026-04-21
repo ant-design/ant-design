@@ -33,6 +33,7 @@ exports[`renders components/border-beam/demo/basic.tsx extend context correctly 
     <div
       aria-hidden="true"
       class="ant-border-beam-beam"
+      style=""
     />
   </div>
 </div>
@@ -71,6 +72,7 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
       <div
         aria-hidden="true"
         class="ant-border-beam-beam"
+        style=""
       />
     </div>
   </div>
@@ -100,6 +102,7 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
       <div
         aria-hidden="true"
         class="ant-border-beam-beam"
+        style=""
       />
     </div>
   </div>
@@ -141,6 +144,7 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
     <div
       aria-hidden="true"
       class="ant-border-beam-beam"
+      style=""
     />
   </div>
 </div>
@@ -202,6 +206,7 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend conte
     <div
       aria-hidden="true"
       class="ant-border-beam-beam"
+      style=""
     />
   </div>
 </div>
@@ -290,6 +295,7 @@ exports[`renders components/border-beam/demo/radius.tsx extend context correctly
     <div
       aria-hidden="true"
       class="ant-border-beam-beam"
+      style=""
     />
   </div>
 </div>

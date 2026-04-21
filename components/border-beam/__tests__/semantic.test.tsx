@@ -1,10 +1,10 @@
 import React from 'react';
 
 import BorderBeam from '..';
-import { render } from '../../../tests/utils';
+import { render, waitFor } from '../../../tests/utils';
 
 describe('BorderBeam.Semantic', () => {
-  it('should support classNames and styles as objects', () => {
+  it('should support classNames and styles as objects', async () => {
     const { container } = render(
       <BorderBeam
         classNames={{
@@ -26,10 +26,13 @@ describe('BorderBeam.Semantic', () => {
     expect(rootElement).toHaveClass('custom-root');
     expect(beamElement).toHaveClass('custom-beam');
     expect(rootElement).toHaveStyle({ padding: '8px' });
-    expect(beamElement).toHaveStyle({ opacity: '0.8' });
+
+    await waitFor(() => {
+      expect(beamElement).toHaveStyle({ opacity: '0.8' });
+    });
   });
 
-  it('should support classNames and styles as functions', () => {
+  it('should support classNames and styles as functions', async () => {
     const classNamesFn = jest.fn(
       ({ props }: { props: React.ComponentProps<typeof BorderBeam> }) => ({
         root: props.style?.borderRadius ? 'radius-root' : 'default-root',
@@ -73,6 +76,9 @@ describe('BorderBeam.Semantic', () => {
     expect(rootElement).toHaveClass('default-root');
     expect(beamElement).toHaveClass('default-beam');
     expect(rootElement).toHaveStyle({ padding: '4px' });
-    expect(beamElement).toHaveStyle({ opacity: '1' });
+
+    await waitFor(() => {
+      expect(beamElement).toHaveStyle({ opacity: '1' });
+    });
   });
 });

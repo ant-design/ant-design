@@ -76,6 +76,58 @@ describe('BorderBeam', () => {
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
   });
 
+  it('should hide inferred beam until the first client radius sync resolves', async () => {
+    jest.useFakeTimers();
+
+    const originGetComputedStyle = window.getComputedStyle;
+    let resolveRadius = false;
+
+    window.getComputedStyle = ((element: Element, pseudoElt?: string | null) => {
+      const style = originGetComputedStyle.call(window, element, pseudoElt);
+
+      if ((element as HTMLElement).classList.contains('beam-child') && resolveRadius) {
+        return {
+          ...style,
+          borderRadius: '12px',
+          borderTopLeftRadius: '12px',
+          borderTopRightRadius: '12px',
+          borderBottomRightRadius: '12px',
+          borderBottomLeftRadius: '12px',
+        } as CSSStyleDeclaration;
+      }
+
+      return style;
+    }) as typeof window.getComputedStyle;
+
+    try {
+      const { container } = render(
+        <BorderBeam>
+          <div className="beam-child">content</div>
+        </BorderBeam>,
+      );
+
+      const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+      const beamElement = container.querySelector<HTMLElement>('.ant-border-beam-beam')!;
+
+      expect(beamElement.style.display).toBe('none');
+      expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('0px');
+
+      resolveRadius = true;
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      await waitFor(() => {
+        expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
+        expect(beamElement.style.display).toBe('');
+      });
+    } finally {
+      window.getComputedStyle = originGetComputedStyle;
+      jest.useRealTimers();
+    }
+  });
+
   it('should infer radius from the first child when root radius is not configured', () => {
     const { container } = render(
       <BorderBeam>

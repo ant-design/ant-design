@@ -106,7 +106,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     contextBorderRadius,
     semanticBorderRadius,
   );
-  const { setRootNode, trackRadius } = useBorderBeamRadius({
+  const { beamVisible, setRootNode, trackRadius } = useBorderBeamRadius({
     prefixCls,
     configuredRadius,
     children,
@@ -130,6 +130,13 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     ...restContextStyle,
     ...restStyle,
   };
+  const beamStyle: React.CSSProperties = {
+    ...mergedStyles.beam,
+  };
+
+  if (!beamVisible || mergedBorderWidth <= 0) {
+    beamStyle.display = 'none';
+  }
 
   // ============================ Render ============================
   return (
@@ -149,10 +156,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
       <div
         aria-hidden="true"
         className={clsx(`${prefixCls}-beam`, mergedClassNames.beam)}
-        style={{
-          ...mergedStyles.beam,
-          opacity: mergedBorderWidth > 0 ? mergedStyles.beam?.opacity : 0,
-        }}
+        style={beamStyle}
       />
     </div>
   );

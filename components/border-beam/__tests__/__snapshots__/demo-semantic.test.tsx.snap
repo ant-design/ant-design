@@ -30,6 +30,7 @@ exports[`renders components/border-beam/demo/_semantic.tsx correctly 1`] = `
         <div
           aria-hidden="true"
           class="ant-border-beam-beam semantic-mark-beam"
+          style=""
         />
       </div>
     </div>

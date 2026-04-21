@@ -33,6 +33,7 @@ exports[`renders components/border-beam/demo/basic.tsx correctly 1`] = `
     <div
       aria-hidden="true"
       class="ant-border-beam-beam"
+      style="display:none"
     />
   </div>
 </div>
@@ -69,6 +70,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
       <div
         aria-hidden="true"
         class="ant-border-beam-beam"
+        style="display:none"
       />
     </div>
   </div>
@@ -98,6 +100,7 @@ exports[`renders components/border-beam/demo/component-token.tsx correctly 1`] =
       <div
         aria-hidden="true"
         class="ant-border-beam-beam"
+        style="display:none"
       />
     </div>
   </div>
@@ -137,6 +140,7 @@ exports[`renders components/border-beam/demo/customized-color.tsx correctly 1`] 
     <div
       aria-hidden="true"
       class="ant-border-beam-beam"
+      style="display:none"
     />
   </div>
 </div>
@@ -196,6 +200,7 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx correctly 1`
     <div
       aria-hidden="true"
       class="ant-border-beam-beam"
+      style="display:none"
     />
   </div>
 </div>
@@ -282,6 +287,7 @@ exports[`renders components/border-beam/demo/radius.tsx correctly 1`] = `
     <div
       aria-hidden="true"
       class="ant-border-beam-beam"
+      style="display:none"
     />
   </div>
 </div>
@@ -322,7 +328,7 @@ Array [
       <div
         aria-hidden="true"
         class="ant-border-beam-beam demo-border-beam-beam"
-        style="opacity:0.9"
+        style="opacity:0.9;display:none"
       />
     </div>
   </div>,

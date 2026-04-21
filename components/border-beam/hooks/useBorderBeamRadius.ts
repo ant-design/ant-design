@@ -1,6 +1,7 @@
 import React from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
 import { useEvent } from '@rc-component/util';
+import raf from '@rc-component/util/lib/raf';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 
 import throttleByAnimationFrame from '../../_util/throttleByAnimationFrame';
@@ -33,12 +34,26 @@ const useBorderBeamRadius = ({
   configuredRadius,
   children,
 }: UseBorderBeamRadiusOptions) => {
+  // Explicit configuration always wins and doubles as the client-side fallback before inference settles.
   const configuredTrackRadius = toCSSLength(configuredRadius, '0px');
+  // Only infer from DOM when the caller does not provide a radius upfront.
   const needMeasureChildRadius = configuredRadius === undefined;
   const rootRef = React.useRef<HTMLDivElement>(null);
   const [rootElement, setRootElement] = React.useState<HTMLDivElement | null>(null);
   const [observedChildElement, setObservedChildElement] = React.useState<HTMLElement>();
   const [measuredChildRadius, setMeasuredChildRadius] = React.useState<string>();
+  // Prevent SSR from exposing a long-lived 0px beam before the first client measurement finishes.
+  const [forceBeamVisible, setForceBeamVisible] = React.useState(false);
+  const prevNeedMeasureChildRadiusRef = React.useRef(needMeasureChildRadius);
+  const needMeasureChanged = prevNeedMeasureChildRadiusRef.current !== needMeasureChildRadius;
+  // The beam stays hidden during the initial inferred-radius window, then becomes visible once
+  // either a measured radius exists or the client-side fallback timeout releases it.
+  const beamVisible =
+    !needMeasureChildRadius ||
+    measuredChildRadius !== undefined ||
+    (!needMeasureChanged && forceBeamVisible);
+
+  prevNeedMeasureChildRadiusRef.current = needMeasureChildRadius;
 
   const setRootNode = useEvent((node: HTMLDivElement | null) => {
     rootRef.current = node;
@@ -62,6 +77,7 @@ const useBorderBeamRadius = ({
     const nextChildRadius = childElement
       ? getComputedRadius(window.getComputedStyle(childElement))
       : undefined;
+    // Prefer the wrapper radius when it is already styled, otherwise follow the first child.
     const nextMeasuredRadius = hasRadiusValue(rootRadius) ? rootRadius : nextChildRadius;
 
     setMeasuredChildRadius((prevRadius) => {
@@ -79,29 +95,45 @@ const useBorderBeamRadius = ({
   );
 
   useLayoutEffect(() => {
+    let fallbackFrameId: number | null = null;
+
     if (!needMeasureChildRadius) {
       setObservedChildElement((prevChildElement) =>
         prevChildElement === undefined ? prevChildElement : undefined,
       );
       setMeasuredChildRadius((prevRadius) => (prevRadius === undefined ? prevRadius : undefined));
+      setForceBeamVisible((prevVisible) => (prevVisible ? false : prevVisible));
+
       return;
     }
 
-    syncMeasuredChildRadius();
-    scheduleMeasuredChildRadiusSync();
-  }, [needMeasureChildRadius, scheduleMeasuredChildRadiusSync, syncMeasuredChildRadius]);
-
-  useLayoutEffect(() => {
-    if (!needMeasureChildRadius || !rootElement) {
-      return;
+    if (needMeasureChanged) {
+      setForceBeamVisible((prevVisible) => (prevVisible ? false : prevVisible));
     }
 
-    // Re-measure after the DOM commit so late-mounted children do not miss the initial sync window.
+    // Measure immediately after commit, then queue one more pass so class-driven styles that land
+    // on the next frame still have a chance to update the beam radius before it becomes visible.
     syncMeasuredChildRadius();
-    // Retry on the next frame to avoid reading computed radius before class-based styles finish applying.
     scheduleMeasuredChildRadiusSync();
+
+    if (measuredChildRadius === undefined && !forceBeamVisible) {
+      // Release the hidden beam on the next client frame so true zero-radius containers still render.
+      fallbackFrameId = raf(() => {
+        fallbackFrameId = null;
+        setForceBeamVisible(true);
+      });
+    }
+
+    return () => {
+      if (fallbackFrameId !== null) {
+        raf.cancel(fallbackFrameId);
+      }
+    };
   }, [
     children,
+    forceBeamVisible,
+    measuredChildRadius,
+    needMeasureChanged,
     needMeasureChildRadius,
     rootElement,
     scheduleMeasuredChildRadiusSync,
@@ -112,7 +144,7 @@ const useBorderBeamRadius = ({
     scheduleMeasuredChildRadiusSync();
   });
 
-  useLayoutEffect(
+  React.useEffect(
     () => () => {
       scheduleMeasuredChildRadiusSync.cancel();
     },
@@ -127,11 +159,12 @@ const useBorderBeamRadius = ({
   useMutateObserver(rootMutationTarget, onChildMutate, ROOT_MUTATION_OBSERVER_OPTIONS);
   useMutateObserver(childMutationTarget, onChildMutate, CHILD_MUTATION_OBSERVER_OPTIONS);
 
-  useLayoutEffect(() => {
+  React.useEffect(() => {
     if (!needMeasureChildRadius || typeof ResizeObserver === 'undefined') {
       return;
     }
 
+    // Keep percentage or class-driven radii in sync when the wrapper/child geometry changes later.
     const resizeObserver = new ResizeObserver(scheduleMeasuredChildRadiusSync);
 
     if (rootElement) {
@@ -147,11 +180,13 @@ const useBorderBeamRadius = ({
     };
   }, [needMeasureChildRadius, observedChildElement, rootElement, scheduleMeasuredChildRadiusSync]);
 
+  // Before inference resolves, fall back to the configured radius so CSS vars stay deterministic.
   const trackRadius = needMeasureChildRadius
     ? measuredChildRadius || configuredTrackRadius
     : configuredTrackRadius;
 
   return {
+    beamVisible,
     setRootNode,
     trackRadius,
   };

@@ -9,6 +9,7 @@ exports[`BorderBeam rtl render component should be rendered correctly in RTL dir
   <div
     aria-hidden="true"
     class="ant-border-beam-beam"
+    style="display: none;"
   />
 </div>
 `;
