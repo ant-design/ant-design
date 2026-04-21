@@ -36,7 +36,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | children | Wrapped content | `ReactNode` | - | 6.4.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | color | Beam color configuration. Supports a single color string or gradient stops | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
-| styles | Customize inline styles for each semantic structure. Supports object or function | `Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), CSSProperties>` | - | 6.4.0 | 6.4.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  6.4.0 |
 
 ## Semantic DOM
 
