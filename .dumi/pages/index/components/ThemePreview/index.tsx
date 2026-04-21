@@ -2,9 +2,9 @@ import * as React from 'react';
 import { CheckOutlined, CopyOutlined } from '@ant-design/icons';
 import { App, Button, ConfigProvider, Flex, theme, Tooltip } from 'antd';
 import { createStyles } from 'antd-style';
+import copy from 'antd/lib/_util/copy';
 import clsx from 'clsx';
 
-import copy from '../../../../../components/_util/copy';
 import { DarkContext } from '../../../../hooks/useDark';
 import useLocale from '../../../../hooks/useLocale';
 import Group from '../Group';

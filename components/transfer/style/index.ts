@@ -251,6 +251,11 @@ const genTransferListStyle: GenerateStyle<TransferToken, CSSObject> = (token) =>
             '&:hover, &:focus': {
               color: colorTextSecondary,
             },
+
+            '&:disabled': {
+              color: colorTextDisabled,
+              cursor: 'not-allowed',
+            },
           },
 
           [`&:not(${componentCls}-list-content-item-disabled)`]: {

@@ -114,7 +114,7 @@ If you encounter build errors during the upgrade, please verify that your `@ant-
   - `dropdownClassName` is deprecated and replaced by `classNames.popup.root`.
   - `dropdownStyle` is deprecated and replaced by `styles.popup.root`.
   - `dropdownRender` is deprecated and replaced by `popupRender`.
-  - `dropdownMenuColumnStyle` is deprecated and replaced by `popupMenuColumnStyle`.
+  - `dropdownMenuColumnStyle` is deprecated and replaced by `styles.popup.listItem`.
   - `onDropdownVisibleChange` is deprecated and replaced by `onOpenChange`.
   - `onPopupVisibleChange` is deprecated and replaced by `onOpenChange`.
   - `bordered` is deprecated and replaced by `variant`.

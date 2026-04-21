@@ -1,5 +1,5 @@
-import { spawn } from 'child_process';
-import path from 'path';
+import { spawn } from 'node:child_process';
+import path from 'node:path';
 import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
 import fs from 'fs-extra';

@@ -17,6 +17,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'தேதியைத் தேர்ந்தெடுக்கவும்',
     close: 'மூடு',
+    show: 'காட்டு',
+    hide: 'மறை',
   },
   Table: {
     filterTitle: 'பட்டியலை மூடு',

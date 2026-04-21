@@ -117,7 +117,7 @@ demo:
 | getContainer | 指定 Modal 挂载的 HTML 节点，false 为挂载在当前 dom | HTMLElement \| () => HTMLElement \| Selectors \| false | document.body |  |
 | icon | 自定义图标 | ReactNode | &lt;ExclamationCircleFilled /> |  |
 | keyboard | 是否支持键盘 esc 关闭 | boolean | true |  |
-| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean, closable?: true}` | true |  |
+| mask | 遮罩效果 | boolean \| `{enabled?: boolean, blur?: boolean, closable?: boolean}` | true |  |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭 | boolean | false |  |
 | okButtonProps | ok 按钮 props | [ButtonProps](/components/button-cn#api) | - |  |
 | okText | 确认按钮文字 | string | `确定` |  |

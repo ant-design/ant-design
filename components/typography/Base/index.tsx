@@ -9,7 +9,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import isNonNullable from '../../_util/isNonNullable';
+import { isNonNullable } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -74,6 +74,10 @@ export interface CopyConfig {
   tabIndex?: number;
 }
 
+export interface ActionsConfig {
+  placement?: 'start' | 'end';
+}
+
 interface EditConfig {
   text?: string;
   editing?: boolean;
@@ -102,8 +106,13 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
-  extends TypographyProps<C> {
+export interface BlockProps<
+  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
+> extends TypographyProps<C> {
+  /**
+   * @since 6.4.0
+   */
+  actions?: ActionsConfig;
   title?: string;
   editable?: boolean | EditConfig;
   copyable?: boolean | CopyConfig;
@@ -171,6 +180,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     ellipsis,
     editable,
     copyable,
+    actions,
     component,
     title,
     onMouseEnter,
@@ -230,6 +240,8 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
 
   // ========================== Copyable ==========================
   const [enableCopy, copyConfig] = useMergedConfig<CopyConfig>(copyable);
+
+  const { placement = 'end' } = actions ?? {};
 
   const { copied, copyLoading, onClick: onCopyClick } = useCopyClick({ copyConfig, children });
 
@@ -296,7 +308,12 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     setCssEllipsis(canUseCssEllipsis && mergedEnableEllipsis);
   }, [canUseCssEllipsis, mergedEnableEllipsis]);
 
-  const isMergedEllipsis = mergedEnableEllipsis && (cssEllipsis ? isNativeEllipsis : isJsEllipsis);
+  const tooltipProps = useTooltipProps(ellipsisConfig.tooltip, editConfig.text, children);
+  const needNativeEllipsisMeasure = cssEllipsis && !!tooltipProps.title;
+
+  const isMergedEllipsis =
+    mergedEnableEllipsis &&
+    (cssEllipsis ? needNativeEllipsisMeasure && isNativeEllipsis : isJsEllipsis);
 
   const cssTextOverflow = mergedEnableEllipsis && rows === 1 && cssEllipsis;
   const cssLineClamp = mergedEnableEllipsis && rows > 1 && cssEllipsis;
@@ -328,14 +345,21 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
   React.useEffect(() => {
     const textEle = typographyRef.current;
 
-    if (enableEllipsis && cssEllipsis && textEle) {
+    if (enableEllipsis && needNativeEllipsisMeasure && textEle) {
       const currentEllipsis = isEleEllipsis(textEle);
 
       if (isNativeEllipsis !== currentEllipsis) {
         setIsNativeEllipsis(currentEllipsis);
       }
     }
-  }, [enableEllipsis, cssEllipsis, children, cssLineClamp, isNativeVisible, ellipsisWidth]);
+  }, [
+    enableEllipsis,
+    needNativeEllipsisMeasure,
+    children,
+    cssLineClamp,
+    isNativeVisible,
+    ellipsisWidth,
+  ]);
 
   // https://github.com/ant-design/ant-design/issues/36786
   // Use IntersectionObserver to check if element is invisible
@@ -344,7 +368,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     if (
       typeof IntersectionObserver === 'undefined' ||
       !textEle ||
-      !cssEllipsis ||
+      !needNativeEllipsisMeasure ||
       !mergedEnableEllipsis
     ) {
       return;
@@ -358,11 +382,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return () => {
       observer.disconnect();
     };
-  }, [cssEllipsis, mergedEnableEllipsis]);
+  }, [needNativeEllipsisMeasure, mergedEnableEllipsis]);
 
   // ========================== Tooltip ===========================
-  const tooltipProps = useTooltipProps(ellipsisConfig.tooltip, editConfig.text, children);
-
   const topAriaLabel = React.useMemo(() => {
     if (!enableEllipsis || cssEllipsis) {
       return undefined;
@@ -476,7 +498,9 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
     return (
       <span
         key="operations"
-        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions)}
+        className={clsx(`${prefixCls}-actions`, mergedClassNames.actions, {
+          [`${prefixCls}-actions-start`]: placement === 'start',
+        })}
         style={mergedStyles.actions}
         onMouseEnter={() => setIsHoveringOperations(true)}
         onMouseLeave={() => setIsHoveringOperations(false)}
@@ -495,7 +519,6 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
       </span>
     ),
     ellipsisConfig.suffix,
-    renderOperations(canEllipsis),
   ];
 
   return (
@@ -549,12 +572,14 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
               width={ellipsisWidth}
               onEllipsis={onJsEllipsis}
               expanded={expanded}
+              measureDeps={[placement]}
               miscDeps={[
                 copied,
                 expanded,
                 copyLoading,
                 enableEdit,
                 enableCopy,
+                placement,
                 textLocale,
                 ...DECORATION_PROPS.map((key) => props[key as keyof BlockProps]),
               ]}
@@ -563,6 +588,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                 wrapperDecorations(
                   props,
                   <>
+                    {placement === 'start' ? renderOperations(canEllipsis) : null}
                     {node.length > 0 && canEllipsis && !expanded && topAriaLabel ? (
                       <span key="show-content" aria-hidden>
                         {node}
@@ -571,6 +597,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
                       node
                     )}
                     {renderEllipsis(canEllipsis)}
+                    {placement === 'start' ? null : renderOperations(canEllipsis)}
                   </>,
                 )
               }

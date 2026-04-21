@@ -143,7 +143,7 @@ After optimizing in various ways, we still have to face a problem. If some rende
 // pseudocode
 import React from 'react';
 
-const MyComponent = React.memo(({ valueRender }: { valueRender: () => React.ReactElement }) =>
+const MyComponent = React.memo<{ valueRender: () => React.ReactElement<any> }>(({ valueRender }) =>
   valueRender(),
 );
 

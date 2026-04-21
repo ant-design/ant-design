@@ -527,7 +527,7 @@ type FilterFunc = (meta: { touched: boolean; validating: boolean }) => boolean;
 
 ### FieldData
 
-| Name       | Description              | Type                     |
+| Property   | Description              | Type                     |
 | ---------- | ------------------------ | ------------------------ |
 | errors     | Error messages           | string\[]                |
 | warnings   | Warning messages         | string\[]                |
@@ -544,7 +544,7 @@ Rule supports a config object, or a function returning config object:
 type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 ```
 
-| Name | Description | Type | Version |
+| Property | Description | Type | Version |
 | --- | --- | --- | --- |
 | defaultField | Validate rule for all array elements, valid when `type` is `array` | [rule](#rule) |  |
 | enum | Match enum value. You need to set `type` to `enum` to enable this | any\[] |  |
@@ -564,7 +564,7 @@ type Rule = RuleConfig | ((form: FormInstance) => RuleConfig);
 
 ### WatchOptions
 
-| Name | Description | Type | Default | Version |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | form | Form instance | FormInstance | Current form in context | 5.4.0 |
 | preserve | Whether to watch the field which has no matched `Form.Item` | boolean | false | 5.4.0 |

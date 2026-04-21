@@ -29,6 +29,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 <code src="./demo/suffix.tsx">后缀</code>
 <code src="./demo/componentToken-debug.tsx" debug>组件 Token</code>
 <code src="./demo/link-danger-debug.tsx" debug>Link danger Debug</code>
+<code src="./demo/table.tsx">表格</code>
 
 ## API
 
@@ -38,6 +39,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
@@ -58,6 +60,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
@@ -77,6 +80,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
+| actions | 配置操作栏 | [actions](#actions) | - | 6.4.0 |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
 | code | 添加代码样式 | boolean | false |  |
 | copyable | 是否可拷贝，为对象时可进行各种自定义 | boolean \| [copyable](#copyable) | false |  |
@@ -91,6 +95,16 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*LT2jR41Uj2EAAA
 | type | 文本类型 | `secondary` \| `success` \| `warning` \| `danger` | - | success: 4.6.0 |
 | underline | 添加下划线样式 | boolean | false |  |
 | onClick | 点击 Paragraph 时的回调 | (event) => void | - |  |
+
+### actions
+
+    {
+      placement: 'start' | 'end',
+    }
+
+| 参数      | 说明                       | 类型             | 默认值 | 版本  |
+| --------- | -------------------------- | ---------------- | ------ | ----- |
+| placement | 设置操作栏相对于文本的位置 | `start` \| `end` | `end`  | 6.4.0 |
 
 ### copyable
 

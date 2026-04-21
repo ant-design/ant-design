@@ -25,10 +25,7 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
     [`&${componentCls}-${size}`]: {
       [`> ${componentCls}-container`]: {
         [`> ${componentCls}-content, > ${componentCls}-body`]: {
-          [`
-            > table > tbody > tr > th,
-            > table > tbody > tr > td
-          `]: {
+          '> table > tbody > tr > th, > table > tbody > tr > td': {
             [`> ${componentCls}-expanded-row-fixed`]: {
               margin: `${unit(calc(paddingVertical).mul(-1).equal())}
               ${unit(calc(calc(paddingHorizontal).add(lineWidth)).mul(-1).equal())}`,
@@ -53,68 +50,51 @@ const genBorderedStyle: GenerateStyle<TableToken, CSSObject> = (token) => {
           borderInlineStart: tableBorder,
           borderTop: tableBorder,
 
-          [`
-            > ${componentCls}-content,
-            > ${componentCls}-header,
-            > ${componentCls}-body,
-            > ${componentCls}-summary
-          `]: {
-            '> table': {
-              // ============================= Cell =============================
-              [`
-                > thead > tr > th,
-                > thead > tr > td,
-                > tbody > tr > th,
-                > tbody > tr > td,
-                > tfoot > tr > th,
-                > tfoot > tr > td
-              `]: {
-                borderInlineEnd: tableBorder,
-              },
-
-              // ============================ Header ============================
-              '> thead': {
-                '> tr:not(:last-child) > th': {
-                  borderBottom: tableBorder,
-                },
-
-                '> tr > th::before': {
-                  backgroundColor: 'transparent !important',
-                },
-              },
-
-              // Fixed right should provides additional border
-              [`
-                > thead > tr,
-                > tbody > tr,
-                > tfoot > tr
-              `]: {
-                [`> ${componentCls}-cell-fix-right-first::after`]: {
-                  borderInlineEnd: tableBorder,
-                },
-              },
-
-              // ========================== Expandable ==========================
-              [`
-                > tbody > tr > th,
-                > tbody > tr > td
-              `]: {
-                [`> ${componentCls}-expanded-row-fixed`]: {
-                  margin: `${unit(calc(tablePaddingVertical).mul(-1).equal())} ${unit(
-                    calc(calc(tablePaddingHorizontal).add(lineWidth)).mul(-1).equal(),
-                  )}`,
-                  '&::after': {
-                    position: 'absolute',
-                    top: 0,
-                    insetInlineEnd: lineWidth,
-                    bottom: 0,
+          [`> ${componentCls}-content, > ${componentCls}-header, > ${componentCls}-body, > ${componentCls}-summary`]:
+            {
+              '> table': {
+                // ============================= Cell =============================
+                '> thead > tr > th, > thead > tr > td, > tbody > tr > th, > tbody > tr > td, > tfoot > tr > th, > tfoot > tr > td':
+                  {
                     borderInlineEnd: tableBorder,
-                    content: '""',
+                  },
+
+                // ============================ Header ============================
+                '> thead': {
+                  '> tr:not(:last-child) > th': {
+                    borderBottom: tableBorder,
+                  },
+
+                  '> tr > th::before': {
+                    backgroundColor: 'transparent !important',
+                  },
+                },
+
+                // Fixed right should provides additional border
+                '> thead > tr, > tbody > tr, > tfoot > tr': {
+                  [`> ${componentCls}-cell-fix-right-first::after`]: {
+                    borderInlineEnd: tableBorder,
+                  },
+                },
+
+                // ========================== Expandable ==========================
+                '> tbody > tr > th, > tbody > tr > td': {
+                  [`> ${componentCls}-expanded-row-fixed`]: {
+                    margin: `${unit(calc(tablePaddingVertical).mul(-1).equal())} ${unit(
+                      calc(calc(tablePaddingHorizontal).add(lineWidth)).mul(-1).equal(),
+                    )}`,
+                    '&::after': {
+                      position: 'absolute',
+                      top: 0,
+                      insetInlineEnd: lineWidth,
+                      bottom: 0,
+                      borderInlineEnd: tableBorder,
+                      content: '""',
+                    },
                   },
                 },
               },
             },
-          },
         },
 
         // ============================ Scroll ============================

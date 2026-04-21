@@ -81,14 +81,15 @@ const genPurePanel = <ComponentProps extends BaseProps = BaseProps>(
       mergedProps = postProps(mergedProps);
     }
     if (alignPropName) {
-      Object.assign(mergedProps, {
+      mergedProps = {
+        ...mergedProps,
         [alignPropName]: {
           overflow: {
             adjustX: false,
             adjustY: false,
           },
         },
-      });
+      };
     }
     const mergedStyle: React.CSSProperties = {
       paddingBottom: popupHeight,

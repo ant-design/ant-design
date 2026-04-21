@@ -50,13 +50,18 @@ demo:
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
 | afterOpenChange | 切换抽屉时动画结束后的回调 | function(open) | - |  |
+| ~~bodyStyle~~ | 抽屉内容区域样式，请使用 `styles.body` 替代 | CSSProperties | - | - |
 | className | Drawer 容器外层 className 设置，如果需要设置最外层，请使用 rootClassName | string | - |  |
 | classNames | 用于自定义 Drawer 组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closable | 是否显示关闭按钮。可通过 `placement` 配置其位置 | boolean \| { closeIcon?: React.ReactNode; disabled?: boolean; placement?: 'start' \| 'end' } | true | placement: 5.28.0 |
+| ~~contentWrapperStyle~~ | 抽屉包裹层样式，请使用 `styles.wrapper` 替代 | CSSProperties | - | - |
 | ~~destroyOnClose~~ | 关闭时销毁 Drawer 里的子元素 | boolean | false |  |
+| ~~destroyInactivePanel~~ | 关闭时销毁 Drawer 里的子元素，请使用 `destroyOnHidden` 替代 | boolean | false | - |
 | destroyOnHidden | 关闭时销毁 Drawer 里的子元素 | boolean | false | 5.25.0 |
+| ~~drawerStyle~~ | 抽屉面板样式，请使用 `styles.section` 替代 | CSSProperties | - | - |
 | extra | 抽屉右上角的操作区域 | ReactNode | - | 4.17.0 |
 | footer | 抽屉的页脚 | ReactNode | - |  |
+| ~~footerStyle~~ | 抽屉底部样式，请使用 `styles.footer` 替代 | CSSProperties | - | - |
 | forceRender | 预渲染 Drawer 内元素 | boolean | false |  |
 | focusable | 抽屉内焦点管理的配置 | `{ trap?: boolean, focusTriggerAfterClose?: boolean }` | - | 6.2.0 |
 | getContainer | 指定 Drawer 挂载的节点，**并在容器内展现**，`false` 为挂载在当前位置 | HTMLElement \| () => HTMLElement \| Selectors \| false | body |  |
@@ -66,6 +71,7 @@ demo:
 | loading | 显示骨架屏 | boolean | false | 5.17.0 |
 | mask | 遮罩效果 | boolean \| `{ enabled?: boolean, blur?: boolean, closable?: boolean }` | true | mask.closable: 6.3.0 |
 | ~~maskClosable~~ | 点击蒙层是否允许关闭 | boolean | true |  |
+| ~~maskStyle~~ | 抽屉遮罩样式，请使用 `styles.mask` 替代 | CSSProperties | - | - |
 | maxSize | 可拖拽的最大尺寸（宽度或高度，取决于 `placement`） | number | - | 6.0.0 |
 | open | Drawer 是否可见 | boolean | false |  |
 | placement | 抽屉的方向 | `top` \| `right` \| `bottom` \| `left` | `right` |  |

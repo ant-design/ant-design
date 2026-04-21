@@ -53,7 +53,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*cFsBQLA0b7UAAA
 | ~~labelPlacement~~ | 指定标签放置位置，默认水平放图标右侧，可选 `vertical` 放图标下方 | string | `horizontal` |  |
 | orientation | 指定步骤条方向。目前支持水平（`horizontal`）和竖直（`vertical`）两种方向 | string | `horizontal` |  |
 | percent | 当前 `process` 步骤显示的进度条进度（只对基本类型的 Steps 生效） | number | - | 4.5.0 |
-| progressDot | 点状步骤条，可以设置为一个 function，`titlePlacement` 将强制为 `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  |
+| ~~progressDot~~ | 点状步骤条，可以设置为一个 function，请使用 `type="dot"` 替代。`titlePlacement` 将强制为 `vertical` | boolean \| (iconDot, { index, status, title, content }) => ReactNode | false |  |
 | responsive | 当屏幕宽度小于 `532px` 时自动变为垂直模式 | boolean | true |  |
 | size | 指定大小，目前支持普通（`medium`）和迷你（`small`） | string | `medium` |  |
 | status | 指定当前步骤的状态，可选 `wait` `process` `finish` `error` | string | `process` |  |

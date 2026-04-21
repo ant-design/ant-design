@@ -16,8 +16,8 @@ import {
   Typography,
 } from 'antd';
 import type { ThemeConfig } from 'antd';
+import copy from 'antd/lib/_util/copy';
 
-import copy from '../../../../components/_util/copy';
 import useLocale from '../../../hooks/useLocale';
 import ComponentsBlock from '../../../pages/index/components/ThemePreview/ComponentsBlock';
 import { generateThemeCode } from '../../../pages/index/components/ThemePreview/themeCodeUtils';
@@ -136,7 +136,9 @@ const PromptDrawer: React.FC<PromptDrawerProps> = ({ open, onClose, onThemeChang
   };
 
   const handleCopyTheme = React.useCallback(async () => {
-    if (!dynamicTheme) return;
+    if (!dynamicTheme) {
+      return;
+    }
     const themeConfig: ThemeConfig = {
       token: dynamicTheme.token as ThemeConfig['token'],
       ...(dynamicTheme.algorithm === 'dark' ? { algorithm: antdTheme.darkAlgorithm } : {}),
