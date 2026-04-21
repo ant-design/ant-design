@@ -3,7 +3,7 @@ import React from 'react';
 import BorderBeam from '..';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
-import { fireEvent, render, waitFor } from '../../../tests/utils';
+import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
@@ -184,6 +184,72 @@ describe('BorderBeam', () => {
     await waitFor(() => {
       expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('24px');
     });
+  });
+
+  it('should update inferred radius when wrapper computed radius changes after resize', async () => {
+    const originResizeObserver = global.ResizeObserver;
+    const originGetComputedStyle = window.getComputedStyle;
+    let resizeCallback: ResizeObserverCallback | undefined;
+    let rootRadius = '20px';
+
+    global.ResizeObserver = class ResizeObserver {
+      constructor(callback: ResizeObserverCallback) {
+        resizeCallback = callback;
+      }
+
+      observe() {}
+
+      unobserve() {}
+
+      disconnect() {}
+    };
+
+    window.getComputedStyle = ((element: Element, pseudoElt?: string | null) => {
+      const style = originGetComputedStyle.call(window, element, pseudoElt);
+
+      if ((element as HTMLElement).classList.contains('beam-root-radius')) {
+        return {
+          ...style,
+          borderRadius: rootRadius,
+          borderTopLeftRadius: rootRadius,
+          borderTopRightRadius: rootRadius,
+          borderBottomRightRadius: rootRadius,
+          borderBottomLeftRadius: rootRadius,
+        } as CSSStyleDeclaration;
+      }
+
+      return style;
+    }) as typeof window.getComputedStyle;
+
+    try {
+      const { container } = render(
+        <BorderBeam className="beam-root-radius">
+          <div>content</div>
+        </BorderBeam>,
+      );
+
+      const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+      await waitFor(() => {
+        expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('20px');
+      });
+
+      rootRadius = '32px';
+
+      act(() => {
+        resizeCallback?.(
+          [{ target: element } as unknown as ResizeObserverEntry],
+          {} as ResizeObserver,
+        );
+      });
+
+      await waitFor(() => {
+        expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('32px');
+      });
+    } finally {
+      global.ResizeObserver = originResizeObserver;
+      window.getComputedStyle = originGetComputedStyle;
+    }
   });
 
   it('should support non-uniform root style radius values', () => {
