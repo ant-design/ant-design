@@ -74,6 +74,7 @@ describe('BorderBeam util', () => {
     expect(getRadiusTokenValue('')).toBeUndefined();
     expect(getRadiusTokenValue('12')).toBe(12);
     expect(getRadiusTokenValue('12px')).toBe(12);
+    expect(getRadiusTokenValue('not-a-numberpx')).toBeUndefined();
     expect(getRadiusTokenValue('var(--radius)')).toBeUndefined();
 
     expect(expandRadiusTokens(['8px'])).toEqual(['8px', '8px', '8px', '8px']);

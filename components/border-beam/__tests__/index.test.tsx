@@ -1,6 +1,7 @@
 import React from 'react';
 
 import BorderBeam from '..';
+import useBorderBeamRadius from '../hooks/useBorderBeamRadius';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
@@ -74,6 +75,100 @@ describe('BorderBeam', () => {
 
     expect(element.style.borderRadius).toBe('18px');
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
+  });
+
+  it('should fall back to the track radius when motion path radius normalization fails', () => {
+    const invalidRadius = '12px /' as React.CSSProperties['borderRadius'];
+    const { container } = render(
+      <BorderBeam style={{ borderRadius: invalidRadius }}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+    expect(element.style.getPropertyValue(varName('beam-path-radius'))).toBe(invalidRadius);
+  });
+
+  it('should handle inferred radius sync before the root ref is attached', () => {
+    jest.useFakeTimers();
+
+    const HookDemo = () => {
+      const { beamVisible, trackRadius } = useBorderBeamRadius({
+        prefixCls: 'ant-border-beam',
+        configuredRadius: undefined,
+        children: <div>content</div>,
+      });
+
+      return (
+        <div data-track-radius={trackRadius} data-visible={String(beamVisible)}>
+          content
+        </div>
+      );
+    };
+
+    try {
+      const { container } = render(<HookDemo />);
+
+      const element = container.firstElementChild as HTMLElement;
+
+      expect(element.dataset.trackRadius).toBe('0px');
+      expect(element.dataset.visible).toBe('false');
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      expect(element.dataset.visible).toBe('true');
+    } finally {
+      jest.useRealTimers();
+    }
+  });
+
+  it('should reset inferred beam visibility when switching from configured radius', () => {
+    jest.useFakeTimers();
+
+    const HookDemo = () => {
+      const [configured, setConfigured] = React.useState(true);
+      const { beamVisible, trackRadius } = useBorderBeamRadius({
+        prefixCls: 'ant-border-beam',
+        configuredRadius: configured ? 18 : undefined,
+        children: <div>content</div>,
+      });
+
+      return (
+        <>
+          <button type="button" onClick={() => setConfigured(false)}>
+            switch
+          </button>
+          <div data-track-radius={trackRadius} data-visible={String(beamVisible)}>
+            content
+          </div>
+        </>
+      );
+    };
+
+    try {
+      const { container, getByRole } = render(<HookDemo />);
+
+      const element = container.querySelector('[data-track-radius]') as HTMLElement;
+
+      expect(element.dataset.trackRadius).toBe('18px');
+      expect(element.dataset.visible).toBe('true');
+
+      fireEvent.click(getByRole('button', { name: 'switch' }));
+
+      expect(element.dataset.trackRadius).toBe('0px');
+      expect(element.dataset.visible).toBe('false');
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      expect(element.dataset.visible).toBe('true');
+    } finally {
+      jest.useRealTimers();
+    }
   });
 
   it('should hide inferred beam until the first client radius sync resolves', async () => {
@@ -328,5 +423,20 @@ describe('BorderBeam', () => {
     const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
 
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('20px 20px 0px 0px');
+  });
+
+  it('should not set displayName in production bundles', async () => {
+    const originNodeEnv = process.env.NODE_ENV;
+
+    try {
+      jest.resetModules();
+      process.env.NODE_ENV = 'production';
+      const ProductionBorderBeam = (await import('../BorderBeam')).default;
+
+      expect(ProductionBorderBeam.displayName).toBeUndefined();
+    } finally {
+      process.env.NODE_ENV = originNodeEnv;
+      jest.resetModules();
+    }
   });
 });

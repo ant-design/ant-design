@@ -44,6 +44,7 @@ const useBorderBeamRadius = ({
   const [measuredChildRadius, setMeasuredChildRadius] = React.useState<string>();
   // Prevent SSR from exposing a long-lived 0px beam before the first client measurement finishes.
   const [forceBeamVisible, setForceBeamVisible] = React.useState(false);
+  // Read the previous committed measurement mode so configured -> inferred transitions can reset cleanly.
   const prevNeedMeasureChildRadiusRef = React.useRef(needMeasureChildRadius);
   const needMeasureChanged = prevNeedMeasureChildRadiusRef.current !== needMeasureChildRadius;
   // The beam stays hidden during the initial inferred-radius window, then becomes visible once
@@ -53,12 +54,9 @@ const useBorderBeamRadius = ({
     measuredChildRadius !== undefined ||
     (!needMeasureChanged && forceBeamVisible);
 
-  prevNeedMeasureChildRadiusRef.current = needMeasureChildRadius;
-
   const setRootNode = useEvent((node: HTMLDivElement | null) => {
     rootRef.current = node;
-
-    setRootElement((prevNode) => (prevNode === node ? prevNode : node));
+    setRootElement(node);
   });
 
   const syncMeasuredChildRadius = useEvent(() => {
@@ -98,17 +96,16 @@ const useBorderBeamRadius = ({
     let fallbackFrameId: number | null = null;
 
     if (!needMeasureChildRadius) {
-      setObservedChildElement((prevChildElement) =>
-        prevChildElement === undefined ? prevChildElement : undefined,
-      );
-      setMeasuredChildRadius((prevRadius) => (prevRadius === undefined ? prevRadius : undefined));
-      setForceBeamVisible((prevVisible) => (prevVisible ? false : prevVisible));
+      setObservedChildElement(undefined);
+      setMeasuredChildRadius(undefined);
+      setForceBeamVisible(false);
+      prevNeedMeasureChildRadiusRef.current = needMeasureChildRadius;
 
       return;
     }
 
     if (needMeasureChanged) {
-      setForceBeamVisible((prevVisible) => (prevVisible ? false : prevVisible));
+      setForceBeamVisible(false);
     }
 
     // Measure immediately after commit, then queue one more pass so class-driven styles that land
@@ -123,6 +120,8 @@ const useBorderBeamRadius = ({
         setForceBeamVisible(true);
       });
     }
+
+    prevNeedMeasureChildRadiusRef.current = needMeasureChildRadius;
 
     return () => {
       if (fallbackFrameId !== null) {
