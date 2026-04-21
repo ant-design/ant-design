@@ -187,10 +187,12 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     props.onTabChange?.(key);
   };
 
-  const isContainGrid = React.useMemo<boolean>(() => {
-    const childNodes: React.ReactNode[] = toArray(children);
-    return childNodes.some((child) => React.isValidElement(child) && child.type === CardGrid);
-  }, [children]);
+  const childNodes = React.useMemo<React.ReactNode[]>(() => toArray(children), [children]);
+
+  const isContainGrid = React.useMemo<boolean>(
+    () => childNodes.some((child) => React.isValidElement(child) && child.type === CardGrid),
+    [childNodes],
+  );
 
   const prefixCls = getPrefixCls('card', customizePrefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls);
@@ -258,11 +260,12 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...bodyStyle,
     ...mergedStyles.body,
   };
-  const body = (
-    <div className={bodyClasses} style={mergedBodyStyle}>
-      {loading ? loadingBlock : children}
-    </div>
-  );
+  const body =
+    loading || childNodes.length ? (
+      <div className={bodyClasses} style={mergedBodyStyle}>
+        {loading ? loadingBlock : children}
+      </div>
+    ) : null;
 
   const actionClasses = clsx(`${prefixCls}-actions`, mergedClassNames.actions);
   const actionDom = actions?.length ? (
