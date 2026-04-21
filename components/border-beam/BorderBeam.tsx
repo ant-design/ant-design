@@ -226,17 +226,24 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   useMutateObserver(childMutationTarget, onChildMutate, CHILD_MUTATION_OBSERVER_OPTIONS);
 
   useLayoutEffect(() => {
-    if (!needMeasureChildRadius || !observedChildElement || typeof ResizeObserver === 'undefined') {
+    if (!needMeasureChildRadius || typeof ResizeObserver === 'undefined') {
       return;
     }
 
     const resizeObserver = new ResizeObserver(scheduleMeasuredChildRadiusSync);
-    resizeObserver.observe(observedChildElement);
+
+    if (rootElement) {
+      resizeObserver.observe(rootElement);
+    }
+
+    if (observedChildElement && observedChildElement !== rootElement) {
+      resizeObserver.observe(observedChildElement);
+    }
 
     return () => {
       resizeObserver.disconnect();
     };
-  }, [needMeasureChildRadius, observedChildElement, scheduleMeasuredChildRadiusSync]);
+  }, [needMeasureChildRadius, observedChildElement, rootElement, scheduleMeasuredChildRadiusSync]);
 
   const trackRadius = needMeasureChildRadius
     ? measuredChildRadius || configuredTrackRadius

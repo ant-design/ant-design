@@ -5,7 +5,6 @@ import type { BorderBeamProps } from 'antd';
 const radius = 24;
 
 const classNames: BorderBeamProps['classNames'] = {
-  root: 'demo-border-beam-root',
   beam: 'demo-border-beam-beam',
 };
 
@@ -22,10 +21,6 @@ const App: React.FC = () => {
     <>
       <style>
         {`
-          .demo-border-beam-root {
-            border-radius: ${radius}px;
-          }
-
           .demo-border-beam-beam::before {
             filter: saturate(1.15);
           }
@@ -48,8 +43,7 @@ const App: React.FC = () => {
               Semantic customization
             </Typography.Title>
             <Typography.Text type="secondary">
-              Use `classNames.root` to provide the wrapper radius and `styles.beam` to fine tune the
-              decorative beam layer.
+              Use `classNames.beam` and `styles.beam` to fine tune the decorative beam layer.
             </Typography.Text>
           </Flex>
         </BorderBeam>
