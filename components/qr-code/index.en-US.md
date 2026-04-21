@@ -28,7 +28,7 @@ Used when the text needs to be converted into a QR Code.
 <code src="./demo/download.tsx">Download QRCode</code>
 <code src="./demo/errorlevel.tsx">Error Level</code>
 <code src="./demo/Popover.tsx">Advanced Usage</code>
-<code src="./demo/style-class.tsx" verison="6.0.0">Custom semantic dom styling</code>
+<code src="./demo/style-class.tsx" version="6.0.0">Custom semantic dom styling</code>
 
 ## API
 

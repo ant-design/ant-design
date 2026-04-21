@@ -2,6 +2,7 @@ import * as React from 'react';
 import { toArray } from '@rc-component/util';
 
 import type { DescriptionsItemType, InternalDescriptionsItemType } from '..';
+import { isNumber } from '../../_util/is';
 import { matchScreen } from '../../_util/responsiveObserver';
 import type { ScreenMap } from '../../_util/responsiveObserver';
 
@@ -30,10 +31,7 @@ export default function useItems(
         if (span === 'filled') {
           return { ...restItem, filled: true };
         }
-        return {
-          ...restItem,
-          span: typeof span === 'number' ? span : matchScreen(screens, span),
-        };
+        return { ...restItem, span: isNumber(span) ? span : matchScreen(screens, span) };
       }),
     [mergedItems, screens],
   );

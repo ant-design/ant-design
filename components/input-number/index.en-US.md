@@ -26,6 +26,7 @@ When a numeric value needs to be provided.
 <code src="./demo/change-on-wheel.tsx" version="5.14.0">Wheel</code>
 <code src="./demo/variant.tsx" version="5.13.0">Variants</code>
 <code src="./demo/spinner.tsx" version="6.0.0">Spinner</code>
+<code src="./demo/disabled-hover-debug.tsx" debug>Disabled handler hover</code>
 <code src="./demo/filled-debug.tsx" debug>Filled Debug</code>
 <code src="./demo/borderless-height-debug.tsx" debug>Borderless height alignment</code>
 <code src="./demo/out-of-range.tsx">Out of range</code>
@@ -73,6 +74,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | The callback triggered when the value is changed | function(value: number \| string \| null) | - | - |
 | onPressEnter | The callback function that is triggered when Enter key is pressed | function(e) | - | - |
 | onStep | The callback function that is triggered when click up or down buttons / Keyboard / Wheel | (value: number, info: { offset: number, type: 'up' \| 'down', emitter: 'handler' \| 'keydown' \| 'wheel' }) => void | - |  |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
 
 ## Ref
 

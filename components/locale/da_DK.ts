@@ -14,6 +14,8 @@ const localeValues: Locale = {
   Pagination,
   global: {
     close: 'Luk',
+    show: 'Vis',
+    hide: 'Skjul',
   },
   Table: {
     filterTitle: 'Filtermenu',

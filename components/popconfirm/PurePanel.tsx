@@ -2,7 +2,6 @@ import * as React from 'react';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import { clsx } from 'clsx';
 
-import type { PopconfirmProps } from '.';
 import ActionButton from '../_util/ActionButton';
 import { getRenderPropValue } from '../_util/getRenderPropValue';
 import Button from '../button/Button';
@@ -10,7 +9,7 @@ import { convertLegacyProps } from '../button/buttonHelpers';
 import { ConfigContext } from '../config-provider';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
-import type { PopoverSemanticAllType } from '../popover';
+import type { PopconfirmProps, PopconfirmSemanticAllType } from '.';
 import PopoverPurePanel from '../popover/PurePanel';
 import useStyle from './style';
 
@@ -37,8 +36,8 @@ export interface OverlayProps
   close?: (...args: any[]) => void;
   onConfirm?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
   onCancel?: React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>;
-  classNames?: PopoverSemanticAllType['classNames'];
-  styles?: PopoverSemanticAllType['styles'];
+  classNames?: PopconfirmSemanticAllType['classNames'];
+  styles?: PopconfirmSemanticAllType['styles'];
 }
 
 export const Overlay: React.FC<OverlayProps> = (props) => {
@@ -71,7 +70,14 @@ export const Overlay: React.FC<OverlayProps> = (props) => {
   return (
     <div className={`${prefixCls}-inner-content`} onClick={onPopupClick}>
       <div className={`${prefixCls}-message`}>
-        {icon && <span className={`${prefixCls}-message-icon`}>{icon}</span>}
+        {icon && (
+          <span
+            className={clsx(`${prefixCls}-message-icon`, classNames?.icon)}
+            style={styles?.icon}
+          >
+            {icon}
+          </span>
+        )}
         <div className={`${prefixCls}-message-text`}>
           {titleNode && (
             <div className={clsx(`${prefixCls}-title`, classNames?.title)} style={styles?.title}>

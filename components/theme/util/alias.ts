@@ -24,6 +24,13 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     ...restToken,
     ...overrideTokens,
   };
+  const shadowBaseColor = new FastColor(mergedToken.colorShadow);
+  const shadowBaseAlpha = shadowBaseColor.a;
+  const getShadowColor = (alpha: number) =>
+    shadowBaseColor
+      .clone()
+      .setA(shadowBaseAlpha * alpha)
+      .toRgbString();
 
   const screenXS = 480;
   const screenSM = 576;
@@ -133,19 +140,19 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     marginXXL: mergedToken.sizeXXL,
 
     boxShadow: `
-      0 6px 16px 0 rgba(0, 0, 0, 0.08),
-      0 3px 6px -4px rgba(0, 0, 0, 0.12),
-      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+      0 6px 16px 0 ${getShadowColor(0.08)},
+      0 3px 6px -4px ${getShadowColor(0.12)},
+      0 9px 28px 8px ${getShadowColor(0.05)}
     `,
     boxShadowSecondary: `
-      0 6px 16px 0 rgba(0, 0, 0, 0.08),
-      0 3px 6px -4px rgba(0, 0, 0, 0.12),
-      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+      0 6px 16px 0 ${getShadowColor(0.08)},
+      0 3px 6px -4px ${getShadowColor(0.12)},
+      0 9px 28px 8px ${getShadowColor(0.05)}
     `,
     boxShadowTertiary: `
-      0 1px 2px 0 rgba(0, 0, 0, 0.03),
-      0 1px 6px -1px rgba(0, 0, 0, 0.02),
-      0 2px 4px 0 rgba(0, 0, 0, 0.02)
+      0 1px 2px 0 ${getShadowColor(0.03)},
+      0 1px 6px -1px ${getShadowColor(0.02)},
+      0 2px 4px 0 ${getShadowColor(0.02)}
     `,
 
     screenXS,
@@ -169,36 +176,36 @@ export default function formatToken(derivativeToken: RawMergedToken): AliasToken
     screenXXXL,
     screenXXXLMin: screenXXXL,
 
-    boxShadowPopoverArrow: '2px 2px 5px rgba(0, 0, 0, 0.05)',
+    boxShadowPopoverArrow: `2px 2px 5px ${getShadowColor(0.05)}`,
     boxShadowCard: `
-      0 1px 2px -2px ${new FastColor('rgba(0, 0, 0, 0.16)').toRgbString()},
-      0 3px 6px 0 ${new FastColor('rgba(0, 0, 0, 0.12)').toRgbString()},
-      0 5px 12px 4px ${new FastColor('rgba(0, 0, 0, 0.09)').toRgbString()}
+      0 1px 2px -2px ${getShadowColor(0.16)},
+      0 3px 6px 0 ${getShadowColor(0.12)},
+      0 5px 12px 4px ${getShadowColor(0.09)}
     `,
     boxShadowDrawerRight: `
-      -6px 0 16px 0 rgba(0, 0, 0, 0.08),
-      -3px 0 6px -4px rgba(0, 0, 0, 0.12),
-      -9px 0 28px 8px rgba(0, 0, 0, 0.05)
+      -6px 0 16px 0 ${getShadowColor(0.08)},
+      -3px 0 6px -4px ${getShadowColor(0.12)},
+      -9px 0 28px 8px ${getShadowColor(0.05)}
     `,
     boxShadowDrawerLeft: `
-      6px 0 16px 0 rgba(0, 0, 0, 0.08),
-      3px 0 6px -4px rgba(0, 0, 0, 0.12),
-      9px 0 28px 8px rgba(0, 0, 0, 0.05)
+      6px 0 16px 0 ${getShadowColor(0.08)},
+      3px 0 6px -4px ${getShadowColor(0.12)},
+      9px 0 28px 8px ${getShadowColor(0.05)}
     `,
     boxShadowDrawerUp: `
-      0 6px 16px 0 rgba(0, 0, 0, 0.08),
-      0 3px 6px -4px rgba(0, 0, 0, 0.12),
-      0 9px 28px 8px rgba(0, 0, 0, 0.05)
+      0 6px 16px 0 ${getShadowColor(0.08)},
+      0 3px 6px -4px ${getShadowColor(0.12)},
+      0 9px 28px 8px ${getShadowColor(0.05)}
     `,
     boxShadowDrawerDown: `
-      0 -6px 16px 0 rgba(0, 0, 0, 0.08),
-      0 -3px 6px -4px rgba(0, 0, 0, 0.12),
-      0 -9px 28px 8px rgba(0, 0, 0, 0.05)
+      0 -6px 16px 0 ${getShadowColor(0.08)},
+      0 -3px 6px -4px ${getShadowColor(0.12)},
+      0 -9px 28px 8px ${getShadowColor(0.05)}
     `,
-    boxShadowTabsOverflowLeft: 'inset 10px 0 8px -8px rgba(0, 0, 0, 0.08)',
-    boxShadowTabsOverflowRight: 'inset -10px 0 8px -8px rgba(0, 0, 0, 0.08)',
-    boxShadowTabsOverflowTop: 'inset 0 10px 8px -8px rgba(0, 0, 0, 0.08)',
-    boxShadowTabsOverflowBottom: 'inset 0 -10px 8px -8px rgba(0, 0, 0, 0.08)',
+    boxShadowTabsOverflowLeft: `inset 10px 0 8px -8px ${getShadowColor(0.08)}`,
+    boxShadowTabsOverflowRight: `inset -10px 0 8px -8px ${getShadowColor(0.08)}`,
+    boxShadowTabsOverflowTop: `inset 0 10px 8px -8px ${getShadowColor(0.08)}`,
+    boxShadowTabsOverflowBottom: `inset 0 -10px 8px -8px ${getShadowColor(0.08)}`,
 
     // Override AliasToken
     ...overrideTokens,

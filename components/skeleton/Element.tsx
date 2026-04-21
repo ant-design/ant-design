@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import type { SizeType } from '../config-provider/SizeContext';
 
@@ -51,7 +52,7 @@ const Element: React.FC<SkeletonElementProps> = (props) => {
 
   const sizeStyle = React.useMemo<React.CSSProperties>(
     () =>
-      typeof size === 'number'
+      isNumber(size)
         ? {
             width: size,
             height: size,

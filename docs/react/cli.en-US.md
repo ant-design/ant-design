@@ -62,6 +62,8 @@ antd migrate 4 5 --apply ./src      # Agent-ready migration prompt
 | `antd usage [dir]` | Import stats, sub-component breakdown (`Form.Item`), non-component exports |
 | `antd lint [target]` | Deprecated APIs, accessibility gaps, performance issues, best practices |
 | `antd migrate <from> <to>` | Migration checklist with auto-fixable/manual split and `--apply` agent prompt |
+| `antd env [dir]` | Collect environment information for bug reports |
+| `antd bug` | Submit a bug to the ant-design repository |
 
 ### Global Flags
 
@@ -71,6 +73,14 @@ antd migrate 4 5 --apply ./src      # Agent-ready migration prompt
 | `--version <v>`                 | Target antd version (e.g. `5.20.0`) | auto-detect |
 | `--lang en\|zh`                 | Output language                     | `en`        |
 | `--detail`                      | Include extended information        | `false`     |
+
+### MCP Server
+
+| Command    | Description                                                        |
+| ---------- | ------------------------------------------------------------------ |
+| `antd mcp` | Start an MCP server with 7 tools and 2 prompts for IDE integration |
+
+The `antd mcp` command launches a [Model Context Protocol](https://modelcontextprotocol.io/) server, allowing AI assistants to access Ant Design knowledge directly. See the [MCP Server](/docs/react/mcp-en-US) guide for full details and configuration.
 
 ## Usage with AI Tools
 

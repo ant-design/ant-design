@@ -9,11 +9,11 @@ import { defaultPrefixCls } from '../config-provider';
 
 // ================== Collapse Motion ==================
 const getCollapsedHeight: MotionEventHandler = () => ({ height: 0, opacity: 0 });
-const getRealHeight: MotionEventHandler = (node) => {
-  const { scrollHeight } = node;
-  return { height: scrollHeight, opacity: 1 };
-};
-const getCurrentHeight: MotionEventHandler = (node) => ({ height: node ? node.offsetHeight : 0 });
+const getRealHeight: MotionEventHandler = (node) => ({
+  height: node?.scrollHeight ?? 0,
+  opacity: node ? 1 : 0,
+});
+const getCurrentHeight: MotionEventHandler = (node) => ({ height: node?.offsetHeight ?? 0 });
 const skipOpacityTransition: MotionEndEventHandler = (_, event: MotionEvent) =>
   event?.deadline === true || (event as TransitionEvent).propertyName === 'height';
 

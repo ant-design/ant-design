@@ -47,6 +47,7 @@ demo:
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | collapsible | `motion` 是否开启折叠动画，`icon` 自定义折叠图标 | `{ motion?: boolean; icon?: { start?: ReactNode; end?: ReactNode } }` | - | 6.4.0 |
 | ~collapsibleIcon~ | 折叠图标 | `{start?: ReactNode; end?: ReactNode}` | - | 6.0.0 |
+| destroyOnHidden | 折叠时（size 为 0）销毁面板内容，应用于所有面板，可在单个面板上覆盖 | `boolean` | `false` | 6.4.0 |
 | draggerIcon | 拖拽图标 | `ReactNode` | - | 6.0.0 |
 | ~~layout~~ | 布局方向 | `horizontal` \| `vertical` | `horizontal` | - |
 | lazy | 延迟渲染模式 | `boolean` | `false` | 5.23.0 |
@@ -65,6 +66,7 @@ demo:
 | --- | --- | --- | --- | --- |
 | collapsible | 快速折叠 | `boolean \| { start?: boolean; end?: boolean; showCollapsibleIcon?: boolean \| 'auto' }` | `false` | showCollapsibleIcon: 5.27.0 |
 | defaultSize | 初始面板大小，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
+| destroyOnHidden | 折叠时（size 为 0）销毁面板内容，覆盖 Splitter 的 `destroyOnHidden` | `boolean` | - | 6.4.0 |
 | max | 最大阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | min | 最小阈值，支持数字 px 或者文字 '百分比%' 类型 | `number \| string` | - | - |
 | resizable | 是否开启拖拽伸缩 | `boolean` | `true` | - |

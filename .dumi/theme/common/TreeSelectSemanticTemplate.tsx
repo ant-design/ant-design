@@ -143,7 +143,7 @@ const TreeSelectSemanticTemplate: React.FC<TreeSelectSemanticTemplateProps> = ({
           { name: 'popup.root', desc: locale['popup.root'] },
           { name: 'popup.item', desc: locale['popup.item'] },
           { name: 'popup.itemTitle', desc: locale['popup.itemTitle'] },
-          { name: 'popup.itemSwitcher', desc: locale['popup.itemSwitcher'] },
+          { name: 'popup.itemSwitcher', desc: locale['popup.itemSwitcher'], version: '6.4.0' },
         ].filter((semantic) => !ignoreSemantics.includes(semantic.name))
       : [
           { name: 'root', desc: locale.root },
@@ -158,7 +158,7 @@ const TreeSelectSemanticTemplate: React.FC<TreeSelectSemanticTemplateProps> = ({
           { name: 'popup.root', desc: locale['popup.root'] },
           { name: 'popup.item', desc: locale['popup.item'] },
           { name: 'popup.itemTitle', desc: locale['popup.itemTitle'] },
-          { name: 'popup.itemSwitcher', desc: locale['popup.itemSwitcher'] },
+          { name: 'popup.itemSwitcher', desc: locale['popup.itemSwitcher'], version: '6.4.0' },
         ].filter((semantic) => !ignoreSemantics.includes(semantic.name));
 
   return (

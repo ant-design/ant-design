@@ -204,7 +204,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           30
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -221,7 +221,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           31
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -238,7 +238,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           01
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -255,7 +255,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           02
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -272,7 +272,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           03
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -289,7 +289,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           04
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -306,7 +306,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           05
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -325,7 +325,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           06
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -342,7 +342,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           07
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -359,7 +359,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           08
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -376,7 +376,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           09
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -393,7 +393,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           10
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -410,7 +410,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           11
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -427,7 +427,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           12
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -446,7 +446,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           13
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -463,7 +463,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           14
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -480,7 +480,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           15
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -497,7 +497,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           16
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -514,7 +514,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           17
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -531,7 +531,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           18
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -548,7 +548,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           19
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -567,7 +567,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           20
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -584,7 +584,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           21
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -601,7 +601,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           22
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -618,7 +618,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           23
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -635,7 +635,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           24
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -652,7 +652,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           25
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -669,7 +669,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           26
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -688,7 +688,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           27
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -705,7 +705,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           28
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -722,7 +722,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           29
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -739,7 +739,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           30
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -756,7 +756,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           01
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -773,7 +773,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           02
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -790,7 +790,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           03
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -809,7 +809,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           04
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -826,7 +826,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           05
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -843,7 +843,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           06
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -860,7 +860,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           07
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -877,7 +877,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           08
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -894,7 +894,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           09
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -911,7 +911,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
                           10
                         </div>
                         <div
-                          class="ant-picker-calendar-date-content"
+                          class="ant-picker-calendar-date-content semantic-mark-itemContent"
                         />
                       </div>
                     </td>
@@ -927,7 +927,7 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
       class="ant-col ant-col-8 css-var-test-id"
     >
       <ul
-        class="acss-1ry21g5"
+        class="acss-11b5qta"
       >
         <li
           class="acss-1ehfz5v"
@@ -1416,6 +1416,104 @@ exports[`renders components/calendar/demo/_semantic.tsx correctly 1`] = `
               style="margin: 0px; font-size: 12px;"
             >
               条目元素，包含日历单元格的背景色、边框、悬停态、选中态等交互样式
+            </div>
+          </div>
+        </li>
+        <li
+          class="acss-1ehfz5v"
+        >
+          <div
+            class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-small ant-flex-vertical"
+          >
+            <div
+              class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between ant-flex-gap-small"
+            >
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <h5
+                  class="ant-typography css-var-test-id"
+                  style="margin: 0px;"
+                >
+                  itemContent
+                </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
+              </div>
+              <div
+                class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
+              >
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="pushpin"
+                      class="anticon anticon-pushpin"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="pushpin"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3a33.23 33.23 0 00-2.7 49.4l181.7 181.7-215.4 215.2a15.8 15.8 0 00-4.6 9.8l-3.4 37.2c-.9 9.4 6.6 17.4 15.9 17.4.5 0 1 0 1.5-.1l37.2-3.4c3.7-.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8zM666.2 549.3l-24.5 24.5 3.8 34.4a259.92 259.92 0 01-30.4 153.9L262 408.8c12.9-7.1 26.3-13.1 40.3-17.9 27.2-9.4 55.7-14.1 84.7-14.1 9.6 0 19.3.5 28.9 1.6l34.4 3.8 24.5-24.5L608.5 224 800 415.5 666.2 549.3z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+                <button
+                  aria-hidden="true"
+                  class="ant-btn css-var-test-id ant-btn-text ant-btn-color-default ant-btn-variant-text ant-btn-sm ant-btn-icon-only"
+                  type="button"
+                >
+                  <span
+                    class="ant-btn-icon"
+                  >
+                    <span
+                      aria-label="info-circle"
+                      class="anticon anticon-info-circle"
+                      role="img"
+                    >
+                      <svg
+                        aria-hidden="true"
+                        data-icon="info-circle"
+                        fill="currentColor"
+                        focusable="false"
+                        height="1em"
+                        viewBox="64 64 896 896"
+                        width="1em"
+                      >
+                        <path
+                          d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"
+                        />
+                        <path
+                          d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"
+                        />
+                      </svg>
+                    </span>
+                  </span>
+                </button>
+              </div>
+            </div>
+            <div
+              class="ant-typography css-var-test-id"
+              style="margin: 0px; font-size: 12px;"
+            >
+              条目内容元素，包含日历单元格内自定义内容区域的高度、溢出等样式控制
             </div>
           </div>
         </li>

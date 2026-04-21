@@ -2,7 +2,7 @@ import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { resetComponent } from '../../style';
+import { genFocusStyle, resetComponent } from '../../style';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 
@@ -22,7 +22,7 @@ export interface ComponentToken {
    * @desc 带有描述时的图标尺寸
    * @descEN Icon size with description
    */
-  withDescriptionIconSize: number;
+  withDescriptionIconSize: number | string;
 }
 
 type AlertToken = FullToken<'Alert'> & {
@@ -216,8 +216,8 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         lineHeight: unit(fontSizeIcon),
         backgroundColor: 'transparent',
         border: 'none',
-        outline: 'none',
         cursor: 'pointer',
+        ...genFocusStyle(token),
 
         [`${iconCls}-close`]: {
           color: colorIcon,

@@ -1,4 +1,4 @@
-import isNonNullable from './isNonNullable';
+import { isNonNullable } from './is';
 
 interface Config {
   skipEmpty?: boolean;

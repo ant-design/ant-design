@@ -64,42 +64,19 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
         userSelect: 'none',
       },
 
-      [`
-        div&,
-        p
-      `]: {
+      'div&, p': {
         marginBottom: '1em',
       },
 
       ...getTitleStyles(token),
 
-      [`
-      & + h1${componentCls},
-      & + h2${componentCls},
-      & + h3${componentCls},
-      & + h4${componentCls},
-      & + h5${componentCls}
-      `]: {
-        marginTop: titleMarginTop,
-      },
+      [`& + h1${componentCls}, & + h2${componentCls}, & + h3${componentCls}, & + h4${componentCls}, & + h5${componentCls}`]:
+        {
+          marginTop: titleMarginTop,
+        },
 
-      [`
-      div,
-      ul,
-      li,
-      p,
-      h1,
-      h2,
-      h3,
-      h4,
-      h5`]: {
-        [`
-        + h1,
-        + h2,
-        + h3,
-        + h4,
-        + h5
-        `]: {
+      'div, ul, li, p, h1, h2, h3, h4, h5': {
+        '+ h1, + h2, + h3, + h4, + h5': {
           marginTop: titleMarginTop,
         },
       },
@@ -121,6 +98,18 @@ const genTypographyStyle: GenerateStyle<TypographyToken, CSSObject> = (token) =>
       `]: {
         ...operationUnit(token),
         marginInlineStart: token.marginXXS,
+      },
+
+      [`${componentCls}-actions-start`]: {
+        [`
+          ${componentCls}-expand,
+          ${componentCls}-collapse,
+          ${componentCls}-edit,
+          ${componentCls}-copy:not(${componentCls}-copy-icon-only)
+        `]: {
+          marginInlineStart: 0,
+          marginInlineEnd: token.marginXXS,
+        },
       },
 
       ...getEditableStyles(token),

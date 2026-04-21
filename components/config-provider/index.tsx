@@ -45,6 +45,7 @@ import type {
   ImageConfig,
   InputConfig,
   InputNumberConfig,
+  InputPasswordConfig,
   InputSearchConfig,
   ListConfig,
   MasonryConfig,
@@ -193,6 +194,7 @@ export interface ConfigProviderProps {
   variant?: Variant;
   form?: FormConfig;
   input?: InputConfig;
+  inputPassword?: InputPasswordConfig;
   inputSearch?: InputSearchConfig;
   otp?: OTPConfig;
   inputNumber?: InputNumberConfig;
@@ -370,7 +372,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     anchor,
     app,
     form,
-    locale,
+    locale: rawLocale,
     componentSize,
     direction,
     space,
@@ -411,6 +413,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     menu,
     pagination,
     input,
+    inputPassword,
     inputSearch,
     textArea,
     otp,
@@ -452,6 +455,19 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     treeSelect,
     watermark,
   } = props;
+
+  // https://github.com/ant-design/ant-design/issues/57295
+  const locale = React.useMemo(() => {
+    if (
+      rawLocale &&
+      typeof rawLocale === 'object' &&
+      Object.prototype.hasOwnProperty.call(rawLocale, 'default') &&
+      (rawLocale as any).default?.locale
+    ) {
+      return (rawLocale as any).default as Locale;
+    }
+    return rawLocale as Locale;
+  }, [rawLocale]);
 
   // =================================== Context ===================================
   const getPrefixCls = React.useCallback(
@@ -511,6 +527,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     steps,
     image,
     input,
+    inputPassword,
     inputSearch,
     textArea,
     otp,

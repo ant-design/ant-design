@@ -28,6 +28,7 @@ group:
 <code src="./demo/onClick.tsx">自定义 onClick 事件</code>
 <code src="./demo/customizeHighlight.tsx">自定义锚点高亮</code>
 <code src="./demo/targetOffset.tsx" iframe="200">设置锚点滚动偏移量</code>
+<code src="./demo/targetOffset-per-link.tsx" iframe="200" version="6.4.0" debug>每个链接单独的滚动偏移量</code>
 <code src="./demo/onChange.tsx">监听锚点链接改变</code>
 <code src="./demo/replace.tsx" iframe="200">替换历史中的 href</code>
 <code src="./demo/legacy-anchor.tsx" debug>废弃的 JSX 示例</code>
@@ -67,16 +68,18 @@ group:
 | title | 文字内容 | ReactNode | - |  |
 | children | 嵌套的 Anchor Link，`注意：水平方向该属性不支持` | [AnchorItem](#anchoritem)\[] | - |  |
 | replace | 替换浏览器历史记录中的项目 href 而不是推送它 | boolean | false | 5.7.0 |
+| targetOffset | 设置单个锚点的滚动偏移量，会覆盖 Anchor 组件的 targetOffset 属性 | number | - | 6.4.0 |
 
 ### Link Props
 
 建议使用 items 形式。
 
-| 参数   | 说明                           | 类型      | 默认值 | 版本 |
-| ------ | ------------------------------ | --------- | ------ | ---- |
-| href   | 锚点链接                       | string    | -      |      |
-| target | 该属性指定在何处显示链接的资源 | string    | -      |      |
-| title  | 文字内容                       | ReactNode | -      |      |
+| 参数 | 说明 | 类型 | 默认值 | 版本 |
+| --- | --- | --- | --- | --- |
+| href | 锚点链接 | string | - |  |
+| target | 该属性指定在何处显示链接的资源 | string | - |  |
+| title | 文字内容 | ReactNode | - |  |
+| targetOffset | 设置单个锚点的滚动偏移量，会覆盖 Anchor 组件的 targetOffset 属性 | number | - | 6.4.0 |
 
 ## Semantic DOM
 
