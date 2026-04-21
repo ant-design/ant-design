@@ -37,8 +37,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | offsetBottom | Offset from the bottom of the viewport (in pixels) | number | - |  | × |
 | offsetTop | Offset from the top of the viewport (in pixels) | number | 0 |  | × |
-| onChange | Callback for when Affix state is changed | (affixed?: boolean) => void | - |  | × |
 | target | Specifies the scrollable area DOM node | () => Window \| HTMLElement \| null | () => window |  | × |
+| onChange | Callback for when Affix state is changed | (affixed?: boolean) => void | - |  | × |
 
 **Note:** Children of `Affix` must not have the property `position: absolute`, but you can set `position: absolute` on `Affix` itself:
 

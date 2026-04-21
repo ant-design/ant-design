@@ -55,7 +55,7 @@ ant-design/
 
 列说明：
 
-- 参数：按字母顺序排列，忽略 className, style, onClick, onKeyDown 等通用属性
+- 参数：按字母顺序排列，忽略 className, style, onClick, onKeyDown 等通用属性, onChange, onClick 等事件回调放在最后
 - 说明：简洁描述参数作用，如果仅支持全局配置需在描述中用括号注明
 - 类型：使用 TypeScript 定义的类型
 - 默认值：字符串用反引号，布尔/数字直接写，无默认值用 `-`
