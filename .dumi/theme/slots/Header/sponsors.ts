@@ -18,7 +18,7 @@ export const getSponsorDescription = (desc: Sponsor['description'], lang: 'cn' |
 export const sponsors: Sponsor[] = [
   {
     name: 'YouMind',
-    logo: 'https://marketing-assets.youmind.com/logo-512.png',
+    logo: 'https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*SXcuQYBZ6oQAAAAAQJAAAAgAeh6VAQ/original',
     url: {
       cn: 'https://youmind.com/zh-CN?from=ant-design',
       en: 'https://youmind.com?from=ant-design',
@@ -31,7 +31,7 @@ export const sponsors: Sponsor[] = [
   },
   {
     name: 'TRACTIAN',
-    logo: 'https://images.opencollective.com/tractian/0235da9/logo/256.png',
+    logo: 'https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*Z4-4Q67SG5UAAAAAQLAAAAgAeh6VAQ/original',
     url: 'https://tractian.com?from=ant-design',
     opencollective: 'https://opencollective.com/tractian',
     description: {
