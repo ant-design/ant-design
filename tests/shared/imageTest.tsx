@@ -35,6 +35,19 @@ interface ImageTestOptions {
   mobile?: boolean;
 }
 
+async function setRequestInterceptionSafe(enable: boolean) {
+  try {
+    await Promise.race([
+      page.setRequestInterception(enable),
+      new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('setRequestInterception timeout')), 5000);
+      }),
+    ]);
+  } catch {
+    // Ignore teardown/setup interception errors to avoid blocking the whole test suite.
+  }
+}
+
 // eslint-disable-next-line jest/no-export
 export default function imageTest(
   component: React.ReactElement<any>,
@@ -101,7 +114,7 @@ export default function imageTest(
     // Fill window
     fillWindowEnv(win);
 
-    await page.setRequestInterception(true);
+    await setRequestInterceptionSafe(true);
   });
 
   beforeEach(() => {
@@ -115,7 +128,8 @@ export default function imageTest(
   });
 
   afterAll(async () => {
-    await page.setRequestInterception(false);
+    page.removeAllListeners('request');
+    await setRequestInterceptionSafe(false);
   });
 
   const test = (
