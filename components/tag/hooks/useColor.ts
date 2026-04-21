@@ -94,7 +94,15 @@ export default function useColor(
       if (nextVariant === 'solid') {
         tagStyle.backgroundColor = color;
         if (autoContrast) {
-          tagStyle.color = getContrastRatio(nextColor, '#ffffff') >= 4.5 ? '#ffffff' : '#000000';
+          if (getContrastRatio(nextColor, '#ffffff') >= 4.5) {
+            tagStyle.color = '#ffffff';
+          } else if (getContrastRatio(nextColor, '#222222') >= 4.5) {
+            tagStyle.color = '#222222';
+          } else if (getContrastRatio(nextColor, '#111111') >= 4.5) {
+            tagStyle.color = '#111111';
+          } else {
+            tagStyle.color = '#000000';
+          }
         }
       } else {
         const hsl = new FastColor(nextColor).toHsl();
