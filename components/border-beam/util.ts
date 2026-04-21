@@ -315,6 +315,27 @@ export const getRadiusTokenValue = (token: string): number | undefined => {
   return undefined;
 };
 
+// Detect whether a parsed radius value has any visible rounding.
+export const hasRadiusValue = (value: CSSProperties['borderRadius'] | undefined): boolean => {
+  const radiusModel = parseRadiusValue(value);
+
+  if (!radiusModel) {
+    return false;
+  }
+
+  const allTokens = [...radiusModel.horizontal, ...radiusModel.vertical];
+
+  return allTokens.some((token) => {
+    const tokenValue = getRadiusTokenValue(token);
+
+    if (tokenValue === undefined) {
+      return true;
+    }
+
+    return tokenValue > 0;
+  });
+};
+
 // Apply the same token mapping to each corner in the radius model.
 const mapRadiusSequence = (
   sequence: RadiusSequence,

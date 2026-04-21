@@ -7,6 +7,7 @@ import {
   getDefinedRadius,
   getMotionPathRadius,
   getRadiusTokenValue,
+  hasRadiusValue,
   parseRadiusCorner,
   parseRadiusValue,
   toCSSLength,
@@ -34,6 +35,10 @@ describe('BorderBeam util', () => {
     expect(getDefinedRadius(undefined, '   ', 16, '24px')).toBe(16);
     expect(getDefinedRadius(undefined, '   ', '24px')).toBe('24px');
     expect(getDefinedRadius(undefined, '   ')).toBeUndefined();
+    expect(hasRadiusValue('0px')).toBe(false);
+    expect(hasRadiusValue('12px')).toBe(true);
+    expect(hasRadiusValue('0px 0px 12px 12px')).toBe(true);
+    expect(hasRadiusValue('50%')).toBe(true);
   });
 
   it('should normalize beam colors into gradient strings', () => {

@@ -23,6 +23,7 @@ tag: 6.4.0
 <code src="./demo/customized-color.tsx">Customized color</code>
 <code src="./demo/radius.tsx">Rounded container</code>
 <code src="./demo/non-uniform-radius.tsx">Non-uniform radius</code>
+<code src="./demo/style-class.tsx">Semantic style customization</code>
 <code src="./demo/component-token.tsx">Component Token</code>
 
 ## API
@@ -34,9 +35,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | children | Wrapped content | `ReactNode` | - | 6.4.0 | × |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
 | color | Beam color configuration. Supports a single color string or gradient stops | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  6.4.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 
 ## Semantic DOM
 
@@ -53,8 +54,6 @@ Common props ref：[Common props](/docs/react/common-props)
 `BorderBeam` treats the beam as a decorative effect. When `prefers-reduced-motion: reduce` is active, the beam effect is hidden.
 
 ### How do I keep the beam radius aligned with my container? {#faq-radius}
-
-`BorderBeam` will infer the beam track from the root radius provided through component styles, or from the computed radius on the first child.
 
 If you want the content shape to align visually with the beam, configure the radius on the actual content element. The running beam may still apply internal motion smoothing.
 

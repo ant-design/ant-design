@@ -17,6 +17,7 @@ import {
   getComputedRadius,
   getDefinedRadius,
   getMotionPathRadius,
+  hasRadiusValue,
   toCSSLength,
 } from './util';
 import type { BorderBeamColor } from './util';
@@ -145,7 +146,8 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
   // ========================= Radius Sync =========================
   const syncMeasuredChildRadius = useEvent(() => {
-    const childElement = Array.from(rootRef.current?.children ?? []).find(
+    const currentRootElement = rootRef.current;
+    const childElement = Array.from(currentRootElement?.children ?? []).find(
       (node) => !node.classList.contains(`${prefixCls}-beam`),
     ) as HTMLElement | undefined;
 
@@ -153,16 +155,20 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
       prevChildElement === childElement ? prevChildElement : childElement,
     );
 
+    const rootRadius = currentRootElement
+      ? getComputedRadius(window.getComputedStyle(currentRootElement))
+      : undefined;
     const nextChildRadius = childElement
       ? getComputedRadius(window.getComputedStyle(childElement))
       : undefined;
+    const nextMeasuredRadius = hasRadiusValue(rootRadius) ? rootRadius : nextChildRadius;
 
     setMeasuredChildRadius((prevRadius) => {
-      if (prevRadius === nextChildRadius) {
+      if (prevRadius === nextMeasuredRadius) {
         return prevRadius;
       }
 
-      return nextChildRadius;
+      return nextMeasuredRadius;
     });
   });
   const scheduleMeasuredChildRadiusSync = React.useMemo(
@@ -180,7 +186,8 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     }
 
     syncMeasuredChildRadius();
-  }, [needMeasureChildRadius, syncMeasuredChildRadius]);
+    scheduleMeasuredChildRadiusSync();
+  }, [needMeasureChildRadius, scheduleMeasuredChildRadiusSync, syncMeasuredChildRadius]);
 
   useLayoutEffect(() => {
     if (!needMeasureChildRadius || !rootElement) {
@@ -189,7 +196,15 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
     // Re-measure after the DOM commit so late-mounted children do not miss the initial sync window.
     syncMeasuredChildRadius();
-  }, [children, needMeasureChildRadius, rootElement, syncMeasuredChildRadius]);
+    // Retry on the next frame to avoid reading computed radius before class-based styles finish applying.
+    scheduleMeasuredChildRadiusSync();
+  }, [
+    children,
+    needMeasureChildRadius,
+    rootElement,
+    scheduleMeasuredChildRadiusSync,
+    syncMeasuredChildRadius,
+  ]);
 
   const onChildMutate = useEvent(() => {
     scheduleMeasuredChildRadiusSync();

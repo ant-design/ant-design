@@ -24,6 +24,7 @@ tag: 6.4.0
 <code src="./demo/customized-color.tsx">自定义颜色</code>
 <code src="./demo/radius.tsx">圆角容器</code>
 <code src="./demo/non-uniform-radius.tsx">不规则圆角</code>
+<code src="./demo/style-class.tsx">语义化样式定制</code>
 <code src="./demo/component-token.tsx">组件 Token</code>
 
 ## API
@@ -35,9 +36,9 @@ tag: 6.4.0
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | children | 被包裹内容 | `ReactNode` | - | 6.4.0 | × |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 
 ## Semantic DOM
 
@@ -54,8 +55,6 @@ tag: 6.4.0
 `BorderBeam` 会将流光视为装饰效果。当命中 `prefers-reduced-motion: reduce` 时，组件会隐藏 beam 效果。
 
 ### 如何让流光边框跟随容器圆角？ {#faq-radius}
-
-`BorderBeam` 会优先读取通过组件样式传入的根节点圆角，或第一个子节点的计算后圆角来推导流光轨迹。
 
 如果希望内容轮廓与流光轨迹在视觉上对齐，直接为实际内容元素配置圆角即可。动画轨迹在运行时可能会做内部平滑处理。
 
