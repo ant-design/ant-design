@@ -1,14 +1,16 @@
 import React from 'react';
-import { BorderBeam, Col, Flex, Row, theme, Typography } from 'antd';
+import { BorderBeam, Card, Flex, Segmented, Tag, theme, Typography } from 'antd';
 import type { BorderBeamGradient } from 'antd';
 
 const presets: Array<{
+  key: string;
   name: string;
   usage: string;
   description: string;
   color: BorderBeamGradient;
 }> = [
   {
+    key: 'ocean',
     name: 'Ocean',
     usage: 'Dashboard',
     description: 'A calm blue-green accent that works well for data views and cloud tooling.',
@@ -19,6 +21,7 @@ const presets: Array<{
     ],
   },
   {
+    key: 'sunset',
     name: 'Sunset',
     usage: 'Upgrade',
     description: 'A warm highlight for upgrade prompts, featured cards, and marketing blocks.',
@@ -29,6 +32,7 @@ const presets: Array<{
     ],
   },
   {
+    key: 'aurora',
     name: 'Aurora',
     usage: 'AI',
     description:
@@ -40,6 +44,7 @@ const presets: Array<{
     ],
   },
   {
+    key: 'forest',
     name: 'Forest',
     usage: 'Recommendation',
     description:
@@ -50,57 +55,81 @@ const presets: Array<{
       { color: '#facc15', percent: 100 },
     ],
   },
+  {
+    key: 'ember',
+    name: 'Ember',
+    usage: 'Alert',
+    description: 'A high-energy warm gradient for important alerts, launch cards, and hot paths.',
+    color: [
+      { color: '#fa541c', percent: 0 },
+      { color: '#ff7875', percent: 46 },
+      { color: '#ffd666', percent: 100 },
+    ],
+  },
+  {
+    key: 'nebula',
+    name: 'Nebula',
+    usage: 'Labs',
+    description: 'A cool purple-pink mix that fits experimental modules and product lab surfaces.',
+    color: [
+      { color: '#2f54eb', percent: 0 },
+      { color: '#722ed1', percent: 44 },
+      { color: '#ff85c0', percent: 100 },
+    ],
+  },
 ];
 
-const cardRadius = 24;
-const PREVIEW_VISIBLE_PERCENT = 70;
-const getPreviewPercent = (percent: number) =>
-  Number(((Math.min(Math.max(percent, 0), 100) / 100) * PREVIEW_VISIBLE_PERCENT).toFixed(2));
-const getPalettePreview = (color: BorderBeamGradient) =>
-  `linear-gradient(to right, ${color
-    .map((item) => `${item.color} ${getPreviewPercent(item.percent)}%`)
-    .join(', ')}, transparent 100%)`;
+const defaultPresetKey = presets[0].key;
 
 const App: React.FC = () => {
   const { token } = theme.useToken();
+  const [currentPresetKey, setCurrentPresetKey] = React.useState(defaultPresetKey);
+  const currentPreset = presets.find((preset) => preset.key === currentPresetKey) ?? presets[0];
+  const gradientPreview = `linear-gradient(90deg, ${currentPreset.color
+    .map((item) => `${item.color} ${item.percent}%`)
+    .join(', ')})`;
 
   return (
-    <Row gutter={[24, 24]}>
-      {presets.map((preset) => (
-        <Col key={preset.name} xs={24} md={12}>
-          <BorderBeam color={preset.color}>
-            <Flex
-              vertical
-              gap={16}
-              style={{
-                padding: 24,
-                borderRadius: cardRadius,
-                border: `${token.lineWidth}px solid ${token.colorBorderSecondary}`,
-                background: token.colorBgContainer,
-                boxShadow: token.boxShadowTertiary,
-              }}
-            >
-              <Flex align="center" justify="space-between" gap={12}>
-                <Typography.Text type="secondary">{preset.usage}</Typography.Text>
-                <div
-                  style={{
-                    width: 64,
-                    height: 10,
-                    borderRadius: 999,
-                    border: `${token.lineWidth}px solid ${token.colorBorder}`,
-                    background: getPalettePreview(preset.color),
-                  }}
-                />
-              </Flex>
-              <Typography.Title level={4} style={{ margin: 0 }}>
-                {preset.name}
-              </Typography.Title>
-              <Typography.Text type="secondary">{preset.description}</Typography.Text>
-            </Flex>
-          </BorderBeam>
-        </Col>
-      ))}
-    </Row>
+    <Flex vertical gap={16} style={{ maxWidth: 480 }}>
+      <Segmented
+        block
+        options={presets.map((preset) => ({
+          label: preset.name,
+          value: preset.key,
+        }))}
+        value={currentPresetKey}
+        onChange={(value) => setCurrentPresetKey(value as string)}
+      />
+      <BorderBeam color={currentPreset.color}>
+        <Card
+          title={currentPreset.name}
+          extra={<Tag variant="filled">{currentPreset.usage}</Tag>}
+          styles={{
+            body: {
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 16,
+            },
+          }}
+        >
+          <Typography.Text type="secondary">{currentPreset.description}</Typography.Text>
+          <div
+            style={{
+              height: 10,
+              border: `${token.lineWidth}px solid ${token.colorBorder}`,
+              background: gradientPreview,
+            }}
+          />
+          <Flex gap={8} wrap>
+            {currentPreset.color.map((item) => (
+              <Tag key={`${item.color}-${item.percent}`} color={item.color} variant="filled">
+                {item.percent}%
+              </Tag>
+            ))}
+          </Flex>
+        </Card>
+      </BorderBeam>
+    </Flex>
   );
 };
 

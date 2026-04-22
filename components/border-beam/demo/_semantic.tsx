@@ -1,5 +1,5 @@
 import React from 'react';
-import { BorderBeam, theme, Typography } from 'antd';
+import { BorderBeam, Card, theme, Typography } from 'antd';
 import type { BorderBeamProps } from 'antd';
 
 import useLocale from '../../../.dumi/hooks/useLocale';
@@ -18,22 +18,19 @@ const locales = {
 
 const Block: React.FC<Readonly<BorderBeamProps>> = (props) => {
   const { token } = theme.useToken();
-  const radius = 20;
   const { style, ...restProps } = props;
 
   return (
     <BorderBeam {...restProps} color={token.colorInfo} style={{ width: 320, ...style }}>
-      <div
+      <Card
+        title="Semantic DOM Preview"
         style={{
-          padding: 24,
-          borderRadius: radius,
-          border: `${token.lineWidth}px solid ${token.colorBorderSecondary}`,
           background: token.colorBgContainer,
           boxShadow: token.boxShadowTertiary,
         }}
       >
         <Typography.Text strong>Semantic DOM Preview</Typography.Text>
-      </div>
+      </Card>
     </BorderBeam>
   );
 };

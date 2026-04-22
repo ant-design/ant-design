@@ -1,14 +1,16 @@
 import React from 'react';
-import { BorderBeam, Flex, theme, Typography } from 'antd';
+import { BorderBeam, Card, theme, Typography } from 'antd';
 import type { BorderBeamProps } from 'antd';
 
-const radius = 24;
-
 const classNames: BorderBeamProps['classNames'] = {
+  root: 'demo-border-beam-root',
   beam: 'demo-border-beam-beam',
 };
 
 const styles: BorderBeamProps['styles'] = {
+  root: {
+    boxShadow: '0 0 0 1px rgba(22, 119, 255, 0.12)',
+  },
   beam: {
     opacity: 0.9,
   },
@@ -21,6 +23,10 @@ const App: React.FC = () => {
     <>
       <style>
         {`
+          .demo-border-beam-root {
+            transition: box-shadow 0.3s ease;
+          }
+
           .demo-border-beam-beam::before {
             filter: saturate(1.15);
           }
@@ -28,24 +34,18 @@ const App: React.FC = () => {
       </style>
       <div style={{ width: 360 }}>
         <BorderBeam classNames={classNames} styles={styles}>
-          <Flex
-            vertical
-            gap={8}
+          <Card
+            title="Semantic customization"
             style={{
-              padding: 24,
-              borderRadius: radius,
-              border: `${token.lineWidth}px solid ${token.colorBorderSecondary}`,
               background: token.colorBgContainer,
               boxShadow: token.boxShadowTertiary,
             }}
           >
-            <Typography.Title level={4} style={{ margin: 0 }}>
-              Semantic customization
-            </Typography.Title>
             <Typography.Text type="secondary">
-              Use `classNames.beam` and `styles.beam` to fine tune the decorative beam layer.
+              Use `classNames.root`, `classNames.beam`, and `styles.beam` to fine tune the decorated
+              root and beam layer.
             </Typography.Text>
-          </Flex>
+          </Card>
         </BorderBeam>
       </div>
     </>

@@ -1,29 +1,13 @@
 import React from 'react';
-import { BorderBeam, ConfigProvider, Flex, theme, Typography } from 'antd';
-
-const radius = 20;
+import { BorderBeam, Card, ConfigProvider, Flex, Typography } from 'antd';
 
 const Panel: React.FC<{ title: string; desc: string }> = ({ title, desc }) => {
-  const { token } = theme.useToken();
-
   return (
     <div style={{ width: 320 }}>
       <BorderBeam>
-        <Flex
-          vertical
-          gap={8}
-          style={{
-            padding: 24,
-            borderRadius: radius,
-            border: `${token.lineWidth}px solid ${token.colorBorderSecondary}`,
-            background: token.colorBgContainer,
-          }}
-        >
-          <Typography.Title level={4} style={{ margin: 0 }}>
-            {title}
-          </Typography.Title>
+        <Card title={title}>
           <Typography.Text type="secondary">{desc}</Typography.Text>
-        </Flex>
+        </Card>
       </BorderBeam>
     </div>
   );

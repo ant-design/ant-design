@@ -21,11 +21,10 @@ tag: 6.4.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
-<code src="./demo/customized-color.tsx">推荐配色</code>
-<code src="./demo/radius.tsx">圆角容器</code>
-<code src="./demo/non-uniform-radius.tsx">不规则圆角</code>
-<code src="./demo/style-class.tsx">语义化样式定制</code>
-<code src="./demo/component-token.tsx">组件 Token</code>
+<code src="./demo/customized-color.tsx">渐变色</code>
+<code src="./demo/style-class.tsx">语义定制</code>
+<code src="./demo/non-uniform-radius.tsx" debug>不规则圆角</code>
+<code src="./demo/component-token.tsx" debug>组件 Token</code>
 
 ## API
 

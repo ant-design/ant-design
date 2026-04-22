@@ -20,11 +20,10 @@ tag: 6.4.0
 
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">Basic</code>
-<code src="./demo/customized-color.tsx">Preset palettes</code>
-<code src="./demo/radius.tsx">Rounded container</code>
-<code src="./demo/non-uniform-radius.tsx">Non-uniform radius</code>
-<code src="./demo/style-class.tsx">Semantic style customization</code>
-<code src="./demo/component-token.tsx">Component Token</code>
+<code src="./demo/customized-color.tsx">Gradients</code>
+<code src="./demo/style-class.tsx">Semantic customization</code>
+<code src="./demo/non-uniform-radius.tsx" debug>Non-uniform radius</code>
+<code src="./demo/component-token.tsx" debug>Component Token</code>
 
 ## API
 
