@@ -31,7 +31,6 @@ export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
   columns?: FooterColumn[];
   theme?: 'dark' | 'light';
   className?: string;
-  rootClassName?: string;
   style?: React.CSSProperties;
   backgroundColor?: string;
   columnLayout?: 'space-around' | 'space-between';
@@ -41,7 +40,6 @@ const Footer: React.FC<FooterProps> = (props) => {
   const {
     prefixCls: customizePrefixCls,
     className,
-    rootClassName,
     style,
     theme,
     ...restProps
@@ -60,7 +58,6 @@ const Footer: React.FC<FooterProps> = (props) => {
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
-    rootClassName,
   );
 
   return (

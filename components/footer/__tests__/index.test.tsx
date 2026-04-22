@@ -33,6 +33,36 @@ describe('Footer', () => {
     expect(container.querySelector('.ant-footer-bottom')).toHaveTextContent('Copyright');
   });
 
+  it('should render correctly with empty columns', () => {
+    const { container } = render(<Footer columns={[]} />);
+
+    expect(container.querySelector('.ant-footer')).toBeTruthy();
+    expect(container.querySelector('.ant-footer-columns')).toBeFalsy();
+  });
+
+  it('should render icon correctly', () => {
+    const { container } = render(
+      <Footer
+        columns={[
+          {
+            title: 'Community',
+            icon: <span data-testid="column-icon" />,
+            items: [
+              {
+                title: 'GitHub',
+                url: 'https://github.com',
+                icon: <span data-testid="item-icon" />,
+              },
+            ],
+          },
+        ]}
+      />,
+    );
+
+    expect(container.querySelector('[data-testid="column-icon"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="item-icon"]')).toBeTruthy();
+  });
+
   it('should support theme', () => {
     const { container, rerender } = render(
       <Footer theme="dark" columns={[]} />,
