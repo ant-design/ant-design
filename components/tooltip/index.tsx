@@ -189,17 +189,25 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const [, token] = useToken();
 
+  const injectFromPopover = props['data-popover-inject'];
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    ...semanticConfig
+  } = useComponentConfig('tooltip');
+
+  // When injected from Popover/Popconfirm, skip tooltip-specific semantic config
+  // to prevent ConfigProvider tooltip config from leaking into those components
+  const {
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
-  } = useComponentConfig('tooltip');
+  }: Partial<typeof semanticConfig> = injectFromPopover ? {} : semanticConfig;
 
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
@@ -300,8 +308,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
   const rootPrefixCls = getPrefixCls();
-
-  const injectFromPopover = props['data-popover-inject'];
 
   let tempOpen = open;
   // Hide tooltip when there is no title or in table measure row

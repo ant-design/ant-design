@@ -1033,6 +1033,44 @@ exports[`renders components/card/demo/meta.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/card/demo/no-body-debug.tsx correctly 1`] = `
+<div
+  class="ant-card ant-card-bordered css-var-test-id"
+  style="width:300px"
+>
+  <div
+    class="ant-card-cover"
+  >
+    <img
+      alt="example"
+      src="https://api.dicebear.com/7.x/miniavs/svg?seed=8"
+    />
+  </div>
+  <ul
+    class="ant-card-actions"
+  >
+    <li
+      style="width:50%"
+    >
+      <span>
+        <span>
+          setting
+        </span>
+      </span>
+    </li>
+    <li
+      style="width:50%"
+    >
+      <span>
+        <span>
+          edit
+        </span>
+      </span>
+    </li>
+  </ul>
+</div>
+`;
+
 exports[`renders components/card/demo/simple.tsx correctly 1`] = `
 <div
   class="ant-card ant-card-bordered css-var-test-id"
