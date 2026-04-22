@@ -95,4 +95,27 @@ describe('DatePicker.typescript', () => {
 
     expect(datePicker).toBeTruthy();
   });
+
+  it('DatePicker should support tagRender when multiple is true', () => {
+    const datePicker = (
+      <DatePicker
+        multiple
+        tagRender={({ label, value, closable, disabled, onClose }) => {
+          value.format('YYYY-MM-DD');
+          const isClosable: boolean = closable;
+          const isDisabled: boolean = disabled;
+          void isClosable;
+          void isDisabled;
+
+          return (
+            <button type="button" onClick={onClose}>
+              {label}
+            </button>
+          );
+        }}
+      />
+    );
+
+    expect(datePicker).toBeTruthy();
+  });
 });
