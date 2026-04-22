@@ -1,12 +1,12 @@
 import React from 'react';
 
 import BorderBeam from '..';
-import useBorderBeamRadius from '../hooks/useBorderBeamRadius';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
+import useBorderBeamRadius from '../hooks/useBorderBeamRadius';
 
 describe('BorderBeam', () => {
   mountTest(() => <BorderBeam>content</BorderBeam>);
@@ -60,7 +60,7 @@ describe('BorderBeam', () => {
     const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
 
     expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
-      'linear-gradient(to left, #1677ff 0%, #36cfc9 55%, #95de64 100%, transparent)',
+      'linear-gradient(to left, #1677ff 0%, #36cfc9 38.5%, #95de64 70%, transparent)',
     );
   });
 

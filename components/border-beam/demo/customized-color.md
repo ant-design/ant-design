@@ -1,7 +1,7 @@
 ## zh-CN
 
-通过 `color` 自定义流光颜色，支持单色字符串或渐变停靠点数组。
+推荐几组可直接使用的渐变流光配色。你可以直接复用这些组合，或基于它们继续微调。
 
 ## en-US
 
-Customize the beam color with `color`, which supports a single color string or gradient stops.
+Recommended gradient beam palettes you can use directly, or tweak further to match your product.

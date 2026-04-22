@@ -14,8 +14,19 @@ type BorderBeamGradientItem = {
 };
 export type BorderBeamGradient = BorderBeamGradientItem[];
 export type BorderBeamColor = string | BorderBeamGradient;
+const MAX_BEAM_COLOR_STOP_PERCENT = 70;
 
 // ============================ Color ============================
+
+// Map user-facing 0~100 stops into the visible beam segment so the tail area stays reserved.
+// We scale instead of hard-clamping because users describe the gradient against the full beam length:
+// `30` should stay around the first third of the visible segment, rather than remain `30%` after
+// the available range shrinks, which would distort the original color distribution.
+const getMappedBeamColorStopPercent = (percent: number) => {
+  const clampedPercent = Math.min(Math.max(percent, 0), 100);
+
+  return Number(((clampedPercent / 100) * MAX_BEAM_COLOR_STOP_PERCENT).toFixed(2));
+};
 
 // Build the beam gradient from a solid color or explicit gradient stops.
 export const getBorderBeamGradient = (
@@ -36,7 +47,7 @@ export const getBorderBeamGradient = (
   }
 
   if (Array.isArray(value)) {
-    // Normalize custom gradient stops so CSS output stays deterministic.
+    // Reserve the trailing section for fade-out so custom gradients keep a visible tail.
     const normalizedStops = value
       .filter(
         (item): item is BorderBeamGradient[number] =>
@@ -44,7 +55,7 @@ export const getBorderBeamGradient = (
       )
       .map((item) => ({
         color: item.color.trim(),
-        percent: Math.min(Math.max(item.percent, 0), 100),
+        percent: getMappedBeamColorStopPercent(item.percent),
       }))
       .sort((prev, next) => prev.percent - next.percent);
 

@@ -64,7 +64,7 @@ describe('BorderBeam util', () => {
         '#1677ff',
         '#4096ff',
       ),
-    ).toBe('linear-gradient(to left, #1677ff 0%, #36cfc9 55%, #95de64 100%, transparent)');
+    ).toBe('linear-gradient(to left, #1677ff 0%, #36cfc9 38.5%, #95de64 70%, transparent)');
     expect(getBorderBeamGradient([{ color: '   ', percent: 20 }], '#1677ff', '#4096ff')).toBe(
       'linear-gradient(to left, #1677ff, #4096ff, transparent)',
     );
