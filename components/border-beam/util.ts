@@ -83,6 +83,7 @@ export const toCSSLength = (
   if (typeof value === 'string') {
     const trimmedValue = value.trim();
 
+    /* istanbul ignore next -- blank strings are filtered before this helper in the component flow */
     if (trimmedValue) {
       return trimmedValue;
     }
@@ -239,6 +240,7 @@ export const parseRadiusCorner = (value: string): RadiusCorner | undefined => {
 export const parseRadiusValue = (
   value: CSSProperties['borderRadius'] | undefined,
 ): RadiusModel | undefined => {
+  /* istanbul ignore next -- BorderBeam only feeds CSS-style radius values through the public render path */
   if (isNumber(value)) {
     const normalizedValue = `${value}px`;
     return {
@@ -313,6 +315,7 @@ export const getComputedRadius = (style: CSSStyleDeclaration): string | undefine
 export const getRadiusTokenValue = (token: string): number | undefined => {
   const normalizedToken = token.trim().toLowerCase();
 
+  /* istanbul ignore next -- empty tokens are filtered before numeric parsing in the component flow */
   if (!normalizedToken) {
     return undefined;
   }

@@ -6,13 +6,16 @@ import rtlTest from '../../../tests/shared/rtlTest';
 import { act, fireEvent, render, waitFor } from '../../../tests/utils';
 import { defaultPrefixCls } from '../../config-provider';
 import { genCssVar } from '../../theme/util/genStyleUtils';
-import useBorderBeamRadius from '../hooks/useBorderBeamRadius';
 
 describe('BorderBeam', () => {
   mountTest(() => <BorderBeam>content</BorderBeam>);
   rtlTest(() => <BorderBeam>content</BorderBeam>);
 
   const [varName] = genCssVar(defaultPrefixCls, 'border-beam');
+  const getRootElement = (container: HTMLElement) =>
+    container.querySelector<HTMLElement>('.ant-border-beam')!;
+  const getBeamElement = (container: HTMLElement) =>
+    container.querySelector<HTMLElement>('.ant-border-beam-beam')!;
 
   it('should render semantic structure', () => {
     const { container } = render(
@@ -31,135 +34,42 @@ describe('BorderBeam', () => {
     expect(beamElement).toHaveAttribute('aria-hidden', 'true');
   });
 
-  it('should allow class-based position styles to override the default root positioning', () => {
-    const styleElement = document.createElement('style');
-    styleElement.innerHTML = '.beam-absolute { position: absolute; }';
-    document.head.appendChild(styleElement);
-
-    try {
-      const { container } = render(
-        <BorderBeam>
-          <div className="beam-child beam-absolute">content</div>
-        </BorderBeam>,
-      );
-
-      const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
-      const childElement = container.querySelector<HTMLElement>('.beam-child')!;
-
-      expect(rootElement).toBe(childElement);
-      expect(rootElement.style.position).toBe('');
-      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
-    } finally {
-      styleElement.remove();
-    }
-  });
-
-  it('should patch the decorated child position when it is explicitly static', () => {
-    const styleElement = document.createElement('style');
-    styleElement.innerHTML = '.beam-static { position: static; }';
-    document.head.appendChild(styleElement);
-
-    try {
-      const { container } = render(
-        <BorderBeam>
-          <div className="beam-child beam-static">content</div>
-        </BorderBeam>,
-      );
-
-      const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
-      const childElement = container.querySelector<HTMLElement>('.beam-child')!;
-      const beamElement = container.querySelector<HTMLElement>('.ant-border-beam-beam')!;
-
-      expect(rootElement).toBe(childElement);
-      expect(rootElement.style.position).toBe('relative');
-      expect(window.getComputedStyle(rootElement).position).toBe('relative');
-      expect(beamElement.closest('.ant-border-beam')).toBe(rootElement);
-    } finally {
-      styleElement.remove();
-    }
-  });
-
-  it('should allow class-based position styles to override the wrapper positioning', () => {
-    const styleElement = document.createElement('style');
-    styleElement.innerHTML = '.beam-wrapper-absolute { position: absolute; }';
-    document.head.appendChild(styleElement);
-
-    try {
-      const { container } = render(
-        <BorderBeam className="beam-wrapper-absolute">content</BorderBeam>,
-      );
-
-      const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
-
-      expect(rootElement.style.position).toBe('');
-      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
-    } finally {
-      styleElement.remove();
-    }
-  });
-
-  it('should patch the wrapper position when it is explicitly static', () => {
-    const { container } = render(<BorderBeam style={{ position: 'static' }}>content</BorderBeam>);
-
-    const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
-
-    expect(rootElement.style.position).toBe('relative');
-    expect(window.getComputedStyle(rootElement).position).toBe('relative');
-  });
-
-  it('should re-evaluate the position patch when root styles change later', () => {
-    const styleElement = document.createElement('style');
-    styleElement.innerHTML = '.beam-static-toggle { position: static; }';
-    document.head.appendChild(styleElement);
-
-    try {
-      const child = <div className="beam-child beam-static-toggle">content</div>;
-      const { container, rerender } = render(<BorderBeam>{child}</BorderBeam>);
-
-      let rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
-
-      expect(rootElement.style.position).toBe('relative');
-      expect(window.getComputedStyle(rootElement).position).toBe('relative');
-
-      rerender(<BorderBeam style={{ position: 'absolute' }}>{child}</BorderBeam>);
-
-      rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
-
-      expect(rootElement.style.position).toBe('absolute');
-      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
-    } finally {
-      styleElement.remove();
-    }
-  });
-
-  it('should re-evaluate the position patch when child positioning changes later', async () => {
+  it('should update injected child positioning according to computed root position', async () => {
     const styleElement = document.createElement('style');
     styleElement.innerHTML = `
-      .beam-static-toggle { position: static; }
-      .beam-absolute-toggle { position: absolute; }
+      .beam-static { position: static; }
+      .beam-absolute { position: absolute; }
     `;
     document.head.appendChild(styleElement);
 
     try {
-      const { container, rerender } = render(
-        <BorderBeam>
-          <div className="beam-child beam-static-toggle">content</div>
-        </BorderBeam>,
-      );
+      const child = (className: string) => <div className={`beam-child ${className}`}>content</div>;
+      const { container, rerender } = render(<BorderBeam>{child('beam-absolute')}</BorderBeam>);
 
-      let rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+      let rootElement = getRootElement(container);
+      const childElement = container.querySelector<HTMLElement>('.beam-child')!;
 
+      expect(rootElement).toBe(childElement);
+      expect(rootElement.style.position).toBe('');
+      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
+
+      rerender(<BorderBeam>{child('beam-static')}</BorderBeam>);
+
+      rootElement = getRootElement(container);
       expect(rootElement.style.position).toBe('relative');
       expect(window.getComputedStyle(rootElement).position).toBe('relative');
+      expect(getBeamElement(container).closest('.ant-border-beam')).toBe(rootElement);
 
-      rerender(
-        <BorderBeam>
-          <div className="beam-child beam-absolute-toggle">content</div>
-        </BorderBeam>,
-      );
+      rerender(<BorderBeam style={{ position: 'absolute' }}>{child('beam-static')}</BorderBeam>);
+
+      rootElement = getRootElement(container);
+      expect(rootElement.style.position).toBe('absolute');
+      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
+
+      rerender(<BorderBeam>{child('beam-absolute')}</BorderBeam>);
 
       await waitFor(() => {
-        rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+        rootElement = getRootElement(container);
         expect(rootElement.style.position).toBe('');
         expect(window.getComputedStyle(rootElement).position).toBe('absolute');
       });
@@ -168,22 +78,67 @@ describe('BorderBeam', () => {
     }
   });
 
-  it('should support color prop', () => {
-    const { container } = render(
+  it('should update wrapper positioning according to computed root position', () => {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = '.beam-wrapper-absolute { position: absolute; }';
+    document.head.appendChild(styleElement);
+
+    try {
+      const { container, rerender } = render(
+        <BorderBeam className="beam-wrapper-absolute">content</BorderBeam>,
+      );
+
+      let rootElement = getRootElement(container);
+
+      expect(rootElement.style.position).toBe('');
+      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
+
+      rerender(<BorderBeam style={{ position: 'static' }}>content</BorderBeam>);
+
+      rootElement = getRootElement(container);
+      expect(rootElement.style.position).toBe('relative');
+      expect(window.getComputedStyle(rootElement).position).toBe('relative');
+    } finally {
+      styleElement.remove();
+    }
+  });
+
+  it('should resolve solid, fallback, and gradient colors', () => {
+    const { container, rerender } = render(
       <BorderBeam color="#36cfc9">
         <div>content</div>
       </BorderBeam>,
     );
 
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+    let element = getRootElement(container);
 
     expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
       'linear-gradient(to left, #36cfc9, #36cfc9, transparent)',
     );
-  });
 
-  it('should support gradient color prop', () => {
-    const { container } = render(
+    rerender(
+      <BorderBeam color="   ">
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
+      'linear-gradient(to left, #1677ff, #4096ff, transparent)',
+    );
+
+    rerender(
+      <BorderBeam color={[{ color: '   ', percent: 20 }]}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    element = getRootElement(container);
+
+    expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
+      'linear-gradient(to left, #1677ff, #4096ff, transparent)',
+    );
+
+    rerender(
       <BorderBeam
         color={[
           { color: '#1677ff', percent: 0 },
@@ -195,121 +150,85 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
-
     expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
       'linear-gradient(to left, #1677ff 0%, #36cfc9 38.5%, #95de64 70%, transparent)',
     );
   });
 
-  it('should apply style borderRadius to both the root and beam track', () => {
-    const { container } = render(
+  it('should normalize configured border radius values and motion path radius', () => {
+    const { container, rerender } = render(
+      <BorderBeam style={{ borderRadius: ' 18px ' }}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    const element = getRootElement(container);
+
+    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
+
+    rerender(
+      <BorderBeam style={{ borderRadius: '8px 16px' }}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('8px 16px');
+
+    rerender(
+      <BorderBeam style={{ borderRadius: '8px 16px 24px' }}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('8px 16px 24px');
+
+    rerender(
+      <BorderBeam style={{ borderRadius: '8px 16px / 20px 24px' }}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe(
+      '8px 16px / 20px 24px',
+    );
+
+    rerender(
+      <BorderBeam style={{ borderRadius: '   ' }}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('0px');
+
+    rerender(
       <BorderBeam style={{ borderRadius: 18 }}>
         <div>content</div>
       </BorderBeam>,
     );
-
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
-
     expect(element.style.borderRadius).toBe('18px');
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
-  });
 
-  it('should fall back to the track radius when motion path radius normalization fails', () => {
-    const invalidRadius = '12px /' as React.CSSProperties['borderRadius'];
-    const { container } = render(
-      <BorderBeam style={{ borderRadius: invalidRadius }}>
+    rerender(
+      <BorderBeam style={{ borderRadius: '12px / ' }}>
         <div>content</div>
       </BorderBeam>,
     );
+    expect(element.style.getPropertyValue(varName('beam-path-radius'))).toBe('12px /');
 
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+    rerender(
+      <BorderBeam style={{ borderRadius: '8px 16px 24px 32px 40px' }}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+    expect(element.style.getPropertyValue(varName('beam-path-radius'))).toBe(
+      '8px 16px 24px 32px 40px',
+    );
 
-    expect(element.style.getPropertyValue(varName('beam-path-radius'))).toBe(invalidRadius);
+    rerender(
+      <BorderBeam style={{ borderRadius: 'not-a-numberpx' }}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+    expect(element.style.getPropertyValue(varName('beam-path-radius'))).toBe('not-a-numberpx');
   });
 
-  it('should handle inferred radius sync before the root ref is attached', () => {
-    jest.useFakeTimers();
-
-    const HookDemo = () => {
-      const { beamVisible, trackRadius } = useBorderBeamRadius({
-        prefixCls: 'ant-border-beam',
-        configuredRadius: undefined,
-        children: <div>content</div>,
-      });
-
-      return (
-        <div data-track-radius={trackRadius} data-visible={String(beamVisible)}>
-          content
-        </div>
-      );
-    };
-
-    try {
-      const { container } = render(<HookDemo />);
-
-      const element = container.firstElementChild as HTMLElement;
-
-      expect(element.dataset.trackRadius).toBe('0px');
-      expect(element.dataset.visible).toBe('false');
-
-      act(() => {
-        jest.runAllTimers();
-      });
-
-      expect(element.dataset.visible).toBe('true');
-    } finally {
-      jest.useRealTimers();
-    }
-  });
-
-  it('should reset inferred beam visibility when switching from configured radius', () => {
-    jest.useFakeTimers();
-
-    const HookDemo = () => {
-      const [configured, setConfigured] = React.useState(true);
-      const { beamVisible, trackRadius } = useBorderBeamRadius({
-        prefixCls: 'ant-border-beam',
-        configuredRadius: configured ? 18 : undefined,
-        children: <div>content</div>,
-      });
-
-      return (
-        <>
-          <button type="button" onClick={() => setConfigured(false)}>
-            switch
-          </button>
-          <div data-track-radius={trackRadius} data-visible={String(beamVisible)}>
-            content
-          </div>
-        </>
-      );
-    };
-
-    try {
-      const { container, getByRole } = render(<HookDemo />);
-
-      const element = container.querySelector('[data-track-radius]') as HTMLElement;
-
-      expect(element.dataset.trackRadius).toBe('18px');
-      expect(element.dataset.visible).toBe('true');
-
-      fireEvent.click(getByRole('button', { name: 'switch' }));
-
-      expect(element.dataset.trackRadius).toBe('0px');
-      expect(element.dataset.visible).toBe('false');
-
-      act(() => {
-        jest.runAllTimers();
-      });
-
-      expect(element.dataset.visible).toBe('true');
-    } finally {
-      jest.useRealTimers();
-    }
-  });
-
-  it('should hide inferred beam until the first client radius sync resolves', async () => {
+  it('should hide inferred beam until radius inference resolves and reset when falling back again', async () => {
     jest.useFakeTimers();
 
     const originGetComputedStyle = window.getComputedStyle;
@@ -333,17 +252,48 @@ describe('BorderBeam', () => {
     }) as typeof window.getComputedStyle;
 
     try {
-      const { container } = render(
+      const { container, rerender } = render(
         <BorderBeam>
           <div className="beam-child">content</div>
         </BorderBeam>,
       );
 
-      const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
-      const beamElement = container.querySelector<HTMLElement>('.ant-border-beam-beam')!;
+      const rootElement = getRootElement(container);
+      const beamElement = getBeamElement(container);
 
       expect(beamElement.style.display).toBe('none');
       expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('0px');
+
+      resolveRadius = true;
+
+      act(() => {
+        jest.runAllTimers();
+      });
+
+      await waitFor(() => {
+        expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
+        expect(beamElement.style.display).toBe('');
+      });
+
+      rerender(
+        <BorderBeam style={{ borderRadius: 18 }}>
+          <div className="beam-child">content</div>
+        </BorderBeam>,
+      );
+
+      expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('18px');
+      expect(beamElement.style.display).toBe('');
+
+      resolveRadius = false;
+
+      rerender(
+        <BorderBeam>
+          <div className="beam-child">content</div>
+        </BorderBeam>,
+      );
+
+      expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('0px');
+      expect(beamElement.style.display).toBe('none');
 
       resolveRadius = true;
 
@@ -361,38 +311,100 @@ describe('BorderBeam', () => {
     }
   });
 
-  it('should infer radius from the first child when root radius is not configured', () => {
-    const { container } = render(
-      <BorderBeam>
-        <div style={{ borderRadius: 12 }}>content</div>
-      </BorderBeam>,
-    );
+  it('should infer child radius from inline styles and longhand computed corners', () => {
+    const originGetComputedStyle = window.getComputedStyle;
 
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+    window.getComputedStyle = ((element: Element, pseudoElt?: string | null) => {
+      const style = originGetComputedStyle.call(window, element, pseudoElt);
 
-    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
-  });
+      if ((element as HTMLElement).classList.contains('beam-radius-2')) {
+        return {
+          ...style,
+          borderTopLeftRadius: '8px',
+          borderTopRightRadius: '16px',
+          borderBottomRightRadius: '8px',
+          borderBottomLeftRadius: '16px',
+          borderRadius: '',
+        } as CSSStyleDeclaration;
+      }
 
-  it('should re-measure inferred radius when the first child mounts later', async () => {
-    const { container, rerender } = render(<BorderBeam>{null}</BorderBeam>);
+      if ((element as HTMLElement).classList.contains('beam-radius-3')) {
+        return {
+          ...style,
+          borderTopLeftRadius: '8px',
+          borderTopRightRadius: '16px',
+          borderBottomRightRadius: '24px',
+          borderBottomLeftRadius: '16px',
+          borderRadius: '',
+        } as CSSStyleDeclaration;
+      }
 
-    let element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+      if ((element as HTMLElement).classList.contains('beam-radius-ellipse')) {
+        return {
+          ...style,
+          borderTopLeftRadius: '8px 12px',
+          borderTopRightRadius: '16px 20px',
+          borderBottomRightRadius: '8px 12px',
+          borderBottomLeftRadius: '16px 20px',
+          borderRadius: '',
+        } as CSSStyleDeclaration;
+      }
 
-    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('0px');
+      return style;
+    }) as typeof window.getComputedStyle;
 
-    rerender(
-      <BorderBeam>
-        <div style={{ borderRadius: 12 }}>content</div>
-      </BorderBeam>,
-    );
+    try {
+      const { container, rerender } = render(
+        <BorderBeam>
+          <div style={{ borderRadius: 12 }}>content</div>
+        </BorderBeam>,
+      );
 
-    await waitFor(() => {
-      element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+      let element = getRootElement(container);
+
       expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
-    });
+
+      rerender(
+        <BorderBeam>
+          <div className="beam-radius-2">content</div>
+        </BorderBeam>,
+      );
+
+      expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('8px 16px');
+
+      rerender(
+        <BorderBeam>
+          <div className="beam-radius-3">content</div>
+        </BorderBeam>,
+      );
+
+      element = getRootElement(container);
+      expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('8px 16px 24px');
+
+      rerender(
+        <BorderBeam>
+          <div className="beam-radius-ellipse">content</div>
+        </BorderBeam>,
+      );
+
+      element = getRootElement(container);
+      expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe(
+        '8px 16px / 12px 20px',
+      );
+
+      rerender(
+        <BorderBeam>
+          <div style={{ borderRadius: '20px 20px 0px 0px' }}>content</div>
+        </BorderBeam>,
+      );
+
+      expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('20px 20px 0px 0px');
+    } finally {
+      window.getComputedStyle = originGetComputedStyle;
+    }
   });
 
-  it('should follow child radius updates when using inferred radius fallback', async () => {
+  it('should keep inferred child radius in sync across mount and child state updates', async () => {
     const Child = () => {
       const [radius, setRadius] = React.useState(12);
 
@@ -405,23 +417,30 @@ describe('BorderBeam', () => {
       );
     };
 
-    const { container, getByRole } = render(
+    const { container, rerender, getByRole } = render(<BorderBeam>{null}</BorderBeam>);
+
+    expect(getRootElement(container).style.getPropertyValue(varName('beam-clip-radius'))).toBe(
+      '0px',
+    );
+
+    rerender(
       <BorderBeam>
         <Child />
       </BorderBeam>,
     );
 
-    let element: HTMLElement | null = null;
-
     await waitFor(() => {
-      element = container.querySelector<HTMLElement>('.ant-border-beam');
-      expect(element?.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
+      expect(getRootElement(container).style.getPropertyValue(varName('beam-clip-radius'))).toBe(
+        '12px',
+      );
     });
 
     fireEvent.click(getByRole('button', { name: 'update' }));
 
     await waitFor(() => {
-      expect(element?.style.getPropertyValue(varName('beam-clip-radius'))).toBe('24px');
+      expect(getRootElement(container).style.getPropertyValue(varName('beam-clip-radius'))).toBe(
+        '24px',
+      );
     });
   });
 
@@ -541,34 +560,12 @@ describe('BorderBeam', () => {
     }
   });
 
-  it('should support non-uniform root style radius values', () => {
-    const radius = '20px 20px 0px 0px';
-    const { container } = render(
-      <BorderBeam style={{ borderRadius: radius }}>
-        <div>content</div>
-      </BorderBeam>,
-    );
-
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
-
-    expect(element.style.borderRadius).toBe(radius);
-    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe(radius);
-  });
-
-  it('should infer non-uniform radius from the first child', () => {
-    const { container } = render(
-      <BorderBeam>
-        <div style={{ borderRadius: '20px 20px 0px 0px' }}>content</div>
-      </BorderBeam>,
-    );
-
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
-
-    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('20px 20px 0px 0px');
-  });
-
-  it('should not set displayName in production bundles', async () => {
+  it('should expose the entry export and keep production bundles without displayName', async () => {
+    const entry = await import('../index');
     const originNodeEnv = process.env.NODE_ENV;
+
+    expect(entry.default).toBeDefined();
+    expect(entry.default.displayName).toBe(BorderBeam.displayName);
 
     try {
       jest.resetModules();

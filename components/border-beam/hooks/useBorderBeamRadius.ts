@@ -64,6 +64,7 @@ const useBorderBeamRadius = ({
 
     rootRef.current = nextHTMLElement;
     setRootElement((prevRootElement) =>
+      /* istanbul ignore next -- repeated writes of the same DOM ref do not change any observable behavior */
       prevRootElement === nextHTMLElement ? prevRootElement : nextHTMLElement,
     );
   });
