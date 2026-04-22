@@ -94,6 +94,7 @@
     "test:visual-regression:local": "tsx scripts/visual-regression/local.ts",
     "token:meta": "tsx scripts/generate-token-meta.ts",
     "token:statistic": "tsx scripts/collect-token-statistic.ts",
+    "design:md": "tsx scripts/generate-design-md.ts",
     "tsc": "tsc --noEmit",
     "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
     "version": "tsx scripts/generate-version.ts"
