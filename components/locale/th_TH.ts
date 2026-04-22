@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'กรุณาเลือก',
     close: 'ปิด',
+    show: 'แสดง',
+    hide: 'ซ่อน',
   },
   Table: {
     filterTitle: 'ตัวกรอง',

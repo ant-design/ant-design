@@ -15,22 +15,6 @@ demo:
 - When you need to inform the user of where they are.
 - When the user may need to navigate back to a higher level.
 
-```jsx
-// works when >=5.3.0, recommended ✅
-return <Breadcrumb items={[{ title: 'sample' }]} />;
-
-// works when <5.3.0, deprecated when >=5.3.0 🙅🏻‍♀️
-return (
-  <Breadcrumb>
-    <Breadcrumb.Item>sample</Breadcrumb.Item>
-  </Breadcrumb>
-);
-
-// or
-
-return <Breadcrumb routes={[{ breadcrumbName: 'sample' }]} />;
-```
-
 ## Examples
 
 <!-- prettier-ignore -->
@@ -50,15 +34,15 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Breadcrumb
 
-| Property | Description | Type | Default | Version |
-| --- | --- | --- | --- | --- |
-| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
-| dropdownIcon | Custom dropdown icon | ReactNode | `<DownOutlined />` | 6.2.0 |
-| itemRender | Custom item renderer | (route, params, routes, paths) => ReactNode | - |  |
-| params | Routing parameters | object | - |  |
-| items | The routing stack information of router | [ItemType\[\]](#itemtype) | - | 5.3.0 |
-| separator | Custom separator | ReactNode | `/` |  |
-| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| dropdownIcon | Custom dropdown icon | ReactNode | `<DownOutlined />` | 6.2.0 | 6.2.0 |
+| items | The routing stack information of router (>=5.3.0 recommended, use `Breadcrumb.Item` children for older versions) | [ItemType\[\]](#itemtype) | - | 5.3.0 | × |
+| itemRender | Custom item renderer, work with react-router, see [example](#use-with-browserhistory) | (route, params, routes, paths) => ReactNode | - |  | × |
+| params | Routing parameters | object | - |  | × |
+| separator | Custom separator | ReactNode | `/` |  | 6.0.0 |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
 
 ### ItemType
 

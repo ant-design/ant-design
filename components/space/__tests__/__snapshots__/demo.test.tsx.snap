@@ -4097,6 +4097,26 @@ exports[`renders components/space/demo/compact-nested.tsx correctly 1`] = `
 </div>
 `;
 
+exports[`renders components/space/demo/component-token.tsx correctly 1`] = `
+<div
+  class="ant-space-compact"
+>
+  <div
+    class="ant-space-addon ant-space-addon-compact-item ant-space-addon-compact-first-item css-var-test-id ant-space-addon-variant-outlined"
+  >
+    Addon
+  </div>
+  <button
+    class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-compact-item ant-btn-compact-last-item"
+    type="button"
+  >
+    <span>
+      Button
+    </span>
+  </button>
+</div>
+`;
+
 exports[`renders components/space/demo/debug.tsx correctly 1`] = `
 <div
   class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"

@@ -78,6 +78,8 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ## Semantic DOM
 
+Statistic supports `root`, `header`, `title`, `content`, `value`, `prefix`, and `suffix` semantic DOM nodes.
+
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## Design Token

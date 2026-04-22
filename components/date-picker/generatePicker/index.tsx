@@ -4,16 +4,7 @@ import type { AnyObject } from '../../_util/type';
 import generateRangePicker from './generateRangePicker';
 import generateSinglePicker from './generateSinglePicker';
 
-export type {
-  DatePickerPanelSemanticClassNames,
-  DatePickerPanelSemanticName,
-  DatePickerPanelSemanticStyles,
-  DatePickerSemanticClassNames,
-  DatePickerSemanticName,
-  DatePickerSemanticStyles,
-  PickerLocale,
-  PickerProps,
-} from './interface';
+export type { DatePickerSemanticType, PickerLocale, PickerProps } from './interface';
 
 const generatePicker = <DateType extends AnyObject = AnyObject>(
   generateConfig: GenerateConfig<DateType>,

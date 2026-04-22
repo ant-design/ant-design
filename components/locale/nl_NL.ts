@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Maak een selectie',
     close: 'Sluiten',
+    show: 'Weergeven',
+    hide: 'Verbergen',
   },
   Table: {
     cancelSort: 'Klik om sortering te annuleren',

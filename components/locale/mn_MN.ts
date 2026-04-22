@@ -16,6 +16,8 @@ const localeValues: Locale = {
   global: {
     placeholder: 'Сонгоно уу',
     close: 'Хаах',
+    show: 'Харуулах',
+    hide: 'Нуух',
   },
   Table: {
     filterTitle: 'Хайх цэс',

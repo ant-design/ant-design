@@ -6,13 +6,8 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import {
-  pickClosable,
-  useClosable,
-  useMergedMask,
-  useMergeSemantic,
-  useZIndex,
-} from '../_util/hooks';
+import { pickClosable, useClosable, useMergedMask, useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { isNonNullable, isNumber } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
@@ -25,7 +20,7 @@ import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useFocusable from '../drawer/useFocusable';
 import Skeleton from '../skeleton';
 import { usePanelRef } from '../watermark/context';
-import type { ModalClassNamesType, ModalProps, ModalStylesType, MousePosition } from './interface';
+import type { ModalProps, MousePosition } from './interface';
 import { Footer, renderCloseIcon } from './shared';
 import useStyle from './style';
 
@@ -100,6 +95,7 @@ const Modal: React.FC<ModalProps> = (props) => {
     cancelButtonProps: contextCancelButtonProps,
     okButtonProps: contextOkButtonProps,
     mask: contextMask,
+    focusable: contextFocusable,
   } = useComponentConfig('modal');
 
   const { modal: modalContext } = React.useContext(ConfigContext);
@@ -122,7 +118,11 @@ const Modal: React.FC<ModalProps> = (props) => {
   );
 
   // ========================== Focusable =========================
-  const mergedFocusable = useFocusable(focusable, mergedMask, focusTriggerAfterClose);
+  const mergedFocusable = useFocusable(
+    { ...contextFocusable, ...focusable },
+    mergedMask,
+    focusTriggerAfterClose,
+  );
 
   // ============================ Open ============================
   const handleCancel = (
@@ -218,13 +218,13 @@ const Modal: React.FC<ModalProps> = (props) => {
     zIndex,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ModalClassNamesType,
-    ModalStylesType,
-    ModalProps
-  >([contextClassNames, classNames, maskBlurClassName], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames, maskBlurClassName],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // =========================== Width ============================
   const [numWidth, responsiveWidth] = React.useMemo<

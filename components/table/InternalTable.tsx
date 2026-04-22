@@ -5,8 +5,9 @@ import { convertChildrenToColumns } from '@rc-component/table/lib/hooks/useColum
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useProxyImperativeHandle } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
@@ -23,15 +24,13 @@ import useBreakpoint from '../grid/hooks/useBreakpoint';
 import { useLocale } from '../locale';
 import defaultLocale from '../locale/en_US';
 import Pagination from '../pagination';
-import type {
-  PaginationSemanticClassNames,
-  PaginationSemanticStyles,
-} from '../pagination/Pagination';
+import type { PaginationSemanticType } from '../pagination/Pagination';
 import type { SpinProps } from '../spin';
 import Spin from '../spin';
 import { useToken } from '../theme/internal';
 import renderExpandIcon from './ExpandIcon';
 import useContainerWidth from './hooks/useContainerWidth';
+import useFilledColumns from './hooks/useFilledColumns';
 import type { FilterConfig, FilterState } from './hooks/useFilter';
 import useFilter, { getFilterData } from './hooks/useFilter';
 import useLazyKVMap from './hooks/useLazyKVMap';
@@ -70,58 +69,42 @@ export type { ColumnsType, TablePaginationConfig };
 
 const EMPTY_LIST: AnyObject[] = [];
 
-export type TableSemanticName = keyof TableSemanticClassNames & keyof TableSemanticStyles;
-
-export type TableSemanticClassNames = {
-  root?: string;
-  section?: string;
-  title?: string;
-  footer?: string;
-  content?: string;
-};
-
-export type TableSemanticStyles = {
-  root?: React.CSSProperties;
-  section?: React.CSSProperties;
-  title?: React.CSSProperties;
-  footer?: React.CSSProperties;
-  content?: React.CSSProperties;
-};
-
-export type ComponentsSemantic = keyof ComponentsSemanticClassNames &
-  keyof ComponentsSemanticStyles;
-
-export type ComponentsSemanticClassNames = {
+type ComponentsSemanticClassNames = {
   wrapper?: string;
   cell?: string;
   row?: string;
 };
 
-export type ComponentsSemanticStyles = {
+type ComponentsSemanticStyles = {
   wrapper?: React.CSSProperties;
   cell?: React.CSSProperties;
   row?: React.CSSProperties;
 };
 
-export type TableClassNamesType<RecordType = AnyObject> = SemanticClassNamesType<
-  TableProps<RecordType>,
-  TableSemanticClassNames,
-  {
+export type TableSemanticType = {
+  classNames?: {
+    root?: string;
+    section?: string;
+    title?: string;
+    footer?: string;
     body?: ComponentsSemanticClassNames;
+    content?: string;
     header?: ComponentsSemanticClassNames;
-    pagination?: PaginationSemanticClassNames;
-  }
->;
-
-export type TableStylesType<RecordType = AnyObject> = SemanticStylesType<
-  TableProps<RecordType>,
-  TableSemanticStyles,
-  {
+    pagination?: PaginationSemanticType['classNames'];
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    section?: React.CSSProperties;
+    title?: React.CSSProperties;
+    footer?: React.CSSProperties;
     body?: ComponentsSemanticStyles;
+    content?: React.CSSProperties;
     header?: ComponentsSemanticStyles;
-    pagination?: PaginationSemanticStyles;
-  }
->;
+    pagination?: PaginationSemanticType['styles'];
+  };
+};
+
+export type TableSemanticAllType<T = any> = GenerateSemantic<TableSemanticType, TableProps<T>>;
 
 interface ChangeEventInfo<RecordType = AnyObject> {
   pagination: {
@@ -150,10 +133,11 @@ export interface TableProps<RecordType = AnyObject> extends Omit<
   | 'classNames'
   | 'styles'
 > {
-  classNames?: TableClassNamesType<RecordType>;
-  styles?: TableStylesType<RecordType>;
+  classNames?: TableSemanticAllType<RecordType>['classNamesAndFn'];
+  styles?: TableSemanticAllType<RecordType>['stylesAndFn'];
   dropdownPrefixCls?: string;
   dataSource?: RcTableProps<RecordType>['data'];
+  column?: Partial<ColumnType<RecordType>>;
   columns?: ColumnsType<RecordType>;
   pagination?: false | TablePaginationConfig;
   loading?: boolean | SpinProps;
@@ -179,17 +163,6 @@ export interface TableProps<RecordType = AnyObject> extends Omit<
   virtual?: boolean;
 }
 
-type SemanticType = {
-  classNames: Required<RcTableProps['classNames']> & {
-    root?: string;
-    pagination?: PaginationSemanticClassNames;
-  };
-  styles: Required<RcTableProps['styles']> & {
-    root?: React.CSSProperties;
-    pagination?: PaginationSemanticStyles;
-  };
-};
-
 /** Same as `TableProps` but we need record parent render times */
 export interface InternalTableProps<RecordType = AnyObject> extends TableProps<RecordType> {
   _renderTimes: number;
@@ -214,6 +187,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     rowSelection: customizeRowSelection,
     rowKey: customizeRowKey,
     rowClassName,
+    column,
     columns,
     children,
     childrenColumnName: legacyChildrenColumnName,
@@ -234,10 +208,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   const warning = devUseWarning('Table');
 
-  const baseColumns = React.useMemo(
+  const rawColumns = React.useMemo(
     () => columns || (convertChildrenToColumns(children) as ColumnsType<RecordType>),
     [columns, children],
   );
+  const baseColumns = useFilledColumns(rawColumns, column);
   const needResponsive = React.useMemo(
     () => baseColumns.some((col: ColumnType<RecordType>) => col.responsive),
     [baseColumns],
@@ -251,7 +226,12 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     return baseColumns.filter((c) => !c.responsive || c.responsive.some((r) => matched.has(r)));
   }, [baseColumns, screens]);
 
-  const tableProps: TableProps<RecordType> = omit(props, ['className', 'style', 'columns']);
+  const tableProps: TableProps<RecordType> = omit(props, [
+    'className',
+    'style',
+    'column',
+    'columns',
+  ]);
 
   const { locale: contextLocale = defaultLocale, table } =
     React.useContext<ConfigConsumerProps>(ConfigContext);
@@ -278,11 +258,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
     bordered,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    TableClassNamesType<RecordType>,
-    TableStylesType<RecordType>,
-    TableProps<RecordType>
-  >(
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
     { props: mergedProps },
@@ -297,7 +273,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
         _default: 'wrapper',
       },
     },
-  ) as [SemanticType['classNames'], SemanticType['styles']];
+  );
 
   const tableLocale: TableLocale = { ...contextLocale.Table, ...locale };
   const [globalLocale] = useLocale('global', defaultLocale.global);

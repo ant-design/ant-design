@@ -10,12 +10,12 @@ import { getStyleStr } from './utils';
 export const BaseSize = 2;
 export const FontGap = 3;
 
+const noop: VoidFunction = () => {};
+
 // Prevent external hidden elements from adding accent styles
 const emphasizedStyle: React.CSSProperties = {
   visibility: 'visible !important',
 } as unknown as React.CSSProperties;
-
-const noop = (): void => {};
 
 export type AppendWatermark = (
   base64Url: string,
@@ -23,14 +23,14 @@ export type AppendWatermark = (
   container: HTMLElement,
 ) => void;
 
-function useWatermark(
+const useWatermark = (
   markStyle: React.CSSProperties,
   onRemove?: () => void,
 ): [
   appendWatermark: AppendWatermark,
   removeWatermark: (container: HTMLElement) => void,
   isWatermarkEle: (ele: Node, index?: number) => boolean,
-] {
+] => {
   const watermarkMapRef = React.useRef(new Map<HTMLElement, HTMLDivElement>());
   const onRemoveEvent = useEvent(onRemove ?? noop);
 
@@ -82,6 +82,6 @@ function useWatermark(
   const isWatermarkEle = (ele: any) => Array.from(watermarkMapRef.current.values()).includes(ele);
 
   return [appendWatermark, removeWatermark, isWatermarkEle] as const;
-}
+};
 
 export default useWatermark;

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Result } from 'antd';
-import type { ResultProps } from 'antd';
+import type { GetProp, ResultProps } from 'antd';
 
 const classNamesObject: ResultProps['classNames'] = {
   root: 'demo-result-root',
@@ -11,15 +11,17 @@ const classNamesObject: ResultProps['classNames'] = {
   body: 'demo-result-body',
 };
 
-const classNamesFn: ResultProps['classNames'] = (info) => {
+const classNamesFn: ResultProps['classNames'] = (
+  info,
+): GetProp<ResultProps, 'classNames', 'Return'> => {
   if (info.props.status === 'success') {
     return {
       root: 'demo-result-root--success',
-    } satisfies ResultProps['classNames'];
+    };
   }
   return {
     root: 'demo-result-root--default',
-  } satisfies ResultProps['classNames'];
+  };
 };
 
 const stylesObject: ResultProps['styles'] = {
@@ -31,17 +33,17 @@ const stylesObject: ResultProps['styles'] = {
   body: { backgroundColor: '#fafafa', padding: 12 },
 };
 
-const stylesFn: ResultProps['styles'] = (info) => {
+const stylesFn: ResultProps['styles'] = (info): GetProp<ResultProps, 'styles', 'Return'> => {
   if (info.props.status === 'error') {
     return {
       root: { backgroundColor: '#fff2f0', borderColor: '#ff4d4f' },
       title: { color: '#ff4d4f' },
-    } satisfies ResultProps['styles'];
+    };
   } else {
     return {
       root: { backgroundColor: '#f6ffed', borderColor: '#52c41a' },
       title: { color: '#52c41a' },
-    } satisfies ResultProps['styles'];
+    };
   }
 };
 
