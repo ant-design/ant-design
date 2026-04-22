@@ -2,7 +2,7 @@
 category: Components
 group: Other
 title: BorderBeam
-description: Decorative wrapper that renders a moving beam along a container border.
+description: Decorative component that renders a moving beam along a container border.
 cover: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*wr1ISY50SyYAAAAAAAAAAAAADrJ8AQ/original
 coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*duAQQbjHlHQAAAAAAAAAAAAADrJ8AQ/original
 demo:
@@ -34,7 +34,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version | [Global Config](/components/config-provider#component-config) |
 | --- | --- | --- | --- | --- | --- |
-| children | Wrapped content | `ReactNode` | - | 6.4.0 | × |
+| children | Decorated content | `ReactNode` | - | 6.4.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
 | color | Beam color configuration. Supports a single color string or gradient stops | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |

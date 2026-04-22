@@ -19,6 +19,7 @@ interface BorderBeamToken extends FullToken<'BorderBeam'> {}
 const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const [, varRef] = genCssVar(antCls, 'border-beam');
+  const defaultRootCls = `:where(${componentCls})`;
   const antBorderBeamMove = new Keyframes('antBorderBeamMove', {
     from: {
       offsetDistance: varRef('beam-offset-start'),
@@ -31,13 +32,16 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
   const beamCls = `${componentCls}-beam`;
 
   return {
-    [componentCls]: {
+    // Keep a low-priority default containing block so wrapper mode works on the first paint while
+    // still allowing authored non-static positioning to win naturally.
+    [defaultRootCls]: {
       position: 'relative',
-      display: 'block',
-      maxWidth: '100%',
+    },
+
+    [componentCls]: {
       boxSizing: 'border-box',
 
-      [`> ${beamCls}`]: {
+      [`${beamCls}`]: {
         display: 'none',
         position: 'absolute',
         inset: 0,
@@ -83,7 +87,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       },
 
       '@media (prefers-reduced-motion: reduce)': {
-        [`> ${beamCls}::before`]: {
+        [`${beamCls}::before`]: {
           display: 'none',
         },
       },

@@ -1,12 +1,17 @@
 import React from 'react';
+import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import { composeRef, getNodeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import { useToken } from '../theme/internal';
 import { genCssVar } from '../theme/util/genStyleUtils';
+import useBorderBeamEffect from './hooks/useBorderBeamEffect';
+import useBorderBeamInjection from './hooks/useBorderBeamInjection';
 import useBorderBeamRadius from './hooks/useBorderBeamRadius';
 import useStyle from './style';
 import { getBorderBeamGradient, getDefinedRadius, getMotionPathRadius } from './util';
@@ -84,17 +89,12 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const mergedBeamGradient = getBorderBeamGradient(color, fallbackStartColor, fallbackEndColor);
 
   // =========== Merged Props for Semantic ===========
-  const mergedProps: BorderBeamProps = {
-    ...props,
-    color,
-  };
+  const mergedProps: BorderBeamProps = { ...props, color };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [contextClassNames, classNames],
     [contextStyles, styles],
-    {
-      props: mergedProps,
-    },
+    { props: mergedProps },
   );
 
   // ============================ Radius ============================
@@ -103,60 +103,125 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     contextStyle?.borderRadius,
     mergedStyles.root?.borderRadius,
   );
-  const { beamVisible, setRootNode, trackRadius } = useBorderBeamRadius({
+  const rootClsName = clsx(
+    prefixCls,
+    className,
+    contextClassName,
+    mergedClassNames.root,
+    hashId,
+    cssVarCls,
+  );
+  const positionPatchKey = [
+    rootClsName,
+    contextStyle?.position,
+    mergedStyles.root?.position,
+    style?.position,
+  ]
+    .filter((item) => item !== undefined && item !== null)
+    .join('|');
+
+  const { beamVisible, rootElement, setRootNode, trackRadius } = useBorderBeamRadius({
     prefixCls,
     configuredRadius,
     children,
   });
+
+  // ============================ Motion Path Radius ============================
   const motionPathRadius =
     getMotionPathRadius(trackRadius, DEFAULT_MOTION_PATH_RADIUS) ?? trackRadius;
 
   // ============================ Styles ============================
-  const rootStyle: React.CSSProperties = {
-    [varName('beam-gradient')]: mergedBeamGradient, // Beam gradient colors.
-    [varName('beam-delay')]: `${DEFAULT_BEAM_DELAY}s`, // Animation start delay.
-    [varName('beam-duration')]: `${DEFAULT_BEAM_DURATION}s`, // Duration for one full loop.
-    [varName('beam-offset-end')]: `${DEFAULT_BEAM_OFFSET_END}%`, // Motion path end offset.
-    [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`, // Motion path start offset.
-    [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR, // Anchor point used to hang the beam on the path.
-    [varName('beam-clip-radius')]: trackRadius, // Visible border ring radius.
-    [varName('beam-path-radius')]: motionPathRadius, // Smoothed radius used by the motion path.
-    [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`, // Beam length / size.
-    [varName('border-width')]: `${mergedBorderWidth}px`, // Border ring thickness.
-    ...mergedStyles.root,
-    ...contextStyle,
-    ...style,
-  };
-  const beamStyle: React.CSSProperties = {
-    ...mergedStyles.beam,
+  const getRootStyle = (
+    originStyle?: React.CSSProperties,
+    needPositionPatch?: boolean,
+  ): React.CSSProperties => {
+    const nextRootStyle: React.CSSProperties = {
+      ...originStyle,
+      [varName('beam-gradient')]: mergedBeamGradient, // Beam gradient colors.
+      [varName('beam-delay')]: `${DEFAULT_BEAM_DELAY}s`, // Animation start delay.
+      [varName('beam-duration')]: `${DEFAULT_BEAM_DURATION}s`, // Duration for one full loop.
+      [varName('beam-offset-end')]: `${DEFAULT_BEAM_OFFSET_END}%`, // Motion path end offset.
+      [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`, // Motion path start offset.
+      [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR, // Anchor point used to hang the beam on the path.
+      [varName('beam-clip-radius')]: trackRadius, // Visible border ring radius.
+      [varName('beam-path-radius')]: motionPathRadius, // Smoothed radius used by the motion path.
+      [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`, // Beam length / size.
+      [varName('border-width')]: `${mergedBorderWidth}px`, // Border ring thickness.
+      ...mergedStyles.root,
+      ...contextStyle,
+      ...style,
+    };
+
+    if (needPositionPatch) {
+      nextRootStyle.position = 'relative';
+    }
+
+    return nextRootStyle;
   };
 
-  if (!beamVisible || mergedBorderWidth <= 0) {
-    beamStyle.display = 'none';
-  }
+  const beamStyle = React.useMemo(() => {
+    const nextBeamStyle: React.CSSProperties = { ...mergedStyles.beam };
+
+    if (!beamVisible || mergedBorderWidth <= 0) {
+      nextBeamStyle.display = 'none';
+    }
+
+    return nextBeamStyle;
+  }, [beamVisible, mergedBorderWidth, mergedStyles.beam]);
+  const beamCls = clsx(`${prefixCls}-beam`, mergedClassNames.beam);
+  const effectInfo = React.useMemo(
+    () => ({ className: beamCls, style: beamStyle }),
+    [beamCls, beamStyle],
+  );
+
+  const { canInjectIntoChild } = useBorderBeamInjection({
+    children,
+    rootElement,
+  });
+  const [needPositionPatch, setNeedPositionPatch] = React.useState(false);
+  const [positionResolved, setPositionResolved] = React.useState(false);
+
+  useLayoutEffect(() => {
+    if (!rootElement) {
+      setNeedPositionPatch(false);
+      setPositionResolved(!canInjectIntoChild);
+
+      return;
+    }
+
+    setNeedPositionPatch(window.getComputedStyle(rootElement).position === 'static');
+    setPositionResolved(true);
+  }, [canInjectIntoChild, children, positionPatchKey, rootElement]);
+
+  useBorderBeamEffect({
+    prefixCls,
+    effectInfo,
+    effectReady: canInjectIntoChild && positionResolved,
+    targetElement: canInjectIntoChild ? rootElement : null,
+  });
 
   // ============================ Render ============================
-  return (
-    <div
-      ref={setRootNode}
-      className={clsx(
-        prefixCls,
-        className,
-        contextClassName,
-        mergedClassNames.root,
-        hashId,
-        cssVarCls,
-      )}
-      style={rootStyle}
-    >
-      {children}
+  if (!canInjectIntoChild) {
+    return (
       <div
-        aria-hidden="true"
-        className={clsx(`${prefixCls}-beam`, mergedClassNames.beam)}
-        style={beamStyle}
-      />
-    </div>
-  );
+        ref={setRootNode}
+        className={rootClsName}
+        style={getRootStyle(undefined, needPositionPatch)}
+      >
+        {children}
+        <div aria-hidden="true" className={beamCls} style={beamStyle} />
+      </div>
+    );
+  }
+
+  // clone and inject the beam into the child
+  const mergedChild = cloneElement(children, (originProps) => ({
+    ref: composeRef(getNodeRef(children), setRootNode),
+    className: clsx(originProps.className, rootClsName),
+    style: getRootStyle(originProps.style, needPositionPatch),
+  }));
+
+  return mergedChild;
 };
 
 if (process.env.NODE_ENV !== 'production') {

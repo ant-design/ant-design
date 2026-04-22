@@ -88,7 +88,7 @@ describe('BorderBeam.Semantic', () => {
     });
   });
 
-  it('should apply ConfigProvider root styles to both the wrapper and beam track', () => {
+  it('should apply ConfigProvider root styles to both the decorated root and beam track', () => {
     const { container } = render(
       <ConfigProvider borderBeam={{ style: { borderRadius: 22, padding: 6 } }}>
         <BorderBeam>

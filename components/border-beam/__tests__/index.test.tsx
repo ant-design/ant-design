@@ -26,8 +26,146 @@ describe('BorderBeam', () => {
     const beamElement = container.querySelector<HTMLElement>('.ant-border-beam-beam');
 
     expect(rootElement).toHaveClass('beam-root');
-    expect(childElement?.parentElement).toBe(rootElement);
+    expect(rootElement).toBe(childElement);
+    expect(beamElement?.closest('.ant-border-beam')).toBe(rootElement);
     expect(beamElement).toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('should allow class-based position styles to override the default root positioning', () => {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = '.beam-absolute { position: absolute; }';
+    document.head.appendChild(styleElement);
+
+    try {
+      const { container } = render(
+        <BorderBeam>
+          <div className="beam-child beam-absolute">content</div>
+        </BorderBeam>,
+      );
+
+      const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+      const childElement = container.querySelector<HTMLElement>('.beam-child')!;
+
+      expect(rootElement).toBe(childElement);
+      expect(rootElement.style.position).toBe('');
+      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
+    } finally {
+      styleElement.remove();
+    }
+  });
+
+  it('should patch the decorated child position when it is explicitly static', () => {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = '.beam-static { position: static; }';
+    document.head.appendChild(styleElement);
+
+    try {
+      const { container } = render(
+        <BorderBeam>
+          <div className="beam-child beam-static">content</div>
+        </BorderBeam>,
+      );
+
+      const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+      const childElement = container.querySelector<HTMLElement>('.beam-child')!;
+      const beamElement = container.querySelector<HTMLElement>('.ant-border-beam-beam')!;
+
+      expect(rootElement).toBe(childElement);
+      expect(rootElement.style.position).toBe('relative');
+      expect(window.getComputedStyle(rootElement).position).toBe('relative');
+      expect(beamElement.closest('.ant-border-beam')).toBe(rootElement);
+    } finally {
+      styleElement.remove();
+    }
+  });
+
+  it('should allow class-based position styles to override the wrapper positioning', () => {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = '.beam-wrapper-absolute { position: absolute; }';
+    document.head.appendChild(styleElement);
+
+    try {
+      const { container } = render(
+        <BorderBeam className="beam-wrapper-absolute">content</BorderBeam>,
+      );
+
+      const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+      expect(rootElement.style.position).toBe('');
+      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
+    } finally {
+      styleElement.remove();
+    }
+  });
+
+  it('should patch the wrapper position when it is explicitly static', () => {
+    const { container } = render(<BorderBeam style={{ position: 'static' }}>content</BorderBeam>);
+
+    const rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+    expect(rootElement.style.position).toBe('relative');
+    expect(window.getComputedStyle(rootElement).position).toBe('relative');
+  });
+
+  it('should re-evaluate the position patch when root styles change later', () => {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = '.beam-static-toggle { position: static; }';
+    document.head.appendChild(styleElement);
+
+    try {
+      const child = <div className="beam-child beam-static-toggle">content</div>;
+      const { container, rerender } = render(<BorderBeam>{child}</BorderBeam>);
+
+      let rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+      expect(rootElement.style.position).toBe('relative');
+      expect(window.getComputedStyle(rootElement).position).toBe('relative');
+
+      rerender(<BorderBeam style={{ position: 'absolute' }}>{child}</BorderBeam>);
+
+      rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+      expect(rootElement.style.position).toBe('absolute');
+      expect(window.getComputedStyle(rootElement).position).toBe('absolute');
+    } finally {
+      styleElement.remove();
+    }
+  });
+
+  it('should re-evaluate the position patch when child positioning changes later', async () => {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = `
+      .beam-static-toggle { position: static; }
+      .beam-absolute-toggle { position: absolute; }
+    `;
+    document.head.appendChild(styleElement);
+
+    try {
+      const { container, rerender } = render(
+        <BorderBeam>
+          <div className="beam-child beam-static-toggle">content</div>
+        </BorderBeam>,
+      );
+
+      let rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+
+      expect(rootElement.style.position).toBe('relative');
+      expect(window.getComputedStyle(rootElement).position).toBe('relative');
+
+      rerender(
+        <BorderBeam>
+          <div className="beam-child beam-absolute-toggle">content</div>
+        </BorderBeam>,
+      );
+
+      await waitFor(() => {
+        rootElement = container.querySelector<HTMLElement>('.ant-border-beam')!;
+        expect(rootElement.style.position).toBe('');
+        expect(window.getComputedStyle(rootElement).position).toBe('absolute');
+      });
+    } finally {
+      styleElement.remove();
+    }
   });
 
   it('should support color prop', () => {
@@ -238,7 +376,7 @@ describe('BorderBeam', () => {
   it('should re-measure inferred radius when the first child mounts later', async () => {
     const { container, rerender } = render(<BorderBeam>{null}</BorderBeam>);
 
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+    let element = container.querySelector<HTMLElement>('.ant-border-beam')!;
 
     expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('0px');
 
@@ -249,6 +387,7 @@ describe('BorderBeam', () => {
     );
 
     await waitFor(() => {
+      element = container.querySelector<HTMLElement>('.ant-border-beam')!;
       expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
     });
   });
@@ -272,14 +411,17 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    const element = container.querySelector<HTMLElement>('.ant-border-beam')!;
+    let element: HTMLElement | null = null;
 
-    expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
+    await waitFor(() => {
+      element = container.querySelector<HTMLElement>('.ant-border-beam');
+      expect(element?.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
+    });
 
     fireEvent.click(getByRole('button', { name: 'update' }));
 
     await waitFor(() => {
-      expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('24px');
+      expect(element?.style.getPropertyValue(varName('beam-clip-radius'))).toBe('24px');
     });
   });
 
@@ -288,11 +430,11 @@ describe('BorderBeam', () => {
       <>
         <style>
           {`
-            .radius-small .beam-child {
+            .radius-small.beam-child {
               border-radius: 12px;
             }
 
-            .radius-large .beam-child {
+            .radius-large.beam-child {
               border-radius: 24px;
             }
           `}
@@ -313,11 +455,11 @@ describe('BorderBeam', () => {
       <>
         <style>
           {`
-            .radius-small .beam-child {
+            .radius-small.beam-child {
               border-radius: 12px;
             }
 
-            .radius-large .beam-child {
+            .radius-large.beam-child {
               border-radius: 24px;
             }
           `}
@@ -333,7 +475,7 @@ describe('BorderBeam', () => {
     });
   });
 
-  it('should update inferred radius when wrapper computed radius changes after resize', async () => {
+  it('should update inferred radius when root computed radius changes after resize', async () => {
     const originResizeObserver = global.ResizeObserver;
     const originGetComputedStyle = window.getComputedStyle;
     let resizeCallback: ResizeObserverCallback | undefined;

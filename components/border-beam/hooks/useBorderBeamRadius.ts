@@ -1,8 +1,9 @@
 import React from 'react';
 import { useMutateObserver } from '@rc-component/mutate-observer';
 import { useEvent } from '@rc-component/util';
-import raf from '@rc-component/util/lib/raf';
+import { getDOM } from '@rc-component/util/lib/Dom/findDOMNode';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
+import raf from '@rc-component/util/lib/raf';
 
 import throttleByAnimationFrame from '../../_util/throttleByAnimationFrame';
 import { getComputedRadius, hasRadiusValue, toCSSLength } from '../util';
@@ -16,7 +17,7 @@ type UseBorderBeamRadiusOptions = {
 // Reuse a stable empty target when inferred radius tracking is disabled.
 const EMPTY_MUTATION_TARGETS: HTMLElement[] = [];
 
-// Watch the wrapper for child replacement and class/style driven radius updates.
+// Watch the decorated root for child replacement and class/style driven radius updates.
 const ROOT_MUTATION_OBSERVER_OPTIONS: MutationObserverInit = {
   childList: true,
   attributes: true,
@@ -38,8 +39,8 @@ const useBorderBeamRadius = ({
   const configuredTrackRadius = toCSSLength(configuredRadius, '0px');
   // Only infer from DOM when the caller does not provide a radius upfront.
   const needMeasureChildRadius = configuredRadius === undefined;
-  const rootRef = React.useRef<HTMLDivElement>(null);
-  const [rootElement, setRootElement] = React.useState<HTMLDivElement | null>(null);
+  const rootRef = React.useRef<HTMLElement | null>(null);
+  const [rootElement, setRootElement] = React.useState<HTMLElement | null>(null);
   const [observedChildElement, setObservedChildElement] = React.useState<HTMLElement>();
   const [measuredChildRadius, setMeasuredChildRadius] = React.useState<string>();
   // Prevent SSR from exposing a long-lived 0px beam before the first client measurement finishes.
@@ -54,15 +55,25 @@ const useBorderBeamRadius = ({
     measuredChildRadius !== undefined ||
     (!needMeasureChanged && forceBeamVisible);
 
-  const setRootNode = useEvent((node: HTMLDivElement | null) => {
-    rootRef.current = node;
-    setRootElement(node);
+  const setRootNode = useEvent((node: React.ReactInstance | HTMLElement | null) => {
+    const nextRootElement = getDOM(node);
+    const nextHTMLElement =
+      typeof HTMLElement === 'undefined' || nextRootElement instanceof HTMLElement
+        ? (nextRootElement as HTMLElement | null)
+        : null;
+
+    rootRef.current = nextHTMLElement;
+    setRootElement((prevRootElement) =>
+      prevRootElement === nextHTMLElement ? prevRootElement : nextHTMLElement,
+    );
   });
 
   const syncMeasuredChildRadius = useEvent(() => {
     const currentRootElement = rootRef.current;
     const childElement = Array.from(currentRootElement?.children ?? []).find(
-      (node) => !node.classList.contains(`${prefixCls}-beam`),
+      (node) =>
+        !node.classList.contains(`${prefixCls}-beam`) &&
+        !node.classList.contains(`${prefixCls}-holder`),
     ) as HTMLElement | undefined;
 
     setObservedChildElement((prevChildElement) =>
@@ -75,7 +86,7 @@ const useBorderBeamRadius = ({
     const nextChildRadius = childElement
       ? getComputedRadius(window.getComputedStyle(childElement))
       : undefined;
-    // Prefer the wrapper radius when it is already styled, otherwise follow the first child.
+    // Prefer the decorated root radius when it is already styled, otherwise follow the first child.
     const nextMeasuredRadius = hasRadiusValue(rootRadius) ? rootRadius : nextChildRadius;
 
     setMeasuredChildRadius((prevRadius) => {
@@ -163,7 +174,7 @@ const useBorderBeamRadius = ({
       return;
     }
 
-    // Keep percentage or class-driven radii in sync when the wrapper/child geometry changes later.
+    // Keep percentage or class-driven radii in sync when the root/child geometry changes later.
     const resizeObserver = new ResizeObserver(scheduleMeasuredChildRadiusSync);
 
     if (rootElement) {
@@ -186,6 +197,7 @@ const useBorderBeamRadius = ({
 
   return {
     beamVisible,
+    rootElement,
     setRootNode,
     trackRadius,
   };

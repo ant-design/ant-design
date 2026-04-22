@@ -5,36 +5,36 @@ exports[`renders components/border-beam/demo/basic.tsx extend context correctly 
   style="width: 360px;"
 >
   <div
-    class="ant-border-beam css-var-test-id"
+    class="ant-card ant-card-bordered ant-border-beam css-var-test-id css-var-test-id"
     style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
   >
     <div
-      class="ant-card ant-card-bordered css-var-test-id"
+      class="ant-border-beam-holder"
+      style="position: absolute; inset: 0; pointer-events: none;"
     >
       <div
-        class="ant-card-head"
+        aria-hidden="true"
+        class="ant-border-beam-beam"
+      />
+    </div>
+    <div
+      class="ant-card-head"
+    >
+      <div
+        class="ant-card-head-wrapper"
       >
         <div
-          class="ant-card-head-wrapper"
+          class="ant-card-head-title"
         >
-          <div
-            class="ant-card-head-title"
-          >
-            Workspace overview
-          </div>
+          Workspace overview
         </div>
-      </div>
-      <div
-        class="ant-card-body"
-      >
-        Review task status, deployment health, and recent automation activity in one panel.
       </div>
     </div>
     <div
-      aria-hidden="true"
-      class="ant-border-beam-beam"
-      style=""
-    />
+      class="ant-card-body"
+    >
+      Review task status, deployment health, and recent automation activity in one panel.
+    </div>
   </div>
 </div>
 `;
@@ -50,60 +50,58 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
     style="width: 320px;"
   >
     <div
-      class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
+      class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="padding: 24px; border-radius: 20px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px; gap: 8px;"
     >
       <div
-        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="padding: 24px; border-radius: 20px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); gap: 8px;"
+        class="ant-border-beam-holder"
+        style="position: absolute; inset: 0; pointer-events: none;"
       >
-        <h4
-          class="ant-typography css-var-test-id"
-          style="margin: 0px;"
-        >
-          Default token
-        </h4>
-        <span
-          class="ant-typography ant-typography-secondary css-var-test-id"
-        >
-          Uses the default BorderBeam component token values derived from the current theme.
-        </span>
+        <div
+          aria-hidden="true"
+          class="ant-border-beam-beam"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style=""
-      />
+      <h4
+        class="ant-typography css-var-test-id"
+        style="margin: 0px;"
+      >
+        Default token
+      </h4>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        Uses the default BorderBeam component token values derived from the current theme.
+      </span>
     </div>
   </div>
   <div
     style="width: 320px;"
   >
     <div
-      class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 3px;"
+      class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="padding: 24px; border-radius: 20px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 3px; gap: 8px;"
     >
       <div
-        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="padding: 24px; border-radius: 20px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); gap: 8px;"
+        class="ant-border-beam-holder"
+        style="position: absolute; inset: 0; pointer-events: none;"
       >
-        <h4
-          class="ant-typography css-var-test-id"
-          style="margin: 0px;"
-        >
-          Custom token
-        </h4>
-        <span
-          class="ant-typography ant-typography-secondary css-var-test-id"
-        >
-          Override borderBeamWidth from theme.components.BorderBeam.
-        </span>
+        <div
+          aria-hidden="true"
+          class="ant-border-beam-beam"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style=""
-      />
+      <h4
+        class="ant-typography css-var-test-id"
+        style="margin: 0px;"
+      >
+        Custom token
+      </h4>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        Override borderBeamWidth from theme.components.BorderBeam.
+      </span>
     </div>
   </div>
 </div>
@@ -121,45 +119,44 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
     style="padding-inline: 12px;"
   >
     <div
-      class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
+      class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
+      0 1px 6px -1px rgba(0,0,0,0.02),
+      0 2px 4px 0 rgba(0,0,0,0.02); --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px; gap: 16px;"
     >
       <div
-        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
-      0 1px 6px -1px rgba(0,0,0,0.02),
-      0 2px 4px 0 rgba(0,0,0,0.02); gap: 16px;"
+        class="ant-border-beam-holder"
+        style="position: absolute; inset: 0; pointer-events: none;"
       >
         <div
-          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
-          style="gap: 12px;"
-        >
-          <span
-            class="ant-typography ant-typography-secondary css-var-test-id"
-          >
-            Dashboard
-          </span>
-          <div
-            style="width: 64px; height: 10px; border-radius: 999px; border: 1px solid rgb(217, 217, 217); background: linear-gradient(to right, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent 100%);"
-          />
-        </div>
-        <h4
-          class="ant-typography css-var-test-id"
-          style="margin: 0px;"
-        >
-          Ocean
-        </h4>
+          aria-hidden="true"
+          class="ant-border-beam-beam"
+        />
+      </div>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+        style="gap: 12px;"
+      >
         <span
           class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          A calm blue-green accent that works well for data views and cloud tooling.
+          Dashboard
         </span>
+        <div
+          style="width: 64px; height: 10px; border-radius: 999px; border: 1px solid rgb(217, 217, 217); background: linear-gradient(to right, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent 100%);"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style=""
-      />
+      <h4
+        class="ant-typography css-var-test-id"
+        style="margin: 0px;"
+      >
+        Ocean
+      </h4>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        A calm blue-green accent that works well for data views and cloud tooling.
+      </span>
     </div>
   </div>
   <div
@@ -167,45 +164,44 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
     style="padding-inline: 12px;"
   >
     <div
-      class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #ff7a45 0%, #ff4d4f 34.3%, #ff85c0 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
+      class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
+      0 1px 6px -1px rgba(0,0,0,0.02),
+      0 2px 4px 0 rgba(0,0,0,0.02); --ant-border-beam-beam-gradient: linear-gradient(to left, #ff7a45 0%, #ff4d4f 34.3%, #ff85c0 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px; gap: 16px;"
     >
       <div
-        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
-      0 1px 6px -1px rgba(0,0,0,0.02),
-      0 2px 4px 0 rgba(0,0,0,0.02); gap: 16px;"
+        class="ant-border-beam-holder"
+        style="position: absolute; inset: 0; pointer-events: none;"
       >
         <div
-          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
-          style="gap: 12px;"
-        >
-          <span
-            class="ant-typography ant-typography-secondary css-var-test-id"
-          >
-            Upgrade
-          </span>
-          <div
-            style="width: 64px; height: 10px; border-radius: 999px; border: 1px solid rgb(217, 217, 217); background: linear-gradient(to right, #ff7a45 0%, #ff4d4f 34.3%, #ff85c0 70%, transparent 100%);"
-          />
-        </div>
-        <h4
-          class="ant-typography css-var-test-id"
-          style="margin: 0px;"
-        >
-          Sunset
-        </h4>
+          aria-hidden="true"
+          class="ant-border-beam-beam"
+        />
+      </div>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+        style="gap: 12px;"
+      >
         <span
           class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          A warm highlight for upgrade prompts, featured cards, and marketing blocks.
+          Upgrade
         </span>
+        <div
+          style="width: 64px; height: 10px; border-radius: 999px; border: 1px solid rgb(217, 217, 217); background: linear-gradient(to right, #ff7a45 0%, #ff4d4f 34.3%, #ff85c0 70%, transparent 100%);"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style=""
-      />
+      <h4
+        class="ant-typography css-var-test-id"
+        style="margin: 0px;"
+      >
+        Sunset
+      </h4>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        A warm highlight for upgrade prompts, featured cards, and marketing blocks.
+      </span>
     </div>
   </div>
   <div
@@ -213,45 +209,44 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
     style="padding-inline: 12px;"
   >
     <div
-      class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #7c3aed 0%, #06b6d4 39.9%, #67e8f9 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
+      class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
+      0 1px 6px -1px rgba(0,0,0,0.02),
+      0 2px 4px 0 rgba(0,0,0,0.02); --ant-border-beam-beam-gradient: linear-gradient(to left, #7c3aed 0%, #06b6d4 39.9%, #67e8f9 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px; gap: 16px;"
     >
       <div
-        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
-      0 1px 6px -1px rgba(0,0,0,0.02),
-      0 2px 4px 0 rgba(0,0,0,0.02); gap: 16px;"
+        class="ant-border-beam-holder"
+        style="position: absolute; inset: 0; pointer-events: none;"
       >
         <div
-          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
-          style="gap: 12px;"
-        >
-          <span
-            class="ant-typography ant-typography-secondary css-var-test-id"
-          >
-            AI
-          </span>
-          <div
-            style="width: 64px; height: 10px; border-radius: 999px; border: 1px solid rgb(217, 217, 217); background: linear-gradient(to right, #7c3aed 0%, #06b6d4 39.9%, #67e8f9 70%, transparent 100%);"
-          />
-        </div>
-        <h4
-          class="ant-typography css-var-test-id"
-          style="margin: 0px;"
-        >
-          Aurora
-        </h4>
+          aria-hidden="true"
+          class="ant-border-beam-beam"
+        />
+      </div>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+        style="gap: 12px;"
+      >
         <span
           class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          A vivid cool-toned beam suited for AI assistants, copilots, and automation panels.
+          AI
         </span>
+        <div
+          style="width: 64px; height: 10px; border-radius: 999px; border: 1px solid rgb(217, 217, 217); background: linear-gradient(to right, #7c3aed 0%, #06b6d4 39.9%, #67e8f9 70%, transparent 100%);"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style=""
-      />
+      <h4
+        class="ant-typography css-var-test-id"
+        style="margin: 0px;"
+      >
+        Aurora
+      </h4>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        A vivid cool-toned beam suited for AI assistants, copilots, and automation panels.
+      </span>
     </div>
   </div>
   <div
@@ -259,45 +254,44 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
     style="padding-inline: 12px;"
   >
     <div
-      class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #22c55e 0%, #a3e635 37.8%, #facc15 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
+      class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
+      0 1px 6px -1px rgba(0,0,0,0.02),
+      0 2px 4px 0 rgba(0,0,0,0.02); --ant-border-beam-beam-gradient: linear-gradient(to left, #22c55e 0%, #a3e635 37.8%, #facc15 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px; gap: 16px;"
     >
       <div
-        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
-      0 1px 6px -1px rgba(0,0,0,0.02),
-      0 2px 4px 0 rgba(0,0,0,0.02); gap: 16px;"
+        class="ant-border-beam-holder"
+        style="position: absolute; inset: 0; pointer-events: none;"
       >
         <div
-          class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
-          style="gap: 12px;"
-        >
-          <span
-            class="ant-typography ant-typography-secondary css-var-test-id"
-          >
-            Recommendation
-          </span>
-          <div
-            style="width: 64px; height: 10px; border-radius: 999px; border: 1px solid rgb(217, 217, 217); background: linear-gradient(to right, #22c55e 0%, #a3e635 37.8%, #facc15 70%, transparent 100%);"
-          />
-        </div>
-        <h4
-          class="ant-typography css-var-test-id"
-          style="margin: 0px;"
-        >
-          Forest
-        </h4>
+          aria-hidden="true"
+          class="ant-border-beam-beam"
+        />
+      </div>
+      <div
+        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+        style="gap: 12px;"
+      >
         <span
           class="ant-typography ant-typography-secondary css-var-test-id"
         >
-          A bright natural palette that feels good on recommendation and growth-oriented cards.
+          Recommendation
         </span>
+        <div
+          style="width: 64px; height: 10px; border-radius: 999px; border: 1px solid rgb(217, 217, 217); background: linear-gradient(to right, #22c55e 0%, #a3e635 37.8%, #facc15 70%, transparent 100%);"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam"
-        style=""
-      />
+      <h4
+        class="ant-typography css-var-test-id"
+        style="margin: 0px;"
+      >
+        Forest
+      </h4>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        A bright natural palette that feels good on recommendation and growth-oriented cards.
+      </span>
     </div>
   </div>
 </div>
@@ -310,57 +304,56 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend conte
   style="width: 360px;"
 >
   <div
-    class="ant-border-beam css-var-test-id"
-    style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px 20px 0 0; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
+    class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+    style="border-radius: 20px 20px 0 0; border: 1px solid rgb(240, 240, 240); overflow: hidden; background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
+      0 1px 6px -1px rgba(0,0,0,0.02),
+      0 2px 4px 0 rgba(0,0,0,0.02); --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px 20px 0 0; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-      style="border-radius: 20px 20px 0 0; border: 1px solid rgb(240, 240, 240); overflow: hidden; background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
-      0 1px 6px -1px rgba(0,0,0,0.02),
-      0 2px 4px 0 rgba(0,0,0,0.02);"
+      class="ant-border-beam-holder"
+      style="position: absolute; inset: 0; pointer-events: none;"
     >
       <div
-        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="padding: 24px; background: linear-gradient(135deg, #e6f4ff, #ffffff); gap: 8px;"
-      >
-        <h4
-          class="ant-typography css-var-test-id"
-          style="margin: 0px;"
-        >
-          Activity stream
-        </h4>
-        <span
-          class="ant-typography ant-typography-secondary css-var-test-id"
-        >
-          Use a multi-value \`borderRadius\` like \`20px 20px 0 0\` to keep the beam aligned with non-uniform corners.
-        </span>
-      </div>
-      <div
-        class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
-        style="padding: 16px 24px;"
-      >
-        <span
-          class="ant-typography css-var-test-id"
-        >
-          <strong>
-            12 running jobs
-          </strong>
-        </span>
-        <button
-          class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-          type="button"
-        >
-          <span>
-            View queue
-          </span>
-        </button>
-      </div>
+        aria-hidden="true"
+        class="ant-border-beam-beam"
+      />
     </div>
     <div
-      aria-hidden="true"
-      class="ant-border-beam-beam"
-      style=""
-    />
+      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="padding: 24px; background: linear-gradient(135deg, #e6f4ff, #ffffff); gap: 8px;"
+    >
+      <h4
+        class="ant-typography css-var-test-id"
+        style="margin: 0px;"
+      >
+        Activity stream
+      </h4>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        Use a multi-value \`borderRadius\` like \`20px 20px 0 0\` to keep the beam aligned with non-uniform corners.
+      </span>
+    </div>
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+      style="padding: 16px 24px;"
+    >
+      <span
+        class="ant-typography css-var-test-id"
+      >
+        <strong>
+          12 running jobs
+        </strong>
+      </span>
+      <button
+        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
+        type="button"
+      >
+        <span>
+          View queue
+        </span>
+      </button>
+    </div>
   </div>
 </div>
 `;
@@ -372,84 +365,83 @@ exports[`renders components/border-beam/demo/radius.tsx extend context correctly
   style="width: 360px;"
 >
   <div
-    class="ant-border-beam css-var-test-id"
-    style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
+    class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+    style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px; gap: 16px;"
   >
     <div
-      class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-      style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); gap: 16px;"
+      class="ant-border-beam-holder"
+      style="position: absolute; inset: 0; pointer-events: none;"
     >
-      <h4
-        class="ant-typography css-var-test-id"
-        style="margin: 0px;"
-      >
-        Sign in
-      </h4>
+      <div
+        aria-hidden="true"
+        class="ant-border-beam-beam"
+      />
+    </div>
+    <h4
+      class="ant-typography css-var-test-id"
+      style="margin: 0px;"
+    >
+      Sign in
+    </h4>
+    <input
+      class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
+      placeholder="Email"
+      type="text"
+      value=""
+    />
+    <span
+      class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-test-id ant-input-css-var"
+    >
       <input
-        class="ant-input ant-input-outlined css-var-test-id ant-input-css-var"
-        placeholder="Email"
-        type="text"
+        class="ant-input"
+        placeholder="Password"
+        type="password"
         value=""
       />
       <span
-        class="ant-input-affix-wrapper ant-input-outlined ant-input-password css-var-test-id ant-input-css-var"
+        class="ant-input-suffix"
       >
-        <input
-          class="ant-input"
-          placeholder="Password"
-          type="password"
-          value=""
-        />
         <span
-          class="ant-input-suffix"
+          aria-disabled="false"
+          aria-label="Show"
+          aria-pressed="false"
+          class="ant-input-password-icon"
+          role="button"
+          tabindex="0"
         >
           <span
-            aria-disabled="false"
-            aria-label="Show"
-            aria-pressed="false"
-            class="ant-input-password-icon"
-            role="button"
-            tabindex="0"
+            aria-label="eye-invisible"
+            class="anticon anticon-eye-invisible"
+            role="img"
           >
-            <span
-              aria-label="eye-invisible"
-              class="anticon anticon-eye-invisible"
-              role="img"
+            <svg
+              aria-hidden="true"
+              data-icon="eye-invisible"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              viewBox="64 64 896 896"
+              width="1em"
             >
-              <svg
-                aria-hidden="true"
-                data-icon="eye-invisible"
-                fill="currentColor"
-                focusable="false"
-                height="1em"
-                viewBox="64 64 896 896"
-                width="1em"
-              >
-                <path
-                  d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
-                />
-                <path
-                  d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
-                />
-              </svg>
-            </span>
+              <path
+                d="M942.2 486.2Q889.47 375.11 816.7 305l-50.88 50.88C807.31 395.53 843.45 447.4 874.7 512 791.5 684.2 673.4 766 512 766q-72.67 0-133.87-22.38L323 798.75Q408 838 512 838q288.3 0 430.2-300.3a60.29 60.29 0 000-51.5zm-63.57-320.64L836 122.88a8 8 0 00-11.32 0L715.31 232.2Q624.86 186 512 186q-288.3 0-430.2 300.3a60.3 60.3 0 000 51.5q56.69 119.4 136.5 191.41L112.48 835a8 8 0 000 11.31L155.17 889a8 8 0 0011.31 0l712.15-712.12a8 8 0 000-11.32zM149.3 512C232.6 339.8 350.7 258 512 258c54.54 0 104.13 9.36 149.12 28.39l-70.3 70.3a176 176 0 00-238.13 238.13l-83.42 83.42C223.1 637.49 183.3 582.28 149.3 512zm246.7 0a112.11 112.11 0 01146.2-106.69L401.31 546.2A112 112 0 01396 512z"
+              />
+              <path
+                d="M508 624c-3.46 0-6.87-.16-10.25-.47l-52.82 52.82a176.09 176.09 0 00227.42-227.42l-52.82 52.82c.31 3.38.47 6.79.47 10.25a111.94 111.94 0 01-112 112z"
+              />
+            </svg>
           </span>
         </span>
       </span>
-      <button
-        class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-block"
-        type="button"
-      >
-        <span>
-          Continue
-        </span>
-      </button>
-    </div>
-    <div
-      aria-hidden="true"
-      class="ant-border-beam-beam"
-      style=""
-    />
+    </span>
+    <button
+      class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-block"
+      type="button"
+    >
+      <span>
+        Continue
+      </span>
+    </button>
   </div>
 </div>
 `;
@@ -467,32 +459,32 @@ Array [
     style="width: 360px;"
   >
     <div
-      class="ant-border-beam css-var-test-id"
-      style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
+      class="ant-border-beam css-var-test-id ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
+      style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
+      0 1px 6px -1px rgba(0,0,0,0.02),
+      0 2px 4px 0 rgba(0,0,0,0.02); --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 24px; --ant-border-beam-beam-path-radius: 200px; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px; gap: 8px;"
     >
       <div
-        class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-vertical"
-        style="padding: 24px; border-radius: 24px; border: 1px solid rgb(240, 240, 240); background: rgb(255, 255, 255); box-shadow: 0 1px 2px 0 rgba(0,0,0,0.03),
-      0 1px 6px -1px rgba(0,0,0,0.02),
-      0 2px 4px 0 rgba(0,0,0,0.02); gap: 8px;"
+        class="ant-border-beam-holder"
+        style="position: absolute; inset: 0; pointer-events: none;"
       >
-        <h4
-          class="ant-typography css-var-test-id"
-          style="margin: 0px;"
-        >
-          Semantic customization
-        </h4>
-        <span
-          class="ant-typography ant-typography-secondary css-var-test-id"
-        >
-          Use \`classNames.beam\` and \`styles.beam\` to fine tune the decorative beam layer.
-        </span>
+        <div
+          aria-hidden="true"
+          class="ant-border-beam-beam demo-border-beam-beam"
+          style="opacity: 0.9;"
+        />
       </div>
-      <div
-        aria-hidden="true"
-        class="ant-border-beam-beam demo-border-beam-beam"
-        style="opacity: 0.9;"
-      />
+      <h4
+        class="ant-typography css-var-test-id"
+        style="margin: 0px;"
+      >
+        Semantic customization
+      </h4>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        Use \`classNames.beam\` and \`styles.beam\` to fine tune the decorative beam layer.
+      </span>
     </div>
   </div>,
 ]
