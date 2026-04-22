@@ -340,7 +340,7 @@ function formatTokenValue(
   },
 ): string {
   if (value === undefined || value === null) {
-    return '""';
+    return '';
   }
   // Boolean values
   if (typeof value === 'boolean' || options?.isBoolean) {
@@ -349,41 +349,41 @@ function formatTokenValue(
   if (typeof value === 'string') {
     // Duration tokens like "0.1s"
     if (/^\d+(\.\d+)?s$/.test(value)) {
-      return `"${value}"`;
+      return value;
     }
     // cubic-bezier or calc expressions
     if (value.startsWith('cubic-bezier') || value.startsWith('calc')) {
-      return `"${value}"`;
+      return value;
     }
     // rgba values
     if (value.startsWith('rgba')) {
-      return `"${value}"`;
+      return value;
     }
     // Hex colors (may or may not have #)
     if (/^[0-9a-f]{3,8}$/i.test(value)) {
-      return `"#${value}"`;
+      return `#${value}`;
     }
     if (/^#[0-9a-f]{3,8}$/i.test(value)) {
-      return `"${value}"`;
+      return value;
     }
     // Keywords like "transparent", "solid", "auto", "inherit", "none", etc.
     if (/^[a-z]/i.test(value) && !value.startsWith('path') && !value.startsWith('polygon')) {
-      return `"${value}"`;
+      return value;
     }
     // Already has px or other units
     if (/^\d+(\.\d+)?px$/.test(value)) {
-      return `"${value}"`;
+      return value;
     }
     // CSS expressions with spaces (e.g. "0 2px 0 rgba(...)")
     if (/^\d/.test(value) && /[a-z(]/i.test(value)) {
-      return `"${value}"`;
+      return value;
     }
     // Plain number strings
     if (/^\d+(\.\d+)?$/.test(value)) {
-      return `"${value}px"`;
+      return `${value}px`;
     }
-    // Fallback: quote as-is
-    return `"${value}"`;
+    // Fallback: return as-is
+    return value;
   }
   // Number
   if (typeof value === 'number') {
@@ -400,9 +400,9 @@ function formatTokenValue(
       return String(value);
     }
     // Numeric sizes get px
-    return `"${value}px"`;
+    return `${value}px`;
   }
-  return `"${String(value)}"`;
+  return String(value);
 }
 
 function isColorValue(value: string | number): boolean {
@@ -418,23 +418,11 @@ function quoteYaml(value: string): string {
     const lines = value.split('\n');
     return `|\n${lines.map((line) => `      ${line}`).join('\n')}`;
   }
-  // Check if quoting is needed
-  if (
-    value === '' ||
-    /[:#{}>'"|&!?]/.test(value) ||
-    value.includes('[') ||
-    value.includes(']') ||
-    /^\s/.test(value) ||
-    /\s$/.test(value) ||
-    /^[-+]/.test(value) ||
-    /^(true|false|null|yes|no|on|off|~)$/i.test(value) ||
-    /^\d+(\.\d+)?$/.test(value)
-  ) {
-    // Use double-quoted style, escape internal quotes and backslashes
-    const escaped = value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
-    return `"${escaped}"`;
-  }
-  return value;
+  // Always quote all values for design.md compatibility.
+  // The design.md linter expects string values, and quoting avoids any
+  // YAML parsing ambiguity (flow mappings, booleans, numbers, bare keywords, etc.)
+  const escaped = value.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
+  return `"${escaped}"`;
 }
 
 function getMajorVersion(ver: string): string {
@@ -1588,10 +1576,17 @@ async function main() {
   lines.push('themeConfig:');
   lines.push(`  antdVersion: "${majorVersion}"`);
   lines.push(`  provider: "ConfigProvider"`);
-  lines.push(`  algorithm: [default, dark, compact]`);
-  lines.push(`  customizable: true`);
-  lines.push(`  tokenLayers: [seed, map, alias, component]`);
-  lines.push(`  cssVar: true`);
+  lines.push(`  algorithm:`);
+  lines.push(`    - "default"`);
+  lines.push(`    - "dark"`);
+  lines.push(`    - "compact"`);
+  lines.push(`  customizable: "true"`);
+  lines.push(`  tokenLayers:`);
+  lines.push(`    - "seed"`);
+  lines.push(`    - "map"`);
+  lines.push(`    - "alias"`);
+  lines.push(`    - "component"`);
+  lines.push(`  cssVar: "true"`);
   lines.push(`  cssVarPrefix: "--ant"`);
 
   // --- fonts ---
@@ -1622,13 +1617,13 @@ async function main() {
     lines.push(`  ${level.key}:`);
     lines.push(`    fontFamily: "{fonts.sans}"`);
     lines.push(`    fontSize: "${fontSize}px"`);
-    lines.push(`    fontWeight: ${level.fontWeight}`);
-    lines.push(`    lineHeight: ${lineHeight}`);
+    lines.push(`    fontWeight: ${quoteYaml(String(level.fontWeight))}`);
+    lines.push(`    lineHeight: ${quoteYaml(String(lineHeight))}`);
   }
 
   // --- rounded ---
   lines.push('rounded:');
-  lines.push(`  none: 0`);
+  lines.push(`  none: "0px"`);
   lines.push(`  xs: "${aliasToken.borderRadiusXS}px"`);
   lines.push(`  sm: "${aliasToken.borderRadiusSM}px"`);
   lines.push(`  DEFAULT: "${aliasToken.borderRadius}px"`);
@@ -1716,7 +1711,7 @@ async function main() {
       const yamlKey = camelToKebab(tokenName);
 
       if (resolved) {
-        lines.push(`    ${yamlKey}: ${resolved}`);
+        lines.push(`    ${yamlKey}: ${quoteYaml(resolved)}`);
       } else {
         // Determine formatting options from token-meta type
         const metaType = compTokenTypeMap.get(`${compName}.${tokenName}`) ?? '';
@@ -1752,7 +1747,7 @@ async function main() {
           const normalized = normalizeShadow(rawValue);
           lines.push(`    ${yamlKey}: ${quoteYaml(normalized)}`);
         } else {
-          lines.push(`    ${yamlKey}: ${formatted}`);
+          lines.push(`    ${yamlKey}: ${quoteYaml(formatted)}`);
         }
       }
     }
