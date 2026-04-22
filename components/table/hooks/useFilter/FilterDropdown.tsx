@@ -59,28 +59,34 @@ function hasSubMenu(filters: ColumnFilterItem[]) {
   return filters.some(({ children }) => children);
 }
 
-function searchValueMatched(searchValue: string, text: React.ReactNode) {
+const searchValueMatched = (normalizedSearchValue: string, text: React.ReactNode) => {
   if (typeof text === 'string' || isNumber(text)) {
-    return text?.toString().toLowerCase().includes(searchValue.trim().toLowerCase());
+    return text.toString().toLowerCase().includes(normalizedSearchValue);
   }
   return false;
-}
+};
 
-function renderFilterItems({
-  filters,
-  prefixCls,
-  filteredKeys,
-  filterMultiple,
-  searchValue,
-  filterSearch,
-}: {
+interface RenderFilterItemsOptions {
   filters: ColumnFilterItem[];
   prefixCls: string;
   filteredKeys: Key[];
   filterMultiple: boolean;
   searchValue: string;
+  normalizedSearchValue: string;
   filterSearch: FilterSearchType<ColumnFilterItem>;
-}): Required<MenuProps>['items'] {
+}
+
+const renderFilterItems = (options: RenderFilterItemsOptions): Required<MenuProps>['items'] => {
+  const {
+    filters,
+    prefixCls,
+    filteredKeys,
+    filterMultiple,
+    searchValue,
+    normalizedSearchValue,
+    filterSearch,
+  } = options;
+
   return filters.map((filter, index) => {
     const key = String(filter.value);
 
@@ -95,6 +101,7 @@ function renderFilterItems({
           filteredKeys,
           filterMultiple,
           searchValue,
+          normalizedSearchValue,
           filterSearch,
         }),
       };
@@ -111,15 +118,15 @@ function renderFilterItems({
         </>
       ),
     };
-    if (searchValue.trim()) {
+    if (normalizedSearchValue) {
       if (typeof filterSearch === 'function') {
-        return filterSearch(searchValue, filter) ? item : null;
+        return filterSearch(normalizedSearchValue, filter) ? item : null;
       }
-      return searchValueMatched(searchValue, filter.text) ? item : null;
+      return searchValueMatched(normalizedSearchValue, filter.text) ? item : null;
     }
     return item;
   });
-}
+};
 
 export type TreeColumnFilterItem = ColumnFilterItem & FilterTreeDataNode;
 
@@ -249,6 +256,12 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   // search in tree mode column filter
   const [searchValue, setSearchValue] = React.useState('');
+
+  const normalizedSearchValue = React.useMemo<string>(
+    () => searchValue.trim().toLowerCase(),
+    [searchValue],
+  );
+
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearchValue(value);
@@ -437,12 +450,12 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
                 autoExpandParent
                 defaultExpandAll
                 filterTreeNode={
-                  searchValue.trim()
+                  normalizedSearchValue
                     ? (node) => {
                         if (typeof filterSearch === 'function') {
                           return filterSearch(searchValue, getFilterData(node));
                         }
-                        return searchValueMatched(searchValue, node.title);
+                        return searchValueMatched(normalizedSearchValue, node.title);
                       }
                     : undefined
                 }
@@ -451,6 +464,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
           </>
         );
       }
+
       const items = renderFilterItems({
         filters: column.filters || [],
         filterSearch,
@@ -458,7 +472,9 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
         filteredKeys: getFilteredKeysSync(),
         filterMultiple,
         searchValue,
+        normalizedSearchValue,
       });
+
       const isEmpty = items.every((item) => item === null);
 
       return (

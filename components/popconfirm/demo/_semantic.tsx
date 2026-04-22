@@ -51,7 +51,7 @@ const App: React.FC = () => {
       semantics={[
         { name: 'root', desc: locale.root },
         { name: 'container', desc: locale.container },
-        { name: 'icon', desc: locale.icon },
+        { name: 'icon', desc: locale.icon, version: '6.4.0' },
         { name: 'title', desc: locale.title },
         { name: 'content', desc: locale.content },
         { name: 'arrow', desc: locale.arrow },

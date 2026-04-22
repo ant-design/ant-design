@@ -22,6 +22,7 @@ import type { SharedProps } from './interface';
 import Logo from './Logo';
 import Navigation from './Navigation';
 import SwitchBtn from './SwitchBtn';
+import SponsorsNav from './SponsorsNav';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -49,21 +50,32 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
         display: inline-flex;
         align-items: center;
         flex: auto;
+        max-width: 220px;
+        height: 32px;
         margin: 0;
-        border-inline-start: 1px solid rgba(0, 0, 0, 0.06);
+        margin-inline-end: 16px !important;
+        background: ${cssVar.colorBgContainer};
+        border-radius: ${cssVar.borderRadiusSM};
+        transition: background ${cssVar.motionDurationSlow};
 
         > svg {
           width: 14px;
           fill: ${searchIconColor};
+          flex-shrink: 0;
+          margin-inline-start: -6px;
         }
 
         > input {
-          height: 22px;
+          flex: 1;
+          min-width: 0;
+          height: 100%;
           border: 0;
-          max-width: calc(100vw - 768px);
+          background: transparent;
+          padding-inline-start: 32px;
 
           &:focus {
             box-shadow: none;
+            background: transparent;
           }
 
           &::placeholder {
@@ -71,14 +83,13 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
           }
         }
 
+        &:hover,
+        &:focus-within {
+          background: ${cssVar.colorFillSecondary};
+        }
+
         .dumi-default-search-shortcut {
-          color: ${searchIconColor};
-          background-color: rgba(150, 150, 150, 0.06);
-          border-color: rgba(100, 100, 100, 0.2);
-          border-radius: ${cssVar.borderRadiusSM};
-          position: static;
-          top: unset;
-          transform: unset;
+          display: none;
         }
 
         .dumi-default-search-popover {
@@ -99,9 +110,10 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
     menuRow: css`
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       margin: 0;
-      column-gap: ${cssVar.paddingSM};
-      padding-inline-end: ${cssVar.padding};
+      column-gap: 2px;
+      padding-inline-end: ${cssVar.paddingMD};
 
       > * {
         flex: none;
@@ -134,8 +146,9 @@ const useStyle = createStyles(({ cssVar, token, css }) => {
       }
     `,
     versionSelect: css`
-      width: 112px;
-      min-width: 112px; // 这个宽度需要和 Empty 状态的宽度保持一致
+      width: 88px;
+      min-width: 88px; // 这个宽度需要和 Empty 状态的宽度保持一致
+      margin-inline-end: 6px;
       .rc-virtual-list {
         .rc-virtual-list-holder {
           scrollbar-width: thin;
@@ -336,6 +349,7 @@ const Header: React.FC = () => {
 
   let menu = [
     navigationNode,
+    <SponsorsNav key="sponsors" />,
     <Select
       key="version"
       size="small"

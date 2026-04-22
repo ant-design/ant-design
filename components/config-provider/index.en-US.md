@@ -68,6 +68,8 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | variant | Set variant of data entry components | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
+| ~~autoInsertSpaceInButton~~ | Button auto spacing config, please use `button={{ autoInsertSpace: boolean }}` instead | boolean | - | - |
+| ~~dropdownMatchSelectWidth~~ | Determine whether the dropdown menu and the select input are the same width, please use `popupMatchSelectWidth` instead | boolean | - | - |
 
 ### ConfigProvider.config() {#config}
 
@@ -108,12 +110,12 @@ const {
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| affix | Set Affix common props | { className?: string, style?: React.CSSProperties } | - | 6.0.0 |
+| affix | Set Affix common props | See [Affix](/components/affix#api) | - | 6.0.0 |
 | alert | Set Alert common props | See [Alert](/components/alert#api) | - | 5.7.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties, classNames?: [AnchorStyleConfig\["classNames"\]](/components/anchor#semantic-dom), styles?: [AnchorStyleConfig\["styles"\]](/components/anchor#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge#semantic-dom), styles?: [BadgeProps\["styles"\]](/components/badge#semantic-dom) } | - | 5.7.0 |
-| breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties, classNames?: [BreadcrumbConfig\["classNames"\]](/components/breadcrumb#semantic-dom), styles?: [BreadcrumbConfig\["styles"\]](/components/breadcrumb#semantic-dom), separator?: ReactNode, dropdownIcon?: ReactNode } | - | 5.7.0, `classNames`, `separator` and `styles`: 6.0.0, `dropdownIcon`: 6.2.0 |
+| breadcrumb | Set Breadcrumb common props | See [Breadcrumb](/components/breadcrumb#breadcrumb) | - | 5.7.0 |
 | button | Set Button common props | See [Button](/components/button#api) | - | 5.6.0 |
 | card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#semantic-dom), styles?: [CardProps\["styles"\]](/components/card#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
 | cardMeta | Set Card.Meta common props | { className?: string, style?: React.CSSProperties, classNames?: [CardMetaProps\["classNames"\]](/components/card#semantic-dom), styles?: [CardMetaProps\["styles"\]](/components/card#semantic-dom) } | - | 6.0.0 |
