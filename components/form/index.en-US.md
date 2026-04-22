@@ -652,6 +652,19 @@ Validating is also part of the value updating. It pass follow steps:
 
 In each `onFieldsChange`, you will get `false` > `true` > `false` with `isFieldValidating`.
 
+### Why are field names in `onFieldsChange` nested arrays? Can I read flat keys? {#faq-onfieldschange-namepath}
+
+`onFieldsChange` returns [`FieldData`](#fielddata) items and each `name` is a `NamePath` (`string | number | (string | number)[]`).
+This keeps nested structures (`['user', 'profile', 'email']`) unambiguous.
+
+If you need a flat key for logging or diffing, serialize `name` yourself, for example:
+
+```ts
+const key = Array.isArray(field.name) ? field.name.join('.') : String(field.name);
+```
+
+Use `form.getFieldsValue(true)` when you need the latest full value tree.
+
 ### Why doesn't Form.List support `label` and need ErrorList to show errors? {#faq-form-list-no-label}
 
 Form.List use renderProps which mean internal structure is flexible. Thus `label` and `error` can not have best place. If you want to use antd `label`, you can wrap with Form.Item instead.

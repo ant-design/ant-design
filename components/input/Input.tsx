@@ -226,7 +226,26 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     removePasswordTimeout();
-    onChange?.(e);
+
+    // Keep `target` stable for integrations like `react-number-format` customInput.
+    // `@rc-component/input` may mutate native event targets during composition,
+    // which can break libraries reading input value/cursor from event target.
+    const currentTarget = e.target?.cloneNode?.(true) as HTMLInputElement | undefined;
+    if (!currentTarget) {
+      onChange?.(e);
+      return;
+    }
+
+    if (currentTarget.type !== 'file') {
+      currentTarget.value = e.target.value;
+    }
+
+    const patchedEvent = Object.create(e, {
+      target: { value: currentTarget },
+      currentTarget: { value: currentTarget },
+    }) as React.ChangeEvent<HTMLInputElement>;
+
+    onChange?.(patchedEvent);
   };
 
   const suffixNode = (hasFeedback || suffix) && (
