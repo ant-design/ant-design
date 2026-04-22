@@ -355,9 +355,9 @@ function formatTokenValue(
     if (value.startsWith('cubic-bezier') || value.startsWith('calc')) {
       return value;
     }
-    // rgba values
+    // rgba values — clean up floating-point imprecision
     if (value.startsWith('rgba')) {
-      return value;
+      return cleanRgba(value);
     }
     // Hex colors (may or may not have #)
     if (/^[0-9a-f]{3,8}$/i.test(value)) {
@@ -405,6 +405,30 @@ function formatTokenValue(
   return String(value);
 }
 
+/**
+ * Convert rgba(r,g,b,a) to 6-digit hex by compositing on white background.
+ * The design.md spec requires hex colors in the YAML colors section.
+ * Semi-transparent rgba values are converted to their visual appearance
+ * on a white background (the default light theme background).
+ */
+function rgbaToHex6(value: string): string {
+  const match = value.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+))?\s*\)$/);
+  if (!match) return value;
+  const r = Number.parseInt(match[1], 10);
+  const g = Number.parseInt(match[2], 10);
+  const b = Number.parseInt(match[3], 10);
+  const a = match[4] !== undefined ? Number.parseFloat(match[4]) : 1;
+  if (a === 1) {
+    // Fully opaque, just convert to hex
+    return `#${[r, g, b].map((v) => Math.max(0, Math.min(255, v)).toString(16).padStart(2, '0')).join('')}`;
+  }
+  // Composite on white background: result = src * alpha + dst * (1 - alpha)
+  const ro = Math.round(r * a + 255 * (1 - a));
+  const go = Math.round(g * a + 255 * (1 - a));
+  const bo = Math.round(b * a + 255 * (1 - a));
+  return `#${[ro, go, bo].map((v) => Math.max(0, Math.min(255, v)).toString(16).padStart(2, '0')).join('')}`;
+}
+
 function isColorValue(value: string | number): boolean {
   if (typeof value === 'string') {
     return /^#/.test(value) || /^rgba?\(/.test(value);
@@ -431,7 +455,23 @@ function getMajorVersion(ver: string): string {
 }
 
 function normalizeShadow(value: string): string {
-  return value.replace(/\n\s*/g, ' ').trim();
+  return cleanRgba(value.replace(/\n\s*/g, ' ').trim());
+}
+
+/**
+ * Clean up rgba() values: round floating-point alpha to 4 decimal places
+ * and remove trailing zeros (e.g. "rgba(0,0,0,0.29250000000000004)" → "rgba(0,0,0,0.2925)")
+ */
+function cleanRgba(value: string): string {
+  return value.replace(
+    /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*([\d.]+)\s*\)/g,
+    (_match, r, g, b, a) => {
+      const alpha = Number.parseFloat(a);
+      // Round to 4 decimal places and strip trailing zeros
+      const cleaned = Number.parseFloat(alpha.toFixed(4));
+      return `rgba(${r},${g},${b},${cleaned})`;
+    },
+  );
 }
 
 // ============================================================
@@ -1597,6 +1637,8 @@ async function main() {
   lines.push(`  code: ${quoteYaml(fontFamilyCode)}`);
 
   // --- colors ---
+  // Convert rgba() values to 6-digit hex (composited on white) for spec compliance.
+  // The Markdown prose tables retain original rgba() values for documentation.
   lines.push('colors:');
   for (const group of COLOR_GROUPS) {
     lines.push(`  # ${group.group}`);
@@ -1604,7 +1646,15 @@ async function main() {
       const yamlKey = colorTokenToYamlKey(token);
       const val = aliasToken[token];
       if (val !== undefined) {
-        lines.push(`  ${yamlKey}: ${yamlScalar(val, 1)}`);
+        let strVal = String(val);
+        // Convert rgba() to hex6 for design.md color spec compliance
+        if (/^rgba?\(/.test(strVal)) {
+          strVal = rgbaToHex6(strVal);
+        } else if (/^[0-9a-f]{3,8}$/i.test(strVal)) {
+          // Ensure hex colors have # prefix
+          strVal = `#${strVal}`;
+        }
+        lines.push(`  ${yamlKey}: ${yamlScalar(strVal, 1)}`);
       }
     }
   }

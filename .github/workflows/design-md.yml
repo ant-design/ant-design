@@ -1,0 +1,44 @@
+name: 🎨 design.md
+
+on:
+  push:
+    branches: [master, feature]
+    paths:
+      - 'components/version/token.json'
+      - 'components/version/token-meta.json'
+      - 'components/theme/**'
+      - 'scripts/generate-design-md.ts'
+      - 'DESIGN.md'
+      - 'DESIGN.zh-CN.md'
+      - 'package.json'
+  pull_request:
+    branches: [master, feature]
+    paths:
+      - 'components/version/token.json'
+      - 'components/version/token-meta.json'
+      - 'components/theme/**'
+      - 'scripts/generate-design-md.ts'
+      - 'DESIGN.md'
+      - 'DESIGN.zh-CN.md'
+      - 'package.json'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      - run: npm install
+      - name: Generate DESIGN.md
+        run: npm run design:md
+      - name: Lint DESIGN.md
+        run: npx @google/design.md lint DESIGN.md

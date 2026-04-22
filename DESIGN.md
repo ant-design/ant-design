@@ -57,34 +57,34 @@ colors:
   info-border: '#91caff'
   info-text: '#1677ff'
   # Text
-  text: 'rgba(0,0,0,0.88)'
-  text-secondary: 'rgba(0,0,0,0.65)'
-  text-tertiary: 'rgba(0,0,0,0.45)'
-  text-quaternary: 'rgba(0,0,0,0.25)'
+  text: '#1f1f1f'
+  text-secondary: '#595959'
+  text-tertiary: '#8c8c8c'
+  text-quaternary: '#bfbfbf'
   text-light-solid: '#fff'
-  text-heading: 'rgba(0,0,0,0.88)'
-  text-label: 'rgba(0,0,0,0.65)'
-  text-description: 'rgba(0,0,0,0.45)'
-  text-disabled: 'rgba(0,0,0,0.25)'
-  text-placeholder: 'rgba(0,0,0,0.25)'
+  text-heading: '#1f1f1f'
+  text-label: '#595959'
+  text-description: '#8c8c8c'
+  text-disabled: '#bfbfbf'
+  text-placeholder: '#bfbfbf'
   # Background
   bg-container: '#ffffff'
   bg-elevated: '#ffffff'
   bg-layout: '#f5f5f5'
-  bg-spotlight: 'rgba(0,0,0,0.85)'
-  bg-mask: 'rgba(0,0,0,0.45)'
+  bg-spotlight: '#262626'
+  bg-mask: '#8c8c8c'
   # Border
   border: '#d9d9d9'
   border-secondary: '#f0f0f0'
   border-disabled: '#d9d9d9'
   # Fill
-  fill: 'rgba(0,0,0,0.15)'
-  fill-secondary: 'rgba(0,0,0,0.06)'
-  fill-tertiary: 'rgba(0,0,0,0.04)'
-  fill-quaternary: 'rgba(0,0,0,0.02)'
-  fill-content: 'rgba(0,0,0,0.06)'
-  fill-content-hover: 'rgba(0,0,0,0.15)'
-  fill-alter: 'rgba(0,0,0,0.02)'
+  fill: '#d9d9d9'
+  fill-secondary: '#f0f0f0'
+  fill-tertiary: '#f5f5f5'
+  fill-quaternary: '#fafafa'
+  fill-content: '#f0f0f0'
+  fill-content-hover: '#d9d9d9'
+  fill-alter: '#fafafa'
   # Link
   link: '#1677ff'
   link-hover: '#69b1ff'
@@ -92,10 +92,10 @@ colors:
   # Highlight
   highlight: '#ff4d4f'
   # Icon
-  icon: 'rgba(0,0,0,0.45)'
-  icon-hover: 'rgba(0,0,0,0.88)'
+  icon: '#8c8c8c'
+  icon-hover: '#1f1f1f'
   # Control
-  control-item-bg-hover: 'rgba(0,0,0,0.04)'
+  control-item-bg-hover: '#f5f5f5'
   control-item-bg-active: '#e6f4ff'
   control-item-bg-active-hover: '#bae0ff'
 typography:
@@ -641,8 +641,8 @@ components:
     sticky-scroll-bar-bg: '{colors.text-disabled}'
     sticky-scroll-bar-border-radius: '100px'
     expand-icon-margin-top: '2.5px'
-    header-icon-color: 'rgba(0,0,0,0.29250000000000004)'
-    header-icon-hover-color: 'rgba(0,0,0,0.5720000000000001)'
+    header-icon-color: 'rgba(0,0,0,0.2925)'
+    header-icon-hover-color: 'rgba(0,0,0,0.572)'
     expand-icon-half-inner: '7px'
     expand-icon-size: '17px'
     expand-icon-scale: '0.9411764705882353'
@@ -1448,8 +1448,8 @@ _No component tokens available._
 | `stickyScrollBarBg` | `--ant-table-sticky-scroll-bar-bg` | rgba(0,0,0,0.25) | Background of sticky scrollbar |
 | `stickyScrollBarBorderRadius` | `--ant-table-sticky-scroll-bar-border-radius` | 100px | Border radius of sticky scrollbar |
 | `expandIconMarginTop` | `--ant-table-expand-icon-margin-top` | 2.5px |  |
-| `headerIconColor` | `--ant-table-header-icon-color` | rgba(0,0,0,0.29250000000000004) |  |
-| `headerIconHoverColor` | `--ant-table-header-icon-hover-color` | rgba(0,0,0,0.5720000000000001) |  |
+| `headerIconColor` | `--ant-table-header-icon-color` | rgba(0,0,0,0.2925) |  |
+| `headerIconHoverColor` | `--ant-table-header-icon-hover-color` | rgba(0,0,0,0.572) |  |
 | `expandIconHalfInner` | `--ant-table-expand-icon-half-inner` | 7px |  |
 | `expandIconSize` | `--ant-table-expand-icon-size` | 17px |  |
 | `expandIconScale` | `--ant-table-expand-icon-scale` | 0.9411764705882353 |  |
