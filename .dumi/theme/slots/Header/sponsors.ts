@@ -20,8 +20,8 @@ export const sponsors: Sponsor[] = [
     name: 'YouMind',
     logo: 'https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*SXcuQYBZ6oQAAAAAQJAAAAgAeh6VAQ/original',
     url: {
-      cn: 'https://youmind.com/zh-CN?from=ant-design',
-      en: 'https://youmind.com?from=ant-design',
+      cn: 'https://youmind.com/zh-CN?utm_source=ant-design',
+      en: 'https://youmind.com?utm_source=ant-design',
     },
     opencollective: 'https://opencollective.com/youmind',
     description: {
@@ -32,7 +32,7 @@ export const sponsors: Sponsor[] = [
   {
     name: 'TRACTIAN',
     logo: 'https://mdn.alipayobjects.com/huamei_vmgq1x/afts/img/A*Z4-4Q67SG5UAAAAAQLAAAAgAeh6VAQ/original',
-    url: 'https://tractian.com?from=ant-design',
+    url: 'https://tractian.com?utm_source=ant-design',
     opencollective: 'https://opencollective.com/tractian',
     description: {
       cn: '工业 AI 平台，专注于预测性维护与资产管理。',
@@ -42,7 +42,7 @@ export const sponsors: Sponsor[] = [
   {
     name: 'LobeHub',
     logo: 'https://unpkg.com/@lobehub/icons-static-svg@1.79.0/icons/lobehub-color.svg',
-    url: 'https://lobehub.com?from=ant-design',
+    url: 'https://lobehub.com?utm_source=ant-design',
     opencollective: 'https://opencollective.com/lobehub',
     description: {
       cn: 'LobeHub 是你工作与生活的终极空间：在这里发现、构建并与 Agent 团队一起无限进步。',

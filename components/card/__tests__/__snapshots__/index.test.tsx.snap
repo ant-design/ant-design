@@ -252,20 +252,13 @@ exports[`Card correct pass tabList props 1`] = `
       </div>
     </div>
   </div>
-  <div
-    class="ant-card-body"
-  />
 </div>
 `;
 
 exports[`Card rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-card ant-card-bordered ant-card-rtl css-var-root"
->
-  <div
-    class="ant-card-body"
-  />
-</div>
+/>
 `;
 
 exports[`Card should still have padding when card which set padding to 0 is loading 1`] = `
