@@ -94,8 +94,8 @@
     "test:visual-regression:local": "tsx scripts/visual-regression/local.ts",
     "token:meta": "tsx scripts/generate-token-meta.ts",
     "token:statistic": "tsx scripts/collect-token-statistic.ts",
-    "design:md": "tsx scripts/generate-design-md.ts",
-    "design:lint": "npx @google/design.md lint DESIGN.md",
+    "design:md": "npm run token:statistic && npm run token:meta && tsx scripts/generate-design-md.ts",
+    "design:lint": "design.md lint DESIGN.md",
     "tsc": "tsc --noEmit",
     "tsc:old": "tsc --noEmit -p tsconfig-old-react.json",
     "version": "tsx scripts/generate-version.ts"
@@ -176,6 +176,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/server": "^11.11.0",
     "@eslint-react/eslint-plugin": "3.0.0",
+    "@google/design.md": "0.1.1",
     "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@inquirer/prompts": "^8.0.2",
     "@madccc/duplicate-package-checker-webpack-plugin": "^1.0.0",

@@ -40,5 +40,7 @@ jobs:
       - run: npm install
       - name: Generate DESIGN.md
         run: npm run design:md
+      - name: Check generated files are committed
+        run: git diff --exit-code -- DESIGN.md DESIGN.zh-CN.md
       - name: Lint DESIGN.md
-        run: npx @google/design.md lint DESIGN.md
+        run: npm run design:lint

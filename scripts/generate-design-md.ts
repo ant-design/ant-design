@@ -39,7 +39,7 @@ interface TokenMeta {
 
 interface TokenJsonComponent {
   global: string[];
-  component: Record<string, string | number>;
+  component: Record<string, string | number | boolean>;
 }
 
 interface TokenJson {
@@ -481,11 +481,22 @@ function cleanRgba(value: string): string {
 // Build a reverse map from global token value -> global token name
 // for resolving component token values to global references
 function buildGlobalTokenValueMap(aliasToken: Record<string, any>): Map<string, string> {
-  const valueMap = new Map<string, string>();
+  // First pass: count how many tokens map to each value
+  const valueCandidates = new Map<string, string[]>();
   for (const [key, val] of Object.entries(aliasToken)) {
     if (val !== undefined && val !== null) {
       const strVal = String(val);
-      valueMap.set(strVal, key);
+      if (!valueCandidates.has(strVal)) {
+        valueCandidates.set(strVal, []);
+      }
+      valueCandidates.get(strVal)!.push(key);
+    }
+  }
+  // Only include entries where the value maps to exactly one global token
+  const valueMap = new Map<string, string>();
+  for (const [strVal, keys] of valueCandidates) {
+    if (keys.length === 1) {
+      valueMap.set(strVal, keys[0]);
     }
   }
   return valueMap;
@@ -580,20 +591,9 @@ function resolveComponentTokenValue(
     if (shadowKeyMap.has(matchedGlobalToken)) {
       return shadowKeyMap.get(matchedGlobalToken)!;
     }
-    // Check if it's a rounded value
-    if (roundedKeyMap.has(strVal)) {
-      return roundedKeyMap.get(strVal)!;
-    }
-    // Check typography
-    if (typographyKeyMap.has(strVal)) {
-      return typographyKeyMap.get(strVal)!;
-    }
   }
 
-  // Check value directly against color, shadow, rounded maps
-  if (colorKeyMap.has(tokenName)) {
-    return colorKeyMap.get(tokenName)!;
-  }
+  // Check value directly against color and shadow maps
   if (isColorValue(strVal)) {
     // Try matching by value against the aliasToken color values
     for (const group of COLOR_GROUPS) {
@@ -615,16 +615,6 @@ function resolveComponentTokenValue(
         return `{shadows.${s.key}}`;
       }
     }
-  }
-
-  // Check rounded values
-  if (roundedKeyMap.has(strVal)) {
-    return roundedKeyMap.get(strVal)!;
-  }
-
-  // Check typography values (fontSize matching)
-  if (typographyKeyMap.has(strVal)) {
-    return typographyKeyMap.get(strVal)!;
   }
 
   return null;
@@ -680,7 +670,7 @@ function mdTableRow(cells: string[]): string {
 }
 
 function escapeMdTablePipe(str: string): string {
-  return str.replace(/\|/g, '\\|');
+  return str.replace(/\\/g, '\\\\').replace(/\|/g, '\\|');
 }
 
 // ============================================================
@@ -718,7 +708,6 @@ function yamlLiteralKeyValue(key: string, value: string, indent: number): string
 
 function buildComponentTokenTable(
   compName: string,
-  aliasToken: Record<string, any>,
   tokenMeta: TokenMeta,
   tokenJson: TokenJson,
   compTokenTypeMap: Map<string, string>,
@@ -791,7 +780,6 @@ function buildComponentTokenTable(
 // ============================================================
 
 function generateEnglishProse(
-  antdVersion: string,
   aliasToken: Record<string, any>,
   tokenMeta: TokenMeta,
   tokenJson: TokenJson,
@@ -1002,7 +990,7 @@ function generateEnglishProse(
   sections.push(``);
   sections.push(`### Common Transition Patterns`);
   sections.push(
-    `- **Expand/Collapse**: \`motionDurationMid\` + \`motionEaseOutQuad\` or \`motionEaseOutBack\``,
+    `- **Expand/Collapse**: \`motionDurationMid\` + \`motionEaseOut\` or \`motionEaseOutBack\``,
   );
   sections.push(`- **Fade**: \`motionDurationFast\` + \`motionEaseOut\``);
   sections.push(`- **Slide**: \`motionDurationMid\` + \`motionEaseOutCirc\``);
@@ -1021,6 +1009,7 @@ function generateEnglishProse(
     ['sm', 'borderRadiusSM', `${aliasToken.borderRadiusSM}px`],
     ['DEFAULT', 'borderRadius', `${aliasToken.borderRadius}px`],
     ['lg', 'borderRadiusLG', `${aliasToken.borderRadiusLG}px`],
+    ['xl', 'borderRadiusOuter', '12px'],
   ];
   for (const [scale, token, value] of shapeEntries) {
     sections.push(mdTableRow([scale, token ? `\`${token}\`` : '-', `\`${value}\``]));
@@ -1050,14 +1039,7 @@ function generateEnglishProse(
 
   for (const compName of CORE_COMPONENTS) {
     sections.push(`### ${compName}`);
-    const table = buildComponentTokenTable(
-      compName,
-      aliasToken,
-      tokenMeta,
-      tokenJson,
-      compTokenTypeMap,
-      'en',
-    );
+    const table = buildComponentTokenTable(compName, tokenMeta, tokenJson, compTokenTypeMap, 'en');
     if (table) {
       sections.push(table);
     } else {
@@ -1167,7 +1149,7 @@ function generateEnglishProse(
     'Always derive hover/active/background variants from the seed color algorithm rather than hardcoding individual shades.',
     'Maintain the 3-layer background hierarchy (layout \u2192 container \u2192 elevated) when adding new surfaces.',
     'Use motion tokens for all animations\u2014never hardcode durations or easing values inline.',
-    'Respect the rounded scale; do not introduce arbitrary border-radius values outside the 5-step system.',
+    'Respect the rounded scale; do not introduce arbitrary border-radius values outside the 6-step system.',
     'Test all custom themes in both light and dark algorithms before shipping.',
     'Keep component token overrides minimal\u2014prefer global token changes for broad consistency.',
     'Ensure WCAG 2.1 AA contrast (4.5:1 for normal text) whenever customizing text or background colors.',
@@ -1186,7 +1168,6 @@ function generateEnglishProse(
 // ============================================================
 
 function generateChineseProse(
-  antdVersion: string,
   aliasToken: Record<string, any>,
   tokenMeta: TokenMeta,
   tokenJson: TokenJson,
@@ -1418,7 +1399,7 @@ function generateChineseProse(
   sections.push(``);
   sections.push(`### 常见过渡模式`);
   sections.push(
-    `- **展开/折叠**：\`motionDurationMid\` + \`motionEaseOutQuad\` 或 \`motionEaseOutBack\``,
+    `- **展开/折叠**：\`motionDurationMid\` + \`motionEaseOut\` 或 \`motionEaseOutBack\``,
   );
   sections.push(`- **淡入淡出**：\`motionDurationFast\` + \`motionEaseOut\``);
   sections.push(`- **滑动**：\`motionDurationMid\` + \`motionEaseOutCirc\``);
@@ -1437,6 +1418,7 @@ function generateChineseProse(
     ['sm', 'borderRadiusSM', `${aliasToken.borderRadiusSM}px`],
     ['DEFAULT', 'borderRadius', `${aliasToken.borderRadius}px`],
     ['lg', 'borderRadiusLG', `${aliasToken.borderRadiusLG}px`],
+    ['xl', 'borderRadiusOuter', '12px'],
   ];
   for (const [scale, token, value] of shapeEntries) {
     sections.push(mdTableRow([scale, token ? `\`${token}\`` : '-', `\`${value}\``]));
@@ -1462,14 +1444,7 @@ function generateChineseProse(
 
   for (const compName of CORE_COMPONENTS) {
     sections.push(`### ${compName}`);
-    const table = buildComponentTokenTable(
-      compName,
-      aliasToken,
-      tokenMeta,
-      tokenJson,
-      compTokenTypeMap,
-      'zh',
-    );
+    const table = buildComponentTokenTable(compName, tokenMeta, tokenJson, compTokenTypeMap, 'zh');
     if (table) {
       sections.push(table);
     } else {
@@ -1567,7 +1542,7 @@ function generateChineseProse(
     '始终从种子颜色算法推导 hover/active/背景变体，而非硬编码单独的色阶。',
     '添加新表面时维持三层背景层级（布局 → 容器 → 浮层）。',
     '所有动画使用动效 Token——绝不内联硬编码时长或缓动值。',
-    '遵循圆角梯度；不在 5 级体系之外引入任意 border-radius 值。',
+    '遵循圆角梯度；不在 6 级体系之外引入任意 border-radius 值。',
     '发布前在亮色和暗色算法下测试所有自定义主题。',
     '保持组件 Token 覆盖最小化——优先通过全局 Token 变更实现广泛一致性。',
     '自定义文本或背景颜色时确保 WCAG 2.1 AA 对比度（普通文本 4.5:1）。',
@@ -1590,9 +1565,22 @@ async function main() {
   const aliasToken = getDesignToken() as Record<string, any>;
 
   const tokenMetaPath = path.join(__dirname, '..', 'components', 'version', 'token-meta.json');
-  const tokenMeta: TokenMeta = await fs.readJson(tokenMetaPath);
-
   const tokenJsonPath = path.join(__dirname, '..', 'components', 'version', 'token.json');
+
+  // Check required generated files exist
+  for (const [filePath, command] of [
+    [tokenMetaPath, 'npm run token:meta'],
+    [tokenJsonPath, 'npm run token:statistic'],
+  ] as const) {
+    if (!(await fs.pathExists(filePath))) {
+      throw new Error(
+        `Required file not found: ${path.relative(process.cwd(), filePath)}\n` +
+          `Please run "${command}" first to generate it.`,
+      );
+    }
+  }
+
+  const tokenMeta: TokenMeta = await fs.readJson(tokenMetaPath);
   const tokenJson: TokenJson = await fs.readJson(tokenJsonPath);
 
   const majorVersion = getMajorVersion(version);
@@ -1812,20 +1800,8 @@ async function main() {
   const yamlStr = yamlLines.join('\n');
 
   // 4. Generate prose sections
-  const englishProse = generateEnglishProse(
-    majorVersion,
-    aliasToken,
-    tokenMeta,
-    tokenJson,
-    compTokenTypeMap,
-  );
-  const chineseProse = generateChineseProse(
-    majorVersion,
-    aliasToken,
-    tokenMeta,
-    tokenJson,
-    compTokenTypeMap,
-  );
+  const englishProse = generateEnglishProse(aliasToken, tokenMeta, tokenJson, compTokenTypeMap);
+  const chineseProse = generateChineseProse(aliasToken, tokenMeta, tokenJson, compTokenTypeMap);
 
   // 5. Assemble final content: YAML front matter + prose
   const enContent = `---\n${yamlStr}\n---\n\n${englishProse}\n`;
