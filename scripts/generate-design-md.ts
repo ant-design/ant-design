@@ -159,52 +159,108 @@ const TYPOGRAPHY_LEVELS: {
   fontSizeToken: string;
   lineHeightToken: string;
   fontWeight: number;
+  letterSpacing: string;
+  notesEn: string;
+  notesZh: string;
 }[] = [
   {
     key: 'heading-1',
     fontSizeToken: 'fontSizeHeading1',
     lineHeightToken: 'lineHeightHeading1',
     fontWeight: 700,
+    letterSpacing: 'normal',
+    notesEn: 'H1 / Page titles',
+    notesZh: 'H1 / 页面标题',
   },
   {
     key: 'heading-2',
     fontSizeToken: 'fontSizeHeading2',
     lineHeightToken: 'lineHeightHeading2',
     fontWeight: 600,
+    letterSpacing: 'normal',
+    notesEn: 'H2 / Section titles',
+    notesZh: 'H2 / 章节标题',
   },
   {
     key: 'heading-3',
     fontSizeToken: 'fontSizeHeading3',
     lineHeightToken: 'lineHeightHeading3',
     fontWeight: 600,
+    letterSpacing: 'normal',
+    notesEn: 'H3 / Subsection titles',
+    notesZh: 'H3 / 子章节标题',
   },
   {
     key: 'heading-4',
     fontSizeToken: 'fontSizeHeading4',
     lineHeightToken: 'lineHeightHeading4',
     fontWeight: 600,
+    letterSpacing: 'normal',
+    notesEn: 'H4 / Group headings',
+    notesZh: 'H4 / 分组标题',
   },
   {
     key: 'heading-5',
     fontSizeToken: 'fontSizeHeading5',
     lineHeightToken: 'lineHeightHeading5',
     fontWeight: 600,
+    letterSpacing: 'normal',
+    notesEn: 'H5 / Minor headings',
+    notesZh: 'H5 / 次要标题',
   },
-  { key: 'body-lg', fontSizeToken: 'fontSizeLG', lineHeightToken: 'lineHeightLG', fontWeight: 400 },
-  { key: 'body-md', fontSizeToken: 'fontSize', lineHeightToken: 'lineHeight', fontWeight: 400 },
-  { key: 'body-sm', fontSizeToken: 'fontSizeSM', lineHeightToken: 'lineHeightSM', fontWeight: 400 },
+  {
+    key: 'body-lg',
+    fontSizeToken: 'fontSizeLG',
+    lineHeightToken: 'lineHeightLG',
+    fontWeight: 400,
+    letterSpacing: '-',
+    notesEn: 'Large body text',
+    notesZh: '大号正文',
+  },
+  {
+    key: 'body-md',
+    fontSizeToken: 'fontSize',
+    lineHeightToken: 'lineHeight',
+    fontWeight: 400,
+    letterSpacing: '-',
+    notesEn: 'Default body text',
+    notesZh: '默认正文',
+  },
+  {
+    key: 'body-sm',
+    fontSizeToken: 'fontSizeSM',
+    lineHeightToken: 'lineHeightSM',
+    fontWeight: 400,
+    letterSpacing: '-',
+    notesEn: 'Small body / Helper text',
+    notesZh: '小号正文 / 辅助文本',
+  },
   {
     key: 'label-lg',
     fontSizeToken: 'fontSizeLG',
     lineHeightToken: 'lineHeightLG',
     fontWeight: 600,
+    letterSpacing: '-',
+    notesEn: 'Large label',
+    notesZh: '大号标签',
   },
-  { key: 'label-md', fontSizeToken: 'fontSize', lineHeightToken: 'lineHeight', fontWeight: 600 },
+  {
+    key: 'label-md',
+    fontSizeToken: 'fontSize',
+    lineHeightToken: 'lineHeight',
+    fontWeight: 600,
+    letterSpacing: '-',
+    notesEn: 'Default label',
+    notesZh: '默认标签',
+  },
   {
     key: 'label-sm',
     fontSizeToken: 'fontSizeSM',
     lineHeightToken: 'lineHeightSM',
     fontWeight: 600,
+    letterSpacing: '-',
+    notesEn: 'Small label',
+    notesZh: '小号标签',
   },
 ];
 
@@ -437,6 +493,7 @@ function buildRoundedKeyMap(aliasToken: Record<string, any>): Map<string, string
     ['sm', String(aliasToken.borderRadiusSM)],
     ['DEFAULT', String(aliasToken.borderRadius)],
     ['lg', String(aliasToken.borderRadiusLG)],
+    ['xl', '12'],
   ];
   for (const [key, val] of roundedPairs) {
     map.set(val, `{rounded.${key}}`);
@@ -779,7 +836,7 @@ function generateEnglishProse(
   // --- Section 3: Typography ---
   sections.push(`## Typography`);
 
-  const typoCols = ['Level', 'Font', 'Size', 'Weight', 'Line Height'];
+  const typoCols = ['Level', 'Font', 'Size', 'Weight', 'Line Height', 'Letter Spacing', 'Notes'];
   sections.push(mdTableHeader(typoCols));
   sections.push(mdTableDivider(typoCols.length));
   for (const level of TYPOGRAPHY_LEVELS) {
@@ -792,6 +849,8 @@ function generateEnglishProse(
         `\`${fontSize}px\``,
         String(level.fontWeight),
         String(lineHeight),
+        level.letterSpacing,
+        level.notesEn,
       ]),
     );
   }
@@ -877,6 +936,12 @@ function generateEnglishProse(
   sections.push(`### Shadow Philosophy`);
   sections.push(
     `Shadows communicate elevation. The default shadow (\`boxShadow\`) is used for popovers and floating elements. \`boxShadowSecondary\` adds depth for modals and drawers. \`boxShadowTertiary\` provides the subtlest lift for inline raised elements. \`boxShadowCard\` is tuned for card surfaces. Keep shadows minimal\u2014excessive depth creates visual noise.`,
+  );
+  sections.push(``);
+
+  sections.push(`### Mask & Overlay System`);
+  sections.push(
+    `Semi-transparent overlays mask the underlying content when a Modal, Drawer, or Popconfirm is active. The mask uses \`colorBgMask\` (rgba(0,0,0,0.45)) by default. When CSS Variables mode is enabled, this becomes \`--ant-color-bg-mask\`. Modals, Drawers, and Popconfirms each have their own z-index tokens layered above the mask (starting from \`zIndexPopupBase: 1000\`).`,
   );
   sections.push(``);
 
@@ -1181,7 +1246,7 @@ function generateChineseProse(
   // --- Section 3: 排版 ---
   sections.push(`## 排版 {#typography}`);
 
-  const typoCols = ['层级', '字体', '大小', '字重', '行高'];
+  const typoCols = ['层级', '字体', '大小', '字重', '行高', '字间距', '备注'];
   sections.push(mdTableHeader(typoCols));
   sections.push(mdTableDivider(typoCols.length));
   for (const level of TYPOGRAPHY_LEVELS) {
@@ -1194,6 +1259,8 @@ function generateChineseProse(
         `\`${fontSize}px\``,
         String(level.fontWeight),
         String(lineHeight),
+        level.letterSpacing,
+        level.notesZh,
       ]),
     );
   }
@@ -1285,6 +1352,12 @@ function generateChineseProse(
   sections.push(`### 阴影哲学`);
   sections.push(
     `阴影传达层级感。默认阴影（\`boxShadow\`）用于气泡卡片和浮动元素。\`boxShadowSecondary\` 为弹窗和抽屉增加深度。\`boxShadowTertiary\` 为行内凸起元素提供最轻微的提升。\`boxShadowCard\` 针对卡片表面调优。保持阴影最小化——过多的深度会造成视觉噪音。`,
+  );
+  sections.push(``);
+
+  sections.push(`### 遮罩层体系`);
+  sections.push(
+    `当 Modal、Drawer 或 Popconfirm 处于活动状态时，半透明遮罩覆盖底层内容。遮罩默认使用 \`colorBgMask\`（rgba(0,0,0,0.45)）。启用 CSS Variables 模式后，该值变为 \`--ant-color-bg-mask\`。Modal、Drawer 和 Popconfirm 各自有独立的 z-index token，分层叠加在遮罩之上（起点为 \`zIndexPopupBase: 1000\`）。`,
   );
   sections.push(``);
 
@@ -1560,6 +1633,7 @@ async function main() {
   lines.push(`  sm: "${aliasToken.borderRadiusSM}px"`);
   lines.push(`  DEFAULT: "${aliasToken.borderRadius}px"`);
   lines.push(`  lg: "${aliasToken.borderRadiusLG}px"`);
+  lines.push(`  xl: "12px"`);
 
   // --- spacing ---
   lines.push('spacing:');

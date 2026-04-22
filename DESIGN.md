@@ -153,6 +153,7 @@ rounded:
   sm: '4px'
   DEFAULT: '6px'
   lg: '8px'
+  xl: '12px'
 spacing:
   xxs: '4px'
   xs: '8px'
@@ -201,8 +202,8 @@ components:
     indicator-height: { typography.heading-4 }
     indicator-height-sm: { typography.label-md }
     dot-size: { rounded.DEFAULT }
-    text-font-size: { typography.label-sm }
-    text-font-size-sm: { typography.label-sm }
+    text-font-size: { rounded.xl }
+    text-font-size-sm: { rounded.xl }
     text-font-weight: 'normal'
     status-size: { rounded.DEFAULT }
   breadcrumb:
@@ -282,8 +283,8 @@ components:
     actions-li-margin: '12px 0'
     tabs-margin-bottom: '-17px'
     extra-color: { colors.icon-hover }
-    body-padding-sm: { typography.label-sm }
-    header-padding-sm: { typography.label-sm }
+    body-padding-sm: { rounded.xl }
+    header-padding-sm: { rounded.xl }
     body-padding: { typography.heading-3 }
     header-padding: { typography.heading-3 }
   checkbox: {}
@@ -341,7 +342,7 @@ components:
     dragger-size: { rounded.sm }
   dropdown:
     padding-block: '5px'
-    arrow-offset-horizontal: { typography.label-sm }
+    arrow-offset-horizontal: { rounded.xl }
     arrow-offset-vertical: { rounded.lg }
     arrow-shadow-width: '8.970562748477143px'
   form:
@@ -493,7 +494,7 @@ components:
   popover:
     title-min-width: '177px'
     arrow-shadow-width: '8.970562748477143px'
-    arrow-offset-horizontal: { typography.label-sm }
+    arrow-offset-horizontal: { rounded.xl }
     arrow-offset-vertical: { rounded.lg }
     inner-padding: { rounded.none }
     title-margin-bottom: { rounded.none }
@@ -553,7 +554,7 @@ components:
     control-size: '10px'
     rail-size: { rounded.sm }
     handle-size: '10px'
-    handle-size-hover: { typography.label-sm }
+    handle-size-hover: { rounded.xl }
     dot-size: { rounded.lg }
     handle-line-width: { rounded.xs }
     handle-line-width-hover: '2.5px'
@@ -594,7 +595,7 @@ components:
     track-padding: { rounded.xs }
     handle-bg: { colors.text-light-solid }
     handle-size: '18px'
-    handle-size-sm: { typography.label-sm }
+    handle-size-sm: { rounded.xl }
     handle-shadow: 0 2px 4px 0 rgba(0,35,11,0.2)
     inner-min-margin: '9px'
     inner-max-margin: { typography.heading-3 }
@@ -612,7 +613,7 @@ components:
     row-expanded-bg: { colors.fill-quaternary }
     cell-padding-block: { typography.label-lg }
     cell-padding-inline: { typography.label-lg }
-    cell-padding-block-md: { typography.label-sm }
+    cell-padding-block-md: { rounded.xl }
     cell-padding-inline-md: { rounded.lg }
     cell-padding-block-sm: { rounded.lg }
     cell-padding-inline-sm: { rounded.lg }
@@ -670,7 +671,7 @@ components:
     solid-text-color: { colors.text-light-solid }
   tooltip:
     max-width: '250px'
-    arrow-offset-horizontal: { typography.label-sm }
+    arrow-offset-horizontal: { rounded.xl }
     arrow-offset-vertical: { rounded.lg }
     arrow-shadow-width: '8.970562748477143px'
   typography:
@@ -774,19 +775,19 @@ The color system derives all palettes from a single seed color (`colorPrimary`).
 
 ## Typography
 
-| Level       | Font         | Size   | Weight | Line Height        |
-| ----------- | ------------ | ------ | ------ | ------------------ |
-| `heading-1` | {fonts.sans} | `38px` | 700    | 1.2105263157894737 |
-| `heading-2` | {fonts.sans} | `30px` | 600    | 1.2666666666666666 |
-| `heading-3` | {fonts.sans} | `24px` | 600    | 1.3333333333333333 |
-| `heading-4` | {fonts.sans} | `20px` | 600    | 1.4                |
-| `heading-5` | {fonts.sans} | `16px` | 600    | 1.5                |
-| `body-lg`   | {fonts.sans} | `16px` | 400    | 1.5                |
-| `body-md`   | {fonts.sans} | `14px` | 400    | 1.5714285714285714 |
-| `body-sm`   | {fonts.sans} | `12px` | 400    | 1.6666666666666667 |
-| `label-lg`  | {fonts.sans} | `16px` | 600    | 1.5                |
-| `label-md`  | {fonts.sans} | `14px` | 600    | 1.5714285714285714 |
-| `label-sm`  | {fonts.sans} | `12px` | 600    | 1.6666666666666667 |
+| Level | Font | Size | Weight | Line Height | Letter Spacing | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| `heading-1` | {fonts.sans} | `38px` | 700 | 1.2105263157894737 | normal | H1 / Page titles |
+| `heading-2` | {fonts.sans} | `30px` | 600 | 1.2666666666666666 | normal | H2 / Section titles |
+| `heading-3` | {fonts.sans} | `24px` | 600 | 1.3333333333333333 | normal | H3 / Subsection titles |
+| `heading-4` | {fonts.sans} | `20px` | 600 | 1.4 | normal | H4 / Group headings |
+| `heading-5` | {fonts.sans} | `16px` | 600 | 1.5 | normal | H5 / Minor headings |
+| `body-lg` | {fonts.sans} | `16px` | 400 | 1.5 | - | Large body text |
+| `body-md` | {fonts.sans} | `14px` | 400 | 1.5714285714285714 | - | Default body text |
+| `body-sm` | {fonts.sans} | `12px` | 400 | 1.6666666666666667 | - | Small body / Helper text |
+| `label-lg` | {fonts.sans} | `16px` | 600 | 1.5 | - | Large label |
+| `label-md` | {fonts.sans} | `14px` | 600 | 1.5714285714285714 | - | Default label |
+| `label-sm` | {fonts.sans} | `12px` | 600 | 1.6666666666666667 | - | Small label |
 
 The default font stack prioritizes system fonts for optimal rendering on each platform: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'. For code blocks and inline code, a monospace stack is used: `'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace`.
 
@@ -833,6 +834,10 @@ Ant Design uses a three-layer background system to convey visual hierarchy:
 ### Shadow Philosophy
 
 Shadows communicate elevation. The default shadow (`boxShadow`) is used for popovers and floating elements. `boxShadowSecondary` adds depth for modals and drawers. `boxShadowTertiary` provides the subtlest lift for inline raised elements. `boxShadowCard` is tuned for card surfaces. Keep shadows minimal—excessive depth creates visual noise.
+
+### Mask & Overlay System
+
+Semi-transparent overlays mask the underlying content when a Modal, Drawer, or Popconfirm is active. The mask uses `colorBgMask` (rgba(0,0,0,0.45)) by default. When CSS Variables mode is enabled, this becomes `--ant-color-bg-mask`. Modals, Drawers, and Popconfirms each have their own z-index tokens layered above the mask (starting from `zIndexPopupBase: 1000`).
 
 ### Motion
 
