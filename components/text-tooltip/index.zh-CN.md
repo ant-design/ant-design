@@ -22,6 +22,7 @@ demo:
 <code src="./demo/arrow.tsx">箭头</code>
 <code src="./demo/colorful.tsx">颜色</code>
 <code src="./demo/trigger.tsx">触发方式</code>
+<code src="./demo/perf.tsx">性能对比</code>
 
 ## API
 

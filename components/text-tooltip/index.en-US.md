@@ -21,6 +21,7 @@ Compared with `Tooltip`, it does not support complex content, auto flip, or popu
 <code src="./demo/arrow.tsx">Arrow</code>
 <code src="./demo/colorful.tsx">Color</code>
 <code src="./demo/trigger.tsx">Trigger</code>
+<code src="./demo/perf.tsx">Performance</code>
 
 ## API
 
