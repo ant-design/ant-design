@@ -143,7 +143,7 @@ const Child = React.memo(() => {
 // pseudocode
 import React from 'react';
 
-const MyComponent = React.memo(({ valueRender }: { valueRender: () => React.ReactElement }) =>
+const MyComponent = React.memo<{ valueRender: () => React.ReactElement<any> }>(({ valueRender }) =>
   valueRender(),
 );
 

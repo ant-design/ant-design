@@ -2,9 +2,8 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
-export default () => {
+const GlobalReset: React.FC = () => {
   const token = useTheme();
-
   return (
     <Global
       styles={css`
@@ -70,3 +69,5 @@ export default () => {
     />
   );
 };
+
+export default GlobalReset;

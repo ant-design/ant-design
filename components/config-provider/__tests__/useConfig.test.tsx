@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from 'antd';
 
 import ConfigProvider from '..';
 import { resetWarned } from '../../_util/warning';
 import { render } from '../../../tests/utils';
+import Button from '../../button';
 import Form from '../../form';
 
 describe('ConfigProvider.useConfig', () => {

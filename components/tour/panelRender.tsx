@@ -4,7 +4,7 @@ import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable } from '../_util/is';
 import type { ButtonProps } from '../button/Button';
 import Button from '../button/Button';
 import { useLocale } from '../locale';
@@ -56,7 +56,8 @@ const TourPanel: React.FC<TourPanelProps> = (props) => {
     <button
       type="button"
       onClick={onClose}
-      className={`${prefixCls}-close`}
+      className={clsx(`${prefixCls}-close`, classNames.close)}
+      style={styles.close}
       aria-label={contextLocaleGlobal?.close}
       {...ariaProps}
     >

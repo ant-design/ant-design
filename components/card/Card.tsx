@@ -158,7 +158,6 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
     ...props,
     size: mergedSize,
     variant: variant as CardProps['variant'],
-    loading,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(

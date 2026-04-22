@@ -38,10 +38,13 @@ const useAllowClear = (options: UseAllowClearOptions): AllowClear => {
     }
     return {
       clearIcon: fallbackProp(
-        typeof allowClear === 'object' ? allowClear.clearIcon : clearIcon,
-        typeof contextAllowClear === 'object' ? contextAllowClear.clearIcon : contextClearIcon,
+        typeof allowClear === 'object' ? allowClear?.clearIcon : clearIcon,
+        typeof contextAllowClear === 'object' ? contextAllowClear?.clearIcon : contextClearIcon,
         <CloseCircleFilled />,
       ),
+      disabled:
+        (typeof allowClear === 'object' ? allowClear?.disabled : undefined) ??
+        (typeof contextAllowClear === 'object' ? contextAllowClear?.disabled : undefined),
     };
   }, [allowClear, clearIcon, contextAllowClear, contextClearIcon, defaultAllowClear]);
 };

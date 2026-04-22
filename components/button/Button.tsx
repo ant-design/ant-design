@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable, isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -94,7 +94,7 @@ type LoadingConfigType = {
 function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
   if (typeof loading === 'object' && loading) {
     let delay = loading?.delay;
-    delay = !Number.isNaN(delay) && typeof delay === 'number' ? delay : 0;
+    delay = isNumber(delay) ? delay : 0;
     return {
       loading: delay <= 0,
       delay,
@@ -188,9 +188,17 @@ const InternalCompoundedButton = React.forwardRef<
       return colorVariantPair;
     }
 
+    if (variant === 'solid') {
+      return ['primary', variant];
+    }
+
     // >>> Context fallback
     if (contextColor && contextVariant) {
       return [contextColor, contextVariant];
+    }
+
+    if (contextVariant === 'solid') {
+      return ['primary', contextVariant];
     }
 
     return ['default', 'outlined'];

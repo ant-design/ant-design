@@ -90,6 +90,13 @@ const getThemeStyle = (token: MenuToken, themeSuffix: string): CSSInterpolation 
           },
         },
 
+      // SubMenu active (when hover on parent menu item)
+      [`${componentCls}-submenu:not(${componentCls}-submenu-selected)`]: {
+        [`> ${componentCls}-submenu-title:hover`]: {
+          color: itemHoverColor,
+        },
+      },
+
       [`&:not(${componentCls}-horizontal)`]: {
         [`${componentCls}-item:not(${componentCls}-item-selected)`]: {
           '&:hover': {

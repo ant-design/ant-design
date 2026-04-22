@@ -1,8 +1,12 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { Flex, Space, Switch } from 'antd';
-import type { GetProp, SwitchProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
+
+import type { SwitchProps } from '..';
+import Switch from '..';
+import type { GetProp } from '../../_util/type';
+import Flex from '../../flex';
+import Space from '../../space';
 
 const classNames = createStaticStyles(({ css }) => ({
   root: css`

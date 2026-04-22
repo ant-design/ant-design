@@ -1,10 +1,11 @@
 import React from 'react';
 import { CaretLeftOutlined, CaretRightOutlined, ColumnWidthOutlined } from '@ant-design/icons';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
-import type { GetProps, SplitterProps } from 'antd';
-import { ConfigProvider, Splitter } from 'antd';
 
+import Splitter from '..';
+import type { SplitterProps } from '..';
 import type { Orientation } from '../../_util/hooks';
+import type { GetProps } from '../../_util/type';
 import { resetWarned } from '../../_util/warning';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -16,6 +17,7 @@ import {
   triggerResize,
   waitFakeTimer,
 } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import type { SplitterSemanticAllType } from '../interface';
 import SplitBar from '../SplitBar';
 
@@ -28,12 +30,16 @@ const resizeSplitter = async () => {
 
 const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>> = ({
   items = [{}, {}],
-  ...props
+  ...rest
 }) => (
-  <Splitter {...props}>
-    {items?.map((item, idx) => {
+  <Splitter {...rest}>
+    {items?.map(({ children, ...item }, idx) => {
       const key = `panel-${idx}`;
-      return <Splitter.Panel key={key} {...item} />;
+      return (
+        <Splitter.Panel key={key} {...item}>
+          {children}
+        </Splitter.Panel>
+      );
     })}
   </Splitter>
 );
@@ -1170,5 +1176,57 @@ describe('Splitter', () => {
         );
       }
     });
+  });
+
+  it('destroyOnHidden', async () => {
+    const onResize = jest.fn();
+
+    const { container } = render(
+      <SplitterDemo
+        destroyOnHidden
+        onResize={onResize}
+        items={[
+          {
+            collapsible: true,
+            children: <div data-testid="panel-1">Panel 1</div>,
+          },
+          {
+            collapsible: true,
+            destroyOnHidden: false,
+            children: <div data-testid="panel-2">Panel 2</div>,
+          },
+        ]}
+      />,
+    );
+
+    await resizeSplitter();
+
+    // Both panels should exist initially
+    expect(container.querySelector('[data-testid="panel-1"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
+
+    // Collapse the first panel (inherits destroyOnHidden from Splitter)
+    fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-start')!);
+    expect(onResize).toHaveBeenCalledWith([0, 100]);
+
+    // Panel 1 should be destroyed, panel 2 should remain
+    expect(container.querySelector('[data-testid="panel-1"]')).toBeFalsy();
+    expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
+
+    // Collapse the second panel (has destroyOnHidden=false override)
+    onResize.mockReset();
+    fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+
+    // Panel 1 should restore (expanded back), panel 2 should remain (override)
+    expect(container.querySelector('[data-testid="panel-1"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
+
+    // Collapse panel 2 fully
+    onResize.mockReset();
+    fireEvent.click(container.querySelector('.ant-splitter-bar-collapse-end')!);
+
+    // Panel 1 should exist, panel 2 should still exist (destroyOnHidden=false)
+    expect(container.querySelector('[data-testid="panel-1"]')).toBeTruthy();
+    expect(container.querySelector('[data-testid="panel-2"]')).toBeTruthy();
   });
 });

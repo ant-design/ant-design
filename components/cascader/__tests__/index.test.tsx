@@ -1,6 +1,5 @@
 import React from 'react';
 import type { SingleValueType } from '@rc-component/cascader/lib/Cascader';
-import { Button, Input, Space } from 'antd';
 
 import type { DefaultOptionType } from '..';
 import Cascader from '..';
@@ -10,7 +9,10 @@ import focusTest from '../../../tests/shared/focusTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
 import { fireEvent, render, screen, waitFakeTimer } from '../../../tests/utils';
+import Button from '../../button';
 import ConfigProvider from '../../config-provider';
+import Input from '../../input';
+import Space from '../../space';
 
 const { SHOW_CHILD, SHOW_PARENT } = Cascader;
 
@@ -611,10 +613,50 @@ describe('Cascader', () => {
         />,
       );
       expect(errSpy).toHaveBeenCalledWith(
-        'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `popupMenuColumnStyle` instead.',
+        'Warning: [antd: Cascader] `dropdownMenuColumnStyle` is deprecated. Please use `styles.popup.listItem` instead.',
       );
       const menuColumn = getByRole('menuitemcheckbox');
       expect(menuColumn).toHaveStyle({ padding: '10px' });
+
+      errSpy.mockRestore();
+    });
+
+    it('deprecated popupMenuColumnStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { getByRole } = render(
+        <Cascader
+          options={[{ label: 'test', value: 1 }]}
+          popupMenuColumnStyle={{ padding: 10 }}
+          open
+        />,
+      );
+      expect(errSpy).toHaveBeenCalledWith(
+        'Warning: [antd: Cascader] `popupMenuColumnStyle` is deprecated. Please use `styles.popup.listItem` instead.',
+      );
+      const menuColumn = getByRole('menuitemcheckbox');
+      expect(menuColumn).toHaveStyle({ padding: '10px' });
+
+      errSpy.mockRestore();
+    });
+
+    it('styles.popup.listItem should override popupMenuColumnStyle', () => {
+      resetWarned();
+
+      const errSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
+
+      const { getByRole } = render(
+        <Cascader
+          options={[{ label: 'test', value: 1 }]}
+          popupMenuColumnStyle={{ padding: 10 }}
+          styles={{ popup: { listItem: { padding: 20 } } }}
+          open
+        />,
+      );
+
+      expect(getByRole('menuitemcheckbox')).toHaveStyle({ padding: '20px' });
 
       errSpy.mockRestore();
     });

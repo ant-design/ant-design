@@ -62,12 +62,15 @@ Common props ref：[Common props](/docs/react/common-props)
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear icon | boolean \| { clearIcon?: ReactNode } | false | 5.8.0: Support object type |
-| ~autoClearSearchValue~ | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
+| ~~autoClearSearchValue~~ | Whether the current search will be cleared on selecting an item. Only applies when `mode` is set to `multiple` or `tags` | boolean | true |  |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
 | classNames | Customize class for each semantic structure inside the Select component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultActiveFirstOption | Whether active first option by default | boolean | true |  |
 | defaultOpen | Initial open state of dropdown | boolean | - |  |
 | defaultValue | Initial selected option | string \| string\[] \| <br />number \| number\[] \| <br />LabeledValue \| LabeledValue\[] | - |  |
 | disabled | Whether disabled select | boolean | false |  |
+| ~~dropdownClassName~~ | The className of dropdown menu, please use `classNames.popup.root` instead | string | - | - |
+| ~~dropdownMatchSelectWidth~~ | Determine whether the popup menu and the select input are the same width, please use `popupMatchSelectWidth` instead | boolean \| number | true | - |
 | ~~popupClassName~~ | The className of dropdown menu, use `classNames.popup.root` instead | string | - | 4.23.0 |
 | popupMatchSelectWidth | Determine whether the popup menu and the select input are the same width. Default set `min-width` same as input. Will ignore when value less than select width. `false` will disable virtual scroll | boolean \| number | true | 5.5.0 |
 | ~~dropdownRender~~ | Customize dropdown content, use `popupRender` instead | (originNode: ReactNode) => ReactNode | - |  |
@@ -80,11 +83,12 @@ Common props ref：[Common props](/docs/react/common-props)
 | labelInValue | Whether to embed label in value, turn the format of value from `string` to { value: string, label: ReactNode } | boolean | false |  |
 | listHeight | Config popup height | number | 256 |  |
 | loading | Indicate loading state | boolean | false |  |
+| loadingIcon | Customize the loading icon | ReactNode | `<LoadingOutlined spin />` | 6.4.0 |
 | maxCount | The max number of items can be selected, only applies when `mode` is `multiple` or `tags` | number | - | 5.13.0 |
 | maxTagCount | Max tag count to show. `responsive` will cost render performance | number \| `responsive` | - | responsive: 4.10 |
 | maxTagPlaceholder | Placeholder for not showing tags | ReactNode \| function(omittedValues) | - |  |
 | maxTagTextLength | Max tag text length to show | number | - |  |
-| menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | - |  |
+| menuItemSelectedIcon | The custom menuItemSelected icon with multiple options | ReactNode | `<CheckOutlined />` |  |
 | mode | Set mode of Select | `multiple` \| `tags` | - |  |
 | notFoundContent | Specify content to show when no result matches | ReactNode | `Not Found` |  |
 | open | Controlled open state of dropdown | boolean | - |  |
@@ -95,8 +99,9 @@ Common props ref：[Common props](/docs/react/common-props)
 | placeholder | Placeholder of select | ReactNode | - |  |
 | placement | The position where the selection box pops up | `bottomLeft` `bottomRight` `topLeft` `topRight` | bottomLeft |  |
 | prefix | The custom prefix | ReactNode | - | 5.22.0 |
-| removeIcon | The custom remove icon | ReactNode | - |  |
+| removeIcon | The custom remove icon | ReactNode | `<CloseOutlined />` |  |
 | ~~searchValue~~ | The current input "search" text | string | - |  |
+| ~~showArrow~~ | Whether to show the arrow icon, please use `suffixIcon={null}` instead | boolean | true | - |
 | showSearch | Whether select is searchable | boolean \| [Object](#showsearch) | single: false, multiple: true |  |
 | size | Size of Select input | `large` \| `medium` \| `small` | `medium` |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
@@ -133,6 +138,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | optionFilterProp | Which prop value of option will be used for filter if filterOption is true. <br/> If `options` is set, it should be set to `label`. <br/> When a string[] is provided, multiple fields are searched using OR matching. | string \| string[] | `value` | `string[]`: 6.1.0 |
 | searchValue | The current input "search" text | string | - |  |
 | onSearch | Callback function that is fired when input changed | function(value: string) | - |  |
+| searchIcon | Customize the search icon | ReactNode | `<SearchOutlined />` | 6.4.0 |
 
 ### Select Methods
 

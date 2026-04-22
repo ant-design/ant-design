@@ -2143,9 +2143,9 @@ Array [
     style="--arrow-x: 0px; --arrow-y: 0px; left: -1000vw; top: -1000vh; right: auto; bottom: auto; box-sizing: border-box;"
   >
     <div
-      style="background-color: rgb(255, 255, 255); border-radius: 8px; box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08),
-      0 3px 6px -4px rgba(0, 0, 0, 0.12),
-      0 9px 28px 8px rgba(0, 0, 0, 0.05);"
+      style="background-color: rgb(255, 255, 255); border-radius: 8px; box-shadow: 0 6px 16px 0 rgba(0,0,0,0.08),
+      0 3px 6px -4px rgba(0,0,0,0.12),
+      0 9px 28px 8px rgba(0,0,0,0.05);"
     >
       <ul
         class="ant-dropdown-menu ant-dropdown-menu-root ant-dropdown-menu-vertical ant-dropdown-menu-light css-var-test-id ant-dropdown-css-var css-var-test-id ant-dropdown-menu-css-var"
@@ -7369,7 +7369,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               aria-label="setting"
               class="anticon anticon-setting ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(24, 144, 255); margin-right: 8px;"
+              style="color: rgb(24, 144, 255); margin-inline-end: 8px;"
             >
               <svg
                 aria-hidden="true"
@@ -7426,7 +7426,7 @@ exports[`renders components/dropdown/demo/style-class.tsx extend context correct
               aria-label="logout"
               class="anticon anticon-logout ant-dropdown-menu-item-icon"
               role="img"
-              style="color: rgb(24, 144, 255); margin-right: 8px;"
+              style="color: rgb(24, 144, 255); margin-inline-end: 8px;"
             >
               <svg
                 aria-hidden="true"

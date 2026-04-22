@@ -1,4 +1,4 @@
-import assert from 'assert';
+import assert from 'node:assert';
 import type { HastRoot, UnifiedTransformer } from 'dumi';
 import { unistUtilVisit } from 'dumi';
 

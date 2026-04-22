@@ -24,6 +24,7 @@ import { devUseWarning } from '../_util/warning';
 import ZIndexContext from '../_util/zindexContext';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import TableMeasureRowContext from '../table/TableMeasureRowContext';
 import { useToken } from '../theme/internal';
 import useMergedArrow from './hook/useMergedArrow';
 import PurePanel from './PurePanel';
@@ -197,9 +198,13 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     arrow: contextArrow,
     trigger: contextTrigger,
   } = useComponentConfig('tooltip');
+
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
   const mergedTrigger = trigger || contextTrigger || 'hover';
+  const mergedGetPopupContainer = getPopupContainer || getContextPopupContainer;
+  const mergedDestroyOnHidden = destroyOnHidden ?? !!destroyTooltipOnHide;
+  const inTableMeasureRow = React.useContext(TableMeasureRowContext);
 
   // ============================== Ref ===============================
   const warning = devUseWarning('Tooltip');
@@ -277,16 +282,9 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const mergedProps: TooltipProps = {
     ...props,
     trigger: mergedTrigger,
-    color,
-    placement,
-    builtinPlacements,
-    openClassName,
-    arrow: tooltipArrow,
-    autoAdjustOverflow,
-    getPopupContainer,
-    children,
-    destroyTooltipOnHide,
-    destroyOnHidden,
+    builtinPlacements: tooltipPlacements,
+    getPopupContainer: mergedGetPopupContainer,
+    destroyOnHidden: mergedDestroyOnHidden,
   };
 
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
@@ -304,8 +302,8 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const injectFromPopover = props['data-popover-inject'];
 
   let tempOpen = open;
-  // Hide tooltip when there is no title
-  if (!('open' in props) && noTitle) {
+  // Hide tooltip when there is no title or in table measure row
+  if ((!('open' in props) && noTitle) || inTableMeasureRow) {
     tempOpen = false;
   }
 
@@ -351,7 +349,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
     <RcTooltip
       unique
       {...restProps}
-      trigger={mergedTrigger}
       zIndex={zIndex}
       showArrow={mergedShowArrow}
       placement={placement}
@@ -375,9 +372,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         uniqueContainer: containerStyle,
         arrow: mergedStyles.arrow,
       }}
-      getTooltipContainer={getPopupContainer || getTooltipContainer || getContextPopupContainer}
       ref={tooltipRef}
-      builtinPlacements={tooltipPlacements}
       overlay={memoOverlayWrapper}
       visible={tempOpen}
       onVisibleChange={onInternalOpenChange}
@@ -391,7 +386,10 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
         ),
         motionDeadline: 1000,
       }}
-      destroyOnHidden={destroyOnHidden ?? !!destroyTooltipOnHide}
+      trigger={mergedTrigger}
+      builtinPlacements={tooltipPlacements}
+      getTooltipContainer={mergedGetPopupContainer}
+      destroyOnHidden={mergedDestroyOnHidden}
     >
       {tempOpen ? cloneElement(child, { className: childCls }) : child}
     </RcTooltip>

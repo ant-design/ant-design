@@ -2,15 +2,18 @@ import React from 'react';
 import { warning } from '@rc-component/util';
 import { spyElementPrototypes } from '@rc-component/util/lib/test/domHook';
 import { createEvent, fireEvent, render } from '@testing-library/react';
-import { Splitter } from 'antd';
 
+import Splitter from '..';
 import { triggerResize, waitFakeTimer } from '../../../tests/utils';
 import type { PanelProps, SplitterProps } from '../interface';
 
 const { resetWarned } = warning;
 
-const SplitterDemo = ({ items = [{}, {}], ...props }: { items?: PanelProps[] } & SplitterProps) => (
-  <Splitter {...props}>
+const SplitterDemo: React.FC<{ items?: PanelProps[] } & SplitterProps> = ({
+  items = [{}, {}],
+  ...rest
+}) => (
+  <Splitter {...rest}>
     {items?.map((item, idx) => {
       const key = `panel-${idx}`;
       return <Splitter.Panel key={key} {...item} />;

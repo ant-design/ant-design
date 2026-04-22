@@ -42,7 +42,7 @@ This component provides some static methods, with usage and arguments as followi
 - `message.warning(content, [duration], onClose)`
 - `message.loading(content, [duration], onClose)`
 
-| Argument | Description | Type | Default |
+| Property | Description | Type | Default |
 | --- | --- | --- | --- |
 | content | The content of the message | ReactNode \| config | - |
 | duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 1.5 |
@@ -67,13 +67,13 @@ Supports passing parameters wrapped in an object:
 The properties of config are as follows:
 
 | Property | Description | Type | Default |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | className | Customized CSS class | string | - |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |
 | content | The content of the message | ReactNode | - |
 | duration | Time(seconds) before auto-dismiss, don't dismiss if set to 0 | number | 3 |
 | icon | Customized Icon | ReactNode | - |
-| pauseOnHover | keep the timer running or not on hover | boolean | true | - |
+| pauseOnHover | keep the timer running or not on hover | boolean | true |
 | key | The unique identifier of the Message | string \| number | - |
 | style | Customized inline style | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |
@@ -105,7 +105,7 @@ message.config({
 });
 ```
 
-| Argument | Description | Type | Default | Version |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | duration | Time before auto-dismiss, in seconds | number | 3 |  |
 | getContainer | Return the mount node for Message, but still display at fullScreen | () => HTMLElement | () => document.body |  |

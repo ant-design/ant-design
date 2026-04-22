@@ -7,7 +7,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import ContextIsolator from '../_util/ContextIsolator';
-import getAllowClear from '../_util/getAllowClear';
+import useAllowClear from '../_util/hooks/useAllowClear';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
 import type { InputStatus } from '../_util/statusUtils';
@@ -35,6 +35,7 @@ export type InputSemanticType = {
     root?: string;
     prefix?: string;
     suffix?: string;
+    clear?: string;
     input?: string;
     count?: string;
   };
@@ -42,6 +43,7 @@ export type InputSemanticType = {
     root?: React.CSSProperties;
     prefix?: React.CSSProperties;
     suffix?: React.CSSProperties;
+    clear?: React.CSSProperties;
     input?: React.CSSProperties;
     count?: React.CSSProperties;
   };
@@ -233,7 +235,7 @@ const Input = forwardRef<InputRef, InputProps>((props, ref) => {
     </>
   );
 
-  const mergedAllowClear = getAllowClear(allowClear ?? contextAllowClear);
+  const mergedAllowClear = useAllowClear({ allowClear, contextAllowClear, componentName: 'Input' });
 
   const [variant, enableVariantCls] = useVariant('input', customVariant, bordered);
 

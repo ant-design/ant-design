@@ -15,6 +15,8 @@ const localeValues: Locale = {
   Calendar,
   global: {
     close: 'Bezárás',
+    show: 'Megjelenítés',
+    hide: 'Elrejtés',
   },
   Table: {
     filterTitle: 'Szűrők',

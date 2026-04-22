@@ -25,6 +25,7 @@ describe('Image.Semantic', () => {
       body: 'preview-body',
       footer: 'preview-footer',
       actions: 'preview-actions',
+      close: 'preview-close',
     };
     const previewStyles = {
       root: { color: 'rgb(255, 0, 0)' },
@@ -32,6 +33,7 @@ describe('Image.Semantic', () => {
       body: { color: 'rgb(0, 255, 0)' },
       footer: { color: 'rgb(0, 0, 0)' },
       actions: { color: 'rgb(255, 255, 255)' },
+      close: { color: 'rgb(1, 2, 3)' },
     };
 
     render(
@@ -79,6 +81,9 @@ describe('Image.Semantic', () => {
       previewClassNames.actions,
     );
     expect(document.querySelector('.ant-image-preview-actions')).toHaveStyle(previewStyles.actions);
+
+    expect(document.querySelector('.ant-image-preview-close')).toHaveClass(previewClassNames.close);
+    expect(document.querySelector('.ant-image-preview-close')).toHaveStyle(previewStyles.close);
   });
   it('support classNames and styles as functions', () => {
     render(

@@ -789,7 +789,7 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
       class="ant-col ant-col-8 css-var-test-id"
     >
       <ul
-        class="acss-1ry21g5"
+        class="acss-11b5qta"
       >
         <li
           class="acss-1ehfz5v"
@@ -995,6 +995,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.section
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1088,6 +1093,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.section
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1181,6 +1191,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.header
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1274,6 +1289,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.header
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1367,6 +1387,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.title
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1460,6 +1485,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.title
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1553,6 +1583,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.body
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1646,6 +1681,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.body
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1739,6 +1779,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.list
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1832,6 +1877,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.list
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -1925,6 +1975,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.item
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -2018,6 +2073,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.item
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -2111,6 +2171,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.itemIcon
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -2204,6 +2269,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.itemIcon
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -2297,6 +2367,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.itemContent
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -2390,6 +2465,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.itemContent
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -2483,6 +2563,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   source.footer
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"
@@ -2576,6 +2661,11 @@ exports[`renders components/transfer/demo/_semantic.tsx correctly 1`] = `
                 >
                   target.footer
                 </h5>
+                <span
+                  class="ant-tag ant-tag-filled ant-tag-blue css-var-test-id"
+                >
+                  6.4.0
+                </span>
               </div>
               <div
                 class="ant-flex css-var-test-id ant-flex-align-center ant-flex-gap-small"

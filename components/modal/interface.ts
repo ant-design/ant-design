@@ -18,6 +18,7 @@ export type ModalSemanticType = {
     title?: string;
     wrapper?: string;
     mask?: string;
+    close?: string;
   };
   styles?: {
     root?: React.CSSProperties;
@@ -28,6 +29,7 @@ export type ModalSemanticType = {
     title?: React.CSSProperties;
     wrapper?: React.CSSProperties;
     mask?: React.CSSProperties;
+    close?: React.CSSProperties;
   };
 };
 

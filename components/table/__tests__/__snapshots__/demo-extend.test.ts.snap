@@ -879,6 +879,138 @@ exports[`renders components/table/demo/colspan-rowspan.tsx extend context correc
 
 exports[`renders components/table/demo/colspan-rowspan.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/table/demo/column-defaults.tsx extend context correctly 1`] = `
+<div
+  class="css-var-test-id ant-table-css-var ant-table-wrapper"
+>
+  <div
+    aria-busy="false"
+    aria-live="polite"
+    class="ant-spin css-var-test-id"
+  >
+    <div
+      class="ant-spin-container"
+    >
+      <div
+        class="ant-table css-var-test-id ant-table-css-var"
+      >
+        <div
+          class="ant-table-container"
+        >
+          <div
+            class="ant-table-content"
+          >
+            <table
+              style="table-layout: fixed;"
+            >
+              <colgroup>
+                <col
+                  style="width: 140px;"
+                />
+                <col
+                  style="width: 180px;"
+                />
+                <col
+                  style="width: 220px;"
+                />
+              </colgroup>
+              <thead
+                class="ant-table-thead"
+              >
+                <tr>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
+                    style="text-align: center;"
+                    title="Name"
+                  >
+                    Name
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
+                    style="text-align: center;"
+                    title="Description"
+                  >
+                    Description
+                  </th>
+                  <th
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    scope="col"
+                    style="text-align: left;"
+                    title="Address"
+                  >
+                    Address
+                  </th>
+                </tr>
+              </thead>
+              <tbody
+                class="ant-table-tbody"
+              >
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="1"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align: center;"
+                    title="John Brown"
+                  >
+                    John Brown
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align: center;"
+                    title="Shared column props let repeated column settings live on the table."
+                  >
+                    Shared column props let repeated column settings live on the table.
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align: left;"
+                    title="No. 1 Lake Park Road, Hangzhou, Zhejiang, China"
+                  >
+                    No. 1 Lake Park Road, Hangzhou, Zhejiang, China
+                  </td>
+                </tr>
+                <tr
+                  class="ant-table-row ant-table-row-level-0"
+                  data-row-key="2"
+                >
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align: center;"
+                    title="Jim Green"
+                  >
+                    Jim Green
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align: center;"
+                    title="Columns can still override the default alignment or other shared props."
+                  >
+                    Columns can still override the default alignment or other shared props.
+                  </td>
+                  <td
+                    class="ant-table-cell ant-table-cell-ellipsis"
+                    style="text-align: left;"
+                    title="No. 99 Garden Avenue, Pudong, Shanghai, China"
+                  >
+                    No. 99 Garden Avenue, Pudong, Shanghai, China
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/table/demo/column-defaults.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/table/demo/component-token.tsx extend context correctly 1`] = `
 Array [
   <form
@@ -17412,7 +17544,7 @@ exports[`renders components/table/demo/measure-row-render.tsx extend context cor
                         >
                           <div
                             aria-describedby="test-id"
-                            class="ant-table-column-sorters ant-tooltip-open"
+                            class="ant-table-column-sorters"
                           >
                             <span
                               class="ant-table-column-title"

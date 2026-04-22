@@ -2,7 +2,7 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import { useTheme } from 'antd-style';
 
-export default () => {
+const Highlight: React.FC = () => {
   const token = useTheme();
 
   return (
@@ -34,7 +34,7 @@ export default () => {
           line-height: ${token.lineHeightLG};
           direction: ltr;
           white-space: pre;
-          text-align: left;
+          text-align: start;
           word-wrap: normal;
           word-break: normal;
           word-spacing: normal;
@@ -155,3 +155,5 @@ export default () => {
     />
   );
 };
+
+export default Highlight;

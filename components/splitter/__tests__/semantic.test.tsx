@@ -1,15 +1,17 @@
 import React from 'react';
-import type { GetProps, SplitterProps } from 'antd';
 
+import type { SplitterProps } from '..';
 import Splitter from '..';
+import type { GetProps } from '../../_util/type';
 import { render } from '../../../tests/utils';
 
 type PanelProps = GetProps<typeof Splitter.Panel>;
+
 const SplitterDemo: React.FC<Readonly<{ items?: PanelProps[] } & SplitterProps>> = ({
   items = [{}, {}],
-  ...props
+  ...rest
 }) => (
-  <Splitter {...props}>
+  <Splitter {...rest}>
     {items?.map((item, idx) => {
       const key = `panel-${idx}`;
       return <Splitter.Panel key={key} {...item} />;

@@ -413,8 +413,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         {
           borderRadius: 0,
           borderTopColor: 'transparent',
-          borderRightColor: 'transparent',
-          borderLeftColor: 'transparent',
+          borderInlineColor: 'transparent',
         },
       ),
 

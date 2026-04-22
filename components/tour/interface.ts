@@ -10,6 +10,7 @@ export type TourSemanticType = {
   classNames?: {
     root?: string;
     cover?: string;
+    close?: string;
     mask?: string;
     section?: string;
     footer?: string;
@@ -23,6 +24,7 @@ export type TourSemanticType = {
   styles?: {
     root?: React.CSSProperties;
     cover?: React.CSSProperties;
+    close?: React.CSSProperties;
     mask?: React.CSSProperties;
     section?: React.CSSProperties;
     footer?: React.CSSProperties;

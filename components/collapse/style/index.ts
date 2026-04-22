@@ -245,10 +245,7 @@ export const genBaseStyle: GenerateStyle<CollapseToken, CSSObject> = (token) => 
       },
 
       [`& ${componentCls}-item-disabled > ${componentCls}-header`]: {
-        [`
-          &,
-          & > .arrow
-        `]: {
+        '&, & > .arrow': {
           color: colorTextDisabled,
           cursor: 'not-allowed',
         },

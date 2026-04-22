@@ -54,8 +54,10 @@ const IconSearchFallback: React.FC = () => {
   );
 };
 
-export default () => (
+const SearchWrapper: React.FC = () => (
   <Suspense fallback={<IconSearchFallback />}>
     <IconSearch />
   </Suspense>
 );
+
+export default SearchWrapper;

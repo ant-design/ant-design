@@ -3,6 +3,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -34,6 +35,18 @@ function isRenderResultPlainObject(result: RenderResult): result is RenderResult
 
 function getEnabledItemKeys<RecordType extends KeyWiseTransferItem>(items: RecordType[]) {
   return items.filter((data) => !data.disabled).map((data) => data.key);
+}
+
+function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
+  renderResult: RenderResult,
+  item: RecordType,
+): string {
+  for (const v of [renderResult, item.title, item.key]) {
+    if (typeof v === 'string' || isNumber(v)) {
+      return String(v);
+    }
+  }
+  return '';
 }
 
 const isValidIcon = (icon: React.ReactNode) => icon !== undefined;
@@ -183,10 +196,15 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   const renderItem = (item: RecordType): RenderedItem<RecordType> => {
     const renderResult = render(item);
     const isRenderResultPlain = isRenderResultPlainObject(renderResult);
+    const renderedEl = isRenderResultPlain ? renderResult.label : renderResult;
+    const renderedText = isRenderResultPlain
+      ? renderResult.value
+      : getTextFromRenderResult(renderResult, item);
+
     return {
       item,
-      renderedEl: isRenderResultPlain ? renderResult.label : renderResult,
-      renderedText: isRenderResultPlain ? renderResult.value : (renderResult as string),
+      renderedEl,
+      renderedText,
     };
   };
 
@@ -380,7 +398,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
               newCheckedKeysSet.add(key);
             }
           });
-          onItemSelectAll?.(Array.from(newCheckedKeysSet), 'replace');
+          onItemSelectAll?.([...newCheckedKeysSet], 'replace');
         },
       },
     ];

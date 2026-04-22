@@ -21,6 +21,7 @@ import type {
 import useStyle from './style';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
+import fallbackProp from '../_util/fallbackProp';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -57,7 +58,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     locale: propLocale,
     iconRender,
     isImageUrl,
-    progress,
+    progress: customProgress,
     prefixCls: customizePrefixCls,
     className,
     type = 'select',
@@ -69,7 +70,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     multiple = false,
     hasControlInside = true,
     action = '',
-    accept = '',
+    accept: customAccept,
     supportServerRender = true,
     rootClassName,
     styles,
@@ -81,6 +82,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const mergedDisabled = customDisabled ?? disabled;
 
   const customRequest = props.customRequest || config.customRequest;
+  const mergedProgress = { ...config.progress, ...customProgress };
+  const mergedAccept = fallbackProp(customAccept, config.accept, '');
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
@@ -100,8 +103,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   }
 
   // Control mode will auto fill file uid if not provided
+  // eslint-disable-next-line react/use-memo
   React.useMemo(() => {
-    // eslint-disable-next-line react-hooks/purity
     const timestamp = Date.now();
     (fileList || []).forEach((file, index) => {
       if (!file.uid && !Object.isFrozen(file)) {
@@ -380,7 +383,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     data,
     multiple,
     action,
-    accept,
+    accept: mergedAccept,
     supportServerRender,
     prefixCls,
     disabled: mergedDisabled,
@@ -444,7 +447,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         extra={extra}
         locale={{ ...contextLocale, ...propLocale }}
         isImageUrl={isImageUrl}
-        progress={progress}
+        progress={mergedProgress}
         appendAction={button}
         appendActionVisible={buttonVisible}
         itemRender={itemRender}

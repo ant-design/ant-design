@@ -89,7 +89,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | ~~contentStyle~~ | Customize content style, Please use `styles.content` instead | CSSProperties | - | 4.10.0 |
 | extra | The action area of the description list, placed at the top-right | ReactNode | - | 4.5.0 |
 | items | Describe the contents of the list item | [DescriptionsItem](#descriptionitem)[] | - | 5.8.0 |
-| ~~labelStyle~~ | Customize label style | CSSProperties, Please use `styles.label` instead | - | 4.10.0 |
+| ~~labelStyle~~ | Customize label style, Please use `styles.label` instead | CSSProperties | - | 4.10.0 |
 | layout | Define description layout | `horizontal` \| `vertical` | `horizontal` |  |
 | size | Set the size of the list. Can be set to `medium`,`small`, or not filled | `large` \| `medium` \| `small` | `large` |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |

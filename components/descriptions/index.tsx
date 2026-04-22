@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { matchScreen } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -78,7 +79,13 @@ export interface DescriptionsProps {
   column?: number | Partial<Record<Breakpoint, number>>;
   layout?: 'horizontal' | 'vertical';
   colon?: boolean;
+  /**
+   * @deprecated use `styles.label` instead
+   */
   labelStyle?: React.CSSProperties;
+  /**
+   * @deprecated use `styles.content` instead
+   */
   contentStyle?: React.CSSProperties;
   classNames?: DescriptionsSemanticAllType['classNamesAndFn'];
   styles?: DescriptionsSemanticAllType['stylesAndFn'];
@@ -133,16 +140,11 @@ const Descriptions: React.FC<DescriptionsProps> & CompoundedComponent = (props) 
   }
   // Column count
   const mergedColumn = React.useMemo(() => {
-    if (typeof column === 'number') {
+    if (isNumber(column)) {
       return column;
     }
 
-    return (
-      matchScreen(screens, {
-        ...DEFAULT_COLUMN_MAP,
-        ...column,
-      }) ?? 3
-    );
+    return matchScreen(screens, { ...DEFAULT_COLUMN_MAP, ...column }) ?? 3;
   }, [screens, column]);
 
   // Items with responsive

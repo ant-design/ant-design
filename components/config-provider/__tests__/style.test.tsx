@@ -1,5 +1,4 @@
 import React from 'react';
-import Masonry from 'antd/es/masonry';
 
 import ConfigProvider from '..';
 import type { GetProp } from '../../_util/type';
@@ -30,6 +29,7 @@ import Input from '../../input';
 import InputNumber from '../../input-number';
 import Layout from '../../layout';
 import List from '../../list';
+import Masonry from '../../masonry';
 import Mentions from '../../mentions';
 import Menu from '../../menu';
 import type { MenuProps } from '../../menu';

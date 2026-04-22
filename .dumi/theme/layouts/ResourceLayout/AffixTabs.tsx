@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { Tabs } from 'antd';
 import { createStyles } from 'antd-style';
+import scrollTo from 'antd/lib/_util/scrollTo';
 import { clsx } from 'clsx';
 import throttle from 'lodash/throttle';
-
-import scrollTo from '../../../../components/_util/scrollTo';
 
 const listenerEvents: (keyof WindowEventMap)[] = ['scroll', 'resize'];
 
@@ -112,10 +111,14 @@ const AffixTabs: React.FC = () => {
   }, []);
 
   React.useEffect(() => {
-    listenerEvents.forEach((event) => window.addEventListener(event, onSyncAffix));
+    listenerEvents.forEach((event) => {
+      window.addEventListener(event, onSyncAffix);
+    });
     onSyncAffix();
     return () => {
-      listenerEvents.forEach((event) => window.removeEventListener(event, onSyncAffix));
+      listenerEvents.forEach((event) => {
+        window.removeEventListener(event, onSyncAffix);
+      });
     };
   }, [onSyncAffix]);
 

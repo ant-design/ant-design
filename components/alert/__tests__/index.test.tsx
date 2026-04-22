@@ -106,17 +106,15 @@ describe('Alert', () => {
   it('should show error as ErrorBoundary when children have error', () => {
     const warnSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
     expect(warnSpy).toHaveBeenCalledTimes(0);
-    // @ts-expect-error
-    const ThrowError = () => <NotExisted />;
+    const ThrowError: React.FC = () => {
+      throw new Error('This is a test error');
+    };
     render(
       <ErrorBoundary>
         <ThrowError />
       </ErrorBoundary>,
     );
-
-    expect(screen.getByRole('alert')).toHaveTextContent(
-      'ReferenceError: NotExisted is not defined',
-    );
+    expect(screen.getByRole('alert')).toHaveTextContent('Error: This is a test error');
     warnSpy.mockRestore();
   });
 

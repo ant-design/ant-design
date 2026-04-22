@@ -37,6 +37,7 @@ More layouts with navigation: [Layout](/components/layout).
 <code src="./demo/component-token.tsx" debug>Component Token</code>
 <code src="./demo/extra-style.tsx" debug>Extra Style debug</code>
 <code src="./demo/custom-popup-render.tsx">Custom Submenu Render</code>
+<code src="./demo/collapsed-icon-debug.tsx" debug>Collapsed menu icon alignment</code>
 
 ## API
 
@@ -44,7 +45,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Menu
 
-| Param | Description | Type | Default value | Version |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | defaultOpenKeys | Array with the keys of default opened sub menus | string\[] | - |  |
@@ -81,20 +82,20 @@ Common props ref：[Common props](/docs/react/common-props)
 
 #### MenuItemType
 
-| Param    | Description                          | Type      | Default value | Version |
-| -------- | ------------------------------------ | --------- | ------------- | ------- |
-| danger   | Display the danger style             | boolean   | false         |         |
-| disabled | Whether menu item is disabled        | boolean   | false         |         |
-| extra    | The extra of the menu item           | ReactNode | -             | 5.21.0  |
-| icon     | The icon of the menu item            | ReactNode | -             |         |
-| key      | Unique ID of the menu item           | string    | -             |         |
-| label    | Menu label                           | ReactNode | -             |         |
-| title    | Set display title for collapsed item | string    | -             |         |
+| Property | Description                          | Type      | Default | Version |
+| -------- | ------------------------------------ | --------- | ------- | ------- |
+| danger   | Display the danger style             | boolean   | false   |         |
+| disabled | Whether menu item is disabled        | boolean   | false   |         |
+| extra    | The extra of the menu item           | ReactNode | -       | 5.21.0  |
+| icon     | The icon of the menu item            | ReactNode | -       |         |
+| key      | Unique ID of the menu item           | string    | -       |         |
+| label    | Menu label                           | ReactNode | -       |         |
+| title    | Set display title for collapsed item | string    | -       |         |
 
 #### SubMenuType
 
 <!-- prettier-ignore -->
-| Property | Description | Type | Default value | Version |
+| Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | children | Sub-menus or sub-menu items | [ItemType\[\]](#itemtype) | - |  |
 | disabled | Whether sub-menu is disabled | boolean | false |  |
@@ -119,10 +120,10 @@ const groupItem = {
 };
 ```
 
-| Param    | Description            | Type                              | Default value | Version |
-| -------- | ---------------------- | --------------------------------- | ------------- | ------- |
-| children | Sub-menu items         | [MenuItemType\[\]](#menuitemtype) | -             |         |
-| label    | The title of the group | ReactNode                         | -             |         |
+| Property | Description            | Type                              | Default | Version |
+| -------- | ---------------------- | --------------------------------- | ------- | ------- |
+| children | Sub-menu items         | [MenuItemType\[\]](#menuitemtype) | -       |         |
+| label    | The title of the group | ReactNode                         | -       |         |
 
 #### MenuDividerType
 
@@ -134,9 +135,9 @@ const dividerItem = {
 };
 ```
 
-| Param  | Description            | Type    | Default value | Version |
-| ------ | ---------------------- | ------- | ------------- | ------- |
-| dashed | Whether line is dashed | boolean | false         |         |
+| Property | Description            | Type    | Default | Version |
+| -------- | ---------------------- | ------- | ------- | ------- |
+| dashed   | Whether line is dashed | boolean | false   |         |
 
 ## FAQ
 
