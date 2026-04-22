@@ -25,9 +25,6 @@ export interface TextTooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElem
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   zIndex?: number;
-  overlayClassName?: string;
-  overlayStyle?: React.CSSProperties;
-  overlayInnerStyle?: React.CSSProperties;
   children?: React.ReactNode;
 
   // Unsupported in TextTooltip by design.
@@ -78,9 +75,6 @@ const TextTooltip = React.forwardRef<HTMLSpanElement, TextTooltipProps>((props, 
     zIndex,
     className,
     style,
-    overlayClassName,
-    overlayStyle,
-    overlayInnerStyle,
     children,
     onMouseEnter,
     onMouseLeave,
@@ -176,8 +170,6 @@ const TextTooltip = React.forwardRef<HTMLSpanElement, TextTooltipProps>((props, 
 
   const colorInfo = parseColor(rootPrefixCls, prefixCls, color);
   const mergedRootStyle = extractStyleVars(rootPrefixCls, {
-    ...overlayStyle,
-    ...overlayInnerStyle,
     ...colorInfo.style,
     ...(zIndex !== undefined ? { zIndex } : {}),
   });
@@ -195,7 +187,6 @@ const TextTooltip = React.forwardRef<HTMLSpanElement, TextTooltipProps>((props, 
     cssVarCls,
     colorInfo.className,
     className,
-    overlayClassName,
   );
 
   const hiddenDescriptionStyle: React.CSSProperties = {

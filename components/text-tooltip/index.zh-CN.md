@@ -38,9 +38,6 @@ demo:
 | mouseLeaveDelay | 鼠标移出后延时多少隐藏，单位：秒 | number | 0.1 | - |
 | onOpenChange | 显示状态变化时的回调 | `(open: boolean) => void` | - | 6.3.7 |
 | zIndex | 提示层级 | number | 1070 | - |
-| overlayClassName | 宿主节点附加类名 | string | - | - |
-| overlayStyle | 宿主节点样式 | CSSProperties | - | - |
-| overlayInnerStyle | 提示层样式变量覆盖 | CSSProperties | - | - |
 
 ## 注意
 

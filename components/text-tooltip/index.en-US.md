@@ -37,9 +37,6 @@ Compared with `Tooltip`, it does not support complex content, auto flip, or popu
 | mouseLeaveDelay | Delay before hiding on mouse leave, in seconds | number | 0.1 | - |
 | onOpenChange | Callback when open state changes | `(open: boolean) => void` | - | 6.3.7 |
 | zIndex | Tooltip z-index | number | 1070 | - |
-| overlayClassName | Extra class name on host node | string | - | - |
-| overlayStyle | Host node style | CSSProperties | - | - |
-| overlayInnerStyle | Tooltip style variable overrides | CSSProperties | - | - |
 
 ## Notes
 

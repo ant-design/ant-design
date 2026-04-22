@@ -802,5 +802,26 @@ exports[`renders components/text-tooltip/demo/trigger.tsx correctly 1`] = `
       Open by default
     </span>
   </span>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="Controlled open state"
+  >
+    <button
+      aria-describedby="test-id"
+      aria-description="Controlled open state"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Open controlled
+      </span>
+    </button>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      Controlled open state
+    </span>
+  </span>
 </div>
 `;
