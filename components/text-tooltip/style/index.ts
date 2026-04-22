@@ -2,11 +2,15 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
+import type { ArrowOffsetToken } from '../../style/placementArrow';
+import { getArrowOffsetToken } from '../../style/placementArrow';
+import type { ArrowToken } from '../../style/roundedArrow';
+import { getArrowToken } from '../../style/roundedArrow';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
-export interface ComponentToken {
+export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
   maxWidth: number;
   zIndexPopup: number;
 }
@@ -18,171 +22,177 @@ interface TextTooltipToken extends FullToken<'TextTooltip'> {
 }
 
 const genPlacementStyle = (token: TextTooltipToken): CSSObject => {
-  const { componentCls, sizePopupArrow, marginXXS, paddingXS, calc } = token;
+  const {
+    componentCls,
+    sizePopupArrow,
+    marginXXS,
+    arrowOffsetHorizontal,
+    arrowOffsetVertical,
+    calc,
+  } = token;
 
-  const arrowSize = calc(sizePopupArrow).div(2).equal();
   const popupGap = calc(sizePopupArrow).div(2).add(marginXXS).equal();
-  const edgeOffset = calc(paddingXS).add(calc(sizePopupArrow).div(2)).equal();
+  const sideArrowOffset = calc(sizePopupArrow).div(4).equal();
 
   return {
     [`&${componentCls}-placement-top`]: {
       '&::before': {
         left: '50%',
         bottom: `calc(100% + ${popupGap})`,
-        transform: 'translate(-50%, 4px)',
+        transform: 'translate(-50%, 0)',
       },
       '&::after': {
         left: '50%',
-        bottom: `calc(100% + ${arrowSize})`,
-        transform: 'translate(-50%, 4px) rotate(45deg)',
+        bottom: `calc(100% + ${marginXXS})`,
+        transform: 'translate(-50%, 0) rotate(180deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translate(-50%, 0)' },
-        '&::after': { transform: 'translate(-50%, 0) rotate(45deg)' },
+        '&::after': { transform: 'translate(-50%, 0) rotate(180deg)' },
       },
     },
     [`&${componentCls}-placement-topLeft`]: {
-      '&::before': { left: 0, bottom: `calc(100% + ${popupGap})`, transform: 'translateY(4px)' },
+      '&::before': { left: 0, bottom: `calc(100% + ${popupGap})`, transform: 'translateY(0)' },
       '&::after': {
-        left: edgeOffset,
-        bottom: `calc(100% + ${arrowSize})`,
-        transform: 'translateY(4px) rotate(45deg)',
+        left: arrowOffsetHorizontal,
+        bottom: `calc(100% + ${marginXXS})`,
+        transform: 'translateY(0) rotate(180deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translateY(0)' },
-        '&::after': { transform: 'translateY(0) rotate(45deg)' },
+        '&::after': { transform: 'translateY(0) rotate(180deg)' },
       },
     },
     [`&${componentCls}-placement-topRight`]: {
-      '&::before': { right: 0, bottom: `calc(100% + ${popupGap})`, transform: 'translateY(4px)' },
+      '&::before': { right: 0, bottom: `calc(100% + ${popupGap})`, transform: 'translateY(0)' },
       '&::after': {
-        right: edgeOffset,
-        bottom: `calc(100% + ${arrowSize})`,
-        transform: 'translateY(4px) rotate(45deg)',
+        right: arrowOffsetHorizontal,
+        bottom: `calc(100% + ${marginXXS})`,
+        transform: 'translateY(0) rotate(180deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translateY(0)' },
-        '&::after': { transform: 'translateY(0) rotate(45deg)' },
+        '&::after': { transform: 'translateY(0) rotate(180deg)' },
       },
     },
     [`&${componentCls}-placement-bottom`]: {
       '&::before': {
         left: '50%',
         top: `calc(100% + ${popupGap})`,
-        transform: 'translate(-50%, -4px)',
+        transform: 'translate(-50%, 0)',
       },
       '&::after': {
         left: '50%',
-        top: `calc(100% + ${arrowSize})`,
-        transform: 'translate(-50%, -4px) rotate(45deg)',
+        top: `calc(100% + ${marginXXS})`,
+        transform: 'translate(-50%, 0)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translate(-50%, 0)' },
-        '&::after': { transform: 'translate(-50%, 0) rotate(45deg)' },
+        '&::after': { transform: 'translate(-50%, 0)' },
       },
     },
     [`&${componentCls}-placement-bottomLeft`]: {
-      '&::before': { left: 0, top: `calc(100% + ${popupGap})`, transform: 'translateY(-4px)' },
+      '&::before': { left: 0, top: `calc(100% + ${popupGap})`, transform: 'translateY(0)' },
       '&::after': {
-        left: edgeOffset,
-        top: `calc(100% + ${arrowSize})`,
-        transform: 'translateY(-4px) rotate(45deg)',
+        left: arrowOffsetHorizontal,
+        top: `calc(100% + ${marginXXS})`,
+        transform: 'translateY(0)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translateY(0)' },
-        '&::after': { transform: 'translateY(0) rotate(45deg)' },
+        '&::after': { transform: 'translateY(0)' },
       },
     },
     [`&${componentCls}-placement-bottomRight`]: {
-      '&::before': { right: 0, top: `calc(100% + ${popupGap})`, transform: 'translateY(-4px)' },
+      '&::before': { right: 0, top: `calc(100% + ${popupGap})`, transform: 'translateY(0)' },
       '&::after': {
-        right: edgeOffset,
-        top: `calc(100% + ${arrowSize})`,
-        transform: 'translateY(-4px) rotate(45deg)',
+        right: arrowOffsetHorizontal,
+        top: `calc(100% + ${marginXXS})`,
+        transform: 'translateY(0)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translateY(0)' },
-        '&::after': { transform: 'translateY(0) rotate(45deg)' },
+        '&::after': { transform: 'translateY(0)' },
       },
     },
     [`&${componentCls}-placement-left`]: {
       '&::before': {
         right: `calc(100% + ${popupGap})`,
         top: '50%',
-        transform: 'translate(4px, -50%)',
+        transform: 'translate(0, -50%)',
       },
       '&::after': {
-        right: `calc(100% + ${arrowSize})`,
+        right: '100%',
         top: '50%',
-        transform: 'translate(4px, -50%) rotate(45deg)',
+        transform: 'translate(0, -50%) rotate(90deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translate(0, -50%)' },
-        '&::after': { transform: 'translate(0, -50%) rotate(45deg)' },
+        '&::after': { transform: 'translate(0, -50%) rotate(90deg)' },
       },
     },
     [`&${componentCls}-placement-leftTop`]: {
-      '&::before': { right: `calc(100% + ${popupGap})`, top: 0, transform: 'translateX(4px)' },
+      '&::before': { right: `calc(100% + ${popupGap})`, top: 0, transform: 'translateX(0)' },
       '&::after': {
-        right: `calc(100% + ${arrowSize})`,
-        top: edgeOffset,
-        transform: 'translateX(4px) rotate(45deg)',
+        right: '100%',
+        top: `calc(${arrowOffsetVertical} + ${sideArrowOffset})`,
+        transform: 'translateX(0) rotate(90deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translateX(0)' },
-        '&::after': { transform: 'translateX(0) rotate(45deg)' },
+        '&::after': { transform: 'translateX(0) rotate(90deg)' },
       },
     },
     [`&${componentCls}-placement-leftBottom`]: {
-      '&::before': { right: `calc(100% + ${popupGap})`, bottom: 0, transform: 'translateX(4px)' },
+      '&::before': { right: `calc(100% + ${popupGap})`, bottom: 0, transform: 'translateX(0)' },
       '&::after': {
-        right: `calc(100% + ${arrowSize})`,
-        bottom: edgeOffset,
-        transform: 'translateX(4px) rotate(45deg)',
+        right: '100%',
+        bottom: `calc(${arrowOffsetVertical} + ${sideArrowOffset})`,
+        transform: 'translateX(0) rotate(90deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translateX(0)' },
-        '&::after': { transform: 'translateX(0) rotate(45deg)' },
+        '&::after': { transform: 'translateX(0) rotate(90deg)' },
       },
     },
     [`&${componentCls}-placement-right`]: {
       '&::before': {
         left: `calc(100% + ${popupGap})`,
         top: '50%',
-        transform: 'translate(-4px, -50%)',
+        transform: 'translate(0, -50%)',
       },
       '&::after': {
-        left: `calc(100% + ${arrowSize})`,
+        left: '100%',
         top: '50%',
-        transform: 'translate(-4px, -50%) rotate(45deg)',
+        transform: 'translate(0, -50%) rotate(-90deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translate(0, -50%)' },
-        '&::after': { transform: 'translate(0, -50%) rotate(45deg)' },
+        '&::after': { transform: 'translate(0, -50%) rotate(-90deg)' },
       },
     },
     [`&${componentCls}-placement-rightTop`]: {
-      '&::before': { left: `calc(100% + ${popupGap})`, top: 0, transform: 'translateX(-4px)' },
+      '&::before': { left: `calc(100% + ${popupGap})`, top: 0, transform: 'translateX(0)' },
       '&::after': {
-        left: `calc(100% + ${arrowSize})`,
-        top: edgeOffset,
-        transform: 'translateX(-4px) rotate(45deg)',
+        left: '100%',
+        top: `calc(${arrowOffsetVertical} + ${sideArrowOffset})`,
+        transform: 'translateX(0) rotate(-90deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translateX(0)' },
-        '&::after': { transform: 'translateX(0) rotate(45deg)' },
+        '&::after': { transform: 'translateX(0) rotate(-90deg)' },
       },
     },
     [`&${componentCls}-placement-rightBottom`]: {
-      '&::before': { left: `calc(100% + ${popupGap})`, bottom: 0, transform: 'translateX(-4px)' },
+      '&::before': { left: `calc(100% + ${popupGap})`, bottom: 0, transform: 'translateX(0)' },
       '&::after': {
-        left: `calc(100% + ${arrowSize})`,
-        bottom: edgeOffset,
-        transform: 'translateX(-4px) rotate(45deg)',
+        left: '100%',
+        bottom: `calc(${arrowOffsetVertical} + ${sideArrowOffset})`,
+        transform: 'translateX(0) rotate(-90deg)',
       },
       [`&${componentCls}-open`]: {
         '&::before': { transform: 'translateX(0)' },
-        '&::after': { transform: 'translateX(0) rotate(45deg)' },
+        '&::after': { transform: 'translateX(0) rotate(-90deg)' },
       },
     },
   };
@@ -208,10 +218,12 @@ const genStyle: GenerateStyle<TextTooltipToken> = (token) => {
     sizePopupArrow,
     zIndexPopup,
     antCls,
+    arrowPath,
+    arrowPolygon,
   } = token;
 
   const [varName, varRef] = genCssVar(antCls, 'text-tooltip');
-  const arrowSize = token.calc(sizePopupArrow).div(2).equal();
+  const arrowHeight = token.calc(sizePopupArrow).div(2).equal();
 
   return {
     [componentCls]: {
@@ -235,7 +247,7 @@ const genStyle: GenerateStyle<TextTooltipToken> = (token) => {
         visibility: 'hidden',
         pointerEvents: 'none',
         zIndex: varRef('z-index', zIndexPopup),
-        transition: `opacity ${motionDurationMid} ${motionEaseOutCirc}, transform ${motionDurationMid} ${motionEaseOutCirc}, visibility ${motionDurationMid}`,
+        transition: `opacity ${motionDurationMid} ${motionEaseOutCirc}, visibility ${motionDurationMid}`,
       },
 
       '&::before': {
@@ -256,14 +268,19 @@ const genStyle: GenerateStyle<TextTooltipToken> = (token) => {
         borderRadius: varRef('border-radius', unit(tooltipBorderRadius)),
         boxShadow: varRef('box-shadow', boxShadowSecondary),
         boxSizing: 'border-box',
+        transition: `opacity ${motionDurationMid} ${motionEaseOutCirc}, visibility ${motionDurationMid}`,
       },
 
       '&::after': {
         content: '""',
-        width: arrowSize,
-        height: arrowSize,
+        display: 'block',
+        width: sizePopupArrow,
+        height: arrowHeight,
         background: varRef('arrow-background', tooltipBg),
-        boxShadow: varRef('box-shadow', boxShadowSecondary),
+        clipPath: {
+          _multi_value_: true,
+          value: [arrowPolygon, arrowPath],
+        },
       },
 
       [`&${componentCls}-open`]: {
@@ -295,6 +312,15 @@ const genStyle: GenerateStyle<TextTooltipToken> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'TextTooltip'> = (token) => ({
   maxWidth: 250,
   zIndexPopup: token.zIndexPopupBase + 70,
+  ...getArrowOffsetToken({
+    contentRadius: token.borderRadius,
+    limitVerticalRadius: true,
+  }),
+  ...getArrowToken(
+    mergeToken<TextTooltipToken>(token, {
+      borderRadiusOuter: Math.min(token.borderRadiusOuter, 4),
+    }),
+  ),
 });
 
 export default genStyleHooks(
