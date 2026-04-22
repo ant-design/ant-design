@@ -276,7 +276,7 @@ describe('Grid', () => {
   // Grid mode: Row props
   it('should support gridTemplateColumns/gridTemplateRows in grid mode', () => {
     const { container } = render(
-      <Row grid gridTemplateColumns="repeat(4, 1fr)" gridTemplateRows="100px">
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '100px' }}>
         test
       </Row>,
     );
@@ -289,7 +289,7 @@ describe('Grid', () => {
   // Edge cases
   it('should handle empty grid template values', () => {
     const { container } = render(
-      <Row grid gridTemplateColumns="" gridTemplateRows="">
+      <Row grid={{ gridTemplateColumns: '', gridTemplateRows: '' }}>
         test
       </Row>,
     );
@@ -324,7 +324,7 @@ describe('Grid Col', () => {
   it('should support gridRow/gridArea in grid mode', () => {
     const { container } = render(
       <Row grid>
-        <Col gridRow="span 2" gridArea="header">
+        <Col gridItemConfig={{ gridRow: 'span 2', gridArea: 'header' }}>
           test
         </Col>
       </Row>,

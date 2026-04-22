@@ -8,6 +8,7 @@ import type { LiteralUnion } from '../_util/type';
 import { ConfigContext } from '../config-provider';
 import { genCssVar } from '../theme/util/genStyleUtils';
 import RowContext from './RowContext';
+import type { GridItemConfig } from './row';
 import { useColStyle } from './style';
 
 // https://github.com/ant-design/ant-design/issues/14324
@@ -26,16 +27,14 @@ export interface ColSize {
 
 export interface ColProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    Partial<Record<Breakpoint, ColSpanType | ColSize>> {
+  Partial<Record<Breakpoint, ColSpanType | ColSize>> {
   flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;
   offset?: ColSpanType;
   push?: ColSpanType;
   pull?: ColSpanType;
-  gridColumn?: string | number;
-  gridRow?: string | number;
-  gridArea?: string;
+  gridItemConfig?: GridItemConfig;
   prefixCls?: string;
 }
 
@@ -66,9 +65,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     offset,
     push,
     pull,
-    gridColumn,
-    gridRow,
-    gridArea,
+    gridItemConfig,
     className,
     children,
     flex,
@@ -158,15 +155,14 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
   if (grid) {
     const gridStyles: Record<string, string | number> = {};
 
-    if (span !== undefined && !gridColumn) {
+    if (span !== undefined && !gridItemConfig?.gridColumn) {
       const spanNum = isNumber(span) ? span : Number.parseInt(String(span), 10);
       if (!Number.isNaN(spanNum) && spanNum > 0) {
         gridStyles.gridColumn = `span ${spanNum}`;
       }
     }
 
-    const gridProps = { gridColumn, gridRow, gridArea };
-    Object.entries(gridProps).forEach(([key, value]) => {
+    Object.entries(gridItemConfig ?? {}).forEach(([key, value]) => {
       if (value) gridStyles[key] = value;
     });
 

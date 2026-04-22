@@ -31,11 +31,20 @@ type ResponsiveAligns = ResponsiveLike<(typeof _RowAligns)[number]>;
 
 type ResponsiveJustify = ResponsiveLike<(typeof _RowJustify)[number]>;
 
-export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
-  grid?: boolean;
+export interface GridConfig {
   gridTemplateColumns?: string;
   gridTemplateRows?: string;
   gridTemplateAreas?: string;
+}
+
+export interface GridItemConfig {
+  gridColumn?: string | number;
+  gridRow?: string | number;
+  gridArea?: string;
+}
+
+export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
+  grid?: boolean | GridConfig;
   gutter?: Gutter | [Gutter, Gutter];
   align?: (typeof _RowAligns)[number] | ResponsiveAligns;
   justify?: (typeof _RowJustify)[number] | ResponsiveJustify;
@@ -83,9 +92,6 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     grid = false,
     justify,
     align,
-    gridTemplateColumns,
-    gridTemplateRows,
-    gridTemplateAreas,
     className,
     style,
     children,
@@ -106,15 +112,19 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const [hashId, cssVarCls] = useRowStyle(prefixCls);
 
   const gutters = useGutter(gutter, screens);
+
+  const isGrid = !!grid;
+  const gridConfig = typeof grid === 'object' ? grid : undefined;
+
   const classes = clsx(
     prefixCls,
-    !grid && {
+    !isGrid && {
       [`${prefixCls}-no-wrap`]: wrap === false,
       [`${prefixCls}-${mergedJustify}`]: mergedJustify,
       [`${prefixCls}-${mergedAlign}`]: mergedAlign,
     },
     {
-      [`${prefixCls}-grid`]: grid,
+      [`${prefixCls}-grid`]: isGrid,
       [`${prefixCls}-rtl`]: direction === 'rtl',
     },
     className,
@@ -125,13 +135,13 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const rowStyle: React.CSSProperties = {};
   const [gutterH, gutterV] = gutters;
 
-  if (grid) {
+  if (isGrid) {
     const gridStyles = {
       columnGap: gutterH !== undefined && (typeof gutterH === 'number' ? `${gutterH}px` : gutterH),
       rowGap: gutterV !== undefined && (typeof gutterV === 'number' ? `${gutterV}px` : gutterV),
-      gridTemplateColumns,
-      gridTemplateRows,
-      gridTemplateAreas,
+      gridTemplateColumns: gridConfig?.gridTemplateColumns,
+      gridTemplateRows: gridConfig?.gridTemplateRows,
+      gridTemplateAreas: gridConfig?.gridTemplateAreas,
     };
     Object.entries(gridStyles).forEach(([key, value]) => {
       if (value) (rowStyle as any)[key] = value;
@@ -144,8 +154,8 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   }
 
   const rowContext = React.useMemo<RowContextState>(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, grid }),
-    [gutterH, gutterV, wrap, grid],
+    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, grid: isGrid }),
+    [gutterH, gutterV, wrap, isGrid],
   );
 
   return (

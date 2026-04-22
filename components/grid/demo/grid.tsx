@@ -1,6 +1,6 @@
 /**
  * Grid Mode Demo
- * CSS Grid Layout - Use mode="grid" to enable CSS Grid layout
+ * CSS Grid Layout - Use grid prop to enable CSS Grid layout
  */
 import React from 'react';
 import type { CSSProperties } from 'react';
@@ -19,7 +19,7 @@ const App: React.FC = () => (
   <>
     {/* Basic Grid with span */}
     <Divider titlePlacement="start">Basic Grid (span maps to grid-column)</Divider>
-    <Row grid gutter={[16, 16]} gridTemplateColumns="repeat(4, 1fr)">
+    <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }} gutter={[16, 16]}>
       {[1, 1, 1, 1, 2, 1, 1].map((span, idx) => (
         <Col key={`span-${idx}`} span={span} style={cssObj}>
           col-{span}
@@ -30,10 +30,11 @@ const App: React.FC = () => (
     {/* Grid Template Areas */}
     <Divider titlePlacement="start">Grid Template Areas Layout</Divider>
     <Row
-      grid
+      grid={{
+        gridTemplateColumns: '100px 1fr 50px 1fr',
+        gridTemplateAreas: '"sidebar header header header" "sidebar main main content"',
+      }}
       gutter={[16, 16]}
-      gridTemplateColumns="100px 1fr 50px 1fr"
-      gridTemplateAreas='"sidebar header header header" "sidebar main main content"'
     >
       {[
         { gridArea: 'header', children: 'Header' },
@@ -41,7 +42,7 @@ const App: React.FC = () => (
         { gridArea: 'main', children: 'Main' },
         { gridArea: 'content', children: 'Content' },
       ].map((item) => (
-        <Col key={item.gridArea} gridArea={item.gridArea} style={cssObj}>
+        <Col key={item.gridArea} gridItemConfig={{ gridArea: item.gridArea }} style={cssObj}>
           {item.children}
         </Col>
       ))}
