@@ -32,9 +32,6 @@ const genOTPStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
           '&::selection': {
             color: 'transparent',
           },
-          '&::-moz-selection': {
-            color: 'transparent',
-          },
         },
         [`${componentCls}-mask-input[type=number]::-webkit-inner-spin-button`]: {
           '-webkit-appearance': 'none',
