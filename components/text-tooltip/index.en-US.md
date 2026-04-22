@@ -11,7 +11,7 @@ demo:
 
 `TextTooltip` is designed for frequent, lightweight plain text hints.
 
-Compared with `Tooltip`, it does not support complex content, auto flip, popup container mounting, or controlled visibility, but it is lighter for text-only cases.
+Compared with `Tooltip`, it does not support complex content, auto flip, or popup container mounting, but it is lighter for text-only cases.
 
 ## Examples
 
@@ -32,9 +32,10 @@ Compared with `Tooltip`, it does not support complex content, auto flip, popup c
 | placement | Tooltip placement | `top` \| `left` \| `right` \| `bottom` \| `topLeft` \| `topRight` \| `bottomLeft` \| `bottomRight` \| `leftTop` \| `leftBottom` \| `rightTop` \| `rightBottom` | `top` | - |
 | trigger | Trigger mode. Only `hover`, `focus`, or both are supported | `'hover' \| 'focus' \| Array<'hover' \| 'focus'>` | `hover` | - |
 | defaultOpen | Whether to show by default | boolean | false | - |
+| open | Controlled open state | boolean | - | 6.3.7 |
 | mouseEnterDelay | Delay before showing on mouse enter, in seconds | number | 0.1 | - |
 | mouseLeaveDelay | Delay before hiding on mouse leave, in seconds | number | 0.1 | - |
-| maxWidth | Maximum tooltip width | number \| string | 250 | - |
+| onOpenChange | Callback when open state changes | `(open: boolean) => void` | - | 6.3.7 |
 | zIndex | Tooltip z-index | number | 1070 | - |
 | overlayClassName | Extra class name on host node | string | - | - |
 | overlayStyle | Host node style | CSSProperties | - | - |
@@ -43,7 +44,7 @@ Compared with `Tooltip`, it does not support complex content, auto flip, popup c
 ## Notes
 
 - `TextTooltip` only supports string `title`.
-- It does not support full popup capabilities such as `open`, `align`, `autoAdjustOverflow`, or `getPopupContainer`.
+- It does not support full popup capabilities such as `align`, `autoAdjustOverflow`, or `getPopupContainer`.
 - It throws when unsupported capabilities are used instead of silently falling back to `Tooltip`.
 
 ## Design Token

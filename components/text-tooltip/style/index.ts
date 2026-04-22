@@ -11,7 +11,15 @@ import { genPresetColor, genStyleHooks, mergeToken } from '../../theme/internal'
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
 export interface ComponentToken extends ArrowOffsetToken, ArrowToken {
+  /**
+   * @desc 提示最大宽度
+   * @descEN Maximum tooltip width
+   */
   maxWidth: number;
+  /**
+   * @desc 提示 z-index
+   * @descEN z-index of tooltip
+   */
   zIndexPopup: number;
 }
 

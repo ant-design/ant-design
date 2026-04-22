@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`TextTooltip rtl render component should be rendered correctly in RTL direction 1`] = `
+<span
+  class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-rtl ant-text-tooltip-css-var css-var-root"
+/>
+`;

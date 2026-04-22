@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { PresetColorType } from '../_util/colors';
@@ -18,11 +19,12 @@ export interface TextTooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElem
   placement?: TooltipPlacement;
   arrow?: boolean;
   trigger?: SupportedTrigger | SupportedTrigger[];
+  open?: boolean;
   defaultOpen?: boolean;
+  onOpenChange?: (open: boolean) => void;
   mouseEnterDelay?: number;
   mouseLeaveDelay?: number;
   zIndex?: number;
-  maxWidth?: number | string;
   overlayClassName?: string;
   overlayStyle?: React.CSSProperties;
   overlayInnerStyle?: React.CSSProperties;
@@ -33,8 +35,6 @@ export interface TextTooltipProps extends Omit<React.HTMLAttributes<HTMLSpanElem
   autoAdjustOverflow?: never;
   fresh?: never;
   getPopupContainer?: never;
-  onOpenChange?: never;
-  open?: never;
   destroyOnHidden?: never;
   destroyTooltipOnHide?: never;
 }
@@ -46,8 +46,6 @@ const UNSUPPORTED_PROPS = [
   'destroyTooltipOnHide',
   'fresh',
   'getPopupContainer',
-  'onOpenChange',
-  'open',
 ] as const;
 
 const ALL_PLACEMENTS: TooltipPlacement[] = [
@@ -72,11 +70,12 @@ const TextTooltip = React.forwardRef<HTMLSpanElement, TextTooltipProps>((props, 
     placement = 'top',
     arrow = true,
     trigger = 'hover',
+    open: controlledOpen,
     defaultOpen = false,
+    onOpenChange,
     mouseEnterDelay = 0.1,
     mouseLeaveDelay = 0.1,
     zIndex,
-    maxWidth,
     className,
     style,
     overlayClassName,
@@ -120,8 +119,9 @@ const TextTooltip = React.forwardRef<HTMLSpanElement, TextTooltipProps>((props, 
 
   validateProps();
 
-  const [open, setOpen] = React.useState(defaultOpen);
+  const [open, setOpen] = useControlledState(defaultOpen, controlledOpen);
   const delayRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openRef = React.useRef(open);
   const hoveredRef = React.useRef(false);
   const focusedRef = React.useRef(false);
   const supportedTriggers = React.useMemo(
@@ -141,7 +141,10 @@ const TextTooltip = React.forwardRef<HTMLSpanElement, TextTooltipProps>((props, 
   const syncOpen = (nextOpen: boolean, delay: number) => {
     clearDelay();
     delayRef.current = setTimeout(() => {
-      setOpen(nextOpen);
+      if (openRef.current !== nextOpen) {
+        setOpen(nextOpen);
+        onOpenChange?.(nextOpen);
+      }
       delayRef.current = null;
     }, delay * 1000);
   };
@@ -160,6 +163,10 @@ const TextTooltip = React.forwardRef<HTMLSpanElement, TextTooltipProps>((props, 
     syncOpen(nextOpen, nextOpen ? mouseEnterDelay : mouseLeaveDelay);
   };
 
+  React.useEffect(() => {
+    openRef.current = open;
+  }, [open]);
+
   React.useEffect(
     () => () => {
       clearDelay();
@@ -172,7 +179,6 @@ const TextTooltip = React.forwardRef<HTMLSpanElement, TextTooltipProps>((props, 
     ...overlayStyle,
     ...overlayInnerStyle,
     ...colorInfo.style,
-    ...(maxWidth !== undefined ? { maxWidth } : {}),
     ...(zIndex !== undefined ? { zIndex } : {}),
   });
 

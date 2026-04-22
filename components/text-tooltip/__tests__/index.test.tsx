@@ -81,6 +81,49 @@ describe('TextTooltip', () => {
     expect(container.querySelector('.ant-text-tooltip')).toHaveClass('ant-text-tooltip-open');
   });
 
+  it('supports controlled open', async () => {
+    const onOpenChange = jest.fn();
+    const { container, rerender } = render(
+      <TextTooltip title="hint" open={false} onOpenChange={onOpenChange} mouseEnterDelay={0}>
+        <button type="button">trigger</button>
+      </TextTooltip>,
+    );
+
+    const tooltip = container.querySelector('.ant-text-tooltip');
+    expect(tooltip).not.toHaveClass('ant-text-tooltip-open');
+
+    fireEvent.mouseEnter(tooltip!);
+    await waitFakeTimer();
+    expect(tooltip).not.toHaveClass('ant-text-tooltip-open');
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
+
+    rerender(
+      <TextTooltip title="hint" open onOpenChange={onOpenChange} mouseEnterDelay={0}>
+        <button type="button">trigger</button>
+      </TextTooltip>,
+    );
+    expect(container.querySelector('.ant-text-tooltip')).toHaveClass('ant-text-tooltip-open');
+  });
+
+  it('calls onOpenChange for visibility changes', async () => {
+    const onOpenChange = jest.fn();
+    const { container } = render(
+      <TextTooltip title="hint" onOpenChange={onOpenChange} mouseEnterDelay={0} mouseLeaveDelay={0}>
+        <button type="button">trigger</button>
+      </TextTooltip>,
+    );
+
+    const tooltip = container.querySelector('.ant-text-tooltip');
+
+    fireEvent.mouseEnter(tooltip!);
+    await waitFakeTimer();
+    expect(onOpenChange).toHaveBeenLastCalledWith(true);
+
+    fireEvent.mouseLeave(tooltip!);
+    await waitFakeTimer();
+    expect(onOpenChange).toHaveBeenLastCalledWith(false);
+  });
+
   it('supports custom placement and color', () => {
     const { container } = render(
       <TextTooltip title="hint" placement="bottomRight" color="#1677ff" defaultOpen>
@@ -94,16 +137,6 @@ describe('TextTooltip', () => {
     expect((tooltip as HTMLElement).style.getPropertyValue('--ant-text-tooltip-background')).toBe(
       '#1677ff',
     );
-  });
-
-  it('throws for unsupported open prop', () => {
-    expect(() => {
-      render(
-        <TextTooltip title="hint" {...({ open: true } as any)}>
-          <span>trigger</span>
-        </TextTooltip>,
-      );
-    }).toThrow('TextTooltip does not support `open`.');
   });
 
   it('throws for non-string title', () => {

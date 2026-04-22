@@ -1,0 +1,806 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders components/text-tooltip/demo/arrow.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
+>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="Arrow enabled"
+  >
+    <button
+      aria-describedby="test-id"
+      aria-description="Arrow enabled"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Arrow
+      </span>
+    </button>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      Arrow enabled
+    </span>
+  </span>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-no-arrow ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="Arrow disabled"
+  >
+    <button
+      aria-describedby="test-id"
+      aria-description="Arrow disabled"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        No Arrow
+      </span>
+    </button>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      Arrow disabled
+    </span>
+  </span>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-bottom ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="Bottom arrow"
+  >
+    <button
+      aria-describedby="test-id"
+      aria-description="Bottom arrow"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Bottom
+      </span>
+    </button>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      Bottom arrow
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders components/text-tooltip/demo/basic.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-align-center ant-flex-gap-middle"
+>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="Copy link"
+  >
+    <button
+      aria-describedby="test-id"
+      aria-description="Copy link"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Hover me
+      </span>
+    </button>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      Copy link
+    </span>
+  </span>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="This tooltip only supports plain text."
+  >
+    <span
+      aria-describedby="test-id"
+      aria-description="This tooltip only supports plain text."
+    >
+      Plain text trigger
+    </span>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      This tooltip only supports plain text.
+    </span>
+  </span>
+</div>
+`;
+
+exports[`renders components/text-tooltip/demo/colorful.tsx correctly 1`] = `
+Array [
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Preset
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    style="flex-wrap:wrap"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id ant-text-tooltip-pink"
+        data-text-tooltip="Preset color: pink"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Preset color: pink"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            pink
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Preset color: pink
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id ant-text-tooltip-red"
+        data-text-tooltip="Preset color: red"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Preset color: red"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            red
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Preset color: red
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id ant-text-tooltip-orange"
+        data-text-tooltip="Preset color: orange"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Preset color: orange"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            orange
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Preset color: orange
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id ant-text-tooltip-cyan"
+        data-text-tooltip="Preset color: cyan"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Preset color: cyan"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            cyan
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Preset color: cyan
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id ant-text-tooltip-green"
+        data-text-tooltip="Preset color: green"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Preset color: green"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            green
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Preset color: green
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id ant-text-tooltip-blue"
+        data-text-tooltip="Preset color: blue"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Preset color: blue"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            blue
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Preset color: blue
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id ant-text-tooltip-purple"
+        data-text-tooltip="Preset color: purple"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Preset color: purple"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            purple
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Preset color: purple
+        </span>
+      </span>
+    </div>
+  </div>,
+  <div
+    class="ant-divider css-var-test-id ant-divider-horizontal ant-divider-with-text ant-divider-with-text-start"
+    role="separator"
+  >
+    <div
+      class="ant-divider-rail ant-divider-rail-start"
+    />
+    <span
+      class="ant-divider-inner-text"
+    >
+      Custom
+    </span>
+    <div
+      class="ant-divider-rail ant-divider-rail-end"
+    />
+  </div>,
+  <div
+    class="ant-space ant-space-horizontal ant-space-align-center ant-space-gap-row-small ant-space-gap-col-small css-var-test-id"
+    style="flex-wrap:wrap"
+  >
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Custom color: #f50"
+        style="--ant-text-tooltip-background:#f50;--ant-text-tooltip-arrow-background:#f50;--ant-text-tooltip-text-color:#FFF"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Custom color: #f50"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            #f50
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Custom color: #f50
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Custom color: #2db7f5"
+        style="--ant-text-tooltip-background:#2db7f5;--ant-text-tooltip-arrow-background:#2db7f5;--ant-text-tooltip-text-color:#000"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Custom color: #2db7f5"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            #2db7f5
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Custom color: #2db7f5
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Custom color: #87d068"
+        style="--ant-text-tooltip-background:#87d068;--ant-text-tooltip-arrow-background:#87d068;--ant-text-tooltip-text-color:#000"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Custom color: #87d068"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            #87d068
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Custom color: #87d068
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-space-item"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Custom color: #108ee9"
+        style="--ant-text-tooltip-background:#108ee9;--ant-text-tooltip-arrow-background:#108ee9;--ant-text-tooltip-text-color:#FFF"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Custom color: #108ee9"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          type="button"
+        >
+          <span>
+            #108ee9
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Custom color: #108ee9
+        </span>
+      </span>
+    </div>
+  </div>,
+]
+`;
+
+exports[`renders components/text-tooltip/demo/placement.tsx correctly 1`] = `
+<div
+  class="demo ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center ant-flex-vertical"
+>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+    style="white-space:nowrap"
+  >
+    <span
+      class="ant-text-tooltip ant-text-tooltip-placement-topLeft ant-text-tooltip-css-var css-var-test-id"
+      data-text-tooltip="Static placement"
+    >
+      <button
+        aria-describedby="test-id"
+        aria-description="Static placement"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width:84px;margin:4px"
+        type="button"
+      >
+        <span>
+          TL
+        </span>
+      </button>
+      <span
+        id="test-id"
+        style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+      >
+        Static placement
+      </span>
+    </span>
+    <span
+      class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+      data-text-tooltip="Static placement"
+    >
+      <button
+        aria-describedby="test-id"
+        aria-description="Static placement"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width:84px;margin:4px"
+        type="button"
+      >
+        <span>
+          Top
+        </span>
+      </button>
+      <span
+        id="test-id"
+        style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+      >
+        Static placement
+      </span>
+    </span>
+    <span
+      class="ant-text-tooltip ant-text-tooltip-placement-topRight ant-text-tooltip-css-var css-var-test-id"
+      data-text-tooltip="Static placement"
+    >
+      <button
+        aria-describedby="test-id"
+        aria-description="Static placement"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width:84px;margin:4px"
+        type="button"
+      >
+        <span>
+          TR
+        </span>
+      </button>
+      <span
+        id="test-id"
+        style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+      >
+        Static placement
+      </span>
+    </span>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-space-between"
+    style="width:452px"
+  >
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-leftTop ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Static placement"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Static placement"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width:84px;margin:4px"
+          type="button"
+        >
+          <span>
+            LT
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Static placement
+        </span>
+      </span>
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-left ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Static placement"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Static placement"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width:84px;margin:4px"
+          type="button"
+        >
+          <span>
+            Left
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Static placement
+        </span>
+      </span>
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-leftBottom ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Static placement"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Static placement"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width:84px;margin:4px"
+          type="button"
+        >
+          <span>
+            LB
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Static placement
+        </span>
+      </span>
+    </div>
+    <div
+      class="ant-flex css-var-test-id ant-flex-align-center ant-flex-vertical"
+    >
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-rightTop ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Static placement"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Static placement"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width:84px;margin:4px"
+          type="button"
+        >
+          <span>
+            RT
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Static placement
+        </span>
+      </span>
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-right ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Static placement"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Static placement"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width:84px;margin:4px"
+          type="button"
+        >
+          <span>
+            Right
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Static placement
+        </span>
+      </span>
+      <span
+        class="ant-text-tooltip ant-text-tooltip-placement-rightBottom ant-text-tooltip-css-var css-var-test-id"
+        data-text-tooltip="Static placement"
+      >
+        <button
+          aria-describedby="test-id"
+          aria-description="Static placement"
+          class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+          style="width:84px;margin:4px"
+          type="button"
+        >
+          <span>
+            RB
+          </span>
+        </button>
+        <span
+          id="test-id"
+          style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+        >
+          Static placement
+        </span>
+      </span>
+    </div>
+  </div>
+  <div
+    class="ant-flex css-var-test-id ant-flex-align-center ant-flex-justify-center"
+    style="white-space:nowrap"
+  >
+    <span
+      class="ant-text-tooltip ant-text-tooltip-placement-bottomLeft ant-text-tooltip-css-var css-var-test-id"
+      data-text-tooltip="Static placement"
+    >
+      <button
+        aria-describedby="test-id"
+        aria-description="Static placement"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width:84px;margin:4px"
+        type="button"
+      >
+        <span>
+          BL
+        </span>
+      </button>
+      <span
+        id="test-id"
+        style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+      >
+        Static placement
+      </span>
+    </span>
+    <span
+      class="ant-text-tooltip ant-text-tooltip-placement-bottom ant-text-tooltip-css-var css-var-test-id"
+      data-text-tooltip="Static placement"
+    >
+      <button
+        aria-describedby="test-id"
+        aria-description="Static placement"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width:84px;margin:4px"
+        type="button"
+      >
+        <span>
+          Bottom
+        </span>
+      </button>
+      <span
+        id="test-id"
+        style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+      >
+        Static placement
+      </span>
+    </span>
+    <span
+      class="ant-text-tooltip ant-text-tooltip-placement-bottomRight ant-text-tooltip-css-var css-var-test-id"
+      data-text-tooltip="Static placement"
+    >
+      <button
+        aria-describedby="test-id"
+        aria-description="Static placement"
+        class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+        style="width:84px;margin:4px"
+        type="button"
+      >
+        <span>
+          BR
+        </span>
+      </button>
+      <span
+        id="test-id"
+        style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+      >
+        Static placement
+      </span>
+    </span>
+  </div>
+</div>
+`;
+
+exports[`renders components/text-tooltip/demo/trigger.tsx correctly 1`] = `
+<div
+  class="ant-flex css-var-test-id ant-flex-wrap-wrap ant-flex-gap-middle"
+>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="Hover trigger"
+  >
+    <button
+      aria-describedby="test-id"
+      aria-description="Hover trigger"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Hover
+      </span>
+    </button>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      Hover trigger
+    </span>
+  </span>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="Focus trigger"
+  >
+    <button
+      aria-describedby="test-id"
+      aria-description="Focus trigger"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Focus
+      </span>
+    </button>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      Focus trigger
+    </span>
+  </span>
+  <span
+    class="ant-text-tooltip ant-text-tooltip-placement-top ant-text-tooltip-open ant-text-tooltip-css-var css-var-test-id"
+    data-text-tooltip="Open by default"
+  >
+    <button
+      aria-describedby="test-id"
+      aria-description="Open by default"
+      class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
+      type="button"
+    >
+      <span>
+        Default open
+      </span>
+    </button>
+    <span
+      id="test-id"
+      style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0"
+    >
+      Open by default
+    </span>
+  </span>
+</div>
+`;

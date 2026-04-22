@@ -12,7 +12,7 @@ demo:
 
 `TextTooltip` 用于高频、轻量的纯文本提示场景。
 
-相比现有 `Tooltip`，它不支持复杂内容、自动翻转、容器挂载和受控显示，但在只传递 text 的场景里更轻。
+相比现有 `Tooltip`，它不支持复杂内容、自动翻转和容器挂载，但在只传递 text 的场景里更轻。
 
 ## 代码演示 {#examples}
 
@@ -33,9 +33,10 @@ demo:
 | placement | 提示位置 | `top` \| `left` \| `right` \| `bottom` \| `topLeft` \| `topRight` \| `bottomLeft` \| `bottomRight` \| `leftTop` \| `leftBottom` \| `rightTop` \| `rightBottom` | `top` | - |
 | trigger | 触发行为，仅支持 `hover`、`focus` 或两者组合 | `'hover' \| 'focus' \| Array<'hover' \| 'focus'>` | `hover` | - |
 | defaultOpen | 默认是否显示 | boolean | false | - |
+| open | 受控显示状态 | boolean | - | 6.3.7 |
 | mouseEnterDelay | 鼠标移入后延时多少显示，单位：秒 | number | 0.1 | - |
 | mouseLeaveDelay | 鼠标移出后延时多少隐藏，单位：秒 | number | 0.1 | - |
-| maxWidth | 提示最大宽度 | number \| string | 250 | - |
+| onOpenChange | 显示状态变化时的回调 | `(open: boolean) => void` | - | 6.3.7 |
 | zIndex | 提示层级 | number | 1070 | - |
 | overlayClassName | 宿主节点附加类名 | string | - | - |
 | overlayStyle | 宿主节点样式 | CSSProperties | - | - |
@@ -44,7 +45,7 @@ demo:
 ## 注意
 
 - `TextTooltip` 只支持字符串 `title`。
-- 不支持 `open`、`align`、`autoAdjustOverflow`、`getPopupContainer` 等完整浮层能力。
+- 不支持 `align`、`autoAdjustOverflow`、`getPopupContainer` 等完整浮层能力。
 - 超出能力边界时会直接报错，而不会自动回退到现有 `Tooltip`。
 
 ## 主题变量（Design Token）{#design-token}
