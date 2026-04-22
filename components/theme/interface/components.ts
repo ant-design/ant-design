@@ -57,6 +57,7 @@ import type { ComponentToken as SwitchComponentToken } from '../../switch/style'
 import type { ComponentToken as TableComponentToken } from '../../table/style';
 import type { ComponentToken as TabsComponentToken } from '../../tabs/style';
 import type { ComponentToken as TagComponentToken } from '../../tag/style';
+import type { ComponentToken as TextTooltipComponentToken } from '../../text-tooltip/style';
 import type { ComponentToken as TimelineComponentToken } from '../../timeline/style';
 import type { ComponentToken as TooltipComponentToken } from '../../tooltip/style';
 import type { ComponentToken as TourComponentToken } from '../../tour/style';
@@ -125,6 +126,7 @@ export interface ComponentTokenMap {
   Menu?: MenuComponentToken;
   Modal?: ModalComponentToken;
   Message?: MessageComponentToken;
+  TextTooltip?: TextTooltipComponentToken;
   Upload?: UploadComponentToken;
   Tooltip?: TooltipComponentToken;
   Table?: TableComponentToken;

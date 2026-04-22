@@ -153,6 +153,8 @@ export { default as Tabs } from './tabs';
 export type { TabPaneProps, TabsProps } from './tabs';
 export { default as Tag } from './tag';
 export type { TagProps, TagType } from './tag';
+export { default as TextTooltip } from './text-tooltip';
+export type { TextTooltipProps } from './text-tooltip';
 export { default as theme } from './theme';
 export type { GlobalToken, MappingAlgorithm } from './theme';
 export { default as TimePicker } from './time-picker';
