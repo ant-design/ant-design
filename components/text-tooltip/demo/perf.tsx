@@ -154,9 +154,10 @@ const App: React.FC = () => {
   );
 
   return (
-    <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+    <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
       <Space wrap>
         <InputNumber
+          aria-label="Tooltip item count"
           min={1}
           max={2000}
           value={count}
@@ -174,6 +175,7 @@ const App: React.FC = () => {
           }}
         />
         <Switch
+          aria-label="Open all tooltips"
           checked={openAll}
           onChange={(checked) => {
             resetMetrics();
@@ -193,7 +195,7 @@ const App: React.FC = () => {
       </Typography.Text>
 
       <Space align="start" size="large" wrap>
-        <Space direction="vertical" size={4}>
+        <Space orientation="vertical" size={4}>
           <Typography.Text strong>Mount</Typography.Text>
           {renderMetric('Count', String(metrics.mount.count))}
           {renderMetric('Total actual', formatDuration(metrics.mount.totalActualDuration))}
@@ -208,7 +210,7 @@ const App: React.FC = () => {
           {renderMetric('Max actual', formatDuration(metrics.mount.maxActualDuration))}
         </Space>
 
-        <Space direction="vertical" size={4}>
+        <Space orientation="vertical" size={4}>
           <Typography.Text strong>Update</Typography.Text>
           {renderMetric('Count', String(metrics.update.count))}
           {renderMetric('Total actual', formatDuration(metrics.update.totalActualDuration))}
