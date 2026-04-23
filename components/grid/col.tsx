@@ -27,7 +27,7 @@ export interface ColSize {
 
 export interface ColProps
   extends React.HTMLAttributes<HTMLDivElement>,
-  Partial<Record<Breakpoint, ColSpanType | ColSize>> {
+    Partial<Record<Breakpoint, ColSpanType | ColSize>> {
   flex?: FlexType;
   span?: ColSpanType;
   order?: ColSpanType;
@@ -162,9 +162,10 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       }
     }
 
-    Object.entries(gridItemConfig ?? {}).forEach(([key, value]) => {
-      if (value) gridStyles[key] = value;
-    });
+    Object.assign(
+      gridStyles,
+      Object.fromEntries(Object.entries(gridItemConfig ?? {}).filter(([, value]) => value)),
+    );
 
     Object.assign(mergedStyle, gridStyles);
   }
