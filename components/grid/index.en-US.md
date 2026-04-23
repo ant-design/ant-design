@@ -61,23 +61,27 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 
 ### Row
 
+> Note: In grid mode, the following props do not take effect: `align`, `justify`, `wrap`
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| align | Vertical alignment (only works when grid is not enabled) | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
+| align | Vertical alignment | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
 | gutter | Spacing between grids, could be a [string CSS units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units) or a object like { xs: 8, sm: 16, md: 24}. Or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| string \| object \| array | 0 | string: 5.28.0 |
-| justify | Horizontal arrangement (only works when grid is not enabled) | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
+| justify | Horizontal arrangement | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
 | grid | Enable CSS Grid layout, set to true to use Grid layout, or pass an object to configure grid template | `boolean \| { gridTemplateColumns?: string; gridTemplateRows?: string; gridTemplateAreas?: string }` | false | 6.4.0 |
-| wrap | Auto wrap line (only works when grid is not enabled) | boolean | true | 4.8.0 |
+| wrap | Auto wrap line | boolean | true | 4.8.0 |
 
 ### Col
 
+> Note: In grid mode, the following responsive props do not take effect: `flex`, `offset`, `order`, `pull`, `push`, `xs`, `sm`, `md`, `lg`, `xl`, `xxl`, `xxxl`
+
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| flex | Flex layout style (only works when grid is not enabled) | string \| number | - |  |
-| offset | The number of cells to offset Col from the left (only works when grid is not enabled) | number | 0 |  |
-| order | Raster order (only works when grid is not enabled) | number | 0 |  |
-| pull | The number of cells that raster is moved to the left (only works when grid is not enabled) | number | 0 |  |
-| push | The number of cells that raster is moved to the right (only works when grid is not enabled) | number | 0 |  |
+| flex | Flex layout style | string \| number | - |  |
+| offset | The number of cells to offset Col from the left | number | 0 |  |
+| order | Raster order | number | 0 |  |
+| pull | The number of cells that raster is moved to the left | number | 0 |  |
+| push | The number of cells that raster is moved to the right | number | 0 |  |
 | gridItemConfig | Grid mode configuration, supports gridColumn, gridRow, gridArea properties | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.4.0 |
 | span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
 | xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  |
@@ -91,6 +95,10 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 You can modify the breakpoints values using by modifying `screen[XS|SM|MD|LG|XL|XXL|XXXL]` with [theme customization](/docs/react/customize-theme) (since 5.1.0, [sandbox demo](https://codesandbox.io/s/antd-reproduction-template-forked-dlq3r9?file=/index.js)).
 
 The breakpoints of responsive grid follow [BootStrap 4 media queries rules](https://getbootstrap.com/docs/4.0/layout/overview/#responsive-breakpoints) (not including `occasionally part`).
+
+### Grid Mode Notes
+
+For responsive layouts in grid mode, configure the column count via `gridTemplateColumns` and ensure `span` values do not exceed the column count. For example: with `grid={{ gridTemplateColumns: 'repeat(12, 1fr)' }}`, `span={6}` occupies half the width.
 
 ## Design Token
 

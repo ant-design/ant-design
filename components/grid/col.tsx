@@ -98,22 +98,24 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
     sizeClassObj = {
       ...sizeClassObj,
-      [`${prefixCls}-${size}-order-${sizeProps.order}`]:
-        !grid && (sizeProps.order || sizeProps.order === 0),
-      [`${prefixCls}-${size}-${sizeProps.span}`]: !grid && isNonNullable(sizeProps.span),
-      [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
-        !grid && (sizeProps.offset || sizeProps.offset === 0),
-      [`${prefixCls}-${size}-push-${sizeProps.push}`]:
-        !grid && (sizeProps.push || sizeProps.push === 0),
-      [`${prefixCls}-${size}-pull-${sizeProps.pull}`]:
-        !grid && (sizeProps.pull || sizeProps.pull === 0),
       [`${prefixCls}-rtl`]: direction === 'rtl',
     };
 
-    // Responsive flex layout
-    if (!grid && sizeProps.flex) {
-      sizeClassObj[`${prefixCls}-${size}-flex`] = true;
-      sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
+    if (!grid) {
+      sizeClassObj = {
+        ...sizeClassObj,
+        [`${prefixCls}-${size}-order-${sizeProps.order}`]: sizeProps.order || sizeProps.order === 0,
+        [`${prefixCls}-${size}-${sizeProps.span}`]: isNonNullable(sizeProps.span),
+        [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
+          sizeProps.offset || sizeProps.offset === 0,
+        [`${prefixCls}-${size}-push-${sizeProps.push}`]: sizeProps.push || sizeProps.push === 0,
+        [`${prefixCls}-${size}-pull-${sizeProps.pull}`]: sizeProps.pull || sizeProps.pull === 0,
+      };
+
+      if (sizeProps.flex) {
+        sizeClassObj[`${prefixCls}-${size}-flex`] = true;
+        sizeStyle[varName(`${size}-flex`)] = parseFlex(sizeProps.flex);
+      }
     }
   });
 

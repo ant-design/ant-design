@@ -273,9 +273,9 @@ describe('Grid', () => {
 });
 
 describe('Grid Col', () => {
-  it('should apply gridColumn from span in grid mode', () => {
+  it('should apply gridColumn from span when gridTemplateColumns is provided', () => {
     const { container } = render(
-      <Row grid>
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
         <Col span={4}>test</Col>
       </Row>,
     );
@@ -284,6 +284,16 @@ describe('Grid Col', () => {
     expect(col).toHaveStyle({
       gridColumn: 'span 4',
     });
+  });
+
+  it('should not apply gridColumn from span when gridTemplateColumns is not provided', () => {
+    const { container } = render(
+      <Row grid>
+        <Col span={4}>test</Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-col-grid');
+    expect(col).not.toHaveStyle({ gridColumn: expect.any(String) });
   });
 
   it('should support gridRow/gridArea in grid mode', () => {
@@ -296,6 +306,18 @@ describe('Grid Col', () => {
     expect(col).toHaveStyle({
       gridRow: 'span 2',
       gridArea: 'header',
+    });
+  });
+
+  it('should set display none when span is 0 and gridTemplateColumns is provided', () => {
+    const { container } = render(
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
+        <Col span={0}>test</Col>
+      </Row>,
+    );
+    const col = container.querySelector('.ant-col-grid');
+    expect(col).toHaveStyle({
+      display: 'none',
     });
   });
 });
