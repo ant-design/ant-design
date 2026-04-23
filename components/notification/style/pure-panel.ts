@@ -1,4 +1,5 @@
-import { genNoticeStyle, prepareComponentToken, prepareNotificationToken } from '.';
+import { prepareComponentToken, prepareNotificationToken } from '.';
+import { genNoticeStyle } from './notice';
 import { genSubStyleComponent } from '../../theme/internal';
 
 export default genSubStyleComponent(
