@@ -161,6 +161,13 @@ export interface AliasToken extends MapToken {
    * @descEN Control the outline color of input component in error state.
    */
   colorErrorOutline: string;
+  /**
+   * @nameZH 错误状态下前后缀颜色
+   * @nameEN Error affix color
+   * @desc 控制表单控件前后缀在错误状态下的颜色。
+   * @descEN Control the color of form control prefix/suffix in error state.
+   */
+  colorErrorAffix: string;
 
   // Font
   /**
