@@ -62,12 +62,23 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| disabled | Disabled state of segmented item | boolean | false |  |
 | className | The additional css class | string | - |  |
+| disabled | Disabled state of segmented item | boolean | false |  |
 | icon | Display icon for Segmented item | ReactNode | - |  |
 | label | Display text for Segmented item | ReactNode | - |  |
 | tooltip | tooltip for Segmented item | string \| [TooltipProps](../tooltip/index.en-US.md#api) | - |  |
 | value | Value for Segmented item | string \| number | - |  |
+
+Each item element also exposes `data-selected` (`"true"` \| `"false"`) and `data-disabled` (`"true"` \| `"false"`) data attributes for state-based styling via CSS attribute selectors or Tailwind CSS `data-*` variants:
+
+```jsx
+<Segmented
+  classNames={{
+    item: 'data-[selected=true]:border-purple-500 data-[disabled=true]:opacity-40',
+  }}
+  options={options}
+/>
+```
 
 ## Semantic DOM
 

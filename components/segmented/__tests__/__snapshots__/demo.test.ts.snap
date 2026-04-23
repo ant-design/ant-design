@@ -13,6 +13,8 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -29,6 +31,8 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -44,6 +48,8 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -59,6 +65,8 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -74,6 +82,8 @@ exports[`renders components/segmented/demo/basic.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -104,6 +114,8 @@ exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -120,6 +132,8 @@ exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -135,6 +149,8 @@ exports[`renders components/segmented/demo/block.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -166,6 +182,8 @@ Array [
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -182,6 +200,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -197,6 +217,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -212,6 +234,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -227,6 +251,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -255,6 +281,8 @@ Array [
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -271,6 +299,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -286,6 +316,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -301,6 +333,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -316,6 +350,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -347,6 +383,8 @@ exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -363,6 +401,8 @@ exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -378,6 +418,8 @@ exports[`renders components/segmented/demo/controlled.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -409,6 +451,8 @@ Array [
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -425,6 +469,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -440,6 +486,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -468,6 +516,8 @@ Array [
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -484,6 +534,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -499,6 +551,8 @@ Array [
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -533,6 +587,8 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -562,6 +618,8 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -593,6 +651,8 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -649,6 +709,8 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -673,6 +735,8 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -696,6 +760,8 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -719,6 +785,8 @@ exports[`renders components/segmented/demo/custom.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -760,6 +828,8 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected ant-segmented-item-disabled"
+        data-disabled="true"
+        data-selected="true"
       >
         <input
           checked=""
@@ -777,6 +847,8 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item ant-segmented-item-disabled"
+        data-disabled="true"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -793,6 +865,8 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item ant-segmented-item-disabled"
+        data-disabled="true"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -821,6 +895,8 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -837,6 +913,8 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item ant-segmented-item-disabled"
+        data-disabled="true"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -853,6 +931,8 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -868,6 +948,8 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item ant-segmented-item-disabled"
+        data-disabled="true"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -884,6 +966,8 @@ exports[`renders components/segmented/demo/disabled.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -918,6 +1002,8 @@ exports[`renders components/segmented/demo/dynamic.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -934,6 +1020,8 @@ exports[`renders components/segmented/demo/dynamic.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -949,6 +1037,8 @@ exports[`renders components/segmented/demo/dynamic.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -988,6 +1078,8 @@ exports[`renders components/segmented/demo/icon-only.tsx correctly 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -1025,6 +1117,8 @@ exports[`renders components/segmented/demo/icon-only.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -1079,6 +1173,8 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1094,6 +1190,8 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -1110,6 +1208,8 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1137,6 +1237,8 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -1175,6 +1277,8 @@ exports[`renders components/segmented/demo/shape.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1231,6 +1335,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -1247,6 +1353,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1262,6 +1370,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1277,6 +1387,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1292,6 +1404,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1319,6 +1433,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -1335,6 +1451,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1350,6 +1468,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1365,6 +1485,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1380,6 +1502,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1407,6 +1531,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -1423,6 +1549,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1438,6 +1566,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1453,6 +1583,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1468,6 +1600,8 @@ exports[`renders components/segmented/demo/size.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1504,6 +1638,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       >
         <label
           class="ant-segmented-item ant-segmented-item-selected"
+          data-disabled="false"
+          data-selected="true"
         >
           <input
             checked=""
@@ -1520,6 +1656,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1535,6 +1673,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1573,6 +1713,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       >
         <label
           class="ant-segmented-item ant-segmented-item-selected"
+          data-disabled="false"
+          data-selected="true"
         >
           <input
             checked=""
@@ -1589,6 +1731,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1604,6 +1748,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1641,6 +1787,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
       >
         <label
           class="ant-segmented-item ant-segmented-item-selected"
+          data-disabled="false"
+          data-selected="true"
         >
           <input
             checked=""
@@ -1657,6 +1805,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1672,6 +1822,8 @@ exports[`renders components/segmented/demo/size-consistent.tsx correctly 1`] = `
         </label>
         <label
           class="ant-segmented-item"
+          data-disabled="false"
+          data-selected="false"
         >
           <input
             class="ant-segmented-item-input"
@@ -1755,6 +1907,8 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
       >
         <input
           checked=""
@@ -1795,6 +1949,8 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1834,6 +1990,8 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
       >
         <input
           class="ant-segmented-item-input"
@@ -1886,6 +2044,8 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
     >
       <label
         class="ant-segmented-item ant-segmented-item-selected"
+        data-disabled="false"
+        data-selected="true"
         style="text-align:start"
       >
         <input
@@ -1928,6 +2088,8 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
         style="text-align:start"
       >
         <input
@@ -1969,6 +2131,8 @@ exports[`renders components/segmented/demo/style-class.tsx correctly 1`] = `
       </label>
       <label
         class="ant-segmented-item"
+        data-disabled="false"
+        data-selected="false"
         style="text-align:start"
       >
         <input
@@ -2026,6 +2190,8 @@ exports[`renders components/segmented/demo/vertical.tsx correctly 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -2063,6 +2229,8 @@ exports[`renders components/segmented/demo/vertical.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -2114,6 +2282,8 @@ exports[`renders components/segmented/demo/with-icon.tsx correctly 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -2154,6 +2324,8 @@ exports[`renders components/segmented/demo/with-icon.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -2208,6 +2380,8 @@ exports[`renders components/segmented/demo/with-name.tsx correctly 1`] = `
   >
     <label
       class="ant-segmented-item ant-segmented-item-selected"
+      data-disabled="false"
+      data-selected="true"
     >
       <input
         checked=""
@@ -2224,6 +2398,8 @@ exports[`renders components/segmented/demo/with-name.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -2239,6 +2415,8 @@ exports[`renders components/segmented/demo/with-name.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -2254,6 +2432,8 @@ exports[`renders components/segmented/demo/with-name.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"
@@ -2269,6 +2449,8 @@ exports[`renders components/segmented/demo/with-name.tsx correctly 1`] = `
     </label>
     <label
       class="ant-segmented-item"
+      data-disabled="false"
+      data-selected="false"
     >
       <input
         class="ant-segmented-item-input"

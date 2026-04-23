@@ -72,6 +72,17 @@ demo:
 | tooltip | 分段项的工具提示 | string \| [TooltipProps](../tooltip/index.zh-CN.md#api) | - |  |
 | value | 分段项的值 | string \| number | - |  |
 
+每个分段项元素还会暴露 `data-selected`（`"true"` \| `"false"`）和 `data-disabled`（`"true"` \| `"false"`）data 属性，支持通过 CSS 属性选择器或 Tailwind CSS `data-*` 变体实现基于状态的样式定制：
+
+```jsx
+<Segmented
+  classNames={{
+    item: 'data-[selected=true]:border-purple-500 data-[disabled=true]:opacity-40',
+  }}
+  options={options}
+/>
+```
+
 ## Semantic DOM
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
