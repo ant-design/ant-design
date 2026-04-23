@@ -100,7 +100,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       ...sizeClassObj,
       [`${prefixCls}-${size}-order-${sizeProps.order}`]:
         !grid && (sizeProps.order || sizeProps.order === 0),
-      [`${prefixCls}-${size}-${sizeProps.span}`]: isNonNullable(sizeProps.span),
+      [`${prefixCls}-${size}-${sizeProps.span}`]: !grid && isNonNullable(sizeProps.span),
       [`${prefixCls}-${size}-offset-${sizeProps.offset}`]:
         !grid && (sizeProps.offset || sizeProps.offset === 0),
       [`${prefixCls}-${size}-push-${sizeProps.push}`]:
