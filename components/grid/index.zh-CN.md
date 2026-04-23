@@ -65,11 +65,8 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | align | 垂直对齐方式（仅非 grid 模式时生效） | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
 | gutter | 栅格间隔，可以写成[字符串CSS单位](https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Values_and_Units)或支持响应式的对象写法来设置水平间隔 { xs: 8, sm: 16, md: 24}。或者使用数组形式同时设置 `[水平间距, 垂直间距]` | number \| string \| object \| array | 0 | string: 5.28.0 |
 | justify | 水平排列方式（仅非 grid 模式时生效） | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
-| grid | 启用 CSS Grid 布局，设置为 true 时使用 Grid 布局，否则使用 Flex 布局 | boolean | false | 6.4.0 |
+| grid | 启用 CSS Grid 布局，设置为 true 时使用 Grid 布局，或传入对象配置 grid 模板 | `boolean \| { gridTemplateColumns?: string; gridTemplateRows?: string; gridTemplateAreas?: string }` | false | 6.4.0 |
 | wrap | 是否自动换行（仅非 grid 模式时生效） | boolean | true | 4.8.0 |
-| gridTemplateColumns | Grid 模式下列宽模板，支持 CSS grid-template-columns 语法 | string | - | 6.4.0 |
-| gridTemplateRows | Grid 模式下行高模板，支持 CSS grid-template-rows 语法 | string | - | 6.4.0 |
-| gridTemplateAreas | Grid 模式下网格区域模板，支持 CSS grid-template-areas 语法 | string | - | 6.4.0 |
 
 ### Col
 
@@ -80,9 +77,7 @@ Ant Design 的布局组件若不能满足你的需求，你也可以直接使用
 | order | 栅格顺序（仅非 grid 模式时生效） | number | 0 |  |
 | pull | 栅格向左移动格数（仅非 grid 模式时生效） | number | 0 |  |
 | push | 栅格向右移动格数（仅非 grid 模式时生效） | number | 0 |  |
-| gridColumn | Grid 模式下设置网格列位置，等同于 CSS grid-column | string | - | 6.4.0 |
-| gridRow | Grid 模式下设置网格行位置，等同于 CSS grid-row | string | - | 6.4.0 |
-| gridArea | Grid 模式下设置网格区域名称，等同于 CSS grid-area | string | - | 6.4.0 |
+| gridItemConfig | Grid 模式配置，支持 gridColumn、gridRow、gridArea 属性 | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.4.0 |
 | span | 栅格占位格数，为 0 时相当于 `display: none` | number | - |  |
 | xs | `窗口宽度 < 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |
 | sm | `窗口宽度 ≥ 576px` 响应式栅格，可为栅格数或一个包含其他属性的对象 | number \| object | - |  |

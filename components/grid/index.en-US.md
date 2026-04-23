@@ -66,11 +66,8 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | align | Vertical alignment (only works when grid is not enabled) | `top` \| `middle` \| `bottom` \| `stretch` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'top' \| 'middle' \| 'bottom' \| 'stretch'}` | `top` | object: 4.24.0 |
 | gutter | Spacing between grids, could be a [string CSS units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Values_and_Units) or a object like { xs: 8, sm: 16, md: 24}. Or you can use array to make horizontal and vertical spacing work at the same time `[horizontal, vertical]` | number \| string \| object \| array | 0 | string: 5.28.0 |
 | justify | Horizontal arrangement (only works when grid is not enabled) | `start` \| `end` \| `center` \| `space-around` \| `space-between` \| `space-evenly` \| `{[key in 'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| 'xxl' \| 'xxxl']: 'start' \| 'end' \| 'center' \| 'space-around' \| 'space-between' \| 'space-evenly'}` | `start` | object: 4.24.0 |
-| grid | Enable CSS Grid layout, set to true to use Grid layout, otherwise use Flex layout | boolean | false | 6.4.0 |
+| grid | Enable CSS Grid layout, set to true to use Grid layout, or pass an object to configure grid template | `boolean \| { gridTemplateColumns?: string; gridTemplateRows?: string; gridTemplateAreas?: string }` | false | 6.4.0 |
 | wrap | Auto wrap line (only works when grid is not enabled) | boolean | true | 4.8.0 |
-| gridTemplateColumns | Grid mode column template, supports CSS grid-template-columns syntax | string | - | 6.4.0 |
-| gridTemplateRows | Grid mode row template, supports CSS grid-template-rows syntax | string | - | 6.4.0 |
-| gridTemplateAreas | Grid mode grid areas template, supports CSS grid-template-areas syntax | string | - | 6.4.0 |
 
 ### Col
 
@@ -81,9 +78,7 @@ If the Ant Design grid layout component does not meet your needs, you can use th
 | order | Raster order (only works when grid is not enabled) | number | 0 |  |
 | pull | The number of cells that raster is moved to the left (only works when grid is not enabled) | number | 0 |  |
 | push | The number of cells that raster is moved to the right (only works when grid is not enabled) | number | 0 |  |
-| gridColumn | Grid mode grid column position, equivalent to CSS grid-column | string | - | 6.4.0 |
-| gridRow | Grid mode grid row position, equivalent to CSS grid-row | string | - | 6.4.0 |
-| gridArea | Grid mode grid area name, equivalent to CSS grid-area | string | - | 6.4.0 |
+| gridItemConfig | Grid mode configuration, supports gridColumn, gridRow, gridArea properties | `{ gridColumn?: string \| number; gridRow?: string \| number; gridArea?: string }` | - | 6.4.0 |
 | span | Raster number of cells to occupy, 0 corresponds to `display: none` | number | none |  |
 | xs | `screen < 576px` and also default setting, could be a `span` value or an object containing above props | number \| object | - |  |
 | sm | `screen ≥ 576px`, could be a `span` value or an object containing above props | number \| object | - |  |
