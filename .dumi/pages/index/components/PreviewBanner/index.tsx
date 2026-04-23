@@ -7,6 +7,7 @@ import useLocale from '../../../../hooks/useLocale';
 import LinkButton from '../../../../theme/common/LinkButton';
 import SiteContext from '../../../../theme/slots/SiteContext';
 import * as utils from '../../../../theme/utils';
+import BannerSponsors from '../BannerSponsors';
 import GroupMaskLayer from '../GroupMaskLayer';
 
 import '../SiteContext';
@@ -126,6 +127,7 @@ const PreviewBanner: React.FC<Readonly<React.PropsWithChildren>> = (props) => {
           </LinkButton>
         </Flex>
         <div className={styles.child}>{children}</div>
+        <BannerSponsors />
       </div>
     </GroupMaskLayer>
   );
