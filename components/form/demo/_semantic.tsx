@@ -29,6 +29,17 @@ const locales = {
 
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
+  const [form] = Form.useForm();
+
+  React.useEffect(() => {
+    form.setFields([
+      {
+        name: 'password',
+        errors: ['Please input your password!', 'Use at least 8 characters.'],
+      },
+    ]);
+  }, [form]);
+
   return (
     <SemanticPreview
       componentName="Form"
@@ -42,6 +53,7 @@ const App: React.FC = () => {
       ]}
     >
       <Form
+        form={form}
         name="basic"
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 16 }}
@@ -60,10 +72,11 @@ const App: React.FC = () => {
         <Form.Item
           label="Password"
           name="password"
-          validateStatus="error"
-          help="Please input your password!"
-          extra="Use at least 8 characters."
-          rules={[{ required: true, message: 'Please input your password!' }]}
+          extra="Password must contain letters and numbers."
+          rules={[
+            { required: true, message: 'Please input your password!' },
+            { min: 8, message: 'Use at least 8 characters.' },
+          ]}
         >
           <Input.Password />
         </Form.Item>
