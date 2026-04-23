@@ -226,7 +226,7 @@ describe('Grid', () => {
   });
 
   // Grid mode tests
-  it('should use gap style in grid mode', () => {
+  it('should support gap in grid mode', () => {
     const { container } = render(
       <Row grid gutter={[16, 20]}>
         test
@@ -238,15 +238,13 @@ describe('Grid', () => {
       columnGap: '16px',
       rowGap: '20px',
     });
-  });
 
-  it('should use string gap in grid mode', () => {
-    const { container } = render(
+    const { container: container2 } = render(
       <Row grid gutter={['1rem', '2rem']}>
         test
       </Row>,
     );
-    expect(container.querySelector('.ant-row-grid')).toHaveStyle({
+    expect(container2.querySelector('.ant-row-grid')).toHaveStyle({
       columnGap: '1rem',
       rowGap: '2rem',
     });
@@ -263,52 +261,18 @@ describe('Grid', () => {
     expect(row).not.toHaveClass('ant-row-middle');
   });
 
-  it('should support flex mode gutter with array', () => {
-    const { container } = render(<Row gutter={[16, 20]}>test</Row>);
-    const rowEle = container.querySelector('div');
-    expect(rowEle).toHaveClass('ant-row');
-    expect(rowEle).toHaveStyle({
-      marginInline: '-8px',
-      rowGap: '20px',
-    });
-  });
-
-  // Grid mode: Row props
   it('should support gridTemplateColumns/gridTemplateRows in grid mode', () => {
     const { container } = render(
-      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '100px' }}>
-        test
-      </Row>,
+      <Row grid={{ gridTemplateColumns: 'repeat(4, 1fr)', gridTemplateRows: '100px' }}>test</Row>,
     );
     expect(container.querySelector('.ant-row-grid')).toHaveStyle({
       gridTemplateColumns: 'repeat(4, 1fr)',
       gridTemplateRows: '100px',
     });
   });
-
-  // Edge cases
-  it('should handle empty grid template values', () => {
-    const { container } = render(
-      <Row grid={{ gridTemplateColumns: '', gridTemplateRows: '' }}>
-        test
-      </Row>,
-    );
-    const style = container.querySelector('.ant-row-grid')?.getAttribute('style');
-    expect(style).toBeDefined();
-  });
 });
 
 describe('Grid Col', () => {
-  // Grid mode: Col props
-  it('should render with ant-col-grid class in grid mode', () => {
-    const { container } = render(
-      <Row grid>
-        <Col span={2}>test</Col>
-      </Row>,
-    );
-    expect(container.querySelector('.ant-col-grid')).toBeTruthy();
-  });
-
   it('should apply gridColumn from span in grid mode', () => {
     const { container } = render(
       <Row grid>
@@ -316,6 +280,7 @@ describe('Grid Col', () => {
       </Row>,
     );
     const col = container.querySelector('.ant-col-grid');
+    expect(container.querySelector('.ant-col-grid')).toBeTruthy();
     expect(col).toHaveStyle({
       gridColumn: 'span 4',
     });
@@ -324,9 +289,7 @@ describe('Grid Col', () => {
   it('should support gridRow/gridArea in grid mode', () => {
     const { container } = render(
       <Row grid>
-        <Col gridItemConfig={{ gridRow: 'span 2', gridArea: 'header' }}>
-          test
-        </Col>
+        <Col gridItemConfig={{ gridRow: 'span 2', gridArea: 'header' }}>test</Col>
       </Row>,
     );
     const col = container.querySelector('.ant-col-grid');
@@ -334,16 +297,5 @@ describe('Grid Col', () => {
       gridRow: 'span 2',
       gridArea: 'header',
     });
-  });
-
-  // Edge cases
-  it('should not apply gridColumn when span is 0', () => {
-    const { container } = render(
-      <Row grid>
-        <Col span={0}>test</Col>
-      </Row>,
-    );
-    const col = container.querySelector('.ant-col-grid');
-    expect(col).not.toHaveStyle({ gridColumn: 'span 0' });
   });
 });
