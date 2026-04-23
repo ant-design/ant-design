@@ -49,7 +49,7 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
   cardDesc: css`
     font-size: 13px;
     color: ${cssVar.colorTextSecondary};
-    line-height: 1.6;
+    line-height: 1.5;
   `,
   cardFooter: css`
     display: flex;
@@ -95,10 +95,17 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, lang }) => {
       <div className={styles.cardBody}>
         <img src={sponsor.logo} alt={sponsor.name} className={styles.cardLogo} />
         <div className={styles.cardInfo}>
-          <a href={sponsor.opencollective} target="_blank" rel="noreferrer" className={styles.cardName}>
+          <a
+            href={sponsor.opencollective}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.cardName}
+          >
             {sponsor.name}
           </a>
-          <span className={styles.cardDesc}>{getSponsorDescription(sponsor.description, lang)}</span>
+          <span className={styles.cardDesc}>
+            {getSponsorDescription(sponsor.description, lang)}
+          </span>
         </div>
       </div>
       <div className={styles.cardFooter}>
