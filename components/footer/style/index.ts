@@ -31,6 +31,16 @@ export interface ComponentToken {
    * @descEN Link hover color of Footer
    */
   footerLinkHoverColor: string;
+  /**
+   * @desc Footer 最大宽度
+   * @descEN Max width of Footer
+   */
+  footerMaxWidth: number | string;
+  /**
+   * @desc Footer 底部边框颜色（暗色主题）
+   * @descEN Footer bottom border color (dark theme)
+   */
+  footerBottomBorderColor: string;
 }
 
 interface FooterToken extends FullToken<'Footer'> {
@@ -39,6 +49,8 @@ interface FooterToken extends FullToken<'Footer'> {
   footerColor: string;
   footerLinkColor: string;
   footerLinkHoverColor: string;
+  footerMaxWidth: number | string;
+  footerBottomBorderColor: string;
 }
 
 // 布局样式
@@ -59,6 +71,8 @@ const genLayoutStyle: GenerateStyle<FooterToken, CSSObject> = (token) => {
     footerColor,
     footerLinkColor,
     footerLinkHoverColor,
+    footerMaxWidth,
+    footerBottomBorderColor,
   } = token;
 
   return {
@@ -93,7 +107,7 @@ const genLayoutStyle: GenerateStyle<FooterToken, CSSObject> = (token) => {
       // 上部分容器
       [`${componentCls}-container`]: {
         width: '100%',
-        maxWidth: 1200,
+        maxWidth: footerMaxWidth,
         margin: '0 auto',
         paddingInline: padding,
         paddingBlock: token.calc(padding).mul(3).equal(),
@@ -154,13 +168,13 @@ const genLayoutStyle: GenerateStyle<FooterToken, CSSObject> = (token) => {
       // 底部区域
       [`${componentCls}-bottom-container`]: {
         width: '100%',
-        maxWidth: 1200,
+        maxWidth: footerMaxWidth,
         margin: '0 auto',
         paddingBlock: padding,
-        fontSize: fontSize,
+        fontSize,
         lineHeight: lineHeightLG,
         textAlign: 'center',
-        borderTop: '1px solid rgba(255, 255, 255, 0.15)',
+        borderTop: `1px solid ${footerBottomBorderColor}`,
       },
 
       // 亮色主题
@@ -193,19 +207,19 @@ const genLayoutStyle: GenerateStyle<FooterToken, CSSObject> = (token) => {
     '@media only screen and (max-width: 767.99px)': {
       [componentCls]: {
         textAlign: 'center',
-      },
-      [`${componentCls}-container`]: {
-        padding: `${unit(padding * 2.5)} 0`,
-      },
-      [`${componentCls}-columns`]: {
-        display: 'block',
-      },
-      [`${componentCls}-column`]: {
-        display: 'block',
-        marginBottom: unit(margin * 2.5),
+        [`${componentCls}-container`]: {
+          padding: `${unit(padding * 2.5)} 0`,
+        },
+        [`${componentCls}-columns`]: {
+          display: 'block',
+        },
+        [`${componentCls}-column`]: {
+          display: 'block',
+          marginBottom: unit(margin * 2.5),
 
-        '&:last-child': {
-          marginBottom: 0,
+          '&:last-child': {
+            marginBottom: 0,
+          },
         },
       },
     },
@@ -218,6 +232,8 @@ export const prepareComponentToken: GetDefaultToken<'Footer'> = (token) => ({
   footerColor: 'rgba(255, 255, 255, 0.65)',
   footerLinkColor: 'rgba(255, 255, 255, 0.88)',
   footerLinkHoverColor: token.colorPrimary,
+  footerMaxWidth: 1200,
+  footerBottomBorderColor: 'rgba(255, 255, 255, 0.15)',
 });
 
 // ============================== Export ==============================

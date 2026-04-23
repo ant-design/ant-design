@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 import { Footer, Radio, Space } from 'antd';
-import {
-  GithubOutlined,
-  TwitterOutlined,
-  InstagramOutlined,
-} from '@ant-design/icons';
+import { GithubOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
 
 const columns = [
   {
