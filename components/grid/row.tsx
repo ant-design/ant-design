@@ -8,7 +8,7 @@ import { ConfigContext } from '../config-provider';
 import useBreakpoint from './hooks/useBreakpoint';
 import useGutter from './hooks/useGutter';
 import RowContext from './RowContext';
-import type { RowContextState } from './RowContext';
+import type { RowContextGutter, RowContextState } from './RowContext';
 import { useRowStyle } from './style';
 
 const _RowAligns = ['top', 'middle', 'bottom', 'stretch'] as const;
@@ -145,7 +145,9 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     };
     Object.assign(
       rowStyle,
-      Object.fromEntries(Object.entries(gridStyles).filter(([, value]) => value)),
+      Object.fromEntries(
+        Object.entries(gridStyles).filter(([, value]) => value !== undefined && value !== null),
+      ),
     );
   } else {
     if (gutterH) {
@@ -155,7 +157,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   }
 
   const rowContext = React.useMemo<RowContextState>(
-    () => ({ gutter: [gutterH, gutterV] as [number, number], wrap, grid: isGrid }),
+    () => ({ gutter: [gutterH, gutterV] as RowContextGutter, wrap, grid: isGrid }),
     [gutterH, gutterV, wrap, isGrid],
   );
 

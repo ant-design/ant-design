@@ -157,14 +157,21 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
 
     if (span !== undefined && !gridItemConfig?.gridColumn) {
       const spanNum = isNumber(span) ? span : Number.parseInt(String(span), 10);
-      if (!Number.isNaN(spanNum) && spanNum > 0) {
+
+      if (spanNum <= 0) {
+        gridStyles.display = 'none';
+      } else {
         gridStyles.gridColumn = `span ${spanNum}`;
       }
     }
 
     Object.assign(
       gridStyles,
-      Object.fromEntries(Object.entries(gridItemConfig ?? {}).filter(([, value]) => value)),
+      Object.fromEntries(
+        Object.entries(gridItemConfig ?? {}).filter(
+          ([, value]) => value !== undefined && value !== null,
+        ),
+      ),
     );
 
     Object.assign(mergedStyle, gridStyles);
