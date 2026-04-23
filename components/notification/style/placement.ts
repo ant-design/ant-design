@@ -1,112 +1,150 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
+import type * as React from 'react';
 
 import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
+import type { NotificationPlacement } from '../interface';
+
+type AxisProperty = 'top' | 'bottom' | 'left' | 'right';
+
+const getMotionTransform = (translate: string) =>
+  `${translate} scale(var(--notification-scale, 1))`;
+
+const genPlacementStyle = (
+  token: NotificationToken,
+  placement: NotificationPlacement,
+  vertical: Extract<AxisProperty, 'top' | 'bottom'>,
+  horizontal: Extract<AxisProperty, 'left' | 'right'>,
+  flexDirection: React.CSSProperties['flexDirection'],
+  transformOrigin: React.CSSProperties['transformOrigin'],
+  stackClipPath: string,
+  enterTranslate: string,
+): CSSObject => {
+  const { componentCls } = token;
+  const noticeCls = `${componentCls}-notice`;
+  const enterTransform = getMotionTransform(enterTranslate);
+  const baseTransform = getMotionTransform('translateX(0)');
+
+  return {
+    [`&${componentCls}-${placement}`]: {
+      display: 'flex',
+      flexDirection,
+
+      [noticeCls]: {
+        [vertical]: 'var(--notification-y, 0)',
+        [horizontal]: 'var(--notification-x, 0)',
+        transformOrigin,
+      },
+
+      [`${componentCls}-fade-appear-prepare, ${componentCls}-fade-enter-prepare`]: {
+        opacity: 0,
+        transform: enterTransform,
+        transition: 'none',
+      },
+
+      [`${componentCls}-fade-appear-start, ${componentCls}-fade-enter-start`]: {
+        opacity: 0,
+        transform: enterTransform,
+      },
+
+      [`${componentCls}-fade-appear-active, ${componentCls}-fade-enter-active`]: {
+        opacity: 1,
+        transform: baseTransform,
+      },
+
+      [`${componentCls}-fade-leave-start`]: {
+        opacity: 1,
+        transform: baseTransform,
+      },
+
+      [`${componentCls}-fade-leave-active`]: {
+        opacity: 0,
+        transform: enterTransform,
+      },
+
+      [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
+        [noticeCls]: {
+          clipPath: stackClipPath,
+        },
+
+        [`${noticeCls}[data-notification-index='0']`]: {
+          clipPath: 'inset(-50% -50% -50% -50%)',
+        },
+      },
+    },
+  };
+};
 
 const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const { componentCls, notificationMarginEdge, animationMaxHeight } = token;
-
-  const noticeCls = `${componentCls}-notice`;
-
-  const rightFadeIn = new Keyframes('antNotificationFadeIn', {
-    '0%': {
-      transform: `translate3d(100%, 0, 0)`,
-      opacity: 0,
-    },
-
-    '100%': {
-      transform: `translate3d(0, 0, 0)`,
-      opacity: 1,
-    },
-  });
-
-  const topFadeIn = new Keyframes('antNotificationTopFadeIn', {
-    '0%': {
-      top: -animationMaxHeight,
-      opacity: 0,
-    },
-
-    '100%': {
-      top: 0,
-      opacity: 1,
-    },
-  });
-
-  const bottomFadeIn = new Keyframes('antNotificationBottomFadeIn', {
-    '0%': {
-      bottom: token.calc(animationMaxHeight).mul(-1).equal(),
-      opacity: 0,
-    },
-
-    '100%': {
-      bottom: 0,
-      opacity: 1,
-    },
-  });
-
-  const leftFadeIn = new Keyframes('antNotificationLeftFadeIn', {
-    '0%': {
-      transform: `translate3d(-100%, 0, 0)`,
-      opacity: 0,
-    },
-
-    '100%': {
-      transform: `translate3d(0, 0, 0)`,
-      opacity: 1,
-    },
-  });
+  const { componentCls, notificationMotionOffset } = token;
+  const motionOffset = unit(notificationMotionOffset);
 
   return {
     [componentCls]: {
       [`&${componentCls}-top, &${componentCls}-bottom`]: {
         marginInline: 0,
-        [noticeCls]: {
-          marginInline: 'auto auto',
-        },
       },
-
-      [`&${componentCls}-top`]: {
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationName: topFadeIn,
-          },
-      },
-
-      [`&${componentCls}-bottom`]: {
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationName: bottomFadeIn,
-          },
-      },
-
-      [`&${componentCls}-topRight, &${componentCls}-bottomRight`]: {
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationName: rightFadeIn,
-          },
-      },
-
-      [`&${componentCls}-topLeft, &${componentCls}-bottomLeft`]: {
-        marginRight: {
-          value: 0,
-          _skip_check_: true,
-        },
-        marginLeft: {
-          value: notificationMarginEdge,
-          _skip_check_: true,
-        },
-
-        [noticeCls]: {
-          marginInlineEnd: 'auto',
-          marginInlineStart: 0,
-        },
-
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationName: leftFadeIn,
-          },
-      },
+      ...genPlacementStyle(
+        token,
+        'topRight',
+        'top',
+        'right',
+        'column',
+        'center bottom',
+        'inset(50% -50% -50% -50%)',
+        `translateX(${motionOffset})`,
+      ),
+      ...genPlacementStyle(
+        token,
+        'bottomRight',
+        'bottom',
+        'right',
+        'column-reverse',
+        'center top',
+        'inset(-50% -50% 50% -50%)',
+        `translateX(${motionOffset})`,
+      ),
+      ...genPlacementStyle(
+        token,
+        'topLeft',
+        'top',
+        'left',
+        'column',
+        'center bottom',
+        'inset(50% -50% -50% -50%)',
+        `translateX(-${motionOffset})`,
+      ),
+      ...genPlacementStyle(
+        token,
+        'bottomLeft',
+        'bottom',
+        'left',
+        'column-reverse',
+        'center top',
+        'inset(-50% -50% 50% -50%)',
+        `translateX(-${motionOffset})`,
+      ),
+      ...genPlacementStyle(
+        token,
+        'top',
+        'top',
+        'left',
+        'column',
+        'center bottom',
+        'inset(50% -50% -50% -50%)',
+        `translateY(-${motionOffset})`,
+      ),
+      ...genPlacementStyle(
+        token,
+        'bottom',
+        'bottom',
+        'left',
+        'column-reverse',
+        'center top',
+        'inset(-50% -50% 50% -50%)',
+        `translateY(${motionOffset})`,
+      ),
     },
   };
 };

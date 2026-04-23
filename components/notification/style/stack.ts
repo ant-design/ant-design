@@ -2,116 +2,35 @@ import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { NotificationToken } from '.';
 import type { GenerateStyle } from '../../theme/internal';
-import type { NotificationPlacement } from '../interface';
-import { NotificationPlacements } from '../interface';
-
-const placementAlignProperty: Record<NotificationPlacement, 'left' | 'right'> = {
-  topLeft: 'left',
-  topRight: 'right',
-  bottomLeft: 'left',
-  bottomRight: 'right',
-  top: 'left',
-  bottom: 'left',
-};
-
-const genPlacementStackStyle = (
-  token: NotificationToken,
-  placement: NotificationPlacement,
-): CSSObject => {
-  const { componentCls } = token;
-
-  return {
-    [`${componentCls}-${placement}`]: {
-      [`&${componentCls}-stack > ${componentCls}-notice-wrapper`]: {
-        [placement.startsWith('top') ? 'top' : 'bottom']: 0,
-        [placementAlignProperty[placement]]: { value: 0, _skip_check_: true },
-      },
-    },
-  };
-};
-
-const genStackChildrenStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const childrenStyle: CSSObject = {};
-  for (let i = 1; i < token.notificationStackLayer; i++) {
-    childrenStyle[`&:nth-last-child(${i + 1})`] = {
-      overflow: 'hidden',
-
-      [`& > ${token.componentCls}-notice`]: {
-        opacity: 0,
-        transition: `opacity ${token.motionDurationMid}`,
-      },
-    };
-  }
-
-  return {
-    [`&:not(:nth-last-child(-n+${token.notificationStackLayer}))`]: {
-      opacity: 0,
-      overflow: 'hidden',
-      color: 'transparent',
-      pointerEvents: 'none',
-    },
-    ...childrenStyle,
-  };
-};
-
-const genStackedNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const childrenStyle: CSSObject = {};
-  for (let i = 1; i < token.notificationStackLayer; i++) {
-    childrenStyle[`&:nth-last-child(${i + 1})`] = {
-      background: token.colorBgBlur,
-      backdropFilter: 'blur(10px)',
-      '-webkit-backdrop-filter': 'blur(10px)',
-    };
-  }
-  return childrenStyle;
-};
 
 const genStackStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const { componentCls } = token;
+  const noticeCls = `${componentCls}-notice`;
+  const listContentCls = `${componentCls}-list-content`;
+
   return {
     [`${componentCls}-stack`]: {
-      [`& > ${componentCls}-notice-wrapper`]: {
-        transition: `transform ${token.motionDurationSlow}, backdrop-filter 0s`,
-        willChange: 'transform, opacity',
-        position: 'absolute',
-
-        ...genStackChildrenStyle(token),
+      [noticeCls]: {
+        clipPath: 'inset(-50% -50% -50% -50%)',
       },
-    },
-    [`${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
-      [`& > ${componentCls}-notice-wrapper`]: {
-        ...genStackedNoticeStyle(token),
-      },
-    },
-    [`${componentCls}-stack${componentCls}-stack-expanded`]: {
-      [`& > ${componentCls}-notice-wrapper`]: {
-        '&:not(:nth-last-child(-n + 1))': {
-          opacity: 1,
-          overflow: 'unset',
-          color: 'inherit',
-          pointerEvents: 'auto',
 
-          [`& > ${token.componentCls}-notice`]: {
-            opacity: 1,
-          },
-        },
+      [`&:not(${componentCls}-stack-expanded)`]: {
+        [noticeCls]: {
+          '--notification-scale': 'calc(1 - min(var(--notification-index, 0), 2) * 0.06)',
+        } as CSSObject,
 
-        '&:after': {
-          content: '""',
-          position: 'absolute',
-          height: token.margin,
-          width: '100%',
-          insetInline: 0,
-          bottom: token.calc(token.margin).mul(-1).equal(),
-          background: 'transparent',
-          pointerEvents: 'auto',
+        [`${noticeCls}:not(${noticeCls}-stack-in-threshold)`]: {
+          opacity: 0,
+          pointerEvents: 'none',
         },
       },
     },
-    ...NotificationPlacements.map((placement) => genPlacementStackStyle(token, placement)).reduce(
-      (acc, cur) => ({ ...acc, ...cur }),
-      {},
-    ),
+
+    [`${componentCls}-list-hovered`]: {
+      [listContentCls]: {
+        pointerEvents: 'auto',
+      },
+    },
   };
 };
 

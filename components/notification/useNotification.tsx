@@ -34,7 +34,7 @@ import { getCloseIcon, PureContent } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
-const DEFAULT_OFFSET = 24;
+const DEFAULT_OFFSET = 0;
 const DEFAULT_DURATION = 4.5;
 const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
 

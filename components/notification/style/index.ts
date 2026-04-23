@@ -1,5 +1,5 @@
 import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes, unit } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { genFocusStyle, resetComponent } from '../../style';
@@ -107,6 +107,11 @@ export interface NotificationToken extends FullToken<'Notification'> {
    * @descEN Height of Notification progress bar
    */
   notificationProgressHeight: number;
+  /**
+   * @desc 提醒框入场动画偏移
+   * @descEN Motion offset of Notification
+   */
+  notificationMotionOffset: number;
 }
 
 export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
@@ -115,7 +120,6 @@ export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
     componentCls, // .ant-notification
     boxShadow,
     fontSizeLG,
-    notificationMarginBottom,
     borderRadiusLG,
     colorSuccess,
     colorInfo,
@@ -131,37 +135,49 @@ export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
     lineHeight,
     width,
     notificationIconSize,
+    notificationCloseButtonSize,
     colorText,
     colorSuccessBg,
     colorErrorBg,
     colorInfoBg,
     colorWarningBg,
     motionDurationMid,
+    motionEaseInOut,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
 
   return {
-    position: 'relative',
-    marginBottom: notificationMarginBottom,
-    marginInlineStart: 'auto',
+    position: 'absolute',
+    boxSizing: 'border-box',
+    width,
+    maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
+    padding: notificationPadding,
+    pointerEvents: 'auto',
+    color: colorText,
     background: notificationBg,
     borderRadius: borderRadiusLG,
     boxShadow,
+    fontSize,
+    lineHeight,
+    wordWrap: 'break-word',
+    overflow: 'hidden',
+    transform: 'scale(var(--notification-scale, 1))',
+    transition: [
+      `transform ${motionDurationMid} ${motionEaseInOut}`,
+      `inset ${motionDurationMid} ${motionEaseInOut}`,
+      `clip-path ${motionDurationMid} ${motionEaseInOut}`,
+      `opacity ${motionDurationMid} ${motionEaseInOut}`,
+    ].join(', '),
 
-    [noticeCls]: {
-      padding: notificationPadding,
-      width,
-      maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
-      lineHeight,
-      wordWrap: 'break-word',
-      borderRadius: borderRadiusLG,
-      overflow: 'hidden',
-      // Type-specific background colors
-      '&-success': colorSuccessBg ? { background: colorSuccessBg } : {},
-      '&-error': colorErrorBg ? { background: colorErrorBg } : {},
-      '&-info': colorInfoBg ? { background: colorInfoBg } : {},
-      '&-warning': colorWarningBg ? { background: colorWarningBg } : {},
+    // Type-specific background colors
+    '&-success': colorSuccessBg ? { background: colorSuccessBg } : {},
+    '&-error': colorErrorBg ? { background: colorErrorBg } : {},
+    '&-info': colorInfoBg ? { background: colorInfoBg } : {},
+    '&-warning': colorWarningBg ? { background: colorWarningBg } : {},
+
+    [`${noticeCls}-section`]: {
+      paddingInlineEnd: token.calc(notificationCloseButtonSize).add(token.marginSM).equal(),
     },
 
     [`${noticeCls}-title`]: {
@@ -175,7 +191,7 @@ export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
       fontSize,
       color: colorText,
       marginTop: token.marginXS,
-      
+
       '&:first-child': {
         marginTop: 0,
         marginInlineEnd: token.marginSM,
@@ -293,28 +309,21 @@ export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
 const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
   const {
     componentCls, // .ant-notification
-    notificationMarginBottom,
     notificationMarginEdge,
     motionDurationMid,
+    motionDurationSlow,
     motionEaseInOut,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
-
-  const fadeOut = new Keyframes('antNotificationFadeOut', {
-    '0%': {
-      maxHeight: token.animationMaxHeight,
-      marginBottom: notificationMarginBottom,
-    },
-
-    '100%': {
-      maxHeight: 0,
-      marginBottom: 0,
-      paddingTop: 0,
-      paddingBottom: 0,
-      opacity: 0,
-    },
-  });
+  const listCls = `${componentCls}-list`;
+  const listContentCls = `${listCls}-content`;
+  const listWidth = token.calc(token.width).add(token.calc(notificationMarginEdge).mul(2)).equal();
+  // const listContentTransition = [
+  //   `height ${motionDurationMid} ${token.motionEaseInOut}`,
+  //   `transform ${motionDurationMid} ${token.motionEaseInOut}`,
+  // ].join(', ');
+  // const leavingListContentTransition = `height ${motionDurationMid} ${token.motionEaseInOut} ${motionDurationMid}`;
 
   return [
     // ============================ Holder ============================
@@ -324,44 +333,54 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
 
         position: 'fixed',
         zIndex: token.zIndexPopup,
-        marginRight: {
-          value: notificationMarginEdge,
-          _skip_check_: true,
-        },
+        boxSizing: 'border-box',
+        width: listWidth,
+        maxWidth: '100vw',
+        height: '100vh',
+        overflow: 'hidden',
+        overscrollBehavior: 'contain',
+        pointerEvents: 'none',
 
         [`${componentCls}-hook-holder`]: {
           position: 'relative',
         },
 
-        //  animation
-        [`${componentCls}-fade-appear-prepare`]: {
-          opacity: '0 !important',
-        },
+        [`&${listCls}`]: {
+          maxHeight: '100vh',
+          padding: notificationMarginEdge,
+          overflowX: 'hidden',
+          overflowY: 'auto',
+          overscrollBehavior: 'contain',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none',
 
-        [`${componentCls}-fade-enter, ${componentCls}-fade-appear`]: {
-          animationDuration: token.motionDurationMid,
-          animationTimingFunction: motionEaseInOut,
-          animationFillMode: 'both',
-          opacity: 0,
-          animationPlayState: 'paused',
-        },
-
-        [`${componentCls}-fade-leave`]: {
-          animationTimingFunction: motionEaseInOut,
-          animationFillMode: 'both',
-
-          animationDuration: motionDurationMid,
-          animationPlayState: 'paused',
-        },
-
-        [`${componentCls}-fade-enter${componentCls}-fade-enter-active, ${componentCls}-fade-appear${componentCls}-fade-appear-active`]:
-          {
-            animationPlayState: 'running',
+          '&::-webkit-scrollbar': {
+            display: 'none',
+            width: 0,
+            height: 0,
           },
+        },
 
-        [`${componentCls}-fade-leave${componentCls}-fade-leave-active`]: {
-          animationName: fadeOut,
-          animationPlayState: 'running',
+        [listContentCls]: {
+          position: 'relative',
+          display: 'flex',
+          flexShrink: 0,
+          flexDirection: 'column',
+          gap: token.notificationMarginBottom,
+          width: '100%',
+          pointerEvents: 'none',
+          // transition: listContentTransition,
+          willChange: 'height, transform',
+          transition: 'none',
+
+          [`&${listContentCls}-decrease`]: {
+            transition: `height calc(${motionDurationSlow} * 2) ${motionEaseInOut} ${motionDurationMid}`,
+          },
+        },
+
+        [`${componentCls}-fade`]: {
+          backfaceVisibility: 'hidden',
+          willChange: 'transform, opacity',
         },
 
         // RTL
@@ -372,13 +391,8 @@ const genNotificationStyle: GenerateStyle<NotificationToken> = (token) => {
             float: 'left',
           },
         },
-      },
-    },
 
-    // ============================ Notice ============================
-    {
-      [componentCls]: {
-        [`${noticeCls}-wrapper`]: genNoticeStyle(token),
+        [noticeCls]: genNoticeStyle(token),
       },
     },
   ];
@@ -415,6 +429,7 @@ export const prepareNotificationToken: (
     animationMaxHeight: 150,
     notificationStackLayer: 3,
     notificationProgressHeight: 2,
+    notificationMotionOffset: 64,
   });
 
   return notificationToken;
