@@ -167,14 +167,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
       }
     }
 
-    Object.assign(
-      gridStyles,
-      Object.fromEntries(
-        Object.entries(gridItemConfig ?? {}).filter(
-          ([, value]) => value !== undefined && value !== null,
-        ),
-      ),
-    );
+    Object.assign(gridStyles, gridItemConfig);
 
     Object.assign(mergedStyle, gridStyles);
   }

@@ -143,12 +143,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
       gridTemplateRows: gridConfig?.gridTemplateRows,
       gridTemplateAreas: gridConfig?.gridTemplateAreas,
     };
-    Object.assign(
-      rowStyle,
-      Object.fromEntries(
-        Object.entries(gridStyles).filter(([, value]) => value !== undefined && value !== null),
-      ),
-    );
+    Object.assign(rowStyle, gridStyles);
   } else {
     if (gutterH) {
       rowStyle.marginInline = isNumber(gutterH) ? `${gutterH / -2}px` : `calc(${gutterH} / -2)`;
