@@ -3,12 +3,14 @@ import { unit } from '@ant-design/cssinjs';
 
 import { genFocusStyle } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { NotificationToken } from '.';
 
 export const genNoticeStyle = (token: NotificationToken): CSSObject => {
   const {
     iconCls,
     componentCls,
+    antCls,
     boxShadow,
     fontSizeLG,
     borderRadiusLG,
@@ -28,15 +30,12 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     notificationIconSize,
     notificationCloseButtonSize,
     colorText,
-    colorSuccessBg,
-    colorErrorBg,
-    colorInfoBg,
-    colorWarningBg,
     motionDurationMid,
     motionEaseInOut,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
+  const [, varRef] = genCssVar(antCls, 'notification');
 
   return {
     // ============================== Base ==============================
@@ -63,10 +62,18 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     ].join(', '),
 
     // ============================== Type ==============================
-    '&-success': colorSuccessBg ? { background: colorSuccessBg } : {},
-    '&-error': colorErrorBg ? { background: colorErrorBg } : {},
-    '&-info': colorInfoBg ? { background: colorInfoBg } : {},
-    '&-warning': colorWarningBg ? { background: colorWarningBg } : {},
+    '&-success': {
+      background: varRef('color-success-bg', notificationBg),
+    },
+    '&-error': {
+      background: varRef('color-error-bg', notificationBg),
+    },
+    '&-info': {
+      background: varRef('color-info-bg', notificationBg),
+    },
+    '&-warning': {
+      background: varRef('color-warning-bg', notificationBg),
+    },
 
     // ============================ Content ============================
     [`${noticeCls}-section`]: {
