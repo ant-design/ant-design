@@ -24,7 +24,7 @@ export interface FooterColumn {
   style?: React.CSSProperties;
 }
 
-export interface FooterProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface FooterProps extends React.HTMLAttributes<HTMLElement> {
   prefixCls?: string;
   bottom?: React.ReactNode;
   maxColumnsPerRow?: number;
