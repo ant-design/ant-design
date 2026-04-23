@@ -219,4 +219,29 @@ describe('Popover', () => {
 
     errorSpy.mockRestore();
   });
+
+  // Test `styles` (useMergeSemantic path) and `className` (direct injection path)
+  // to cover both ConfigProvider tooltip injection mechanisms
+  it('ConfigProvider tooltip config should not leak into Popover', () => {
+    const { container } = render(
+      <ConfigProvider
+        tooltip={{
+          className: 'custom-tooltip-root',
+          styles: {
+            arrow: { background: 'red' },
+          },
+        }}
+      >
+        <Popover content="hello" open>
+          <span>Show</span>
+        </Popover>
+      </ConfigProvider>,
+    );
+
+    const popover = container.querySelector('.ant-popover');
+    expect(popover).not.toHaveClass('custom-tooltip-root');
+
+    const arrow = container.querySelector('.ant-popover-arrow');
+    expect(arrow).not.toHaveStyle({ background: 'red' });
+  });
 });
