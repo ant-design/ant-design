@@ -139,7 +139,7 @@ const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
     const gridStyles = {
       columnGap: gutterH !== undefined && (typeof gutterH === 'number' ? `${gutterH}px` : gutterH),
       rowGap: gutterV !== undefined && (typeof gutterV === 'number' ? `${gutterV}px` : gutterV),
-      gridTemplateColumns: gridConfig?.gridTemplateColumns,
+      gridTemplateColumns: gridConfig?.gridTemplateColumns || 'repeat(24, 1fr)',
       gridTemplateRows: gridConfig?.gridTemplateRows,
       gridTemplateAreas: gridConfig?.gridTemplateAreas,
     };
