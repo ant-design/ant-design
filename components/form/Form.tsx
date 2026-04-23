@@ -43,11 +43,17 @@ export type FormSemanticType = {
     root?: string;
     label?: string;
     content?: string;
+    help?: string;
+    helpItem?: string;
+    extra?: string;
   };
   styles?: {
     root?: React.CSSProperties;
     label?: React.CSSProperties;
     content?: React.CSSProperties;
+    help?: React.CSSProperties;
+    helpItem?: React.CSSProperties;
+    extra?: React.CSSProperties;
   };
 };
 
