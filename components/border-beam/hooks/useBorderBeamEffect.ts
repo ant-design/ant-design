@@ -7,22 +7,19 @@ import type { BorderBeamEffectHandler, BorderBeamEffectProps } from '../BorderBe
 type UseBorderBeamEffectOptions = {
   prefixCls: string;
   effectInfo: BorderBeamEffectProps;
-  effectReady: boolean;
   hostElement: HTMLElement | null;
 };
 
 const useBorderBeamEffect = ({
   prefixCls,
   effectInfo,
-  effectReady,
   hostElement,
 }: UseBorderBeamEffectOptions) => {
   const effectRef = React.useRef<BorderBeamEffectHandler | null>(null);
   const { className: effectClassName, style: effectStyle } = effectInfo;
 
   useLayoutEffect(() => {
-    // 未确认定位前不要插 holder：否则 static child 上的 absolute holder 会先按错误包含块渲染。
-    if (!effectReady || !hostElement) {
+    if (!hostElement) {
       effectRef.current?.destroy();
       effectRef.current = null;
 
@@ -30,7 +27,8 @@ const useBorderBeamEffect = ({
     }
 
     if (effectRef.current?.target !== hostElement) {
-      // host 变化通常来自 children type/key 切换、wrapper/direct 模式切换，必须销毁旧 holder。
+      // A host swap usually means the child instance changed or the component switched between
+      // direct injection and wrapper mode, so the previous holder must be discarded.
       effectRef.current?.destroy();
       effectRef.current = showBorderBeamEffect(hostElement, {
         prefixCls,
@@ -45,7 +43,7 @@ const useBorderBeamEffect = ({
       className: effectClassName,
       style: effectStyle,
     });
-  }, [effectClassName, effectReady, effectStyle, hostElement, prefixCls]);
+  }, [effectClassName, effectStyle, hostElement, prefixCls]);
 
   React.useEffect(
     () => () => {

@@ -32,8 +32,6 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
   const beamCls = `${componentCls}-beam`;
 
   return {
-    // Keep a low-priority default containing block so wrapper mode works on the first paint while
-    // still allowing authored non-static positioning to win naturally.
     [defaultRootCls]: {
       position: 'relative',
     },

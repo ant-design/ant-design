@@ -13,10 +13,10 @@ type BorderBeamGradientItem = {
 export type BorderBeamGradient = BorderBeamGradientItem[];
 export type BorderBeamColor = string | BorderBeamGradient;
 const MAX_BEAM_COLOR_STOP_PERCENT = 70;
-const HTML_NAMESPACE = 'http://www.w3.org/1999/xhtml';
-// 这里只拦截“绝对不适合塞普通 holder 元素”的原生标签：void 元素、表单文本容器、
-// 以及 table/list/select 这类会被浏览器重排子节点的结构化容器。像 button/span 这类虽然
-// 内容模型更严格，但生态里（包括 wave）通常允许通过 DOM 插入装饰节点，避免过度兜底。
+// Only block native tags that are clearly unsuitable for an extra holder node: void elements,
+// text-entry form containers, and structured containers such as table/list/select that the
+// browser may rewrite internally. Tags like button/span remain allowed to avoid over-fallbacks,
+// which is consistent with the broader ecosystem including Wave.
 const UNSAFE_HOLDER_TAGS = new Set([
   'area',
   'audio',
@@ -67,18 +67,8 @@ export const isHTMLElement = (element: Element | null): element is HTMLElement =
 export const canHTMLTagHostBorderBeam = (tagName: string): boolean =>
   !UNSAFE_HOLDER_TAGS.has(tagName.toLowerCase());
 
-export const canElementHostBorderBeam = (element: Element | null): element is HTMLElement => {
-  if (!isHTMLElement(element)) {
-    return false;
-  }
-
-  // SVG / MathML 不是 HTMLElement，或 namespace 不属于 HTML 时，使用 wrapper 更稳。
-  if (element.namespaceURI && element.namespaceURI !== HTML_NAMESPACE) {
-    return false;
-  }
-
-  return canHTMLTagHostBorderBeam(element.tagName);
-};
+export const canElementHostBorderBeam = (element: HTMLElement): boolean =>
+  canHTMLTagHostBorderBeam(element.tagName);
 
 // ============================ Color ============================
 
@@ -335,8 +325,9 @@ export const getRadiusTokenValue = (token: string): number | undefined => {
   return undefined;
 };
 
-// 判断某个计算后的 radius 是否真的能代表可见圆角。wrapper 模式下如果外层有显式圆角，
-// 应该优先跟随外层；否则再去跟随实际渲染出来的第一个子容器。
+// Determine whether a computed radius really represents a visible rounded corner. In wrapper
+// mode an explicit outer radius should win; otherwise the component should follow the first
+// rendered child container instead.
 export const hasRadiusValue = (value: string | undefined): boolean => {
   const radiusModel = value ? parseRadiusValue(value) : undefined;
 

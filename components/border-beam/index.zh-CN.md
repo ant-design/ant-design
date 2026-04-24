@@ -22,7 +22,6 @@ tag: 6.4.0
 <!-- prettier-ignore -->
 <code src="./demo/basic.tsx">基础用法</code>
 <code src="./demo/customized-color.tsx">渐变色</code>
-<code src="./demo/style-class.tsx">语义定制</code>
 <code src="./demo/non-uniform-radius.tsx" debug>不规则圆角</code>
 <code src="./demo/component-token.tsx" debug>组件 Token</code>
 
@@ -35,13 +34,7 @@ tag: 6.4.0
 | 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
 | --- | --- | --- | --- | --- | --- |
 | children | 装饰内容 | `ReactNode` | - | 6.4.0 | × |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
 | color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
-
-## Semantic DOM
-
-<code src="./demo/_semantic.tsx" simplify="true"></code>
 
 ## 主题变量（Design Token）{#design-token}
 
@@ -57,9 +50,13 @@ tag: 6.4.0
 
 `percent` 表示渐变停靠点的输入位置，取值范围为 `0 ~ 100`。组件会将这些停靠点映射到可见 beam 段内，并为尾部透明过渡保留空间，以保持流光尾迹连续可见。
 
+### 需要自己设置 `position` 吗？ {#faq-position}
+
+`BorderBeam` 会在组件根节点提供一个低优先级的 `position: relative` 作为默认定位上下文。大多数场景下无需额外设置；如果实际容器已经声明了非 `static` 定位，会自然覆盖这个默认值。
+
 ### 如何让流光边框跟随容器圆角？ {#faq-radius}
 
-`BorderBeam` 会跟随当前装饰目标的计算后 `border-radius`。当组件可以直接注入到子节点时，目标就是被装饰元素本身；当组件退回到 wrapper 模式时，如果 wrapper 本身已有显式圆角会优先使用 wrapper 圆角，否则会跟随实际渲染出的首个元素容器。这个推断契约更适合 `Card` 这类单容器子节点场景；若子节点结构较复杂，建议直接把圆角写在实际容器根节点上，以获得更稳定的结果。动画轨迹在运行时可能会做内部平滑处理。
+`BorderBeam` 会在装饰目标就绪时读取一次计算后的 `border-radius`。当组件可以直接注入到子节点时，目标就是被装饰元素本身；当组件退回到 wrapper 模式时，如果 wrapper 本身已有显式圆角会优先使用 wrapper 圆角，否则会跟随实际渲染出的首个元素容器。这个推断更适合 `Card` 这类单容器子节点场景；若子节点结构较复杂，建议直接把圆角写在实际容器根节点上，以获得更稳定的结果。后续由尺寸、祖先样式或子节点内部状态引起的圆角变化，不保证自动重新同步。动画轨迹在运行时可能会做内部平滑处理。
 
 例如：
 
