@@ -61,7 +61,10 @@ export interface ArgsProps {
   readonly type?: IconType;
   onClick?: () => void;
   closeIcon?: React.ReactNode;
-  closable?: boolean | (Exclude<ClosableType, boolean> & { onClose?: () => void });
+  closable?:
+    | boolean
+    | null
+    | (Exclude<NonNullable<ClosableType>, boolean> & { onClose?: () => void });
   props?: DivProps;
   role?: 'alert' | 'status';
 }

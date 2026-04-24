@@ -4,8 +4,8 @@ import CloseCircleFilled from '@ant-design/icons/CloseCircleFilled';
 import ExclamationCircleFilled from '@ant-design/icons/ExclamationCircleFilled';
 import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import LoadingOutlined from '@ant-design/icons/LoadingOutlined';
-import { Notice } from '@rc-component/notification';
-import type { NoticeProps } from '@rc-component/notification/lib/Notice';
+import { Notification as RcNotification } from '@rc-component/notification';
+import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
@@ -51,10 +51,30 @@ export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = 
   );
 };
 
+export interface PureContentWrapperProps extends PureContentProps {
+  content?: React.ReactNode;
+}
+
+export const PureContentWrapper: React.FC<PureContentWrapperProps> = (props) => {
+  const { prefixCls, content, ...restProps } = props;
+
+  return (
+    <div className={`${prefixCls}-notice-content`}>
+      <PureContent prefixCls={prefixCls} {...restProps}>
+        {content}
+      </PureContent>
+    </div>
+  );
+};
+
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends Omit<
+      RcNotificationProps,
+      'prefixCls' | 'classNames' | 'styles' | 'title' | 'description' | 'icon' | 'actions'
+    >,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
+  content?: React.ReactNode;
   classNames?: MessageSemanticAllType['classNamesAndFn'];
   styles?: MessageSemanticAllType['stylesAndFn'];
 }
@@ -94,7 +114,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   );
 
   return (
-    <Notice
+    <RcNotification
       {...restProps}
       prefixCls={prefixCls}
       className={clsx(
@@ -107,18 +127,16 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         rootCls,
       )}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      eventKey="pure"
       duration={null}
-      content={
-        <PureContent
+      description={
+        <PureContentWrapper
           prefixCls={prefixCls}
           type={type}
           icon={icon}
           classNames={mergedClassNames}
           styles={mergedStyles}
-        >
-          {content}
-        </PureContent>
+          content={content}
+        />
       }
     />
   );

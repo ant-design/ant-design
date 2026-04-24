@@ -382,13 +382,14 @@ describe('message.hooks', () => {
       render(<Demo pauseOnHover={false} />);
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
+      const clearTimes = (clearTimeout as jest.Mock).mock.calls.length;
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
       fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
+      expect(clearTimeout).toHaveBeenCalledTimes(clearTimes);
       await act(() => {
         jest.runAllTimers();
       });
-      // when component is destroyed, clearTimeout calls only 1
-      expect(clearTimeout).toHaveBeenCalledTimes(1);
+      expect(document.querySelector('.ant-message-move-up-leave')).toBeTruthy();
     });
   });
 });

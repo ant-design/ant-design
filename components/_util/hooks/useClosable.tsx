@@ -10,7 +10,7 @@ import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 import { isNonNullable } from '../is';
 
-export type ClosableType = DialogProps['closable'];
+export type ClosableType = DialogProps['closable'] | null;
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
 export type ContextClosable<T extends BaseContextClosable = any> = Partial<
   Pick<T, 'closable' | 'closeIcon'>
@@ -55,7 +55,7 @@ const computeClosableConfig = (
     return false;
   }
 
-  if (closable === undefined && closeIcon === undefined) {
+  if ((closable === undefined || closable === null) && closeIcon === undefined) {
     return null;
   }
 

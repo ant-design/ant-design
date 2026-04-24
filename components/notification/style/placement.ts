@@ -8,28 +8,43 @@ import type { NotificationPlacement } from '../interface';
 
 type AxisProperty = 'top' | 'bottom' | 'left' | 'right';
 
-const getMotionTransform = (translate: string) =>
-  `${translate} scale(var(--notification-scale, 1))`;
+type PlacementStyleConfig = {
+  placement: NotificationPlacement;
+  vertical: Extract<AxisProperty, 'top' | 'bottom'>;
+  horizontal: Extract<AxisProperty, 'left' | 'right'>;
+  transformOrigin: React.CSSProperties['transformOrigin'];
+  motionOffset: {
+    x?: string;
+    y?: string;
+  };
+};
 
-const genPlacementStyle = (
-  token: NotificationToken,
+const getMotionTransform = (motionOffset?: PlacementStyleConfig['motionOffset']) => {
+  const x = motionOffset?.x ?? '0';
+  const y = motionOffset?.y ?? '0';
+
+  return `translate3d(${x}, ${y}, 0) scale(var(--notification-scale, 1))`;
+};
+
+const getPlacementFlexDirection = (
   placement: NotificationPlacement,
-  vertical: Extract<AxisProperty, 'top' | 'bottom'>,
-  horizontal: Extract<AxisProperty, 'left' | 'right'>,
-  flexDirection: React.CSSProperties['flexDirection'],
-  transformOrigin: React.CSSProperties['transformOrigin'],
-  stackClipPath: string,
-  enterTranslate: string,
-): CSSObject => {
+): React.CSSProperties['flexDirection'] =>
+  placement.startsWith('bottom') ? 'column-reverse' : 'column';
+
+const getPlacementStackClipPath = (vertical: PlacementStyleConfig['vertical']) =>
+  vertical === 'bottom' ? 'inset(-50% -50% 50% -50%)' : 'inset(50% -50% -50% -50%)';
+
+const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfig): CSSObject => {
   const { componentCls } = token;
+  const { placement, vertical, horizontal, transformOrigin } = config;
   const noticeCls = `${componentCls}-notice`;
-  const enterTransform = getMotionTransform(enterTranslate);
-  const baseTransform = getMotionTransform('translateX(0)');
+  const enterTransform = getMotionTransform(config.motionOffset);
+  const baseTransform = getMotionTransform();
 
   return {
     [`&${componentCls}-${placement}`]: {
       display: 'flex',
-      flexDirection,
+      flexDirection: getPlacementFlexDirection(placement),
 
       [noticeCls]: {
         [vertical]: 'var(--notification-y, 0)',
@@ -65,7 +80,7 @@ const genPlacementStyle = (
 
       [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
         [noticeCls]: {
-          clipPath: stackClipPath,
+          clipPath: getPlacementStackClipPath(vertical),
         },
 
         [`${noticeCls}[data-notification-index='0']`]: {
@@ -79,71 +94,62 @@ const genPlacementStyle = (
 const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const { componentCls, notificationMotionOffset } = token;
   const motionOffset = unit(notificationMotionOffset);
+  const placementStyleConfigs: PlacementStyleConfig[] = [
+    {
+      placement: 'topRight',
+      vertical: 'top',
+      horizontal: 'right',
+      transformOrigin: 'center bottom',
+      motionOffset: { x: motionOffset },
+    },
+    {
+      placement: 'bottomRight',
+      vertical: 'bottom',
+      horizontal: 'right',
+      transformOrigin: 'center top',
+      motionOffset: { x: motionOffset },
+    },
+    {
+      placement: 'topLeft',
+      vertical: 'top',
+      horizontal: 'left',
+      transformOrigin: 'center bottom',
+      motionOffset: { x: `-${motionOffset}` },
+    },
+    {
+      placement: 'bottomLeft',
+      vertical: 'bottom',
+      horizontal: 'left',
+      transformOrigin: 'center top',
+      motionOffset: { x: `-${motionOffset}` },
+    },
+    {
+      placement: 'top',
+      vertical: 'top',
+      horizontal: 'left',
+      transformOrigin: 'center bottom',
+      motionOffset: { y: `-${motionOffset}` },
+    },
+    {
+      placement: 'bottom',
+      vertical: 'bottom',
+      horizontal: 'left',
+      transformOrigin: 'center top',
+      motionOffset: { y: motionOffset },
+    },
+  ];
 
   return {
     [componentCls]: {
       [`&${componentCls}-top, &${componentCls}-bottom`]: {
         marginInline: 0,
       },
-      ...genPlacementStyle(
-        token,
-        'topRight',
-        'top',
-        'right',
-        'column',
-        'center bottom',
-        'inset(50% -50% -50% -50%)',
-        `translateX(${motionOffset})`,
-      ),
-      ...genPlacementStyle(
-        token,
-        'bottomRight',
-        'bottom',
-        'right',
-        'column-reverse',
-        'center top',
-        'inset(-50% -50% 50% -50%)',
-        `translateX(${motionOffset})`,
-      ),
-      ...genPlacementStyle(
-        token,
-        'topLeft',
-        'top',
-        'left',
-        'column',
-        'center bottom',
-        'inset(50% -50% -50% -50%)',
-        `translateX(-${motionOffset})`,
-      ),
-      ...genPlacementStyle(
-        token,
-        'bottomLeft',
-        'bottom',
-        'left',
-        'column-reverse',
-        'center top',
-        'inset(-50% -50% 50% -50%)',
-        `translateX(-${motionOffset})`,
-      ),
-      ...genPlacementStyle(
-        token,
-        'top',
-        'top',
-        'left',
-        'column',
-        'center bottom',
-        'inset(50% -50% -50% -50%)',
-        `translateY(-${motionOffset})`,
-      ),
-      ...genPlacementStyle(
-        token,
-        'bottom',
-        'bottom',
-        'left',
-        'column-reverse',
-        'center top',
-        'inset(-50% -50% 50% -50%)',
-        `translateY(${motionOffset})`,
+      ...placementStyleConfigs.reduce<CSSObject>(
+        (styles, config) => ({
+          ...styles,
+          ...genPlacementStyle(token, config),
+        }),
+        {},
       ),
     },
   };

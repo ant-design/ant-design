@@ -30,7 +30,7 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
-import { PureContent } from './PurePanel';
+import { PureContentWrapper } from './PurePanel';
 import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
 
@@ -228,16 +228,15 @@ export function useInternalMessage(
         originOpen({
           ...restConfig,
           key: mergedKey,
-          content: (
-            <PureContent
+          description: (
+            <PureContentWrapper
               prefixCls={prefixCls}
               type={type}
               icon={icon}
               classNames={mergedClassNames}
               styles={mergedStyles}
-            >
-              {content}
-            </PureContent>
+              content={content}
+            />
           ),
           placement: 'top',
           className: clsx(
