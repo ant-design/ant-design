@@ -72,6 +72,13 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
 
         '&:active': {
           pointerEvents: 'none',
+
+          // Action buttons (copy, edit, expand) must remain interactive even when
+          // the disabled link is being clicked, otherwise their click events get
+          // swallowed by the parent's pointer-events: none during :active.
+          [`${componentCls}-actions`]: {
+            pointerEvents: 'auto',
+          },
         },
       },
     },
