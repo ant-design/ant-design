@@ -43,7 +43,9 @@ const useStyle = createStyles(({ cssVar, css }) => ({
     object-fit: contain;
     background: ${cssVar.colorBgContainer};
     opacity: 0.5;
-    transition: transform ${cssVar.motionDurationFast}, opacity ${cssVar.motionDurationSlow};
+    transition:
+      transform ${cssVar.motionDurationFast},
+      opacity ${cssVar.motionDurationSlow};
   `,
 }));
 
@@ -65,10 +67,15 @@ const SponsorsNav: React.FC = () => {
           <a
             href={getSponsorUrl(sponsor.url, lang)}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className={styles.avatarLink}
           >
-            <img src={sponsor.logo} alt={sponsor.name} className={styles.avatar} />
+            <img
+              src={sponsor.logo}
+              alt={sponsor.name}
+              className={styles.avatar}
+              draggable={false}
+            />
           </a>
         </Popover>
       ))}
