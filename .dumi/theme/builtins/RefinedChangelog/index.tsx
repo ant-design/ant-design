@@ -89,7 +89,7 @@ const Version: React.FC<React.PropsWithChildren> = ({ children }) => {
           key={index}
           type="link"
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
           href={item}
           icon={<BugOutlined />}
         >

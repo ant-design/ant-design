@@ -4842,10 +4842,10 @@ Array [
                 </p>
                 <a
                   href="http://github.com/ant-design/ant-design/"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
-                  github.com/ant-design/ant-design/
+                  github.com/ant-design/ant-design
                 </a>
               </div>
             </div>

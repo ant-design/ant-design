@@ -82,7 +82,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
 
   return (
     <Col xs={24} sm={12} md={8} lg={6}>
-      <a className={styles.card} target="_blank" href={src} rel="noreferrer">
+      <a className={styles.card} target="_blank" href={src} rel="noopener noreferrer">
         <Card
           hoverable
           className={styles.card}
