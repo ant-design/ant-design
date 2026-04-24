@@ -168,7 +168,7 @@ const SubTokenTable: React.FC<SubTokenTableProps> = (props) => {
                 <pre dir="ltr" style={{ fontSize: 12 }}>
                   <code dir="ltr">{code}</code>
                 </pre>
-                <a href={helpLink} target="_blank" rel="noreferrer">
+                <a href={helpLink} target="_blank" rel="noopener noreferrer">
                   <LinkOutlined style={{ marginInlineEnd: 4 }} />
                   {helpText}
                 </a>

@@ -21,8 +21,8 @@ import SiteContext from '../SiteContext';
 import type { SharedProps } from './interface';
 import Logo from './Logo';
 import Navigation from './Navigation';
-import SwitchBtn from './SwitchBtn';
 import SponsorsNav from './SponsorsNav';
+import SwitchBtn from './SwitchBtn';
 
 const RESPONSIVE_XS = 1120;
 const RESPONSIVE_SM = 1200;
@@ -388,7 +388,7 @@ const Header: React.FC = () => {
       key="github"
       href="https://github.com/ant-design/ant-design"
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
     >
       <Tooltip title="GitHub" destroyOnHidden>
         <Button type="text" icon={<GithubOutlined />} style={{ fontSize: 16 }} />
@@ -443,7 +443,7 @@ const Header: React.FC = () => {
                     className={styles.link}
                     href={bannerHref}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     onClick={() => {
                       window.gtag?.('event', '点击', {
                         event_category: 'top_banner',
