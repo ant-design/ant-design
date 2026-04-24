@@ -62,7 +62,11 @@ const App: React.FC = () => {
   return (
     <Tree
       showLine
-      switcherIcon={<DownOutlined />}
+      switcherIcon={({ expanded }) => (
+        <DownOutlined
+          style={{ transform: `rotate(${expanded ? 0 : -90}deg)`, transition: 'transform 0.3s' }}
+        />
+      )}
       defaultExpandedKeys={['0-0-0']}
       onSelect={onSelect}
       treeData={treeData}
