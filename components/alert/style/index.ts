@@ -76,19 +76,19 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         borderStyle: lineType,
       },
 
-      [`&${componentCls}-success${componentCls}-bordered`]: {
+      [`&${componentCls}-success`]: {
         borderColor: colorSuccessBorder,
       },
 
-      [`&${componentCls}-info${componentCls}-bordered`]: {
+      [`&${componentCls}-info`]: {
         borderColor: colorInfoBorder,
       },
 
-      [`&${componentCls}-warning${componentCls}-bordered`]: {
+      [`&${componentCls}-warning`]: {
         borderColor: colorWarningBorder,
       },
 
-      [`&${componentCls}-error${componentCls}-bordered`]: {
+      [`&${componentCls}-error`]: {
         borderColor: colorErrorBorder,
       },
 
