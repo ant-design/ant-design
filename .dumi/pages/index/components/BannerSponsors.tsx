@@ -37,7 +37,7 @@ const useStyle = createStyles(({ cssVar, css }) => ({
     border-radius: 8px;
     text-decoration: none;
     color: ${cssVar.colorTextSecondary};
-    transition: background ${cssVar.motionDurationFast};
+    transition: background-color ${cssVar.motionDurationFast};
 
     &:hover {
       background: ${cssVar.colorFillSecondary};

@@ -8,7 +8,8 @@ import { getSponsorDescription, getSponsorUrl } from './sponsors';
 
 export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
   card: css`
-    width: 300px;
+    width: 320px;
+    max-width: 320px;
   `,
   cardBody: css`
     display: flex;
@@ -37,8 +38,6 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
     font-size: 15px;
     font-weight: 600;
     color: ${cssVar.colorText};
-    line-height: 1.4;
-
     a& {
       text-decoration: none;
       &:hover {
@@ -49,7 +48,6 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
   cardDesc: css`
     font-size: 13px;
     color: ${cssVar.colorTextSecondary};
-    line-height: 1.5;
   `,
   cardFooter: css`
     display: flex;
@@ -65,7 +63,7 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
   `,
   heartIcon: css`
     color: #ff4d4f;
-    font-size: 11px;
+    font-size: 12px;
   `,
   visitBtn: css`
     font-size: 13px;
