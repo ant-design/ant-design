@@ -24,6 +24,8 @@ const showBorderBeamEffect = (
   target: HTMLElement,
   info: ShowBorderBeamEffectInfo,
 ): BorderBeamEffectHandler => {
+  // 直插模式参考 wave 的 holder 策略：不要求 child 的 React children 可控，只要求真实 DOM
+  // 能承载一个装饰 holder。holder 放在第一个子节点前，避免覆盖业务内容的阅读顺序。
   const holder = document.createElement('div');
   holder.className = `${info.prefixCls}-holder`;
   holder.style.position = 'absolute';

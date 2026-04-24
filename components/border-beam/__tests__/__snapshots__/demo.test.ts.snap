@@ -244,9 +244,6 @@ exports[`renders components/border-beam/demo/customized-color.tsx correctly 1`] 
         A calm blue-green accent that works well for data views and cloud tooling.
       </span>
       <div
-        style="height:10px;border:1px solid #d9d9d9;background:linear-gradient(90deg, #1677ff 0%, #36cfc9 52%, #95de64 100%)"
-      />
-      <div
         class="ant-flex css-var-test-id ant-flex-wrap-wrap"
         style="gap:8px"
       >
@@ -254,6 +251,10 @@ exports[`renders components/border-beam/demo/customized-color.tsx correctly 1`] 
           class="ant-tag ant-tag-filled css-var-test-id"
           style="background-color:#e5f0ff;color:#1677ff"
         >
+          #1677ff
+          <!-- -->
+           · 
+          <!-- -->
           0
           <!-- -->
           %
@@ -262,6 +263,10 @@ exports[`renders components/border-beam/demo/customized-color.tsx correctly 1`] 
           class="ant-tag ant-tag-filled css-var-test-id"
           style="background-color:#eafafa;color:#36cfc9"
         >
+          #36cfc9
+          <!-- -->
+           · 
+          <!-- -->
           52
           <!-- -->
           %
@@ -270,11 +275,20 @@ exports[`renders components/border-beam/demo/customized-color.tsx correctly 1`] 
           class="ant-tag ant-tag-filled css-var-test-id"
           style="background-color:#f1fbea;color:#95de64"
         >
+          #95de64
+          <!-- -->
+           · 
+          <!-- -->
           100
           <!-- -->
           %
         </span>
       </div>
+      <span
+        class="ant-typography ant-typography-secondary css-var-test-id"
+      >
+        Stop positions use the public 0-100 input range.
+      </span>
     </div>
   </div>
 </div>

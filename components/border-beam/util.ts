@@ -1,5 +1,3 @@
-import type { CSSProperties } from 'react';
-
 import { isNumber } from '../_util/is';
 
 export type RadiusCorner = readonly [string, string];
@@ -15,6 +13,72 @@ type BorderBeamGradientItem = {
 export type BorderBeamGradient = BorderBeamGradientItem[];
 export type BorderBeamColor = string | BorderBeamGradient;
 const MAX_BEAM_COLOR_STOP_PERCENT = 70;
+const HTML_NAMESPACE = 'http://www.w3.org/1999/xhtml';
+// 这里只拦截“绝对不适合塞普通 holder 元素”的原生标签：void 元素、表单文本容器、
+// 以及 table/list/select 这类会被浏览器重排子节点的结构化容器。像 button/span 这类虽然
+// 内容模型更严格，但生态里（包括 wave）通常允许通过 DOM 插入装饰节点，避免过度兜底。
+const UNSAFE_HOLDER_TAGS = new Set([
+  'area',
+  'audio',
+  'base',
+  'br',
+  'canvas',
+  'col',
+  'colgroup',
+  'datalist',
+  'embed',
+  'hr',
+  'iframe',
+  'img',
+  'input',
+  'link',
+  'menu',
+  'meta',
+  'meter',
+  'object',
+  'ol',
+  'optgroup',
+  'option',
+  'param',
+  'picture',
+  'progress',
+  'script',
+  'select',
+  'source',
+  'style',
+  'table',
+  'tbody',
+  'template',
+  'textarea',
+  'tfoot',
+  'thead',
+  'tr',
+  'track',
+  'ul',
+  'video',
+  'wbr',
+]);
+
+// ============================ Host Element ============================
+
+export const isHTMLElement = (element: Element | null): element is HTMLElement =>
+  typeof HTMLElement !== 'undefined' && element instanceof HTMLElement;
+
+export const canHTMLTagHostBorderBeam = (tagName: string): boolean =>
+  !UNSAFE_HOLDER_TAGS.has(tagName.toLowerCase());
+
+export const canElementHostBorderBeam = (element: Element | null): element is HTMLElement => {
+  if (!isHTMLElement(element)) {
+    return false;
+  }
+
+  // SVG / MathML 不是 HTMLElement，或 namespace 不属于 HTML 时，使用 wrapper 更稳。
+  if (element.namespaceURI && element.namespaceURI !== HTML_NAMESPACE) {
+    return false;
+  }
+
+  return canHTMLTagHostBorderBeam(element.tagName);
+};
 
 // ============================ Color ============================
 
@@ -67,50 +131,6 @@ export const getBorderBeamGradient = (
   }
 
   return fallbackGradient;
-};
-
-// ============================ Radius Config ============================
-
-// Normalize a radius value into a CSS length string when possible.
-export const toCSSLength = (
-  value: CSSProperties['borderRadius'] | undefined,
-  fallback: string,
-): string => {
-  if (isNumber(value)) {
-    return `${value}px`;
-  }
-
-  if (typeof value === 'string') {
-    const trimmedValue = value.trim();
-
-    /* istanbul ignore next -- blank strings are filtered before this helper in the component flow */
-    if (trimmedValue) {
-      return trimmedValue;
-    }
-  }
-
-  return fallback;
-};
-
-// Pick the first explicitly configured radius from merged style sources.
-export const getDefinedRadius = (
-  ...values: Array<CSSProperties['borderRadius'] | undefined>
-): CSSProperties['borderRadius'] | undefined => {
-  for (const value of values) {
-    if (isNumber(value)) {
-      return value;
-    }
-
-    if (typeof value === 'string') {
-      const trimmedValue = value.trim();
-
-      if (trimmedValue) {
-        return trimmedValue;
-      }
-    }
-  }
-
-  return undefined;
 };
 
 // ============================ Radius Parse ============================
@@ -237,40 +257,27 @@ export const parseRadiusCorner = (value: string): RadiusCorner | undefined => {
 };
 
 // Parse any supported border-radius value into explicit horizontal/vertical models.
-export const parseRadiusValue = (
-  value: CSSProperties['borderRadius'] | undefined,
-): RadiusModel | undefined => {
-  /* istanbul ignore next -- BorderBeam only feeds CSS-style radius values through the public render path */
-  if (isNumber(value)) {
-    const normalizedValue = `${value}px`;
-    return {
-      horizontal: [normalizedValue, normalizedValue, normalizedValue, normalizedValue],
-      vertical: [normalizedValue, normalizedValue, normalizedValue, normalizedValue],
-    };
-  }
+export const parseRadiusValue = (value: string): RadiusModel | undefined => {
+  const trimmedValue = value.trim();
 
-  if (typeof value === 'string') {
-    const trimmedValue = value.trim();
+  if (trimmedValue) {
+    // `border-radius` can be `horizontal / vertical`, so split the two axes first.
+    const radiusGroups = splitByTopLevelSlash(trimmedValue);
 
-    if (trimmedValue) {
-      // `border-radius` can be `horizontal / vertical`, so split the two axes first.
-      const radiusGroups = splitByTopLevelSlash(trimmedValue);
-
-      if (radiusGroups.length > 2 || radiusGroups.some((group) => !group)) {
-        return undefined;
-      }
-
-      const horizontal = expandRadiusTokens(splitByTopLevelWhitespace(radiusGroups[0]));
-      const vertical = radiusGroups[1]
-        ? expandRadiusTokens(splitByTopLevelWhitespace(radiusGroups[1]))
-        : horizontal;
-
-      if (!horizontal || !vertical) {
-        return undefined;
-      }
-
-      return { horizontal, vertical };
+    if (radiusGroups.length > 2 || radiusGroups.some((group) => !group)) {
+      return undefined;
     }
+
+    const horizontal = expandRadiusTokens(splitByTopLevelWhitespace(radiusGroups[0]));
+    const vertical = radiusGroups[1]
+      ? expandRadiusTokens(splitByTopLevelWhitespace(radiusGroups[1]))
+      : horizontal;
+
+    if (!horizontal || !vertical) {
+      return undefined;
+    }
+
+    return { horizontal, vertical };
   }
 
   return undefined;
@@ -314,32 +321,24 @@ export const getComputedRadius = (style: CSSStyleDeclaration): string | undefine
 // Read a numeric radius token that can participate in motion smoothing math.
 export const getRadiusTokenValue = (token: string): number | undefined => {
   const normalizedToken = token.trim().toLowerCase();
+  const pxMatch = normalizedToken.match(/^(-?(?:\d+|\d*\.\d+)(?:e[+-]?\d+)?)px$/i);
 
   /* istanbul ignore next -- empty tokens are filtered before numeric parsing in the component flow */
   if (!normalizedToken) {
     return undefined;
   }
 
-  const plainNumber = Number(normalizedToken);
-
-  if (Number.isFinite(plainNumber)) {
-    return plainNumber;
-  }
-
-  if (normalizedToken.endsWith('px')) {
-    const pxValue = Number(normalizedToken.slice(0, -2));
-
-    if (Number.isFinite(pxValue)) {
-      return pxValue;
-    }
+  if (pxMatch) {
+    return Number(pxMatch[1]);
   }
 
   return undefined;
 };
 
-// Detect whether a parsed radius value has any visible rounding.
-export const hasRadiusValue = (value: CSSProperties['borderRadius'] | undefined): boolean => {
-  const radiusModel = parseRadiusValue(value);
+// 判断某个计算后的 radius 是否真的能代表可见圆角。wrapper 模式下如果外层有显式圆角，
+// 应该优先跟随外层；否则再去跟随实际渲染出来的第一个子容器。
+export const hasRadiusValue = (value: string | undefined): boolean => {
+  const radiusModel = value ? parseRadiusValue(value) : undefined;
 
   if (!radiusModel) {
     return false;
@@ -370,15 +369,10 @@ const mapRadiusSequence = (
 ];
 
 // Apply internal smoothing to the visual motion path radius when needed.
-export const getMotionPathRadius = (
-  value: CSSProperties['borderRadius'] | undefined,
-  minMotionRadius: number,
-): string | undefined => {
-  const radiusModel = parseRadiusValue(value);
-
-  if (!radiusModel) {
-    return undefined;
-  }
+export const getMotionPathRadius = (value: string, minMotionRadius: number): string => {
+  // `trackRadius` is reconstructed from computed corner values, so it is expected to remain
+  // parseable when we smooth the motion path.
+  const radiusModel = parseRadiusValue(value)!;
 
   // Clamp each numeric radius token while preserving non-numeric CSS expressions.
   const createNormalizedModel = (minimumRadius: number) => {

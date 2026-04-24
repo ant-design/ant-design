@@ -35,7 +35,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | --- | --- | --- | --- | --- | --- |
 | children | Decorated content | `ReactNode` | - | 6.4.0 | × |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
-| color | Beam color configuration. Supports a single color string or gradient stops | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
+| color | Beam color configuration. Supports a single color string or gradient stops. `percent` uses the `0 ~ 100` input range and BorderBeam reserves tail space for the transparent fade | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 
 ## Semantic DOM
@@ -52,9 +52,13 @@ Common props ref：[Common props](/docs/react/common-props)
 
 `BorderBeam` treats the beam as a decorative effect. When `prefers-reduced-motion: reduce` is active, the beam effect is hidden.
 
+### What does `percent` mean in `color`? {#faq-color-percent}
+
+`percent` represents the authored stop position and accepts values from `0` to `100`. BorderBeam maps those stops into the visible beam segment and reserves the trailing area for transparent fade-out so the moving tail stays visible.
+
 ### How do I keep the beam radius aligned with my container? {#faq-radius}
 
-If you want the content shape to align visually with the beam, configure the radius on the actual content element. The running beam may still apply internal motion smoothing.
+`BorderBeam` follows the computed `border-radius` of the resolved decorated target. When it can inject directly into the child, that target is the decorated element itself. When it falls back to wrapper mode, it prefers an explicit wrapper radius first; otherwise it follows the first rendered element container. This inference contract works best for a single container child such as `Card`; for more complex child trees, set the radius on the actual container root for a more deterministic result. The running beam may still apply internal motion smoothing.
 
 For example:
 

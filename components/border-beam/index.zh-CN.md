@@ -36,7 +36,7 @@ tag: 6.4.0
 | --- | --- | --- | --- | --- | --- |
 | children | 装饰内容 | `ReactNode` | - | 6.4.0 | × |
 | classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.4.0 | 6.4.0 |
-| color | 流光颜色配置，支持单色字符串或渐变停靠点数组 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
+| color | 流光颜色配置，支持单色字符串或渐变停靠点数组。`percent` 使用 `0 ~ 100` 的输入区间，组件会在内部为尾部透明过渡预留空间 | `string \| { color: string; percent: number }[]` | - | 6.4.0 | × |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.4.0 | 6.4.0 |
 
 ## Semantic DOM
@@ -53,9 +53,13 @@ tag: 6.4.0
 
 `BorderBeam` 会将流光视为装饰效果。当命中 `prefers-reduced-motion: reduce` 时，组件会隐藏 beam 效果。
 
+### `color` 中的 `percent` 表示什么？ {#faq-color-percent}
+
+`percent` 表示渐变停靠点的输入位置，取值范围为 `0 ~ 100`。组件会将这些停靠点映射到可见 beam 段内，并为尾部透明过渡保留空间，以保持流光尾迹连续可见。
+
 ### 如何让流光边框跟随容器圆角？ {#faq-radius}
 
-如果希望内容轮廓与流光轨迹在视觉上对齐，直接为实际内容元素配置圆角即可。动画轨迹在运行时可能会做内部平滑处理。
+`BorderBeam` 会跟随当前装饰目标的计算后 `border-radius`。当组件可以直接注入到子节点时，目标就是被装饰元素本身；当组件退回到 wrapper 模式时，如果 wrapper 本身已有显式圆角会优先使用 wrapper 圆角，否则会跟随实际渲染出的首个元素容器。这个推断契约更适合 `Card` 这类单容器子节点场景；若子节点结构较复杂，建议直接把圆角写在实际容器根节点上，以获得更稳定的结果。动画轨迹在运行时可能会做内部平滑处理。
 
 例如：
 

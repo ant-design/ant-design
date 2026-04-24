@@ -1,5 +1,5 @@
 import React from 'react';
-import { BorderBeam, Card, Flex, Segmented, Tag, theme, Typography } from 'antd';
+import { BorderBeam, Card, Flex, Segmented, Tag, Typography } from 'antd';
 import type { BorderBeamGradient } from 'antd';
 
 const presets: Array<{
@@ -82,12 +82,8 @@ const presets: Array<{
 const defaultPresetKey = presets[0].key;
 
 const App: React.FC = () => {
-  const { token } = theme.useToken();
   const [currentPresetKey, setCurrentPresetKey] = React.useState(defaultPresetKey);
   const currentPreset = presets.find((preset) => preset.key === currentPresetKey) ?? presets[0];
-  const gradientPreview = `linear-gradient(90deg, ${currentPreset.color
-    .map((item) => `${item.color} ${item.percent}%`)
-    .join(', ')})`;
 
   return (
     <Flex vertical gap={16} style={{ maxWidth: 480 }}>
@@ -113,20 +109,16 @@ const App: React.FC = () => {
           }}
         >
           <Typography.Text type="secondary">{currentPreset.description}</Typography.Text>
-          <div
-            style={{
-              height: 10,
-              border: `${token.lineWidth}px solid ${token.colorBorder}`,
-              background: gradientPreview,
-            }}
-          />
           <Flex gap={8} wrap>
             {currentPreset.color.map((item) => (
               <Tag key={`${item.color}-${item.percent}`} color={item.color} variant="filled">
-                {item.percent}%
+                {item.color} · {item.percent}%
               </Tag>
             ))}
           </Flex>
+          <Typography.Text type="secondary">
+            Stop positions use the public 0-100 input range.
+          </Typography.Text>
         </Card>
       </BorderBeam>
     </Flex>
