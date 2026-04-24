@@ -133,7 +133,7 @@ const App: React.FC = () => {
         <Row>
           <Col span={24}>
             <DescriptionItem
-              title="Github"
+              title="GitHub"
               content={
                 <a
                   href="https://github.com/ant-design/ant-design"
