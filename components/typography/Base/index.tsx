@@ -106,9 +106,8 @@ export interface EllipsisConfig {
   tooltip?: React.ReactNode | TooltipProps;
 }
 
-export interface BlockProps<
-  C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements,
-> extends TypographyProps<C> {
+export interface BlockProps<C extends keyof JSX.IntrinsicElements = keyof JSX.IntrinsicElements>
+  extends TypographyProps<C> {
   /**
    * @since 6.4.0
    */
