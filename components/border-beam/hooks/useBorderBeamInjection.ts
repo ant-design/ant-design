@@ -54,6 +54,13 @@ const useBorderBeamInjection = ({
       return;
     }
 
+    const hostPosition = window.getComputedStyle(hostElement).position;
+
+    if (!hostPosition || hostPosition === 'static') {
+      setFallbackToWrapper(true);
+      return;
+    }
+
     const receivesInjectedStyleVar = !!hostElement.style.getPropertyValue(validationStyleVar);
 
     if (!receivesInjectedStyleVar) {

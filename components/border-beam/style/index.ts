@@ -19,7 +19,6 @@ interface BorderBeamToken extends FullToken<'BorderBeam'> {}
 const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) => {
   const { componentCls, antCls } = token;
   const [, varRef] = genCssVar(antCls, 'border-beam');
-  const defaultRootCls = `:where(${componentCls})`;
   const antBorderBeamMove = new Keyframes('antBorderBeamMove', {
     from: {
       offsetDistance: varRef('beam-offset-start'),
@@ -30,9 +29,10 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
   });
 
   const beamCls = `${componentCls}-beam`;
+  const wrapperCls = `${componentCls}-wrapper`;
 
   return {
-    [defaultRootCls]: {
+    [wrapperCls]: {
       position: 'relative',
     },
 

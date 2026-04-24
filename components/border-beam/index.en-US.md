@@ -51,11 +51,11 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Do I need to set `position` myself? {#faq-position}
 
-`BorderBeam` provides a low-priority `position: relative` on its root as the default containing block. In most cases you do not need to configure it manually; if the actual container already declares a non-`static` position, that authored style overrides the default naturally.
+In most cases you do not need to set `position` manually. If your layout depends on an explicit containing block, set the positioning style on the actual container root.
 
 ### How do I keep the beam radius aligned with my container? {#faq-radius}
 
-`BorderBeam` reads the computed `border-radius` once when the decorated target is ready. When it can inject directly into the child, that target is the decorated element itself. When it falls back to wrapper mode, it prefers an explicit wrapper radius first; otherwise it follows the first rendered element container. This works best for a single-container child such as `Card`; for more complex child trees, set the radius on the actual container root for a more deterministic result. Later radius changes caused by size, ancestor styles, or internal child state are not guaranteed to resync automatically. The running beam may still apply internal motion smoothing.
+`BorderBeam` reads the computed `border-radius` from the actual container during initialization. This works best for a single-container child such as `Card`; for more complex child trees, set the radius on the actual container root for a more deterministic result. Later radius changes caused by size, ancestor styles, or internal child state are not guaranteed to resync automatically. The running beam may still apply internal motion smoothing.
 
 For example:
 

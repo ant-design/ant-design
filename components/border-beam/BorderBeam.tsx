@@ -149,7 +149,11 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   // ============================ Render ============================
   if (!canInjectIntoChild) {
     return (
-      <div ref={setHostNode} className={rootClsName} style={getRootStyle()}>
+      <div
+        ref={setHostNode}
+        className={clsx(rootClsName, `${prefixCls}-wrapper`)}
+        style={getRootStyle()}
+      >
         {children}
         <div aria-hidden="true" className={beamCls} style={beamStyle} />
       </div>

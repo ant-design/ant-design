@@ -17,10 +17,12 @@ describe('BorderBeam', () => {
   const getBeamElement = (container: HTMLElement) =>
     container.querySelector<HTMLElement>('.ant-border-beam-beam')!;
 
-  it('should render semantic structure when injected into child', () => {
+  it('should inject into child when the host already provides a containing block', () => {
     const { container } = render(
       <BorderBeam className="beam-root">
-        <div className="beam-child">content</div>
+        <div className="beam-child" style={{ position: 'relative' }}>
+          content
+        </div>
       </BorderBeam>,
     );
 
@@ -32,6 +34,22 @@ describe('BorderBeam', () => {
     expect(rootElement).toBe(childElement);
     expect(beamElement.closest('.ant-border-beam')).toBe(rootElement);
     expect(beamElement).toHaveAttribute('aria-hidden', 'true');
+  });
+
+  it('should fall back to wrapper when the child host is statically positioned', async () => {
+    const { container } = render(
+      <BorderBeam className="beam-root">
+        <div className="beam-child">content</div>
+      </BorderBeam>,
+    );
+
+    await waitFor(() => {
+      const rootElement = getRootElement(container);
+      const childElement = container.querySelector<HTMLElement>('.beam-child');
+
+      expect(rootElement).not.toBe(childElement);
+      expect(rootElement).toHaveClass('ant-border-beam-wrapper');
+    });
   });
 
   it('should render wrapper mode for plain text children', () => {
@@ -133,7 +151,7 @@ describe('BorderBeam', () => {
           ref={ref}
           className={className}
           data-testid="beam-child"
-          style={{ borderRadius: 12 }}
+          style={{ position: 'relative', borderRadius: 12 }}
         >
           content
         </div>
@@ -475,6 +493,7 @@ describe('BorderBeam', () => {
 
           return {
             ...style,
+            position: 'relative',
             borderRadius: '',
             borderTopLeftRadius: '',
             borderTopRightRadius: '',
@@ -485,6 +504,7 @@ describe('BorderBeam', () => {
 
         return {
           ...style,
+          position: 'relative',
           borderRadius: '12px',
           borderTopLeftRadius: '12px',
           borderTopRightRadius: '12px',
@@ -499,15 +519,14 @@ describe('BorderBeam', () => {
     try {
       const { container } = render(
         <BorderBeam>
-          <div className="beam-child">content</div>
+          <div className="beam-child" style={{ position: 'relative' }}>
+            content
+          </div>
         </BorderBeam>,
       );
 
       const rootElement = getRootElement(container);
       const beamElement = getBeamElement(container);
-
-      expect(beamElement.style.display).toBe('none');
-      expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('0px');
 
       act(() => {
         jest.runAllTimers();
