@@ -1537,6 +1537,23 @@ describe('ConfigProvider support style and className props', () => {
     expect(element).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
+  it('Should message rtl works', () => {
+    const Demo: React.FC = () => {
+      const [messageApi, contextHolder] = message.useMessage();
+      return (
+        <ConfigProvider message={{ rtl: true }}>
+          {contextHolder}
+          <button type="button" onClick={() => messageApi.success('success')}>
+            test
+          </button>
+        </ConfigProvider>
+      );
+    };
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector<HTMLButtonElement>('button')!);
+    expect(document.querySelector('.ant-message')).toHaveClass('ant-message-rtl');
+  });
+
   it('Should Upload className & style works', () => {
     const { container } = render(
       <ConfigProvider upload={{ className: 'cp-upload', style: { color: 'rgb(0, 0, 255)' } }}>

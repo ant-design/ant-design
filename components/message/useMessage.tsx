@@ -85,10 +85,12 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     onAllRemoved,
     pauseOnHover = true,
   } = props;
-  const { getPrefixCls, direction, getPopupContainer } = useComponentConfig('message');
+  const { getPrefixCls, direction, getPopupContainer, rtl: configRTL } =
+    useComponentConfig('message');
   const { message } = React.useContext(ConfigContext);
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
+  const mergedRTL = rtl ?? configRTL ?? (direction === 'rtl');
 
   // =============================== Style ===============================
   const getStyle = (): React.CSSProperties => ({
@@ -97,7 +99,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     top: top ?? DEFAULT_OFFSET,
   });
 
-  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: mergedRTL });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
