@@ -205,6 +205,15 @@ describe('Modal', () => {
     });
   });
 
+  it('responsive width should support number', () => {
+    render(<Modal open width={{ xs: 520 }} />);
+
+    const modalEle = document.querySelector<HTMLDivElement>('.ant-modal')!;
+    expect(modalEle).toHaveStyle({
+      '--ant-modal-xs-width': '520px',
+    });
+  });
+
   it('should support centered prop', () => {
     render(<Modal open centered />);
     expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
