@@ -348,6 +348,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           borderHover: token.colorWarningHover,
           borderActive: token.colorWarning,
           borderOutline: token.colorWarningOutline,
+          affixColor: token.colorWarningAffix,
         },
       ),
 
