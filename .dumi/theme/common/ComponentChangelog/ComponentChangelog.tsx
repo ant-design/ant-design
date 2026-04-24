@@ -281,7 +281,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
                       <ul className={styles.bugReasonList}>
                         {bugVersionInfo.reason.map<React.ReactNode>((reason, index) => (
                           <li key={`reason-${index}`}>
-                            <a type="link" target="_blank" rel="noopener noreferrer" href={reason}>
+                            <a target="_blank" rel="noopener noreferrer" href={reason}>
                               <BugOutlined />
                               {reason
                                 ?.replace(/#.*$/, '')
