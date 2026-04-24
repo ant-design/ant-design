@@ -22,7 +22,7 @@ demo:
 ## API {#api}
 
 | Property | Description | Type | Default | Version |
-|---|---|---|---|---|
+| --- | --- | --- | --- | --- |
 | columns | Column configuration | `FooterColumn[]` | - | 6.4.0 |
 | bottom | Bottom content | `ReactNode` | - | 6.4.0 |
 | theme | Theme style | `dark` \| `light` | `dark` | 6.4.0 |
@@ -34,19 +34,19 @@ demo:
 
 ### FooterColumn
 
-| Property | Description | Type | Default |
-|---|---|---|---|
-| title | Column title | `ReactNode` | - |
-| icon | Column icon | `ReactNode` | - |
-| items | Column items | `FooterColumnItem[]` | - |
+| Property | Description  | Type                 | Default |
+| -------- | ------------ | -------------------- | ------- |
+| title    | Column title | `ReactNode`          | -       |
+| icon     | Column icon  | `ReactNode`          | -       |
+| items    | Column items | `FooterColumnItem[]` | -       |
 
 ### FooterColumnItem
 
-| Property | Description | Type | Default |
-|---|---|---|---|
-| title | Link text | `ReactNode` | - |
-| url | Link url | `string` | - |
-| openExternal | Open externally | `boolean` | `false` |
-| icon | Link icon | `ReactNode` | - |
-| description | Description text | `ReactNode` | - |
-| LinkComponent | Custom link component | `React.ComponentType<any>` | - |
+| Property      | Description           | Type                       | Default |
+| ------------- | --------------------- | -------------------------- | ------- |
+| title         | Link text             | `ReactNode`                | -       |
+| url           | Link url              | `string`                   | -       |
+| openExternal  | Open externally       | `boolean`                  | `false` |
+| icon          | Link icon             | `ReactNode`                | -       |
+| description   | Description text      | `ReactNode`                | -       |
+| LinkComponent | Custom link component | `React.ComponentType<any>` | -       |

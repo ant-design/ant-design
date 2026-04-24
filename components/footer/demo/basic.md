@@ -4,12 +4,8 @@ Basic Footer with columns and bottom content.
 
 ```jsx
 import React from 'react';
+import { GithubOutlined, InstagramOutlined, TwitterOutlined } from '@ant-design/icons';
 import { Footer } from 'antd';
-import {
-  GithubOutlined,
-  TwitterOutlined,
-  InstagramOutlined,
-} from '@ant-design/icons';
 
 const columns = [
   {
@@ -72,10 +68,5 @@ const columns = [
   },
 ];
 
-export default () => (
-  <Footer
-    columns={columns}
-    bottom="Made with ❤️ by Ant Design"
-  />
-);
+export default () => <Footer columns={columns} bottom="Made with ❤️ by Ant Design" />;
 ```
