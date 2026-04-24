@@ -3,7 +3,7 @@
 exports[`renders components/alert/demo/action.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -80,7 +80,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -137,7 +137,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -199,7 +199,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -284,7 +284,7 @@ exports[`renders components/alert/demo/action.tsx extend context correctly 2`] =
 exports[`renders components/alert/demo/banner.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-warning ant-alert-banner css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-banner css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -323,7 +323,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-banner css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-banner css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -388,7 +388,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon ant-alert-banner css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-no-icon ant-alert-banner css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -404,7 +404,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-banner css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered ant-alert-banner css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -449,7 +449,7 @@ exports[`renders components/alert/demo/banner.tsx extend context correctly 2`] =
 
 exports[`renders components/alert/demo/basic.tsx extend context correctly 1`] = `
 <div
-  class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
+  class="ant-alert ant-alert-success ant-alert-bordered ant-alert-no-icon css-var-test-id"
   data-show="true"
   role="alert"
 >
@@ -467,10 +467,30 @@ exports[`renders components/alert/demo/basic.tsx extend context correctly 1`] = 
 
 exports[`renders components/alert/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/alert/demo/borderless.tsx extend context correctly 1`] = `
+<div
+  class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
+  data-show="true"
+  role="alert"
+>
+  <div
+    class="ant-alert-section"
+  >
+    <div
+      class="ant-alert-title"
+    >
+      Info Text
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/alert/demo/borderless.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/alert/demo/closable.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -513,7 +533,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -556,7 +576,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -599,7 +619,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -648,7 +668,7 @@ exports[`renders components/alert/demo/closable.tsx extend context correctly 2`]
 exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -664,7 +684,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-success css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -703,7 +723,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -742,7 +762,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -781,7 +801,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -820,7 +840,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-success ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -864,7 +884,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -908,7 +928,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -952,7 +972,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1002,7 +1022,7 @@ exports[`renders components/alert/demo/custom-icon.tsx extend context correctly 
 exports[`renders components/alert/demo/description.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-with-description ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1023,7 +1043,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1044,7 +1064,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-with-description ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1065,7 +1085,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered ant-alert-with-description ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1105,7 +1125,7 @@ exports[`renders components/alert/demo/error-boundary.tsx extend context correct
 exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1144,7 +1164,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1183,7 +1203,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1248,7 +1268,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1288,7 +1308,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-success ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1332,7 +1352,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1376,7 +1396,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1446,7 +1466,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-with-description css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered ant-alert-with-description css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1497,7 +1517,7 @@ exports[`renders components/alert/demo/icon.tsx extend context correctly 2`] = `
 exports[`renders components/alert/demo/smooth-closed.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1569,7 +1589,7 @@ exports[`renders components/alert/demo/smooth-closed.tsx extend context correctl
 exports[`renders components/alert/demo/style.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-success ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1585,7 +1605,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-info ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1601,7 +1621,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-warning ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-warning ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1617,7 +1637,7 @@ Array [
   </div>,
   <br />,
   <div
-    class="ant-alert ant-alert-error ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-error ant-alert-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1641,7 +1661,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-alert ant-alert-info acss-hrwuh css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-bordered acss-hrwuh css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1693,7 +1713,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-alert ant-alert-success acss-hrwuh css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-bordered acss-hrwuh css-var-test-id"
     data-show="true"
     role="alert"
     style="background-color: rgba(82, 196, 26, 0.1); border-color: rgb(183, 235, 143);"

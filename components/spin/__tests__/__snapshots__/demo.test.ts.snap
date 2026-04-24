@@ -150,7 +150,7 @@ exports[`renders components/spin/demo/delayAndDebounce.tsx correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
+        class="ant-alert ant-alert-info ant-alert-bordered ant-alert-with-description ant-alert-no-icon css-var-test-id"
         data-show="true"
         role="alert"
       >
@@ -228,7 +228,7 @@ exports[`renders components/spin/demo/nested.tsx correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
+        class="ant-alert ant-alert-info ant-alert-bordered ant-alert-with-description ant-alert-no-icon css-var-test-id"
         data-show="true"
         role="alert"
       >
@@ -702,7 +702,7 @@ exports[`renders components/spin/demo/tip.tsx correctly 1`] = `
       class="ant-spin-container"
     >
       <div
-        class="ant-alert ant-alert-info ant-alert-with-description ant-alert-no-icon css-var-test-id"
+        class="ant-alert ant-alert-info ant-alert-bordered ant-alert-with-description ant-alert-no-icon css-var-test-id"
         data-show="true"
         role="alert"
       >
