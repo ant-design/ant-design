@@ -84,7 +84,9 @@ const MemoInput = React.memo<React.PropsWithChildren<MemoInputProps>>(
 );
 
 export interface FormItemProps<Values = any>
-  extends Omit<FormItemLabelProps, 'requiredMark'>, FormItemInputProps, RcFieldProps<Values> {
+  extends Omit<FormItemLabelProps, 'requiredMark'>,
+    FormItemInputProps,
+    RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
