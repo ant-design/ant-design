@@ -67,18 +67,19 @@ demo:
 
 `config` 对象属性如下：
 
-| 参数 | 说明 | 类型 | 默认值 |
-| --- | --- | --- | --- |
-| className | 自定义 CSS class | string | - |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |
-| content | 提示内容 | ReactNode | - |
-| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 |
-| icon | 自定义图标 | ReactNode | - |
-| pauseOnHover | 悬停时是否暂停计时器 | boolean | true |
-| key | 当前提示的唯一标志 | string \| number | - |
-| style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |
-| onClick | 点击 message 时触发的回调函数 | function | - |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| className | 自定义 CSS class | string | - | - | 5.7.0 |
+| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - | 6.0.0 | 6.0.0 |
+| content | 提示内容 | ReactNode | - | - | × |
+| duration | 自动关闭的延时，单位秒。设为 0 时不自动关闭 | number | 3 | - | × |
+| icon | 自定义图标 | ReactNode | - | - | × |
+| pauseOnHover | 悬停时是否暂停计时器 | boolean | true | - | × |
+| key | 当前提示的唯一标志 | string \| number | - | - | × |
+| style | 自定义内联样式 | [CSSProperties](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/e434515761b36830c3e58a970abf5186f005adac/types/react/index.d.ts#L794) | - | - | 5.7.0 |
+| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | 6.0.0 | 6.0.0 |
+| onClick | 点击 message 时触发的回调函数 | function | - | - | × |
+| onClose | 关闭时触发的回调函数 | function | - | - | × |
 
 ### 全局方法
 
@@ -105,14 +106,14 @@ message.config({
 });
 ```
 
-| 参数 | 说明 | 类型 | 默认值 | 版本 |
-| --- | --- | --- | --- | --- |
-| duration | 默认自动关闭延时，单位秒 | number | 3 |  |
-| getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLElement | () => document.body |  |
-| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  |
-| prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 |
-| rtl | 是否开启 RTL 模式 | boolean | false |  |
-| top | 消息距离顶部的位置 | string \| number | 8 |  |
+| 参数 | 说明 | 类型 | 默认值 | 版本 | [全局配置](/components/config-provider-cn#component-config) |
+| --- | --- | --- | --- | --- | --- |
+| duration | 默认自动关闭延时，单位秒 | number | 3 |  | × |
+| getContainer | 配置渲染节点的输出位置，但依旧为全屏展示 | () => HTMLElement | () => document.body |  | × |
+| maxCount | 最大显示数，超过限制时，最早的消息会被自动关闭 | number | - |  | × |
+| prefixCls | 消息节点的 className 前缀 | string | `ant-message` | 4.5.0 | × |
+| rtl | 是否开启 RTL 模式 | boolean | false |  | × |
+| top | 消息距离顶部的位置 | string \| number | 8 |  | × |
 
 ## Semantic DOM
 
