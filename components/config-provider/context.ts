@@ -274,8 +274,7 @@ export type ButtonConfig = ComponentStyleConfig &
     loadingIcon?: React.ReactNode;
   };
 
-export type MessageConfig = ComponentStyleConfig &
-  Pick<MessageProps, 'classNames' | 'styles'> & { rtl?: boolean };
+export type MessageConfig = ComponentStyleConfig & Pick<MessageProps, 'classNames' | 'styles'>;
 
 export type NotificationConfig = ComponentStyleConfig &
   Pick<NotificationProps, 'closeIcon' | 'classNames' | 'styles'>;
