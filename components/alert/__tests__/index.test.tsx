@@ -225,6 +225,34 @@ describe('Alert', () => {
     expect(alertRef.current?.nativeElement).toBe(element);
   });
 
+  it('should add bordered class by default and support bordered prop', () => {
+    const { container, rerender } = render(<Alert title="Info" />);
+
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-bordered');
+
+    rerender(<Alert title="Info" bordered={false} />);
+
+    expect(container.querySelector('.ant-alert')).not.toHaveClass('ant-alert-bordered');
+  });
+
+  it('should support bordered from ConfigProvider', () => {
+    const { container, rerender } = render(
+      <ConfigProvider alert={{ bordered: false }}>
+        <Alert title="Info" />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-alert')).not.toHaveClass('ant-alert-bordered');
+
+    rerender(
+      <ConfigProvider alert={{ bordered: false }}>
+        <Alert title="Info" bordered />
+      </ConfigProvider>,
+    );
+
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-bordered');
+  });
+
   it('should apply custom styles to Alert', () => {
     const customClassNames: Required<GetProp<AlertProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
