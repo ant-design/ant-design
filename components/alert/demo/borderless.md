@@ -1,7 +1,7 @@
 ## zh-CN
 
-通过 `bordered={false}` 隐藏边框。
+通过 `variant="borderless"` 隐藏边框。
 
 ## en-US
 
-Hide the border with `bordered={false}`.
+Hide the border with `variant="borderless"`.

@@ -43,7 +43,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | action | The action of Alert | ReactNode | - |  | × |
 | ~~afterClose~~ | Called when close animation is finished, please use `closable.afterClose` instead | () => void | - |  | × |
 | banner | Whether to show as banner | boolean | false |  | × |
-| bordered | Whether has border style | boolean | true | 6.4.0 | 6.4.0 |
+| variant | Variant of Alert style | `bordered` \| `borderless` | `bordered` | 6.4.0 | 6.4.0 |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | closable | The config of closable | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | ✔ |
 | closeIcon | (Only supports global configuration) Custom close icon | ReactNode | - | × | 6.3.0 |

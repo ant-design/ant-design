@@ -71,9 +71,13 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       wordWrap: 'break-word',
       borderRadius,
 
-      [`&${componentCls}-bordered`]: {
+      [`&${componentCls}-variant-bordered`]: {
         borderWidth: unit(lineWidth),
         borderStyle: lineType,
+      },
+
+      [`&${componentCls}-variant-borderless`]: {
+        border: 0,
       },
 
       [`&${componentCls}-success`]: {

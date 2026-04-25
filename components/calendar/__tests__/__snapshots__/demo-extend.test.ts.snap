@@ -9790,7 +9790,7 @@ exports[`renders components/calendar/demo/notice-calendar.tsx extend context cor
 exports[`renders components/calendar/demo/select.tsx extend context correctly 1`] = `
 Array [
   <div
-    class="ant-alert ant-alert-info ant-alert-bordered ant-alert-no-icon css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-variant-bordered ant-alert-no-icon css-var-test-id"
     data-show="true"
     role="alert"
   >

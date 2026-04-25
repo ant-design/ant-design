@@ -225,32 +225,32 @@ describe('Alert', () => {
     expect(alertRef.current?.nativeElement).toBe(element);
   });
 
-  it('should add bordered class by default and support bordered prop', () => {
+  it('should add bordered variant class by default and support variant prop', () => {
     const { container, rerender } = render(<Alert title="Info" />);
 
-    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-bordered');
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-variant-bordered');
 
-    rerender(<Alert title="Info" bordered={false} />);
+    rerender(<Alert title="Info" variant="borderless" />);
 
-    expect(container.querySelector('.ant-alert')).not.toHaveClass('ant-alert-bordered');
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-variant-borderless');
   });
 
-  it('should support bordered from ConfigProvider', () => {
+  it('should support variant from ConfigProvider', () => {
     const { container, rerender } = render(
-      <ConfigProvider alert={{ bordered: false }}>
+      <ConfigProvider alert={{ variant: 'borderless' }}>
         <Alert title="Info" />
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-alert')).not.toHaveClass('ant-alert-bordered');
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-variant-borderless');
 
     rerender(
-      <ConfigProvider alert={{ bordered: false }}>
-        <Alert title="Info" bordered />
+      <ConfigProvider alert={{ variant: 'borderless' }}>
+        <Alert title="Info" variant="bordered" />
       </ConfigProvider>,
     );
 
-    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-bordered');
+    expect(container.querySelector('.ant-alert')).toHaveClass('ant-alert-variant-bordered');
   });
 
   it('should apply custom styles to Alert', () => {

@@ -44,7 +44,7 @@ group:
 | action | 自定义操作项 | ReactNode | - |  | × |
 | ~~afterClose~~ | 关闭动画结束后触发的回调函数，请使用 `closable.afterClose` 替换 | () => void | - |  | × |
 | banner | 是否用作顶部公告 | boolean | false |  | × |
-| bordered | 是否显示边框 | boolean | true | 6.4.0 | 6.4.0 |
+| variant | 警告提示样式变体 | `bordered` \| `borderless` | `bordered` | 6.4.0 | 6.4.0 |
 | classNames | 自定义组件内部各语义化结构的类名。支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props }) => Record<[SemanticDOM](#semantic-dom), string> | - |  | 6.0.0 |
 | closable | 可关闭配置 | boolean \| [ClosableType](#closabletype) & React.AriaAttributes | `false` |  | ✔ |
 | closeIcon | （仅支持全局配置）自定义关闭图标 | ReactNode | - | × | 6.3.0 |
