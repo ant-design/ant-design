@@ -3,9 +3,9 @@ import { Popover } from 'antd';
 import { createStyles } from 'antd-style';
 
 import useLocale from '../../../hooks/useLocale';
-import SiteContext from '../../../theme/slots/SiteContext';
 import SponsorCard from '../../../theme/slots/Header/SponsorCard';
 import { getSponsorUrl, sponsors } from '../../../theme/slots/Header/sponsors';
+import SiteContext from '../../../theme/slots/SiteContext';
 
 const useStyle = createStyles(({ cssVar, css }) => ({
   wrap: css`
@@ -85,7 +85,7 @@ const BannerSponsors: React.FC = () => {
             <a
               href={getSponsorUrl(sponsor.url, lang)}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className={styles.sponsorItem}
             >
               <img src={sponsor.logo} alt={sponsor.name} className={styles.sponsorLogo} />
