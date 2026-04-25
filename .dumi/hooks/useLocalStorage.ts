@@ -1,11 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 import { useEvent } from '@rc-component/util';
+import { isFunction } from 'antd/lib/_util/is';
 
 const ANT_SYNC_STORAGE_EVENT_KEY = 'ANT_SYNC_STORAGE_EVENT_KEY';
-
-const isFunction = (val: any): val is (...args: any[]) => any => {
-  return typeof val === 'function';
-};
 
 interface Options<T> {
   defaultValue?: T;

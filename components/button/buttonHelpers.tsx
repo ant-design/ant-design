@@ -1,7 +1,7 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../_util/is';
+import { isNonNullable, isString } from '../_util/is';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
 import type { BaseButtonProps, LegacyButtonType } from './Button';
@@ -17,10 +17,6 @@ export function convertLegacyProps(
     return { danger: true };
   }
   return { type };
-}
-
-export function isString(str: unknown): str is string {
-  return typeof str === 'string';
 }
 
 export function isUnBorderedButtonVariant(type?: ButtonVariantType) {
