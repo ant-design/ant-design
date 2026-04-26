@@ -10,7 +10,7 @@ import { clsx } from 'clsx';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPrimitive } from '../_util/is';
+import { isPlainObject, isPrimitive } from '../_util/is';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
@@ -252,7 +252,7 @@ const Dropdown: CompoundedComponent = (props) => {
   );
 
   const builtinPlacements = getPlacements({
-    arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
+    arrowPointAtCenter: isPlainObject(arrow) && arrow.pointAtCenter,
     autoAdjustOverflow,
     offset: token.marginXXS,
     arrowWidth: arrow ? token.sizePopupArrow : 0,

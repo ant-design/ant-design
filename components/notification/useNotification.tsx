@@ -17,7 +17,7 @@ import {
   resolveStyleOrClass,
   useMergeSemantic,
 } from '../_util/hooks/useMergeSemantic';
-import { isNumber } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -124,7 +124,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
       stack === false
         ? false
         : {
-            threshold: typeof stack === 'object' ? stack?.threshold : undefined,
+            threshold: isPlainObject(stack) ? stack?.threshold : undefined,
             offset: 8,
             gap: token.margin,
           },
@@ -228,7 +228,7 @@ export function useInternalNotification(
 
       const mergedClosable = rawClosable
         ? {
-            onClose: closable && typeof closable === 'object' ? closable.onClose : undefined,
+            onClose: isPlainObject(closable) ? closable.onClose : undefined,
             closeIcon: mergedCloseIcon,
             ...ariaProps,
           }
