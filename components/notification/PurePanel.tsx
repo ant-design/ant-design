@@ -123,7 +123,8 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
 };
 
 export interface PurePanelProps
-  extends Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
+  extends
+    Omit<NoticeProps, 'prefixCls' | 'eventKey' | 'classNames' | 'styles'>,
     Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
   prefixCls?: string;
   classNames?: PurePanelClassNamesType;

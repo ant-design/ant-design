@@ -7,7 +7,7 @@ import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../../_util/is';
+import { isNonNullable, isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -84,9 +84,7 @@ const MemoInput = React.memo<React.PropsWithChildren<MemoInputProps>>(
 );
 
 export interface FormItemProps<Values = any>
-  extends Omit<FormItemLabelProps, 'requiredMark'>,
-    FormItemInputProps,
-    RcFieldProps<Values> {
+  extends Omit<FormItemLabelProps, 'requiredMark'>, FormItemInputProps, RcFieldProps<Values> {
   prefixCls?: string;
   noStyle?: boolean;
   style?: React.CSSProperties;
@@ -315,7 +313,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
           required !== undefined
             ? required
             : !!rules?.some((rule) => {
-                if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
+                if (isPlainObject(rule) && rule.required && !rule.warningOnly) {
                   return true;
                 }
                 if (typeof rule === 'function') {

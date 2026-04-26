@@ -1,6 +1,5 @@
 import { isValidElement, useMemo } from 'react';
 
-import { isPlainObject } from '../../_util/is';
 import type { TooltipProps } from '../../tooltip';
 
 const useTooltipProps = (
@@ -15,7 +14,7 @@ const useTooltipProps = (
     if (isValidElement(tooltip)) {
       return { title: tooltip };
     }
-    if (isPlainObject(tooltip)) {
+    if (tooltip && typeof tooltip === 'object') {
       return { title: editConfigText ?? children, ...tooltip };
     }
     return { title: tooltip };

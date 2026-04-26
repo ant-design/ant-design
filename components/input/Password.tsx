@@ -54,6 +54,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
 
   const visibilityControlled =
     typeof visibilityToggle === 'object' && visibilityToggle.visible !== undefined;
+
   const [visible, setVisible] = useState(() =>
     visibilityControlled ? visibilityToggle.visible! : false,
   );
