@@ -14,14 +14,14 @@ export const isPlainObject = <T extends object = object>(val: any): val is T => 
   return val !== null && typeof val === 'object';
 };
 
-export const isPrimitive = (value: any) => {
-  return (typeof value !== 'object' && typeof value !== 'function') || value === null;
-};
-
 export const isFunction = (val: any): val is (...args: any[]) => any => {
   return typeof val === 'function';
 };
 
 export const isThenable = <T>(val?: PromiseLike<T>): val is PromiseLike<T> => {
   return isNonNullable(val) && isFunction(val.then);
+};
+
+export const isPrimitive = (val: any) => {
+  return (typeof val !== 'object' && !isFunction(val)) || val === null;
 };
