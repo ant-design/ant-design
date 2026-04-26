@@ -1,7 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
-import { clearFix, resetComponent } from '../../style';
+import { clearFix, genFocusOutline, resetComponent } from '../../style';
 import { genCompactItemStyle } from '../../style/compact-item';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -412,9 +412,8 @@ const genAllowClearStyle: GenerateStyle<InputToken, CSSObject> = (token) => {
 
       '&:focus-visible': {
         color: token.colorIcon,
-        outline: `${token.lineWidth}px solid ${token.colorPrimary}`,
-        outlineOffset: token.lineWidth,
         borderRadius: token.borderRadiusSM,
+        ...genFocusOutline(token),
       },
 
       '&:active': {
