@@ -8,12 +8,7 @@ import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { useLocale } from '../../locale';
 import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
-<<<<<<< HEAD
-import { isNonNullable } from '../is';
-=======
-import extendsObject from '../extendsObject';
 import { isNonNullable, isPlainObject } from '../is';
->>>>>>> master
 
 export type ClosableType = DialogProps['closable'];
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
@@ -69,10 +64,7 @@ const computeClosableConfig = (
   };
 
   if (isPlainObject(closable)) {
-    closableConfig = {
-      ...closableConfig,
-      ...closable,
-    };
+    closableConfig = { ...closableConfig, ...closable };
   }
   return closableConfig;
 };
