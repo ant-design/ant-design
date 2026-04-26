@@ -6,6 +6,7 @@ import { clsx } from 'clsx';
 
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import CheckableTag from './CheckableTag';
@@ -132,7 +133,7 @@ const CheckableTagGroup = React.forwardRef<
       return [];
     }
     return options.map((option) => {
-      if (option && typeof option === 'object') {
+      if (isPlainObject(option)) {
         return option;
       }
       return { value: option, label: option };

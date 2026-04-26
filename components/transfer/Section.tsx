@@ -3,7 +3,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNumber } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -103,7 +103,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
 const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
-  if (showSearch && typeof showSearch === 'object') {
+  if (isPlainObject(showSearch)) {
     return {
       ...showSearch,
       defaultValue: showSearch.defaultValue || '',

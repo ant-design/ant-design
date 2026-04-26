@@ -259,7 +259,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           'usage',
           'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
         );
-      } else if (typeof size === 'object') {
+      } else if (isPlainObject(size)) {
         warning(
           false,
           'usage',
