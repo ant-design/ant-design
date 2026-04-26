@@ -11,6 +11,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useOrientation } from '../_util/hooks';
 import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -37,14 +38,17 @@ export type SegmentedSemanticStyles = {
   item?: React.CSSProperties;
 };
 
-interface SegmentedLabeledOptionWithoutIcon<ValueType = RcSegmentedValue>
-  extends RcSegmentedLabeledOption<ValueType> {
+interface SegmentedLabeledOptionWithoutIcon<
+  ValueType = RcSegmentedValue,
+> extends RcSegmentedLabeledOption<ValueType> {
   label: RcSegmentedLabeledOption['label'];
   tooltip?: string | Omit<TooltipProps, 'children'>;
 }
 
-interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
-  extends Omit<RcSegmentedLabeledOption<ValueType>, 'label'> {
+interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue> extends Omit<
+  RcSegmentedLabeledOption<ValueType>,
+  'label'
+> {
   label?: RcSegmentedLabeledOption['label'];
   /** Set icon for Segmented item */
   icon: React.ReactNode;
@@ -54,7 +58,7 @@ interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
 function isSegmentedLabeledOptionWithIcon(
   option: SegmentedRawOption | SegmentedLabeledOptionWithIcon | SegmentedLabeledOptionWithoutIcon,
 ): option is SegmentedLabeledOptionWithIcon {
-  return typeof option === 'object' && !!(option as SegmentedLabeledOptionWithIcon)?.icon;
+  return isPlainObject(option) && !!(option as SegmentedLabeledOptionWithIcon)?.icon;
 }
 
 export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
@@ -70,11 +74,10 @@ export type SegmentedClassNamesType = SemanticClassNamesType<
 
 export type SegmentedStylesType = SemanticStylesType<SegmentedProps, SegmentedSemanticStyles>;
 
-export interface SegmentedProps<ValueType = RcSegmentedValue>
-  extends Omit<
-    RCSegmentedProps<ValueType>,
-    'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
-  > {
+export interface SegmentedProps<ValueType = RcSegmentedValue> extends Omit<
+  RCSegmentedProps<ValueType>,
+  'size' | 'options' | 'itemRender' | 'styles' | 'classNames'
+> {
   rootClassName?: string;
   options: SegmentedOptions<ValueType>;
   /** Option to fit width to its parent's width */
@@ -193,8 +196,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       return node;
     }
 
-    const tooltipProps: TooltipProps =
-      typeof item.tooltip === 'object' ? item.tooltip : { title: item.tooltip };
+    const tooltipProps = isPlainObject(item.tooltip) ? item.tooltip : { title: item.tooltip };
+
     return <Tooltip {...tooltipProps}>{node}</Tooltip>;
   };
 

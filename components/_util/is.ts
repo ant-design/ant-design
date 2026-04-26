@@ -10,7 +10,7 @@ export const isString = (val: any): val is string => {
   return typeof val === 'string';
 };
 
-export const isPlainObject = (val: any): val is Record<PropertyKey, unknown> => {
+export const isPlainObject = <T extends object = object>(val: any): val is T => {
   return val !== null && typeof val === 'object';
 };
 

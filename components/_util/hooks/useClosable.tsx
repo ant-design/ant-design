@@ -8,7 +8,7 @@ import { useLocale } from '../../locale';
 import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
 import extendsObject from '../extendsObject';
-import { isNonNullable } from '../is';
+import { isNonNullable, isPlainObject } from '../is';
 
 export type ClosableType = DialogProps['closable'];
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
@@ -63,7 +63,7 @@ const computeClosableConfig = (
     closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
   };
 
-  if (closable && typeof closable === 'object') {
+  if (isPlainObject(closable)) {
     closableConfig = {
       ...closableConfig,
       ...closable,

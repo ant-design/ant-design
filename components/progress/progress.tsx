@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -285,7 +286,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         {...sharedProps}
         strokeColor={strokeColorNotGradient}
         prefixCls={prefixCls}
-        steps={typeof steps === 'object' ? steps.count : steps}
+        steps={isPlainObject(steps) ? steps.count : steps}
       >
         {progressInfo}
       </Steps>

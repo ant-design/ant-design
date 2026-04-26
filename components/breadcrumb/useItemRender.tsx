@@ -2,7 +2,7 @@ import * as React from 'react';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../_util/is';
+import { isNonNullable, isPlainObject } from '../_util/is';
 import type { BreadcrumbProps, InternalRouteType, ItemType } from './Breadcrumb';
 
 type AddParameters<TFunction extends (...args: any) => any, TParameters extends [...args: any]> = (
@@ -17,7 +17,7 @@ function getBreadcrumbName(route: InternalRouteType, params: any) {
     return null;
   }
   const paramsKeys = Object.keys(params).join('|');
-  return typeof route.title === 'object'
+  return isPlainObject(route.title)
     ? route.title
     : String(route.title).replace(
         new RegExp(`:(${paramsKeys})`, 'g'),

@@ -24,8 +24,7 @@ export default function usePreviewConfig<T extends PreviewConfig | GroupPreviewC
     if (typeof preview === 'boolean') {
       return preview ? {} : null;
     }
-
-    return preview && typeof preview === 'object' ? preview : {};
+    return isPlainObject(preview) ? preview : {};
   }, [preview]) as T;
 
   const splittedPreviewConfig = useMemo(() => {
