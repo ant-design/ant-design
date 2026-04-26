@@ -4,6 +4,7 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import { merge } from '@rc-component/util';
 import useMemo from '@rc-component/util/lib/hooks/useMemo';
 
+import { isPlainObject } from '../_util/is';
 import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
 import ValidateMessagesContext from '../form/validateMessagesContext';
@@ -454,8 +455,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
   // https://github.com/ant-design/ant-design/issues/57295
   const locale = React.useMemo(() => {
     if (
-      rawLocale &&
-      typeof rawLocale === 'object' &&
+      isPlainObject(rawLocale) &&
       Object.prototype.hasOwnProperty.call(rawLocale, 'default') &&
       (rawLocale as any).default?.locale
     ) {

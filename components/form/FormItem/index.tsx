@@ -7,7 +7,7 @@ import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isPlainObject } from '../../_util/is';
+import { isNonNullable } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -312,8 +312,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         const isRequired =
           required !== undefined
             ? required
-            : !!rules?.some((rule) => {
-                if (isPlainObject(rule) && rule.required && !rule.warningOnly) {
+            : rules?.some((rule) => {
+                if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
                   return true;
                 }
                 if (typeof rule === 'function') {

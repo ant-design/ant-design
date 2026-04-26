@@ -11,7 +11,7 @@ import { clsx } from 'clsx';
 
 import type { ClosableType, SemanticType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import { isNonNullable } from '../_util/is';
+import { isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle from './style';
@@ -219,8 +219,9 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const [hashId, cssVarCls] = useStyle(prefixCls);
 
-  const { onClose: closableOnClose, afterClose: closableAfterClose } =
-    closable && typeof closable === 'object' ? closable : {};
+  const { onClose: closableOnClose, afterClose: closableAfterClose } = isPlainObject(closable)
+    ? closable
+    : {};
 
   const handleClose = (e: React.MouseEvent<HTMLButtonElement>) => {
     setClosed(true);
@@ -237,7 +238,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
-    if (typeof closable === 'object' && closable.closeIcon) {
+    if (isPlainObject(closable) && closable.closeIcon) {
       return true;
     }
     if (closeText) {
@@ -294,7 +295,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const restProps = pickAttrs(otherProps, { aria: true, data: true });
 
   const mergedCloseIcon = React.useMemo(() => {
-    if (typeof closable === 'object' && closable.closeIcon) {
+    if (isPlainObject(closable) && closable.closeIcon) {
       return closable.closeIcon;
     }
     if (closeText) {
@@ -303,7 +304,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     if (closeIcon !== undefined) {
       return closeIcon;
     }
-    if (typeof contextClosable === 'object' && contextClosable.closeIcon) {
+    if (isPlainObject(contextClosable) && contextClosable.closeIcon) {
       return contextClosable.closeIcon;
     }
     return contextCloseIcon;
@@ -311,7 +312,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
 
   const mergedAriaProps = React.useMemo<React.AriaAttributes>(() => {
     const merged = closable ?? contextClosable;
-    if (typeof merged === 'object') {
+    if (isPlainObject(merged)) {
       return pickAttrs(merged, { data: true, aria: true });
     }
     return {};

@@ -13,6 +13,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -38,9 +39,9 @@ import useShowArrow from '../select/useShowArrow';
 import { useCompactItemContext } from '../space/Compact';
 import useBase from './hooks/useBase';
 import useCheckable from './hooks/useCheckable';
+import useIcons from './hooks/useIcons';
 import CascaderPanel from './Panel';
 import useStyle from './style';
-import useIcons from './hooks/useIcons';
 
 // Align the design since we use `@rc-component/select` in root. This help:
 // - List search content will show all content
@@ -151,9 +152,9 @@ export interface CascaderProps<
   ValueField extends keyof OptionType = keyof OptionType,
   Multiple extends boolean = boolean,
 > extends Omit<
-    RcCascaderProps<OptionType, ValueField, Multiple>,
-    'checkable' | 'classNames' | 'styles'
-  > {
+  RcCascaderProps<OptionType, ValueField, Multiple>,
+  'checkable' | 'classNames' | 'styles'
+> {
   multiple?: Multiple;
   size?: SizeType;
   /**
@@ -338,11 +339,8 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
       render: defaultSearchRender,
     };
 
-    if (typeof showSearch === 'object') {
-      searchConfig = {
-        ...searchConfig,
-        ...showSearch,
-      };
+    if (isPlainObject(showSearch)) {
+      searchConfig = { ...searchConfig, ...showSearch };
     }
 
     return searchConfig;
