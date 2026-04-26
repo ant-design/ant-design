@@ -145,6 +145,7 @@ exports[`renders components/time-picker/demo/_semantic.tsx correctly 1`] = `
             class="ant-picker-suffix semantic-mark-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="clock-circle"
               class="anticon anticon-clock-circle"
               role="img"

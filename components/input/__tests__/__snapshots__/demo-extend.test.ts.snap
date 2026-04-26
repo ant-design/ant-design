@@ -869,6 +869,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -1483,6 +1484,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -3789,6 +3791,7 @@ Array [
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -4939,6 +4942,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -7290,6 +7294,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -7961,6 +7966,7 @@ exports[`renders components/input/demo/group.tsx extend context correctly 1`] = 
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"

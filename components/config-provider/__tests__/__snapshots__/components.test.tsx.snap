@@ -12372,6 +12372,7 @@ exports[`ConfigProvider components DatePicker DatePicker normal 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12674,6 +12675,7 @@ exports[`ConfigProvider components DatePicker MonthPicker normal 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -13248,6 +13250,7 @@ exports[`ConfigProvider components DatePicker RangePicker normal 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -13594,6 +13597,7 @@ exports[`ConfigProvider components DatePicker WeekPicker normal 1`] = `
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -34329,6 +34333,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
