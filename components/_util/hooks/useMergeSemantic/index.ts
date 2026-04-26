@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { isPlainObject } from '../../is';
+import { isFunction, isPlainObject } from '../../is';
 import type { AnyObject, ValidChar } from '../../type';
 import type { RemoveClassNamesString } from './semanticType';
 import { fillObjectBySchema } from './utils';
@@ -79,7 +79,7 @@ export const resolveStyleOrClass = <T = any>(
   value: T | ((config: any) => T),
   info: { props: any },
 ) => {
-  return typeof value === 'function' ? (value as any)(info) : value;
+  return isFunction(value) ? (value(info) as any) : value;
 };
 
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;

@@ -380,7 +380,7 @@ const Cascader = React.forwardRef<CascaderRef, CascaderProps<any>>((props, ref) 
     loadingIcon: mergedLoadingIcon,
     suffixIcon,
     contextSuffixIcon,
-    searchIcon: typeof showSearch === 'object' && showSearch ? showSearch.searchIcon : undefined,
+    searchIcon: isPlainObject(showSearch) ? showSearch.searchIcon : undefined,
     contextSearchIcon,
     hasFeedback,
     feedbackIcon,
