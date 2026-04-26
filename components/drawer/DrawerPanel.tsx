@@ -7,6 +7,7 @@ import { pickClosable, useClosable } from '../_util/hooks';
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
@@ -128,7 +129,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     if (merged === false) {
       return undefined;
     }
-    if (typeof merged === 'object' && merged?.placement === 'end') {
+    if (isPlainObject(merged) && merged?.placement === 'end') {
       return 'end';
     }
     return 'start';

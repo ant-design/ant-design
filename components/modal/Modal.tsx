@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 import ContextIsolator from '../_util/ContextIsolator';
 import { pickClosable, useClosable, useMergedMask, useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -230,7 +230,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const [numWidth, responsiveWidth] = React.useMemo<
     [string | number | undefined, Partial<Record<Breakpoint, string | number>> | undefined]
   >(() => {
-    if (width && typeof width === 'object') {
+    if (isPlainObject(width)) {
       return [undefined, width];
     }
     return [width, undefined];

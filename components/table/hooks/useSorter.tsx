@@ -4,7 +4,7 @@ import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { clsx } from 'clsx';
 
-import { isNumber } from '../../_util/is';
+import { isNumber, isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import type { Locale } from '../../locale';
 import type { TooltipProps } from '../../tooltip';
@@ -30,7 +30,7 @@ const DESCEND = 'descend';
 const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
 ): number | false => {
-  if (typeof column.sorter === 'object' && isNumber(column.sorter.multiple)) {
+  if (column.sorter && typeof column.sorter === 'object' && isNumber(column.sorter.multiple)) {
     return column.sorter.multiple;
   }
   return false;
@@ -42,7 +42,7 @@ const getSortFunction = <RecordType extends AnyObject = AnyObject>(
   if (typeof sorter === 'function') {
     return sorter;
   }
-  if (sorter && typeof sorter === 'object' && sorter.compare) {
+  if (isPlainObject(sorter) && sorter.compare) {
     return sorter.compare;
   }
   return false;
@@ -173,13 +173,9 @@ const injectSorter = <RecordType extends AnyObject = AnyObject>(
       } else if (nextSortOrder === ASCEND) {
         sortTip = triggerAsc;
       }
-      const tooltipProps: TooltipProps =
-        typeof showSorterTooltip === 'object'
-          ? {
-              title: sortTip,
-              ...showSorterTooltip,
-            }
-          : { title: sortTip };
+      const tooltipProps: TooltipProps = isPlainObject(showSorterTooltip)
+        ? { title: sortTip, ...showSorterTooltip }
+        : { title: sortTip };
       newColumn = {
         ...newColumn,
         className: clsx(newColumn.className, { [`${prefixCls}-column-sort`]: sortOrder }),

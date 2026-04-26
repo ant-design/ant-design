@@ -3,7 +3,7 @@ import ResizeObserver from '@rc-component/resize-observer';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
-import { isNumber } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -114,12 +114,12 @@ const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>((props, ref) => {
 
   const size = useSize((ctxSize) => customSize ?? avatarCtx?.size ?? ctxSize ?? 'medium');
 
-  const needResponsive = Object.keys(typeof size === 'object' ? size || {} : {}).some((key) =>
+  const needResponsive = Object.keys(isPlainObject(size) ? size || {} : {}).some((key) =>
     responsiveArray.includes(key as Breakpoint),
   );
   const screens = useBreakpoint(needResponsive);
   const responsiveSizeStyle = React.useMemo<React.CSSProperties>(() => {
-    if (typeof size !== 'object') {
+    if (!isPlainObject(size)) {
       return {};
     }
 

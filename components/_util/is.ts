@@ -10,6 +10,10 @@ export const isString = (val: any): val is string => {
   return typeof val === 'string';
 };
 
+export const isPlainObject = <T extends object = object>(val: any): val is T => {
+  return val !== null && typeof val === 'object';
+};
+
 export const isPrimitive = (value: any) => {
   return (typeof value !== 'object' && typeof value !== 'function') || value === null;
 };

@@ -6,7 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import { clsx } from 'clsx';
 
 import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks';
-import { isNonNullable } from '../_util/is';
+import { isNonNullable, isPlainObject } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
@@ -120,7 +120,7 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
 
   // ================= Context Value =================
   const { closable } = restProps;
-  const { onClose } = closable && typeof closable === 'object' ? closable : {};
+  const { onClose } = isPlainObject(closable) ? closable : {};
 
   const memoizedValue = React.useMemo<ModalContextProps>(() => {
     return {
