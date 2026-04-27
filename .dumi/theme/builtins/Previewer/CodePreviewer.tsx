@@ -6,14 +6,15 @@ import { createStaticStyles } from 'antd-style';
 import { clsx } from 'clsx';
 import { FormattedMessage, useLiveDemo, useSiteData } from 'dumi';
 import { major, minVersion } from 'semver';
+
 import type { AntdPreviewerProps } from '.';
 import useLocation from '../../../hooks/useLocation';
 import BrowserFrame from '../../common/BrowserFrame';
 import ClientOnly from '../../common/ClientOnly';
 import CodePreview from '../../common/CodePreview';
 import EditButton from '../../common/EditButton';
-import SiteContext from '../../slots/SiteContext';
 import DemoContext from '../../slots/DemoContext';
+import SiteContext from '../../slots/SiteContext';
 import { isOfficialHost } from '../../utils';
 import Actions from './Actions';
 
@@ -181,7 +182,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           aria-label="Go to online documentation"
           href={generateDocUrl()}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <FormattedMessage id="app.demo.online" />
         </a>
@@ -200,7 +201,7 @@ const CodePreviewer: React.FC<AntdPreviewerProps> = (props) => {
           aria-label="Go to previous version documentation"
           href={generateDocUrl(previousVersionDomain)}
           target="_blank"
-          rel="noreferrer"
+          rel="noopener noreferrer"
         >
           <FormattedMessage id="app.demo.previousVersion" values={{ version: previousVersion }} />
         </a>

@@ -437,7 +437,11 @@ const Page: React.FC<{ placement: Placement }> = ({ placement }) => {
               <br />
               <strong>* Note:</strong> Half star not implemented in RTL direction, it will be
               supported after{' '}
-              <a href="https://github.com/react-component/rate" target="_blank" rel="noreferrer">
+              <a
+                href="https://github.com/react-component/rate"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 rc-rate
               </a>{' '}
               implement rtl support.
