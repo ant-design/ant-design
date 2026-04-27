@@ -51,11 +51,15 @@ Common props ref：[Common props](/docs/react/common-props)
 
 ### Do I need to set `position` myself? {#faq-position}
 
-In most cases you do not need to set `position` manually. If your layout depends on an explicit containing block, set the positioning style on the actual container root.
+`BorderBeam` first attempts to insert the beam layer into the root node of `children` so the original component layout is not changed by an extra wrapper. This mode requires the computed `position` of the `children` root node to be non-`static`; otherwise, BorderBeam falls back to its own wrapper to host the beam effect.
+
+For performance reasons, whether `children` can host the beam is resolved during initialization and is not continuously updated when the child structure or positioning styles change later.
 
 ### How do I keep the beam radius aligned with my container? {#faq-radius}
 
-`BorderBeam` reads the computed `border-radius` from the actual container during initialization. This works best for a single-container child such as `Card`; for more complex child trees, set the radius on the actual container root for a more deterministic result. Later radius changes caused by size, ancestor styles, or internal child state are not guaranteed to resync automatically. The running beam may still apply internal motion smoothing.
+`BorderBeam` reads the computed `border-radius` from the actual container during initialization. This works best for a single-container child such as `Card`; for more complex child trees, set the radius on the actual container root for a more deterministic result.
+
+For performance reasons, the radius is not continuously measured after the initial calculation. Later radius changes caused by size, ancestor styles, or internal child state are not guaranteed to resync automatically. The running beam may still apply internal motion smoothing.
 
 For example:
 
