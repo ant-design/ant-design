@@ -58,7 +58,7 @@ describe('ColorPicker disabled component logic', () => {
     const onChange = jest.fn();
     const { container } = render(<ColorAlphaInput prefixCls="test" disabled onChange={onChange} />);
 
-    fireEvent.click(container.querySelector('.test-alpha-input')!);
+    fireEvent.click(container.querySelector('button.test-alpha-input')!);
 
     expect(onChange).not.toHaveBeenCalled();
   });
@@ -67,7 +67,7 @@ describe('ColorPicker disabled component logic', () => {
     const onChange = jest.fn();
     const { container } = render(<ColorHsbInput prefixCls="test" disabled onChange={onChange} />);
 
-    fireEvent.click(container.querySelector('.test-hsb-input')!);
+    fireEvent.click(container.querySelector('button.test-hsb-input')!);
 
     expect(onChange).not.toHaveBeenCalled();
   });
@@ -76,7 +76,7 @@ describe('ColorPicker disabled component logic', () => {
     const onChange = jest.fn();
     const { container } = render(<ColorRgbInput prefixCls="test" disabled onChange={onChange} />);
 
-    fireEvent.click(container.querySelector('.test-rgb-input')!);
+    fireEvent.click(container.querySelector('button.test-rgb-input')!);
 
     expect(onChange).not.toHaveBeenCalled();
   });
