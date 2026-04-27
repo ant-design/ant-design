@@ -21,12 +21,13 @@ tag: vVERSION
 
 - 💄 Fix Alert focus styles for the close button. [#57695](https://github.com/ant-design/ant-design/pull/57695) [@KittyGiraudel](https://github.com/KittyGiraudel)
 - 🐞 Fix Card rendering an empty body wrapper when no content was provided. [#57735](https://github.com/ant-design/ant-design/pull/57735) [@QDyanbing](https://github.com/QDyanbing)
-- 🐞 Fix Input.OTP masked value being visible when selected on Windows. [#57689](https://github.com/ant-design/ant-design/pull/57689) [@QDyanbing](https://github.com/QDyanbing)
+- Input
+  - 🐞 Fix Input.OTP masked value being visible when selected on Windows. [#57689](https://github.com/ant-design/ant-design/pull/57689) [@QDyanbing](https://github.com/QDyanbing)
+  - ⌨️ Improve Input accessibility for the clear button. [#57432](https://github.com/ant-design/ant-design/pull/57432) [@cyphercodes](https://github.com/cyphercodes)
 - 🐞 Fix InputNumber selection highlight radius. [#57705](https://github.com/ant-design/ant-design/pull/57705) [@QDyanbing](https://github.com/QDyanbing)
 - 🐞 Fix Tooltip semantic configs such as `className`, `styles`, etc. leaking into Popover and Popconfirm from ConfigProvider. [#57731](https://github.com/ant-design/ant-design/pull/57731) [@pikanohup](https://github.com/pikanohup)
 - 🐞 Fix Typography.Link cannot trigger actions buttons such as copy, edit & etc. when disabled. [#57762](https://github.com/ant-design/ant-design/pull/57762) [@aviu16](https://github.com/aviu16)
 - 🐞 Fix ConfigProvider language packs export from ESM/CJS dist files. [#57318](https://github.com/ant-design/ant-design/pull/57318) [@ug-hero](https://github.com/ug-hero)
-- ⌨️ Improve Input accessibility for the clear button. [#57432](https://github.com/ant-design/ant-design/pull/57432) [@cyphercodes](https://github.com/cyphercodes)
 
 ## 6.3.6
 
