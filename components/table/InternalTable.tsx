@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 import { useProxyImperativeHandle } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNumber } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -285,7 +285,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const [, token] = useToken();
 
   const mergedRowSelection = React.useMemo(() => {
-    return customizeRowSelection && typeof customizeRowSelection === 'object'
+    return isPlainObject(customizeRowSelection)
       ? { columnWidth: token.Table?.selectionColumnWidth, ...customizeRowSelection }
       : customizeRowSelection;
   }, [customizeRowSelection, token.Table?.selectionColumnWidth]);
@@ -638,7 +638,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const spinProps = React.useMemo<SpinProps | undefined>(() => {
     if (typeof loading === 'boolean') {
       return { spinning: loading };
-    } else if (typeof loading === 'object' && loading !== null) {
+    } else if (isPlainObject(loading)) {
       return { spinning: true, ...loading };
     } else {
       return undefined;

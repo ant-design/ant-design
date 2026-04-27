@@ -187,7 +187,7 @@ const HeaderNavigation: React.FC<NavigationProps> = (props) => {
       ? {
           key: 'mirror',
           label: (
-            <a href="https://ant-design.antgroup.com" target="_blank" rel="noreferrer">
+            <a href="https://ant-design.antgroup.com" target="_blank" rel="noopener noreferrer">
               国内镜像
             </a>
           ),

@@ -7,6 +7,6 @@
  *
  * Note: it is different from `??` operator which skips null
  */
-export default function fallbackProp<T>(...args: T[]): T | undefined {
-  return args.find((arg) => arg !== undefined);
+export default function fallbackProp<T>(...args: T[]) {
+  return args.find((arg): arg is Exclude<T, undefined> => arg !== undefined);
 }
