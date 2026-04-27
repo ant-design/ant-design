@@ -12156,6 +12156,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider 1`] = `
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12200,6 +12201,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12243,6 +12245,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12286,6 +12289,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12329,6 +12333,7 @@ exports[`ConfigProvider components DatePicker DatePicker configProvider componen
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12416,6 +12421,7 @@ exports[`ConfigProvider components DatePicker DatePicker prefixCls 1`] = `
         class="prefix-DatePicker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12459,6 +12465,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider 1`] = `
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12503,6 +12510,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12546,6 +12554,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12589,6 +12598,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12632,6 +12642,7 @@ exports[`ConfigProvider components DatePicker MonthPicker configProvider compone
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12719,6 +12730,7 @@ exports[`ConfigProvider components DatePicker MonthPicker prefixCls 1`] = `
         class="prefix-MonthPicker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -12808,6 +12820,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider 1`] = `
       class="config-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -12898,6 +12911,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -12986,6 +13000,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -13074,6 +13089,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -13162,6 +13178,7 @@ exports[`ConfigProvider components DatePicker RangePicker configProvider compone
       class="config-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -13339,6 +13356,7 @@ exports[`ConfigProvider components DatePicker RangePicker prefixCls 1`] = `
       class="prefix-RangePicker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"
@@ -13381,6 +13399,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider 1`] = `
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -13425,6 +13444,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -13468,6 +13488,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -13511,6 +13532,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -13554,6 +13576,7 @@ exports[`ConfigProvider components DatePicker WeekPicker configProvider componen
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -13641,6 +13664,7 @@ exports[`ConfigProvider components DatePicker WeekPicker prefixCls 1`] = `
         class="prefix-WeekPicker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -28098,6 +28122,7 @@ Array [
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -29660,6 +29685,7 @@ Array [
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -29706,6 +29732,7 @@ Array [
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -31267,6 +31294,7 @@ Array [
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -32828,6 +32856,7 @@ Array [
         class="config-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
@@ -35951,6 +35980,7 @@ Array [
         class="prefix-TimePicker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="clock-circle"
           class="anticon anticon-clock-circle"
           role="img"
