@@ -5,9 +5,11 @@ import { createStaticStyles } from 'antd-style';
 
 const classNames = createStaticStyles(({ css }) => ({
   root: css`
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    padding: 12px;
+    .ant-alert& {
+      border: 2px dashed #ccc;
+      border-radius: 8px;
+      padding: 12px;
+    }
   `,
 }));
 
