@@ -70,15 +70,8 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
       padding: defaultPadding,
       wordWrap: 'break-word',
       borderRadius,
-
-      [`&${componentCls}-variant-bordered`]: {
-        borderWidth: unit(lineWidth),
-        borderStyle: lineType,
-      },
-
-      [`&${componentCls}-variant-borderless`]: {
-        border: 0,
-      },
+      borderWidth: unit(lineWidth),
+      borderStyle: lineType,
 
       [`&${componentCls}-success`]: {
         borderColor: colorSuccessBorder,
@@ -94,6 +87,10 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 
       [`&${componentCls}-error`]: {
         borderColor: colorErrorBorder,
+      },
+
+      [`&${componentCls}-variant-borderless`]: {
+        borderColor: 'transparent',
       },
 
       [`&${componentCls}-rtl`]: {
