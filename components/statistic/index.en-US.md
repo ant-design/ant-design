@@ -44,7 +44,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | suffix | The suffix node of value | ReactNode | - |  |
 | title | Display title | ReactNode | - |  |
 | value | Display value | string \| number | - |  |
-| valueStyle | Set value section style | CSSProperties | - |  |
+| ~~valueStyle~~ | Set value section style, please use `styles.content` instead | CSSProperties | - |  |
 
 #### Statistic.Countdown <Badge type="error">Deprecated</Badge>
 
@@ -77,6 +77,8 @@ Common props ref：[Common props](/docs/react/common-props)
 | onChange | Trigger when time's changing | (value: number) => void | - |  |
 
 ## Semantic DOM
+
+Statistic supports `root`, `header`, `title`, `content`, `value`, `prefix`, and `suffix` semantic DOM nodes.
 
 <code src="./demo/_semantic.tsx" simplify="true"></code>
 

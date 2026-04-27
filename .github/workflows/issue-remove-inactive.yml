@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: remove inactive
         if: github.event.issue.state == 'open' && github.actor == github.event.issue.user.login
-        uses: actions-cool/issues-helper@v3
+        uses: actions-cool/issues-helper@200c78641dbf33838311e5a1e0c31bbdb92d7cf0 # v3
         with:
           actions: remove-labels
           issue-number: ${{ github.event.issue.number }}

@@ -7,23 +7,24 @@ import { useEvent } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
 import { genCssVar } from '../theme/util/genStyleUtils';
-import type { SplitterProps, SplitterSemanticDraggerClassNames } from './interface';
+import type { SplitterProps, SplitterSemanticAllType } from './interface';
 
 export type ShowCollapsibleIconMode = boolean | 'auto';
 
 export interface SplitBarProps {
   index: number;
   active: boolean;
-  draggerStyle?: React.CSSProperties;
-  draggerClassName?: SplitterSemanticDraggerClassNames;
+  draggerStyle?: NonNullable<SplitterSemanticAllType['styles']>['dragger'];
+  draggerClassName?: NonNullable<SplitterSemanticAllType['classNamesNoString']>['dragger'];
   prefixCls: string;
   rootPrefixCls: string;
   resizable: boolean;
   startCollapsible: boolean;
   endCollapsible: boolean;
   draggerIcon?: SplitterProps['draggerIcon'];
-  collapsibleIcon?: SplitterProps['collapsibleIcon'];
+  collapsibleIcon?: NonNullable<SplitterProps['collapsible']>['icon'];
   showStartCollapsibleIcon: ShowCollapsibleIconMode;
   showEndCollapsibleIcon: ShowCollapsibleIconMode;
   onDraggerDoubleClick?: (index: number) => void;
@@ -39,11 +40,9 @@ export interface SplitBarProps {
   containerSize: number;
 }
 
-function getValidNumber(num?: number): number {
-  return typeof num === 'number' && !Number.isNaN(num) && Number.isFinite(num)
-    ? Math.round(num)
-    : 0;
-}
+const getValidNumber = (num?: number) => {
+  return isNumber(num) && Number.isFinite(num) ? Math.round(num) : 0;
+};
 
 const DOUBLE_CLICK_TIME_GAP = 300;
 
@@ -256,7 +255,7 @@ const SplitBar: React.FC<SplitBarProps> = (props) => {
       )}
 
       <div
-        style={draggerStyle}
+        style={draggerStyle?.default}
         className={clsx(
           `${splitBarPrefixCls}-dragger`,
           {

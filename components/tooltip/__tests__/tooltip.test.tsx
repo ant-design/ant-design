@@ -350,7 +350,9 @@ describe('Tooltip', () => {
       });
     };
 
-    placementList.forEach((placement) => testPlacement(`Placement ${placement}`, placement));
+    placementList.forEach((placement) => {
+      testPlacement(`Placement ${placement}`, placement);
+    });
   });
 
   it('should works for mismatch placement', async () => {
@@ -630,5 +632,30 @@ describe('Tooltip', () => {
         color: 'rgb(0, 255, 255)',
       });
     });
+  });
+
+  // Test `styles` (useMergeSemantic path) and `className` (direct injection path)
+  // to cover both ConfigProvider tooltip injection mechanisms
+  it('ConfigProvider tooltip config should apply to Tooltip', () => {
+    const { container } = render(
+      <ConfigProvider
+        tooltip={{
+          className: 'custom-tooltip-root',
+          styles: {
+            arrow: { background: 'red' },
+          },
+        }}
+      >
+        <Tooltip title="hello" open>
+          <span>Hover me</span>
+        </Tooltip>
+      </ConfigProvider>,
+    );
+
+    const tooltip = container.querySelector('.ant-tooltip');
+    expect(tooltip).toHaveClass('custom-tooltip-root');
+
+    const arrow = container.querySelector('.ant-tooltip-arrow');
+    expect(arrow).toHaveStyle({ background: 'red' });
   });
 });

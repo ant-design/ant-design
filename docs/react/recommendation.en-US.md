@@ -45,6 +45,7 @@ title: Third-Party Libraries
 | Flow-based UI | [pro-flow](https://github.com/ant-design/pro-flow) [react-flow](https://github.com/wbkd/react-flow) [x6](https://github.com/antvis/x6) |
 | Phone Input | [react-phone-number-input](https://gitlab.com/catamphetamine/react-phone-number-input) [antd-phone-input](https://github.com/ArtyomVancyan/antd-phone-input/) |
 | AI Chat | [Ant Design X](https://github.com/ant-design/x) |
+| CLI Tool | [Ant Design CLI](https://github.com/ant-design/ant-design-cli) |
 | PDF | [react-pdf](https://github.com/diegomura/react-pdf) [@react-pdf/renderer](https://github.com/diegomura/react-pdf) |
 | React Gesture | [use-gesture](https://use-gesture.netlify.app) |
 

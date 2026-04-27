@@ -4205,7 +4205,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     </span>
   </button>
   <div
-    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id acss-1fo211e ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -4305,7 +4305,7 @@ exports[`renders components/drawer/demo/style-class.tsx extend context correctly
     </div>
   </div>
   <div
-    class="ant-drawer ant-drawer-right css-var-test-id ant-drawer-open ant-drawer-inline"
+    class="ant-drawer ant-drawer-right css-var-test-id acss-1fo211e ant-drawer-open ant-drawer-inline"
     tabindex="-1"
   >
     <div
@@ -4839,14 +4839,14 @@ Array [
                 <p
                   class="site-description-item-profile-p-label"
                 >
-                  Github:
+                  GitHub:
                 </p>
                 <a
-                  href="http://github.com/ant-design/ant-design/"
-                  rel="noreferrer"
+                  href="https://github.com/ant-design/ant-design"
+                  rel="noopener noreferrer"
                   target="_blank"
                 >
-                  github.com/ant-design/ant-design/
+                  github.com/ant-design/ant-design
                 </a>
               </div>
             </div>

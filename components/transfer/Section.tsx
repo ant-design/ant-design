@@ -3,6 +3,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isNumber, isPlainObject } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -15,8 +16,7 @@ import type {
   TransferDirection,
   TransferLocale,
   TransferSearchOption,
-  TransferSemanticClassNames,
-  TransferSemanticStyles,
+  TransferSemanticAllType,
 } from './';
 import type { PaginationType, TransferKey } from './interface';
 import type { ListBodyRef, TransferListBodyProps } from './ListBody';
@@ -42,7 +42,7 @@ function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
   item: RecordType,
 ): string {
   for (const v of [renderResult, item.title, item.key]) {
-    if (typeof v === 'string' || typeof v === 'number') {
+    if (typeof v === 'string' || isNumber(v)) {
       return String(v);
     }
   }
@@ -62,8 +62,8 @@ type RenderListFunction<T> = (props: TransferListBodyProps<T>) => React.ReactNod
 export interface TransferListProps<RecordType> extends TransferLocale {
   prefixCls: string;
   style?: React.CSSProperties;
-  classNames: TransferSemanticClassNames;
-  styles: TransferSemanticStyles;
+  classNames: NonNullable<TransferSemanticAllType['classNames']>;
+  styles: NonNullable<TransferSemanticAllType['styles']>;
 
   titleText: React.ReactNode;
   dataSource: RecordType[];
@@ -102,7 +102,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
 const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
-  if (showSearch && typeof showSearch === 'object') {
+  if (isPlainObject(showSearch)) {
     return {
       ...showSearch,
       defaultValue: showSearch.defaultValue || '',

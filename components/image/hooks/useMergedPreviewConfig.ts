@@ -15,9 +15,9 @@ const useMergedPreviewConfig = <T extends PreviewConfig | GroupPreviewConfig>(
   getContextPopupContainer: PreviewConfig['getContainer'],
   icons: PreviewConfig['icons'],
   defaultCover?: React.ReactNode,
-): T & { blurClassName?: string } => {
+): T & { blurClassName?: string; maskClosable?: boolean } => {
   const [zIndex] = useZIndex('ImagePreview', previewConfig?.zIndex);
-  const [mergedPreviewMask, blurClassName] = useMergedMask(
+  const [mergedPreviewMask, blurClassName, mergedMaskClosable] = useMergedMask(
     previewConfig?.mask as MaskType,
     contextPreviewConfig?.mask as MaskType,
     `${prefixCls}-preview`,
@@ -45,6 +45,7 @@ const useMergedPreviewConfig = <T extends PreviewConfig | GroupPreviewConfig>(
       closeIcon: closeIcon ?? contextCloseIcon,
       rootClassName: clsx(mergedRootClassName, previewRootClassName),
       mask: mergedPreviewMask,
+      maskClosable: mergedMaskClosable,
       blurClassName: blurClassName.mask,
     };
   }, [
@@ -57,6 +58,7 @@ const useMergedPreviewConfig = <T extends PreviewConfig | GroupPreviewConfig>(
     icons,
     zIndex,
     mergedPreviewMask,
+    mergedMaskClosable,
     blurClassName,
   ]);
 };

@@ -13,7 +13,7 @@ export const genHoverStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
 export const genDisabledStyle: GenerateStyle<InputToken, CSSObject> = (token) => ({
   color: token.colorTextDisabled,
   backgroundColor: token.colorBgContainerDisabled,
-  borderColor: token.colorBorder,
+  borderColor: token.colorBorderDisabled,
   boxShadow: 'none',
   cursor: 'not-allowed',
   opacity: 1,
@@ -25,7 +25,7 @@ export const genDisabledStyle: GenerateStyle<InputToken, CSSObject> = (token) =>
   '&:hover:not([disabled])': {
     ...genHoverStyle(
       mergeToken<InputToken>(token, {
-        hoverBorderColor: token.colorBorder,
+        hoverBorderColor: token.colorBorderDisabled,
         hoverBg: token.colorBgContainerDisabled,
       }),
     ),
@@ -102,7 +102,7 @@ export const genOutlinedStyle = (token: InputToken, extraStyles?: CSSObject): CS
       hoverBorderColor: token.colorErrorBorderHover,
       activeBorderColor: token.colorError,
       activeShadow: token.errorActiveShadow,
-      affixColor: token.colorError,
+      affixColor: token.colorErrorAffix,
     }),
 
     ...genOutlinedStatusStyle(token, {
@@ -206,6 +206,9 @@ export const genBorderlessStyle = (token: InputToken, extraStyles?: CSSObject): 
         '&, & input, & textarea': {
           color: token.colorError,
         },
+        [`${componentCls}-prefix, ${componentCls}-suffix`]: {
+          color: token.colorErrorAffix,
+        },
       },
 
       [`&${componentCls}-status-warning`]: {
@@ -288,7 +291,7 @@ export const genFilledStyle = (token: InputToken, extraStyles?: CSSObject): CSSO
       hoverBg: token.colorErrorBgHover,
       activeBorderColor: token.colorError,
       inputColor: token.colorErrorText,
-      affixColor: token.colorError,
+      affixColor: token.colorErrorAffix,
     }),
 
     ...genFilledStatusStyle(token, {
@@ -445,7 +448,7 @@ export const genUnderlinedStyle = (token: InputToken, extraStyles?: CSSObject): 
       hoverBorderColor: token.colorErrorBorderHover,
       activeBorderColor: token.colorError,
       activeShadow: token.errorActiveShadow,
-      affixColor: token.colorError,
+      affixColor: token.colorErrorAffix,
     }),
 
     ...genUnderlinedStatusStyle(token, {

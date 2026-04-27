@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import { isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import type { GetRowKey, Key } from '../interface';
 
@@ -31,7 +32,7 @@ const useLazyKVMap = <RecordType extends AnyObject = AnyObject>(
           const rowKey = getRowKey(record, index);
           kvMap.set(rowKey, record);
 
-          if (record && typeof record === 'object' && childrenColumnName in record) {
+          if (isPlainObject(record) && childrenColumnName in record) {
             dig(record[childrenColumnName] || []);
           }
         });

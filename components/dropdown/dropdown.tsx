@@ -7,9 +7,10 @@ import type { AlignType } from '@rc-component/trigger';
 import { omit, useControlledState, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useZIndex } from '../_util/hooks';
-import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import isPrimitive from '../_util/isPrimitive';
+import { useZIndex } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject, isPrimitive } from '../_util/is';
 import type { AdjustOverflow } from '../_util/placements';
 import getPlacements from '../_util/placements';
 import genPurePanel from '../_util/PurePanel';
@@ -42,35 +43,28 @@ type DropdownPlacement = Exclude<Placement, 'topCenter' | 'bottomCenter'>;
 export type DropdownArrowOptions = {
   pointAtCenter?: boolean;
 };
-
-export type DropdownSemanticName = keyof DropdownSemanticClassNames & keyof DropdownSemanticStyles;
-
-export type DropdownSemanticClassNames = {
-  root?: string;
-  item?: string;
-  itemTitle?: string;
-  itemIcon?: string;
-  itemContent?: string;
+export type DropdownSemanticType = {
+  classNames?: {
+    root?: string;
+    item?: string;
+    itemTitle?: string;
+    itemIcon?: string;
+    itemContent?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    item?: React.CSSProperties;
+    itemTitle?: React.CSSProperties;
+    itemIcon?: React.CSSProperties;
+    itemContent?: React.CSSProperties;
+  };
 };
 
-export type DropdownSemanticStyles = {
-  root?: React.CSSProperties;
-  item?: React.CSSProperties;
-  itemTitle?: React.CSSProperties;
-  itemIcon?: React.CSSProperties;
-  itemContent?: React.CSSProperties;
-};
-
-export type DropdownClassNamesType = SemanticClassNamesType<
-  DropdownProps,
-  DropdownSemanticClassNames
->;
-
-export type DropdownStylesType = SemanticStylesType<DropdownProps, DropdownSemanticStyles>;
+export type DropdownSemanticAllType = GenerateSemantic<DropdownSemanticType, DropdownProps>;
 
 export interface DropdownProps {
-  classNames?: DropdownClassNamesType;
-  styles?: DropdownStylesType;
+  classNames?: DropdownSemanticAllType['classNamesAndFn'];
+  styles?: DropdownSemanticAllType['stylesAndFn'];
   menu?: MenuProps & { activeKey?: RcMenuProps['activeKey'] };
   autoFocus?: boolean;
   arrow?: boolean | DropdownArrowOptions;
@@ -153,13 +147,13 @@ const Dropdown: CompoundedComponent = (props) => {
     mouseLeaveDelay,
     autoAdjustOverflow,
   };
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    DropdownClassNamesType,
-    DropdownStylesType,
-    DropdownProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const mergedRootStyles: React.CSSProperties = {
     ...contextStyle,
@@ -224,10 +218,7 @@ const Dropdown: CompoundedComponent = (props) => {
 
   const child = React.Children.only(
     isPrimitive(children) ? <span>{children}</span> : children,
-  ) as React.ReactElement<{
-    className?: string;
-    disabled?: boolean;
-  }>;
+  ) as React.ReactElement<{ className?: string; disabled?: boolean }>;
 
   const popupTrigger = cloneElement(child, {
     className: clsx(
@@ -261,7 +252,7 @@ const Dropdown: CompoundedComponent = (props) => {
   );
 
   const builtinPlacements = getPlacements({
-    arrowPointAtCenter: typeof arrow === 'object' && arrow.pointAtCenter,
+    arrowPointAtCenter: isPlainObject(arrow) && arrow.pointAtCenter,
     autoAdjustOverflow,
     offset: token.marginXXS,
     arrowWidth: arrow ? token.sizePopupArrow : 0,

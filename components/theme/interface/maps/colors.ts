@@ -9,6 +9,11 @@ export interface ColorNeutralMapToken {
    */
   colorBgBase: string;
 
+  /**
+   * @internal
+   */
+  colorShadow: string;
+
   // ----------   Text   ---------- //
 
   /**

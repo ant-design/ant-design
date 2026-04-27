@@ -4,7 +4,10 @@ exports[`Image Default Group preview props 1`] = `
 <body>
   <div>
     <div
+      aria-label="test image"
       class="ant-image css-var-root ant-image-css-var"
+      role="button"
+      tabindex="0"
     >
       <img
         alt="test image"
@@ -18,7 +21,10 @@ exports[`Image Default Group preview props 1`] = `
   </div>
   <div>
     <div
-      class="ant-image-preview css-var-root ant-image-css-var ant-image-preview-fade-appear ant-image-preview-fade-appear-start ant-image-preview-fade"
+      aria-modal="true"
+      class="ant-image-preview css-var-root ant-image-css-var ant-image-preview-fade-appear ant-image-preview-fade-appear-start ant-image-preview-fade ant-image-preview-movable"
+      role="dialog"
+      tabindex="-1"
     >
       <div
         class="ant-image-preview-mask"
@@ -69,8 +75,10 @@ exports[`Image Default Group preview props 1`] = `
         <div
           class="ant-image-preview-actions"
         >
-          <div
+          <button
+            aria-label="flipY"
             class="ant-image-preview-actions-action ant-image-preview-actions-action-flipY"
+            type="button"
           >
             <span
               aria-label="swap"
@@ -92,9 +100,11 @@ exports[`Image Default Group preview props 1`] = `
                 />
               </svg>
             </span>
-          </div>
-          <div
+          </button>
+          <button
+            aria-label="flipX"
             class="ant-image-preview-actions-action ant-image-preview-actions-action-flipX"
+            type="button"
           >
             <span
               aria-label="swap"
@@ -115,9 +125,11 @@ exports[`Image Default Group preview props 1`] = `
                 />
               </svg>
             </span>
-          </div>
-          <div
+          </button>
+          <button
+            aria-label="rotateLeft"
             class="ant-image-preview-actions-action ant-image-preview-actions-action-rotateLeft"
+            type="button"
           >
             <span
               aria-label="rotate-left"
@@ -144,9 +156,11 @@ exports[`Image Default Group preview props 1`] = `
                 />
               </svg>
             </span>
-          </div>
-          <div
+          </button>
+          <button
+            aria-label="rotateRight"
             class="ant-image-preview-actions-action ant-image-preview-actions-action-rotateRight"
+            type="button"
           >
             <span
               aria-label="rotate-right"
@@ -173,9 +187,12 @@ exports[`Image Default Group preview props 1`] = `
                 />
               </svg>
             </span>
-          </div>
-          <div
+          </button>
+          <button
+            aria-label="zoomOut"
             class="ant-image-preview-actions-action ant-image-preview-actions-action-zoomOut ant-image-preview-actions-action-disabled"
+            disabled=""
+            type="button"
           >
             <span
               aria-label="zoom-out"
@@ -196,9 +213,11 @@ exports[`Image Default Group preview props 1`] = `
                 />
               </svg>
             </span>
-          </div>
-          <div
+          </button>
+          <button
+            aria-label="zoomIn"
             class="ant-image-preview-actions-action ant-image-preview-actions-action-zoomIn"
+            type="button"
           >
             <span
               aria-label="zoom-in"
@@ -219,7 +238,7 @@ exports[`Image Default Group preview props 1`] = `
                 />
               </svg>
             </span>
-          </div>
+          </button>
         </div>
       </div>
     </div>
@@ -230,6 +249,8 @@ exports[`Image Default Group preview props 1`] = `
 exports[`Image rtl render component should be rendered correctly in RTL direction 1`] = `
 <div
   class="ant-image css-var-root ant-image-css-var"
+  role="button"
+  tabindex="0"
 >
   <img
     class="ant-image-img"

@@ -37,7 +37,7 @@ const MyPage: React.FC = () => {
   modal.warning({ title: 'Good' });
   // ....
   // other message, notification, modal static function
-  return <div>Hello word</div>;
+  return <div>Hello world</div>;
 };
 
 const MyApp: React.FC = () => (

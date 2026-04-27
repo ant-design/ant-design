@@ -3,6 +3,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
+import { isNumber } from '../_util/is';
 import { ConfigContext } from '../config-provider';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { CheckboxChangeEvent } from './Checkbox';
@@ -73,7 +74,7 @@ const CheckboxGroup = React.forwardRef(
     const memoizedOptions = React.useMemo<CheckboxOptionType<T>[]>(
       () =>
         options.map<CheckboxOptionType<T>>((option: any) => {
-          if (typeof option === 'string' || typeof option === 'number') {
+          if (typeof option === 'string' || isNumber(option)) {
             return { label: option, value: option };
           }
           return option;

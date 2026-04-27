@@ -4,7 +4,7 @@ import { composeRef, getNodeRef } from '@rc-component/util/lib/ref';
 import { FormContext } from '../context';
 import type { InternalNamePath } from '../interface';
 
-export default function useItemRef() {
+const useItemRef = () => {
   const { itemRef } = React.useContext(FormContext);
   const cacheRef = React.useRef<{
     name?: string;
@@ -14,7 +14,7 @@ export default function useItemRef() {
 
   function getRef(name: InternalNamePath, children: any) {
     // Outer caller already check the `supportRef`
-    const childrenRef: React.Ref<React.ReactElement> =
+    const childrenRef: React.Ref<React.ReactElement<any>> =
       children && typeof children === 'object' && getNodeRef(children);
 
     const nameStr = name.join('_');
@@ -28,4 +28,6 @@ export default function useItemRef() {
   }
 
   return getRef;
-}
+};
+
+export default useItemRef;

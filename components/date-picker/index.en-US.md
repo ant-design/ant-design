@@ -66,7 +66,7 @@ There are five kinds of picker:
 
 The default locale is en-US, if you need to use other languages, recommend to use internationalized components provided by us at the entrance. Look at: [ConfigProvider](https://ant.design/components/config-provider/).
 
-If there are special needs (only modifying single component language), Please use the property: local. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
+If there are special needs (only modifying single component language), Please use the property: locale. Example: [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json).
 
 ```jsx
 // The default locale is en-US, if you want to use other locale, just set locale in entry file globally.
@@ -95,18 +95,20 @@ The following APIs are shared by DatePicker, RangePicker.
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
 | allowClear | Customize clear button | boolean \| { clearIcon?: ReactNode } | true | 5.8.0: Support object type |
+| ~~bordered~~ | Whether has border style, please use `variant` instead | boolean | true | - |
 | className | The picker className | string | - |  |
-| classNames | 用于自定义组件内部各语义化结构的 class，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
+| classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | dateRender | Custom rendering function for date cells, >= 5.4.0 use `cellRender` instead. | function(currentDate: dayjs, today: dayjs) => React.ReactNode | - | < 5.4.0 |
 | cellRender | Custom rendering function for picker cells | (current: dayjs, info: { originNode: React.ReactElement,today: DateType, range?: 'start' \| 'end', type: PanelMode, locale?: Locale, subType?: 'hour' \| 'minute' \| 'second' \| 'meridiem' }) => React.ReactNode | - | 5.4.0 |
 | components | Custom panels | Record<Panel \| 'input', React.ComponentType> | - | 5.14.0 |
 | defaultOpen | Initial open state of picker | boolean | - |  |
 | disabled | Determine whether the DatePicker is disabled | boolean | false |  |
 | disabledDate | Specify the date that cannot be selected | (currentDate: dayjs, info: { from?: dayjs, type: Picker }) => boolean | - | `info`: 5.14.0 |
+| ~~dropdownClassName~~ | The className of popup calendar, please use `classNames.popup.root` instead | string | - | - |
 | format | To set the date format, support multi-format matching when it is an array, display the first one shall prevail. refer to [dayjs#format](https://day.js.org/docs/en/display/format). for example: [Custom Format](#date-picker-demo-format) | [formatType](#formattype) | [@rc-component/picker](https://github.com/react-component/picker/blob/f512f18ed59d6791280d1c3d7d37abbb9867eb0b/src/utils/uiUtil.ts#L155-L177) |  |
 | order | Auto order date when multiple or range selection | boolean | true | 5.14.0 |
 | ~~popupClassName~~ | To customize the className of the popup calendar, use `classNames.popup.root` instead | string | - | 4.23.0 |
-| preserveInvalidOnBlur | Not clean input on blur even when the typing is invalidate | boolean | false | 5.14.0 |
+| preserveInvalidOnBlur | Don't clear the input on blur even when the typed value is invalid | boolean | false | 5.14.0 |
 | getPopupContainer | To set the container of the floating layer, while the default is to create a `div` element in `body` | function(trigger) | - |  |
 | inputReadOnly | Set the `readonly` attribute of the input tag (avoids virtual keyboard on touch devices) | boolean | false |  |
 | locale | Localization configuration | object | [default](https://github.com/ant-design/ant-design/blob/master/components/date-picker/locale/example.json) |  |
@@ -128,13 +130,14 @@ The following APIs are shared by DatePicker, RangePicker.
 | size | To determine the size of the input box, the height of `large` and `small`, are 40px and 24px respectively, while default size is 32px | `large` \| `medium` \| `small` | - |  |
 | status | Set validation status | 'error' \| 'warning' | - | 4.19.0 |
 | style | To customize the style of the input box | CSSProperties | {} |  |
-| styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
+| styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | suffixIcon | The custom suffix icon | ReactNode | - |  |
 | superNextIcon | The custom super next icon | ReactNode | - | 4.17.0 |
 | superPrevIcon | The custom super prev icon | ReactNode | - | 4.17.0 |
 | variant | Variants of picker | `outlined` \| `borderless` \| `filled` \| `underlined` | `outlined` | 5.13.0 \| `underlined`: 5.24.0 |
 | onOpenChange | Callback function, can be executed whether the popup calendar is popped up or closed | function(open) | - |  |
 | onPanelChange | Callback when picker panel mode is changed | function(value, mode) | - |  |
+| ~~onSelect~~ | Callback when a date is selected, please use `onCalendarChange` instead | function(value) | - | - |
 
 ### Common Methods
 
@@ -172,6 +175,7 @@ The following APIs are shared by DatePicker, RangePicker.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY` |  |
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
+| tagRender | Customize tag render, only applies when `multiple` is set | (props) => ReactNode | - | 6.4.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
@@ -185,6 +189,7 @@ Added in `4.1.0`.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-\QQ` |  |
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
+| tagRender | Customize tag render, only applies when `multiple` is set | (props) => ReactNode | - | 6.4.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
@@ -196,6 +201,7 @@ Added in `4.1.0`.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-MM` |  |
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | () => React.ReactNode | - |  |
+| tagRender | Customize tag render, only applies when `multiple` is set | (props) => ReactNode | - | 6.4.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 
@@ -207,6 +213,7 @@ Added in `4.1.0`.
 | format | To set the date format. refer to [dayjs#format](https://day.js.org/docs/en/display/format) | [formatType](#formattype) | `YYYY-wo` |  |
 | multiple | Enable multiple selection | boolean | false | 5.14.0 |
 | renderExtraFooter | Render extra footer in panel | (mode) => React.ReactNode | - |  |
+| tagRender | Customize tag render, only applies when `multiple` is set | (props) => ReactNode | - | 6.4.0 |
 | value | To set date | [dayjs](https://day.js.org/) | - |  |
 | onChange | Callback function, can be executed when the selected time is changing | function(date: dayjs \| null, dateString: string \| null) | - |  |
 | showWeek | Show week info when in DatePicker | boolean | true | 5.14.0 |

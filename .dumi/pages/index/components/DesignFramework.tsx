@@ -158,7 +158,7 @@ const DesignFramework: React.FC = () => {
 
         return (
           <Col key={index} span={colSpan}>
-            <a className={styles.cardMini} target="_blank" href={url} rel="noreferrer">
+            <a className={styles.cardMini} target="_blank" href={url} rel="noopener noreferrer">
               <img
                 draggable={false}
                 alt={title}

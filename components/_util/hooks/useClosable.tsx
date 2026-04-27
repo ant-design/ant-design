@@ -2,13 +2,13 @@ import type { ReactNode } from 'react';
 import React from 'react';
 import CloseOutlined from '@ant-design/icons/CloseOutlined';
 import type { DialogProps } from '@rc-component/dialog';
+import { mergeProps } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 
 import { useLocale } from '../../locale';
 import defaultLocale from '../../locale/en_US';
 import type { HTMLAriaDataAttributes } from '../aria-data-attrs';
-import extendsObject from '../extendsObject';
-import isNonNullable from '../isNonNullable';
+import { isNonNullable, isPlainObject } from '../is';
 
 export type ClosableType = DialogProps['closable'];
 export type BaseContextClosable = { closable?: ClosableType; closeIcon?: ReactNode };
@@ -63,11 +63,8 @@ const computeClosableConfig = (
     closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
   };
 
-  if (closable && typeof closable === 'object') {
-    closableConfig = {
-      ...closableConfig,
-      ...closable,
-    };
+  if (isPlainObject(closable)) {
+    closableConfig = { ...closableConfig, ...closable };
   }
   return closableConfig;
 };
@@ -81,14 +78,14 @@ const mergeClosableConfigs = (
     return false;
   }
   if (propConfig) {
-    return extendsObject(fallbackConfig, contextConfig, propConfig);
+    return mergeProps(fallbackConfig, contextConfig, propConfig);
   }
 
   if (contextConfig === false) {
     return false;
   }
   if (contextConfig) {
-    return extendsObject(fallbackConfig, contextConfig);
+    return mergeProps(fallbackConfig, contextConfig);
   }
 
   return fallbackConfig.closable ? fallbackConfig : false;

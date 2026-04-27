@@ -205,6 +205,15 @@ describe('Modal', () => {
     });
   });
 
+  it('responsive width should support number', () => {
+    render(<Modal open width={{ xs: 520 }} />);
+
+    const modalEle = document.querySelector<HTMLDivElement>('.ant-modal')!;
+    expect(modalEle).toHaveStyle({
+      '--ant-modal-xs-width': '520px',
+    });
+  });
+
   it('should support centered prop', () => {
     render(<Modal open centered />);
     expect(document.querySelector('.ant-modal-centered')).toBeTruthy();
@@ -474,6 +483,52 @@ describe('Modal', () => {
           focusable: {
             trap: true,
             focusTriggerAfterClose: true,
+          },
+        }),
+      }),
+    );
+  });
+
+  it('should support focusable global config', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
+        <Modal open getContainer={false} classNames={classNames}>
+          Here is content of Modal
+        </Modal>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: false,
+            focusTriggerAfterClose: false,
+          },
+        }),
+      }),
+    );
+  });
+
+  it('should prefer focusable prop over global config', () => {
+    const classNames = jest.fn(() => ({}));
+
+    render(
+      <ConfigProvider modal={{ focusable: { trap: false, focusTriggerAfterClose: false } }}>
+        <Modal open getContainer={false} focusable={{ trap: true }} classNames={classNames}>
+          Here is content of Modal
+        </Modal>
+      </ConfigProvider>,
+    );
+
+    expect(classNames).toHaveBeenCalledWith(
+      expect.objectContaining({
+        props: expect.objectContaining({
+          focusable: {
+            trap: true,
+            focusTriggerAfterClose: false,
           },
         }),
       }),

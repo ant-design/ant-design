@@ -6,6 +6,7 @@ import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
 import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import { clsx } from 'clsx';
 
+import { isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import type { AntTreeNodeProps, SwitcherIcon, TreeLeafIcon } from '../Tree';
 
@@ -29,7 +30,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
     return <LoadingOutlined className={`${prefixCls}-switcher-loading-icon`} />;
   }
   let showLeafIcon: boolean | TreeLeafIcon;
-  if (showLine && typeof showLine === 'object') {
+  if (isPlainObject(showLine)) {
     showLeafIcon = showLine.showLeafIcon;
   }
 
@@ -49,7 +50,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
         });
       }
 
-      return leafIcon as unknown as React.ReactElement;
+      return leafIcon as unknown as React.ReactElement<any>;
     }
 
     return showLeafIcon ? (
@@ -73,7 +74,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
   }
 
   if (switcher !== undefined) {
-    return switcher as unknown as React.ReactElement;
+    return switcher as unknown as React.ReactElement<any>;
   }
 
   if (showLine) {

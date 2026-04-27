@@ -1,19 +1,19 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import type { SizeType } from '../config-provider/SizeContext';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
+import type { SizeType } from '../config-provider/SizeContext';
 
-export type ElementSemanticName = keyof ElementSemanticClassNames & keyof ElementSemanticStyles;
-
-export type ElementSemanticClassNames = {
-  root?: string;
-  content?: string;
-};
-
-export type ElementSemanticStyles = {
-  root?: React.CSSProperties;
-  content?: React.CSSProperties;
+export type ElementSemanticType = {
+  classNames?: {
+    root?: string;
+    content?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    content?: React.CSSProperties;
+  };
 };
 
 export interface SkeletonElementProps {
@@ -27,8 +27,8 @@ export interface SkeletonElementProps {
   size?: SizeType | number | 'default';
   shape?: 'circle' | 'square' | 'round' | 'default';
   active?: boolean;
-  classNames?: ElementSemanticClassNames;
-  styles?: ElementSemanticStyles;
+  classNames?: ElementSemanticType['classNames'];
+  styles?: ElementSemanticType['styles'];
 }
 
 const Element: React.FC<SkeletonElementProps> = (props) => {
@@ -52,7 +52,7 @@ const Element: React.FC<SkeletonElementProps> = (props) => {
 
   const sizeStyle = React.useMemo<React.CSSProperties>(
     () =>
-      typeof size === 'number'
+      isNumber(size)
         ? {
             width: size,
             height: size,

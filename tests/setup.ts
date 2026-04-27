@@ -1,4 +1,4 @@
-import util from 'util';
+import util from 'node:util';
 import React from 'react';
 import type { DOMWindow } from 'jsdom';
 import { MessagePort } from 'node:worker_threads';

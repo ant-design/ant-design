@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
-import type { TooltipProps, TooltipSemanticClassNames } from '../tooltip';
+import type { TooltipProps, TooltipSemanticType } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
@@ -142,7 +142,7 @@ const MenuItem: GenericComponent = (props) => {
 
     const baseTooltipClassName = `${prefixCls}-inline-collapsed-tooltip`;
 
-    const mergeTooltipRootClassName = (classNames?: TooltipSemanticClassNames) => ({
+    const mergeTooltipRootClassName = (classNames?: TooltipSemanticType['classNames']) => ({
       ...classNames,
       root: clsx(baseTooltipClassName, classNames?.root),
     });
@@ -153,11 +153,11 @@ const MenuItem: GenericComponent = (props) => {
             const resolvedClassNames = (
               tooltipConfig.classNames as (info: {
                 props: TooltipProps;
-              }) => TooltipSemanticClassNames
+              }) => TooltipSemanticType['classNames']
             )(info);
             return mergeTooltipRootClassName(resolvedClassNames);
           }
-        : mergeTooltipRootClassName(tooltipConfig?.classNames as TooltipSemanticClassNames);
+        : mergeTooltipRootClassName(tooltipConfig?.classNames as TooltipSemanticType['classNames']);
 
     returnNode = (
       <Tooltip

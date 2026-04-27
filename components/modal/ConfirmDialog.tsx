@@ -6,7 +6,7 @@ import InfoCircleFilled from '@ant-design/icons/InfoCircleFilled';
 import { clsx } from 'clsx';
 
 import { CONTAINER_MAX_OFFSET, normalizeMaskConfig } from '../_util/hooks';
-import isNonNullable from '../_util/isNonNullable';
+import { isNonNullable, isPlainObject } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import { devUseWarning } from '../_util/warning';
 import type { ThemeConfig } from '../config-provider';
@@ -21,6 +21,7 @@ import { ModalContextProvider } from './context';
 import type { ModalFuncProps, ModalLocale } from './interface';
 import Modal from './Modal';
 import Confirm from './style/confirm';
+import fallbackProp from '../_util/fallbackProp';
 
 export interface ConfirmDialogProps extends ModalFuncProps {
   prefixCls: string;
@@ -69,6 +70,8 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
     ...restProps
   } = props;
 
+  const { infoIcon, successIcon, errorIcon, warningIcon } = useComponentConfig('modal');
+
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Modal');
 
@@ -82,23 +85,20 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
   // Icon
   let mergedIcon: React.ReactNode = icon;
 
-  // 支持传入{ icon: null }来隐藏`Modal.confirm`默认的Icon
-  if (!icon && icon !== null) {
+  // 支持传入 { icon: null } 或 { icon: false } 来隐藏`Modal.confirm`默认的Icon
+  if (icon === undefined) {
     switch (type) {
       case 'info':
-        mergedIcon = <InfoCircleFilled />;
+        mergedIcon = fallbackProp(infoIcon, <InfoCircleFilled />);
         break;
-
       case 'success':
-        mergedIcon = <CheckCircleFilled />;
+        mergedIcon = fallbackProp(successIcon, <CheckCircleFilled />);
         break;
-
       case 'error':
-        mergedIcon = <CloseCircleFilled />;
+        mergedIcon = fallbackProp(errorIcon, <CloseCircleFilled />);
         break;
-
       default:
-        mergedIcon = <ExclamationCircleFilled />;
+        mergedIcon = fallbackProp(warningIcon, <ExclamationCircleFilled />);
     }
   }
 
@@ -120,7 +120,7 @@ export const ConfirmContent: React.FC<ConfirmDialogProps & { confirmPrefixCls: s
 
   // ================= Context Value =================
   const { closable } = restProps;
-  const { onClose } = closable && typeof closable === 'object' ? closable : {};
+  const { onClose } = isPlainObject(closable) ? closable : {};
 
   const memoizedValue = React.useMemo<ModalContextProps>(() => {
     return {

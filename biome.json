@@ -7,6 +7,7 @@
       "!.dumi/tmp*",
       "!report.html",
       "!.dumi/scripts/clarity.js",
+      "!coverage/**/*",
       "!dist/*",
       "!es/**/*",
       "!lib/**/*",
@@ -17,8 +18,11 @@
       "!**/*.tmp",
       "!package.json",
       "!components/style/antd.css",
+      "!components/style/~antd.layer.css",
       "!scripts/visual-regression/report-template.html",
-      "!.claude/skills"
+      "!.claude/skills",
+      "!.agents/skills",
+      "!.worktrees/*"
     ]
   },
   "formatter": {
@@ -43,7 +47,6 @@
   "linter": {
     "rules": {
       "style": {
-        "useNodejsImportProtocol": "off",
         "noNonNullAssertion": "off"
       },
       "complexity": {
@@ -63,7 +66,6 @@
         "noNonNullAssertedOptionalChain": "off",
         "noThenProperty": "off",
         "noTemplateCurlyInString": "off",
-        "useIterableCallbackReturn": "off",
         "noPrototypeBuiltins": "off"
       },
       "performance": {

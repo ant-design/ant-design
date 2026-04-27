@@ -5,8 +5,11 @@ import type { SliderRef } from '@rc-component/slider/lib/Slider';
 import raf from '@rc-component/util/lib/raf';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic, useOrientation } from '../_util/hooks';
-import type { Orientation, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { useOrientation } from '../_util/hooks';
+import type { Orientation } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNumber } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -19,34 +22,28 @@ import useRafLock from './useRafLock';
 
 export type SliderMarks = RcSliderProps['marks'];
 
-export type SliderSemanticName = keyof SliderSemanticClassNames & keyof SliderSemanticStyles;
-
-export type SliderSemanticClassNames = {
-  root?: string;
-  tracks?: string;
-  track?: string;
-  rail?: string;
-  handle?: string;
+export type SliderSemanticType = {
+  classNames?: {
+    root?: string;
+    tracks?: string;
+    track?: string;
+    rail?: string;
+    handle?: string;
+  };
+  styles?: {
+    root?: React.CSSProperties;
+    tracks?: React.CSSProperties;
+    track?: React.CSSProperties;
+    rail?: React.CSSProperties;
+    handle?: React.CSSProperties;
+  };
 };
 
-export type SliderSemanticStyles = {
-  root?: React.CSSProperties;
-  tracks?: React.CSSProperties;
-  track?: React.CSSProperties;
-  rail?: React.CSSProperties;
-  handle?: React.CSSProperties;
-};
-
-export type SliderClassNamesType = SemanticClassNamesType<
-  SliderBaseProps,
-  SliderSemanticClassNames
->;
-
-export type SliderStylesType = SemanticStylesType<SliderBaseProps, SliderSemanticStyles>;
+export type SliderSemanticAllType = GenerateSemantic<SliderSemanticType, SliderBaseProps>;
 
 export interface SliderProps extends Omit<RcSliderProps, 'styles' | 'classNames'> {
-  classNames?: SliderClassNamesType;
-  styles?: SliderStylesType;
+  classNames?: SliderSemanticAllType['classNamesAndFn'];
+  styles?: SliderSemanticAllType['stylesAndFn'];
 }
 
 interface HandleGeneratorInfo {
@@ -92,8 +89,8 @@ export interface SliderBaseProps {
   tooltip?: SliderTooltipProps;
   autoFocus?: boolean;
 
-  styles?: SliderStylesType;
-  classNames?: SliderClassNamesType;
+  classNames?: SliderSemanticAllType['classNamesAndFn'];
+  styles?: SliderSemanticAllType['stylesAndFn'];
   onFocus?: React.FocusEventHandler<HTMLDivElement>;
   onBlur?: React.FocusEventHandler<HTMLDivElement>;
 
@@ -145,7 +142,7 @@ function getTipFormatter(tipFormatter?: Formatter) {
   if (tipFormatter || tipFormatter === null) {
     return tipFormatter;
   }
-  return (val?: number) => (typeof val === 'number' ? val.toString() : '');
+  return (val?: number) => (isNumber(val) ? val.toString() : '');
 }
 
 const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>((props, ref) => {
@@ -186,13 +183,13 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
     vertical: mergedVertical,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    SliderClassNamesType,
-    SliderStylesType,
-    SliderSingleProps | SliderRangeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   // ============================= Context ==============================
   const { handleRender: contextHandleRender, direction: internalContextDirection } =
@@ -225,7 +222,7 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   const [dragging, setDragging] = useRafLock();
 
   const onInternalChangeComplete: RcSliderProps['onChangeComplete'] = (nextValues) => {
-    onChangeComplete?.(nextValues as any);
+    (onChangeComplete as RcSliderProps['onChangeComplete'])?.(nextValues);
     setDragging(false);
   };
 
@@ -406,9 +403,8 @@ const Slider = React.forwardRef<SliderRef, SliderSingleProps | SliderRangeProps>
   };
 
   return (
-    // @ts-ignore
     <RcSlider
-      {...restProps}
+      {...(restProps as Omit<SliderProps, 'onAfterChange' | 'onChange'>)}
       classNames={mergedClassNames}
       styles={mergedStyles}
       step={restProps.step}

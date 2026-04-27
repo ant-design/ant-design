@@ -11,11 +11,13 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../../_util/hooks';
+import { isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
 import Checkbox from '../../checkbox';
 import Dropdown from '../../dropdown';
+import type { RadioProps } from '../../radio';
 import Radio from '../../radio';
 import type {
   ColumnsType,
@@ -65,7 +67,7 @@ const flattenData = <RecordType extends AnyObject = AnyObject>(
 ): RecordType[] => {
   (data || []).forEach((record) => {
     list.push(record);
-    if (record && typeof record === 'object' && childrenColumnName in record) {
+    if (isPlainObject(record) && childrenColumnName in record) {
       flattenData<RecordType>(childrenColumnName, record[childrenColumnName], list);
     }
   });
@@ -121,6 +123,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
     defaultSelectedRowKeys || EMPTY_LIST,
     selectedRowKeys,
   );
+  const mergedSelectedKeyList = mergedSelectedKeys ?? EMPTY_LIST;
 
   // ======================== Caches ========================
   const preserveRecordsRef = React.useRef(new Map<Key, RecordType>());
@@ -148,8 +151,8 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
   // Update cache with selectedKeys
   React.useEffect(() => {
-    updatePreserveRecordsCache(mergedSelectedKeys);
-  }, [mergedSelectedKeys]);
+    updatePreserveRecordsCache(mergedSelectedKeyList);
+  }, [mergedSelectedKeyList, updatePreserveRecordsCache]);
 
   // Get flatten data
   const flattedData = useMemo(
@@ -211,16 +214,16 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
 
   const [derivedSelectedKeys, derivedHalfSelectedKeys] = useMemo(() => {
     if (checkStrictly) {
-      return [mergedSelectedKeys || [], []];
+      return [mergedSelectedKeyList, []];
     }
     const { checkedKeys, halfCheckedKeys } = conductCheck(
-      mergedSelectedKeys,
+      mergedSelectedKeyList,
       true,
       keyEntities as any,
       isCheckboxDisabled as any,
     );
     return [checkedKeys || [], halfCheckedKeys];
-  }, [mergedSelectedKeys, checkStrictly, keyEntities, isCheckboxDisabled]);
+  }, [mergedSelectedKeyList, checkStrictly, keyEntities, isCheckboxDisabled]);
 
   const derivedSelectedKeySet = useMemo<Set<Key>>(() => {
     const keys = selectionType === 'radio' ? derivedSelectedKeys.slice(0, 1) : derivedSelectedKeys;
@@ -522,7 +525,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         renderCell = (_, record, index) => {
           const key = getRowKey(record, index);
           const checked = keySet.has(key);
-          const checkboxProps = checkboxPropsMap.get(key);
+          const checkboxProps = checkboxPropsMap.get(key) as unknown as RadioProps;
           return {
             node: (
               <Radio

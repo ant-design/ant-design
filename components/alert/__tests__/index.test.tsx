@@ -3,6 +3,7 @@ import { warning } from '@rc-component/util';
 import userEvent from '@testing-library/user-event';
 
 import Alert from '..';
+import type { GetProp } from '../../_util/type';
 import { accessibilityTest } from '../../../tests/shared/accessibilityTest';
 import mountTest from '../../../tests/shared/mountTest';
 import rtlTest from '../../../tests/shared/rtlTest';
@@ -225,7 +226,7 @@ describe('Alert', () => {
   });
 
   it('should apply custom styles to Alert', () => {
-    const customClassNames: AlertProps['classNames'] = {
+    const customClassNames: Required<GetProp<AlertProps, 'classNames', 'Return'>> = {
       root: 'custom-root',
       icon: 'custom-icon',
       section: 'custom-section',
@@ -235,7 +236,7 @@ describe('Alert', () => {
       close: 'custom-close',
     };
 
-    const customStyles: AlertProps['styles'] = {
+    const customStyles: Required<GetProp<AlertProps, 'styles', 'Return'>> = {
       root: { color: 'rgb(255, 0, 0)' },
       icon: { backgroundColor: 'rgba(0, 0, 0, 0.5)' },
       section: { padding: '20px' },
@@ -272,22 +273,22 @@ describe('Alert', () => {
     const closeElement = document.querySelector<HTMLElement>('.ant-alert-close-icon');
 
     // check classNames
-    expect(rootElement).toHaveClass(customClassNames.root!);
-    expect(iconElement).toHaveClass(customClassNames.icon!);
-    expect(sectionElement).toHaveClass(customClassNames.section!);
-    expect(titleElement).toHaveClass(customClassNames.title!);
-    expect(descriptionElement).toHaveClass(customClassNames.description!);
-    expect(actionElement).toHaveClass(customClassNames.actions!);
-    expect(closeElement).toHaveClass(customClassNames.close!);
+    expect(rootElement).toHaveClass(customClassNames.root);
+    expect(iconElement).toHaveClass(customClassNames.icon);
+    expect(sectionElement).toHaveClass(customClassNames.section);
+    expect(titleElement).toHaveClass(customClassNames.title);
+    expect(descriptionElement).toHaveClass(customClassNames.description);
+    expect(actionElement).toHaveClass(customClassNames.actions);
+    expect(closeElement).toHaveClass(customClassNames.close);
 
     // check styles
-    expect(rootElement).toHaveStyle({ color: customStyles.root?.color });
-    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon?.backgroundColor });
-    expect(sectionElement).toHaveStyle({ padding: customStyles.section?.padding });
-    expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title?.backgroundColor });
-    expect(descriptionElement).toHaveStyle({ fontSize: customStyles.description?.fontSize });
-    expect(actionElement).toHaveStyle({ color: customStyles.actions?.color });
-    expect(closeElement).toHaveStyle({ color: customStyles.close?.color });
+    expect(rootElement).toHaveStyle({ color: customStyles.root.color });
+    expect(iconElement).toHaveStyle({ backgroundColor: customStyles.icon.backgroundColor });
+    expect(sectionElement).toHaveStyle({ padding: customStyles.section.padding });
+    expect(titleElement).toHaveStyle({ backgroundColor: customStyles.title.backgroundColor });
+    expect(descriptionElement).toHaveStyle({ fontSize: customStyles.description.fontSize });
+    expect(actionElement).toHaveStyle({ color: customStyles.actions.color });
+    expect(closeElement).toHaveStyle({ color: customStyles.close.color });
   });
 
   it('should support custom success icon', () => {

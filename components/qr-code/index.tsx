@@ -4,34 +4,17 @@ import { omit } from '@rc-component/util';
 import pickAttrs from '@rc-component/util/lib/pickAttrs';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isNumber } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import { useLocale } from '../locale';
 import { useToken } from '../theme/internal';
-import type {
-  QRCodeClassNamesType,
-  QRCodeProps,
-  QRCodeSemanticClassNames,
-  QRCodeSemanticName,
-  QRCodeSemanticStyles,
-  QRCodeStylesType,
-  QRProps,
-  QRPropsCanvas,
-  QRPropsSvg,
-} from './interface';
+import type { QRCodeProps, QRProps, QRPropsCanvas, QRPropsSvg } from './interface';
 import QRcodeStatus from './QrcodeStatus';
 import useStyle from './style/index';
 
-export type {
-  QRCodeProps,
-  QRCodeSemanticClassNames,
-  QRCodeSemanticName,
-  QRCodeSemanticStyles,
-  QRProps,
-  QRPropsCanvas,
-  QRPropsSvg,
-};
+export type { QRCodeProps, QRProps, QRPropsCanvas, QRPropsSvg };
 
 const QRCode: React.FC<QRCodeProps> = (props) => {
   const [, token] = useToken();
@@ -78,13 +61,13 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     errorLevel,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    QRCodeClassNamesType,
-    QRCodeStylesType,
-    QRCodeProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const prefixCls = getPrefixCls('qrcode', customizePrefixCls);
 
@@ -94,8 +77,8 @@ const QRCode: React.FC<QRCodeProps> = (props) => {
     src: icon,
     x: undefined,
     y: undefined,
-    height: typeof iconSize === 'number' ? iconSize : (iconSize?.height ?? 40),
-    width: typeof iconSize === 'number' ? iconSize : (iconSize?.width ?? 40),
+    height: isNumber(iconSize) ? iconSize : (iconSize?.height ?? 40),
+    width: isNumber(iconSize) ? iconSize : (iconSize?.width ?? 40),
     excavate: true,
     crossOrigin: 'anonymous',
   };

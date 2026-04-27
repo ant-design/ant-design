@@ -21,6 +21,7 @@ interface VariableColors {
   backgroundDisabled?: string;
 
   color?: string;
+  affixColor?: string;
 }
 
 /** Set CSS variables and hover/focus styles for a Select input based on provided colors. */
@@ -36,7 +37,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
   return {
     [varName('border-color')]: border,
     [varName('background-color')]: baseBG,
-    [varName('color')]: colors.color || token.colorText,
+    [varName('affix-color')]: colors.affixColor,
 
     [`&:not(${componentCls}-disabled)`]: {
       '&:hover': {
@@ -75,12 +76,10 @@ const genSelectInputVariantStyle = (
       {
         [`&${componentCls}-status-error`]: genSelectInputVariableStyle(token, {
           ...colors,
-          color: errorColors.color || token.colorError,
           ...errorColors,
         }),
         [`&${componentCls}-status-warning`]: genSelectInputVariableStyle(token, {
           ...colors,
-          color: warningColors.color || token.colorWarning,
           ...warningColors,
         }),
       },
@@ -106,6 +105,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         [varName('line-height')]: token.lineHeight,
         [varName('font-height')]: fontHeight,
         [varName('color')]: token.colorText,
+        [varName('affix-color')]: token.colorText,
         // Size
         [varName('height')]: controlHeight,
 
@@ -147,6 +147,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         paddingBlock: varRef('padding-vertical'),
         // ========================= Prefix =========================
         [`${componentCls}-prefix`]: {
+          color: varRef('affix-color'),
           flex: 'none',
           lineHeight: 1,
         },
@@ -339,6 +340,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           borderHover: token.colorErrorHover,
           borderActive: token.colorError,
           borderOutline: token.colorErrorOutline,
+          affixColor: token.colorErrorAffix,
         },
         // Warning
         {
@@ -413,8 +415,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         {
           borderRadius: 0,
           borderTopColor: 'transparent',
-          borderRightColor: 'transparent',
-          borderLeftColor: 'transparent',
+          borderInlineColor: 'transparent',
         },
       ),
 

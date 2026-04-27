@@ -34,7 +34,9 @@ const generateMermaidCode = (root: BehaviorMapItem) => {
     }
 
     if (node.children && node.children.length > 0) {
-      node.children.forEach((child) => traverse(child, safeId));
+      node.children.forEach((child) => {
+        traverse(child, safeId);
+      });
     }
   };
   traverse(root);

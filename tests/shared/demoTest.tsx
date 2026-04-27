@@ -51,8 +51,9 @@ function baseTest(doInject: boolean, component: string, options: Options = {}) {
 
         const errSpy = excludeWarning();
 
-        Date.now = jest.fn(() => new Date('2016-11-22').getTime());
-        jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+        const mockNow = new Date('2016-11-22').getTime();
+        Date.now = jest.fn(() => mockNow);
+        jest.useFakeTimers().setSystemTime(mockNow);
 
         let Demo = jest.requireActual(`../../${file}`).default;
         // Inject Trigger status unless skipped
@@ -187,8 +188,9 @@ export function semanticDemoTest(component: string, options: Options = {}) {
 
       const errSpy = excludeWarning();
 
-      Date.now = jest.fn(() => new Date('2016-11-22').getTime());
-      jest.useFakeTimers().setSystemTime(new Date('2016-11-22'));
+      const mockNow = new Date('2016-11-22').getTime();
+      Date.now = jest.fn(() => mockNow);
+      jest.useFakeTimers().setSystemTime(mockNow);
 
       let Demo = jest.requireActual(`../../${file}`).default;
       Demo = typeof Demo === 'function' ? <Demo /> : Demo;
