@@ -5,7 +5,7 @@ const radius = '20px 20px 0 0';
 
 const App: React.FC = () => (
   <div style={{ width: 360 }}>
-    <BorderBeam>
+    <BorderBeam outset={0}>
       <Card
         title="Activity stream"
         style={{

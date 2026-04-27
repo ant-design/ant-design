@@ -24,6 +24,7 @@ export interface BorderBeamProps {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   color?: BorderBeamColor;
+  outset?: number | string;
 }
 
 // Keep the motion defaults in CSS variables so both direct-injection and wrapper mode
@@ -38,6 +39,16 @@ const DEFAULT_MOTION_PATH_RADIUS = 200;
 // Keep the head slightly ahead of the path so the transparent tail remains visible.
 const DEFAULT_BEAM_ANCHOR = '90%';
 
+const toCSSLength = (value: number | string | undefined, fallback: number) => {
+  if (typeof value === 'number') {
+    return `${value}px`;
+  }
+
+  const trimmedValue = value?.trim();
+
+  return trimmedValue || `${fallback}px`;
+};
+
 const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) => {
   const [, token] = useToken();
   const {
@@ -46,6 +57,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     style,
     children,
     color,
+    outset,
   } = props;
 
   const {
@@ -63,6 +75,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
   // ============================ BorderWidth ============================
   const mergedBorderWidth = token.BorderBeam?.borderBeamWidth ?? token.lineWidth;
+  const mergedOutset = toCSSLength(outset, mergedBorderWidth);
 
   // ============================ Color ============================
   const fallbackStartColor = token.colorPrimary;
@@ -113,6 +126,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
       [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`, // Start offset on the path.
       [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR, // Beam anchor point on the path.
       [varName('beam-clip-radius')]: trackRadius, // Visible ring radius from the measured target.
+      [varName('beam-outset')]: mergedOutset, // Beam layer outset from the decorated edge.
       [varName('beam-path-radius')]: motionPathRadius, // Smoothed radius used by motion path.
       [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`, // Beam length.
       [varName('border-width')]: `${mergedBorderWidth}px`, // Ring width.

@@ -42,7 +42,7 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
       [`${beamCls}`]: {
         display: 'none',
         position: 'absolute',
-        inset: 0,
+        inset: `calc(0px - ${varRef('beam-outset')})`,
         zIndex: 1,
         overflow: 'hidden',
         boxSizing: 'border-box',

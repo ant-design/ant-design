@@ -78,6 +78,34 @@ describe('BorderBeam', () => {
     expect(rootElement).toHaveStyle({ padding: '6px' });
   });
 
+  it('should support customizing the beam layer outset', () => {
+    const { container, rerender } = render(
+      <BorderBeam outset={0}>
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    const rootElement = getRootElement(container);
+
+    expect(rootElement.style.getPropertyValue(varName('beam-outset'))).toBe('0px');
+
+    rerender(
+      <BorderBeam outset="2em">
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    expect(rootElement.style.getPropertyValue(varName('beam-outset'))).toBe('2em');
+
+    rerender(
+      <BorderBeam outset=" ">
+        <div>content</div>
+      </BorderBeam>,
+    );
+
+    expect(rootElement.style.getPropertyValue(varName('beam-outset'))).toBe('1px');
+  });
+
   it('should decide wrapper fallback once when the child ref never resolves', async () => {
     jest.useFakeTimers();
 
