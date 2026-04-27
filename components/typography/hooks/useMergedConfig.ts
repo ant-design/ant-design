@@ -6,7 +6,6 @@ export default function useMergedConfig<Target>(
 ): readonly [boolean, Target] {
   return React.useMemo<readonly [boolean, Target]>(() => {
     const support = !!propConfig;
-
     return [
       support,
       {

@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import type { DrawerProps } from '.';
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
 import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
 
@@ -129,7 +130,7 @@ const DrawerPanel: React.FC<DrawerPanelProps> = (props) => {
     if (merged === false) {
       return undefined;
     }
-    if (typeof merged === 'object' && merged?.placement === 'end') {
+    if (isPlainObject(merged) && merged?.placement === 'end') {
       return 'end';
     }
     return 'start';

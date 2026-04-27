@@ -3,6 +3,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import type { AvatarProps } from './Avatar';
 import SkeletonAvatar from './Avatar';
@@ -63,7 +64,7 @@ export interface SkeletonProps {
 }
 
 function getComponentProps<T>(prop?: T | boolean): T | Record<string, string> {
-  if (prop && typeof prop === 'object') {
+  if (isPlainObject(prop)) {
     return prop;
   }
   return {};

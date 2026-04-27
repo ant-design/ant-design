@@ -11,6 +11,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../../_util/hooks';
+import { isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
@@ -65,7 +66,7 @@ const flattenData = <RecordType extends AnyObject = AnyObject>(
 ): RecordType[] => {
   (data || []).forEach((record) => {
     list.push(record);
-    if (record && typeof record === 'object' && childrenColumnName in record) {
+    if (isPlainObject(record) && childrenColumnName in record) {
       flattenData<RecordType>(childrenColumnName, record[childrenColumnName], list);
     }
   });

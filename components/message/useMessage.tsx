@@ -15,7 +15,7 @@ import {
   resolveStyleOrClass,
   useMergeSemantic,
 } from '../_util/hooks';
-import { isNonNullable } from '../_util/is';
+import { isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -285,7 +285,7 @@ export function useInternalMessage(
     keys.forEach((type) => {
       const typeOpen: TypeOpen = (jointContent, duration, onClose) => {
         let config: ArgsProps;
-        if (jointContent && typeof jointContent === 'object' && 'content' in jointContent) {
+        if (isPlainObject(jointContent) && 'content' in jointContent) {
           config = jointContent;
         } else {
           config = {

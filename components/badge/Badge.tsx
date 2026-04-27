@@ -7,7 +7,7 @@ import type { PresetStatusColorType } from '../_util/colors';
 import { isPresetColor } from '../_util/colors';
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -189,12 +189,11 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>((props, ref) => {
   );
 
   // >>> Display Component
-  const displayNode =
-    !livingCount || typeof livingCount !== 'object'
-      ? undefined
-      : cloneElement(livingCount, (oriProps) => ({
-          style: { ...mergedStyle, ...oriProps.style },
-        }));
+  const displayNode = isPlainObject(livingCount)
+    ? cloneElement(livingCount, (oriProps) => ({
+        style: { ...mergedStyle, ...oriProps.style },
+      }))
+    : undefined;
 
   // InternalColor
   const isInternalColor = isPresetColor(color, false);

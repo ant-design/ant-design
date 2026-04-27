@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { isPlainObject } from '../is';
 import type { AnyObject, EmptyObject, ValidChar } from '../type';
 
 export type SemanticSchema = { _default?: string } & {
@@ -37,8 +38,8 @@ export const mergeClassNames = <
     Object.keys(cur || {}).forEach((key) => {
       const keySchema = mergedSchema[key as keyof SemanticSchema] as SemanticSchema;
       const curVal = (cur as SemanticClassNames)[key as keyof SemanticClassNames];
-      if (keySchema && typeof keySchema === 'object') {
-        if (curVal && typeof curVal === 'object') {
+      if (isPlainObject(keySchema)) {
+        if (isPlainObject(curVal)) {
           // Loop fill
           acc[key] = mergeClassNames(keySchema, acc[key], curVal);
         } else {

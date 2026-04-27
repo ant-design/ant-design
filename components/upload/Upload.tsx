@@ -6,6 +6,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -179,7 +180,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         return false;
       }
 
-      if (typeof result === 'object' && result) {
+      if (isPlainObject(result)) {
         parsedFile = result as File;
       }
     }

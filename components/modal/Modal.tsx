@@ -13,7 +13,7 @@ import {
   useMergeSemantic,
   useZIndex,
 } from '../_util/hooks';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { canUseDocElement } from '../_util/styleChecker';
@@ -230,7 +230,7 @@ const Modal: React.FC<ModalProps> = (props) => {
   const [numWidth, responsiveWidth] = React.useMemo<
     [string | number | undefined, Partial<Record<Breakpoint, string | number>> | undefined]
   >(() => {
-    if (width && typeof width === 'object') {
+    if (isPlainObject(width)) {
       return [undefined, width];
     }
     return [width, undefined];

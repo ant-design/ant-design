@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
 import { useComponentConfig } from '../config-provider/context';
@@ -98,7 +98,7 @@ type LoadingConfigType = {
 };
 
 function getLoadingConfig(loading: BaseButtonProps['loading']): LoadingConfigType {
-  if (typeof loading === 'object' && loading) {
+  if (isPlainObject(loading)) {
     let delay = loading?.delay;
     delay = isNumber(delay) ? delay : 0;
     return {
@@ -429,10 +429,9 @@ const InternalCompoundedButton = React.forwardRef<
     />
   );
 
-  const mergedLoadingIcon =
-    loading && typeof loading === 'object'
-      ? loading.icon || contextLoadingIcon
-      : contextLoadingIcon;
+  const mergedLoadingIcon = isPlainObject(loading)
+    ? loading.icon || contextLoadingIcon
+    : contextLoadingIcon;
 
   /**
    * Using if-else statements can improve code readability without affecting future expansion.

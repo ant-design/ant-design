@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isNumber } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -138,19 +138,18 @@ interface ChangeEventInfo<RecordType = AnyObject> {
   resetPagination: (current?: number, pageSize?: number) => void;
 }
 
-export interface TableProps<RecordType = AnyObject>
-  extends Omit<
-    RcTableProps<RecordType>,
-    | 'transformColumns'
-    | 'internalHooks'
-    | 'internalRefs'
-    | 'data'
-    | 'columns'
-    | 'scroll'
-    | 'emptyText'
-    | 'classNames'
-    | 'styles'
-  > {
+export interface TableProps<RecordType = AnyObject> extends Omit<
+  RcTableProps<RecordType>,
+  | 'transformColumns'
+  | 'internalHooks'
+  | 'internalRefs'
+  | 'data'
+  | 'columns'
+  | 'scroll'
+  | 'emptyText'
+  | 'classNames'
+  | 'styles'
+> {
   classNames?: TableClassNamesType<RecordType>;
   styles?: TableStylesType<RecordType>;
   dropdownPrefixCls?: string;
@@ -310,7 +309,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const [, token] = useToken();
 
   const mergedRowSelection = React.useMemo(() => {
-    return customizeRowSelection && typeof customizeRowSelection === 'object'
+    return isPlainObject(customizeRowSelection)
       ? { columnWidth: token.Table?.selectionColumnWidth, ...customizeRowSelection }
       : customizeRowSelection;
   }, [customizeRowSelection, token.Table?.selectionColumnWidth]);
@@ -663,7 +662,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const spinProps = React.useMemo<SpinProps | undefined>(() => {
     if (typeof loading === 'boolean') {
       return { spinning: loading };
-    } else if (typeof loading === 'object' && loading !== null) {
+    } else if (isPlainObject(loading)) {
       return { spinning: true, ...loading };
     } else {
       return undefined;

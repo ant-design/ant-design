@@ -6,6 +6,7 @@ import { omit } from '@rc-component/util';
 import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
+import { isPlainObject } from '../_util/is';
 import type { ConfigConsumerProps } from '../config-provider';
 import { ConfigContext } from '../config-provider';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -53,7 +54,8 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   const mergedDisabled = customDisabled ?? disabled;
 
   const visibilityControlled =
-    typeof visibilityToggle === 'object' && visibilityToggle.visible !== undefined;
+    isPlainObject(visibilityToggle) && visibilityToggle.visible !== undefined;
+
   const [visible, setVisible] = useState(() =>
     visibilityControlled ? visibilityToggle.visible! : false,
   );
@@ -79,7 +81,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     const nextVisible = !visible;
     setVisible(nextVisible);
 
-    if (typeof visibilityToggle === 'object') {
+    if (isPlainObject(visibilityToggle)) {
       visibilityToggle.onVisibleChange?.(nextVisible);
     }
   };

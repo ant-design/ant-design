@@ -6,6 +6,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import getScroll from '../_util/getScroll';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -410,7 +411,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     [activeLink, onClick, handleScrollTo, anchorDirection, mergedStyles, mergedClassNames],
   );
 
-  const affixProps = affix && typeof affix === 'object' ? affix : undefined;
+  const affixProps = isPlainObject(affix) ? affix : undefined;
 
   return (
     <AnchorContext.Provider value={memoizedContextValue}>

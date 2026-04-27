@@ -1,7 +1,7 @@
 import * as React from 'react';
+import DownOutlined from '@ant-design/icons/DownOutlined';
 import MinusOutlined from '@ant-design/icons/MinusOutlined';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import DownOutlined from '@ant-design/icons/DownOutlined';
 import UpOutlined from '@ant-design/icons/UpOutlined';
 import RcInputNumber from '@rc-component/input-number';
 import type {
@@ -14,6 +14,7 @@ import { clsx } from 'clsx';
 import ContextIsolator from '../_util/ContextIsolator';
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isPlainObject } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -59,8 +60,10 @@ export type InputNumberStylesType<T extends ValueType = ValueType> = SemanticSty
   InputNumberSemanticStyles
 >;
 
-export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
+export interface InputNumberProps<T extends ValueType = ValueType> extends Omit<
+  RcInputNumberProps<T>,
+  'prefix' | 'size' | 'controls' | 'classNames' | 'styles'
+> {
   prefixCls?: string;
   rootClassName?: string;
   classNames?: InputNumberClassNamesType;
@@ -170,7 +173,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
     let downIcon: React.ReactNode = mode === 'spinner' ? <MinusOutlined /> : <DownOutlined />;
     const controlsTemp = typeof mergedControls === 'boolean' ? mergedControls : undefined;
 
-    if (typeof mergedControls === 'object') {
+    if (isPlainObject(mergedControls)) {
       upIcon = mergedControls.upIcon || upIcon;
       downIcon = mergedControls.downIcon || downIcon;
     }
