@@ -2,14 +2,14 @@ import type { ReactNode } from 'react';
 import { isValidElement } from 'react';
 
 import type { TooltipProps } from '../tooltip';
-import { isNonNullable } from './is';
+import { isNonNullable, isPlainObject } from './is';
 
 const convertToTooltipProps = <P extends TooltipProps>(tooltip: P | ReactNode, context?: P) => {
   if (!isNonNullable(tooltip)) {
     return null;
   }
 
-  if (typeof tooltip === 'object' && !isValidElement(tooltip)) {
+  if (isPlainObject(tooltip) && !isValidElement(tooltip)) {
     return { ...context, ...tooltip } as P;
   }
 

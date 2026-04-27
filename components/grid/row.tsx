@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { isNumber } from '../_util/is';
+import { isNumber, isPlainObject, isString } from '../_util/is';
 import type { Breakpoint, ScreenMap } from '../_util/responsiveObserver';
 import { responsiveArray } from '../_util/responsiveObserver';
 import { ConfigContext } from '../config-provider';
@@ -39,17 +39,17 @@ export interface RowProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: boolean;
 }
 
-function useMergedPropByScreen(
+const useMergedPropByScreen = (
   oriProp: RowProps['align'] | RowProps['justify'],
   screen: ScreenMap | null,
-) {
-  const [prop, setProp] = React.useState(typeof oriProp === 'string' ? oriProp : '');
+) => {
+  const [prop, setProp] = React.useState(() => (isString(oriProp) ? oriProp : ''));
 
   const calcMergedAlignOrJustify = () => {
-    if (typeof oriProp === 'string') {
+    if (isString(oriProp)) {
       setProp(oriProp);
     }
-    if (typeof oriProp !== 'object') {
+    if (!isPlainObject(oriProp)) {
       return;
     }
     for (let i = 0; i < responsiveArray.length; i++) {
@@ -71,7 +71,7 @@ function useMergedPropByScreen(
   }, [JSON.stringify(oriProp), screen]);
 
   return prop;
-}
+};
 
 const Row = React.forwardRef<HTMLDivElement, RowProps>((props, ref) => {
   const {

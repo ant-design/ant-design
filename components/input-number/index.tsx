@@ -14,6 +14,7 @@ import { clsx } from 'clsx';
 import ContextIsolator from '../_util/ContextIsolator';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -52,8 +53,10 @@ export type InputNumberSemanticAllType = GenerateSemantic<
   InputNumberProps
 >;
 
-export interface InputNumberProps<T extends ValueType = ValueType>
-  extends Omit<RcInputNumberProps<T>, 'prefix' | 'size' | 'controls' | 'classNames' | 'styles'> {
+export interface InputNumberProps<T extends ValueType = ValueType> extends Omit<
+  RcInputNumberProps<T>,
+  'prefix' | 'size' | 'controls' | 'classNames' | 'styles'
+> {
   prefixCls?: string;
   rootClassName?: string;
   classNames?: InputNumberSemanticAllType['classNamesAndFn'];
@@ -163,7 +166,7 @@ const InternalInputNumber = React.forwardRef<RcInputNumberRef, InternalInputNumb
     let downIcon: React.ReactNode = mode === 'spinner' ? <MinusOutlined /> : <DownOutlined />;
     const controlsTemp = typeof mergedControls === 'boolean' ? mergedControls : undefined;
 
-    if (typeof mergedControls === 'object') {
+    if (isPlainObject(mergedControls)) {
       upIcon = mergedControls.upIcon || upIcon;
       downIcon = mergedControls.downIcon || downIcon;
     }
