@@ -6,6 +6,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
 import { useLocale } from '../locale';
@@ -81,7 +82,8 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
   );
 
   const visibilityControlled =
-    typeof visibilityToggle === 'object' && visibilityToggle.visible !== undefined;
+    isPlainObject(visibilityToggle) && visibilityToggle.visible !== undefined;
+
   const [visible, setVisible] = useState(() =>
     visibilityControlled ? visibilityToggle.visible! : false,
   );
@@ -107,7 +109,7 @@ const Password = React.forwardRef<InputRef, PasswordProps>((props, ref) => {
     const nextVisible = !visible;
     setVisible(nextVisible);
 
-    if (typeof visibilityToggle === 'object') {
+    if (isPlainObject(visibilityToggle)) {
       visibilityToggle.onVisibleChange?.(nextVisible);
     }
   };

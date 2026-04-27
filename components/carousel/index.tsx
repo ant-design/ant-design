@@ -4,6 +4,7 @@ import SlickCarousel from '@ant-design/react-slick';
 import { toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import useStyle, { DotDuration } from './style';
@@ -159,8 +160,7 @@ const Carousel = React.forwardRef<CarouselRef, CarouselProps>((props, ref) => {
     rootClassName,
   );
 
-  const mergedShowDuration =
-    autoplay && (typeof autoplay === 'object' ? autoplay.dotDuration : false);
+  const mergedShowDuration = autoplay && (isPlainObject(autoplay) ? autoplay.dotDuration : false);
 
   const dotDurationStyle: React.CSSProperties = mergedShowDuration
     ? { [DotDuration]: `${autoplaySpeed}ms` }

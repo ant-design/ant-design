@@ -2,12 +2,12 @@ import * as React from 'react';
 import type { JSX } from 'react';
 import { Field, FieldContext, ListContext } from '@rc-component/form';
 import type { FieldProps } from '@rc-component/form/lib/Field';
-import type { InternalNamePath, Meta } from '@rc-component/form/lib/interface';
+import type { InternalNamePath, Meta, RuleObject } from '@rc-component/form/lib/interface';
 import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../../_util/is';
+import { isNonNullable, isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -312,8 +312,12 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
         const isRequired =
           required !== undefined
             ? required
-            : !!rules?.some((rule) => {
-                if (rule && typeof rule === 'object' && rule.required && !rule.warningOnly) {
+            : rules?.some((rule) => {
+                if (
+                  isPlainObject(rule) &&
+                  (rule as RuleObject).required &&
+                  !(rule as RuleObject).warningOnly
+                ) {
                   return true;
                 }
                 if (typeof rule === 'function') {

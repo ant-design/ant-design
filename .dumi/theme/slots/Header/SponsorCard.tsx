@@ -8,7 +8,8 @@ import { getSponsorDescription, getSponsorUrl } from './sponsors';
 
 export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
   card: css`
-    width: 300px;
+    width: 320px;
+    max-width: 320px;
   `,
   cardBody: css`
     display: flex;
@@ -37,8 +38,6 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
     font-size: 15px;
     font-weight: 600;
     color: ${cssVar.colorText};
-    line-height: 1.4;
-
     a& {
       text-decoration: none;
       &:hover {
@@ -49,7 +48,6 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
   cardDesc: css`
     font-size: 13px;
     color: ${cssVar.colorTextSecondary};
-    line-height: 1.6;
   `,
   cardFooter: css`
     display: flex;
@@ -65,7 +63,7 @@ export const useCardStyle = createStyles(({ cssVar, token, css }) => ({
   `,
   heartIcon: css`
     color: #ff4d4f;
-    font-size: 11px;
+    font-size: 12px;
   `,
   visitBtn: css`
     font-size: 13px;
@@ -93,12 +91,19 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, lang }) => {
   return (
     <div className={styles.card}>
       <div className={styles.cardBody}>
-        <img src={sponsor.logo} alt={sponsor.name} className={styles.cardLogo} />
+        <img src={sponsor.logo} alt={sponsor.name} className={styles.cardLogo} draggable={false} />
         <div className={styles.cardInfo}>
-          <a href={sponsor.opencollective} target="_blank" rel="noreferrer" className={styles.cardName}>
+          <a
+            href={sponsor.opencollective}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.cardName}
+          >
             {sponsor.name}
           </a>
-          <span className={styles.cardDesc}>{getSponsorDescription(sponsor.description, lang)}</span>
+          <span className={styles.cardDesc}>
+            {getSponsorDescription(sponsor.description, lang)}
+          </span>
         </div>
       </div>
       <div className={styles.cardFooter}>
@@ -112,7 +117,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, lang }) => {
             size="small"
             href="https://opencollective.com/ant-design/contribute/sponsors-218"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className={styles.becomeBtn}
           >
             {isCN ? '成为赞助商' : 'Become a sponsor'}
@@ -122,7 +127,7 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, lang }) => {
             size="small"
             href={url}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className={styles.visitBtn}
           >
             {isCN ? '访问官网 →' : 'Visit website →'}

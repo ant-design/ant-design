@@ -15,6 +15,7 @@ import {
 import { genRoundedArrow } from '../../style/roundedArrow';
 import type { GenerateStyle } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 import genPickerMultipleStyle from './multiple';
 import genPickerPanelStyle, { genPanelStyle } from './panel';
 import type { ComponentToken, PanelComponentToken, PickerPanelToken, PickerToken } from './token';
@@ -32,10 +33,12 @@ const genPickerPadding = (paddingBlock: number, paddingInline: number): CSSObjec
 
 const genPickerStatusStyle: GenerateStyle<PickerToken, CSSObject> = (token) => {
   const { componentCls, colorError, colorWarning } = token;
+  const [varName] = genCssVar(token.antCls, 'date-picker');
 
   return {
     [`${componentCls}:not(${componentCls}-disabled):not([disabled])`]: {
       [`&${componentCls}-status-error`]: {
+        [varName('affix-color')]: token.colorErrorAffix,
         [`${componentCls}-active-bar`]: {
           background: colorError,
         },
@@ -91,9 +94,12 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
     lineHeightLG,
   } = token;
 
+  const [varName, varRef] = genCssVar(antCls, 'date-picker');
+
   return [
     {
       [componentCls]: {
+        [varName('affix-color')]: 'inherit',
         ...resetComponent(token),
         ...genPickerPadding(token.paddingBlock, token.paddingInline),
         position: 'relative',
@@ -106,6 +112,7 @@ const genPickerStyle: GenerateStyle<PickerToken> = (token) => {
           .join(', '),
 
         [`${componentCls}-prefix`]: {
+          color: varRef('affix-color'),
           flex: '0 0 auto',
           marginInlineEnd: token.inputAffixPadding,
         },

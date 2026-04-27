@@ -917,7 +917,7 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               #36459
@@ -1336,7 +1336,7 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               #36459

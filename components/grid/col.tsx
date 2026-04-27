@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isNumber } from '../_util/is';
+import { isNonNullable, isNumber, isPlainObject } from '../_util/is';
 import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import type { LiteralUnion } from '../_util/type';
@@ -85,7 +85,7 @@ const Col = React.forwardRef<HTMLDivElement, ColProps>((props, ref) => {
     const propSize = props[size];
     if (isNumber(propSize)) {
       sizeProps.span = propSize;
-    } else if (typeof propSize === 'object') {
+    } else if (isPlainObject(propSize)) {
       sizeProps = propSize || {};
     }
 
