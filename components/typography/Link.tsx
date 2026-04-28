@@ -5,7 +5,8 @@ import type { BlockProps } from './Base';
 import Base from './Base';
 
 export interface LinkProps
-  extends BlockProps<'a'>,
+  extends
+    BlockProps<'a'>,
     Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, 'type' | keyof BlockProps<'a'>> {
   ellipsis?: boolean;
 }

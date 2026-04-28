@@ -9,12 +9,12 @@ import { dependencies, devDependencies } from '../../../package.json';
  * extends dumi internal tech stack, for customize previewer props
  */
 class AntdReactTechStack extends ReactTechStack {
-  generatePreviewerProps(...[props, opts]: any) {
+  async generatePreviewerProps(...[props, opts]: any) {
     props.pkgDependencyList = { ...devDependencies, ...dependencies };
     props.jsx ??= '';
 
     if (opts.type === 'code-block') {
-      props.jsx = opts?.entryPointCode ? tsToJs(opts.entryPointCode) : '';
+      props.jsx = opts?.entryPointCode ? await tsToJs(opts.entryPointCode) : '';
     }
 
     if (opts.type === 'external') {
@@ -26,7 +26,7 @@ class AntdReactTechStack extends ReactTechStack {
       const codePath = opts.fileAbsPath!.replace(/\.\w+$/, '.tsx');
       const code = fs.existsSync(codePath) ? fs.readFileSync(codePath, 'utf-8') : '';
 
-      props.jsx = tsToJs(code);
+      props.jsx = await tsToJs(code);
 
       if (md) {
         // extract description & css style from md file

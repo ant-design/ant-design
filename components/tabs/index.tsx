@@ -82,7 +82,8 @@ export interface BaseTabsProps {
 }
 
 export interface TabsProps
-  extends BaseTabsProps,
+  extends
+    BaseTabsProps,
     CompatibilityProps,
     Omit<RcTabsProps, 'editable' | 'items' | 'classNames' | 'styles' | 'popupClassName'> {
   addIcon?: React.ReactNode;

@@ -10,8 +10,10 @@ import SliderInternalContext from '../../slider/Context';
 import type { SliderInternalContextProps } from '../../slider/Context';
 import { getGradientPercentColor } from '../util';
 
-export interface GradientColorSliderProps
-  extends Omit<BaseSliderProps, 'value' | 'onChange' | 'onChangeComplete' | 'type'> {
+export interface GradientColorSliderProps extends Omit<
+  BaseSliderProps,
+  'value' | 'onChange' | 'onChangeComplete' | 'type'
+> {
   value: number[];
   onChange?: (value: number[]) => void;
   onChangeComplete: (value: number[]) => void;

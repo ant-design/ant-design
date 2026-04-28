@@ -77,8 +77,10 @@ const RangePicker = React.forwardRef<PickerRef, TimeRangePickerProps>((props, re
   <InternalRangePicker {...props} picker="time" mode={undefined} ref={ref} />
 ));
 
-export interface TimePickerProps
-  extends Omit<PickerTimeProps<Dayjs>, 'picker' | 'classNames' | 'styles'> {
+export interface TimePickerProps extends Omit<
+  PickerTimeProps<Dayjs>,
+  'picker' | 'classNames' | 'styles'
+> {
   addon?: () => React.ReactNode;
   status?: InputStatus;
   /** @deprecated Please use `classNames.popup` instead */

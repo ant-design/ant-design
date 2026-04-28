@@ -76,9 +76,7 @@ export interface PanelComponentToken extends MultipleSelectorToken {
 }
 
 export interface ComponentToken
-  extends Exclude<SharedComponentToken, 'addonBg'>,
-    PanelComponentToken,
-    ArrowToken {
+  extends Exclude<SharedComponentToken, 'addonBg'>, PanelComponentToken, ArrowToken {
   /**
    * @desc 预设区域宽度
    * @descEN Width of preset area
@@ -110,10 +108,7 @@ export type PickerPanelToken = {
 };
 
 export interface PickerToken
-  extends FullToken<'DatePicker'>,
-    PickerPanelToken,
-    SharedInputToken,
-    SelectorToken {
+  extends FullToken<'DatePicker'>, PickerPanelToken, SharedInputToken, SelectorToken {
   /** @private Used for internal calculation */
   INTERNAL_FIXED_ITEM_MARGIN: number;
 }

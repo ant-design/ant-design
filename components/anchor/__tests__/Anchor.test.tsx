@@ -379,17 +379,17 @@ describe('Anchor Render', () => {
     );
 
     const originalGetBoundingClientRect = HTMLHeadingElement.prototype.getBoundingClientRect;
-    HTMLHeadingElement.prototype.getBoundingClientRect = jest.fn().mockImplementation(function (
-      this: HTMLElement,
-    ) {
-      if (this.id === hash1) {
-        return { width: 100, height: 100, top: 60 } as DOMRect;
-      }
-      if (this.id === hash2) {
-        return { width: 100, height: 100, top: 160 } as DOMRect;
-      }
-      return { width: 100, height: 100, top: 1000 } as DOMRect;
-    });
+    HTMLHeadingElement.prototype.getBoundingClientRect = jest
+      .fn()
+      .mockImplementation(function (this: HTMLElement) {
+        if (this.id === hash1) {
+          return { width: 100, height: 100, top: 60 } as DOMRect;
+        }
+        if (this.id === hash2) {
+          return { width: 100, height: 100, top: 160 } as DOMRect;
+        }
+        return { width: 100, height: 100, top: 1000 } as DOMRect;
+      });
 
     const onChange = jest.fn();
     render(

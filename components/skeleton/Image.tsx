@@ -4,8 +4,10 @@ import { ConfigContext } from '../config-provider';
 import SkeletonNode from './Node';
 import type { SkeletonNodeProps } from './Node';
 
-export interface SkeletonImageProps
-  extends Omit<SkeletonNodeProps, 'children' | 'internalClassName'> {}
+export interface SkeletonImageProps extends Omit<
+  SkeletonNodeProps,
+  'children' | 'internalClassName'
+> {}
 
 const SkeletonImage: React.FC<SkeletonImageProps> = (props) => {
   const { getPrefixCls } = React.useContext(ConfigContext);

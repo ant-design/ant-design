@@ -103,8 +103,10 @@ export type ImageSemanticType = {
 
 export type ImageSemanticAllType = GenerateSemantic<ImageSemanticType, ImageProps>;
 
-export interface ImageProps
-  extends Omit<RcImageProps, 'preview' | 'classNames' | 'styles' | 'placeholder'> {
+export interface ImageProps extends Omit<
+  RcImageProps,
+  'preview' | 'classNames' | 'styles' | 'placeholder'
+> {
   preview?: boolean | PreviewConfig;
   /** @deprecated Use `styles.root` instead */
   wrapperStyle?: React.CSSProperties;

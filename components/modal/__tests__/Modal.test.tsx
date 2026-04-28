@@ -191,7 +191,10 @@ describe('Modal', () => {
 
   it('responsive width', () => {
     render(
-      <Modal open width={{ xs: '90%', sm: '80%', md: '70%', lg: '60%', xl: '50%', xxl: '40%' }} />,
+      <Modal
+        open
+        width={{ xs: '90%', sm: '80%', md: '70%', lg: '60%', xl: '50%', xxl: '40%', xxxl: 1200 }}
+      />,
     );
 
     const modalEle = document.querySelector<HTMLDivElement>('.ant-modal')!;
@@ -202,6 +205,7 @@ describe('Modal', () => {
       '--ant-modal-lg-width': '60%',
       '--ant-modal-xl-width': '50%',
       '--ant-modal-xxl-width': '40%',
+      '--ant-modal-xxxl-width': '1200px',
     });
   });
 
@@ -444,28 +448,29 @@ describe('Modal', () => {
       [{ blur: true, enabled: false }, { enabled: true, blur: false }, true, false],
     ];
 
-    it.each(
-      testCases,
-    )('modalMask = %s configMask = %s ,mask blur = %s', (modalMask, configMask, expectedBlurClass, openMask) => {
-      render(
-        <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
-          <Modal open mask={modalMask} />
-        </ConfigProvider>,
-      );
+    it.each(testCases)(
+      'modalMask = %s configMask = %s ,mask blur = %s',
+      (modalMask, configMask, expectedBlurClass, openMask) => {
+        render(
+          <ConfigProvider modal={configMask ? { mask: configMask } : undefined}>
+            <Modal open mask={modalMask} />
+          </ConfigProvider>,
+        );
 
-      const maskElement = document.querySelector('.ant-modal-mask');
-      if (!openMask) {
-        expect(maskElement).toBeNull();
-        return;
-      }
+        const maskElement = document.querySelector('.ant-modal-mask');
+        if (!openMask) {
+          expect(maskElement).toBeNull();
+          return;
+        }
 
-      expect(maskElement).toBeInTheDocument();
-      if (expectedBlurClass) {
-        expect(maskElement!.className).toContain('ant-modal-mask-blur');
-      } else {
-        expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
-      }
-    });
+        expect(maskElement).toBeInTheDocument();
+        if (expectedBlurClass) {
+          expect(maskElement!.className).toContain('ant-modal-mask-blur');
+        } else {
+          expect(maskElement!.className).not.toContain('ant-modal-mask-blur');
+        }
+      },
+    );
   });
 
   it('focusable default config should pass to classNames', () => {
