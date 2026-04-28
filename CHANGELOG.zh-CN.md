@@ -15,6 +15,20 @@ tag: vVERSION
 
 ---
 
+## 6.3.7
+
+`2026-04-27`
+
+- Input
+  - 🐞 修复 Input.OTP 在 Windows 下选中文本时可能显示真实值的问题。[#57689](https://github.com/ant-design/ant-design/pull/57689) [@QDyanbing](https://github.com/QDyanbing)
+  - ⌨️ 优化 Input 清除按钮的可访问性。[#57432](https://github.com/ant-design/ant-design/pull/57432) [@cyphercodes](https://github.com/cyphercodes)
+- 🐞 修复 Card 在未传入内容时仍渲染空 body 容器的问题。[#57735](https://github.com/ant-design/ant-design/pull/57735) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 InputNumber 选中文本时的高亮圆角问题。[#57705](https://github.com/ant-design/ant-design/pull/57705) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Tooltip 的 ConfigProvider 语义化配置比如 `className`、`styles` 等泄漏到 Popover 和 Popconfirm 的问题。[#57731](https://github.com/ant-design/ant-design/pull/57731) [@pikanohup](https://github.com/pikanohup)
+- 🐞 修复 Typography.Link 在 disabled 状态下无法触发复制、编辑等操作按钮的问题。[#57762](https://github.com/ant-design/ant-design/pull/57762) [@aviu16](https://github.com/aviu16)
+- 🐞 修复 ESM/CJS 默认导出 ConfigProvider 语言包失效的问题。[#57318](https://github.com/ant-design/ant-design/pull/57318) [@ug-hero](https://github.com/ug-hero)
+- 💄 修复 Alert 的关闭按钮没有焦点样式的问题。[#57695](https://github.com/ant-design/ant-design/pull/57695) [@KittyGiraudel](https://github.com/KittyGiraudel)
+
 ## 6.3.6
 
 `2026-04-17`
