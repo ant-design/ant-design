@@ -6,7 +6,7 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { NotificationToken } from '.';
 
-export const genNoticeStyle = (token: NotificationToken): CSSObject => {
+export const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
   const {
     iconCls,
     componentCls,
@@ -103,14 +103,11 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
     },
 
     [`${noticeCls}-with-icon ${noticeCls}-title`]: {
-      marginBottom: token.marginXS,
       marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
-      fontSize: fontSizeLG,
     },
 
     [`${noticeCls}-with-icon ${noticeCls}-description`]: {
       marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
-      fontSize,
     },
 
     // ============================= Icon =============================
@@ -208,15 +205,32 @@ export const genNoticeStyle = (token: NotificationToken): CSSObject => {
   };
 };
 
-const genNotificationNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const { componentCls } = token;
+export const genPurePanelStyle = (token: NotificationToken): CSSObject => {
   const noticeCls = `${token.componentCls}-notice`;
 
   return {
-    [componentCls]: {
-      [noticeCls]: genNoticeStyle(token),
+    [`${noticeCls}-pure-panel`]: {
+      width: token.width,
+      maxWidth: '100%',
+
+      [noticeCls]: {
+        ...genNotificationItemStyle(token),
+        position: 'relative',
+        width: '100%',
+        maxWidth: '100%',
+      },
     },
   };
 };
 
-export default genNotificationNoticeStyle;
+const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
+  const noticeCls = `${token.componentCls}-notice`;
+
+  return {
+    [token.componentCls]: {
+      [noticeCls]: genNotificationItemStyle(token),
+    },
+  };
+};
+
+export default genNotificationStyle;

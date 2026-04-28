@@ -30,7 +30,7 @@ import type {
   NotificationPlacement,
   NotificationSemanticAllType,
 } from './interface';
-import { getCloseIcon, PureContent } from './PurePanel';
+import { getCloseIcon, getTypeIcon } from './PurePanel';
 import useStyle from './style';
 import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
 
@@ -95,11 +95,22 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     [duration],
   );
 
-  // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement): React.CSSProperties =>
-    getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET);
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [notification?.classNames, props?.classNames],
+    [notification?.styles, props?.styles],
+    {
+      props,
+    },
+  );
 
-  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
+  // =============================== Style ===============================
+  const getStyle = (placement: NotificationPlacement): React.CSSProperties => ({
+    ...getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET),
+    ...mergedStyles.list,
+  });
+
+  const getClassName = () =>
+    clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' }, mergedClassNames.list);
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -116,6 +127,12 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     maxCount,
     pauseOnHover,
     showProgress,
+    classNames: {
+      listContent: mergedClassNames.listContent,
+    },
+    styles: {
+      listContent: mergedStyles.listContent,
+    },
     onAllRemoved,
     renderNotifications,
     stack:
@@ -126,14 +143,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
             offset: 8,
           },
   });
-
-  const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [notification?.classNames, props?.classNames],
-    [notification?.styles, props?.styles],
-    {
-      props,
-    },
-  );
 
   // ================================ Ref ================================
   React.useImperativeHandle(ref, () => ({
@@ -237,31 +246,30 @@ export function useInternalNotification(
       const mergedClassNames = mergeClassNames(undefined, originClassNames, semanticClassNames);
 
       const mergedStyles = mergeStyles(originStyles, semanticStyles);
+      const iconNode = icon || getTypeIcon(noticePrefixCls, type, mergedStyles.icon);
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
         placement: notificationConfig?.placement ?? DEFAULT_PLACEMENT,
         ...restConfig,
-        description: (
-          <PureContent
-            prefixCls={noticePrefixCls}
-            icon={icon}
-            type={type}
-            title={mergedTitle}
-            description={description}
-            actions={mergedActions}
-            role={role}
-            classNames={mergedClassNames}
-            styles={mergedStyles}
-          />
-        ),
-        className: clsx(
-          { [`${noticePrefixCls}-${type}`]: type },
-          className,
-          contextClassName,
-          mergedClassNames.root,
-        ),
-        style: { ...contextStyle, ...mergedStyles.root, ...style },
+        title: mergedTitle || null,
+        description: description || null,
+        icon: iconNode,
+        actions: mergedActions || null,
+        role,
+        classNames: {
+          ...mergedClassNames,
+          wrapper: clsx(iconNode && `${noticePrefixCls}-with-icon`, mergedClassNames.wrapper),
+        },
+        styles: {
+          ...mergedStyles,
+          root: {
+            ...contextStyle,
+            ...mergedStyles.root,
+          },
+        },
+        className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
+        style,
         closable: mergedClosable,
       });
     };

@@ -58,6 +58,32 @@ describe('Notification.placement', () => {
   });
 
   describe('placement', () => {
+    it('should use vertical enter motion for centered placements', async () => {
+      act(() => {
+        open({ placement: 'top' });
+      });
+      await awaitPromise();
+
+      expect(
+        getComputedStyle(document.querySelector('.ant-notification-top .ant-notification-notice')!)
+          .transform,
+      ).toBe('translate3d(0, -64px, 0) scale(var(--notification-scale, 1))');
+
+      notification.destroy();
+      await triggerMotionEnd();
+
+      act(() => {
+        open({ placement: 'bottom' });
+      });
+      await awaitPromise();
+
+      expect(
+        getComputedStyle(
+          document.querySelector('.ant-notification-bottom .ant-notification-notice')!,
+        ).transform,
+      ).toBe('translate3d(0, 64px, 0) scale(var(--notification-scale, 1))');
+    });
+
     it('can be configured globally using the `config` method', async () => {
       // topLeft
       config({
@@ -164,7 +190,7 @@ describe('Notification.placement', () => {
       act(() => {
         jest.runAllTimers();
       });
-      document.querySelectorAll('.ant-notification-notice-wrapper').forEach((ele) => {
+      document.querySelectorAll('.ant-notification-notice').forEach((ele) => {
         fireEvent.animationEnd(ele);
       });
       expect($container.querySelector('.ant-notification')).toBeFalsy();

@@ -11,7 +11,10 @@ const App: React.FC = () => {
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
       className: 'custom-class',
       style: {
-        width: 600,
+        backgroundColor: '#f6ffed',
+        border: '2px solid #95de64',
+        borderRadius: 16,
+        boxShadow: '4px 4px 0 #d9f7be',
       },
     });
   };

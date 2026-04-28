@@ -1,12 +1,14 @@
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
-import type { AliasToken, FullToken, GenStyleFn } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
-import genNotificationHolderStyle from './holder';
-import genNotificationNoticeStyle from './notice';
+import { resetComponent } from '../../style';
+import type { AliasToken, FullToken, GenerateStyle, GenStyleFn } from '../../theme/internal';
+import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
+import genNotificationStyle, { genPurePanelStyle } from './notification';
 import genNotificationPlacementStyle from './placement';
-import genStackStyle from './stack';
+
+const COLLAPSED_STACK_VISIBLE_COUNT = 3;
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -53,11 +55,6 @@ export interface ComponentToken {
  */
 export interface NotificationToken extends FullToken<'Notification'> {
   /**
-   * @desc 动画最大高度
-   * @descEN Maximum height of animation
-   */
-  animationMaxHeight: number | string;
-  /**
    * @desc 提醒框背景色
    * @descEN Background color of Notification
    */
@@ -98,11 +95,6 @@ export interface NotificationToken extends FullToken<'Notification'> {
    */
   notificationMarginEdge: number;
   /**
-   * @desc 提醒框堆叠层数
-   * @descEN Stack layer of Notification
-   */
-  notificationStackLayer: number;
-  /**
    * @desc 提醒框进度条高度
    * @descEN Height of Notification progress bar
    */
@@ -142,8 +134,6 @@ export const prepareNotificationToken: (
     notificationMarginBottom: token.margin,
     notificationPadding: `${unit(token.paddingMD)} ${unit(token.paddingContentHorizontalLG)}`,
     notificationMarginEdge: token.marginLG,
-    animationMaxHeight: 150,
-    notificationStackLayer: 3,
     notificationProgressHeight: 2,
     notificationMotionOffset: 64,
   });
@@ -151,16 +141,136 @@ export const prepareNotificationToken: (
   return notificationToken;
 };
 
+const genNotificationListStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
+  const {
+    componentCls,
+    notificationMarginEdge,
+    motionDurationMid,
+    motionDurationSlow,
+    motionEaseInOut,
+  } = token;
+
+  const noticeCls = `${componentCls}-notice`;
+  const listCls = `${componentCls}-list`;
+  const listContentCls = `${listCls}-content`;
+  const listWidth = token.calc(token.width).add(token.calc(notificationMarginEdge).mul(2)).equal();
+  const noticeBeyondStackVisibleCountCls = `${noticeCls}:nth-last-child(n + ${
+    COLLAPSED_STACK_VISIBLE_COUNT + 1
+  })`;
+
+  return {
+    [componentCls]: {
+      ...resetComponent(token),
+
+      // ============================ Holder ============================
+      position: 'fixed',
+      zIndex: token.zIndexPopup,
+      width: listWidth,
+      maxWidth: '100vw',
+      height: '100vh',
+      overflow: 'hidden',
+      overscrollBehavior: 'contain',
+      pointerEvents: 'none',
+
+      [`${componentCls}-hook-holder`]: {
+        position: 'relative',
+      },
+
+      // ============================= List =============================
+      [`&${listCls}`]: {
+        maxHeight: '100vh',
+        padding: notificationMarginEdge,
+        overflowX: 'hidden',
+        overflowY: 'auto',
+        overscrollBehavior: 'contain',
+        scrollbarWidth: 'none',
+        msOverflowStyle: 'none',
+
+        '&::-webkit-scrollbar': {
+          display: 'none',
+          width: 0,
+          height: 0,
+        },
+      },
+
+      [listContentCls]: {
+        position: 'relative',
+        display: 'flex',
+        flexShrink: 0,
+        flexDirection: 'column',
+        gap: token.notificationMarginBottom,
+        width: '100%',
+        pointerEvents: 'none',
+        willChange: 'height, transform',
+        transition: 'none',
+
+        [`&${listContentCls}-decrease`]: {
+          transition: `height calc(${motionDurationSlow} * 2) ${motionEaseInOut} ${motionDurationMid}`,
+        },
+      },
+
+      // ============================ Stack ============================
+      [`&${componentCls}-stack`]: {
+        [noticeCls]: {
+          clipPath: 'inset(-50% -50% -50% -50%)',
+        },
+
+        [`&:not(${componentCls}-stack-expanded)`]: {
+          [noticeCls]: {
+            '--notification-scale': 'calc(1 - min(var(--notification-index, 0), 2) * 0.06)',
+          } as CSSObject,
+
+          [`${noticeCls}:not(${noticeCls}-stack-in-threshold)`]: {
+            opacity: 0,
+            pointerEvents: 'none',
+          },
+
+          [noticeBeyondStackVisibleCountCls]: {
+            opacity: 0,
+            pointerEvents: 'none',
+          },
+        },
+      },
+
+      [`&${componentCls}-list-hovered`]: {
+        [listContentCls]: {
+          pointerEvents: 'auto',
+        },
+      },
+
+      // ============================ Motion ============================
+      [`${componentCls}-fade`]: {
+        backfaceVisibility: 'hidden',
+        willChange: 'transform, opacity',
+      },
+
+      // ============================== RTL =============================
+      '&-rtl': {
+        direction: 'rtl',
+
+        [`${noticeCls}-actions`]: {
+          float: 'left',
+        },
+      },
+    },
+  };
+};
+
+export const PurePanelStyle = genSubStyleComponent(
+  ['Notification', 'PurePanel'],
+  (token) => genPurePanelStyle(prepareNotificationToken(token)),
+  prepareComponentToken,
+);
+
 export default genStyleHooks(
   'Notification',
   (token) => {
     const notificationToken = prepareNotificationToken(token);
 
     return [
-      genNotificationHolderStyle(notificationToken),
-      genNotificationNoticeStyle(notificationToken),
+      genNotificationListStyle(notificationToken),
+      genNotificationStyle(notificationToken),
       genNotificationPlacementStyle(notificationToken),
-      genStackStyle(notificationToken),
     ];
   },
   prepareComponentToken,

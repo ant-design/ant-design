@@ -91,6 +91,52 @@ describe('notification semantic styles and classNames', () => {
     expect(document.querySelector('.icon-class')).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
 
+  it('should support custom list semantic classNames and styles', async () => {
+    const TestComponent: React.FC = () => {
+      const [api, contextHolder] = notification.useNotification({
+        classNames: {
+          list: 'list-class',
+          listContent: 'list-content-class',
+        },
+        styles: {
+          list: { backgroundColor: 'rgb(240, 247, 255)' },
+          listContent: { gap: 12 },
+        },
+      });
+
+      const openNotification = () => {
+        api.open({
+          title: 'Notification Title',
+          duration: 0,
+        });
+      };
+
+      return (
+        <>
+          {contextHolder}
+          <button type="button" onClick={openNotification}>
+            open
+          </button>
+        </>
+      );
+    };
+    const { container } = render(<TestComponent />);
+
+    fireEvent.click(container.querySelector('button')!);
+    await awaitPromise();
+
+    expect(document.querySelector('.ant-notification-list')).toHaveClass('list-class');
+    expect(document.querySelector('.ant-notification-list')).toHaveStyle({
+      backgroundColor: 'rgb(240, 247, 255)',
+    });
+    expect(document.querySelector('.ant-notification-list-content')).toHaveClass(
+      'list-content-class',
+    );
+    expect(document.querySelector('.ant-notification-list-content')).toHaveStyle({
+      gap: '12px',
+    });
+  });
+
   it('should apply dynamic classNames and styles from function', () => {
     const TestComponent: React.FC = () => {
       const [api, contextHolder] = notification.useNotification();

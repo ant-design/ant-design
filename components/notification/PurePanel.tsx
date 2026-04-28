@@ -16,9 +16,8 @@ import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { IconType, NotificationSemanticAllType, NotificationSemanticType } from './interface';
-import useStyle from './style';
-import PurePanelStyle from './style/pure-panel';
+import type { IconType, NotificationSemanticType } from './interface';
+import useStyle, { PurePanelStyle } from './style';
 
 export type AnchorSemanticAllType = GenerateSemantic<NotificationSemanticType, PurePanelProps>;
 
@@ -37,8 +36,33 @@ export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): Re
   return closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />;
 }
 
-export interface PureContentProps {
-  prefixCls: string;
+export function getTypeIcon(
+  prefixCls: string,
+  type?: IconType,
+  style?: React.CSSProperties,
+): React.ReactNode {
+  if (!type) {
+    return null;
+  }
+
+  const iconNode = TypeIcon[type];
+  return iconNode
+    ? React.cloneElement(iconNode, {
+        className: clsx(iconNode.props.className, `${prefixCls}-icon-${type}`),
+        style: {
+          ...iconNode.props.style,
+          ...style,
+        },
+      })
+    : null;
+}
+
+export interface PurePanelProps
+  extends Omit<
+    RcNotificationProps,
+    'prefixCls' | 'classNames' | 'styles' | 'title' | 'description' | 'icon' | 'actions' | 'role'
+  > {
+  prefixCls?: string;
   icon?: React.ReactNode;
   /** @deprecated Please use `title` instead */
   message?: React.ReactNode;
@@ -49,78 +73,6 @@ export interface PureContentProps {
   actions?: React.ReactNode;
   type?: IconType;
   role?: 'alert' | 'status';
-  classNames: NonNullable<NotificationSemanticAllType['classNames']>;
-  styles: NonNullable<NotificationSemanticAllType['styles']>;
-}
-
-const typeToIcon = {
-  success: CheckCircleFilled,
-  info: InfoCircleFilled,
-  error: CloseCircleFilled,
-  warning: ExclamationCircleFilled,
-};
-
-export const PureContent: React.FC<PureContentProps> = (props) => {
-  const {
-    prefixCls,
-    icon,
-    type,
-    title,
-    description,
-    actions,
-    role = 'alert',
-    styles,
-    classNames: pureContentCls,
-  } = props;
-
-  let iconNode: React.ReactNode = null;
-  if (icon) {
-    iconNode = (
-      <span className={clsx(`${prefixCls}-icon`, pureContentCls.icon)} style={styles.icon}>
-        {icon}
-      </span>
-    );
-  } else if (type) {
-    iconNode = React.createElement(typeToIcon[type] || null, {
-      className: clsx(`${prefixCls}-icon`, pureContentCls.icon, `${prefixCls}-icon-${type}`),
-      style: styles.icon,
-    });
-  }
-  return (
-    <div className={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
-      {iconNode}
-      {title && (
-        <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
-          {title}
-        </div>
-      )}
-      {description && (
-        <div
-          className={clsx(`${prefixCls}-description`, pureContentCls.description)}
-          style={styles.description}
-        >
-          {description}
-        </div>
-      )}
-      {actions && (
-        <div
-          className={clsx(`${prefixCls}-actions`, pureContentCls.actions)}
-          style={styles.actions}
-        >
-          {actions}
-        </div>
-      )}
-    </div>
-  );
-};
-
-export interface PurePanelProps
-  extends Omit<
-      RcNotificationProps,
-      'prefixCls' | 'classNames' | 'styles' | 'title' | 'description' | 'icon' | 'actions'
-    >,
-    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
-  prefixCls?: string;
   classNames?: AnchorSemanticAllType['classNamesAndFn'];
   styles?: AnchorSemanticAllType['stylesAndFn'];
   closeIcon?: React.ReactNode;
@@ -143,6 +95,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     styles,
     classNames: notificationClassNames,
     closable,
+    role,
     ...restProps
   } = props;
 
@@ -175,6 +128,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const mergedTitle = title ?? message;
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
+  const iconNode = icon || getTypeIcon(noticePrefixCls, type, mergedStyles.icon);
+  const { root: rootClassName, ...contentClassNames } = mergedClassNames;
+  const { root: rootStyle, ...contentStyles } = mergedStyles;
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -204,9 +160,9 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         notificationClassName,
         cssVarCls,
         rootCls,
-        mergedClassNames.root,
+        rootClassName,
       )}
-      style={mergedStyles.root}
+      style={rootStyle}
     >
       <PurePanelStyle prefixCls={prefixCls} />
       <RcNotification
@@ -216,18 +172,16 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         duration={null}
         closable={mergedClosable}
         className={clsx(notificationClassName, contextClassName)}
-        description={
-          <PureContent
-            classNames={mergedClassNames as PureContentProps['classNames']}
-            styles={mergedStyles as PureContentProps['styles']}
-            prefixCls={noticePrefixCls}
-            icon={icon}
-            type={type}
-            title={mergedTitle}
-            description={description}
-            actions={mergedActions}
-          />
-        }
+        title={mergedTitle || null}
+        description={description || null}
+        icon={iconNode}
+        actions={mergedActions || null}
+        role={role}
+        classNames={{
+          ...contentClassNames,
+          wrapper: clsx(iconNode && `${noticePrefixCls}-with-icon`, contentClassNames.wrapper),
+        }}
+        styles={contentStyles}
       />
     </div>
   );

@@ -190,7 +190,7 @@ describe('notification.config', () => {
     await awaitPromise();
 
     const noticeWithoutLeaving = Array.from(
-      document.querySelectorAll<HTMLElement>('.ant-notification-notice-wrapper'),
+      document.querySelectorAll<HTMLElement>('.ant-notification-notice'),
     ).filter((ele) => !ele.classList.contains('ant-notification-fade-leave'));
 
     expect(noticeWithoutLeaving).toHaveLength(1);
