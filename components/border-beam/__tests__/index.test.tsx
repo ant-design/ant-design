@@ -63,6 +63,26 @@ describe('BorderBeam', () => {
     expect(beamElement.parentElement).toBe(rootElement);
   });
 
+  it('should skip decoration instead of wrapping structured host tags', async () => {
+    const { container } = render(
+      <table>
+        <BorderBeam>
+          <tbody>
+            <tr>
+              <td>cell</td>
+            </tr>
+          </tbody>
+        </BorderBeam>
+      </table>,
+    );
+
+    await waitFor(() => {
+      expect(container.querySelector('.ant-border-beam-wrapper')).toBeFalsy();
+      expect(container.querySelector('.ant-border-beam-beam')).toBeFalsy();
+      expect(container.querySelector('table > tbody')).toBeTruthy();
+    });
+  });
+
   it('should support ConfigProvider common className and style', () => {
     const { container } = render(
       <ConfigProvider borderBeam={{ className: 'context-root', style: { padding: 6 } }}>

@@ -59,6 +59,22 @@ const UNSAFE_HOLDER_TAGS = new Set([
   'wbr',
 ]);
 
+// These tags have strict parent/child content models. If direct injection is unavailable,
+// wrapping them with a div would create invalid DOM such as table > div > tbody.
+const UNSAFE_WRAPPER_TAGS = new Set([
+  'caption',
+  'col',
+  'colgroup',
+  'optgroup',
+  'option',
+  'tbody',
+  'td',
+  'tfoot',
+  'th',
+  'thead',
+  'tr',
+]);
+
 // ============================ Host Element ============================
 
 export const isHTMLElement = (element: Element | null): element is HTMLElement =>
@@ -69,6 +85,9 @@ export const canHTMLTagHostBorderBeam = (tagName: string): boolean =>
 
 export const canElementHostBorderBeam = (element: HTMLElement): boolean =>
   canHTMLTagHostBorderBeam(element.tagName);
+
+export const canHTMLTagWrapWithDiv = (tagName: string): boolean =>
+  !UNSAFE_WRAPPER_TAGS.has(tagName.toLowerCase());
 
 // ============================ Color ============================
 

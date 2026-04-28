@@ -13,7 +13,7 @@ import useBorderBeamEffect from './hooks/useBorderBeamEffect';
 import useBorderBeamGeometry from './hooks/useBorderBeamGeometry';
 import useBorderBeamInjection from './hooks/useBorderBeamInjection';
 import useStyle from './style';
-import { getBorderBeamGradient, getMotionPathRadius } from './util';
+import { canHTMLTagWrapWithDiv, getBorderBeamGradient, getMotionPathRadius } from './util';
 import type { BorderBeamColor } from './util';
 
 export type { BorderBeamColor, BorderBeamGradient } from './util';
@@ -82,6 +82,9 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const fallbackEndColor = token.colorPrimaryHover;
   const mergedBeamGradient = getBorderBeamGradient(color, fallbackStartColor, fallbackEndColor);
   const rootClsName = clsx(prefixCls, className, contextClassName, hashId, cssVarCls);
+  const childTagName =
+    React.isValidElement(children) && typeof children.type === 'string' ? children.type : null;
+  const canFallbackToWrapper = !childTagName || canHTMLTagWrapWithDiv(childTagName);
 
   // ============================ Host ============================
   // `hostElement` is the real DOM node that carries the beam holder. It is the decorated
@@ -162,6 +165,10 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
   // ============================ Render ============================
   if (!canInjectIntoChild) {
+    if (!canFallbackToWrapper) {
+      return children;
+    }
+
     return (
       <div
         ref={setHostNode}
