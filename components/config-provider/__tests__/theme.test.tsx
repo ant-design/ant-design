@@ -249,6 +249,9 @@ describe('ConfigProvider.Theme', () => {
     it('prefix follow prefixCls by default', () => {
       const { container } = render(
         <>
+          <ConfigProvider prefixCls="ak">
+            <Button className="button-ak">Button</Button>
+          </ConfigProvider>
           <ConfigProvider prefixCls="foo" theme={{ cssVar: { key: 'foo' }, hashed: true }}>
             <Button className="button-foo">Button</Button>
           </ConfigProvider>
@@ -270,6 +273,18 @@ describe('ConfigProvider.Theme', () => {
           </ConfigProvider>
         </>,
       );
+
+      const akBtn = container.querySelector('.button-ak')!;
+      expect(akBtn).toHaveClass('css-var-root');
+      expect(akBtn).toHaveStyle({
+        '--ak-btn-shadow': 'var(--ak-button-default-shadow)',
+        'border-radius': 'var(--ak-border-radius)',
+      });
+      expect(
+        Array.from(document.querySelectorAll('style[data-css-hash]')).some(({ innerHTML }) =>
+          innerHTML.includes('--ak-color-text'),
+        ),
+      ).toBeTruthy();
 
       const fooBtn = container.querySelector('.button-foo')!;
       expect(fooBtn).toHaveClass('foo');
