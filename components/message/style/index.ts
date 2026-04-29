@@ -1,11 +1,12 @@
 import type { CSSProperties } from 'react';
-import type { CSSObject } from '@ant-design/cssinjs';
-import { Keyframes } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
-import { resetComponent } from '../../style';
-import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
+import { prepareNotificationToken, sharedGenerateStyle } from '../../notification/style';
+import type { NotificationToken } from '../../notification/style';
+import type { GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genCssVar } from '../../theme/util/genStyleUtils';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -27,174 +28,44 @@ export interface ComponentToken {
   contentPadding: CSSProperties['padding'];
 }
 
-/**
- * @desc Message 组件的 Token
- * @descEN Token for Message component
- */
-interface MessageToken extends FullToken<'Message'> {
-  // Custom token here
-  /**
-   * @desc 提示框高度
-   * @descEN Height of Message
-   */
-  height: number;
-}
-
-const genMessageStyle: GenerateStyle<MessageToken> = (token) => {
-  const {
-    componentCls,
-    iconCls,
-    boxShadow,
-    colorText,
-    colorSuccess,
-    colorError,
-    colorWarning,
-    colorInfo,
-    fontSizeLG,
-    motionEaseInOutCirc,
-    motionDurationSlow,
-    marginXS,
-    paddingXS,
-    borderRadiusLG,
-    zIndexPopup,
-    // Custom token
-    contentPadding,
-    contentBg,
-  } = token;
-
+// =============================== Base ===============================
+const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => {
+  const { antCls, componentCls, fontSize, fontSizeLG, lineHeight } = token;
   const noticeCls = `${componentCls}-notice`;
+  const [varName] = genCssVar(antCls, 'notification');
 
-  const messageMoveIn = new Keyframes('MessageMoveIn', {
-    '0%': {
-      padding: 0,
-      transform: 'translateY(-100%)',
-      opacity: 0,
-    },
-
-    '100%': {
-      padding: paddingXS,
-      transform: 'translateY(0)',
-      opacity: 1,
-    },
-  });
-
-  const messageMoveOut = new Keyframes('MessageMoveOut', {
-    '0%': {
-      maxHeight: token.height,
-      padding: paddingXS,
-      opacity: 1,
-    },
-    '100%': {
-      maxHeight: 0,
-      padding: 0,
-      opacity: 0,
-    },
-  });
-
-  const noticeStyle: CSSObject = {
-    padding: paddingXS,
-    textAlign: 'center',
-
-    [`${componentCls}-custom-content`]: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-
-    [`${componentCls}-custom-content > ${iconCls}`]: {
-      marginInlineEnd: marginXS, // affected by ltr or rtl
-      fontSize: fontSizeLG,
-    },
-
-    [`${noticeCls}-content`]: {
-      display: 'inline-block',
-      padding: contentPadding,
-      background: contentBg,
-      borderRadius: borderRadiusLG,
-      boxShadow,
-      pointerEvents: 'all',
-    },
-
-    [`${componentCls}-success > ${iconCls}`]: {
-      color: colorSuccess,
-    },
-    [`${componentCls}-error > ${iconCls}`]: {
-      color: colorError,
-    },
-    [`${componentCls}-warning > ${iconCls}`]: {
-      color: colorWarning,
-    },
-    [`${componentCls}-info > ${iconCls},
-      ${componentCls}-loading > ${iconCls}`]: {
-      color: colorInfo,
+  return {
+    [componentCls]: {
+      [noticeCls]: {
+        [varName('icon-font-size')]: fontSizeLG,
+        [varName('title-font-size')]: fontSize,
+        [varName('title-line-height')]: lineHeight,
+        width: 'max-content',
+      },
+      [`${noticeCls}-content`]: {
+        alignItems: 'center',
+        gap: token.marginXS,
+      },
     },
   };
+};
 
-  return [
-    // ============================ Holder ============================
-    {
-      [componentCls]: {
-        ...resetComponent(token),
-        color: colorText,
-        position: 'fixed',
-        top: marginXS,
-        width: '100%',
-        pointerEvents: 'none',
-        zIndex: zIndexPopup,
+// ============================== Token ===============================
+const prepareMessageToken: (
+  token: Parameters<GenStyleFn<'Notification'>>[0],
+) => NotificationToken = (token) => {
+  const messagePaddingVertical = token
+    .calc(token.controlHeightLG)
+    .sub(token.calc(token.fontSize).mul(token.lineHeight))
+    .div(2)
+    .equal();
+  const messagePaddingHorizontal = token.paddingSM;
 
-        [`${componentCls}-move-up`]: {
-          animationFillMode: 'forwards',
-        },
-        [`
-        ${componentCls}-move-up-appear,
-        ${componentCls}-move-up-enter
-      `]: {
-          animationName: messageMoveIn,
-          animationDuration: motionDurationSlow,
-          animationPlayState: 'paused',
-          animationTimingFunction: motionEaseInOutCirc,
-        },
-        [`
-        ${componentCls}-move-up-appear${componentCls}-move-up-appear-active,
-        ${componentCls}-move-up-enter${componentCls}-move-up-enter-active
-      `]: {
-          animationPlayState: 'running',
-        },
-        [`${componentCls}-move-up-leave`]: {
-          animationName: messageMoveOut,
-          animationDuration: motionDurationSlow,
-          animationPlayState: 'paused',
-          animationTimingFunction: motionEaseInOutCirc,
-        },
-        [`${componentCls}-move-up-leave${componentCls}-move-up-leave-active`]: {
-          animationPlayState: 'running',
-        },
-        '&-rtl': {
-          direction: 'rtl',
-          span: {
-            direction: 'rtl',
-          },
-        },
-      },
-    },
-
-    // ============================ Notice ============================
-    {
-      [componentCls]: {
-        [`${noticeCls}-wrapper`]: {
-          ...noticeStyle,
-        },
-      },
-    },
-
-    // ============================= Pure =============================
-    {
-      [`${componentCls}-notice-pure-panel`]: {
-        ...noticeStyle,
-        padding: 0,
-        textAlign: 'start',
-      },
-    },
-  ];
+  return mergeToken<NotificationToken>(prepareNotificationToken(token), {
+    notificationPaddingVertical: messagePaddingVertical,
+    notificationPaddingHorizontal: messagePaddingHorizontal,
+    notificationPadding: `${unit(messagePaddingVertical)} ${unit(messagePaddingHorizontal)}`,
+  });
 };
 
 export const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
@@ -209,9 +80,11 @@ export const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
 export default genStyleHooks(
   'Message',
   (token) => {
-    // Gen-style functions here
-    const combinedToken = mergeToken<MessageToken>(token, { height: 150 });
-    return genMessageStyle(combinedToken);
+    const messageToken = prepareMessageToken(
+      token as unknown as Parameters<GenStyleFn<'Notification'>>[0],
+    );
+
+    return [sharedGenerateStyle(messageToken), generateMessageStyle(messageToken)];
   },
   prepareComponentToken,
 );

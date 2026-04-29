@@ -6,6 +6,7 @@ import {
 import type {
   NotificationAPI,
   NotificationConfig as RcNotificationConfig,
+  NotificationProps as RcNotificationProps,
 } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
@@ -30,11 +31,10 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
-import { PureContentWrapper } from './PurePanel';
+import { getMessageIcon } from './PurePanel';
 import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
 
-const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
 
 // ==============================================================================
@@ -75,7 +75,6 @@ const renderNotifications: RcNotificationConfig['renderNotifications'] = (
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
-    top,
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
     maxCount,
@@ -91,12 +90,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
   // =============================== Style ===============================
-  const getStyle = (): React.CSSProperties => ({
-    left: '50%',
-    transform: 'translateX(-50%)',
-    top: top ?? DEFAULT_OFFSET,
-  });
-
   const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
@@ -114,7 +107,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
-    style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
 
@@ -223,21 +215,29 @@ export function useInternalMessage(
       );
 
       const mergedStyles = mergeStyles(contextStyles, semanticStyles, originStyles);
+      const iconNode = getMessageIcon(type, icon);
+      const hasIcon = iconNode !== null;
+      const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
       return wrapPromiseFn((resolve) => {
         originOpen({
           ...restConfig,
           key: mergedKey,
-          description: (
-            <PureContentWrapper
-              prefixCls={prefixCls}
-              type={type}
-              icon={icon}
-              classNames={mergedClassNames}
-              styles={mergedStyles}
-              content={content}
-            />
-          ),
+          icon: iconNode,
+          title: content,
+          classNames: {
+            wrapper: clsx(
+              `${noticePrefixCls}-content`,
+              `${prefixCls}-custom-content`,
+              type && `${prefixCls}-${type}`,
+            ),
+            icon: clsx(typeIconCls, mergedClassNames.icon),
+            title: clsx(!hasIcon && `${noticePrefixCls}-content`, mergedClassNames.content),
+          } satisfies RcNotificationProps['classNames'],
+          styles: {
+            icon: mergedStyles.icon,
+            title: mergedStyles.content,
+          } satisfies RcNotificationProps['styles'],
           placement: 'top',
           className: clsx(
             { [`${noticePrefixCls}-${type}`]: type },

@@ -9,6 +9,10 @@ import type { NotificationPlacement } from '../interface';
 type AxisProperty = 'top' | 'bottom' | 'left' | 'right';
 type VerticalPlacement = Extract<AxisProperty, 'top' | 'bottom'>;
 type HorizontalPlacement = Extract<AxisProperty, 'left' | 'right'>;
+type PlacementOffset = {
+  blockEnd: VerticalPlacement;
+  inlineEnd: HorizontalPlacement;
+};
 type PlacementMotionOffset = {
   x?: string;
   y?: string;
@@ -17,9 +21,21 @@ type PlacementMotionOffset = {
 type PlacementStyleConfig = {
   placement: NotificationPlacement;
   vertical: VerticalPlacement;
+  blockEnd: VerticalPlacement;
   horizontal: HorizontalPlacement;
+  inlineEnd: HorizontalPlacement;
   motionOffset: PlacementMotionOffset;
+  baseMotionOffset?: PlacementMotionOffset;
+  isCenterPlacement: boolean;
 };
+
+const getPlacementOffset = (
+  vertical: VerticalPlacement,
+  horizontal: HorizontalPlacement,
+): PlacementOffset => ({
+  blockEnd: vertical === 'top' ? 'bottom' : 'top',
+  inlineEnd: horizontal === 'left' ? 'right' : 'left',
+});
 
 const getMotionTransform = (motionOffset?: PlacementMotionOffset) => {
   const x = motionOffset?.x ?? '0';
@@ -34,6 +50,7 @@ const getPlacementStyleConfig = (
 ): PlacementStyleConfig => {
   const vertical = placement.startsWith('bottom') ? 'bottom' : 'top';
   const horizontal = placement.endsWith('Right') ? 'right' : 'left';
+  const { blockEnd, inlineEnd } = getPlacementOffset(vertical, horizontal);
   const isCenterPlacement = placement === 'top' || placement === 'bottom';
   const offset =
     placement === 'top' || placement.endsWith('Left') ? `-${motionOffset}` : motionOffset;
@@ -41,8 +58,12 @@ const getPlacementStyleConfig = (
   return {
     placement,
     vertical,
+    blockEnd,
     horizontal,
-    motionOffset: isCenterPlacement ? { y: offset } : { x: offset },
+    inlineEnd,
+    motionOffset: isCenterPlacement ? { x: '-50%', y: offset } : { x: offset },
+    baseMotionOffset: isCenterPlacement ? { x: '-50%' } : undefined,
+    isCenterPlacement,
   };
 };
 
@@ -57,21 +78,40 @@ const getPlacementStackClipPath = (vertical: VerticalPlacement) =>
 
 const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfig): CSSObject => {
   const { componentCls } = token;
-  const { placement, vertical, horizontal } = config;
+  const { placement, vertical, blockEnd, horizontal, inlineEnd } = config;
   const noticeCls = `${componentCls}-notice`;
   const noticeMotionCls = `${noticeCls}${componentCls}-fade`;
   const enterTransform = getMotionTransform(config.motionOffset);
-  const baseTransform = getMotionTransform();
+  const baseTransform = getMotionTransform(config.baseMotionOffset);
   const transformOrigin = getPlacementTransformOrigin(vertical);
 
   return {
     [`&${componentCls}-${placement}`]: {
+      [vertical]: `var(--notification-${vertical}, 0)`,
+      [blockEnd]: 'auto',
       display: 'flex',
       flexDirection: getPlacementFlexDirection(vertical),
+      ...(config.isCenterPlacement
+        ? {
+            left: '50%',
+            right: 'auto',
+            transform: 'translateX(-50%)',
+          }
+        : {
+            [horizontal]: 0,
+            [inlineEnd]: 'auto',
+          }),
 
       [noticeCls]: {
         [vertical]: 'var(--notification-y, 0)',
-        [horizontal]: 'var(--notification-x, 0)',
+        ...(config.isCenterPlacement
+          ? {
+              left: '50%',
+              transform: baseTransform,
+            }
+          : {
+              [horizontal]: 'var(--notification-x, 0)',
+            }),
         transformOrigin,
       },
 
@@ -114,23 +154,38 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
   };
 };
 
-const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
+export const genNotificationPlacementRootStyle = (
+  token: NotificationToken,
+  placements: readonly NotificationPlacement[] = NotificationPlacements,
+): CSSObject => {
   const { componentCls, notificationMotionOffset } = token;
   const motionOffset = unit(notificationMotionOffset);
+  const centerPlacementCls = placements
+    .filter((placement) => placement === 'top' || placement === 'bottom')
+    .map((placement) => `&${componentCls}-${placement}`)
+    .join(', ');
 
   return {
-    [componentCls]: {
-      [`&${componentCls}-top, &${componentCls}-bottom`]: {
+    ...(centerPlacementCls && {
+      [centerPlacementCls]: {
         marginInline: 0,
       },
-      ...NotificationPlacements.reduce<CSSObject>(
-        (styles, placement) => ({
-          ...styles,
-          ...genPlacementStyle(token, getPlacementStyleConfig(placement, motionOffset)),
-        }),
-        {},
-      ),
-    },
+    }),
+    ...placements.reduce<CSSObject>(
+      (styles, placement) => ({
+        ...styles,
+        ...genPlacementStyle(token, getPlacementStyleConfig(placement, motionOffset)),
+      }),
+      {},
+    ),
+  };
+};
+
+const genNotificationPlacementStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
+  const { componentCls } = token;
+
+  return {
+    [componentCls]: genNotificationPlacementRootStyle(token),
   };
 };
 

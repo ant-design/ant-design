@@ -10,6 +10,14 @@ import genNotificationPlacementStyle from './placement';
 
 const COLLAPSED_STACK_VISIBLE_COUNT = 3;
 
+type WidthKey<Token extends NotificationToken> = {
+  [Key in keyof Token]: Token[Key] extends number | string ? Key : never;
+}[keyof Token];
+
+interface SharedStyleConfig<Token extends NotificationToken> {
+  listWidthKey?: WidthKey<Token>;
+}
+
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   /**
@@ -68,7 +76,7 @@ export interface NotificationToken extends FullToken<'Notification'> {
    * @desc 提醒框垂直内边距
    * @descEN Vertical padding of Notification
    */
-  notificationPaddingVertical: number;
+  notificationPaddingVertical: number | string;
   /**
    * @desc 提醒框水平内边距
    * @descEN Horizontal padding of Notification
@@ -141,19 +149,60 @@ export const prepareNotificationToken: (
   return notificationToken;
 };
 
-const genNotificationListStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const {
-    componentCls,
-    notificationMarginEdge,
-    motionDurationMid,
-    motionDurationSlow,
-    motionEaseInOut,
-  } = token;
+export const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObject> = (
+  token,
+) => {
+  const { componentCls, motionDurationMid, motionDurationSlow, motionEaseInOut } = token;
+
+  const listCls = `${componentCls}-list`;
+  const listContentCls = `${listCls}-content`;
+
+  return {
+    [listContentCls]: {
+      position: 'relative',
+      display: 'flex',
+      flexShrink: 0,
+      flexDirection: 'column',
+      gap: token.notificationMarginBottom,
+      width: '100%',
+      pointerEvents: 'none',
+      willChange: 'height, transform',
+      transition: 'none',
+
+      [`&${listContentCls}-decrease`]: {
+        transition: `height calc(${motionDurationSlow} * 2) ${motionEaseInOut} ${motionDurationMid}`,
+      },
+    },
+
+    [`&${componentCls}-list-hovered`]: {
+      [listContentCls]: {
+        pointerEvents: 'auto',
+      },
+    },
+
+    // ============================ Motion ============================
+    [`${componentCls}-fade`]: {
+      backfaceVisibility: 'hidden',
+      willChange: 'transform, opacity',
+    },
+  };
+};
+
+const genNotificationListStyle = <Token extends NotificationToken>(
+  token: Token,
+  config: SharedStyleConfig<Token>,
+): CSSObject => {
+  const { componentCls, notificationMarginEdge } = token;
 
   const noticeCls = `${componentCls}-notice`;
   const listCls = `${componentCls}-list`;
-  const listContentCls = `${listCls}-content`;
-  const listWidth = token.calc(token.width).add(token.calc(notificationMarginEdge).mul(2)).equal();
+
+  const listWidth = config.listWidthKey
+    ? token
+        .calc(token[config.listWidthKey] as number | string)
+        .add(token.calc(notificationMarginEdge).mul(2))
+        .equal()
+    : '100%';
   const noticeBeyondStackVisibleCountCls = `${noticeCls}:nth-last-child(n + ${
     COLLAPSED_STACK_VISIBLE_COUNT + 1
   })`;
@@ -193,21 +242,7 @@ const genNotificationListStyle: GenerateStyle<NotificationToken, CSSObject> = (t
         },
       },
 
-      [listContentCls]: {
-        position: 'relative',
-        display: 'flex',
-        flexShrink: 0,
-        flexDirection: 'column',
-        gap: token.notificationMarginBottom,
-        width: '100%',
-        pointerEvents: 'none',
-        willChange: 'height, transform',
-        transition: 'none',
-
-        [`&${listContentCls}-decrease`]: {
-          transition: `height calc(${motionDurationSlow} * 2) ${motionEaseInOut} ${motionDurationMid}`,
-        },
-      },
+      ...genNotificationListContentStyle(token),
 
       // ============================ Stack ============================
       [`&${componentCls}-stack`]: {
@@ -232,18 +267,6 @@ const genNotificationListStyle: GenerateStyle<NotificationToken, CSSObject> = (t
         },
       },
 
-      [`&${componentCls}-list-hovered`]: {
-        [listContentCls]: {
-          pointerEvents: 'auto',
-        },
-      },
-
-      // ============================ Motion ============================
-      [`${componentCls}-fade`]: {
-        backfaceVisibility: 'hidden',
-        willChange: 'transform, opacity',
-      },
-
       // ============================== RTL =============================
       '&-rtl': {
         direction: 'rtl',
@@ -262,16 +285,21 @@ export const PurePanelStyle = genSubStyleComponent(
   prepareComponentToken,
 );
 
+export const sharedGenerateStyle = <Token extends NotificationToken>(
+  token: Token,
+  config: SharedStyleConfig<Token> = {},
+): ReturnType<GenerateStyle<Token>> => [
+  genNotificationListStyle(token, config),
+  genNotificationStyle(token),
+  genNotificationPlacementStyle(token),
+];
+
 export default genStyleHooks(
   'Notification',
   (token) => {
     const notificationToken = prepareNotificationToken(token);
 
-    return [
-      genNotificationListStyle(notificationToken),
-      genNotificationStyle(notificationToken),
-      genNotificationPlacementStyle(notificationToken),
-    ];
+    return sharedGenerateStyle(notificationToken, { listWidthKey: 'width' });
   },
   prepareComponentToken,
 );

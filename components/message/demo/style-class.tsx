@@ -4,13 +4,18 @@ import type { GetProp, MessageArgsProps } from 'antd';
 import { createStaticStyles } from 'antd-style';
 
 const messageClassNames = createStaticStyles(({ css }) => ({
-  icon: css`
-    font-size: 14px;
+  root: css`
+    border: 1px solid #91caff;
+    box-shadow: 0 4px 14px rgba(22, 119, 255, 0.12);
+  `,
+  content: css`
+    color: #0958d9;
+    font-weight: 600;
   `,
 }));
 
 const stylesObject: MessageArgsProps['styles'] = {
-  icon: { fontSize: 20 },
+  icon: { color: '#0958d9' },
 };
 
 const stylesFn: MessageArgsProps['styles'] = ({
@@ -19,10 +24,12 @@ const stylesFn: MessageArgsProps['styles'] = ({
   if (props.type === 'success') {
     return {
       root: {
-        border: '1px solid #eee',
-        display: 'inline-flex',
-        borderRadius: 10,
-        overflow: 'hidden',
+        border: '1px solid #b7eb8f',
+        boxShadow: '0 4px 14px rgba(82, 196, 26, 0.14)',
+      },
+      content: {
+        color: '#237804',
+        fontWeight: 600,
       },
     };
   }

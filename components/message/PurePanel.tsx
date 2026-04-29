@@ -9,7 +9,6 @@ import type { NotificationProps as RcNotificationProps } from '@rc-component/not
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { cloneElement } from '../_util/reactNode';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { ArgsProps, MessageSemanticAllType, NoticeType } from './interface';
@@ -23,56 +22,20 @@ export const TypeIcon = {
   loading: <LoadingOutlined />,
 };
 
-export interface PureContentProps {
-  prefixCls: string;
+export const getMessageIcon = (type?: NoticeType, icon?: React.ReactNode) =>
+  icon || (type && TypeIcon[type]) || null;
+
+export interface MessageContentProps {
   type?: NoticeType;
   icon?: React.ReactNode;
-  classNames?: MessageSemanticAllType['classNames'];
-  styles?: MessageSemanticAllType['styles'];
 }
-
-export const PureContent: React.FC<React.PropsWithChildren<PureContentProps>> = (props) => {
-  const { prefixCls, type, icon, children, classNames: pureContentClassNames, styles } = props;
-  const iconElement = icon || (type && TypeIcon[type]);
-  const iconNode = cloneElement<React.HTMLAttributes<HTMLElement>>(iconElement, (currentProps) => {
-    const mergedStyle: React.CSSProperties = { ...currentProps?.style, ...styles?.icon };
-    return {
-      className: clsx(currentProps.className, pureContentClassNames?.icon),
-      style: mergedStyle,
-    };
-  });
-  return (
-    <div className={clsx(`${prefixCls}-custom-content`, `${prefixCls}-${type}`)}>
-      {iconNode}
-      <span className={pureContentClassNames?.content} style={styles?.content}>
-        {children}
-      </span>
-    </div>
-  );
-};
-
-export interface PureContentWrapperProps extends PureContentProps {
-  content?: React.ReactNode;
-}
-
-export const PureContentWrapper: React.FC<PureContentWrapperProps> = (props) => {
-  const { prefixCls, content, ...restProps } = props;
-
-  return (
-    <div className={`${prefixCls}-notice-content`}>
-      <PureContent prefixCls={prefixCls} {...restProps}>
-        {content}
-      </PureContent>
-    </div>
-  );
-};
 
 export interface PurePanelProps
   extends Omit<
       RcNotificationProps,
       'prefixCls' | 'classNames' | 'styles' | 'title' | 'description' | 'icon' | 'actions'
     >,
-    Omit<PureContentProps, 'prefixCls' | 'children' | 'classNames' | 'styles'> {
+    MessageContentProps {
   prefixCls?: string;
   content?: React.ReactNode;
   classNames?: MessageSemanticAllType['classNamesAndFn'];
@@ -101,6 +64,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   } = useComponentConfig('message');
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
+  const noticePrefixCls = `${prefixCls}-notice`;
 
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
@@ -112,6 +76,22 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       props: props as unknown as ArgsProps,
     },
   );
+  const iconNode = getMessageIcon(type, icon);
+  const hasIcon = iconNode !== null;
+  const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
+  const rcClassNames: RcNotificationProps['classNames'] = {
+    wrapper: clsx(
+      `${noticePrefixCls}-content`,
+      `${prefixCls}-custom-content`,
+      type && `${prefixCls}-${type}`,
+    ),
+    icon: clsx(typeIconCls, mergedClassNames.icon),
+    title: clsx(!hasIcon && `${noticePrefixCls}-content`, mergedClassNames.content),
+  };
+  const rcStyles: RcNotificationProps['styles'] = {
+    icon: mergedStyles.icon,
+    title: mergedStyles.content,
+  };
 
   return (
     <RcNotification
@@ -128,16 +108,10 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       )}
       style={{ ...mergedStyles.root, ...contextStyle, ...style }}
       duration={null}
-      description={
-        <PureContentWrapper
-          prefixCls={prefixCls}
-          type={type}
-          icon={icon}
-          classNames={mergedClassNames}
-          styles={mergedStyles}
-          content={content}
-        />
-      }
+      icon={iconNode}
+      title={content}
+      classNames={rcClassNames}
+      styles={rcStyles}
     />
   );
 };

@@ -6,9 +6,22 @@ import type { GenerateStyle } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 import type { NotificationToken } from '.';
 
+export const genNotificationItemMotionStyle = (token: NotificationToken): CSSObject => {
+  const { motionDurationMid, motionEaseInOut } = token;
+
+  return {
+    transform: 'scale(var(--notification-scale, 1))',
+    transition: [
+      `transform ${motionDurationMid} ${motionEaseInOut}`,
+      `inset ${motionDurationMid} ${motionEaseInOut}`,
+      `clip-path ${motionDurationMid} ${motionEaseInOut}`,
+      `opacity ${motionDurationMid} ${motionEaseInOut}`,
+    ].join(', '),
+  };
+};
+
 export const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
   const {
-    iconCls,
     componentCls,
     antCls,
     boxShadow,
@@ -28,72 +41,76 @@ export const genNotificationItemStyle = (token: NotificationToken): CSSObject =>
     lineHeight,
     width,
     notificationIconSize,
-    notificationCloseButtonSize,
     colorText,
     motionDurationMid,
-    motionEaseInOut,
   } = token;
 
   const noticeCls = `${componentCls}-notice`;
-  const [, varRef] = genCssVar(antCls, 'notification');
+  const [varName, varRef] = genCssVar(antCls, 'notification');
 
   return {
-    // ============================== Base ==============================
-    position: 'absolute',
-    boxSizing: 'border-box',
-    width,
-    maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
-    padding: notificationPadding,
-    pointerEvents: 'auto',
-    color: colorText,
-    background: notificationBg,
-    borderRadius: borderRadiusLG,
-    boxShadow,
-    fontSize,
-    lineHeight,
-    wordWrap: 'break-word',
-    overflow: 'hidden',
-    transform: 'scale(var(--notification-scale, 1))',
-    transition: [
-      `transform ${motionDurationMid} ${motionEaseInOut}`,
-      `inset ${motionDurationMid} ${motionEaseInOut}`,
-      `clip-path ${motionDurationMid} ${motionEaseInOut}`,
-      `opacity ${motionDurationMid} ${motionEaseInOut}`,
-    ].join(', '),
+    [noticeCls]: {
+      // ============================== Base ==============================
+      position: 'absolute',
+      boxSizing: 'border-box',
+      width,
+      maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
+      padding: notificationPadding,
+      pointerEvents: 'auto',
+      [varName('icon-font-size')]: notificationIconSize,
+      [varName('title-font-size')]: fontSizeLG,
+      [varName('title-line-height')]: token.lineHeightLG,
+      color: colorText,
+      background: notificationBg,
+      borderRadius: borderRadiusLG,
+      boxShadow,
+      fontSize,
+      lineHeight,
+      wordWrap: 'break-word',
+      overflow: 'hidden',
+      ...genNotificationItemMotionStyle(token),
 
-    // ============================== Type ==============================
-    '&-success': {
-      background: varRef('color-success-bg', notificationBg),
-    },
-    '&-error': {
-      background: varRef('color-error-bg', notificationBg),
-    },
-    '&-info': {
-      background: varRef('color-info-bg', notificationBg),
-    },
-    '&-warning': {
-      background: varRef('color-warning-bg', notificationBg),
+      // ============================== Type ==============================
+      '&-success': {
+        background: varRef('color-success-bg', notificationBg),
+      },
+      '&-error': {
+        background: varRef('color-error-bg', notificationBg),
+      },
+      '&-info': {
+        background: varRef('color-info-bg', notificationBg),
+      },
+      '&-warning': {
+        background: varRef('color-warning-bg', notificationBg),
+      },
     },
 
     // ============================ Content ============================
+    [`${noticeCls}-content`]: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      gap: token.marginSM,
+    },
+
     [`${noticeCls}-section`]: {
-      paddingInlineEnd: token.calc(notificationCloseButtonSize).add(token.marginSM).equal(),
+      display: 'flex',
+      flexDirection: 'column',
+      flex: 'auto',
+      gap: token.marginXS,
+      minWidth: 0,
     },
 
     [`${noticeCls}-title`]: {
-      marginBottom: token.marginXS,
       color: colorTextHeading,
-      fontSize: fontSizeLG,
-      lineHeight: token.lineHeightLG,
+      fontSize: varRef('title-font-size'),
+      lineHeight: varRef('title-line-height'),
     },
 
     [`${noticeCls}-description`]: {
-      marginTop: token.marginXS,
       color: colorText,
       fontSize,
 
       '&:first-child': {
-        marginTop: 0,
         marginInlineEnd: token.marginSM,
       },
     },
@@ -102,33 +119,28 @@ export const genNotificationItemStyle = (token: NotificationToken): CSSObject =>
       paddingInlineEnd: token.paddingLG,
     },
 
-    [`${noticeCls}-with-icon ${noticeCls}-title`]: {
-      marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
-    },
-
-    [`${noticeCls}-with-icon ${noticeCls}-description`]: {
-      marginInlineStart: token.calc(token.marginSM).add(notificationIconSize).equal(),
-    },
-
     // ============================= Icon =============================
     // Icon & color style in different selector level
     // https://github.com/ant-design/ant-design/issues/16503
     // https://github.com/ant-design/ant-design/issues/15512
     [`${noticeCls}-icon`]: {
-      position: 'absolute',
-      fontSize: notificationIconSize,
+      flex: 'none',
+      fontSize: varRef('icon-font-size'),
       lineHeight: 1,
 
-      [`&-success${iconCls}`]: {
+      [`&${noticeCls}-icon-success`]: {
         color: colorSuccess,
       },
-      [`&-info${iconCls}`]: {
+      [`&${noticeCls}-icon-info`]: {
         color: colorInfo,
       },
-      [`&-warning${iconCls}`]: {
+      [`&${noticeCls}-icon-loading`]: {
+        color: colorInfo,
+      },
+      [`&${noticeCls}-icon-warning`]: {
         color: colorWarning,
       },
-      [`&-error${iconCls}`]: {
+      [`&${noticeCls}-icon-error`]: {
         color: colorError,
       },
     },
@@ -207,14 +219,16 @@ export const genNotificationItemStyle = (token: NotificationToken): CSSObject =>
 
 export const genPurePanelStyle = (token: NotificationToken): CSSObject => {
   const noticeCls = `${token.componentCls}-notice`;
+  const notificationItemStyle = genNotificationItemStyle(token);
 
   return {
     [`${noticeCls}-pure-panel`]: {
       width: token.width,
       maxWidth: '100%',
+      ...notificationItemStyle,
 
       [noticeCls]: {
-        ...genNotificationItemStyle(token),
+        ...(notificationItemStyle[noticeCls] as CSSObject),
         position: 'relative',
         width: '100%',
         maxWidth: '100%',
@@ -224,12 +238,8 @@ export const genPurePanelStyle = (token: NotificationToken): CSSObject => {
 };
 
 const genNotificationStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
-  const noticeCls = `${token.componentCls}-notice`;
-
   return {
-    [token.componentCls]: {
-      [noticeCls]: genNotificationItemStyle(token),
-    },
+    [token.componentCls]: genNotificationItemStyle(token),
   };
 };
 

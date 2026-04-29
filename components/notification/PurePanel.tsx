@@ -128,7 +128,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const mergedTitle = title ?? message;
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
-  const iconNode = icon || getTypeIcon(noticePrefixCls, type, mergedStyles.icon);
+  const iconNode = icon || (type ? TypeIcon[type] : null);
+  const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
   const { root: rootClassName, ...contentClassNames } = mergedClassNames;
   const { root: rootStyle, ...contentStyles } = mergedStyles;
 
@@ -179,7 +180,8 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         role={role}
         classNames={{
           ...contentClassNames,
-          wrapper: clsx(iconNode && `${noticePrefixCls}-with-icon`, contentClassNames.wrapper),
+          wrapper: clsx(iconNode && `${noticePrefixCls}-content`, contentClassNames.wrapper),
+          icon: clsx(typeIconCls, contentClassNames.icon),
         }}
         styles={contentStyles}
       />

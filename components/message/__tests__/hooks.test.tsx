@@ -165,7 +165,7 @@ describe('message.hooks', () => {
     act(() => {
       hide!();
     });
-    await triggerMotionEnd('.my-test-message-move-up-leave');
+    await triggerMotionEnd('.my-test-message-fade-leave');
 
     expect(document.querySelectorAll('.my-test-message-notice')).toHaveLength(0);
   });
@@ -271,6 +271,35 @@ describe('message.hooks', () => {
     expect(styleText).not.toContain('.ant-message');
   });
 
+  it('should keep icon and content in the same message bubble', () => {
+    const cache = createCache();
+
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      useEffect(() => {
+        api.success({
+          content: 'Hello, Ant Design!',
+        });
+      }, []);
+
+      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
+    };
+
+    render(<Demo />);
+
+    const bubble = document.querySelector('.ant-message-notice-content');
+
+    expect(bubble).toHaveClass('ant-message-custom-content');
+    expect(bubble).toContainElement(document.querySelector('.ant-message-notice-icon'));
+    expect(bubble).toContainElement(document.querySelector('.ant-message-notice-title'));
+
+    const styleText = extractStyle(cache, true);
+    expect(styleText.indexOf('.ant-message-notice-content{display:inline-block;')).toBeLessThan(
+      styleText.indexOf('.ant-message-custom-content{display:inline-flex;'),
+    );
+  });
+
   it('component fontSize should work', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
@@ -365,17 +394,20 @@ describe('message.hooks', () => {
         </div>
       );
     };
-    it('should not pause the timer when pauseOnHover is true', async () => {
+    it('should pause the timer when pauseOnHover is true', async () => {
       render(<Demo pauseOnHover />);
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
+      act(() => {
+        jest.advanceTimersByTime(3000);
+      });
+      expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
       await act(() => {
         jest.runAllTimers();
       });
-      // component is destroyed and hovers the component,clearTimeout calls exceeding 1
-      expect(clearTimeout).toHaveBeenCalledTimes(3);
+      expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
 
     it('should not pause the timer when pauseOnHover is false', async () => {
@@ -389,7 +421,7 @@ describe('message.hooks', () => {
       await act(() => {
         jest.runAllTimers();
       });
-      expect(document.querySelector('.ant-message-move-up-leave')).toBeTruthy();
+      expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
   });
 });

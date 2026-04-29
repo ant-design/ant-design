@@ -6,7 +6,7 @@ export async function awaitPromise() {
   }
 }
 
-export async function triggerMotionEnd(selector = '.ant-message-move-up-leave') {
+export async function triggerMotionEnd(selector = '.ant-message-fade-leave') {
   await awaitPromise();
 
   // Flush css motion state update

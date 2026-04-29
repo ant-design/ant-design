@@ -4,12 +4,15 @@ exports[`renders components/message/demo/component-token.tsx extend context corr
 Array [
   <div
     class="ant-message-notice ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
+    data-notification-index="0"
+    role="alert"
+    style="--notification-index: 0;"
   >
     <div
-      class="ant-message-notice-content"
+      class="ant-message-notice-content ant-message-custom-content ant-message-error"
     >
       <div
-        class="ant-message-custom-content ant-message-error"
+        class="ant-message-notice-icon"
       >
         <span
           aria-label="close-circle"
@@ -31,20 +34,25 @@ Array [
             />
           </svg>
         </span>
-        <span>
-          Hello World!
-        </span>
+      </div>
+      <div
+        class="ant-message-notice-title"
+      >
+        Hello World!
       </div>
     </div>
   </div>,
   <div
     class="ant-message-notice ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
+    data-notification-index="0"
+    role="alert"
+    style="--notification-index: 0;"
   >
     <div
-      class="ant-message-notice-content"
+      class="ant-message-notice-content ant-message-custom-content ant-message-error"
     >
       <div
-        class="ant-message-custom-content ant-message-error"
+        class="ant-message-notice-icon"
       >
         <span
           aria-label="close-circle"
@@ -66,9 +74,11 @@ Array [
             />
           </svg>
         </span>
-        <span>
-          Hello World!
-        </span>
+      </div>
+      <div
+        class="ant-message-notice-title"
+      >
+        Hello World!
       </div>
     </div>
   </div>,
@@ -190,12 +200,15 @@ exports[`renders components/message/demo/other.tsx extend context correctly 2`] 
 exports[`renders components/message/demo/render-panel.tsx extend context correctly 1`] = `
 <div
   class="ant-message-notice ant-message-notice-pure-panel css-var-test-id ant-message-css-var"
+  data-notification-index="0"
+  role="alert"
+  style="--notification-index: 0;"
 >
   <div
-    class="ant-message-notice-content"
+    class="ant-message-notice-content ant-message-custom-content ant-message-error"
   >
     <div
-      class="ant-message-custom-content ant-message-error"
+      class="ant-message-notice-icon"
     >
       <span
         aria-label="close-circle"
@@ -217,9 +230,11 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
           />
         </svg>
       </span>
-      <span>
-        Hello World!
-      </span>
+    </div>
+    <div
+      class="ant-message-notice-title"
+    >
+      Hello World!
     </div>
   </div>
 </div>

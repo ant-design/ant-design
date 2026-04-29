@@ -30,11 +30,10 @@ import type {
   NotificationPlacement,
   NotificationSemanticAllType,
 } from './interface';
-import { getCloseIcon, getTypeIcon } from './PurePanel';
+import { getCloseIcon, TypeIcon } from './PurePanel';
 import useStyle from './style';
-import { getCloseIconConfig, getMotion, getPlacementStyle } from './util';
+import { getCloseIconConfig, getMotion, getPlacementOffsetStyle } from './util';
 
-const DEFAULT_OFFSET = 0;
 const DEFAULT_DURATION = 4.5;
 const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
 
@@ -104,8 +103,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   );
 
   // =============================== Style ===============================
-  const getStyle = (placement: NotificationPlacement): React.CSSProperties => ({
-    ...getPlacementStyle(placement, top ?? DEFAULT_OFFSET, bottom ?? DEFAULT_OFFSET),
+  const getStyle = (): React.CSSProperties => ({
+    ...getPlacementOffsetStyle(top, bottom),
     ...mergedStyles.list,
   });
 
@@ -246,7 +245,8 @@ export function useInternalNotification(
       const mergedClassNames = mergeClassNames(undefined, originClassNames, semanticClassNames);
 
       const mergedStyles = mergeStyles(originStyles, semanticStyles);
-      const iconNode = icon || getTypeIcon(noticePrefixCls, type, mergedStyles.icon);
+      const iconNode = icon || (type ? TypeIcon[type] : null);
+      const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
       return originOpen({
         // use placement from props instead of hard-coding "topRight"
@@ -259,7 +259,8 @@ export function useInternalNotification(
         role,
         classNames: {
           ...mergedClassNames,
-          wrapper: clsx(iconNode && `${noticePrefixCls}-with-icon`, mergedClassNames.wrapper),
+          wrapper: clsx(iconNode && `${noticePrefixCls}-content`, mergedClassNames.wrapper),
+          icon: clsx(typeIconCls, mergedClassNames.icon),
         },
         styles: {
           ...mergedStyles,

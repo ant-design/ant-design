@@ -8,9 +8,18 @@ const App: React.FC = () => {
     messageApi.open({
       type: 'success',
       content: 'This is a prompt message with custom className and style',
-      className: 'custom-class',
-      style: {
-        marginTop: '20vh',
+      styles: {
+        root: {
+          border: '1px solid #b7eb8f',
+          boxShadow: '0 4px 12px rgba(82, 196, 26, 0.12)',
+        },
+        icon: {
+          color: '#237804',
+        },
+        content: {
+          color: '#237804',
+          fontWeight: 600,
+        },
       },
     });
   };
