@@ -118,6 +118,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
       <div
         ref={holderRef}
         data-testid="virtual-list"
+        className={`${prefixCls}-virtual-holder`}
         style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
         onScroll={(event) => {
           const nextTop = event.currentTarget.scrollTop;
@@ -140,7 +141,10 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
           }, 120);
         }}
       >
-        <div style={{ height: totalHeight, position: 'relative' }}>
+        <div
+          className={`${prefixCls}-virtual-inner`}
+          style={{ height: totalHeight, position: 'relative' }}
+        >
           {visibleItems.map((record) => {
             const columnIndex = record.position?.column ?? 0;
             const top = record.position?.top ?? 0;
