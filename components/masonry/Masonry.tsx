@@ -294,7 +294,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
                 ...style,
                 display: 'block',
                 overflow: 'hidden',
-                height: style?.height,
+                ...(style?.height !== undefined ? { height: style.height } : null),
               }
             : {
                 height: totalHeight,
