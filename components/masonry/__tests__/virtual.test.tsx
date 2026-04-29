@@ -10,9 +10,10 @@ const resizeMasonry = async () => {
 
 describe('Masonry.virtual', () => {
   const heights = Array.from({ length: 80 }, (_, index) => 60 + ((index * 37) % 160));
+  let rectSpy: jest.SpyInstance<DOMRect, []>;
 
   beforeAll(() => {
-    jest
+    rectSpy = jest
       .spyOn(HTMLElement.prototype, 'getBoundingClientRect')
       .mockImplementation(function mockGetBoundingClientRect(this: HTMLElement) {
         const node = this.querySelector('.masonry-cell') as HTMLElement | null;
@@ -45,10 +46,15 @@ describe('Masonry.virtual', () => {
     document.body.innerHTML = '';
   });
 
-  const Demo = ({
-    dynamicHeights = heights,
-    ...props
-  }: Partial<any> & { dynamicHeights?: number[] }) => {
+  afterAll(() => {
+    rectSpy.mockRestore();
+  });
+
+  interface DemoProps extends Partial<React.ComponentProps<typeof Masonry<number>>> {
+    dynamicHeights?: number[];
+  }
+
+  const Demo = ({ dynamicHeights = heights, ...props }: DemoProps) => {
     const items = dynamicHeights.map((height, index) => ({
       key: `item-${index}`,
       data: height,
