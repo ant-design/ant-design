@@ -22,7 +22,7 @@ const dimensionMaxMap: Record<Breakpoint, string> = {
 };
 
 const isNumeric = (val: unknown) =>
-  !Number.isNaN(Number.parseFloat(val as string)) && Number.isFinite(Number(val));
+  !Number.isNaN(Number.parseFloat(String(val))) && Number.isFinite(Number(val));
 
 export interface SiderContextProps {
   siderCollapsed?: boolean;
