@@ -77,7 +77,7 @@ export interface MasonryRef {
 }
 
 type ItemColumnsType = [item: MasonryItemType, column: number];
-export interface MasonryRenderItem<ItemDataType = any> {
+export interface MasonryRenderItem<ItemDataType = unknown> {
   item: MasonryItemType<ItemDataType>;
   itemIndex: number;
   itemKey: React.Key;
@@ -286,14 +286,23 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           cssVarCls,
           { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
-        style={{
-          height: virtual ? style?.height : totalHeight,
-          display: virtual ? 'block' : undefined,
-          overflow: virtual ? 'hidden' : undefined,
-          ...mergedStyles.root,
-          ...contextStyle,
-          ...style,
-        }}
+        style={
+          virtual
+            ? {
+                ...mergedStyles.root,
+                ...contextStyle,
+                ...style,
+                display: 'block',
+                overflow: 'hidden',
+                height: style?.height,
+              }
+            : {
+                height: totalHeight,
+                ...mergedStyles.root,
+                ...contextStyle,
+                ...style,
+              }
+        }
         // Listen for image events
         onLoad={collectItemSize}
         onError={collectItemSize}

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Card, Masonry } from 'antd';
-import type { MasonryProps } from 'antd';
 
-type MasonryData = { height: number; title: string; cover: string };
-type ItemType = NonNullable<MasonryProps<MasonryData>['items']>[number];
+interface DemoData {
+  height: number;
+  title: string;
+  cover: string;
+}
 
 const images = [
   'https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=640&auto=format',
@@ -13,7 +15,7 @@ const images = [
   'https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?w=640&auto=format',
 ];
 
-const items: ItemType[] = Array.from({ length: 600 }).map((_, index) => {
+const items = Array.from({ length: 600 }).map((_, index) => {
   const height = 120 + ((index * 37) % 140);
 
   return {
@@ -34,7 +36,7 @@ const App: React.FC = () => (
     columns={{ xs: 1, sm: 2, md: 3 }}
     gutter={[16, 16]}
     items={items}
-    itemRender={({ data }) => (
+    itemRender={({ data }: { data: DemoData }) => (
       <Card
         size="small"
         cover={
