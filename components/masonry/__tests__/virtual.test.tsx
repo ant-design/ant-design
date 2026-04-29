@@ -4,7 +4,7 @@ import Masonry from '..';
 import { fireEvent, render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 
 jest.mock('@rc-component/virtual-list', () => {
-  const ReactLib = jest.requireActual<typeof React>('react');
+  const ReactLib: typeof import('react') = jest.requireActual('react');
 
   const MockVirtualList = ({
     data,
@@ -55,7 +55,7 @@ const resizeMasonry = async () => {
 };
 
 describe('Masonry.virtual', () => {
-  const heights = [160, 40, 120, 80, 140, 200, 130, 90, 70, 180, 100, 150];
+  const heights = Array.from({ length: 80 }, (_, index) => 60 + ((index * 37) % 160));
 
   beforeAll(() => {
     jest
@@ -125,6 +125,13 @@ describe('Masonry.virtual', () => {
     expect(container.querySelectorAll('.masonry-cell').length).toBeGreaterThan(0);
   });
 
+  it('renders only one virtual-list container', async () => {
+    const { getAllByTestId } = render(<Demo />);
+    await resizeMasonry();
+
+    expect(getAllByTestId('virtual-list')).toHaveLength(1);
+  });
+
   it('does not render invisible items in DOM', async () => {
     const { container } = render(<Demo />);
     await resizeMasonry();
@@ -133,16 +140,14 @@ describe('Masonry.virtual', () => {
   });
 
   it('recycles and creates elements on scroll', async () => {
-    const { container, getAllByTestId } = render(<Demo />);
+    const { container, getByTestId } = render(<Demo />);
     await resizeMasonry();
 
     const beforeTexts = Array.from(container.querySelectorAll('.masonry-cell')).map(
       (node) => node.textContent,
     );
 
-    getAllByTestId('virtual-list').forEach((list) => {
-      fireEvent.scroll(list, { target: { scrollTop: 300 } });
-    });
+    fireEvent.scroll(getByTestId('virtual-list'), { target: { scrollTop: 300 } });
     await waitFakeTimer();
 
     const afterTexts = Array.from(container.querySelectorAll('.masonry-cell')).map(
@@ -173,7 +178,7 @@ describe('Masonry.virtual', () => {
 
     rerender(
       <Demo
-        dynamicHeights={[220, 180, 110, 70, 160, 90, 130, 210, 100, 80, 140, 170]}
+        dynamicHeights={heights.map((value, index) => value + ((index % 3) + 1) * 10)}
         onLayoutChange={onLayoutChange}
       />,
     );

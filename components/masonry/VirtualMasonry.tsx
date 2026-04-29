@@ -1,9 +1,10 @@
 import * as React from 'react';
 import type { CSSProperties } from 'react';
-import VirtualList from '@rc-component/virtual-list';
+import ResizeObserver from '@rc-component/resize-observer';
 import { clsx } from 'clsx';
 
 import MasonryItem from './MasonryItem';
+import type { ItemHeightData } from './hooks/usePositions';
 import type { MasonryRenderItem } from './Masonry';
 import type { MasonryItemType } from './MasonryItem';
 
@@ -20,11 +21,11 @@ interface VirtualMasonryProps<ItemDataType = any> {
   verticalGutter: number;
   columnCount: number;
   totalHeight: number;
+  itemHeights: ItemHeightData[];
+  onScrollStateChange?: (scrolling: boolean) => void;
   varName: (unit: string, fallbackVar?: string) => string;
   varRef: (unit: string, fallbackVar?: string) => string;
 }
-
-const DEFAULT_ITEM_HEIGHT = 100;
 
 const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>) => {
   const {
@@ -35,110 +36,139 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     mergedClassName,
     mergedStyle,
     collectItemSize,
-    fresh,
     horizontalGutter,
     verticalGutter,
     columnCount,
     totalHeight,
+    itemHeights,
+    onScrollStateChange,
     varName,
     varRef,
   } = props;
+  const holderRef = React.useRef<HTMLDivElement>(null);
+  const [scrollTop, setScrollTop] = React.useState(0);
+  const [viewportHeight, setViewportHeight] = React.useState(0);
+  const lastScrollTopRef = React.useRef(0);
+  const [scrollDirection, setScrollDirection] = React.useState<'up' | 'down'>('down');
+  const scrollStopTimerRef = React.useRef<number | null>(null);
+  const scrollRafRef = React.useRef<number | null>(null);
 
-  const [listHeight, setListHeight] = React.useState(() =>
-    Math.max(
-      1,
-      Math.min(totalHeight, typeof window === 'undefined' ? totalHeight : window.innerHeight),
-    ),
+  const heightMap = React.useMemo(() => {
+    const map = new Map<React.Key, number>();
+    itemHeights.forEach(([key, height]) => {
+      map.set(key, height);
+    });
+    return map;
+  }, [itemHeights]);
+
+  const onHolderResize = () => {
+    setViewportHeight(holderRef.current?.offsetHeight || 0);
+  };
+
+  React.useEffect(
+    () => () => {
+      if (scrollStopTimerRef.current !== null) {
+        window.clearTimeout(scrollStopTimerRef.current);
+      }
+      if (scrollRafRef.current !== null) {
+        window.cancelAnimationFrame(scrollRafRef.current);
+      }
+    },
+    [],
   );
 
-  React.useEffect(() => {
-    const updateListHeight = () => {
-      setListHeight(Math.max(1, Math.min(totalHeight, window.innerHeight)));
-    };
-
-    updateListHeight();
-    window.addEventListener('resize', updateListHeight);
-
-    return () => {
-      window.removeEventListener('resize', updateListHeight);
-    };
-  }, [totalHeight]);
-
-  const columnItems = React.useMemo(() => {
-    const grouped = new Map<number, MasonryRenderItem<ItemDataType>[]>();
-
-    for (let i = 0; i < columnCount; i += 1) {
-      grouped.set(i, []);
+  const estimatedItemHeight = React.useMemo(() => {
+    const measured = itemHeights.map(([, height]) => height).filter((height) => height > 0);
+    if (measured.length) {
+      return measured.reduce((total, current) => total + current, 0) / measured.length;
     }
+    return 120;
+  }, [itemHeights]);
 
-    itemWithPositions.forEach((record) => {
-      const column = record.position?.column ?? 0;
-      const current = grouped.get(column) || [];
-      current.push(record);
-      grouped.set(column, current);
+  const visibleItems = React.useMemo(() => {
+    const baseOverscan = Math.max(viewportHeight * 0.8, estimatedItemHeight * 3);
+    const overscanTop = scrollDirection === 'up' ? baseOverscan * 2 : baseOverscan;
+    const overscanBottom = scrollDirection === 'down' ? baseOverscan * 2 : baseOverscan;
+    const start = Math.max(0, scrollTop - overscanTop);
+    const end = scrollTop + viewportHeight + overscanBottom;
+
+    return itemWithPositions.filter((record) => {
+      const top = record.position?.top ?? 0;
+      const itemHeight = heightMap.get(record.itemKey) ?? record.item.height ?? estimatedItemHeight;
+      const bottom = top + itemHeight + verticalGutter;
+      return bottom >= start - 1 && top <= end + 1;
     });
-
-    grouped.forEach((items) => {
-      items.sort((a, b) => (a.position?.top ?? 0) - (b.position?.top ?? 0));
-    });
-
-    return grouped;
-  }, [columnCount, itemWithPositions]);
-
-  const columnIndexes = React.useMemo(
-    () => Array.from({ length: columnCount }, (_, index) => index),
-    [columnCount],
-  );
+  }, [
+    estimatedItemHeight,
+    heightMap,
+    itemWithPositions,
+    scrollDirection,
+    scrollTop,
+    verticalGutter,
+    viewportHeight,
+  ]);
 
   return (
-    <>
-      {columnIndexes.map((columnIndex) => {
-        const data = columnItems.get(columnIndex) || [];
-        const columnStyle: CSSProperties = {
-          [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
-          insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
-          width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
-          top: 0,
-          position: 'absolute',
-          height: totalHeight,
-          overflow: 'hidden',
-        };
+    <ResizeObserver onResize={onHolderResize}>
+      <div
+        ref={holderRef}
+        data-testid="virtual-list"
+        style={{ height: '100%', overflowY: 'auto', overflowX: 'hidden' }}
+        onScroll={(event) => {
+          const nextTop = event.currentTarget.scrollTop;
+          if (scrollRafRef.current !== null) {
+            window.cancelAnimationFrame(scrollRafRef.current);
+          }
+          scrollRafRef.current = window.requestAnimationFrame(() => {
+            setScrollDirection(nextTop >= lastScrollTopRef.current ? 'down' : 'up');
+            lastScrollTopRef.current = nextTop;
+            setScrollTop(nextTop);
+          });
 
-        return (
-          <div key={`virtual-column-${columnIndex}`} style={columnStyle}>
-            <VirtualList
-              data={data}
-              itemKey="itemKey"
-              itemHeight={DEFAULT_ITEM_HEIGHT}
-              height={listHeight}
-              onScroll={collectItemSize}
-            >
-              {(record) => (
-                <MasonryItem
-                  prefixCls={prefixCls}
-                  key={record.itemKey}
-                  item={record.item}
-                  style={{
-                    ...mergedStyle,
-                    marginBottom: verticalGutter,
-                    width: '100%',
-                    position: 'relative',
-                  }}
-                  className={clsx(mergedClassName, `${prefixCls}-item-fade`)}
-                  ref={(ele) => {
-                    setItemRef(record.itemKey, ele);
-                  }}
-                  index={record.itemIndex}
-                  itemRender={itemRender}
-                  column={columnIndex}
-                  onResize={fresh ? collectItemSize : null}
-                />
-              )}
-            </VirtualList>
-          </div>
-        );
-      })}
-    </>
+          if (scrollStopTimerRef.current !== null) {
+            window.clearTimeout(scrollStopTimerRef.current);
+          }
+          onScrollStateChange?.(true);
+          scrollStopTimerRef.current = window.setTimeout(() => {
+            onScrollStateChange?.(false);
+            collectItemSize();
+          }, 120);
+        }}
+      >
+        <div style={{ height: totalHeight, position: 'relative' }}>
+          {visibleItems.map((record) => {
+            const columnIndex = record.position?.column ?? 0;
+            const top = record.position?.top ?? 0;
+
+            const itemStyle: CSSProperties = {
+              ...mergedStyle,
+              [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
+              insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
+              width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
+              top,
+              position: 'absolute',
+            };
+
+            return (
+              <MasonryItem
+                prefixCls={prefixCls}
+                key={record.itemKey}
+                item={record.item}
+                style={itemStyle}
+                className={clsx(mergedClassName, `${prefixCls}-item-fade`)}
+                ref={(ele) => {
+                  setItemRef(record.itemKey, ele);
+                }}
+                index={record.itemIndex}
+                itemRender={itemRender}
+                column={columnIndex}
+                onResize={null}
+              />
+            );
+          })}
+        </div>
+      </div>
+    </ResizeObserver>
   );
 };
 

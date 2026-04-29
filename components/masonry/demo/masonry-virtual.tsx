@@ -30,6 +30,7 @@ const App: React.FC = () => (
   <Masonry
     virtual
     fresh
+    style={{ height: 600 }}
     columns={{ xs: 1, sm: 2, md: 3 }}
     gutter={[16, 16]}
     items={items}

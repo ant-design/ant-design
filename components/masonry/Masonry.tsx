@@ -181,18 +181,35 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
   // ================== Items Position ==================
   const [itemHeights, setItemHeights] = React.useState<ItemHeightData[]>([]);
+  const scrollingRef = React.useRef(false);
+  const pendingCollectRef = React.useRef(false);
 
   const collectItemSize = useDelay(() => {
-    const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
-      const itemKey = item.key ?? index;
-      const itemEle = getItemRef(itemKey);
-      const rect = itemEle?.getBoundingClientRect();
-      return [itemKey, rect ? rect.height : 0, item.column];
-    });
+    if (virtual && scrollingRef.current) {
+      pendingCollectRef.current = true;
+      return;
+    }
 
-    setItemHeights((prevItemsHeight) =>
-      isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight,
-    );
+    setItemHeights((prevItemsHeight) => {
+      const prevHeightMap = new Map<React.Key, number>();
+      prevItemsHeight.forEach(([key, height]) => {
+        prevHeightMap.set(key, height);
+      });
+
+      const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
+        const itemKey = item.key ?? index;
+        const itemEle = getItemRef(itemKey);
+        const rect = itemEle?.getBoundingClientRect();
+
+        // In virtual mode, invisible items are unmounted.
+        // Keep the previous measured height to avoid layout jump.
+        const measuredHeight = rect?.height ?? prevHeightMap.get(itemKey) ?? item.height ?? 0;
+
+        return [itemKey, measuredHeight, item.column];
+      });
+
+      return isEqual(prevItemsHeight, nextItemsHeight) ? prevItemsHeight : nextItemsHeight;
+    });
   });
 
   const [itemPositions, totalHeight] = usePositions(
@@ -258,7 +275,14 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
           cssVarCls,
           { [`${prefixCls}-rtl`]: direction === 'rtl' },
         )}
-        style={{ height: totalHeight, ...mergedStyles.root, ...contextStyle, ...style }}
+        style={{
+          height: virtual ? style?.height : totalHeight,
+          display: virtual ? 'block' : undefined,
+          overflow: virtual ? 'hidden' : undefined,
+          ...mergedStyles.root,
+          ...contextStyle,
+          ...style,
+        }}
         // Listen for image events
         onLoad={collectItemSize}
         onError={collectItemSize}
@@ -277,6 +301,14 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
             verticalGutter={verticalGutter as number}
             columnCount={columnCount}
             totalHeight={totalHeight}
+            itemHeights={itemHeights}
+            onScrollStateChange={(scrolling) => {
+              scrollingRef.current = scrolling;
+              if (!scrolling && pendingCollectRef.current) {
+                pendingCollectRef.current = false;
+                collectItemSize();
+              }
+            }}
             varName={varName}
             varRef={varRef}
           />
