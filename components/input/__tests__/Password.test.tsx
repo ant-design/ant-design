@@ -60,14 +60,15 @@ describe('Input.Password', () => {
     const { container, unmount } = render(<Input.Password defaultValue="111" autoFocus />, {
       container: document.body,
     });
-    expect(document.activeElement).toBe(container.querySelector('input'));
-    (document?.activeElement as any)?.setSelectionRange(2, 2);
-    expect((document?.activeElement as any)?.selectionStart).toBe(2);
+    const input = container.querySelector('input')!;
+    expect(document.activeElement).toBe(input);
+    input.setSelectionRange(2, 2);
+    expect(input.selectionStart).toBe(2);
     fireEvent.mouseDown(container.querySelector('.ant-input-password-icon')!);
     fireEvent.mouseUp(container.querySelector('.ant-input-password-icon')!);
     fireEvent.click(container.querySelector('.ant-input-password-icon')!);
-    expect(document.activeElement).toBe(container.querySelector('input'));
-    expect((document?.activeElement as any).selectionStart).toBe(2);
+    expect(document.activeElement).toBe(input);
+    expect(input.selectionStart).toBe(2);
     unmount();
   });
 
