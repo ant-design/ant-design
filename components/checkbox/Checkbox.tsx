@@ -241,7 +241,6 @@ const InternalCheckbox: React.ForwardRefRenderFunction<CheckboxRef, CheckboxProp
         onMouseLeave={onMouseLeave}
         onClick={onLabelClick}
       >
-        {/* @ts-ignore */}
         <RcCheckbox
           {...checkboxProps}
           name={!skipGroup && checkboxGroup ? checkboxGroup.name : name}

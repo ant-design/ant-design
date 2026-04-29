@@ -226,8 +226,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const tagNode: React.ReactNode = (
       <TagWrapper
         {...domProps}
-        // @ts-expect-error
-        ref={ref}
+        ref={ref as React.Ref<HTMLAnchorElement & HTMLSpanElement>}
         className={tagClassName}
         style={tagStyle}
         href={mergedDisabled ? undefined : href}

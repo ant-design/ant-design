@@ -56,7 +56,8 @@ describe('Spin', () => {
   });
 
   it('if indicator set null should not be render default indicator', () => {
-    const { asFragment } = render(<Spin indicator={null as any} />);
+    // @ts-expect-error: deliberately testing null indicator at runtime, which is outside the typed API
+    const { asFragment } = render(<Spin indicator={null} />);
     expect(asFragment().firstChild).toMatchSnapshot();
   });
 
