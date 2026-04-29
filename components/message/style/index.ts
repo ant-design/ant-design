@@ -1,6 +1,5 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { prepareNotificationToken, sharedGenerateStyle } from '../../notification/style';
@@ -84,9 +83,9 @@ const generateMessagePurePanelStyle: GenerateStyle<NotificationToken> = (token) 
 };
 
 // ============================== Token ===============================
-const prepareMessageToken: (
-  token: Parameters<GenStyleFn<'Notification'>>[0],
-) => NotificationToken = (token) => {
+const prepareMessageToken: (token: Parameters<GenStyleFn<'Message'>>[0]) => NotificationToken = (
+  token,
+) => {
   const messagePaddingVertical = token
     .calc(token.controlHeightLG)
     .sub(token.calc(token.fontSize).mul(token.lineHeight))
@@ -94,11 +93,15 @@ const prepareMessageToken: (
     .equal();
   const messagePaddingHorizontal = token.paddingSM;
 
-  return mergeToken<NotificationToken>(prepareNotificationToken(token), {
-    notificationPaddingVertical: messagePaddingVertical,
-    notificationPaddingHorizontal: messagePaddingHorizontal,
-    notificationPadding: `${unit(messagePaddingVertical)} ${unit(messagePaddingHorizontal)}`,
-  });
+  return mergeToken<NotificationToken>(
+    prepareNotificationToken(token as unknown as Parameters<GenStyleFn<'Notification'>>[0]),
+    {
+      notificationBg: token.contentBg,
+      notificationPadding: token.contentPadding as NotificationToken['notificationPadding'],
+      notificationPaddingVertical: messagePaddingVertical,
+      notificationPaddingHorizontal: messagePaddingHorizontal,
+    },
+  );
 };
 
 export const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
@@ -113,7 +116,7 @@ export const PurePanelStyle = genSubStyleComponent(
   ['Message', 'PurePanel'],
   (token) =>
     generateMessagePurePanelStyle(
-      prepareMessageToken(token as unknown as Parameters<GenStyleFn<'Notification'>>[0]),
+      prepareMessageToken(token as unknown as Parameters<GenStyleFn<'Message'>>[0]),
     ),
   prepareComponentToken,
 );
@@ -123,7 +126,7 @@ export default genStyleHooks(
   'Message',
   (token) => {
     const messageToken = prepareMessageToken(
-      token as unknown as Parameters<GenStyleFn<'Notification'>>[0],
+      token as unknown as Parameters<GenStyleFn<'Message'>>[0],
     );
 
     return [sharedGenerateStyle(messageToken), generateMessageStyle(messageToken)];
