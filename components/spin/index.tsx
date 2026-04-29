@@ -147,11 +147,6 @@ const Spin: SpinType = (props) => {
   // ======================= Size ======================
   const mergedSize = useSize((ctx) => size ?? ctx);
 
-  if (process.env.NODE_ENV !== 'production') {
-    const warning = devUseWarning('Spin');
-    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
-  }
-
   // ======================= Description ======================
   const mergedDescription = description ?? tip;
 
@@ -180,6 +175,7 @@ const Spin: SpinType = (props) => {
   if (process.env.NODE_ENV !== 'production') {
     const warning = devUseWarning('Spin');
 
+    warning.deprecated(size !== 'default', 'size="default"', 'size="medium"');
     warning.deprecated(!tip, 'tip', 'description');
     warning.deprecated(!wrapperClassName, 'wrapperClassName', 'classNames.root');
 
