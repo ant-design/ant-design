@@ -21,7 +21,7 @@ const dimensionMaxMap: Record<Breakpoint, string> = {
   xxxl: `1839.98px`,
 };
 
-const isNumeric = (val: unknown) =>
+const isNumeric = (val: string | number) =>
   !Number.isNaN(Number.parseFloat(String(val))) && Number.isFinite(Number(val));
 
 export interface SiderContextProps {
