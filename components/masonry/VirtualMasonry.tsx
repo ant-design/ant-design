@@ -36,6 +36,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     mergedClassName,
     mergedStyle,
     collectItemSize,
+    fresh,
     horizontalGutter,
     verticalGutter,
     columnCount,
@@ -93,7 +94,11 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     const end = scrollTop + viewportHeight + overscanBottom;
 
     return itemWithPositions.filter((record) => {
-      const top = record.position?.top ?? 0;
+      if (!record.position) {
+        return false;
+      }
+
+      const top = record.position.top;
       const itemHeight = heightMap.get(record.itemKey) ?? record.item.height ?? estimatedItemHeight;
       const bottom = top + itemHeight + verticalGutter;
       return bottom >= start - 1 && top <= end + 1;
@@ -162,7 +167,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
                 index={record.itemIndex}
                 itemRender={itemRender}
                 column={columnIndex}
-                onResize={null}
+                onResize={fresh ? collectItemSize : null}
               />
             );
           })}

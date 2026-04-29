@@ -3,52 +3,6 @@ import React from 'react';
 import Masonry from '..';
 import { fireEvent, render, triggerResize, waitFakeTimer } from '../../../tests/utils';
 
-jest.mock('@rc-component/virtual-list', () => {
-  const ReactLib: typeof import('react') = jest.requireActual('react');
-
-  const MockVirtualList = ({
-    data,
-    height,
-    itemHeight,
-    itemKey,
-    children,
-    onScroll,
-  }: {
-    data: any[];
-    height: number;
-    itemHeight: number;
-    itemKey: string;
-    children: (item: any) => React.ReactNode;
-    onScroll?: (event: React.UIEvent<HTMLDivElement>) => void;
-  }) => {
-    const [scrollTop, setScrollTop] = ReactLib.useState(0);
-    const start = Math.max(0, Math.floor(scrollTop / itemHeight));
-    const count = Math.max(1, Math.ceil(height / itemHeight));
-    const visibleData = data.slice(start, start + count + 1);
-
-    return (
-      <div
-        data-testid="virtual-list"
-        style={{ maxHeight: height, overflow: 'auto' }}
-        onScroll={(event) => {
-          const target = event.currentTarget as HTMLDivElement;
-          setScrollTop(target.scrollTop);
-          onScroll?.(event);
-        }}
-      >
-        {visibleData.map((item) => (
-          <div key={item[itemKey]}>{children(item)}</div>
-        ))}
-      </div>
-    );
-  };
-
-  return {
-    __esModule: true,
-    default: MockVirtualList,
-  };
-});
-
 const resizeMasonry = async () => {
   triggerResize(document.body.querySelector('.ant-masonry')!);
   await waitFakeTimer();
@@ -98,12 +52,14 @@ describe('Masonry.virtual', () => {
     const items = dynamicHeights.map((height, index) => ({
       key: `item-${index}`,
       data: height,
+      height,
     }));
 
     return (
       <Masonry
         virtual
         fresh
+        style={{ height: 400 }}
         columns={2}
         gutter={12}
         items={items}
