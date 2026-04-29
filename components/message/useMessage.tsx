@@ -89,12 +89,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   const prefixCls = staticPrefixCls || getPrefixCls('message');
 
-  // =============================== Style ===============================
-  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
-
-  // ============================== Motion ===============================
-  const getNotificationMotion = () => getMotion(prefixCls, transitionName);
-
   // Use useMergeSemantic to merge classNames and styles
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
     [props?.classNames, message?.classNames],
@@ -104,9 +98,21 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     },
   );
 
+  // =============================== Style ===============================
+  const getStyle = (): React.CSSProperties => ({
+    ...mergedStyles.list,
+  });
+
+  const getClassName = () =>
+    clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' }, mergedClassNames.list);
+
+  // ============================== Motion ===============================
+  const getNotificationMotion = () => getMotion(prefixCls, transitionName);
+
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
+    style: getStyle,
     className: getClassName,
     motion: getNotificationMotion,
 
@@ -116,6 +122,12 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
+    classNames: {
+      listContent: mergedClassNames.listContent,
+    },
+    styles: {
+      listContent: mergedStyles.listContent,
+    },
     renderNotifications,
     pauseOnHover,
   });

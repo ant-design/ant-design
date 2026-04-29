@@ -6,11 +6,15 @@ export type NoticeType = 'info' | 'success' | 'error' | 'warning' | 'loading';
 
 export type MessageSemanticType = {
   classNames?: {
+    list?: string;
+    listContent?: string;
     root?: string;
     icon?: string;
     content?: string;
   };
   styles?: {
+    list?: React.CSSProperties;
+    listContent?: React.CSSProperties;
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
     content?: React.CSSProperties;
