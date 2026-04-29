@@ -1,11 +1,13 @@
 import type { CSSProperties } from 'react';
+import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { prepareNotificationToken, sharedGenerateStyle } from '../../notification/style';
 import type { NotificationToken } from '../../notification/style';
+import { genNotificationItemStyle } from '../../notification/style/notification';
 import type { GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
-import { genStyleHooks, mergeToken } from '../../theme/internal';
+import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -50,6 +52,37 @@ const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => {
   };
 };
 
+const generateMessagePurePanelStyle: GenerateStyle<NotificationToken> = (token) => {
+  const { antCls, componentCls, fontSize, fontSizeLG, lineHeight } = token;
+  const noticeCls = `${componentCls}-notice`;
+  const [varName] = genCssVar(antCls, 'notification');
+  const notificationItemStyle = genNotificationItemStyle(token);
+
+  return {
+    [`${noticeCls}-pure-panel`]: {
+      width: 'max-content',
+      maxWidth: '100%',
+      ...notificationItemStyle,
+
+      [noticeCls]: {
+        ...(notificationItemStyle[noticeCls] as CSSObject),
+        position: 'relative',
+        width: 'max-content',
+        maxWidth: '100%',
+        [varName('icon-font-size')]: fontSizeLG,
+        [varName('title-font-size')]: fontSize,
+        [varName('title-line-height')]: lineHeight,
+      },
+
+      [`${noticeCls}-content`]: {
+        ...(notificationItemStyle[`${noticeCls}-content`] as CSSObject),
+        alignItems: 'center',
+        gap: token.marginXS,
+      },
+    },
+  };
+};
+
 // ============================== Token ===============================
 const prepareMessageToken: (
   token: Parameters<GenStyleFn<'Notification'>>[0],
@@ -75,6 +108,15 @@ export const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
     token.paddingSM
   }px`,
 });
+
+export const PurePanelStyle = genSubStyleComponent(
+  ['Message', 'PurePanel'],
+  (token) =>
+    generateMessagePurePanelStyle(
+      prepareMessageToken(token as unknown as Parameters<GenStyleFn<'Notification'>>[0]),
+    ),
+  prepareComponentToken,
+);
 
 // ============================== Export ==============================
 export default genStyleHooks(

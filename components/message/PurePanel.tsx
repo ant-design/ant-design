@@ -12,7 +12,7 @@ import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type { ArgsProps, MessageSemanticAllType, NoticeType } from './interface';
-import useStyle from './style';
+import useStyle, { PurePanelStyle } from './style';
 
 export const TypeIcon = {
   info: <InfoCircleFilled />,
@@ -94,25 +94,30 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   };
 
   return (
-    <RcNotification
-      {...restProps}
-      prefixCls={prefixCls}
+    <div
       className={clsx(
-        contextClassName,
-        mergedClassNames.root,
-        className,
+        `${noticePrefixCls}-pure-panel`,
         hashId,
-        `${prefixCls}-notice-pure-panel`,
+        className,
         cssVarCls,
         rootCls,
+        mergedClassNames.root,
       )}
-      style={{ ...mergedStyles.root, ...contextStyle, ...style }}
-      duration={null}
-      icon={iconNode}
-      title={content}
-      classNames={rcClassNames}
-      styles={rcStyles}
-    />
+      style={mergedStyles.root}
+    >
+      <PurePanelStyle prefixCls={prefixCls} />
+      <RcNotification
+        {...restProps}
+        prefixCls={prefixCls}
+        className={clsx(className, contextClassName)}
+        style={{ ...contextStyle, ...style }}
+        duration={null}
+        icon={iconNode}
+        title={content}
+        classNames={rcClassNames}
+        styles={rcStyles}
+      />
+    </div>
   );
 };
 
