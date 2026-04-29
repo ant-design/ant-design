@@ -22,6 +22,7 @@ import type { ItemHeightData } from './hooks/usePositions';
 import useRefs from './hooks/useRefs';
 import MasonryItem from './MasonryItem';
 import type { MasonryItemType } from './MasonryItem';
+import VirtualMasonry from './VirtualMasonry';
 import useStyle from './style';
 
 export type Gap = number | undefined;
@@ -66,6 +67,9 @@ export interface MasonryProps<ItemDataType = any> {
   onLayoutChange?: (sortInfo: { key: React.Key; column: number }[]) => void;
 
   fresh?: boolean;
+
+  /** Enable virtualized rendering for large data sets */
+  virtual?: boolean;
 }
 
 export interface MasonryRef {
@@ -73,6 +77,16 @@ export interface MasonryRef {
 }
 
 type ItemColumnsType = [item: MasonryItemType, column: number];
+export interface MasonryRenderItem<ItemDataType = any> {
+  item: MasonryItemType<ItemDataType>;
+  itemIndex: number;
+  itemKey: React.Key;
+  key: React.Key;
+  position?: {
+    column: number;
+    top: number;
+  };
+}
 
 const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
   const {
@@ -88,6 +102,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     itemRender,
     onLayoutChange,
     fresh,
+    virtual,
   } = props;
 
   // ======================= MISC =======================
@@ -186,7 +201,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     verticalGutter as number,
   );
 
-  const itemWithPositions = React.useMemo(
+  const itemWithPositions = React.useMemo<MasonryRenderItem[]>(
     () =>
       mergedItems.map((item, index) => {
         const key = item.key ?? index;
@@ -248,51 +263,70 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         onLoad={collectItemSize}
         onError={collectItemSize}
       >
-        <CSSMotionList
-          keys={itemWithPositions}
-          component={false}
-          // Motion config
-          motionAppear
-          motionLeave
-          motionName={`${prefixCls}-item-fade`}
-        >
-          {(motionInfo, motionRef) => {
-            const {
-              item,
-              itemKey,
-              position = {},
-              itemIndex,
+        {virtual ? (
+          <VirtualMasonry
+            prefixCls={prefixCls}
+            itemWithPositions={itemWithPositions}
+            setItemRef={setItemRef}
+            itemRender={itemRender}
+            mergedClassName={mergedClassNames.item}
+            mergedStyle={mergedStyles.item}
+            collectItemSize={collectItemSize}
+            fresh={fresh}
+            horizontalGutter={horizontalGutter as number}
+            verticalGutter={verticalGutter as number}
+            columnCount={columnCount}
+            totalHeight={totalHeight}
+            varName={varName}
+            varRef={varRef}
+          />
+        ) : (
+          <CSSMotionList
+            keys={itemWithPositions}
+            component={false}
+            // Motion config
+            motionAppear
+            motionLeave
+            motionName={`${prefixCls}-item-fade`}
+          >
+            {(motionInfo, motionRef) => {
+              const {
+                item,
+                itemKey,
+                position = {},
+                itemIndex,
 
-              key,
-              className: motionClassName,
-              style: motionStyle,
-            } = motionInfo;
-            const { column: columnIndex = 0 } = position;
+                key,
+                className: motionClassName,
+                style: motionStyle,
+              } = motionInfo;
+              const { column: columnIndex = 0 } = position;
 
-            const itemStyle: CSSProperties = {
-              [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
-              insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
-              width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
-              top: position.top,
-              position: 'absolute',
-            };
+              const itemStyle: CSSProperties = {
+                [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
+                insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
+                width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
+                top: position.top,
+                position: 'absolute',
+              };
 
-            return (
-              <MasonryItem
-                prefixCls={prefixCls}
-                key={key}
-                item={item}
-                style={{ ...motionStyle, ...mergedStyles.item, ...itemStyle }}
-                className={clsx(mergedClassNames.item, motionClassName)}
-                ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
-                index={itemIndex}
-                itemRender={itemRender}
-                column={columnIndex}
-                onResize={fresh ? collectItemSize : null}
-              />
-            );
-          }}
-        </CSSMotionList>
+              return (
+                <MasonryItem
+                  prefixCls={prefixCls}
+                  key={key}
+                  item={item}
+                  style={{ ...motionStyle, ...mergedStyles.item, ...itemStyle }}
+                  className={clsx(mergedClassNames.item, motionClassName)}
+                  ref={composeRef(motionRef, (ele) => setItemRef(itemKey, ele))}
+                  index={itemIndex}
+                  itemRender={itemRender}
+                  column={columnIndex}
+                  onResize={fresh ? collectItemSize : null}
+                />
+              );
+            }}
+          </CSSMotionList>
+        )}
       </div>
     </ResizeObserver>
   );
