@@ -49,8 +49,14 @@ const MenuItem: GenericComponent = (props) => {
 
   const label = (children as React.ReactNode[])?.[0];
   const hasExtra = isValidReactNode(extra);
+  const childrenNodes = toArray(children, { keepEmpty: true }) as React.ReactNode[];
+  const labelNodes = hasExtra ? childrenNodes.slice(0, -1) : children;
+  const extraNode = hasExtra ? childrenNodes[childrenNodes.length - 1] : null;
   const mergedChildren = hasExtra ? (
-    <span className={`${prefixCls}-title-content-label`}>{children}</span>
+    <>
+      <span className={`${prefixCls}-title-content-label`}>{labelNodes}</span>
+      {extraNode}
+    </>
   ) : (
     children
   );
