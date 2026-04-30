@@ -5,7 +5,7 @@ import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
-import genNotificationStyle, { genNotificationCardStyle, genPurePanelStyle } from './notification';
+import genNotificationStyle, { genPurePanelStyle } from './notification';
 import genNotificationPlacementStyle from './placement';
 
 const DEFAULT_COLLAPSED_STACK_VISIBLE_COUNT = 3;
@@ -193,7 +193,6 @@ const genNotificationListStyle = <Token extends NotificationToken>(
 
   const noticeCls = `${componentCls}-notice`;
   const listCls = `${componentCls}-list`;
-  const listContentCls = `${listCls}-content`;
 
   const listWidth = config.listWidthKey
     ? token
@@ -247,38 +246,11 @@ const genNotificationListStyle = <Token extends NotificationToken>(
 
       // ============================ Stack ============================
       [`&${componentCls}-stack`]: {
-        [listContentCls]: {
-          '&::before': {
-            ...genNotificationCardStyle(token),
-            position: 'absolute',
-            top: 'var(--top-notificiation-height)',
-            width: `calc(var(--top-notificiation-width) - ${unit(token.margin)})`,
-            height: token.marginXS,
-            padding: 0,
-            opacity: 0,
-            pointerEvents: 'none',
-            transform: 'var(--notification-stack-bar-transform, translateX(0)) translateY(100%)',
-            transition: [
-              `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
-              `transform ${token.motionDurationFast} ${token.motionEaseInOut}`,
-            ].join(', '),
-            content: '""',
-          },
-        },
-
         [noticeCls]: {
           clipPath: stackNoticeClipPath,
         },
 
         [`&:not(${componentCls}-stack-expanded)`]: {
-          [listContentCls]: {
-            '&::before': {
-              opacity: 1,
-              transform:
-                'var(--notification-stack-bar-transform, translateX(0)) translateY(0)',
-            },
-          },
-
           [noticeCls]: {
             '--notification-scale': 'calc(1 - min(var(--notification-index, 0), 2) * 0.06)',
           } as CSSObject,

@@ -1,10 +1,14 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
+import { unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { prepareNotificationToken, sharedGenerateStyle } from '../../notification/style';
 import type { NotificationToken } from '../../notification/style';
-import { genNotificationItemStyle } from '../../notification/style/notification';
+import {
+  genNotificationCardStyle,
+  genNotificationItemStyle,
+} from '../../notification/style/notification';
 import type { GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -46,6 +50,47 @@ const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => {
       [`${noticeCls}-content`]: {
         alignItems: 'center',
         gap: token.marginXS,
+      },
+    },
+  };
+};
+
+const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
+  const { componentCls } = token;
+  const listContentCls = `${componentCls}-list-content`;
+
+  return {
+    [componentCls]: {
+      [`&${componentCls}-stack`]: {
+        [listContentCls]: {
+          '&::before': {
+            ...genNotificationCardStyle(token),
+            position: 'absolute',
+            top: 'var(--top-notificiation-height)',
+            left: '50%',
+            width: `calc(var(--top-notificiation-width) - ${unit(token.margin)})`,
+            height: token.marginXS,
+            padding: 0,
+            opacity: 0,
+            pointerEvents: 'none',
+            transform: 'translateX(-50%) translateY(100%)',
+            transition: [
+              `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
+              `transform ${token.motionDurationFast} ${token.motionEaseInOut}`,
+              `width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+            ].join(', '),
+            content: '""',
+          },
+        },
+
+        [`&:not(${componentCls}-stack-expanded)`]: {
+          [listContentCls]: {
+            '&::before': {
+              opacity: 1,
+              transform: 'translateX(-50%) translateY(0)',
+            },
+          },
+        },
       },
     },
   };
@@ -132,6 +177,7 @@ export default genStyleHooks(
     return [
       sharedGenerateStyle(messageToken, { stackVisibleCount: 1 }),
       generateMessageStyle(messageToken),
+      generateMessageStackStyle(messageToken),
     ];
   },
   prepareComponentToken,

@@ -54,7 +54,6 @@ const App: React.FC = () => {
       content: 'This is a message with function classNames and styles',
       classNames: messageClassNames,
       styles: stylesFn,
-      duration: 60 * 1000,
     });
   };
 

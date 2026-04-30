@@ -93,7 +93,6 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
   const { componentCls } = token;
   const { placement, vertical, blockEnd, horizontal, inlineEnd } = config;
   const noticeCls = `${componentCls}-notice`;
-  const listContentCls = `${componentCls}-list-content`;
   const noticeMotionCls = `${noticeCls}${componentCls}-fade`;
   const enterTransform = getMotionTransform(config.motionOffset);
   const baseTransform = getMotionTransform(config.baseMotionOffset);
@@ -153,17 +152,6 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
       [`${noticeMotionCls}-leave-active`]: {
         opacity: 0,
         transform: enterTransform,
-      },
-
-      [`&${componentCls}-stack`]: {
-        [`${listContentCls}::before`]: config.isCenterPlacement
-          ? {
-              left: '50%',
-              '--notification-stack-bar-transform': 'translateX(-50%)',
-            }
-          : {
-              [horizontal]: token.marginXS,
-            },
       },
 
       [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
