@@ -579,8 +579,13 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   (mergedExpandable as any).__PARENT_RENDER_ICON__ = mergedExpandable.expandIcon;
 
   // Customize expandable icon
+  // Priority: expandable.expandIcon (prop) > expandIcon (prop) > token.expandIcon (ComponentToken) > default
+  const tokenExpandIcon = (token as any).expandIcon;
   mergedExpandable.expandIcon =
-    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
+    mergedExpandable.expandIcon ||
+    expandIcon ||
+    (tokenExpandIcon ? renderExpandIcon(tableLocale!, tokenExpandIcon) : null) ||
+    renderExpandIcon(tableLocale!);
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
   if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {

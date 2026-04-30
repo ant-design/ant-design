@@ -1,5 +1,6 @@
 import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
+import type React from 'react';
 import { FastColor } from '@ant-design/fast-color';
 
 import { clearFix, resetComponent } from '../../style';
@@ -162,6 +163,11 @@ export interface ComponentToken {
    * @descEN Background of expand button
    */
   expandIconBg: string;
+  /**
+   * @desc 展开图标
+   * @descEN Expand icon
+   */
+  expandIcon?: React.ReactNode;
   /**
    * @desc 选择列宽度
    * @descEN Width of selection column

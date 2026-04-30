@@ -2,6 +2,7 @@ import React from 'react';
 
 import type { TableProps } from '..';
 import Table from '..';
+import ConfigProvider from '../../config-provider';
 import { fireEvent, render } from '../../../tests/utils';
 
 const columns: TableProps['columns'] = [
@@ -130,5 +131,56 @@ describe('Table.expand', () => {
       expect(tdNodeList[1].textContent).toEqual('bamboo');
       expect(tdNodeList[2].querySelector('.ant-table-row-expand-icon')).toBeTruthy();
     });
+  });
+
+  it('should support expandIcon from ComponentToken (ReactNode)', () => {
+    const dataSource = [
+      { key: '1', name: 'John', children: [{ key: '1-1', name: 'Jim' }] },
+    ];
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Table: {
+              expandIcon: <span data-testid="custom-expand-icon" className="custom-expand">▼</span>,
+            },
+          },
+        }}
+      >
+        <Table
+          columns={[{ dataIndex: 'name', title: 'Name' }]}
+          dataSource={dataSource}
+        />
+      </ConfigProvider>,
+    );
+    // Custom icon should be rendered in the expand cell
+    expect(container.querySelector('.custom-expand')).toBeTruthy();
+    expect(container.querySelector('.custom-expand')?.textContent).toBe('▼');
+  });
+
+  it('should support expandIcon from ComponentToken (render function)', () => {
+    const dataSource = [
+      { key: '1', name: 'John', children: [{ key: '1-1', name: 'Jim' }] },
+    ];
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          components: {
+            Table: {
+              expandIcon: ({ expanded }: { expanded: boolean }) =>
+                <span className="fn-icon">{expanded ? '折叠' : '展开'}</span>,
+            },
+          },
+        }}
+      >
+        <Table
+          columns={[{ dataIndex: 'name', title: 'Name' }]}
+          dataSource={dataSource}
+        />
+      </ConfigProvider>,
+    );
+    // Render function icon should be rendered
+    expect(container.querySelector('.fn-icon')).toBeTruthy();
+    expect(container.querySelector('.fn-icon')?.textContent).toBe('展开');
   });
 });
