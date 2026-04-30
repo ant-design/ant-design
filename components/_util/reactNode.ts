@@ -8,7 +8,7 @@ export function isFragment(child: any): boolean {
 }
 
 export function isValidReactNode(node: React.ReactNode): boolean {
-  return isNonNullable(node) && typeof node !== 'boolean' && node !== '';
+  return isNonNullable(node) && typeof node !== 'boolean';
 }
 
 type RenderProps = AnyObject | ((originProps: AnyObject) => AnyObject | undefined);

@@ -12,7 +12,7 @@ describe('reactNode test', () => {
     expect(isValidReactNode(undefined)).toBe(false);
     expect(isValidReactNode(false)).toBe(false);
     expect(isValidReactNode(true)).toBe(false);
-    expect(isValidReactNode('')).toBe(false);
+    expect(isValidReactNode('')).toBe(true);
     expect(isValidReactNode(0)).toBe(true);
     expect(isValidReactNode('test')).toBe(true);
     expect(isValidReactNode(<p>test</p>)).toBe(true);
