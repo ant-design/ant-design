@@ -7,7 +7,7 @@ import { prepareNotificationToken, sharedGenerateStyle } from '../../notificatio
 import type { NotificationToken } from '../../notification/style';
 import {
   genNotificationCardStyle,
-  genNotificationItemStyle,
+  genNotificationItemMotionStyle,
 } from '../../notification/style/notification';
 import type { GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
@@ -34,26 +34,82 @@ export interface ComponentToken {
 }
 
 // =============================== Base ===============================
-const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => {
-  const { antCls, componentCls, fontSize, fontSizeLG, lineHeight } = token;
+const genMessageItemStyle = (token: NotificationToken): CSSObject => {
+  const {
+    antCls,
+    componentCls,
+    fontSize,
+    fontSizeLG,
+    lineHeight,
+    notificationMarginEdge,
+    notificationPadding,
+    colorTextHeading,
+    colorSuccess,
+    colorInfo,
+    colorWarning,
+    colorError,
+  } = token;
   const noticeCls = `${componentCls}-notice`;
-  const [varName] = genCssVar(antCls, 'notification');
+  const [varName, varRef] = genCssVar(antCls, 'notification');
 
   return {
-    [componentCls]: {
-      [noticeCls]: {
-        [varName('icon-font-size')]: fontSizeLG,
-        [varName('title-font-size')]: fontSize,
-        [varName('title-line-height')]: lineHeight,
-        width: 'max-content',
+    [noticeCls]: {
+      position: 'absolute',
+      width: 'max-content',
+      maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
+      padding: notificationPadding,
+      pointerEvents: 'auto',
+      [varName('icon-font-size')]: fontSizeLG,
+      [varName('title-font-size')]: fontSize,
+      [varName('title-line-height')]: lineHeight,
+      ...genNotificationCardStyle(token),
+      ...genNotificationItemMotionStyle(token),
+
+      '&::after': {
+        position: 'absolute',
+        insetInline: 0,
+        top: token.calc(token.margin).mul(-1).equal(),
+        height: token.margin,
+        content: '""',
       },
-      [`${noticeCls}-content`]: {
-        alignItems: 'center',
-        gap: token.marginXS,
+    },
+
+    [`${noticeCls}-content`]: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: token.marginXS,
+    },
+
+    [`${noticeCls}-title`]: {
+      color: colorTextHeading,
+      fontSize: varRef('title-font-size'),
+      lineHeight: varRef('title-line-height'),
+    },
+
+    [`${noticeCls}-icon`]: {
+      flex: 'none',
+      fontSize: varRef('icon-font-size'),
+      lineHeight: 1,
+
+      [`&${noticeCls}-icon-success`]: {
+        color: colorSuccess,
+      },
+      [`&${noticeCls}-icon-info, &${noticeCls}-icon-loading`]: {
+        color: colorInfo,
+      },
+      [`&${noticeCls}-icon-warning`]: {
+        color: colorWarning,
+      },
+      [`&${noticeCls}-icon-error`]: {
+        color: colorError,
       },
     },
   };
 };
+
+const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => ({
+  [token.componentCls]: genMessageItemStyle(token),
+});
 
 const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
   const { componentCls } = token;
@@ -97,31 +153,21 @@ const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
 };
 
 const generateMessagePurePanelStyle: GenerateStyle<NotificationToken> = (token) => {
-  const { antCls, componentCls, fontSize, fontSizeLG, lineHeight } = token;
+  const { componentCls } = token;
   const noticeCls = `${componentCls}-notice`;
-  const [varName] = genCssVar(antCls, 'notification');
-  const notificationItemStyle = genNotificationItemStyle(token);
+  const messageItemStyle = genMessageItemStyle(token);
 
   return {
     [`${noticeCls}-pure-panel`]: {
       width: 'max-content',
       maxWidth: '100%',
-      ...notificationItemStyle,
+      ...messageItemStyle,
 
       [noticeCls]: {
-        ...(notificationItemStyle[noticeCls] as CSSObject),
+        ...(messageItemStyle[noticeCls] as CSSObject),
         position: 'relative',
         width: 'max-content',
         maxWidth: '100%',
-        [varName('icon-font-size')]: fontSizeLG,
-        [varName('title-font-size')]: fontSize,
-        [varName('title-line-height')]: lineHeight,
-      },
-
-      [`${noticeCls}-content`]: {
-        ...(notificationItemStyle[`${noticeCls}-content`] as CSSObject),
-        alignItems: 'center',
-        gap: token.marginXS,
       },
     },
   };
@@ -175,8 +221,7 @@ export default genStyleHooks(
     );
 
     return [
-      sharedGenerateStyle(messageToken, { stackVisibleCount: 1 }),
-      generateMessageStyle(messageToken),
+      sharedGenerateStyle(messageToken, { stackVisibleCount: 1, itemStyle: generateMessageStyle }),
       generateMessageStackStyle(messageToken),
     ];
   },

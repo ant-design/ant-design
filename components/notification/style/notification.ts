@@ -145,10 +145,7 @@ export const genNotificationItemStyle = (token: NotificationToken): CSSObject =>
       [`&${noticeCls}-icon-success`]: {
         color: colorSuccess,
       },
-      [`&${noticeCls}-icon-info`]: {
-        color: colorInfo,
-      },
-      [`&${noticeCls}-icon-loading`]: {
+      [`&${noticeCls}-icon-info, &${noticeCls}-icon-loading`]: {
         color: colorInfo,
       },
       [`&${noticeCls}-icon-warning`]: {

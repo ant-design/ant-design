@@ -17,6 +17,7 @@ type WidthKey<Token extends NotificationToken> = {
 interface SharedStyleConfig<Token extends NotificationToken> {
   listWidthKey?: WidthKey<Token>;
   stackVisibleCount?: number;
+  itemStyle?: false | GenerateStyle<Token>;
 }
 
 const getStackNoticeClipPath = (offset: string | number) =>
@@ -288,11 +289,15 @@ export const PurePanelStyle = genSubStyleComponent(
 export const sharedGenerateStyle = <Token extends NotificationToken>(
   token: Token,
   config: SharedStyleConfig<Token> = {},
-): ReturnType<GenerateStyle<Token>> => [
-  genNotificationListStyle(token, config),
-  genNotificationStyle(token),
-  genNotificationPlacementStyle(token),
-];
+): ReturnType<GenerateStyle<Token>> => {
+  const itemStyle = config.itemStyle === undefined ? genNotificationStyle : config.itemStyle;
+
+  return [
+    genNotificationListStyle(token, config),
+    ...(itemStyle === false ? [] : [itemStyle(token)]),
+    genNotificationPlacementStyle(token),
+  ];
+};
 
 export default genStyleHooks(
   'Notification',

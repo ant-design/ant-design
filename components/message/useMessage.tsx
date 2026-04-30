@@ -35,6 +35,7 @@ import { getMessageIcon } from './PurePanel';
 import useStyle from './style';
 import { getMotion, wrapPromiseFn } from './util';
 
+const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
 
 // ==============================================================================
@@ -79,6 +80,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: staticGetContainer,
     maxCount,
     duration = DEFAULT_DURATION,
+    top,
     rtl,
     transitionName,
     onAllRemoved,
@@ -101,6 +103,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   // =============================== Style ===============================
   const getStyle = (): React.CSSProperties => ({
+    top: top ?? DEFAULT_OFFSET,
     ...mergedStyles.list,
   });
 
