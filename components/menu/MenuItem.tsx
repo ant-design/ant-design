@@ -47,14 +47,10 @@ const MenuItem: GenericComponent = (props) => {
     classNames,
   } = React.useContext<MenuContextProps>(MenuContext);
 
-  const childrenNodes = toArray(children, { keepEmpty: true }) as React.ReactNode[];
-  const [label, ...restChildren] = childrenNodes;
+  const label = (children as React.ReactNode[])?.[0];
   const hasExtra = isValidReactNode(extra);
   const mergedChildren = hasExtra ? (
-    <>
-      <span className={`${prefixCls}-title-content-label`}>{label}</span>
-      {restChildren}
-    </>
+    <span className={`${prefixCls}-title-content-label`}>{children}</span>
   ) : (
     children
   );
