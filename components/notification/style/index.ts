@@ -5,10 +5,10 @@ import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
-import genNotificationStyle, { genPurePanelStyle } from './notification';
+import genNotificationStyle, { genNotificationCardStyle, genPurePanelStyle } from './notification';
 import genNotificationPlacementStyle from './placement';
 
-const COLLAPSED_STACK_VISIBLE_COUNT = 3;
+const DEFAULT_COLLAPSED_STACK_VISIBLE_COUNT = 3;
 
 type WidthKey<Token extends NotificationToken> = {
   [Key in keyof Token]: Token[Key] extends number | string ? Key : never;
@@ -16,7 +16,11 @@ type WidthKey<Token extends NotificationToken> = {
 
 interface SharedStyleConfig<Token extends NotificationToken> {
   listWidthKey?: WidthKey<Token>;
+  stackVisibleCount?: number;
 }
+
+const getStackNoticeClipPath = (offset: string | number) =>
+  `inset(${offset} ${offset} ${offset} ${offset})`;
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -165,18 +169,11 @@ export const genNotificationListContentStyle: GenerateStyle<NotificationToken, C
       flexDirection: 'column',
       gap: token.notificationMarginBottom,
       width: '100%',
-      pointerEvents: 'none',
       willChange: 'height, transform',
       transition: 'none',
 
       [`&${listContentCls}-decrease`]: {
         transition: `height calc(${motionDurationSlow} * 2) ${motionEaseInOut} ${motionDurationMid}`,
-      },
-    },
-
-    [`&${componentCls}-list-hovered`]: {
-      [listContentCls]: {
-        pointerEvents: 'auto',
       },
     },
 
@@ -196,6 +193,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
 
   const noticeCls = `${componentCls}-notice`;
   const listCls = `${componentCls}-list`;
+  const listContentCls = `${listCls}-content`;
 
   const listWidth = config.listWidthKey
     ? token
@@ -203,9 +201,12 @@ const genNotificationListStyle = <Token extends NotificationToken>(
         .add(token.calc(notificationMarginEdge).mul(2))
         .equal()
     : '100%';
+  const stackVisibleCount = config.stackVisibleCount ?? DEFAULT_COLLAPSED_STACK_VISIBLE_COUNT;
   const noticeBeyondStackVisibleCountCls = `${noticeCls}:nth-last-child(n + ${
-    COLLAPSED_STACK_VISIBLE_COUNT + 1
+    stackVisibleCount + 1
   })`;
+  const stackShadowClipOffset = unit(token.calc(token.marginXXL).mul(-1).equal());
+  const stackNoticeClipPath = getStackNoticeClipPath(stackShadowClipOffset);
 
   return {
     [componentCls]: {
@@ -219,7 +220,6 @@ const genNotificationListStyle = <Token extends NotificationToken>(
       height: '100vh',
       overflow: 'hidden',
       overscrollBehavior: 'contain',
-      pointerEvents: 'none',
 
       [`${componentCls}-hook-holder`]: {
         position: 'relative',
@@ -234,6 +234,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
         overscrollBehavior: 'contain',
         scrollbarWidth: 'none',
         msOverflowStyle: 'none',
+        pointerEvents: 'none',
 
         '&::-webkit-scrollbar': {
           display: 'none',
@@ -246,11 +247,38 @@ const genNotificationListStyle = <Token extends NotificationToken>(
 
       // ============================ Stack ============================
       [`&${componentCls}-stack`]: {
+        [listContentCls]: {
+          '&::before': {
+            ...genNotificationCardStyle(token),
+            position: 'absolute',
+            top: 'var(--top-notificiation-height)',
+            width: `calc(var(--top-notificiation-width) - ${unit(token.margin)})`,
+            height: token.marginXS,
+            padding: 0,
+            opacity: 0,
+            pointerEvents: 'none',
+            transform: 'var(--notification-stack-bar-transform, translateX(0)) translateY(100%)',
+            transition: [
+              `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
+              `transform ${token.motionDurationFast} ${token.motionEaseInOut}`,
+            ].join(', '),
+            content: '""',
+          },
+        },
+
         [noticeCls]: {
-          clipPath: 'inset(-50% -50% -50% -50%)',
+          clipPath: stackNoticeClipPath,
         },
 
         [`&:not(${componentCls}-stack-expanded)`]: {
+          [listContentCls]: {
+            '&::before': {
+              opacity: 1,
+              transform:
+                'var(--notification-stack-bar-transform, translateX(0)) translateY(0)',
+            },
+          },
+
           [noticeCls]: {
             '--notification-scale': 'calc(1 - min(var(--notification-index, 0), 2) * 0.06)',
           } as CSSObject,

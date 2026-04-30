@@ -31,6 +31,7 @@ export interface ConfigOptions {
   transitionName?: string;
   maxCount?: number;
   rtl?: boolean;
+  stack?: boolean | { threshold?: number };
   /**
    * @descCN 悬停时是否暂停计时器
    * @descEN keep the timer running or not on hover

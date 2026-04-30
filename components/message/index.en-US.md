@@ -21,6 +21,7 @@ demo:
 <code src="./demo/hooks.tsx">Hooks usage (recommended)</code>
 <code src="./demo/other.tsx">Other types of message</code>
 <code src="./demo/duration.tsx">Customize duration</code>
+<code src="./demo/stack.tsx" version="6.4.0">Stack</code>
 <code src="./demo/loading.tsx">Message with loading indicator</code>
 <code src="./demo/thenable.tsx">Promise interface</code>
 <code src="./demo/custom-style.tsx">Customized style</code>
@@ -112,6 +113,7 @@ message.config({
 | maxCount | Max message show, drop oldest if exceed limit | number | - |  |
 | prefixCls | The prefix className of message node | string | `ant-message` | 4.5.0 |
 | rtl | Whether to enable RTL mode | boolean | false |  |
+| stack | Messages will be stacked when amount is over threshold. Only the latest message is shown in the collapsed stack | boolean \| `{ threshold: number }` | false | 6.4.0 |
 | top | Distance from top | string \| number | 8 |  |
 
 ## Semantic DOM

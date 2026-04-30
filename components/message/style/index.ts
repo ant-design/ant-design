@@ -129,7 +129,10 @@ export default genStyleHooks(
       token as unknown as Parameters<GenStyleFn<'Message'>>[0],
     );
 
-    return [sharedGenerateStyle(messageToken), generateMessageStyle(messageToken)];
+    return [
+      sharedGenerateStyle(messageToken, { stackVisibleCount: 1 }),
+      generateMessageStyle(messageToken),
+    ];
   },
   prepareComponentToken,
 );

@@ -73,13 +73,27 @@ const getPlacementFlexDirection = (vertical: VerticalPlacement) =>
 const getPlacementTransformOrigin = (vertical: VerticalPlacement) =>
   vertical === 'bottom' ? 'center top' : 'center bottom';
 
-const getPlacementStackClipPath = (vertical: VerticalPlacement) =>
-  vertical === 'bottom' ? 'inset(-50% -50% 50% -50%)' : 'inset(50% -50% -50% -50%)';
+const getStackShadowClipOffset = (token: NotificationToken) =>
+  unit(token.calc(token.marginXXL).mul(-1).equal());
+
+const getStackNoticeClipPath = (token: NotificationToken) => {
+  const offset = getStackShadowClipOffset(token);
+  return `inset(${offset} ${offset} ${offset} ${offset})`;
+};
+
+const getPlacementStackClipPath = (token: NotificationToken, vertical: VerticalPlacement) => {
+  const offset = getStackShadowClipOffset(token);
+
+  return vertical === 'bottom'
+    ? `inset(${offset} ${offset} 50% ${offset})`
+    : `inset(50% ${offset} ${offset} ${offset})`;
+};
 
 const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfig): CSSObject => {
   const { componentCls } = token;
   const { placement, vertical, blockEnd, horizontal, inlineEnd } = config;
   const noticeCls = `${componentCls}-notice`;
+  const listContentCls = `${componentCls}-list-content`;
   const noticeMotionCls = `${noticeCls}${componentCls}-fade`;
   const enterTransform = getMotionTransform(config.motionOffset);
   const baseTransform = getMotionTransform(config.baseMotionOffset);
@@ -141,13 +155,24 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
         transform: enterTransform,
       },
 
+      [`&${componentCls}-stack`]: {
+        [`${listContentCls}::before`]: config.isCenterPlacement
+          ? {
+              left: '50%',
+              '--notification-stack-bar-transform': 'translateX(-50%)',
+            }
+          : {
+              [horizontal]: token.marginXS,
+            },
+      },
+
       [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
         [noticeCls]: {
-          clipPath: getPlacementStackClipPath(vertical),
+          clipPath: getPlacementStackClipPath(token, vertical),
         },
 
         [`${noticeCls}[data-notification-index='0']`]: {
-          clipPath: 'inset(-50% -50% -50% -50%)',
+          clipPath: getStackNoticeClipPath(token),
         },
       },
     },

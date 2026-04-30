@@ -20,13 +20,27 @@ export const genNotificationItemMotionStyle = (token: NotificationToken): CSSObj
   };
 };
 
+export const genNotificationCardStyle = (token: NotificationToken): CSSObject => {
+  const { boxShadow, borderRadiusLG, colorText, notificationBg, fontSize, lineHeight } = token;
+
+  return {
+    boxSizing: 'border-box',
+    color: colorText,
+    background: notificationBg,
+    borderRadius: borderRadiusLG,
+    boxShadow,
+    fontSize,
+    lineHeight,
+    wordWrap: 'break-word',
+    overflow: 'visible',
+  };
+};
+
 export const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
   const {
     componentCls,
     antCls,
-    boxShadow,
     fontSizeLG,
-    borderRadiusLG,
     colorSuccess,
     colorInfo,
     colorWarning,
@@ -38,7 +52,7 @@ export const genNotificationItemStyle = (token: NotificationToken): CSSObject =>
     progressBg,
     notificationProgressHeight,
     fontSize,
-    lineHeight,
+    borderRadiusLG,
     width,
     notificationIconSize,
     colorText,
@@ -52,7 +66,6 @@ export const genNotificationItemStyle = (token: NotificationToken): CSSObject =>
     [noticeCls]: {
       // ============================== Base ==============================
       position: 'absolute',
-      boxSizing: 'border-box',
       width,
       maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
       padding: notificationPadding,
@@ -60,15 +73,16 @@ export const genNotificationItemStyle = (token: NotificationToken): CSSObject =>
       [varName('icon-font-size')]: notificationIconSize,
       [varName('title-font-size')]: fontSizeLG,
       [varName('title-line-height')]: token.lineHeightLG,
-      color: colorText,
-      background: notificationBg,
-      borderRadius: borderRadiusLG,
-      boxShadow,
-      fontSize,
-      lineHeight,
-      wordWrap: 'break-word',
-      overflow: 'hidden',
+      ...genNotificationCardStyle(token),
       ...genNotificationItemMotionStyle(token),
+
+      '&::after': {
+        position: 'absolute',
+        insetInline: 0,
+        top: token.calc(token.margin).mul(-1).equal(),
+        height: token.margin,
+        content: '""',
+      },
 
       // ============================== Type ==============================
       '&-success': {
