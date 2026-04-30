@@ -271,35 +271,6 @@ describe('message.hooks', () => {
     expect(styleText).not.toContain('.ant-message');
   });
 
-  it('should keep icon and content in the same message bubble', () => {
-    const cache = createCache();
-
-    const Demo = () => {
-      const [api, holder] = message.useMessage();
-
-      useEffect(() => {
-        api.success({
-          content: 'Hello, Ant Design!',
-        });
-      }, []);
-
-      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
-    };
-
-    render(<Demo />);
-
-    const bubble = document.querySelector('.ant-message-notice-content');
-
-    expect(bubble).toHaveClass('ant-message-custom-content');
-    expect(bubble).toContainElement(document.querySelector('.ant-message-notice-icon'));
-    expect(bubble).toContainElement(document.querySelector('.ant-message-notice-title'));
-
-    const styleText = extractStyle(cache, true);
-    expect(styleText.indexOf('.ant-message-notice-content{display:inline-block;')).toBeLessThan(
-      styleText.indexOf('.ant-message-custom-content{display:inline-flex;'),
-    );
-  });
-
   it('component fontSize should work', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();

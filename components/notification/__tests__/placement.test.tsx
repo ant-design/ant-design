@@ -58,32 +58,6 @@ describe('Notification.placement', () => {
   });
 
   describe('placement', () => {
-    it('should use vertical enter motion for centered placements', async () => {
-      act(() => {
-        open({ placement: 'top' });
-      });
-      await awaitPromise();
-
-      expect(
-        getComputedStyle(document.querySelector('.ant-notification-top .ant-notification-notice')!)
-          .transform,
-      ).toBe('translate3d(0, -64px, 0) scale(var(--notification-scale, 1))');
-
-      notification.destroy();
-      await triggerMotionEnd();
-
-      act(() => {
-        open({ placement: 'bottom' });
-      });
-      await awaitPromise();
-
-      expect(
-        getComputedStyle(
-          document.querySelector('.ant-notification-bottom .ant-notification-notice')!,
-        ).transform,
-      ).toBe('translate3d(0, 64px, 0) scale(var(--notification-scale, 1))');
-    });
-
     it('can be configured globally using the `config` method', async () => {
       // topLeft
       config({

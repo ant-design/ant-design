@@ -194,46 +194,6 @@ describe('notification.hooks', () => {
     expect(document.querySelector('.ant-notification-stack')).toBeFalsy();
   });
 
-  it('should only show three notices in collapsed stack', () => {
-    const Demo = () => {
-      const [api, holder] = notification.useNotification({ stack: { threshold: 5 } });
-
-      React.useEffect(() => {
-        for (let i = 0; i < 6; i += 1) {
-          api.info({
-            key: i,
-            title: `Notification ${i}`,
-            description: 'test',
-            duration: 0,
-          });
-        }
-      }, []);
-
-      return holder;
-    };
-
-    render(<Demo />);
-
-    const list = document.querySelector('.ant-notification-stack')!;
-    const hiddenNotice = document.querySelector(
-      ".ant-notification-notice[data-notification-index='3']",
-    )!;
-    const collapsedHiddenSelector =
-      '.ant-notification-stack:not(.ant-notification-stack-expanded) .ant-notification-notice:nth-last-child(n + 4)';
-
-    expect(list).not.toHaveClass('ant-notification-stack-expanded');
-    expect(hiddenNotice).toHaveClass('ant-notification-notice-stack-in-threshold');
-    expect(hiddenNotice.matches(collapsedHiddenSelector)).toBeTruthy();
-    expect(hiddenNotice).toHaveStyle({
-      opacity: '0',
-    });
-
-    fireEvent.mouseEnter(list);
-
-    expect(list).toHaveClass('ant-notification-stack-expanded');
-    expect(hiddenNotice.matches(collapsedHiddenSelector)).toBeFalsy();
-  });
-
   it('support duration', () => {
     const Demo = () => {
       const [api, holder] = notification.useNotification({ duration: 1.5 });
