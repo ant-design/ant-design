@@ -77,8 +77,24 @@ const genBaseStyle: GenerateStyle<TagToken, CSSInterpolation> = (token) => {
         cursor: 'pointer',
         transition: `all ${token.motionDurationMid}`,
 
+        // Reset button styles
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 0,
+        border: 'none',
+        background: 'transparent',
+        lineHeight: 0,
+        verticalAlign: '-0.125em',
+
         '&:hover': {
           color: token.colorTextHeading,
+        },
+
+        '&:focus-visible': {
+          outline: `${unit(token.lineWidthFocus)} solid ${token.colorPrimaryBorder}`,
+          outlineOffset: 1,
+          borderRadius: token.borderRadiusXS,
         },
       },
 

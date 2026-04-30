@@ -5,7 +5,7 @@ import { clsx } from 'clsx';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
 import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { cloneElement, replaceElement } from '../_util/reactNode';
+import { cloneElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -164,7 +164,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     );
 
     // ===================== Closable =====================
-    const handleCloseClick: React.MouseEventHandler<HTMLSpanElement> = (e) => {
+    const handleCloseClick: React.MouseEventHandler<HTMLElement> = (e) => {
       if (mergedDisabled) {
         return;
       }
@@ -180,18 +180,31 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const [, mergedCloseIcon] = useClosable(pickClosable(props), pickClosable(tagContext), {
       closable: false,
       closeIconRender: (iconNode: React.ReactNode) => {
-        const replacement = (
-          <span className={`${prefixCls}-close-icon`} onClick={handleCloseClick}>
-            {iconNode}
-          </span>
+        // If the custom closeIcon is already an interactive element, merge props instead of wrapping
+        if (React.isValidElement<any>(iconNode) && iconNode.type === 'button') {
+          return React.cloneElement<any>(iconNode, {
+            onClick: (e: React.MouseEvent<HTMLElement>) => {
+              (iconNode.props as any)?.onClick?.(e);
+              handleCloseClick(e);
+            },
+            className: clsx((iconNode.props as any)?.className, `${prefixCls}-close-icon`),
+            disabled: mergedDisabled,
+            type: (iconNode.props as any)?.type ?? 'button',
+          });
+        }
+        const decorativeIcon = React.isValidElement<any>(iconNode)
+          ? React.cloneElement<any>(iconNode, { 'aria-hidden': true })
+          : iconNode;
+        return (
+          <button
+            type="button"
+            className={`${prefixCls}-close-icon`}
+            onClick={handleCloseClick}
+            disabled={mergedDisabled}
+          >
+            {decorativeIcon}
+          </button>
         );
-        return replaceElement(iconNode, replacement, (originProps) => ({
-          onClick: (e: React.MouseEvent<HTMLElement>) => {
-            originProps?.onClick?.(e);
-            handleCloseClick(e);
-          },
-          className: clsx(originProps?.className, `${prefixCls}-close-icon`),
-        }));
       },
     });
 
