@@ -11,7 +11,8 @@ import { clsx } from 'clsx';
 
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isNonNullable, isPlainObject } from '../_util/is';
+import { isPlainObject } from '../_util/is';
+import { isValidReactNode } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -95,7 +96,7 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
       style: styles.icon,
     });
   }
-  const hasTitle = isNonNullable(title) && title !== false && title !== '';
+  const hasTitle = isValidReactNode(title);
 
   return (
     <div className={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>

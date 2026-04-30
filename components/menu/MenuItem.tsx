@@ -4,7 +4,7 @@ import { Item } from '@rc-component/menu';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { cloneElement } from '../_util/reactNode';
+import { cloneElement, isValidReactNode } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
 import type { TooltipProps, TooltipSemanticClassNames } from '../tooltip';
@@ -49,7 +49,7 @@ const MenuItem: GenericComponent = (props) => {
 
   const childrenNodes = toArray(children, { keepEmpty: true }) as React.ReactNode[];
   const [label, ...restChildren] = childrenNodes;
-  const hasExtra = !!extra || extra === 0;
+  const hasExtra = isValidReactNode(extra);
   const mergedChildren = hasExtra ? (
     <>
       <span className={`${prefixCls}-title-content-label`}>{label}</span>
