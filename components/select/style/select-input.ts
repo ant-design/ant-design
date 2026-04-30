@@ -342,7 +342,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Error
         {
           border: token.colorError,
-          borderHover: token.colorErrorHover,
+          borderHover: token.colorErrorBorderHover,
           borderActive: token.colorError,
           borderOutline: token.colorErrorOutline,
           affixColor: token.colorErrorAffix,
@@ -373,6 +373,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         },
         // Error
         {
+          color: token.colorErrorText,
           background: token.colorErrorBg,
           backgroundHover: token.colorErrorBgHover,
           borderActive: token.colorError,
@@ -408,7 +409,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Error
         {
           border: token.colorError,
-          borderHover: token.colorErrorHover,
+          borderHover: token.colorErrorBorderHover,
           borderActive: token.colorError,
         },
         // Warning

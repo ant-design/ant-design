@@ -12,7 +12,7 @@ import { clsx } from 'clsx';
 import { pickClosable, useClosable } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isPlainObject } from '../_util/is';
+import { isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -87,10 +87,13 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
       style: styles.icon,
     });
   }
+
+  const hasTitle = isNonNullable(title) && title !== false && title !== '';
+
   return (
     <div className={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
       {iconNode}
-      {title && (
+      {hasTitle && (
         <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
           {title}
         </div>
