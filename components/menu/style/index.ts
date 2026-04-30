@@ -4,7 +4,7 @@ import { unit } from '@ant-design/cssinjs';
 import { FastColor } from '@ant-design/fast-color';
 import type { CssUtil } from 'antd-style';
 
-import { clearFix, resetComponent, resetIcon } from '../../style';
+import { clearFix, resetComponent, resetIcon, textEllipsis } from '../../style';
 import { genCollapseMotion, initSlideMotion, initZoomMotion } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
@@ -562,6 +562,10 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     iconSize,
     iconMarginInlineEnd,
   } = token;
+  const titleContentTypographyEllipsisSelector = [
+    `> ${antCls}-typography-ellipsis-single-line`,
+    `> ${componentCls}-title-content-label > ${antCls}-typography-ellipsis-single-line`,
+  ].join(',');
 
   return [
     // Misc
@@ -649,15 +653,23 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             display: 'inline-flex',
             alignItems: 'center',
             width: '100%',
+            minWidth: 0,
+          },
+
+          '&-label': {
+            flex: 'auto',
+            minWidth: 0,
+            ...textEllipsis,
           },
 
           // https://github.com/ant-design/ant-design/issues/41143
-          [`> ${antCls}-typography-ellipsis-single-line`]: {
+          [titleContentTypographyEllipsisSelector]: {
             display: 'inline',
             verticalAlign: 'unset',
           },
 
           [`${componentCls}-item-extra`]: {
+            flex: 'none',
             marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
           },

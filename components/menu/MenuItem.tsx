@@ -46,20 +46,32 @@ const MenuItem: GenericComponent = (props) => {
     styles,
     classNames,
   } = React.useContext<MenuContextProps>(MenuContext);
+
+  const childrenNodes = toArray(children, { keepEmpty: true }) as React.ReactNode[];
+  const [label, ...restChildren] = childrenNodes;
+  const hasExtra = !!extra || extra === 0;
+  const mergedChildren = hasExtra ? (
+    <>
+      <span className={`${prefixCls}-title-content-label`}>{label}</span>
+      {restChildren}
+    </>
+  ) : (
+    children
+  );
+
   const renderItemChildren = (inlineCollapsed: boolean) => {
-    const label = (children as React.ReactNode[])?.[0];
     const wrapNode = (
       <span
         className={clsx(
           `${prefixCls}-title-content`,
           firstLevel ? classNames?.itemContent : classNames?.subMenu?.itemContent,
           {
-            [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
+            [`${prefixCls}-title-content-with-extra`]: hasExtra,
           },
         )}
         style={firstLevel ? styles?.itemContent : styles?.subMenu?.itemContent}
       >
-        {children}
+        {mergedChildren}
       </span>
     );
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
