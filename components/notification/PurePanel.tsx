@@ -98,12 +98,7 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
   const hasTitle = isNonNullable(title) && title !== false && title !== '';
 
   return (
-    <div
-      className={clsx({
-        [`${prefixCls}-with-icon`]: iconNode,
-      })}
-      role={role}
-    >
+    <div className={clsx({ [`${prefixCls}-with-icon`]: iconNode })} role={role}>
       {iconNode}
       {hasTitle && (
         <div className={clsx(`${prefixCls}-title`, pureContentCls.title)} style={styles.title}>
