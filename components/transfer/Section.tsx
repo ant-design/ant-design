@@ -3,7 +3,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNumber, isPlainObject } from '../_util/is';
+import { isFunction, isNumber, isPlainObject } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -173,7 +173,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   };
 
   const matchFilter = (text: string, item: RecordType) => {
-    if (typeof filterOption === 'function') {
+    if (isFunction(filterOption)) {
       return filterOption(filterValue, item, direction);
     }
     return text.includes(filterValue);
@@ -313,7 +313,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
     if (selectAllLabel) {
-      return typeof selectAllLabel === 'function'
+      return isFunction(selectAllLabel)
         ? selectAllLabel({ selectedCount, totalCount })
         : selectAllLabel;
     }

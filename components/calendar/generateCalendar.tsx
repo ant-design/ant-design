@@ -8,6 +8,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isFunction } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
@@ -261,7 +262,6 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
         if (dateFullCellRender) {
           return dateFullCellRender(date);
         }
-
         return (
           <div
             className={clsx(`${prefixCls}-cell-inner`, `${calendarPrefixCls}-date`, {
@@ -272,7 +272,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
               {String(generateConfig.getDate(date)).padStart(2, '0')}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
-              {typeof cellRender === 'function' ? cellRender(date, info) : dateCellRender?.(date)}
+              {isFunction(cellRender) ? cellRender(date, info) : dateCellRender?.(date)}
             </div>
           </div>
         );
@@ -310,7 +310,7 @@ const generateCalendar = <DateType extends AnyObject>(generateConfig: GenerateCo
               {months[generateConfig.getMonth(date)]}
             </div>
             <div className={`${calendarPrefixCls}-date-content`}>
-              {typeof cellRender === 'function' ? cellRender(date, info) : monthCellRender?.(date)}
+              {isFunction(cellRender) ? cellRender(date, info) : monthCellRender?.(date)}
             </div>
           </div>
         );

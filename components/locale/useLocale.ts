@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import type { Locale } from '.';
+import { isFunction } from '../_util/is';
 import type { LocaleContextProps } from './context';
 import LocaleContext from './context';
 import defaultLocaleData from './en_US';
@@ -17,7 +18,7 @@ const useLocale = <C extends LocaleComponentName = LocaleComponentName>(
     const locale = defaultLocale || defaultLocaleData[componentName];
     const localeFromContext = fullLocale?.[componentName] ?? {};
     return {
-      ...(typeof locale === 'function' ? locale() : locale),
+      ...(isFunction(locale) ? locale() : locale),
       ...(localeFromContext || {}),
     };
   }, [componentName, defaultLocale, fullLocale]);
