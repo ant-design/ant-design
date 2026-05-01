@@ -4,7 +4,7 @@ import CaretUpOutlined from '@ant-design/icons/CaretUpOutlined';
 import KeyCode from '@rc-component/util/lib/KeyCode';
 import { clsx } from 'clsx';
 
-import { isNumber, isPlainObject } from '../../_util/is';
+import { isFunction, isNumber, isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import type { Locale } from '../../locale';
 import type { TooltipProps } from '../../tooltip';
@@ -39,7 +39,7 @@ const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
 const getSortFunction = <RecordType extends AnyObject = AnyObject>(
   sorter: ColumnType<RecordType>['sorter'],
 ): CompareFn<RecordType> | false => {
-  if (typeof sorter === 'function') {
+  if (isFunction(sorter)) {
     return sorter;
   }
   if (isPlainObject(sorter) && sorter.compare) {

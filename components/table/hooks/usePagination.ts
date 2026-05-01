@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { mergeProps } from '@rc-component/util';
 
-import { isPlainObject } from '../../_util/is';
+import { isFunction, isPlainObject } from '../../_util/is';
 import type { PaginationProps } from '../../pagination';
 import type { TablePaginationConfig } from '../interface';
 
@@ -20,8 +20,7 @@ export function getPaginationParam(
 
   Object.keys(paginationObj).forEach((pageProp) => {
     const value = mergedPagination[pageProp as keyof typeof paginationObj];
-
-    if (typeof value !== 'function') {
+    if (!isFunction(value)) {
       param[pageProp] = value;
     }
   });
