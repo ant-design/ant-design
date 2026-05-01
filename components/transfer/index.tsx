@@ -4,6 +4,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useMultipleSelect } from '../_util/hooks';
 import type { PrevSelectedIndex, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isFunction } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { groupDisabledKeysMap, groupKeysMap } from '../_util/transKeys';
@@ -264,11 +265,9 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
       keys: TransferKey[] | ((prevKeys: TransferKey[]) => TransferKey[]),
     ) => {
       if (direction === 'left') {
-        const nextKeys = typeof keys === 'function' ? keys(sourceSelectedKeys || []) : keys;
-        setSourceSelectedKeys(nextKeys);
+        setSourceSelectedKeys(isFunction(keys) ? keys(sourceSelectedKeys || []) : keys);
       } else {
-        const nextKeys = typeof keys === 'function' ? keys(targetSelectedKeys || []) : keys;
-        setTargetSelectedKeys(nextKeys);
+        setTargetSelectedKeys(isFunction(keys) ? keys(targetSelectedKeys || []) : keys);
       }
     },
     [sourceSelectedKeys, targetSelectedKeys],
@@ -453,7 +452,7 @@ const Transfer = <RecordType extends TransferItem = TransferItem>(
   };
 
   const handleListStyle = (direction: TransferDirection): CSSProperties => {
-    if (typeof listStyle === 'function') {
+    if (isFunction(listStyle)) {
       return listStyle({ direction });
     }
     return listStyle || {};
