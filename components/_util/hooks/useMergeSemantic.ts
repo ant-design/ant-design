@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
-import { isPlainObject } from '../is';
+import { isFunction, isPlainObject } from '../is';
 import type { AnyObject, EmptyObject, ValidChar } from '../type';
 
 export type SemanticSchema = { _default?: string } & {
@@ -103,7 +103,7 @@ export const resolveStyleOrClass = <T extends AnyObject>(
   value: T | ((config: any) => T),
   info: { props: AnyObject },
 ) => {
-  return typeof value === 'function' ? value(info) : value;
+  return isFunction(value) ? value(info) : value;
 };
 
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
