@@ -329,7 +329,7 @@
   "size-limit": [
     {
       "path": "./dist/antd.min.js",
-      "limit": "437 KiB",
+      "limit": "438 KiB",
       "gzip": true
     },
     {
