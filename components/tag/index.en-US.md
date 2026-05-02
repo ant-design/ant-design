@@ -67,7 +67,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Initial value | `string \| number \| Array<string \| number> \| null` | - |  |
 | disabled | Disable check/uncheck | `boolean` | - |  |
 | multiple | Multiple select mode | `boolean` | - |  |
-| options | Option list | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |
+| options | Option list. Object options support per-item `className` and `style`. | `Array<{ className?: string; label: ReactNode; style?: CSSProperties; value: string \| number } \| string \| number>` | - | `className` and `style`: 6.4.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-group), CSSProperties> | - |  |
 | value | Value of checked tag(s) | `string \| number \| Array<string \| number> \| null` | - |  |
 | onChange | Callback when Tag is checked/unchecked | `(value: string \| number \| Array<string \| number> \| null) => void` | - |  |
