@@ -19,7 +19,6 @@ tag: vVERSION
 
 `2026-04-27`
 
-- 🆕 为 Notification 和 Message 新增更多语义化 DOM 插槽，并支持 Message `stack` 配置。
 - Input
   - 🐞 修复 Input.OTP 在 Windows 下选中文本时可能显示真实值的问题。[#57689](https://github.com/ant-design/ant-design/pull/57689) [@QDyanbing](https://github.com/QDyanbing)
   - ⌨️ 优化 Input 清除按钮的可访问性。[#57432](https://github.com/ant-design/ant-design/pull/57432) [@cyphercodes](https://github.com/cyphercodes)
