@@ -459,6 +459,38 @@ describe('Tag', () => {
       expect(itemElements[1]).not.toHaveClass('ant-tag-checkable-checked');
     });
 
+    it('should allow option style to override group item styles', () => {
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          styles={{
+            item: {
+              color: 'rgb(0, 0, 255)',
+              borderRadius: '4px',
+            },
+          }}
+          options={[
+            {
+              value: 'foo',
+              label: 'Foo',
+              style: { color: 'rgb(255, 0, 0)' },
+            },
+            { value: 'bar', label: 'Bar' },
+          ]}
+        />,
+      );
+
+      const itemElements = container.querySelectorAll('.ant-tag-checkable');
+
+      expect(itemElements[0]).toHaveStyle({
+        color: 'rgb(255, 0, 0)',
+        borderRadius: '4px',
+      });
+      expect(itemElements[1]).toHaveStyle({
+        color: 'rgb(0, 0, 255)',
+        borderRadius: '4px',
+      });
+    });
+
     it('should still support primitive options in multiple mode', () => {
       const onChange = jest.fn();
 
