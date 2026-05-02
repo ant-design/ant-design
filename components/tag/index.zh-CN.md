@@ -22,6 +22,7 @@ demo:
 <code src="./demo/colorful.tsx">多彩标签</code>
 <code src="./demo/control.tsx">动态添加和删除</code>
 <code src="./demo/checkable.tsx">可选择标签</code>
+<code src="./demo/checkable-group-style.tsx" version="6.4.0">单独配置标签项样式</code>
 <code src="./demo/animation.tsx">添加动画</code>
 <code src="./demo/icon.tsx">图标按钮</code>
 <code src="./demo/status.tsx">预设状态的标签</code>
@@ -67,7 +68,7 @@ demo:
 | defaultValue | 初始选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | disabled | 禁用选中 | `boolean` | - |  |
 | multiple | 多选模式 | `boolean` | - |  |
-| options | 选项列表 | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |
+| options | 选项列表。对象类型的选项支持为每一项单独设置 `className` 和 `style` | `Array<{ className?: string; label: ReactNode; style?: CSSProperties; value: string \| number } \| string \| number>` | - | 6.4.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-group), CSSProperties> | - |  |
 | value | 选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | onChange | 点击标签时触发的回调 | `(value: string \| number \| Array<string \| number> \| null) => void` | - |  |

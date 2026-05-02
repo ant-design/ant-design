@@ -22,6 +22,7 @@ demo:
 <code src="./demo/colorful.tsx">Colorful Tag</code>
 <code src="./demo/control.tsx">Add & Remove Dynamically</code>
 <code src="./demo/checkable.tsx">Checkable</code>
+<code src="./demo/checkable-group-style.tsx" version="6.4.0">Per-item styles</code>
 <code src="./demo/animation.tsx">Animate</code>
 <code src="./demo/icon.tsx">Icon</code>
 <code src="./demo/status.tsx">Status Tag</code>
@@ -67,7 +68,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | defaultValue | Initial value | `string \| number \| Array<string \| number> \| null` | - |  |
 | disabled | Disable check/uncheck | `boolean` | - |  |
 | multiple | Multiple select mode | `boolean` | - |  |
-| options | Option list | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |
+| options | Option list. Object options support per-item `className` and `style`. | `Array<{ className?: string; label: ReactNode; style?: CSSProperties; value: string \| number } \| string \| number>` | - | 6.4.0 |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-group), CSSProperties> | - |  |
 | value | Value of checked tag(s) | `string \| number \| Array<string \| number> \| null` | - |  |
 | onChange | Callback when Tag is checked/unchecked | `(value: string \| number \| Array<string \| number> \| null) => void` | - |  |
