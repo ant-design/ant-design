@@ -425,10 +425,12 @@ describe('Tag', () => {
     });
 
     it('should apply option className and style in multiple mode', () => {
+      const defaultValue: Array<string | number> = ['foo'];
+
       const { container } = render(
         <Tag.CheckableTagGroup
           multiple
-          defaultValue={['foo']}
+          defaultValue={defaultValue}
           options={[
             {
               value: 'foo',
