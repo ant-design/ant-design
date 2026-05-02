@@ -19,6 +19,7 @@ tag: vVERSION
 
 `2026-04-27`
 
+- 🆕 Add more semantic DOM slots for Notification and Message, and support Message `stack`.
 - Input
   - 🐞 Fix Input.OTP masked value being visible when selected on Windows. [#57689](https://github.com/ant-design/ant-design/pull/57689) [@QDyanbing](https://github.com/QDyanbing)
   - ⌨️ Improve Input accessibility for the clear button. [#57432](https://github.com/ant-design/ant-design/pull/57432) [@cyphercodes](https://github.com/cyphercodes)
