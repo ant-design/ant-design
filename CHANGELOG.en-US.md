@@ -15,6 +15,12 @@ tag: vVERSION
 
 ---
 
+## 6.4.0
+
+`2026-05-02`
+
+- 🆕 Add Tag.CheckableTagGroup per-option `className` and `style` support. [#57839](https://github.com/ant-design/ant-design/pull/57839) [@ZQDesigned](https://github.com/ZQDesigned)
+
 ## 6.3.7
 
 `2026-04-27`
