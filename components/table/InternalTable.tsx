@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useProxyImperativeHandle } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isNumber, isPlainObject } from '../_util/is';
+import { isFunction, isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -361,14 +361,14 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
-      !(typeof rowKey === 'function' && rowKey.length > 1),
+      !(isFunction(rowKey) && rowKey.length > 1),
       'usage',
       '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   }
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
-    if (typeof rowKey === 'function') {
+    if (isFunction(rowKey)) {
       return rowKey;
     }
 
@@ -563,13 +563,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
-    const resolvedRowClassName =
-      typeof rowClassName === 'function' ? rowClassName(record, index, indent) : rowClassName;
     return clsx(
       {
         [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
       },
-      resolvedRowClassName,
+      isFunction(rowClassName) ? rowClassName(record, index, indent) : rowClassName,
     );
   };
 

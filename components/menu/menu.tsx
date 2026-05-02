@@ -7,6 +7,7 @@ import { omit, useEvent } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
+import { isFunction } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import type { GetProp } from '../_util/type';
@@ -102,11 +103,10 @@ export type MenuStylesType =
   | MenuStylesSchemaType
   | ((info: { props: MenuProps }) => MenuStylesSchemaType);
 
-export interface MenuProps
-  extends Omit<
-    RcMenuProps,
-    'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
-  > {
+export interface MenuProps extends Omit<
+  RcMenuProps,
+  'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
+> {
   theme?: MenuTheme;
   inlineIndent?: number;
   tooltip?: false | TooltipProps;
@@ -241,13 +241,13 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
 
   // ====================== ExpandIcon ========================
   const mergedExpandIcon = React.useMemo<MenuProps['expandIcon']>(() => {
-    if (typeof expandIcon === 'function' || isEmptyIcon(expandIcon)) {
+    if (isFunction(expandIcon) || isEmptyIcon(expandIcon)) {
       return expandIcon || null;
     }
-    if (typeof overrideObj.expandIcon === 'function' || isEmptyIcon(overrideObj.expandIcon)) {
+    if (isFunction(overrideObj.expandIcon) || isEmptyIcon(overrideObj.expandIcon)) {
       return overrideObj.expandIcon || null;
     }
-    if (typeof menu?.expandIcon === 'function' || isEmptyIcon(menu?.expandIcon)) {
+    if (isFunction(menu?.expandIcon) || isEmptyIcon(menu?.expandIcon)) {
       return menu?.expandIcon || null;
     }
     const mergedIcon = expandIcon ?? overrideObj?.expandIcon ?? menu?.expandIcon;

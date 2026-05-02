@@ -4,6 +4,7 @@ import { Item } from '@rc-component/menu';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isFunction } from '../_util/is';
 import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
@@ -147,17 +148,14 @@ const MenuItem: GenericComponent = (props) => {
       root: clsx(baseTooltipClassName, classNames?.root),
     });
 
-    const mergedTooltipClassNames =
-      tooltipConfig && typeof tooltipConfig.classNames === 'function'
-        ? (info: { props: TooltipProps }) => {
-            const resolvedClassNames = (
-              tooltipConfig.classNames as (info: {
-                props: TooltipProps;
-              }) => TooltipSemanticClassNames
-            )(info);
-            return mergeTooltipRootClassName(resolvedClassNames);
-          }
-        : mergeTooltipRootClassName(tooltipConfig?.classNames as TooltipSemanticClassNames);
+    const mergedTooltipClassNames = isFunction(tooltipConfig?.classNames)
+      ? (info: { props: TooltipProps }) => {
+          const resolvedClassNames = (
+            tooltipConfig.classNames as (info: { props: TooltipProps }) => TooltipSemanticClassNames
+          )(info);
+          return mergeTooltipRootClassName(resolvedClassNames);
+        }
+      : mergeTooltipRootClassName(tooltipConfig?.classNames as TooltipSemanticClassNames);
 
     returnNode = (
       <Tooltip

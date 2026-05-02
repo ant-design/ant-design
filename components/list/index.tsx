@@ -2,7 +2,7 @@ import * as React from 'react';
 import { clsx } from 'clsx';
 
 import extendsObject from '../_util/extendsObject';
-import { isPlainObject } from '../_util/is';
+import { isFunction, isPlainObject } from '../_util/is';
 import { responsiveArray } from '../_util/responsiveObserver';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import { devUseWarning } from '../_util/warning';
@@ -144,7 +144,7 @@ const InternalList = <T,>(props: ListProps<T>, ref: React.ForwardedRef<HTMLDivEl
 
     let key: any;
 
-    if (typeof rowKey === 'function') {
+    if (isFunction(rowKey)) {
       key = rowKey(item);
     } else if (rowKey) {
       key = item[rowKey];

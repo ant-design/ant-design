@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 import type { FilterState } from '.';
 import extendsObject from '../../../_util/extendsObject';
 import { useSyncState } from '../../../_util/hooks';
-import { isNumber } from '../../../_util/is';
+import { isFunction, isNumber } from '../../../_util/is';
 import type { AnyObject } from '../../../_util/type';
 import { devUseWarning } from '../../../_util/warning';
 import Button from '../../../button/Button';
@@ -119,7 +119,7 @@ const renderFilterItems = (options: RenderFilterItemsOptions): Required<MenuProp
       ),
     };
     if (normalizedSearchValue) {
-      if (typeof filterSearch === 'function') {
+      if (isFunction(filterSearch)) {
         return filterSearch(normalizedSearchValue, filter) ? item : null;
       }
       return searchValueMatched(normalizedSearchValue, filter.text) ? item : null;
@@ -375,7 +375,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   const { direction, renderEmpty } = React.useContext(ConfigContext);
 
-  if (typeof column.filterDropdown === 'function') {
+  if (isFunction(column.filterDropdown)) {
     dropdownContent = column.filterDropdown({
       prefixCls: `${dropdownPrefixCls}-custom`,
       setSelectedKeys: (selectedKeys) => onSelectKeys({ selectedKeys: selectedKeys as string[] }),
@@ -452,7 +452,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
                 filterTreeNode={
                   normalizedSearchValue
                     ? (node) => {
-                        if (typeof filterSearch === 'function') {
+                        if (isFunction(filterSearch)) {
                           return filterSearch(searchValue, getFilterData(node));
                         }
                         return searchValueMatched(normalizedSearchValue, node.title);
@@ -542,7 +542,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
 
   const getDropdownTrigger = () => {
     let filterIcon: React.ReactNode;
-    if (typeof column.filterIcon === 'function') {
+    if (isFunction(column.filterIcon)) {
       filterIcon = column.filterIcon(filtered);
     } else if (column.filterIcon) {
       filterIcon = column.filterIcon;
@@ -589,7 +589,7 @@ const FilterDropdown = <RecordType extends AnyObject = AnyObject>(
       open: mergedVisible,
       onOpenChange: onVisibleChange,
       popupRender: () => {
-        if (typeof filterDropdownProps?.dropdownRender === 'function') {
+        if (isFunction(filterDropdownProps?.dropdownRender)) {
           return filterDropdownProps.dropdownRender(dropdownContent);
         }
         return dropdownContent;

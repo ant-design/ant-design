@@ -7,7 +7,7 @@ import { supportRef } from '@rc-component/util';
 import useState from '@rc-component/util/lib/hooks/useState';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isPlainObject } from '../../_util/is';
+import { isFunction, isNonNullable, isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import { devUseWarning } from '../../_util/warning';
 import { ConfigContext } from '../../config-provider';
@@ -58,18 +58,12 @@ interface MemoInputProps {
 function isSimilarControl(a: object, b: object) {
   const keysA = Object.keys(a);
   const keysB = Object.keys(b);
-
   return (
     keysA.length === keysB.length &&
     keysA.every((key) => {
       const propValueA = (a as any)[key];
       const propValueB = (b as any)[key];
-
-      return (
-        propValueA === propValueB ||
-        typeof propValueA === 'function' ||
-        typeof propValueB === 'function'
-      );
+      return propValueA === propValueB || isFunction(propValueA) || isFunction(propValueB);
     })
   );
 }
@@ -136,7 +130,8 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
 
   const mergedChildren = useChildren(children);
 
-  const isRenderProps = typeof mergedChildren === 'function';
+  const isRenderProps = isFunction(mergedChildren);
+
   const notifyParentMetaChange = React.useContext(NoStyleItemContext);
 
   const { validateTrigger: contextValidateTrigger } = React.useContext(FieldContext);
@@ -320,7 +315,7 @@ function InternalFormItem<Values = any>(props: FormItemProps<Values>): React.Rea
                 ) {
                   return true;
                 }
-                if (typeof rule === 'function') {
+                if (isFunction(rule)) {
                   const ruleEntity = rule(context);
                   return ruleEntity?.required && !ruleEntity?.warningOnly;
                 }

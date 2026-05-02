@@ -8,6 +8,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isFunction } from '../_util/is';
 import initCollapseMotion from '../_util/motion';
 import { cloneElement } from '../_util/reactNode';
 import { devUseWarning } from '../_util/warning';
@@ -155,15 +156,14 @@ const Collapse = React.forwardRef<HTMLDivElement, CollapseProps>((props, ref) =>
 
   const renderExpandIcon = React.useCallback(
     (panelProps: PanelProps = {}) => {
-      const icon =
-        typeof mergedExpandIcon === 'function' ? (
-          mergedExpandIcon(panelProps)
-        ) : (
-          <RightOutlined
-            rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
-            aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
-          />
-        );
+      const icon = isFunction(mergedExpandIcon) ? (
+        mergedExpandIcon(panelProps)
+      ) : (
+        <RightOutlined
+          rotate={panelProps.isActive ? (direction === 'rtl' ? -90 : 90) : undefined}
+          aria-label={panelProps.isActive ? 'expanded' : 'collapsed'}
+        />
+      );
       return cloneElement(icon, (oriProps) => ({
         className: clsx(oriProps.className, `${prefixCls}-arrow`),
       }));

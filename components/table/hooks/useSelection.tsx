@@ -11,7 +11,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../../_util/hooks';
-import { isPlainObject } from '../../_util/is';
+import { isFunction, isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
@@ -712,7 +712,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         if (!rowSelection?.columnTitle) {
           return title;
         }
-        if (typeof rowSelection.columnTitle === 'function') {
+        if (isFunction(rowSelection.columnTitle)) {
           return rowSelection.columnTitle(columnTitleCheckbox);
         }
         return rowSelection.columnTitle;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { isNumber } from '../_util/is';
+import { isFunction, isNumber } from '../_util/is';
 import type { FormatConfig, valueType } from './utils';
 
 interface NumberProps extends FormatConfig {
@@ -13,7 +13,7 @@ const StatisticNumber: React.FC<NumberProps> = (props) => {
 
   let valueNode: React.ReactNode;
 
-  if (typeof formatter === 'function') {
+  if (isFunction(formatter)) {
     // Customize formatter
     valueNode = formatter(value);
   } else {

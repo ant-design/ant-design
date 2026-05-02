@@ -6,7 +6,7 @@ import scrollIntoView from 'scroll-into-view-if-needed';
 import getScroll from '../_util/getScroll';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks';
-import { isPlainObject } from '../_util/is';
+import { isFunction, isNumber, isPlainObject } from '../_util/is';
 import scrollTo from '../_util/scrollTo';
 import { devUseWarning } from '../_util/warning';
 import Affix from '../affix';
@@ -257,7 +257,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
     }
 
     // https://github.com/ant-design/ant-design/issues/30584
-    const newLink = typeof getCurrentAnchor === 'function' ? getCurrentAnchor(link) : link;
+    const newLink = isFunction(getCurrentAnchor) ? getCurrentAnchor(link) : link;
     setActiveLink(newLink);
     activeLinkRef.current = newLink;
 
@@ -273,7 +273,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
 
     const currentActiveLink = getInternalCurrentAnchor(
       links,
-      targetOffset !== undefined ? targetOffset : offsetTop || 0,
+      isNumber(targetOffset) ? targetOffset : offsetTop || 0,
       bounds,
     );
 
@@ -304,7 +304,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
       const scrollTop = getScroll(container);
       const eleOffsetTop = getOffsetTop(targetElement, container);
       let y = scrollTop + eleOffsetTop;
-      y -= targetOffset !== undefined ? targetOffset : offsetTop || 0;
+      y -= isNumber(targetOffset) ? targetOffset : offsetTop || 0;
       animatingRef.current = true;
       scrollRequestIdRef.current = scrollTo(y, {
         getContainer: getCurrentContainer,
@@ -388,7 +388,7 @@ const Anchor: React.FC<AnchorProps> = (props) => {
   }, [dependencyListItem]);
 
   React.useEffect(() => {
-    if (typeof getCurrentAnchor === 'function') {
+    if (isFunction(getCurrentAnchor)) {
       setCurrentActiveLink(getCurrentAnchor(activeLinkRef.current || ''));
     }
   }, [getCurrentAnchor]);

@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../../_util/hooks';
+import { isFunction } from '../../_util/is';
 import { getMergedStatus } from '../../_util/statusUtils';
 import type { InputStatus } from '../../_util/statusUtils';
 import { devUseWarning } from '../../_util/warning';
@@ -41,8 +42,10 @@ export interface OTPRef {
   nativeElement: HTMLDivElement;
 }
 
-export interface OTPProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'onInput'> {
+export interface OTPProps extends Omit<
+  React.HTMLAttributes<HTMLDivElement>,
+  'onChange' | 'onInput'
+> {
   prefixCls?: string;
   length?: number;
 
@@ -90,7 +93,7 @@ interface SeparatorProps {
 
 const Separator: React.FC<Readonly<SeparatorProps>> = (props) => {
   const { index, prefixCls, separator, className: semanticClassName, style: semanticStyle } = props;
-  const separatorNode = typeof separator === 'function' ? separator(index) : separator;
+  const separatorNode = isFunction(separator) ? separator(index) : separator;
   if (!separatorNode) {
     return null;
   }

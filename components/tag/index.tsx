@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import type { PresetColorType, PresetStatusColorType } from '../_util/colors';
 import { pickClosable, useClosable, useMergeSemantic } from '../_util/hooks';
 import type { ClosableType, SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
+import { isFunction } from '../_util/is';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -197,7 +198,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
 
     // ====================== Render ======================
     const isNeedWave =
-      typeof restProps.onClick === 'function' ||
+      isFunction(restProps.onClick) ||
       (children && (children as React.ReactElement<any>).type === 'a');
 
     const iconNode: React.ReactNode = cloneElement(icon, {
