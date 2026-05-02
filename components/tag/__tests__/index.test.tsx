@@ -392,6 +392,85 @@ describe('Tag', () => {
       expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
     });
 
+    it('should check single tag in group with styled options', () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          defaultValue="foo"
+          options={[
+            {
+              value: 'foo',
+              label: 'Foo',
+              className: 'foo-option',
+              style: { borderColor: 'rgb(255, 0, 0)' },
+            },
+            {
+              value: 'bar',
+              label: 'Bar',
+              className: 'bar-option',
+              style: { borderColor: 'rgb(0, 0, 255)' },
+            },
+          ]}
+          onChange={onChange}
+        />,
+      );
+
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith('bar');
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(null);
+    });
+
+    it('should check multiple tag in group with styled options', () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          multiple
+          defaultValue={['foo']}
+          options={[
+            {
+              value: 'foo',
+              label: 'Foo',
+              className: 'foo-option',
+              style: { borderColor: 'rgb(255, 0, 0)' },
+            },
+            {
+              value: 'bar',
+              label: 'Bar',
+              className: 'bar-option',
+              style: { borderColor: 'rgb(0, 0, 255)' },
+            },
+          ]}
+          onChange={onChange}
+        />,
+      );
+
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[0]);
+      expect(onChange).toHaveBeenCalledWith(['bar']);
+    });
+
+    it('should still support primitive options in multiple mode', () => {
+      const onChange = jest.fn();
+
+      const { container } = render(
+        <Tag.CheckableTagGroup
+          multiple
+          defaultValue={['foo']}
+          options={['foo', 'bar']}
+          onChange={onChange}
+        />,
+      );
+
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[1]);
+      expect(onChange).toHaveBeenCalledWith(['foo', 'bar']);
+      fireEvent.click(container.querySelectorAll('.ant-tag-checkable')[0]);
+      expect(onChange).toHaveBeenCalledWith(['bar']);
+    });
+
     it('id', () => {
       const { container } = render(<Tag.CheckableTagGroup id="test-id" />);
 

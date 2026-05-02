@@ -190,4 +190,59 @@ describe('Tag.Semantic', () => {
       });
     });
   });
+
+  it('checkableTagGroup support option className and style', () => {
+    const { container } = render(
+      <Tag.CheckableTagGroup
+        options={[
+          {
+            value: 'react',
+            label: 'React',
+            className: 'option-react',
+            style: { color: 'rgb(255, 0, 0)' },
+          },
+          { value: 'vue', label: 'Vue' },
+        ]}
+      />,
+    );
+
+    const itemElements = container.querySelectorAll('.ant-tag-checkable');
+
+    expect(itemElements[0]).toHaveClass('option-react');
+    expect(itemElements[0]).toHaveStyle({ color: 'rgb(255, 0, 0)' });
+    expect(itemElements[1]).not.toHaveClass('option-react');
+    expect(itemElements[1]).not.toHaveStyle({ color: 'rgb(255, 0, 0)' });
+  });
+
+  it('checkableTagGroup option style should override group item styles', () => {
+    const { container } = render(
+      <Tag.CheckableTagGroup
+        styles={{
+          item: {
+            color: 'rgb(0, 0, 255)',
+            borderRadius: '4px',
+          },
+        }}
+        options={[
+          {
+            value: 'react',
+            label: 'React',
+            style: { color: 'rgb(255, 0, 0)' },
+          },
+          { value: 'vue', label: 'Vue' },
+        ]}
+      />,
+    );
+
+    const itemElements = container.querySelectorAll('.ant-tag-checkable');
+
+    expect(itemElements[0]).toHaveStyle({
+      color: 'rgb(255, 0, 0)',
+      borderRadius: '4px',
+    });
+    expect(itemElements[1]).toHaveStyle({
+      color: 'rgb(0, 0, 255)',
+      borderRadius: '4px',
+    });
+  });
 });

@@ -15,6 +15,8 @@ import useStyle from './style';
 export type CheckableTagOption<CheckableTagValue> = {
   value: CheckableTagValue;
   label: ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 };
 
 interface CheckableTagGroupSingleProps<CheckableTagValue> {
@@ -194,8 +196,8 @@ const CheckableTagGroup = React.forwardRef<
       {parsedOptions.map((option) => (
         <CheckableTag
           key={option.value}
-          className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item)}
-          style={mergedStyles.item}
+          className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item, option.className)}
+          style={{ ...mergedStyles.item, ...option.style }}
           checked={
             multiple
               ? ((mergedValue as CheckableTagValue[]) || []).includes(option.value)
