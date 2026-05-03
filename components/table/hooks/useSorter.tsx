@@ -11,6 +11,7 @@ import type { TooltipProps } from '../../tooltip';
 import Tooltip from '../../tooltip';
 import type {
   ColumnGroupType,
+  ColumnSorter,
   ColumnsType,
   ColumnTitleProps,
   ColumnType,
@@ -30,7 +31,7 @@ const DESCEND = 'descend';
 const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
 ): number | false => {
-  if (isPlainObject<RecordType>(column.sorter) && isNumber(column.sorter.multiple)) {
+  if (isPlainObject<ColumnSorter<RecordType>>(column.sorter) && isNumber(column.sorter.multiple)) {
     return column.sorter.multiple;
   }
   return false;
@@ -42,7 +43,7 @@ const getSortFunction = <RecordType extends AnyObject = AnyObject>(
   if (isFunction(sorter)) {
     return sorter;
   }
-  if (isPlainObject(sorter) && sorter.compare) {
+  if (isPlainObject<ColumnSorter<RecordType>>(sorter) && sorter.compare) {
     return sorter.compare;
   }
   return false;

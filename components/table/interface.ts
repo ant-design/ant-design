@@ -71,9 +71,15 @@ export type SorterTooltipProps = TooltipProps & {
 };
 
 const _TableActions = ['paginate', 'sort', 'filter'] as const;
+
 export type TableAction = (typeof _TableActions)[number];
 
 export type CompareFn<T = AnyObject> = (a: T, b: T, sortOrder?: SortOrder) => number;
+
+export interface ColumnSorter<RecordType = AnyObject> {
+  compare?: CompareFn<RecordType>;
+  multiple?: number;
+}
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
@@ -125,30 +131,24 @@ export interface FilterDropdownProps {
 }
 
 // 非必要请勿导出
-interface CoverableDropdownProps
-  extends Omit<
-    DropdownProps,
-    | 'onOpenChange'
-    // === deprecated ===
-    | 'overlay'
-    | 'visible'
-    | 'onVisibleChange'
-  > {
+interface CoverableDropdownProps extends Omit<
+  DropdownProps,
+  | 'onOpenChange'
+  // === deprecated ===
+  | 'overlay'
+  | 'visible'
+  | 'onVisibleChange'
+> {
   onOpenChange?: (open: boolean) => void;
 }
 
-export interface ColumnType<RecordType = AnyObject>
-  extends Omit<RcColumnType<RecordType>, 'title'> {
+export interface ColumnType<RecordType = AnyObject> extends Omit<
+  RcColumnType<RecordType>,
+  'title'
+> {
   title?: ColumnTitle<RecordType>;
   // Sorter
-  sorter?:
-    | boolean
-    | CompareFn<RecordType>
-    | {
-        compare?: CompareFn<RecordType>;
-        /** Config multiple sorter order priority */
-        multiple?: number;
-      };
+  sorter?: boolean | CompareFn<RecordType> | ColumnSorter;
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];
@@ -190,8 +190,10 @@ export interface ColumnType<RecordType = AnyObject>
   onFilterDropdownOpenChange?: (visible: boolean) => void;
 }
 
-export interface ColumnGroupType<RecordType = AnyObject>
-  extends Omit<ColumnType<RecordType>, 'dataIndex'> {
+export interface ColumnGroupType<RecordType = AnyObject> extends Omit<
+  ColumnType<RecordType>,
+  'dataIndex'
+> {
   children: ColumnsType<RecordType>;
 }
 
