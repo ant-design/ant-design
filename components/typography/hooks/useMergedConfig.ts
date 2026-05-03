@@ -11,7 +11,7 @@ const useMergedConfig = <Target>(propConfig: any, templateConfig?: Target) => {
       ...(support && isPlainObject(propConfig) ? propConfig : null),
     } as Target;
     return [support, config] as const;
-  }, [propConfig]);
+  }, [support, propConfig, templateConfig]);
 };
 
 export default useMergedConfig;
