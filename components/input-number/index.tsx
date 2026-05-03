@@ -276,7 +276,7 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
       typeWarning.deprecated(!(prop in props), prop, newProp);
     });
     typeWarning(
-      !(isNumber(props.type) && props.changeOnWheel),
+      !(props.type === 'number' && props.changeOnWheel),
       'usage',
       'When `type=number` is used together with `changeOnWheel`, changeOnWheel may not work properly. Please delete `type=number` if it is not necessary.',
     );
