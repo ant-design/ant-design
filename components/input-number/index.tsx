@@ -14,7 +14,7 @@ import { clsx } from 'clsx';
 import ContextIsolator from '../_util/ContextIsolator';
 import { useMergeSemantic } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject } from '../_util/is';
 import type { InputStatus } from '../_util/statusUtils';
 import { getMergedStatus, getStatusClassNames } from '../_util/statusUtils';
 import { devUseWarning } from '../_util/warning';
@@ -276,7 +276,7 @@ const InputNumber = React.forwardRef<RcInputNumberRef, InputNumberProps>((props,
       typeWarning.deprecated(!(prop in props), prop, newProp);
     });
     typeWarning(
-      !(props.type === 'number' && props.changeOnWheel),
+      !(isNumber(props.type) && props.changeOnWheel),
       'usage',
       'When `type=number` is used together with `changeOnWheel`, changeOnWheel may not work properly. Please delete `type=number` if it is not necessary.',
     );

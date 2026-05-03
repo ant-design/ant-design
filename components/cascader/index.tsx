@@ -13,7 +13,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic, useZIndex } from '../_util/hooks';
 import type { SemanticClassNamesType, SemanticStylesType } from '../_util/hooks';
-import { isPlainObject } from '../_util/is';
+import { isNumber, isPlainObject, isString } from '../_util/is';
 import type { SelectCommonPlacement } from '../_util/motion';
 import { getTransitionName } from '../_util/motion';
 import genPurePanel from '../_util/PurePanel';
@@ -125,8 +125,7 @@ const defaultSearchRender: SearchConfig['render'] = (inputValue, path, prefixCls
     }
 
     let label = node[fieldNames.label!];
-    const type = typeof label;
-    if (type === 'string' || type === 'number') {
+    if (isString(label) || isNumber(label)) {
       label = highlightKeyword(String(label), lower, prefixCls);
     }
 

@@ -578,7 +578,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // Customize expandable icon
   mergedExpandable.expandIcon =
-    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
+    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale);
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
   if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
@@ -588,7 +588,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // Indent size
-  if (typeof mergedExpandable.indentSize !== 'number') {
+  if (!isNumber(mergedExpandable.indentSize)) {
     mergedExpandable.indentSize = isNumber(indentSize) ? indentSize : 15;
   }
 
