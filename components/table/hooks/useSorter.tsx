@@ -30,7 +30,7 @@ const DESCEND = 'descend';
 const getMultiplePriority = <RecordType extends AnyObject = AnyObject>(
   column: ColumnType<RecordType>,
 ): number | false => {
-  if (column.sorter && typeof column.sorter === 'object' && isNumber(column.sorter.multiple)) {
+  if (isPlainObject<RecordType>(column.sorter) && isNumber(column.sorter.multiple)) {
     return column.sorter.multiple;
   }
   return false;
