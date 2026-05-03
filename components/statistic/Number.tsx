@@ -18,7 +18,7 @@ const StatisticNumber: React.FC<NumberProps> = (props) => {
     valueNode = formatter(value);
   } else {
     // Internal formatter
-    const val: string = String(value);
+    const val = String(value);
     const cells = val.match(/^(-?)(\d*)(\.(\d+))?$/);
 
     // Process if illegal number

@@ -1,7 +1,7 @@
 import React from 'react';
 import { clsx } from 'clsx';
 
-import { isNonNullable, isString } from '../_util/is';
+import { isNonNullable, isNumber, isString } from '../_util/is';
 import { cloneElement, isFragment } from '../_util/reactNode';
 import { PresetColors } from '../theme/interface';
 import type { BaseButtonProps, LegacyButtonType } from './Button';
@@ -36,8 +36,8 @@ function splitCNCharsBySpace(
   const SPACE = needInserted ? ' ' : '';
 
   if (
-    typeof child !== 'string' &&
-    typeof child !== 'number' &&
+    !isString(child) &&
+    !isNumber(child) &&
     isString(child.type) &&
     isTwoCNChar((child as React.ReactElement<{ children: string }>).props.children)
   ) {
@@ -84,10 +84,8 @@ export function spaceChildren(
 ) {
   let isPrevChildPure = false;
   const childList: React.ReactNode[] = [];
-
   React.Children.forEach(children, (child) => {
-    const type = typeof child;
-    const isCurrentChildPure = type === 'string' || type === 'number';
+    const isCurrentChildPure = isString(child) || isNumber(child);
     if (isPrevChildPure && isCurrentChildPure) {
       const lastIndex = childList.length - 1;
       const lastChild = childList[lastIndex];
