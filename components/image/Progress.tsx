@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { isNumber } from '../_util/is';
+
 // Visually hidden styles for screen readers
 const VISUALLY_HIDDEN_STYLE: React.CSSProperties = {
   position: 'absolute',
@@ -54,7 +56,7 @@ const Progress: React.FC<ProgressProps> = (props) => {
   } = props;
 
   // Check if percent is a valid finite number
-  const hasPercent = typeof percent === 'number' && Number.isFinite(percent);
+  const hasPercent = isNumber(percent) && Number.isFinite(percent);
 
   // Calculate percent value (clamped to 0-100 for progress bar width)
   const percentValue = hasPercent ? Math.max(0, Math.min(100, Math.round(percent))) : 0;

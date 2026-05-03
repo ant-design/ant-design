@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
 import { unit } from '@ant-design/cssinjs';
 
+import { isNumber } from '../../_util/is';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, mergeToken } from '../../theme/internal';
 
@@ -138,15 +139,17 @@ const genResultStyle: GenerateStyle<ResultToken> = (token) => [
 ];
 
 // ============================== Export ==============================
-export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => ({
-  titleFontSize: token.fontSizeHeading3,
-  subtitleFontSize: token.fontSize,
-  iconFontSize:
-    typeof token.fontSizeHeading3 === 'number'
-      ? token.fontSizeHeading3 * 3
-      : `calc(${token.fontSizeHeading3} * 3)`,
-  extraMargin: `${token.paddingLG}px 0 0 0`,
-});
+export const prepareComponentToken: GetDefaultToken<'Result'> = (token) => {
+  const { fontSizeHeading3, fontSize, paddingLG } = token;
+  return {
+    titleFontSize: fontSizeHeading3,
+    subtitleFontSize: fontSize,
+    iconFontSize: isNumber(fontSizeHeading3)
+      ? fontSizeHeading3 * 3
+      : `calc(${fontSizeHeading3} * 3)`,
+    extraMargin: `${paddingLG}px 0 0 0`,
+  };
+};
 
 export default genStyleHooks(
   'Result',
