@@ -69,22 +69,18 @@ const genSelectInputVariantStyle = (
   warningColors: Partial<VariableColors> = {},
   patchStyle?: CSSObject,
 ): CSSObject => {
-  const { componentCls, colorError, colorWarning } = token;
-  const { color: errorColor, ...restErrorColors } = errorColors;
-  const { color: warningColor, ...restWarningColors } = warningColors;
+  const { componentCls } = token;
   return {
     [`&${componentCls}-${variant}`]: [
       genSelectInputVariableStyle(token, colors),
       {
         [`&${componentCls}-status-error`]: genSelectInputVariableStyle(token, {
           ...colors,
-          color: errorColor || colorError,
-          ...restErrorColors,
+          ...errorColors,
         }),
         [`&${componentCls}-status-warning`]: genSelectInputVariableStyle(token, {
           ...colors,
-          color: warningColor || colorWarning,
-          ...restWarningColors,
+          ...warningColors,
         }),
       },
       patchStyle,
