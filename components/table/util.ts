@@ -41,7 +41,7 @@ export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
   props: ColumnTitleProps<RecordType>,
 ) => {
   const result = renderColumnTitle<RecordType>(title, props);
-  if (isPlainObject<RecordType>(result)) {
+  if (isPlainObject<RecordType>(result) || Array.isArray(result)) {
     return '';
   }
   return result;
