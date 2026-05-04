@@ -60,7 +60,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
   };
 };
 
-/** Generate variant-scoped variable styles and status overrides for a Select input. */
+/** Generate variant-scoped variable styles and status overrides for a Select input */
 const genSelectInputVariantStyle = (
   token: SelectToken,
   variant: string,
@@ -69,18 +69,22 @@ const genSelectInputVariantStyle = (
   warningColors: Partial<VariableColors> = {},
   patchStyle?: CSSObject,
 ): CSSObject => {
-  const { componentCls } = token;
+  const { componentCls, colorError, colorWarning } = token;
+  const { color: errorColor, ...restErrorColors } = errorColors;
+  const { color: warningColor, ...restWarningColors } = warningColors;
   return {
     [`&${componentCls}-${variant}`]: [
       genSelectInputVariableStyle(token, colors),
       {
         [`&${componentCls}-status-error`]: genSelectInputVariableStyle(token, {
           ...colors,
-          ...errorColors,
+          color: errorColor || colorError,
+          ...restErrorColors,
         }),
         [`&${componentCls}-status-warning`]: genSelectInputVariableStyle(token, {
           ...colors,
-          ...warningColors,
+          color: warningColor || colorWarning,
+          ...restWarningColors,
         }),
       },
       patchStyle,
@@ -89,12 +93,21 @@ const genSelectInputVariantStyle = (
 };
 
 const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { componentCls, fontHeight, controlHeight, iconCls, antCls, calc } = token;
+  const {
+    componentCls,
+    fontHeight,
+    controlHeight,
+    fontSizeIcon,
+    showArrowPaddingInlineEnd,
+    iconCls,
+    antCls,
+    max,
+    calc,
+  } = token;
+
   const [varName, varRef] = genCssVar(antCls, 'select');
-  const contentMarginInlineEnd = token.max(
-    calc(token.showArrowPaddingInlineEnd).sub(token.fontSizeIcon).equal(),
-    0,
-  );
+
+  const contentMarginInlineEnd = max(calc(showArrowPaddingInlineEnd).sub(fontSizeIcon).equal(), 0);
 
   return {
     [componentCls]: [
