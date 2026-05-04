@@ -3,7 +3,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isFunction, isNumber, isPlainObject } from '../_util/is';
+import { isFunction, isNonNullable, isNumber, isPlainObject } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -27,10 +27,10 @@ import Search from './search';
 const defaultRender = () => null;
 
 function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
-  return !!(
-    result &&
-    !React.isValidElement<any>(result) &&
-    Object.prototype.toString.call(result) === '[object Object]'
+  return (
+    isNonNullable<RenderResult>(result) &&
+    isPlainObject<RenderResultObject>(result) &&
+    !React.isValidElement<any>(result)
   );
 }
 

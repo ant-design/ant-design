@@ -4,6 +4,7 @@ import { Circle as RCCircle } from '@rc-component/progress';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import Tooltip from '../tooltip';
 import type {
@@ -89,7 +90,7 @@ const Circle: React.FC<CircleProps> = (props) => {
   }, [direction, gapPlacement, gapPosition, type]);
 
   // using className to style stroke color
-  const isGradient = Object.prototype.toString.call(props.strokeColor) === '[object Object]';
+  const isGradient = isPlainObject<ProgressGradient>(props.strokeColor);
   const strokeColor = getStrokeColor({ success, strokeColor: props.strokeColor });
 
   const wrapperClassName = clsx(
