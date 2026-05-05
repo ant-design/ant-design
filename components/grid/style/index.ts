@@ -170,15 +170,23 @@ const genLoopGridColumnsStyle = (token: GridColToken, sizeCls: string): CSSObjec
 const genGridStyle = (token: GridColToken, sizeCls: string): CSSObject =>
   genLoopGridColumnsStyle(token, sizeCls);
 
-const genGridMediaStyle = (
+const genGridMediaStyle = (token: GridColToken, screenSize: number, sizeCls: string): CSSObject => {
+  const gridStyle = genGridStyle(token, sizeCls);
+  return {
+    [`@media (min-width: ${unit(screenSize)})`]: gridStyle,
+  };
+};
+
+const genGridContainerStyle = (
   token: GridColToken,
   screenSize: number,
   sizeCls: string,
-): CSSObject => ({
-  [`@media (min-width: ${unit(screenSize)})`]: {
-    ...genGridStyle(token, sizeCls),
-  },
-});
+): CSSObject => {
+  const gridStyle = genGridStyle(token, sizeCls);
+  return {
+    [`@container (min-width: ${unit(screenSize)})`]: gridStyle,
+  };
+};
 
 export const prepareRowComponentToken: GetDefaultToken<'Grid'> = () => ({});
 
@@ -215,6 +223,9 @@ export const useColStyle = genStyleHooks(
       genGridStyle(gridToken, '-xs'),
       Object.keys(gridMediaSizesMap)
         .map((key) => genGridMediaStyle(gridToken, gridMediaSizesMap[key], `-${key}`))
+        .reduce<CSSObject>((pre, cur) => ({ ...pre, ...cur }), {}),
+      Object.keys(gridMediaSizesMap)
+        .map((key) => genGridContainerStyle(gridToken, gridMediaSizesMap[key], `-${key}`))
         .reduce<CSSObject>((pre, cur) => ({ ...pre, ...cur }), {}),
     ];
   },

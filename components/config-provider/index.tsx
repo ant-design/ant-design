@@ -31,6 +31,7 @@ import type {
   ColorPickerConfig,
   ComponentStyleConfig,
   ConfigConsumerProps,
+  ContainerConfig,
   CSPConfig,
   DatePickerConfig,
   DescriptionsConfig,
@@ -239,6 +240,7 @@ export interface ConfigProviderProps {
   cascader?: CascaderConfig;
   treeSelect?: TreeSelectConfig;
   collapse?: CollapseConfig;
+  container?: ContainerConfig;
   divider?: DividerConfig;
   drawer?: DrawerConfig;
   typography?: TypographyConfig;

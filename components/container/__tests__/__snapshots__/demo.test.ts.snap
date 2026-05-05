@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`renders components/container/demo/basic.tsx correctly 1`] = `
+<div
+  class="ant-container css-var-test-id"
+>
+  <div
+    style="background-color:#f0f2f5;padding:24px;text-align:center"
+  >
+    Fluid
+  </div>
+</div>
+`;
+
+exports[`renders components/container/demo/sizes.tsx correctly 1`] = `
+<div>
+  <div
+    class="ant-container ant-container-max-width-xl ant-container-min-width-md css-var-test-id"
+    style="margin-bottom:16px"
+  >
+    <div
+      style="background-color:#f0f2f5;padding:24px;text-align:center"
+    >
+      Max: lg, Min: md
+    </div>
+  </div>
+  <div
+    class="ant-container css-var-test-id"
+    style="max-width:800px;min-width:600px"
+  >
+    <div
+      style="background-color:#f0f2f5;padding:24px;text-align:center"
+    >
+      Max: 800px, Min: 600px
+    </div>
+  </div>
+</div>
+`;

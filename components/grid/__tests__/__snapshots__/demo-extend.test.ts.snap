@@ -73,6 +73,40 @@ Array [
 
 exports[`renders components/grid/demo/basic.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/grid/demo/container.tsx extend context correctly 1`] = `
+<div
+  class="ant-container ant-container-max-width-md css-var-test-id"
+  style="container-type: inline-size;"
+>
+  <div
+    class="ant-row css-var-test-id"
+  >
+    <div
+      class="ant-col ant-col-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 css-var-test-id"
+    >
+      col
+    </div>
+    <div
+      class="ant-col ant-col-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 css-var-test-id"
+    >
+      col
+    </div>
+    <div
+      class="ant-col ant-col-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 css-var-test-id"
+    >
+      col
+    </div>
+    <div
+      class="ant-col ant-col-24 ant-col-sm-12 ant-col-md-8 ant-col-lg-6 css-var-test-id"
+    >
+      col
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/grid/demo/container.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/grid/demo/flex.tsx extend context correctly 1`] = `
 Array [
   <div
