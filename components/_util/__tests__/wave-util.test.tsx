@@ -7,6 +7,7 @@ describe('wave util', () => {
       expect(isValidWaveColor('rgba(0, 0, 0, 0)')).toBe(false);
       expect(isValidWaveColor('rgba(255, 255, 255, 0)')).toBe(false);
       expect(isValidWaveColor('rgba(123, 456, 789, 0)')).toBe(false);
+      expect(isValidWaveColor('')).toBe(false);
       expect(isValidWaveColor('#0000')).toBe(false);
       expect(isValidWaveColor('#fff0')).toBe(false);
       expect(isValidWaveColor('#FFF0')).toBe(false);
