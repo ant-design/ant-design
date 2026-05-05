@@ -32,12 +32,17 @@ describe('wave util', () => {
   describe('getTargetWaveColor', () => {
     let mockElement: HTMLElement;
 
+    const mockComputedStyle = (style: Partial<CSSStyleDeclaration>) => {
+      jest.spyOn(globalThis, 'getComputedStyle').mockReturnValue(style as CSSStyleDeclaration);
+    };
+
     beforeEach(() => {
       mockElement = document.createElement('div');
       document.body.appendChild(mockElement);
     });
 
     afterEach(() => {
+      jest.restoreAllMocks();
       document.body.removeChild(mockElement);
     });
 
@@ -74,6 +79,72 @@ describe('wave util', () => {
 
       const result = getTargetWaveColor(mockElement);
       expect(result).toBe(null);
+    });
+
+    it('should read colors by border top, border, and background order', () => {
+      mockComputedStyle({
+        borderTopColor: '#1677ff',
+        borderColor: '#52c41a',
+        backgroundColor: '#faad14',
+      });
+
+      expect(getTargetWaveColor(mockElement)).toBe('#1677ff');
+
+      mockComputedStyle({
+        borderTopColor: 'transparent',
+        borderColor: '#52c41a',
+        backgroundColor: '#faad14',
+      });
+
+      expect(getTargetWaveColor(mockElement)).toBe('#52c41a');
+
+      mockComputedStyle({
+        borderTopColor: 'transparent',
+        borderColor: '#fff',
+        backgroundColor: '#faad14',
+      });
+
+      expect(getTargetWaveColor(mockElement)).toBe('#faad14');
+    });
+
+    it('should use colorSource first when it is valid', () => {
+      mockComputedStyle({
+        borderTopColor: '#1677ff',
+        borderColor: '#52c41a',
+        backgroundColor: '#faad14',
+      });
+
+      expect(getTargetWaveColor(mockElement, 'backgroundColor')).toBe('#faad14');
+    });
+
+    it('should fall back to target colors when colorSource is invalid', () => {
+      mockComputedStyle({
+        color: '#0000',
+        borderTopColor: '#1677ff',
+        borderColor: '#52c41a',
+        backgroundColor: '#faad14',
+      });
+
+      expect(getTargetWaveColor(mockElement, 'color')).toBe('#1677ff');
+    });
+
+    it('should skip transparent hex colors', () => {
+      mockComputedStyle({
+        borderTopColor: '#0000',
+        borderColor: '#ffffff00',
+        backgroundColor: '#faad14',
+      });
+
+      expect(getTargetWaveColor(mockElement)).toBe('#faad14');
+    });
+
+    it('should return null when all target colors are transparent hex colors', () => {
+      mockComputedStyle({
+        borderTopColor: '#0000',
+        borderColor: '#ffffff00',
+        backgroundColor: '#00000000',
+      });
+      expect(getTargetWaveColor(mockElement)).toBe(null);
     });
   });
 });
