@@ -7,12 +7,20 @@ describe('wave util', () => {
       expect(isValidWaveColor('rgba(0, 0, 0, 0)')).toBe(false);
       expect(isValidWaveColor('rgba(255, 255, 255, 0)')).toBe(false);
       expect(isValidWaveColor('rgba(123, 456, 789, 0)')).toBe(false);
+      expect(isValidWaveColor('#0000')).toBe(false);
+      expect(isValidWaveColor('#fff0')).toBe(false);
+      expect(isValidWaveColor('#FFF0')).toBe(false);
+      expect(isValidWaveColor('#00000000')).toBe(false);
+      expect(isValidWaveColor('#ffffff00')).toBe(false);
     });
 
     it('should return true for valid colors', () => {
       expect(isValidWaveColor('red')).toBe(true);
       expect(isValidWaveColor('#000')).toBe(true);
       expect(isValidWaveColor('#123456')).toBe(true);
+      expect(isValidWaveColor('#000f')).toBe(true);
+      expect(isValidWaveColor('#000000ff')).toBe(true);
+      expect(isValidWaveColor('#00000080')).toBe(true);
       expect(isValidWaveColor('rgb(0, 0, 0)')).toBe(true);
       expect(isValidWaveColor('rgba(0, 0, 0, 0.5)')).toBe(true);
       expect(isValidWaveColor('hsl(0, 0%, 0%)')).toBe(true);
