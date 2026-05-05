@@ -74,7 +74,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | showLine | Shows a connecting line | boolean \| {showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode)} | false |  |
 | style | Style of Tree component | CSSProperties | - |  |
 | styles | Customize inline style for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
-| switcherIcon | Customize expand/collapse icons for tree nodes (With default rotate angular style) | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| switcherIcon | Customize expand/collapse icons for tree nodes (Will not rotate automatically in `showLine` mode) | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | switcherLoadingIcon | Customize loading icons for tree nodes | ReactNode | - | 5.20.0 |
 | titleRender | Customize tree node title render | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | The treeNodes data Array, if set it then you need not to construct children TreeNode. (key should be unique across the whole array) | array&lt;{ key, title, children, \[disabled, selectable] }> | - |  |

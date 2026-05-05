@@ -7,6 +7,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import type { GetProp } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
 import Wave from '../_util/wave';
@@ -235,7 +236,7 @@ const Steps = (props: StepsProps) => {
 
   // Progress Dot Render function
   const legacyProgressDotRender = React.useMemo(() => {
-    return mergedType === 'dot' && typeof progressDot === 'function' ? progressDot : undefined;
+    return mergedType === 'dot' && isFunction(progressDot) ? progressDot : undefined;
   }, [mergedType, progressDot]);
 
   const mergedOrientation = React.useMemo<StepsProps['orientation']>(() => {
@@ -338,7 +339,7 @@ const Steps = (props: StepsProps) => {
         item,
         components: { Icon: StepIcon },
       });
-    } else if (typeof legacyProgressDotRender === 'function') {
+    } else if (isFunction(legacyProgressDotRender)) {
       iconNode = legacyProgressDotRender(iconNode, {
         index,
         ...(item as Required<typeof item>),

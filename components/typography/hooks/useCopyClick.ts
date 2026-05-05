@@ -2,6 +2,7 @@ import * as React from 'react';
 import { useEvent } from '@rc-component/util';
 
 import copy from '../../_util/copy';
+import { isFunction } from '../../_util/is';
 import toList from '../../_util/toList';
 import type { CopyConfig } from '../Base';
 
@@ -37,8 +38,7 @@ const useCopyClick = ({
     e?.stopPropagation();
     setCopyLoading(true);
     try {
-      const text =
-        typeof copyConfig.text === 'function' ? await copyConfig.text() : copyConfig.text;
+      const text = isFunction(copyConfig.text) ? await copyConfig.text() : copyConfig.text;
       await copy(text || toList(children, { skipEmpty: true }).join('') || '', copyOptions);
       setCopyLoading(false);
 

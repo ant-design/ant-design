@@ -67,13 +67,6 @@ export const genCheckboxStyle: GenerateStyle<CheckboxToken> = (token) => {
         [`& + ${wrapperCls}`]: {
           marginInlineStart: 0,
         },
-
-        [`&${wrapperCls}-in-form-item`]: {
-          'input[type="checkbox"]': {
-            width: 14, // FIXME: magic
-            height: 14, // FIXME: magic
-          },
-        },
       },
 
       // Wrapper > Checkbox

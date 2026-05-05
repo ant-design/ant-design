@@ -4,6 +4,7 @@ import { get, set } from '@rc-component/util';
 import useLayoutEffect from '@rc-component/util/lib/hooks/useLayoutEffect';
 import { clsx } from 'clsx';
 
+import { isPlainObject } from '../_util/is';
 import { responsiveArrayReversed } from '../_util/responsiveObserver';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
@@ -75,12 +76,16 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
         const _size = size ? [size] : [];
 
         const formLabel = get(formContext.labelCol, _size);
-        const formLabelObj = typeof formLabel === 'object' ? formLabel : {};
+        const formLabelObj = isPlainObject(formLabel) ? formLabel : {};
 
         const wrapper = get(mergedWrapper, _size);
-        const wrapperObj = typeof wrapper === 'object' ? wrapper : {};
+        const wrapperObj = isPlainObject(wrapper) ? wrapper : {};
 
-        if ('span' in formLabelObj && !('offset' in wrapperObj) && formLabelObj.span < GRID_MAX) {
+        if (
+          'span' in formLabelObj &&
+          !('offset' in wrapperObj) &&
+          (formLabelObj as any).span < GRID_MAX
+        ) {
           mergedWrapper = set(mergedWrapper, [..._size, 'offset'], formLabelObj.span);
         }
       });

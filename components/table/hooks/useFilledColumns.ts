@@ -3,8 +3,8 @@ import { EXPAND_COLUMN } from '@rc-component/table';
 import { mergeProps, omit } from '@rc-component/util';
 
 import type { AnyObject } from '../../_util/type';
-import { SELECTION_COLUMN } from './useSelection';
 import type { ColumnGroupType, ColumnsType, ColumnType } from '../interface';
+import { SELECTION_COLUMN } from './useSelection';
 
 const useFilledColumns = <RecordType extends AnyObject = AnyObject>(
   columns: ColumnsType<RecordType>,

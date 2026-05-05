@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { clsx } from 'clsx';
 
+import { isFunction, isPlainObject } from '../../is';
 import type { AnyObject, ValidChar } from '../../type';
 import type { RemoveClassNamesString } from './semanticType';
 import { fillObjectBySchema } from './utils';
@@ -25,7 +26,7 @@ export const mergeClassNames = <
         const keySchema = schema[key as keyof SemanticSchema] as SemanticSchema;
         const curVal = cur[key as keyof SemanticClassNames];
         if (keySchema) {
-          if (curVal && typeof curVal === 'object') {
+          if (isPlainObject(curVal)) {
             // Loop fill
             acc[key] = mergeClassNames(keySchema, acc[key], curVal);
           } else {
@@ -78,7 +79,7 @@ export const resolveStyleOrClass = <T = any>(
   value: T | ((config: any) => T),
   info: { props: any },
 ) => {
-  return typeof value === 'function' ? (value as any)(info) : value;
+  return isFunction(value) ? (value(info) as any) : value;
 };
 
 type MaybeFn<T, P> = T | ((info: { props: P }) => T) | undefined;
