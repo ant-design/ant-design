@@ -9,7 +9,7 @@ import { composeRef } from '@rc-component/util/lib/ref';
 import { clsx } from 'clsx';
 
 import type { GenerateSemantic } from '../../_util/hooks/useMergeSemantic/semanticType';
-import { isNonNullable } from '../../_util/is';
+import { isFunction, isNonNullable } from '../../_util/is';
 import { isStyleSupport } from '../../_util/styleChecker';
 import type { DirectionType } from '../../config-provider';
 import useLocale from '../../locale/useLocale';
@@ -431,7 +431,7 @@ const Base = React.forwardRef<HTMLElement, BlockProps>((props, ref) => {
         onClick={(e) => onExpandClick(e!, { expanded: !expanded })}
         aria-label={expanded ? textLocale.collapse : textLocale?.expand}
       >
-        {typeof symbol === 'function' ? symbol(expanded) : symbol}
+        {isFunction(symbol) ? symbol(expanded) : symbol}
       </button>
     ) : null;
   };

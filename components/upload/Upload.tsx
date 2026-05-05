@@ -5,7 +5,9 @@ import RcUpload from '@rc-component/upload';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
+import fallbackProp from '../_util/fallbackProp';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isFunction, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -21,7 +23,6 @@ import type {
 import useStyle from './style';
 import UploadList from './UploadList';
 import { file2Obj, getFileItem, removeFileItem, updateFileList } from './utils';
-import fallbackProp from '../_util/fallbackProp';
 
 export const LIST_IGNORE = `__LIST_IGNORE_${Date.now()}__`;
 
@@ -173,14 +174,11 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       // Hack for LIST_IGNORE, we add additional info to remove from the list
       delete (file as any)[LIST_IGNORE];
       if ((result as any) === LIST_IGNORE) {
-        Object.defineProperty(file, LIST_IGNORE, {
-          value: true,
-          configurable: true,
-        });
+        Object.defineProperty(file, LIST_IGNORE, { value: true, configurable: true });
         return false;
       }
 
-      if (typeof result === 'object' && result) {
+      if (isPlainObject(result)) {
         parsedFile = result as File;
       }
     }
@@ -300,7 +298,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const handleRemove = (file: UploadFile) => {
     let currentFile: UploadFile;
-    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then((ret) => {
+    Promise.resolve(isFunction(onRemove) ? onRemove(file) : onRemove).then((ret) => {
       // Prevent removing file
       if (ret === false) {
         return;

@@ -1,11 +1,12 @@
 import { isValidElement, useMemo } from 'react';
 
 import type { ImageProgressConfig, PlaceholderType } from '..';
+import { isPlainObject } from '../../_util/is';
 
 export function isPlaceholderConfig(
   placeholder: unknown,
 ): placeholder is { progress?: boolean | ImageProgressConfig } {
-  return !!placeholder && typeof placeholder === 'object' && !isValidElement(placeholder);
+  return isPlainObject(placeholder) && !isValidElement(placeholder);
 }
 
 export default function usePlaceholderConfig(placeholder?: PlaceholderType) {

@@ -273,7 +273,11 @@ describe('Image', () => {
     it('should not trigger onOpenChange when Image preview.mask.closable is false', () => {
       const onOpenChange = jest.fn();
       const { unmount } = render(
-        <Image alt={alt} src={src} preview={{ open: true, mask: { closable: false }, onOpenChange }} />,
+        <Image
+          alt={alt}
+          src={src}
+          preview={{ open: true, mask: { closable: false }, onOpenChange }}
+        />,
       );
 
       fireEvent.click(document.querySelector('.ant-image-preview-mask')!);
@@ -296,7 +300,7 @@ describe('Image', () => {
       unmount();
     });
 
-    it("should not trigger onOpenChange when ConfigProvider image.preview.mask.closable is false for Image", () => {
+    it('should not trigger onOpenChange when ConfigProvider image.preview.mask.closable is false for Image', () => {
       const onOpenChange = jest.fn();
       const { unmount } = render(
         <ConfigProvider image={{ preview: { mask: { closable: false } } }}>
@@ -310,7 +314,7 @@ describe('Image', () => {
       unmount();
     });
 
-    it("should not trigger onOpenChange when ConfigProvider image.preview.mask.closable is false for Image.PreviewGroup", () => {
+    it('should not trigger onOpenChange when ConfigProvider image.preview.mask.closable is false for Image.PreviewGroup', () => {
       const onOpenChange = jest.fn();
       const { unmount } = render(
         <ConfigProvider image={{ preview: { mask: { closable: false } } }}>

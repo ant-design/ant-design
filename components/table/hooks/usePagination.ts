@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { mergeProps } from '@rc-component/util';
 
+import { isFunction, isPlainObject } from '../../_util/is';
 import type { PaginationProps } from '../../pagination';
 import type { TablePaginationConfig } from '../interface';
 
@@ -15,12 +16,11 @@ export function getPaginationParam(
     pageSize: mergedPagination.pageSize,
   };
 
-  const paginationObj = pagination && typeof pagination === 'object' ? pagination : {};
+  const paginationObj = isPlainObject(pagination) ? pagination : {};
 
   Object.keys(paginationObj).forEach((pageProp) => {
     const value = mergedPagination[pageProp as keyof typeof paginationObj];
-
-    if (typeof value !== 'function') {
+    if (!isFunction(value)) {
       param[pageProp] = value;
     }
   });
@@ -33,8 +33,9 @@ function usePagination(
   onChange: (current: number, pageSize: number) => void,
   pagination?: TablePaginationConfig | false,
 ): readonly [TablePaginationConfig, (current?: number, pageSize?: number) => void] {
-  const { total: paginationTotal = 0, ...paginationObj } =
-    pagination && typeof pagination === 'object' ? pagination : {};
+  const { total: paginationTotal = 0, ...paginationObj } = isPlainObject(pagination)
+    ? pagination
+    : {};
 
   const [innerPagination, setInnerPagination] = useState<{ current?: number; pageSize?: number }>(
     () => ({

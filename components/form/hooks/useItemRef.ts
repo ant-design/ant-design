@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { composeRef, getNodeRef } from '@rc-component/util/lib/ref';
 
+import { isPlainObject } from '../../_util/is';
 import { FormContext } from '../context';
 import type { InternalNamePath } from '../interface';
 
-export default function useItemRef() {
+const useItemRef = () => {
   const { itemRef } = React.useContext(FormContext);
   const cacheRef = React.useRef<{
     name?: string;
@@ -12,10 +13,10 @@ export default function useItemRef() {
     ref?: React.Ref<any>;
   }>({});
 
-  function getRef(name: InternalNamePath, children: any) {
+  const getRef = (name: InternalNamePath, children: any) => {
     // Outer caller already check the `supportRef`
-    const childrenRef: React.Ref<React.ReactElement> =
-      children && typeof children === 'object' && getNodeRef(children);
+    const childrenRef: React.Ref<React.ReactElement<any>> =
+      children && isPlainObject<React.ReactElement<any>>(children) && getNodeRef(children);
 
     const nameStr = name.join('_');
     if (cacheRef.current.name !== nameStr || cacheRef.current.originRef !== childrenRef) {
@@ -25,7 +26,9 @@ export default function useItemRef() {
     }
 
     return cacheRef.current.ref;
-  }
+  };
 
   return getRef;
-}
+};
+
+export default useItemRef;

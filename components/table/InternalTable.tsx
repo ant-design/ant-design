@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 import { useProxyImperativeHandle } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
-import { isNumber } from '../_util/is';
+import { isFunction, isNumber, isPlainObject } from '../_util/is';
 import type { Breakpoint } from '../_util/responsiveObserver';
 import scrollTo from '../_util/scrollTo';
 import type { AnyObject } from '../_util/type';
@@ -285,7 +285,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const [, token] = useToken();
 
   const mergedRowSelection = React.useMemo(() => {
-    return customizeRowSelection && typeof customizeRowSelection === 'object'
+    return isPlainObject(customizeRowSelection)
       ? { columnWidth: token.Table?.selectionColumnWidth, ...customizeRowSelection }
       : customizeRowSelection;
   }, [customizeRowSelection, token.Table?.selectionColumnWidth]);
@@ -337,14 +337,14 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   if (process.env.NODE_ENV !== 'production') {
     warning(
-      !(typeof rowKey === 'function' && rowKey.length > 1),
+      !(isFunction(rowKey) && rowKey.length > 1),
       'usage',
       '`index` parameter of `rowKey` function is deprecated. There is no guarantee that it will work as expected.',
     );
   }
 
   const getRowKey = React.useMemo<GetRowKey<RecordType>>(() => {
-    if (typeof rowKey === 'function') {
+    if (isFunction(rowKey)) {
       return rowKey;
     }
 
@@ -539,13 +539,11 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   );
 
   const internalRowClassName = (record: RecordType, index: number, indent: number) => {
-    const resolvedRowClassName =
-      typeof rowClassName === 'function' ? rowClassName(record, index, indent) : rowClassName;
     return clsx(
       {
         [`${prefixCls}-row-selected`]: selectedKeySet.has(getRowKey(record, index)),
       },
-      resolvedRowClassName,
+      isFunction(rowClassName) ? rowClassName(record, index, indent) : rowClassName,
     );
   };
 
@@ -556,7 +554,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
 
   // Customize expandable icon
   mergedExpandable.expandIcon =
-    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale!);
+    mergedExpandable.expandIcon || expandIcon || renderExpandIcon(tableLocale);
 
   // Adjust expand icon index, no overwrite expandIconColumnIndex if set.
   if (expandType === 'nest' && mergedExpandable.expandIconColumnIndex === undefined) {
@@ -566,7 +564,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   }
 
   // Indent size
-  if (typeof mergedExpandable.indentSize !== 'number') {
+  if (!isNumber(mergedExpandable.indentSize)) {
     mergedExpandable.indentSize = isNumber(indentSize) ? indentSize : 15;
   }
 
@@ -638,7 +636,7 @@ const InternalTable = <RecordType extends AnyObject = AnyObject>(
   const spinProps = React.useMemo<SpinProps | undefined>(() => {
     if (typeof loading === 'boolean') {
       return { spinning: loading };
-    } else if (typeof loading === 'object' && loading !== null) {
+    } else if (isPlainObject(loading)) {
       return { spinning: true, ...loading };
     } else {
       return undefined;

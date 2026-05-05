@@ -15,6 +15,40 @@ tag: vVERSION
 
 ---
 
+## 6.3.7
+
+`2026-04-27`
+
+- Input
+  - 🐞 修复 Input.OTP 在 Windows 下选中文本时可能显示真实值的问题。[#57689](https://github.com/ant-design/ant-design/pull/57689) [@QDyanbing](https://github.com/QDyanbing)
+  - ⌨️ 优化 Input 清除按钮的可访问性。[#57432](https://github.com/ant-design/ant-design/pull/57432) [@cyphercodes](https://github.com/cyphercodes)
+- 🐞 修复 Card 在未传入内容时仍渲染空 body 容器的问题。[#57735](https://github.com/ant-design/ant-design/pull/57735) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 InputNumber 选中文本时的高亮圆角问题。[#57705](https://github.com/ant-design/ant-design/pull/57705) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Tooltip 的 ConfigProvider 语义化配置比如 `className`、`styles` 等泄漏到 Popover 和 Popconfirm 的问题。[#57731](https://github.com/ant-design/ant-design/pull/57731) [@pikanohup](https://github.com/pikanohup)
+- 🐞 修复 Typography.Link 在 disabled 状态下无法触发复制、编辑等操作按钮的问题。[#57762](https://github.com/ant-design/ant-design/pull/57762) [@aviu16](https://github.com/aviu16)
+- 🐞 修复 ESM/CJS 默认导出 ConfigProvider 语言包失效的问题。[#57318](https://github.com/ant-design/ant-design/pull/57318) [@ug-hero](https://github.com/ug-hero)
+- 💄 修复 Alert 的关闭按钮没有焦点样式的问题。[#57695](https://github.com/ant-design/ant-design/pull/57695) [@KittyGiraudel](https://github.com/KittyGiraudel)
+
+## 6.3.6
+
+`2026-04-17`
+
+- 🐞 修复 InputNumber 禁用步进按钮仍显示悬浮样式的问题。 [#57592](https://github.com/ant-design/ant-design/pull/57592) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Space.Addon 在紧凑布局中展示中文等 CJK 内容时会换行的问题。 [#57622](https://github.com/ant-design/ant-design/pull/57622) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Cascader 菜单项长选项文本的省略样式问题。 [#57540](https://github.com/ant-design/ant-design/pull/57540) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Image 通过键盘打开预览时焦点未被正确锁定的问题，并在关闭预览后恢复焦点到触发元素。 [#57613](https://github.com/ant-design/ant-design/pull/57613) [#57614](https://github.com/ant-design/ant-design/pull/57614) [@aojunhao123](https://github.com/aojunhao123)
+- 🐞 修复 Input 禁用状态边框未使用 `colorBorderDisabled` token 的问题。 [#57518](https://github.com/ant-design/ant-design/pull/57518) [@Gdhanush-13](https://github.com/Gdhanush-13)
+- 🐞 MISC: 修复部分展开动画崩溃的问题。 [#57636](https://github.com/ant-design/ant-design/pull/57636) [@momesana](https://github.com/momesana)
+- 🐞 修复 Notification 在 title 为空时关闭按钮与描述内容重叠的问题。 [#57590](https://github.com/ant-design/ant-design/pull/57590) [@EndlessLucky](https://github.com/EndlessLucky)
+- 🐞 修复 Radio 禁用状态下 hover 仍显示主色的问题。 [#57562](https://github.com/ant-design/ant-design/pull/57562) [@yfy3939](https://github.com/yfy3939)
+- Table
+  - ⚡️ 优化 Table 筛选性能，缓存展开后的筛选键，避免重复计算。 [#57546](https://github.com/ant-design/ant-design/pull/57546) [@Jiyur](https://github.com/Jiyur)
+  - ⚡️ 优化 Table 筛选搜索性能，复用规范化后的搜索输入。 [#57651](https://github.com/ant-design/ant-design/pull/57651) [@li-jia-nan](https://github.com/li-jia-nan)
+  - 🐞 修复 Table `rowSelection` 默认未使用 Design Token 中 `selectionColumnWidth` 的问题。 [#57621](https://github.com/ant-design/ant-design/pull/57621) [@EmilyyyLiu](https://github.com/EmilyyyLiu)
+- 🐞 修复 Design Token 阴影 token 未适配暗色主题的问题。 [#57511](https://github.com/ant-design/ant-design/pull/57511) [@QDyanbing](https://github.com/QDyanbing)
+- 🐞 修复 Transfer 列表项禁用时移除按钮在悬停下仍会变色的问题。 [#57579](https://github.com/ant-design/ant-design/pull/57579) [@Jiyur](https://github.com/Jiyur)
+- 🐞 修复 Tree 父级节点出现多行内容时 checkbox、switcher 和 content 未整体对齐的问题。 [#57471](https://github.com/ant-design/ant-design/pull/57471) [@jiangrong-devops](https://github.com/jiangrong-devops)
+
 ## 6.3.5
 
 `2026-03-30`

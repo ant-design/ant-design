@@ -871,6 +871,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="calendar"
               class="anticon anticon-calendar"
               role="img"
@@ -964,6 +965,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1076,6 +1078,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -1375,6 +1378,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="clock-circle"
               class="anticon anticon-clock-circle"
               role="img"
@@ -1520,6 +1524,7 @@ exports[`renders components/space/demo/compact.tsx correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="clock-circle"
             class="anticon anticon-clock-circle"
             role="img"
@@ -3477,6 +3482,7 @@ exports[`renders components/space/demo/compact-debug.tsx correctly 1`] = `
           class="ant-picker-suffix"
         >
           <span
+            aria-hidden="true"
             aria-label="calendar"
             class="anticon anticon-calendar"
             role="img"
@@ -3947,6 +3953,7 @@ exports[`renders components/space/demo/compact-nested.tsx correctly 1`] = `
             class="ant-picker-suffix"
           >
             <span
+              aria-hidden="true"
               aria-label="clock-circle"
               class="anticon anticon-clock-circle"
               role="img"

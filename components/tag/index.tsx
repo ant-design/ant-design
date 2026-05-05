@@ -7,6 +7,7 @@ import { pickClosable, useClosable } from '../_util/hooks';
 import type { ClosableType } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import { cloneElement, replaceElement } from '../_util/reactNode';
 import type { LiteralUnion } from '../_util/type';
 import { devUseWarning } from '../_util/warning';
@@ -207,7 +208,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
 
     // ====================== Render ======================
     const isNeedWave =
-      typeof restProps.onClick === 'function' ||
+      isFunction(restProps.onClick) ||
       (children && (children as React.ReactElement<any>).type === 'a');
 
     const iconNode: React.ReactNode = cloneElement(icon, {
@@ -236,8 +237,7 @@ const InternalTag = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, TagPro
     const tagNode: React.ReactNode = (
       <TagWrapper
         {...domProps}
-        // @ts-expect-error
-        ref={ref}
+        ref={ref as React.Ref<HTMLAnchorElement & HTMLSpanElement>}
         className={tagClassName}
         style={tagStyle}
         href={mergedDisabled ? undefined : href}

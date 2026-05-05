@@ -73,7 +73,7 @@ demo:
 | showIcon | 控制是否展示 `icon` 节点，没有默认样式 | boolean | false |  |
 | showLine | 是否展示连接线 | boolean \| { showLeafIcon: ReactNode \| ((props: AntTreeNodeProps) => ReactNode) } | false |  |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - | |
-| switcherIcon | 自定义树节点的展开/折叠图标（带有默认 rotate 角度样式） | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
+| switcherIcon | 自定义树节点的展开/折叠图标（`showLine` 下不会自动 rotate） | ReactNode \| ((props: AntTreeNodeProps) => ReactNode) | - | renderProps: 4.20.0 |
 | switcherLoadingIcon | 自定义树节点的加载图标 | ReactNode | - | 5.20.0 |
 | titleRender | 自定义渲染节点 | (nodeData) => ReactNode | - | 4.5.0 |
 | treeData | treeNodes 数据，如果设置则不需要手动构造 TreeNode 节点（key 在整个树范围内唯一） | array&lt;{key, title, children, \[disabled, selectable]}> | - |  |
