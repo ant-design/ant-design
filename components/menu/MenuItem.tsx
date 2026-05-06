@@ -49,14 +49,13 @@ const MenuItem: GenericComponent = (props) => {
   } = React.useContext<MenuContextProps>(MenuContext);
   const renderItemChildren = (inlineCollapsed: boolean) => {
     const label = (children as React.ReactNode[])?.[0];
-    const hasExtra = !!extra || extra === 0;
     const wrapNode = (
       <span
         className={clsx(
           `${prefixCls}-title-content`,
           firstLevel ? classNames?.itemContent : classNames?.subMenu?.itemContent,
           {
-            [`${prefixCls}-title-content-with-extra`]: hasExtra,
+            [`${prefixCls}-title-content-with-extra`]: !!extra || extra === 0,
           },
         )}
         style={firstLevel ? styles?.itemContent : styles?.subMenu?.itemContent}
