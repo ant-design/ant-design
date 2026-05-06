@@ -53,7 +53,7 @@ const PureList: React.FC<PureListProps> = (props) => {
       prefixCls={prefixCls}
       placement="top"
       configList={configList}
-      className={clsx(hashId, cssVarCls, rootCls, classNames?.list)}
+      className={clsx(hashId, cssVarCls, rootCls)}
       classNames={{
         ...classNames,
         wrapper: clsx(`${noticePrefixCls}-content`, `${prefixCls}-custom-content`),

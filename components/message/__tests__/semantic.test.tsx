@@ -137,11 +137,15 @@ describe('Message.semantic', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage({
         classNames: {
+          list: 'config-list',
+          listContent: 'config-list-content',
           root: 'config-root',
           content: 'config-content',
           icon: 'config-icon',
         },
         styles: {
+          list: { backgroundColor: 'rgb(1, 2, 3)' },
+          listContent: { paddingTop: 4 },
           root: { marginTop: '20px', borderRadius: '8px' },
           content: { fontSize: '16px', lineHeight: '1.5' },
           icon: { marginInlineEnd: '12px' },
@@ -186,13 +190,19 @@ describe('Message.semantic', () => {
     render(<Demo />);
 
     expect(document.querySelector('.config-root')).toBeTruthy();
+    expect(document.querySelector('.config-list')).toBeTruthy();
+    expect(document.querySelector('.config-list-content')).toBeTruthy();
     expect(document.querySelector('.config-content')).toBeTruthy();
     expect(document.querySelector('.config-icon')).toBeTruthy();
 
+    const configList = document.querySelector('.config-list');
+    const configListContent = document.querySelector('.config-list-content');
     const configRoot = document.querySelector('.config-root');
     const configContent = document.querySelector('.config-content');
     const configIcon = document.querySelector('.config-icon');
 
+    expect(configList).toHaveStyle({ backgroundColor: 'rgb(1, 2, 3)' });
+    expect(configListContent).toHaveStyle({ paddingTop: '4px' });
     expect(configRoot).toHaveStyle({ marginTop: '20px', borderRadius: '8px' });
     expect(configContent).toHaveStyle({ fontSize: '16px', lineHeight: '1.5' });
     expect(configIcon).toHaveStyle({ marginInlineEnd: '12px' });

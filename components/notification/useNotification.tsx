@@ -11,12 +11,7 @@ import type {
 import { clsx } from 'clsx';
 
 import { computeClosable, pickClosable } from '../_util/hooks';
-import {
-  mergeClassNames,
-  mergeStyles,
-  resolveStyleOrClass,
-  useMergeSemantic,
-} from '../_util/hooks/useMergeSemantic';
+import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { isNumber, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -28,7 +23,6 @@ import type {
   NotificationConfig,
   NotificationInstance,
   NotificationPlacement,
-  NotificationSemanticAllType,
 } from './interface';
 import { getCloseIcon, TypeIcon } from './PurePanel';
 import useStyle from './style';
@@ -47,8 +41,6 @@ type HolderProps = NotificationConfig & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   notification?: CPNotificationConfig;
-  classNames?: NotificationSemanticAllType['classNames'];
-  styles?: NotificationSemanticAllType['styles'];
 }
 
 const Wrapper: FC<PropsWithChildren<{ prefixCls: string }>> = ({ children, prefixCls }) => {
@@ -103,13 +95,9 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   );
 
   // =============================== Style ===============================
-  const getStyle = (): React.CSSProperties => ({
-    ...getPlacementOffsetStyle(top, bottom),
-    ...mergedStyles.list,
-  });
+  const getStyle = (): React.CSSProperties => getPlacementOffsetStyle(top, bottom);
 
-  const getClassName = () =>
-    clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' }, mergedClassNames.list);
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
@@ -126,12 +114,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     maxCount,
     pauseOnHover,
     showProgress,
-    classNames: {
-      listContent: mergedClassNames.listContent,
-    },
-    styles: {
-      listContent: mergedStyles.listContent,
-    },
+    classNames: mergedClassNames,
+    styles: mergedStyles,
     onAllRemoved,
     renderNotifications,
     stack:
@@ -148,8 +132,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     notification,
-    classNames: mergedClassNames,
-    styles: mergedStyles,
   }));
 
   return holder;
@@ -179,13 +161,7 @@ export function useInternalNotification(
         return;
       }
 
-      const {
-        open: originOpen,
-        prefixCls,
-        notification,
-        classNames: originClassNames,
-        styles: originStyles,
-      } = holderRef.current;
+      const { open: originOpen, prefixCls, notification } = holderRef.current;
       const contextClassName = notification?.className || {};
       const contextStyle = notification?.style || {};
 
@@ -241,10 +217,6 @@ export function useInternalNotification(
 
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: config });
       const semanticStyles = resolveStyleOrClass(styles, { props: config });
-
-      const mergedClassNames = mergeClassNames(undefined, originClassNames, semanticClassNames);
-
-      const mergedStyles = mergeStyles(originStyles, semanticStyles);
       const iconNode = icon || (type ? TypeIcon[type] : null);
       const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
@@ -258,15 +230,15 @@ export function useInternalNotification(
         actions: mergedActions || null,
         role,
         classNames: {
-          ...mergedClassNames,
-          wrapper: clsx(iconNode && `${noticePrefixCls}-content`, mergedClassNames.wrapper),
-          icon: clsx(typeIconCls, mergedClassNames.icon),
+          ...semanticClassNames,
+          wrapper: clsx(iconNode && `${noticePrefixCls}-content`, semanticClassNames.wrapper),
+          icon: clsx(typeIconCls, semanticClassNames.icon),
         },
         styles: {
-          ...mergedStyles,
+          ...semanticStyles,
           root: {
             ...contextStyle,
-            ...mergedStyles.root,
+            ...semanticStyles.root,
           },
         },
         className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),

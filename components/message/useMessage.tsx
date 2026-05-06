@@ -8,14 +8,13 @@ import type {
   NotificationConfig as RcNotificationConfig,
   NotificationProps as RcNotificationProps,
 } from '@rc-component/notification';
+import type {
+  NotificationClassNames,
+  NotificationStyles,
+} from '@rc-component/notification/es/NotificationList';
 import { clsx } from 'clsx';
 
-import {
-  mergeClassNames,
-  mergeStyles,
-  resolveStyleOrClass,
-  useMergeSemantic,
-} from '../_util/hooks/useMergeSemantic';
+import { resolveStyleOrClass, useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
@@ -48,9 +47,25 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   message?: MessageConfig;
-  classNames?: MessageSemanticAllType['classNames'];
-  styles?: MessageSemanticAllType['styles'];
 }
+
+const toRcClassNames = (
+  classNames?: MessageSemanticAllType['classNames'],
+): NotificationClassNames => ({
+  list: classNames?.list,
+  listContent: classNames?.listContent,
+  root: classNames?.root,
+  icon: classNames?.icon,
+  title: classNames?.content,
+});
+
+const toRcStyles = (styles?: MessageSemanticAllType['styles']): NotificationStyles => ({
+  list: styles?.list,
+  listContent: styles?.listContent,
+  root: styles?.root,
+  icon: styles?.icon,
+  title: styles?.content,
+});
 
 const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
   children,
@@ -104,11 +119,9 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   // =============================== Style ===============================
   const getStyle = (): React.CSSProperties => ({
     top: top ?? DEFAULT_OFFSET,
-    ...mergedStyles.list,
   });
 
-  const getClassName = () =>
-    clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' }, mergedClassNames.list);
+  const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
@@ -126,12 +139,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
-    classNames: {
-      listContent: mergedClassNames.listContent,
-    },
-    styles: {
-      listContent: mergedStyles.listContent,
-    },
+    classNames: toRcClassNames(mergedClassNames),
+    styles: toRcStyles(mergedStyles),
     renderNotifications,
     pauseOnHover,
     stack: stack
@@ -147,8 +156,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     ...api,
     prefixCls,
     message,
-    classNames: mergedClassNames,
-    styles: mergedStyles,
   }));
 
   return holder;
@@ -188,18 +195,10 @@ export function useInternalMessage(
         return fakeResult;
       }
 
-      const {
-        open: originOpen,
-        prefixCls,
-        message,
-        classNames: originClassNames,
-        styles: originStyles,
-      } = holderRef.current;
+      const { open: originOpen, prefixCls, message } = holderRef.current;
 
       const contextClassName = message?.className || {};
       const contextStyle = message?.style || {};
-      const rawContextClassNames = message?.classNames || {};
-      const rawContextStyles = message?.styles || {};
 
       const noticePrefixCls = `${prefixCls}-notice`;
 
@@ -224,19 +223,10 @@ export function useInternalMessage(
 
       const contextConfig: HolderProps = { ...messageConfig, ...config };
 
-      const contextClassNames = resolveStyleOrClass(rawContextClassNames, { props: contextConfig });
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: contextConfig });
-      const contextStyles = resolveStyleOrClass(rawContextStyles, { props: contextConfig });
       const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig });
-
-      const mergedClassNames = mergeClassNames(
-        undefined,
-        contextClassNames,
-        semanticClassNames,
-        originClassNames,
-      );
-
-      const mergedStyles = mergeStyles(contextStyles, semanticStyles, originStyles);
+      const rcClassNames = toRcClassNames(semanticClassNames);
+      const rcStyles = toRcStyles(semanticStyles);
       const iconNode = getMessageIcon(type, icon);
       const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
@@ -247,26 +237,18 @@ export function useInternalMessage(
           icon: iconNode,
           title: content,
           classNames: {
+            ...rcClassNames,
             wrapper: clsx(
               `${noticePrefixCls}-content`,
               `${prefixCls}-custom-content`,
               type && `${prefixCls}-${type}`,
             ),
-            icon: clsx(typeIconCls, mergedClassNames.icon),
-            title: mergedClassNames.content,
+            icon: clsx(typeIconCls, rcClassNames.icon),
           } satisfies RcNotificationProps['classNames'],
-          styles: {
-            icon: mergedStyles.icon,
-            title: mergedStyles.content,
-          } satisfies RcNotificationProps['styles'],
+          styles: rcStyles satisfies RcNotificationProps['styles'],
           placement: 'top',
-          className: clsx(
-            { [`${noticePrefixCls}-${type}`]: type },
-            className,
-            contextClassName,
-            mergedClassNames.root,
-          ),
-          style: { ...mergedStyles.root, ...contextStyle, ...style },
+          className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
+          style: { ...contextStyle, ...style },
           onClose: () => {
             onClose?.();
             resolve();
