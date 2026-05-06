@@ -146,7 +146,12 @@ const FormItemInput: React.FC<FormItemInputProps & FormItemInputMiscProps> = (pr
   // If extra = 0, && will goes wrong
   // 0&&error -> 0
   const extraDom: React.ReactNode = extra ? (
-    <div {...extraProps} className={`${baseClassName}-extra`} ref={extraRef}>
+    <div
+      {...extraProps}
+      className={clsx(`${baseClassName}-extra`, contextClassNames?.extra)}
+      style={contextStyles?.extra}
+      ref={extraRef}
+    >
       {extra}
     </div>
   ) : null;

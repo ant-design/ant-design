@@ -21,7 +21,8 @@
       "!components/style/~antd.layer.css",
       "!scripts/visual-regression/report-template.html",
       "!.claude/skills",
-      "!.agents/skills"
+      "!.agents/skills",
+      "!.worktrees/*"
     ]
   },
   "formatter": {

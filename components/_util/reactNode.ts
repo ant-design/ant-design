@@ -1,14 +1,10 @@
 import React from 'react';
 
-import { isFunction, isNonNullable } from './is';
+import { isFunction } from './is';
 import type { AnyObject } from './type';
 
 export function isFragment(child: any): boolean {
   return child && React.isValidElement(child) && child.type === React.Fragment;
-}
-
-export function isValidReactNode(node: React.ReactNode): boolean {
-  return isNonNullable(node) && typeof node !== 'boolean';
 }
 
 type RenderProps = AnyObject | ((originProps: AnyObject) => AnyObject | undefined);

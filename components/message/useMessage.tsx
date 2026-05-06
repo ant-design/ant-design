@@ -14,21 +14,18 @@ import {
   mergeStyles,
   resolveStyleOrClass,
   useMergeSemantic,
-} from '../_util/hooks';
-import { isNonNullable, isPlainObject } from '../_util/is';
+} from '../_util/hooks/useMergeSemantic';
+import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { MessageConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import type {
-  ArgsClassNamesType,
   ArgsProps,
-  ArgsStylesType,
   ConfigOptions,
   MessageInstance,
-  MessageSemanticClassNames,
-  MessageSemanticStyles,
+  MessageSemanticAllType,
   MessageType,
   NoticeType,
   TypeOpen,
@@ -50,8 +47,8 @@ type HolderProps = ConfigOptions & {
 interface HolderRef extends NotificationAPI {
   prefixCls: string;
   message?: MessageConfig;
-  classNames?: MessageSemanticClassNames;
-  styles?: MessageSemanticStyles;
+  classNames?: MessageSemanticAllType['classNames'];
+  styles?: MessageSemanticAllType['styles'];
 }
 
 const Wrapper: React.FC<React.PropsWithChildren<{ prefixCls: string }>> = ({
@@ -106,13 +103,13 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
 
   // Use useMergeSemantic to merge classNames and styles
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    ArgsClassNamesType,
-    ArgsStylesType,
-    HolderProps
-  >([props?.classNames, message?.classNames], [props?.styles, message?.styles], {
-    props,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [props?.classNames, message?.classNames],
+    [props?.styles, message?.styles],
+    {
+      props: props as unknown as ArgsProps,
+    },
+  );
 
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
@@ -218,18 +215,14 @@ export function useInternalMessage(
       const contextStyles = resolveStyleOrClass(rawContextStyles, { props: contextConfig });
       const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig });
 
-      const mergedClassNames: MessageSemanticClassNames = mergeClassNames(
+      const mergedClassNames = mergeClassNames(
         undefined,
         contextClassNames,
         semanticClassNames,
         originClassNames,
       );
 
-      const mergedStyles: MessageSemanticStyles = mergeStyles(
-        contextStyles,
-        semanticStyles,
-        originStyles,
-      );
+      const mergedStyles = mergeStyles(contextStyles, semanticStyles, originStyles);
 
       return wrapPromiseFn((resolve) => {
         originOpen({
@@ -288,15 +281,13 @@ export function useInternalMessage(
         if (isPlainObject(jointContent) && 'content' in jointContent) {
           config = jointContent;
         } else {
-          config = {
-            content: jointContent,
-          };
+          config = { content: jointContent };
         }
 
         // Params
         let mergedDuration: number | undefined;
         let mergedOnClose: VoidFunction | undefined;
-        if (typeof duration === 'function') {
+        if (isFunction(duration)) {
           mergedOnClose = duration;
         } else {
           mergedDuration = duration;

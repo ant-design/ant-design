@@ -1,24 +1,35 @@
 import * as React from 'react';
 
-import { isNumber } from '../_util/is';
+import { isFunction, isNumber } from '../_util/is';
 import type { FormatConfig, valueType } from './utils';
 
 interface NumberProps extends FormatConfig {
   value: valueType;
   prefixCls?: string;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
 const StatisticNumber: React.FC<NumberProps> = (props) => {
-  const { value, formatter, precision, decimalSeparator, groupSeparator = '', prefixCls } = props;
+  const {
+    value,
+    formatter,
+    precision,
+    decimalSeparator,
+    groupSeparator = '',
+    prefixCls,
+    className,
+    style,
+  } = props;
 
   let valueNode: React.ReactNode;
 
-  if (typeof formatter === 'function') {
+  if (isFunction(formatter)) {
     // Customize formatter
     valueNode = formatter(value);
   } else {
     // Internal formatter
-    const val: string = String(value);
+    const val = String(value);
     const cells = val.match(/^(-?)(\d*)(\.(\d+))?$/);
 
     // Process if illegal number
@@ -53,7 +64,15 @@ const StatisticNumber: React.FC<NumberProps> = (props) => {
     }
   }
 
-  return <span className={`${prefixCls}-content-value`}>{valueNode}</span>;
+  return (
+    <span className={className} style={style}>
+      {valueNode}
+    </span>
+  );
 };
+
+if (process.env.NODE_ENV !== 'production') {
+  StatisticNumber.displayName = 'StatisticNumber';
+}
 
 export default StatisticNumber;

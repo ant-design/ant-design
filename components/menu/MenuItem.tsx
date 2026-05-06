@@ -4,10 +4,11 @@ import { Item } from '@rc-component/menu';
 import { omit, toArray } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { cloneElement, isValidReactNode } from '../_util/reactNode';
+import { isFunction } from '../_util/is';
+import { cloneElement } from '../_util/reactNode';
 import type { SiderContextProps } from '../layout/Sider';
 import { SiderContext } from '../layout/Sider';
-import type { TooltipProps, TooltipSemanticClassNames } from '../tooltip';
+import type { TooltipProps, TooltipSemanticType } from '../tooltip';
 import Tooltip from '../tooltip';
 import type { MenuContextProps } from './MenuContext';
 import MenuContext from './MenuContext';
@@ -47,21 +48,9 @@ const MenuItem: GenericComponent = (props) => {
     classNames,
   } = React.useContext<MenuContextProps>(MenuContext);
 
-  const label = (children as React.ReactNode[])?.[0];
-  const hasExtra = isValidReactNode(extra);
-  const childrenNodes = toArray(children, { keepEmpty: true }) as React.ReactNode[];
-  const labelNodes = hasExtra ? childrenNodes.slice(0, -1) : children;
-  const extraNode = hasExtra ? childrenNodes[childrenNodes.length - 1] : null;
-  const mergedChildren = hasExtra ? (
-    <>
-      <span className={`${prefixCls}-title-content-label`}>{labelNodes}</span>
-      {extraNode}
-    </>
-  ) : (
-    children
-  );
-
   const renderItemChildren = (inlineCollapsed: boolean) => {
+    const label = (children as React.ReactNode[])?.[0];
+    const hasExtra = !!extra || extra === 0;
     const wrapNode = (
       <span
         className={clsx(
@@ -73,7 +62,7 @@ const MenuItem: GenericComponent = (props) => {
         )}
         style={firstLevel ? styles?.itemContent : styles?.subMenu?.itemContent}
       >
-        {mergedChildren}
+        {children}
       </span>
     );
     // inline-collapsed.md demo 依赖 span 来隐藏文字,有 icon 属性，则内部包裹一个 span
@@ -156,22 +145,21 @@ const MenuItem: GenericComponent = (props) => {
 
     const baseTooltipClassName = `${prefixCls}-inline-collapsed-tooltip`;
 
-    const mergeTooltipRootClassName = (classNames?: TooltipSemanticClassNames) => ({
+    const mergeTooltipRootClassName = (classNames?: TooltipSemanticType['classNames']) => ({
       ...classNames,
       root: clsx(baseTooltipClassName, classNames?.root),
     });
 
-    const mergedTooltipClassNames =
-      tooltipConfig && typeof tooltipConfig.classNames === 'function'
-        ? (info: { props: TooltipProps }) => {
-            const resolvedClassNames = (
-              tooltipConfig.classNames as (info: {
-                props: TooltipProps;
-              }) => TooltipSemanticClassNames
-            )(info);
-            return mergeTooltipRootClassName(resolvedClassNames);
-          }
-        : mergeTooltipRootClassName(tooltipConfig?.classNames as TooltipSemanticClassNames);
+    const mergedTooltipClassNames = isFunction(tooltipConfig?.classNames)
+      ? (info: { props: TooltipProps }) => {
+          const resolvedClassNames = (
+            tooltipConfig.classNames as (info: {
+              props: TooltipProps;
+            }) => TooltipSemanticType['classNames']
+          )(info);
+          return mergeTooltipRootClassName(resolvedClassNames);
+        }
+      : mergeTooltipRootClassName(tooltipConfig?.classNames as TooltipSemanticType['classNames']);
 
     returnNode = (
       <Tooltip

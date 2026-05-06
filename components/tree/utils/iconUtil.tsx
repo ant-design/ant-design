@@ -6,7 +6,7 @@ import MinusSquareOutlined from '@ant-design/icons/MinusSquareOutlined';
 import PlusSquareOutlined from '@ant-design/icons/PlusSquareOutlined';
 import { clsx } from 'clsx';
 
-import { isPlainObject } from '../../_util/is';
+import { isFunction, isPlainObject } from '../../_util/is';
 import { cloneElement } from '../../_util/reactNode';
 import type { AntTreeNodeProps, SwitcherIcon, TreeLeafIcon } from '../Tree';
 
@@ -40,8 +40,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
     }
 
     if (typeof showLeafIcon !== 'boolean' && !!showLeafIcon) {
-      const leafIcon =
-        typeof showLeafIcon === 'function' ? showLeafIcon(treeNodeProps) : showLeafIcon;
+      const leafIcon = isFunction(showLeafIcon) ? showLeafIcon(treeNodeProps) : showLeafIcon;
       const leafCls = `${prefixCls}-switcher-line-custom-icon`;
 
       if (React.isValidElement<{ className?: string }>(leafIcon)) {
@@ -50,7 +49,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
         });
       }
 
-      return leafIcon as unknown as React.ReactElement;
+      return leafIcon as unknown as React.ReactElement<any>;
     }
 
     return showLeafIcon ? (
@@ -62,7 +61,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
 
   const switcherCls = `${prefixCls}-switcher-icon`;
 
-  const switcher = typeof switcherIcon === 'function' ? switcherIcon(treeNodeProps) : switcherIcon;
+  const switcher = isFunction(switcherIcon) ? switcherIcon(treeNodeProps) : switcherIcon;
 
   if (React.isValidElement<{ className?: string }>(switcher)) {
     return cloneElement(switcher, {
@@ -74,7 +73,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
   }
 
   if (switcher !== undefined) {
-    return switcher as unknown as React.ReactElement;
+    return switcher as unknown as React.ReactElement<any>;
   }
 
   if (showLine) {

@@ -2772,7 +2772,7 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
         class="ant-menu-title-content ant-menu-title-content-with-extra"
       >
         <span
-          class="ant-menu-title-content-label"
+          class="ant-menu-item-label"
         >
           Option 1Option 1Option 1Option 1Option 1Option 1Option 1
         </span>
@@ -2996,7 +2996,7 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="ant-menu-title-content-label"
+                class="ant-menu-item-label"
               >
                 Option 5Option 5Option 5Option 5Option 5Option 5
               </span>
@@ -3058,7 +3058,7 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="ant-menu-title-content-label"
+                class="ant-menu-item-label"
               >
                 Option 6
               </span>
@@ -3192,7 +3192,7 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
             <span
-              class="ant-menu-title-content-label"
+              class="ant-menu-item-label"
             >
               Option 5Option 5Option 5Option 5Option 5Option 5
             </span>
@@ -3254,7 +3254,7 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
             <span
-              class="ant-menu-title-content-label"
+              class="ant-menu-item-label"
             >
               Option 6
             </span>
@@ -3715,7 +3715,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
                 class="ant-menu-title-content ant-menu-title-content-with-extra"
               >
                 <span
-                  class="ant-menu-title-content-label"
+                  class="ant-menu-item-label"
                 >
                   Option 2
                 </span>
@@ -3857,7 +3857,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
               <span
-                class="ant-menu-title-content-label"
+                class="ant-menu-item-label"
               >
                 Option 2
               </span>
@@ -3951,7 +3951,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
           class="ant-menu-title-content ant-menu-title-content-with-extra"
         >
           <span
-            class="ant-menu-title-content-label"
+            class="ant-menu-item-label"
           >
             Users
           </span>
@@ -3991,7 +3991,7 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
           class="ant-menu-title-content ant-menu-title-content-with-extra"
         >
           <span
-            class="ant-menu-title-content-label"
+            class="ant-menu-item-label"
           >
             Profile
           </span>

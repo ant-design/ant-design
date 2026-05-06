@@ -12,8 +12,8 @@ import MockDate from 'mockdate';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
-import { fireEvent, render } from '../../../tests/utils';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
 
@@ -113,6 +113,43 @@ describe('DatePicker', () => {
   it('placeholder', () => {
     const wrapper = render(<DatePicker placeholder={undefined} />);
     expect(wrapper.container.querySelector('input')?.placeholder).toEqual('Select date');
+  });
+
+  it('multiple tagRender should support custom remove logic', () => {
+    const Demo = () => {
+      const [value, setValue] = React.useState([dayjs('2016-11-20'), dayjs('2016-11-23')]);
+
+      return (
+        <DatePicker
+          multiple
+          value={value}
+          onChange={(nextValue) => setValue(nextValue ?? [])}
+          tagRender={({ label, onClose, value: tagValue }) => {
+            const locked = tagValue.isBefore(dayjs('2016-11-22'), 'day');
+
+            return (
+              <span data-testid={`tag-${tagValue.format('YYYY-MM-DD')}`}>
+                <span>{label}</span>
+                {!locked && (
+                  <button type="button" onClick={onClose}>
+                    remove
+                  </button>
+                )}
+              </span>
+            );
+          }}
+        />
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('[data-testid="tag-2016-11-20"] button')).toBeNull();
+
+    fireEvent.click(container.querySelector('[data-testid="tag-2016-11-23"] button')!);
+
+    expect(container.querySelector('[data-testid="tag-2016-11-20"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-testid="tag-2016-11-23"]')).not.toBeInTheDocument();
   });
 
   it('showTime={{ showHour: true, showMinute: true }}', () => {
@@ -546,6 +583,100 @@ describe('DatePicker', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+    });
+
+    it('should support global colorErrorAffix token for error status suffix', async () => {
+      const { container } = render(
+        <ConfigProvider theme={{ token: { colorErrorAffix: '#12abcd' } }}>
+          <DatePicker status="error" suffixIcon="suffix" />
+        </ConfigProvider>,
+      );
+
+      const suffix = container.querySelector('.ant-picker-suffix') as HTMLSpanElement;
+
+      await waitFor(() => {
+        expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
+      });
+    });
+  });
+
+  describe('allowClear', () => {
+    it('should support allowClear prop', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(<DatePicker value={somePoint} allowClear={false} />);
+      expect(getClearButton()).toBeFalsy();
+
+      render(<DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />, {
+        container,
+      });
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should support allowClear prop in config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(
+        <ConfigProvider datePicker={{ allowClear: false }}>
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeFalsy();
+
+      render(
+        <ConfigProvider datePicker={{ allowClear: { clearIcon: <CloseCircleFilled /> } }}>
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+        { container },
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+
+    it('should prefer allowClear prop over config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <ConfigProvider datePicker={{ allowClear: false }}>
+          <DatePicker value={somePoint} allowClear={{ clearIcon: <CloseCircleFilled /> }} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+  });
+
+  describe('clearIcon', () => {
+    it('should support clearIcon prop', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <DatePicker
+          value={somePoint}
+          allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+        />,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+    it('should support clearIcon prop in config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      render(
+        <ConfigProvider
+          datePicker={{ allowClear: { clearIcon: <div data-testid="custom-clear" /> } }}
+        >
+          <DatePicker value={somePoint} />
+        </ConfigProvider>,
+      );
+      expect(getClearButton()).toBeTruthy();
+    });
+    it('should prefer clearIcon prop over config provider', () => {
+      const somePoint = dayjs('2023-08-01');
+      const { container } = render(
+        <ConfigProvider
+          datePicker={{ allowClear: { clearIcon: <div data-testid="config-clear" /> } }}
+        >
+          <DatePicker
+            value={somePoint}
+            allowClear={{ clearIcon: <div data-testid="custom-clear" /> }}
+          />
+        </ConfigProvider>,
+      );
+      expect(container.querySelector('[data-testid="custom-clear"]')).toBeTruthy();
+      expect(container.querySelector('[data-testid="config-clear"]')).toBeFalsy();
     });
   });
 });

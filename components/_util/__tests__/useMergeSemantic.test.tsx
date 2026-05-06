@@ -1,11 +1,11 @@
 import { renderHook } from '@testing-library/react';
 
-import { mergeClassNames, useMergeSemantic } from '../hooks';
+import { mergeClassNames, useMergeSemantic } from '../hooks/useMergeSemantic';
 
 const mockSchema = {
-  _default: 'root',
+  // _default: 'root',
   container: {
-    _default: 'container-root',
+    // _default: 'container-root',
     header: {
       _default: 'header-root',
     },
@@ -67,6 +67,7 @@ describe('useMergeSemantic', () => {
 
     const [classNames, styles] = result.current;
     expect(classNames.container.header).toHaveProperty('header-root', 'foo');
+    // styles not support fillObjectBySchema
     expect(styles.container.header).toEqual({ color: 'red' });
   });
 });

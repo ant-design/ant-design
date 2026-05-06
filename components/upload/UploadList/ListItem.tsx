@@ -5,6 +5,7 @@ import EyeOutlined from '@ant-design/icons/EyeOutlined';
 import CSSMotion from '@rc-component/motion';
 import { clsx } from 'clsx';
 
+import { isFunction } from '../../_util/is';
 import { ConfigContext } from '../../config-provider';
 import Progress from '../../progress';
 import Tooltip from '../../tooltip';
@@ -14,16 +15,15 @@ import type {
   UploadListProgressProps,
   UploadListType,
   UploadLocale,
-  UploadSemanticClassNames,
-  UploadSemanticStyles,
+  UploadSemanticAllType,
 } from '../interface';
 
 export interface ListItemProps {
   prefixCls: string;
   className?: string;
   style?: React.CSSProperties;
-  classNames?: UploadSemanticClassNames;
-  styles?: UploadSemanticStyles;
+  classNames?: UploadSemanticAllType['classNames'];
+  styles?: UploadSemanticAllType['styles'];
   locale: UploadLocale;
   file: UploadFile;
   items: UploadFile[];
@@ -145,13 +145,9 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     const linkProps =
       typeof file.linkProps === 'string' ? JSON.parse(file.linkProps) : file.linkProps;
 
-    const removeIcon = (
-      typeof showRemoveIcon === 'function'
-        ? showRemoveIcon(file)
-        : showRemoveIcon
-    )
+    const removeIcon = (isFunction(showRemoveIcon) ? showRemoveIcon(file) : showRemoveIcon)
       ? actionIconRender(
-          (typeof customRemoveIcon === 'function' ? customRemoveIcon(file) : customRemoveIcon) || (
+          (isFunction(customRemoveIcon) ? customRemoveIcon(file) : customRemoveIcon) || (
             <DeleteOutlined />
           ),
           () => onClose(file),
@@ -164,12 +160,12 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       : null;
 
     const downloadIcon =
-      (typeof showDownloadIcon === 'function' ? showDownloadIcon(file) : showDownloadIcon) &&
+      (isFunction(showDownloadIcon) ? showDownloadIcon(file) : showDownloadIcon) &&
       mergedStatus === 'done'
         ? actionIconRender(
-            (typeof customDownloadIcon === 'function'
-              ? customDownloadIcon(file)
-              : customDownloadIcon) || <DownloadOutlined />,
+            (isFunction(customDownloadIcon) ? customDownloadIcon(file) : customDownloadIcon) || (
+              <DownloadOutlined />
+            ),
             () => onDownload(file),
             prefixCls,
             locale.downloadFile,
@@ -185,7 +181,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
       </span>
     );
 
-    const extraContent = typeof customExtra === 'function' ? customExtra(file) : customExtra;
+    const extraContent = isFunction(customExtra) ? customExtra(file) : customExtra;
     const extra = extraContent && (
       <span className={`${prefixCls}-list-item-extra`}>{extraContent}</span>
     );
@@ -218,7 +214,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
     );
 
     const previewIcon =
-      (typeof showPreviewIcon === 'function' ? showPreviewIcon(file) : showPreviewIcon) &&
+      (isFunction(showPreviewIcon) ? showPreviewIcon(file) : showPreviewIcon) &&
       (file.url || file.thumbUrl) ? (
         <a
           href={file.url || file.thumbUrl}
@@ -227,7 +223,7 @@ const ListItem = React.forwardRef<HTMLDivElement, ListItemProps>(
           onClick={(e) => onPreview(file, e)}
           title={locale.previewFile}
         >
-          {typeof customPreviewIcon === 'function'
+          {isFunction(customPreviewIcon)
             ? customPreviewIcon(file)
             : customPreviewIcon || <EyeOutlined />}
         </a>

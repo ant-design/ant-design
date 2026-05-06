@@ -564,7 +564,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
   } = token;
   const titleContentTypographyEllipsisSelector = [
     `> ${antCls}-typography-ellipsis-single-line`,
-    `> ${componentCls}-title-content-label > ${antCls}-typography-ellipsis-single-line`,
+    `> ${componentCls}-item-label > ${antCls}-typography-ellipsis-single-line`,
   ].join(',');
 
   return [
@@ -656,7 +656,7 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             minWidth: 0,
           },
 
-          '&-label': {
+          [`${componentCls}-item-label`]: {
             flex: 'auto',
             minWidth: 0,
             ...textEllipsis,

@@ -9,6 +9,7 @@ import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useForceUpdate } from '../../_util/hooks';
+import { isFunction } from '../../_util/is';
 import initCollapseMotion from '../../_util/motion';
 import { cloneElement } from '../../_util/reactNode';
 import type { ButtonProps } from '../../button/Button';
@@ -93,7 +94,7 @@ const InternalUploadList: React.ForwardRefRenderFunction<UploadListRef, UploadLi
   };
 
   const onInternalDownload = (file: UploadFile) => {
-    if (typeof onDownload === 'function') {
+    if (isFunction(onDownload)) {
       onDownload(file);
     } else if (file.url) {
       window.open(file.url);

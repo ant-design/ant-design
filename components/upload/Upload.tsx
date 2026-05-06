@@ -5,8 +5,9 @@ import RcUpload from '@rc-component/upload';
 import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { useMergeSemantic } from '../_util/hooks';
-import { isPlainObject } from '../_util/is';
+import fallbackProp from '../_util/fallbackProp';
+import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
+import { isFunction, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -16,10 +17,8 @@ import type {
   RcFile,
   ShowUploadListInterface,
   UploadChangeParam,
-  UploadClassNamesType,
   UploadFile,
   UploadProps,
-  UploadStylesType,
 } from './interface';
 import useStyle from './style';
 import UploadList from './UploadList';
@@ -60,7 +59,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     locale: propLocale,
     iconRender,
     isImageUrl,
-    progress,
+    progress: customProgress,
     prefixCls: customizePrefixCls,
     className,
     type = 'select',
@@ -72,7 +71,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     multiple = false,
     hasControlInside = true,
     action = '',
-    accept = '',
+    accept: customAccept,
     supportServerRender = true,
     rootClassName,
     styles,
@@ -84,6 +83,8 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
   const mergedDisabled = customDisabled ?? disabled;
 
   const customRequest = props.customRequest || config.customRequest;
+  const mergedProgress = { ...config.progress, ...customProgress };
+  const mergedAccept = fallbackProp(customAccept, config.accept, '');
 
   const [internalFileList, setMergedFileList] = useControlledState(defaultFileList, fileList);
   const mergedFileList = internalFileList || [];
@@ -173,10 +174,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
       // Hack for LIST_IGNORE, we add additional info to remove from the list
       delete (file as any)[LIST_IGNORE];
       if ((result as any) === LIST_IGNORE) {
-        Object.defineProperty(file, LIST_IGNORE, {
-          value: true,
-          configurable: true,
-        });
+        Object.defineProperty(file, LIST_IGNORE, { value: true, configurable: true });
         return false;
       }
 
@@ -300,7 +298,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const handleRemove = (file: UploadFile) => {
     let currentFile: UploadFile;
-    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then((ret) => {
+    Promise.resolve(isFunction(onRemove) ? onRemove(file) : onRemove).then((ret) => {
       // Prevent removing file
       if (ret === false) {
         return;
@@ -365,13 +363,13 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     disabled: mergedDisabled,
   };
 
-  const [mergedClassNames, mergedStyles] = useMergeSemantic<
-    UploadClassNamesType,
-    UploadStylesType,
-    UploadProps
-  >([contextClassNames, classNames], [contextStyles, styles], {
-    props: mergedProps,
-  });
+  const [mergedClassNames, mergedStyles] = useMergeSemantic(
+    [contextClassNames, classNames],
+    [contextStyles, styles],
+    {
+      props: mergedProps,
+    },
+  );
 
   const rcUploadProps = {
     onBatchStart,
@@ -383,7 +381,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
     data,
     multiple,
     action,
-    accept,
+    accept: mergedAccept,
     supportServerRender,
     prefixCls,
     disabled: mergedDisabled,
@@ -447,7 +445,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
         extra={extra}
         locale={{ ...contextLocale, ...propLocale }}
         isImageUrl={isImageUrl}
-        progress={progress}
+        progress={mergedProgress}
         appendAction={button}
         appendActionVisible={buttonVisible}
         itemRender={itemRender}

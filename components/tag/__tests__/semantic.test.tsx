@@ -13,6 +13,7 @@ describe('Tag.Semantic', () => {
           root: 'custom-tag-root',
           icon: 'custom-tag-icon',
           content: 'custom-tag-content',
+          close: 'custom-tag-close',
         }}
         styles={{
           root: {
@@ -27,7 +28,11 @@ describe('Tag.Semantic', () => {
             backgroundColor: 'yellow',
             color: 'green',
           },
+          close: {
+            color: 'purple',
+          },
         }}
+        closeIcon
       >
         Test Tag
       </Tag>,
@@ -36,6 +41,7 @@ describe('Tag.Semantic', () => {
     const tagElement = container.querySelector('.ant-tag');
     const iconElement = container.querySelector('.custom-tag-icon');
     const contentElement = container.querySelector('.custom-tag-content');
+    const closeElement = container.querySelector('.custom-tag-close');
 
     expect(tagElement).toHaveClass('custom-tag-root');
     expect(tagElement).toHaveAttribute('style');
@@ -53,6 +59,9 @@ describe('Tag.Semantic', () => {
     const contentStyle = contentElement?.getAttribute('style');
     expect(contentStyle).toContain('background-color: yellow');
     expect(contentStyle).toContain('color: green');
+
+    expect(closeElement).toHaveClass('custom-tag-close');
+    expect(closeElement).toHaveStyle({ color: 'rgb(128, 0, 128)' });
   });
   it('support classNames and styles as functions', () => {
     const { container } = render(
@@ -65,6 +74,7 @@ describe('Tag.Semantic', () => {
           root: info.props.variant === 'filled' ? 'filled-tag' : 'outlined-tag',
           icon: `icon-${info.props.color}`,
           content: `content-${info.props.disabled ? 'disabled' : 'enabled'}`,
+          close: `close-${info.props.variant}`,
         })}
         styles={(info) => ({
           root: {
@@ -79,7 +89,11 @@ describe('Tag.Semantic', () => {
             fontWeight: info.props.disabled ? 'normal' : 'bold',
             color: info.props.color === 'blue' ? 'darkblue' : 'darkgreen',
           },
+          close: {
+            color: info.props.variant === 'filled' ? 'blue' : 'green',
+          },
         })}
+        closeIcon
       >
         Function Tag
       </Tag>,
@@ -88,6 +102,7 @@ describe('Tag.Semantic', () => {
     const tagElement = container.querySelector('.ant-tag');
     const iconElement = container.querySelector('.icon-blue');
     const contentElement = container.querySelector('.content-enabled');
+    const closeElement = container.querySelector('.close-filled');
 
     expect(tagElement).toHaveClass('filled-tag');
     expect(tagElement).toHaveAttribute('style');
@@ -105,6 +120,9 @@ describe('Tag.Semantic', () => {
     const contentStyle = contentElement?.getAttribute('style');
     expect(contentStyle).toContain('font-weight: bold');
     expect(contentStyle).toContain('color: darkblue');
+
+    expect(closeElement).toHaveClass('close-filled');
+    expect(closeElement).toHaveStyle({ color: 'rgb(0, 0, 255)' });
   });
   it('checkableTagGroup support classNames and styles as objects', () => {
     const { container } = render(

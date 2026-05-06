@@ -1,6 +1,7 @@
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import { resetComponent } from '../../style';
+import { genNoMotionStyle } from '../../style/motion';
 import type { FullToken, GenerateStyle, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks } from '../../theme/internal';
 import { genCssVar } from '../../theme/util/genStyleUtils';
@@ -362,17 +363,20 @@ const genSplitterStyle: GenerateStyle<SplitterToken, CSSObject> = (token) => {
       // ========================= Panels =========================
       [splitPanelCls]: {
         overflow: 'auto',
-        padding: '0 1px',
         scrollbarWidth: 'thin',
         boxSizing: 'border-box',
 
         '&-hidden': {
-          padding: 0,
           overflow: 'hidden',
         },
 
         [`&:has(${componentCls}:only-child)`]: {
           overflow: 'hidden',
+        },
+
+        '&-transition': {
+          transition: `flex-basis ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+          ...genNoMotionStyle(),
         },
       },
     },

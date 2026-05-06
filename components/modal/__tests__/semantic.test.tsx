@@ -26,6 +26,7 @@ describe('Modal.Semantic', () => {
       title: 'custom-title',
       body: 'custom-body',
       footer: 'custom-footer',
+      close: 'custom-close',
     };
 
     const customStyles = {
@@ -36,6 +37,7 @@ describe('Modal.Semantic', () => {
       title: { padding: '50px' },
       body: { padding: '60px' },
       footer: { padding: '70px' },
+      close: { color: 'rgb(255,255,255)' },
     };
 
     render(<Modal classNames={customClassNames} styles={customStyles} open title="title" />);
@@ -47,6 +49,7 @@ describe('Modal.Semantic', () => {
     const titleElement = document.querySelector<HTMLElement>('.ant-modal-title');
     const bodyElement = document.querySelector<HTMLElement>('.ant-modal-body');
     const footerElement = document.querySelector<HTMLElement>('.ant-modal-footer');
+    const closeElement = document.querySelector<HTMLElement>('.ant-modal-close');
 
     // check classNames
     expect(rootElement).toHaveClass('custom-root');
@@ -56,6 +59,7 @@ describe('Modal.Semantic', () => {
     expect(titleElement).toHaveClass('custom-title');
     expect(bodyElement).toHaveClass('custom-body');
     expect(footerElement).toHaveClass('custom-footer');
+    expect(closeElement).toHaveClass('custom-close');
 
     // check styles
     expect(rootElement).toHaveStyle({ padding: customStyles.root.padding });
@@ -65,6 +69,7 @@ describe('Modal.Semantic', () => {
     expect(titleElement).toHaveStyle({ padding: customStyles.title.padding });
     expect(bodyElement).toHaveStyle({ padding: customStyles.body.padding });
     expect(footerElement).toHaveStyle({ padding: customStyles.footer.padding });
+    expect(closeElement).toHaveStyle({ color: customStyles.close.color });
   });
 
   it('Modal should apply dynamic classNames and styles from props function', () => {

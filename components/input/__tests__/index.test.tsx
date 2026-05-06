@@ -171,6 +171,28 @@ describe('prefix and suffix', () => {
       expect(computed).toBe('var(--ant-color-text)');
     });
   });
+
+  it('should support colorErrorAffix token for error status affix', async () => {
+    const { container } = render(
+      <ConfigProvider
+        theme={{
+          token: {
+            colorErrorAffix: '#12abcd',
+          },
+        }}
+      >
+        <Input status="error" prefix="prefix" suffix="suffix" />
+      </ConfigProvider>,
+    );
+
+    const prefix = container.querySelector('.ant-input-prefix') as HTMLSpanElement;
+    const suffix = container.querySelector('.ant-input-suffix') as HTMLSpanElement;
+
+    await waitFor(() => {
+      expect(getComputedStyle(prefix).color).toBe('var(--ant-color-error-affix)');
+      expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
+    });
+  });
 });
 
 describe('Input setting hidden', () => {
@@ -309,6 +331,16 @@ describe('should support showCount', () => {
 });
 
 describe('Input allowClear', () => {
+  it('should support allowClear.disabled', () => {
+    const { container, rerender } = render(
+      <Input allowClear={{ clearIcon: 'clear', disabled: true }} defaultValue="111" />,
+    );
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeTruthy();
+
+    rerender(<Input allowClear={{ clearIcon: 'clear', disabled: false }} defaultValue="111" />);
+    expect(container.querySelector('.ant-input-clear-icon-hidden')).toBeFalsy();
+  });
+
   it('should change type when click', () => {
     const { asFragment, container } = render(<Input allowClear />);
     fireEvent.change(container.querySelector('input')!, { target: { value: '111' } });
