@@ -18,7 +18,6 @@ interface VirtualMasonryProps<ItemDataType = any> {
   mergedClassName?: string;
   mergedStyle?: React.CSSProperties;
   collectItemSize: VoidFunction;
-  fresh?: boolean;
   horizontalGutter: number;
   verticalGutter: number;
   columnCount: number;
@@ -38,7 +37,6 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     mergedClassName,
     mergedStyle,
     collectItemSize,
-    fresh,
     horizontalGutter,
     verticalGutter,
     columnCount,
@@ -104,6 +102,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
         return {
           record,
           top,
+          height: itemHeight + verticalGutter,
           bottom: top + itemHeight + verticalGutter,
         };
       });
@@ -119,12 +118,12 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     const start = Math.max(0, scrollTop - overscanTop);
     const end = scrollTop + viewportHeight + overscanBottom;
 
-    const lowerBound = (target: number) => {
+    const lowerBoundByTop = (target: number) => {
       let left = 0;
       let right = itemBounds.length;
       while (left < right) {
         const mid = Math.floor((left + right) / 2);
-        if (itemBounds[mid].bottom < target) {
+        if (itemBounds[mid].top < target) {
           left = mid + 1;
         } else {
           right = mid;
@@ -133,14 +132,21 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
       return left;
     };
 
-    const startIndex = lowerBound(start - 1);
+    // Item bounds are sorted by `top`, not by `bottom`.
+    // Expand the start lookup by max span height to avoid skipping tall items
+    // that start above viewport but still intersect current window.
+    const maxSpanHeight =
+      itemBounds.length > 0 ? Math.max(...itemBounds.map((item) => item.height)) : 0;
+    const startIndex = lowerBoundByTop(start - maxSpanHeight - 1);
     const result: MasonryRenderItem<ItemDataType>[] = [];
     for (let index = startIndex; index < itemBounds.length; index += 1) {
       const current = itemBounds[index];
       if (current.top > end + 1) {
         break;
       }
-      result.push(current.record);
+      if (current.bottom >= start - 1) {
+        result.push(current.record);
+      }
     }
     return result;
   }, [estimatedItemHeight, itemBounds, scrollDirection, scrollTop, viewportHeight]);
@@ -206,7 +212,7 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
                 index={record.itemIndex}
                 itemRender={itemRender}
                 column={columnIndex}
-                onResize={fresh ? collectItemSize : null}
+                onResize={collectItemSize}
               />
             );
           })}

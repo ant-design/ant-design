@@ -322,7 +322,6 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
             mergedClassName={mergedClassNames.item}
             mergedStyle={mergedStyles.item}
             collectItemSize={collectItemSize}
-            fresh={fresh}
             horizontalGutter={horizontalGutter as number}
             verticalGutter={verticalGutter as number}
             columnCount={columnCount}
