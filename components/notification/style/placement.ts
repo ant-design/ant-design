@@ -13,6 +13,10 @@ type PlacementOffset = {
   blockEnd: VerticalPlacement;
   inlineEnd: HorizontalPlacement;
 };
+type PlacementMotionOffset = {
+  x?: string;
+  y?: string;
+};
 
 type PlacementStyleConfig = {
   placement: NotificationPlacement;
@@ -20,16 +24,10 @@ type PlacementStyleConfig = {
   blockEnd: VerticalPlacement;
   horizontal: HorizontalPlacement;
   inlineEnd: HorizontalPlacement;
-  enterX?: string;
-  enterY?: string;
-  baseX?: string;
+  motionOffset: PlacementMotionOffset;
+  baseMotionOffset?: PlacementMotionOffset;
   isCenterPlacement: boolean;
 };
-
-const MOTION_BASE_X = '--notification-motion-base-x';
-const MOTION_BASE_Y = '--notification-motion-base-y';
-const MOTION_ENTER_X = '--notification-motion-enter-x';
-const MOTION_ENTER_Y = '--notification-motion-enter-y';
 
 const getPlacementOffset = (
   vertical: VerticalPlacement,
@@ -39,8 +37,12 @@ const getPlacementOffset = (
   inlineEnd: horizontal === 'left' ? 'right' : 'left',
 });
 
-const getMotionTransform = (xVar: string, yVar: string) =>
-  `translate3d(var(${xVar}, 0), var(${yVar}, 0), 0) scale(var(--notification-scale, 1))`;
+const getMotionTransform = (motionOffset?: PlacementMotionOffset) => {
+  const x = motionOffset?.x ?? '0';
+  const y = motionOffset?.y ?? '0';
+
+  return `translate3d(${x}, ${y}, 0) scale(var(--notification-scale, 1))`;
+};
 
 const getPlacementStyleConfig = (
   placement: NotificationPlacement,
@@ -59,9 +61,8 @@ const getPlacementStyleConfig = (
     blockEnd,
     horizontal,
     inlineEnd,
-    enterX: isCenterPlacement ? '-50%' : offset,
-    enterY: isCenterPlacement ? offset : undefined,
-    baseX: isCenterPlacement ? '-50%' : undefined,
+    motionOffset: isCenterPlacement ? { x: '-50%', y: offset } : { x: offset },
+    baseMotionOffset: isCenterPlacement ? { x: '-50%' } : undefined,
     isCenterPlacement,
   };
 };
@@ -92,14 +93,13 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
   const { componentCls } = token;
   const { placement, vertical, blockEnd, horizontal, inlineEnd } = config;
   const noticeCls = `${componentCls}-notice`;
-  const baseTransform = getMotionTransform(MOTION_BASE_X, MOTION_BASE_Y);
+  const noticeMotionCls = `${noticeCls}${componentCls}-fade`;
+  const enterTransform = getMotionTransform(config.motionOffset);
+  const baseTransform = getMotionTransform(config.baseMotionOffset);
   const transformOrigin = getPlacementTransformOrigin(vertical);
 
   return {
     [`&${componentCls}-${placement}`]: {
-      ...(config.baseX && { [MOTION_BASE_X]: config.baseX }),
-      ...(config.enterX && { [MOTION_ENTER_X]: config.enterX }),
-      ...(config.enterY && { [MOTION_ENTER_Y]: config.enterY }),
       [vertical]: `var(--notification-${vertical}, 0)`,
       [blockEnd]: 'auto',
       display: 'flex',
@@ -128,6 +128,32 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
         transformOrigin,
       },
 
+      [`${noticeMotionCls}-appear-prepare, ${noticeMotionCls}-enter-prepare`]: {
+        opacity: 0,
+        transform: enterTransform,
+        transition: 'none',
+      },
+
+      [`${noticeMotionCls}-appear-start, ${noticeMotionCls}-enter-start`]: {
+        opacity: 0,
+        transform: enterTransform,
+      },
+
+      [`${noticeMotionCls}-appear-active, ${noticeMotionCls}-enter-active`]: {
+        opacity: 1,
+        transform: baseTransform,
+      },
+
+      [`${noticeMotionCls}-leave-start`]: {
+        opacity: 1,
+        transform: baseTransform,
+      },
+
+      [`${noticeMotionCls}-leave-active`]: {
+        opacity: 0,
+        transform: enterTransform,
+      },
+
       [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
         [noticeCls]: {
           clipPath: getPlacementStackClipPath(token, vertical),
@@ -146,15 +172,11 @@ export const genNotificationPlacementRootStyle = (
   placements: readonly NotificationPlacement[] = NotificationPlacements,
 ): CSSObject => {
   const { componentCls, notificationMotionOffset } = token;
-  const noticeCls = `${componentCls}-notice`;
-  const noticeMotionCls = `${noticeCls}${componentCls}-fade`;
   const motionOffset = unit(notificationMotionOffset);
   const centerPlacementCls = placements
     .filter((placement) => placement === 'top' || placement === 'bottom')
     .map((placement) => `&${componentCls}-${placement}`)
     .join(', ');
-  const baseTransform = getMotionTransform(MOTION_BASE_X, MOTION_BASE_Y);
-  const enterTransform = getMotionTransform(MOTION_ENTER_X, MOTION_ENTER_Y);
 
   return {
     ...(centerPlacementCls && {
@@ -162,33 +184,6 @@ export const genNotificationPlacementRootStyle = (
         marginInline: 0,
       },
     }),
-
-    [`${noticeMotionCls}-appear-prepare, ${noticeMotionCls}-enter-prepare`]: {
-      opacity: 0,
-      transform: enterTransform,
-      transition: 'none',
-    },
-
-    [`${noticeMotionCls}-appear-start, ${noticeMotionCls}-enter-start`]: {
-      opacity: 0,
-      transform: enterTransform,
-    },
-
-    [`${noticeMotionCls}-appear-active, ${noticeMotionCls}-enter-active`]: {
-      opacity: 1,
-      transform: baseTransform,
-    },
-
-    [`${noticeMotionCls}-leave-start`]: {
-      opacity: 1,
-      transform: baseTransform,
-    },
-
-    [`${noticeMotionCls}-leave-active`]: {
-      opacity: 0,
-      transform: enterTransform,
-    },
-
     ...placements.reduce<CSSObject>(
       (styles, placement) => ({
         ...styles,
