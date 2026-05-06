@@ -365,18 +365,32 @@ describe('message.hooks', () => {
         </div>
       );
     };
+
+    const advanceTimersByFrame = (time: number) => {
+      let current = 0;
+
+      while (current < time) {
+        jest.advanceTimersByTime(16);
+        current += 16;
+      }
+    };
+
     it('should pause the timer when pauseOnHover is true', async () => {
       render(<Demo pauseOnHover />);
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
       act(() => {
-        jest.advanceTimersByTime(3000);
+        advanceTimersByFrame(3008);
       });
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
-      await act(() => {
-        jest.runAllTimers();
+      act(() => {
+        advanceTimersByFrame(2992);
+      });
+      expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
+      act(() => {
+        advanceTimersByFrame(16);
       });
       expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
@@ -386,8 +400,12 @@ describe('message.hooks', () => {
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
-      await act(() => {
-        jest.runAllTimers();
+      act(() => {
+        advanceTimersByFrame(2992);
+      });
+      expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
+      act(() => {
+        advanceTimersByFrame(16);
       });
       expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
