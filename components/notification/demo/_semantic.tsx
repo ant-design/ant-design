@@ -11,6 +11,7 @@ import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import type { SemanticPreviewInjectionProps } from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
 import useCSSVarCls from 'antd/es/config-provider/hooks/useCSSVarCls';
+import type { IconType } from 'antd/es/notification/interface';
 import { getCloseIcon, getTypeIcon } from 'antd/es/notification/PurePanel';
 import useStyle from 'antd/es/notification/style';
 
@@ -60,19 +61,38 @@ const previewListStyle: React.CSSProperties = {
 const NotificationPreview: React.FC<SemanticPreviewInjectionProps> = ({ classNames }) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const noticeClassNames: NotificationClassNames = {
-    ...(classNames as NotificationClassNames),
-    wrapper: clsx(`${noticePrefixCls}-with-icon`, classNames?.wrapper),
+  const listClassNames: NotificationClassNames = {
+    listContent: classNames?.listContent,
   };
 
-  const configList = React.useMemo<NotificationListConfig[]>(
-    () => [
+  const getNoticeClassNames = React.useCallback(
+    (icon: React.ReactNode, type: IconType): NotificationClassNames => ({
+      root: classNames?.root,
+      wrapper: clsx(icon && `${noticePrefixCls}-content`, classNames?.wrapper),
+      icon: clsx(`${noticePrefixCls}-icon-${type}`, classNames?.icon),
+      section: classNames?.section,
+      title: classNames?.title,
+      description: classNames?.description,
+      close: classNames?.close,
+      actions: classNames?.actions,
+      progress: classNames?.progress,
+    }),
+    [classNames],
+  );
+
+  const configList = React.useMemo<NotificationListConfig[]>(() => {
+    const successIcon = getTypeIcon(noticePrefixCls, 'success');
+    const infoIcon = getTypeIcon(noticePrefixCls, 'info');
+
+    return [
       {
         key: 'semantic-notification-1',
         title: 'Hello World!',
         description: 'Hello World?',
         duration: false,
         className: `${noticePrefixCls}-success`,
+        classNames: getNoticeClassNames(successIcon, 'success'),
+        icon: successIcon,
         closable: {
           closeIcon: getCloseIcon(noticePrefixCls),
         },
@@ -89,14 +109,14 @@ const NotificationPreview: React.FC<SemanticPreviewInjectionProps> = ({ classNam
         duration: 999999,
         showProgress: true,
         className: `${noticePrefixCls}-info`,
-        icon: getTypeIcon(noticePrefixCls, 'info'),
+        classNames: getNoticeClassNames(infoIcon, 'info'),
+        icon: infoIcon,
         closable: {
           closeIcon: getCloseIcon(noticePrefixCls),
         },
       },
-    ],
-    [],
-  );
+    ];
+  }, [getNoticeClassNames]);
 
   return (
     <div style={{ minHeight: 320 }}>
@@ -105,7 +125,7 @@ const NotificationPreview: React.FC<SemanticPreviewInjectionProps> = ({ classNam
         placement="topRight"
         configList={configList}
         className={[hashId, cssVarCls, rootCls, classNames?.list].filter(Boolean).join(' ')}
-        classNames={noticeClassNames}
+        classNames={listClassNames}
         style={previewListStyle}
         stack={false}
       />
