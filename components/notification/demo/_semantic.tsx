@@ -1,14 +1,12 @@
 import React from 'react';
-import { Button } from 'antd';
+import { Button, notification } from 'antd';
 import { clsx } from 'clsx';
 
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import type { SemanticPreviewInjectionProps } from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
-import useCSSVarCls from 'antd/es/config-provider/hooks/useCSSVarCls';
-import type { IconType } from 'antd/es/notification/interface';
-import { getCloseIcon, getTypeIcon } from 'antd/es/notification/PurePanel';
-import useStyle from 'antd/es/notification/style';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
+import useStyle from '../style';
 
 const locales = {
   cn: {
@@ -42,6 +40,7 @@ const locales = {
 
 const prefixCls = 'ant-notification';
 const noticePrefixCls = `${prefixCls}-notice`;
+const PurePanel = notification._InternalPanelDoNotUseOrYouWillBeFired;
 
 const previewListStyle: React.CSSProperties = {
   position: 'relative',
@@ -59,59 +58,23 @@ interface NotificationNoticeProps {
   description: React.ReactNode;
   showProgress?: boolean;
   title: React.ReactNode;
-  type: IconType;
+  type: 'success' | 'info';
 }
 
 const NotificationNotice: React.FC<NotificationNoticeProps> = (props) => {
   const { actions, classNames, description, showProgress, title, type } = props;
-  const icon = getTypeIcon(noticePrefixCls, type);
 
   return (
-    <div
-      className={clsx(
-        `${noticePrefixCls}`,
-        `${noticePrefixCls}-${type}`,
-        classNames?.root,
-        `${noticePrefixCls}-closable`,
-      )}
-      role="alert"
-      style={{ position: 'relative' }}
-    >
-      <div className={clsx(icon && `${noticePrefixCls}-content`, classNames?.wrapper)}>
-        <div
-          className={clsx(
-            `${noticePrefixCls}-icon`,
-            `${noticePrefixCls}-icon-${type}`,
-            classNames?.icon,
-          )}
-        >
-          {icon}
-        </div>
-        <div className={clsx(`${noticePrefixCls}-section`, classNames?.section)}>
-          <div className={clsx(`${noticePrefixCls}-title`, classNames?.title)}>{title}</div>
-          <div className={clsx(`${noticePrefixCls}-description`, classNames?.description)}>
-            {description}
-          </div>
-        </div>
-      </div>
-      {actions && (
-        <div className={clsx(`${noticePrefixCls}-actions`, classNames?.actions)}>{actions}</div>
-      )}
-      <button
-        aria-label="Close"
-        className={clsx(`${noticePrefixCls}-close`, classNames?.close)}
-        type="button"
-      >
-        {getCloseIcon(noticePrefixCls)}
-      </button>
-      {showProgress && (
-        <progress
-          className={clsx(`${noticePrefixCls}-progress`, classNames?.progress)}
-          max="100"
-          value="100"
-        />
-      )}
-    </div>
+    <PurePanel
+      prefixCls={prefixCls}
+      actions={actions}
+      className={`${noticePrefixCls}-${type}`}
+      classNames={classNames}
+      description={description}
+      showProgress={showProgress}
+      title={title}
+      type={type}
+    />
   );
 };
 

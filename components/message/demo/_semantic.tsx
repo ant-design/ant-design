@@ -1,12 +1,12 @@
 import React from 'react';
+import { message } from 'antd';
 import { clsx } from 'clsx';
 
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
 import type { SemanticPreviewInjectionProps } from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
-import useCSSVarCls from 'antd/es/config-provider/hooks/useCSSVarCls';
-import { getMessageIcon } from 'antd/es/message/PurePanel';
-import useStyle from 'antd/es/message/style';
+import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
+import useStyle from '../style';
 
 const locales = {
   cn: {
@@ -28,6 +28,7 @@ const locales = {
 
 const prefixCls = 'ant-message';
 const noticePrefixCls = `${prefixCls}-notice`;
+const PurePanel = message._InternalPanelDoNotUseOrYouWillBeFired;
 
 const previewListStyle: React.CSSProperties = {
   position: 'relative',
@@ -47,30 +48,13 @@ interface MessageNoticeProps {
 }
 
 const MessageNotice: React.FC<MessageNoticeProps> = ({ content, type, classNames }) => (
-  <div
-    className={clsx(`${noticePrefixCls}`, `${noticePrefixCls}-${type}`, classNames?.root)}
-    role="alert"
-    style={{ position: 'relative' }}
-  >
-    <div
-      className={clsx(
-        `${noticePrefixCls}-content`,
-        `${prefixCls}-custom-content`,
-        `${prefixCls}-${type}`,
-      )}
-    >
-      <div
-        className={clsx(
-          `${noticePrefixCls}-icon`,
-          `${noticePrefixCls}-icon-${type}`,
-          classNames?.icon,
-        )}
-      >
-        {getMessageIcon(type)}
-      </div>
-      <div className={clsx(`${noticePrefixCls}-title`, classNames?.content)}>{content}</div>
-    </div>
-  </div>
+  <PurePanel
+    prefixCls={prefixCls}
+    className={`${noticePrefixCls}-${type}`}
+    content={content}
+    type={type}
+    classNames={classNames}
+  />
 );
 
 const MessagePreview: React.FC<SemanticPreviewInjectionProps> = ({ classNames }) => {
