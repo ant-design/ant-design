@@ -21,7 +21,7 @@ const App: React.FC = () => {
       type: 'info',
       content: isOdd
         ? `Message ${indexRef.current}: This is a stacked message.`
-        : `Message ${indexRef.current}: This is a stacked message with longer content to show how different heights behave in stack mode.`,
+        : `Message ${indexRef.current}: This is a slightly longer stacked message.`,
       duration: 0,
     });
   };
