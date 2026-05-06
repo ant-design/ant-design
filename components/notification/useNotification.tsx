@@ -18,6 +18,7 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useStackConfig from './hooks/useStackConfig';
 import type {
   ArgsProps,
   NotificationConfig,
@@ -30,6 +31,7 @@ import { getCloseIconConfig, getMotion, getPlacementOffsetStyle } from './util';
 
 const DEFAULT_DURATION = 4.5;
 const DEFAULT_PLACEMENT: NotificationPlacement = 'topRight';
+const DEFAULT_STACK_CONFIG = { offset: 8 };
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -102,6 +104,9 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls);
 
+  // =============================== Stack ===============================
+  const stackConfig = useStackConfig(stack, DEFAULT_STACK_CONFIG);
+
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
@@ -118,13 +123,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     styles: mergedStyles,
     onAllRemoved,
     renderNotifications,
-    stack:
-      stack === false
-        ? false
-        : {
-            threshold: isPlainObject(stack) ? stack?.threshold : undefined,
-            offset: 8,
-          },
+    stack: stackConfig,
   });
 
   // ================================ Ref ================================

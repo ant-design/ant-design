@@ -345,6 +345,22 @@ describe('message.hooks', () => {
     );
   });
 
+  it('should disable stack by default', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage();
+
+      useEffect(() => {
+        api.info({ content: 'test', duration: 0 });
+      }, []);
+
+      return holder;
+    };
+
+    render(<Demo />);
+
+    expect(document.querySelector('.ant-message-stack')).toBeFalsy();
+  });
+
   it('classNames and styles should work', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();

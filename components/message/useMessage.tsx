@@ -17,6 +17,7 @@ import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
 import type { MessageConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
+import useStackConfig from '../notification/hooks/useStackConfig';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -31,6 +32,7 @@ import { getMotion, wrapPromiseFn } from './util';
 
 const DEFAULT_OFFSET = 8;
 const DEFAULT_DURATION = 3;
+const DEFAULT_STACK_CONFIG = false;
 
 // ==============================================================================
 // ==                                  Holder                                  ==
@@ -77,7 +79,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     transitionName,
     onAllRemoved,
     pauseOnHover = true,
-    stack = false,
+    stack,
   } = props;
   const { getPrefixCls, direction, getPopupContainer } = useComponentConfig('message');
   const { message } = React.useContext(ConfigContext);
@@ -105,6 +107,9 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   // ============================== Motion ===============================
   const getNotificationMotion = () => getMotion(prefixCls, transitionName);
 
+  // =============================== Stack ===============================
+  const stackConfig = useStackConfig(stack, DEFAULT_STACK_CONFIG);
+
   // ============================== Origin ===============================
   const [api, holder] = useRcNotification({
     prefixCls,
@@ -128,12 +133,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     },
     renderNotifications,
     pauseOnHover,
-    stack: stack
-      ? {
-          threshold: typeof stack === 'object' ? stack?.threshold : undefined,
-          offset: 8,
-        }
-      : false,
+    stack: stackConfig,
   });
 
   // ================================ Ref ================================
