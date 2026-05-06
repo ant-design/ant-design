@@ -212,8 +212,34 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
     });
   });
 
+  const layoutItemHeights = React.useMemo<ItemHeightData[]>(() => {
+    if (!virtual) {
+      return itemHeights;
+    }
+
+    const knownHeights = itemHeights.map(([, height]) => height).filter((height) => height > 0);
+    const estimatedHeight =
+      knownHeights.length > 0
+        ? knownHeights.reduce((total, current) => total + current, 0) / knownHeights.length
+        : 100;
+
+    const declaredHeightMap = new Map<React.Key, number>();
+    mergedItems.forEach((item, index) => {
+      const key = item.key ?? index;
+      if (item.height && item.height > 0) {
+        declaredHeightMap.set(key, item.height);
+      }
+    });
+
+    return itemHeights.map(([key, height, column]) => [
+      key,
+      height > 0 ? height : (declaredHeightMap.get(key) ?? estimatedHeight),
+      column,
+    ]);
+  }, [itemHeights, mergedItems, virtual]);
+
   const [itemPositions, totalHeight] = usePositions(
-    itemHeights,
+    layoutItemHeights,
     columnCount,
     verticalGutter as number,
   );
