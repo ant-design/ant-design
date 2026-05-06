@@ -21,7 +21,7 @@ export interface AlertRef {
   nativeElement: HTMLDivElement;
 }
 
-export type AlertVariant = 'bordered' | 'borderless';
+export type AlertVariant = 'outlined' | 'filled';
 
 export type AlertSemanticType = {
   classNames?: {
@@ -244,7 +244,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     return banner ? 'warning' : 'info';
   }, [props.type, banner]);
 
-  const mergedVariant = props.variant ?? contextVariant ?? 'bordered';
+  const mergedVariant = props.variant ?? contextVariant ?? 'outlined';
 
   // closeable when closeText or closeIcon is assigned
   const isClosable = React.useMemo<boolean>(() => {
@@ -289,7 +289,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
   const alertCls = clsx(
     prefixCls,
     `${prefixCls}-${type}`,
-    `${prefixCls}-variant-${mergedVariant}`,
+    `${prefixCls}-${mergedVariant}`,
     {
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !isShowIcon,
