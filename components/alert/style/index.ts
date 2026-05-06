@@ -89,7 +89,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         borderColor: colorErrorBorder,
       },
 
-      [`&${componentCls}-variant-filled`]: {
+      [`&${componentCls}-filled`]: {
         borderColor: 'transparent',
       },
 

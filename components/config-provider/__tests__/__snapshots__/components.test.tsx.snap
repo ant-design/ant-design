@@ -110,7 +110,7 @@ exports[`ConfigProvider components Alert normal 1`] = `
 
 exports[`ConfigProvider components Alert prefixCls 1`] = `
 <div
-  class="prefix-Alert prefix-Alert-success prefix-alert-outlined prefix-Alert-no-icon css-var-root"
+  class="prefix-Alert prefix-Alert-success prefix-Alert-outlined prefix-Alert-no-icon css-var-root"
   data-show="true"
   role="alert"
 >

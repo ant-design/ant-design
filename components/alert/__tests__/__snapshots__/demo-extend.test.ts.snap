@@ -467,26 +467,6 @@ exports[`renders components/alert/demo/basic.tsx extend context correctly 1`] = 
 
 exports[`renders components/alert/demo/basic.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/alert/demo/filled.tsx extend context correctly 1`] = `
-<div
-  class="ant-alert ant-alert-info ant-alert-filled ant-alert-no-icon css-var-test-id"
-  data-show="true"
-  role="alert"
->
-  <div
-    class="ant-alert-section"
-  >
-    <div
-      class="ant-alert-title"
-    >
-      Info Text
-    </div>
-  </div>
-</div>
-`;
-
-exports[`renders components/alert/demo/filled.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/alert/demo/closable.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1122,6 +1102,26 @@ exports[`renders components/alert/demo/error-boundary.tsx extend context correct
 
 exports[`renders components/alert/demo/error-boundary.tsx extend context correctly 2`] = `[]`;
 
+exports[`renders components/alert/demo/filled.tsx extend context correctly 1`] = `
+<div
+  class="ant-alert ant-alert-info ant-alert-filled ant-alert-no-icon css-var-test-id"
+  data-show="true"
+  role="alert"
+>
+  <div
+    class="ant-alert-section"
+  >
+    <div
+      class="ant-alert-title"
+    >
+      Info Text
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders components/alert/demo/filled.tsx extend context correctly 2`] = `[]`;
+
 exports[`renders components/alert/demo/icon.tsx extend context correctly 1`] = `
 Array [
   <div
@@ -1661,7 +1661,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-alert ant-alert-info ant-alert-outlined acss-1oobf4f css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-outlined acss-hrwuh css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1713,7 +1713,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-alert ant-alert-success ant-alert-outlined acss-1oobf4f css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-outlined acss-hrwuh css-var-test-id"
     data-show="true"
     role="alert"
     style="background-color: rgba(82, 196, 26, 0.1); border-color: rgb(183, 235, 143);"
