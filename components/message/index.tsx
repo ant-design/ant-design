@@ -11,6 +11,7 @@ import type {
   NoticeType,
   TypeOpen,
 } from './interface';
+import PureList from './PureList';
 import PurePanel from './PurePanel';
 import useMessage, { useInternalMessage } from './useMessage';
 import { wrapPromiseFn } from './util';
@@ -290,6 +291,8 @@ interface BaseMethods {
   useMessage: typeof useMessage;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  /** @private Internal Component. Do not use in your production. */
+  _InternalListDoNotUseOrYouWillBeFired: typeof PureList;
 }
 
 interface MessageMethods {
@@ -308,6 +311,7 @@ const baseStaticMethods: BaseMethods = {
   config: setMessageGlobalConfig,
   useMessage,
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
+  _InternalListDoNotUseOrYouWillBeFired: PureList,
 };
 
 const staticMethods = baseStaticMethods as MessageMethods & BaseMethods;

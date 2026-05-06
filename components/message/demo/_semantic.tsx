@@ -1,12 +1,8 @@
 import React from 'react';
 import { message } from 'antd';
-import { clsx } from 'clsx';
 
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
-import type { SemanticPreviewInjectionProps } from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
-import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
-import useStyle from '../style';
 
 const locales = {
   cn: {
@@ -26,9 +22,7 @@ const locales = {
   },
 };
 
-const prefixCls = 'ant-message';
-const noticePrefixCls = `${prefixCls}-notice`;
-const PurePanel = message._InternalPanelDoNotUseOrYouWillBeFired;
+const PureList = message._InternalListDoNotUseOrYouWillBeFired;
 
 const previewListStyle: React.CSSProperties = {
   position: 'relative',
@@ -39,47 +33,6 @@ const previewListStyle: React.CSSProperties = {
   padding: 24,
   overflow: 'visible',
   transform: 'none',
-};
-
-interface MessageNoticeProps {
-  content: React.ReactNode;
-  type: 'success' | 'info';
-  classNames?: Record<string, string>;
-}
-
-const MessageNotice: React.FC<MessageNoticeProps> = ({ content, type, classNames }) => (
-  <PurePanel
-    prefixCls={prefixCls}
-    className={`${noticePrefixCls}-${type}`}
-    content={content}
-    type={type}
-    classNames={classNames}
-  />
-);
-
-const MessagePreview: React.FC<SemanticPreviewInjectionProps> = ({ classNames }) => {
-  const rootCls = useCSSVarCls(prefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
-  return (
-    <div
-      className={clsx(
-        prefixCls,
-        `${prefixCls}-list`,
-        `${prefixCls}-top`,
-        hashId,
-        cssVarCls,
-        rootCls,
-        classNames?.list,
-      )}
-      style={previewListStyle}
-    >
-      <div className={clsx(`${prefixCls}-list-content`, classNames?.listContent)}>
-        <MessageNotice content="Hello, Ant Design!" type="success" classNames={classNames} />
-        <MessageNotice content="Welcome back!" type="info" classNames={classNames} />
-      </div>
-    </div>
-  );
 };
 
 const App: React.FC = () => {
@@ -95,7 +48,23 @@ const App: React.FC = () => {
         { name: 'listContent', desc: locale.listContent, version: '6.4.0' },
       ]}
     >
-      <MessagePreview />
+      <PureList
+        style={previewListStyle}
+        items={[
+          {
+            key: 'semantic-message-1',
+            content: 'Hello, Ant Design!',
+            type: 'success',
+            duration: false,
+          },
+          {
+            key: 'semantic-message-2',
+            content: 'Welcome back!',
+            type: 'info',
+            duration: false,
+          },
+        ]}
+      />
     </SemanticPreview>
   );
 };

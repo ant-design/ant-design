@@ -1,12 +1,8 @@
 import React from 'react';
 import { Button, notification } from 'antd';
-import { clsx } from 'clsx';
 
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
-import type { SemanticPreviewInjectionProps } from '../../../.dumi/theme/common/SemanticPreview';
 import useLocale from '../../../.dumi/hooks/useLocale';
-import useCSSVarCls from '../../config-provider/hooks/useCSSVarCls';
-import useStyle from '../style';
 
 const locales = {
   cn: {
@@ -38,9 +34,7 @@ const locales = {
   },
 };
 
-const prefixCls = 'ant-notification';
-const noticePrefixCls = `${prefixCls}-notice`;
-const PurePanel = notification._InternalPanelDoNotUseOrYouWillBeFired;
+const PureList = notification._InternalListDoNotUseOrYouWillBeFired;
 
 const previewListStyle: React.CSSProperties = {
   position: 'relative',
@@ -52,80 +46,12 @@ const previewListStyle: React.CSSProperties = {
   transform: 'none',
 };
 
-interface NotificationNoticeProps {
-  actions?: React.ReactNode;
-  classNames?: Record<string, string>;
-  description: React.ReactNode;
-  showProgress?: boolean;
-  title: React.ReactNode;
-  type: 'success' | 'info';
-}
-
-const NotificationNotice: React.FC<NotificationNoticeProps> = (props) => {
-  const { actions, classNames, description, showProgress, title, type } = props;
-
-  return (
-    <PurePanel
-      prefixCls={prefixCls}
-      actions={actions}
-      className={`${noticePrefixCls}-${type}`}
-      classNames={classNames}
-      description={description}
-      showProgress={showProgress}
-      title={title}
-      type={type}
-    />
-  );
-};
-
-const NotificationPreview: React.FC<SemanticPreviewInjectionProps> = ({ classNames }) => {
-  const rootCls = useCSSVarCls(prefixCls);
-  const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-
-  return (
-    <div style={{ minHeight: 320 }}>
-      <div
-        className={clsx(
-          prefixCls,
-          `${prefixCls}-list`,
-          `${prefixCls}-topRight`,
-          hashId,
-          cssVarCls,
-          rootCls,
-          classNames?.list,
-        )}
-        style={previewListStyle}
-      >
-        <div className={clsx(`${prefixCls}-list-content`, classNames?.listContent)}>
-          <NotificationNotice
-            actions={
-              <Button type="primary" size="small">
-                My Button
-              </Button>
-            }
-            classNames={classNames}
-            description="Hello World?"
-            title="Hello World!"
-            type="success"
-          />
-          <NotificationNotice
-            classNames={classNames}
-            description="This is another notification."
-            showProgress
-            title="Welcome back!"
-            type="info"
-          />
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const App: React.FC = () => {
   const [locale] = useLocale(locales);
   return (
     <SemanticPreview
       componentName="Notification"
+      height={320}
       semantics={[
         { name: 'root', desc: locale.root, version: '6.0.0' },
         { name: 'wrapper', desc: locale.wrapper, version: '6.4.0' },
@@ -140,7 +66,32 @@ const App: React.FC = () => {
         { name: 'listContent', desc: locale.listContent, version: '6.4.0' },
       ]}
     >
-      <NotificationPreview />
+      <PureList
+        placement="topRight"
+        style={previewListStyle}
+        items={[
+          {
+            key: 'semantic-notification-1',
+            title: 'Hello World!',
+            description: 'Hello World?',
+            type: 'success',
+            duration: false,
+            actions: (
+              <Button type="primary" size="small">
+                My Button
+              </Button>
+            ),
+          },
+          {
+            key: 'semantic-notification-2',
+            title: 'Welcome back!',
+            description: 'This is another notification.',
+            type: 'info',
+            duration: 999999,
+            showProgress: true,
+          },
+        ]}
+      />
     </SemanticPreview>
   );
 };

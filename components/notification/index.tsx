@@ -4,6 +4,7 @@ import { render } from '@rc-component/util/lib/React/render';
 import { AppConfigContext } from '../app/context';
 import ConfigProvider, { ConfigContext, globalConfig, warnContext } from '../config-provider';
 import type { ArgsProps, GlobalConfigProps, NotificationInstance } from './interface';
+import PureList from './PureList';
 import PurePanel from './PurePanel';
 import useNotification, { useInternalNotification } from './useNotification';
 
@@ -207,6 +208,8 @@ interface BaseMethods {
   useNotification: typeof useNotification;
   /** @private Internal Component. Do not use in your production. */
   _InternalPanelDoNotUseOrYouWillBeFired: typeof PurePanel;
+  /** @private Internal Component. Do not use in your production. */
+  _InternalListDoNotUseOrYouWillBeFired: typeof PureList;
 }
 
 type StaticFn = (config: ArgsProps) => void;
@@ -226,6 +229,7 @@ const baseStaticMethods: BaseMethods = {
   config: setNotificationGlobalConfig,
   useNotification,
   _InternalPanelDoNotUseOrYouWillBeFired: PurePanel,
+  _InternalListDoNotUseOrYouWillBeFired: PureList,
 };
 
 const staticMethods = baseStaticMethods as NoticeMethods & BaseMethods;
