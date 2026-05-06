@@ -8,7 +8,6 @@ import { Notification as RcNotification } from '@rc-component/notification';
 import type { NotificationProps as RcNotificationProps } from '@rc-component/notification';
 import { clsx } from 'clsx';
 
-import { isNonNullable } from '../_util/is';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
@@ -78,7 +77,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     },
   );
   const iconNode = getMessageIcon(type, icon);
-  const hasIcon = isNonNullable(iconNode);
   const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
   const rcClassNames: RcNotificationProps['classNames'] = {
     wrapper: clsx(
@@ -87,7 +85,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       type && `${prefixCls}-${type}`,
     ),
     icon: clsx(typeIconCls, mergedClassNames.icon),
-    title: clsx(!hasIcon && `${noticePrefixCls}-content`, mergedClassNames.content),
+    title: mergedClassNames.content,
   };
   const rcStyles: RcNotificationProps['styles'] = {
     icon: mergedStyles.icon,
@@ -110,7 +108,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       <RcNotification
         {...restProps}
         prefixCls={prefixCls}
-        className={clsx(className, contextClassName)}
+        className={contextClassName}
         style={{ ...contextStyle, ...style }}
         duration={null}
         icon={iconNode}

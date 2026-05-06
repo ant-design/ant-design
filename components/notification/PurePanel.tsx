@@ -37,27 +37,6 @@ export function getCloseIcon(prefixCls: string, closeIcon?: React.ReactNode): Re
   return closeIcon || <CloseOutlined className={`${prefixCls}-close-icon`} />;
 }
 
-export function getTypeIcon(
-  prefixCls: string,
-  type?: IconType,
-  style?: React.CSSProperties,
-): React.ReactNode {
-  if (!type) {
-    return null;
-  }
-
-  const iconNode = TypeIcon[type];
-  return iconNode
-    ? React.cloneElement(iconNode, {
-        className: clsx(iconNode.props.className, `${prefixCls}-icon-${type}`),
-        style: {
-          ...iconNode.props.style,
-          ...style,
-        },
-      })
-    : null;
-}
-
 export interface PurePanelProps
   extends Omit<
     RcNotificationProps,
@@ -174,7 +153,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         prefixCls={prefixCls}
         duration={null}
         closable={mergedClosable}
-        className={clsx(notificationClassName, contextClassName)}
+        className={contextClassName}
         title={hasTitle ? mergedTitle : null}
         description={description || null}
         icon={iconNode}

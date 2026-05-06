@@ -514,14 +514,14 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
     style="--notification-index: 0;"
   >
     <div
-      class="ant-notification-notice-with-icon"
+      class="ant-notification-notice-content"
     >
       <div
-        class="ant-notification-notice-icon"
+        class="ant-notification-notice-icon ant-notification-notice-icon-success"
       >
         <span
           aria-label="check-circle"
-          class="anticon anticon-check-circle ant-notification-notice-icon-success"
+          class="anticon anticon-check-circle"
           role="img"
         >
           <svg

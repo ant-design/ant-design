@@ -238,7 +238,6 @@ export function useInternalMessage(
 
       const mergedStyles = mergeStyles(contextStyles, semanticStyles, originStyles);
       const iconNode = getMessageIcon(type, icon);
-      const hasIcon = iconNode !== null;
       const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
       return wrapPromiseFn((resolve) => {
@@ -254,7 +253,7 @@ export function useInternalMessage(
               type && `${prefixCls}-${type}`,
             ),
             icon: clsx(typeIconCls, mergedClassNames.icon),
-            title: clsx(!hasIcon && `${noticePrefixCls}-content`, mergedClassNames.content),
+            title: mergedClassNames.content,
           } satisfies RcNotificationProps['classNames'],
           styles: {
             icon: mergedStyles.icon,
