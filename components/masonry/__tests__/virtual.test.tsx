@@ -79,6 +79,31 @@ describe('Masonry.virtual', () => {
     );
   };
 
+  const DemoWithoutDeclaredHeight = (
+    props: Partial<React.ComponentProps<typeof Masonry<number>>>,
+  ) => {
+    const items = heights.map((height, index) => ({
+      key: `no-height-item-${index}`,
+      data: height,
+    }));
+
+    return (
+      <Masonry
+        virtual
+        style={{ height: 400 }}
+        columns={2}
+        gutter={12}
+        items={items}
+        itemRender={({ data, index, column }) => (
+          <div className="masonry-cell" data-height={data} data-column={column}>
+            {index + 1}
+          </div>
+        )}
+        {...props}
+      />
+    );
+  };
+
   it('renders correctly when virtual is enabled', async () => {
     const { container } = render(<Demo />);
     await resizeMasonry();
@@ -119,6 +144,16 @@ describe('Masonry.virtual', () => {
     expect(afterTexts).not.toEqual(beforeTexts);
   });
 
+  it('handles deep scroll range lookups', async () => {
+    const { getByTestId, container } = render(<Demo />);
+    await resizeMasonry();
+
+    fireEvent.scroll(getByTestId('virtual-list'), { target: { scrollTop: 2200 } });
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.masonry-cell').length).toBeGreaterThan(0);
+  });
+
   it('triggers onLayoutChange callback', async () => {
     const onLayoutChange = jest.fn();
     render(<Demo onLayoutChange={onLayoutChange} />);
@@ -149,5 +184,24 @@ describe('Masonry.virtual', () => {
     await waitFakeTimer();
 
     expect(onLayoutChange.mock.calls.length).toBeGreaterThan(firstCount);
+  });
+
+  it('handles collect calls during active scrolling', async () => {
+    const { container, getByTestId } = render(<DemoWithoutDeclaredHeight />);
+    await resizeMasonry();
+
+    const virtualList = getByTestId('virtual-list');
+    const root = container.querySelector('.ant-masonry') as HTMLElement;
+
+    fireEvent.scroll(virtualList, { target: { scrollTop: 120 } });
+    fireEvent.load(root);
+    fireEvent.error(root);
+    fireEvent.scroll(virtualList, { target: { scrollTop: 260 } });
+    fireEvent.scroll(virtualList, { target: { scrollTop: 320 } });
+
+    triggerResize(virtualList);
+    await waitFakeTimer();
+
+    expect(container.querySelectorAll('.masonry-cell').length).toBeGreaterThan(0);
   });
 });
