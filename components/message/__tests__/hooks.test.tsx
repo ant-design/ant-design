@@ -326,6 +326,18 @@ describe('message.hooks', () => {
 
     const styleText = extractStyle(cache, true);
     expect(styleText).toMatch(/\.ant-message-notice\{[^}]*z-index:1/);
+    expect(styleText).toMatch(
+      /\.ant-message-stack .ant-message-list-content\{[^}]*isolation:isolate/,
+    );
+    expect(styleText).toMatch(
+      /\.ant-message-stack .ant-message-list-content::before\{[^}]*z-index:-1/,
+    );
+    expect(styleText).toMatch(
+      /\.ant-message-stack .ant-message-list-content::before\{[^}]*height:calc\(var\(--ant-margin-xs\) \* 2\)/,
+    );
+    expect(styleText).toMatch(
+      /\.ant-message-stack .ant-message-list-content::after\{[^}]*z-index:-2/,
+    );
     expect(styleText).toContain('.ant-message-stack .ant-message-list-content::before');
     expect(styleText).toContain('.ant-message-stack .ant-message-list-content::after');
     expect(styleText).toMatch(

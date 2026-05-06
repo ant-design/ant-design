@@ -118,10 +118,11 @@ const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
   const placeholderStyle: CSSObject = {
     ...genNotificationCardStyle(token),
     position: 'absolute',
-    zIndex: 0,
+    zIndex: -1,
     left: '50%',
-    height: token.marginXS,
+    height: token.calc(token.marginXS).mul(2).equal(),
     padding: 0,
+    boxShadow: token.boxShadowTertiary,
     opacity: 0,
     pointerEvents: 'none',
     transform: 'translateX(-50%) translateY(100%)',
@@ -137,14 +138,17 @@ const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
     [componentCls]: {
       [`&${componentCls}-stack`]: {
         [listContentCls]: {
+          isolation: 'isolate',
+
           '&::before': {
             ...placeholderStyle,
-            top: 'var(--top-notificiation-height)',
+            top: `calc(var(--top-notificiation-height) - ${unit(token.marginXS)})`,
             width: `calc(var(--top-notificiation-width) - ${unit(token.margin)})`,
           },
           '&::after': {
             ...placeholderStyle,
-            top: `calc(var(--top-notificiation-height) + ${unit(token.marginXS)})`,
+            zIndex: -2,
+            top: 'var(--top-notificiation-height)',
             width: `calc(var(--top-notificiation-width) - ${unit(
               token.calc(token.margin).mul(2).equal(),
             )})`,
