@@ -55,12 +55,12 @@ const computeClosableConfig = (
     return false;
   }
 
-  if ((closable === undefined || closable === null) && closeIcon === undefined) {
+  if (!isNonNullable(closable) && closeIcon === undefined) {
     return null;
   }
 
   let closableConfig: ClosableType = {
-    closeIcon: typeof closeIcon !== 'boolean' && closeIcon !== null ? closeIcon : undefined,
+    closeIcon: typeof closeIcon !== 'boolean' && isNonNullable(closeIcon) ? closeIcon : undefined,
   };
 
   if (isPlainObject(closable)) {
