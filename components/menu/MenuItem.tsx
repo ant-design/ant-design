@@ -47,7 +47,6 @@ const MenuItem: GenericComponent = (props) => {
     styles,
     classNames,
   } = React.useContext<MenuContextProps>(MenuContext);
-
   const renderItemChildren = (inlineCollapsed: boolean) => {
     const label = (children as React.ReactNode[])?.[0];
     const hasExtra = !!extra || extra === 0;

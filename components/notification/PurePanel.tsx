@@ -87,6 +87,7 @@ export const PureContent: React.FC<PureContentProps> = (props) => {
       style: styles.icon,
     });
   }
+
   const hasTitle = isNonNullable(title) && title !== false && title !== '';
 
   return (
