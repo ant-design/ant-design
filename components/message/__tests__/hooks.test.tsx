@@ -386,8 +386,8 @@ describe('message.hooks', () => {
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
-      act(() => {
-        jest.advanceTimersByTime(3000);
+      await act(() => {
+        jest.runAllTimers();
       });
       expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
