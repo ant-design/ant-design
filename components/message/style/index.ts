@@ -55,6 +55,7 @@ const genMessageItemStyle = (token: NotificationToken): CSSObject => {
   return {
     [noticeCls]: {
       position: 'absolute',
+      zIndex: 1,
       width: 'max-content',
       maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
       padding: notificationPadding,
@@ -114,34 +115,45 @@ const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => ({
 const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
   const { componentCls } = token;
   const listContentCls = `${componentCls}-list-content`;
+  const placeholderStyle: CSSObject = {
+    ...genNotificationCardStyle(token),
+    position: 'absolute',
+    zIndex: 0,
+    left: '50%',
+    height: token.marginXS,
+    padding: 0,
+    opacity: 0,
+    pointerEvents: 'none',
+    transform: 'translateX(-50%) translateY(100%)',
+    transition: [
+      `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
+      `transform ${token.motionDurationFast} ${token.motionEaseInOut}`,
+      `width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
+    ].join(', '),
+    content: '""',
+  };
 
   return {
     [componentCls]: {
       [`&${componentCls}-stack`]: {
         [listContentCls]: {
           '&::before': {
-            ...genNotificationCardStyle(token),
-            position: 'absolute',
+            ...placeholderStyle,
             top: 'var(--top-notificiation-height)',
-            left: '50%',
             width: `calc(var(--top-notificiation-width) - ${unit(token.margin)})`,
-            height: token.marginXS,
-            padding: 0,
-            opacity: 0,
-            pointerEvents: 'none',
-            transform: 'translateX(-50%) translateY(100%)',
-            transition: [
-              `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
-              `transform ${token.motionDurationFast} ${token.motionEaseInOut}`,
-              `width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-            ].join(', '),
-            content: '""',
+          },
+          '&::after': {
+            ...placeholderStyle,
+            top: `calc(var(--top-notificiation-height) + ${unit(token.marginXS)})`,
+            width: `calc(var(--top-notificiation-width) - ${unit(
+              token.calc(token.margin).mul(2).equal(),
+            )})`,
           },
         },
 
         [`&:not(${componentCls}-stack-expanded)`]: {
           [listContentCls]: {
-            '&::before': {
+            '&::before, &::after': {
               opacity: 1,
               transform: 'translateX(-50%) translateY(0)',
             },

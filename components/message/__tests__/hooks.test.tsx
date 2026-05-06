@@ -298,6 +298,41 @@ describe('message.hooks', () => {
       '--ant-font-size': '20px',
     });
   });
+
+  it('should render stack placeholders below notice', () => {
+    const cache = createCache();
+
+    const Demo = () => {
+      const [api, holder] = message.useMessage({ stack: true });
+
+      return (
+        <StyleProvider cache={cache}>
+          {holder}
+          <button
+            type="button"
+            onClick={() => {
+              api.info({ content: 'first', duration: 0 });
+              api.info({ content: 'second', duration: 0 });
+            }}
+          >
+            open
+          </button>
+        </StyleProvider>
+      );
+    };
+
+    const { container } = render(<Demo />);
+    fireEvent.click(container.querySelector('button')!);
+
+    const styleText = extractStyle(cache, true);
+    expect(styleText).toMatch(/\.ant-message-notice\{[^}]*z-index:1/);
+    expect(styleText).toContain('.ant-message-stack .ant-message-list-content::before');
+    expect(styleText).toContain('.ant-message-stack .ant-message-list-content::after');
+    expect(styleText).toMatch(
+      /\.ant-message-stack:not\(\.ant-message-stack-expanded\) .ant-message-list-content::before,\.[^{]+::after\{[^}]*opacity:1/,
+    );
+  });
+
   it('classNames and styles should work', () => {
     const Demo = () => {
       const [api, holder] = message.useMessage();
