@@ -6371,6 +6371,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
                 aria-label="down"
                 class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
+                style="transform: rotate(0deg); transition: transform 0.3s;"
               >
                 <svg
                   aria-hidden="true"
@@ -6422,6 +6423,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
                 aria-label="down"
                 class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
+                style="transform: rotate(0deg); transition: transform 0.3s;"
               >
                 <svg
                   aria-hidden="true"
@@ -6584,6 +6586,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
                 aria-label="down"
                 class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
+                style="transform: rotate(-90deg); transition: transform 0.3s;"
               >
                 <svg
                   aria-hidden="true"
@@ -6635,6 +6638,7 @@ exports[`renders components/tree/demo/switcher-icon.tsx extend context correctly
                 aria-label="down"
                 class="anticon anticon-down ant-tree-switcher-line-icon"
                 role="img"
+                style="transform: rotate(-90deg); transition: transform 0.3s;"
               >
                 <svg
                   aria-hidden="true"

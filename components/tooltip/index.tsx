@@ -15,6 +15,7 @@ import type { RenderFunction } from '../_util/getRenderPropValue';
 import { useZIndex } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import { getTransitionName } from '../_util/motion';
 import type { AdjustOverflow, PlacementsConfig } from '../_util/placements';
 import getPlacements from '../_util/placements';
@@ -68,20 +69,19 @@ export interface TooltipAlignConfig {
   useCssTransform?: boolean;
 }
 // remove this after RcTooltip switch visible to open.
-interface LegacyTooltipProps
-  extends Partial<
-    Omit<
-      RcTooltipProps,
-      | 'children'
-      | 'visible'
-      | 'defaultVisible'
-      | 'onVisibleChange'
-      | 'afterVisibleChange'
-      | 'destroyTooltipOnHide'
-      | 'classNames'
-      | 'styles'
-    >
-  > {
+interface LegacyTooltipProps extends Partial<
+  Omit<
+    RcTooltipProps,
+    | 'children'
+    | 'visible'
+    | 'defaultVisible'
+    | 'onVisibleChange'
+    | 'afterVisibleChange'
+    | 'destroyTooltipOnHide'
+    | 'classNames'
+    | 'styles'
+  >
+> {
   open?: RcTooltipProps['visible'];
   defaultOpen?: RcTooltipProps['defaultVisible'];
   onOpenChange?: RcTooltipProps['onVisibleChange'];
@@ -187,17 +187,25 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const [, token] = useToken();
 
+  const injectFromPopover = props['data-popover-inject'];
+
   const {
     getPopupContainer: getContextPopupContainer,
     getPrefixCls,
     direction,
+    ...semanticConfig
+  } = useComponentConfig('tooltip');
+
+  // When injected from Popover/Popconfirm, skip tooltip-specific semantic config
+  // to prevent ConfigProvider tooltip config from leaking into those components
+  const {
     className: contextClassName,
     style: contextStyle,
     classNames: contextClassNames,
     styles: contextStyles,
     arrow: contextArrow,
     trigger: contextTrigger,
-  } = useComponentConfig('tooltip');
+  }: Partial<typeof semanticConfig> = injectFromPopover ? {} : semanticConfig;
 
   const mergedArrow = useMergedArrow(tooltipArrow, contextArrow);
   const mergedShowArrow = mergedArrow.show;
@@ -274,7 +282,7 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
 
   const memoOverlayWrapper = (
     <ContextIsolator space form>
-      {typeof memoOverlay === 'function' ? memoOverlay() : memoOverlay}
+      {isFunction(memoOverlay) ? memoOverlay() : memoOverlay}
     </ContextIsolator>
   );
 
@@ -298,8 +306,6 @@ const InternalTooltip = React.forwardRef<TooltipRef, InternalTooltipProps>((prop
   const prefixCls = getPrefixCls('tooltip', customizePrefixCls);
 
   const rootPrefixCls = getPrefixCls();
-
-  const injectFromPopover = props['data-popover-inject'];
 
   let tempOpen = open;
   // Hide tooltip when there is no title or in table measure row

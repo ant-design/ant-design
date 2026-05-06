@@ -559,6 +559,8 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
     lineType,
     groupTitleLineHeight,
     groupTitleFontSize,
+    iconSize,
+    iconMarginInlineEnd,
   } = token;
 
   return [
@@ -659,6 +661,15 @@ const getBaseStyle: GenerateStyle<MenuToken> = (token) => {
             marginInlineStart: 'auto',
             paddingInlineStart: token.padding,
           },
+        },
+
+        [`${componentCls}-item-icon + ${componentCls}-title-content-with-extra`]: {
+          width: `calc(100% - ${unit(
+            token
+              .calc(iconSize)
+              .add(iconMarginInlineEnd ?? 0)
+              .equal(),
+          )})`,
         },
 
         [`${componentCls}-item a`]: {

@@ -76,11 +76,11 @@ const ArticleList: React.FC<ArticleListProps> = ({ name, data = [], authors = []
             const author = authors.find((auth) => auth.name === article.author);
             return (
               <li key={index}>
-                <a href={author?.href} target="_blank" rel="noreferrer">
+                <a href={author?.href} target="_blank" rel="noopener noreferrer">
                   <Avatar size="small" src={author?.avatar} />
                 </a>
                 <Divider vertical />
-                <a href={article.href} target="_blank" rel="noreferrer">
+                <a href={article.href} target="_blank" rel="noopener noreferrer">
                   {article?.title}
                 </a>
               </li>

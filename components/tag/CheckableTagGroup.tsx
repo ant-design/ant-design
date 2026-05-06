@@ -6,6 +6,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import CheckableTag from './CheckableTag';
@@ -14,6 +15,8 @@ import useStyle from './style';
 export type CheckableTagOption<CheckableTagValue> = {
   value: CheckableTagValue;
   label: ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 };
 
 interface CheckableTagGroupSingleProps<CheckableTagValue> {
@@ -126,7 +129,7 @@ const CheckableTagGroup = React.forwardRef<
       return [];
     }
     return options.map((option) => {
-      if (option && typeof option === 'object') {
+      if (isPlainObject(option)) {
         return option;
       }
       return { value: option, label: option };
@@ -193,8 +196,8 @@ const CheckableTagGroup = React.forwardRef<
       {parsedOptions.map((option) => (
         <CheckableTag
           key={option.value}
-          className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item)}
-          style={mergedStyles.item}
+          className={clsx(`${groupPrefixCls}-item`, mergedClassNames.item, option.className)}
+          style={{ ...mergedStyles.item, ...option.style }}
           checked={
             multiple
               ? ((mergedValue as CheckableTagValue[]) || []).includes(option.value)
