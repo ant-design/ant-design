@@ -72,44 +72,22 @@ const PureList: React.FC<PureListProps> = (props) => {
           key: key ?? `antd-message-${index}`,
           icon: iconNode,
           title: content,
-          placement,
-          className: clsx(
-            type && `${noticePrefixCls}-${type}`,
-            itemClassName,
-            classNames?.root,
-            itemClassNames.root,
-          ),
+          className: clsx(type && `${noticePrefixCls}-${type}`, itemClassName),
           classNames: {
-            wrapper: clsx(
-              `${noticePrefixCls}-content`,
-              `${prefixCls}-custom-content`,
-              type && `${prefixCls}-${type}`,
-            ),
-            icon: clsx(typeIconCls, classNames?.icon, itemClassNames.icon),
-            title: clsx(
-              !hasIcon && `${noticePrefixCls}-content`,
-              classNames?.content,
-              itemClassNames.content,
-            ),
+            root: itemClassNames.root,
+            wrapper: clsx(type && `${prefixCls}-${type}`),
+            icon: clsx(typeIconCls, itemClassNames.icon),
+            title: clsx(!hasIcon && `${noticePrefixCls}-content`, itemClassNames.content),
           },
-          style: {
-            ...styles?.root,
-            ...itemStyles.root,
-            ...itemStyle,
-          },
+          style: itemStyle,
           styles: {
-            icon: {
-              ...styles?.icon,
-              ...itemStyles.icon,
-            },
-            title: {
-              ...styles?.content,
-              ...itemStyles.content,
-            },
+            root: itemStyles.root,
+            icon: itemStyles.icon,
+            title: itemStyles.content,
           },
         };
       }),
-    [classNames, items, noticePrefixCls, placement, prefixCls, styles],
+    [items, noticePrefixCls, prefixCls],
   );
 
   return (
@@ -120,10 +98,17 @@ const PureList: React.FC<PureListProps> = (props) => {
       configList={configList}
       className={clsx(hashId, cssVarCls, rootCls, classNames?.list, className)}
       classNames={{
+        root: classNames?.root,
+        wrapper: clsx(`${noticePrefixCls}-content`, `${prefixCls}-custom-content`),
+        icon: classNames?.icon,
+        title: classNames?.content,
         listContent: classNames?.listContent,
       }}
-      style={style}
+      style={{ ...styles?.list, ...style }}
       styles={{
+        root: styles?.root,
+        icon: styles?.icon,
+        title: styles?.content,
         listContent: styles?.listContent,
       }}
       stack={stack}

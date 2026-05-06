@@ -28,7 +28,7 @@ exports[`renders components/message/demo/_semantic.tsx correctly 1`] = `
               class="ant-message-notice-content ant-message-custom-content ant-message-success"
             >
               <div
-                class="ant-message-notice-icon ant-message-notice-icon-success semantic-mark-icon"
+                class="ant-message-notice-icon semantic-mark-icon ant-message-notice-icon-success"
               >
                 <span
                   aria-label="check-circle"
@@ -67,7 +67,7 @@ exports[`renders components/message/demo/_semantic.tsx correctly 1`] = `
               class="ant-message-notice-content ant-message-custom-content ant-message-info"
             >
               <div
-                class="ant-message-notice-icon ant-message-notice-icon-info semantic-mark-icon"
+                class="ant-message-notice-icon semantic-mark-icon ant-message-notice-icon-info"
               >
                 <span
                   aria-label="info-circle"

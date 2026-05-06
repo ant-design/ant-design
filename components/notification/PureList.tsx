@@ -8,7 +8,7 @@ import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { ArgsProps, NotificationPlacement, NotificationSemanticAllType } from './interface';
+import type { ArgsProps, NotificationSemanticAllType } from './interface';
 import { getCloseIcon, TypeIcon } from './PurePanel';
 import useStyle from './style';
 
@@ -81,74 +81,28 @@ const PureList: React.FC<PureListProps> = (props) => {
         return {
           ...restItem,
           key: key ?? `antd-notification-${index}`,
-          placement: (item.placement ?? placement) as NotificationPlacement,
           title: title ?? message,
           description,
           icon: iconNode,
           actions: actions ?? btn,
           closable: mergedClosable,
-          className: clsx(
-            type && `${noticePrefixCls}-${type}`,
-            itemClassName,
-            classNames?.root,
-            itemClassNames.root,
-          ),
+          className: clsx(type && `${noticePrefixCls}-${type}`, itemClassName),
           classNames: {
-            wrapper: clsx(
-              iconNode && `${noticePrefixCls}-content`,
-              classNames?.wrapper,
-              itemClassNames.wrapper,
-            ),
-            icon: clsx(typeIconCls, classNames?.icon, itemClassNames.icon),
-            section: clsx(classNames?.section, itemClassNames.section),
-            title: clsx(classNames?.title, itemClassNames.title),
-            description: clsx(classNames?.description, itemClassNames.description),
-            close: clsx(classNames?.close, itemClassNames.close),
-            actions: clsx(classNames?.actions, itemClassNames.actions),
-            progress: clsx(classNames?.progress, itemClassNames.progress),
+            root: itemClassNames.root,
+            wrapper: itemClassNames.wrapper,
+            icon: clsx(typeIconCls, itemClassNames.icon),
+            section: itemClassNames.section,
+            title: itemClassNames.title,
+            description: itemClassNames.description,
+            close: itemClassNames.close,
+            actions: itemClassNames.actions,
+            progress: itemClassNames.progress,
           },
-          style: {
-            ...styles?.root,
-            ...itemStyles.root,
-            ...itemStyle,
-          },
-          styles: {
-            wrapper: {
-              ...styles?.wrapper,
-              ...itemStyles.wrapper,
-            },
-            icon: {
-              ...styles?.icon,
-              ...itemStyles.icon,
-            },
-            section: {
-              ...styles?.section,
-              ...itemStyles.section,
-            },
-            title: {
-              ...styles?.title,
-              ...itemStyles.title,
-            },
-            description: {
-              ...styles?.description,
-              ...itemStyles.description,
-            },
-            close: {
-              ...styles?.close,
-              ...itemStyles.close,
-            },
-            actions: {
-              ...styles?.actions,
-              ...itemStyles.actions,
-            },
-            progress: {
-              ...styles?.progress,
-              ...itemStyles.progress,
-            },
-          },
+          style: itemStyle,
+          styles: itemStyles,
         };
       }),
-    [classNames, items, noticePrefixCls, placement, styles],
+    [items, noticePrefixCls],
   );
 
   return (
@@ -159,10 +113,28 @@ const PureList: React.FC<PureListProps> = (props) => {
       configList={configList}
       className={clsx(hashId, cssVarCls, rootCls, classNames?.list, className)}
       classNames={{
+        root: classNames?.root,
+        wrapper: clsx(`${noticePrefixCls}-content`, classNames?.wrapper),
+        icon: classNames?.icon,
+        section: classNames?.section,
+        title: classNames?.title,
+        description: classNames?.description,
+        close: classNames?.close,
+        actions: classNames?.actions,
+        progress: classNames?.progress,
         listContent: classNames?.listContent,
       }}
-      style={style}
+      style={{ ...styles?.list, ...style }}
       styles={{
+        root: styles?.root,
+        wrapper: styles?.wrapper,
+        icon: styles?.icon,
+        section: styles?.section,
+        title: styles?.title,
+        description: styles?.description,
+        close: styles?.close,
+        actions: styles?.actions,
+        progress: styles?.progress,
         listContent: styles?.listContent,
       }}
       stack={stack}
