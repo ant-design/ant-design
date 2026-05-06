@@ -1,9 +1,4 @@
 import React from 'react';
-import NotificationList from '@rc-component/notification/es/NotificationList';
-import type {
-  NotificationClassNames,
-  NotificationListConfig,
-} from '@rc-component/notification/es/NotificationList';
 import { clsx } from 'clsx';
 
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
@@ -23,7 +18,8 @@ const locales = {
   },
   en: {
     list: 'Message list root element, set positioning, z-index, width, scroll area and placement styles',
-    listContent: 'Message list content element, set notice layout, gap and height transition styles',
+    listContent:
+      'Message list content element, set notice layout, gap and height transition styles',
     root: 'Message item root element, set background color, border radius, shadow, padding and animation styles',
     icon: 'Icon element, set font size, line height and status color styles',
     content: 'Content element, set text color, font size, line height and content display styles',
@@ -44,63 +40,61 @@ const previewListStyle: React.CSSProperties = {
   transform: 'none',
 };
 
+interface MessageNoticeProps {
+  content: React.ReactNode;
+  type: 'success' | 'info';
+  classNames?: Record<string, string>;
+}
+
+const MessageNotice: React.FC<MessageNoticeProps> = ({ content, type, classNames }) => (
+  <div
+    className={clsx(`${noticePrefixCls}`, `${noticePrefixCls}-${type}`, classNames?.root)}
+    role="alert"
+    style={{ position: 'relative' }}
+  >
+    <div
+      className={clsx(
+        `${noticePrefixCls}-content`,
+        `${prefixCls}-custom-content`,
+        `${prefixCls}-${type}`,
+      )}
+    >
+      <div
+        className={clsx(
+          `${noticePrefixCls}-icon`,
+          `${noticePrefixCls}-icon-${type}`,
+          classNames?.icon,
+        )}
+      >
+        {getMessageIcon(type)}
+      </div>
+      <div className={clsx(`${noticePrefixCls}-title`, classNames?.content)}>{content}</div>
+    </div>
+  </div>
+);
+
 const MessagePreview: React.FC<SemanticPreviewInjectionProps> = ({ classNames }) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const noticeClassNames: NotificationClassNames = {
-    listContent: classNames?.listContent,
-  };
-
-  const configList = React.useMemo<NotificationListConfig[]>(
-    () => [
-      {
-        key: 'semantic-message-1',
-        title: 'Hello, Ant Design!',
-        duration: false,
-        icon: getMessageIcon('success'),
-        className: `${noticePrefixCls}-success`,
-        classNames: {
-          root: classNames?.root,
-          wrapper: clsx(
-            `${noticePrefixCls}-content`,
-            `${prefixCls}-custom-content`,
-            `${prefixCls}-success`,
-          ),
-          icon: clsx(`${noticePrefixCls}-icon-success`, classNames?.icon),
-          title: classNames?.content,
-        },
-      },
-      {
-        key: 'semantic-message-2',
-        title: 'Welcome back!',
-        duration: false,
-        icon: getMessageIcon('info'),
-        className: `${noticePrefixCls}-info`,
-        classNames: {
-          root: classNames?.root,
-          wrapper: clsx(
-            `${noticePrefixCls}-content`,
-            `${prefixCls}-custom-content`,
-            `${prefixCls}-info`,
-          ),
-          icon: clsx(`${noticePrefixCls}-icon-info`, classNames?.icon),
-          title: classNames?.content,
-        },
-      },
-    ],
-    [classNames],
-  );
 
   return (
-    <NotificationList
-      prefixCls={prefixCls}
-      placement="top"
-      configList={configList}
-      className={[hashId, cssVarCls, rootCls, classNames?.list].filter(Boolean).join(' ')}
-      classNames={noticeClassNames}
+    <div
+      className={clsx(
+        prefixCls,
+        `${prefixCls}-list`,
+        `${prefixCls}-top`,
+        hashId,
+        cssVarCls,
+        rootCls,
+        classNames?.list,
+      )}
       style={previewListStyle}
-      stack={false}
-    />
+    >
+      <div className={clsx(`${prefixCls}-list-content`, classNames?.listContent)}>
+        <MessageNotice content="Hello, Ant Design!" type="success" classNames={classNames} />
+        <MessageNotice content="Welcome back!" type="info" classNames={classNames} />
+      </div>
+    </div>
   );
 };
 

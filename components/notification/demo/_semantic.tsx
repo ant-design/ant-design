@@ -1,10 +1,5 @@
 import React from 'react';
 import { Button } from 'antd';
-import NotificationList from '@rc-component/notification/es/NotificationList';
-import type {
-  NotificationClassNames,
-  NotificationListConfig,
-} from '@rc-component/notification/es/NotificationList';
 import { clsx } from 'clsx';
 
 import SemanticPreview from '../../../.dumi/theme/common/SemanticPreview';
@@ -58,77 +53,107 @@ const previewListStyle: React.CSSProperties = {
   transform: 'none',
 };
 
+interface NotificationNoticeProps {
+  actions?: React.ReactNode;
+  classNames?: Record<string, string>;
+  description: React.ReactNode;
+  showProgress?: boolean;
+  title: React.ReactNode;
+  type: IconType;
+}
+
+const NotificationNotice: React.FC<NotificationNoticeProps> = (props) => {
+  const { actions, classNames, description, showProgress, title, type } = props;
+  const icon = getTypeIcon(noticePrefixCls, type);
+
+  return (
+    <div
+      className={clsx(
+        `${noticePrefixCls}`,
+        `${noticePrefixCls}-${type}`,
+        classNames?.root,
+        `${noticePrefixCls}-closable`,
+      )}
+      role="alert"
+      style={{ position: 'relative' }}
+    >
+      <div className={clsx(icon && `${noticePrefixCls}-content`, classNames?.wrapper)}>
+        <div
+          className={clsx(
+            `${noticePrefixCls}-icon`,
+            `${noticePrefixCls}-icon-${type}`,
+            classNames?.icon,
+          )}
+        >
+          {icon}
+        </div>
+        <div className={clsx(`${noticePrefixCls}-section`, classNames?.section)}>
+          <div className={clsx(`${noticePrefixCls}-title`, classNames?.title)}>{title}</div>
+          <div className={clsx(`${noticePrefixCls}-description`, classNames?.description)}>
+            {description}
+          </div>
+        </div>
+      </div>
+      {actions && (
+        <div className={clsx(`${noticePrefixCls}-actions`, classNames?.actions)}>{actions}</div>
+      )}
+      <button
+        aria-label="Close"
+        className={clsx(`${noticePrefixCls}-close`, classNames?.close)}
+        type="button"
+      >
+        {getCloseIcon(noticePrefixCls)}
+      </button>
+      {showProgress && (
+        <progress
+          className={clsx(`${noticePrefixCls}-progress`, classNames?.progress)}
+          max="100"
+          value="100"
+        />
+      )}
+    </div>
+  );
+};
+
 const NotificationPreview: React.FC<SemanticPreviewInjectionProps> = ({ classNames }) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
-  const listClassNames: NotificationClassNames = {
-    listContent: classNames?.listContent,
-  };
-
-  const getNoticeClassNames = React.useCallback(
-    (icon: React.ReactNode, type: IconType): NotificationClassNames => ({
-      root: classNames?.root,
-      wrapper: clsx(icon && `${noticePrefixCls}-content`, classNames?.wrapper),
-      icon: clsx(`${noticePrefixCls}-icon-${type}`, classNames?.icon),
-      section: classNames?.section,
-      title: classNames?.title,
-      description: classNames?.description,
-      close: classNames?.close,
-      actions: classNames?.actions,
-      progress: classNames?.progress,
-    }),
-    [classNames],
-  );
-
-  const configList = React.useMemo<NotificationListConfig[]>(() => {
-    const successIcon = getTypeIcon(noticePrefixCls, 'success');
-    const infoIcon = getTypeIcon(noticePrefixCls, 'info');
-
-    return [
-      {
-        key: 'semantic-notification-1',
-        title: 'Hello World!',
-        description: 'Hello World?',
-        duration: false,
-        className: `${noticePrefixCls}-success`,
-        classNames: getNoticeClassNames(successIcon, 'success'),
-        icon: successIcon,
-        closable: {
-          closeIcon: getCloseIcon(noticePrefixCls),
-        },
-        actions: (
-          <Button type="primary" size="small">
-            My Button
-          </Button>
-        ),
-      },
-      {
-        key: 'semantic-notification-2',
-        title: 'Welcome back!',
-        description: 'This is another notification.',
-        duration: 999999,
-        showProgress: true,
-        className: `${noticePrefixCls}-info`,
-        classNames: getNoticeClassNames(infoIcon, 'info'),
-        icon: infoIcon,
-        closable: {
-          closeIcon: getCloseIcon(noticePrefixCls),
-        },
-      },
-    ];
-  }, [getNoticeClassNames]);
 
   return (
     <div style={{ minHeight: 320 }}>
-      <NotificationList
-        prefixCls={prefixCls}
-        placement="topRight"
-        configList={configList}
-        className={[hashId, cssVarCls, rootCls, classNames?.list].filter(Boolean).join(' ')}
-        classNames={listClassNames}
+      <div
+        className={clsx(
+          prefixCls,
+          `${prefixCls}-list`,
+          `${prefixCls}-topRight`,
+          hashId,
+          cssVarCls,
+          rootCls,
+          classNames?.list,
+        )}
         style={previewListStyle}
-        stack={false}
-      />
+      >
+        <div className={clsx(`${prefixCls}-list-content`, classNames?.listContent)}>
+          <NotificationNotice
+            actions={
+              <Button type="primary" size="small">
+                My Button
+              </Button>
+            }
+            classNames={classNames}
+            description="Hello World?"
+            title="Hello World!"
+            type="success"
+          />
+          <NotificationNotice
+            classNames={classNames}
+            description="This is another notification."
+            showProgress
+            title="Welcome back!"
+            type="info"
+          />
+        </div>
+      </div>
     </div>
   );
 };
