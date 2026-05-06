@@ -71,9 +71,17 @@ export type SorterTooltipProps = TooltipProps & {
 };
 
 const _TableActions = ['paginate', 'sort', 'filter'] as const;
+
 export type TableAction = (typeof _TableActions)[number];
 
 export type CompareFn<T = AnyObject> = (a: T, b: T, sortOrder?: SortOrder) => number;
+
+export interface ColumnSorter<RecordType = AnyObject> {
+  /** Config compare function for a column */
+  compare?: CompareFn<RecordType>;
+  /** Config multiple sorter order priority */
+  multiple?: number;
+}
 
 export interface ColumnFilterItem {
   text: React.ReactNode;
@@ -141,14 +149,7 @@ export interface ColumnType<RecordType = AnyObject>
   extends Omit<RcColumnType<RecordType>, 'title'> {
   title?: ColumnTitle<RecordType>;
   // Sorter
-  sorter?:
-    | boolean
-    | CompareFn<RecordType>
-    | {
-        compare?: CompareFn<RecordType>;
-        /** Config multiple sorter order priority */
-        multiple?: number;
-      };
+  sorter?: boolean | CompareFn<RecordType> | ColumnSorter<RecordType>;
   sortOrder?: SortOrder;
   defaultSortOrder?: SortOrder;
   sortDirections?: SortOrder[];

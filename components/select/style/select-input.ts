@@ -60,7 +60,7 @@ const genSelectInputVariableStyle = (token: SelectToken, colors: VariableColors)
   };
 };
 
-/** Generate variant-scoped variable styles and status overrides for a Select input. */
+/** Generate variant-scoped variable styles and status overrides for a Select input */
 const genSelectInputVariantStyle = (
   token: SelectToken,
   variant: string,
@@ -89,8 +89,22 @@ const genSelectInputVariantStyle = (
 };
 
 const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
-  const { componentCls, fontHeight, controlHeight, iconCls, antCls, calc } = token;
+  const {
+    componentCls,
+    fontHeight,
+    controlHeight,
+    fontSizeIcon,
+    showArrowPaddingInlineEnd,
+    iconCls,
+    antCls,
+    max,
+    calc,
+  } = token;
+
   const [varName, varRef] = genCssVar(antCls, 'select');
+
+  const contentMarginInlineEnd = max(calc(showArrowPaddingInlineEnd).sub(fontSizeIcon).equal(), 0);
+
   return {
     [componentCls]: [
       {
@@ -166,7 +180,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
           minWidth: 0,
           position: 'relative',
           display: 'flex',
-          marginInlineEnd: calc(token.paddingXXS).mul(1.5).equal(),
+          marginInlineEnd: contentMarginInlineEnd,
 
           '&:before': {
             content: '"\\a0"',
@@ -337,7 +351,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Error
         {
           border: token.colorError,
-          borderHover: token.colorErrorHover,
+          borderHover: token.colorErrorBorderHover,
           borderActive: token.colorError,
           borderOutline: token.colorErrorOutline,
           affixColor: token.colorErrorAffix,
@@ -368,6 +382,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         },
         // Error
         {
+          color: token.colorErrorText,
           background: token.colorErrorBg,
           backgroundHover: token.colorErrorBgHover,
           borderActive: token.colorError,
@@ -403,7 +418,7 @@ const genSelectInputStyle: GenerateStyle<SelectToken, CSSObject> = (token) => {
         // Error
         {
           border: token.colorError,
-          borderHover: token.colorErrorHover,
+          borderHover: token.colorErrorBorderHover,
           borderActive: token.colorError,
         },
         // Warning

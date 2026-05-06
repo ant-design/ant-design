@@ -12,7 +12,7 @@ import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { TypographyToken } from '.';
-import { operationUnit } from '../../style';
+import { operationUnit, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const getTitleStyle = (
@@ -295,9 +295,7 @@ export const getEllipsisStyles = (): CSSObject => ({
   },
 
   '&-ellipsis-single-line': {
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
+    ...textEllipsis,
 
     // https://blog.csdn.net/iefreer/article/details/50421025
     'a&, span&': {
