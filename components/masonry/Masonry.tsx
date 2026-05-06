@@ -213,8 +213,8 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
         // Keep the previous measured height to avoid layout jump.
         const measuredHeight =
           rect?.height ??
-          prevHeightMap.get(itemKey) ??
           item.height ??
+          prevHeightMap.get(itemKey) ??
           (virtual ? estimatedHeight : 0);
 
         return [itemKey, measuredHeight, item.column];
