@@ -5,6 +5,7 @@ import { clsx } from 'clsx';
 import type { HTMLAriaDataAttributes } from '../_util/aria-data-attrs';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isFunction } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import Skeleton from '../skeleton';
@@ -192,7 +193,7 @@ const Statistic = React.forwardRef<StatisticRef, StatisticProps>((props, ref) =>
               {prefix}
             </span>
           )}
-          {typeof valueRender === 'function' ? valueRender(valueNode) : valueNode}
+          {isFunction(valueRender) ? valueRender(valueNode) : valueNode}
           {suffix && (
             <span className={suffixClassNames} style={mergedStyles.suffix}>
               {suffix}

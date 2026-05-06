@@ -7,7 +7,7 @@ import { clsx } from 'clsx';
 
 import fallbackProp from '../_util/fallbackProp';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
-import { isPlainObject } from '../_util/is';
+import { isFunction, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import DisabledContext from '../config-provider/DisabledContext';
@@ -298,7 +298,7 @@ const InternalUpload: React.ForwardRefRenderFunction<UploadRef, UploadProps> = (
 
   const handleRemove = (file: UploadFile) => {
     let currentFile: UploadFile;
-    Promise.resolve(typeof onRemove === 'function' ? onRemove(file) : onRemove).then((ret) => {
+    Promise.resolve(isFunction(onRemove) ? onRemove(file) : onRemove).then((ret) => {
       // Prevent removing file
       if (ret === false) {
         return;

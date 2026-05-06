@@ -19,6 +19,7 @@ Array [
         class="ant-picker-suffix"
       >
         <span
+          aria-hidden="true"
           aria-label="calendar"
           class="anticon anticon-calendar"
           role="img"
@@ -686,6 +687,7 @@ exports[`DatePicker support DatePicker.generatePicker 1`] = `
       class="ant-picker-suffix"
     >
       <span
+        aria-hidden="true"
         aria-label="calendar"
         class="anticon anticon-calendar"
         role="img"

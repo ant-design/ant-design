@@ -1,4 +1,4 @@
-import { isNonNullable } from './is';
+import { isNonNullable, isNumber } from './is';
 
 export const isWindow = (obj: any): obj is Window => {
   return isNonNullable(obj) && obj === obj.window;
@@ -26,7 +26,7 @@ const getScroll = (target: HTMLElement | Window | Document | null): number => {
     result = target['scrollTop'];
   }
 
-  if (target && !isWindow(target) && typeof result !== 'number') {
+  if (target && !isWindow(target) && !isNumber(result)) {
     result = (target.ownerDocument ?? target).documentElement?.scrollTop;
   }
   return result;

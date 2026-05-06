@@ -2,6 +2,7 @@ import React from 'react';
 import { UniqueProvider as RcUniqueProvider } from '@rc-component/trigger';
 import type { BuildInPlacements } from '@rc-component/trigger';
 
+import { isFunction } from '../../_util/is';
 import type { GetProp } from '../../_util/type';
 import MotionContent from './MotionContent';
 
@@ -26,7 +27,7 @@ const UniqueProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const renderPopup: GetProp<typeof RcUniqueProvider, 'postTriggerProps'> = (options) => {
     const { id, builtinPlacements, popup } = options;
 
-    const popupEle = typeof popup === 'function' ? popup() : popup;
+    const popupEle = isFunction(popup) ? popup() : popup;
 
     const parsedPlacements = uniqueBuiltinPlacements(builtinPlacements!);
 
