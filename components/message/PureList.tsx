@@ -44,7 +44,7 @@ const PureList: React.FC<PureListProps> = (props) => {
     ...restProps
   } = props;
   const { getPrefixCls } = useComponentConfig('message');
-  const prefixCls = staticPrefixCls || getPrefixCls('message');
+  const prefixCls = getPrefixCls('message', staticPrefixCls);
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const noticePrefixCls = `${prefixCls}-notice`;
