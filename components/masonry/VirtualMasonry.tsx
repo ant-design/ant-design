@@ -8,6 +8,7 @@ import MasonryItem from './MasonryItem';
 import type { ItemHeightData } from './hooks/usePositions';
 import type { MasonryRenderItem } from './Masonry';
 import type { MasonryItemType } from './MasonryItem';
+import { getMasonryItemStyle } from './utils';
 
 interface VirtualMasonryProps<ItemDataType = any> {
   prefixCls: string;
@@ -182,11 +183,14 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
 
             const itemStyle: CSSProperties = {
               ...mergedStyle,
-              [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
-              insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
-              width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
-              top,
-              position: 'absolute',
+              ...getMasonryItemStyle({
+                varName,
+                varRef,
+                horizontalGutter,
+                columnCount,
+                columnIndex,
+                top,
+              }),
             };
 
             return (

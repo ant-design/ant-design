@@ -22,6 +22,7 @@ import type { ItemHeightData } from './hooks/usePositions';
 import useRefs from './hooks/useRefs';
 import MasonryItem from './MasonryItem';
 import type { MasonryItemType } from './MasonryItem';
+import { getMasonryItemStyle } from './utils';
 import VirtualMasonry from './VirtualMasonry';
 import useStyle from './style';
 
@@ -359,13 +360,14 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
               } = motionInfo;
               const { column: columnIndex = 0 } = position;
 
-              const itemStyle: CSSProperties = {
-                [varName('item-width')]: `calc((100% + ${horizontalGutter}px) / ${columnCount})`,
-                insetInlineStart: `calc(${varRef('item-width')} * ${columnIndex})`,
-                width: `calc(${varRef('item-width')} - ${horizontalGutter}px)`,
+              const itemStyle = getMasonryItemStyle({
+                varName,
+                varRef,
+                horizontalGutter: horizontalGutter as number,
+                columnCount,
+                columnIndex,
                 top: position.top,
-                position: 'absolute',
-              };
+              });
 
               return (
                 <MasonryItem
