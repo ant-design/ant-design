@@ -193,17 +193,9 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
     setItemHeights((prevItemsHeight) => {
       const prevHeightMap = new Map<React.Key, number>();
-      let knownHeightTotal = 0;
-      let knownHeightCount = 0;
       prevItemsHeight.forEach(([key, height]) => {
         prevHeightMap.set(key, height);
-        if (height > 0) {
-          knownHeightTotal += height;
-          knownHeightCount += 1;
-        }
       });
-      const estimatedHeight = knownHeightCount > 0 ? knownHeightTotal / knownHeightCount : 100;
-
       const nextItemsHeight = mergedItems.map<ItemHeightData>((item, index) => {
         const itemKey = item.key ?? index;
         const itemEle = getItemRef(itemKey);
@@ -211,11 +203,7 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
 
         // In virtual mode, invisible items are unmounted.
         // Keep the previous measured height to avoid layout jump.
-        const measuredHeight =
-          rect?.height ??
-          item.height ??
-          prevHeightMap.get(itemKey) ??
-          (virtual ? estimatedHeight : 0);
+        const measuredHeight = rect?.height ?? item.height ?? prevHeightMap.get(itemKey) ?? 0;
 
         return [itemKey, measuredHeight, item.column];
       });

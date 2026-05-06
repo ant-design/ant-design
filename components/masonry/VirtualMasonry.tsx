@@ -97,8 +97,11 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
       )
       .map((record) => {
         const top = record.position.top;
+        const measuredHeight = heightMap.get(record.itemKey);
         const itemHeight =
-          heightMap.get(record.itemKey) ?? record.item.height ?? estimatedItemHeight;
+          measuredHeight && measuredHeight > 0
+            ? measuredHeight
+            : (record.item.height ?? estimatedItemHeight);
         return {
           record,
           top,
