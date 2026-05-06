@@ -5,13 +5,9 @@ import { unit } from '@ant-design/cssinjs';
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { prepareNotificationToken, sharedGenerateStyle } from '../../notification/style';
 import type { NotificationToken } from '../../notification/style';
-import {
-  genNotificationCardStyle,
-  genNotificationItemMotionStyle,
-} from '../../notification/style/notification';
+import { genListItemSharedStyle } from '../../notification/style/notification';
 import type { GenerateStyle, GenStyleFn, GetDefaultToken } from '../../theme/internal';
 import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
-import { genCssVar } from '../../theme/util/genStyleUtils';
 
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
@@ -33,90 +29,75 @@ export interface ComponentToken {
   contentPadding: CSSProperties['padding'];
 }
 
-// =============================== Base ===============================
-const genMessageItemStyle = (token: NotificationToken): CSSObject => {
-  const {
-    antCls,
-    componentCls,
-    fontSize,
-    fontSizeLG,
-    lineHeight,
-    notificationMarginEdge,
-    notificationPadding,
-    colorTextHeading,
-    colorSuccess,
-    colorInfo,
-    colorWarning,
-    colorError,
-  } = token;
-  const noticeCls = `${componentCls}-notice`;
-  const [varName, varRef] = genCssVar(antCls, 'notification');
+// =============================== Token ===============================
 
-  return {
-    [noticeCls]: {
-      position: 'absolute',
-      zIndex: 1,
-      width: 'max-content',
-      maxWidth: `calc(100vw - ${unit(token.calc(notificationMarginEdge).mul(2).equal())})`,
-      padding: notificationPadding,
-      pointerEvents: 'auto',
-      [varName('icon-font-size')]: fontSizeLG,
-      [varName('title-font-size')]: fontSize,
-      [varName('title-line-height')]: lineHeight,
-      ...genNotificationCardStyle(token),
-      ...genNotificationItemMotionStyle(token),
+/** Map Message component tokens onto the shared Notification token shape. */
+const prepareMessageToken: (token: Parameters<GenStyleFn<'Message'>>[0]) => NotificationToken = (
+  token,
+) => {
+  const messagePaddingVertical = token
+    .calc(token.controlHeightLG)
+    .sub(token.calc(token.fontSize).mul(token.lineHeight))
+    .div(2)
+    .equal();
+  const messagePaddingHorizontal = token.paddingSM;
 
-      '&::after': {
-        position: 'absolute',
-        insetInline: 0,
-        top: token.calc(token.margin).mul(-1).equal(),
-        height: token.margin,
-        content: '""',
-      },
+  return mergeToken<NotificationToken>(
+    prepareNotificationToken(token as unknown as Parameters<GenStyleFn<'Notification'>>[0]),
+    {
+      notificationBg: token.contentBg,
+      notificationPadding: token.contentPadding as NotificationToken['notificationPadding'],
+      notificationPaddingVertical: messagePaddingVertical,
+      notificationPaddingHorizontal: messagePaddingHorizontal,
     },
+  );
+};
 
-    [`${noticeCls}-content`]: {
-      display: 'flex',
+/** Provide default public ComponentToken values for Message. */
+const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
+  zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 10,
+  contentBg: token.colorBgElevated,
+  contentPadding: `${(token.controlHeightLG - token.fontSize * token.lineHeight) / 2}px ${
+    token.paddingSM
+  }px`,
+});
+
+// =============================== Base ===============================
+
+/** Generate the shared item card styles for Message notices. */
+const genMessageItemStyle = (token: NotificationToken): CSSObject => {
+  const { fontSize, fontSizeLG, lineHeight } = token;
+
+  return genListItemSharedStyle(token, {
+    // Adjust card style since Message is not same as Notification.
+    // Message needs horizontal center and not fix width.
+    width: 'max-content',
+    iconFontSize: fontSizeLG,
+    titleFontSize: fontSize,
+    titleLineHeight: lineHeight,
+    contentStyle: {
       alignItems: 'center',
       gap: token.marginXS,
     },
-
-    [`${noticeCls}-title`]: {
-      color: colorTextHeading,
-      fontSize: varRef('title-font-size'),
-      lineHeight: varRef('title-line-height'),
+    noticeStyle: {
+      zIndex: 1,
     },
-
-    [`${noticeCls}-icon`]: {
-      flex: 'none',
-      fontSize: varRef('icon-font-size'),
-      lineHeight: 1,
-
-      [`&${noticeCls}-icon-success`]: {
-        color: colorSuccess,
-      },
-      [`&${noticeCls}-icon-info, &${noticeCls}-icon-loading`]: {
-        color: colorInfo,
-      },
-      [`&${noticeCls}-icon-warning`]: {
-        color: colorWarning,
-      },
-      [`&${noticeCls}-icon-error`]: {
-        color: colorError,
-      },
-    },
-  };
+  });
 };
 
-const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => ({
-  [token.componentCls]: genMessageItemStyle(token),
-});
+// =============================== Stack ===============================
 
+/** Generate the collapsed stack placeholder styles for Message notices. */
 const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
   const { componentCls } = token;
+  const noticeCls = `${componentCls}-notice`;
   const listContentCls = `${componentCls}-list-content`;
+  const messageItemStyle = genMessageItemStyle(token);
+  const { '&::after': _hoverAfterStyle, ...messageNoticeStyle } = messageItemStyle[
+    noticeCls
+  ] as CSSObject;
   const placeholderStyle: CSSObject = {
-    ...genNotificationCardStyle(token),
+    ...messageNoticeStyle,
     position: 'absolute',
     zIndex: -1,
     left: '50%',
@@ -168,6 +149,9 @@ const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
   };
 };
 
+// ============================= PurePanel =============================
+
+/** Generate standalone PurePanel styles for Message. */
 const generateMessagePurePanelStyle: GenerateStyle<NotificationToken> = (token) => {
   const { componentCls } = token;
   const noticeCls = `${componentCls}-notice`;
@@ -189,36 +173,7 @@ const generateMessagePurePanelStyle: GenerateStyle<NotificationToken> = (token) 
   };
 };
 
-// ============================== Token ===============================
-const prepareMessageToken: (token: Parameters<GenStyleFn<'Message'>>[0]) => NotificationToken = (
-  token,
-) => {
-  const messagePaddingVertical = token
-    .calc(token.controlHeightLG)
-    .sub(token.calc(token.fontSize).mul(token.lineHeight))
-    .div(2)
-    .equal();
-  const messagePaddingHorizontal = token.paddingSM;
-
-  return mergeToken<NotificationToken>(
-    prepareNotificationToken(token as unknown as Parameters<GenStyleFn<'Notification'>>[0]),
-    {
-      notificationBg: token.contentBg,
-      notificationPadding: token.contentPadding as NotificationToken['notificationPadding'],
-      notificationPaddingVertical: messagePaddingVertical,
-      notificationPaddingHorizontal: messagePaddingHorizontal,
-    },
-  );
-};
-
-export const prepareComponentToken: GetDefaultToken<'Message'> = (token) => ({
-  zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 10,
-  contentBg: token.colorBgElevated,
-  contentPadding: `${(token.controlHeightLG - token.fontSize * token.lineHeight) / 2}px ${
-    token.paddingSM
-  }px`,
-});
-
+/** Register the PurePanel sub-style component for Message. */
 export const PurePanelStyle = genSubStyleComponent(
   ['Message', 'PurePanel'],
   (token) =>
@@ -229,6 +184,13 @@ export const PurePanelStyle = genSubStyleComponent(
 );
 
 // ============================== Export ==============================
+
+/** Wrap Message item styles under the component root selector. */
+const generateMessageStyle: GenerateStyle<NotificationToken> = (token) => ({
+  [token.componentCls]: genMessageItemStyle(token),
+});
+
+/** Register the main style hook for Message. */
 export default genStyleHooks(
   'Message',
   (token) => {

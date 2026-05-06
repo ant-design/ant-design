@@ -20,9 +20,6 @@ interface SharedStyleConfig<Token extends NotificationToken> {
   itemStyle?: false | GenerateStyle<Token>;
 }
 
-const getStackNoticeClipPath = (offset: string | number) =>
-  `inset(${offset} ${offset} ${offset} ${offset})`;
-
 /** Component only token. Which will handle additional calculation of alias token */
 export interface ComponentToken {
   /**
@@ -119,8 +116,10 @@ export interface NotificationToken extends FullToken<'Notification'> {
   notificationMotionOffset: number;
 }
 
-// ============================== Export ==============================
-export const prepareComponentToken = (token: AliasToken) => ({
+// =============================== Token ===============================
+
+/** Provide default public ComponentToken values for Notification. */
+const prepareComponentToken = (token: AliasToken) => ({
   zIndexPopup: token.zIndexPopupBase + CONTAINER_MAX_OFFSET + 50,
   width: 384,
   progressBg: `linear-gradient(90deg, ${token.colorPrimaryBorderHover}, ${token.colorPrimary})`,
@@ -133,6 +132,7 @@ export const prepareComponentToken = (token: AliasToken) => ({
   colorWarningBg: undefined,
 });
 
+/** Derive internal Notification style tokens from alias and component tokens. */
 export const prepareNotificationToken: (
   token: Parameters<GenStyleFn<'Notification'>>[0],
 ) => NotificationToken = (token) => {
@@ -154,9 +154,14 @@ export const prepareNotificationToken: (
   return notificationToken;
 };
 
-export const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObject> = (
-  token,
-) => {
+// =============================== List ================================
+
+/** Build a clip-path inset that keeps stack shadows visible. */
+const getStackNoticeClipPath = (offset: string | number) =>
+  `inset(${offset} ${offset} ${offset} ${offset})`;
+
+/** Generate shared list content and motion base styles. */
+const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const { componentCls, motionDurationMid, motionDurationSlow, motionEaseInOut } = token;
 
   const listCls = `${componentCls}-list`;
@@ -186,6 +191,7 @@ export const genNotificationListContentStyle: GenerateStyle<NotificationToken, C
   };
 };
 
+/** Generate the root holder, list, stack, and RTL styles for notifications. */
 const genNotificationListStyle = <Token extends NotificationToken>(
   token: Token,
   config: SharedStyleConfig<Token>,
@@ -280,12 +286,16 @@ const genNotificationListStyle = <Token extends NotificationToken>(
   };
 };
 
+// ============================== Export ==============================
+
+/** Register the PurePanel sub-style component for Notification. */
 export const PurePanelStyle = genSubStyleComponent(
   ['Notification', 'PurePanel'],
   (token) => genPurePanelStyle(prepareNotificationToken(token)),
   prepareComponentToken,
 );
 
+/** Compose the shared list, item, and placement styles. */
 export const sharedGenerateStyle = <Token extends NotificationToken>(
   token: Token,
   config: SharedStyleConfig<Token> = {},
@@ -299,6 +309,7 @@ export const sharedGenerateStyle = <Token extends NotificationToken>(
   ];
 };
 
+/** Register the main style hook for Notification. */
 export default genStyleHooks(
   'Notification',
   (token) => {
