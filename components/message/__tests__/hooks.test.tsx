@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
 
 import message from '..';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent, render, waitFakeTimer } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import { triggerMotionEnd } from './util';
 
@@ -366,32 +366,17 @@ describe('message.hooks', () => {
       );
     };
 
-    const advanceTimersByFrame = (time: number) => {
-      let current = 0;
-
-      while (current < time) {
-        jest.advanceTimersByTime(16);
-        current += 16;
-      }
-    };
-
     it('should pause the timer when pauseOnHover is true', async () => {
       render(<Demo pauseOnHover />);
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
-      act(() => {
-        advanceTimersByFrame(3008);
-      });
+      await waitFakeTimer(16, 188);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
-      act(() => {
-        advanceTimersByFrame(2992);
-      });
+      await waitFakeTimer(16, 187);
       expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
-      act(() => {
-        advanceTimersByFrame(16);
-      });
+      await waitFakeTimer(16, 1);
       expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
 
@@ -400,13 +385,9 @@ describe('message.hooks', () => {
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
       fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
-      act(() => {
-        advanceTimersByFrame(2992);
-      });
+      await waitFakeTimer(16, 187);
       expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
-      act(() => {
-        advanceTimersByFrame(16);
-      });
+      await waitFakeTimer(16, 1);
       expect(document.querySelector('.ant-message-fade-leave')).toBeTruthy();
     });
   });
