@@ -1,117 +1,68 @@
 import * as React from 'react';
 import NotificationList from '@rc-component/notification/es/NotificationList';
-import type {
-  NotificationListConfig,
-  NotificationListProps,
-} from '@rc-component/notification/es/NotificationList';
+import type { NotificationListConfig } from '@rc-component/notification/es/NotificationList';
 import { clsx } from 'clsx';
 
 import { useComponentConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
-import type { ArgsProps, NotificationSemanticAllType } from './interface';
+import type { IconType, NotificationPlacement, NotificationSemanticAllType } from './interface';
 import { getCloseIcon, TypeIcon } from './PurePanel';
 import useStyle from './style';
 
-interface PureListItem extends Omit<ArgsProps, 'classNames' | 'styles'> {
-  classNames?: NotificationSemanticAllType['classNames'];
-  styles?: NotificationSemanticAllType['styles'];
+interface PureListItem {
+  key: React.Key;
+  title: React.ReactNode;
+  description: React.ReactNode;
+  type: IconType;
+  actions?: React.ReactNode;
+  duration?: number | false;
+  showProgress?: boolean;
 }
 
-export interface PureListProps
-  extends Omit<
-    NotificationListProps,
-    'configList' | 'prefixCls' | 'classNames' | 'styles' | 'placement'
-  > {
-  prefixCls?: string;
-  items?: PureListItem[];
-  placement?: NotificationListProps['placement'];
+export interface PureListProps {
+  items: PureListItem[];
+  placement?: NotificationPlacement;
   classNames?: NotificationSemanticAllType['classNames'];
-  styles?: NotificationSemanticAllType['styles'];
+  style?: React.CSSProperties;
 }
 
 /** @private Internal Component. Do not use in your production. */
 const PureList: React.FC<PureListProps> = (props) => {
-  const {
-    prefixCls: staticPrefixCls,
-    items = [],
-    className,
-    classNames,
-    style,
-    styles,
-    placement = 'topRight',
-    stack = false,
-    ...restProps
-  } = props;
+  const { items, classNames, placement = 'topRight', style } = props;
   const { getPrefixCls } = useComponentConfig('notification');
-  const prefixCls = getPrefixCls('notification', staticPrefixCls);
+  const prefixCls = getPrefixCls('notification');
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const noticePrefixCls = `${prefixCls}-notice`;
 
-  const configList = React.useMemo<NotificationListConfig[]>(
-    () =>
-      items.map((item, index) => {
-        const {
-          actions,
-          btn,
-          className: itemClassName,
-          classNames: itemClassNames = {},
-          closeIcon,
-          closable = true,
-          description,
-          icon,
-          key,
-          message,
-          style: itemStyle,
-          styles: itemStyles = {},
-          title,
-          type,
-          ...restItem
-        } = item;
-        const iconNode = icon || (type ? TypeIcon[type] : null);
-        const typeIconCls = !icon && type ? `${noticePrefixCls}-icon-${type}` : undefined;
-        const mergedCloseIcon = getCloseIcon(noticePrefixCls, closeIcon);
-        const mergedClosable = closable
-          ? {
-              closeIcon: mergedCloseIcon,
-              ...(typeof closable === 'object' ? closable : null),
-            }
-          : false;
+  const configList: NotificationListConfig[] = items.map((item) => {
+    const { actions, description, duration, key, showProgress, title, type } = item;
+    const typeIconCls = `${noticePrefixCls}-icon-${type}`;
 
-        return {
-          ...restItem,
-          key: key ?? `antd-notification-${index}`,
-          title: title ?? message,
-          description,
-          icon: iconNode,
-          actions: actions ?? btn,
-          closable: mergedClosable,
-          className: clsx(type && `${noticePrefixCls}-${type}`, itemClassName),
-          classNames: {
-            root: itemClassNames.root,
-            wrapper: itemClassNames.wrapper,
-            icon: clsx(typeIconCls, itemClassNames.icon),
-            section: itemClassNames.section,
-            title: itemClassNames.title,
-            description: itemClassNames.description,
-            close: itemClassNames.close,
-            actions: itemClassNames.actions,
-            progress: itemClassNames.progress,
-          },
-          style: itemStyle,
-          styles: itemStyles,
-        };
-      }),
-    [items, noticePrefixCls],
-  );
+    return {
+      key,
+      actions,
+      closable: {
+        closeIcon: getCloseIcon(noticePrefixCls),
+      },
+      description,
+      duration,
+      icon: TypeIcon[type],
+      showProgress,
+      title,
+      className: `${noticePrefixCls}-${type}`,
+      classNames: {
+        icon: typeIconCls,
+      },
+    };
+  });
 
   return (
     <NotificationList
-      {...restProps}
       prefixCls={prefixCls}
       placement={placement}
       configList={configList}
-      className={clsx(hashId, cssVarCls, rootCls, classNames?.list, className)}
+      className={clsx(hashId, cssVarCls, rootCls, classNames?.list)}
       classNames={{
         root: classNames?.root,
         wrapper: clsx(`${noticePrefixCls}-content`, classNames?.wrapper),
@@ -124,20 +75,8 @@ const PureList: React.FC<PureListProps> = (props) => {
         progress: classNames?.progress,
         listContent: classNames?.listContent,
       }}
-      style={{ ...styles?.list, ...style }}
-      styles={{
-        root: styles?.root,
-        wrapper: styles?.wrapper,
-        icon: styles?.icon,
-        section: styles?.section,
-        title: styles?.title,
-        description: styles?.description,
-        close: styles?.close,
-        actions: styles?.actions,
-        progress: styles?.progress,
-        listContent: styles?.listContent,
-      }}
-      stack={stack}
+      style={style}
+      stack={false}
     />
   );
 };
