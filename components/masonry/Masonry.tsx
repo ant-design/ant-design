@@ -292,8 +292,13 @@ const Masonry = React.forwardRef<MasonryRef, MasonryProps>((props, ref) => {
                 ...mergedStyles.root,
                 ...contextStyle,
                 ...style,
-                display: 'block',
-                overflow: 'hidden',
+                display:
+                  style?.display ?? contextStyle?.display ?? mergedStyles.root?.display ?? 'block',
+                overflow:
+                  style?.overflow ??
+                  contextStyle?.overflow ??
+                  mergedStyles.root?.overflow ??
+                  'hidden',
                 ...(style?.height !== undefined ? { height: style.height } : null),
               }
             : {
