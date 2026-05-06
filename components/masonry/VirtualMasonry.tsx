@@ -135,8 +135,12 @@ const VirtualMasonry = <ItemDataType,>(props: VirtualMasonryProps<ItemDataType>)
     // Item bounds are sorted by `top`, not by `bottom`.
     // Expand the start lookup by max span height to avoid skipping tall items
     // that start above viewport but still intersect current window.
-    const maxSpanHeight =
-      itemBounds.length > 0 ? Math.max(...itemBounds.map((item) => item.height)) : 0;
+    let maxSpanHeight = 0;
+    for (let i = 0; i < itemBounds.length; i += 1) {
+      if (itemBounds[i].height > maxSpanHeight) {
+        maxSpanHeight = itemBounds[i].height;
+      }
+    }
     const startIndex = lowerBoundByTop(start - maxSpanHeight - 1);
     const result: MasonryRenderItem<ItemDataType>[] = [];
     for (let index = startIndex; index < itemBounds.length; index += 1) {
