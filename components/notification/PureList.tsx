@@ -34,6 +34,7 @@ const PureList: React.FC<PureListProps> = (props) => {
   const rootCls = useCSSVarCls(prefixCls);
   const [hashId, cssVarCls] = useStyle(prefixCls, rootCls);
   const noticePrefixCls = `${prefixCls}-notice`;
+  const { list, listContent, wrapper, ...noticeClassNames } = classNames || {};
 
   const configList: NotificationListConfig[] = items.map((item) => {
     const { actions, description, duration, key, showProgress, title, type } = item;
@@ -62,18 +63,11 @@ const PureList: React.FC<PureListProps> = (props) => {
       prefixCls={prefixCls}
       placement={placement}
       configList={configList}
-      className={clsx(hashId, cssVarCls, rootCls, classNames?.list)}
+      className={clsx(hashId, cssVarCls, rootCls, list)}
       classNames={{
-        root: classNames?.root,
-        wrapper: clsx(`${noticePrefixCls}-content`, classNames?.wrapper),
-        icon: classNames?.icon,
-        section: classNames?.section,
-        title: classNames?.title,
-        description: classNames?.description,
-        close: classNames?.close,
-        actions: classNames?.actions,
-        progress: classNames?.progress,
-        listContent: classNames?.listContent,
+        ...noticeClassNames,
+        wrapper: clsx(`${noticePrefixCls}-content`, wrapper),
+        listContent,
       }}
       style={style}
       stack={false}
