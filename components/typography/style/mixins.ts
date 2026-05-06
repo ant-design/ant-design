@@ -8,10 +8,11 @@
 }
 */
 import { gold } from '@ant-design/colors';
+import { unit } from '@ant-design/cssinjs';
 import type { CSSObject } from '@ant-design/cssinjs';
 
 import type { TypographyToken } from '.';
-import { operationUnit } from '../../style';
+import { operationUnit, textEllipsis } from '../../style';
 import type { GenerateStyle } from '../../theme/internal';
 
 const getTitleStyle = (
@@ -72,6 +73,13 @@ export const getLinkStyles: GenerateStyle<TypographyToken, CSSObject> = (token) 
 
         '&:active': {
           pointerEvents: 'none',
+
+          // Action buttons (copy, edit, expand) must remain interactive even when
+          // the disabled link is being clicked, otherwise their click events get
+          // swallowed by the parent's pointer-events: none during :active.
+          [`${componentCls}-actions`]: {
+            pointerEvents: 'auto',
+          },
         },
       },
     },
@@ -179,6 +187,58 @@ export const getResetStyles: GenerateStyle<TypographyToken, CSSObject> = (token)
     borderInlineStart: '4px solid rgba(100, 100, 100, 0.2)',
     opacity: 0.85,
   },
+
+  // table - Follow Table component default style
+  table: {
+    width: '100%',
+    textAlign: 'start',
+    borderCollapse: 'separate',
+    borderSpacing: 0,
+    marginBlock: '1em',
+
+    'th, td': {
+      padding: unit(token.padding),
+      overflowWrap: 'break-word',
+      borderBottom: `${unit(token.lineWidth)} ${token.lineType} ${token.colorSplit}`,
+    },
+
+    'thead > tr:first-child > th:first-child': {
+      borderStartStartRadius: token.borderRadiusLG,
+    },
+
+    'thead > tr:first-child > th:last-child': {
+      borderStartEndRadius: token.borderRadiusLG,
+    },
+
+    'thead > tr > th': {
+      textAlign: 'start',
+      position: 'relative',
+      color: token.colorTextHeading,
+      fontWeight: token.fontWeightStrong,
+      backgroundColor: token.colorFillAlter,
+      transition: `background-color ${token.motionDurationMid} ease`,
+
+      '&:not(:last-child)::before': {
+        position: 'absolute',
+        top: '50%',
+        insetInlineEnd: 0,
+        width: 1,
+        height: '1.6em',
+        backgroundColor: token.colorSplit,
+        transform: 'translateY(-50%)',
+        content: '""',
+      },
+    },
+
+    'tbody > tr': {
+      '> th, > td': {
+        transition: `background-color ${token.motionDurationMid} ease`,
+      },
+      '&:hover > th, &:hover > td': {
+        backgroundColor: token.colorFillAlter,
+      },
+    },
+  },
 });
 
 export const getEditableStyles: GenerateStyle<TypographyToken, CSSObject> = (token) => {
@@ -235,9 +295,7 @@ export const getEllipsisStyles = (): CSSObject => ({
   },
 
   '&-ellipsis-single-line': {
-    whiteSpace: 'nowrap',
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
+    ...textEllipsis,
 
     // https://blog.csdn.net/iefreer/article/details/50421025
     'a&, span&': {

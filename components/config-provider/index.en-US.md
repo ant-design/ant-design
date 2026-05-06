@@ -68,6 +68,8 @@ Some components use dynamic style to support wave effect. You can config `csp` p
 | variant | Set variant of data entry components | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | Disable virtual scroll when set to `false` | boolean | - | 4.3.0 |
 | warning | Config warning level, when `strict` is `false`, it will aggregate deprecated information into a single message | { strict: boolean } | - | 5.10.0 |
+| ~~autoInsertSpaceInButton~~ | Button auto spacing config, please use `button={{ autoInsertSpace: boolean }}` instead | boolean | - | - |
+| ~~dropdownMatchSelectWidth~~ | Determine whether the dropdown menu and the select input are the same width, please use `popupMatchSelectWidth` instead | boolean | - | - |
 
 ### ConfigProvider.config() {#config}
 
@@ -108,12 +110,12 @@ const {
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| affix | Set Affix common props | { className?: string, style?: React.CSSProperties } | - | 6.0.0 |
+| affix | Set Affix common props | See [Affix](/components/affix#api) | - | 6.0.0 |
 | alert | Set Alert common props | See [Alert](/components/alert#api) | - | 5.7.0 |
 | anchor | Set Anchor common props | { className?: string, style?: React.CSSProperties, classNames?: [AnchorStyleConfig\["classNames"\]](/components/anchor#semantic-dom), styles?: [AnchorStyleConfig\["styles"\]](/components/anchor#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
 | avatar | Set Avatar common props | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | Set Badge common props | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge#semantic-dom), styles?: [BadgeProps\["styles"\]](/components/badge#semantic-dom) } | - | 5.7.0 |
-| breadcrumb | Set Breadcrumb common props | { className?: string, style?: React.CSSProperties, classNames?: [BreadcrumbConfig\["classNames"\]](/components/breadcrumb#semantic-dom), styles?: [BreadcrumbConfig\["styles"\]](/components/breadcrumb#semantic-dom), separator?: ReactNode, dropdownIcon?: ReactNode } | - | 5.7.0, `classNames`, `separator` and `styles`: 6.0.0, `dropdownIcon`: 6.2.0 |
+| breadcrumb | Set Breadcrumb common props | See [Breadcrumb](/components/breadcrumb#breadcrumb) | - | 5.7.0 |
 | button | Set Button common props | See [Button](/components/button#api) | - | 5.6.0 |
 | card | Set Card common props | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card#semantic-dom), styles?: [CardProps\["styles"\]](/components/card#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 5.14.0 |
 | cardMeta | Set Card.Meta common props | { className?: string, style?: React.CSSProperties, classNames?: [CardMetaProps\["classNames"\]](/components/card#semantic-dom), styles?: [CardMetaProps\["styles"\]](/components/card#semantic-dom) } | - | 6.0.0 |
@@ -146,7 +148,7 @@ const {
 | masonry | Set Masonry common props | { className?: string, style?: React.CSSProperties, classNames?: [MasonryProps\["classNames"\]](/components/masonry#semantic-dom), styles?: [MasonryProps\["styles"\]](/components/masonry#semantic-dom) } | - |  |
 | menu | Set Menu common props | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | mentions | Set Mentions common props | { className?: string, style?: React.CSSProperties, classNames?:[MentionsConfig\["classNames"\]](/components/mentions#semantic-dom), styles?: [MentionsConfig\["styles"\]](/components/mentions#semantic-dom), allowClear?: boolean \| { clearIcon?: ReactNode, disabled?: boolean } } | - | 5.7.0, `classNames` and `styles`: 6.0.0, `allowClear`: 6.4.0 |
-| message | Set Message common props | { className?: string, style?: React.CSSProperties, classNames?: [MessageConfig\["classNames"\]](/components/message#semantic-dom), styles?: [MessageConfig\["styles"\]](/components/message#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |
+| message | Set Message common props | See [Message](/components/message#api) | - | 5.7.0 |
 | modal | Set Modal common props | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal#semantic-dom), styles?: [ModalProps\["styles"\]](/components/modal#semantic-dom), closeIcon?: React.ReactNode, focusable?: [ModalProps\["focusable"\]](/components/modal#api), infoIcon?: React.ReactNode, successIcon?: React.ReactNode, errorIcon?: React.ReactNode, warningIcon?: React.ReactNode } | - | 5.7.0, `classNames` and `styles`: 5.10.0, `closeIcon`: 5.14.0, `focusable`: 6.4.0, `infoIcon`, `successIcon`, `errorIcon` and `warningIcon`: 6.4.0 |
 | notification | Set Notification common props | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification#semantic-dom), styles?: [NotificationConfig\["styles"\]](/components/notification#semantic-dom) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` and `styles`: 6.0.0 |
 | pagination | Set Pagination common props | { showSizeChanger?: boolean, totalBoundaryShowSizeChanger?: number, className?: string, style?: React.CSSProperties,classNames?:[PaginationConfig\["classNames"\]](/components/pagination#semantic-dom), styles?: [PaginationConfig\["styles"\]](/components/pagination#semantic-dom) } | - | 5.7.0, `classNames` and `styles`: 6.0.0 |

@@ -2,6 +2,8 @@ import * as React from 'react';
 import QuestionCircleOutlined from '@ant-design/icons/QuestionCircleOutlined';
 import { clsx } from 'clsx';
 
+import convertToTooltipProps from '../_util/convertToTooltipProps';
+import { isFunction } from '../_util/is';
 import type { ColProps } from '../grid/col';
 import Col from '../grid/col';
 import { useLocale } from '../locale';
@@ -12,7 +14,6 @@ import type { FormContextProps } from './context';
 import { FormContext } from './context';
 import type { RequiredMark } from './Form';
 import type { FormLabelAlign } from './interface';
-import convertToTooltipProps from '../_util/convertToTooltipProps';
 
 export type FormTooltipProps = TooltipProps & {
   icon?: React.ReactElement;
@@ -113,7 +114,7 @@ const FormItemLabel: React.FC<FormItemLabelProps & { required?: boolean; prefixC
 
   // Required Mark
   const isOptionalMark = requiredMark === 'optional';
-  const isRenderMark = typeof requiredMark === 'function';
+  const isRenderMark = isFunction(requiredMark);
   const hideRequiredMark = requiredMark === false;
 
   if (isRenderMark) {

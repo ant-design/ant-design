@@ -12,7 +12,7 @@ import MockDate from 'mockdate';
 
 import DatePicker from '..';
 import focusTest from '../../../tests/shared/focusTest';
-import { fireEvent, render } from '../../../tests/utils';
+import { fireEvent, render, waitFor } from '../../../tests/utils';
 import ConfigProvider from '../../config-provider';
 import type { PickerLocale } from '../generatePicker';
 import { getClearButton } from './utils';
@@ -113,6 +113,43 @@ describe('DatePicker', () => {
   it('placeholder', () => {
     const wrapper = render(<DatePicker placeholder={undefined} />);
     expect(wrapper.container.querySelector('input')?.placeholder).toEqual('Select date');
+  });
+
+  it('multiple tagRender should support custom remove logic', () => {
+    const Demo = () => {
+      const [value, setValue] = React.useState([dayjs('2016-11-20'), dayjs('2016-11-23')]);
+
+      return (
+        <DatePicker
+          multiple
+          value={value}
+          onChange={(nextValue) => setValue(nextValue ?? [])}
+          tagRender={({ label, onClose, value: tagValue }) => {
+            const locked = tagValue.isBefore(dayjs('2016-11-22'), 'day');
+
+            return (
+              <span data-testid={`tag-${tagValue.format('YYYY-MM-DD')}`}>
+                <span>{label}</span>
+                {!locked && (
+                  <button type="button" onClick={onClose}>
+                    remove
+                  </button>
+                )}
+              </span>
+            );
+          }}
+        />
+      );
+    };
+
+    const { container } = render(<Demo />);
+
+    expect(container.querySelector('[data-testid="tag-2016-11-20"] button')).toBeNull();
+
+    fireEvent.click(container.querySelector('[data-testid="tag-2016-11-23"] button')!);
+
+    expect(container.querySelector('[data-testid="tag-2016-11-20"]')).toBeInTheDocument();
+    expect(container.querySelector('[data-testid="tag-2016-11-23"]')).not.toBeInTheDocument();
   });
 
   it('showTime={{ showHour: true, showMinute: true }}', () => {
@@ -546,6 +583,20 @@ describe('DatePicker', () => {
         </ConfigProvider>,
       );
       expect(container.querySelector('.ant-picker-suffix')!.textContent).toBe('bamboo');
+    });
+
+    it('should support global colorErrorAffix token for error status suffix', async () => {
+      const { container } = render(
+        <ConfigProvider theme={{ token: { colorErrorAffix: '#12abcd' } }}>
+          <DatePicker status="error" suffixIcon="suffix" />
+        </ConfigProvider>,
+      );
+
+      const suffix = container.querySelector('.ant-picker-suffix') as HTMLSpanElement;
+
+      await waitFor(() => {
+        expect(getComputedStyle(suffix).color).toBe('var(--ant-color-error-affix)');
+      });
     });
   });
 

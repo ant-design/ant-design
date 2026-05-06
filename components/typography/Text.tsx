@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { omit } from '@rc-component/util';
 
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import type { BlockProps, EllipsisConfig } from './Base';
 import Base from './Base';
@@ -14,7 +15,7 @@ export interface TextProps
 const Text = React.forwardRef<HTMLSpanElement, TextProps>((props, ref) => {
   const { ellipsis, children, ...restProps } = props;
   const mergedEllipsis = React.useMemo(() => {
-    if (ellipsis && typeof ellipsis === 'object') {
+    if (isPlainObject(ellipsis)) {
       return omit(ellipsis as EllipsisConfig, ['expandable', 'rows']);
     }
     return ellipsis;
@@ -24,9 +25,7 @@ const Text = React.forwardRef<HTMLSpanElement, TextProps>((props, ref) => {
     const warning = devUseWarning('Typography.Text');
 
     warning(
-      typeof ellipsis !== 'object' ||
-        !ellipsis ||
-        (!('expandable' in ellipsis) && !('rows' in ellipsis)),
+      !isPlainObject(ellipsis) || (!('expandable' in ellipsis) && !('rows' in ellipsis)),
       'usage',
       '`ellipsis` do not support `expandable` or `rows` props.',
     );

@@ -22,6 +22,7 @@ demo:
 <code src="./demo/image.tsx">Image watermark</code>
 <code src="./demo/custom.tsx">Custom configuration</code>
 <code src="./demo/portal.tsx">Modal or Drawer</code>
+<code src="./demo/debug.tsx" debug>Table fixed columns</code>
 
 ## API
 
@@ -37,7 +38,7 @@ Common props ref：[Common props](/docs/react/common-props)
 | height | The height of the watermark, the default value of `content` is its own height | number | 64 |  |
 | inherit | Pass the watermark to the pop-up component such as Modal, Drawer | boolean | true | 5.11.0 |
 | rotate | When the watermark is drawn, the rotation Angle, unit `°` | number | -22 |  |
-| zIndex | The z-index of the appended watermark element | number | 9 |  |
+| zIndex | The z-index of the appended watermark element | number | 999 |  |
 | image | Image source, it is recommended to export 2x or 3x image, high priority (support base64 format) | string | - |  |
 | content | Watermark text content | string \| string[] | - |  |
 | font | Text style | [Font](#font) | [Font](#font) |  |

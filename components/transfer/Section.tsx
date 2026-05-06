@@ -3,7 +3,7 @@ import DownOutlined from '@ant-design/icons/DownOutlined';
 import { omit } from '@rc-component/util';
 import { clsx } from 'clsx';
 
-import { isNumber } from '../_util/is';
+import { isFunction, isNonNullable, isNumber, isPlainObject, isString } from '../_util/is';
 import { groupKeysMap } from '../_util/transKeys';
 import Checkbox from '../checkbox';
 import Dropdown from '../dropdown';
@@ -26,10 +26,10 @@ import Search from './search';
 const defaultRender = () => null;
 
 function isRenderResultPlainObject(result: RenderResult): result is RenderResultObject {
-  return !!(
-    result &&
-    !React.isValidElement<any>(result) &&
-    Object.prototype.toString.call(result) === '[object Object]'
+  return (
+    isNonNullable<RenderResult>(result) &&
+    isPlainObject<RenderResultObject>(result) &&
+    !React.isValidElement<any>(result)
   );
 }
 
@@ -41,9 +41,12 @@ function getTextFromRenderResult<RecordType extends KeyWiseTransferItem>(
   renderResult: RenderResult,
   item: RecordType,
 ): string {
-  for (const v of [renderResult, item.title, item.key]) {
-    if (typeof v === 'string' || isNumber(v)) {
-      return String(v);
+  for (const value of [renderResult, item.title, item.key]) {
+    if (isString(value)) {
+      return value;
+    }
+    if (isNumber(value)) {
+      return String(value);
     }
   }
   return '';
@@ -102,7 +105,7 @@ export interface TransferListProps<RecordType> extends TransferLocale {
 export interface TransferCustomListBodyProps<T> extends TransferListBodyProps<T> {}
 
 const getShowSearchOption = (showSearch: boolean | TransferSearchOption) => {
-  if (showSearch && typeof showSearch === 'object') {
+  if (isPlainObject(showSearch)) {
     return {
       ...showSearch,
       defaultValue: showSearch.defaultValue || '',
@@ -172,7 +175,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
   };
 
   const matchFilter = (text: string, item: RecordType) => {
-    if (typeof filterOption === 'function') {
+    if (isFunction(filterOption)) {
       return filterOption(filterValue, item, direction);
     }
     return text.includes(filterValue);
@@ -312,7 +315,7 @@ const TransferSection = <RecordType extends KeyWiseTransferItem>(
 
   const getSelectAllLabel = (selectedCount: number, totalCount: number): React.ReactNode => {
     if (selectAllLabel) {
-      return typeof selectAllLabel === 'function'
+      return isFunction(selectAllLabel)
         ? selectAllLabel({ selectedCount, totalCount })
         : selectAllLabel;
     }

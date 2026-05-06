@@ -93,10 +93,8 @@ export interface UseResize {
   setOffset: (offset: number, containerSize: number, index: number) => void;
 }
 
-export interface UseHandleProps extends Pick<
-  SplitterProps,
-  'layout' | 'onResizeStart' | 'onResizeEnd'
-> {
+export interface UseHandleProps
+  extends Pick<SplitterProps, 'layout' | 'onResizeStart' | 'onResizeEnd'> {
   basicsState: number[];
   containerRef?: React.RefObject<HTMLDivElement | null>;
   setOffset: UseResize['setOffset'];

@@ -1,6 +1,8 @@
 import { useId } from 'react';
 import useMemo from '@rc-component/util/lib/hooks/useMemo';
 import isEqual from '@rc-component/util/lib/isEqual';
+
+import { isPlainObject } from '../../_util/is';
 import { devUseWarning } from '../../_util/warning';
 import type { OverrideToken } from '../../theme/interface';
 import { defaultConfig } from '../../theme/internal';
@@ -30,10 +32,7 @@ export default function useTheme(
 
   if (process.env.NODE_ENV !== 'production') {
     const cssVarEnabled = themeConfig.cssVar || parentThemeConfig.cssVar;
-    const validKey = !!(
-      (typeof themeConfig.cssVar === 'object' && themeConfig.cssVar?.key) ||
-      themeKey
-    );
+    const validKey = !!((isPlainObject(themeConfig.cssVar) && themeConfig.cssVar?.key) || themeKey);
     warning(
       !cssVarEnabled || validKey,
       'breaking',

@@ -1,5 +1,7 @@
 import type * as React from 'react';
 
+import { isFunction } from './is';
+
 export type RenderFunction = () => React.ReactNode;
 
 export const getRenderPropValue = (
@@ -8,6 +10,5 @@ export const getRenderPropValue = (
   if (!propValue) {
     return null;
   }
-
-  return typeof propValue === 'function' ? propValue() : propValue;
+  return isFunction(propValue) ? propValue() : propValue;
 };

@@ -10,7 +10,7 @@ coverDark: https://mdn.alipayobjects.com/huamei_7uahnr/afts/img/A*YC4ERpGAddoAAA
 
 ## 使用 {#usage}
 
-ConfigProvider 使用 React 的 [context](https://facebook.github.io/react/docs/context.html) 特性，只需在应用外围包裹一次即可全局生效。
+ConfigProvider 使用 React 的 [context](https://zh-hans.react.dev/learn/passing-data-deeply-with-context) 特性，只需在应用外围包裹一次即可全局生效。
 
 ```tsx
 import React from 'react';
@@ -69,6 +69,8 @@ export default Demo;
 | variant | 设置全局输入组件形态变体 | `outlined` \| `filled` \| `borderless` | - | 5.19.0 |
 | virtual | 设置 `false` 时关闭虚拟滚动 | boolean | - | 4.3.0 |
 | warning | 设置警告等级，`strict` 为 `false` 时会将废弃相关信息聚合为单条信息 | { strict: boolean } | - | 5.10.0 |
+| ~~autoInsertSpaceInButton~~ | Button 自动空格配置，请使用 `button={{ autoInsertSpace: boolean }}` 替代 | boolean | - | - |
+| ~~dropdownMatchSelectWidth~~ | 下拉菜单和选择器是否同宽，请使用 `popupMatchSelectWidth` 替代 | boolean | - | - |
 
 ### ConfigProvider.config() {#config}
 
@@ -110,12 +112,12 @@ const {
 
 | 参数 | 说明 | 类型 | 默认值 | 版本 |
 | --- | --- | --- | --- | --- |
-| affix | 设置 Affix 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 6.0.0 |
+| affix | 设置 Affix 组件的通用属性 | 参见 [Affix](/components/affix-cn#api) | - | 6.0.0 |
 | alert | 设置 Alert 组件的通用属性 | 参见 [Alert](/components/alert-cn#api) | - | 5.7.0 |
 | anchor | 设置 Anchor 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [AnchorStyleConfig\["classNames"\]](/components/anchor-cn#semantic-dom), styles?: [AnchorStyleConfig\["styles"\]](/components/anchor-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | avatar | 设置 Avatar 组件的通用属性 | { className?: string, style?: React.CSSProperties } | - | 5.7.0 |
 | badge | 设置 Badge 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [BadgeProps\["classNames"\]](/components/badge-cn#semantic-dom), styles?: [BadgeProps\["styles"\]](/components/badge-cn#semantic-dom) } | - | 5.7.0 |
-| breadcrumb | 设置 Breadcrumb 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [BreadcrumbConfig\["classNames"\]](/components/breadcrumb-cn#semantic-dom), styles?: [BreadcrumbConfig\["styles"\]](/components/breadcrumb-cn#semantic-dom), separator?: ReactNode, dropdownIcon?: ReactNode } | - | 5.7.0, `classNames`, `separator` 和 `styles`: 6.0.0, `dropdownIcon`: 6.2.0 |
+| breadcrumb | 设置 Breadcrumb 组件的通用属性 | 参见 [Breadcrumb](/components/breadcrumb-cn#breadcrumb) | - | 5.7.0 |
 | button | 设置 Button 组件的通用属性 | 参见 [Button](/components/button-cn#api) | - | 5.6.0 |
 | calendar | 设置 Calendar 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CalendarConfig\["classNames"\]](/components/calendar-cn#semantic-dom), styles?: [CalendarConfig\["styles"\]](/components/calendar-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
 | card | 设置 Card 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [CardProps\["classNames"\]](/components/card-cn#semantic-dom), styles?: [CardProps\["styles"\]](/components/card-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 5.14.0 |
@@ -148,7 +150,7 @@ const {
 | masonry | 设置 Masonry 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [MasonryProps\["classNames"\]](/components/masonry#semantic-dom), styles?: [MasonryProps\["styles"\]](/components/masonry#semantic-dom) } | - |  |
 | menu | 设置 Menu 组件的通用属性 | { className?: string, style?: React.CSSProperties, expandIcon?: ReactNode \| props => ReactNode } | - | 5.7.0, `expandIcon`: 5.15.0 |
 | mentions | 设置 Mentions 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?:[MentionsConfig\["classNames"\]](/components/mentions-cn#semantic-dom), styles?: [MentionsConfig\["styles"\]](/components/mentions-cn#semantic-dom), allowClear?: boolean \| { clearIcon?: ReactNode, disabled?: boolean } } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0, `allowClear`: 6.4.0 |
-| message | 设置 Message 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [MessageConfig\["classNames"\]](/components/message-cn#semantic-dom), styles?: [MessageConfig\["styles"\]](/components/message-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |
+| message | 设置 Message 组件的通用属性 | 参见 [Message](/components/message-cn#api) | - | 5.7.0 |
 | modal | 设置 Modal 组件的通用属性 | { className?: string, style?: React.CSSProperties, classNames?: [ModalProps\["classNames"\]](/components/modal-cn#semantic-dom), styles?: [ModalProps\["styles"\]](/components/modal-cn#semantic-dom), closeIcon?: React.ReactNode, focusable?: [ModalProps\["focusable"\]](/components/modal-cn#api), infoIcon?: React.ReactNode, successIcon?: React.ReactNode, errorIcon?: React.ReactNode, warningIcon?: React.ReactNode } | - | 5.7.0, `classNames` 和 `styles`: 5.10.0, `closeIcon`: 5.14.0, `focusable`: 6.4.0, `infoIcon`, `successIcon`, `errorIcon` 和 `warningIcon`: 6.4.0 |
 | notification | 设置 Notification 组件的通用属性 | { className?: string, style?: React.CSSProperties, closeIcon?: React.ReactNode, classNames?: [NotificationConfig\["classNames"\]](/components/notification-cn#semantic-dom), styles?: [NotificationConfig\["styles"\]](/components/notification-cn#semantic-dom) } | - | 5.7.0, `closeIcon`: 5.14.0, `classNames` 和 `styles`: 6.0.0 |
 | pagination | 设置 Pagination 组件的通用属性 | { showSizeChanger?: boolean, totalBoundaryShowSizeChanger?: number, className?: string, style?: React.CSSProperties,classNames?:[PaginationConfig\["classNames"\]](/components/pagination-cn#semantic-dom), styles?: [PaginationConfig\["styles"\]](/components/pagination-cn#semantic-dom) } | - | 5.7.0, `classNames` 和 `styles`: 6.0.0 |

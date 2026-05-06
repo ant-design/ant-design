@@ -12,6 +12,7 @@ import { clsx } from 'clsx';
 import { pickClosable, useClosable } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isNonNullable, isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { ConfigContext } from '../config-provider';
 import { useComponentConfig } from '../config-provider/context';
@@ -126,6 +127,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
     });
   }
   const mergedTitle = title ?? message;
+  const hasTitle = isNonNullable(mergedTitle) && mergedTitle !== false && mergedTitle !== '';
   const prefixCls = staticPrefixCls || getPrefixCls('notification');
   const noticePrefixCls = `${prefixCls}-notice`;
   const iconNode = icon || (type ? TypeIcon[type] : null);
@@ -147,7 +149,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
 
   const mergedClosable = rawClosable
     ? {
-        onClose: closable && typeof closable === 'object' ? closable?.onClose : undefined,
+        onClose: isPlainObject(closable) ? closable?.onClose : undefined,
         closeIcon: mergedCloseIcon,
         ...ariaProps,
       }
@@ -173,7 +175,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         duration={null}
         closable={mergedClosable}
         className={clsx(notificationClassName, contextClassName)}
-        title={mergedTitle || null}
+        title={hasTitle ? mergedTitle : null}
         description={description || null}
         icon={iconNode}
         actions={mergedActions || null}

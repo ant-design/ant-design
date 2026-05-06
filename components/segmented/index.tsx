@@ -13,6 +13,7 @@ import { useOrientation } from '../_util/hooks';
 import type { Orientation } from '../_util/hooks';
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import { useComponentConfig } from '../config-provider/context';
 import useSize from '../config-provider/hooks/useSize';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -56,7 +57,7 @@ interface SegmentedLabeledOptionWithIcon<ValueType = RcSegmentedValue>
 function isSegmentedLabeledOptionWithIcon(
   option: SegmentedRawOption | SegmentedLabeledOptionWithIcon | SegmentedLabeledOptionWithoutIcon,
 ): option is SegmentedLabeledOptionWithIcon {
-  return typeof option === 'object' && !!(option as SegmentedLabeledOptionWithIcon)?.icon;
+  return isPlainObject(option) && !!(option as SegmentedLabeledOptionWithIcon)?.icon;
 }
 
 export type SegmentedLabeledOption<ValueType = RcSegmentedValue> =
@@ -188,8 +189,8 @@ const InternalSegmented = React.forwardRef<HTMLDivElement, SegmentedProps>((prop
       return node;
     }
 
-    const tooltipProps: TooltipProps =
-      typeof item.tooltip === 'object' ? item.tooltip : { title: item.tooltip };
+    const tooltipProps = isPlainObject(item.tooltip) ? item.tooltip : { title: item.tooltip };
+
     return <Tooltip {...tooltipProps}>{node}</Tooltip>;
   };
 

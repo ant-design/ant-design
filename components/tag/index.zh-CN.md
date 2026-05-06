@@ -49,6 +49,7 @@ demo:
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-dom), CSSProperties> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), CSSProperties> | - |  |
 | target | 相当于 a 标签的 target 属性，href 存在时生效 | string | - | 6.0.0 |
 | variant | 标签变体 | `'filled' \| 'solid' \| 'outlined'` | `'filled'` | 6.0.0 |
+| ~~bordered~~ | 是否带边框，请使用 `variant="filled"` 替代 | boolean | true | - |
 
 ### Tag.CheckableTag
 
@@ -66,7 +67,7 @@ demo:
 | defaultValue | 初始选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | disabled | 禁用选中 | `boolean` | - |  |
 | multiple | 多选模式 | `boolean` | - |  |
-| options | 选项列表 | `Array<{ label: ReactNode; value: string \| number } \| string \| number>` | - |  |
+| options | 选项列表。对象类型的选项支持为每一项单独设置 `className` 和 `style` | `Array<{ className?: string; label: ReactNode; style?: CSSProperties; value: string \| number } \| string \| number>` | - | `className` 和 `style`: 6.4.0 |
 | styles | 用于自定义组件内部各语义化结构的行内 style，支持对象或函数 | Record<[SemanticDOM](#semantic-group), CSSProperties> \| (info: { props }) => Record<[SemanticDOM](#semantic-group), CSSProperties> | - |  |
 | value | 选中值 | `string \| number \| Array<string \| number> \| null` | - |  |
 | onChange | 点击标签时触发的回调 | `(value: string \| number \| Array<string \| number> \| null) => void` | - |  |

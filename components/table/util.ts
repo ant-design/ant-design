@@ -1,4 +1,4 @@
-import { isNonNullable } from '../_util/is';
+import { isFunction, isNonNullable, isPlainObject } from '../_util/is';
 import type { AnyObject } from '../_util/type';
 import type { ColumnTitle, ColumnTitleProps, ColumnType, Key } from './interface';
 
@@ -23,7 +23,7 @@ export const renderColumnTitle = <RecordType extends AnyObject = AnyObject>(
   title: ColumnTitle<RecordType>,
   props: ColumnTitleProps<RecordType>,
 ) => {
-  if (typeof title === 'function') {
+  if (isFunction(title)) {
     return title(props);
   }
   return title;
@@ -32,7 +32,7 @@ export const renderColumnTitle = <RecordType extends AnyObject = AnyObject>(
 /**
  * Safe get column title
  *
- * Should filter [object Object]
+ * Should filter object
  *
  * @param title
  */
@@ -40,9 +40,9 @@ export const safeColumnTitle = <RecordType extends AnyObject = AnyObject>(
   title: ColumnTitle<RecordType>,
   props: ColumnTitleProps<RecordType>,
 ) => {
-  const res = renderColumnTitle<RecordType>(title, props);
-  if (Object.prototype.toString.call(res) === '[object Object]') {
+  const result = renderColumnTitle<RecordType>(title, props);
+  if (isPlainObject<RecordType>(result) || Array.isArray(result)) {
     return '';
   }
-  return res;
+  return result;
 };
