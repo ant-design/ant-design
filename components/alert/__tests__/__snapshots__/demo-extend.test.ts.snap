@@ -1661,7 +1661,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
   class="ant-flex css-var-test-id ant-flex-align-stretch ant-flex-gap-medium ant-flex-vertical"
 >
   <div
-    class="ant-alert ant-alert-info ant-alert-variant-bordered acss-hrwuh css-var-test-id"
+    class="ant-alert ant-alert-info ant-alert-variant-bordered acss-1oobf4f css-var-test-id"
     data-show="true"
     role="alert"
   >
@@ -1713,7 +1713,7 @@ exports[`renders components/alert/demo/style-class.tsx extend context correctly 
     </div>
   </div>
   <div
-    class="ant-alert ant-alert-success ant-alert-variant-bordered acss-hrwuh css-var-test-id"
+    class="ant-alert ant-alert-success ant-alert-variant-bordered acss-1oobf4f css-var-test-id"
     data-show="true"
     role="alert"
     style="background-color: rgba(82, 196, 26, 0.1); border-color: rgb(183, 235, 143);"
