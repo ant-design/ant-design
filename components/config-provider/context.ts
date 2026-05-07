@@ -239,7 +239,7 @@ export type TabsConfig = ComponentStyleConfig &
 export type AnchorStyleConfig = ComponentStyleConfig & Pick<AnchorProps, 'classNames' | 'styles'>;
 
 export type AlertConfig = ComponentStyleConfig &
-  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles'> & {
+  Pick<AlertProps, 'closable' | 'closeIcon' | 'classNames' | 'styles' | 'showIcon'> & {
     successIcon?: React.ReactNode;
     infoIcon?: React.ReactNode;
     warningIcon?: React.ReactNode;
