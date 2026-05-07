@@ -10,7 +10,7 @@ There are some common mistakes when submitting an issue to the community for the
 
 ---
 
-As a developer, I use and participate in many open source projects. In the open source community, questions and answers are the most interesting part. Some issues are fully communicated while some others are not. There are many fascinating and useful commonalities in the way people ask questions. I've distilled them in the hope that they will help those like me who are curious and willing to go out of their way to annoy the maintainers of open source projects.
+As a developer, I use and participate in many open source projects. In the open source community, questions and answers are the most interesting part. Some issues are well-communicated, while others are not. There are many fascinating and useful commonalities in the way people ask questions. I've distilled them in the hope that they will help those like me who are curious and willing to go out of their way to annoy the maintainers of open source projects.
 
 Here are thirteen tips on how to ask questions which never can be answered:
 
