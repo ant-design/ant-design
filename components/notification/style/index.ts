@@ -5,10 +5,10 @@ import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { resetComponent } from '../../style';
 import type { AliasToken, FullToken, GenerateStyle, GenStyleFn } from '../../theme/internal';
 import { genStyleHooks, genSubStyleComponent, mergeToken } from '../../theme/internal';
-import genNotificationStyle, { genNotificationItemStyle, genPurePanelStyle } from './notification';
+import genNotificationStyle, { genPurePanelStyle } from './notification';
 import genNotificationPlacementStyle from './placement';
 
-const DEFAULT_COLLAPSED_STACK_VISIBLE_COUNT = 1;
+const DEFAULT_COLLAPSED_STACK_VISIBLE_COUNT = 3;
 
 type WidthKey<Token extends NotificationToken> = {
   [Key in keyof Token]: Token[Key] extends number | string ? Key : never;
@@ -18,12 +18,6 @@ interface SharedStyleConfig<Token extends NotificationToken> {
   listWidthKey?: WidthKey<Token>;
   stackVisibleCount?: number;
   itemStyle?: false | GenerateStyle<Token>;
-  stackPlaceholderItemStyle?: false | ((token: Token) => CSSObject);
-}
-
-interface StackPlaceholderStyle {
-  rootStyle: CSSObject;
-  collapsedStyle: CSSObject;
 }
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -162,10 +156,12 @@ export const prepareNotificationToken: (
 
 // =============================== List ================================
 
+/** Build a clip-path inset that keeps stack shadows visible. */
+const getStackNoticeClipPath = (offset: string | number) =>
+  `inset(${offset} ${offset} ${offset} ${offset})`;
+
 /** Generate shared list content and motion base styles. */
-export const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObject> = (
-  token,
-) => {
+const genNotificationListContentStyle: GenerateStyle<NotificationToken, CSSObject> = (token) => {
   const { componentCls, motionDurationMid, motionDurationSlow, motionEaseInOut } = token;
 
   const listCls = `${componentCls}-list`;
@@ -195,74 +191,6 @@ export const genNotificationListContentStyle: GenerateStyle<NotificationToken, C
   };
 };
 
-/** Generate pseudo notice cards shown below the collapsed stack. */
-const genNotificationStackPlaceholderStyle = <Token extends NotificationToken>(
-  token: Token,
-  stackPlaceholderItemStyle: false | ((token: Token) => CSSObject),
-): StackPlaceholderStyle => {
-  if (stackPlaceholderItemStyle === false) {
-    return {
-      rootStyle: {},
-      collapsedStyle: {},
-    };
-  }
-
-  const { componentCls } = token;
-  const noticeCls = `${componentCls}-notice`;
-  const listContentCls = `${componentCls}-list-content`;
-  const rawNoticeStyle = (stackPlaceholderItemStyle(token)[noticeCls] || {}) as CSSObject;
-  const { '&::after': _hoverAfterStyle, ...noticeStyle } = rawNoticeStyle;
-  const placeholderStyle: CSSObject = {
-    ...noticeStyle,
-    position: 'absolute',
-    zIndex: -1,
-    left: '50%',
-    height: token.calc(token.marginXS).mul(2).equal(),
-    padding: 0,
-    boxShadow: token.boxShadowTertiary,
-    opacity: 0,
-    pointerEvents: 'none',
-    transform: 'translateX(-50%) translateY(100%)',
-    transition: [
-      `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
-      `transform ${token.motionDurationFast} ${token.motionEaseInOut}`,
-      `width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-    ].join(', '),
-    content: '""',
-  };
-
-  return {
-    rootStyle: {
-      [listContentCls]: {
-        isolation: 'isolate',
-
-        '&::before': {
-          ...placeholderStyle,
-          top: `calc(var(--top-notificiation-height) - ${unit(token.marginXS)})`,
-          width: `calc(var(--top-notificiation-width) - ${unit(token.margin)})`,
-        },
-
-        '&::after': {
-          ...placeholderStyle,
-          zIndex: -2,
-          top: 'var(--top-notificiation-height)',
-          width: `calc(var(--top-notificiation-width) - ${unit(
-            token.calc(token.margin).mul(2).equal(),
-          )})`,
-        },
-      },
-    },
-    collapsedStyle: {
-      [listContentCls]: {
-        '&::before, &::after': {
-          opacity: 1,
-          transform: 'translateX(-50%) translateY(0)',
-        },
-      },
-    },
-  };
-};
-
 /** Generate the root holder, list, stack, and RTL styles for notifications. */
 const genNotificationListStyle = <Token extends NotificationToken>(
   token: Token,
@@ -283,12 +211,8 @@ const genNotificationListStyle = <Token extends NotificationToken>(
   const noticeBeyondStackVisibleCountCls = `${noticeCls}:nth-last-child(n + ${
     stackVisibleCount + 1
   })`;
-  const stackPlaceholderItemStyle =
-    config.stackPlaceholderItemStyle === undefined
-      ? (stackToken: Token) => genNotificationItemStyle(stackToken)
-      : config.stackPlaceholderItemStyle;
-  const { rootStyle: stackPlaceholderStyle, collapsedStyle: stackPlaceholderCollapsedStyle } =
-    genNotificationStackPlaceholderStyle(token, stackPlaceholderItemStyle);
+  const stackShadowClipOffset = unit(token.calc(token.marginXXL).mul(-1).equal());
+  const stackNoticeClipPath = getStackNoticeClipPath(stackShadowClipOffset);
 
   return {
     [componentCls]: {
@@ -329,10 +253,14 @@ const genNotificationListStyle = <Token extends NotificationToken>(
 
       // ============================ Stack ============================
       [`&${componentCls}-stack`]: {
-        ...stackPlaceholderStyle,
+        [noticeCls]: {
+          clipPath: stackNoticeClipPath,
+        },
 
         [`&:not(${componentCls}-stack-expanded)`]: {
-          ...stackPlaceholderCollapsedStyle,
+          [noticeCls]: {
+            '--notification-scale': 'calc(1 - min(var(--notification-index, 0), 2) * 0.06)',
+          } as CSSObject,
 
           [`${noticeCls}:not(${noticeCls}-stack-in-threshold)`]: {
             opacity: 0,

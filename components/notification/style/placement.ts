@@ -45,7 +45,7 @@ const getMotionTransform = (motionOffset?: PlacementMotionOffset) => {
   const x = motionOffset?.x ?? '0';
   const y = motionOffset?.y ?? '0';
 
-  return `translate3d(${x}, ${y}, 0)`;
+  return `translate3d(${x}, ${y}, 0) scale(var(--notification-scale, 1))`;
 };
 
 /** Build the placement metadata used by position and motion styles. */
@@ -76,9 +76,28 @@ const getPlacementStyleConfig = (
 const getPlacementFlexDirection = (vertical: VerticalPlacement) =>
   vertical === 'bottom' ? 'column-reverse' : 'column';
 
-/** Get the transform origin used by notice motion. */
+/** Get the transform origin used by stacked notice scaling. */
 const getPlacementTransformOrigin = (vertical: VerticalPlacement) =>
   vertical === 'bottom' ? 'center top' : 'center bottom';
+
+/** Calculate the clip offset that preserves stack shadows. */
+const getStackShadowClipOffset = (token: NotificationToken) =>
+  unit(token.calc(token.marginXXL).mul(-1).equal());
+
+/** Build the default stack clip-path for a visible notice. */
+const getStackNoticeClipPath = (token: NotificationToken) => {
+  const offset = getStackShadowClipOffset(token);
+  return `inset(${offset} ${offset} ${offset} ${offset})`;
+};
+
+/** Build the collapsed stack clip-path for a placement. */
+const getPlacementStackClipPath = (token: NotificationToken, vertical: VerticalPlacement) => {
+  const offset = getStackShadowClipOffset(token);
+
+  return vertical === 'bottom'
+    ? `inset(${offset} ${offset} 50% ${offset})`
+    : `inset(50% ${offset} ${offset} ${offset})`;
+};
 
 // ============================= Placement =============================
 
@@ -160,12 +179,22 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
         opacity: 0,
         transform: enterTransform,
       },
+
+      [`&${componentCls}-stack:not(${componentCls}-stack-expanded)`]: {
+        [noticeCls]: {
+          clipPath: getPlacementStackClipPath(token, vertical),
+        },
+
+        [`${noticeCls}[data-notification-index='0']`]: {
+          clipPath: getStackNoticeClipPath(token),
+        },
+      },
     },
   };
 };
 
 /** Generate placement styles for all enabled notification placements. */
-export const genNotificationPlacementRootStyle = (
+const genNotificationPlacementRootStyle = (
   token: NotificationToken,
   placements: readonly NotificationPlacement[] = NotificationPlacements,
 ): CSSObject => {
