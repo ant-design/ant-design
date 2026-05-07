@@ -4,7 +4,7 @@ date: 2023-02-22
 author: afc163
 ---
 
-There are some common mistake when submitting an issue to the community for the first time, making it difficult for maintainers to help solve problems. Reposting an old article, hoping it helps submit issue after laughing :)
+There are some common mistakes when submitting an issue to the community for the first time, making it difficult for maintainers to help solve problems. Reposting an old article, hoping it helps with submitting issues after laughing :)
 
 > Original link: [How to submit a issue which never can be answered to open source projects](https://zhuanlan.zhihu.com/p/25795393)
 
