@@ -3,7 +3,7 @@ import { Button, message, Space } from 'antd';
 import type { GetProp, MessageArgsProps } from 'antd';
 
 const defaultStyles: GetProp<MessageArgsProps, 'styles', 'Return'> = {
-  wrapper: {
+  root: {
     backgroundColor: '#f6ffed',
     border: '2px solid #95de64',
     borderRadius: 16,
@@ -24,10 +24,7 @@ const stylesFn: MessageArgsProps['styles'] = ({
   if (props.type === 'error') {
     return {
       root: {
-        borderColor: '#ffccc7',
-      },
-      wrapper: {
-        ...defaultStyles.wrapper,
+        ...defaultStyles.root,
         backgroundColor: '#fff2f0',
         borderColor: '#ffccc7',
         boxShadow: '4px 4px 0 #ffccc7',
