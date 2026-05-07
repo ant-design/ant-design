@@ -17,7 +17,7 @@ type WidthKey<Token extends NotificationToken> = {
 interface SharedStyleConfig<Token extends NotificationToken> {
   listWidthKey?: WidthKey<Token>;
   stackVisibleCount?: number;
-  itemStyle?: false | GenerateStyle<Token>;
+  itemStyle?: GenerateStyle<Token>;
 }
 
 /** Component only token. Which will handle additional calculation of alias token */
@@ -300,11 +300,11 @@ export const sharedGenerateStyle = <Token extends NotificationToken>(
   token: Token,
   config: SharedStyleConfig<Token> = {},
 ): ReturnType<GenerateStyle<Token>> => {
-  const itemStyle = config.itemStyle === undefined ? genNotificationStyle : config.itemStyle;
+  const itemStyle = config.itemStyle ?? genNotificationStyle;
 
   return [
     genNotificationListStyle(token, config),
-    ...(itemStyle === false ? [] : [itemStyle(token)]),
+    itemStyle(token),
     genNotificationPlacementStyle(token),
   ];
 };
