@@ -19,6 +19,9 @@ jest.mock('react-dom', () => {
 });
 
 describe('message.config', () => {
+  const topInset =
+    'calc(var(--notification-top, var(--notification-margin-edge, 0px)) - var(--notification-margin-edge, 0px))';
+
   beforeAll(() => {
     actWrapper(act);
   });
@@ -44,7 +47,8 @@ describe('message.config', () => {
     message.info('whatever');
     await awaitPromise();
     expect(document.querySelector('.ant-message')).toHaveStyle({
-      top: '100px',
+      top: topInset,
+      '--notification-top': '100px',
     });
   });
 
@@ -57,7 +61,8 @@ describe('message.config', () => {
     await awaitPromise();
 
     expect(document.querySelector('.ant-message')).toHaveStyle({
-      top: '10vh',
+      top: topInset,
+      '--notification-top': '10vh',
     });
   });
 

@@ -16,6 +16,9 @@ jest.mock('react-dom', () => {
 });
 
 describe('Notification.placement', () => {
+  const getPlacementInset = (placement: 'top' | 'bottom') =>
+    `calc(var(--notification-${placement}, var(--notification-margin-edge, 0px)) - var(--notification-margin-edge, 0px))`;
+
   function open(args?: Partial<ArgsProps>) {
     notification.open({
       title: 'Notification Title',
@@ -68,7 +71,7 @@ describe('Notification.placement', () => {
       await awaitPromise();
 
       expect(document.querySelector('.ant-notification-topLeft')).toHaveStyle({
-        top: 'var(--notification-top, 0)',
+        top: getPlacementInset('top'),
         left: '0px',
         bottom: 'auto',
         '--notification-top': '50px',
@@ -83,7 +86,7 @@ describe('Notification.placement', () => {
       });
 
       expect(document.querySelector('.ant-notification-topRight')).toHaveStyle({
-        top: 'var(--notification-top, 0)',
+        top: getPlacementInset('top'),
         right: '0px',
         bottom: 'auto',
         '--notification-top': '100px',
@@ -100,7 +103,7 @@ describe('Notification.placement', () => {
       expect(document.querySelector('.ant-notification-bottomRight')).toHaveStyle({
         top: 'auto',
         right: '0px',
-        bottom: 'var(--notification-bottom, 0)',
+        bottom: getPlacementInset('bottom'),
         '--notification-top': '50px',
         '--notification-bottom': '100px',
       });
@@ -115,7 +118,7 @@ describe('Notification.placement', () => {
       expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
         top: 'auto',
         left: '0px',
-        bottom: 'var(--notification-bottom, 0)',
+        bottom: getPlacementInset('bottom'),
         '--notification-top': '100px',
         '--notification-bottom': '50px',
       });
@@ -129,7 +132,7 @@ describe('Notification.placement', () => {
       await awaitPromise();
 
       expect(document.querySelector('.ant-notification-top')).toHaveStyle({
-        top: 'var(--notification-top, 0)',
+        top: getPlacementInset('top'),
         left: '50%',
         bottom: 'auto',
         '--notification-top': '50px',
@@ -147,7 +150,7 @@ describe('Notification.placement', () => {
       expect(document.querySelector('.ant-notification-bottom')).toHaveStyle({
         top: 'auto',
         left: '50%',
-        bottom: 'var(--notification-bottom, 0)',
+        bottom: getPlacementInset('bottom'),
         '--notification-top': '50px',
         '--notification-bottom': '60px',
       });

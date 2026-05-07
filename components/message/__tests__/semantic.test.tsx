@@ -2,6 +2,7 @@ import React from 'react';
 
 import message, { actWrapper } from '..';
 import { act, render } from '../../../tests/utils';
+import ConfigProvider from '../../config-provider';
 import { awaitPromise, triggerMotionEnd } from './util';
 
 jest.mock('react-dom', () => {
@@ -230,6 +231,57 @@ describe('Message.semantic', () => {
     expect(document.querySelector('.warning-function-override')).toHaveStyle({
       background: 'rgb(255, 0, 0)',
       color: 'rgb(255, 0, 0)',
+    });
+
+    message.destroy();
+  });
+
+  it('should let useMessage config override ConfigProvider semantic styles', () => {
+    const Demo = () => {
+      const [api, holder] = message.useMessage({
+        classNames: {
+          title: 'hook-title',
+        },
+        styles: {
+          title: {
+            color: 'rgb(1, 2, 3)',
+          },
+        },
+      });
+
+      React.useEffect(() => {
+        api.info({
+          content: 'Message with merged semantic config',
+        });
+      }, []);
+
+      return <div>{holder}</div>;
+    };
+
+    render(
+      <ConfigProvider
+        message={{
+          classNames: {
+            title: 'provider-title',
+          },
+          styles: {
+            title: {
+              color: 'rgb(4, 5, 6)',
+              fontWeight: 'bold',
+            },
+          },
+        }}
+      >
+        <Demo />
+      </ConfigProvider>,
+    );
+
+    const title = document.querySelector('.hook-title');
+
+    expect(title).toHaveClass('provider-title');
+    expect(title).toHaveStyle({
+      color: 'rgb(1, 2, 3)',
+      fontWeight: 'bold',
     });
 
     message.destroy();

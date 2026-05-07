@@ -47,7 +47,7 @@ const App: React.FC = () => {
             step={1}
             min={1}
             max={10}
-            onChange={(v) => setThreshold(v || 0)}
+            onChange={(v) => setThreshold(v ?? 1)}
           />
         </Space>
       </Space>

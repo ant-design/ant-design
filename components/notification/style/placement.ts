@@ -29,6 +29,8 @@ type PlacementStyleConfig = {
   isCenterPlacement: boolean;
 };
 
+const notificationMarginEdgeVar = '--notification-margin-edge';
+
 // ============================== Shared ==============================
 
 /** Resolve the opposite block and inline edges for a placement. */
@@ -75,6 +77,13 @@ const getPlacementStyleConfig = (
 /** Get the list direction for a vertical placement. */
 const getPlacementFlexDirection = (vertical: VerticalPlacement) =>
   vertical === 'bottom' ? 'column-reverse' : 'column';
+
+/** Keep configured top/bottom as the visible notice edge while list padding preserves shadows. */
+const getPlacementInset = (vertical: VerticalPlacement) => {
+  const marginEdge = `var(${notificationMarginEdgeVar}, 0px)`;
+
+  return `calc(var(--notification-${vertical}, ${marginEdge}) - ${marginEdge})`;
+};
 
 /** Get the transform origin used by stacked notice scaling. */
 const getPlacementTransformOrigin = (vertical: VerticalPlacement) =>
@@ -125,7 +134,7 @@ const genPlacementStyle = (token: NotificationToken, config: PlacementStyleConfi
 
   return {
     [`&${componentCls}-${placement}`]: {
-      [vertical]: `var(--notification-${vertical}, 0)`,
+      [vertical]: getPlacementInset(vertical),
       [blockEnd]: 'auto',
       display: 'flex',
       flexDirection: getPlacementFlexDirection(vertical),

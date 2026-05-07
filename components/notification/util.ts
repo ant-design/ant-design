@@ -5,7 +5,10 @@ import type { CSSMotionProps } from '@rc-component/motion';
 import type { NotificationConfig as CPNotificationConfig } from '../config-provider/context';
 import type { NotificationConfig } from './interface';
 
-export function getPlacementOffsetStyle(top?: number, bottom?: number): React.CSSProperties {
+export function getPlacementOffsetStyle(
+  top?: number | string,
+  bottom?: number | string,
+): React.CSSProperties {
   return {
     ...(top !== undefined && { '--notification-top': unit(top) }),
     ...(bottom !== undefined && { '--notification-bottom': unit(bottom) }),

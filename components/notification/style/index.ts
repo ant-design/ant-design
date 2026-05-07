@@ -197,6 +197,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
   config: SharedStyleConfig<Token>,
 ): CSSObject => {
   const { componentCls, notificationMarginEdge } = token;
+  const notificationMarginEdgeVar = '--notification-margin-edge';
 
   const noticeCls = `${componentCls}-notice`;
   const listCls = `${componentCls}-list`;
@@ -217,6 +218,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
   return {
     [componentCls]: {
       ...resetComponent(token),
+      [notificationMarginEdgeVar]: unit(notificationMarginEdge),
 
       // ============================ Holder ============================
       position: 'fixed',
@@ -234,7 +236,7 @@ const genNotificationListStyle = <Token extends NotificationToken>(
       // ============================= List =============================
       [`&${listCls}`]: {
         maxHeight: '100vh',
-        padding: notificationMarginEdge,
+        padding: `var(${notificationMarginEdgeVar})`,
         overflowX: 'hidden',
         overflowY: 'auto',
         overscrollBehavior: 'contain',

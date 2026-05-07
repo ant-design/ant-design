@@ -18,6 +18,7 @@ import { useComponentConfig } from '../config-provider/context';
 import type { MessageConfig } from '../config-provider/context';
 import useCSSVarCls from '../config-provider/hooks/useCSSVarCls';
 import useStackConfig from '../notification/hooks/useStackConfig';
+import { getPlacementOffsetStyle } from '../notification/util';
 import type {
   ArgsProps,
   ConfigOptions,
@@ -101,16 +102,14 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   // Use useMergeSemantic to merge classNames and styles
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [classNames, message?.classNames],
-    [styles, message?.styles],
+    [message?.classNames, classNames],
+    [message?.styles, styles],
     {
       props: props as unknown as ArgsProps,
     },
   );
   // =============================== Style ===============================
-  const getStyle = (): React.CSSProperties => ({
-    top: top ?? DEFAULT_OFFSET,
-  });
+  const getStyle = (): React.CSSProperties => getPlacementOffsetStyle(top ?? DEFAULT_OFFSET);
 
   const getClassName = () => clsx({ [`${prefixCls}-rtl`]: rtl ?? direction === 'rtl' });
 
