@@ -3,6 +3,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import type { KeyWiseTransferItem } from '.';
+import { isPlainObject } from '../_util/is';
 import Pagination from '../pagination';
 import type { PaginationType, TransferKey } from './interface';
 import ListItem from './ListItem';
@@ -59,7 +60,7 @@ const TransferListBody: React.ForwardRefRenderFunction<
       return null;
     }
 
-    const convertPagination = typeof pagination === 'object' ? pagination : {};
+    const convertPagination = isPlainObject(pagination) ? pagination : {};
 
     return parsePagination(convertPagination);
   }, [pagination]);

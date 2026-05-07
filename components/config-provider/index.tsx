@@ -4,6 +4,7 @@ import IconContext from '@ant-design/icons/lib/components/Context';
 import { merge } from '@rc-component/util';
 import useMemo from '@rc-component/util/lib/hooks/useMemo';
 
+import { isFunction, isPlainObject } from '../_util/is';
 import warning, { devUseWarning, WarningContext } from '../_util/warning';
 import type { WarningContextProps } from '../_util/warning';
 import ValidateMessagesContext from '../form/validateMessagesContext';
@@ -372,7 +373,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     anchor,
     app,
     form,
-    locale,
+    locale: rawLocale,
     componentSize,
     direction,
     space,
@@ -455,6 +456,18 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
     treeSelect,
     watermark,
   } = props;
+
+  // https://github.com/ant-design/ant-design/issues/57295
+  const locale = React.useMemo(() => {
+    if (
+      isPlainObject(rawLocale) &&
+      Object.prototype.hasOwnProperty.call(rawLocale, 'default') &&
+      (rawLocale as any).default?.locale
+    ) {
+      return (rawLocale as any).default as Locale;
+    }
+    return rawLocale as Locale;
+  }, [rawLocale]);
 
   // =================================== Context ===================================
   const getPrefixCls = React.useCallback(
@@ -694,10 +707,7 @@ const ProviderChildren: React.FC<ProviderChildrenProps> = (props) => {
       if ('algorithm' in parsedToken) {
         if (parsedToken.algorithm === true) {
           parsedToken.theme = themeObj;
-        } else if (
-          Array.isArray(parsedToken.algorithm) ||
-          typeof parsedToken.algorithm === 'function'
-        ) {
+        } else if (Array.isArray(parsedToken.algorithm) || isFunction(parsedToken.algorithm)) {
           parsedToken.theme = createTheme(parsedToken.algorithm);
         }
         delete parsedToken.algorithm;

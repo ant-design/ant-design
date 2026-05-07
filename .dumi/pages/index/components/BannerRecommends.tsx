@@ -167,7 +167,7 @@ const RecommendItem: React.FC<RecommendItemProps> = (props) => {
           '--mouse-y': `${transMousePosition[1]}px`,
         } as React.CSSProperties
       }
-      rel="noreferrer"
+      rel="noopener noreferrer"
       onMouseMove={onMouseMove}
     >
       <Typography.Title level={5}>{extra?.title}</Typography.Title>

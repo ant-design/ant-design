@@ -11,6 +11,7 @@ import { useControlledState } from '@rc-component/util';
 import { clsx } from 'clsx';
 
 import { useMultipleSelect } from '../../_util/hooks';
+import { isFunction, isPlainObject } from '../../_util/is';
 import type { AnyObject } from '../../_util/type';
 import { devUseWarning } from '../../_util/warning';
 import type { CheckboxProps } from '../../checkbox';
@@ -66,7 +67,7 @@ const flattenData = <RecordType extends AnyObject = AnyObject>(
 ): RecordType[] => {
   (data || []).forEach((record) => {
     list.push(record);
-    if (record && typeof record === 'object' && childrenColumnName in record) {
+    if (isPlainObject(record) && childrenColumnName in record) {
       flattenData<RecordType>(childrenColumnName, record[childrenColumnName], list);
     }
   });
@@ -712,7 +713,7 @@ const useSelection = <RecordType extends AnyObject = AnyObject>(
         if (!rowSelection?.columnTitle) {
           return title;
         }
-        if (typeof rowSelection.columnTitle === 'function') {
+        if (isFunction(rowSelection.columnTitle)) {
           return rowSelection.columnTitle(columnTitleCheckbox);
         }
         return rowSelection.columnTitle;

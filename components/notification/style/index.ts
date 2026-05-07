@@ -174,12 +174,19 @@ export const genNoticeStyle: GenerateStyle<NotificationToken, CSSObject> = (toke
     [`${noticeCls}-description`]: {
       fontSize,
       color: colorText,
+      marginTop: 0,
+    },
+
+    [`${noticeCls}-title + ${noticeCls}-description`]: {
       marginTop: token.marginXS,
-      
-      '&:first-child': {
-        marginTop: 0,
-        marginInlineEnd: token.marginSM,
-      },
+    },
+
+    [`${noticeCls}-closable ${noticeCls}-description`]: {
+      paddingInlineEnd: token.paddingLG,
+    },
+
+    [`${noticeCls}-closable ${noticeCls}-title + ${noticeCls}-description`]: {
+      paddingInlineEnd: 0,
     },
 
     [`${noticeCls}-closable ${noticeCls}-title`]: {

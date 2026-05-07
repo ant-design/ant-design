@@ -1,6 +1,7 @@
 import type { AlignType, BuildInPlacements } from '@rc-component/trigger';
 
 import { getArrowOffsetToken } from '../style/placementArrow';
+import { isPlainObject } from './is';
 
 export interface AdjustOverflow {
   adjustX?: 0 | 1;
@@ -29,8 +30,7 @@ export function getOverflowOptions(
     };
   }
 
-  const overflow =
-    autoAdjustOverflow && typeof autoAdjustOverflow === 'object' ? autoAdjustOverflow : {};
+  const overflow = isPlainObject(autoAdjustOverflow) ? autoAdjustOverflow : {};
 
   const baseOverflow: AlignType['overflow'] = {};
 

@@ -121,6 +121,12 @@ describe('Transfer.List', () => {
     expect(onItemSelect).toHaveBeenCalledWith('a', false);
   });
 
+  it('should fallback to number key as text when render result is non-text', () => {
+    const { container } = render(<Section {...listCommonProps} dataSource={[{ key: 100 }]} />);
+    const element = container.querySelector<HTMLElement>('.ant-transfer-list-content-item');
+    expect(element).toHaveAttribute('title', '100');
+  });
+
   it('should fallback to empty string text when render result is non-text', () => {
     const handleFilter = jest.fn();
     const { container } = render(

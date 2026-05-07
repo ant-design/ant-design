@@ -59,6 +59,7 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
     dropdownWidth,
     controlHeightLG,
     motionEaseOut,
+    padding,
     paddingXL,
     itemMarginInline,
     fontSizeLG,
@@ -227,6 +228,10 @@ const getVerticalStyle: GenerateStyle<MenuToken> = (token) => {
 
           [`${componentCls}-item-icon, ${iconCls}`]: {
             display: 'none',
+          },
+
+          [`${componentCls}-item-extra`]: {
+            paddingInlineStart: padding,
           },
 
           'a, a:hover': {

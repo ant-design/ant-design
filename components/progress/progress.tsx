@@ -9,6 +9,7 @@ import { clsx } from 'clsx';
 
 import { useMergeSemantic } from '../_util/hooks/useMergeSemantic';
 import type { GenerateSemantic } from '../_util/hooks/useMergeSemantic/semanticType';
+import { isPlainObject } from '../_util/is';
 import { devUseWarning } from '../_util/warning';
 import { useComponentConfig } from '../config-provider/context';
 import type { SizeType } from '../config-provider/SizeContext';
@@ -252,7 +253,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
           'usage',
           'Type "circle" and "dashboard" do not accept array as `size`, please use number or preset size instead.',
         );
-      } else if (typeof size === 'object') {
+      } else if (isPlainObject(size)) {
         warning(
           false,
           'usage',
@@ -279,7 +280,7 @@ const Progress = React.forwardRef<HTMLDivElement, ProgressProps>((props, ref) =>
         {...sharedProps}
         strokeColor={strokeColorNotGradient}
         prefixCls={prefixCls}
-        steps={typeof steps === 'object' ? steps.count : steps}
+        steps={isPlainObject(steps) ? steps.count : steps}
       >
         {progressInfo}
       </Steps>

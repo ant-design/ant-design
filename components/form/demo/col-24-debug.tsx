@@ -7,7 +7,7 @@ const sharedItem = (
       <a
         href="https://github.com/ant-design/ant-design/issues/36459"
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
       >
         #36459
       </a>

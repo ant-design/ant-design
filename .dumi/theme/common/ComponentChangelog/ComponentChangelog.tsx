@@ -152,7 +152,13 @@ const RefLinks: React.FC<{ refs: string[]; contributors: string[] }> = ({ refs, 
     <>
       {refs?.map((ref) => (
         <React.Fragment key={ref}>
-          <a className={styles.linkRef} key={ref} href={ref} target="_blank" rel="noreferrer">
+          <a
+            className={styles.linkRef}
+            key={ref}
+            href={ref}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             #{ref.match(/[^/]+$/)?.[0]}
           </a>
         </React.Fragment>
@@ -164,7 +170,7 @@ const RefLinks: React.FC<{ refs: string[]; contributors: string[] }> = ({ refs, 
             key={contributor}
             href={`https://github.com/${contributor}`}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             @{contributor}
           </a>
@@ -275,7 +281,7 @@ const ComponentChangelog: React.FC<Readonly<React.PropsWithChildren>> = (props) 
                       <ul className={styles.bugReasonList}>
                         {bugVersionInfo.reason.map<React.ReactNode>((reason, index) => (
                           <li key={`reason-${index}`}>
-                            <a type="link" target="_blank" rel="noreferrer" href={reason}>
+                            <a target="_blank" rel="noopener noreferrer" href={reason}>
                               <BugOutlined />
                               {reason
                                 ?.replace(/#.*$/, '')

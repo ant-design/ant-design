@@ -917,7 +917,7 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               #36459
@@ -1336,7 +1336,7 @@ Array [
           >
             <a
               href="https://github.com/ant-design/ant-design/issues/36459"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               target="_blank"
             >
               #36459
@@ -2998,6 +2998,7 @@ Array [
                     class="ant-picker-suffix"
                   >
                     <span
+                      aria-hidden="true"
                       aria-label="calendar"
                       class="anticon anticon-calendar"
                       role="img"
@@ -3689,6 +3690,7 @@ Array [
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -8778,6 +8780,7 @@ exports[`renders components/form/demo/getValueProps-normalize.tsx extend context
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -13298,6 +13301,7 @@ exports[`renders components/form/demo/size.tsx extend context correctly 1`] = `
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -14422,6 +14426,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -15068,6 +15073,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -17202,6 +17208,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -17520,6 +17527,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -18750,6 +18758,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -20881,6 +20890,7 @@ exports[`renders components/form/demo/time-related-controls.tsx extend context c
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="clock-circle"
                     class="anticon anticon-clock-circle"
                     role="img"
@@ -25589,6 +25599,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -26256,6 +26267,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="clock-circle"
                     class="anticon anticon-clock-circle"
                     role="img"
@@ -27913,6 +27925,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
@@ -29686,6 +29699,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             class="ant-picker-suffix"
                           >
                             <span
+                              aria-hidden="true"
                               aria-label="calendar"
                               class="anticon anticon-calendar"
                               role="img"
@@ -30339,6 +30353,7 @@ exports[`renders components/form/demo/validate-static.tsx extend context correct
                             class="ant-picker-suffix"
                           >
                             <span
+                              aria-hidden="true"
                               aria-label="calendar"
                               class="anticon anticon-calendar"
                               role="img"
@@ -32863,6 +32878,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                   class="ant-picker-suffix"
                 >
                   <span
+                    aria-hidden="true"
                     aria-label="calendar"
                     class="anticon anticon-calendar"
                     role="img"
@@ -33556,6 +33572,7 @@ exports[`renders components/form/demo/variant.tsx extend context correctly 1`] =
                 class="ant-picker-suffix"
               >
                 <span
+                  aria-hidden="true"
                   aria-label="calendar"
                   class="anticon anticon-calendar"
                   role="img"
