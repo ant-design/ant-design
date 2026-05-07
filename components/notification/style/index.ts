@@ -298,7 +298,7 @@ export const PurePanelStyle = genSubStyleComponent(
 /** Compose the shared list, item, and placement styles. */
 export const sharedGenerateStyle = <Token extends NotificationToken>(
   token: Token,
-  config: SharedStyleConfig<Token> = {},
+  config: SharedStyleConfig<Token>,
 ): ReturnType<GenerateStyle<Token>> => {
   const itemStyle = config.itemStyle ?? genNotificationStyle;
 
