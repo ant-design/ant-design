@@ -225,11 +225,7 @@ export function useInternalMessage(
           title: content,
           classNames: {
             ...semanticClassNames,
-            wrapper: clsx(
-              `${prefixCls}-custom-content`,
-              type && `${prefixCls}-${type}`,
-              semanticClassNames.wrapper,
-            ),
+            wrapper: clsx(type && `${prefixCls}-${type}`, semanticClassNames.wrapper),
             icon: clsx(typeIconCls, semanticClassNames.icon),
           } satisfies RcNotificationProps['classNames'],
           styles: semanticStyles satisfies RcNotificationProps['styles'],

@@ -79,11 +79,7 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
   const iconNode = getMessageIcon(type, icon);
   const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
   const rcClassNames: RcNotificationProps['classNames'] = {
-    wrapper: clsx(
-      `${prefixCls}-custom-content`,
-      type && `${prefixCls}-${type}`,
-      mergedClassNames.wrapper,
-    ),
+    wrapper: clsx(type && `${prefixCls}-${type}`, mergedClassNames.wrapper),
     icon: clsx(typeIconCls, mergedClassNames.icon),
     title: mergedClassNames.title,
   };
