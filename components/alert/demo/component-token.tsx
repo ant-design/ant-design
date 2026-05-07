@@ -9,6 +9,7 @@ const App: React.FC = () => (
     theme={{
       components: {
         Alert: {
+          iconSize: 20,
           withDescriptionIconSize: 32,
           withDescriptionPadding: 16,
         },

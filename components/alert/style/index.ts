@@ -19,6 +19,11 @@ export interface ComponentToken {
    */
   withDescriptionPadding: CSSProperties['padding'];
   /**
+   * @desc 图标尺寸
+   * @descEN Icon size
+   */
+  iconSize: number | string;
+  /**
    * @desc 带有描述时的图标尺寸
    * @descEN Icon size with description
    */
@@ -54,6 +59,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     lineHeight,
     borderRadiusLG: borderRadius,
     motionEaseInOutCirc,
+    iconSize,
     withDescriptionIconSize,
     colorText,
     colorTextHeading,
@@ -82,6 +88,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 
       [`${componentCls}-icon`]: {
         marginInlineEnd: marginXS,
+        fontSize: iconSize,
         lineHeight: 0,
       },
 
@@ -242,6 +249,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
 export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   const paddingHorizontal = 12; // Fixed value here.
   return {
+    iconSize: token.fontSize,
     withDescriptionIconSize: token.fontSizeHeading3,
     defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
     withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
