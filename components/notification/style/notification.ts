@@ -199,10 +199,6 @@ const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
     [`${noticeCls}-description`]: {
       color: colorText,
       fontSize,
-
-      '&:first-child': {
-        marginInlineEnd: marginSM,
-      },
     },
 
     [`${noticeCls}-closable ${noticeCls}-title`]: {
