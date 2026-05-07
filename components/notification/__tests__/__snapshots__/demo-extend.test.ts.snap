@@ -68,19 +68,6 @@ exports[`renders components/notification/demo/custom-icon.tsx extend context cor
 
 exports[`renders components/notification/demo/custom-icon.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/notification/demo/custom-style.tsx extend context correctly 1`] = `
-<button
-  class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"
-  type="button"
->
-  <span>
-    Open the notification box
-  </span>
-</button>
-`;
-
-exports[`renders components/notification/demo/custom-style.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/notification/demo/duration.tsx extend context correctly 1`] = `
 <button
   class="ant-btn css-var-test-id ant-btn-primary ant-btn-color-primary ant-btn-variant-solid"

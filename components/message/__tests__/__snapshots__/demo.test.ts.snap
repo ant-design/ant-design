@@ -93,17 +93,6 @@ Array [
 ]
 `;
 
-exports[`renders components/message/demo/custom-style.tsx correctly 1`] = `
-<button
-  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-  type="button"
->
-  <span>
-    Customized style
-  </span>
-</button>
-`;
-
 exports[`renders components/message/demo/duration.tsx correctly 1`] = `
 <button
   class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"

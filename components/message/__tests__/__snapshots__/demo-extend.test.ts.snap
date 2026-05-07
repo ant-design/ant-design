@@ -95,19 +95,6 @@ Array [
 
 exports[`renders components/message/demo/component-token.tsx extend context correctly 2`] = `[]`;
 
-exports[`renders components/message/demo/custom-style.tsx extend context correctly 1`] = `
-<button
-  class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
-  type="button"
->
-  <span>
-    Customized style
-  </span>
-</button>
-`;
-
-exports[`renders components/message/demo/custom-style.tsx extend context correctly 2`] = `[]`;
-
 exports[`renders components/message/demo/duration.tsx extend context correctly 1`] = `
 <button
   class="ant-btn css-var-test-id ant-btn-default ant-btn-color-default ant-btn-variant-outlined"
