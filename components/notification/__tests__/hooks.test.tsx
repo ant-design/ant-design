@@ -194,6 +194,47 @@ describe('notification.hooks', () => {
     expect(document.querySelector('.ant-notification-stack')).toBeTruthy();
   });
 
+  it('should render stack placeholders below notice', () => {
+    const cache = createCache();
+
+    const Demo = () => {
+      const [api, holder] = notification.useNotification();
+
+      React.useEffect(() => {
+        for (let i = 0; i < 4; i += 1) {
+          api.info({
+            title: null,
+            description: `test ${i}`,
+            duration: 0,
+          });
+        }
+      }, []);
+
+      return <StyleProvider cache={cache}>{holder}</StyleProvider>;
+    };
+
+    render(<Demo />);
+
+    const styleText = extractStyle(cache, true);
+    expect(styleText).toMatch(
+      /\.ant-notification-stack .ant-notification-list-content\{[^}]*isolation:isolate/,
+    );
+    expect(styleText).toMatch(
+      /\.ant-notification-stack .ant-notification-list-content::before\{[^}]*z-index:-1/,
+    );
+    expect(styleText).toMatch(
+      /\.ant-notification-stack .ant-notification-list-content::after\{[^}]*z-index:-2/,
+    );
+    expect(styleText).toMatch(
+      /\.ant-notification-stack:not\(\.ant-notification-stack-expanded\) .ant-notification-list-content::before,\.[^{]+::after\{[^}]*opacity:1/,
+    );
+    expect(styleText).toMatch(
+      /\.ant-notification-stack:not\(\.ant-notification-stack-expanded\) .ant-notification-notice:nth-last-child\(n \+ 2\)\{[^}]*opacity:0/,
+    );
+    expect(styleText).not.toContain('--notification-scale');
+    expect(styleText).not.toContain('clip-path');
+  });
+
   it('disable stack', () => {
     const Demo = () => {
       const [api, holder] = notification.useNotification({ stack: false });

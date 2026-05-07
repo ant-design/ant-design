@@ -1,6 +1,5 @@
 import type { CSSProperties } from 'react';
 import type { CSSObject } from '@ant-design/cssinjs';
-import { unit } from '@ant-design/cssinjs';
 
 import { CONTAINER_MAX_OFFSET } from '../../_util/hooks';
 import { prepareNotificationToken, sharedGenerateStyle } from '../../notification/style';
@@ -85,70 +84,6 @@ const genMessageItemStyle = (token: NotificationToken): CSSObject => {
   });
 };
 
-// =============================== Stack ===============================
-
-/** Generate the collapsed stack placeholder styles for Message notices. */
-const generateMessageStackStyle: GenerateStyle<NotificationToken> = (token) => {
-  const { componentCls } = token;
-  const noticeCls = `${componentCls}-notice`;
-  const listContentCls = `${componentCls}-list-content`;
-  const messageItemStyle = genMessageItemStyle(token);
-  const { '&::after': _hoverAfterStyle, ...messageNoticeStyle } = messageItemStyle[
-    noticeCls
-  ] as CSSObject;
-  const placeholderStyle: CSSObject = {
-    ...messageNoticeStyle,
-    position: 'absolute',
-    zIndex: -1,
-    left: '50%',
-    height: token.calc(token.marginXS).mul(2).equal(),
-    padding: 0,
-    boxShadow: token.boxShadowTertiary,
-    opacity: 0,
-    pointerEvents: 'none',
-    transform: 'translateX(-50%) translateY(100%)',
-    transition: [
-      `opacity ${token.motionDurationFast} ${token.motionEaseInOut}`,
-      `transform ${token.motionDurationFast} ${token.motionEaseInOut}`,
-      `width ${token.motionDurationSlow} ${token.motionEaseInOut}`,
-    ].join(', '),
-    content: '""',
-  };
-
-  return {
-    [componentCls]: {
-      [`&${componentCls}-stack`]: {
-        [listContentCls]: {
-          isolation: 'isolate',
-
-          '&::before': {
-            ...placeholderStyle,
-            top: `calc(var(--top-notificiation-height) - ${unit(token.marginXS)})`,
-            width: `calc(var(--top-notificiation-width) - ${unit(token.margin)})`,
-          },
-          '&::after': {
-            ...placeholderStyle,
-            zIndex: -2,
-            top: 'var(--top-notificiation-height)',
-            width: `calc(var(--top-notificiation-width) - ${unit(
-              token.calc(token.margin).mul(2).equal(),
-            )})`,
-          },
-        },
-
-        [`&:not(${componentCls}-stack-expanded)`]: {
-          [listContentCls]: {
-            '&::before, &::after': {
-              opacity: 1,
-              transform: 'translateX(-50%) translateY(0)',
-            },
-          },
-        },
-      },
-    },
-  };
-};
-
 // ============================= PurePanel =============================
 
 /** Generate standalone PurePanel styles for Message. */
@@ -198,10 +133,11 @@ export default genStyleHooks(
       token as unknown as Parameters<GenStyleFn<'Message'>>[0],
     );
 
-    return [
-      sharedGenerateStyle(messageToken, { stackVisibleCount: 1, itemStyle: generateMessageStyle }),
-      generateMessageStackStyle(messageToken),
-    ];
+    return sharedGenerateStyle(messageToken, {
+      stackVisibleCount: 1,
+      itemStyle: generateMessageStyle,
+      stackPlaceholderItemStyle: genMessageItemStyle,
+    });
   },
   prepareComponentToken,
 );

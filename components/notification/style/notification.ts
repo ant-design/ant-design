@@ -9,15 +9,13 @@ import type { NotificationToken } from '.';
 // ============================== Shared ==============================
 
 /** Generate motion transitions shared by notification-like notice cards. */
-const genNotificationItemMotionStyle = (token: NotificationToken): CSSObject => {
+export const genNotificationItemMotionStyle = (token: NotificationToken): CSSObject => {
   const { motionDurationMid, motionEaseInOut } = token;
 
   return {
-    transform: 'scale(var(--notification-scale, 1))',
     transition: [
       `transform ${motionDurationMid} ${motionEaseInOut}`,
       `inset ${motionDurationMid} ${motionEaseInOut}`,
-      `clip-path ${motionDurationMid} ${motionEaseInOut}`,
       `opacity ${motionDurationMid} ${motionEaseInOut}`,
     ].join(', '),
   };
@@ -147,7 +145,7 @@ export const genListItemSharedStyle = (
 // =========================== Notification ===========================
 
 /** Generate the complete notice item styles for Notification. */
-const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
+export const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
   const {
     componentCls,
     progressBg,
