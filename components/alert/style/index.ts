@@ -23,6 +23,11 @@ export interface ComponentToken {
    * @descEN Icon size with description
    */
   withDescriptionIconSize: number | string;
+  /**
+   * @desc 关闭按钮图标尺寸
+   * @descEN Close icon size
+   */
+  closeIconSize: number | string;
 }
 
 type AlertToken = FullToken<'Alert'> & {
@@ -197,7 +202,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     iconCls,
     motionDurationMid,
     marginXS,
-    fontSizeIcon,
+    closeIconSize,
     colorIcon,
     colorIconHover,
   } = token;
@@ -212,8 +217,8 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         marginInlineStart: marginXS,
         padding: 0,
         overflow: 'hidden',
-        fontSize: fontSizeIcon,
-        lineHeight: unit(fontSizeIcon),
+        fontSize: closeIconSize,
+        lineHeight: unit(closeIconSize),
         backgroundColor: 'transparent',
         border: 'none',
         cursor: 'pointer',
@@ -243,6 +248,7 @@ export const prepareComponentToken: GetDefaultToken<'Alert'> = (token) => {
   const paddingHorizontal = 12; // Fixed value here.
   return {
     withDescriptionIconSize: token.fontSizeHeading3,
+    closeIconSize: token.fontSizeIcon,
     defaultPadding: `${token.paddingContentVerticalSM}px ${paddingHorizontal}px`,
     withDescriptionPadding: `${token.paddingMD}px ${token.paddingContentHorizontalLG}px`,
   };
