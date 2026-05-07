@@ -11,15 +11,13 @@ import type { NotificationToken } from '.';
 /** Generate motion transitions shared by notification-like notice cards. */
 const genNotificationItemMotionStyle = (token: NotificationToken): CSSObject => {
   const { motionDurationMid, motionEaseInOut } = token;
+  const transition = `${motionDurationMid} ${motionEaseInOut}`;
 
   return {
     transform: 'scale(var(--notification-scale, 1))',
-    transition: [
-      `transform ${motionDurationMid} ${motionEaseInOut}`,
-      `inset ${motionDurationMid} ${motionEaseInOut}`,
-      `clip-path ${motionDurationMid} ${motionEaseInOut}`,
-      `opacity ${motionDurationMid} ${motionEaseInOut}`,
-    ].join(', '),
+    transition: ['transform', 'inset', 'clip-path', 'opacity']
+      .map((property) => `${property} ${transition}`)
+      .join(', '),
   };
 };
 
