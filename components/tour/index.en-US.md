@@ -34,7 +34,7 @@ Common props ref：[Common props](/docs/react/common-props)
 
 | Property | Description | Type | Default | Version |
 | --- | --- | --- | --- | --- |
-| arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean` \| `{ pointAtCenter: boolean}` | `true` |  |
+| arrow | Whether to show the arrow, including the configuration whether to point to the center of the element | `boolean` \| `{ pointAtCenter: boolean }` | `true` |  |
 | classNames | Customize class for each semantic structure inside the component. Supports object or function. | Record<[SemanticDOM](#semantic-dom), string> \| (info: { props })=> Record<[SemanticDOM](#semantic-dom), string> | - |  |
 | closeIcon | Customize close icon | `React.ReactNode` | `true` | 5.9.0 |
 | disabledInteraction | Disable interaction on highlighted area. | `boolean` | `false` | 5.13.0 |
