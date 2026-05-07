@@ -17,7 +17,7 @@ export type StatisticSemanticType = {
   classNames?: {
     root?: string;
     content?: string;
-    value?: string /* 👈 6.4.0+ */;
+    value?: string; /* 👈 6.4.0+ */
     title?: string;
     header?: string;
     prefix?: string;
@@ -26,7 +26,7 @@ export type StatisticSemanticType = {
   styles?: {
     root?: React.CSSProperties;
     content?: React.CSSProperties;
-    value?: React.CSSProperties /* 👈 6.4.0+ */;
+    value?: React.CSSProperties; /* 👈 6.4.0+ */
     title?: React.CSSProperties;
     header?: React.CSSProperties;
     prefix?: React.CSSProperties;
