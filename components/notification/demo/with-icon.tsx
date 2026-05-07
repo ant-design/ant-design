@@ -9,7 +9,6 @@ const App: React.FC = () => {
   const openNotificationWithIcon = (type: NotificationType) => {
     api[type]({
       title: 'Notification Title',
-      duration: 0,
       description:
         'This is the content of the notification. This is the content of the notification. This is the content of the notification.',
     });
