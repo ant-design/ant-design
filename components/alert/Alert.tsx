@@ -279,6 +279,7 @@ const Alert = React.forwardRef<AlertRef, AlertProps>((props, ref) => {
     prefixCls,
     `${prefixCls}-${type}`,
     {
+      [`${prefixCls}-with-title`]: !!mergedTitle && !description && !action,
       [`${prefixCls}-with-description`]: !!description,
       [`${prefixCls}-no-icon`]: !isShowIcon,
       [`${prefixCls}-banner`]: !!banner,

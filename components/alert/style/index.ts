@@ -110,6 +110,14 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         paddingBottom: 0,
         opacity: 0,
       },
+
+      [`&${componentCls}-with-title`]: {
+        alignItems: 'flex-start',
+
+        [`${componentCls}-icon`]: {
+          marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSize).div(2).equal(),
+        },
+      },
     },
 
     [`${componentCls}-with-description`]: {
@@ -198,6 +206,8 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     motionDurationMid,
     marginXS,
     fontSizeIcon,
+    fontSize,
+    lineHeight,
     colorIcon,
     colorIconHover,
   } = token;
@@ -226,6 +236,10 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
             color: colorIconHover,
           },
         },
+      },
+
+      [`&${componentCls}-with-title ${componentCls}-close-icon`]: {
+        marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSizeIcon).div(2).equal(),
       },
 
       '&-close-text': {
