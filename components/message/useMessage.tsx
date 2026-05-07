@@ -87,7 +87,7 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     // Motion
     transitionName,
 
-    // Stack
+    // UI
     pauseOnHover = true,
     stack,
 
