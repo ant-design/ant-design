@@ -39,7 +39,7 @@ const SwitcherIconCom: React.FC<SwitcherIconProps> = (props) => {
       return null;
     }
 
-    if (typeof showLeafIcon !== 'boolean' && !!showLeafIcon) {
+    if (typeof showLeafIcon !== 'boolean' && showLeafIcon) {
       const leafIcon = isFunction(showLeafIcon) ? showLeafIcon(treeNodeProps) : showLeafIcon;
       const leafCls = `${prefixCls}-switcher-line-custom-icon`;
 
