@@ -10,6 +10,7 @@ export type MessageSemanticType = {
     listContent?: string;
     root?: string;
     icon?: string;
+    title?: string;
     content?: string;
   };
   styles?: {
@@ -17,6 +18,7 @@ export type MessageSemanticType = {
     listContent?: React.CSSProperties;
     root?: React.CSSProperties;
     icon?: React.CSSProperties;
+    title?: React.CSSProperties;
     content?: React.CSSProperties;
   };
 };

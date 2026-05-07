@@ -8,7 +8,7 @@ const messageClassNames = createStaticStyles(({ css }) => ({
     border: 1px solid #91caff;
     box-shadow: 0 4px 14px rgba(22, 119, 255, 0.12);
   `,
-  content: css`
+  title: css`
     color: #0958d9;
     font-weight: 600;
   `,
@@ -27,7 +27,7 @@ const stylesFn: MessageArgsProps['styles'] = ({
         border: '1px solid #b7eb8f',
         boxShadow: '0 4px 14px rgba(82, 196, 26, 0.14)',
       },
-      content: {
+      title: {
         color: '#237804',
         fontWeight: 600,
       },

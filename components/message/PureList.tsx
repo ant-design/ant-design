@@ -56,8 +56,12 @@ const PureList: React.FC<PureListProps> = (props) => {
       className={clsx(hashId, cssVarCls, rootCls)}
       classNames={{
         ...classNames,
-        wrapper: clsx(`${noticePrefixCls}-content`, `${prefixCls}-custom-content`),
-        title: classNames?.content,
+        wrapper: clsx(
+          `${noticePrefixCls}-content`,
+          `${prefixCls}-custom-content`,
+          classNames?.content,
+        ),
+        title: classNames?.title,
       }}
       style={style}
       stack={false}

@@ -83,13 +83,15 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
       `${noticePrefixCls}-content`,
       `${prefixCls}-custom-content`,
       type && `${prefixCls}-${type}`,
+      mergedClassNames.content,
     ),
     icon: clsx(typeIconCls, mergedClassNames.icon),
-    title: mergedClassNames.content,
+    title: mergedClassNames.title,
   };
   const rcStyles: RcNotificationProps['styles'] = {
+    wrapper: mergedStyles.content,
     icon: mergedStyles.icon,
-    title: mergedStyles.content,
+    title: mergedStyles.title,
   };
 
   return (

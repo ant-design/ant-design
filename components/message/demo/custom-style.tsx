@@ -16,7 +16,7 @@ const App: React.FC = () => {
         icon: {
           color: '#237804',
         },
-        content: {
+        title: {
           color: '#237804',
           fontWeight: 600,
         },
