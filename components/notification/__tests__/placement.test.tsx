@@ -90,16 +90,16 @@ describe('Notification.placement', () => {
 
       const styleText = extractStyle(cache, true);
       expect(styleText).toMatch(
-        /ant-notification-top[\s\S]*ant-notification-fade-enter-start[\s\S]*translate3d\(-50%,\s*-64px,\s*0\)/,
+        /ant-notification-top[\s\S]*ant-notification-fade-enter-start[\s\S]*translate3d\(-50%,\s*-var\(--ant-margin-xs\),\s*0\)/,
       );
       expect(styleText).toMatch(
-        /ant-notification-top[\s\S]*ant-notification-fade-leave-active[\s\S]*translate3d\(-50%,\s*-64px,\s*0\)/,
+        /ant-notification-top[\s\S]*ant-notification-fade-leave-active[\s\S]*translate3d\(-50%,\s*-var\(--ant-margin-xs\),\s*0\)/,
       );
       expect(styleText).toMatch(
-        /ant-notification-bottom[\s\S]*ant-notification-fade-enter-start[\s\S]*translate3d\(-50%,\s*64px,\s*0\)/,
+        /ant-notification-bottom[\s\S]*ant-notification-fade-enter-start[\s\S]*translate3d\(-50%,\s*var\(--ant-margin-xs\),\s*0\)/,
       );
       expect(styleText).toMatch(
-        /ant-notification-bottom[\s\S]*ant-notification-fade-leave-active[\s\S]*translate3d\(-50%,\s*64px,\s*0\)/,
+        /ant-notification-bottom[\s\S]*ant-notification-fade-leave-active[\s\S]*translate3d\(-50%,\s*var\(--ant-margin-xs\),\s*0\)/,
       );
     });
 

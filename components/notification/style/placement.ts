@@ -52,6 +52,7 @@ const getMotionTransform = (motionOffset?: PlacementMotionOffset) => {
 const getPlacementStyleConfig = (
   placement: NotificationPlacement,
   motionOffset: string,
+  centerMotionOffset: string,
 ): PlacementStyleConfig => {
   const vertical = placement.startsWith('bottom') ? 'bottom' : 'top';
   const horizontal = placement.endsWith('Right') ? 'right' : 'left';
@@ -59,6 +60,7 @@ const getPlacementStyleConfig = (
   const isCenterPlacement = placement === 'top' || placement === 'bottom';
   const offset =
     placement === 'top' || placement.endsWith('Left') ? `-${motionOffset}` : motionOffset;
+  const centerOffset = placement === 'top' ? `-${centerMotionOffset}` : centerMotionOffset;
 
   return {
     placement,
@@ -66,7 +68,7 @@ const getPlacementStyleConfig = (
     blockEnd,
     horizontal,
     inlineEnd,
-    motionOffset: isCenterPlacement ? { x: '-50%', y: offset } : { x: offset },
+    motionOffset: isCenterPlacement ? { x: '-50%', y: centerOffset } : { x: offset },
     baseMotionOffset: isCenterPlacement ? { x: '-50%' } : undefined,
     isCenterPlacement,
   };
@@ -198,14 +200,18 @@ const genNotificationPlacementRootStyle = (
   token: NotificationToken,
   placements: readonly NotificationPlacement[] = NotificationPlacements,
 ): CSSObject => {
-  const { notificationMotionOffset } = token;
+  const { notificationMotionOffset, marginXS } = token;
   const motionOffset = unit(notificationMotionOffset);
+  const centerMotionOffset = unit(marginXS);
 
   return {
     ...placements.reduce<CSSObject>(
       (styles, placement) => ({
         ...styles,
-        ...genPlacementStyle(token, getPlacementStyleConfig(placement, motionOffset)),
+        ...genPlacementStyle(
+          token,
+          getPlacementStyleConfig(placement, motionOffset, centerMotionOffset),
+        ),
       }),
       {},
     ),
