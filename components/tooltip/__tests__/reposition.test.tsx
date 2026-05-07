@@ -56,25 +56,34 @@ function createResizeObserverMock() {
 // Tests
 // ---------------------------------------------------------------------------
 
+let restoreOffsetParent: { mockRestore: () => void };
+
 describe('Tooltip.reposition', () => {
+  let OriginalResizeObserver: typeof ResizeObserver;
+
   beforeAll(() => {
-    spyElementPrototype(HTMLElement, 'offsetParent', {
+    restoreOffsetParent = spyElementPrototype(HTMLElement, 'offsetParent', {
       get: () => ({}),
     });
   });
 
   beforeEach(() => {
+    OriginalResizeObserver = global.ResizeObserver;
     jest.useFakeTimers();
   });
 
   afterEach(() => {
+    (global as any).ResizeObserver = OriginalResizeObserver;
     jest.useRealTimers();
     jest.clearAllTimers();
   });
 
+  afterAll(() => {
+    restoreOffsetParent.mockRestore();
+  });
+
   it('attaches ResizeObserver to a scrollable ancestor when open', async () => {
     const { MockResizeObserver, instances } = createResizeObserverMock();
-    const OriginalResizeObserver = global.ResizeObserver;
     (global as any).ResizeObserver = MockResizeObserver;
 
     const { container } = render(
@@ -90,13 +99,10 @@ describe('Tooltip.reposition', () => {
     const scrollContainer = container.firstElementChild!;
     const isObserved = instances.some((i) => i.targets.has(scrollContainer));
     expect(isObserved).toBe(true);
-
-    (global as any).ResizeObserver = OriginalResizeObserver;
   });
 
   it('calling the resize callback after initialization does not throw', async () => {
     const { MockResizeObserver, triggerResize, instances } = createResizeObserverMock();
-    const OriginalResizeObserver = global.ResizeObserver;
     (global as any).ResizeObserver = MockResizeObserver;
 
     const { container } = render(
@@ -122,13 +128,10 @@ describe('Tooltip.reposition', () => {
     }).not.toThrow();
 
     expect(document.querySelector('.ant-tooltip')).not.toBeNull();
-
-    (global as any).ResizeObserver = OriginalResizeObserver;
   });
 
   it('skips the immediate observe() callback via the initialized guard', async () => {
     const callsDuringObserve: boolean[] = [];
-    const OriginalResizeObserver = global.ResizeObserver;
 
     class TrackingResizeObserver {
       private cb: ROCallback;
@@ -172,13 +175,10 @@ describe('Tooltip.reposition', () => {
     // All recorded calls should show initialized=false (i.e. the guard fires).
     expect(callsDuringObserve.length).toBeGreaterThan(0);
     expect(callsDuringObserve.every((v) => v === false)).toBe(true);
-
-    (global as any).ResizeObserver = OriginalResizeObserver;
   });
 
   it('disconnects the ResizeObserver when tooltip is closed', async () => {
     const disconnectSpy = jest.fn();
-    const OriginalResizeObserver = global.ResizeObserver;
 
     class TrackingResizeObserver {
       observe() {}
@@ -213,13 +213,10 @@ describe('Tooltip.reposition', () => {
     await waitFakeTimer();
 
     expect(disconnectSpy.mock.calls.length).toBeGreaterThan(callsBefore);
-
-    (global as any).ResizeObserver = OriginalResizeObserver;
   });
 
   it('falls back to document.documentElement when no scrollable ancestor exists', async () => {
     const { MockResizeObserver, instances } = createResizeObserverMock();
-    const OriginalResizeObserver = global.ResizeObserver;
     (global as any).ResizeObserver = MockResizeObserver;
 
     render(
@@ -234,7 +231,5 @@ describe('Tooltip.reposition', () => {
 
     const isDocumentObserved = instances.some((i) => i.targets.has(document.documentElement));
     expect(isDocumentObserved).toBe(true);
-
-    (global as any).ResizeObserver = OriginalResizeObserver;
   });
 });
