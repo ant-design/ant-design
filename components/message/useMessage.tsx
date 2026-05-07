@@ -70,16 +70,29 @@ const renderNotifications: RcNotificationConfig['renderNotifications'] = (
 
 const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
   const {
+    // Placement
+    top,
+
+    // Config
     prefixCls: staticPrefixCls,
     getContainer: staticGetContainer,
     maxCount,
     duration = DEFAULT_DURATION,
-    top,
+
+    // Style
     rtl,
+    classNames,
+    styles,
+
+    // Motion
     transitionName,
-    onAllRemoved,
+
+    // Stack
     pauseOnHover = true,
     stack,
+
+    // Life Cycle
+    onAllRemoved,
   } = props;
   const { getPrefixCls, direction, getPopupContainer } = useComponentConfig('message');
   const { message } = React.useContext(ConfigContext);
@@ -88,8 +101,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
 
   // Use useMergeSemantic to merge classNames and styles
   const [mergedClassNames, mergedStyles] = useMergeSemantic(
-    [props?.classNames, message?.classNames],
-    [props?.styles, message?.styles],
+    [classNames, message?.classNames],
+    [styles, message?.styles],
     {
       props: props as unknown as ArgsProps,
     },
