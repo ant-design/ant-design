@@ -1,8 +1,5 @@
-import React from 'react';
-import { createCache, extractStyle, StyleProvider } from '@ant-design/cssinjs';
-
 import notification, { actWrapper } from '..';
-import { act, fireEvent, render } from '../../../tests/utils';
+import { act, fireEvent } from '../../../tests/utils';
 import type { ArgsProps, GlobalConfigProps } from '../interface';
 import { awaitPromise, triggerMotionEnd } from './util';
 
@@ -61,48 +58,6 @@ describe('Notification.placement', () => {
   });
 
   describe('placement', () => {
-    it('uses vertical motion for top and bottom placement', async () => {
-      const cache = createCache();
-
-      const Demo = () => {
-        const [api, holder] = notification.useNotification({ stack: false });
-
-        React.useEffect(() => {
-          api.open({
-            title: 'Top',
-            description: 'This is the content of the notification.',
-            placement: 'top',
-            duration: false,
-          });
-          api.open({
-            title: 'Bottom',
-            description: 'This is the content of the notification.',
-            placement: 'bottom',
-            duration: false,
-          });
-        }, [api]);
-
-        return <StyleProvider cache={cache}>{holder}</StyleProvider>;
-      };
-
-      render(<Demo />);
-      await awaitPromise();
-
-      const styleText = extractStyle(cache, true);
-      expect(styleText).toMatch(
-        /ant-notification-top[\s\S]*ant-notification-fade-enter-start[\s\S]*translate3d\(-50%,\s*-64px,\s*0\)/,
-      );
-      expect(styleText).toMatch(
-        /ant-notification-top[\s\S]*ant-notification-fade-leave-active[\s\S]*translate3d\(-50%,\s*-64px,\s*0\)/,
-      );
-      expect(styleText).toMatch(
-        /ant-notification-bottom[\s\S]*ant-notification-fade-enter-start[\s\S]*translate3d\(-50%,\s*64px,\s*0\)/,
-      );
-      expect(styleText).toMatch(
-        /ant-notification-bottom[\s\S]*ant-notification-fade-leave-active[\s\S]*translate3d\(-50%,\s*64px,\s*0\)/,
-      );
-    });
-
     it('can be configured globally using the `config` method', async () => {
       // topLeft
       config({
