@@ -2771,7 +2771,11 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
       <span
         class="ant-menu-title-content ant-menu-title-content-with-extra"
       >
-        Option 1Option 1Option 1Option 1Option 1Option 1Option 1
+        <span
+          class="ant-menu-item-label"
+        >
+          Option 1Option 1Option 1Option 1Option 1Option 1Option 1
+        </span>
         <span
           class="ant-menu-item-extra"
         >
@@ -2991,7 +2995,11 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
             <span
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
-              Option 5Option 5Option 5Option 5Option 5Option 5
+              <span
+                class="ant-menu-item-label"
+              >
+                Option 5Option 5Option 5Option 5Option 5Option 5
+              </span>
               <span
                 class="ant-menu-item-extra"
               >
@@ -3049,7 +3057,11 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
             <span
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
-              Option 6
+              <span
+                class="ant-menu-item-label"
+              >
+                Option 6
+              </span>
               <span
                 class="ant-menu-item-extra"
               >
@@ -3179,7 +3191,11 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
           <span
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
-            Option 5Option 5Option 5Option 5Option 5Option 5
+            <span
+              class="ant-menu-item-label"
+            >
+              Option 5Option 5Option 5Option 5Option 5Option 5
+            </span>
             <span
               class="ant-menu-item-extra"
             >
@@ -3237,7 +3253,11 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx extend context c
           <span
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
-            Option 6
+            <span
+              class="ant-menu-item-label"
+            >
+              Option 6
+            </span>
             <span
               class="ant-menu-item-extra"
             >
@@ -3694,7 +3714,11 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
               <span
                 class="ant-menu-title-content ant-menu-title-content-with-extra"
               >
-                Option 2
+                <span
+                  class="ant-menu-item-label"
+                >
+                  Option 2
+                </span>
                 <span
                   class="ant-menu-item-extra"
                 >
@@ -3832,7 +3856,11 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
             <span
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
-              Option 2
+              <span
+                class="ant-menu-item-label"
+              >
+                Option 2
+              </span>
               <span
                 class="ant-menu-item-extra"
               >
@@ -3922,7 +3950,11 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
         <span
           class="ant-menu-title-content ant-menu-title-content-with-extra"
         >
-          Users
+          <span
+            class="ant-menu-item-label"
+          >
+            Users
+          </span>
           <span
             class="ant-menu-item-extra"
           >
@@ -3958,7 +3990,11 @@ exports[`renders components/menu/demo/extra-style.tsx extend context correctly 1
         <span
           class="ant-menu-title-content ant-menu-title-content-with-extra"
         >
-          Profile
+          <span
+            class="ant-menu-item-label"
+          >
+            Profile
+          </span>
           <span
             class="ant-menu-item-extra"
           >
