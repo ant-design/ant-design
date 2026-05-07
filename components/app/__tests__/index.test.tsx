@@ -163,7 +163,8 @@ describe('App', () => {
     expect(document.querySelector('.ant-notification-bottomLeft')).toHaveStyle({
       top: 'auto',
       left: '0px',
-      bottom: '50px',
+      bottom: 'var(--notification-bottom, 0)',
+      '--notification-bottom': '50px',
     });
   });
 

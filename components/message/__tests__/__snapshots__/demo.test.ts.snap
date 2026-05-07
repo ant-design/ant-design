@@ -251,6 +251,7 @@ Array [
         >
           <button
             aria-checked="true"
+            aria-label="Enable message stack"
             class="ant-switch css-var-test-id ant-switch-checked"
             role="switch"
             type="button"
@@ -293,6 +294,7 @@ Array [
             class="ant-input-number ant-input-number-mode-input css-var-test-id ant-input-number-css-var ant-input-number-outlined"
           >
             <input
+              aria-label="Stack threshold"
               aria-valuemax="10"
               aria-valuemin="1"
               aria-valuenow="3"

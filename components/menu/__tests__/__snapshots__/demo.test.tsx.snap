@@ -1235,11 +1235,7 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx correctly 1`] = 
       <span
         class="ant-menu-title-content ant-menu-title-content-with-extra"
       >
-        <span
-          class="ant-menu-item-label"
-        >
-          Option 1Option 1Option 1Option 1Option 1Option 1Option 1
-        </span>
+        Option 1Option 1Option 1Option 1Option 1Option 1Option 1
         <span
           class="ant-menu-item-extra"
         >
@@ -1398,11 +1394,7 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx correctly 1`] = 
           <span
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
-            <span
-              class="ant-menu-item-label"
-            >
-              Option 5Option 5Option 5Option 5Option 5Option 5
-            </span>
+            Option 5Option 5Option 5Option 5Option 5Option 5
             <span
               class="ant-menu-item-extra"
             >
@@ -1441,11 +1433,7 @@ exports[`renders components/menu/demo/extra-collapsed-debug.tsx correctly 1`] = 
           <span
             class="ant-menu-title-content ant-menu-title-content-with-extra"
           >
-            <span
-              class="ant-menu-item-label"
-            >
-              Option 6
-            </span>
+            Option 6
             <span
               class="ant-menu-item-extra"
             >
@@ -1644,11 +1632,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
             <span
               class="ant-menu-title-content ant-menu-title-content-with-extra"
             >
-              <span
-                class="ant-menu-item-label"
-              >
-                Option 2
-              </span>
+              Option 2
               <span
                 class="ant-menu-item-extra"
               >
@@ -1700,11 +1684,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
         <span
           class="ant-menu-title-content ant-menu-title-content-with-extra"
         >
-          <span
-            class="ant-menu-item-label"
-          >
-            Users
-          </span>
+          Users
           <span
             class="ant-menu-item-extra"
           >
@@ -1721,11 +1701,7 @@ exports[`renders components/menu/demo/extra-style.tsx correctly 1`] = `
         <span
           class="ant-menu-title-content ant-menu-title-content-with-extra"
         >
-          <span
-            class="ant-menu-item-label"
-          >
-            Profile
-          </span>
+          Profile
           <span
             class="ant-menu-item-extra"
           >

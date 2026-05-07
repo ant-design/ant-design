@@ -32,11 +32,16 @@ const App: React.FC = () => {
       <Space size="large">
         <Space style={{ width: '100%' }}>
           <span>Enabled: </span>
-          <Switch checked={enabled} onChange={(v) => setEnabled(v)} />
+          <Switch
+            aria-label="Enable message stack"
+            checked={enabled}
+            onChange={(v) => setEnabled(v)}
+          />
         </Space>
         <Space style={{ width: '100%' }}>
           <span>Threshold: </span>
           <InputNumber
+            aria-label="Stack threshold"
             disabled={!enabled}
             value={threshold}
             step={1}
