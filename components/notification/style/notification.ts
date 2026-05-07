@@ -107,8 +107,8 @@ export const genListItemSharedStyle = (
       }),
     },
 
-    // ============================ Content ============================
-    [`${noticeCls}-content`]: {
+    // ============================ Wrapper ============================
+    [`${noticeCls}-wrapper`]: {
       display: 'flex',
       ...config.contentStyle,
     },

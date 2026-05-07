@@ -309,12 +309,12 @@ describe('message.hooks', () => {
           classNames: {
             root: 'custom-root',
             icon: 'custom-icon',
-            content: 'custom-content',
+            wrapper: 'custom-wrapper',
           },
           styles: {
             root: { color: 'rgb(255, 0, 0)' },
             icon: { fontSize: 20 },
-            content: { backgroundColor: 'rgb(0, 255, 0)' },
+            wrapper: { backgroundColor: 'rgb(0, 255, 0)' },
           },
         });
       }, []);
@@ -326,14 +326,14 @@ describe('message.hooks', () => {
 
     const root = document.querySelector('.custom-root');
     const icon = document.querySelector('.custom-icon');
-    const content = document.querySelector('.custom-content');
+    const wrapper = document.querySelector('.custom-wrapper');
 
     expect(root).toBeTruthy();
     expect(icon).toBeTruthy();
-    expect(content).toBeTruthy();
+    expect(wrapper).toBeTruthy();
     expect(root).toHaveStyle({ color: 'rgb(255, 0, 0)' });
     expect(icon).toHaveStyle({ fontSize: '20px' });
-    expect(content).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
+    expect(wrapper).toHaveStyle({ backgroundColor: 'rgb(0, 255, 0)' });
   });
 
   describe('Message component with pauseOnHover', () => {
@@ -371,10 +371,10 @@ describe('message.hooks', () => {
       render(<Demo pauseOnHover />);
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
-      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-wrapper')!);
       await waitFakeTimer(16, 188);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
-      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-content')!);
+      fireEvent.mouseLeave(document.querySelector('.ant-message-notice-wrapper')!);
       await waitFakeTimer(16, 187);
       expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
       await waitFakeTimer(16, 1);
@@ -385,7 +385,7 @@ describe('message.hooks', () => {
       render(<Demo pauseOnHover={false} />);
       fireEvent.click(document.querySelector('button')!);
       expect(document.querySelector('.ant-message-notice')).toBeInTheDocument();
-      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-content')!);
+      fireEvent.mouseEnter(document.querySelector('.ant-message-notice-wrapper')!);
       await waitFakeTimer(16, 187);
       expect(document.querySelector('.ant-message-fade-leave')).toBeFalsy();
       await waitFakeTimer(16, 1);

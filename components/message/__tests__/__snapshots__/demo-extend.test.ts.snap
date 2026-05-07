@@ -12,7 +12,7 @@ Array [
       style="--notification-index: 0;"
     >
       <div
-        class="ant-message-notice-content ant-message-custom-content ant-message-error"
+        class="ant-message-notice-wrapper ant-message-custom-content ant-message-error"
       >
         <div
           class="ant-message-notice-icon ant-message-notice-icon-error"
@@ -56,7 +56,7 @@ Array [
       style="--notification-index: 0;"
     >
       <div
-        class="ant-message-notice-content ant-message-custom-content ant-message-error"
+        class="ant-message-notice-wrapper ant-message-custom-content ant-message-error"
       >
         <div
           class="ant-message-notice-icon ant-message-notice-icon-error"
@@ -216,7 +216,7 @@ exports[`renders components/message/demo/render-panel.tsx extend context correct
     style="--notification-index: 0;"
   >
     <div
-      class="ant-message-notice-content ant-message-custom-content ant-message-error"
+      class="ant-message-notice-wrapper ant-message-custom-content ant-message-error"
     >
       <div
         class="ant-message-notice-icon ant-message-notice-icon-error"

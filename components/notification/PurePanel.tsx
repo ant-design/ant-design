@@ -161,7 +161,6 @@ const PurePanel: React.FC<PurePanelProps> = (props) => {
         role={role}
         classNames={{
           ...contentClassNames,
-          wrapper: clsx(iconNode && `${noticePrefixCls}-content`, contentClassNames.wrapper),
           icon: clsx(typeIconCls, contentClassNames.icon),
         }}
         styles={contentStyles}

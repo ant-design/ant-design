@@ -94,13 +94,6 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
       props: props as unknown as ArgsProps,
     },
   );
-  const {
-    content: mergedContentClassName,
-    title: mergedTitleClassName,
-    ...mergedRcClassNames
-  } = mergedClassNames;
-  const { content: mergedContentStyle, title: mergedTitleStyle, ...mergedRcStyles } = mergedStyles;
-
   // =============================== Style ===============================
   const getStyle = (): React.CSSProperties => ({
     top: top ?? DEFAULT_OFFSET,
@@ -127,16 +120,8 @@ const Holder = React.forwardRef<HolderRef, HolderProps>((props, ref) => {
     getContainer: () => staticGetContainer?.() || getPopupContainer?.() || document.body,
     maxCount,
     onAllRemoved,
-    classNames: {
-      ...mergedRcClassNames,
-      wrapper: mergedContentClassName,
-      title: mergedTitleClassName,
-    },
-    styles: {
-      ...mergedRcStyles,
-      wrapper: mergedContentStyle,
-      title: mergedTitleStyle,
-    },
+    classNames: mergedClassNames,
+    styles: mergedStyles,
     renderNotifications,
     pauseOnHover,
     stack: stackConfig,
@@ -216,12 +201,6 @@ export function useInternalMessage(
 
       const semanticClassNames = resolveStyleOrClass(configClassNames, { props: contextConfig });
       const semanticStyles = resolveStyleOrClass(styles, { props: contextConfig });
-      const {
-        content: contentClassName,
-        title: titleClassName,
-        ...rcClassNames
-      } = semanticClassNames;
-      const { content: contentStyle, title: titleStyle, ...rcStyles } = semanticStyles;
       const iconNode = getMessageIcon(type, icon);
       const typeIconCls = type ? `${noticePrefixCls}-icon-${type}` : undefined;
 
@@ -232,21 +211,15 @@ export function useInternalMessage(
           icon: iconNode,
           title: content,
           classNames: {
-            ...rcClassNames,
-            title: titleClassName,
+            ...semanticClassNames,
             wrapper: clsx(
-              `${noticePrefixCls}-content`,
               `${prefixCls}-custom-content`,
               type && `${prefixCls}-${type}`,
-              contentClassName,
+              semanticClassNames.wrapper,
             ),
-            icon: clsx(typeIconCls, rcClassNames.icon),
+            icon: clsx(typeIconCls, semanticClassNames.icon),
           } satisfies RcNotificationProps['classNames'],
-          styles: {
-            ...rcStyles,
-            wrapper: contentStyle,
-            title: titleStyle,
-          } satisfies RcNotificationProps['styles'],
+          styles: semanticStyles satisfies RcNotificationProps['styles'],
           placement: 'top',
           className: clsx({ [`${noticePrefixCls}-${type}`]: type }, className, contextClassName),
           style: { ...contextStyle, ...style },

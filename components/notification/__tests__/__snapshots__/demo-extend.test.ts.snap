@@ -514,7 +514,7 @@ exports[`renders components/notification/demo/render-panel.tsx extend context co
     style="--notification-index: 0;"
   >
     <div
-      class="ant-notification-notice-content"
+      class="ant-notification-notice-wrapper"
     >
       <div
         class="ant-notification-notice-icon ant-notification-notice-icon-success"

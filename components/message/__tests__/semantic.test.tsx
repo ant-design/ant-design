@@ -45,13 +45,13 @@ describe('Message.semantic', () => {
         api.success({
           content: 'Success message with object classNames',
           classNames: {
-            content: 'custom-content',
+            wrapper: 'custom-wrapper',
             title: 'custom-title',
             icon: 'custom-icon',
             root: 'custom-root',
           },
           styles: {
-            content: { backgroundColor: 'rgb(255, 0, 0)', padding: '10px' },
+            wrapper: { backgroundColor: 'rgb(255, 0, 0)', padding: '10px' },
             title: { color: 'rgb(255, 255, 255)', fontWeight: 'bold' },
             icon: { color: 'rgb(0, 0, 255)', fontSize: '24px' },
             root: { border: '2px solid rgb(0, 255, 0)' },
@@ -63,7 +63,7 @@ describe('Message.semantic', () => {
           content: 'Info message with function classNames',
           classNames: ({ props: { type } }) => ({
             root: `${type}-function-root`,
-            content: `${type}-function-content`,
+            wrapper: `${type}-function-wrapper`,
             title: `${type}-function-title`,
             icon: `${type}-function-icon`,
           }),
@@ -101,28 +101,28 @@ describe('Message.semantic', () => {
     render(<Demo />);
 
     // Test success message with object classNames and styles
-    const successContent = document.querySelector('.custom-content');
+    const successWrapper = document.querySelector('.custom-wrapper');
     const successTitle = document.querySelector('.custom-title');
     const successIcon = document.querySelector('.custom-icon');
     const successRoot = document.querySelector('.custom-root');
 
-    expect(successContent).toBeTruthy();
+    expect(successWrapper).toBeTruthy();
     expect(successTitle).toBeTruthy();
     expect(successIcon).toBeTruthy();
     expect(successRoot).toBeTruthy();
-    expect(successContent).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', padding: '10px' });
+    expect(successWrapper).toHaveStyle({ backgroundColor: 'rgb(255, 0, 0)', padding: '10px' });
     expect(successTitle).toHaveStyle({ color: 'rgb(255, 255, 255)', fontWeight: 'bold' });
     expect(successIcon).toHaveStyle({ color: 'rgb(0, 0, 255)', fontSize: '24px' });
     expect(successRoot).toHaveStyle({ border: '2px solid rgb(0, 255, 0)' });
 
     // Test info message with function classNames and styles
     const infoRoot = document.querySelector('.info-function-root');
-    const infoContent = document.querySelector('.info-function-content');
+    const infoWrapper = document.querySelector('.info-function-wrapper');
     const infoTitle = document.querySelector('.info-function-title');
     const infoIcon = document.querySelector('.info-function-icon');
 
     expect(infoRoot).toBeTruthy();
-    expect(infoContent).toBeTruthy();
+    expect(infoWrapper).toBeTruthy();
     expect(infoTitle).toBeTruthy();
     expect(infoIcon).toBeTruthy();
     expect(infoRoot).toHaveStyle({ background: 'rgb(0, 0, 255)', color: 'rgb(0, 0, 255)' });
@@ -148,7 +148,7 @@ describe('Message.semantic', () => {
           list: 'config-list',
           listContent: 'config-list-content',
           root: 'config-root',
-          content: 'config-content',
+          wrapper: 'config-wrapper',
           title: 'config-title',
           icon: 'config-icon',
         },
@@ -156,7 +156,7 @@ describe('Message.semantic', () => {
           list: { backgroundColor: 'rgb(1, 2, 3)' },
           listContent: { paddingTop: 4 },
           root: { marginTop: '20px', borderRadius: '8px' },
-          content: { backgroundColor: 'rgb(4, 5, 6)' },
+          wrapper: { backgroundColor: 'rgb(4, 5, 6)' },
           title: { fontSize: '16px', lineHeight: '1.5' },
           icon: { marginInlineEnd: '12px' },
         },
@@ -202,21 +202,21 @@ describe('Message.semantic', () => {
     expect(document.querySelector('.config-root')).toBeTruthy();
     expect(document.querySelector('.config-list')).toBeTruthy();
     expect(document.querySelector('.config-list-content')).toBeTruthy();
-    expect(document.querySelector('.config-content')).toBeTruthy();
+    expect(document.querySelector('.config-wrapper')).toBeTruthy();
     expect(document.querySelector('.config-title')).toBeTruthy();
     expect(document.querySelector('.config-icon')).toBeTruthy();
 
     const configList = document.querySelector('.config-list');
     const configListContent = document.querySelector('.config-list-content');
     const configRoot = document.querySelector('.config-root');
-    const configContent = document.querySelector('.config-content');
+    const configWrapper = document.querySelector('.config-wrapper');
     const configTitle = document.querySelector('.config-title');
     const configIcon = document.querySelector('.config-icon');
 
     expect(configList).toHaveStyle({ backgroundColor: 'rgb(1, 2, 3)' });
     expect(configListContent).toHaveStyle({ paddingTop: '4px' });
     expect(configRoot).toHaveStyle({ marginTop: '20px', borderRadius: '8px' });
-    expect(configContent).toHaveStyle({ backgroundColor: 'rgb(4, 5, 6)' });
+    expect(configWrapper).toHaveStyle({ backgroundColor: 'rgb(4, 5, 6)' });
     expect(configTitle).toHaveStyle({ fontSize: '16px', lineHeight: '1.5' });
     expect(configIcon).toHaveStyle({ marginInlineEnd: '12px' });
 

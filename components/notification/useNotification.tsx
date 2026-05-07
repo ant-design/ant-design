@@ -230,7 +230,6 @@ export function useInternalNotification(
         role,
         classNames: {
           ...semanticClassNames,
-          wrapper: clsx(iconNode && `${noticePrefixCls}-content`, semanticClassNames.wrapper),
           icon: clsx(typeIconCls, semanticClassNames.icon),
         },
         styles: {

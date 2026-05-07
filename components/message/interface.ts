@@ -9,17 +9,17 @@ export type MessageSemanticType = {
     list?: string;
     listContent?: string;
     root?: string;
+    wrapper?: string;
     icon?: string;
     title?: string;
-    content?: string;
   };
   styles?: {
     list?: React.CSSProperties;
     listContent?: React.CSSProperties;
     root?: React.CSSProperties;
+    wrapper?: React.CSSProperties;
     icon?: React.CSSProperties;
     title?: React.CSSProperties;
-    content?: React.CSSProperties;
   };
 };
 
