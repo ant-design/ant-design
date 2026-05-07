@@ -9,11 +9,11 @@ exports[`renders components/border-beam/demo/basic.tsx extend context correctly 
   >
     <div
       class="ant-border-beam css-var-test-id ant-border-beam-holder"
-      style="position: absolute; inset: 0; pointer-events: none; --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
     >
       <div
         aria-hidden="true"
         class="ant-border-beam-beam"
+        style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
       />
     </div>
     <div
@@ -53,11 +53,11 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
     >
       <div
         class="ant-border-beam css-var-test-id ant-border-beam-holder"
-        style="position: absolute; inset: 0; pointer-events: none; --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
       >
         <div
           aria-hidden="true"
           class="ant-border-beam-beam"
+          style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
         />
       </div>
       <div
@@ -92,11 +92,11 @@ exports[`renders components/border-beam/demo/component-token.tsx extend context 
     >
       <div
         class="ant-border-beam css-var-test-id ant-border-beam-holder"
-        style="position: absolute; inset: 0; pointer-events: none; --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 3px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 3px;"
       >
         <div
           aria-hidden="true"
           class="ant-border-beam-beam"
+          style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 3px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 3px;"
         />
       </div>
       <div
@@ -241,11 +241,11 @@ exports[`renders components/border-beam/demo/customized-color.tsx extend context
   >
     <div
       class="ant-border-beam css-var-test-id ant-border-beam-holder"
-      style="position: absolute; inset: 0; pointer-events: none; --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
     >
       <div
         aria-hidden="true"
         class="ant-border-beam-beam"
+        style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff 0%, #36cfc9 36.4%, #95de64 70%, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-outset: 1px; --ant-border-beam-beam-path-radius: var(--ant-border-radius-lg); --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
       />
     </div>
     <div
@@ -324,11 +324,11 @@ exports[`renders components/border-beam/demo/non-uniform-radius.tsx extend conte
   >
     <div
       class="ant-border-beam css-var-test-id ant-border-beam-holder"
-      style="position: absolute; inset: 0; pointer-events: none; --ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px 20px 0 0; --ant-border-beam-beam-outset: 0px; --ant-border-beam-beam-path-radius: 200px 200px 0 0; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
     >
       <div
         aria-hidden="true"
         class="ant-border-beam-beam"
+        style="--ant-border-beam-beam-gradient: linear-gradient(to left, #1677ff, #4096ff, transparent); --ant-border-beam-beam-delay: 0s; --ant-border-beam-beam-duration: 6s; --ant-border-beam-beam-offset-end: 100%; --ant-border-beam-beam-offset-start: 0%; --ant-border-beam-beam-anchor: 90%; --ant-border-beam-beam-clip-radius: 20px 20px 0 0; --ant-border-beam-beam-outset: 0px; --ant-border-beam-beam-path-radius: 200px 200px 0 0; --ant-border-beam-beam-size: 100px; --ant-border-beam-border-width: 1px;"
       />
     </div>
     <div

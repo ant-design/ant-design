@@ -18,8 +18,7 @@ const useBorderBeamEffect = ({
   const effectRef = React.useRef<BorderBeamEffectHandler | null>(null);
   const {
     className: effectClassName,
-    holderClassName: effectHolderClassName,
-    holderStyle: effectHolderStyle,
+    rootClassName: effectRootClassName,
     style: effectStyle,
   } = effectInfo;
 
@@ -38,8 +37,7 @@ const useBorderBeamEffect = ({
       effectRef.current = showBorderBeamEffect(hostElement, {
         prefixCls,
         className: effectClassName,
-        holderClassName: effectHolderClassName,
-        holderStyle: effectHolderStyle,
+        rootClassName: effectRootClassName,
         style: effectStyle,
       });
 
@@ -48,18 +46,10 @@ const useBorderBeamEffect = ({
 
     effectRef.current.update({
       className: effectClassName,
-      holderClassName: effectHolderClassName,
-      holderStyle: effectHolderStyle,
+      rootClassName: effectRootClassName,
       style: effectStyle,
     });
-  }, [
-    effectClassName,
-    effectHolderClassName,
-    effectHolderStyle,
-    effectStyle,
-    hostElement,
-    prefixCls,
-  ]);
+  }, [effectClassName, effectRootClassName, effectStyle, hostElement, prefixCls]);
 
   React.useEffect(
     () => () => {

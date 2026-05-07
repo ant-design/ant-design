@@ -29,9 +29,16 @@ const genBorderBeamStyle: GenerateStyle<BorderBeamToken, CSSObject> = (token) =>
   });
 
   const beamCls = `${componentCls}-beam`;
+  const holderCls = `${componentCls}-holder`;
   const wrapperCls = `${componentCls}-wrapper`;
 
   return {
+    [holderCls]: {
+      position: 'absolute',
+      inset: 0,
+      pointerEvents: 'none',
+    },
+
     [wrapperCls]: {
       position: 'relative',
     },

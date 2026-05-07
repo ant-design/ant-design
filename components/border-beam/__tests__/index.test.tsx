@@ -30,10 +30,12 @@ describe('BorderBeam', () => {
     const childElement = container.querySelector<HTMLElement>('.beam-child');
     const beamElement = getBeamElement(container);
 
-    expect(rootElement).toHaveClass('beam-root');
+    expect(rootElement).not.toHaveClass('beam-root');
     expect(rootElement.parentElement).toBe(childElement);
     expect(childElement).not.toHaveClass('ant-border-beam');
     expect(childElement?.style.getPropertyValue(varName('beam-size'))).toBe('');
+    expect(rootElement.style.getPropertyValue(varName('beam-size'))).toBe('');
+    expect(beamElement.style.getPropertyValue(varName('beam-size'))).toBe('100px');
     expect(beamElement.closest('.ant-border-beam')).toBe(rootElement);
     expect(beamElement).toHaveAttribute('aria-hidden', 'true');
   });
@@ -87,10 +89,13 @@ describe('BorderBeam', () => {
 
   it('should support ConfigProvider common className and style', () => {
     const { container } = render(
-      <ConfigProvider borderBeam={{ className: 'context-root', style: { padding: 6 } }}>
-        <BorderBeam>
-          <div>content</div>
-        </BorderBeam>
+      <ConfigProvider
+        borderBeam={{
+          className: 'context-root',
+          style: { animationIterationCount: 2, padding: 6 },
+        }}
+      >
+        <BorderBeam>content</BorderBeam>
       </ConfigProvider>,
     );
 
@@ -98,6 +103,7 @@ describe('BorderBeam', () => {
 
     expect(rootElement).toHaveClass('context-root');
     expect(rootElement).toHaveStyle({ padding: '6px' });
+    expect(rootElement.style.animationIterationCount).toBe('2');
   });
 
   it('should support customizing the beam layer outset', () => {
@@ -107,9 +113,9 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    const rootElement = getRootElement(container);
+    const beamElement = getBeamElement(container);
 
-    expect(rootElement.style.getPropertyValue(varName('beam-outset'))).toBe('0px');
+    expect(beamElement.style.getPropertyValue(varName('beam-outset'))).toBe('0px');
 
     rerender(
       <BorderBeam outset="2em">
@@ -117,7 +123,7 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    expect(rootElement.style.getPropertyValue(varName('beam-outset'))).toBe('2em');
+    expect(beamElement.style.getPropertyValue(varName('beam-outset'))).toBe('2em');
 
     rerender(
       <BorderBeam outset=" ">
@@ -125,7 +131,7 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    expect(rootElement.style.getPropertyValue(varName('beam-outset'))).toBe('1px');
+    expect(beamElement.style.getPropertyValue(varName('beam-outset'))).toBe('1px');
   });
 
   it('should decide wrapper fallback once when the child ref never resolves', async () => {
@@ -245,7 +251,9 @@ describe('BorderBeam', () => {
       const childElement = container.querySelector<HTMLElement>('[data-testid="beam-child"]')!;
 
       expect(rootElement.parentElement).toBe(childElement);
-      expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
+      expect(getBeamElement(container).style.getPropertyValue(varName('beam-clip-radius'))).toBe(
+        '12px',
+      );
       expect(childElement.style.getPropertyValue(varName('beam-size'))).toBe('');
     });
   });
@@ -277,7 +285,7 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    let element = getRootElement(container);
+    let element = getBeamElement(container);
     let beamGradient = element.style.getPropertyValue(varName('beam-gradient'));
 
     expect(beamGradient).toContain('#36cfc9');
@@ -299,7 +307,7 @@ describe('BorderBeam', () => {
       </BorderBeam>,
     );
 
-    element = getRootElement(container);
+    element = getBeamElement(container);
 
     expect(element.style.getPropertyValue(varName('beam-gradient'))).toBe(
       'linear-gradient(to left, #1677ff, #4096ff, transparent)',
@@ -447,7 +455,7 @@ describe('BorderBeam', () => {
         </BorderBeam>,
       );
 
-      const element = getRootElement(container);
+      const element = getBeamElement(container);
 
       expect(element.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
 
@@ -459,7 +467,7 @@ describe('BorderBeam', () => {
 
       await waitFor(() => {
         expect(
-          getRootElement(twoTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
+          getBeamElement(twoTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
         ).toBe('8px 16px');
       });
 
@@ -471,7 +479,7 @@ describe('BorderBeam', () => {
 
       await waitFor(() => {
         expect(
-          getRootElement(threeTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
+          getBeamElement(threeTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
         ).toBe('8px 16px 24px');
       });
 
@@ -483,7 +491,7 @@ describe('BorderBeam', () => {
 
       await waitFor(() => {
         expect(
-          getRootElement(ellipseContainer).style.getPropertyValue(varName('beam-clip-radius')),
+          getBeamElement(ellipseContainer).style.getPropertyValue(varName('beam-clip-radius')),
         ).toBe('8px 16px / 12px 20px');
       });
 
@@ -495,7 +503,7 @@ describe('BorderBeam', () => {
 
       await waitFor(() => {
         expect(
-          getRootElement(fourTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
+          getBeamElement(fourTokenContainer).style.getPropertyValue(varName('beam-clip-radius')),
         ).toBe('20px 18px 12px 6px');
       });
     } finally {
@@ -550,7 +558,6 @@ describe('BorderBeam', () => {
         </BorderBeam>,
       );
 
-      const rootElement = getRootElement(container);
       const beamElement = getBeamElement(container);
 
       act(() => {
@@ -559,7 +566,7 @@ describe('BorderBeam', () => {
 
       await waitFor(() => {
         expect(beamElement.style.display).toBe('');
-        expect(rootElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
+        expect(beamElement.style.getPropertyValue(varName('beam-clip-radius'))).toBe('12px');
       });
     } finally {
       window.getComputedStyle = originGetComputedStyle;

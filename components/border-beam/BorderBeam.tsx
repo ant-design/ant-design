@@ -74,7 +74,8 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const fallbackStartColor = token.colorPrimary;
   const fallbackEndColor = token.colorPrimaryHover;
   const mergedBeamGradient = getBorderBeamGradient(color, fallbackStartColor, fallbackEndColor);
-  const rootClsName = clsx(prefixCls, className, contextClassName, hashId, cssVarCls);
+  const rootClsName = clsx(prefixCls, hashId, cssVarCls);
+  const wrapperClsName = clsx(rootClsName, className, contextClassName, `${prefixCls}-wrapper`);
   const childTagName =
     React.isValidElement(children) && typeof children.type === 'string' ? children.type : null;
   const canFallbackToWrapper = !childTagName || canHTMLTagWrapWithDiv(childTagName);
@@ -111,20 +112,24 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
   const motionPathRadius = getMotionPathRadius(trackRadius, DEFAULT_MOTION_PATH_RADIUS);
 
   // ============================ Styles ============================
+  const getBeamVarStyle = (): React.CSSProperties => ({
+    [varName('beam-gradient')]: mergedBeamGradient, // Visible beam gradient.
+    [varName('beam-delay')]: `${DEFAULT_BEAM_DELAY}s`, // Animation delay.
+    [varName('beam-duration')]: `${DEFAULT_BEAM_DURATION}s`, // Full loop duration.
+    [varName('beam-offset-end')]: `${DEFAULT_BEAM_OFFSET_END}%`, // End offset on the path.
+    [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`, // Start offset on the path.
+    [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR, // Beam anchor point on the path.
+    [varName('beam-clip-radius')]: trackRadius, // Visible ring radius from the measured target.
+    [varName('beam-outset')]: mergedOutset, // Beam layer outset from the decorated edge.
+    [varName('beam-path-radius')]: motionPathRadius, // Smoothed radius used by motion path.
+    [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`, // Beam length.
+    [varName('border-width')]: `${mergedBorderWidth}px`, // Ring width.
+  });
+
   const getRootStyle = (originStyle?: React.CSSProperties): React.CSSProperties => {
     const nextRootStyle: React.CSSProperties = {
       ...originStyle,
-      [varName('beam-gradient')]: mergedBeamGradient, // Visible beam gradient.
-      [varName('beam-delay')]: `${DEFAULT_BEAM_DELAY}s`, // Animation delay.
-      [varName('beam-duration')]: `${DEFAULT_BEAM_DURATION}s`, // Full loop duration.
-      [varName('beam-offset-end')]: `${DEFAULT_BEAM_OFFSET_END}%`, // End offset on the path.
-      [varName('beam-offset-start')]: `${DEFAULT_BEAM_OFFSET_START}%`, // Start offset on the path.
-      [varName('beam-anchor')]: DEFAULT_BEAM_ANCHOR, // Beam anchor point on the path.
-      [varName('beam-clip-radius')]: trackRadius, // Visible ring radius from the measured target.
-      [varName('beam-outset')]: mergedOutset, // Beam layer outset from the decorated edge.
-      [varName('beam-path-radius')]: motionPathRadius, // Smoothed radius used by motion path.
-      [varName('beam-size')]: `${DEFAULT_BEAM_SIZE}px`, // Beam length.
-      [varName('border-width')]: `${mergedBorderWidth}px`, // Ring width.
+      ...getBeamVarStyle(),
       ...contextStyle,
       ...style,
     };
@@ -146,9 +151,11 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
 
   const effectInfo = {
     className: beamCls,
-    holderClassName: rootClsName,
-    holderStyle: getRootStyle(),
-    style: beamStyle,
+    rootClassName: rootClsName,
+    style: {
+      ...getBeamVarStyle(),
+      ...beamStyle,
+    },
   };
 
   useBorderBeamEffect({
@@ -164,11 +171,7 @@ const BorderBeam: React.FC<React.PropsWithChildren<BorderBeamProps>> = (props) =
     }
 
     return (
-      <div
-        ref={setHostNode}
-        className={clsx(rootClsName, `${prefixCls}-wrapper`)}
-        style={getRootStyle()}
-      >
+      <div ref={setHostNode} className={wrapperClsName} style={getRootStyle()}>
         {children}
         <div aria-hidden="true" className={beamCls} style={beamStyle} />
       </div>
