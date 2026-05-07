@@ -25,3 +25,7 @@ export const isThenable = <T>(val?: PromiseLike<T>): val is PromiseLike<T> => {
 export const isPrimitive = (val: any) => {
   return (typeof val !== 'object' && !isFunction(val)) || val === null;
 };
+
+export const isTransitionEvent = (event: Event): event is TransitionEvent => {
+  return isPlainObject(event) && 'propertyName' in event && isString(event.propertyName);
+};

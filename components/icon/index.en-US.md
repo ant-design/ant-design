@@ -41,7 +41,7 @@ Remember to use `@ant-design/icons@6.x` with `antd@6.x`, see: [#53275](https://g
 | rotate | Rotate by n degrees (not working in IE9) | number | - |  |
 | spin | Rotate icon with animation | boolean | false |  |
 | style | The style properties of icon, like `fontSize` and `color` | CSSProperties | - |  |
-| twoToneColor | Only supports the two-tone icon. Specify the primary color | string (hex color) | - |  |
+| twoToneColor | Only supports the two-tone icon. Specify the primary color, or primary and secondary colors | string \| \[string, string] | - |  |
 
 We still have three different themes for icons, icon component name is the icon name suffixed by the theme name.
 
