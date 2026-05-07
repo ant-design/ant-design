@@ -103,10 +103,11 @@ export type MenuStylesType =
   | MenuStylesSchemaType
   | ((info: { props: MenuProps }) => MenuStylesSchemaType);
 
-export interface MenuProps extends Omit<
-  RcMenuProps,
-  'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
-> {
+export interface MenuProps
+  extends Omit<
+    RcMenuProps,
+    'items' | '_internalComponents' | 'classNames' | 'styles' | 'activeKey' | 'defaultActiveFirst'
+  > {
   theme?: MenuTheme;
   inlineIndent?: number;
   tooltip?: false | TooltipProps;
@@ -288,6 +289,24 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
     ],
   );
 
+  // ============= Link navigation via keyboard Enter ==============
+  // When a menu item wraps an <a href>, focus lands on the <li> rather than
+  // the anchor itself.  rc-menu's onKeyDown fires onItemClick (closing the
+  // popup) before the browser can trigger the anchor's default navigation.
+  // Intercepting in the capture phase lets us click the link first, while
+  // the popup is still mounted, and then suppress the browser's own
+  // Enter→click to avoid double-navigation.
+  const onKeyDownCapture = useEvent((e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === 'Enter') {
+      const menuItem = (e.target as HTMLElement).closest<HTMLElement>('[data-menu-id]');
+      const link = menuItem?.querySelector<HTMLAnchorElement>('a[href]');
+      if (link) {
+        link.click();
+        e.preventDefault();
+      }
+    }
+  });
+
   // ========================= Render ==========================
   return (
     <OverrideContext.Provider value={null}>
@@ -329,6 +348,7 @@ const InternalMenu = forwardRef<RcMenuRef, InternalMenuProps>((props, ref) => {
             mergedClassNames.root,
           )}
           _internalComponents={MENU_COMPONENTS}
+          onKeyDownCapture={onKeyDownCapture}
         />
       </MenuContext.Provider>
     </OverrideContext.Provider>
