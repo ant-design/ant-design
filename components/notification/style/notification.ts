@@ -281,6 +281,7 @@ const genNotificationItemStyle = (token: NotificationToken): CSSObject => {
 export const genPurePanelStyle = (token: NotificationToken): CSSObject => {
   const { componentCls, width } = token;
   const noticeCls = `${componentCls}-notice`;
+  const actionsCls = `${noticeCls}-actions`;
   const notificationItemStyle = genNotificationItemStyle(token);
 
   return {
@@ -294,6 +295,12 @@ export const genPurePanelStyle = (token: NotificationToken): CSSObject => {
         position: 'relative',
         width: '100%',
         maxWidth: '100%',
+      },
+
+      [actionsCls]: {
+        ...(notificationItemStyle[actionsCls] as CSSObject),
+        float: 'none',
+        textAlign: 'end',
       },
     },
   };
