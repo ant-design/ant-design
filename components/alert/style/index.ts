@@ -60,6 +60,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     withDescriptionPadding,
     defaultPadding,
   } = token;
+  const titleOnlyCls = `&:not(:has(> ${componentCls}-actions)):has(> ${componentCls}-section > ${componentCls}-title:only-child)`;
 
   return {
     [componentCls]: {
@@ -111,7 +112,7 @@ export const genBaseStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         opacity: 0,
       },
 
-      [`&${componentCls}-with-title`]: {
+      [titleOnlyCls]: {
         alignItems: 'flex-start',
 
         [`${componentCls}-icon`]: {
@@ -211,6 +212,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
     colorIcon,
     colorIconHover,
   } = token;
+  const titleOnlyCls = `&:not(:has(> ${componentCls}-actions)):has(> ${componentCls}-section > ${componentCls}-title:only-child)`;
 
   return {
     [componentCls]: {
@@ -238,7 +240,7 @@ export const genActionStyle: GenerateStyle<AlertToken, CSSObject> = (token) => {
         },
       },
 
-      [`&${componentCls}-with-title ${componentCls}-close-icon`]: {
+      [`${titleOnlyCls} ${componentCls}-close-icon`]: {
         marginBlockStart: token.calc(fontSize).mul(lineHeight).sub(fontSizeIcon).div(2).equal(),
       },
 

@@ -2,7 +2,7 @@
 
 exports[`ConfigProvider components Alert configProvider 1`] = `
 <div
-  class="config-alert config-alert-success config-alert-with-title config-alert-no-icon css-var-root"
+  class="config-alert config-alert-success config-alert-no-icon css-var-root"
   data-show="true"
   role="alert"
 >
@@ -20,7 +20,7 @@ exports[`ConfigProvider components Alert configProvider 1`] = `
 
 exports[`ConfigProvider components Alert configProvider componentDisabled 1`] = `
 <div
-  class="config-alert config-alert-success config-alert-with-title config-alert-no-icon css-var-root"
+  class="config-alert config-alert-success config-alert-no-icon css-var-root"
   data-show="true"
   role="alert"
 >
@@ -38,7 +38,7 @@ exports[`ConfigProvider components Alert configProvider componentDisabled 1`] = 
 
 exports[`ConfigProvider components Alert configProvider componentSize large 1`] = `
 <div
-  class="config-alert config-alert-success config-alert-with-title config-alert-no-icon css-var-root"
+  class="config-alert config-alert-success config-alert-no-icon css-var-root"
   data-show="true"
   role="alert"
 >
@@ -56,7 +56,7 @@ exports[`ConfigProvider components Alert configProvider componentSize large 1`] 
 
 exports[`ConfigProvider components Alert configProvider componentSize medium 1`] = `
 <div
-  class="config-alert config-alert-success config-alert-with-title config-alert-no-icon css-var-root"
+  class="config-alert config-alert-success config-alert-no-icon css-var-root"
   data-show="true"
   role="alert"
 >
@@ -74,7 +74,7 @@ exports[`ConfigProvider components Alert configProvider componentSize medium 1`]
 
 exports[`ConfigProvider components Alert configProvider componentSize small 1`] = `
 <div
-  class="config-alert config-alert-success config-alert-with-title config-alert-no-icon css-var-root"
+  class="config-alert config-alert-success config-alert-no-icon css-var-root"
   data-show="true"
   role="alert"
 >
@@ -92,7 +92,7 @@ exports[`ConfigProvider components Alert configProvider componentSize small 1`] 
 
 exports[`ConfigProvider components Alert normal 1`] = `
 <div
-  class="ant-alert ant-alert-success ant-alert-with-title ant-alert-no-icon css-var-root"
+  class="ant-alert ant-alert-success ant-alert-no-icon css-var-root"
   data-show="true"
   role="alert"
 >
@@ -110,7 +110,7 @@ exports[`ConfigProvider components Alert normal 1`] = `
 
 exports[`ConfigProvider components Alert prefixCls 1`] = `
 <div
-  class="prefix-Alert prefix-Alert-success prefix-Alert-with-title prefix-Alert-no-icon css-var-root"
+  class="prefix-Alert prefix-Alert-success prefix-Alert-no-icon css-var-root"
   data-show="true"
   role="alert"
 >
